@@ -37,7 +37,7 @@ Et signeringssteg kan se omtrent slik ut:
         <!-- Signature-datatypen brukes for å lagre signaturene. -->
         <altinn:signatureDataType>signatures</altinn:signatureDataType>
 
-        <!-- SigneeStates-datatypen brukes for å lagre de som skal signere (signatarer) og tilhørende informasjon. -->
+        <!-- SigneeStates-datatypen brukes for å lagre de som skal signere og tilhørende informasjon. -->
         <altinn:signeeStatesDataTypeId>signeeState</altinn:signeeStatesDataTypeId>
 
         <!-- Denne ID-en angir hvilken implementasjon av C# interface-et -->
@@ -102,6 +102,6 @@ Nedenfor finner du et eksempel på en slik policy. For at denne koden skal funge
 {{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/backend-manual/add-process-task-code-03.en.md" %}}
 
 #### Tilgangsstyring for tjenesteeiere
-Gi `signature-access` til deg som tjenesteeier. Dette gjør at appen (via Maskinporten) kan skrive og lese data i signaturdokumentene. Du kan også lese og verifisere signaturer når du måtte ønske det.
+Gi `signature-access` til deg som tjenesteeier. Dette gjør at appen (via Maskinporten) kan skrive og lese data i signaturdokumentene. Du kan også lese og sjekke signaturer når du måtte ønske det.
 
 [Les om begrenset tilgang til data](/nb/altinn-studio/v10/this-is-as/explanations/data-model/restricted-data/).

@@ -23,12 +23,12 @@ Tilgjengelig fra [v8.6.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/
 ### Maskinporten
 Du trenger Maskinporten både for [meldingstjenesten](#meldingstjenesten) og for å jobbe med [beskyttede data](/nb/altinn-studio/v10/develop-a-service/restricted-data/).
 
-Hvis du trenger hjelp med å sette opp Maskinporten i appen din, finner du all informasjonen du trenger i [denne veiledningen](/nb/altinn-studio/v10/develop-a-service/reference/integration/maskinporten/).
+Hvis du trenger hjelp med å sette opp Maskinporten i appen din, finner du det du trenger i [denne veiledningen](/nb/altinn-studio/v10/develop-a-service/reference/integration/maskinporten/).
 
 ### Meldingstjenesten
-Brukerstyrt signering bruker meldingstjenesten (Correspondence) i Altinn. Denne tjenesten krever et separat oppsett.
+Brukerstyrt signering bruker meldingstjenesten (Correspondence) i Altinn. Den må du sette opp separat.
 
-Meldingstjenesten sender beskjed til de som skal signere om at de må signere et skjema i Altinn. Den sender også en kvittering til innboksen deres når de har signert.
+Meldingstjenesten sender beskjed til de som skal signere om at de må signere et skjema i Altinn. Den sender også en kvittering til innboksen når de har signert.
 
 [Slik kommer du i gang med meldingstjenesten](/nb/correspondence/getting-started/).
 
@@ -39,8 +39,8 @@ Flyten i appen er slik:
 
 1. Brukeren som fyller ut skjemaet oppgir fødselsnummer og etternavn til de som skal signere. Hvis noen skal signere på vegne av en virksomhet, oppgir brukeren organisasjonsnummer.
 2. Når skjemaet er ferdig utfylt, klikker brukeren på **Til signering**. Det flytter prosessen til signeringssteget.
-3. Når signeringssteget starter, kaller appen opp en implementering av grensesnittet `ISigneeProvider` for å finne ut hvem som må få tillatelse til å signere.
-4. De som skal signere får de rettighetene de trenger, og de får varsel om at de har en signeringsoppgave.
+3. Når signeringssteget starter, sjekker appen hvem som må få tillatelse til å signere (via grensesnittet `ISigneeProvider`).
+4. De som skal signere får de rettighetene de trenger og varsel om at de har en signeringsoppgave.
 5. Skjemaet de skal signere kommer i innboksen. De kan åpne det, se over informasjonen og signere.
 6. Brukeren som sendte inn signerer også, hvis appen er satt opp til det. Deretter sendes skjemaet inn.
 
@@ -96,49 +96,49 @@ Følg trinnene under for å sette opp en slik app.
 
 ## 5. Valgfritt - Legg til tekstressurser
 
-Denne seksjonen er bare relevant hvis du vil endre standardtekstene i kommunikasjon med de som skal signere.
+Denne seksjonen er bare relevant hvis du vil endre standardtekstene som brukes når vi kommuniserer med de som skal signere.
 
-Standardverdiene som brukes hvis kommunikasjonstekstene ikke overstyres er som følger (signatar = den som skal signere):
+Disse standardverdiene brukes hvis du ikke endrer kommunikasjonstekstene:
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Standardtekster bokmål">}}
 | Tekst                                    | StandardVerdi |
 | ---------------------------------------- | ------------- |
-| Innboksmelding til signatar - tittel     | "{appName}: Oppgave til signering" |
-| Innboksmelding til signatar - undertittel | "Din signatur ventes for {appName}." |
-| Innboksmelding til signatar - innhold    | "Du har en oppgave som venter på din signatur. <a href=\"{instanceUrl}\">Klikk her for å åpne applikasjonen</a>.<br /><br />Hvis du lurer på noe, kan du kontakte {appOwner}." |
-| Sms til signatar - innhold               | "Din signatur ventes for {appName}. Åpne Altinn-innboksen din for å fortsette." |
-| E-post til signatar - emne               | "{appName}: Oppgave til signering" |
-| E-post til signatar - innhold            | "Din signatur ventes for {appName}. Åpne Altinn-innboksen din for å fortsette.<br /><br />Hvis du lurer på noe, kan du kontakte {appOwner}." |
-| Kvittering til signatar - tittel         | "{appName}: Signeringen er bekreftet" |
-| Kvittering til signatar - undertittel     | "Du har signert for {appName}." |
-| Kvittering til signatar - innhold        | "Dokumentene du har signert er vedlagt. Disse kan lastes ned om ønskelig. <br /><br />Hvis du lurer på noe, kan du kontakte {appOwner}." |
+| Innboksmelding til den som signerer - tittel     | "{appName}: Oppgave til signering" |
+| Innboksmelding til den som signerer - undertittel | "Din signatur ventes for {appName}." |
+| Innboksmelding til den som signerer - innhold    | "Du har en oppgave som venter på din signatur. <a href=\"{instanceUrl}\">Klikk her for å åpne applikasjonen</a>.<br /><br />Hvis du lurer på noe, kan du kontakte {appOwner}." |
+| Sms til den som signerer - innhold               | "Din signatur ventes for {appName}. Åpne Altinn-innboksen din for å fortsette." |
+| E-post til den som signerer - emne               | "{appName}: Oppgave til signering" |
+| E-post til den som signerer - innhold            | "Din signatur ventes for {appName}. Åpne Altinn-innboksen din for å fortsette.<br /><br />Hvis du lurer på noe, kan du kontakte {appOwner}." |
+| Kvittering til den som signerer - tittel         | "{appName}: Signeringen er bekreftet" |
+| Kvittering til den som signerer - undertittel     | "Du har signert for {appName}." |
+| Kvittering til den som signerer - innhold        | "Dokumentene du har signert er vedlagt. Disse kan lastes ned om ønskelig. <br /><br />Hvis du lurer på noe, kan du kontakte {appOwner}." |
 {{</content-version-container>}}
 {{<content-version-container version-label="Standardtekster nynorsk">}}
 | Tekst                                    | StandardVerdi |
 | ---------------------------------------- | ------------- |
-| Innboksmelding til signatar - tittel     | "{appName}: Oppgåve til signering" |
-| Innboksmelding til signatar - undertittel | "Signaturen din vert venta for {appName}." |
-| Innboksmelding til signatar - innhold    | "Du har ei oppgåve som ventar på signaturen din. <a href=\"{instanceUrl}\">Klikk her for å opne applikasjonen</a>.<br /><br />Om du lurer på noko, kan du kontakte {appOwner}." |
-| Sms til signatar - innhold               | "Signaturen din vert venta for {appName}. Opne Altinn-innboksen din for å gå vidare." |
-| E-post til signatar - emne               | "{appName}: Oppgåve til signering" |
-| E-post til signatar - innhold            | "Signaturen din vert venta for {appName}. Opne Altinn-innboksen din for å gå vidare.<br /><br />Om du lurer på noko, kan du kontakte {appOwner}." |
-| Kvittering til signatar - tittel         | "{appName}: Signeringa er stadfesta" |
-| Kvittering til signatar - undertittel     | "Du har signert for {appName}." |
-| Kvittering til signatar - innhold        | "Dokumenta du har signert er vedlagde. Dei kan lastast ned om ønskeleg. <br /><br />Om du lurer på noko, kan du kontakte {appOwner}." |
+| Innboksmelding til den som signerer - tittel     | "{appName}: Oppgåve til signering" |
+| Innboksmelding til den som signerer - undertittel | "Signaturen din vert venta for {appName}." |
+| Innboksmelding til den som signerer - innhold    | "Du har ei oppgåve som ventar på signaturen din. <a href=\"{instanceUrl}\">Klikk her for å opne applikasjonen</a>.<br /><br />Om du lurer på noko, kan du kontakte {appOwner}." |
+| Sms til den som signerer - innhold               | "Signaturen din vert venta for {appName}. Opne Altinn-innboksen din for å gå vidare." |
+| E-post til den som signerer - emne               | "{appName}: Oppgåve til signering" |
+| E-post til den som signerer - innhold            | "Signaturen din vert venta for {appName}. Opne Altinn-innboksen din for å gå vidare.<br /><br />Om du lurer på noko, kan du kontakte {appOwner}." |
+| Kvittering til den som signerer - tittel         | "{appName}: Signeringa er stadfesta" |
+| Kvittering til den som signerer - undertittel     | "Du har signert for {appName}." |
+| Kvittering til den som signerer - innhold        | "Dokumenta du har signert er vedlagde. Dei kan lastast ned om ønskeleg. <br /><br />Om du lurer på noko, kan du kontakte {appOwner}." |
 {{</content-version-container>}}
 {{<content-version-container version-label="Standardtekster engelsk">}}
 | Tekst                                    | StandardVerdi |
 | ---------------------------------------- | ------------- |
-| Innboksmelding til signatar - tittel     | "{appName}: Task for signing" |
-| Innboksmelding til signatar - undertittel | "Your signature is requested for {appName}." |
-| Innboksmelding til signatar - innhold    | "You have a task waiting for your signature. <a href=\"{instanceUrl}\">Click here to open the application</a>.<br /><br />If you have any questions, you can contact {appOwner}." |
-| Sms til signatar - innhold               | "Your signature is requested for {appName}. Open your Altinn inbox to proceed." |
-| E-post til signatar - emne               | "{appName}: Task for signing" |
-| E-post til signatar - innhold            | "Your signature is requested for {appName}. Open your Altinn inbox to proceed.<br /><br />If you have any questions, you can contact {appOwner}." |
-| Kvittering til signatar - tittel         | "{appName}: Signature confirmed" |
-| Kvittering til signatar - undertittel     | "Your signature has been registered for {appName}." |
-| Kvittering til signatar - innhold        | "The signed documents are attached. They may be downloaded. <br /><br />If you have any questions, you can contact {appOwner}." |
+| Innboksmelding til den som signerer - tittel     | "{appName}: Task for signing" |
+| Innboksmelding til den som signerer - undertittel | "Your signature is requested for {appName}." |
+| Innboksmelding til den som signerer - innhold    | "You have a task waiting for your signature. <a href=\"{instanceUrl}\">Click here to open the application</a>.<br /><br />If you have any questions, you can contact {appOwner}." |
+| Sms til den som signerer - innhold               | "Your signature is requested for {appName}. Open your Altinn inbox to proceed." |
+| E-post til den som signerer - emne               | "{appName}: Task for signing" |
+| E-post til den som signerer - innhold            | "Your signature is requested for {appName}. Open your Altinn inbox to proceed.<br /><br />If you have any questions, you can contact {appOwner}." |
+| Kvittering til den som signerer - tittel         | "{appName}: Signature confirmed" |
+| Kvittering til den som signerer - undertittel     | "Your signature has been registered for {appName}." |
+| Kvittering til den som signerer - innhold        | "The signed documents are attached. They may be downloaded. <br /><br />If you have any questions, you can contact {appOwner}." |
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
@@ -156,15 +156,15 @@ Standardverdiene som brukes hvis kommunikasjonstekstene ikke overstyres er som f
 
 ## 6. Valgfritt - Tilpass hvordan de som skal signere varsles
 
-`CommunicationConfig` er valgfritt. Her kan du overstyre standardtekstene som brukes i kommunikasjon med de som skal signere, som beskrevet i forrige punkt. Du kan også overstyre e-postadresse og telefonnummer for de som skal signere.
+`CommunicationConfig` er valgfritt. Her kan du endre standardtekstene som brukes i kommunikasjon med de som skal signere, som beskrevet i forrige punkt. Du kan også endre e-postadresse og telefonnummer for de som skal signere.
 
 {{% notice info %}}
-Hvis du ikke overstyrer disse innstillingene, sendes en melding til innboksen i Altinn med en lenke til applikasjonsinstansen. En notifikasjon sendes også via e-post.
+Hvis du ikke endrer disse innstillingene, sendes en melding til innboksen i Altinn med en lenke til applikasjonsinstansen. En notifikasjon sendes også via e-post.
 {{% /notice %}}
 
-Hvis du ikke overstyrer e-postadresser og telefonnumre, hentes de som beskrevet i [Recipient lookup](/nb/notifications/explanation/recipient-lookup/) og [Address lookup](/nb/notifications/explanation/address-lookup/).
+Hvis du ikke endrer e-postadresser og telefonnumre, hentes de som beskrevet i [Recipient lookup](/nb/notifications/explanation/recipient-lookup/) og [Address lookup](/nb/notifications/explanation/address-lookup/).
 
-Dette er de mulige overstyringskonfigurasjonene for kommunikasjon med de som skal signere:
+Dette kan du endre i kommunikasjonen med de som skal signere:
 
 | Property                                                      | Description                                         | Type                              |
 | ------------------------------------------------------------- | --------------------------------------------------- | --------------------------------- |
