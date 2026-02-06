@@ -9,7 +9,7 @@ aliases:
 - /nb/altinn-studio/guides/prefill/
 ---
 
-Altinn-appen din kan automatisk fylle ut deler av skjemaet før brukeren begynner. Det fins flere forskjellige metoder
+Altinn-appen din kan automatisk fylle ut deler av skjemaet før brukeren begynner. Det finnes flere forskjellige metoder
 for å gjøre dette, og disse kan brukes sammen eller hver for seg.
 
 ## Konfigurasjonsbasert oppsett
@@ -68,7 +68,7 @@ nyttig f.eks. om det er behov for å forhåndsutfylle forskjellig verdi basert p
 Det er imidlertid noen viktige forbehold knyttet til sikkerhet når du bruker denne tilnærmingen.
 
 1. Forhåndsutfylling med spørringsparametere bare brukes i en stateless-oppgave - dvs. FØR skjema-instansen
-    faktisk opprettes (og før noe data faktisk lagres). Dette at dataene kan vises til brukeren før instansiering, slik at brukeren fortsatt har kontroll
+    faktisk opprettes (og før noe data faktisk lagres). Dette gjør at dataene kan vises til brukeren før instansiering, slik at brukeren fortsatt har kontroll
     over hvilke data som lagres.
     > Uten dette kravet, ville det vært mulig for en angriper å endre verdien i parameteren og få den 
     > verdien til å dukke opp direkte i mottakerens Altinn-innboks.
@@ -76,7 +76,7 @@ Det er imidlertid noen viktige forbehold knyttet til sikkerhet når du bruker de
 2. Vi anbefaler på det sterkeste at du inspiserer verdien av spørringsparametere i applikasjonen din. På denne måten 
    sikrer du at bare gyldige data kan forhåndsutfylles. Du kan da stoppe en angriper fra å bruke en lenke som
     
-    ```altinn.no/ttd/stateless-app/set-query-params?jobTitle=Im a scammer```
+    `altinn.no/ttd/stateless-app/set-query-params?jobTitle=Im a scammer`
     
     som kan få teksten "Im a scammer" til å vises i applikasjonen din.
 

@@ -52,7 +52,7 @@ Tilgjengelige verdier for forhåndsutfylling inkluderer:
 
 Brukerprofilen som eksponeres tilhører den som starter tjenesten. Hvis Ola Nordmann starter et skjema på vegne av Kari Nordmann, hentes data om Ola.
 
-Objektene Party.Organization og Party.Person inneholder samme felter som ER og DSF-forhåndsutfylling. Party.Organization er null hvis brukeren er logget inn som privatperson. Party.Person er null hvis brukeren er logget inn som virksomhetsbruker.
+Objektene Party.Organization og Party.Person inneholder de samme feltene som ER og DSF-forhåndsutfylling. Party.Organization er null hvis brukeren er logget inn som privatperson. Party.Person er null hvis brukeren er logget inn som virksomhetsbruker.
 
 Forhåndsutfyllingen feiler hvis objektet du bruker ikke finnes. Hvis du vil forhåndsutfylle dynamisk basert på disse verdiene, må du sette opp [egendefinert forhåndsutfylling](/nb/altinn-studio/v10/develop-a-service/prefill#egendefinert-kode).
 
