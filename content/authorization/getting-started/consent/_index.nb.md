@@ -77,8 +77,6 @@ Gjennom signering av [bruksvilkår for Maskinporten og ID-porten](https://samarb
   - altinn:consentrequests.read
   - altinn:consentrequests.write
 
-API nøkkel det kreves tilgang til er "AccessManagementEnduserSystem"
-
 {{< /stepcard >}}
 
 {{< stepcard step="3" title="Be om tilgang til tjenesteeiers tjenester" >}}
