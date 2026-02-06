@@ -158,16 +158,16 @@ Eksempelrespons
 
 ### API: Legge til agent
 
-Dette lar deg legge til en agent for tjenestetilbyderen. Oppgi personnummer og etternavn.
+Dette lar deg legge til en agent for tjenestetilbyderen. Oppgi fødselsnummer (fnr) eller brukernavn, samt etternavn.
 
 - **Test**: `POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}`
 - **Production**: `POST https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}`
 
-Eksempel request body
+Eksempel forespørsel (body)
 
 ```json
 {
-  "personidentifier": "01038712345", // fnr or username
+  "personidentifier": "01038712345", // fødselsnummer (fnr) eller brukernavn
   "lastName": "Salt"
 }
 ```
@@ -371,9 +371,9 @@ Eksempelrespons
 ]
 ```
 
-### API: Slette klientrettighter til agent
+### API: Slette klientrettigheter til agent
 
-Dette APIet lar deg fjerne en eller flere tilgangspakker som er klientdelegert til en agent for en klient
+Dette API-et lar deg fjerne en eller flere tilgangspakker som er klientdelegert til en agent for en klient.
 
 - **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&from={{from}}&to={{to}}`
 - **Production**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&from={{from}}&to={{to}}`
@@ -391,7 +391,7 @@ Dette APIet lar deg fjerne en eller flere tilgangspakker som er klientdelegert t
 }
 ```
 
-Eksempel respons
+Eksempelrespons
 
 ```json
 [
@@ -406,7 +406,7 @@ Eksempel respons
 ]
 ```
 
-Hvis man prøver å slette en pakke som er allerde slettet eller ikke finnes er changed i response = false
+Hvis man prøver å slette en pakke som allerede er slettet eller ikke finnes, vil `changed` i responsen være false.
 
 
 ### API: Liste agenter som har rettigheter for klient
@@ -540,5 +540,3 @@ Eksempelrespons
   ]
 }
 ```
-
-###
