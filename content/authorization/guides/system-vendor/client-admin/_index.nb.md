@@ -23,6 +23,8 @@ I denne sammenhengen er en tjenestetilbyder en virksomhet som:
 - Virksomhet som har registrert din virksomhet i Enhetsregisteret som forretningsfører.
 - Virksomhet som i Altinn har delegert tilgangspakker til din virksomhet.
 
+![Klientadmin](clientadmin.drawio.svg)
+
 ## Hva består klientrettigheter av?
 
 Klientrettigheter består av tilgangspakker som tjenestetilbyder kan videredelegere til brukere i Altinn som er registrert som agenter for tjenestetilbyderen.
@@ -60,8 +62,6 @@ Når du er registrert som forretningsfører for en virksomhet som enten er boret
 
 Alle personer med fødselsnummer/D-nummer i Altinn kan tildeles klientrettigheter.
 
-
-
 ## Beskrivelse av API
 
 API-et lar deg:
@@ -71,4 +71,109 @@ API-et lar deg:
 - Liste brukere med rettigheter for en klient.
 
 
+### Autentisering
 
+For å kalle API må man være innlogget med person som er klientadministrator for tjenestetilbyder. 
+
+Dette skjer via en ID-porten klient.
+
+ID-port tokenet må veklses inn til et Altinn token.
+
+### Identifikatorer 
+
+For å identifsere virksomheter og brukere benyttes dagens versjon av API et Altinns partyUuid identifikatorer. 
+Dette er en UUID. Hver person eller virksomhet i Altinn har en unik UUID. 
+
+#### Hvordan finner man disse?
+
+- partyUuid for tjenestetilbyder er tilgjengelig i Authorized Party API. Dette apiet lister ut all virksomheter og personer en 
+- partyUuid for agent er tilgjengelig i agent API
+- partyUuid for klient er tilgjengelig i klientAPI
+
+### API: Liste agenter
+
+Dette lar deg liste ut alle personer som har blitt tildelt agentrollen for tjenestetilbyder.
+
+- **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}`
+- **Production**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}`
+
+Party i parameter er partyUuid for tjenestetilbyder
+
+Eksempel respons
+
+```json
+{
+  "links": {
+    "next": null
+  },
+  "data": [
+    {
+      "agent": {
+        "id": "01f7a70d-2619-4c50-8ff4-efd7ae6c8960",
+        "name": "KREATIV GRANITT",
+        "type": "Person",
+        "variant": "Person",
+        "keyValues": {
+          "PartyId": "50441038",
+          "PersonIdentifier": "08919574934",
+          "DateOfBirth": "1895-11-08"
+        },
+        "parent": null,
+        "children": null,
+        "partyid": 50441038,
+        "userId": 1465828,
+        "username": null,
+        "organizationIdentifier": null,
+        "personIdentifier": "08919574934",
+        "dateOfBirth": "1895-11-08",
+        "dateOfDeath": "2020-12-22",
+        "isDeleted": false,
+        "deletedAt": null
+      },
+      "access": [
+        {
+          "role": {
+            "id": "ff4c33f5-03f7-4445-85ed-1e60b8aafb30",
+            "code": "agent",
+            "urn": "urn:altinn:role:agent",
+            "legacyurn ": null,
+            "children": null
+          },
+          "packages": []
+        }
+      ]
+    }
+  ]
+}
+```
+
+
+### API: Legge til agent
+
+Dette lar deg legge til en agent for tjenestetilbyder. Her oppgir man personummer til person samt etternavn
+
+- **Test**: `POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}`
+- **Production**: `POST https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}`
+
+Eksempel request body
+
+```json
+{
+  "personidentifier": "01038712345", // fnr or username
+  "lastName": "Salt"
+}
+```
+
+
+Eksempel respons
+
+
+```json
+{
+  "id": "019c2e70-c577-7b20-a11c-245fecd5e564",
+  "roleId": "ff4c33f5-03f7-4445-85ed-1e60b8aafb30",
+  "fromId": "4a06214d-b261-4695-b33a-0771a995b503",
+  "toId": "01f7a70d-2619-4c50-8ff4-efd7ae6c8960"
+}
+
+```
