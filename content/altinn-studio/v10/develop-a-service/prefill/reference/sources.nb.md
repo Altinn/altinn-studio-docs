@@ -8,7 +8,8 @@ tags: [needsReview, needsTranslation]
 
 ## Folkeregisteret (DSF)
 
-Persondata som eksponeres er tilknyttet personen som appen startes på vegne av. Hvis Ola Nordmann starter en app på vegne av Kari Nordmann, vil det være Kari sine data som eksponeres. Tilgjengelige verdier for forhåndsutfylling inkluderer:
+Persondata som eksponeres er tilknyttet personen som appen startes på vegne av. Hvis Ola Nordmann starter en app på 
+vegne av Kari Nordmann, vil det være Karis data som eksponeres. Tilgjengelige verdier for forhåndsutfylling inkluderer:
 
 - SSN
 - Name
@@ -77,5 +78,5 @@ Tilgjengelige verdier for forhåndsutfylling inkluderer:
 - UserType
 - ProfileSettingPreference.Language
 - ProfileSettingPreference.PreSelectedPartyId
-- ProfileSettingsPreference.DoNotPromptForParty
+- ProfileSettingPreference.DoNotPromptForParty
 
