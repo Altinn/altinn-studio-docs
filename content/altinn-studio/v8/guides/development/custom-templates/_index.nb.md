@@ -1,6 +1,6 @@
 ---
 title: Tilpassede maler
-description:  Hvordan sette opp tilpassede maler i Altinn Studio for enklere opprettelse av apper
+description: Hvordan sette opp tilpassede maler i Altinn Studio for enklere opprettelse av apper
 weight: 20
 aliases:
 - /altinn-studio/guides/custom-templates/
@@ -55,14 +55,8 @@ Fullstendige detaljer og valideringsregler for hver mal defineres i tilhørende 
     {
         "id": "my-template",
         "owner": "digdir",
-        "name": {
-             "nb": "Min første mal",
-             "en": "My first template"
-        },
-        "description": {
-            "nb": "Dette er en detaljert beskrivelse av hva malen gjør og hva den inneholder",
-            "en": "This is a detailed description of what the template does and contains"
-        }
+        "name": "Min første mal",
+        "description": "Dette er en detaljert beskrivelse av hva malen gjør og hva den inneholder"
     }
 ]
 ```
@@ -70,7 +64,6 @@ Fullstendige detaljer og valideringsregler for hver mal defineres i tilhørende 
 **Krav:**
 - Må være et gyldig JSON-array
 - Hver maloppføring må inkludere: `id`, `owner`, `name` og `description`
-- `name` og `description` må ha oppføringer for `nb` (norsk bokmål)
 
 ### 2. template.json
 
@@ -82,12 +75,14 @@ Denne filen inneholder komplett konfigurasjon for én mal.
 
 | Felt               | Type     | Påkrevd | Beskrivelse                                                                        |
 |--------------------|----------|---------|------------------------------------------------------------------------------------|
+| schemaVersion      | string   | Ja      | Hvilken JSON Schema-versjon malen følger. For øyeblikket støttes kun `0.1`.       |
 | id                 | string   | Ja      | Unik ID for malen.                                                                 |
 | owner              | string   | Ja      | Eier av malen (kortnavn på organisasjon).                                          |
-| name               | object   | Ja      | Navn på malen, med støtte for flere språk (f.eks. nb).                             |
-| description        | object   | Ja      | Beskrivelse av malen, med støtte for flere språk (f.eks. nb).                      |
+| name               | string   | Ja      | Navn på malen.                                                                     |
+| description        | string   | Ja      | Beskrivelse av malen.                                                              |
 | remove             | array    | Nei     | Liste over relative filbaner eller globs som skal fjernes fra applikasjonsrepoet.  |
 | packageReferences  | array    | Nei     | Liste over NuGet-pakker som skal legges til i angitte prosjektfiler (.csproj).     |
+| nextSteps          | array    | Nei     | Liste over neste steg for å veilede brukere etter at malen er anvendt.             |
 
 **Format:**
 
@@ -96,23 +91,30 @@ Denne filen inneholder komplett konfigurasjon for én mal.
     "schemaVersion": "0.1",
     "id": "min-mal",
     "owner": "digdir",
-    "name": {
-         "nb": "Min første mal",
-         "en": "My first template"
-    },
-    "description": {
-        "nb": "Dette er en detaljert beskrivelse av hva malen gjør og hva den inneholder",
-        "en": "This is a detailed description of what the template does and contains"
-    },
+    "name": "Min første mal",
+    "description": "Dette er en detaljert beskrivelse av hva malen gjør og hva den inneholder",
     "remove": [
         "App/TestDummy.cs",
         ".editorconfig"
-    ],    
+    ],
     "packageReferences": [
         {
             "project": "App/*.csproj",
             "include": "Altinn.App.Clients.Fiks",
             "version": "8.10.0"
+        }
+    ],
+    "nextSteps": [
+        {
+            "title": "Konfigurer Fiks-integrasjon",
+            "description": "Følg veiledningen for å konfigurere Fiks Arkiv-integrasjonsinnstillingene i applicationmetadata.json",
+            "type": "konfigurasjon",
+            "links": [
+                {
+                    "label": "Fiks integrasjonsveiledning",
+                    "ref": "https://docs.altinn.studio/nb/fiks/"
+                }
+            ]
         }
     ]
 }
@@ -125,7 +127,92 @@ Alle `template.json`-filer må være i samsvar med [`customtemplate.schema.json`
 Se schemaet for påkrevde felt, typer og valideringsregler, eller lim inn malen din under
 for rask bekreftelse på om den er gyldig.
 
-{{< jsonschema-validator label="Din mal:" schemaUrl="https://raw.githubusercontent.com/Altinn/altinn-studio/bba86039984f1949260b4c3552a1d279bc6b157e/src/Designer/backend/src/Designer/Schemas/customtemplate.schema.json" >}}
+{{< jsonschema-validator label="Din mal:" schemaUrl="https://raw.githubusercontent.com/Altinn/altinn-studio/refs/heads/main/src/Designer/backend/src/Designer/Schemas/customtemplate.schema.json" >}}
+
+#### Feltdetaljer
+
+##### packageReferences
+
+`packageReferences`-arrayet lar deg spesifisere NuGet-pakker som skal legges til eller oppdateres i prosjektfiler når malen anvendes.
+
+**Felter:**
+
+| Felt     | Type   | Påkrevd | Beskrivelse                                                                             |
+|----------|--------|---------|-----------------------------------------------------------------------------------------|
+| project  | string | Ja      | Relativ bane eller glob-mønster til .csproj-fil(er). Absolutte baner er ikke tillatt.   |
+| include  | string | Ja      | NuGet-pakkenavn (f.eks. "Newtonsoft.Json").                                             |
+| version  | string | Ja      | Pakkeversjon (f.eks. "1.2.3", "1.2.3-preview", "[1.2.3]", "1.2.*").                     |
+
+**Eksempel:**
+
+```json
+"packageReferences": [
+    {
+        "project": "App/*.csproj",
+        "include": "Altinn.App.Clients.Fiks",
+        "version": "8.10.0"
+    },
+    {
+        "project": "App/App.csproj",
+        "include": "Newtonsoft.Json",
+        "version": "13.0.1"
+    }
+]
+```
+
+**Oppførsel:**
+- Hvis pakken allerede eksisterer i prosjektfilen, vil versjonen bli oppdatert.
+- Hvis pakken ikke eksisterer, vil den bli lagt til i en eksisterende `<ItemGroup>` med andre pakkereferanser, eller en ny `<ItemGroup>` vil bli opprettet.
+- Prosjektmønsteret må matche nøyaktig én .csproj-fil.
+
+##### nextSteps
+
+`nextSteps`-arrayet gir veiledning til brukere etter at malen er anvendt, og hjelper dem med å forstå hvilke konfigurasjons- eller kodeendringer som trengs videre.
+
+**Felter:**
+
+| Felt        | Type   | Påkrevd | Beskrivelse                                                          |
+|-------------|--------|---------|----------------------------------------------------------------------|
+| title       | string | Ja      | Tittel på neste steg (minimum 5 tegn).                               |
+| description | string | Ja      | Detaljert beskrivelse av steget (minimum 20 tegn).                   |
+| type        | string | Nei     | Type steg: `konfigurasjon`, `kodeendring`, eller `dokumentasjon`.    |
+| links       | array  | Nei     | Array av relaterte lenker med `label` og `ref` felter.               |
+
+**Eksempel:**
+
+```json
+"nextSteps": [
+    {
+        "title": "Konfigurer Fiks-integrasjon",
+        "description": "Følg veiledningen for å konfigurere Fiks-integrasjonsinnstillingene i applicationmetadata.json",
+        "type": "konfigurasjon",
+        "links": [
+            {
+                "label": "Fiks integrasjonsveiledning",
+                "ref": "https://docs.altinn.studio/nb/fiks/"
+            }
+        ]
+    },
+    {
+        "title": "Implementer tilpasset valideringslogikk",
+        "description": "Legg til din tilpassede valideringslogikk i ValidationHandler.cs-filen for å validere skjemadata i henhold til dine forretningsregler.",
+        "type": "kodeendring",
+        "links": [
+            {
+                "label": "Valideringsdokumentasjon",
+                "ref": "https://docs.altinn.studio/nb/app/development/logic/validation/"
+            }
+        ]
+    }
+]
+```
+
+**Støttede verdier for type:**
+- `configuration` / `konfigurasjon` - Konfigureringsrelaterte steg
+- `code-change` / `codeChange` / `kodeEndring` / `kodeendring` / `kode-endring` - Kodeendringsrelaterte steg
+- `documentation` / `dokumentasjon` - Dokumentasjonsrelaterte steg
+
+(Både engelske og norske varianter aksepteres og vil bli normalisert)
 
 ### 3. content/-mappe
 

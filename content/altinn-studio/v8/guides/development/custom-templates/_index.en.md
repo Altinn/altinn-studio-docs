@@ -56,14 +56,8 @@ Full details and validation rules for each template are defined in the correspon
     {
         "id": "my-template",
         "owner": "digdir",
-        "name": {
-             "nb": "Min første mal",
-             "en": "My first template"
-        },
-        "description": {
-            "nb": "Dette er en detaljert beskrivelse av hva malen gjør og hva den inneholder",
-            "en": "This is a detailed description of what the template does and contains"
-        }
+        "name": "Min første mal",
+        "description": "Dette er en detaljert beskrivelse av hva malen gjør og hva den inneholder"
     }
 ]
 ```
@@ -71,7 +65,7 @@ Full details and validation rules for each template are defined in the correspon
 **Requirements:**
 - Must be a valid JSON array
 - Each template entry must include: `id`, `owner`, `name`, and `description`
-- `name` and `description` must include entries for `nb` (Norwegian Bokmål).
+
 ### 2. template.json
 
 Located at `Templates/{template-id}/template.json` for each template. 
@@ -82,13 +76,14 @@ This file contains the complete configuration for a single template.
 
 | Property           | Type     | Required | Description                                                                        |
 |--------------------|----------|----------|------------------------------------------------------------------------------------|
-| schemaVersion      | string   | Yes      | Which JSON Schema version the template follows Currently, only `0.1` is supported    |
+| schemaVersion      | string   | Yes      | Which JSON Schema version the template follows. Currently, only `0.1` is supported.|
 | id                 | string   | Yes      | Unique ID for the template.                                                        |
 | owner              | string   | Yes      | Owner of the template (organization short name).                                   |
-| name               | object   | Yes      | Name of the template, supports multiple languages (e.g., nb).                      |
-| description        | object   | Yes      | Description of the template, supports multiple languages (e.g., nb).               |
+| name               | string   | Yes      | Name of the template.                                                              |
+| description        | string   | Yes      | Description of the template.                                                       |
 | remove             | array    | No       | List of relative file paths or globs to remove from the application repo.          |
 | packageReferences  | array    | No       | List of NuGet packages to add to specified project files (.csproj).                |
+| nextSteps          | array    | No       | List of next steps to guide users after template application.                      |
 
 
 **Format:**
@@ -98,14 +93,8 @@ This file contains the complete configuration for a single template.
     "schemaVersion": "0.1",
     "id": "my-template",
     "owner": "digdir",
-    "name": {
-         "nb": "Min første mal",
-         "en": "My first template"
-    },
-    "description": {
-        "nb": "Dette er en detaljert beskrivelse av hva malen gjør og hva den inneholder",
-        "en": "This is a detailed description of what the template does and contains"
-    },
+    "name":  "Min første mal",
+    "description": "Dette er en detaljert beskrivelse av hva malen gjør og hva den inneholder",        
     "remove": [
         "App/TestDummy.cs",
         ".editorconfig"
@@ -116,7 +105,20 @@ This file contains the complete configuration for a single template.
             "include": "Altinn.App.Clients.Fiks",
             "version": "8.10.0"
         }
-    ]    
+    ],
+    "nextSteps": [
+        {
+            "title": "Configure Fiks Integration",
+            "description": "Follow the guide to configure your Fiks Arkiv integration settings in applicationmetadata.json",
+            "type": "configuration",
+            "links": [
+                {
+                    "label": "Fiks Integration Guide",
+                    "ref": "https://docs.altinn.studio/nb/fiks/"
+                }
+            ]
+        }
+    ]
 }
 ```
 
@@ -127,7 +129,92 @@ All `template.json` files must comply with [`customtemplate.schema.json`](https:
 Review the schema file for required fields, types, and validation rules or paste your template below
 for quick confirmation of whether it complies with the schema.
 
-{{< jsonschema-validator label="Your template:" schemaUrl="https://raw.githubusercontent.com/Altinn/altinn-studio/bba86039984f1949260b4c3552a1d279bc6b157e/src/Designer/backend/src/Designer/Schemas/customtemplate.schema.json" >}}
+{{< jsonschema-validator label="Your template:" schemaUrl="https://raw.githubusercontent.com/Altinn/altinn-studio/refs/heads/main/src/Designer/backend/src/Designer/Schemas/customtemplate.schema.json" >}}
+
+#### Property Details
+
+##### packageReferences
+
+The `packageReferences` array allows you to specify NuGet packages that should be added to or updated in project files when the template is applied.
+
+**Properties:**
+
+| Property | Type   | Required | Description                                                                 |
+|----------|--------|----------|-----------------------------------------------------------------------------|
+| project  | string | Yes      | Relative path or glob pattern to .csproj file(s). No absolute paths allowed.|
+| include  | string | Yes      | NuGet package name (e.g., "Newtonsoft.Json").                              |
+| version  | string | Yes      | Package version (e.g., "1.2.3", "1.2.3-preview", "[1.2.3]", "1.2.*").      |
+
+**Example:**
+
+```json
+"packageReferences": [
+    {
+        "project": "App/*.csproj",
+        "include": "Altinn.App.Clients.Fiks",
+        "version": "8.10.0"
+    },
+    {
+        "project": "App/App.csproj",
+        "include": "Newtonsoft.Json",
+        "version": "13.0.1"
+    }
+]
+```
+
+**Behavior:**
+- If the package already exists in the project file, the version will be updated.
+- If the package does not exist, it will be added to an existing `<ItemGroup>` with other package references, or a new `<ItemGroup>` will be created.
+- The project pattern must match exactly one .csproj file.
+
+##### nextSteps
+
+The `nextSteps` array provides guidance to users after the template has been applied, helping them understand what configuration or code changes are needed next.
+
+**Properties:**
+
+| Property    | Type   | Required | Description                                                          |
+|-------------|--------|----------|----------------------------------------------------------------------|
+| title       | string | Yes      | Title of the next step (minimum 5 characters).                       |
+| description | string | Yes      | Detailed description of the step (minimum 20 characters).            |
+| type        | string | No       | Type of step: `configuration`, `codechange`, or `documentation`.    |
+| links       | array  | No       | Array of related links with `label` and `ref` properties.            |
+
+**Example:**
+
+```json
+"nextSteps": [
+    {
+        "title": "Configure Fiks Integration",
+        "description": "Follow the guide to configure your Fiks integration settings in applicationmetadata.json",
+        "type": "configuration",
+        "links": [
+            {
+                "label": "Fiks Integration Guide",
+                "ref": "https://docs.altinn.studio/nb/fiks/"
+            }
+        ]
+    },
+    {
+        "title": "Implement Custom Validation Logic",
+        "description": "Add your custom validation logic in the ValidationHandler.cs file to validate form data according to your business rules.",
+        "type": "code-change",
+        "links": [
+            {
+                "label": "Validation Documentation",
+                "ref": "https://docs.altinn.studio/app/development/logic/validation/"
+            }
+        ]
+    }
+]
+```
+
+**Supported Type Values:**
+- `configuration` / `konfigurasjon` - Configuration-related steps
+- `code-change` / `codeChange` / `kodeEndring` - Code modification steps
+- `documentation` / `dokumentasjon` - Documentation-related steps
+
+(Both English and Norwegian variants are accepted and will be normalized)
 
 ### 3. content/ folder
 
