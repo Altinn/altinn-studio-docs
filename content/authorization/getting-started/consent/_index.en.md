@@ -70,8 +70,6 @@ By signing the [terms of use for Maskinporten and ID-porten](https://samarbeid.d
   - altinn:consentrequests.read
   - altinn:consentrequests.write
 
-  The API key needed is for the product "AccessManagementEnduserSystem"
-
 {{< /stepcard >}}
 
 {{< stepcard step="3" title="Request access to the service owner's APIs" >}}
