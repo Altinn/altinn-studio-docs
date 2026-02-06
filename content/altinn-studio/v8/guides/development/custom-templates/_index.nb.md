@@ -196,7 +196,7 @@ for rask bekreftelse på om den er gyldig.
     {
         "title": "Implementer tilpasset valideringslogikk",
         "description": "Legg til din tilpassede valideringslogikk i ValidationHandler.cs-filen for å validere skjemadata i henhold til dine forretningsregler.",
-        "type": "kodeendring",
+        "type": "kode-endring",
         "links": [
             {
                 "label": "Valideringsdokumentasjon",
@@ -209,10 +209,10 @@ for rask bekreftelse på om den er gyldig.
 
 **Støttede verdier for type:**
 - `configuration` / `konfigurasjon` - Konfigureringsrelaterte steg
-- `codeChange` / `code-change` / `kodeEndring` / `kodeendring` / `kode-endring` - Kodeendringsrelaterte steg
+- `code-change` / `kodeendring` - Kodeendringsrelaterte steg
 - `documentation` / `dokumentasjon` - Dokumentasjonsrelaterte steg
 
-(Både engelske og norske varianter aksepteres og vil bli normalisert)
+(Én verdi per språk aksepteres)
 
 ### 3. content/-mappe
 
