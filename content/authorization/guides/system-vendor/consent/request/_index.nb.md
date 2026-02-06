@@ -8,7 +8,7 @@ toc: false
 ### Forutsetninger
 
 1. Datakonsumenten må ha en registrert Maskinporten-klient.
-2. Datakonsumenten må ha fått delegert samtykke-scope og API-nøkkel fra Digdir.
+2. Datakonsumenten må ha fått delegert samtykke-scope fra Digdir. (altinn:consentrequests.write & altinn:consentrequests.read) 
 3. De nødvendige scopene må legges til i Maskinporten-klienten.
 4. Tilgang til å be om samtykke for relevante ressurs(er) må være gitt.
 
