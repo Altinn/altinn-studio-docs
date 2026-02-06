@@ -1,5 +1,5 @@
 ---
-title: Klientadministrasjon API
+title: Klientadministrasjons-API
 description: Denne veiledningen forklarer hvordan du bruker klientadministrasjons-API-et.
 linktitle: Klientadministrasjon
 toc: false
@@ -7,11 +7,11 @@ toc: false
 
 Altinn tilbyr nå et klientadministrasjons-API for å håndtere klienter og brukere for tjenestetilbydere.
 
-## Forutsettninger for bruk
+## Forutsetninger for bruk
 
-- Man er blitt delegert scopet altinn:clientdelegations.write
-- Man har satt opp ID-porten klient i sin applikasjon som spør om dette scopet
-- Man logger inn med klientadministrator for tjenestetilbyder.
+- Man er delegert scopet `altinn:clientdelegations.write`.
+- Man har satt opp en ID-porten-klient i applikasjonen som ber om dette scopet.
+- Man logger inn som klientadministrator for tjenestetilbyderen.
 
 
 ## Hva er en tjenestetilbyder?
@@ -80,22 +80,22 @@ API-et lar deg:
 
 ### Autentisering
 
-For å kalle API må man være innlogget med person som er klientadministrator for tjenestetilbyder. 
+For å bruke API-et må man være innlogget som klientadministrator for tjenestetilbyderen.
 
-Dette skjer via en ID-porten klient.
+Dette skjer via en ID-porten-klient.
 
-ID-port tokenet må veklses inn til et Altinn token.
+ID-porten-tokenet må veksles inn til et Altinn-token.
 
 ### Identifikatorer 
 
-For å identifsere virksomheter og brukere benyttes dagens versjon av API et Altinns partyUuid identifikatorer. 
-Dette er en UUID. Hver person eller virksomhet i Altinn har en unik UUID. 
+I dagens versjon av API-et benyttes Altinns `partyUuid`-identifikatorer. 
+Dette er UUID-er; hver person eller virksomhet i Altinn har en unik UUID. 
 
 #### Hvordan finner man disse?
 
-- partyUuid for tjenestetilbyder er tilgjengelig i Authorized Party API. Dette apiet lister ut all virksomheter og personer en 
-- partyUuid for agent er tilgjengelig i agent API
-- partyUuid for klient er tilgjengelig i klientAPI
+- `partyUuid` for tjenestetilbyder er tilgjengelig i Authorized Party API-et. Dette API-et lister opp alle virksomheter og personer en bruker er autorisert for.
+- `partyUuid` for agent er tilgjengelig i Agent-API-et.
+- `partyUuid` for klient er tilgjengelig i Klient-API-et.
 
 ### API: Liste agenter
 
@@ -104,9 +104,9 @@ Dette lar deg liste ut alle personer som har blitt tildelt agentrollen for tjene
 - **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}`
 - **Production**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}`
 
-Party i parameter er partyUuid for tjenestetilbyder
+Parameteren `party` er `partyUuid` for tjenestetilbyderen.
 
-Eksempel respons
+Eksempelrespons
 
 ```json
 {
@@ -157,7 +157,7 @@ Eksempel respons
 
 ### API: Legge til agent
 
-Dette lar deg legge til en agent for tjenestetilbyder. Her oppgir man personummer til person samt etternavn
+Dette lar deg legge til en agent for tjenestetilbyderen. Oppgi personnummer og etternavn.
 
 - **Test**: `POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}`
 - **Production**: `POST https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}`
@@ -172,7 +172,7 @@ Eksempel request body
 ```
 
 
-Eksempel respons
+Eksempelrespons
 
 
 ```json
@@ -187,31 +187,31 @@ Eksempel respons
 
 ### API: Slette agent
 
-Dette apiet fjerner agent rollen gitt til en bruker fra tjenestetilbyder.
+Dette API-et fjerner agentrollen gitt til en bruker fra tjenestetilbyderen.
 
-Klientdelegeringer som er gitt for klienter vil forsinne i samme operasjon
+Klientdelegeringer gitt for klienter vil forsvinne i samme operasjon.
 
 - **Test**: `DELETE https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}&to={{to}}`
 - **Production**: `DELETE https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}&to={{to}}`
 
 
-{{party}} er partyUuid for tjenestetilbyder
+{{party}} er partyUuid for tjenestetilbyderen.
 
-{{to}} er partyUuid for agent
+{{to}} er partyUuid for agenten.
 
 
 ### API: Liste klienter
 
-Dette apiet lar deg liste alle klienter.
+Dette API-et lar deg liste alle klienter.
 
 - **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/clients?party={{party}}`
 - **Production**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/clients?party={{party}}`
 
 
-{{party}} er partyUuid for tjenestetilbyder.
+{{party}} er partyUuid for tjenestetilbyderen.
 
 
-Eksempel respons
+Eksempelrespons
 
 ```json
 {
@@ -329,18 +329,18 @@ Eksempel respons
 
 ### API: Delegere klientrettigheter til agent
 
-Dette apiet gjør det mulig å videredelegere tilgangspakker som tjenestetilbyder har for klienter.
+Dette API-et gjør det mulig å videredelegere tilgangspakker som tjenestetilbyderen har for klienter.
 
 
 - **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&from={{fromOrg}}&to={{to}}`
 - **Production**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&from={{fromOrg}}&to={{to}}`
 
-{{party}} partyUuid for tjenestetilbyder
-{{fromOrg}} partyUuid for klient
-{{to}} partyUuid for agent
+{{party}} er partyUuid for tjenestetilbyderen.
+{{fromOrg}} er partyUuid for klienten.
+{{to}} er partyUuid for agenten.
 
 
-Eksempel delegering av tilgangspakke for skatteegrunnlag
+Eksempeldelegering av tilgangspakke for skattegrunnlag
 ```json
 {
   "values": [
@@ -355,7 +355,7 @@ Eksempel delegering av tilgangspakke for skatteegrunnlag
 
 ```
 
-Eksempel respons
+Eksempelrespons
 
 ```json
 [
@@ -373,17 +373,17 @@ Eksempel respons
 
 ### API: Liste agenter som har rettigheter for klient
 
-Dette apiet lar deg liste hvilke agenter som har tilgang til klient
+Dette API-et lar deg liste hvilke agenter som har tilgang til en klient.
 
 
 - **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/clients/accesspackages?party={{party}}&from={{from}}`
 - **Production**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/clients/accesspackages?party={{party}}&from={{from}}`
 
 
-{{party}} partyUuid for tjenestetilbyder
-{{fromOrg}} partyUuid for klient
+{{party}} er partyUuid for tjenestetilbyderen.
+{{from}} er partyUuid for klienten.
 
-Eksempel respons
+Eksempelrespons
 
 ```json
 {
@@ -441,16 +441,16 @@ Eksempel respons
 
 ### API: Liste klienter som en gitt agent har tilgang til
 
-Dette apiet lister alle klienter en gitt agent har blitt delegert tilgangspakker for. Responsen inneholder detaljinformasjon om hvilke pakker og hvilke klienter agenten er blitt delegert.
+Dette API-et lister alle klienter en gitt agent har blitt delegert tilgangspakker for. Responsen inneholder detaljinformasjon om hvilke pakker og hvilke klienter agenten er blitt delegert.
 
 - **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&to={{to}}`
 - **Production**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&to={{to}}`
 
 
-{{party}} partyUuid for tjenestetilbyder
-{{to}} partyUuid for agent
+{{party}} er partyUuid for tjenestetilbyderen.
+{{to}} er partyUuid for agenten.
 
-Eksempel respons
+Eksempelrespons
 
 ```json
 {
