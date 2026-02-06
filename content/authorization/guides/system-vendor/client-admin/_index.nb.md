@@ -177,3 +177,144 @@ Eksempel respons
 }
 
 ```
+
+### API: Slette agent
+
+Dette apiet fjerner agent rollen gitt til en bruker fra tjenestetilbyder.
+
+Klientdelegeringer som er gitt for klienter vil forsinne i samme operasjon
+
+- **Test**: `DELETE https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}&to={{to}}`
+- **Production**: `DELETE https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}&to={{to}}`
+
+
+{{party}} er partyUuid for tjenestetilbyder
+
+{{to}} er partyUuid for agent
+
+
+### API: Liste klienter
+
+Dette apiet lar deg liste alle klienter.
+
+- **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/clients?party={{party}}`
+- **Production**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/clients?party={{party}}`
+
+
+{{party}} er partyUuid for tjenestetilbyder.
+
+
+Eksempel respons
+
+```json
+{
+  "links": {
+    "next": null
+  },
+  "data": [
+    {
+      "client": {
+        "id": "006cdf09-e874-4fcc-8502-5342b871e2ac",
+        "name": "ENKEL SKJØR TIGER AS",
+        "type": "Organisasjon",
+        "variant": "AS",
+        "keyValues": {
+          "OrganizationIdentifier": "310757314",
+          "PartyId": "51591744"
+        },
+        "parent": null,
+        "children": null,
+        "partyid": 51591744,
+        "userId": null,
+        "username": null,
+        "organizationIdentifier": "310757314",
+        "personIdentifier": null,
+        "dateOfBirth": null,
+        "dateOfDeath": null,
+        "isDeleted": false,
+        "deletedAt": null
+      },
+      "access": [
+        {
+          "role": {
+            "id": "46e27685-b3ba-423e-8b42-faab54de5817",
+            "code": "regnskapsforer",
+            "urn": "urn:altinn:external-role:ccr:regnskapsforer",
+            "legacyurn ": "urn:altinn:rolecode:regn",
+            "children": null
+          },
+          "packages": [
+            {
+              "id": "a5f7f72a-9b89-445d-85bb-06f678a3d4d1",
+              "urn": "urn:altinn:accesspackage:regnskapsforer-uten-signeringsrettighet",
+              "areaId": "64cbcdc8-01c9-448c-b3d2-eb9582beb3c2"
+            },
+            {
+              "id": "43becc6a-8c6c-4e9e-bb2f-08fe588ada21",
+              "urn": "urn:altinn:accesspackage:regnskapsforer-lonn",
+              "areaId": "64cbcdc8-01c9-448c-b3d2-eb9582beb3c2"
+            },
+            {
+              "id": "955d5779-3e2b-4098-b11d-0431dc41ddbe",
+              "urn": "urn:altinn:accesspackage:regnskapsforer-med-signeringsrettighet",
+              "areaId": "64cbcdc8-01c9-448c-b3d2-eb9582beb3c2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "client": {
+        "id": "00d8acc2-3fac-49ad-88be-5d85ac28475e",
+        "name": "OPPLYST REFLEKTERENDE TIGER AS",
+        "type": "Organisasjon",
+        "variant": "AS",
+        "keyValues": {
+          "OrganizationIdentifier": "310244589",
+          "PartyId": "51546314"
+        },
+        "parent": null,
+        "children": null,
+        "partyid": 51546314,
+        "userId": null,
+        "username": null,
+        "organizationIdentifier": "310244589",
+        "personIdentifier": null,
+        "dateOfBirth": null,
+        "dateOfDeath": null,
+        "isDeleted": false,
+        "deletedAt": null
+      },
+      "access": [
+        {
+          "role": {
+            "id": "46e27685-b3ba-423e-8b42-faab54de5817",
+            "code": "regnskapsforer",
+            "urn": "urn:altinn:external-role:ccr:regnskapsforer",
+            "legacyurn ": "urn:altinn:rolecode:regn",
+            "children": null
+          },
+          "packages": [
+            {
+              "id": "a5f7f72a-9b89-445d-85bb-06f678a3d4d1",
+              "urn": "urn:altinn:accesspackage:regnskapsforer-uten-signeringsrettighet",
+              "areaId": "64cbcdc8-01c9-448c-b3d2-eb9582beb3c2"
+            },
+            {
+              "id": "955d5779-3e2b-4098-b11d-0431dc41ddbe",
+              "urn": "urn:altinn:accesspackage:regnskapsforer-med-signeringsrettighet",
+              "areaId": "64cbcdc8-01c9-448c-b3d2-eb9582beb3c2"
+            },
+            {
+              "id": "43becc6a-8c6c-4e9e-bb2f-08fe588ada21",
+              "urn": "urn:altinn:accesspackage:regnskapsforer-lonn",
+              "areaId": "64cbcdc8-01c9-448c-b3d2-eb9582beb3c2"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+```
