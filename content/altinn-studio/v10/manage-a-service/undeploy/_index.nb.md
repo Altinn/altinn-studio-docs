@@ -1,24 +1,27 @@
 ---
 title: Avpublisere apper
 linktitle: Avpublisering
-description: Forklarer hva er avpublisering er og hva som skjer når du avpubliserer en app.
+description: Forklarer hva avpublisering er og hva som skjer når du avpubliserer en app.
 toc: true
 weight: 70
+tags: [needs-translation]
 ---
 
 ## Avpublisere apper i Altinn Studio
 
-Når du avpubliserer apper i Altinn Studio, gjør du appene utilgjengelig for brukere, ved å ta appen bort fra et miljø. Det kan være nyttig å avpublisere når en app er utdatert og ikke skal brukes lengre. I denne artikkelen går vi gjennom hva som skjer når du  avpubliserer, hva du bør vurdere før og etter prosessen, og hva du eventuelt heller kan velge å gjøre.
+Når du avpubliserer en app i Altinn Studio, gjør du appen utilgjengelig for brukere, ved å ta appen bort fra et miljø. 
+Det kan være nyttig å avpublisere når en app er utdatert og ikke skal brukes lengre. I denne artikkelen går vi gjennom 
+hva som skjer når du avpubliserer, hva du bør vurdere før og etter prosessen, og hva du eventuelt heller kan velge å gjøre.
 
 ### Hva skjer når du avpubliserer en app?
 
-Når appen er avpublisert er den  ikke tilgjengelig for brukere, verken i brukergrensesnittet eller via API-endepunktene.
+Når appen er avpublisert er den ikke tilgjengelig for brukere, verken i brukergrensesnittet eller via API-endepunktene.
 
 - **API-endepunktene blir utilgjengelige:**  
   Når appen er avpublisert, vil API-endepunktene til den ikke lenger fungere. Dette betyr at eksterne systemer og brukere som prøver å kommunisere med appen via API-et, vil oppleve feil.
 
 - **Aktive eksemplarer:**  
-  Brukere som fortsatt har aktive eksemplarer av en avpublisert app, kan ikke lenger gå inn på eksemplaret sitt å gjøre noe. Når de prøver å åpne eksemplaret fra innboksen, møter de  en feilside.
+  Brukere som fortsatt har aktive eksemplarer av en avpublisert app, kan ikke lenger gå inn på eksemplaret sitt for å gjøre noe. Når de prøver å åpne eksemplaret fra innboksen, møter de en feilside.
 
 ### Viktig å tenke på før du avpubliserer
 
@@ -33,7 +36,7 @@ Før du gjennomfører avpubliseringen, bør du vurdere hvordan du vil håndtere 
 
 ### Hva kan du gjøre i stedet for å avpublisere?
 
-Hvis du ikke vil avpublisere appen, kan du  gjøre appen utilgjengelig på flere andre måter:
+Hvis du ikke vil avpublisere appen, kan du gjøre appen utilgjengelig på flere andre måter:
 
 - **Bytte til en tidligere versjon:**  
   Hvis den nåværende versjonen av appen har feil, kan du velge å rulle tilbake til en tidligere versjon som fungerer bedre.
@@ -42,7 +45,7 @@ Hvis du ikke vil avpublisere appen, kan du  gjøre appen utilgjengelig på flere
   Du kan fjerne tilgang til appen i koden, slik at den blir utilgjengelig på den måten. Da slipper du å avpublisere den helt.
 
 - **Endre tilgangsinnstillinger:**  
-  Du kan  justere tilgangsinnstillingene slik at brukerne ikke kan starte nye eksemplarer av applikasjonen.
+  Du kan justere tilgangsinnstillingene slik at brukerne ikke kan starte nye eksemplarer av applikasjonen.
 
 - **Legge inn en validering før du avpubliserer:**  
   Hvis du legger inn en validering i koden, kan du bestemme når brukerne skal få tilgang til appen. Dette kan være nyttig hvis du vil gi brukerne en overgangsperiode før appen blir helt utilgjengelig i miljøet.
