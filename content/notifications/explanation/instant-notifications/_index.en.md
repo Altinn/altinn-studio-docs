@@ -51,10 +51,10 @@ For **SMS-based instant notifications**, you must specify a `timeToLiveInSeconds
 
 ### Capacity
 
-Instant notifications **does not handle high volume**:
+Instant notifications **is not for high volume workflows**:
 
 - Intended for **individual, time-critical messages**, not mass mailings
-- Intended for single-recipient notifications that require immediate sending
+- Intended for single-recipient notifications that **require** immediate sending
 - Use regular notification orders for high volumes or bulk notifications
 
 ## Next steps

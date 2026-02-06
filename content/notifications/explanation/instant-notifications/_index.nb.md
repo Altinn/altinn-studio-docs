@@ -15,7 +15,7 @@ Funksjonen er nyttig når brukeren venter på informasjon for å komme videre, f
 ## Når bør du **ikke** bruke umiddelbar varsling?
 
 {{% notice info %}}
-I de fleste tilfeller er vanlig varsling tilstrekkelig. Du kan utelate `requestedSendTime` for å sende varselet så snart som mulig, og bruke `sendingTimePolicy: "Anytime"` for å tillate max utsending hele døgnet. Denne kombinasjonen gir vanligvis en SMS til brukeren i løpet av et par minutter.
+I de fleste tilfeller er vanlig varsling tilstrekkelig. Du kan utelate `requestedSendTime` for å sende varselet så snart som mulig, og bruke `sendingTimePolicy: "Anytime"` for å tillate utsending hele døgnet. Denne kombinasjonen gir vanligvis en SMS til brukeren i løpet av et par minutter.
 {{% /notice %}}
 
 ## Tekniske egenskaper
@@ -51,10 +51,10 @@ For **SMS-baserte umiddelbare varsler** må du oppgi et `timeToLiveInSeconds`-fe
 
 ### Kapasitet
 
-Umiddelbar varsling **håndterer ikke høyt volum**:
+Umiddelbar varsling **er ikke laget for høyt volum**:
 
 - Beregnet på **enkeltstående, tidskritiske meldinger**, ikke masseutsendelser
-- Beregnet på varsler til enkeltmottakere som må sendes umiddelbart
+- Beregnet på varsler til enkeltmottakere som **må** sendes umiddelbart
 - Bruk vanlige varslingsbestillinger for høye volum eller masseutsendelser
 
 ## Neste steg
