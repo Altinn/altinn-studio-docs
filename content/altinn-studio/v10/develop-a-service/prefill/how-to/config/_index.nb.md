@@ -1,30 +1,13 @@
 ---
 draft: true
-title: Forhåndsutfylle data automatisk - konfigurasjonsfil
-linktitle: Konfigurasjon
-description: Slik setter du opp automatisk utfylling av skjemadata med konfigurasjonsfil.
+title: Slik forhåndsutfyller du data med konfigurasjonsbasert oppsett
+linktitle: Konfigurasjonsbasert oppsett
+description: Følg denne guiden for å sette opp forhåndsutfylling gjennom standard konfigurasjonsbasert oppsett
 tags: [needsReview, needsTranslation]
 toc: false
-weight: 200
 ---
 
-## Hva gjør denne funksjonen?
-Altinn-appen din kan automatisk fylle ut deler av skjemaet før brukeren begynner. Du kan hente dataene fra:
-- Enhetsregisteret (for bedriftsinformasjon)
-- Folkeregisteret (for personinformasjon)
-- Brukerens Altinn-profil
-
-Når noen starter skjemaet, blir feltene du velger, fylt ut automatisk med riktige data.
-
-## Når bør jeg bruke dette?
-Hvis du skal forhåndsutfylle data fra en av kildene listet over. Det er et begrenset sett med felter som er tilgjengelige. Se [fullstendig liste over tilgjengelige datafelt for alle kildene](/nb/altinn-studio/v8/reference/data/prefill/).
-
-Trenger du data fra andre kilder? Gå til [forhåndsutfylling med egendefinert kode](/nb/altinn-studio/v8/guides/development/prefill/custom/).
-
-## Slik setter du det opp
-{.floating-bullet-numbers-sibling-ol}
-
-1. **Opprett en ny fil**
+## 1. Opprett en ny fil
 
    Gå til mappen  `App/models` i appen din og opprett en ny fil med navn `[datamodellnavn].prefill.json`
 
@@ -33,7 +16,7 @@ Trenger du data fra andre kilder? Gå til [forhåndsutfylling med egendefinert k
    - `appModel.schema.json` 
    - `appModel.prefill.json`  &larr; *den nye filen*
 
-2. **Legg inn grunnkonfigurasjon**
+## 2. Legg inn grunnkonfigurasjon
 
    Kopier denne konfigurasjonskoden inn i den nye filen:
 
@@ -47,7 +30,7 @@ Trenger du data fra andre kilder? Gå til [forhåndsutfylling med egendefinert k
    }
    ```
 
-3. **Konfigurer hvilke data som skal fylles ut automatisk**
+## 3. Konfigurer hvilke data som skal fylles ut automatisk
 
    De tre gruppene i koden speiler de tre kildene som er tilgjengelige:
    - `ER` - Enhetsregisteret
@@ -64,7 +47,7 @@ Trenger du data fra andre kilder? Gå til [forhåndsutfylling med egendefinert k
    - `datafelt` er navnet på feltet _fra kilden_
    - `skjemafelt` er navnet på feltet i skjemaets datamodell.
 
-   Se [fullstendig liste over tilgjengelige datafelt for alle kildene](/nb/altinn-studio/v8/reference/data/prefill/).
+   Se [fullstendig liste over tilgjengelige datafelt for alle kildene](/nb/altinn-studio/v10/develop-a-service/prefill/reference/sources).
 
 ## Eksempler
 
