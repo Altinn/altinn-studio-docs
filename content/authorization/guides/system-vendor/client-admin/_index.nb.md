@@ -434,6 +434,65 @@ Eksempel respons
 
 ### API: Liste klienter som en gitt agent har tilgang til
 
-- **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&from={{fromOrg}}&to={{to}}`
-- **Production**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&from={{fromOrg}}&to={{to}}`
+Dette apiet lister alle klienter en gitt agent har blitt delegert tilgangspakker for. Responsen inneholder detaljinformasjon om hvilke pakker og hvilke klienter agenten er blitt delegert.
+
+- **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&to={{to}}`
+- **Production**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&to={{to}}`
+
+
+{{party}} partyUuid for tjenestetilbyder
+{{to}} partyUuid for agent
+
+Eksempel respons
+
+```json
+{
+  "links": {
+    "next": null
+  },
+  "data": [
+    {
+      "client": {
+        "id": "e902b28d-bc80-4712-8cf4-438ef737f047",
+        "name": "GEOMETRISK VOKSENDE TIGER AS",
+        "type": "Organisasjon",
+        "variant": "AS",
+        "keyValues": {
+          "OrganizationIdentifier": "310757632",
+          "PartyId": "51561408"
+        },
+        "parent": null,
+        "children": null,
+        "partyid": 51561408,
+        "userId": null,
+        "username": null,
+        "organizationIdentifier": "310757632",
+        "personIdentifier": null,
+        "dateOfBirth": null,
+        "dateOfDeath": null,
+        "isDeleted": false,
+        "deletedAt": null
+      },
+      "access": [
+        {
+          "role": {
+            "id": "42cae370-2dc1-4fdc-9c67-c2f4b0f0f829",
+            "code": "rettighetshaver",
+            "urn": "urn:altinn:role:rettighetshaver",
+            "legacyurn ": null,
+            "children": null
+          },
+          "packages": [
+            {
+              "id": "4c859601-9b2b-4662-af39-846f4117ad7a",
+              "urn": "urn:altinn:accesspackage:skattegrunnlag",
+              "areaId": "7d32591d-34b7-4afc-8afa-013722f8c05d"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
 
