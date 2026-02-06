@@ -318,3 +318,122 @@ Eksempel respons
 }
 
 ```
+
+
+### API: Delegere klientrettigheter til agent
+
+Dette apiet gjør det mulig å videredelegere tilgangspakker som tjenestetilbyder har for klienter.
+
+
+- **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&from={{fromOrg}}&to={{to}}`
+- **Production**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&from={{fromOrg}}&to={{to}}`
+
+{{party}} partyUuid for tjenestetilbyder
+{{fromOrg}} partyUuid for klient
+{{to}} partyUuid for agent
+
+
+Eksempel delegering av tilgangspakke for skatteegrunnlag
+```json
+{
+  "values": [
+   {
+     "role": "rettighetshaver",
+     "packages" : [
+       "urn:altinn:accesspackage:skattegrunnlag"
+     ]
+   }
+  ]
+}
+
+```
+
+Eksempel respons
+
+```json
+[
+  {
+    "roleId": "42cae370-2dc1-4fdc-9c67-c2f4b0f0f829",
+    "packageId": "4c859601-9b2b-4662-af39-846f4117ad7a",
+    "viaId": "0dbde1a0-0680-414f-9f2e-80cba19c4407",
+    "fromId": "e902b28d-bc80-4712-8cf4-438ef737f047",
+    "toId": "01f7a70d-2619-4c50-8ff4-efd7ae6c8960",
+    "changed": true
+  }
+]
+```
+
+
+### API: Liste agenter som har rettigheter for klient
+
+Dette apiet lar deg liste hvilke agenter som har tilgang til klient
+
+
+- **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/clients/accesspackages?party={{party}}&from={{from}}`
+- **Production**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/clients/accesspackages?party={{party}}&from={{from}}`
+
+
+{{party}} partyUuid for tjenestetilbyder
+{{fromOrg}} partyUuid for klient
+
+Eksempel respons
+
+```json
+{
+  "links": {
+    "next": null
+  },
+  "data": [
+    {
+      "agent": {
+        "id": "01f7a70d-2619-4c50-8ff4-efd7ae6c8960",
+        "name": "KREATIV GRANITT",
+        "type": "Person",
+        "variant": "Person",
+        "keyValues": {
+          "PartyId": "50441038",
+          "PersonIdentifier": "08919574934",
+          "DateOfBirth": "1895-11-08"
+        },
+        "parent": null,
+        "children": null,
+        "partyid": 50441038,
+        "userId": 1465828,
+        "username": null,
+        "organizationIdentifier": null,
+        "personIdentifier": "08919574934",
+        "dateOfBirth": "1895-11-08",
+        "dateOfDeath": "2020-12-22",
+        "isDeleted": false,
+        "deletedAt": null
+      },
+      "access": [
+        {
+          "role": {
+            "id": "42cae370-2dc1-4fdc-9c67-c2f4b0f0f829",
+            "code": "rettighetshaver",
+            "urn": "urn:altinn:role:rettighetshaver",
+            "legacyurn ": null,
+            "children": null
+          },
+          "packages": [
+            {
+              "id": "4c859601-9b2b-4662-af39-846f4117ad7a",
+              "urn": "urn:altinn:accesspackage:skattegrunnlag",
+              "areaId": "7d32591d-34b7-4afc-8afa-013722f8c05d"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+
+
+### API: Liste klienter som en gitt agent har tilgang til
+
+- **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&from={{fromOrg}}&to={{to}}`
+- **Production**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&from={{fromOrg}}&to={{to}}`
+
