@@ -22,7 +22,7 @@ I de fleste tilfeller er vanlig varsling tilstrekkelig. Du kan utelate `requeste
 
 ### Umiddelbar sending med asynkron statusoppfølging
 
-Tjenesten er semi-synkron: bestillingen og utsendingen skjer synkront fram til overlevering til e-post- eller SMS-leverandøren, mens leveranserapporter kommer asynkront som for vanlige bestillinger.
+Tjenesten er semisynkron: bestillingen og utsendingen skjer synkront fram til overlevering til e-post- eller SMS-leverandøren, mens leveranserapporter kommer asynkront som for vanlige bestillinger.
 
 Umiddelbar varsling fungerer som følger:
 

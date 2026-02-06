@@ -1,14 +1,14 @@
 ---
 title: Instant notifications
-description: "Instant notifications sends notifications immediately to a single recipient, suitable for time-critical messages such as one-time passwords."
+description: "Instant notifications send notifications immediately to a single recipient, suitable for time-critical messages such as one-time passwords."
 linktitle: Instant notifications
 tags: [instant notifications, OTP, one-time password]
 weight: 50
 ---
 
-## What is instant notifications?
+## What are instant notifications?
 
-Instant notifications is a variant of the notification service in Altinn Notifications that sends messages **immediately** to **a single recipient** (email address or phone number).
+Instant notifications are a variant of the notification service in Altinn Notifications that send messages **immediately** to **a single recipient** (email address or phone number).
 
 This feature is useful when the user is waiting for information to proceed, such as a one-time password (OTP) during login.
 
@@ -24,7 +24,7 @@ In most cases, regular notifications are sufficient. You can omit `requestedSend
 
 The service is semi-synchronous: the order and sending occur synchronously until handover to the email or SMS provider, while delivery reports arrive asynchronously as for regular orders.
 
-Instant notifications works as follows:
+Instant notifications work as follows:
 
 - The API call registers the order and sends it immediately to the SMS or email service
 - The notification is sent to the message gateway immediately and bypasses the queue
@@ -34,7 +34,7 @@ Instant notifications works as follows:
 
 ### Idempotency
 
-Instant notifications supports **idempotency** through a mandatory `idempotencyId` field:
+Instant notifications support **idempotency** through a mandatory `idempotencyId` field:
 
 - Prevents the same message from being sent multiple times upon repeated requests
 - Useful during network problems or timeouts
@@ -51,7 +51,7 @@ For **SMS-based instant notifications**, you must specify a `timeToLiveInSeconds
 
 ### Capacity
 
-Instant notifications **is not for high volume workflows**:
+Instant notifications **are not for high-volume workflows**:
 
 - Intended for **individual, time-critical messages**, not mass mailings
 - Intended for single-recipient notifications that **require** immediate sending
