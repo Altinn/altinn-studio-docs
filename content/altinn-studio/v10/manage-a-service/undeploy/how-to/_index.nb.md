@@ -1,8 +1,8 @@
 ---
 draft: true
-title: Avpublisere apper
-linktitle: Avpublisering
-description: Forklarer hvordan du kan avpublisere apper i Altinn Studio.
+title: Hvordan avpublisere en app
+linktitle: 🎯 Guide
+description: Følg denne guiden for å avpublisere en app i Altinn Studio.
 toc: true
 weight: 10
 ---
