@@ -209,7 +209,7 @@ for rask bekreftelse på om den er gyldig.
 
 **Støttede verdier for type:**
 - `configuration` / `konfigurasjon` - Konfigureringsrelaterte steg
-- `code-change` / `kodeendring` - Kodeendringsrelaterte steg
+- `codechange` / `kodeendring` - Kodeendringsrelaterte steg
 - `documentation` / `dokumentasjon` - Dokumentasjonsrelaterte steg
 
 (Én verdi per språk aksepteres)

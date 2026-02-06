@@ -177,7 +177,7 @@ The `nextSteps` array provides guidance to users after the template has been app
 |-------------|--------|----------|----------------------------------------------------------------------|
 | title       | string | Yes      | Title of the next step (minimum 5 characters).                       |
 | description | string | Yes      | Detailed description of the step (minimum 20 characters).            |
-| type        | string | No       | Type of step: `configuration`, `code-change`, or `documentation`.    |
+| type        | string | No       | Type of step: `configuration`, `codechange`, or `documentation`.    |
 | links       | array  | No       | Array of related links with `label` and `ref` properties.            |
 
 **Example:**
@@ -198,7 +198,7 @@ The `nextSteps` array provides guidance to users after the template has been app
     {
         "title": "Implement Custom Validation Logic",
         "description": "Add your custom validation logic in the ValidationHandler.cs file to validate form data according to your business rules.",
-        "type": "code-change",
+        "type": "codechange",
         "links": [
             {
                 "label": "Validation Documentation",
@@ -211,7 +211,7 @@ The `nextSteps` array provides guidance to users after the template has been app
 
 **Supported Type Values:**
 - `configuration` / `konfigurasjon` - Configuration-related steps
-- `code-change` / `kodeendring` - Code modification steps
+- `codechange` / `kodeendring` - Code modification steps
 - `documentation` / `dokumentasjon` - Documentation-related steps
 
 (One value per language is accepted)
