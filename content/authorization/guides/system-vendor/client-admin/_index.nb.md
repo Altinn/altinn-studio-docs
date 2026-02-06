@@ -25,10 +25,11 @@ I denne sammenhengen er en tjenestetilbyder en virksomhet som:
 
 ## Hva er en klient?
 
-- Virksomhet som har registrert din virksomhet i Enhetsregisteret som regnskapsfører.
-- Virksomhet som har registrert din virksomhet i Enhetsregisteret som revisor.
-- Virksomhet som har registrert din virksomhet i Enhetsregisteret som forretningsfører.
-- Virksomhet som i Altinn har delegert tilgangspakker til din virksomhet.
+- Virksomhet som har registrert tjenestetilbyder i Enhetsregisteret som regnskapsfører.
+- Virksomhet som har registrert tjenestetilbyder i Enhetsregisteret som revisor.
+- Virksomhet som har registrert tjenestetilbyder i Enhetsregisteret som forretningsfører.
+- Virksomhet som i Altinn har delegert tilgangspakker til tjenestetilbyder.
+- Innbygger som i Altinn har delegert tilgangspakke til tjenestetilbyder.
 
 ![Klientadmin](clientadmin.drawio.svg)
 
@@ -157,16 +158,16 @@ Eksempelrespons
 
 ### API: Legge til agent
 
-Dette lar deg legge til en agent for tjenestetilbyderen. Oppgi personnummer og etternavn.
+Dette lar deg legge til en agent for tjenestetilbyderen. Oppgi fødselsnummer (fnr) eller brukernavn, samt etternavn.
 
 - **Test**: `POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}`
 - **Production**: `POST https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}`
 
-Eksempel request body
+Eksempel forespørsel (body)
 
 ```json
 {
-  "personidentifier": "01038712345", // fnr or username
+  "personidentifier": "01038712345", // fødselsnummer (fnr) eller brukernavn
   "lastName": "Salt"
 }
 ```
@@ -189,10 +190,10 @@ Eksempelrespons
 
 Dette API-et fjerner agentrollen gitt til en bruker fra tjenestetilbyderen.
 
-Klientdelegeringer gitt for klienter vil forsvinne i samme operasjon.
+Klientdelegeringer gitt for klienter vil forsvinne i samme operasjon avhengig om cascade = false eller true. Default er true
 
-- **Test**: `DELETE https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}&to={{to}}`
-- **Production**: `DELETE https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}&to={{to}}`
+- **Test**: `DELETE https://platform.tt02.altinn.no{{baseUrl}}/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}&to={{to}}&cascade=false`
+- **Production**: `DELETE https://platform.altinn.no{{baseUrl}}/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}&to={{to}}&cascade=false`
 
 
 {{party}} er partyUuid for tjenestetilbyderen.
@@ -370,6 +371,43 @@ Eksempelrespons
 ]
 ```
 
+### API: Slette klientrettigheter til agent
+
+Dette API-et lar deg fjerne en eller flere tilgangspakker som er klientdelegert til en agent for en klient.
+
+- **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&from={{from}}&to={{to}}`
+- **Production**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&from={{from}}&to={{to}}`
+
+```json
+{
+  "values": [
+   {
+     "role": "rettighetshaver",
+     "packages" : [
+       "urn:altinn:accesspackage:innbygger-samliv"
+     ]
+   }
+  ]
+}
+```
+
+Eksempelrespons
+
+```json
+[
+  {
+    "roleId": "42cae370-2dc1-4fdc-9c67-c2f4b0f0f829",
+    "packageId": "7778f33d-83b7-4089-93fc-4fbacbf28600",
+    "viaId": "03b14d35-4b8c-44cd-9c71-dc740d8585c2",
+    "fromId": "a4c0369b-2261-4123-ac03-e0028a64d265",
+    "toId": "01f7a70d-2619-4c50-8ff4-efd7ae6c8960",
+    "changed": true
+  }
+]
+```
+
+Hvis man prøver å slette en pakke som allerede er slettet eller ikke finnes, vil `changed` i responsen være false.
+
 
 ### API: Liste agenter som har rettigheter for klient
 
@@ -502,4 +540,3 @@ Eksempelrespons
   ]
 }
 ```
-
