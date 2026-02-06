@@ -198,7 +198,7 @@ The `nextSteps` array provides guidance to users after the template has been app
     {
         "title": "Implement Custom Validation Logic",
         "description": "Add your custom validation logic in the ValidationHandler.cs file to validate form data according to your business rules.",
-        "type": "code-change",
+        "type": "codeChange",
         "links": [
             {
                 "label": "Validation Documentation",
@@ -210,9 +210,9 @@ The `nextSteps` array provides guidance to users after the template has been app
 ```
 
 **Supported Type Values:**
-- `configuration` / `konfigurasjon` - Configuration-related steps
-- `code-change` / `codeChange` / `kodeEndring` - Code modification steps
-- `documentation` / `dokumentasjon` - Documentation-related steps
+- `configuration` - Configuration-related steps
+- `code-change` - Code modification steps
+- `documentation` - Documentation-related steps
 
 (Both English and Norwegian variants are accepted and will be normalized)
 

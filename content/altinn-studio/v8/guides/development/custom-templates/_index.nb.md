@@ -209,7 +209,7 @@ for rask bekreftelse på om den er gyldig.
 
 **Støttede verdier for type:**
 - `configuration` / `konfigurasjon` - Konfigureringsrelaterte steg
-- `code-change` / `codeChange` / `kodeEndring` / `kodeendring` / `kode-endring` - Kodeendringsrelaterte steg
+- `codeChange` / `code-change` / `kodeEndring` / `kodeendring` / `kode-endring` - Kodeendringsrelaterte steg
 - `documentation` / `dokumentasjon` - Dokumentasjonsrelaterte steg
 
 (Både engelske og norske varianter aksepteres og vil bli normalisert)
@@ -230,7 +230,7 @@ Templates/min-mal/content/
 │   │   └── Settings.json
 │   ├── logic/  
 │   └── config/  
-│   │   └── applicationmetadata.json  
+│       └── applicationmetadata.json  
 └── README.md
 ```
 
