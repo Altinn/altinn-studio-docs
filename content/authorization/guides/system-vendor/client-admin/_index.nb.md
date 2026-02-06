@@ -7,6 +7,13 @@ toc: false
 
 Altinn tilbyr nå et klientadministrasjons-API for å håndtere klienter og brukere for tjenestetilbydere.
 
+## Forutsettninger for bruk
+
+- Man er blitt delegert scopet altinn:clientdelegations.write
+- Man har satt opp ID-porten klient i sin applikasjon som spør om dette scopet
+- Man logger inn med klientadministrator for tjenestetilbyder.
+
+
 ## Hva er en tjenestetilbyder?
 
 I denne sammenhengen er en tjenestetilbyder en virksomhet som:
