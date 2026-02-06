@@ -26,7 +26,7 @@ For detailed description about each entity in the body, please refer the descrip
 
 ```
 {
-  "externalReference": "dev-test-create_01",
+  "externalRef": "dev-test-create_01",
   "systemId": "991825827_dhana_test_01",
   "partyOrgNo": "314112938",
   "rights": [
