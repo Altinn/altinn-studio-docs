@@ -70,6 +70,9 @@ Når du er registrert som forretningsfører for en virksomhet som enten er boret
 
 Alle personer med fødselsnummer/D-nummer i Altinn kan tildeles klientrettigheter.
 
+Før man kan delegere klientrettigheter (tilgangspakker) til en person, må det være definert et agentforhold mellom personen og tjenestetilbyderen.
+Dette gjøres via eget API. Sletting av agentforholdet vil samtidig fjerne alle klientrettigheter som tjenestetilbyderen har gitt til agenten.
+
 ## Beskrivelse av API
 
 API-et lar deg:
