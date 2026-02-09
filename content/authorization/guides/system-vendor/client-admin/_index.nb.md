@@ -27,7 +27,7 @@ I denne sammenhengen er en tjenestetilbyder en virksomhet som:
 
 - Virksomhet som har registrert tjenestetilbyder i Enhetsregisteret som regnskapsfører.
 - Virksomhet som har registrert tjenestetilbyder i Enhetsregisteret som revisor.
-- Virksomhet som har registrert tjenestetilbyder i Enhetsregisteret som forretningsfører.
+- Virksomhet (BRL eller ESEK) som har registrert tjenestetilbyder i Enhetsregisteret som forretningsfører.
 - Virksomhet som i Altinn har delegert tilgangspakker til tjenestetilbyder.
 - Innbygger som i Altinn har delegert tilgangspakke til tjenestetilbyder.
 
