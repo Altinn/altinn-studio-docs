@@ -6,10 +6,10 @@ weight: 16
 
 ## Oversikt
 
-Underskjema-PDF systemoppgaven lar deg generere separate PDF-dokumenter for hvert eksemplar av et underskjema.
+Underskjema-PDF-systemoppgaven lar deg generere separate PDF-dokumenter for hvert eksemplar av et underskjema.
 
 {{<notice warning>}}
-Denne funksjonaliteten forsøker å generere flere PDF-er i løpet av behandlingen av en http request til appens backend. Det er visse begrensninger rundt hvor mange PDF-er man bør forsøke å generere samtidig på denne måten. I fremtiden vil dette kunne kjøre som en bakgrunnsjobb, og da vil den grensen forsvinne. Test med et realistisk antall PDF-er i testmiljø for å se om grensen er nådd.
+Denne funksjonaliteten genererer flere PDF-er i løpet av én enkelt HTTP-forespørsel til appens backend. Det er begrensninger på hvor mange PDF-er du bør generere samtidig på denne måten. I fremtiden vil dette kunne kjøre som en bakgrunnsjobb, og da forsvinner denne begrensningen. Test med et realistisk antall PDF-er i testmiljøet for å avdekke eventuelle grenser.
 {{</notice>}}
 
 {{%notice info%}}
@@ -17,21 +17,21 @@ Krever minst versjon 8.9.0 av Altinn NuGet-pakkene.
 {{%/notice%}}
 
 ## Forutsetninger
-- Du har en applikasjon med ett eller flere underskjema. Denne guiden viser ikke oppsett av underskjema.
+- Du har en applikasjon med ett eller flere underskjemaer. Denne guiden dekker ikke oppsett av selve underskjemaet.
 
 ## Oppsett
 
 ### Process.bpmn
 
-For å aktivere PDF-generering for underskjema må du legge til en `serviceTask` av type `subformPdf` i arbeidsflyten din.
+For å aktivere PDF-generering for underskjema, må du legge til en `serviceTask` av type `subformPdf` i arbeidsflyten din.
 
-**NB!** På sikt vil det være mulig å dra inn underskjema-PDF direkte via Arbeidsflyt-editoren i Altinn Studio, men denne funksjonaliteten er dessverre ikke tilgjengelig enda.
+**NB!** På sikt vil det være mulig å dra inn underskjema-PDF direkte via arbeidsflyt-editoren i Altinn Studio, men denne funksjonaliteten er foreløpig ikke tilgjengelig.
 
-Inntil videre anbefales følgende fremgangsmåte:
-1. Dra inn en vanlig data-oppgave i Arbeidsflyt-editoren
-2. Del endringene i Studio
-3. Rediger `process.bpmn` manuelt på egen maskin
-4. Konverter data-oppgaven til en `bpmn:serviceTask` (se eksempel nedenfor)
+Inntil videre anbefaler vi følgende fremgangsmåte:
+1. Dra inn en vanlig dataoppgave i arbeidsflyt-editoren.
+2. Del endringene i Studio.
+3. Rediger `process.bpmn` manuelt på egen maskin.
+4. Konverter dataoppgaven til en `bpmn:serviceTask` (se eksempel nedenfor).
 
 Dette sikrer at sekvensflyter og diagrammet blir korrekt.
 
@@ -61,9 +61,9 @@ Husk at oppgaven må ha en inngående og en utgående sekvensflyt.
 
 | Parameter                 | Beskrivelse                                                                                                                                                                                                            |
 |---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `filenameTextResourceKey` | Nøkkel til tekstressurs som definerer filnavnet for den genererte PDF-en. Kan inneholde variabler. Det kan være lurt å bruke en variabel i filnavnet som gjør det lett å se forskjell på de ulike underskjema-PDF-ene. |
-| `subformComponentId`(*)   | ID-en til underskjemakomponenten. Du må ha en kopi av komponenten både der underskjemaet skal ligge i hovedskjemaet, og i ServiceTask.json-layouten til systemoppgaven.                                                |
-| `subformDatatTypeId`(*)   | Datatype-ID-en for subformen.                                                                                                                                                                                          |
+| `filenameTextResourceKey` | Nøkkel til tekstressursen som definerer filnavnet for den genererte PDF-en. Kan inneholde variabler. Bruk gjerne en variabel i filnavnet som gjør det enkelt å skille de ulike underskjema-PDF-ene fra hverandre. |
+| `subformComponentId`(*)   | ID-en til underskjemakomponenten. Du må ha en kopi av komponenten både der underskjemaet ligger i hovedskjemaet, og i ServiceTask.json-layouten til systemoppgaven.                                                |
+| `subformDatatTypeId`(*)   | Datatype-ID-en for underskjemaet.                                                                                                                                                                                  |
 
 Eksempel på tekstressurs for filnavn med variabel:
 
@@ -82,7 +82,7 @@ Eksempel på tekstressurs for filnavn med variabel:
 
 ### Layout-sets.json
 
-Du må definere et eget layout-set for systemoppgaven som skal lage PDF av underskjemaet.
+Du må definere et eget layout-set for systemoppgaven som genererer PDF av underskjemaet.
 
 ```json {hl_lines="18-22"}
 {
@@ -113,7 +113,7 @@ Du må definere et eget layout-set for systemoppgaven som skal lage PDF av under
 
 ### UI-mappestruktur
 
-For hver underskjema med PDF-generering må du ha følgende mappestruktur under `App/ui/`:
+For hvert underskjema med PDF-generering, må du ha følgende mappestruktur under `App/ui/`:
 
 ```
 App/ui/
@@ -148,7 +148,7 @@ Det legges til grunn at det allerede finnes et underskjema definert i denne file
 
 #### underskjema/layout/PdfLayout.json
 
-Denne filen definerer hvordan PDF-en skal se ut. Den bruker typisk en `Summary2`-komponent for å vise oppsummering av subformen:
+Denne filen definerer hvordan PDF-en skal se ut. Her bruker du typisk en `Summary2`-komponent for å vise en oppsummering av underskjemaet:
 
 
 {{< code-title >}}
@@ -189,12 +189,14 @@ ui/underskjemaPdf/Settings.json
 ```
 #### underskjemaPdf/layout/ServiceTask.json
 
-Denne layout-filen vises hvis PDF-genereringen feiler. Den kan inneholde feilmeldinger eller instruksjoner til brukeren.
+Denne layout-filen viser innhold til brukeren dersom PDF-genereringen feiler, for eksempel feilmeldinger eller instruksjoner.
 
-**NB!** I tillegg må du legge til en skjult kopi av underskjema-komponenten i denne layouten for at PDF-genereringen skal fungere korrekt. Se `mySubformComponentId` nedenfor. Vi håper å en dag kunne fjerne dette, men i nåværende versjon er det påkrevd.
+Dersom du vil la brukeren avbryte systemoppgaven, f.eks. for å gå tilbake til forrige oppgave, må du legge til `reject`-handlingen i prosessdefinisjonen (se XML-eksempelet over) og gi rettigheter til handlingen i appens tilgangspolicy. Hvor brukeren sendes videre, avhenger av sekvensflytene i BPMN-prosessen.
+
+**NB!** Du må også legge til en skjult kopi av underskjemakomponenten i denne layouten for at PDF-genereringen skal fungere korrekt. Se `mySubformComponentId` nedenfor. Vi håper å kunne fjerne dette kravet i en fremtidig versjon, men foreløpig er det påkrevd.
 
 {{< code-title >}}
-ui/underskjemaPDf/layout/ServiceTask.json
+ui/underskjemaPdf/layout/ServiceTask.json
 {{< /code-title >}}
 
 ```json
@@ -261,8 +263,8 @@ ui/underskjemaPDf/layout/ServiceTask.json
 ```
 ## Test
 
-Fyll ut hovedskjemaet og legg til ett eller flere eksemplarer av underskjemaet. Når du når systemoppgaven for underskjema-PDF i arbeidsflyten, så skal PDF-en genereres for hvert eksemplar av underskjemaet og gå automatisk videre til neste element i BPMN-prosessen, for eksempel kvittering.
+Fyll ut hovedskjemaet og legg til ett eller flere eksemplarer av underskjemaet. Når du når underskjema-PDF-systemoppgaven i arbeidsflyten, genererer appen en PDF for hvert eksemplar av underskjemaet og går automatisk videre til neste steg i prosessen, for eksempel kvittering.
 
 ## Feilsøking
 
-Dersom du får feilmelding om at systemoppgaven feilet under PDF-generering, så kan det være lurt å åpne underskjemaet i appen og legge til query param pdf=1. Da vil du se det samme innholdet som PDF-en skulle inneholdt, og evt. de samme feilmeldingene i frontend.
+Dersom du får feilmelding om at systemoppgaven feilet under PDF-generering, kan du åpne underskjemaet i appen og legge til query-parameteren `pdf=1`. Da ser du det samme innholdet som PDF-en skulle ha vist, og eventuelle feilmeldinger.
