@@ -12,7 +12,7 @@ weight: 10
 {{% expandlarge id="get-started-as-service-owner-in-altinn" header="1. Registrer deg som tjenesteeier hos Altinn" %}}
 
 For å sette opp en meldingstjeneste i Altinn Melding, må virksomheten din være registrert som en tjenesteeier hos Altinn. Se hvordan du går frem her:
-[Kom i gang med Altinn](https://www.altinndigital.no/kom-i-gang/guide-kom-i-gang-med-altinn/).
+[Kom i gang med Altinn](https://samarbeid.digdir.no/altinn/ta-i-bruk/2624).
 
 Dette steget er kun nødvendig for nye virksomheter som ikke er etablert som en tjenesteeier i Altinn.
 {{% /expandlarge %}}
