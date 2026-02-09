@@ -6,10 +6,10 @@ tags: [needsReview, translate]
 ---
 
 #### Utvid app-prosessen med et signeringssteg
-Det må legges til et prosessteg i `App/config/process/process.bpmn`, som i eksemplet nedenfor.
+Legg til et prosessteg i `App/config/process/process.bpmn`, som i eksemplet nedenfor.
 
 {{% notice info %}}
-Det anbefales å dra inn prosessteget via prosessdesigneren i Altinn Studio. Da får man generert BPMN-diagram som viser flyten i appen. Merk at prosessdesigneren forløpig ikke håndterer alle aspekter av konfigurasjonen, så det må suppleres med noe manuelt oppsett.
+Vi anbefaler å dra inn prosessteget via prosessdesigneren i Altinn Studio. Da blir det generert et BPMN-diagram som viser flyten i appen. Merk at prosessdesigneren foreløpig ikke håndterer alle aspekter av konfigurasjonen, så du må supplere med noe manuelt oppsett.
 {{% /notice %}}
 
 Signering består av to brukerhandlinger (user actions). Dersom Altinn-brukergrensesnittet brukes av appen, så vil disse bli kalt automatisk når man står i signeringssteget. Om kun API-et benyttes, så må disse kalles manuelt via `/actions`-endepunktet eller process next.
@@ -47,12 +47,12 @@ Signering består av to brukerhandlinger (user actions). Dersom Altinn-brukergre
 </bpmn:task>
 ```
 
-Hvis du har valgt å sende signeringskvitteringer ved å spesifisere en correspondence-ressurs, [les om hvordan du konfigurerer miljøspesifikke correspondence-ressurser](/nb/altinn-studio/guides/development/signing/runtime-delegated-signing/#konfigurere-milj%C3%B8-spesifikke-correspondence-ressurser).
+Hvis du har valgt å sende signeringskvitteringer ved å spesifisere en correspondence-ressurs, [les om hvordan du konfigurerer miljøspesifikke correspondence-ressurser](/nb/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/#konfigurere-milj%C3%B8-spesifikke-correspondence-ressurser).
 
-#### Legg til datatyper for å lagre signeringsdata
+#### Legg til datatype for å lagre signeringsdata
 Denne datatypen legges til i `dataTypes` i `App/config/applicationmetadata.json`.
 
-Den benyttes av signeringssteget til å lagre de faktiske signaturene som genereres når brukeren utfører signeringshandlingen.
+Signeringssteget bruker den til å lagre de faktiske signaturene som blir generert når brukeren utfører signeringshandlingen.
 
 ```json
 {
@@ -73,9 +73,9 @@ Verdien av `id`-feltet _må_ samstemme med verdien som har blitt spesifisert i [
 
 Det er viktig å sette `allowedContributors` til `"app:owned"`. Det gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv. Før versjon 8.6 var denne konfigurasjonen feilstavet `allowedContributers`.
 
-Vi anbefaler å sette opp [databeskyttelse](/nb/altinn-studio/guides/development/restricted-data/) for signaturobjektene, ved å spesifisere feltene for `actionRequiredToRead` og `actionRequiredToWrite` i definisjonen ovenfor. Hvis du ikke ønsker å sette opp dette, kan du fjerne disse feltene.
+Vi anbefaler å sette opp [databeskyttelse](/nb/altinn-studio/v10/develop-a-service/restricted-data/) for signaturobjektene, ved å spesifisere feltene for `actionRequiredToRead` og `actionRequiredToWrite` i definisjonen ovenfor. Hvis du ikke ønsker å sette opp dette, kan du fjerne disse feltene.
 
-#### Tilgangsstyring
+#### Sett opp tilgangsstyring
 Gi `read`, `write` og eventuelt `sign` til den som fyller ut skjemaet. Andre som skal signere må også få `read` og `write`.
 
 [Les om action-attributter i tilgangsstyring](/nb/altinn-studio/v10/develop-a-service/reference/configuration/authorization/#action-attributter).

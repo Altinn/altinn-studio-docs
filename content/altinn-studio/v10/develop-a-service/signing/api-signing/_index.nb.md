@@ -25,8 +25,7 @@ API-basert signering har samme krav til oppsett, bortsett fra at layout-set for 
 ## De sentrale API-kallene
 
 ### Utføre enkeltsignering
-Hvis bare én person skal signere i et signeringssteg, kan du bruke «process next»-endepunktet:
-
+Hvis bare én person skal signere i et signeringssteg, kan du bruke «process next»-endepunktet:  
 `PUT /{org}/{app}/instances/{instanceOwnerPartyId}/{instanceGuid}/process/next`
 
 Body:
@@ -41,8 +40,7 @@ Hvis du bruker dette API-endepunktet, må du ha flere signeringssteg hvis flere 
 
 ### Utføre parallellsignering
 
-Hvis du vil at flere skal signere parallelt, må du bruke følgende endepunkt i stedet for «process next»:
-
+Hvis du vil at flere skal signere parallelt, må du bruke følgende endepunkt i stedet for «process next»:  
 `POST /{org}/{app}/instances/{instanceOwnerPartyId}/{instanceGuid}/actions`
 
 Body:
@@ -57,8 +55,7 @@ Da blir prosessen stående i signeringssteget, og flere kan signere før prosess
 ### Informasjon om de som skal signere og signaturer
 
 Hvis [brukerstyrt signering](/nb/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/) er satt opp, kan du bruke følgende API-endepunkt for å hente ut en liste med de som skal signere (signatarer) og deres signeringsstatus.
-Du kan også bruke API-endepunktet selv om du ikke bruker brukerstyrt signering, men da listes bare de som allerede har signert ut. Det fungerer da som en signaturliste.
-
+Du kan også bruke API-endepunktet selv om du ikke bruker brukerstyrt signering, men da listes bare de som allerede har signert ut. Det fungerer da som en signaturliste.  
 `GET /{org}/{app}/instances/{instanceOwnerPartyId}/{instanceGuid}/signing`
 
 Eksempel på respons før signering er utført, der en person og en virksomhet skal signere:
@@ -85,7 +82,8 @@ Eksempel på respons før signering er utført, der en person og en virksomhet s
 }
 ```
 
-Etter signering, der personen Bøylehest Matt har signert på vegne av seg selv, og personen Fisk Kunstig har signert på vegne av organisasjonen Lydig Vennlig Katt Kjerne:
+Etter signering (her har Bøylehest Matt signert på vegne av seg selv, og Fisk Kunstig på vegne av organisasjonen Lydig Vennlig Katt Kjerne):
+
 ```json
 {
   "signeeStates": [
