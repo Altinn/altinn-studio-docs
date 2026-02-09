@@ -27,7 +27,7 @@ I denne sammenhengen er en tjenestetilbyder en virksomhet som:
 
 - Virksomhet som har registrert tjenestetilbyder i Enhetsregisteret som regnskapsfører.
 - Virksomhet som har registrert tjenestetilbyder i Enhetsregisteret som revisor.
-- Virksomhet som har registrert tjenestetilbyder i Enhetsregisteret som forretningsfører.
+- Virksomhet (BRL eller ESEK) som har registrert tjenestetilbyder i Enhetsregisteret som forretningsfører.
 - Virksomhet som i Altinn har delegert tilgangspakker til tjenestetilbyder.
 - Innbygger som i Altinn har delegert tilgangspakke til tjenestetilbyder.
 
@@ -69,6 +69,9 @@ Når du er registrert som forretningsfører for en virksomhet som enten er boret
 ## Hvem kan få videredelegerte klientrettigheter?
 
 Alle personer med fødselsnummer/D-nummer i Altinn kan tildeles klientrettigheter.
+
+Før man kan delegere klientrettigheter (tilgangspakker) til en person, må det være definert et agentforhold mellom personen og tjenestetilbyderen.
+Dette gjøres via eget API. Sletting av agentforholdet vil samtidig fjerne alle klientrettigheter som tjenestetilbyderen har gitt til agenten.
 
 ## Beskrivelse av API
 
