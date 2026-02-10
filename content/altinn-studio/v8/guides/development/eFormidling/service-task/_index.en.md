@@ -75,10 +75,10 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 Integration with eFormidling is added to the workflow as a service task.
 Remember that the task must have an incoming and an outgoing sequence flow.
 
-**Note:** In the future, it will be possible to drag in eFormidling directly via the Workflow editor in Altinn Studio, but this functionality is unfortunately not yet available.
+**Note:** In the future, it will be possible to drag in eFormidling directly via the Arbeidsflyt-editor in Altinn Studio, but this functionality is unfortunately not yet available.
 
 For now, the following procedure is recommended:
-1. Drag in a regular data task in the Workflow editor
+1. Drag in a regular data task in the Arbeidsflyt-editor
 2. Share the changes in Studio
 3. Manually edit `process.bpmn` on your own machine
 4. Convert the data task to a `bpmn:serviceTask` (see example below)
