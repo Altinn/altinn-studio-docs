@@ -7,7 +7,7 @@ Dette er en Hugo-basert dokumentasjonsside for Altinn-produkter som Altinn Studi
 ### Utviklingskommandoer
 
 **VIKTIG: Start Hugo fra brukerens terminal i starten av hver økt**
-- Bruker må åpne terminal og kjøre: `cd /Users/gorilddohl/altinn-studio-docs && hugo server -D`
+- Bruker må åpne terminal og kjøre: `cd <repo-root> && hugo server -D`
 - La Hugo-serveren kjøre i terminalen
 - Åpne nettleser på: http://localhost:1313/
 
