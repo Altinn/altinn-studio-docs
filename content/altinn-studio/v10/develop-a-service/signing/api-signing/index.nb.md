@@ -4,7 +4,7 @@ title: API-basert signering
 linktitle: API-basert signering
 description: Slik setter du opp signering via API.
 tags: [signering, needsReview, translate]
-weight: 53
+
 aliases:
 - /nb/altinn-studio/guides/signing/api-signing
 ---

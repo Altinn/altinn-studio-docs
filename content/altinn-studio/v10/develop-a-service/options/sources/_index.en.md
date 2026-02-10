@@ -2,7 +2,7 @@
 draft: true
 title: Sources
 description: The different sources for options in Altinn Studio
-weight: 10
+
 ---
 
 When you set up an options-enabled component in Altinn Studio, it needs to be connected to a source of options. There are three different properties in the component configuration that can be used for this, depending on the use case:

@@ -4,7 +4,7 @@ title: Forhåndsutfylling - referanse
 linktitle: Forhåndsutfylling
 description: Oversikt over tilgjengelige felter for forhåndsutfylling med konfigurasjonsfil
 tags: [needsReview, needsTranslation]
-weight: 10
+
 ---
 Les mer om [forhåndsutfylling](/nb/altinn-studio/v8/concepts/prefill/), og se [veiledning for hvordan det settes opp](/nb/altinn-studio/v8/guides/development/prefill/config/).
 

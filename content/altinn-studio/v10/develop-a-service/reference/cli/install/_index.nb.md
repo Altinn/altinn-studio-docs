@@ -2,7 +2,7 @@
 draft: true
 title: Installering
 description: Installasjonskommandoer for Altinn Studio CLI
-weight: 50
+
 ---
 
 **NB**: Altinn Studio CLI krever .Net 8.0 eller senere. Se [Microsofts dokumentasjon](https://dotnet.microsoft.com/en-us/download) for hvordan du installerer .Net 8.0.

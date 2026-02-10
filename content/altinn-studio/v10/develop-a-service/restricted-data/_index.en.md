@@ -2,7 +2,7 @@
 draft: true
 title: Restricted data
 description: How to set up additional data protections for an app
-weight: 50
+
 ---
 
 {{% insert "content/altinn-studio/v10/develop-a-service/restricted-data/shared/style.css.md" %}} 

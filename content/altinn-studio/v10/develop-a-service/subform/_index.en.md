@@ -4,7 +4,7 @@ title: Configure subform in an app
 linktitle: Subform
 description: Follow these steps to get started with integrating subforms in your Altinn App.
 tags: [subform]
-weight: 50
+
 aliases:
   - /nb/altinn-studio/guides/subform/
 ---

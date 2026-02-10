@@ -2,7 +2,7 @@
 draft: true
 title: Testing
 description: Referansedokumentasjon for testing av Altinn-tjenester.
-weight: 50
+
 tags: [needsReview, translate-to-english, migrate-from-v8]
 ---
 

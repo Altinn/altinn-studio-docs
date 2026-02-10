@@ -5,7 +5,7 @@ linktitle: Stateless
 description: Slik konfigurerer du en stateless app
 tags: [needsReview, needsTranslation]
 toc: true
-weight: 500
+
 ---
 
 ## Introduksjon til stateless apper

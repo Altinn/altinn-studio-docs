@@ -3,7 +3,6 @@ draft: true
 title: Dynamikk
 description: Brukerveiledning for å sette opp dynamikk i skjema i Altinn Studio
 tags: [needsReview, needsTranslation]
-weight: 40
 aliases:
 - /nb/altinn-studio/guides/dynamics/
 ---

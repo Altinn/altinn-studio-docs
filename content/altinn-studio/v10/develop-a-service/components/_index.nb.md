@@ -2,7 +2,6 @@
 draft: true
 title: Komponenter
 description: Under arbeid - komponentoversikt basert på Altinn Studio GUI
-weight: 85
 tags: [needsReview, translate-to-english, under-construction]
 ---
 

@@ -3,7 +3,7 @@ draft: true
 title: Utvidet filvalidering
 description: Slik utfører du utvidet filvalidering.
 toc: false
-weight: 10
+
 tags: [needsReview, needsTranslation]
 ---
 

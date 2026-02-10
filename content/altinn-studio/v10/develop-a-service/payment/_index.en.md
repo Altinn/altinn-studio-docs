@@ -4,7 +4,7 @@ title: Payment
 linktitle: Payment
 description: Follow these steps to implement Payment in your App
 tags: [payment]
-weight: 50
+
 aliases:
 - /altinn-studio/v8/guides/payment/
 ---

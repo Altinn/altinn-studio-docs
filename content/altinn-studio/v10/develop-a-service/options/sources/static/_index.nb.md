@@ -4,7 +4,7 @@ title: Statiske svaralternativer og enkle kodelister
 linktitle: Statisk
 description: Svaralternativer som ikke endrer seg, men som kan filtreres
 toc: false
-weight: 50
+
 tags: [needsReview, translate]
 aliases:
   - /nb/altinn-studio/guides/development/options/static-codelists

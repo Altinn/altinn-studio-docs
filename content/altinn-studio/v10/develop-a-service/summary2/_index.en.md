@@ -4,7 +4,7 @@ title: Adding a Summary to an App
 linktitle: Summary
 description: How to add a summary to your app
 tags: [summary]
-weight: 50
+
 aliases:
   - /altinn-studio/guides/summary2/
 ---

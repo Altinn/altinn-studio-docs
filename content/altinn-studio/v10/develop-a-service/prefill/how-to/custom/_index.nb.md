@@ -5,7 +5,7 @@ linktitle: Egendefinert kode
 description: Slik setter du opp automatisk utfylling av skjemadata med din egen kode.
 tags: [needsReview, needsTranslation]
 toc: false
-weight: 300
+
 ---
 
 Vi bruker [dependency injection](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection) for egendefinert forhåndsutfylling.
