@@ -123,7 +123,7 @@ Da blir valideringsmeldingen `"Du må fylle ut fornavnet ditt"`.
 
 Hvis du ønsker å erstatte standardfeilmeldingen for obligatoriske felt fullstendig, kan du legge til
 tekstnøkkelen `requiredValidation` i komponentens `textResourceBindings`-objekt. Dette erstatter standardfeilmeldingen
-for obligatoriske felt. Teksten kan være en [tekstnøkkel for en tekst som er definert i ressursfilene]({{< relref "/altinn-studio/v10/develop-a-service/ux/texts" >}})
+for obligatoriske felt. Teksten kan være en [tekstnøkkel for en tekst som er definert i ressursfilene]({{< relref "/altinn-studio/v10/develop-a-service/options/functionality/texts" >}})
 for flerspråklig støtte.
 
 ```json
