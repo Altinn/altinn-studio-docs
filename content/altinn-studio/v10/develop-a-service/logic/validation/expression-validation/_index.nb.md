@@ -7,7 +7,7 @@ tags: [needsReview, needsTranslation]
 ---
 
 Validering med uttrykk gir deg mulighet til å definere valideringsregler som er mer fleksible enn begrensninger i datamodellen, men enklere å utvikle enn valideringer i backend-kode.
-Du definerer regler ved hjelp av [dynamiske uttrykk]().
+Du definerer regler ved hjelp av [dynamiske uttrykk]({{< relref "/altinn-studio/v10/develop-a-service/logic/expressions" >}}).
 
 ## Konfigurere validering med uttrykk
 
