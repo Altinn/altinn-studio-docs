@@ -1,7 +1,7 @@
 ---
 draft: true
 title: Dataknytning
-description: Hva kan lagres i datamodellen
+description: Hva du kan lagre i datamodellen
 weight: 50
 tags: [needsReview, translate]
 ---
