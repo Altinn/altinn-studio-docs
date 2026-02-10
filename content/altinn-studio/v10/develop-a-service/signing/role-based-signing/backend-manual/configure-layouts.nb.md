@@ -41,7 +41,7 @@ tags: [needsReview, translate]
    - **SigneeList**: Lister ut de som skal signere (signatarer) og tilhørende signeringsstatus. Per nå støtter ikke denne listen å vise roller som skal signere, kun personer som har fått brukerstyrt delegert tilgang. Men i det øyeblikket en person utfører en signering vil de dukke opp, så vi kan bruke den som en "Signaturer"-liste.
    - **SigningStatusPanel**: Utleder status for signeringssteget og viser relevante knapper til sluttbruker, for eksempel "Signer"-knappen.
 
-   Hvis du ikke bruker `SigningStatusPanel` for å vise "Signer"-knappen, må du legge til en egen action button med action "sign", for å la sluttbruker signere.
+   Hvis du ikke bruker `SigningStatusPanel` for å vise "Signer"-knappen, må du legge til en egen handlingsknapp med action "sign", for å la sluttbruker signere.
 
    Eksempel på bruk av komponentene:
 
