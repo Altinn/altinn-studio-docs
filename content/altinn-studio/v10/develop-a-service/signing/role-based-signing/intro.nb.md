@@ -5,5 +5,4 @@ hidden: true
 tags: [needsReview, translate]
 ---
 
-Med rolle- og tilgangspakkebasert signering mener vi en tjeneste der de som skal signere har rettigheter til å lese og signere fordi de oppfyller rolle- eller tilgangspakkekrav i tjenestens policy.
-Dette kan for eksempel være daglig leder, regnskapsfører eller revisor.
+Med rolle- og tilgangspakkebasert signering kan personer signere fordi de har en bestemt rolle eller tilgangspakke. Du definerer hvilke roller eller tilgangspakker som skal ha rett til å lese og signere i tjenestens policy. Dette kan for eksempel være daglig leder, regnskapsfører eller revisor.

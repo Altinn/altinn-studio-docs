@@ -2,9 +2,10 @@
 draft: true
 headless: true
 hidden: true
+tags: [needsReview, translate]
 ---
 
-Hvis du ønsker å bruke miljø-spesifikke correspondence ressurser kan du konfigurere dem ved å bruke følgende syntaks:
+Hvis du ønsker å bruke miljøspesifikke correspondence-ressurser kan du konfigurere dem ved å bruke følgende syntaks:
 
 ```xml
 <altinn:signatureConfig>
@@ -16,8 +17,7 @@ Hvis du ønsker å bruke miljø-spesifikke correspondence ressurser kan du konfi
 </altinn:signatureConfig>
 ```
 
-`Env`-atributten godtar en rekke verdier, men vil til slutt kategorisere disse i tre kategorier som vist i tabellen under.
-Det skilles ikke mellom store og små bokstaver i verdiene.
+`Env`-attributten godtar en rekke verdier, men kategoriserer disse til slutt i tre kategorier som vist i tabellen under. Det skilles ikke mellom store og små bokstaver i verdiene.
 
 <!-- HTML markup because this table could not be rendered using markdown inside an `insert` shortcode -->
 

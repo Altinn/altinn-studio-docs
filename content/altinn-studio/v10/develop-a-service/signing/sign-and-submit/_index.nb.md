@@ -2,7 +2,7 @@
 draft: true
 title: Signer og send inn
 linktitle: Signer og send inn
-description: Slik implementerer du signering og innsending i ett steg i appen din.
+description: Slik setter du opp signering og innsending i ett steg i appen din.
 tags: [signering, needsReview, translate]
 weight: 52
 aliases:
@@ -19,9 +19,9 @@ Hvis appen skal sende signeringskvittering til innboksen til den som signerer, m
 
 ## Konvertere dataprosesssteget til et signeringssteg
 
-Se eksempel på et datasteg som har blitt konvertert til et signeringssteg nedenfor.
+Se eksempel på et datasteg som er konvertert til et signeringssteg nedenfor.
 
-Steget vil fortsatt fungere som et vanlig datasteg, bare at du i tillegg kan signere samtidig som du sender inn skjemaet.
+Steget fungerer fortsatt som et vanlig datasteg, men brukeren kan i tillegg signere samtidig som skjemaet sendes inn.
 
 1. Endre `taskType` på datasteget til `signing`.
 2. Legg til `sign`-action som en mulig handling.
@@ -46,7 +46,7 @@ Ferdig konvertert eksempel i `process.xml`:
 
         <!-- Vi har laget en standard validator som kan slås på her. -->
         <!-- Den validerer at påkrevd antall signaturer (minCount på signatur-datatypen) er oppfylt. -->
-        <!-- Om denne ikke slås på, bør man skrive egen validering av signaturer. -->
+        <!-- Om denne ikke slås på, bør du skrive en egen validator som validerer signaturer. -->
         <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
 
       </altinn:signatureConfig>

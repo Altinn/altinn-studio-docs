@@ -7,7 +7,7 @@ tags: [needsReview, needsTranslation]
 ---
 
 Validering med uttrykk gir deg mulighet til å definere valideringsregler som er mer fleksible enn begrensninger i datamodellen, men enklere å utvikle enn valideringer i backend-kode.
-Du definerer regler ved hjelp av [dynamiske uttrykk]({{< relref "/altinn-studio/v10/reference/logic/expressions" >}}).
+Du definerer regler ved hjelp av [dynamiske uttrykk]({{< relref "/altinn-studio/v10/develop-a-service/logic/expressions" >}}).
 
 ## Konfigurere validering med uttrykk
 
@@ -69,7 +69,7 @@ En regel består av følgende felter:
 
 - **message** – Valideringsmeldingen som vises hvis regelen er brutt. Dette bør være en referanse til en tekstressurs.
 - **severity** – Typen valideringsfeil: `error`, `warning`, `info` eller `success`. Hvis feltet utelates, brukes `error`. Se [myke valideringer]({{< relref "/altinn-studio/v10/develop-a-service/logic/validation/" >}}).
-- **condition** – Et dynamisk uttrykk som returnerer `true` hvis feilen skal vises, og `false` ellers. Se [dynamiske uttrykk]({{< relref "/altinn-studio/v10/reference/logic/expressions" >}}).
+- **condition** – Et dynamisk uttrykk som returnerer `true` hvis feilen skal vises, og `false` ellers. Se [dynamiske uttrykk]().
 
 ### Gjenbruke regler
 
