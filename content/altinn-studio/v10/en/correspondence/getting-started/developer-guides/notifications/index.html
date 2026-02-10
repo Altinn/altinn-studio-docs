@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="How to get started with Notifications in Altinn 3 Correspondence, for developers" />
+<meta name="altinn_pagedir" class="elastic" content="correspondence/getting-started/developer-guides/notifications/" />
+<meta name="altinn_title" class="elastic" content="Notifications in Altinn 3 Correspondence" />
+<meta name="product" data-pagefind-filter="Product[content]" content="Correspondence" />
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="Tutorials" />
+
+<title>Notifications in Altinn 3 Correspondence – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/en/correspondence/getting-started/developer-guides/notifications/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/en/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">To the frontpage</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Show/hide menu</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Product</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/en/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/authorization/">
+      <p class="product-item">Authorization</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/broker/">
+      <p class="product-item">Broker</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/correspondence/">
+      <p class="product-item">Correspondence</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/notifications/">
+      <p class="product-item">Notifications</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Search</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/en.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/getting-started/developer-guides/notifications/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/correspondence/getting-started/developer-guides/notifications/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English ✓</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">What are you looking for?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Search');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Last modified: Feb 9, 2026</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/en/correspondence/"><span>Correspondence</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/correspondence/about/"><span>About Correspondence</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/what-do-you-get/"><span>What do you get?</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/getting-started/"><span>Getting Started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/correspondence/getting-started/developer-guides/serviceowner/"><span>Service owner</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/getting-started/developer-guides/systemprovider/"><span>System provider</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/getting-started/developer-guides/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/getting-started/developer-guides/notifications/"><span>Notifications</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/getting-started/developer-guides/dialogporten-arbeidsflate/"><span>Transmissions</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/getting-started/developer-guides/maskinporten/"><span>Maskinporten</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/explanation/"><span>Concepts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/correspondence/explanation/basic-concepts/"><span>Basic Concepts</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/explanation/access-management/"><span>Access-Management</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/explanation/taushetsbelagt-post/"><span>Confidential correspondences</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/explanation/status-lifecycle/"><span>Correspondence Life Cycle</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/correspondence/explanation/status-lifecycle/pre-published/"><span>Pre-Published Life Cycle</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/explanation/status-lifecycle/post-published/"><span>Post-Published Lifecycle</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/explanation/attachment-expiry/"><span>Attachment expiry</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/transition/"><span>Transition solution</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/correspondence/transition/service-migration/"><span>Service Migration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/transition/data-migration/"><span>Data Migration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/transition/delegation-migration/"><span>Delegation Migration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/transition/portal/"><span>Altinn 2 Portal</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/transition/consequences/"><span>Consequences</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/transition/differences/"><span>Differences</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/reference/"><span>Reference documentation</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/correspondence/reference/terminology/"><span>Terminology</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/reference/system-interfaces/"><span>System Interfaces</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/reference/capabilities/"><span>Capabilities</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/reference/solution-architecture/"><span>Solution Architecture</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/en/correspondence/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/correspondence/getting-started/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/correspondence/getting-started/developer-guides/notifications/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/en/correspondence/'>Correspondence</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/correspondence/getting-started/'>Getting Started</a> <span class='adocs-breadcrumb-divider'> / </span> Notifications</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Notifications in Altinn 3 Correspondence</h1>
+              <p class="a-leadText" id="leadText">How to get started with Notifications in Altinn 3 Correspondence, for developers</p>
+
+<ul class="children children-li js-moveChildrenFrom">
+
+	
+		
+	
+</ul>
+
+
+<p>To use notifications in Altinn Correspondence, a notification order is placed when a message is created.
+The notification will be sent out 5 minutes after the publication time of the message. If the publication time is in the past, the notification will be sent 5 minutes after the current time.
+If a reminder is activated, the reminder will be sent after 7 days if the message has not been read.
+In the test and staging environment, the reminder will be sent out after 1 day if the message has not been read.</p>
+<div class="notices info" >Note: The reminder timing in test and staging environments is currently set to 1 day due to limitations in the notification service. This is a temporary change, and work is in progress to restore the previous 1-hour delay.</div>
+<p>Notifications can be sent via either email or SMS. While email does not have a time window, SMS notifications are sent between 9:00 AM and 5:00 PM.
+If the sending time falls outside this window, the notification will be sent the following day.</p>
+<div class="notices warning" >In the test environment, you can only send SMS notifications to whitelisted phone numbers.<br>
+Send an email to <a href="mailto:tjenesteeier@altinn.no?subject=Whitelist%20phone%20number">tjenesteeier@altinn.no</a> with the phone number that needs to be whitelisted.</div>
+<p>A notification order is made by adding the following when initializing a message:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;correspondence&#34;</span>: {
+</span></span><span style="display:flex;"><span>    ...,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;notification&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;notificationTemplate&#34;</span>: CustomMessage (<span style="color:#bd93f9">0</span>) | GenericAltinnMessage(<span style="color:#bd93f9">1</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;notificationChannel&#34;</span>: Email(<span style="color:#bd93f9">0</span>) | Sms(<span style="color:#bd93f9">1</span>) | EmailPreferred(<span style="color:#bd93f9">2</span>) | SmsPreferred(<span style="color:#bd93f9">3</span>) | EmailAndSms(<span style="color:#bd93f9">4</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;sendReminder&#34;</span>: boolean,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;emailBody&#34;</span>: string?,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;emailSubject&#34;</span>: string?,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;emailContentType&#34;</span>: Plain(<span style="color:#bd93f9">0</span>) | Html(<span style="color:#bd93f9">1</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;smsBody&#34;</span>: string?,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;reminderNotificationChannel&#34;</span>: Email(<span style="color:#bd93f9">0</span>) | Sms(<span style="color:#bd93f9">1</span>) | EmailPreferred(<span style="color:#bd93f9">2</span>) | SmsPreferred(<span style="color:#bd93f9">3</span>) | EmailAndSms(<span style="color:#bd93f9">4</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;reminderEmailBody&#34;</span>: string?,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;reminderEmailSubject&#34;</span>: string?,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;reminderEmailContentType&#34;</span>: Plain(<span style="color:#bd93f9">0</span>) | Html(<span style="color:#bd93f9">1</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;reminderSmsBody&#34;</span>: string?,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;requestedSendTime&#34;</span>: DateTimeOffset?,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;customRecipients&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;organizationNumber&#34;</span>: string?,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;nationalIdentityNumber&#34;</span>: string?,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;mobileNumber&#34;</span>: string?,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;emailAddress&#34;</span>: string?
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ],
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;overrideRegisteredContactInformation&#34;</span>: boolean
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;Recipients&#34;</span>: [],
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;ExistingAttachments&#34;</span>:{...}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="field-validation-and-character-limits">Field Validation and Character Limits</h2>
+<p>When creating notifications, the following validation rules and character limits apply. These limits are recommended by the Altinn Notifications service to ensure proper display and delivery:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Field</th>
+          <th>Maximum Length</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>emailSubject</code></td>
+          <td>512 characters</td>
+          <td>The upper limit for email subjects in notifications. The Altinn Notifications service recommends keeping the email subject shorter than 128 characters to ensure the subject is displayed correctly in email clients</td>
+      </tr>
+      <tr>
+          <td><code>emailBody</code></td>
+          <td>10,000 characters</td>
+          <td>Supports detailed content in both plain text and HTML format</td>
+      </tr>
+      <tr>
+          <td><code>smsBody</code></td>
+          <td>2,144 characters</td>
+          <td>Aligns with the Altinn Notifications service SMS processing limits. Equivalent to 16 SMS segments (16 × 134 characters per segment)</td>
+      </tr>
+      <tr>
+          <td><code>reminderEmailSubject</code></td>
+          <td>512 characters</td>
+          <td>Same limit and recommendation as main email subject</td>
+      </tr>
+      <tr>
+          <td><code>reminderEmailBody</code></td>
+          <td>10,000 characters</td>
+          <td>Supports detailed content in both plain text and HTML format</td>
+      </tr>
+      <tr>
+          <td><code>reminderSmsBody</code></td>
+          <td>2,144 characters</td>
+          <td>Same limit as main SMS body</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Note:</strong> If you exceed these limits, you will receive a <code>400 Bad Request</code> error response with details about which field exceeded the limit.</p>
+<h2 id="keyword-support">Keyword support</h2>
+<p>Keywords is a list of tokens which enable personalization in notifications. These will be automaticly supplied with text by Altinn.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Value</th>
+          <th>Description</th>
+          <th>Extra</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$sendersName$</td>
+          <td>Will be supplied with the senders name. Either by the &ldquo;MessageSender&rdquo; attribute if it has value, or by a lookup in Altinn Register.</td>
+          <td>Supported for all scenarios</td>
+      </tr>
+      <tr>
+          <td>$correspondenceRecipientName$</td>
+          <td>Will be supplied with the correspondence recipient&rsquo;s name, which will be either the organization&rsquo;s name or a person&rsquo;s name</td>
+          <td>Supported for all scenarios</td>
+      </tr>
+      <tr>
+          <td>$recipientName$</td>
+          <td>Will be supplied with the notification recipient&rsquo;s name, which will be either the organization&rsquo;s name or a person&rsquo;s name</td>
+          <td>Is not supported for customRecipients when notifications are sent to an email address or a phone number</td>
+      </tr>
+      <tr>
+          <td>$recipientNumber$</td>
+          <td>If the recipient is an organization, it will be supplied with the organization number, otherwise it will be left empty</td>
+          <td>Is not supported for customRecipients when notifications are sent to an email address or a phone number</td>
+      </tr>
+      <tr>
+          <td>$messageTitle$</td>
+          <td>Will be supplied with the title of the correspondence</td>
+          <td>Supported for all scenarios</td>
+      </tr>
+      <tr>
+          <td>$resourceName$</td>
+          <td>Will be supplied with the name of the resource</td>
+          <td>Supported for all scenarios</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="notification-templates">Notification Templates</h2>
+<p>Two types of notification templates are offered when using notifications through the Correspondence API.</p>
+<p><strong>CustomText:</strong></p>
+<ul>
+<li>The entire message is written by the sender and sent in full to the recipient.</li>
+</ul>
+<p><strong>GenericAltinnMessage:</strong></p>
+<ul>
+<li>A generic Altinn text with the option to supplement with additional text. Currently supported languages are Norwegian, Nynorsk, and English. The language is chosen based on the language defined in the message.</li>
+<li>This notification text has been prepared by Altinn User Support and contains information that will be valuable to the end user. Altinn therefore recommends that service owners use this template.</li>
+</ul>
+<p><strong>Title:</strong> A new message is available in Altinn for $correspondenceRecipientName$
+<strong>Content:</strong> Hi. $correspondenceRecipientName$ $recipientNumber$ has received a new message $messageTitle$ from $sendersName$. (To see this message you need access to $resourceName$.) Log in to Altinn to see this message.</p>
+<p><strong>Reminder Title:</strong> Reminder - a message is available in Altinn for $correspondenceRecipientName$
+<strong>Reminder Content:</strong> Hi. This is a reminder that $correspondenceRecipientName$ $recipientNumber$ has received a message $messageTitle$ from $sendersName$. (To see this message you need access to $resourceName$.) Log in to Altinn to see this message.</p>
+<ul>
+<li>SMS uses only the content, not the title.</li>
+</ul>
+<p>Note! Links should NEVER be sent in notifications!</p>
+<h2 id="notification-channels">Notification Channels</h2>
+<p>Supported notification channels:</p>
+<ul>
+<li><strong>Email:</strong> Sends an email to the recipient.</li>
+<li><strong>SMS:</strong> Sends an SMS to the recipient. Supports both national and international phone numbers.</li>
+<li><strong>EmailPreferred:</strong> Uses email as the main communication channel, and SMS as a fallback if email is not available.</li>
+<li><strong>SmsPreferred:</strong> Uses SMS as the main communication channel, and email as a fallback if SMS is not available.</li>
+<li><strong>EmailAndSms:</strong> Sends both email and SMS to the recipient simultaneously.
+The first notification and the reminder notification can use different notification channels.
+For example, the first notification is sent by email, while the reminder notification seven days later is sent by SMS.</li>
+</ul>
+<h2 id="cancellation-of-notification">Cancellation of Notification</h2>
+<p>If a message is deleted before the publication date, the notification order will also be deleted.
+In situations where an error occurs during the publication of a message, the notification will also be deleted.</p>
+<h2 id="errors-in-notification-ordering">Errors in Notification Ordering</h2>
+<p>If no contact information is available for a recipient, the message will still be sent as planned.
+Information about the notification can be viewed by retrieving the details about the specific correspondence.
+Improvements are planned to provide feedback on this during the creation of a message.</p>
+<h2 id="custom-recipients-for-notifications">Custom recipients for Notifications</h2>
+<p>For all correspondences created with Notifications enabled, the notifications will be sent to the recipient specified in the creation of the correspondence.
+However, it is also possible to choose additional recipients of the notification that are not necessarily the recipient(s) of the correspondence.
+In practice this means that custom recipients will receive notifications <strong>in addition to</strong> the original correspondence recipient.</p>
+<h3 id="using-customrecipients-recommended">Using customRecipients (Recommended)</h3>
+<p>The recommended approach is to use the <code>customRecipients</code> field under <code>notification</code> to specify multiple recipients:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;notification&#34;</span>: {
+</span></span><span style="display:flex;"><span>    ...,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;customRecipients&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;organizationNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;nationalIdentityNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;mobileNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;emailAddress&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;organizationNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;nationalIdentityNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;mobileNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;emailAddress&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Note</strong>: Notifications will be sent to both the default correspondence recipient AND all custom recipients listed above.</p>
+<div class="notices warning" >⚠️ DEPRECATED: The <code>customRecipient</code> field is deprecated and will be removed in a future version. Please use <code>customRecipients</code> instead.</div>
+<h3 id="using-customrecipient-deprecated">Using customRecipient (Deprecated)</h3>
+<p>For backward compatibility, you can still use the <code>customRecipient</code> field for a single recipient:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;notification&#34;</span>: {
+</span></span><span style="display:flex;"><span>    ...,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;customRecipient&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;organizationNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;nationalIdentityNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;mobileNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;emailAddress&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="notices warning" >⚠️ DEPRECATED: The <code>customNotificationRecipients</code> field is deprecated and will be removed in a future version. Please use <code>customRecipients</code> instead.</div>
+<h3 id="using-customnotificationrecipients-deprecated">Using customNotificationRecipients (Deprecated)</h3>
+<p>This can be achieved by populating the <code>customNotificationRecipients</code> field under <code>notification</code> as follows:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;notification&#34;</span>: {
+</span></span><span style="display:flex;"><span>    ...,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;customNotificationRecipients&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;recipientToOverride&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;recipients&#34;</span>: [
+</span></span><span style="display:flex;"><span>          {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;organizationNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;nationalIdentityNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;mobileNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;emailAddress&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="validation-rules-for-custom-recipients">Validation Rules for Custom Recipients</h3>
+<p>When using custom recipients, the following validation rules apply:</p>
+<ol>
+<li>
+<p><strong>Additional Recipients</strong>: Custom recipients are sent notifications <strong>in addition to</strong> the default correspondence recipient, not instead of them.</p>
+</li>
+<li>
+<p><strong>Single Recipient Only</strong>: If custom recipients are specified, the correspondence must have only one default recipient (not multiple recipients).</p>
+</li>
+<li>
+<p><strong>Single Identifier Required</strong>: Each custom recipient must have exactly one identifier field populated:</p>
+<ul>
+<li><code>organizationNumber</code> (for organizations)</li>
+<li><code>nationalIdentityNumber</code> (for persons)</li>
+<li><code>emailAddress</code> (for direct email notifications)</li>
+<li><code>mobileNumber</code> (for direct SMS notifications)</li>
+</ul>
+</li>
+<li>
+<p><strong>Keyword Restrictions</strong>: When using <code>emailAddress</code> or <code>mobileNumber</code>, the <code>$recipientName$</code> keyword cannot be used in any notification content (email subject, email body, SMS body, reminder fields) because name lookup is not available for direct contact information.</p>
+</li>
+<li>
+<p><strong>Format Validation</strong>:</p>
+<ul>
+<li><strong>Email addresses</strong>: Must be in valid email format (e.g., <code>user@example.com</code>)</li>
+<li><strong>Mobile numbers</strong>: Must adhere to E.164 standard and be valid phone numbers. Can start with <code>+</code> or <code>00</code> for international format. Norwegian numbers starting with 4 or 9 will automatically get <code>+47</code> prefix if no country code is provided.</li>
+<li><strong>Organization Numbers</strong>: Must be in format <code>0192:organizationnumber</code> or <code>urn:altinn:organizationnumber:organizationnumber</code></li>
+<li><strong>National Identity Numbers</strong>: Must be valid 11-digit Norwegian social security numbers</li>
+</ul>
+</li>
+</ol>
+<h3 id="how-to-use-it">How to use it</h3>
+<p>For recommended approach (multiple recipients):</p>
+<pre tabindex="0"><code>correspondence.notification.customRecipients[0].organizationNumber
+correspondence.notification.customRecipients[0].nationalIdentityNumber
+correspondence.notification.customRecipients[0].mobileNumber
+correspondence.notification.customRecipients[0].emailAddress
+correspondence.notification.customRecipients[1].organizationNumber
+// ... additional recipients
+</code></pre><p>For deprecated single recipient approach:</p>
+<pre tabindex="0"><code>correspondence.notification.customRecipient.organizationNumber
+correspondence.notification.customRecipient.nationalIdentityNumber
+correspondence.notification.customRecipient.mobileNumber
+correspondence.notification.customRecipient.emailAddress
+</code></pre><p>For deprecated multiple recipients approach:</p>
+<pre tabindex="0"><code>correspondence.notification.customNotificationRecipients[0].recipientToOverride
+correspondence.notification.customNotificationRecipients[0].recipients[0].organizationNumber
+correspondence.notification.customNotificationRecipients[0].recipients[0].nationalIdentityNumber
+correspondence.notification.customNotificationRecipients[0].recipients[0].mobileNumber
+correspondence.notification.customNotificationRecipients[0].recipients[0].emailAddress
+</code></pre>
+
+<div class="panel panel-warning">
+	
+	<div class="panel-body"><p>⚠️ IMPORTANT:
+Both <code>notificationTemplate</code> and <code>notificationChannel</code> are applicable when using custom recipients:</p>
+<ul>
+<li><strong><code>notificationTemplate</code></strong>: Determines the content (email subject, body, SMS body) that will be sent to the custom recipient</li>
+<li><strong><code>notificationChannel</code></strong>: For organization and person custom recipient, this determines the channel(s) the notification(s) are sent to. For direct email/mobile custom recipients, the channel is not applicable any more.</li>
+</ul>
+<p>Further details are provided <a href="#notification-templates">here</a>.</p>
+</div>
+	
+</div>
+
+<h2 id="override-default-recipient-behavior">Override Default Recipient Behavior</h2>
+<p>By default, when using custom recipients, notifications are sent to both the default correspondence recipient AND all custom recipients. However, you can override this behavior using the <code>overrideRegisteredContactInformation</code> flag.</p>
+<h3 id="using-overrideregisteredcontactinformation">Using overrideRegisteredContactInformation</h3>
+<p>The <code>overrideRegisteredContactInformation</code> flag allows you to control whether the default correspondence recipient should be included in notifications:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;notification&#34;</span>: {
+</span></span><span style="display:flex;"><span>    ...,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;customRecipients&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;organizationNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;nationalIdentityNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;mobileNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;emailAddress&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;overrideRegisteredContactInformation&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="behavior">Behavior</h3>
+<ul>
+<li><strong><code>overrideRegisteredContactInformation: false</code> (default)</strong>: Notifications are sent to the default correspondence recipient AND all custom recipients</li>
+<li><strong><code>overrideRegisteredContactInformation: true</code></strong>: Notifications are sent ONLY to custom recipients (default correspondence recipient is excluded)</li>
+</ul>
+<h3 id="validation-rules">Validation Rules</h3>
+<ol>
+<li><strong>Custom Recipients Required</strong>: The <code>overrideRegisteredContactInformation</code> flag can only be set to <code>true</code> when <code>customRecipients</code> is provided and not empty</li>
+<li><strong>Default Value</strong>: If not specified, <code>overrideRegisteredContactInformation</code> defaults to <code>false</code></li>
+</ol>
+<h3 id="example-use-cases">Example Use Cases</h3>
+<p><strong>Scenario 1: Additional Recipients (Default Behavior)</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;notification&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;customRecipients&#34;</span>: [{<span style="color:#ff79c6">&#34;organizationNumber&#34;</span>: <span style="color:#f1fa8c">&#34;123456789&#34;</span>}],
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;overrideRegisteredContactInformation&#34;</span>: <span style="color:#ff79c6">false</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Result: Notifications sent to both the default correspondence recipient AND the custom organization</p>
+<p><strong>Scenario 2: Override Default Recipient</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;notification&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;customRecipients&#34;</span>: [{<span style="color:#ff79c6">&#34;organizationNumber&#34;</span>: <span style="color:#f1fa8c">&#34;123456789&#34;</span>}],
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;overrideRegisteredContactInformation&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Result: Notifications sent ONLY to the custom organization (default correspondence recipient excluded)</p>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/correspondence/getting-started/developer-guides/notifications/_index.en.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Edit page on GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#field-validation-and-character-limits">Field Validation and Character Limits</a></li>
+    <li><a href="#keyword-support">Keyword support</a></li>
+    <li><a href="#notification-templates">Notification Templates</a></li>
+    <li><a href="#notification-channels">Notification Channels</a></li>
+    <li><a href="#cancellation-of-notification">Cancellation of Notification</a></li>
+    <li><a href="#errors-in-notification-ordering">Errors in Notification Ordering</a></li>
+    <li><a href="#custom-recipients-for-notifications">Custom recipients for Notifications</a>
+      <ul>
+        <li><a href="#using-customrecipients-recommended">Using customRecipients (Recommended)</a></li>
+        <li><a href="#using-customrecipient-deprecated">Using customRecipient (Deprecated)</a></li>
+        <li><a href="#using-customnotificationrecipients-deprecated">Using customNotificationRecipients (Deprecated)</a></li>
+        <li><a href="#validation-rules-for-custom-recipients">Validation Rules for Custom Recipients</a></li>
+        <li><a href="#how-to-use-it">How to use it</a></li>
+      </ul>
+    </li>
+    <li><a href="#override-default-recipient-behavior">Override Default Recipient Behavior</a>
+      <ul>
+        <li><a href="#using-overrideregisteredcontactinformation">Using overrideRegisteredContactInformation</a></li>
+        <li><a href="#behavior">Behavior</a></li>
+        <li><a href="#validation-rules">Validation Rules</a></li>
+        <li><a href="#example-use-cases">Example Use Cases</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">About Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Hvordan komme i gang med varslinger gjennom Altinn 3 Melding, for utviklere" />
+<meta name="altinn_pagedir" class="elastic" content="correspondence/getting-started/developer-guides/notifications/" />
+<meta name="altinn_title" class="elastic" content="Varsling i Altinn 3 Melding" />
+<meta name="product" data-pagefind-filter="Produkt[content]" content="Melding" />
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="Veiledninger" />
+
+<title>Varsling i Altinn 3 Melding – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/correspondence/getting-started/developer-guides/notifications/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Produkt</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/authorization/">
+      <p class="product-item">Autorisasjon</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/broker/">
+      <p class="product-item">Formidling</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/">
+      <p class="product-item">Melding</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/notifications/">
+      <p class="product-item">Varsling</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Søk</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/nb.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/getting-started/developer-guides/notifications/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/correspondence/getting-started/developer-guides/notifications/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">Hva leter du etter?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Søk');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Sist endret: 9. feb. 2026</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/nb/correspondence/"><span>Melding</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/correspondence/about/"><span>Om Altinn Melding</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/what-do-you-get/"><span>Hva får du?</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/correspondence/getting-started/developer-guides/serviceowner/"><span>Tjenesteeier</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/getting-started/developer-guides/systemprovider/"><span>Systemleverandør</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/getting-started/developer-guides/events/"><span>Hendelser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/getting-started/developer-guides/dialogporten-arbeidsflate/"><span>Transmissions</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/getting-started/developer-guides/notifications/"><span>Varsling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/getting-started/developer-guides/maskinporten/"><span>Maskinporten</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/explanation/"><span>Konsepter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/correspondence/explanation/basic-concepts/"><span>Konsepter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/explanation/status-lifecycle/"><span>Meldings Livssyklus</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/correspondence/explanation/status-lifecycle/pre-published/"><span>Livssyklus Før Publisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/explanation/status-lifecycle/post-published/"><span>Livssyklus Etter Publisering</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/explanation/taushetsbelagt-post/"><span>Taushetsbelagt post</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/explanation/access-management/"><span>Tilgangsstyring-melding</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/explanation/attachment-expiry/"><span>Utløpsdato for vedlegg</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/transition/"><span>Overgangsløsning</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/correspondence/transition/service-migration/"><span>Tjenestemigrering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/transition/data-migration/"><span>Datamigrering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/transition/delegation-migration/"><span>Delegeringsmigrering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/transition/portal/"><span>Altinn 2 Portal</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/transition/consequences/"><span>Konsekvenser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/transition/differences/"><span>Forskjeller</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/reference/"><span>Referansedokumentasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/correspondence/reference/terminology/"><span>Begreper</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/reference/system-interfaces/"><span>Systemgrensesnitt</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/reference/capabilities/"><span>Funksjonalitet</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/reference/solution-architecture/"><span>Løsningsarkitektur</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/nb/correspondence/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/correspondence/getting-started/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/correspondence/getting-started/developer-guides/notifications/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/nb/correspondence/'>Melding</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/correspondence/getting-started/'>Kom i gang</a> <span class='adocs-breadcrumb-divider'> / </span> Varsling</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Varsling i Altinn 3 Melding</h1>
+              <p class="a-leadText" id="leadText">Hvordan komme i gang med varslinger gjennom Altinn 3 Melding, for utviklere</p>
+
+<ul class="children children-li js-moveChildrenFrom">
+
+	
+		
+	
+</ul>
+
+
+<p>For å bruke varslinger i en meldingstjeneste, legges en varslingsbestilling til når en melding opprettes.
+Varslingen vil bli sendt ut 5 minutter etter publikasjonstidspunktet for meldingen. Hvis publikasjonstidspunktet er i fortiden, vil varslingen bli sendt 5 minutter etter nåværende tidspunkt.
+Hvis revarsel er aktivert, vil revarselet sendes ut etter 7 dager dersom meldingen ikke er lest.
+I test- og stagingmiljøet vil revarselet sendes ut etter 1 dag dersom meldingen ikke er lest.</p>
+<div class="notices info" >Merk: Tidsintervallet for revarsel i test- og stagingmiljøer er for øyeblikket satt til 1 dag på grunn av begrensninger i varslingstjenesten. Dette er en midlertidig endring, og det arbeides med å gjenopprette det tidligere 1-timers intervallet.</div>
+<p>Varslinger kan sendes via enten e-post eller SMS. Mens e-post ikke har noe tidsvindu, vil SMS-varsler bli sendt mellom kl. 09:00 og 17:00.
+Hvis avsendingstidspunktet faller utenfor dette tidsvinduet, vil varselet bli sendt neste dag.</p>
+<div class="notices warning" >I testmiljøet kan du bare sende SMS-varsler til hvitlistede telefonnumre.<br>
+Send en e-post til <a href="mailto:tjenesteeier@altinn.no?subject=Hvitlisting%20av%20telefonnummer">tjenesteeier@altinn.no</a> med telefonnummeret som skal hvitlistes.</div>
+<p>En varslingsbestilling gjøres ved å legge til følgende når du initialiserer en melding:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;correspondence&#34;</span>: {
+</span></span><span style="display:flex;"><span>    ...,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;notification&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;notificationTemplate&#34;</span>: CustomMessage (<span style="color:#bd93f9">0</span>) | GenericAltinnMessage(<span style="color:#bd93f9">1</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;notificationChannel&#34;</span>: Email(<span style="color:#bd93f9">0</span>) | Sms(<span style="color:#bd93f9">1</span>) | EmailPreferred(<span style="color:#bd93f9">2</span>) | SmsPreferred(<span style="color:#bd93f9">3</span>) | EmailAndSms(<span style="color:#bd93f9">4</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;sendReminder&#34;</span>: boolean,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;emailBody&#34;</span>: string?,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;emailSubject&#34;</span>: string?,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;emailContentType&#34;</span>: Plain(<span style="color:#bd93f9">0</span>) | Html(<span style="color:#bd93f9">1</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;smsBody&#34;</span>: string?,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;reminderNotificationChannel&#34;</span>: Email(<span style="color:#bd93f9">0</span>) | Sms(<span style="color:#bd93f9">1</span>) | EmailPreferred(<span style="color:#bd93f9">2</span>) | SmsPreferred(<span style="color:#bd93f9">3</span>) | EmailAndSms(<span style="color:#bd93f9">4</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;reminderEmailBody&#34;</span>: string?,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;reminderEmailSubject&#34;</span>: string?,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;reminderEmailContentType&#34;</span>: Plain(<span style="color:#bd93f9">0</span>) | Html(<span style="color:#bd93f9">1</span>),
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;reminderSmsBody&#34;</span>: string?,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;requestedSendTime&#34;</span>: DateTimeOffset?,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;customRecipients&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;organizationNumber&#34;</span>: string?,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;nationalIdentityNumber&#34;</span>: string?,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;mobileNumber&#34;</span>: string?,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;emailAddress&#34;</span>: string?
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ],
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;overrideRegisteredContactInformation&#34;</span>: boolean
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;Recipients&#34;</span>: [],
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;ExistingAttachments&#34;</span>:{...}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="feltvalidering-og-tegnbegrensninger">Feltvalidering og tegnbegrensninger</h2>
+<p>Når du oppretter varslinger, gjelder følgende valideringsregler og tegnbegrensninger. Disse grensene er anbefalt av Altinn Notifications-tjenesten for å sikre korrekt visning og levering:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Felt</th>
+          <th>Maksimal lengde</th>
+          <th>Beskrivelse</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>emailSubject</code></td>
+          <td>512 tegn</td>
+          <td>Øvre grensen for e-postemner i varslinger. Altinn Notifications-tjenesten anbefaler å holde e-postemnet kortere enn 128 tegn for å sikre at emnet vises korrekt i e-postklienter</td>
+      </tr>
+      <tr>
+          <td><code>emailBody</code></td>
+          <td>10 000 tegn</td>
+          <td>Støtter detaljert innhold i både ren tekst og HTML-format</td>
+      </tr>
+      <tr>
+          <td><code>smsBody</code></td>
+          <td>2 144 tegn</td>
+          <td>Samsvarer med Altinn Notifications-tjenestens SMS-behandlingsgrenser. Tilsvarer 16 SMS-segmenter (16 × 134 tegn per segment)</td>
+      </tr>
+      <tr>
+          <td><code>reminderEmailSubject</code></td>
+          <td>512 tegn</td>
+          <td>Samme grense og anbefaling som hovedvarslingens e-postemne</td>
+      </tr>
+      <tr>
+          <td><code>reminderEmailBody</code></td>
+          <td>10 000 tegn</td>
+          <td>Støtter detaljert innhold i både ren tekst og HTML-format</td>
+      </tr>
+      <tr>
+          <td><code>reminderSmsBody</code></td>
+          <td>2 144 tegn</td>
+          <td>Samme grense som hovedvarslingens SMS-innhold</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Merk:</strong> Hvis du overskrider disse grensene, vil du motta en <code>400 Bad Request</code>-feilrespons med detaljer om hvilket felt som overskred grensen.</p>
+<h2 id="keyword-støtte">Keyword støtte</h2>
+<p>Keywords er en liste tokens som lar deg personalisere varslingene med for eksempel mottakers navn.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Verdi</th>
+          <th>Beskrivelse</th>
+          <th>Ekstra</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>$sendersName$</td>
+          <td>Blir byttet ut med avsenders navn. Enten &ldquo;MessageSender&rdquo; om attributten har en verdi, eller basert på ett oppslag i Altinn Register.</td>
+          <td>Støttes for alle scenarioer</td>
+      </tr>
+      <tr>
+          <td>$correspondenceRecipientName$</td>
+          <td>Blir byttet ut med melding mottakers navn. Dette vil være enten organisasjonsnavn eller personens navn.</td>
+          <td>Støttes for alle scenarioer</td>
+      </tr>
+      <tr>
+          <td>$recipientName$</td>
+          <td>Blir byttet ut med varslingsmottakers navn. Dette vil være enten organisasjonsnavn eller personens navn.</td>
+          <td>Støttes ikke for customRecipients dersom varsel blir sendt til e-postadresse eller telefonnummer</td>
+      </tr>
+      <tr>
+          <td>$recipientNumber$</td>
+          <td>Dersom mottaker er en organisasjon vises Organisasjonsnummer. Dersom mottaker er en privatperson vises ingenting</td>
+          <td>Støttes ikke for customRecipients dersom varsel blir sendt til e-postadresse eller telefonnummer</td>
+      </tr>
+      <tr>
+          <td>$messageTitle$</td>
+          <td>Blir byttet ut med tittelen på meldingen</td>
+          <td>Støttes for alle scenarioer</td>
+      </tr>
+      <tr>
+          <td>$resourceName$</td>
+          <td>Blir byttet ut med navnet på ressursen</td>
+          <td>Støttes for alle scenarioer</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="varslingsmaler">Varslingsmaler</h2>
+<p>Det tilbys to typer varslingsmaler når du bruker varsling gjennom Meldings-API`et.</p>
+<p><strong>CustomText:</strong></p>
+<ul>
+<li>Hele meldingen skrives inn av avsender og sendes i sin helhet til mottaker.</li>
+</ul>
+<p><strong>GenericAltinnMessage:</strong></p>
+<ul>
+<li>En generisk Altinn-tekst med mulighet for å supplere med ekstra tekst. Foreløpig støttede språk er norsk, nynorsk og engelsk. Språk velges basert på språket definert i meldingen</li>
+<li>Denne varslingsteksten er utarbeidet av Altinn brukerservice og inneholder informasjon som vil være verdifull for sluttbrukeren. Altinn anbefaler derfor tjenesteeiere å bruke denne malen.</li>
+</ul>
+<p><strong>Tittel:</strong> En ny melding er tilgjengelig i Altinn for $correspondenceRecipientName$
+<strong>Innhold:</strong> Hei. $correspondenceRecipientName$ $recipientNumber$ har mottatt meldingen $messageTitle$ fra $sendersName$. (For å se denne meldingen kreves tilgang til $resourceName$.) Logg inn i Altinn for å se meldingen.</p>
+<p><strong>Revarsel tittel:</strong> Påminnelse - en ny melding er tilgjengelig i Altinn for $correspondenceRecipientName$
+<strong>Revarsel innhold:</strong> Hei. Dette er en påminnelse om at $correspondenceRecipientName$ $recipientNumber$ har mottatt meldingen $messageTitle$ fra $sendersName$. (For å se denne meldingen kreves tilgang til $resourceName$.) Logg inn i Altinn for å se meldingen.</p>
+<ul>
+<li>SMS bruker kun innholdet, ikke tittelen.</li>
+<li>Se <a href="https://docs.altinn.studio/nb/correspondence/getting-started/developer-guides/notifications/#keyword-st%C3%B8tte">keyword-støtte</a> for hva keywords veksles inn i.</li>
+</ul>
+<p>NB! Hyperlenke til nettsider skal ALDRI sendes i varslingen!</p>
+<h2 id="varslingskanaler">Varslingskanaler</h2>
+<p>Støttede varslingskanaler:</p>
+<ul>
+<li><strong>Email:</strong> Sender en e-post til mottaker.</li>
+<li><strong>SMS:</strong> Sender en sms til mottaker. Støtter nasjonale og internasjonale telefonnummre.</li>
+<li><strong>EmailPreferred:</strong> Bruker e-post som hoved kommunikasjonskanal, og SMS som fallback hvis e-post ikke er tilgjengelig.</li>
+<li><strong>SmsPreferred:</strong> Bruker SMS som hoved kommunikasjonskanal, og e-post som fallback om SMS ikke finnes.</li>
+<li><strong>EmailAndSms:</strong> Sender både e-post og SMS til mottakeren samtidig.
+Hovedvarsel og revarsel kan bruke forskjellige notifikasjonskanaler.
+For eksempel kan man velge å sende første varsel på e-post, men så går det ett revarsel på sms etter 7 dager.</li>
+</ul>
+<h2 id="kansellering-av-varsling">Kansellering av varsling</h2>
+<p>Dersom en melding slettes før publiseringsdatoen, vil varslingsbestillingen også bli slettet.
+I tilfeller der det oppstår en feil under publisering av en melding, vil varslingen også bli slettet.</p>
+<h2 id="feil-ved-bestilling-av-varsling">Feil ved bestilling av varsling</h2>
+<p>Hvis det ikke finnes kontaktinformasjon for en mottaker, vil meldingen fortsatt bli sendt som planlagt.
+Informasjon om varslingen kan sees ved å hente detaljer om den spesifikke meldingen.
+Det er planlagt forbedringer for å gi tilbakemelding omkring dette under opprettelsen av en melding.</p>
+<h2 id="valgfri-mottakere-for-varsling">Valgfri mottakere for varsling</h2>
+<p>For meldinger som er opprettet med varsling aktivert vil mottakeren av varslingen være den samme som mottakeren av meldingen.
+Det er derimot mulig benytte valgfrie mottakere av varsling, som ikke nødvendigvis er mottaker av meldingen.
+I praksis betyr dette at valgfrie mottakere vil motta varsler <strong>i tillegg til</strong> den opprinnelige meldingsmottakeren.</p>
+<h3 id="bruk-av-customrecipients-anbefalt">Bruk av customRecipients (Anbefalt)</h3>
+<p>Den anbefalte måten er å bruke <code>customRecipients</code>-feltet under <code>notification</code> for å spesifisere flere mottakere:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;notification&#34;</span>: {
+</span></span><span style="display:flex;"><span>    ...,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;customRecipients&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;organizationNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;nationalIdentityNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;mobileNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;emailAddress&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;organizationNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;nationalIdentityNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;mobileNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;emailAddress&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>Merk</strong>: Varsler vil bli sendt til både standard meldingsmottaker OG alle valgfrie mottakere som er listet ovenfor.</p>
+<div class="notices warning" >⚠️ UTGÅTT: Feltet <code>customRecipient</code> er utgått og vil bli fjernet i en fremtidig versjon. Vennligst bruk <code>customRecipients</code> i stedet.</div>
+<h3 id="bruk-av-customrecipient-utgått">Bruk av customRecipient (Utgått)</h3>
+<p>For bakoverkompatibilitet kan du fortsatt bruke <code>customRecipient</code>-feltet for en enkelt mottaker:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;notification&#34;</span>: {
+</span></span><span style="display:flex;"><span>    ...,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;customRecipient&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;organizationNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;nationalIdentityNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;mobileNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;emailAddress&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="notices warning" >⚠️ UTGÅTT: Feltet <code>customNotificationRecipients</code> er utgått og vil bli fjernet i en fremtidig versjon. Vennligst bruk <code>customRecipients</code> i stedet.</div>
+<h3 id="bruk-av-customnotificationrecipients-utgått">Bruk av customNotificationRecipients (Utgått)</h3>
+<p>Dette gjøres ved å fylle ut <code>customNotificationRecipients</code>-feltet under <code>notification</code> slik:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;notification&#34;</span>: {
+</span></span><span style="display:flex;"><span>    ...,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;customNotificationRecipients&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;recipientToOverride&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;recipients&#34;</span>: [
+</span></span><span style="display:flex;"><span>          {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;organizationNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;nationalIdentityNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;mobileNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;emailAddress&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="valideringsregler-for-valgfrie-mottakere">Valideringsregler for valgfrie mottakere</h3>
+<p>Når du bruker valgfrie mottakere, gjelder følgende valideringsregler:</p>
+<ol>
+<li>
+<p><strong>Tilleggsmottakere</strong>: Valgfrie mottakere får varsler <strong>i tillegg til</strong> standard meldingsmottaker, ikke i stedet for dem.</p>
+</li>
+<li>
+<p><strong>Kun én mottaker</strong>: Hvis valgfrie mottakere er spesifisert, må meldingen ha kun én standard mottaker (ikke flere mottakere).</p>
+</li>
+<li>
+<p><strong>Kun én identifikator påkrevd</strong>: Hver valgfrie mottaker må ha nøyaktig ett identifikatorfelt fylt ut:</p>
+<ul>
+<li><code>organizationNumber</code> (for organisasjoner)</li>
+<li><code>nationalIdentityNumber</code> (for personer)</li>
+<li><code>emailAddress</code> (for direkte e-postvarsler)</li>
+<li><code>mobileNumber</code> (for direkte SMS-varsler)</li>
+</ul>
+</li>
+<li>
+<p><strong>Keyword-begrensninger</strong>: Når du bruker <code>emailAddress</code> eller <code>mobileNumber</code>, kan ikke <code>$recipientName$</code>-keywordet brukes i noe varslingsinnhold (e-postemne, e-postinnhold, SMS-innhold, revarselfelt) fordi navneoppslag ikke er tilgjengelig for direkte kontaktinformasjon.</p>
+</li>
+<li>
+<p><strong>Formatvalidering</strong>:</p>
+<ul>
+<li><strong>E-postadresser</strong>: Må være i gyldig e-postformat (f.eks. <code>bruker@eksempel.com</code>)</li>
+<li><strong>Mobilnumre</strong>: Må følge E.164-standarden og være gyldige telefonnumre. Kan starte med <code>+</code> eller <code>00</code> for internasjonalt format. Norske numre som starter med 4 eller 9 får automatisk <code>+47</code>-prefiks hvis ingen landskode er oppgitt.</li>
+<li><strong>Organisasjonsnumre</strong>: Må være i format <code>0192:organisasjonsnummer</code> eller <code>urn:altinn:organisasjonsnummer:organisasjonsnummer</code></li>
+<li><strong>Fødselsnumre</strong>: Må være gyldige 11-sifrede norske fødselsnumre</li>
+</ul>
+</li>
+</ol>
+<h3 id="hvordan-bruke-valgfri-mottaker">Hvordan bruke valgfri mottaker</h3>
+<p>For anbefalt tilnærming (flere mottakere):</p>
+<pre tabindex="0"><code>correspondence.notification.customRecipients[0].organizationNumber
+correspondence.notification.customRecipients[0].nationalIdentityNumber
+correspondence.notification.customRecipients[0].mobileNumber
+correspondence.notification.customRecipients[0].emailAddress
+correspondence.notification.customRecipients[1].organizationNumber
+// ... ytterligere mottakere
+</code></pre><p>For utgått enkelt mottaker tilnærming:</p>
+<pre tabindex="0"><code>correspondence.notification.customRecipient.organizationNumber
+correspondence.notification.customRecipient.nationalIdentityNumber
+correspondence.notification.customRecipient.mobileNumber
+correspondence.notification.customRecipient.emailAddress
+</code></pre><p>For utgått flere mottakere tilnærming:</p>
+<pre tabindex="0"><code>correspondence.notification.customNotificationRecipients[0].recipientToOverride
+correspondence.notification.customNotificationRecipients[0].recipients[0].organizationNumber
+correspondence.notification.customNotificationRecipients[0].recipients[0].nationalIdentityNumber
+correspondence.notification.customNotificationRecipients[0].recipients[0].mobileNumber
+correspondence.notification.customNotificationRecipients[0].recipients[0].emailAddress
+</code></pre>
+
+<div class="panel panel-warning">
+	
+	<div class="panel-body"><p>⚠️ VIKTIG:
+Både <code>notificationTemplate</code> og <code>notificationChannel</code> er anvendelige når du bruker valgfrie mottakere:</p>
+<ul>
+<li><strong><code>notificationTemplate</code></strong>: Bestemmer innholdet (e-postemne, innhold, SMS-innhold) som vil bli sendt til den valgfrie mottakeren</li>
+<li><strong><code>notificationChannel</code></strong>: For organisasjon og person som valgfrie mottakere bestemmer dette kanalene som varslingene sendes til. For direkte e-post/mobil som valgfrie mottakere er kanalen ikke lenger anvendelig.</li>
+</ul>
+<p>Flere detaljer er gitt <a href="#varslingsmaler">her</a>.</p>
+</div>
+	
+</div>
+
+<h2 id="overstyr-standard-mottaker-oppførsel">Overstyr standard mottaker oppførsel</h2>
+<p>Som standard, når du bruker valgfrie mottakere, sendes varsler til både standard meldingsmottaker OG alle valgfrie mottakere. Du kan imidlertid overstyre denne oppførselen ved å bruke <code>overrideRegisteredContactInformation</code>-flagget.</p>
+<h3 id="bruk-av-overrideregisteredcontactinformation">Bruk av overrideRegisteredContactInformation</h3>
+<p><code>overrideRegisteredContactInformation</code>-flagget lar deg kontrollere om standard meldingsmottaker skal inkluderes i varsler:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;notification&#34;</span>: {
+</span></span><span style="display:flex;"><span>    ...,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;customRecipients&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;organizationNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;nationalIdentityNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;mobileNumber&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;emailAddress&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;overrideRegisteredContactInformation&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="oppførsel">Oppførsel</h3>
+<ul>
+<li><strong><code>overrideRegisteredContactInformation: false</code> (standard)</strong>: Varsler sendes til standard meldingsmottaker OG alle valgfrie mottakere</li>
+<li><strong><code>overrideRegisteredContactInformation: true</code></strong>: Varsler sendes KUN til valgfrie mottakere (standard meldingsmottaker ekskluderes)</li>
+</ul>
+<h3 id="valideringsregler">Valideringsregler</h3>
+<ol>
+<li><strong>Valgfrie mottakere påkrevd</strong>: <code>overrideRegisteredContactInformation</code>-flagget kan kun settes til <code>true</code> når <code>customRecipients</code> er oppgitt og ikke tom</li>
+<li><strong>Standardverdi</strong>: Hvis ikke spesifisert, standardiserer <code>overrideRegisteredContactInformation</code> til <code>false</code></li>
+</ol>
+<h3 id="eksempel-brukstilfeller">Eksempel brukstilfeller</h3>
+<p><strong>Scenario 1: Tilleggsmottakere (Standard oppførsel)</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;notification&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;customRecipients&#34;</span>: [{<span style="color:#ff79c6">&#34;organizationNumber&#34;</span>: <span style="color:#f1fa8c">&#34;123456789&#34;</span>}],
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;overrideRegisteredContactInformation&#34;</span>: <span style="color:#ff79c6">false</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Resultat: Varsler sendes til både standard meldingsmottaker OG den valgfrie organisasjonen</p>
+<p><strong>Scenario 2: Overstyr standard mottaker</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;notification&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;customRecipients&#34;</span>: [{<span style="color:#ff79c6">&#34;organizationNumber&#34;</span>: <span style="color:#f1fa8c">&#34;123456789&#34;</span>}],
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;overrideRegisteredContactInformation&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Resultat: Varsler sendes KUN til den valgfrie organisasjonen (standard meldingsmottaker ekskluderes)</p>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/correspondence/getting-started/developer-guides/notifications/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#feltvalidering-og-tegnbegrensninger">Feltvalidering og tegnbegrensninger</a></li>
+    <li><a href="#keyword-støtte">Keyword støtte</a></li>
+    <li><a href="#varslingsmaler">Varslingsmaler</a></li>
+    <li><a href="#varslingskanaler">Varslingskanaler</a></li>
+    <li><a href="#kansellering-av-varsling">Kansellering av varsling</a></li>
+    <li><a href="#feil-ved-bestilling-av-varsling">Feil ved bestilling av varsling</a></li>
+    <li><a href="#valgfri-mottakere-for-varsling">Valgfri mottakere for varsling</a>
+      <ul>
+        <li><a href="#bruk-av-customrecipients-anbefalt">Bruk av customRecipients (Anbefalt)</a></li>
+        <li><a href="#bruk-av-customrecipient-utgått">Bruk av customRecipient (Utgått)</a></li>
+        <li><a href="#bruk-av-customnotificationrecipients-utgått">Bruk av customNotificationRecipients (Utgått)</a></li>
+        <li><a href="#valideringsregler-for-valgfrie-mottakere">Valideringsregler for valgfrie mottakere</a></li>
+        <li><a href="#hvordan-bruke-valgfri-mottaker">Hvordan bruke valgfri mottaker</a></li>
+      </ul>
+    </li>
+    <li><a href="#overstyr-standard-mottaker-oppførsel">Overstyr standard mottaker oppførsel</a>
+      <ul>
+        <li><a href="#bruk-av-overrideregisteredcontactinformation">Bruk av overrideRegisteredContactInformation</a></li>
+        <li><a href="#oppførsel">Oppførsel</a></li>
+        <li><a href="#valideringsregler">Valideringsregler</a></li>
+        <li><a href="#eksempel-brukstilfeller">Eksempel brukstilfeller</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Learn about how Dialogporten uses a common model to express a state of a digital dialogue" />
+<meta name="altinn_pagedir" class="elastic" content="dialogporten/getting-started/dialogs/" />
+<meta name="altinn_title" class="elastic" content="Dialogs" />
+<meta name="product" data-pagefind-filter="Product[content]" content="Dialogporten" />
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="Tutorials" />
+
+<title>Dialogs – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/en/dialogporten/getting-started/dialogs/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/en/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">To the frontpage</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Show/hide menu</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Product</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/en/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/authorization/">
+      <p class="product-item">Authorization</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/broker/">
+      <p class="product-item">Broker</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/correspondence/">
+      <p class="product-item">Correspondence</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/notifications/">
+      <p class="product-item">Notifications</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Search</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/en.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/getting-started/dialogs/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/dialogporten/getting-started/dialogs/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English ✓</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">What are you looking for?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Search');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Last modified: Sep 29, 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/en/dialogporten/"><span>Dialogporten</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/dialogporten/about-dialogporten/"><span>About Dialogporten</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/what-do-you-get/"><span>What do you get?</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/getting-started/"><span>Getting started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/dialogporten/getting-started/dialogs/"><span>Dialogs</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/getting-started/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/dialogporten/getting-started/authorization/parties/"><span>Parties</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/getting-started/authorization/service-resource/"><span>Service Resource</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/getting-started/authorization/attributes/"><span>Authorization Attributes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/getting-started/authorization/dialog-tokens/"><span>Dialog Tokens</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/getting-started/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/getting-started/front-channel-embeds/"><span>Front channel embeds</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/getting-started/write-actions/"><span>Write actions</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/getting-started/process-identifiers/"><span>Process identifiers</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/getting-started/seen-log/"><span>Seen Log</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/getting-started/activity-log/"><span>Activity Log</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/user-guides/"><span>User Guides</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/dialogporten/user-guides/authenticating/"><span>Authenticating</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/user-guides/authorized-parties/"><span>Finding authorized parties</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/user-guides/searching-for-dialogs/"><span>Searching for dialogs</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/user-guides/getting-dialog-details/"><span>Getting dialog details</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/user-guides/detecting-changes/"><span>Detecting changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/user-guides/service-owners/"><span>Service Owners</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/dialogporten/user-guides/service-owners/creating-resources/"><span>Creating resources</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/user-guides/service-owners/creating-dialogs/"><span>Creating dialogs</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/user-guides/service-owners/updating-dialogs/"><span>Updating dialogs</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/user-guides/service-owners/impersonating-users/"><span>Impersonating users</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/user-guides/service-owners/integrating-altinn-apps/"><span>Integrating Altinn Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/user-guides/service-owners/api-client/"><span>API client for .NET</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/user-guides/migrating-from-altinn2/"><span>Migrating from Altinn 2</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/reference/"><span>Reference</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/dialogporten/reference/openapi/"><span>OpenAPI</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/reference/graphql/"><span>GraphQL</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/reference/entities/"><span>Entities</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/dialogporten/reference/entities/dialog/"><span>Dialog</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/reference/entities/transmission/"><span>Transmission</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/reference/entities/attachment/"><span>Attachment</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/reference/entities/activity/"><span>Activity</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/reference/entities/seen/"><span>Seen</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/reference/entities/serviceownerlabel/"><span>Service owner labels</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/reference/entities/systemlabel/"><span>System label</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/reference/entities/action/"><span>Action</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/reference/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/dialogporten/reference/authorization/altinn-authorization/"><span>Altinn Authorization</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/reference/authorization/attributes/"><span>Authorization Attributes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/reference/authorization/parties/"><span>Authorized Parties</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/reference/authorization/dialog-tokens/"><span>Dialog Tokens</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/reference/front-end/"><span>Front end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/dialogporten/reference/front-end/front-channel-embeds/"><span>Front channel embeds</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/reference/front-end/write-actions/"><span>Write actions</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/reference/front-end/subscriptions/"><span>GraphQL subscriptions</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/reference/front-end/altinn-apps/"><span>Altinn Apps integration</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/reference/content-types/"><span>Content types</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/reference/events/"><span>Events</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/news/"><span>News</span></a></li>
+      <li class="dd-item">
+        <a href="/en/dialogporten/status-migration/"><span>Status Migration</span></a></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/en/dialogporten/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/dialogporten/getting-started/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/dialogporten/getting-started/dialogs/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/en/dialogporten/'>Dialogporten</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/dialogporten/getting-started/'>Getting started</a> <span class='adocs-breadcrumb-divider'> / </span> Dialogs</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Dialogs</h1>
+              <p class="a-leadText" id="leadText">Learn about how Dialogporten uses a common model to express a state of a digital dialogue</p>
+
+<h2 id="introduction">Introduction</h2>
+<p>This section explains the dialog model and its components from a functional standpoint. For technical information for the various entities, see links within each section of this page.</p>
+<p>For step-by-step guides on how to use Dialogporten as a end-user or service owner, see the <a href="/en/dialogporten/user-guides/">user guides</a>.</p>
+<h2 id="the-dialog">The dialog</h2>
+<p>The dialog is an abstract and common model for all ongoing or completed communications with a service owners, and contains descriptive metadata, e.g., who is the receiving party, addresses (URL), textual content (title, summary etc), date, status, a list of relevant <em>actions</em> that the user can perform, and an optional list of <a href="#transmissions">transmissions</a>. Actions can be arbitrarily defined by the service provider, and all interaction with the dialog takes place in the service provider&rsquo;s user interfaces or against the service provider&rsquo;s API endpoints (except for GUI actions that describe write operations, see more about this in the section <a href="#actions">Actions</a>).</p>
+<p>An important difference from <a href="/en/correspondence/">Altinn Correspondence</a> is that dialogs in Dialogporten are <em>mutable</em>. The service provider can update the metadata and available actions on the dialog at any time (with some notable exceptions). Any change generates <em>events</em>, which authorized parties can act on, e.g., sending a notification or having an EUS perform an action.</p>
+<p>Dialogs use <a href="https://uuid7.com/">UUIDv7</a> as its identifier. The service owner can specify the desired UUIDv7 upon creation to enable the use of the same identifier across systems and ensure idempotency. The date portion of the UUIDv7 cannot be set to a future date.</p>
+<p><strong>Read more</strong></p>
+<ul>
+<li>    
+
+
+
+
+
+
+
+
+
+    
+    
+        
+    
+
+    
+        <a href="/en/dialogporten/reference/entities/dialog/">Reference information about the dialog aggregate root</a>
+    
+
+</li>
+</ul>
+<h2 id="content">Content</h2>
+<p>While the dialog mainly contains metadata, there is some content, namely a title, a short summary and a field for &ldquo;additional information&rdquo;, used for providing non-personal textual information, eg. service owner contact information or links to documentation.</p>
+<p>Additionally, a dialog may contain a content reference called a <a href="/en/dialogporten/getting-started/front-channel-embeds/">front channel embeds</a>, which is a URL to a special endpoint provided by the service owner that returns a &ldquo;full&rdquo; personlized content payload.</p>
+<h2 id="transmissions">Transmissions</h2>
+<p>A transmission is used to describe a single &ldquo;communication&rdquo; between the service owner and the party within a dialog Transmissions can typically be messages, pre-filled forms and receipts from the service provider, or submitted forms/messages from the party related to the dialog. The dialog may contain zero or more transmissions represented in a chronologically sorted list. Each transmission and the list of transmissions are immutable; it is only possible to append new tranmissions to the list, not change or delete transmissions.</p>
+<p>A transmission contains some textual metadata (title, summary) that explains what the transmission is, including <a href="/en/dialogporten/getting-started/front-channel-embeds/">front channel embeds</a>. Additionally, a transmission may contain one or more <a href="#attachments">attachments</a>.</p>
+<p>Transmissions will by default inherit the authorization policy for the dialog itself, but this may be overridden such that individual transmissions are indicated as unavaiable if the end-user lacks privileges, in which case only the metadata is available, but not any front-channel embeds or attachments.</p>
+<p>API actions and activity log entries may refer to single transmissions.</p>
+<p><strong>Read more</strong></p>
+<ul>
+<li>    
+
+
+
+
+
+
+
+
+
+    
+    
+        
+    
+
+    
+        <a href="/en/dialogporten/reference/entities/transmission/">Reference information about the transmission entity</a>
+    
+
+</li>
+</ul>
+<h2 id="attachments">Attachments</h2>
+<p>Attachments are files referenced by one or more URLs, supporting various representations of the same logical resource (ie. various formats, such as PDF, XML, JSON etc), for either GUI-consumers (ie. end user in web browser) or API-consumers (structured formats for custom end user systems). In addition to the URLs, there are some describing metadata that can be used to identity what the attachment is.</p>
+<p>Attachments can be used on both transmission and dialog level.</p>
+<p><strong>Read more</strong></p>
+<ul>
+<li>    
+
+
+
+
+
+
+
+
+
+    
+    
+        
+    
+
+    
+        <a href="/en/dialogporten/reference/entities/attachment/">Reference information about the attachment entity</a>
+    
+
+</li>
+</ul>
+<h2 id="actions">Actions</h2>
+<p>An <em>action</em> describes an interaction that users can perform with or related to a dialog. Examples of actions are &ldquo;Open&rdquo;, &ldquo;Start signing&rdquo;, &ldquo;Pay&rdquo;, &ldquo;Confirm&rdquo;, &ldquo;Learn more&rdquo;, &ldquo;Cancel&rdquo;, etc. The list of relevant actions is part of the structured description of a dialog and can be changed at any time by the service provider through the API.</p>
+<p>An action is either a <em>&ldquo;GUI&rdquo; action</em> or an <em>&ldquo;API&rdquo; action</em>. All actions - both GUI and API - have an identifier that maps to an <em>action</em> (and optionally an <a href="/en/dialogporten/getting-started/authorization/attributes/">authorization attribute</a>) in the authorization policy (<a href="/en/authorization/reference/xacml/">XACML</a> associated with a <a href="/en/dialogporten/getting-started/authorization/service-resource/">service resource</a>.</p>
+<h3 id="gui-actions">GUI Actions</h3>
+<p>GUI actions are meant to be used with browser based end-user systems (portals), which are usually made visible to the user in the form of buttons, links, or similar interactive elements. The service provider specifies whether a given action is to be considered a primary, secondary, or tertiary action, which affects how it is presented to the user. A primary action will typically be presented as a highlighted button (&ldquo;call to action&rdquo;) and is used for the logical next step. A secondary action (e.g., &ldquo;Cancel&rdquo;) can be a more subdued button or text link, while a tertiary action (e.g., &ldquo;Learn more about this service&rdquo;) can be hidden behind a dropdown menu or similar. All this is up to the particular GUI used to evaluate, and different evaluations may be made depending on the &ldquo;view&rdquo; - i.e., context, intended user group, etc.</p>
+<p>All GUI actions have a URL. These URLs are used in the front channel (ie. the browser) when the user activates the action, and involve the user being redirected to the service provider&rsquo;s own user interface where the action is performed, either automatically or as a result of further user interaction. This redirection always occurs with a GET request, ensuring that any existing sessions with the service provider are used (i.e., that browsers will send session cookies), and that redirection via SSO login in ID-porten works. These URLs must therefore return either redirects or HTML, and since it is a GET request, it is not recommended that these actions directly result in state changes.</p>
+<p>GUI actions can, however, be marked as <a href="/en/dialogporten/getting-started/write-actions/">write operations</a> and can then also be used to make state changes.</p>
+<p><strong>Read more</strong></p>
+<ul>
+<li>    
+
+
+
+
+
+
+
+
+
+    
+    
+        
+    
+
+    
+        <a href="/en/dialogporten/getting-started/write-actions/">Learn how write actions are used to provide a more integrated user experience</a>
+    
+
+</li>
+<li><a href="/en/dialogporten/reference/entities/action#gui-actions">Reference information for the GUI action entity</a></li>
+</ul>
+<h3 id="api-actions">API Actions</h3>
+<p>An API action is intended for EUSs and portals that use Dialogporten through their own integration and allows defining actions that result in direct state changes and take complex input that cannot be performed directly with a browser due to security mechanisms. API actions are versioned and contain a list of endpoints that can be called, possibly with information about whether an endpoint is being phased out and when this will happen. Each action also contains an identifier indicating what type of action it is, and each endpoint indicates which URL must be called to perform the action. The endpoint also contains information about which HTTP operation to use (typically GET or POST), and optionally a link to a structured description (e.g., JSON Schema) of the data model that is either returned or expected as input, which can be used for documentation purposes.</p>
+<div class="notices info" >Dialogporten does not validate any data and does not see what data flows between the EUS and the service provider&rsquo;s API.</div>
+
+<p><strong>Read more</strong></p>
+<ul>
+<li><a href="/en/dialogporten/reference/entities/action#api-actions">Reference information for the API action entity</a></li>
+</ul>
+<h2 id="activities">Activities</h2>
+<p>An <em>activity</em> describes an action or event that has occurred in connection with the dialog. Each activity is part of the activity history, which is a chronological list of activities. The service provider populates the activity history as various state changes occur.</p>
+<p><strong>Read more</strong></p>
+<ul>
+<li>    
+
+
+
+
+
+
+
+
+
+    
+    
+        
+    
+
+    
+        <a href="/en/dialogporten/getting-started/activity-log/">Learn about how Dialogporten provides a activity log for each dialog</a>
+    
+
+</li>
+<li>    
+
+
+
+
+
+
+
+
+
+    
+    
+        
+    
+
+    
+        <a href="/en/dialogporten/reference/entities/activity/">Refererence information about the dialog activity entity</a>
+    
+
+</li>
+</ul>
+<h2 id="dialog-labels">Dialog labels</h2>
+<p>Dialogs can be assigned various labels that users may employ in order to organize their dialogs in order to make it easier to keep track and collaborate with each other.</p>
+<div class="notices info" >Labels does not affect the state of the actual dialog; ie. its status, content or progress, and cannot be used to advance or otherwise affect the dialog process as defined by the service owner. It is merely a mechanism to enable dialog organization by allowing the user interface to create views based on dialog labels.</div>
+
+<p>There are two main categories of labels; user defined labels and system labels.</p>
+<h3 id="user-defined-labels">User defined labels</h3>
+<p>User defined labels are administered by the users, and may be shared with other users. Some user defined labels have global effect (ie. visible for everyone with access to the dialog), while other are personal (ie. only visible for the user owning the labels.)</p>
+<div class="notices warning" >User defined label functionality is under design, and will be made available at a later stage. See the <a href="/en/dialogporten/news/">news</a> section for updated information.</div>
+
+<h3 id="system-labels">System labels</h3>
+<p>System labels are predefined, global labels defined by Dialogporten. These may be assigned to any dialog by any user with write access to the dialog in question. Currently there are three system labels defined; <code>Archive</code> and <code>Bin</code> and <code>Default</code>. Assigning <code>Archive</code> or <code>Bin</code> labels will typically hide the dialog from the ordinary inbox views, and will make them available in other views. These system labels are mutually exclusive (ie. it can only have one of these labels at any time). By default, all dialogs will have the label <code>Default</code>, which indicates that default view/handling of the dialog should be applied.</p>
+<p>Common for these two system labels is that any change made to the dialog by the service owner will reset them to <code>Default</code>. Ie. if a user decides to place a dialog in the bin, and the service owner subsequently updates it with more information, the dialog will again be visible in the ordinary views as if the <code>Bin</code> label was never assigned.</p>
+<h3 id="label-log">Label log</h3>
+<p>Dialogporten keeps track of labellings, logging who performed them and at what time it was performed. This includes resetting of system labels due to dialog updates.</p>
+<p><strong>Read more</strong></p>
+<ul>
+<li>    
+
+
+
+
+
+
+
+
+
+    
+    
+        
+    
+
+    
+        <a href="/en/dialogporten/reference/entities/systemlabel/">Reference information about the system label entity</a>
+    
+
+</li>
+</ul>
+<ul class="children children-li js-moveChildrenFrom">
+
+	
+		
+	
+</ul>
+
+
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/dialogporten/getting-started/dialogs/_index.en.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Edit page on GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#the-dialog">The dialog</a></li>
+    <li><a href="#content">Content</a></li>
+    <li><a href="#transmissions">Transmissions</a></li>
+    <li><a href="#attachments">Attachments</a></li>
+    <li><a href="#actions">Actions</a>
+      <ul>
+        <li><a href="#gui-actions">GUI Actions</a></li>
+        <li><a href="#api-actions">API Actions</a></li>
+      </ul>
+    </li>
+    <li><a href="#activities">Activities</a></li>
+    <li><a href="#dialog-labels">Dialog labels</a>
+      <ul>
+        <li><a href="#user-defined-labels">User defined labels</a></li>
+        <li><a href="#system-labels">System labels</a></li>
+        <li><a href="#label-log">Label log</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">About Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

@@ -1,0 +1,2290 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Follow these steps to implement runtime delegated signing in your service" />
+<meta name="altinn_pagedir" class="elastic" content="altinn-studio/v8/guides/development/signing/runtime-delegated-signing/" />
+<meta name="altinn_title" class="elastic" content="Runtime delegated signing" />
+<meta name="product" data-pagefind-filter="Product[content]" content="Altinn Studio" />
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="How-to guides" />
+
+<title>Runtime delegated signing – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/en/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/en/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">To the frontpage</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Show/hide menu</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Product</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/en/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/authorization/">
+      <p class="product-item">Authorization</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/broker/">
+      <p class="product-item">Broker</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/correspondence/">
+      <p class="product-item">Correspondence</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/notifications/">
+      <p class="product-item">Notifications</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Search</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/en.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English ✓</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">What are you looking for?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Search');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Last modified: Nov 12, 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+<div id="version-dropdown-top" class="product-version-dropdown">
+    <div class="version-selector-wrapper">
+        <label class="version-label" for="version-selector-button" id="version-selector-label">
+        Version:
+        </label>
+        <div class="dropdown">
+        <button
+            type="button"
+            id="version-selector-button"
+            class="nav-link dropdown-toggle version-switcher"
+            role="combobox"
+            aria-controls="version-dropdown-menu"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-labelledby="version-selector-label"
+            aria-describedby="version-selector-help"
+            data-toggle="dropdown">
+            <span id="current-version-top">Current (V8)</span>
+        </button>
+        <div
+            class="dropdown-menu version-dropdown"
+            role="listbox"
+            aria-labelledby="version-selector-label"
+            id="version-dropdown-menu"><a
+                class="dropdown-item version-option"
+                href="/en/altinn-studio/v8/"
+                data-version="v8"
+                role="option"
+                tabindex="-1"
+                aria-selected="true">
+                <span class="version-item">Current (V8)</span>
+            </a></div>
+        </div>
+        <div id="version-selector-help" class="sr-only">
+          Use the arrow keys to navigate between versions and Enter to select        
+        </div>
+    </div>
+</div>
+
+<style>
+   
+  .product-version-dropdown {
+    background: #f8f9fa;
+    padding: 10px;
+    border-bottom: 1px solid #ddd !important;
+    margin-bottom: 0;
+  }
+  #sidebar .product-version-dropdown {
+    border-bottom: 1px solid #ddd !important;
+  }
+  .version-selector-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .dropdown {
+    position: relative;
+  }
+  .version-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555 !important;
+    margin: 0 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .version-switcher {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    color: #333 !important;
+    text-decoration: none !important;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    text-align: left;
+  }
+  .version-switcher::after {
+    margin-left: auto;
+  }
+  #sidebar .version-switcher {
+    border-bottom: 1px solid #ccc !important;
+  }
+  .version-switcher:hover,
+  .version-switcher:focus {
+    background: #e9ecef;
+    outline: none;
+    border-color: #007bff;
+  }
+  .version-switcher:focus {
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+  .version-option:focus,
+  .version-option:hover {
+    background: #007bff !important;
+    color: white !important;
+    outline: none;
+  }
+  .version-option[aria-selected="true"] {
+    background: #28a745 !important;
+    color: white !important;
+  }
+  .sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+  .version-dropdown {
+    min-width: 200px;
+    max-height: none !important;
+    overflow-y: visible !important;
+    position: absolute;
+    z-index: 1000;
+  }
+  .version-item {
+    margin: 0;
+    padding: 4px 0;
+  }
+  .version-section {
+    padding-top: 10px;
+  }
+
+    
+  .version-root-item {
+    display: block !important;
+  }
+
+   
+  .version-content .version-section > li {
+    list-style: none;
+  }
+</style>
+
+<script>
+  (function() {
+    
+    setupVersionSelectorAccessibility();
+
+    function setupVersionSelectorAccessibility() {
+      var button = document.getElementById('version-selector-button');
+      var dropdown = document.getElementById('version-dropdown-menu');
+
+      if (!button || !dropdown) return;
+
+      var options = dropdown.querySelectorAll('.version-option');
+      var currentFocusIndex = -1;
+
+      button.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
+          e.preventDefault();
+          if (dropdown.style.display === 'none' || !dropdown.classList.contains('show')) {
+            showDropdown();
+            focusOption(0);
+          }
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          showDropdown();
+          focusOption(options.length - 1);
+        }
+      });
+
+      dropdown.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          focusOption(currentFocusIndex + 1);
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          focusOption(currentFocusIndex - 1);
+        } else if (e.key === 'Enter') {
+          e.preventDefault();
+          if (currentFocusIndex >= 0 && options[currentFocusIndex]) {
+            window.location.href = options[currentFocusIndex].href;
+          }
+        } else if (e.key === 'Escape') {
+          e.preventDefault();
+          hideDropdown();
+          button.focus();
+        }
+      });
+
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (dropdown.style.display === 'none' || !dropdown.classList.contains('show')) {
+          showDropdown();
+        } else {
+          hideDropdown();
+        }
+      });
+
+      function showDropdown() {
+        button.setAttribute('aria-expanded', 'true');
+        dropdown.classList.add('show');
+        dropdown.style.display = 'block';
+      }
+
+      function hideDropdown() {
+        button.setAttribute('aria-expanded', 'false');
+        dropdown.classList.remove('show');
+        dropdown.style.display = 'none';
+        currentFocusIndex = -1;
+        updateAriaSelected();
+      }
+
+      function focusOption(index) {
+        if (index < 0) index = options.length - 1;
+        if (index >= options.length) index = 0;
+
+        currentFocusIndex = index;
+        options[currentFocusIndex].focus();
+        updateAriaSelected();
+      }
+
+      function updateAriaSelected() {
+        
+        var currentVersion = button.querySelector('#current-version-top').textContent.trim();
+        options.forEach(function(option) {
+          var optionVersion = option.getAttribute('data-version');
+          option.setAttribute(
+            'aria-selected',
+            optionVersion === currentVersion ? 'true' : 'false'
+          );
+        });
+      }
+
+      
+      document.addEventListener('click', function(e) {
+        if (!button.contains(e.target) && !dropdown.contains(e.target)) {
+          hideDropdown();
+        }
+      });
+    }
+  })();
+</script>
+<li class="dd-item parent version-root-item">
+              <a href="/en/altinn-studio/v8/">
+                <span>Altinn Studio</span>
+                <i class="fa fa-sort-down fa-lg category-icon"></i></a>
+              <ul class="version-content">
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/about/"><span>About Altinn Studio</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/about/usecases/"><span>Use Cases for Altinn Studio Apps</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/what-do-you-get/"><span>What do you get?</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/"><span>Getting Started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/create-user/"><span>Create user</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/navigation/"><span>Navigate Altinn Studio</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/navigation/designer/"><span>Designer</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/navigation/dashboard/"><span>Dashboard</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/navigation/repos/"><span>Repos</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/"><span>Intro Course</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/case/"><span>Case</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/modul1/"><span>Module 1: Create Service</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/modul2/"><span>Module 2: Customize Data Model</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/modul3/"><span>Module 3: Create Form</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/modul4/"><span>Module 4: Create Info Page</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/modul5/"><span>Module 5: Publish Service</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/modul6/"><span>Module 6: Add code lists</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/modul7/"><span>Module 7: Adding Dynamic Behavior</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/authorization-rules/"><span></span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/"><span>User guides</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/"><span>Design</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/insight/"><span>Preliminary considerations</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/prototype/"><span>Prototype</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/usertest/"><span>User testing</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/"><span>Guidelines</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/consistency/"><span>Consistency</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/content/"><span>Content in the form</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/design-principles/"><span>Design principles</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/link-to-app/"><span>Entering the form</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/"><span>UI-components</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/title-and-paragraph/"><span>Typography</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/button/"><span>Buttons and links</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/input/"><span>Input</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/date/"><span>Date</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/checkbox/"><span>Checkboxes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/radiobutton/"><span>Radio button</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/dropdown/"><span>Dropdown</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/helptext/"><span>Help texts</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/error-message/"><span>Error messages</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/file-upload/"><span>File upload</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/picture-component/"><span>Image</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/tone-of-voice/"><span>Language</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/organisation-library/"><span>Organisation library</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/basic-form/"><span>Simple Form</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/eformidling/"><span>eFormidling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/eformidling/legacy/"><span>eFormidling legacy</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/eformidling/service-task/"><span>eFormidling service task</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/fiks-arkiv/"><span>Fiks Arkiv</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/pdf/"><span>PDF</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/subform-pdf/"><span>PDF subform</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/branching/"><span>Branches</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/dynamics/"><span>Dynamikk</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/prefill/"><span>Prefill</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/prefill/config/"><span>Configuration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/prefill/custom/"><span>Custom code</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/prefill/instantiation/"><span>Http post</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/prefill/query-params/"><span>Query parameters</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/"><span>Options</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/sources/"><span>Sources</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/sources/static/"><span>Static</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/sources/dynamic/"><span>Dynamic</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/sources/from-data-model/"><span>From data model</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/sources/organisation-library/"><span>Organisation library</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/sources/shared/"><span>Shared</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/sources/altinn2/"><span>From Altinn 2</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/functionality/"><span>Functionality</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/functionality/data-binding/"><span>Data binding</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/functionality/automatic-cleanup/"><span>Automatic cleanup</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/functionality/texts/"><span>Texts</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/functionality/filtering/"><span>Filtering</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/functionality/preselection/"><span>Pre-selection</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/functionality/sorting/"><span>Sorting</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/payment/"><span>Payment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/restricted-data/"><span>Restricted data</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/signing/"><span>Signing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/"><span>Runtime delegated</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/signing/role-based-signing/"><span>Role and access package</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/signing/sign-and-submit/"><span>Sign and submit</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/signing/api-signing/"><span>API-based signing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/subform/"><span>Subform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/subform/config-options/"><span>Configuration</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/summary2/"><span>Summary</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/undeploy/"><span>Unpublishing</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/copy-app/"><span>Copy app</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/multi-app-solution/"><span>Multi-app solution</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/multi-app-solution/instructions/"><span>Instructions</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/multi-app-solution/instructions/app-a/"><span>Application A</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/multi-app-solution/instructions/app-b/"><span>Application B</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/multi-app-solution/testing/"><span>Testing</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/local-dev/"><span>Local Development</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/service-tasks/"><span>Service tasks</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/service-tasks/custom/"><span>Custom</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/administration/"><span>Administration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/administration/maintainance/"><span>Maintenance</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/administration/maintainance/dependencies/"><span>Dependencies</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/administration/access-management/"><span>Access management</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/administration/access-management/apps/"><span>Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/administration/access-management/studio/"><span>Studio</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/administration/monitor-and-instrument/"><span>Monitor and instrument</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/integration/"><span>Integration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/integration/sbs/"><span>End-user systems</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/integration/sbs/setup/"><span>Setup and configuration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/integration/sbs/apis/"><span>API integration</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/integration/correspondence/"><span>Correspondence</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/en/altinn-studio/v8/guides/integration/correspondence/maskinporten/">
+            <span>Using Maskinporten</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/integration/maskinporten/"><span>Maskinporten</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/altinn-2/"><span>Altinn 2</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/altinn-2/altinn-2-datamodel/"><span>Altinn 2 Data Model</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/altinn-2/seres-migration/"><span>Sereserstatning</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/altinn-2/migrate-services/"><span>Migrate services</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/contributing/create-new-component/"><span>Create a new component</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/contributing/add-new-component/"><span>Add a new component in Studio</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/"><span>Reference</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/data/data-modeling/"><span>Data Modeling</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/data/persistence/"><span>Persistence</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/data/prefill/"><span>Prefill</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/data/attachments/"><span>Attachments</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/data/external-api/"><span>External API</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/"><span>User interface</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/"><span>Components</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/commondefs/"><span>CommonProps</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/accordion/"><span>Accordion</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/accordiongroup/"><span>AccordionGroup</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/actionbutton/"><span>ActionButton</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/address/"><span>Address</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/alert/"><span>Alert</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/attachmentlist/"><span>AttachmentList</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/audio/"><span>Audio</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/button/"><span>Button</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/button-group/"><span>ButtonGroup</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/cards/"><span>Cards</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/checkboxes/"><span>Checkboxes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/custom/"><span>Custom</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/custombutton/"><span>CustomButton</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/date/"><span>Date</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/datepicker/"><span>Datepicker</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/divider/"><span>Divider</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/dropdown/"><span>Dropdown</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/fileupload/"><span>FileUpload</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/fileuploadwithtag/"><span>FileUploadWithTag</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/grid/"><span>Grid</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/group/"><span>Group</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/header/"><span>Header</span></a></li><li class="dd-item">
+          <a href="/en/altinn-studio/v8/reference/ux/components/iframe/">
+            <span>IFrame</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/image/"><span>Image</span></a></li><li class="dd-item">
+          <a href="/en/altinn-studio/v8/reference/ux/components/imageupload/">
+            <span>Image Uploader</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/input/"><span>Input</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/instanceinformation/"><span>InstanceInformation</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/instantiationbutton/"><span>InstantiationButton</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/likert/"><span>Likert</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/link/"><span>Link</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/listcomponent/"><span>List</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/map/"><span>Map</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/multipleselect/"><span>MultipleSelect</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/navigationbar/"><span>NavigationBar</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/navigationbuttons/"><span>NavigationButtons</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/number/"><span>Number</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/option/"><span>Option</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/organizationlookup/"><span>OrganisationLookup</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/panel/"><span>Panel</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/paragraph/"><span>Paragraph</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/personlookup/"><span>PersonLookup</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/printbutton/"><span>PrintButton</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/radiobuttons/"><span>RadioButtons</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/signeelist/"><span>SigneeList</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/signingactions/"><span>SigningActions</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/signingdocumentlist/"><span>SigningDocumentList</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/summary/"><span>Summary</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/summary2/"><span>Summary2</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/tabs/"><span>Tabs</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/text/"><span>Text</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/timepicker/"><span>TimePicker</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/video/"><span>Video</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/pages/"><span>Pages</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/pages/navigation/"><span>Navigation</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/pages/tracks/"><span>Tracks</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/pages/summary/"><span>Summary</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/"><span>Fields</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/"><span>Grouping</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/"><span>Repeating</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/edit/"><span>Edit</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/table/"><span>Table</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/attachments/"><span>Attachments</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/dynamics/"><span>Dynamics</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/multipage/"><span>MultiPage</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/non-repeating/"><span>Non-repeating</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/panel/"><span>Panel</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/settings/"><span>Settings</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/footer/"><span>Footer</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/logo/"><span>Logo</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/styling/"><span>Styling</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/texts/"><span>Texts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/texts/translation/"><span>Translation of texts</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/pdf/"><span>PDF</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/"><span>Logic</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/events/"><span>App Events</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/events/subscribing/"><span>Subscribing</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/generic/"><span>Generic</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/notifications/"><span>Notifications</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/notifications/email/"><span>Email</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/notifications/sms/"><span>SMS</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/dataprocessing/"><span>Data processing</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/dynamic/"><span>Dynamics</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/expressions/"><span>Expressions</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/instantiation/"><span>Instantiation</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/services/"><span>Services</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/validation/"><span>Validation</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/validation/files/"><span>File validation</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/validation/expression-validation/"><span>Validation using expressions</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/messagebox/create_copy/"><span>Create copy</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/messagebox/hide_instances/"><span>Hide instances</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/messagebox/advanced-sync/"><span>Sync settings</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/en/altinn-studio/v8/reference/configuration/authorization/api-scopes/">
+            <span>API Scopes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/"><span>Guidelines</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/"><span>Roles</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/"><span>Altinn Roles</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/altinn_roles_administration/"><span>Administration roles</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/altinn_roles_enterprices/"><span>Enterprise roles</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/altinn_roles_persons/"><span>Person roles</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_er/"><span>ER-Roles</span></a></li><li class="dd-item">
+          <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_ske/">
+            <span>SKE-roles</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/test_authorization_application/"><span>Testing</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/partytype/"><span>Party types</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/datafields/"><span>Data fields</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/process/"><span>Process</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/process/auto-delete/"><span>Automatic deletion</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/process/customize/"><span>Customize Views</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/process/pre-post-hooks/"><span>Define custom process hooks</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/process/exclusive-gateways/"><span>Exclusive gateways</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/process/message/"><span>Message</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/queryparameters/"><span>Query parameters</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/shadowfields/"><span>Shadow fields</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/secrets/"><span>Secrets</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/eformidling/"><span>eFormidling</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/filescan/"><span>Virus scan</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/settings/"><span>Settings</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/startup/"><span>Startup</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/stateless/"><span>Stateless</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/deployment/"><span>Deployment</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authentication/"><span>Authentication</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/autosavebehavior/"><span>Auto Save Behavior</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/analysis/"><span>Analyse</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/analysis/rules/altinnapp0500/"><span>ALTINNAPP0500: farlig bruk av IHttpContextAccessor</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/api/auth/"><span>Authentication</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/api/consume/"><span>Consume</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/api/expose/"><span>Expose</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/api/instance/"><span>Instance</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/testing/"><span>Testing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/testing/local/"><span>Locally</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/testing/local/apitests/"><span>API tests</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/testing/local/apitests/user/"><span>End user</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/testing/local/apitests/org/"><span>Org</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/testing/local/debug/"><span>Debugging</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/testing/local/testusers/"><span>Test users</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/testing/deploy/"><span>In test environment</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/cli/"><span>Altinn Studio CLI</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/cli/install/"><span>Installation</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/deployment/"><span>Deployment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/deployment/firewall/"><span>Firewall &amp; IP Configuration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/deployment/runtime-environment/"><span>Runtime Environment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/deployment/runtime-environment/resource-allocation-tips/"><span>Practical tips for resource allocation</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/deployment/runtime-environment/resource-allocation/"><span>Resource Allocation</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/process/"><span>Process handling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/process/tasks/"><span>Process tasks</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/process/tasks/signing/"><span>Signing task</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/process/flowcontrol/"><span>Flowcontrol</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/process/actions/"><span>Actions</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/process/actions/serveraction/"><span>Server Action</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/process/actions/process-actions/"><span>Process actions</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/monitoring/"><span>Monitoring</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/monitoring/configuration/"><span>Configuration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/monitoring/instrumentation/"><span>Instrumentation</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/monitoring/registry/"><span>Telemetry registry</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/monitoring/registry/metrics/"><span>Metrics</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/monitoring/visualisation/"><span>Visualisation</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/monitoring/faq/"><span>FAQ</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/monitoring/references/"><span>Resources</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/access-management/"><span>Access management</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/access-management/apps/"><span>Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/access-management/studio/"><span>Studio</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/"><span>Concepts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/data-model/"><span>Data model</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/data-model/restricted-data/"><span>Restricted data</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/organisation-library/"><span>Organisation Library</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/organisation-library/code-lists/"><span>Library Code Lists</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/payment/"><span>Payment</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/prefill/"><span>Prefill</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/signing/"><span>Signing</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/process/"><span>Process</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/undeploy/"><span>Unpublishing</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/news/"><span>Whats&#39;s new</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/news/launched-apps/"><span>Launched app examples</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/news/launched-apps/external/"><span>External</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/news/launched-apps/digdir/"><span>Digdir</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/news/launched-apps/digdir/bli-tjenesteeier/"><span>Bli tjenesteeier</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/news/launched-apps/digdir/godkjenn-bruksvilkaar/"><span>Godkjenn bruksvilkår</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/news/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li></ul>
+            </li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/en/altinn-studio/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/altinn-studio/v8/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/altinn-studio/v8/guides/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/altinn-studio/v8/guides/development/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/altinn-studio/v8/guides/development/signing/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/en/altinn-studio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/altinn-studio/v8/'>Current (V8)</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/altinn-studio/v8/guides/'>User guides</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/altinn-studio/v8/guides/development/'>Development</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/altinn-studio/v8/guides/development/signing/'>Signing</a> <span class='adocs-breadcrumb-divider'> / </span> Runtime delegated</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Runtime delegated signing</h1>
+              <p class="a-leadText" id="leadText">Follow these steps to implement runtime delegated signing in your service</p>
+
+  <style>
+code {
+    max-height: 500px;
+}
+code.language-xml {
+  white-space: pre !important;
+}
+code.language-xml > span[style*="background-color"] {
+  display: block !important;
+  min-width: var(--full-line-width, 100%);
+}
+</style>
+<script>
+$(window).load(function() {
+  const $codeBlock = $('.highlight code.language-xml').first();
+
+  function applyHighlightWidth() {
+    const $elmnt = $codeBlock.get(0);
+    if (!$elmnt)
+        return;
+
+    $elmnt.style.setProperty('--full-line-width', $elmnt.scrollWidth + 'px');
+  }
+
+  function scrollToHighlight() {
+    const $hlSpan = $codeBlock.find('span[style*="background-color"]').first();
+    if (!$hlSpan.length)
+        return;
+
+    const offsetTop = $hlSpan.position().top;
+    $codeBlock.scrollTop(offsetTop);
+  }
+
+  applyHighlightWidth();
+  scrollToHighlight();
+});
+</script>
+<div class="notices info" >Available from <a href="https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.6.0">v8.6.0</a></div>
+<h2 id="what-is-runtime-delegated-signing">What is runtime delegated signing?</h2>
+  <p>By runtime delegated signing, we mean an app where those who need to sign are granted rights during the form-filling process.</p>
+<p>Typically, the app will ask the form owner to provide the social security number and last name of the individuals who need to sign, or alternatively, the organization number if someone with signing authority within a company needs to sign.</p>
+<p>Once the form is fully completed, the user presses &ldquo;Submit for signing&rdquo;.
+The app will then delegate rights and send a message to the inbox in Altinn.
+The recipient may also be notified via email and SMS, depending on the configuration.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<h3 id="maskinporten">Maskinporten</h3>
+<p>Maskinporten is required both for the <a href="#correspondence">messaging service</a> and the interaction with <a href="/en/altinn-studio/v8/guides/development/restricted-data/">restricted data</a>.</p>
+<p>For runtime delegated signing, your Maskinporten client must have access to the following scopes:</p>
+<ul>
+<li><code>altinn:correspondence.read</code></li>
+<li><code>altinn:correspondence.write</code></li>
+<li><code>altinn:serviceowner/instances.read</code></li>
+<li><code>altinn:serviceowner/instances.write</code></li>
+</ul>
+<p>The correspondence-scopes are used when the app sends correspondence messages to signees as a call to action.
+The serviceowner scopes are used for internal state and bookkeeping in the app.</p>
+<p>If you need help setting up a Maskinporten integration for your app, you can find all the information you need in <a href="/en/altinn-studio/v8/guides/integration/maskinporten/">this guide</a>.</p>
+<h3 id="correspondence">Correspondence</h3>
+<p>Runtime delegated signing depends on the messaging service (<a href="/en/correspondence/">Correspondence</a>) in Altinn, which requires separate configuration.</p>
+<p>The message service is used to tell the signee that they have been asked to sign a form in Altinn, and to send them a receipt of what they signed when the signature has been submitted.</p>
+<p>See how to get started in <a href="/en/correspondence/getting-started/">this guide</a>.</p>
+<h2 id="example-application">Example Application</h2>
+<p>In the following <a href="https://altinn.studio/repos/ttd/signering-brukerstyrt">repository</a>, you can find an example of an application with runtime delegated signing.</p>
+<p>The main flow is:</p>
+<ol>
+<li>The form filler enters the personal identification number and last name of the individuals who need to sign, or alternatively, the organization number if it is a company.</li>
+<li>Once the form is completed, the filler clicks a &ldquo;Go to signing&rdquo; button, which moves the process to the signing step.</li>
+<li>During the signing step, the application calls an implementation of the interface <code>ISigneeProvider</code> to determine who should be delegated access to sign.</li>
+<li>The signers are delegated rights and receive a notification that they have a signing task.</li>
+<li>The signers find the form in their inbox, open it, review the data, and click &ldquo;Sign.&rdquo;</li>
+<li>The submitter also signs if the app is configured this way and then submits the form.</li>
+</ol>
+<p>Below are the key configuration steps for setting up such an application.</p>
+<h2 id="1-add-and-configure-a-signing-task-in-the-app-process">1. Add and configure a signing task in the app process</h2>
+<div class="content-version-selector border-box">
+
+    
+    <ul id="content-version-tabs"></ul>
+
+    
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Manual setup
+    </label>
+      <h4 id="extend-the-application-process-with-a-signing-task">Extend the application process with a signing task</h4>
+<p>A signing task must be added to <code>App/config/process/process.bpmn</code>, as shown in the example below.</p>
+<p>We recommend doing this using the Altinn Studio process editor, so that the BPMN diagram is generated, to show the apps process.
+However, as of now, the process editor will only partially configure this task correctly, so some manual adjustments are required.</p>
+<p>Signing uses two user actions.</p>
+<ul>
+<li><code>sign</code>: The actual signing action.</li>
+<li><code>reject</code>: If the signing step should be cancellable, a gateway must also be added to control where the process should continue. See the example below.</li>
+</ul>
+<p>If the Altinn user interface is used by the application, these actions will be triggered by button clicks in the signing stage. If only the API is used, they must be triggered manually via the <code>/actions</code> endpoint or the process next endpoint.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;bpmn:task</span> <span style="color:#50fa7b">id=</span><span style="color:#f1fa8c">&#34;SigningTask&#34;</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;Signering&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;bpmn:extensionElements&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;altinn:taskExtension&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;altinn:taskType&gt;</span>signing<span style="color:#ff79c6">&lt;/altinn:taskType&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;altinn:actions&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;altinn:action&gt;</span>sign<span style="color:#ff79c6">&lt;/altinn:action&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;altinn:action&gt;</span>reject<span style="color:#ff79c6">&lt;/altinn:action&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/altinn:actions&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;altinn:signatureConfig&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">&lt;!-- The actual data that should be signed. Can be attachments, the form data in xml or PDF from earlier step. --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;altinn:dataTypesToSign&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;altinn:dataType&gt;</span>ref-data-as-pdf<span style="color:#ff79c6">&lt;/altinn:dataType&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/altinn:dataTypesToSign&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">&lt;!-- This data type is used to store the signatures --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;altinn:signatureDataType&gt;</span>signatures<span style="color:#ff79c6">&lt;/altinn:signatureDataType&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">&lt;!-- This data type is used to store the signees and related information --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;altinn:signeeStatesDataTypeId&gt;</span>signeeState<span style="color:#ff79c6">&lt;/altinn:signeeStatesDataTypeId&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">&lt;!-- This ID tells the app which implementation of the C# interface --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">&lt;!-- ISigneeProvider that should be used for this signing step --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;altinn:signeeProviderId&gt;</span>signees<span style="color:#ff79c6">&lt;/altinn:signeeProviderId&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">&lt;!-- If you want a PDF summary of the signing step, enter a datatype of type application/pdf here --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;altinn:signingPdfDataType&gt;</span>signing-step-pdf<span style="color:#ff79c6">&lt;/altinn:signingPdfDataType&gt;</span> <span style="color:#6272a4">&lt;!-- optional --&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">&lt;!-- The correspondence service is used to communicate with the signees, and is required --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">&lt;!-- for user delegated signing. Add the correspondence resource here. --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">&lt;!-- Setup of this resource is documented separately. --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;altinn:correspondenceResource&gt;</span>app-correspondence-resource<span style="color:#ff79c6">&lt;/altinn:correspondenceResource&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">&lt;!-- We have made a default validator that can be enabled here. --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">&lt;!-- It will validate that the required number of signatures configured is fulfilled. --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">&lt;!-- (specified by the `minCount` property on the signature data type) --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">&lt;!-- If default validation is not enabled, custom validation of the signatures should be added. --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;altinn:runDefaultValidator&gt;</span>true<span style="color:#ff79c6">&lt;/altinn:runDefaultValidator&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/altinn:signatureConfig&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/altinn:taskExtension&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/bpmn:extensionElements&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;bpmn:incoming&gt;</span>SequenceFlow_1oot28q<span style="color:#ff79c6">&lt;/bpmn:incoming&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;bpmn:outgoing&gt;</span>SequenceFlow_1if1sh9<span style="color:#ff79c6">&lt;/bpmn:outgoing&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/bpmn:task&gt;</span>
+</span></span></code></pre></div><h4 id="configure-environment-specific-correspondence-resources">Configure environment-specific correspondence resources</h4>
+  <p>If you want to use environment-specific correspondence resources, you can configure them using the following syntax:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;altinn:signatureConfig&gt;</span>
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;altinn:correspondenceResource</span> <span style="color:#50fa7b">env=</span><span style="color:#f1fa8c">&#34;Development&#34;</span><span style="color:#ff79c6">&gt;</span>app-correspondence-resource-1<span style="color:#ff79c6">&lt;/altinn:correspondenceResource&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;altinn:correspondenceResource</span> <span style="color:#50fa7b">env=</span><span style="color:#f1fa8c">&#34;Staging&#34;</span><span style="color:#ff79c6">&gt;</span>app-correspondence-resource-2<span style="color:#ff79c6">&lt;/altinn:correspondenceResource&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;altinn:correspondenceResource</span> <span style="color:#50fa7b">env=</span><span style="color:#f1fa8c">&#34;Production&#34;</span><span style="color:#ff79c6">&gt;</span>app-correspondence-resource<span style="color:#ff79c6">&lt;/altinn:correspondenceResource&gt;</span>
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/altinn:signatureConfig&gt;</span>
+</span></span></code></pre></div><p>The <code>env</code> property accepts a range of values, but will ultimately group them into three categories as shown in the table below.
+All property values are case-insensitive.</p>
+<!-- HTML markup because this table could not be rendered using markdown inside an `insert` shortcode -->
+<table>
+  <thead>
+    <tr>
+      <th>Environment</th>
+      <th>Aliases</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Development</td>
+      <td>development, dev, local, localtest</td>
+    </tr>
+    <tr>
+      <td>Staging</td>
+      <td>staging, test, at22, at23, at24, tt02, yt01</td>
+    </tr>
+    <tr>
+      <td>Production</td>
+      <td>production, prod, produksjon</td>
+    </tr>
+  </tbody>
+</table>
+<h4 id="add-data-types-for-storing-signing-related-data">Add data types for storing signing related data</h4>
+<p>These data types should be added to <code>dataTypes</code> in <code>App/config/applicationmetadata.json</code>.</p>
+<p>This data type is used during the signing task to store the signatures.</p>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signatures&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;application/json&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;allowedContributors&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;app:owned&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;actionRequiredToRead&#34;</span>: <span style="color:#f1fa8c">&#34;signature-access&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;actionRequiredToWrite&#34;</span>: <span style="color:#f1fa8c">&#34;signature-access&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+<p>This data type is used to store information about the signers and their status.</p>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signeeState&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;application/json&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;allowedContributors&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;app:owned&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;actionRequiredToRead&#34;</span>: <span style="color:#f1fa8c">&#34;signature-access&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;actionRequiredToWrite&#34;</span>: <span style="color:#f1fa8c">&#34;signature-access&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+<p>It is important to set <code>allowedContributors</code>, <code>actionRequiredToRead</code> and <code>actionRequiredToWrite</code> as illustrated in the examples above. This ensures that these data items cannot be edited via the app&rsquo;s API but only by the app itself.</p>
+<p>The IDs of the data types must match the IDs set for <code>signatureDataType</code> and <code>signeeStatesDataTypeId</code> in the process configuration.</p>
+<h4 id="access-control-for-users">Access control for users</h4>
+<p>Give <code>read</code>, <code>write</code> and optionally <code>sign</code> to the role that should fill out the form.</p>
+<p>More information about action attributes can be found <a href="/en/altinn-studio/v8/reference/configuration/authorization/#action-attributes">here</a>.</p>
+<h4 id="access-control-for-the-app">Access control for the app</h4>
+<p>In order for the service to be able to delegate access rights to the signees, the app itself needs to have the right to delegate the <code>read</code> and <code>sign</code> actions.</p>
+<p>Below is an example of a policy rule that accomplishes this. For the code to work in your own app, please follow these steps:</p>
+<ul>
+<li>Replace <code>ttd</code> with the correct org.</li>
+<li>Replace <code>app_ttd_signering-brukerstyrt</code> with your own org and app name inserted into this template: <code>app_{org}_{app-name}</code>.</li>
+<li>Replace <code>signering-brukerstyrt</code> with your app name</li>
+<li>Modify the RuleId attribute to fit nicely into your policy.xml.</li>
+</ul>
+<!-- Dummy to force end of list rendering -->
+<p><span></span></p>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org:ttd:signering-brukerstyrt:ruleid:7&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>
+</span></span><span style="display:flex;"><span>    A rule defining all instance delegation rights the App itself is allowed to perform for instances of the app ttd/signering-brukerstyrt.
+</span></span><span style="display:flex;"><span>    In this example the app can delegate the Read and Sign actions for task SigningTask.
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>app_ttd_signering-brukerstyrt<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:resource:delegation&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>ttd<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>signering-brukerstyrt<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:app&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>SigningTask<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:task&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>read<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>sign<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/xacml:Target&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
+</span></span></code></pre></div>
+<h4 id="access-control-for-service-owners">Access control for service owners</h4>
+<p>Give <code>signature-access</code> to service owners. This allows bearers of a service owner token to interact with the restricted data in signature objects.</p>
+<p>More information about this concept can be found <a href="/en/altinn-studio/v8/concepts/data-model/restricted-data/">here</a>.</p>
+
+</div>
+
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Altinn Studio Designer
+    </label>
+    <blockquote>
+<p>This step needs to be done manually. Support for configuration in Altinn Studio Designer will come later.
+Take a look at the &ldquo;Manual setup&rdquo;-tab for this section for guidance.</p></blockquote>
+</div>
+
+
+
+</div>
+
+<h2 id="2-add-a-signing-layout-set">2. Add a signing layout set</h2>
+<div class="content-version-selector border-box">
+
+    
+    <ul id="content-version-tabs"></ul>
+
+    
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Manual setup
+    </label>
+      <p>Add a task layout folder under <code>App/ui</code> for your signing task. In the following examples, we will call this folder <code>signing</code>.</p>
+<p>In the folder you created, add a <code>layouts</code> folder and a <code>Settings.json</code> file.</p>
+<p>Add a new file called <code>signing.json</code> in the <code>layouts</code> folder.</p>
+<p>The folder structure should look like this:</p>
+  <pre tabindex="0"><code>App/
+├── ui/
+│   └── signing/
+│       ├── layouts/
+│       │   └── signing.json
+│       └── Settings.json
+</code></pre>
+<p>There are standard components that can be used to build a layout set for a signing step. You are not required to use these components, but it&rsquo;s recommended.</p>
+<ul>
+<li>SigneeList:
+<ul>
+<li>Lists the signees and their signing status. Read more <a href="/en/altinn-studio/v8/reference/ux/components/signeelist/">here</a>.</li>
+</ul>
+</li>
+<li>SigningDocumentList:
+<ul>
+<li>Lists the data being signed. For example attachments, xml-data or a PDF summary from an earlier step. Read more <a href="/en/altinn-studio/v8/reference/ux/components/signingdocumentlist/">here</a>.</li>
+</ul>
+</li>
+<li>SigningActions:
+<ul>
+<li>Determines the current status of the signing task and present relevant information and buttons to the end user, for instance the &ldquo;Sign&rdquo;-button. Read more <a href="/en/altinn-studio/v8/reference/ux/components/signingactions/">here</a>.</li>
+</ul>
+</li>
+</ul>
+<p>If you choose not to use the <code>SigningActions</code> to display the &ldquo;Sign&rdquo;-button, you must as a minimum add an action button with action <code>sign</code>, to allow the end user to sign.</p>
+<p>Example of usage of the standard components:</p>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/layout/layout.schema.v1.json&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;data&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;layout&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;headerSigningFounders&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Header&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;size&#34;</span>: <span style="color:#f1fa8c">&#34;M&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Her kan man ha en overskrift&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signee-list&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;SigneeList&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Personer som skal signere&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Personer som skal signere beskrivelse&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;help&#34;</span>: <span style="color:#f1fa8c">&#34;Dette er personer som skal signere&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signing-documents&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;SigningDocumentList&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Dokumenter som skal signeres&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Dokumenter som skal signeres beskrivelse&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signing-state&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;SigningActions&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+<p>Update <code>App/ui/layout-sets.json</code> with the <code>id</code> of the task folder you just created.</p>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;sets&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;form&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;dataType&#34;</span>: <span style="color:#f1fa8c">&#34;model&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;tasks&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#34;Task_1&#34;</span>
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signing&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;dataType&#34;</span>: <span style="color:#f1fa8c">&#34;model&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;tasks&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#34;SigningTask&#34;</span>
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+
+</div>
+
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Altinn Studio Designer
+    </label>
+    <blockquote>
+<p>This step needs to be done manually. Support for configuration in Altinn Studio Designer will come later.
+Take a look at the &ldquo;Manual setup&rdquo;-tab for this section for guidance.</p></blockquote>
+</div>
+
+
+
+</div>
+
+<h2 id="3-optional---custom-validation">3. Optional - Custom validation</h2>
+  <p>You can use the default validator as mentioned in step 2. It verifies that the number of signatures meets at least the
+<code>minCount</code> set in the data model configuration. Custom validation can be set up by implementing the <code>IValidator</code> or <code>ITaskValidator</code>
+interface as described in <a href="/en/altinn-studio/v8/reference/logic/validation/#server-side-validation">How to add custom validation</a>.</p>
+<p>Note that if you configure the app to execute the sign action on the process next call, the <a href="/en/altinn-studio/v8/reference/logic/validation/#server-side-validation">action will be done before the validation</a>.</p>
+<p>A fictitious example is a validator which verifies that at minimum one signature is done on behalf of an organisation:</p>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">SigningTaskValidator</span> : IValidator
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#ff79c6">readonly</span> IProcessReader _processReader;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> SigningTaskValidator(IProcessReader processReader)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    _processReader = processReader;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// We implement &lt;see cref=&#34;ShouldRunForTask&#34;/&gt; instead.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">string</span> TaskId =&gt; <span style="color:#f1fa8c">&#34;*&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// Only runs for tasks that are of type &#34;signing&#34;.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">bool</span> ShouldRunForTask(<span style="color:#8be9fd">string</span> taskId)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    AltinnTaskExtension? taskConfig;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">try</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      taskConfig = _processReader.GetAltinnTaskExtension(taskId);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">catch</span> (Exception)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">false</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> taskConfig?.TaskType == <span style="color:#f1fa8c">&#34;signing&#34;</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">bool</span> NoIncrementalValidation =&gt; <span style="color:#ff79c6">true</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// &lt;inheritdoc /&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> Task&lt;<span style="color:#8be9fd">bool</span>&gt; HasRelevantChanges(IInstanceDataAccessor dataAccessor, <span style="color:#8be9fd">string</span> taskId, DataElementChanges changes)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">throw</span> <span style="color:#ff79c6">new</span> UnreachableException(
+</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#34;HasRelevantChanges should not be called because NoIncrementalValidation is true.&#34;</span>
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// &lt;inheritdoc /&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// &lt;remarks&gt;Validates that at minimum one signature is done on behalf of an organisation.&lt;/remarks&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">async</span> Task&lt;List&lt;ValidationIssue&gt;&gt; Validate(
+</span></span><span style="display:flex;"><span>    IInstanceDataAccessor instanceDataAccessor,
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">string</span> taskId,
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">string?</span> language
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    AltinnSignatureConfiguration signatureConfiguration =
+</span></span><span style="display:flex;"><span>      _processReader.GetAltinnTaskExtension(taskId)?.SignatureConfiguration
+</span></span><span style="display:flex;"><span>      ?? <span style="color:#ff79c6">throw</span> <span style="color:#ff79c6">new</span> ApplicationConfigException(<span style="color:#f1fa8c">&#34;Signing configuration not found in AltinnTaskExtension&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">string</span> signatureDataTypeId =
+</span></span><span style="display:flex;"><span>      signatureConfiguration.SignatureDataType
+</span></span><span style="display:flex;"><span>      ?? <span style="color:#ff79c6">throw</span> <span style="color:#ff79c6">new</span> ApplicationConfigException(<span style="color:#f1fa8c">&#34;SignatureDataType is not set in the signature configuration.&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    DataType signatureDataType = instanceDataAccessor.GetDataType(signatureDataTypeId);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// Set authentication override for the signature data, since this is a restricted type</span>
+</span></span><span style="display:flex;"><span>    instanceDataAccessor.OverrideAuthenticationMethod(signatureDataType, StorageAuthenticationMethod.ServiceOwner());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    IEnumerable&lt;DataElement&gt; signatureDataElements = instanceDataAccessor.GetDataElementsForType(
+</span></span><span style="display:flex;"><span>      signatureDataType
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    SignDocument[] signDocuments = <span style="color:#ff79c6">await</span> Task.WhenAll(
+</span></span><span style="display:flex;"><span>      signatureDataElements.Select(<span style="color:#8be9fd;font-style:italic">async</span> signatureDataElement =&gt;
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        ReadOnlyMemory&lt;<span style="color:#8be9fd">byte</span>&gt; data = <span style="color:#ff79c6">await</span> instanceDataAccessor.GetBinaryData(signatureDataElement);
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">string</span> signDocumentSerialized = Encoding.UTF8.GetString(data.ToArray());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> JsonSerializer.Deserialize&lt;SignDocument&gt;(signDocumentSerialized)
+</span></span><span style="display:flex;"><span>          ?? <span style="color:#ff79c6">throw</span> <span style="color:#ff79c6">new</span> JsonException(<span style="color:#f1fa8c">&#34;Could not deserialize signature document.&#34;</span>);
+</span></span><span style="display:flex;"><span>      })
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">var</span> organisationHasSigned = signDocuments.Any(doc =&gt; doc?.SigneeInfo?.OrganisationNumber <span style="color:#ff79c6">is</span> not <span style="color:#ff79c6">null</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (organisationHasSigned <span style="color:#ff79c6">is</span> <span style="color:#ff79c6">false</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span>
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">      [
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">        new ValidationIssue
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">        {
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">          Code = &#34;SignatureIssues&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">          Severity = ValidationIssueSeverity.Error,
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">          Description = &#34;An organisation must sign the document.&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">        },
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">      ]</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> [];
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+<h2 id="4-tell-the-app-who-the-signees-are">4. Tell the app who the signees are</h2>
+<div class="content-version-selector border-box">
+
+    
+    <ul id="content-version-tabs"></ul>
+
+    
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Manual setup
+    </label>
+      <p>To allow the app to determine who should receive access to read and sign, the C# interface <code>ISigneeProvider</code> must be implemented.</p>
+<p>The implementation must return a set of individuals and/or organizations that should receive rights to sign. This can be based on the data model, as shown in the example below.</p>
+<p>When an organization is provided as a signee, any person with a <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_er">key role</a> for the organization will be given access to <code>read</code> and <code>sign</code>.</p>
+<p>The <code>Id</code> property in this implementation must match the ID specified in <code>&lt;altinn:signeeProviderId&gt;</code>.</p>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#ff79c6">#nullable</span> enable
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Collections.Generic;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Linq;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Threading.Tasks;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.Core.Features;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.Core.Features.Signing;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.Models.Skjemadata;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.Platform.Storage.Interface.Models;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">namespace</span> Altinn.App.logic;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">FounderSigneesProvider</span> : ISigneeProvider
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">string</span> Id { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">init</span>; } = <span style="color:#f1fa8c">&#34;founders&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">async</span> Task&lt;SigneeProviderResult&gt; GetSignees(GetSigneesParameters parameters)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    DataElement dataElement = parameters.InstanceDataAccessor
+</span></span><span style="display:flex;"><span>      .GetDataElementsForType(<span style="color:#f1fa8c">&#34;Skjemadata&#34;</span>)
+</span></span><span style="display:flex;"><span>      .Single();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">var</span> formData = <span style="color:#ff79c6">await</span> parameters.InstanceDataAccessor.GetFormData&lt;Skjemadata&gt;(dataElement);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    List&lt;ProvidedSignee&gt; providedSignees = [];
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">foreach</span> (StifterPerson stifterPerson <span style="color:#ff79c6">in</span> formData.StifterPerson)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#8be9fd">var</span> personSignee = <span style="color:#ff79c6">new</span> ProvidedPerson
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        FullName = <span style="color:#8be9fd">string</span>.Join(
+</span></span><span style="display:flex;"><span>          <span style="color:#f1fa8c">&#34; &#34;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">          [stifterPerson.Fornavn, stifterPerson.Mellomnavn, stifterPerson.Etternavn]</span>
+</span></span><span style="display:flex;"><span>        ),
+</span></span><span style="display:flex;"><span>        SocialSecurityNumber = stifterPerson.Foedselsnummer?.ToString() ?? <span style="color:#8be9fd">string</span>.Empty,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// CommunicationConfig added here is optional, shown and described in section 6</span>
+</span></span><span style="display:flex;"><span>      };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      providedSignees.Add(personSignee);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">foreach</span> (StifterVirksomhet stifterVirksomhet <span style="color:#ff79c6">in</span> formData.StifterVirksomhet)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#8be9fd">var</span> organisationSignee = <span style="color:#ff79c6">new</span> ProvidedOrganization
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        Name = stifterVirksomhet.Navn,
+</span></span><span style="display:flex;"><span>        OrganizationNumber =
+</span></span><span style="display:flex;"><span>          stifterVirksomhet.Organisasjonsnummer?.ToString() ?? <span style="color:#8be9fd">string</span>.Empty,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// CommunicationConfig added here is optional, shown and described in section 6</span>
+</span></span><span style="display:flex;"><span>      };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      providedSignees.Add(organisationSignee);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">new</span> SigneeProviderResult { Signees = providedSignees };
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+
+</div>
+
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Altinn Studio Designer
+    </label>
+    <blockquote>
+<p>This step needs to be done manually. Support for configuration in Altinn Studio Designer will come later.
+Take a look at the &ldquo;Manual setup&rdquo;-tab for this section for guidance.</p></blockquote>
+</div>
+
+
+
+</div>
+
+<h2 id="5-optional---setup-text-resources">5. Optional - Setup text resources</h2>
+<p>This section is only relevant for those who want to override the standard texts in the communication with the signees.</p>
+<p>The standard values for the communication texts are as follows:</p>
+<div class="content-version-selector border-box">
+
+    
+    <ul id="content-version-tabs"></ul>
+
+    
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Standard texts - english
+    </label>
+    <table>
+  <thead>
+      <tr>
+          <th>Tekst</th>
+          <th>StandardVerdi</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Inbox message to signee - title</td>
+          <td>&ldquo;{appName}: Task for signing&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Inbox message to signee - summary</td>
+          <td>&ldquo;Your signature is requested for {appName}.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Inbox message to signee - content</td>
+          <td>&ldquo;You have a task waiting for your signature. &lt;a href=&quot;{instanceUrl}&quot;&gt;Click here to open the application</a>.<br /><br />If you have any questions, you can contact {appOwner}.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Sms to signee - content</td>
+          <td>&ldquo;Your signature is requested for {appName}. Open your Altinn inbox to proceed.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Email to signee - emne</td>
+          <td>&ldquo;{appName}: Task for signing&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Email to signee - content</td>
+          <td>&ldquo;Your signature is requested for {appName}. Open your Altinn inbox to proceed.<br /><br />If you have any questions, you can contact {appOwner}.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Receipt to signee - title</td>
+          <td>&ldquo;{appName}: Signature confirmed&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Receipt to signee - summary</td>
+          <td>&ldquo;Your signature has been registered for {appName}.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Receipt to signee - content</td>
+          <td>&ldquo;The signed documents are attached. They may be downloaded. <br /><br />If you have any questions, you can contact {appOwner}.&rdquo;</td>
+      </tr>
+  </tbody>
+</table>
+
+</div>
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Standard texts - bokmål
+    </label>
+    <table>
+  <thead>
+      <tr>
+          <th>Tekst</th>
+          <th>StandardVerdi</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Inbox message to signee - title</td>
+          <td>&ldquo;{appName}: Oppgave til signering&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Inbox message to signee - summary</td>
+          <td>&ldquo;Din signatur ventes for {appName}.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Inbox message to signee - content</td>
+          <td>&ldquo;Du har en oppgave som venter på din signatur. &lt;a href=&quot;{instanceUrl}&quot;&gt;Klikk her for å åpne applikasjonen</a>.<br /><br />Hvis du lurer på noe, kan du kontakte {appOwner}.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Sms to signee - content</td>
+          <td>&ldquo;Din signatur ventes for {appName}. Åpne Altinn-innboksen din for å fortsette.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Email to signee - emne</td>
+          <td>&ldquo;{appName}: Oppgave til signering&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Email to signee - content</td>
+          <td>&ldquo;Din signatur ventes for {appName}. Åpne Altinn-innboksen din for å fortsette.<br /><br />Hvis du lurer på noe, kan du kontakte {appOwner}.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Receipt to signee - title</td>
+          <td>&ldquo;{appName}: Signeringen er bekreftet&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Receipt to signee - summary</td>
+          <td>&ldquo;Du har signert for {appName}.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Receipt to signee - content</td>
+          <td>&ldquo;Dokumentene du har signert er vedlagt. Disse kan lastes ned om ønskelig. <br /><br />Hvis du lurer på noe, kan du kontakte {appOwner}.&rdquo;</td>
+      </tr>
+  </tbody>
+</table>
+
+</div>
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Standard texts - nynorsk
+    </label>
+    <table>
+  <thead>
+      <tr>
+          <th>Tekst</th>
+          <th>StandardVerdi</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Inbox message to signee - title</td>
+          <td>&ldquo;{appName}: Oppgåve til signering&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Inbox message to signee - summary</td>
+          <td>&ldquo;Signaturen din vert venta for {appName}.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Inbox message to signee - content</td>
+          <td>&ldquo;Du har ei oppgåve som ventar på signaturen din. &lt;a href=&quot;{instanceUrl}&quot;&gt;Klikk her for å opne applikasjonen</a>.<br /><br />Om du lurer på noko, kan du kontakte {appOwner}.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Sms to signee - content</td>
+          <td>&ldquo;Signaturen din vert venta for {appName}. Opne Altinn-innboksen din for å gå vidare.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Email to signee - emne</td>
+          <td>&ldquo;{appName}: Oppgåve til signering&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Email to signee - content</td>
+          <td>&ldquo;Signaturen din vert venta for {appName}. Opne Altinn-innboksen din for å gå vidare.<br /><br />Om du lurer på noko, kan du kontakte {appOwner}.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Receipt to signee - title</td>
+          <td>&ldquo;{appName}: Signeringa er stadfesta&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Receipt to signee - summary</td>
+          <td>&ldquo;Du har signert for {appName}.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Receipt to signee - content</td>
+          <td>&ldquo;Dokumenta du har signert er vedlagde. Dei kan lastast ned om ønskeleg. <br /><br />Om du lurer på noko, kan du kontakte {appOwner}.&rdquo;</td>
+      </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+</div>
+
+<div class="content-version-selector border-box">
+
+    
+    <ul id="content-version-tabs"></ul>
+
+    
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Manual setup
+    </label>
+      <p>If you wish to override the standard texts:</p>
+<p>Add a <a href="/en/altinn-studio/v8/reference/ux/texts/">text resource file</a> under &lsquo;App/config/texts&rsquo; for each language you want to support.</p>
+<p>Here you define text resources to be used in communication with the user.</p>
+<p>With the <code>CommunicationConfig</code> property on the provided signee in your implementation of the <code>ISigneeProvider</code> interface,
+you may <strong>override</strong> the content sent to the Altinn inbox, in addition to notifications sent to the signer of a signing task.
+You can name these whatever you want and connect them to <code>CommunicationConfig</code> in the next step (step 6).</p>
+<p>Example of text resources for notifications with custom texts for email, as well as receipt:</p>
+<div class="notices warning" >Please note that the text resources for the Altinn inbox message contain an <code>$instanceUrl$</code> placeholder.
+This placeholder will be replaced with a link to the form instance, which is crucial in order for the user to access the correct form.</div>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signing.correspondence_title_common&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Task - Sign founding documents&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signing.correspondence_summary_stifter_person&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;You have been added as a signee.&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signing.correspondence_summary_stifter_organisation&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;The organisation has been added as a signee.&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signing.correspondence_body_stifter_person&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;You have been added as a signee for founding documents. &lt;br /&gt; $instanceUrl$ &lt;br /&gt;&lt;br /&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signing.correspondence_body_stifter_organisation&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Your organisation has been added as a signee for founding documents. &lt;br /&gt; $instanceUrl$ &lt;br /&gt;&lt;br /&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signing.notification_content&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Hello $correspondenceRecipientName$,\n\nYou have received founding documents for signing in Altinn. Log in to Altinn to sign the documents.\n\nBest regards,\nBrønnøysund Register Centre&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signing.email_subject&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Founding documents received for signing in Altinn. Go to Altinn inbox to sign.&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span></code></pre></div>
+<p>Overriding the receipt is not possible on the signee level, but generally for all signees. Here the key of the text
+resources must match the following keys in order to take effect.</p>
+<p><code>signing.correspondence_receipt_title</code> - title
+<code>signing.correspondence_receipt_summary</code> - summary
+<code>signing.correspondence_receipt_body</code> - content</p>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signing.correspondence_receipt_title&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Receipt: Signing of founding documents&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signing.correspondence_receipt_summary&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;You have signed the founding documents&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signing.correspondence_receipt_body&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;The documents you have signed are attached. These can be downloaded if desired. &lt;br /&gt;&lt;br /&gt;If you have any questions, contact the Brønnøysund Register Centre at phone 75 00 75 00.&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span></code></pre></div>
+
+</div>
+
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Altinn Studio Designer
+    </label>
+    <blockquote>
+<p>This step needs to be done manually. Support for configuration in Altinn Studio Designer will come later.
+Take a look at the &ldquo;Manual setup&rdquo;-tab for this section for guidance.</p></blockquote>
+</div>
+
+
+
+</div>
+
+<h2 id="6-optional---customize-how-to-notify-the-signees">6. Optional - Customize how to notify the signees</h2>
+<p>Note that <code>CommunicationConfig</code> is optional. Here you may override the standard texts used in communication with the signees,
+as explained in the previous section. You may also override the email address and phone number for the signees.</p>
+<div class="notices info" >By default, a message
+will be sent to the signees altinn inbox with a link to the relevant application instance and a notification
+will be sent via email. The default texts described in the previous section will be used.</div>
+<p>If not overridden, the email addresses and the phone numbers used are populated as described in <a href="/en/notifications/explanation/recipient-lookup/">Recipient lookup</a>
+and <a href="/en/notifications/explanation/address-lookup/">Address lookup</a>.</p>
+<p>These are the possible override configurations for the signee communication:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Property</th>
+          <th>Description</th>
+          <th>Type</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>CommunicationConfig</td>
+          <td>The object for communication configuration</td>
+          <td>Object</td>
+      </tr>
+      <tr>
+          <td>CommunicationConfig.InboxMessage</td>
+          <td>The object for inbox message configuration</td>
+          <td>Object</td>
+      </tr>
+      <tr>
+          <td>CommunicationConfig.InboxMessage.TitleTextResourceKey</td>
+          <td>The text resource key for the inbox message title</td>
+          <td>String</td>
+      </tr>
+      <tr>
+          <td>CommunicationConfig.InboxMessage.SummaryTextResourceKey</td>
+          <td>The text resource key for the inbox message summary</td>
+          <td>String</td>
+      </tr>
+      <tr>
+          <td>CommunicationConfig.InboxMessage.BodyTextResourceKey</td>
+          <td>The text resource key for the inbox message body</td>
+          <td>String</td>
+      </tr>
+      <tr>
+          <td>CommunicationConfig.Notification</td>
+          <td>The object for notification configuration</td>
+          <td>Object</td>
+      </tr>
+      <tr>
+          <td>CommunicationConfig.Notification.Email</td>
+          <td>The object for email notification configuration</td>
+          <td>Object</td>
+      </tr>
+      <tr>
+          <td>CommunicationConfig.Notification.Email.EmailAddress</td>
+          <td>The text resource key for the email address</td>
+          <td>String</td>
+      </tr>
+      <tr>
+          <td>CommunicationConfig.Notification.Email.SubjectTextResourceKey</td>
+          <td>The text resource key for the email subject</td>
+          <td>String</td>
+      </tr>
+      <tr>
+          <td>CommunicationConfig.Notification.Email.BodyTextResourceKey</td>
+          <td>The text resource key for the email body</td>
+          <td>String</td>
+      </tr>
+      <tr>
+          <td>CommunicationConfig.Notification.Sms</td>
+          <td>The object for sms notification configuration</td>
+          <td>Object</td>
+      </tr>
+      <tr>
+          <td>CommunicationConfig.Notification.Sms.MobileNumber</td>
+          <td>The text resource key for the mobile number</td>
+          <td>String</td>
+      </tr>
+      <tr>
+          <td>CommunicationConfig.Notification.Sms.BodyTextResourceKey</td>
+          <td>The text resource key for the sms body</td>
+          <td>String</td>
+      </tr>
+      <tr>
+          <td>CommunicationConfig.Notification.NotificationChoice</td>
+          <td>The notification preferrence choice</td>
+          <td>NotificationChoice enum (String)</td>
+      </tr>
+  </tbody>
+</table>
+<div class="content-version-selector border-box">
+
+    
+    <ul id="content-version-tabs"></ul>
+
+    
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Manual setup
+    </label>
+    <p>The following is an example of overriding the communication with a <code>ProvidedPerson</code>, the same is valid for a <code>ProvidedOrganization</code>:</p>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#8be9fd">var</span> personSignee = <span style="color:#ff79c6">new</span> ProvidedPerson
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    CommunicationConfig = <span style="color:#ff79c6">new</span> CommunicationConfig
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        InboxMessage = <span style="color:#ff79c6">new</span> InboxMessage
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            TitleTextResourceKey = <span style="color:#f1fa8c">&#34;signing.correspondence_title_common&#34;</span>,
+</span></span><span style="display:flex;"><span>            SummaryTextResourceKey = <span style="color:#f1fa8c">&#34;signing.correspondence_summary_stifter_organisasjon&#34;</span>,
+</span></span><span style="display:flex;"><span>            BodyTextResourceKey = <span style="color:#f1fa8c">&#34;signing.correspondence_body_stifter_organisasjon&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        Notification = <span style="color:#ff79c6">new</span> Notification
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            Email = <span style="color:#ff79c6">new</span> Email
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                EmailAddress = stifterVirksomhet.Epost,
+</span></span><span style="display:flex;"><span>                SubjectTextResourceKey = <span style="color:#f1fa8c">&#34;signing.email_subject&#34;</span>,
+</span></span><span style="display:flex;"><span>                BodyTextResourceKey = <span style="color:#f1fa8c">&#34;signing.notification_content&#34;</span>.Replace(
+</span></span><span style="display:flex;"><span>                    <span style="color:#f1fa8c">&#34;{0}&#34;</span>,
+</span></span><span style="display:flex;"><span>                    stifterVirksomhet.Navn
+</span></span><span style="display:flex;"><span>                ),
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            Sms = <span style="color:#ff79c6">new</span> Sms
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                MobileNumber = stifterVirksomhet.Mobiltelefon,
+</span></span><span style="display:flex;"><span>                BodyTextResourceKey = <span style="color:#f1fa8c">&#34;signing.notification_content&#34;</span>.Replace(
+</span></span><span style="display:flex;"><span>                    <span style="color:#f1fa8c">&#34;{0}&#34;</span>,
+</span></span><span style="display:flex;"><span>                    stifterVirksomhet.Navn
+</span></span><span style="display:flex;"><span>                ),
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            NotificationChoice = NotificationChoice.EmailPreferred,
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+</div>
+
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Altinn Studio Designer
+    </label>
+    <blockquote>
+<p>This step needs to be done manually. Support for configuration in Altinn Studio Designer will come later.
+Take a look at the &ldquo;Manual setup&rdquo;-tab for this section for guidance.</p></blockquote>
+</div>
+
+
+
+</div>
+
+<h2 id="7-testing">7. Testing</h2>
+  <div class="notices warning" >SMS notifications are not available in TT02 and other test environments. If used, this vil lead to a &ldquo;notification failed&rdquo;
+status in the SigneeList component. The signee will still receive a message in their altinn inbox.</div>
+<p>Authorization caching may cause delays in users seeing delegated forms in their Altinn inbox if they were logged in when delegation occurred. To avoid this, delegate access to a user not used in testing for the last hour.</p>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/_index.en.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Edit page on GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-is-runtime-delegated-signing">What is runtime delegated signing?</a></li>
+    <li><a href="#prerequisites">Prerequisites</a>
+      <ul>
+        <li><a href="#maskinporten">Maskinporten</a></li>
+        <li><a href="#correspondence">Correspondence</a></li>
+      </ul>
+    </li>
+    <li><a href="#example-application">Example Application</a></li>
+    <li><a href="#1-add-and-configure-a-signing-task-in-the-app-process">1. Add and configure a signing task in the app process</a></li>
+    <li><a href="#2-add-a-signing-layout-set">2. Add a signing layout set</a></li>
+    <li><a href="#3-optional---custom-validation">3. Optional - Custom validation</a></li>
+    <li><a href="#4-tell-the-app-who-the-signees-are">4. Tell the app who the signees are</a></li>
+    <li><a href="#5-optional---setup-text-resources">5. Optional - Setup text resources</a></li>
+    <li><a href="#6-optional---customize-how-to-notify-the-signees">6. Optional - Customize how to notify the signees</a></li>
+    <li><a href="#7-testing">7. Testing</a></li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">About Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

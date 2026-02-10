@@ -1,0 +1,97 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Altinn.Notifications.Email",
+    "version": "1.0"
+  },
+  "paths": {
+    "/notifications/email/api/v1/reports": {
+      "post": {
+        "tags": [
+          "DeliveryReport"
+        ],
+        "summary": "Post method for handling delivery reports from Azure Communication Services",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/EventGridEvent"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/EventGridEvent"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/EventGridEvent"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "401": {
+            "description": "Caller is unauthorized"
+          },
+          "200": {
+            "description": "The delivery report is received"
+          },
+          "400": {
+            "description": "The delivery report is invalid"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BinaryData": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "EventGridEvent": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/BinaryData"
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "topic": {
+            "type": "string",
+            "nullable": true
+          },
+          "subject": {
+            "type": "string",
+            "nullable": true
+          },
+          "eventType": {
+            "type": "string",
+            "nullable": true
+          },
+          "eventTime": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "dataVersion": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}

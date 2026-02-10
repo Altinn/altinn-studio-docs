@@ -1,0 +1,64 @@
+{
+    "identifier": "nav_aa_distribution",
+    "title": [
+        {
+            "title": "Aa-registerets distribusjonsløsninger",
+            "language": "nb-NO"
+        },
+        {
+            "title": "Aa-registerets distribusjonsløsninger",
+            "language": "nb-NO"
+        }
+    ],
+    "description": [
+        {
+            "language": "nb-NO",
+            "description": "NAVs brukerstøtte for Aa-registerets distribusjonsløsninger"
+        },
+        {
+            "language": "EN",
+            "description": "NAVs brukerstøtte for Aa-registerets distribusjonsløsninger"
+        }
+    ],
+    "rightDescription": [
+        {
+            "language": "nb-NO",
+            "description": "NAVs brukerstøtte for Aa-registerets distribusjonsløsninger"
+        },
+        {
+            "language": "EN",
+            "description": "NAVs brukerstøtte for Aa-registerets distribusjonsløsninger"
+        }
+    ],
+    "homepage": "nav.no",
+    "status": "Completed",
+    "contactPoints": [
+        {
+            "category": null,
+            "telephone": "1231324",
+            "email": "online@digdir.no",
+            "contactPage": null
+        }
+    ],
+    "isPartOf": "navportal",
+    "delegable": true,
+    "visible": true,
+    "hasCompetentAuthority": {
+        "organization": "991825827",
+        "orgcode": "digdir"
+    },
+
+    "thematicArea": [],
+    "keyword": [
+        {
+            "keyword": "delegation"
+        },
+        {
+            "keyword": "access management"
+        }
+    ],
+    "LimitedByRRR": false,
+    "SelfIdentifiedUserEnabled": false,
+    "EnterpriseUserEnabled": false,
+    "resourceType": "GenericAccessResource"
+}

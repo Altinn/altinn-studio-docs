@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="En beskrivelse av et referansesystem for prosessering av hendelser fra en Altinn App" />
+<meta name="altinn_pagedir" class="elastic" content="events/subscribe-to-events/developer-guides/process-app-events/" />
+<meta name="altinn_title" class="elastic" content="Prosessere hendelser fra en Altinn App" />
+<meta name="product" data-pagefind-filter="Produkt[content]" content="Events" />
+
+
+<title>Prosessere hendelser fra en Altinn App – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/events/subscribe-to-events/developer-guides/process-app-events/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Produkt</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/authorization/">
+      <p class="product-item">Autorisasjon</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/broker/">
+      <p class="product-item">Formidling</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/">
+      <p class="product-item">Melding</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/notifications/">
+      <p class="product-item">Varsling</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Søk</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/nb.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/events/subscribe-to-events/developer-guides/process-app-events/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/events/subscribe-to-events/developer-guides/process-app-events/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">Hva leter du etter?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Søk');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Sist endret: 24. jul. 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/nb/events/"><span>Events</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/events/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/events/api/openapi/"><span>OpenAPI</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/events/subscribe-to-events/"><span>Abonner på hendelser</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/events/subscribe-to-events/get-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/events/subscribe-to-events/get-started/api-access/"><span>API-tilgang</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/events/subscribe-to-events/get-started/events-access/"><span>Tilgang til hendelsesressurs</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/events/subscribe-to-events/developer-guides/"><span>Utviklerguider</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/events/subscribe-to-events/developer-guides/setup-subscription/"><span>Sett opp abonnement</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/events/subscribe-to-events/developer-guides/process-app-events/"><span>Prosessere app-hendelser</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/events/publish-events/"><span>Publiser hendelser</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/events/publish-events/get-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/events/publish-events/get-started/api-access/"><span>API-tilgang</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/events/publish-events/get-started/resource-registry/"><span>Registrer ressurs</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/events/publish-events/developer-guides/"><span>Utviklerguider</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/events/publish-events/developer-guides/publish-app-events/"><span>Publiser app-hendelser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/events/publish-events/developer-guides/publish-events/"><span>Publiser hendelser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/events/publish-events/developer-guides/grant-subscriber-access/"><span>Gi abonnenter tilgang</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/events/query-events/"><span>Spør etter hendelser</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/events/query-events/developer-guides/"><span>Utviklerveiledninger</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/events/query-events/developer-guides/query-app-events-org/"><span>Søk app-hendelser - org</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/events/query-events/developer-guides/query-events/"><span>Søk etter hendelser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/events/query-events/developer-guides/query-app-events-enduser/"><span>Spørre etter app-hendelser - sluttbruker</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/events/reference/"><span>Referanse</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/events/reference/architecture/"><span>Arkitektur</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/events/reference/architecture/events/"><span>Events</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/events/explanation/"><span>Forklaring</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/events/explanation/subject_authorization/"><span>Forstå subjekter i Cloud Events</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/nb/events/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/events/subscribe-to-events/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/events/subscribe-to-events/developer-guides/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/events/subscribe-to-events/developer-guides/process-app-events/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/nb/events/'>Events</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/events/subscribe-to-events/'>Abonner på hendelser</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/events/subscribe-to-events/developer-guides/'>Utviklerguider</a> <span class='adocs-breadcrumb-divider'> / </span> Prosessere app-hendelser</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Prosessere hendelser fra en Altinn App</h1>
+              <p class="a-leadText" id="leadText">En beskrivelse av et referansesystem for prosessering av hendelser fra en Altinn App</p>
+
+<p>Altinn Apps er per utgangen av 2022 hendelseprodusentene som er ansvarlige for flertallet av hendelsene registrert
+i Altinn. Selv om applikasjonene varierer i implementasjon og formål, har prosessering av hendelsene
+produsert av en applikasjon en tendens til å ha en rekke likheter.</p>
+<h2 id="standard-altinn-app-hendelsestyper">Standard Altinn App hendelsestyper</h2>
+<p>Altinn Apps som har aktivert hendelsesgenerering publiserer et sett med standardhendelser.</p>
+<ul>
+<li>app.instance.created</li>
+<li>app.instance.process.movedTo.{Task ID}</li>
+<li>app.instance.process.completed</li>
+<li>app.instance.substatus.changed</li>
+</ul>
+<p>I tillegg til listen over står applikasjonseiere fritt til å generere tilpassede hendelser.
+Sørg for å sjekke med eieren av applikasjonen du ønsker å abonnere på hvis du er usikker på
+hvilke hendelsestyper som ville passe best å abonnere på for ditt brukstilfelle.</p>
+<h2 id="altinn-application-owner-system">Altinn Application Owner System</h2>
+<p>Vi har laget et referansesystem for applikasjonseiere å bruke ved prosessering av applikasjonsinstanser.
+Støttet av Azure og hendelsesevnene til Altinn,
+er systemet i stand til å hente data når en instans er fullført og deretter oppdatere statusen til instansen.</p>
+<p><a href="https://github.com/Altinn/altinn-application-owner-system">Altinn Application Owner system er tilgjengelig på GitHub</a>.
+Vi anbefaler at du kloner repositoriet før du gjør noen tilpasninger og distribuerer det i din Azure-konto.</p>
+<h2 id="eksempelflyt-instansdataprosessering">Eksempelflyt: instansdataprosessering</h2>
+<ol>
+<li>
+<p>Sett opp et abonnement for en applikasjonsressurs og relevant(e) hendelsestype(r) for deg,
+f.eks. <em>app.instance.created</em> eller <em>app.instance.process.completed</em>.</p>
+</li>
+<li>
+<p>Når en hendelse pushes til ditt endepunkt, følg kildelenken for å få tilgang til metadataene for applikasjonsinstansen.
+Merk at klienten må autentisere seg mot dette endepunktet også.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;b4d1d548-1280-464c-a8da-dee9840909de&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#f1fa8c">&#34;2023-04-18T12:16:38.7942271Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;app.instance.process.completed&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">&#34;source&#34;</span>: <span style="color:#f1fa8c">&#34;https://ttd.apps.at22.altinn.cloud/ttd/apps-test/instances/50019855/6b3323c8-7baf-4612-b8a6-5eac407f4d0c&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;/party/50019855&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;specversion&#34;</span>: <span style="color:#f1fa8c">&#34;1.0&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;alternativesubject&#34;</span>: <span style="color:#f1fa8c">&#34;/person/16035001577&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></li>
+<li>
+<p>Instansmetadataene vil gi en liste over dataelementer relatert til instansen som inneholder
+nedlastingslenker. Bruk enten <em>apps</em> eller <em>platform</em> selvlenker for å laste ned dataene med samme påloggingsinformasjon som
+for forrige forespørsel.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span> <span style="color:#f1fa8c">&#34;data&#34;</span>: [
+</span></span><span style="display:flex;"><span>     {
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;abbccf62-0c8b-4acd-a99c-57e45d7542bc&#34;</span>,
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&#34;instanceGuid&#34;</span>: <span style="color:#f1fa8c">&#34;6b3323c8-7baf-4612-b8a6-5eac407f4d0c&#34;</span>,
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&#34;dataType&#34;</span>: <span style="color:#f1fa8c">&#34;default&#34;</span>,
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&#34;filename&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&#34;contentType&#34;</span>: <span style="color:#f1fa8c">&#34;application/xml&#34;</span>,
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&#34;blobStoragePath&#34;</span>: <span style="color:#f1fa8c">&#34;ttd/apps-test/6b3323c8-7baf-4612-b8a6-5eac407f4d0c/data/abbccf62-0c8b-4acd-a99c-57e45d7542bc&#34;</span>,
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&#34;selfLinks&#34;</span>: {
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>             <span style="color:#ff79c6">&#34;apps&#34;</span>: <span style="color:#f1fa8c">&#34;https://ttd.apps.at22.altinn.cloud/ttd/apps-test/instances/50019855/6b3323c8-7baf-4612-b8a6-5eac407f4d0c/data/abbccf62-0c8b-4acd-a99c-57e45d7542bc&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>             <span style="color:#ff79c6">&#34;platform&#34;</span>: <span style="color:#f1fa8c">&#34;https://platform.at22.altinn.cloud/storage/api/v1/instances/50019855/6b3323c8-7baf-4612-b8a6-5eac407f4d0c/data/abbccf62-0c8b-4acd-a99c-57e45d7542bc&#34;</span>
+</span></span><span style="display:flex;"><span>         },
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&#34;size&#34;</span>: <span style="color:#bd93f9">541</span>,
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&#34;locked&#34;</span>: <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&#34;refs&#34;</span>: [],
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&#34;isRead&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&#34;tags&#34;</span>: [],
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&#34;deleteStatus&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2023-04-18T12:16:38.5517968Z&#34;</span>,
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#f1fa8c">&#34;20003904&#34;</span>,
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&#34;lastChanged&#34;</span>: <span style="color:#f1fa8c">&#34;2023-04-18T12:16:38.5517968Z&#34;</span>,
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&#34;lastChangedBy&#34;</span>: <span style="color:#f1fa8c">&#34;20003904&#34;</span>
+</span></span><span style="display:flex;"><span>     }
+</span></span><span style="display:flex;"><span> ]
+</span></span></code></pre></div></li>
+<li>
+<p>Hvis du er applikasjonseier og dette er en del av å prosessere en innsendt instans, fullfør denne flyten ved å
+kalle
+<a href="https://docs.altinn.studio/api/apps/spec/#/Instances/post__org___app__instances__instanceOwnerPartyId___instanceGuid__complete">complete confirm endepunktet for instansen</a>.</p>
+<p>Dette informerer Altinn om at du som applikasjonseier har lastet ned alt du trenger, noe som betyr at Altinn
+ikke trenger å opprettholde instansen og relaterte skjemadata og vedlegg etter at sluttbrukeren sletter den fra sin
+meldingsboks.</p>
+</li>
+</ol>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/events/subscribe-to-events/developer-guides/process-app-events/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#standard-altinn-app-hendelsestyper">Standard Altinn App hendelsestyper</a></li>
+    <li><a href="#altinn-application-owner-system">Altinn Application Owner System</a></li>
+    <li><a href="#eksempelflyt-instansdataprosessering">Eksempelflyt: instansdataprosessering</a></li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

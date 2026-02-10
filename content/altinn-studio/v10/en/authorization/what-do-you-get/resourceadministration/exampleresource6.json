@@ -1,0 +1,70 @@
+{
+    "identifier": "nav_tiltakAvtaleOmArbeidstrening",
+    "title": [
+        {
+            "title": "Avtale om arbeidstrening",
+            "language": "nb-NO"
+        },
+        {
+            "title": "Agreement on work training",
+            "language": "en"
+        }
+    ],
+    "description": [
+        {
+            "language": "nb-NO",
+            "description": "Avtalen skal bidra til at personer med behov for bistand fra NAV skal få eller beholde en jobb, samtidig som den støtter arbeidsgivere som inkluderer deg som har nedsatt arbeidsevne. Avtalen inngås mellom arbeidsgiver, arbeidssøker og NAV."
+        },
+        {
+            "language": "EN",
+            "description": "The agreement will help people who need assistance from NAV to get or keep a job, while supporting employers who include those who have reduced working capacity. The agreement is entered into between the employer, the jobseeker and NAV."
+        }
+    ],
+    "rightDescription": [
+        {
+            "language": "nb-NO",
+            "description": "Med denne fullmakten kan man inngå en avtale om arbeidstreing med NAV og kommune."
+        },
+        {
+            "language": "EN",
+            "description": "With this authorisation, you can enter into an agreement on work training with NAV and the municipality"
+        }
+    ],
+    "homepage": "https://www.nav.no/",
+    "status": "Completed",
+    "contactPoints": [
+        {
+            "category": null,
+            "telephone": "1231324",
+            "email": "online@digdir.no",
+            "contactPage": null
+        }
+    ],
+    "isPartOf": "nav_RapporteringOmArbeidstrening",
+    "hasCompetentAuthority": {
+        "organization": "889640782",
+        "orgcode": "NAV"
+    },
+    "resourceReferences": [
+        {
+            "referenceSource": "altinn2",
+            "reference": "5332",
+            "referenceType": "ServiceCode"
+        },
+        {
+            "referenceSource": "altinn2",
+            "reference": "2",
+            "referenceType": "ServiceEditionCode"
+        }
+    ],
+    "thematicArea": "http://publications.europa.eu/resource/authority/eurovoc/2468",
+    "keyword": [
+        {
+            "keyword": "Dødsbo"
+        }
+    ],
+    "LimitedByRRR": false,
+    "SelfIdentifiedUserEnabled": false,
+    "EnterpriseUserEnabled": false,
+    "resourceType": "GenericAccessResource"
+}

@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Hvordan overstyre eller berike den automatiske Dialogporten-integrasjonen fra appen din" />
+<meta name="altinn_pagedir" class="elastic" content="dialogporten/user-guides/service-owners/integrating-altinn-apps/" />
+<meta name="altinn_title" class="elastic" content="Integrere Altinn Apps" />
+<meta name="product" data-pagefind-filter="Produkt[content]" content="Dialogporten" />
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="Guider" />
+
+<title>Integrere Altinn Apps – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/dialogporten/user-guides/service-owners/integrating-altinn-apps/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Produkt</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/authorization/">
+      <p class="product-item">Autorisasjon</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/broker/">
+      <p class="product-item">Formidling</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/">
+      <p class="product-item">Melding</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/notifications/">
+      <p class="product-item">Varsling</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Søk</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/nb.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/user-guides/service-owners/integrating-altinn-apps/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/dialogporten/user-guides/service-owners/integrating-altinn-apps/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">Hva leter du etter?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Søk');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Sist endret: 17. des. 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/nb/dialogporten/"><span>Dialogporten</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/about-dialogporten/"><span>Om Dialogporten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/what-do-you-get/"><span>Hva får du?</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/"><span>Komme i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/dialogs/"><span>Dialoger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/authorization/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/authorization/parties/"><span>Parter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/authorization/service-resource/"><span>Tjenesteressurs</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/authorization/attributes/"><span>Autorisasjonsattributter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/authorization/dialog-tokens/"><span>Dialog Tokens</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/events/"><span>Hendelser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/front-channel-embeds/"><span>Front channel embeds</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/write-actions/"><span>Skrivehandlinger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/process-identifiers/"><span>Prosessidentifikatorer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/seen-log/"><span>Sett-logg</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/activity-log/"><span>Aktivitetslogg</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/"><span>Brukerhåndbøker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/authenticating/"><span>Autentisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/authorized-parties/"><span>Finne autoriserte parter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/searching-for-dialogs/"><span>Søke etter dialoger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/getting-dialog-details/"><span>Hente dialogdetaljer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/detecting-changes/"><span>Oppdage endringer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/service-owners/"><span>Tjenesteeiere</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/service-owners/creating-resources/"><span>Opprette ressurser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/service-owners/creating-dialogs/"><span>Opprette dialoger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/service-owners/updating-dialogs/"><span>Oppdatere dialoger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/service-owners/impersonating-users/"><span>Impersonering av brukere</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/service-owners/integrating-altinn-apps/"><span>Integrere Altinn Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/service-owners/api-client/"><span>API-klient for .NET</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/migrating-from-altinn2/"><span>Migrering fra Altinn 2</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/"><span>Referanse</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/openapi/"><span>OpenAPI</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/graphql/"><span>GraphQL</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/entities/"><span>Entiteter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/entities/dialog/"><span>Dialog</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/entities/transmission/"><span>Forsendelse</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/entities/attachment/"><span>Vedlegg</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/entities/activity/"><span>Aktivitet</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/entities/seen/"><span>Sett</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/entities/systemlabel/"><span>Systemetikett</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/entities/action/"><span>Handling</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/authorization/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/authorization/altinn-authorization/"><span>Altinn Autorisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/authorization/attributes/"><span>Autorisasjonsattributter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/authorization/parties/"><span>Autoriserte parter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/authorization/dialog-tokens/"><span>Dialog Tokens</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/front-end/"><span>Front end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/front-end/front-channel-embeds/"><span>Front channel embeds</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/front-end/write-actions/"><span>Skrivehandlinger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/front-end/subscriptions/"><span>GraphQL-abonnementer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/front-end/altinn-apps/"><span>Altinn Apps integrasjon</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/events/"><span>Hendelser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/content-types/"><span>Innholdstyper</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/news/"><span>Nyheter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/status-migration/"><span>Status migrering</span></a></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/nb/dialogporten/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/dialogporten/user-guides/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/dialogporten/user-guides/service-owners/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/dialogporten/user-guides/service-owners/integrating-altinn-apps/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/nb/dialogporten/'>Dialogporten</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/dialogporten/user-guides/'>Brukerhåndbøker</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/dialogporten/user-guides/service-owners/'>Tjenesteeiere</a> <span class='adocs-breadcrumb-divider'> / </span> Integrere Altinn Apps</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Integrere Altinn Apps</h1>
+              <p class="a-leadText" id="leadText">Hvordan overstyre eller berike den automatiske Dialogporten-integrasjonen fra appen din</p>
+
+<h2 id="introduksjon">Introduksjon</h2>
+<p>Altinn Apps synkroniseres automatisk med Dialogporten. Hver gang en ny
+instans opprettes, vil dialogtjenesten opprette eller oppdatere en tilhørende
+dialog som er synlig for sluttbrukeren i Altinn Innboks (&ldquo;arbeidsflate&rdquo;). Denne
+guiden forklarer hvordan standardoppførselen kan justeres og hvordan du kan ta
+full kontroll over integrasjonen ved behov.</p>
+<h2 id="automatisk-dialogsynkronisering">Automatisk dialogsynkronisering</h2>
+<p>Som standard er synkroniseringen aktivert for alle applikasjoner. Oppdateringer av
+instansen, som statusendringer, lagt til aktiviteter eller vedlegg, vil bli
+reflektert i Dialogporten. Oppførselen kan finjusteres i appinnstillingene. Se
+referanseinformasjonen som er lenket nedenfor for detaljer.</p>
+<p><strong>Les mer</strong></p>
+<ul>
+<li>    
+
+
+
+
+
+
+
+
+
+    
+    
+        
+    
+
+    
+        <a href="/nb/dialogporten/reference/front-end/altinn-apps/">Referanseinformasjon for Altinn Apps integrasjon</a>
+    
+
+</li>
+</ul>
+<h2 id="bruke-dialogporten-webapi-sdk">Bruke Dialogporten WebAPI SDK</h2>
+<p>Noen scenarier krever mer kontroll enn den automatiske synkroniseringen tilbyr.
+<a href="https://github.com/Altinn/dialogporten/tree/main/src/Digdir.Library.Dialogporten.WebApiClient">Dialogporten WebAPI SDK</a>
+gir applikasjonen din programmatisk tilgang til Dialogporten slik at du kan opprette og
+oppdatere dialoger selv. Dette muliggjør finkornet håndtering av aktiviteter,
+forsendelser og synkronisering med Altinn Innboks.</p>
+<h2 id="konvensjonsbasert-bruk-av-applikasjonstekster">Konvensjonsbasert bruk av applikasjonstekster</h2>
+<p>Altinn Apps kan automatisk finne lokalisert tekstinnhold for dialoger ved å følge et konvensjonsbasert system.
+Dette systemet søker etter spesifikke nøkler i applikasjonstekstene dine med en fallback-mekanisme.</p>
+<h3 id="nøkkeloppslagsrekkefølge">Nøkkeloppslagsrekkefølge</h3>
+<p>Systemet forsøker å finne den mest spesifikke nøkkelen først, og faller deretter tilbake til mer generelle nøkler i
+denne rekkefølgen:</p>
+<ol>
+<li><strong>Aktiv oppgave for status</strong> - Mest spesifikke treff</li>
+<li><strong>Aktiv oppgave</strong> - Oppgavespesifikt treff</li>
+<li><strong>Enhver oppgave for status</strong> - Statussspesifikt treff</li>
+<li><strong>Enhver oppgave og enhver status</strong> - Mest generelle treff</li>
+</ol>
+<h3 id="format">Format</h3>
+<p>Alle nøkler følger dette mønsteret (ikke-sensitivt for store/små bokstaver, konvertert til små bokstaver):</p>
+<p>dp.{content_type}[.{task}[.{state}]]</p>
+<p><strong>Komponenter:</strong></p>
+<ul>
+<li>
+<p><strong>content_type</strong> (obligatorisk): En av:</p>
+<ul>
+<li><code>title</code> - Dialogtittel</li>
+<li><code>summary</code> - Dialogsammendrag/beskrivelse</li>
+<li><code>additionalinfo</code> - Dialog tilleggsinformasjon</li>
+<li><code>primaryactionlabel</code> - Primær handlingsknapptekst</li>
+<li><code>deleteactionlabel</code> - Slett handlingsknapptekst</li>
+<li><code>copyactionlabel</code> - Kopier handlingsknapptekst</li>
+</ul>
+</li>
+<li>
+<p><strong>task</strong> (valgfritt): Enten:</p>
+<ul>
+<li>Et spesifikt oppgavenavn (alfanumerisk med interne bindestreker eller understreker)</li>
+<li><code>_any_</code> for wildcard-matching</li>
+</ul>
+</li>
+<li>
+<p><strong>state</strong> (valgfritt): Instansstatusen, for eksempel:</p>
+<ul>
+<li><code>archivedunconfirmed</code>, <code>archivedconfirmed</code></li>
+<li><code>rejected</code></li>
+<li><code>awaitingserviceownerfeedback</code>, <code>awaitingconfirmation</code></li>
+<li><code>awaitingsignature</code>, <code>awaitingadditionaluserinput</code></li>
+<li><code>awaitinginitialuserinput</code>, <code>awaitinginitialuserinputfromprefill</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="eksempler">Eksempler</h3>
+<p><strong>Grunnleggende innhold:</strong></p>
+<ul>
+<li><code>dp.title</code> Generell dialogtittel</li>
+<li><code>dp.summary</code> Generelt dialogsammendrag</li>
+<li><code>dp.primaryactionlabel</code> Generell primær handlingstekst</li>
+</ul>
+<p><strong>Oppgavespesifikt:</strong></p>
+<ul>
+<li><code>dp.title.DataEntry</code> Tittel for DataEntry-oppgave</li>
+<li><code>dp.summary.Review</code> Sammendrag for en Review-oppgave</li>
+<li><code>dp.primaryactionlabel.Sign</code> Primær handling for en Sign-oppgave</li>
+<li><code>dp.primaryactionlabel._any_</code> Primær handling for alle oppgaver</li>
+</ul>
+<p><strong>Statussspesifikt:</strong></p>
+<ul>
+<li><code>dp.title.DataEntry.awaitinginitialuserinput</code> Tittel for DataEntry-oppgave som venter på input</li>
+<li><code>dp.summary._any_.rejected</code> Sammendrag for enhver oppgave når den er avvist</li>
+<li><code>dp.primaryactionlabel.Sign.awaitingsignature</code> Handlingsetikett A for en Sign-oppgave som venter på signatur</li>
+</ul>
+<h3 id="standard-fallback-verdier">Standard Fallback-verdier</h3>
+<p>Hvis ingen tilpassede applikasjonstekstnøkler blir funnet, gir systemet innebygde standardverdier for sammendrag basert
+på
+instansstatusen:</p>
+<h4 id="titteltekststandarder">Titteltekststandarder</h4>
+<p>Bruker tittelen på appen</p>
+<h4 id="standard-sammendragstekster">Standard sammendragstekster</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Status</th>
+          <th>Bokmål (nb)</th>
+          <th>Nynorsk (nn)</th>
+          <th>Engelsk (en)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>archivedunconfirmed</strong></td>
+          <td>Innsendingen er maskinelt kontrollert og formidlet, venter på endelig bekreftelse. Du kan åpne dialogen for å se en foreløpig kvittering.</td>
+          <td>Innsendinga er maskinelt kontrollert og formidla, ventar på endeleg stadfesting. Du kan opne dialogen for å sjå ei førebels kvittering.</td>
+          <td>The submission has been automatically checked and forwarded, awaiting final confirmation. You can open the dialog to see a preliminary receipt.</td>
+      </tr>
+      <tr>
+          <td><strong>archivedconfirmed</strong></td>
+          <td>Innsendingen er bekreftet mottatt. Du kan åpne dialogen for å se din kvittering.</td>
+          <td>Innsendinga er stadfesta motteken. Du kan opne dialogen for å sjå di kvittering.</td>
+          <td>The submission has been confirmed as received. You can open the dialog to see your receipt.</td>
+      </tr>
+      <tr>
+          <td><strong>rejected</strong></td>
+          <td>Innsendingen ble avvist. Åpne dialogen for mer informasjon.</td>
+          <td>Innsendinga vart avvist. Opne dialogen for meir informasjon.</td>
+          <td>The submission was rejected. Open the dialog for more information.</td>
+      </tr>
+      <tr>
+          <td><strong>awaitingserviceownerfeedback</strong></td>
+          <td>Innsendingen er maskinelt kontrollert og formidlet, venter på tilbakemelding.</td>
+          <td>Innsendinga er maskinelt kontrollert og formidla, ventar på tilbakemelding.</td>
+          <td>The submission has been automatically checked and forwarded, awaiting feedback.</td>
+      </tr>
+      <tr>
+          <td><strong>awaitingconfirmation</strong></td>
+          <td>Innsendingen må bekreftes for å gå til neste steg.</td>
+          <td>Innsendinga må stadfestast for å gå til neste steg.</td>
+          <td>The submission must be confirmed to proceed to the next step.</td>
+      </tr>
+      <tr>
+          <td><strong>awaitingsignature</strong></td>
+          <td>Innsendingen må signeres for å gå til neste steg.</td>
+          <td>Innsendinga må signerast for å gå til neste steg.</td>
+          <td>The submission must be signed to proceed to the next step.</td>
+      </tr>
+      <tr>
+          <td><strong>awaitingadditionaluserinput</strong></td>
+          <td>Innsendingen er under arbeid og trenger flere opplysninger for å gå til neste steg.</td>
+          <td>Innsendinga er under arbeid og treng fleire opplysningar for å gå til neste steg.</td>
+          <td>The submission is in progress and requires more information to proceed to the next step.</td>
+      </tr>
+      <tr>
+          <td><strong>awaitinginitialuserinput</strong> (default)</td>
+          <td>Innsendingen er klar for å fylles ut.</td>
+          <td>Innsendinga er klar til å fyllast ut.</td>
+          <td>The submission is ready to be filled out.</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="standard-primære-handlingsetiketter">Standard primære handlingsetiketter</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Status</th>
+          <th>Bokmål (nb)</th>
+          <th>Nynorsk (nn)</th>
+          <th>Engelsk (en)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Archived</strong> (alle arkiverte statuser)</td>
+          <td>Se innsendt skjema</td>
+          <td>Sjå innsendt skjema</td>
+          <td>See submitted form</td>
+      </tr>
+      <tr>
+          <td><strong>Active</strong> (alle ikke-arkiverte statuser)</td>
+          <td>Gå til skjemautfylling</td>
+          <td>Gå til skjemautfylling</td>
+          <td>Go to form completion</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="standard-slette-handlingsetiketter">Standard Slette handlingsetiketter</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Status</th>
+          <th>Bokmål (nb)</th>
+          <th>Nynorsk (nn)</th>
+          <th>Engelsk (en)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>any</strong></td>
+          <td>Slett</td>
+          <td>Slett</td>
+          <td>Delete</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="standard-kopier-handlingsetiketter">Standard Kopier handlingsetiketter</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Status</th>
+          <th>Bokmål (nb)</th>
+          <th>Nynorsk (nn)</th>
+          <th>Engelsk (en)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>any</strong></td>
+          <td>Lag en kopi</td>
+          <td>Lag en kopi</td>
+          <td>Create new copy</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="implementasjonsmerknader">Implementasjonsmerknader</h3>
+<ul>
+<li>Alle nøkler konverteres til små bokstaver under oppslag</li>
+<li>Oppgavenavn kan inneholde bokstaver, tall, bindestreker (-) og understreker (_)</li>
+<li>Oppgavenavn må starte og slutte med alfanumeriske tegn</li>
+<li>Bruk <code>_any_</code> som en wildcard for å matche ethvert oppgavenavn</li>
+<li>Systemet returnerer det første treffet som blir funnet etter oppslagsrekkefølgen</li>
+</ul>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/dialogporten/user-guides/service-owners/integrating-altinn-apps/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduksjon">Introduksjon</a></li>
+    <li><a href="#automatisk-dialogsynkronisering">Automatisk dialogsynkronisering</a></li>
+    <li><a href="#bruke-dialogporten-webapi-sdk">Bruke Dialogporten WebAPI SDK</a></li>
+    <li><a href="#konvensjonsbasert-bruk-av-applikasjonstekster">Konvensjonsbasert bruk av applikasjonstekster</a>
+      <ul>
+        <li><a href="#nøkkeloppslagsrekkefølge">Nøkkeloppslagsrekkefølge</a></li>
+        <li><a href="#format">Format</a></li>
+        <li><a href="#eksempler">Eksempler</a></li>
+        <li><a href="#standard-fallback-verdier">Standard Fallback-verdier</a>
+          <ul>
+            <li><a href="#titteltekststandarder">Titteltekststandarder</a></li>
+            <li><a href="#standard-sammendragstekster">Standard sammendragstekster</a></li>
+            <li><a href="#standard-primære-handlingsetiketter">Standard primære handlingsetiketter</a></li>
+            <li><a href="#standard-slette-handlingsetiketter">Standard Slette handlingsetiketter</a></li>
+            <li><a href="#standard-kopier-handlingsetiketter">Standard Kopier handlingsetiketter</a></li>
+          </ul>
+        </li>
+        <li><a href="#implementasjonsmerknader">Implementasjonsmerknader</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

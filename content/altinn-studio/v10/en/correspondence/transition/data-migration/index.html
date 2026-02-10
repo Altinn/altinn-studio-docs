@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Migration of Correspondence Data for Altinn Correspondence" />
+<meta name="altinn_pagedir" class="elastic" content="correspondence/transition/data-migration/" />
+<meta name="altinn_title" class="elastic" content="Migration of Correspondence Data" />
+<meta name="product" data-pagefind-filter="Product[content]" content="Correspondence" />
+
+
+<title>Migration of Correspondence Data – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/en/correspondence/transition/data-migration/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/en/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">To the frontpage</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Show/hide menu</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Product</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/en/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/authorization/">
+      <p class="product-item">Authorization</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/broker/">
+      <p class="product-item">Broker</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/correspondence/">
+      <p class="product-item">Correspondence</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/notifications/">
+      <p class="product-item">Notifications</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Search</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/en.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/transition/data-migration/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/correspondence/transition/data-migration/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English ✓</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">What are you looking for?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Search');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Last modified: Dec 12, 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/en/correspondence/"><span>Correspondence</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/correspondence/about/"><span>About Correspondence</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/what-do-you-get/"><span>What do you get?</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/getting-started/"><span>Getting Started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/correspondence/getting-started/developer-guides/serviceowner/"><span>Service owner</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/getting-started/developer-guides/systemprovider/"><span>System provider</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/getting-started/developer-guides/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/getting-started/developer-guides/notifications/"><span>Notifications</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/getting-started/developer-guides/dialogporten-arbeidsflate/"><span>Transmissions</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/getting-started/developer-guides/maskinporten/"><span>Maskinporten</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/explanation/"><span>Concepts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/correspondence/explanation/basic-concepts/"><span>Basic Concepts</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/explanation/access-management/"><span>Access-Management</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/explanation/taushetsbelagt-post/"><span>Confidential correspondences</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/explanation/status-lifecycle/"><span>Correspondence Life Cycle</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/correspondence/explanation/status-lifecycle/pre-published/"><span>Pre-Published Life Cycle</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/explanation/status-lifecycle/post-published/"><span>Post-Published Lifecycle</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/explanation/attachment-expiry/"><span>Attachment expiry</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/transition/"><span>Transition solution</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/correspondence/transition/service-migration/"><span>Service Migration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/transition/data-migration/"><span>Data Migration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/transition/delegation-migration/"><span>Delegation Migration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/transition/portal/"><span>Altinn 2 Portal</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/transition/consequences/"><span>Consequences</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/transition/differences/"><span>Differences</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/reference/"><span>Reference documentation</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/correspondence/reference/terminology/"><span>Terminology</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/reference/system-interfaces/"><span>System Interfaces</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/reference/capabilities/"><span>Capabilities</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/reference/solution-architecture/"><span>Solution Architecture</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/en/correspondence/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/correspondence/transition/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/correspondence/transition/data-migration/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/en/correspondence/'>Correspondence</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/correspondence/transition/'>Transition solution</a> <span class='adocs-breadcrumb-divider'> / </span> Data Migration</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Migration of Correspondence Data</h1>
+              <p class="a-leadText" id="leadText">Migration of Correspondence Data for Altinn Correspondence</p>
+
+<p>The &ldquo;Flytt av Data&rdquo; project will take responsibility for migrating all historical correspondences and attachments to the new solution.</p>
+<ul>
+<li>An automated job migrates correspondences and associated attachments from Altinn 2 to Altinn 3 using a dedicated API endpoint.</li>
+<li>The migrated version of an element will have a reference to its old Altinn 2 version, exposed in the field: &ldquo;Altinn2CorrespondenceId&rdquo; in the CorrespondenceOverview endpoint.</li>
+<li>After migration, the elements will still be available in Altinn 2, both in the Portal and via API.</li>
+<li>After migration, changes to the element will be synchronized both ways, between the Altinn 2 and Altinn 3 versions of the element.</li>
+<li>The Altinn 3 version of the migrated element will, once migration is complete, have an &ldquo;IsMigrating&rdquo; flag that keeps it hidden from regular API calls.</li>
+<li>When the flag &ldquo;IsMigrating&rdquo; is removed, the migrated message will become available in the same manner as other Altinn 3 Correspondences.
+<ul>
+<li>Altinn 3 Correspondence API.</li>
+<li>Can be created in Dialogporten and thus accessed in Arbeidsflate.</li>
+<li>The Altinn 3 version of the message will <strong>not</strong> be available in Altinn 2 Portal, which will continue to show the Altinn 2 version of the message.</li>
+</ul>
+</li>
+<li>No data is deleted as a result of migration; the correspondences are only flagged in the database, and it is possible to perform the migration again and/or manually retrieve data if needed.</li>
+</ul>
+<p>The migration will take place over time, and can be configured to re-migrate messages.</p>
+<h2 id="volume-and-migration-rate">Volume and Migration Rate</h2>
+<p>It is estimated that over 500 million correspondences with attachments will be migrated from Altinn 2 to Altinn 3.
+Therefore, it is planned to perform the migration gently, starting with smaller volumes over time to gather experience and avoid disrupting the environments.</p>
+<p>Over time, the rate will increase and eventually be almost up to date with live traffic in Altinn 2 as it slowly decreases and Altinn 2 is phased out.</p>
+<h2 id="migration-criteria">Migration Criteria</h2>
+<p>The migration component will extract a certain number of elements per run for all services, sorted by the oldest message first.</p>
+<h2 id="detailed-migration-process-per-element">Detailed Migration Process per Element</h2>
+<p>The migration process per correspondence will be divided into several steps to reduce risk and can be controlled per correspondence, with the ability to delete data and restart the process.
+No data is deleted from Altinn 2.</p>
+<ol>
+<li>Migration of message data and attachments from Altinn 2 to Altinn 3, where we are not dependent on <a href="/en/correspondence/transition/service-migration/">service configuration</a>.</li>
+<li>Migration of necessary <a href="/en/correspondence/transition/service-migration/">service configuration</a> and access rules.</li>
+<li>Migration of associated instance and service delegations.</li>
+<li>Creation of the migrated message in the Dialog Portal/Unified Workspace.</li>
+</ol>
+<p>Initially, steps 1, 2, and 3 will be triggered manually as separate actions by the Move Data team, and step 4 will be triggered by the Dialog Portal/Unified Workspace.</p>
+<p>Eventually, as full production for all components approaches, this will be handled automatically in a single process for new messages.</p>
+<h2 id="what-data-is-migrated">What Data is Migrated?</h2>
+<ul>
+<li>Only correspondences that have not been permanently deleted are migrated, including correspondences in the recycle/trash bin.</li>
+<li>No correspondences for dead people.</li>
+<li>Both non-archived and archived correspondences.</li>
+<li>Correspondence content, including text and all attachments and metadata.</li>
+<li>A limited form of notification history: Time and recipient address, but not text content.</li>
+<li>Change history; including opening, read confirmation, and information about forwarding and instance delegation.</li>
+<li>Altinn 2 CorrespondenceId and NotificationId, making it possible to look up in Altinn 2 in cases where more detailed investigations are needed.</li>
+</ul>
+<h2 id="synchronization-of-status-changes-between-altinn-2-and-3">Synchronization of Status Changes between Altinn 2 and 3</h2>
+<p>There will be two-way synchronization of status changes and events on messages between Altinn 2 and Altinn 3 after migration is completed.</p>
+<p>This solution will be referred to as &ldquo;CorrespondenceSync&rdquo;.</p>
+<p>Existing status/history will be migrated in step 1 but will be continuously synchronized as changes occur.</p>
+<p>Because there are some differences and technical limitations, synchronization consists of the following events:</p>
+<h3 id="events-synchronized-both-ways">Events synchronized both ways</h3>
+<ul>
+<li>Opened / read</li>
+<li>Confirmed</li>
+<li>Permanent deletion</li>
+</ul>
+<h3 id="events-synchronized-only-from-altinn-2-to-3">Events synchronized only from Altinn 2 to 3</h3>
+<ul>
+<li>Archiving</li>
+<li>Move to trash / remove from trash</li>
+<li>Notification sent</li>
+<li>Forwarding</li>
+</ul>
+<h2 id="technical-implementation">Technical Implementation</h2>
+<ul>
+<li>A dedicated endpoint is created in Altinn 3 Correspondence that only provides access to the Migration component; <a href="https://github.com/Altinn/altinn-correspondence/blob/main/src/Altinn.Correspondence.API/Controllers/MigrationController.cs">MigrationController</a>.</li>
+<li>An Altinn 2 AltinnBatch-based migration component &ldquo;MigrateCorrespondence&rdquo; is created
+<ul>
+<li>Consumes the migration endpoint.</li>
+<li>Uses configuration in the Altinn 2 database to control migration.</li>
+<li>Can be triggered manually with parameters, but will over time run more or less continuously.</li>
+</ul>
+</li>
+<li>A synchronization job &ldquo;AltinnCorrespondenceSync&rdquo; is created to synchronize status events for messages from Altinn 2 to 3.
+<ul>
+<li>It calls dedicated sync endpoints in the Altinn 3 Correspondence API.</li>
+</ul>
+</li>
+<li>In Altinn 3 Correspondence, the handlers for &ldquo;Read&rdquo;, &ldquo;Confirmed&rdquo; and &ldquo;Purged&rdquo; are extended
+<ul>
+<li>These call dedicated &ldquo;Sync&rdquo; endpoints in the Altinn 2 SBLBridge API.</li>
+</ul>
+</li>
+</ul>
+<ul class="children children-li js-moveChildrenFrom">
+
+	
+		
+	
+</ul>
+
+
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/correspondence/transition/data-migration/_index.en.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Edit page on GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#volume-and-migration-rate">Volume and Migration Rate</a></li>
+    <li><a href="#migration-criteria">Migration Criteria</a></li>
+    <li><a href="#detailed-migration-process-per-element">Detailed Migration Process per Element</a></li>
+    <li><a href="#what-data-is-migrated">What Data is Migrated?</a></li>
+    <li><a href="#synchronization-of-status-changes-between-altinn-2-and-3">Synchronization of Status Changes between Altinn 2 and 3</a>
+      <ul>
+        <li><a href="#events-synchronized-both-ways">Events synchronized both ways</a></li>
+        <li><a href="#events-synchronized-only-from-altinn-2-to-3">Events synchronized only from Altinn 2 to 3</a></li>
+      </ul>
+    </li>
+    <li><a href="#technical-implementation">Technical Implementation</a></li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">About Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

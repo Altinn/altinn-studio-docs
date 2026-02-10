@@ -1,0 +1,45 @@
+{
+    "identifier": "mat-maskinportenschema-lakselusrapportering",
+    "title": {
+        "en": "Weekly salmon lice reporting",
+        "nb": "Ukentlig rapportering av lakselus",
+        "nn": "Vekentleg rapportering av lakselus"
+    },
+    "description": {
+        "en": "According to \"forskrift om lakselusbekjempelse  § 10\" aquaculture facilities with salmon in the sea are required to report specified information to the Norwegian Food Safety Authority on a weekly basis.",
+        "nb": "I henhold til forskrift om lakselusbekjempelse § 10 skal akvakulturanlegg med laksefisk i sjø ukentlig rapporteres spesifiserte opplysninger til Mattilsynet.",
+        "nn": "I samsvar med forskrift om lakselusbekjempelse § 10 skal akvakulturanlegg med laksefisk i sjø vekentleg rapportere spesifiserte opplysningar til Mattilsynet."
+    },
+    "rightDescription": {
+        "en": "Access to the test scopes",
+        "nb": "Tilgang til test scopene",
+        "nn": "Tilgong til test omfang"
+    },
+    "homepage": "https://www.mattilsynet.no",
+    "status": "Completed",
+    "isPartOf": "",
+    "resourceReferences": [
+        {
+            "referenceSource": "Altinn2",
+            "reference": "mattilsynet:akvakultur.lakselusrapportering",
+            "referenceType": "MaskinportenScope"
+        }
+    ],
+    "delegable": true,
+    "visible": true,
+    "hasCompetentAuthority": {
+        "organization": "985399077",
+        "orgcode": "MAT",
+        "name": {
+            "en": "Norwegian Food Safety Authority",
+            "nb": "Mattilsynet",
+            "nn": "Mattilsynet"
+        }
+    },
+    "keywords": [],
+    "LimitedByRRR": false,
+    "SelfIdentifiedUserEnabled": false,
+    "EnterpriseUserEnabled": false,
+    "resourceType": "MaskinportenSchema",
+    "AvailableForType": ["LegalEntityEnterprise", "Company", "Company"]
+}

@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Denne veiledningen forklarer hvordan du bruker klientadministrasjons-API-et." />
+<meta name="altinn_pagedir" class="elastic" content="authorization/guides/system-vendor/client-admin/" />
+<meta name="altinn_title" class="elastic" content="Klientadministrasjons-API" />
+<meta name="product" data-pagefind-filter="Produkt[content]" content="Autorisasjon" />
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="Guider" />
+
+<title>Klientadministrasjons-API – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/authorization/guides/system-vendor/client-admin/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Produkt</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/authorization/">
+      <p class="product-item">Autorisasjon</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/broker/">
+      <p class="product-item">Formidling</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/">
+      <p class="product-item">Melding</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/notifications/">
+      <p class="product-item">Varsling</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Søk</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/nb.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/authorization/guides/system-vendor/client-admin/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">Hva leter du etter?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Søk');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Sist endret: 9. feb. 2026</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/nb/authorization/"><span>Autorisasjon</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/about/"><span>Om Altinn Autorisasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/"><span>Hva får du?</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/authentication/"><span>Autentisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/rules/"><span>Autorisasjonsregler</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/"><span>Tilgangspakker og roller</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/"><span>Fullmaktsområder og tilgangspakker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/"><span>Administrere tilganger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/andretjenesteytende/"><span>Andre tjenesteytende næringer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/"><span>Bygg, anlegg og eiendom</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/energivannavlopavfall/"><span>Energi, vann, avløp og avfall</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/forholdvedvirksomheten/"><span>Forhold ved virksomheten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/forretningsforer/"><span>Forretningsfører</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/handelovernatting/"><span>Handel, overnatting og servering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/helsepleieomsorgvern/"><span>Helse, pleie, omsorg og vern</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/industrier/"><span>Industrier</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/integrasjoner/"><span>Integrasjoner</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/jordbrukskogbrukjaktfiskeakvakultur/"><span>Jordbruk, skogbruk, jakt, fiske og akvakultur</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/konkursbo/"><span>Konkursbo</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/kulturfrivillighet/"><span>Kultur og frivillighet</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/miljoulykkesikkerhet/"><span>Miljø, ulykke og sikkerhet</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/oppvekstutdanning/"><span>Oppvekst og utdanning</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/personale/"><span>Personale</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/postogarkiv/"><span>Post og arkiv</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/regnskapsforer/"><span>Regnskapsfører</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/revisor/"><span>Revisor</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/skattavgiftregnskaptoll/"><span>Skatt, avgift, regnskap og toll</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/transportoglagring/"><span>Transport og lagring</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/register_er/"><span>Fra Enhetsregisteret</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/register_er/knytning_org/"><span>Virksomhetsknytninger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/"><span>Innbyggere</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/arbeidslivskoleutdanning/"><span>Arbeidsliv, skole og utdanning</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/familiefritid/"><span>Familie og fritid</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/helseomsorg/"><span>Helse og omsorg</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/kulturidrettfrivillighet/"><span>Kultur, idrett og frivillighet</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/patentersertifikaterattester/"><span>Patenter, sertifikater og attester</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/privatperson/"><span>Privatperson</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/skattavgiftbankforsikring/"><span>Skatt, avgift, bank og forsikring</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/verger/"><span>Vergemal</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/resourceadministration/"><span>Ressursadministrasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/resourceadministration/studio/"><span>Ressurs Admin</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessmanagement/"><span>Tilgangsstyring</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accesscontrol/"><span>Tilgangskontroll</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/consent/"><span>Samtykke</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/systemuser/"><span>Systembruker</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/terms/"><span>Ordliste</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/authentication/"><span>Autentisering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/authentication/maskinporten/"><span>Maskinporten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/authentication/id-porten/"><span>ID-porten</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/maskinportenclient/"><span>Maskinporten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/resourceadministration/"><span>Ressursadministrasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/consent/"><span>Samtykke</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/systemuser/"><span>Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/enterpriseuser/"><span>Virksomhetsbrukere</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/"><span>Guider</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/"><span>Sluttbruker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/api-scheme/"><span>Delegerbare API ressurser</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/api-scheme/api-user/"><span>API-bruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/api-scheme/access-manager/"><span>Tilgangsstyrer</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/"><span>Systemtilgang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/accept-request/"><span>Godkjenne</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/delegate-clients/"><span>Klientdelegering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/setup-client-relationship/"><span>Sette opp klientforhold</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/create-systemuser/"><span>Opprett systemtilgang</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/delete-system-user/"><span>Slett systembruker</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/"><span>Systemleverandør</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/client-admin/"><span>Klientadministrasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/consent/"><span>Samtykke</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/consent/request/"><span>Be om samtykke</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/consent/retrieve-token/"><span>Hente samtykke-token</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/consent/behalf-of/"><span>På vegne av andre</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/"><span>Systembruker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/systemregistration/"><span>Registrering av system</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/systemuserrequest/"><span>Opprette Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/deleterequest/"><span>Slette Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/usetoken/"><span>Bruk av Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/changerequest/"><span>Endre Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/client-delegation/"><span>Klientdelegering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/userscenarios/"><span>Brukerscenarier</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/democlient/"><span>Demoklient</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/"><span>Tjenesteeier</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/api-scheme/"><span>Delegerbare API ressurser</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/api-scheme/create-apischeme-api/"><span>API Scheme via API</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/api-scheme/create-apischeme-resource-admin/"><span>Opprette API Scheme</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/generic-access-resource/"><span>Generiske tilgangsressurser</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/generic-access-resource/integrating-link-service/"><span>Ekstern autorisasjon</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/migrate/"><span>Migrering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/migrate/linked_services/"><span>Migrering lenketjenester</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/create-resource-resource-admin/"><span>Opprette ressurser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/consent/"><span>Samtykke</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/consent/create-resource/"><span>Opprette samtykke</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/consent/validate-concent/"><span>Validere</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/system-user/"><span>Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/accesslist/"><span>Tilgangslister</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/accesslist/manage-accesslists-resource-admin/"><span>Administrasjon av tilgangslister</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/accesslist/manage-accesslist-api/"><span>Tilgangslisteadministrasjon i API</span></a></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/"><span>Referanse</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/referenceimplementations/"><span>Referanseimplementasjoner</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/referenceimplementations/smartcloud/"><span>SmartCloud</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/referenceimplementations/systemadmin/"><span>Systemadministrator</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/referenceimplementations/systemuserapi/"><span>Systembruker API</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/xacml/"><span>XACML</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/"><span>Arkitektur</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesstoken/"><span>Access Token</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/authentication/"><span>Autentisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/jwtcookie/"><span>JWT Cookie</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/register/"><span>Register</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/resourceregistry/"><span>Ressursregister</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/resourceregistry/rrr/"><span>RRR</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/acessgroups/"><span>Tilgangsgrupper</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesscontrol/"><span>Tilgangskontroll</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesscontrol/contexthandler/"><span>Konteksthåndterer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesscontrol/pip/"><span>PIP</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesscontrol/prp/"><span>PRP</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesscontrol/pep/"><span>PEP</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accessmanagment/"><span>Tilgangsstyring</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accessmanagment/pap/"><span>PAP</span></a></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/"><span>Fremdriftsplan</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/api-migration/"><span>Endring API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/api-migration/sbs-api/"><span>Sluttbrukersystem-API</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/api-migration/te-api/"><span>Tjenesteeier-API</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/servicemigrationplan/"><span>Flytte Tjenester</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/informasjon-sent/"><span>Informasjonsskriv</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/nb/authorization/migration/informasjon-sent/letter-api-resources/">
+            <span>Infoskriv API ressurser</span></a></li><li class="dd-item">
+          <a href="/nb/authorization/migration/informasjon-sent/letter-accessgroupes/">
+            <span>Høring tilgangspakker</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/new-accessgroups/"><span>Nye tilgangspakker</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/nb/authorization/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/authorization/guides/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/authorization/guides/system-vendor/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/authorization/guides/system-vendor/client-admin/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/nb/authorization/'>Autorisasjon</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/authorization/guides/'>Guider</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/authorization/guides/system-vendor/'>Systemleverandør</a> <span class='adocs-breadcrumb-divider'> / </span> Klientadministrasjon</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Klientadministrasjons-API</h1>
+              <p class="a-leadText" id="leadText">Denne veiledningen forklarer hvordan du bruker klientadministrasjons-API-et.</p>
+
+<p>Altinn tilbyr nå et klientadministrasjons-API for å håndtere klienter og brukere for tjenestetilbydere.</p>
+<h2 id="forutsetninger-for-bruk">Forutsetninger for bruk</h2>
+<ul>
+<li>Man er delegert scopet <code>altinn:clientdelegations.write</code>.</li>
+<li>Man har satt opp en ID-porten-klient i applikasjonen som ber om dette scopet.</li>
+<li>Man logger inn som klientadministrator for tjenestetilbyderen.</li>
+</ul>
+<h2 id="hva-er-en-tjenestetilbyder">Hva er en tjenestetilbyder?</h2>
+<p>I denne sammenhengen er en tjenestetilbyder en virksomhet som:</p>
+<ul>
+<li>Er registrert som regnskapsfører for andre virksomheter i Enhetsregisteret (ER).</li>
+<li>Er registrert som revisor for andre virksomheter i Enhetsregisteret.</li>
+<li>Er registrert som forretningsfører for andre virksomheter i Enhetsregisteret.</li>
+<li>Har blitt delegert en eller flere tilgangspakker for virksomheter og personer i Altinn.</li>
+</ul>
+<h2 id="hva-er-en-klient">Hva er en klient?</h2>
+<ul>
+<li>Virksomhet som har registrert tjenestetilbyder i Enhetsregisteret som regnskapsfører.</li>
+<li>Virksomhet som har registrert tjenestetilbyder i Enhetsregisteret som revisor.</li>
+<li>Virksomhet (BRL eller ESEK) som har registrert tjenestetilbyder i Enhetsregisteret som forretningsfører.</li>
+<li>Virksomhet som i Altinn har delegert tilgangspakker til tjenestetilbyder.</li>
+<li>Innbygger som i Altinn har delegert tilgangspakke til tjenestetilbyder.</li>
+</ul>
+<p><p><img alt="Klientadmin" src="clientadmin.drawio.svg"></p></p>
+<h2 id="hva-består-klientrettigheter-av">Hva består klientrettigheter av?</h2>
+<p>Klientrettigheter består av tilgangspakker som tjenestetilbyder kan videredelegere til brukere i Altinn som er registrert som agenter for tjenestetilbyderen.</p>
+<p>For tilganger gitt via Altinn tilgangsstyring kan dette omfatte alle tilgangspakker for virksomheter og personer.</p>
+<p>For klientrelasjoner registrert i Enhetsregisteret gir disse relasjonene følgende:</p>
+<h3 id="regnskapsfører">Regnskapsfører</h3>
+<p>Rollen regnskapsfører i Enhetsregisteret gir <a href="https://platform.altinn.no/accessmanagement/api/v1/meta/info/roles/46e27685-b3ba-423e-8b42-faab54de5817/packages?variant=AS">følgende tilgangspakker</a> som kan videredelegeres.</p>
+<p>Klikk på pakkenavnet for å se hvilke konkrete rettigheter disse pakkene gir til tjenester.</p>
+<ul>
+<li>Tilgangspakken <a href="https://platform.altinn.no/accessmanagement/api/v1/meta/info/accesspackages/package/43becc6a-8c6c-4e9e-bb2f-08fe588ada21">Regnskapsfører lønn</a></li>
+<li>Tilgangspakken <a href="https://platform.altinn.no/accessmanagement/api/v1/meta/info/accesspackages/package/955d5779-3e2b-4098-b11d-0431dc41ddbe">Regnskapsfører med signeringsrettighet</a></li>
+<li>Tilgangspakken <a href="https://platform.altinn.no/accessmanagement/api/v1/meta/info/accesspackages/package/a5f7f72a-9b89-445d-85bb-06f678a3d4d1">Regnskapsfører uten signeringsrettighet</a></li>
+</ul>
+<h3 id="revisor">Revisor</h3>
+<p>Rollen revisor i Enhetsregisteret gir <a href="https://platform.altinn.no/accessmanagement/api/v1/meta/info/roles/f76b997a-9bd8-4f7b-899f-fcd85d35669f/packages?variant=AS">følgende tilgangspakker</a> som kan videredelegeres.</p>
+<p>Klikk på pakkenavnet for å se hvilke konkrete rettigheter disse pakkene gir til tjenester.</p>
+<ul>
+<li>Tilgangspakken <a href="https://platform.altinn.no/accessmanagement/api/v1/meta/info/accesspackages/package/2f176732-b1e9-449b-9918-090d1fa986f6">Ansvarlig revisor</a></li>
+<li>Tilgangspakken <a href="https://platform.altinn.no/accessmanagement/api/v1/meta/info/accesspackages/package/96120c32-389d-46eb-8212-0a6540540c25">Revisormedarbeider</a></li>
+</ul>
+<h3 id="forretningsfører">Forretningsfører</h3>
+<p>Når du er registrert som forretningsfører for en virksomhet som enten er borettslag eller eierseksjonssameie, får du <a href="https://platform.altinn.no/accessmanagement/api/v1/meta/info/roles/348b2f47-47ee-4084-abf8-68aa54c2b27f/packages?variant=BRL">følgende tilgangspakke</a>.</p>
+<ul>
+<li>Tilgangspakken <a href="https://platform.altinn.no/accessmanagement/api/v1/meta/info/accesspackages/package/0195efb8-7c80-7cf2-bcc8-720a3fb39d44">Forretningsfører eiendom</a></li>
+</ul>
+<h2 id="hvem-kan-få-videredelegerte-klientrettigheter">Hvem kan få videredelegerte klientrettigheter?</h2>
+<p>Alle personer med fødselsnummer/D-nummer i Altinn kan tildeles klientrettigheter.</p>
+<p>Før man kan delegere klientrettigheter (tilgangspakker) til en person, må det være definert et agentforhold mellom personen og tjenestetilbyderen.
+Dette gjøres via eget API. Sletting av agentforholdet vil samtidig fjerne alle klientrettigheter som tjenestetilbyderen har gitt til agenten.</p>
+<h2 id="beskrivelse-av-api">Beskrivelse av API</h2>
+<p>API-et lar deg:</p>
+<ul>
+<li>Legge til nye brukere i virksomheten</li>
+<li>Gi brukere klientrettigheter for en klient ved å videredelegere tilgangspakker.</li>
+<li>Liste brukere med rettigheter for en klient.</li>
+</ul>
+<h3 id="autentisering">Autentisering</h3>
+<p>For å bruke API-et må man være innlogget som klientadministrator for tjenestetilbyderen.</p>
+<p>Dette skjer via en ID-porten-klient.</p>
+<p>ID-porten-tokenet må veksles inn til et Altinn-token.</p>
+<h3 id="identifikatorer">Identifikatorer</h3>
+<p>I dagens versjon av API-et benyttes Altinns <code>partyUuid</code>-identifikatorer.
+Dette er UUID-er; hver person eller virksomhet i Altinn har en unik UUID.</p>
+<h4 id="hvordan-finner-man-disse">Hvordan finner man disse?</h4>
+<ul>
+<li><code>partyUuid</code> for tjenestetilbyder er tilgjengelig i Authorized Party API-et. Dette API-et lister opp alle virksomheter og personer en bruker er autorisert for.</li>
+<li><code>partyUuid</code> for agent er tilgjengelig i Agent-API-et.</li>
+<li><code>partyUuid</code> for klient er tilgjengelig i Klient-API-et.</li>
+</ul>
+<h3 id="api-liste-agenter">API: Liste agenter</h3>
+<p>Dette lar deg liste ut alle personer som har blitt tildelt agentrollen for tjenestetilbyder.</p>
+<ul>
+<li><strong>Test</strong>: <code>GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}</code></li>
+<li><strong>Production</strong>: <code>GET https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}</code></li>
+</ul>
+<p>Parameteren <code>party</code> er <code>partyUuid</code> for tjenestetilbyderen.</p>
+<p>Eksempelrespons</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;links&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;next&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;data&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;agent&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;01f7a70d-2619-4c50-8ff4-efd7ae6c8960&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;KREATIV GRANITT&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Person&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;variant&#34;</span>: <span style="color:#f1fa8c">&#34;Person&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;keyValues&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;PartyId&#34;</span>: <span style="color:#f1fa8c">&#34;50441038&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;PersonIdentifier&#34;</span>: <span style="color:#f1fa8c">&#34;08919574934&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;DateOfBirth&#34;</span>: <span style="color:#f1fa8c">&#34;1895-11-08&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;parent&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;children&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;partyid&#34;</span>: <span style="color:#bd93f9">50441038</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;userId&#34;</span>: <span style="color:#bd93f9">1465828</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;username&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;organizationIdentifier&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;personIdentifier&#34;</span>: <span style="color:#f1fa8c">&#34;08919574934&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;dateOfBirth&#34;</span>: <span style="color:#f1fa8c">&#34;1895-11-08&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;dateOfDeath&#34;</span>: <span style="color:#f1fa8c">&#34;2020-12-22&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;isDeleted&#34;</span>: <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;deletedAt&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;access&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;role&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;ff4c33f5-03f7-4445-85ed-1e60b8aafb30&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;code&#34;</span>: <span style="color:#f1fa8c">&#34;agent&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;urn&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:role:agent&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;legacyurn &#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;children&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;packages&#34;</span>: []
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="api-legge-til-agent">API: Legge til agent</h3>
+<p>Dette lar deg legge til en agent for tjenestetilbyderen. Oppgi fødselsnummer (fnr) eller brukernavn, samt etternavn.</p>
+<ul>
+<li><strong>Test</strong>: <code>POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}</code></li>
+<li><strong>Production</strong>: <code>POST https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}</code></li>
+</ul>
+<p>Eksempel forespørsel (body)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;personidentifier&#34;</span>: <span style="color:#f1fa8c">&#34;01038712345&#34;</span>, <span style="color:#6272a4">// fødselsnummer (fnr) eller brukernavn
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">&#34;lastName&#34;</span>: <span style="color:#f1fa8c">&#34;Salt&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Eksempelrespons</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;019c2e70-c577-7b20-a11c-245fecd5e564&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;roleId&#34;</span>: <span style="color:#f1fa8c">&#34;ff4c33f5-03f7-4445-85ed-1e60b8aafb30&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;fromId&#34;</span>: <span style="color:#f1fa8c">&#34;4a06214d-b261-4695-b33a-0771a995b503&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;toId&#34;</span>: <span style="color:#f1fa8c">&#34;01f7a70d-2619-4c50-8ff4-efd7ae6c8960&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="api-slette-agent">API: Slette agent</h3>
+<p>Dette API-et fjerner agentrollen gitt til en bruker fra tjenestetilbyderen.</p>
+<p>Klientdelegeringer gitt for klienter vil forsvinne i samme operasjon avhengig om cascade = false eller true. Default er true</p>
+<ul>
+<li><strong>Test</strong>: <code>DELETE https://platform.tt02.altinn.no{{baseUrl}}/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}&amp;to={{to}}&amp;cascade=false</code></li>
+<li><strong>Production</strong>: <code>DELETE https://platform.altinn.no{{baseUrl}}/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}&amp;to={{to}}&amp;cascade=false</code></li>
+</ul>
+<p>{{party}} er partyUuid for tjenestetilbyderen.</p>
+<p>{{to}} er partyUuid for agenten.</p>
+<h3 id="api-liste-klienter">API: Liste klienter</h3>
+<p>Dette API-et lar deg liste alle klienter.</p>
+<ul>
+<li><strong>Test</strong>: <code>GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/clients?party={{party}}</code></li>
+<li><strong>Production</strong>: <code>GET https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/clients?party={{party}}</code></li>
+</ul>
+<p>{{party}} er partyUuid for tjenestetilbyderen.</p>
+<p>Eksempelrespons</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;links&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;next&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;data&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;client&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;006cdf09-e874-4fcc-8502-5342b871e2ac&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;ENKEL SKJØR TIGER AS&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Organisasjon&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;variant&#34;</span>: <span style="color:#f1fa8c">&#34;AS&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;keyValues&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;OrganizationIdentifier&#34;</span>: <span style="color:#f1fa8c">&#34;310757314&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;PartyId&#34;</span>: <span style="color:#f1fa8c">&#34;51591744&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;parent&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;children&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;partyid&#34;</span>: <span style="color:#bd93f9">51591744</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;userId&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;username&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;organizationIdentifier&#34;</span>: <span style="color:#f1fa8c">&#34;310757314&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;personIdentifier&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;dateOfBirth&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;dateOfDeath&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;isDeleted&#34;</span>: <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;deletedAt&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;access&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;role&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;46e27685-b3ba-423e-8b42-faab54de5817&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;code&#34;</span>: <span style="color:#f1fa8c">&#34;regnskapsforer&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;urn&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:external-role:ccr:regnskapsforer&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;legacyurn &#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:rolecode:regn&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;children&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;packages&#34;</span>: [
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;a5f7f72a-9b89-445d-85bb-06f678a3d4d1&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;urn&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:accesspackage:regnskapsforer-uten-signeringsrettighet&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;areaId&#34;</span>: <span style="color:#f1fa8c">&#34;64cbcdc8-01c9-448c-b3d2-eb9582beb3c2&#34;</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;43becc6a-8c6c-4e9e-bb2f-08fe588ada21&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;urn&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:accesspackage:regnskapsforer-lonn&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;areaId&#34;</span>: <span style="color:#f1fa8c">&#34;64cbcdc8-01c9-448c-b3d2-eb9582beb3c2&#34;</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;955d5779-3e2b-4098-b11d-0431dc41ddbe&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;urn&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:accesspackage:regnskapsforer-med-signeringsrettighet&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;areaId&#34;</span>: <span style="color:#f1fa8c">&#34;64cbcdc8-01c9-448c-b3d2-eb9582beb3c2&#34;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>          ]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;client&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;00d8acc2-3fac-49ad-88be-5d85ac28475e&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;OPPLYST REFLEKTERENDE TIGER AS&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Organisasjon&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;variant&#34;</span>: <span style="color:#f1fa8c">&#34;AS&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;keyValues&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;OrganizationIdentifier&#34;</span>: <span style="color:#f1fa8c">&#34;310244589&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;PartyId&#34;</span>: <span style="color:#f1fa8c">&#34;51546314&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;parent&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;children&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;partyid&#34;</span>: <span style="color:#bd93f9">51546314</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;userId&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;username&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;organizationIdentifier&#34;</span>: <span style="color:#f1fa8c">&#34;310244589&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;personIdentifier&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;dateOfBirth&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;dateOfDeath&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;isDeleted&#34;</span>: <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;deletedAt&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;access&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;role&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;46e27685-b3ba-423e-8b42-faab54de5817&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;code&#34;</span>: <span style="color:#f1fa8c">&#34;regnskapsforer&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;urn&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:external-role:ccr:regnskapsforer&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;legacyurn &#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:rolecode:regn&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;children&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;packages&#34;</span>: [
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;a5f7f72a-9b89-445d-85bb-06f678a3d4d1&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;urn&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:accesspackage:regnskapsforer-uten-signeringsrettighet&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;areaId&#34;</span>: <span style="color:#f1fa8c">&#34;64cbcdc8-01c9-448c-b3d2-eb9582beb3c2&#34;</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;955d5779-3e2b-4098-b11d-0431dc41ddbe&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;urn&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:accesspackage:regnskapsforer-med-signeringsrettighet&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;areaId&#34;</span>: <span style="color:#f1fa8c">&#34;64cbcdc8-01c9-448c-b3d2-eb9582beb3c2&#34;</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;43becc6a-8c6c-4e9e-bb2f-08fe588ada21&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;urn&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:accesspackage:regnskapsforer-lonn&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;areaId&#34;</span>: <span style="color:#f1fa8c">&#34;64cbcdc8-01c9-448c-b3d2-eb9582beb3c2&#34;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>          ]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="api-delegere-klientrettigheter-til-agent">API: Delegere klientrettigheter til agent</h3>
+<p>Dette API-et gjør det mulig å videredelegere tilgangspakker som tjenestetilbyderen har for klienter.</p>
+<ul>
+<li><strong>Test</strong>: <code>GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&amp;from={{fromOrg}}&amp;to={{to}}</code></li>
+<li><strong>Production</strong>: <code>GET https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&amp;from={{fromOrg}}&amp;to={{to}}</code></li>
+</ul>
+<p>{{party}} er partyUuid for tjenestetilbyderen.
+{{fromOrg}} er partyUuid for klienten.
+{{to}} er partyUuid for agenten.</p>
+<p>Eksempeldelegering av tilgangspakke for skattegrunnlag</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;values&#34;</span>: [
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>     <span style="color:#ff79c6">&#34;role&#34;</span>: <span style="color:#f1fa8c">&#34;rettighetshaver&#34;</span>,
+</span></span><span style="display:flex;"><span>     <span style="color:#ff79c6">&#34;packages&#34;</span> : [
+</span></span><span style="display:flex;"><span>       <span style="color:#f1fa8c">&#34;urn:altinn:accesspackage:skattegrunnlag&#34;</span>
+</span></span><span style="display:flex;"><span>     ]
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Eksempelrespons</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;roleId&#34;</span>: <span style="color:#f1fa8c">&#34;42cae370-2dc1-4fdc-9c67-c2f4b0f0f829&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;packageId&#34;</span>: <span style="color:#f1fa8c">&#34;4c859601-9b2b-4662-af39-846f4117ad7a&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;viaId&#34;</span>: <span style="color:#f1fa8c">&#34;0dbde1a0-0680-414f-9f2e-80cba19c4407&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;fromId&#34;</span>: <span style="color:#f1fa8c">&#34;e902b28d-bc80-4712-8cf4-438ef737f047&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;toId&#34;</span>: <span style="color:#f1fa8c">&#34;01f7a70d-2619-4c50-8ff4-efd7ae6c8960&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;changed&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><h3 id="api-slette-klientrettigheter-til-agent">API: Slette klientrettigheter til agent</h3>
+<p>Dette API-et lar deg fjerne en eller flere tilgangspakker som er klientdelegert til en agent for en klient.</p>
+<ul>
+<li><strong>Test</strong>: <code>GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&amp;from={{from}}&amp;to={{to}}</code></li>
+<li><strong>Production</strong>: <code>GET https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&amp;from={{from}}&amp;to={{to}}</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;values&#34;</span>: [
+</span></span><span style="display:flex;"><span>   {
+</span></span><span style="display:flex;"><span>     <span style="color:#ff79c6">&#34;role&#34;</span>: <span style="color:#f1fa8c">&#34;rettighetshaver&#34;</span>,
+</span></span><span style="display:flex;"><span>     <span style="color:#ff79c6">&#34;packages&#34;</span> : [
+</span></span><span style="display:flex;"><span>       <span style="color:#f1fa8c">&#34;urn:altinn:accesspackage:innbygger-samliv&#34;</span>
+</span></span><span style="display:flex;"><span>     ]
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Eksempelrespons</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;roleId&#34;</span>: <span style="color:#f1fa8c">&#34;42cae370-2dc1-4fdc-9c67-c2f4b0f0f829&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;packageId&#34;</span>: <span style="color:#f1fa8c">&#34;7778f33d-83b7-4089-93fc-4fbacbf28600&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;viaId&#34;</span>: <span style="color:#f1fa8c">&#34;03b14d35-4b8c-44cd-9c71-dc740d8585c2&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;fromId&#34;</span>: <span style="color:#f1fa8c">&#34;a4c0369b-2261-4123-ac03-e0028a64d265&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;toId&#34;</span>: <span style="color:#f1fa8c">&#34;01f7a70d-2619-4c50-8ff4-efd7ae6c8960&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;changed&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><p>Hvis man prøver å slette en pakke som allerede er slettet eller ikke finnes, vil <code>changed</code> i responsen være false.</p>
+<h3 id="api-liste-agenter-som-har-rettigheter-for-klient">API: Liste agenter som har rettigheter for klient</h3>
+<p>Dette API-et lar deg liste hvilke agenter som har tilgang til en klient.</p>
+<ul>
+<li><strong>Test</strong>: <code>GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/clients/accesspackages?party={{party}}&amp;from={{from}}</code></li>
+<li><strong>Production</strong>: <code>GET https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/clients/accesspackages?party={{party}}&amp;from={{from}}</code></li>
+</ul>
+<p>{{party}} er partyUuid for tjenestetilbyderen.
+{{from}} er partyUuid for klienten.</p>
+<p>Eksempelrespons</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;links&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;next&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;data&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;agent&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;01f7a70d-2619-4c50-8ff4-efd7ae6c8960&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;KREATIV GRANITT&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Person&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;variant&#34;</span>: <span style="color:#f1fa8c">&#34;Person&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;keyValues&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;PartyId&#34;</span>: <span style="color:#f1fa8c">&#34;50441038&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;PersonIdentifier&#34;</span>: <span style="color:#f1fa8c">&#34;08919574934&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;DateOfBirth&#34;</span>: <span style="color:#f1fa8c">&#34;1895-11-08&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;parent&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;children&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;partyid&#34;</span>: <span style="color:#bd93f9">50441038</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;userId&#34;</span>: <span style="color:#bd93f9">1465828</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;username&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;organizationIdentifier&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;personIdentifier&#34;</span>: <span style="color:#f1fa8c">&#34;08919574934&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;dateOfBirth&#34;</span>: <span style="color:#f1fa8c">&#34;1895-11-08&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;dateOfDeath&#34;</span>: <span style="color:#f1fa8c">&#34;2020-12-22&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;isDeleted&#34;</span>: <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;deletedAt&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;access&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;role&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;42cae370-2dc1-4fdc-9c67-c2f4b0f0f829&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;code&#34;</span>: <span style="color:#f1fa8c">&#34;rettighetshaver&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;urn&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:role:rettighetshaver&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;legacyurn &#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;children&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;packages&#34;</span>: [
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;4c859601-9b2b-4662-af39-846f4117ad7a&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;urn&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:accesspackage:skattegrunnlag&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;areaId&#34;</span>: <span style="color:#f1fa8c">&#34;7d32591d-34b7-4afc-8afa-013722f8c05d&#34;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>          ]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="api-liste-klienter-som-en-gitt-agent-har-tilgang-til">API: Liste klienter som en gitt agent har tilgang til</h3>
+<p>Dette API-et lister alle klienter en gitt agent har blitt delegert tilgangspakker for. Responsen inneholder detaljinformasjon om hvilke pakker og hvilke klienter agenten er blitt delegert.</p>
+<ul>
+<li><strong>Test</strong>: <code>GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&amp;to={{to}}</code></li>
+<li><strong>Production</strong>: <code>GET https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&amp;to={{to}}</code></li>
+</ul>
+<p>{{party}} er partyUuid for tjenestetilbyderen.
+{{to}} er partyUuid for agenten.</p>
+<p>Eksempelrespons</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;links&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;next&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;data&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;client&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;e902b28d-bc80-4712-8cf4-438ef737f047&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;GEOMETRISK VOKSENDE TIGER AS&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Organisasjon&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;variant&#34;</span>: <span style="color:#f1fa8c">&#34;AS&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;keyValues&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;OrganizationIdentifier&#34;</span>: <span style="color:#f1fa8c">&#34;310757632&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;PartyId&#34;</span>: <span style="color:#f1fa8c">&#34;51561408&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;parent&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;children&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;partyid&#34;</span>: <span style="color:#bd93f9">51561408</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;userId&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;username&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;organizationIdentifier&#34;</span>: <span style="color:#f1fa8c">&#34;310757632&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;personIdentifier&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;dateOfBirth&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;dateOfDeath&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;isDeleted&#34;</span>: <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;deletedAt&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;access&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;role&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;42cae370-2dc1-4fdc-9c67-c2f4b0f0f829&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;code&#34;</span>: <span style="color:#f1fa8c">&#34;rettighetshaver&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;urn&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:role:rettighetshaver&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;legacyurn &#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;children&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;packages&#34;</span>: [
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;4c859601-9b2b-4662-af39-846f4117ad7a&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;urn&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:accesspackage:skattegrunnlag&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;areaId&#34;</span>: <span style="color:#f1fa8c">&#34;7d32591d-34b7-4afc-8afa-013722f8c05d&#34;</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>          ]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/authorization/guides/system-vendor/client-admin/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#forutsetninger-for-bruk">Forutsetninger for bruk</a></li>
+    <li><a href="#hva-er-en-tjenestetilbyder">Hva er en tjenestetilbyder?</a></li>
+    <li><a href="#hva-er-en-klient">Hva er en klient?</a></li>
+    <li><a href="#hva-består-klientrettigheter-av">Hva består klientrettigheter av?</a>
+      <ul>
+        <li><a href="#regnskapsfører">Regnskapsfører</a></li>
+        <li><a href="#revisor">Revisor</a></li>
+        <li><a href="#forretningsfører">Forretningsfører</a></li>
+      </ul>
+    </li>
+    <li><a href="#hvem-kan-få-videredelegerte-klientrettigheter">Hvem kan få videredelegerte klientrettigheter?</a></li>
+    <li><a href="#beskrivelse-av-api">Beskrivelse av API</a>
+      <ul>
+        <li><a href="#autentisering">Autentisering</a></li>
+        <li><a href="#identifikatorer">Identifikatorer</a>
+          <ul>
+            <li><a href="#hvordan-finner-man-disse">Hvordan finner man disse?</a></li>
+          </ul>
+        </li>
+        <li><a href="#api-liste-agenter">API: Liste agenter</a></li>
+        <li><a href="#api-legge-til-agent">API: Legge til agent</a></li>
+        <li><a href="#api-slette-agent">API: Slette agent</a></li>
+        <li><a href="#api-liste-klienter">API: Liste klienter</a></li>
+        <li><a href="#api-delegere-klientrettigheter-til-agent">API: Delegere klientrettigheter til agent</a></li>
+        <li><a href="#api-slette-klientrettigheter-til-agent">API: Slette klientrettigheter til agent</a></li>
+        <li><a href="#api-liste-agenter-som-har-rettigheter-for-klient">API: Liste agenter som har rettigheter for klient</a></li>
+        <li><a href="#api-liste-klienter-som-en-gitt-agent-har-tilgang-til">API: Liste klienter som en gitt agent har tilgang til</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

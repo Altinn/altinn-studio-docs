@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="API for å hente systembruker informasjon" />
+<meta name="altinn_pagedir" class="elastic" content="api/authentication/systemuserapi/systemuser/external/" />
+<meta name="altinn_title" class="elastic" content="Systembruker API" />
+<meta name="product" data-pagefind-filter="Produkt[content]" content="Autorisasjon" />
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="Referanse" />
+
+<title>Systembruker API – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/api/authentication/systemuserapi/systemuser/external/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Produkt</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/authorization/">
+      <p class="product-item">Autorisasjon</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/broker/">
+      <p class="product-item">Formidling</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/">
+      <p class="product-item">Melding</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/notifications/">
+      <p class="product-item">Varsling</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Søk</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/nb.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/api/authentication/systemuserapi/systemuser/external/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/api/authentication/systemuserapi/systemuser/external/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">Hva leter du etter?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Søk');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Sist endret: 12. jan. 2026</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/nb/api/"><span>API</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/accessmanagement/"><span>Access Management</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/accessmanagement/appsopenapi/"><span>Altinn Apps API</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/accessmanagement/consententerprise/"><span>Consent Enterprise API</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/accessmanagement/resourceowneropenapi/"><span>Resourceowner API</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/"><span>App</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/apps/metadata/"><span>Metadata</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/instances/"><span>Instanser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/data-elements/"><span>Data-elementer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/apps/data-elements/user-defined-metadata/"><span>Brukerdefinerte metadata</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/data-elements/metadata/"><span>Metadata</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/data-elements/tags/"><span>Tags</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/stateless-data-elements/"><span>Tilstandsløse data</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/process/"><span>Prosess</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/validation/"><span>Validering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/apps/spec/"><span>OpenAPI</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/"><span>Authentication</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/systemuserapi/"><span>Systembruker API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/systemuserapi/clientdelegation/"><span>Klient delegering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/systemuserapi/systemuser/"><span>Systembruker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/systemuserapi/systemuser/external/"><span>Systembruker API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/systemuserapi/systemuser/external/model/"><span>Modell</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/systemuserapi/systemuserrequest/"><span>Systembruker forespørselen</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/systemuserapi/systemuserrequest/external/"><span>Eksterne API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/systemuserapi/systemuserrequest/external/model/"><span>Modell</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/systemuserapi/systemregister/"><span>Systemregister</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/systemuserapi/systemregister/model/"><span>Modell</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/systemuserapi/systemregister/create/"><span>Opprett system</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/systemuserapi/systemregister/get/"><span>Hent system</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/systemuserapi/systemregister/update/"><span>Oppdater system</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/delegate-scopes/"><span>Delegere API-tilganger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/digdirscopes/"><span>DigDir Scopes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/authentication/spec/"><span>OpenAPI</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/authorization/spec/"><span>OpenAPI</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/dialogporten/"><span>Dialogporten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/broker/"><span>Formidling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/broker/spec/"><span>OpenAPI</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/guides/"><span>Guider</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/guides/endusersystems/"><span>Sluttbrukersystemer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/guides/endusersystems/submitdata/"><span>Sende inn data fra</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/guides/appownerintegration/"><span>Tjenesteeiere</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/guides/appownerintegration/receivingdata/"><span>Motta data</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/correspondence/"><span>Melding</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/correspondence/spec/"><span>OpenAPI</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/models/"><span>Modeller</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/models/app-metadata/"><span>App metadata</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/models/instance/"><span>Instance</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/models/data-element/"><span>DataElement</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/profile/"><span>Profil</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/profile/about-profile/"><span>Om Profil</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/profile/reference/"><span>Referanse</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/profile/reference/favorites/"><span>Favoritter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/profile/reference/organization-notification-addresses/"><span>Virksomheters varslingsadresser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/profile/reference/personal-notification-addresses/"><span>Din kontaktinformasjon for virksomheten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/profile/reference/users/"><span>Brukere</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/profile/reference/spec/"><span>API spesifikasjon</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/resourceregistry/"><span>Resource Registry</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/resourceregistry/resource/"><span>Resource</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/resourceregistry/spec/"><span>OpenAPI</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/scenarios/"><span>Scenarier</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/scenarios/authentication/"><span>Autentisering</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/storage/"><span>Storage</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/api/storage/instances/"><span>Instanser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/storage/data/"><span>Data</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/storage/instance-events/"><span>Instance events</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/api/storage/spec/"><span>OpenAPI</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/api/studio/"><span>Studio</span></a></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/nb/api/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/api/authentication/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/api/authentication/systemuserapi/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/api/authentication/systemuserapi/systemuser/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/api/authentication/systemuserapi/systemuser/external/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/nb/api/'>API</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/api/authentication/'>Authentication</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/api/authentication/systemuserapi/'>Systembruker API</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/api/authentication/systemuserapi/systemuser/'>Systembruker</a> <span class='adocs-breadcrumb-divider'> / </span> Systembruker API</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Systembruker API</h1>
+              <p class="a-leadText" id="leadText">API for å hente systembruker informasjon</p>
+
+<h2 id="list-opp-alle-systembrukere-for-en-system">List opp alle systembrukere for en system.</h2>
+<h3 id="endepunkt">Endepunkt</h3>
+<p>GET authentication/api/v1/systemuser/vendor/bysystem/{systemId}</p>
+<h3 id="scopes">Scopes</h3>
+<p>Maskinporten token med scope <mark>altinn:authentication/systemregister.write</mark></p>
+<h3 id="content-types">Content types</h3>
+<p>application/json</p>
+<h2 id="query-parameters">Query Parameters</h2>
+<h3 id="systemid">systemid</h3>
+<p>Den unike identifikatoren for det registrerte systemet.</p>
+<h3 id="eksempel-response">Eksempel Response</h3>
+<pre tabindex="0"><code>{
+    &#34;links&#34;: {
+        &#34;next&#34;: &#34;http://internal.platform.tt02.altinn.cloud/authentication/api/v1/systemuser/vendor/bysystem/991825827_smartcloud?token=MTQ3Ng&#34;
+    },
+    &#34;data&#34;: [
+        {
+            &#34;id&#34;: &#34;60a291ee-1b92-4fdd-b53e-95eadfeac3af&#34;,
+            &#34;integrationTitle&#34;: &#34;SmartCloud&#34;,
+            &#34;systemId&#34;: &#34;991825827_smartcloud&#34;,
+            &#34;productName&#34;: &#34;&#34;,
+            &#34;reporteeOrgNo&#34;: &#34;313469999&#34;,
+            &#34;created&#34;: &#34;2024-11-20T12:28:33.501342Z&#34;,
+            &#34;isDeleted&#34;: false,
+            &#34;supplierName&#34;: &#34;&#34;,
+            &#34;supplierOrgno&#34;: &#34;991825827&#34;,
+            &#34;externalRef&#34;: &#34;6fbb6b32-08e5-4ab5-9050-af1efc01b2fd&#34;,
+            &#34;userType&#34;: &#34;standard&#34;
+        },
+        {
+            &#34;id&#34;: &#34;99ece63d-3483-43c2-bded-dfe640ed8882&#34;,
+            &#34;integrationTitle&#34;: &#34;SmartCloud&#34;,
+            &#34;systemId&#34;: &#34;991825827_smartcloud&#34;,
+            &#34;productName&#34;: &#34;&#34;,
+            &#34;reporteeOrgNo&#34;: &#34;310178217&#34;,
+            &#34;created&#34;: &#34;2024-11-21T11:25:26.989705Z&#34;,
+            &#34;isDeleted&#34;: false,
+            &#34;supplierName&#34;: &#34;&#34;,
+            &#34;supplierOrgno&#34;: &#34;991825827&#34;,
+            &#34;externalRef&#34;: &#34;f430f3b3-f9ee-44f3-b9ed-66f8117a1894&#34;,
+            &#34;userType&#34;: &#34;standard&#34;
+        },
+        {
+            &#34;id&#34;: &#34;20ee5d43-0ca8-4b61-9989-592234a307bc&#34;,
+            &#34;integrationTitle&#34;: &#34;SmartCloud&#34;,
+            &#34;systemId&#34;: &#34;991825827_smartcloud&#34;,
+            &#34;productName&#34;: &#34;&#34;,
+            &#34;reporteeOrgNo&#34;: &#34;310365882&#34;,
+            &#34;created&#34;: &#34;2024-10-16T12:44:19.143084Z&#34;,
+            &#34;isDeleted&#34;: false,
+            &#34;supplierName&#34;: &#34;&#34;,
+            &#34;supplierOrgno&#34;: &#34;991825827&#34;,
+            &#34;externalRef&#34;: &#34;310365882&#34;,
+            &#34;userType&#34;: &#34;standard&#34;
+        },
+        {
+            &#34;id&#34;: &#34;db739a49-2647-42ca-a658-c30716e40361&#34;,
+            &#34;integrationTitle&#34;: &#34;SmartCloud&#34;,
+            &#34;systemId&#34;: &#34;991825827_smartcloud&#34;,
+            &#34;productName&#34;: &#34;&#34;,
+            &#34;reporteeOrgNo&#34;: &#34;210748652&#34;,
+            &#34;created&#34;: &#34;2024-10-22T05:23:11.414682Z&#34;,
+            &#34;isDeleted&#34;: false,
+            &#34;supplierName&#34;: &#34;&#34;,
+            &#34;supplierOrgno&#34;: &#34;991825827&#34;,
+            &#34;externalRef&#34;: &#34;210748652&#34;,
+            &#34;userType&#34;: &#34;standard&#34;
+        },
+        {
+            &#34;id&#34;: &#34;30def54d-fcd8-4ca7-a9d3-251bdb0745b4&#34;,
+            &#34;integrationTitle&#34;: &#34;SmartCloud&#34;,
+            &#34;systemId&#34;: &#34;991825827_smartcloud&#34;,
+            &#34;productName&#34;: &#34;&#34;,
+            &#34;reporteeOrgNo&#34;: &#34;313516350&#34;,
+            &#34;created&#34;: &#34;2024-11-04T15:00:58.363259Z&#34;,
+            &#34;isDeleted&#34;: false,
+            &#34;supplierName&#34;: &#34;&#34;,
+            &#34;supplierOrgno&#34;: &#34;991825827&#34;,
+            &#34;externalRef&#34;: &#34;313516350&#34;,
+            &#34;userType&#34;: &#34;standard&#34;
+        },
+        {
+            &#34;id&#34;: &#34;c0d3dc41-9fd3-4336-92e7-9e93665498cf&#34;,
+            &#34;integrationTitle&#34;: &#34;SmartCloud&#34;,
+            &#34;systemId&#34;: &#34;991825827_smartcloud&#34;,
+            &#34;productName&#34;: &#34;&#34;,
+            &#34;reporteeOrgNo&#34;: &#34;313516350&#34;,
+            &#34;created&#34;: &#34;2024-11-04T15:06:31.388471Z&#34;,
+            &#34;isDeleted&#34;: false,
+            &#34;supplierName&#34;: &#34;&#34;,
+            &#34;supplierOrgno&#34;: &#34;991825827&#34;,
+            &#34;externalRef&#34;: &#34;313516350&#34;,
+            &#34;userType&#34;: &#34;standard&#34;
+        },
+        {
+            &#34;id&#34;: &#34;1d1e522b-e5ba-48c6-bb04-55e19b8dc6ec&#34;,
+            &#34;integrationTitle&#34;: &#34;SmartCloud&#34;,
+            &#34;systemId&#34;: &#34;991825827_smartcloud&#34;,
+            &#34;productName&#34;: &#34;&#34;,
+            &#34;reporteeOrgNo&#34;: &#34;210455272&#34;,
+            &#34;created&#34;: &#34;2024-11-05T07:43:01.151086Z&#34;,
+            &#34;isDeleted&#34;: false,
+            &#34;supplierName&#34;: &#34;&#34;,
+            &#34;supplierOrgno&#34;: &#34;991825827&#34;,
+            &#34;externalRef&#34;: &#34;210455272&#34;,
+            &#34;userType&#34;: &#34;standard&#34;
+        },
+        {
+            &#34;id&#34;: &#34;2bf4b985-72eb-437f-b52a-db9c42b067cc&#34;,
+            &#34;integrationTitle&#34;: &#34;SmartCloud&#34;,
+            &#34;systemId&#34;: &#34;991825827_smartcloud&#34;,
+            &#34;productName&#34;: &#34;&#34;,
+            &#34;reporteeOrgNo&#34;: &#34;314173392&#34;,
+            &#34;created&#34;: &#34;2024-11-06T12:12:47.112594Z&#34;,
+            &#34;isDeleted&#34;: false,
+            &#34;supplierName&#34;: &#34;&#34;,
+            &#34;supplierOrgno&#34;: &#34;991825827&#34;,
+            &#34;externalRef&#34;: &#34;314173392&#34;,
+            &#34;userType&#34;: &#34;standard&#34;
+        },
+        {
+            &#34;id&#34;: &#34;edb2ce88-9874-48f7-808c-24c811a6d561&#34;,
+            &#34;integrationTitle&#34;: &#34;SmartCloud&#34;,
+            &#34;systemId&#34;: &#34;991825827_smartcloud&#34;,
+            &#34;productName&#34;: &#34;&#34;,
+            &#34;reporteeOrgNo&#34;: &#34;312549557&#34;,
+            &#34;created&#34;: &#34;2024-11-06T13:12:04.371927Z&#34;,
+            &#34;isDeleted&#34;: false,
+            &#34;supplierName&#34;: &#34;&#34;,
+            &#34;supplierOrgno&#34;: &#34;991825827&#34;,
+            &#34;externalRef&#34;: &#34;312549557&#34;,
+            &#34;userType&#34;: &#34;standard&#34;
+        },
+        {
+            &#34;id&#34;: &#34;ea46a8d7-bd38-4691-a79e-2041acb5629b&#34;,
+            &#34;integrationTitle&#34;: &#34;SmartCloud&#34;,
+            &#34;systemId&#34;: &#34;991825827_smartcloud&#34;,
+            &#34;productName&#34;: &#34;&#34;,
+            &#34;reporteeOrgNo&#34;: &#34;210088032&#34;,
+            &#34;created&#34;: &#34;2024-11-06T13:34:01.416612Z&#34;,
+            &#34;isDeleted&#34;: false,
+            &#34;supplierName&#34;: &#34;&#34;,
+            &#34;supplierOrgno&#34;: &#34;991825827&#34;,
+            &#34;externalRef&#34;: &#34;210088032&#34;,
+            &#34;userType&#34;: &#34;standard&#34;
+        },
+        {
+            &#34;id&#34;: &#34;bf5708fe-f913-4e68-8356-91dfdb2daecd&#34;,
+            &#34;integrationTitle&#34;: &#34;SmartCloud&#34;,
+            &#34;systemId&#34;: &#34;991825827_smartcloud&#34;,
+            &#34;productName&#34;: &#34;&#34;,
+            &#34;reporteeOrgNo&#34;: &#34;312557835&#34;,
+            &#34;created&#34;: &#34;2024-11-11T07:46:07.586796Z&#34;,
+            &#34;isDeleted&#34;: false,
+            &#34;supplierName&#34;: &#34;&#34;,
+            &#34;supplierOrgno&#34;: &#34;991825827&#34;,
+            &#34;externalRef&#34;: &#34;312557835&#34;,
+            &#34;userType&#34;: &#34;standard&#34;
+        },
+        {
+            &#34;id&#34;: &#34;a356b6d2-f80e-4571-9bff-3d3cbe0101ec&#34;,
+            &#34;integrationTitle&#34;: &#34;SmartCloud&#34;,
+            &#34;systemId&#34;: &#34;991825827_smartcloud&#34;,
+            &#34;productName&#34;: &#34;&#34;,
+            &#34;reporteeOrgNo&#34;: &#34;310166219&#34;,
+            &#34;created&#34;: &#34;2024-11-12T13:52:02.48766Z&#34;,
+            &#34;isDeleted&#34;: false,
+            &#34;supplierName&#34;: &#34;&#34;,
+            &#34;supplierOrgno&#34;: &#34;991825827&#34;,
+            &#34;externalRef&#34;: &#34;310166219&#34;,
+            &#34;userType&#34;: &#34;standard&#34;
+        },
+        {
+            &#34;id&#34;: &#34;db4928db-274c-4249-8299-bf742b4f8782&#34;,
+            &#34;integrationTitle&#34;: &#34;SmartCloud&#34;,
+            &#34;systemId&#34;: &#34;991825827_smartcloud&#34;,
+            &#34;productName&#34;: &#34;&#34;,
+            &#34;reporteeOrgNo&#34;: &#34;312538326&#34;,
+            &#34;created&#34;: &#34;2024-11-14T10:48:16.247637Z&#34;,
+            &#34;isDeleted&#34;: false,
+            &#34;supplierName&#34;: &#34;&#34;,
+            &#34;supplierOrgno&#34;: &#34;991825827&#34;,
+            &#34;externalRef&#34;: &#34;312538326&#34;,
+            &#34;userType&#34;: &#34;standard&#34;
+        },
+        {
+            &#34;id&#34;: &#34;9fe54cfe-5879-4d17-bf35-7bd38118c5fc&#34;,
+            &#34;integrationTitle&#34;: &#34;SmartCloud&#34;,
+            &#34;systemId&#34;: &#34;991825827_smartcloud&#34;,
+            &#34;productName&#34;: &#34;&#34;,
+            &#34;reporteeOrgNo&#34;: &#34;310178217&#34;,
+            &#34;created&#34;: &#34;2024-11-21T10:52:25.341741Z&#34;,
+            &#34;isDeleted&#34;: false,
+            &#34;supplierName&#34;: &#34;&#34;,
+            &#34;supplierOrgno&#34;: &#34;991825827&#34;,
+            &#34;externalRef&#34;: &#34;bc743a6f-2641-46dd-bf1c-a17fa9294933&#34;,
+            &#34;userType&#34;: &#34;standard&#34;
+        },
+        {
+            &#34;id&#34;: &#34;21dfeddc-5a4d-421b-8140-2dd695d6f907&#34;,
+            &#34;integrationTitle&#34;: &#34;SmartCloud 1&#34;,
+            &#34;systemId&#34;: &#34;991825827_smartcloud&#34;,
+            &#34;productName&#34;: &#34;&#34;,
+            &#34;reporteeOrgNo&#34;: &#34;314153979&#34;,
+            &#34;created&#34;: &#34;2025-01-22T09:28:42.904552Z&#34;,
+            &#34;isDeleted&#34;: false,
+            &#34;supplierName&#34;: &#34;&#34;,
+            &#34;supplierOrgno&#34;: &#34;991825827&#34;,
+            &#34;externalRef&#34;: &#34;101952d6-6773-403e-a277-69b3a499a700&#34;,
+            &#34;userType&#34;: &#34;standard&#34;
+        },
+        {
+            &#34;id&#34;: &#34;50fd7e56-2558-4a23-9d1c-f7e652cfdc23&#34;,
+            &#34;integrationTitle&#34;: &#34;SmartCloud 1&#34;,
+            &#34;systemId&#34;: &#34;991825827_smartcloud&#34;,
+            &#34;productName&#34;: &#34;&#34;,
+            &#34;reporteeOrgNo&#34;: &#34;314153979&#34;,
+            &#34;created&#34;: &#34;2025-01-22T10:08:32.69806Z&#34;,
+            &#34;isDeleted&#34;: false,
+            &#34;supplierName&#34;: &#34;&#34;,
+            &#34;supplierOrgno&#34;: &#34;991825827&#34;,
+            &#34;externalRef&#34;: &#34;cdffbf06-06d8-4483-b3d7-c4ed2aa3745f&#34;,
+            &#34;userType&#34;: &#34;standard&#34;
+        }
+    ]
+}
+</code></pre>
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/api/authentication/systemuserapi/systemuser/external/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#list-opp-alle-systembrukere-for-en-system">List opp alle systembrukere for en system.</a>
+      <ul>
+        <li><a href="#endepunkt">Endepunkt</a></li>
+        <li><a href="#scopes">Scopes</a></li>
+        <li><a href="#content-types">Content types</a></li>
+      </ul>
+    </li>
+    <li><a href="#query-parameters">Query Parameters</a>
+      <ul>
+        <li><a href="#systemid">systemid</a></li>
+        <li><a href="#eksempel-response">Eksempel Response</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

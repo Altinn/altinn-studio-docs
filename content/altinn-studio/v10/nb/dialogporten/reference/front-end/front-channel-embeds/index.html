@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Referanseinformasjon om front channel embeds" />
+<meta name="altinn_pagedir" class="elastic" content="dialogporten/reference/front-end/front-channel-embeds/" />
+<meta name="altinn_title" class="elastic" content="Front channel embeds" />
+<meta name="product" data-pagefind-filter="Produkt[content]" content="Dialogporten" />
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="Referanse" />
+
+<title>Front channel embeds – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/dialogporten/reference/front-end/front-channel-embeds/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Produkt</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/authorization/">
+      <p class="product-item">Autorisasjon</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/broker/">
+      <p class="product-item">Formidling</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/">
+      <p class="product-item">Melding</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/notifications/">
+      <p class="product-item">Varsling</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Søk</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/nb.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/reference/front-end/front-channel-embeds/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/dialogporten/reference/front-end/front-channel-embeds/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">Hva leter du etter?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Søk');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Sist endret: 29. sep. 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/nb/dialogporten/"><span>Dialogporten</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/about-dialogporten/"><span>Om Dialogporten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/what-do-you-get/"><span>Hva får du?</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/"><span>Komme i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/dialogs/"><span>Dialoger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/authorization/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/authorization/parties/"><span>Parter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/authorization/service-resource/"><span>Tjenesteressurs</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/authorization/attributes/"><span>Autorisasjonsattributter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/authorization/dialog-tokens/"><span>Dialog Tokens</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/events/"><span>Hendelser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/front-channel-embeds/"><span>Front channel embeds</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/write-actions/"><span>Skrivehandlinger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/process-identifiers/"><span>Prosessidentifikatorer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/seen-log/"><span>Sett-logg</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/activity-log/"><span>Aktivitetslogg</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/"><span>Brukerhåndbøker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/authenticating/"><span>Autentisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/authorized-parties/"><span>Finne autoriserte parter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/searching-for-dialogs/"><span>Søke etter dialoger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/getting-dialog-details/"><span>Hente dialogdetaljer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/detecting-changes/"><span>Oppdage endringer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/service-owners/"><span>Tjenesteeiere</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/service-owners/creating-resources/"><span>Opprette ressurser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/service-owners/creating-dialogs/"><span>Opprette dialoger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/service-owners/updating-dialogs/"><span>Oppdatere dialoger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/service-owners/impersonating-users/"><span>Impersonering av brukere</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/service-owners/integrating-altinn-apps/"><span>Integrere Altinn Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/service-owners/api-client/"><span>API-klient for .NET</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/migrating-from-altinn2/"><span>Migrering fra Altinn 2</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/"><span>Referanse</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/openapi/"><span>OpenAPI</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/graphql/"><span>GraphQL</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/entities/"><span>Entiteter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/entities/dialog/"><span>Dialog</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/entities/transmission/"><span>Forsendelse</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/entities/attachment/"><span>Vedlegg</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/entities/activity/"><span>Aktivitet</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/entities/seen/"><span>Sett</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/entities/systemlabel/"><span>Systemetikett</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/entities/action/"><span>Handling</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/authorization/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/authorization/altinn-authorization/"><span>Altinn Autorisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/authorization/attributes/"><span>Autorisasjonsattributter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/authorization/parties/"><span>Autoriserte parter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/authorization/dialog-tokens/"><span>Dialog Tokens</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/front-end/"><span>Front end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/front-end/front-channel-embeds/"><span>Front channel embeds</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/front-end/write-actions/"><span>Skrivehandlinger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/front-end/subscriptions/"><span>GraphQL-abonnementer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/front-end/altinn-apps/"><span>Altinn Apps integrasjon</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/events/"><span>Hendelser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/content-types/"><span>Innholdstyper</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/news/"><span>Nyheter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/status-migration/"><span>Status migrering</span></a></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/nb/dialogporten/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/dialogporten/reference/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/dialogporten/reference/front-end/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/dialogporten/reference/front-end/front-channel-embeds/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/nb/dialogporten/'>Dialogporten</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/dialogporten/reference/'>Referanse</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/dialogporten/reference/front-end/'>Front end</a> <span class='adocs-breadcrumb-divider'> / </span> Front channel embeds</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Front channel embeds</h1>
+              <p class="a-leadText" id="leadText">Referanseinformasjon om front channel embeds</p>
+
+<h2 id="introduksjon">Introduksjon</h2>
+<p>Se <a href="/nb/dialogporten/reference/front-end/front-channel-embeds/../../../getting-started/front-channel-embeds/">komme i gang med front channel embeds</a> for en introduksjon.</p>
+<p>Nedenfor er begrepene som brukes på denne siden.</p>
+<dl>
+<dt>Sluttbrukersystem (SBS)</dt>
+<dd>SBS brukes til å beskrive systemet som sluttbrukeren bruker - vanligvis klientsiden av en nettleserapplikasjon, som kjører JavaScript eller WebAssembly-kode.</dd>
+<dt>Innholdsleverandørs system (ILS)</dt>
+<dd>Innholdsleverandørs system er systemet som svarer på endepunktene (URLer) som FCE refererer til. Dette er vanligvis tjenesteleverandørplattformen (som Altinn 3).</dd>
+</dl>
+<h2 id="grunnleggende-trinn">Grunnleggende trinn</h2>
+<ol>
+<li>Sluttbrukersystemet (SBS) identifiserer et bestemt innhold som en front channel embed</li>
+<li>Sluttbrukersystemet utfører (uten brukerinteraksjon) en forespørsel til det spesifiserte endepunktet med dialogtoken</li>
+<li>Innholdsleverandørs system (ILS) svarer med data i samsvar med den definerte innholdsmedietypen</li>
+<li>Sluttbrukersystemet håndterer svaret, gjengir dataene i samsvar med den definerte innholdsmedietypen, og bygger inn dataene i brukergrensesnittet</li>
+</ol>
+<h3 id="trinn-1-identifisere-en-front-channel-embed">Trinn 1: Identifisere en front-channel embed</h3>
+<p>Se <a href="/nb/dialogporten/reference/front-end/front-channel-embeds/../../content-types/">innholdstyper</a> for en liste over innholdsfelt der en FCE kan brukes som en medietype. Denne listen kan endres, så SBS-implementatorer anbefales å håndtere FCE-medietyper på alle innholdsfelt.</p>
+<p>FCE-medietypene kan identifiseres ved prefikset <code>application/vnd.dialogporten.frontchannelembed-url</code>. Alle FCE-er gir imidlertid også et eksternt innholdstypesuffiks, som indikerer hvilken type data endepunktet hos ILS kan forventes å returnere. For øyeblikket er to formater tillatt (for Markdown og HTML), noe som gir oss disse gyldige medietypene:</p>
+<ul>
+<li><code>application/vnd.dialogporten.frontchannelembed-url;type=text/markdown</code></li>
+<li><code>application/vnd.dialogporten.frontchannelembed-url;type=text/html</code></li>
+</ul>
+<h4 id="eksempel">Eksempel</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-jsonc" data-lang="jsonc"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// Content on dialog level (defining only a &#34;nb&#34; translation)
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">&#34;content&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">&#34;mainContentReference&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;value&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;https://example.com/fce?lang=nb&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;languageCode&#34;</span>: <span style="color:#f1fa8c">&#34;nb&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ],
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;mediaType&#34;</span>: <span style="color:#f1fa8c">&#34;application/vnd.dialogporten.frontchannelembed-url;type=text/markdown&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">// Content on transmission level (defining only a &#34;nb&#34; translation)
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>  <span style="color:#ff79c6">&#34;transmissions&#34;</span>: [{
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// ...
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">&#34;content&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;contentReference&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;value&#34;</span>: [
+</span></span><span style="display:flex;"><span>          {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;https://example.com/fce?lang=nb&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;languageCode&#34;</span>: <span style="color:#f1fa8c">&#34;nb&#34;</span>
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>        ],
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;mediaType&#34;</span>: <span style="color:#f1fa8c">&#34;application/vnd.dialogporten.frontchannelembed-url;type=text/markdown&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="trinn-2-utføre-forespørselen-ved-hjelp-av-cors-protokollen">Trinn 2: Utføre forespørselen (ved hjelp av CORS-protokollen)</h3>
+<p>Når den er identifisert, MÅ SBS utføre en GET-forespørsel til det spesifiserte endepunktet ved hjelp av en HTTP-klientmekanisme som støtter enten HTTP 1.1 eller 2.0. Forespørselen MÅ inneholde en <code>Authorization: Bearer &lt;dialog token&gt;</code> header, ved hjelp av dialogtoken som følger med dialogen. SBS MÅ sørge for at dialogtoken ikke er eldre enn 10 minutter. Et nytt dialogtoken utstedes med hver forespørsel til dialogdetaljer-endepunktet i Dialgporten sluttbruker-API (enten REST eller GraphQL).</p>
+<p>SBS KAN levere en <code>Origin</code>-header i samsvar med CORS-protokollen. SBS BØR IKKE levere noen informasjonskapsler som tilhører domenet til ILS-endepunktet.</p>
+<h3 id="trinn-3-håndtere-forespørselen-ved-ils-endepunktet">Trinn 3: Håndtere forespørselen ved ILS-endepunktet</h3>
+<p>ILS MÅ validere det mottatte token ved å sjekke tokensignaturen mot de Dialogporten publiserte JWKs, og sjekke at tokenet ikke er utløpt. Ytterligere valideringer KAN utføres (dvs. sjekke &ldquo;actions&rdquo;-kravet). ILS KAN validere <code>Origin</code>-headeren, men MÅ IKKE stole på denne headeren alene for autorisasjonsformål, da dette lett kan forfalskes.</p>
+<p>Gitt en vellykket autorisasjon og ingen andre feiltilstander, MÅ ILS svare med en <code>200 OK</code> og en <code>Content-Type</code>-header som samsvarer med den eksterne innholdsdelen av medietypen for FCE (for øyeblikket enten <code>text/markdown</code> eller <code>text/html</code>) og en kropp som inneholder innholdet for FCE. Kroppen KAN være tom, i så fall KAN ILS bruke svarkoden <code>204 No Content</code>.</p>
+<p>I tilfelle feil oppstår, se <a href="#feilh%C3%A5ndtering">feilhåndtering</a> nedenfor.</p>
+<h3 id="trinn-4-håndtere-svaret">Trinn 4. Håndtere svaret</h3>
+<p>SBS MÅ følge omdirigeringer (3xx) svar, men MÅ også håndtere uendelige omdirigeringer ved å begrense antall omdirigeringer til et tall som ikke er mindre enn 5. SBS MÅ sørge for at den returnerte <code>Content-Type</code>-headeren samsvarer med den for FCE-medietypen. FCE MÅ håndtere en tom responskropp, der ingen UI-endringer skal skje, slik at ILS kan bruke FCE-er som en måte å utløse eksterne prosesser på.</p>
+<p>Gitt et vellykket svar (200) og en ikke-tom kropp, bør SBS gjengi innholdet og injisere det i brukergrensesnittet etter eget skjønn.</p>
+<p>I tilfelle feil oppstår, se <a href="#feilh%C3%A5ndtering">feilhåndtering</a> nedenfor.</p>
+<h2 id="feilhåndtering">Feilhåndtering</h2>
+<p>Eventuelle feil som oppstår på ILS-siden MÅ resultere i at en 4xx eller 5xx HTTP-statuskode returneres til SBS. Dette bør følge standard HTTP-semantikk (dvs. 4xx er feil på klientsiden og 5xx er feil på serversiden).</p>
+<div class="notices info" >Merk at sluttbrukeren svært sjelden har &ldquo;skylden&rdquo; for at FCE-feil oppstår, og vil ha få, om noen, måter å rette opp situasjonen på. Feilmeldinger bør derfor være av generisk art, og bare vise spesifikke detaljer om feilen til brukeren når det er handlingsrettet informasjon tilgjengelig.</div>
+<p>ILS KAN levere en RFC9457 Problem Details-responskropp, og legge til ytterligere detaljer om feiltilstanden som oppsto, inkludert et &ldquo;details&rdquo;-felt med menneskelig lesbar informasjon som SBS KAN vise til sluttbrukeren for støtteformål. Feildetaljene MÅ lokaliseres til språket som er angitt av innholdsfeltet.</p>
+<p>SBS MÅ håndtere 5xx og 4xx ved å vise en generisk, lokalisert feilmelding, og KAN inkludere ILS-leverte detaljer, hvis tilgjengelig. SBS BØR ta grep for å gjøre det klart for sluttbrukeren hvilken informasjon som ble gitt av ILS. Både SBS og ILS BØR logge feilen som oppsto for videre diagnose.</p>
+<h2 id="begrensninger">Begrensninger</h2>
+<p>Her er begrensningene for FCE eksterne innholdstyper som både ILS og SBS må overholde:</p>
+<h3 id="generisk-http-osv">Generisk (HTTP osv)</h3>
+<ul>
+<li>Responskropper MÅ IKKE overstige 100 KB</li>
+<li>SBS-klienter BØR avslutte forespørselen hvis ingen respons er mottatt etter 10 sekunder, og vise en generisk feilmelding</li>
+</ul>
+<h3 id="markdown-og-html">Markdown og HTML</h3>
+<ul>
+<li>ILS-implementatorer MÅ sørge for at den returnerte markdown overholder gjeldende <a href="https://commonmark.org/">CommonMark specification</a> (0.31.2).</li>
+<li>SBS-implementatorer BØR bruke et velkjent bibliotek for gjengivelse, i samsvar med begrensningene som er oppført nedenfor.</li>
+<li>Den resulterende HTML-en som gjengis til sluttbrukeren MÅ kun bestå av taggene som er spesifisert nedenfor. Både ILS og SBS MÅ ta grep for å sikre dette.</li>
+<li>Alle attributter som forårsaker skriptutførelse er ikke tillatt MÅ IKKE produseres av ILS og MÅ strippes av SBS</li>
+<li>SBS BØR tydelig indikere at eventuelle lenker som peker til eksterne URLer faktisk er eksterne, og legge til <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/rel/noreferrer">rel=&ldquo;noreferrer&rdquo;</a> attributter til ankertaggene</li>
+</ul>
+<h3 id="tillatte-tagger">Tillatte tagger</h3>
+<table>
+  <thead>
+      <tr>
+          <th>HTML Tag</th>
+          <th>Hensikt</th>
+          <th>Markdown Ekvivalent</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>&lt;p&gt;</code></td>
+          <td>Avsnitt</td>
+          <td>Vanlig tekst atskilt med en blank linje</td>
+      </tr>
+      <tr>
+          <td><code>&lt;em&gt;</code></td>
+          <td>Kursiv / vektlegging</td>
+          <td><code>*kursiv*</code> eller <code>_kursiv_</code></td>
+      </tr>
+      <tr>
+          <td><code>&lt;strong&gt;</code></td>
+          <td>Fet / sterk vektlegging</td>
+          <td><code>**fet**</code> eller <code>__fet__</code></td>
+      </tr>
+      <tr>
+          <td><code>&lt;ul&gt;</code> / <code>&lt;ol&gt;</code> / <code>&lt;li&gt;</code></td>
+          <td>Lister</td>
+          <td><code>- element</code>, <code>1. element</code></td>
+      </tr>
+      <tr>
+          <td><code>&lt;a&gt;</code></td>
+          <td>Lenker</td>
+          <td><code>[lenke](https://example.com)</code></td>
+      </tr>
+      <tr>
+          <td><code>&lt;code&gt;</code></td>
+          <td>Innebygd kode</td>
+          <td><code>`innebygd kode`</code></td>
+      </tr>
+      <tr>
+          <td><code>&lt;pre&gt;&lt;code&gt;</code></td>
+          <td>Kodeblokker</td>
+          <td><pre><code>```js<br>const x = 1;<br>```</code></pre></td>
+      </tr>
+      <tr>
+          <td><code>&lt;blockquote&gt;</code></td>
+          <td>Sitater</td>
+          <td><code>&gt; sitert tekst</code></td>
+      </tr>
+      <tr>
+          <td><code>&lt;hr&gt;</code></td>
+          <td>Horisontal linje/separator</td>
+          <td><code>---</code> eller <code>***</code></td>
+      </tr>
+      <tr>
+          <td><code>&lt;h1&gt;</code>–<code>&lt;h6&gt;</code></td>
+          <td>Overskrifter</td>
+          <td><code># H1</code>, <code>## H2</code>, &hellip;, <code>###### H6</code></td>
+      </tr>
+      <tr>
+          <td><code>&lt;br&gt;</code></td>
+          <td>Linjeskift</td>
+          <td>Linje slutter med 2+ mellomrom + Enter</td>
+      </tr>
+  </tbody>
+</table>
+<ul class="children children-li js-moveChildrenFrom">
+
+	
+		
+	
+</ul>
+
+
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/dialogporten/reference/front-end/front-channel-embeds/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduksjon">Introduksjon</a></li>
+    <li><a href="#grunnleggende-trinn">Grunnleggende trinn</a>
+      <ul>
+        <li><a href="#trinn-1-identifisere-en-front-channel-embed">Trinn 1: Identifisere en front-channel embed</a>
+          <ul>
+            <li><a href="#eksempel">Eksempel</a></li>
+          </ul>
+        </li>
+        <li><a href="#trinn-2-utføre-forespørselen-ved-hjelp-av-cors-protokollen">Trinn 2: Utføre forespørselen (ved hjelp av CORS-protokollen)</a></li>
+        <li><a href="#trinn-3-håndtere-forespørselen-ved-ils-endepunktet">Trinn 3: Håndtere forespørselen ved ILS-endepunktet</a></li>
+        <li><a href="#trinn-4-håndtere-svaret">Trinn 4. Håndtere svaret</a></li>
+      </ul>
+    </li>
+    <li><a href="#feilhåndtering">Feilhåndtering</a></li>
+    <li><a href="#begrensninger">Begrensninger</a>
+      <ul>
+        <li><a href="#generisk-http-osv">Generisk (HTTP osv)</a></li>
+        <li><a href="#markdown-og-html">Markdown og HTML</a></li>
+        <li><a href="#tillatte-tagger">Tillatte tagger</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="" />
+<meta name="altinn_pagedir" class="elastic" content="security/whitepaper/cloud/" />
+<meta name="altinn_title" class="elastic" content="Cloud security" />
+
+
+
+<title>Cloud security – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/en/security/whitepaper/cloud/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/en/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">To the frontpage</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Show/hide menu</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Product</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/en/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/authorization/">
+      <p class="product-item">Authorization</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/broker/">
+      <p class="product-item">Broker</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/correspondence/">
+      <p class="product-item">Correspondence</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/notifications/">
+      <p class="product-item">Notifications</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Search</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/en.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/security/whitepaper/cloud/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/security/whitepaper/cloud/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English ✓</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">What are you looking for?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Search');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Last modified: Mar 24, 2024</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/en/security/"><span>Security</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/security/dpia/"><span>DPIA</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/security/dpia/summary/"><span>Summary</span></a></li>
+      <li class="dd-item">
+        <a href="/en/security/dpia/introduction/"><span>1. Introduction</span></a></li>
+      <li class="dd-item">
+        <a href="/en/security/dpia/processing-and-purpose/"><span>2. Processing and purpose</span></a></li>
+      <li class="dd-item">
+        <a href="/en/security/dpia/about-use-of-cloud/"><span>3. Use of Cloud Services</span></a></li>
+      <li class="dd-item">
+        <a href="/en/security/dpia/privacy-assessments/"><span>4. Privacy Considerations</span></a></li>
+      <li class="dd-item">
+        <a href="/en/security/dpia/about-security-in-altinn/"><span>5. Security in Altinn</span></a></li>
+      <li class="dd-item">
+        <a href="/en/security/dpia/conclusion/"><span>6. Conclusion</span></a></li>
+      <li class="dd-item">
+        <a href="/en/security/dpia/change-log/"><span>Changelog</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/security/whitepaper/"><span>Whitepaper</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/security/whitepaper/terms/"><span>Terms</span></a></li>
+      <li class="dd-item">
+        <a href="/en/security/whitepaper/cloud/"><span>Cloud security</span></a></li>
+      <li class="dd-item">
+        <a href="/en/security/whitepaper/open-source/"><span>Open source</span></a></li>
+      <li class="dd-item">
+        <a href="/en/security/whitepaper/development/"><span>Secure development</span></a></li>
+      <li class="dd-item">
+        <a href="/en/security/whitepaper/environments/"><span>Environments</span></a></li>
+      <li class="dd-item">
+        <a href="/en/security/whitepaper/access-control/"><span>Access control</span></a></li>
+      <li class="dd-item">
+        <a href="/en/security/whitepaper/encryption/"><span>Encryption</span></a></li>
+      <li class="dd-item">
+        <a href="/en/security/whitepaper/isolation/"><span>Isolation</span></a></li>
+      <li class="dd-item">
+        <a href="/en/security/whitepaper/monitoring/"><span>Monitoring</span></a></li>
+      <li class="dd-item">
+        <a href="/en/security/whitepaper/testing/"><span>Security testing</span></a></li>
+      <li class="dd-item">
+        <a href="/en/security/whitepaper/attachments/"><span>Appendix</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/en/security/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/security/whitepaper/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/security/whitepaper/cloud/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/en/security/'>Security</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/security/whitepaper/'>Whitepaper</a> <span class='adocs-breadcrumb-divider'> / </span> Cloud security</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Cloud security</h1>
+              <p class="a-leadText" id="leadText"></p>
+
+<h2 id="microsoft-azure-as-service-provider">Microsoft Azure as service provider</h2>
+<p>Altinn 3 runs on Microsoft Azure, which is one of the largest cloud service providers, in data centers in Norway.</p>
+<p>Running in the cloud has both advantages and disadvantages.
+What happens if the connection between the data centers in Norway and the remote management location goes down?
+How do cloud services function in times of peace, crisis, and war?</p>
+<div class="notices warning" >⚠ Service owners must consider operational requirements during crisis situations.</div>
+<p>Microsoft invests heavily in security, not only in the technology they develop
+but also in documentation and tools for using their solutions securely.
+More information on this can be found on Microsoft&rsquo;s <a href="https://www.microsoft.com/en-us/trust-center/product-overview">Trust Center</a>.</p>
+<p>The Trust Center also contains information about <a href="https://learn.microsoft.com/en-us/azure/compliance/">certifications and audits</a>.</p>
+<p>The relationship between cloud providers and governments is discussed in the DPIA.</p>
+<h2 id="common-security-challenges-in-the-cloud-and-how-they-are-addressed">&ldquo;Common&rdquo; security challenges in the cloud and how they are addressed</h2>
+<h3 id="misconfiguration">Misconfiguration</h3>
+<p>One of the biggest security challenges when using the cloud is misconfiguration, which can lead to for example data leaks.
+There may be several reasons why a cloud service is misconfigured. The service may have default settings that allow the service to be open.
+There have been several examples in the media where there have been data leaks
+because storage services have not been configured to require authentication (and authorization).</p>
+<p>Digdir thinks security in depth is important. Most services are set up to require both authentication and correct network affiliation.</p>
+<h3 id="responsibility-distribution">Responsibility distribution</h3>
+<p>There are clear boundaries on what is the responsibility of the customer (here Digdir) and what is the responsibility of Azure.
+The &ldquo;Shared responsibility model&rdquo; diagram shows how responsibility is distributed.</p>
+<p><figure>
+    <a href="shared-responsibility-model.png">
+        <img src="shared-responsibility-model.png" alt="Shared responsibility model" title="Figure 1 - Responsibility shared between customer and cloud provider (Azure)">
+    </a>
+    <figcaption><em>Figure 1 - Responsibility shared between customer and cloud provider (Azure)</em></figcaption>
+  </figure></p>
+<h3 id="resource-control">Resource control</h3>
+<p>The properties of the cloud allow for almost instantaneous provisioning of resources.
+Uncontrolled provisioning (and scaling) leads to financial loss.
+Decommissioning is also almost instantaneous, which can result in loss of data and capacity.</p>
+<p>Both organizational and technical measures have been introduced to reduce these risks.</p>
+<h3 id="encryption-as-protection-against-the-cloud-provider">Encryption as protection against the cloud provider</h3>
+<p><a href="https://nsm.no/regelverk-og-hjelp/rad-og-anbefalinger/ofte-stilte-sporsmal-om-sky-og-tjenesteutsetting/sporsmal-om-sky-og-tjenesteutsetting/">NSM&rsquo;s &ldquo;Frequently Asked Questions about Cloud and Service Outsourcing&rdquo;</a>
+discusses the issue of using encryption to protect against the cloud provider.
+Since the cloud provider has control over the hypervisor layer, the cloud provider will also
+have access to encryption keys in memory or the keys used to access an external <a href="https://en.wikipedia.org/wiki/Hardware_security_module">HSM service</a>.
+The only known method of protection would be to keep all encryption, including key management, outside the effective control of the cloud provider.</p>
+<p>Digdir has evaluated Microsoft Azure&rsquo;s regime for key management, certifications, and third-party audits.
+Keeping all encryption and key management outside the effective control of the cloud provider would significantly impair the benefits of using cloud services.</p>
+<p>Based on available information from Microsoft Azure, certifications, and third-party audit reports, we believe that we can trust Microsoft&rsquo;s handling of this.
+The opposite would in practice imply that we had no confidence in our chosen provider - and then there would be no basis for continuing the contractual relationship.
+The general risks associated with such encryption, key management, and information security in general
+are taken into account in a more thorough ROS analysis and an overall assessment of the supplier as a data processor.</p>
+<p>Digdir/Altinn has accepted this risk.</p>
+<div class="notices warning" >⚠ Service owners must evaluate the use of Azure as a subcontractor.</div>
+<h2 id="what-about-schrems-ii">What about Schrems II?</h2>
+<p>If personal data is to be transferred from the EU/EEA to a third country, such as the USA,
+there must be a legal basis for the transfer according to the General Data Protection Regulation (GDPR).
+A widely used basis for transferring personal data to the USA was an agreement called the EU-US Privacy Shield.
+In the Schrems II ruling of 2020, this agreement was declared invalid.</p>
+<p>However, on July 10, 2023, a new framework for transferring personal data between the EU and the USA was introduced
+through an adequacy decision that took immediate effect.
+An adequacy decision is a decision by the EU Commission stating that an area outside the EU and EEA has rules that
+safeguard privacy in a manner comparable to that of EU and EEA countries.
+If the EU Commission has made such a decision, personal data can be transferred to the area in accordance with the decision,
+and the transfer will be comparable to transfers within the EEA.
+It is important to note that other requirements of data protection regulations must be followed,
+such as having a legal basis for processing and a data processing agreement if necessary.
+It is also important to assess subcontractors to see if they are certified and if they are located in third countries other than the USA,
+as this adequacy decision only applies to transfers to the USA.</p>
+<p>This new framework, the EU-U.S. Data Privacy Framework, is a self-certification system where US businesses can
+become certified if they commit to processing personal data in accordance with the framework and provided they offer free
+and independent complaint mechanisms for individuals.
+If personal data is transferred to a certified US business, no other legal basis than this adequacy decision is required.
+It is also not necessary to assess the level of protection in the USA or to implement security measures.
+This specific interpretation of the effect of the adequacy decision is adopted by the Norwegian Data Protection Authority.</p>
+<p>Microsoft Corporation is certified, and therefore the adequacy decision is a valid legal basis for any transfer of
+personal data from the EU/EEA to the USA. Microsoft Azure, like other cloud providers, extensively uses subcontractors and third parties,
+such as support centers in various locations worldwide.
+The Standard terms and conditions are designed so that the customer generally consents in advance to the provider
+using such subcontractors/sub-processors.</p>
+<p>As mentioned, Altinn 3 runs on Azure in Norwegian data centers.
+Data storage related to running services and end-users is done in Norway. Support may be provided in several different ways.
+Digdir will primarily use support services provided within Norway and the EU/EEA.
+It is Digdir itself that controls when and if to contact support personnel and what support providers should see and have access to.</p>
+<p>Furthermore, we refer to the Data Protection Impact Assessment (DPIA) carried out for Altinn 3.
+Digdir has made its assessments of Altinn in the roles of data controller and data processor for personal data.
+However, service owners, the businesses using Altinn, are the data controllers for the processing of personal data
+in their services—as well as for their employees&rsquo; and consultants&rsquo; use of Altinn and support tools.
+It is therefore important to specify that the service owners themselves must make their own assessments for their use
+and their specific services in their role as data controllers.</p>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/security/whitepaper/cloud/_index.en.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Edit page on GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#microsoft-azure-as-service-provider">Microsoft Azure as service provider</a></li>
+    <li><a href="#common-security-challenges-in-the-cloud-and-how-they-are-addressed">&ldquo;Common&rdquo; security challenges in the cloud and how they are addressed</a>
+      <ul>
+        <li><a href="#misconfiguration">Misconfiguration</a></li>
+        <li><a href="#responsibility-distribution">Responsibility distribution</a></li>
+        <li><a href="#resource-control">Resource control</a></li>
+        <li><a href="#encryption-as-protection-against-the-cloud-provider">Encryption as protection against the cloud provider</a></li>
+      </ul>
+    </li>
+    <li><a href="#what-about-schrems-ii">What about Schrems II?</a></li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">About Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Service owner: a public entity that has entered into an agreement to configure and manage services in Altinn, such as a messaging service." />
+<meta name="altinn_pagedir" class="elastic" content="correspondence/getting-started/developer-guides/serviceowner/" />
+<meta name="altinn_title" class="elastic" content="Getting started service owner" />
+<meta name="product" data-pagefind-filter="Product[content]" content="Correspondence" />
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="Tutorials" />
+
+<title>Getting started service owner – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/en/correspondence/getting-started/developer-guides/serviceowner/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/en/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">To the frontpage</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Show/hide menu</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Product</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/en/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/authorization/">
+      <p class="product-item">Authorization</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/broker/">
+      <p class="product-item">Broker</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/correspondence/">
+      <p class="product-item">Correspondence</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/notifications/">
+      <p class="product-item">Notifications</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Search</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/en.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/getting-started/developer-guides/serviceowner/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/correspondence/getting-started/developer-guides/serviceowner/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English ✓</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">What are you looking for?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Search');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Last modified: Feb 10, 2026</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/en/correspondence/"><span>Correspondence</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/correspondence/about/"><span>About Correspondence</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/what-do-you-get/"><span>What do you get?</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/getting-started/"><span>Getting Started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/correspondence/getting-started/developer-guides/serviceowner/"><span>Service owner</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/getting-started/developer-guides/systemprovider/"><span>System provider</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/getting-started/developer-guides/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/getting-started/developer-guides/notifications/"><span>Notifications</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/getting-started/developer-guides/dialogporten-arbeidsflate/"><span>Transmissions</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/getting-started/developer-guides/maskinporten/"><span>Maskinporten</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/explanation/"><span>Concepts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/correspondence/explanation/basic-concepts/"><span>Basic Concepts</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/explanation/access-management/"><span>Access-Management</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/explanation/taushetsbelagt-post/"><span>Confidential correspondences</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/explanation/status-lifecycle/"><span>Correspondence Life Cycle</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/correspondence/explanation/status-lifecycle/pre-published/"><span>Pre-Published Life Cycle</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/explanation/status-lifecycle/post-published/"><span>Post-Published Lifecycle</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/explanation/attachment-expiry/"><span>Attachment expiry</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/transition/"><span>Transition solution</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/correspondence/transition/service-migration/"><span>Service Migration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/transition/data-migration/"><span>Data Migration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/transition/delegation-migration/"><span>Delegation Migration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/transition/portal/"><span>Altinn 2 Portal</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/transition/consequences/"><span>Consequences</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/transition/differences/"><span>Differences</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/reference/"><span>Reference documentation</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/correspondence/reference/terminology/"><span>Terminology</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/reference/system-interfaces/"><span>System Interfaces</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/reference/capabilities/"><span>Capabilities</span></a></li>
+      <li class="dd-item">
+        <a href="/en/correspondence/reference/solution-architecture/"><span>Solution Architecture</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/en/correspondence/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/correspondence/getting-started/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/correspondence/getting-started/developer-guides/serviceowner/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/en/correspondence/'>Correspondence</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/correspondence/getting-started/'>Getting Started</a> <span class='adocs-breadcrumb-divider'> / </span> Service owner</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Getting started service owner</h1>
+              <p class="a-leadText" id="leadText">Service owner: a public entity that has entered into an agreement to configure and manage services in Altinn, such as a messaging service.</p>
+
+<ul class="children children-li js-moveChildrenFrom">
+
+	
+		
+	
+</ul>
+
+
+<div class="card adocs-expand" id="get-started-as-service-owner-in-altinn">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-get-started-as-service-owner-in-altinn"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>1. Get started as service owner in Altinn</a>
+	</div>
+	<div id="expandable-get-started-as-service-owner-in-altinn" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#get-started-as-service-owner-in-altinn"></a><p>To get started with Altinn Correspondence, your enterprise must be registered as a service owner in Altinn. For a guide see:
+<a href="https://samarbeid.digdir.no/altinn/bli-tjenesteeier-i-altinn/2819">Get started with Altinn guide (Norwegian language only)</a>.</p>
+<p>This step is only necessary for new enterprises that have not yet established themselves as service owners on the Altinn platform. As an existing service owner, you can proceed directly with the next steps to start using Altinn Correspondence.</p>
+</div>
+	</div>
+</div>
+<div class="card adocs-expand" id="register-user-altinn-studio">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-register-user-altinn-studio"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>2. Create a User in Altinn Studio</a>
+	</div>
+	<div id="expandable-register-user-altinn-studio" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#register-user-altinn-studio"></a><p>To be able to create a resource (step 3), you need a user in Altinn Studio. Your user must be linked to your organization. (If you have an Altinn Studio user, you can skip this step.) Contact <a href="mailto:tjenesteeier@altinn.no">Altinn Servicedesk</a> if you’re unsure who the administrator is or whether your organization is set up in Altinn Studio.</p>
+<p>See <a href="https://docs.altinn.studio/en/altinn-studio/v8/getting-started/create-user/">Create a User in Altinn Studio</a> for a detailed guide.</p>
+</div>
+	</div>
+</div>
+<div class="card adocs-expand" id="activate-resourceregistry">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-activate-resourceregistry"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>3. Activate the Resource Management System</a>
+	</div>
+	<div id="expandable-activate-resourceregistry" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#activate-resourceregistry"></a><p>To send messages via Altinn Melding, the message must be linked to a resource. Resources are registered through Altinn Studio and are used to define access rules and access lists, ensuring that only authorized users can perform specific actions.
+You activate the resource management system by creating a specific repository and a resource group for your organization. (You can skip this step if you have activated the resource management system.)</p>
+<p>See <a href="https://docs.altinn.studio/en/authorization/getting-started/resourceadministration/">Resource Management</a> for a detailed guide.</p>
+</div>
+	</div>
+</div>
+<div class="card adocs-expand" id="registeraresourceinaltinnresourceregistry">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-registeraresourceinaltinnresourceregistry"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>4. Create a Resource</a>
+	</div>
+	<div id="expandable-registeraresourceinaltinnresourceregistry" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#registeraresourceinaltinnresourceregistry"></a><ol>
+<li>
+<p>Log in to Altinn Studio and navigate to the resource dashboard.</p>
+<p><em>Note: As part of Altinn&rsquo;s migration of existing messages, new resources are being created in your (service owner) resource dashboard. These message resources are intended only for use for Altinn II messages and must not be used for new correspondences. They can be identified by the inclusion of &ldquo;migratedcorrespondence&rdquo; in the resource ID. See <a href="https://docs.altinn.studio/en/correspondence/transition/">Transition Solution</a> for more information.</em></p>
+</li>
+<li>
+<p>Create a new correspondence resource (meldingsressurs).  Follow the guide, and fill in the necessary information and details about the service.</p>
+<ul>
+<li><em>Resource-ID</em> must consist of the service owner code followed by a description of the service, for example: «digdir-dokumentbestilling». The Resource-ID cannot be changed later. Note that the same resource is used in both test and production environments, so make sure to choose a correct and well-considered name from the start.</li>
+<li><em>Service name</em> is what the end user sees. Choose a clear and descriptive name so it is easy to understand what type of message this is, for example: &ldquo;Post from the public sector via eFormidling&rdquo; or &ldquo;Correspondence services for the Register of Company Accounts&rdquo;.</li>
+<li>See <a href="https://docs.altinn.studio/authorization/guides/resource-owner/create-resource-resource-admin/#step-1-create-resource">Resource Registry</a> for a detailed instruction.</li>
+</ul>
+</li>
+<li>
+<p>Set policy rules for the resource. Your policy must be configured in such a way that they permit the actions:</p>
+<ul>
+<li>&ldquo;read&rdquo; meant for recipients to open and read a message.</li>
+<li>&ldquo;write&rdquo; meant for senders to send a message.</li>
+<li>&ldquo;subscribe&rdquo; to register event subscriptions in Altinn Events.</li>
+</ul>
+</li>
+<li>
+<p>The roles in Altinn II will be replaced by access packages in Altinn 3. We recommend all our service owners use both roles and access packages until June 2026. It&rsquo;s important to thoroughly assess which access package to assign to each resource. Here you will find information about <a href="https://docs.altinn.studio/en/authorization/what-do-you-get/accessgroups/accessgroups/">access packages</a>.</p>
+<ul>
+<li><strong>Ordinary mail:</strong> The Altinn II role &ldquo;Mail/Archive&rdquo; this is now replaced by the access package &ldquo;Ordinær post til virksomheten&rdquo;.</li>
+<li><strong>Confidential mail:</strong> If the resource is to be confidential, you have to:
+<ul>
+<li>
+<p>select the access package &ldquo;Post til virksomheten med taushetsbelagt innhold&rdquo;.</p>
+</li>
+<li>
+<p>include the flag &ldquo;IsConfidential&rdquo; set to: &ldquo;true&rdquo;.</p>
+<p>Read about confidential mail <a href="https://docs.altinn.studio/en/correspondence/explanation/taushetsbelagt-post/">here</a>.</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<div class="notices warning" ><strong>Important</strong>: As a service owner, you only need to configure &ldquo;read&rdquo; rules via access packages in the GUI.</div>
+</div>
+	</div>
+</div>
+<div class="card adocs-expand" id="get-access-to-scopes">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-get-access-to-scopes"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>5. Access to scopes</a>
+	</div>
+	<div id="expandable-get-access-to-scopes" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#get-access-to-scopes"></a><p>To authenticate and ensure that you can perform operations via the Correspondence API, Altinn must grant you access to the necessary scopes. The scope requirements depend on your chosen authentication method:</p>
+<p><strong>For Direct Maskinporten Authentication (Method 1):</strong></p>
+<ul>
+<li><code>altinn:serviceowner</code> (required for service owner access)</li>
+<li><code>altinn:correspondence.write</code> (required for sending messages)</li>
+</ul>
+<p><strong>For Traditional Altinn Token Exchange (Method 2):</strong></p>
+<ul>
+<li><code>altinn:correspondence.write</code> (required for sending messages)</li>
+</ul>
+<p>To obtain access to scopes, you must submit a request to: <a href="mailto:servicedesk@altinn.no">servicedesk@altinn.no</a>.
+The request must include the scopes you need. Note that you may require more than just altinn:correspondence.write for your integration. A complete list of scopes can be found here:
+<a href="https://docs.altinn.studio/api/authentication/digdirscopes/">Complete list of scopes</a></p>
+</div>
+	</div>
+</div>
+<div class="card adocs-expand" id="register-your-maskinporten-client-with-correct-scopes">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-register-your-maskinporten-client-with-correct-scopes"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>6. Register your Maskinporten Client with the required scopes</a>
+	</div>
+	<div id="expandable-register-your-maskinporten-client-with-correct-scopes" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#register-your-maskinporten-client-with-correct-scopes"></a><p>To authenticate the Correspondence API you must register your Maskinporten client(s) with the necessary scopes, depending on whether you need to send and/or receive messages.</p>
+<p>The scopes are maintained by Altinn, they are required for you to be authorized for the correct API operations. Note that this is not the same as the access granted by service owners in step 2 for the specific Correspondence service resource.</p>
+<p>Use Samarbeidsportalen self-service for registration. <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web#innlogging-og-tilgang">Here&rsquo;s a detailed guide</a>.</p>
+<ul>
+<li><a href="https://sjolvbetjening.test.samarbeid.digdir.no/">Test environments</a></li>
+<li><a href="https://sjolvbetjening.samarbeid.digdir.no/">Production environment</a></li>
+</ul>
+<p><strong>Note</strong>: The resource policy on your resource must have assigned the required scopes to the organisation that your Maskinporten client(s) is registered on.</p>
+</div>
+	</div>
+</div>
+<div class="card adocs-expand" id="authentication">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-authentication"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>7. Authentication</a>
+	</div>
+	<div id="expandable-authentication" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#authentication"></a><p>For service owners, authentication is now more flexible with two supported methods:</p>
+<h4 id="method-1-direct-maskinporten-authentication">Method 1: Direct Maskinporten Authentication</h4>
+<p>You can now authenticate directly using your <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument.html">Maskinporten client</a> with the <code>altinn:serviceowner</code> and <code>altinn:correspondence.write</code> scopes.</p>
+<p><strong>Benefits:</strong></p>
+<ul>
+<li><strong>No Altinn Token Exchange Required</strong>: Use <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument.html">Maskinporten</a> tokens directly without exchanging them for Altinn tokens</li>
+</ul>
+<h4 id="method-2-traditional-altinn-token-exchange">Method 2: Traditional Altinn Token Exchange</h4>
+<p>For service owners who prefer the traditional approach or have existing integrations, you can continue to:</p>
+<ol>
+<li>Authenticate using your Maskinporten Client with the <code>altinn:correspondence.write</code> scope</li>
+<li><a href="https://docs.altinn.studio/authorization/getting-started/authentication/#exchange-a-jwt-token-from-an-external-token-provider">Acquire an Altinn Token from Altinn Authentication</a></li>
+<li>Use the Altinn token for API calls</li>
+</ol>
+<p><strong>Note</strong>: <strong>Automatic Sender Authorization</strong>: The system automatically determines and uses your organization number from the resource configuration. You no longer need to specify the <code>Sender</code> field in your API requests (this field is now deprecated)</p>
+</div>
+	</div>
+</div>
+<div class="card adocs-expand" id="integrate-against-correspondence-api">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-integrate-against-correspondence-api"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>8. Integrate with Correspondence API</a>
+	</div>
+	<div id="expandable-integrate-against-correspondence-api" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#integrate-against-correspondence-api"></a><p>Since Altinn Correspondence is open source, you can access our code in <a href="https://github.com/Altinn/altinn-correspondence">our public GitHub repository</a> and build a local docker instance to test against.</p>
+<p>We also welcome contributions to the solution.</p>
+<p>See the <a href="https://github.com/Altinn/altinn-correspondence/blob/main/README.md">readme file on GitHub</a> for an introduction to Altinn 3 Correspondence, and how to build and run it in your dev environment.</p>
+<p>The Repo also contains a <a href="https://github.com/Altinn/altinn-correspondence/blob/main/.bruno/collection.bru">Bruno-collection</a> with examples.</p>
+<p>Swagger for the correspondence API is hosted <a href="https://docs.altinn.studio/api/correspondence/spec/">here</a>.</p>
+</div>
+	</div>
+</div>
+<div class="card adocs-expand" id="test-appearance-formatting">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-test-appearance-formatting"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>9. Test layout and formatting in Arbeidsflate and Altinn 2 inbox</a>
+	</div>
+	<div id="expandable-test-appearance-formatting" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#test-appearance-formatting"></a><p>Before going live, verify that correspondences render as intended for recipients.</p>
+<ol>
+<li>Send a test correspondence to a test recipient using your preferred tool (Bruno, SDK, or your integration).</li>
+<li>Verify in Arbeidsflate:
+<ul>
+<li>Log in with the test recipient in <a href="https://af.tt02.altinn.no/">af.tt02.altinn.no</a>.</li>
+<li>Check that the test correspondence content is formatted as intended.</li>
+</ul>
+</li>
+<li>Verify in Altinn 2 inbox:
+<ul>
+<li>Log in with the test recipient in <a href="https://info.tt02.altinn.no/">info.tt02.altinn.no</a>.</li>
+<li>Check that the test correspondence content is formatted as intended.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Note</strong>: Supported formatting tags (Markdown and HTML) are documented here: <a href="https://docs.altinn.studio/dialogporten/reference/front-end/front-channel-embeds/#markdown-and-html">Overview of allowed markdown and HTML tags</a></p>
+</div>
+	</div>
+</div>
+<div class="card adocs-expand" id="set-up-event-subscriptions">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-set-up-event-subscriptions"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>10. Set up Event subscriptions</a>
+	</div>
+	<div id="expandable-set-up-event-subscriptions" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#set-up-event-subscriptions"></a><p>In order to use events/webhooks for a Correspondence resource, you need to set up a subscription for the given resource.</p>
+<p>See the <a href="https://docs.altinn.studio/correspondence/getting-started/developer-guides/events">developer guide</a> for detailed instructions.</p>
+</div>
+	</div>
+</div>
+<h3 id="contact">Contact:</h3>
+<p>You can reach us on our Slack channel Digdir samarbeid: <a href="https://digdir-samarbeid.slack.com/archives/C068VA4SXFD">produkt-melding</a></p>
+<p>Or by sending a request to: <a href="mailto:servicedesk@altinn.no">servicedesk@altinn.no</a></p>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/correspondence/getting-started/developer-guides/serviceowner/_index.en.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Edit page on GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#contact">Contact:</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">About Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

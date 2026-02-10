@@ -1,0 +1,1512 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Configuring settings for deployment and runtime behavior" />
+<meta name="altinn_pagedir" class="elastic" content="altinn-studio/v8/reference/configuration/deployment/" />
+<meta name="altinn_title" class="elastic" content="Deployment" />
+<meta name="product" data-pagefind-filter="Product[content]" content="Altinn Studio" />
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="Reference" />
+
+<title>Deployment – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/en/altinn-studio/v8/reference/configuration/deployment/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/en/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">To the frontpage</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Show/hide menu</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Product</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/en/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/authorization/">
+      <p class="product-item">Authorization</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/broker/">
+      <p class="product-item">Broker</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/correspondence/">
+      <p class="product-item">Correspondence</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/notifications/">
+      <p class="product-item">Notifications</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Search</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/en.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/reference/configuration/deployment/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/altinn-studio/v8/reference/configuration/deployment/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English ✓</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">What are you looking for?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Search');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Last modified: Jan 12, 2026</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+<div id="version-dropdown-top" class="product-version-dropdown">
+    <div class="version-selector-wrapper">
+        <label class="version-label" for="version-selector-button" id="version-selector-label">
+        Version:
+        </label>
+        <div class="dropdown">
+        <button
+            type="button"
+            id="version-selector-button"
+            class="nav-link dropdown-toggle version-switcher"
+            role="combobox"
+            aria-controls="version-dropdown-menu"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-labelledby="version-selector-label"
+            aria-describedby="version-selector-help"
+            data-toggle="dropdown">
+            <span id="current-version-top">Current (V8)</span>
+        </button>
+        <div
+            class="dropdown-menu version-dropdown"
+            role="listbox"
+            aria-labelledby="version-selector-label"
+            id="version-dropdown-menu"><a
+                class="dropdown-item version-option"
+                href="/en/altinn-studio/v8/"
+                data-version="v8"
+                role="option"
+                tabindex="-1"
+                aria-selected="true">
+                <span class="version-item">Current (V8)</span>
+            </a></div>
+        </div>
+        <div id="version-selector-help" class="sr-only">
+          Use the arrow keys to navigate between versions and Enter to select        
+        </div>
+    </div>
+</div>
+
+<style>
+   
+  .product-version-dropdown {
+    background: #f8f9fa;
+    padding: 10px;
+    border-bottom: 1px solid #ddd !important;
+    margin-bottom: 0;
+  }
+  #sidebar .product-version-dropdown {
+    border-bottom: 1px solid #ddd !important;
+  }
+  .version-selector-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .dropdown {
+    position: relative;
+  }
+  .version-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555 !important;
+    margin: 0 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .version-switcher {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    color: #333 !important;
+    text-decoration: none !important;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    text-align: left;
+  }
+  .version-switcher::after {
+    margin-left: auto;
+  }
+  #sidebar .version-switcher {
+    border-bottom: 1px solid #ccc !important;
+  }
+  .version-switcher:hover,
+  .version-switcher:focus {
+    background: #e9ecef;
+    outline: none;
+    border-color: #007bff;
+  }
+  .version-switcher:focus {
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+  .version-option:focus,
+  .version-option:hover {
+    background: #007bff !important;
+    color: white !important;
+    outline: none;
+  }
+  .version-option[aria-selected="true"] {
+    background: #28a745 !important;
+    color: white !important;
+  }
+  .sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+  .version-dropdown {
+    min-width: 200px;
+    max-height: none !important;
+    overflow-y: visible !important;
+    position: absolute;
+    z-index: 1000;
+  }
+  .version-item {
+    margin: 0;
+    padding: 4px 0;
+  }
+  .version-section {
+    padding-top: 10px;
+  }
+
+    
+  .version-root-item {
+    display: block !important;
+  }
+
+   
+  .version-content .version-section > li {
+    list-style: none;
+  }
+</style>
+
+<script>
+  (function() {
+    
+    setupVersionSelectorAccessibility();
+
+    function setupVersionSelectorAccessibility() {
+      var button = document.getElementById('version-selector-button');
+      var dropdown = document.getElementById('version-dropdown-menu');
+
+      if (!button || !dropdown) return;
+
+      var options = dropdown.querySelectorAll('.version-option');
+      var currentFocusIndex = -1;
+
+      button.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
+          e.preventDefault();
+          if (dropdown.style.display === 'none' || !dropdown.classList.contains('show')) {
+            showDropdown();
+            focusOption(0);
+          }
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          showDropdown();
+          focusOption(options.length - 1);
+        }
+      });
+
+      dropdown.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          focusOption(currentFocusIndex + 1);
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          focusOption(currentFocusIndex - 1);
+        } else if (e.key === 'Enter') {
+          e.preventDefault();
+          if (currentFocusIndex >= 0 && options[currentFocusIndex]) {
+            window.location.href = options[currentFocusIndex].href;
+          }
+        } else if (e.key === 'Escape') {
+          e.preventDefault();
+          hideDropdown();
+          button.focus();
+        }
+      });
+
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (dropdown.style.display === 'none' || !dropdown.classList.contains('show')) {
+          showDropdown();
+        } else {
+          hideDropdown();
+        }
+      });
+
+      function showDropdown() {
+        button.setAttribute('aria-expanded', 'true');
+        dropdown.classList.add('show');
+        dropdown.style.display = 'block';
+      }
+
+      function hideDropdown() {
+        button.setAttribute('aria-expanded', 'false');
+        dropdown.classList.remove('show');
+        dropdown.style.display = 'none';
+        currentFocusIndex = -1;
+        updateAriaSelected();
+      }
+
+      function focusOption(index) {
+        if (index < 0) index = options.length - 1;
+        if (index >= options.length) index = 0;
+
+        currentFocusIndex = index;
+        options[currentFocusIndex].focus();
+        updateAriaSelected();
+      }
+
+      function updateAriaSelected() {
+        
+        var currentVersion = button.querySelector('#current-version-top').textContent.trim();
+        options.forEach(function(option) {
+          var optionVersion = option.getAttribute('data-version');
+          option.setAttribute(
+            'aria-selected',
+            optionVersion === currentVersion ? 'true' : 'false'
+          );
+        });
+      }
+
+      
+      document.addEventListener('click', function(e) {
+        if (!button.contains(e.target) && !dropdown.contains(e.target)) {
+          hideDropdown();
+        }
+      });
+    }
+  })();
+</script>
+<li class="dd-item parent version-root-item">
+              <a href="/en/altinn-studio/v8/">
+                <span>Altinn Studio</span>
+                <i class="fa fa-sort-down fa-lg category-icon"></i></a>
+              <ul class="version-content">
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/about/"><span>About Altinn Studio</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/about/usecases/"><span>Use Cases for Altinn Studio Apps</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/what-do-you-get/"><span>What do you get?</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/"><span>Getting Started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/create-user/"><span>Create user</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/navigation/"><span>Navigate Altinn Studio</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/navigation/designer/"><span>Designer</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/navigation/dashboard/"><span>Dashboard</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/navigation/repos/"><span>Repos</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/"><span>Intro Course</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/case/"><span>Case</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/modul1/"><span>Module 1: Create Service</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/modul2/"><span>Module 2: Customize Data Model</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/modul3/"><span>Module 3: Create Form</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/modul4/"><span>Module 4: Create Info Page</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/modul5/"><span>Module 5: Publish Service</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/modul6/"><span>Module 6: Add code lists</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/modul7/"><span>Module 7: Adding Dynamic Behavior</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/authorization-rules/"><span></span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/"><span>User guides</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/"><span>Design</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/insight/"><span>Preliminary considerations</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/prototype/"><span>Prototype</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/usertest/"><span>User testing</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/"><span>Guidelines</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/consistency/"><span>Consistency</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/content/"><span>Content in the form</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/design-principles/"><span>Design principles</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/link-to-app/"><span>Entering the form</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/"><span>UI-components</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/title-and-paragraph/"><span>Typography</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/button/"><span>Buttons and links</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/input/"><span>Input</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/date/"><span>Date</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/checkbox/"><span>Checkboxes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/radiobutton/"><span>Radio button</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/dropdown/"><span>Dropdown</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/helptext/"><span>Help texts</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/error-message/"><span>Error messages</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/file-upload/"><span>File upload</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/picture-component/"><span>Image</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/tone-of-voice/"><span>Language</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/organisation-library/"><span>Organisation library</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/basic-form/"><span>Simple Form</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/eformidling/"><span>eFormidling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/eformidling/legacy/"><span>eFormidling legacy</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/eformidling/service-task/"><span>eFormidling service task</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/fiks-arkiv/"><span>Fiks Arkiv</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/pdf/"><span>PDF</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/subform-pdf/"><span>PDF subform</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/branching/"><span>Branches</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/dynamics/"><span>Dynamikk</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/prefill/"><span>Prefill</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/prefill/config/"><span>Configuration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/prefill/custom/"><span>Custom code</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/prefill/instantiation/"><span>Http post</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/prefill/query-params/"><span>Query parameters</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/"><span>Options</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/sources/"><span>Sources</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/sources/static/"><span>Static</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/sources/dynamic/"><span>Dynamic</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/sources/from-data-model/"><span>From data model</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/sources/organisation-library/"><span>Organisation library</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/sources/shared/"><span>Shared</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/sources/altinn2/"><span>From Altinn 2</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/functionality/"><span>Functionality</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/functionality/data-binding/"><span>Data binding</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/functionality/automatic-cleanup/"><span>Automatic cleanup</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/functionality/texts/"><span>Texts</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/functionality/filtering/"><span>Filtering</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/functionality/preselection/"><span>Pre-selection</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/functionality/sorting/"><span>Sorting</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/payment/"><span>Payment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/restricted-data/"><span>Restricted data</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/signing/"><span>Signing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/"><span>Runtime delegated</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/signing/role-based-signing/"><span>Role and access package</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/signing/sign-and-submit/"><span>Sign and submit</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/signing/api-signing/"><span>API-based signing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/subform/"><span>Subform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/subform/config-options/"><span>Configuration</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/summary2/"><span>Summary</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/undeploy/"><span>Unpublishing</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/copy-app/"><span>Copy app</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/multi-app-solution/"><span>Multi-app solution</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/multi-app-solution/instructions/"><span>Instructions</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/multi-app-solution/instructions/app-a/"><span>Application A</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/multi-app-solution/instructions/app-b/"><span>Application B</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/multi-app-solution/testing/"><span>Testing</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/local-dev/"><span>Local Development</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/service-tasks/"><span>Service tasks</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/service-tasks/custom/"><span>Custom</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/administration/"><span>Administration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/administration/maintainance/"><span>Maintenance</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/administration/maintainance/dependencies/"><span>Dependencies</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/administration/access-management/"><span>Access management</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/administration/access-management/apps/"><span>Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/administration/access-management/studio/"><span>Studio</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/administration/monitor-and-instrument/"><span>Monitor and instrument</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/integration/"><span>Integration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/integration/sbs/"><span>End-user systems</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/integration/sbs/setup/"><span>Setup and configuration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/integration/sbs/apis/"><span>API integration</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/integration/correspondence/"><span>Correspondence</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/en/altinn-studio/v8/guides/integration/correspondence/maskinporten/">
+            <span>Using Maskinporten</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/integration/maskinporten/"><span>Maskinporten</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/altinn-2/"><span>Altinn 2</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/altinn-2/altinn-2-datamodel/"><span>Altinn 2 Data Model</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/altinn-2/seres-migration/"><span>Sereserstatning</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/altinn-2/migrate-services/"><span>Migrate services</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/contributing/create-new-component/"><span>Create a new component</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/contributing/add-new-component/"><span>Add a new component in Studio</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/"><span>Reference</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/data/data-modeling/"><span>Data Modeling</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/data/persistence/"><span>Persistence</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/data/prefill/"><span>Prefill</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/data/attachments/"><span>Attachments</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/data/external-api/"><span>External API</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/"><span>User interface</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/"><span>Components</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/commondefs/"><span>CommonProps</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/accordion/"><span>Accordion</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/accordiongroup/"><span>AccordionGroup</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/actionbutton/"><span>ActionButton</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/address/"><span>Address</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/alert/"><span>Alert</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/attachmentlist/"><span>AttachmentList</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/audio/"><span>Audio</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/button/"><span>Button</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/button-group/"><span>ButtonGroup</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/cards/"><span>Cards</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/checkboxes/"><span>Checkboxes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/custom/"><span>Custom</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/custombutton/"><span>CustomButton</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/date/"><span>Date</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/datepicker/"><span>Datepicker</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/divider/"><span>Divider</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/dropdown/"><span>Dropdown</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/fileupload/"><span>FileUpload</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/fileuploadwithtag/"><span>FileUploadWithTag</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/grid/"><span>Grid</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/group/"><span>Group</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/header/"><span>Header</span></a></li><li class="dd-item">
+          <a href="/en/altinn-studio/v8/reference/ux/components/iframe/">
+            <span>IFrame</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/image/"><span>Image</span></a></li><li class="dd-item">
+          <a href="/en/altinn-studio/v8/reference/ux/components/imageupload/">
+            <span>Image Uploader</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/input/"><span>Input</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/instanceinformation/"><span>InstanceInformation</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/instantiationbutton/"><span>InstantiationButton</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/likert/"><span>Likert</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/link/"><span>Link</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/listcomponent/"><span>List</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/map/"><span>Map</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/multipleselect/"><span>MultipleSelect</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/navigationbar/"><span>NavigationBar</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/navigationbuttons/"><span>NavigationButtons</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/number/"><span>Number</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/option/"><span>Option</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/organizationlookup/"><span>OrganisationLookup</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/panel/"><span>Panel</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/paragraph/"><span>Paragraph</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/personlookup/"><span>PersonLookup</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/printbutton/"><span>PrintButton</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/radiobuttons/"><span>RadioButtons</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/signeelist/"><span>SigneeList</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/signingactions/"><span>SigningActions</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/signingdocumentlist/"><span>SigningDocumentList</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/summary/"><span>Summary</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/summary2/"><span>Summary2</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/tabs/"><span>Tabs</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/text/"><span>Text</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/timepicker/"><span>TimePicker</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/video/"><span>Video</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/pages/"><span>Pages</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/pages/navigation/"><span>Navigation</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/pages/tracks/"><span>Tracks</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/pages/summary/"><span>Summary</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/"><span>Fields</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/"><span>Grouping</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/"><span>Repeating</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/edit/"><span>Edit</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/table/"><span>Table</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/attachments/"><span>Attachments</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/dynamics/"><span>Dynamics</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/multipage/"><span>MultiPage</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/non-repeating/"><span>Non-repeating</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/panel/"><span>Panel</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/settings/"><span>Settings</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/footer/"><span>Footer</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/logo/"><span>Logo</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/styling/"><span>Styling</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/texts/"><span>Texts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/texts/translation/"><span>Translation of texts</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/pdf/"><span>PDF</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/"><span>Logic</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/events/"><span>App Events</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/events/subscribing/"><span>Subscribing</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/generic/"><span>Generic</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/notifications/"><span>Notifications</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/notifications/email/"><span>Email</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/notifications/sms/"><span>SMS</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/dataprocessing/"><span>Data processing</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/dynamic/"><span>Dynamics</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/expressions/"><span>Expressions</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/instantiation/"><span>Instantiation</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/services/"><span>Services</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/validation/"><span>Validation</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/validation/files/"><span>File validation</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/validation/expression-validation/"><span>Validation using expressions</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/messagebox/create_copy/"><span>Create copy</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/messagebox/hide_instances/"><span>Hide instances</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/messagebox/advanced-sync/"><span>Sync settings</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/en/altinn-studio/v8/reference/configuration/authorization/api-scopes/">
+            <span>API Scopes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/"><span>Guidelines</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/"><span>Roles</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/"><span>Altinn Roles</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/altinn_roles_administration/"><span>Administration roles</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/altinn_roles_enterprices/"><span>Enterprise roles</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/altinn_roles_persons/"><span>Person roles</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_er/"><span>ER-Roles</span></a></li><li class="dd-item">
+          <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_ske/">
+            <span>SKE-roles</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/test_authorization_application/"><span>Testing</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/partytype/"><span>Party types</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/datafields/"><span>Data fields</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/process/"><span>Process</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/process/auto-delete/"><span>Automatic deletion</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/process/customize/"><span>Customize Views</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/process/pre-post-hooks/"><span>Define custom process hooks</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/process/exclusive-gateways/"><span>Exclusive gateways</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/process/message/"><span>Message</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/queryparameters/"><span>Query parameters</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/shadowfields/"><span>Shadow fields</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/secrets/"><span>Secrets</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/eformidling/"><span>eFormidling</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/filescan/"><span>Virus scan</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/settings/"><span>Settings</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/startup/"><span>Startup</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/stateless/"><span>Stateless</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/deployment/"><span>Deployment</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authentication/"><span>Authentication</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/autosavebehavior/"><span>Auto Save Behavior</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/analysis/"><span>Analyse</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/analysis/rules/altinnapp0500/"><span>ALTINNAPP0500: farlig bruk av IHttpContextAccessor</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/api/auth/"><span>Authentication</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/api/consume/"><span>Consume</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/api/expose/"><span>Expose</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/api/instance/"><span>Instance</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/testing/"><span>Testing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/testing/local/"><span>Locally</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/testing/local/apitests/"><span>API tests</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/testing/local/apitests/user/"><span>End user</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/testing/local/apitests/org/"><span>Org</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/testing/local/debug/"><span>Debugging</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/testing/local/testusers/"><span>Test users</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/testing/deploy/"><span>In test environment</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/cli/"><span>Altinn Studio CLI</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/cli/install/"><span>Installation</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/deployment/"><span>Deployment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/deployment/firewall/"><span>Firewall &amp; IP Configuration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/deployment/runtime-environment/"><span>Runtime Environment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/deployment/runtime-environment/resource-allocation-tips/"><span>Practical tips for resource allocation</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/deployment/runtime-environment/resource-allocation/"><span>Resource Allocation</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/process/"><span>Process handling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/process/tasks/"><span>Process tasks</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/process/tasks/signing/"><span>Signing task</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/process/flowcontrol/"><span>Flowcontrol</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/process/actions/"><span>Actions</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/process/actions/serveraction/"><span>Server Action</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/process/actions/process-actions/"><span>Process actions</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/monitoring/"><span>Monitoring</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/monitoring/configuration/"><span>Configuration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/monitoring/instrumentation/"><span>Instrumentation</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/monitoring/registry/"><span>Telemetry registry</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/monitoring/registry/metrics/"><span>Metrics</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/monitoring/visualisation/"><span>Visualisation</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/monitoring/faq/"><span>FAQ</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/monitoring/references/"><span>Resources</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/access-management/"><span>Access management</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/access-management/apps/"><span>Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/access-management/studio/"><span>Studio</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/"><span>Concepts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/data-model/"><span>Data model</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/data-model/restricted-data/"><span>Restricted data</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/organisation-library/"><span>Organisation Library</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/organisation-library/code-lists/"><span>Library Code Lists</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/payment/"><span>Payment</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/prefill/"><span>Prefill</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/signing/"><span>Signing</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/process/"><span>Process</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/undeploy/"><span>Unpublishing</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/news/"><span>Whats&#39;s new</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/news/launched-apps/"><span>Launched app examples</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/news/launched-apps/external/"><span>External</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/news/launched-apps/digdir/"><span>Digdir</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/news/launched-apps/digdir/bli-tjenesteeier/"><span>Bli tjenesteeier</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/news/launched-apps/digdir/godkjenn-bruksvilkaar/"><span>Godkjenn bruksvilkår</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/news/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li></ul>
+            </li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/en/altinn-studio/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/altinn-studio/v8/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/altinn-studio/v8/reference/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/altinn-studio/v8/reference/configuration/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/altinn-studio/v8/reference/configuration/deployment/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/en/altinn-studio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/altinn-studio/v8/'>Current (V8)</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/altinn-studio/v8/reference/'>Reference</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/altinn-studio/v8/reference/configuration/'>Configuration</a> <span class='adocs-breadcrumb-divider'> / </span> Deployment</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Deployment</h1>
+              <p class="a-leadText" id="leadText">Configuring settings for deployment and runtime behavior</p>
+
+<h3 id="helm-chart">Helm Chart</h3>
+<p>Altinn applications are published to a Kubernetes cluster using a deployment Helm chart. A Helm chart contains the necessary resources to publish an app, including YAML configuration files.</p>
+<p>Based on tests and experiences, we have set some default values in a central <a href="https://github.com/Altinn/altinn-studio-charts/blob/main/charts/deployment/values.yaml">Helm chart</a> as a starting point for publishing Altinn applications. These values may change as we gain more experience.</p>
+<div class="notices info" >Starting from version <a href="/en/community/changelog/deployment/v2/">2.0.0</a> of the &lsquo;deployment Helm chart,&rsquo; autoscaling is available and enabled by default.</div>
+<h3 id="custom-settings">Custom settings</h3>
+<p>Custom settings are configured in the <code>App/deployment/values.yaml</code> file by adding the desired property under
+the <code>deployment</code> section.
+These will override corresponding settings in the Helm chart (for exceptions,
+see <a href="#settings-overridden-at-deploy-time">here</a>).
+See <a href="#initial-scaling">Initial Scaling</a> for an example.</p>
+<div class="notices warning" >Please note that the format in <code>values.yaml</code> in the central Helm chart differs slightly from <code>values.yaml</code> in the
+application; in the Helm chart, the properties are at the top level, while in the app, they must be placed under
+the <code>deployment</code> section.</div>
+<h2 id="scaling">Scaling</h2>
+<h3 id="initial-scaling">Initial scaling</h3>
+<p>The initial scaling is defined by <code>replicaCount</code>. If autoscaling is enabled, the autoscaler will override this value.</p>
+<p>Standard settings in the Helm chart:</p>
+<div class="code-title">
+    <code>
+altinn-studio-charts/charts/deployment/values.yaml
+</code>
+</div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">replicaCount</span>: <span style="color:#bd93f9">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>To override the settings in your app, you can add <code>replicaCount</code> under <code>deployment</code> i <code>App/deployment/values.yaml</code>:</p>
+<div class="code-title">
+    <code>
+App/deployment/values.yaml
+</code>
+</div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">deployment</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">replicaCount</span>: <span style="color:#bd93f9">3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><h3 id="autoscaling">Autoscaling</h3>
+<p>When configuring how autoscaling behaves, you need to consider the following sections:</p>
+<ol>
+<li><code>resources</code>: Guarantees and limits for CPU and memory for app pods during runtime. See <a href="#resources-configuration">Resource Configuration</a>.</li>
+<li><code>autoscaling</code>: Settings for when the application should scale up or down.</li>
+</ol>
+<p>Autoscaling utilizes the <a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/">Horizontal Pod Autoscaler</a> to automatically scale an app up and down based on CPU usage.</p>
+<p>The <code>autoscaling</code> section configures when an application should automatically scale.</p>
+<p>Default settings in the Helm chart:</p>
+<div class="code-title">
+    <code>
+altinn-studio-charts/charts/deployment/values.yaml
+</code>
+</div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">autoscaling</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">enabled</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">replicas</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">min</span>: <span style="color:#bd93f9">2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">max</span>: <span style="color:#bd93f9">10</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">avgCpuUtilization</span>: <span style="color:#bd93f9">70</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">behavior</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">stabilizationWindowSeconds</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">scaleUp</span>: <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">scaleDown</span>: <span style="color:#bd93f9">120</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><h4 id="autoscalingreplicas"><code>autoscaling.replicas</code></h4>
+<ul>
+<li><code>min</code>: The lowest number of pods the autoscaler is allowed to scale down to.</li>
+<li><code>max</code>: The highest number of pods the autoscaler is allowed to scale up to.</li>
+</ul>
+<h4 id="autoscalingavgcpuutilization"><code>autoscaling.avgCpuUtilization</code></h4>
+<p><code>avgCpuUtilization</code> sets the threshold for the percentage of CPU requests utilized before scaling up or down.</p>
+<p>Scaling up is not immediate, as a new pod takes time to start (1-2 minutes in most cases).
+If all resources in a cluster are reserved, a new node must be started in Azure (5-10 minutes in most cases).
+It is, therefore, wise to have a small buffer so that the application can handle the load until the capacity is expanded.</p>
+<h4 id="autoscalingbehaviorstabilizationwindowseconds"><code>autoscaling.behavior.stabilizationWindowSeconds</code></h4>
+<p>The stabilization window limits the flickering of replicas when the values used for scaling vary.</p>
+<ul>
+<li><code>scaleUp</code>: The number of seconds Kubernetes should wait after the last scaling before performing a new scaling-up evaluation.</li>
+<li><code>scaleDown</code>: The number of seconds Kubernetes should wait after the last scaling before it performs a new evaluation for scaling down.</li>
+</ul>
+<p>With standard settings, scaling up will happen once the consumption exceeds the threshold values. Scaling down will wait for two minutes.</p>
+<h2 id="resources-configuration">Resources configuration</h2>
+<p>The ideal settings for <code>resources</code> depend on the application&rsquo;s code and tasks. We have tried to set default values that should work for as many of the apps in Altinn as possible, but they may not be suitable for your app.</p>
+<p>Default values in the Helm chart:</p>
+<div class="code-title">
+    <code>
+altinn-studio-charts/charts/deployment/values.yaml
+</code>
+</div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">resources</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">requests</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">cpu</span>: 300m
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">memory</span>: 256Mi
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>Values that are possible to configure (the values below are just an example and by no means definitive):</p>
+<div class="code-title">
+    <code>
+App/deployment/values.yaml
+</code>
+</div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">deployment</span>:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">resources</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">requests</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">cpu</span>: 200m
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">memory</span>: 256Mi
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">limits</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">cpu</span>: 1000m
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">memory</span>: 512Mi
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><h3 id="deploymentresourcesrequests"><code>deployment.resources.requests</code></h3>
+<p>The <code>requests</code> property defines the resources reserved for each pod in the app and are used when the Kubernetes scheduler determines which node the pod should run on.
+Based on these settings, the maximum number of pods that can run on a node is calculated.
+The maximum number is limited by the setting allowing the fewest pods.</p>
+<div class="card adocs-expand adocs-expand-small" id="example1">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-example1"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h4"
+		>
+			<span class="a-dropdownCircleArrow a-dropdownCircleArrow--small">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span><div class="expandsmall-header">Example</div></a>
+	</div>
+	<div id="expandable-example1" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#example1"></a><p>Given a cluster with nodes, each having 2 cores (2000 milliCores) and 4Gi memory, and where all pods have requests set to 200m (200 milliCores) and 256Mi:</p>
+<ul>
+<li>Based on CPU requests, the number of pods that can run on each node is: <em>2000 / 200 = 10</em></li>
+<li>Based on memory requests, the number of pods that can run on each node is: <em>4096Mi / 256Mi = 16</em></li>
+</ul>
+<p><em>The maximum number of pods that can run on each node, with or without load in the solution, is 10.</em></p>
+</div>
+	</div>
+</div>
+<p><code>requests</code> are also used by the Horizontal Pod Autoscaler to determine whether the app should scale up or down.</p>
+<p>The <code>requests</code> settings do not limit how much CPU or memory an application can use if there are available resources.
+However, a pod may be &ldquo;evicted&rdquo; from the node if there are few available resources and the pod uses more than specified in <code>requests</code>.</p>
+<h3 id="deploymentresourceslimits"><code>deployment.resources.limits</code></h3>
+<p><code>limits</code> define how much of a resource a pod can use at most.</p>
+<p>If a pod tries to use more CPU than what is set as a limit, it will be throttled.</p>
+<p>If a pod attempts to allocate more memory than what is set as a limit, it will be terminated with an Out Of Memory (OOM) error.</p>
+<h2 id="linkerd">Linkerd</h2>
+<p>By default, all services are add to the <a href="https://linkerd.io/">Linkerd</a> service mesh:</p>
+<div class="code-title">
+    <code>
+altinn-studio-charts/charts/deployment/values.yaml
+</code>
+</div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">linkerd</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">enabled</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><div class="notices warning" >We strongly recommend not changing this setting as it adds mutual TLS and other security features to all communication between services in the cluster.</div>
+<h2 id="mounting-of-volumes">Mounting of volumes</h2>
+<p><code>volumes</code> and <code>volumeMounts</code> define volumes mounted to the application&rsquo;s filesystem. <code>Volumes</code> describe the content of the mounted resource, and <code>volumeMounts</code> specify where in the application&rsquo;s filesystem the content should be mounted.</p>
+<p>There are two predefined mounted resources and mounting points in the Helm chart that are necessary for standard functionality, including communication with the Altinn Platform:</p>
+<div class="code-title">
+    <code>
+altinn-studio-charts/charts/deployment/values.yaml
+</code>
+</div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">volumeMounts</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ff79c6">name</span>: datakeys
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">mountPath</span>: /mnt/keys
+</span></span><span style="display:flex;"><span>  - <span style="color:#ff79c6">name</span>: accesstoken
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">mountPath</span>: <span style="color:#f1fa8c">&#34;/accesstoken&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">volumes</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#ff79c6">name </span>: datakeys
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">persistentVolumeClaim</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">claimName</span>: keys
+</span></span><span style="display:flex;"><span>  - <span style="color:#ff79c6">name</span>: accesstoken
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">secret</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">secretName</span>: accesstoken
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>Custom volumes can be added under the <code>development</code> section in <code>App/deployment/values.yaml</code>.</p>
+<p>At the moment, there is only one use case for adding other volumes: <a href="/en/altinn-studio/v8/reference/configuration/secrets/">Fetching secrets from Azure Key Vault</a>.</p>
+<h2 id="service">Service</h2>
+<p>The <code>service</code> configuration defines which port is exposed internally in the cluster and which external port it should be mapped to.</p>
+<p>Default settings in the Helm chart:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">service</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">name</span>: deployment
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">type</span>: ClusterIP
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">externalPort</span>: <span style="color:#bd93f9">80</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">## If your application is running on another port, change only the internal port.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">internalPort</span>: <span style="color:#bd93f9">5005</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>If your application is running on a different port than 5005, you can configure <code>deployment.service.internalPort</code> in the application&rsquo;s <code>values.yaml</code> file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#ff79c6">deployment</span>:
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">service</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">internalPort</span>: <span style="color:#bd93f9">5007</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><div class="notices warning" ><strong>Note:</strong> Settings for <code>externalPort</code> must not be changed.</div>
+<h2 id="settings-overridden-at-deploy-time">Settings overridden at deploy time</h2>
+<ul>
+<li><code>image</code></li>
+<li><code>ingressRoute</code></li>
+</ul>
+<p>These settings are overridden during publishing, so changes here will have no effect.</p>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/altinn-studio/v8/reference/configuration/deployment/_index.en.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Edit page on GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#helm-chart">Helm Chart</a></li>
+        <li><a href="#custom-settings">Custom settings</a></li>
+      </ul>
+    </li>
+    <li><a href="#scaling">Scaling</a>
+      <ul>
+        <li><a href="#initial-scaling">Initial scaling</a></li>
+        <li><a href="#autoscaling">Autoscaling</a>
+          <ul>
+            <li><a href="#autoscalingreplicas"><code>autoscaling.replicas</code></a></li>
+            <li><a href="#autoscalingavgcpuutilization"><code>autoscaling.avgCpuUtilization</code></a></li>
+            <li><a href="#autoscalingbehaviorstabilizationwindowseconds"><code>autoscaling.behavior.stabilizationWindowSeconds</code></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#resources-configuration">Resources configuration</a>
+      <ul>
+        <li><a href="#deploymentresourcesrequests"><code>deployment.resources.requests</code></a></li>
+        <li><a href="#deploymentresourceslimits"><code>deployment.resources.limits</code></a></li>
+      </ul>
+    </li>
+    <li><a href="#linkerd">Linkerd</a></li>
+    <li><a href="#mounting-of-volumes">Mounting of volumes</a></li>
+    <li><a href="#service">Service</a></li>
+    <li><a href="#settings-overridden-at-deploy-time">Settings overridden at deploy time</a></li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">About Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

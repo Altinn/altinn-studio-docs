@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="How to get started using the Broker Transition solution from Altinn 2 to Altinn 3" />
+<meta name="altinn_pagedir" class="elastic" content="broker/broker-transition/getting-started/" />
+<meta name="altinn_title" class="elastic" content="Getting started with Altinn Broker Transition Solution" />
+<meta name="product" data-pagefind-filter="Product[content]" content="Broker" />
+
+
+<title>Getting started with Altinn Broker Transition Solution – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/en/broker/broker-transition/getting-started/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/en/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">To the frontpage</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Show/hide menu</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Product</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/en/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/authorization/">
+      <p class="product-item">Authorization</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/broker/">
+      <p class="product-item">Broker</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/correspondence/">
+      <p class="product-item">Correspondence</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/notifications/">
+      <p class="product-item">Notifications</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Search</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/en.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/broker/broker-transition/getting-started/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/broker/broker-transition/getting-started/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English ✓</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">What are you looking for?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Search');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Last modified: Sep 29, 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/en/broker/"><span>Broker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/about/"><span>About Broker</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/what-do-you-get/"><span>What do you get?</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/"><span>Getting Started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/common-steps/"><span>Common Steps</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/service-owner/"><span>Service Owner</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/developer-guides/"><span>Developer guides</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/developer-guides/send-files/"><span>Send files</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/developer-guides/receive-files/"><span>Receive Files</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/developer-guides/service-owner/"><span>Service Owner</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/developer-guides/events/"><span>Events</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/broker/explanation/"><span>Concepts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/explanation/basic-concepts/"><span>Basic Concepts</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/explanation/very-large-files/"><span>Large Files</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/"><span>Transition Solution</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/about/"><span>About Transition Solution</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/getting-started/"><span>Getting Started</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/technical-overview/"><span>Technical Overview</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/usage/"><span>Usage</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/usage/rest/"><span>Usage Rest</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/usage/soap/"><span>Usage SOAP</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/broker/reference/"><span>Reference documentation</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/reference/terminology/"><span>Terminology</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/reference/system-interfaces/"><span>System Interfaces</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/reference/capabilities/"><span>Capabilities</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/reference/rate-limits/"><span>Rate Limits</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/reference/solution-architecture/"><span>Solution Architecture</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/reference/security/"><span>Security</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/en/broker/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/broker/broker-transition/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/broker/broker-transition/getting-started/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/en/broker/'>Broker</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/broker/broker-transition/'>Transition Solution</a> <span class='adocs-breadcrumb-divider'> / </span> Getting Started</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Getting started with Altinn Broker Transition Solution</h1>
+              <p class="a-leadText" id="leadText">How to get started using the Broker Transition solution from Altinn 2 to Altinn 3</p>
+
+<h2 id="serviceowners">ServiceOwners</h2>
+<p>In order to use the Broker Transition solution in Altinn to create, upload and retrieve file metadata, a service owner must complete the following steps.</p>
+<ol>
+<li>Have an existing Altinn 2 Broker Service.</li>
+<li>Have or create a corresponding Altinn 3 Broker Resource. See how to get started with Altinn Broker <a href="/en/broker/getting-started/">here</a>.
+To configure your resource to correctly function as a Broker Transition service, <a href="#configure-resource-for-transition-solution">see below</a>.</li>
+<li>Request a transition setup from the Altinn 2 Service to the Altinn 3 Resource, <a href="#request-transition-setup">see below</a> for details.</li>
+<li>Go live with the transition solution while encouraging consumers to migrate to Altinn Broker.</li>
+<li>Once all consumers have migrated to Altinn Broker, decommission the Altinn 2 Broker Service.</li>
+</ol>
+<h3 id="configure-resource-for-transition-solution">Configure Resource for Transition Solution</h3>
+<p>To configure the resource to function in the Transition Solution, and work as closely as Altinn 2 service, you should set the following values when <a href="/en/broker/getting-started/developer-guides/service-owner/#operation-configure-resource-in-broker-api">configuring the resource</a></p>
+<p>Base these values on your existing Altinn 2 service, and set the values to the same where applicable.</p>
+<ul>
+<li>MaxFileTransferSize = &ldquo;1073741824&rdquo; (1 GB - max allowed in Altinn 2).</li>
+<li>FileTransferTimeToLive = The equivalent TimeToLive of the Altinn 2 service, most used &ldquo;30D&rdquo; - 30 days.</li>
+<li>PurgeFileTransferAfterAllRecipientsConfirmed = The equivalent TimeToLive of the Altinn 2 service, most used &ldquo;true&rdquo;</li>
+<li>PurgeFileTransferGracePeriod = &ldquo;PT24H&rdquo; - Files will not be deleted before 24hrs have passed (was hard-coded to 48hrs in Altinn 2). Must be <a href="https://en.wikipedia.org/wiki/ISO_8601#Durations">ISO8601 Duration</a> and 24 hours is the max.</li>
+</ul>
+<p>If you need to use the <a href="/en/broker/broker-transition/technical-overview/#manifest-file">Manifest file feature</a>, you also need to set the following values.</p>
+<ul>
+<li>UseManifestFileShim = true.</li>
+<li>ExternalServiceCodeLegacy = set to External Service Code for the legacy service.</li>
+<li>ExternalServiceEditionCodeLegacy = set to External Service Edition Code for the legacy service.</li>
+</ul>
+<p>Once you have transitioned all users over to Altinn 3 APIs, you are free to change the values according to your own preferences.
+The last 3 values used only in the transition solution to create the manifest, and should be set to false/null.</p>
+<h3 id="request-transition-setup">Request Transition Setup</h3>
+<p>The transition setup is configured in the Altinn 2 codebase, and once it has been set, the traffic for the defined service will be redirected to Altinn 3.
+Please provide the necessary details, and make sure the relevant details match what you <a href="#configure-resource-for-transition-solution">set for the resource</a>.</p>
+<ul>
+<li>ExternalServiceCode and ExternalServiceEditionCode of the Altinn 2 service.</li>
+<li>ResourceId of the Altinn 3 resource.</li>
+<li>The environments where the change should be performed.
+<ul>
+<li>Altinn 2 TT02 -&gt; Altinn 3 TT02/Staging</li>
+<li>Altinn 2 PROD -&gt; Altinn 3 PROD</li>
+</ul>
+</li>
+<li>The date and time for the change(s) to go live.</li>
+</ul>
+<p>Contact us in the public slack channel <a href="https://join.slack.com/t/altinn/shared_invite/zt-7c77c9si-ZnMFwGNtab1aFdC6H_vwog">Altinn@Slack#produkt-formidling</a>, and we will perform the needed steps.</p>
+<p>Performing this configuration change does not create downtime in Altinn 2, but there will be a short timeframe of &lt;1 minute where the configuration is loaded onto all servers and the transition solution is active.</p>
+<h3 id="additional-service-owner-information">Additional Service Owner information</h3>
+<p>After the transition setup has been activated, the Altinn 2 service will no longer pass requests to the Altinn 2 Broker Storage, but instead be forwarded to Altinn 3.
+This means existing Broker files in the Altinn 2 Broker Storage will become unavailable for end users once the service is set up to transition to Altinn 3.</p>
+<p>Due to this, we recommend you plan for a downtime period for your service in which no new files are created, but you allow all recipients to download their files before you perform the transition.
+The exact length of time depends on the work pattern of your recipients; how long they take before they download available files. If you do not know. contact us and we may be able to generate some statistics to guide you to a decision.</p>
+<p>One method of enforcing this is to use Altinn 2 SRR to temporarily remove the &ldquo;write&rdquo; access for all the organizations you have approved as senders, but keep the &ldquo;read&rdquo; access for all recipients.
+Once the transition has been set up, you can give the &ldquo;write&rdquo; access back to all the senders, and the files will now be created i Altinn 3.</p>
+<div class="notices warning" >Be aware that SRR Rights in Altinn 2 are cached for 10 minutes (SC+SEC+Orgnr), so ensure to afford this amount of time between adding/removing the rights and other steps of your go-live plan.</div>
+<h2 id="end-users">End Users</h2>
+<p>For end users, there is very little technical difference between using an Altinn 2 Broker service and a Broker service that has been transitioned to Altinn 3.
+But all consumers should have their technical team go through this documentation to determine if the changes in the Transition solution require changes to their implementation or code.</p>
+<p>Functionally, receipts will no longer have a Receipt Id, and if enabled, the manifest files will not have a File List.</p>
+<p>Additionally, while in Altinn 2 Broker Services a file is virus-scanned as part of the upload process, in Altinn 3 the virus-scanning is done after upload, which means an uploaded file in Altinn 3 will not be immediately available, unlike in Altinn 2.
+The file will be made available once the automatic virus scan is completed.</p>
+<p>Calls to get Receipt through external Receipt SOAP endpoint is not supported. If this is a requirement of a service owner or end user, please send us a feature request.</p>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/broker/broker-transition/getting-started/_index.en.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Edit page on GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#serviceowners">ServiceOwners</a>
+      <ul>
+        <li><a href="#configure-resource-for-transition-solution">Configure Resource for Transition Solution</a></li>
+        <li><a href="#request-transition-setup">Request Transition Setup</a></li>
+        <li><a href="#additional-service-owner-information">Additional Service Owner information</a></li>
+      </ul>
+    </li>
+    <li><a href="#end-users">End Users</a></li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">About Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

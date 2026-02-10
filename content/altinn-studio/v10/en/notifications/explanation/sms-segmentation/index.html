@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Altinn Notifications automatically splits long SMS messages into multiple segments to ensure delivery. This article explains how SMS segmentation works, which character limits apply, and what will and will not work when using the API." />
+<meta name="altinn_pagedir" class="elastic" content="notifications/explanation/sms-segmentation/" />
+<meta name="altinn_title" class="elastic" content="SMS Segmentation" />
+<meta name="product" data-pagefind-filter="Product[content]" content="Notifications" />
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="Explanation" />
+
+<title>SMS Segmentation – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/en/notifications/explanation/sms-segmentation/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/en/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">To the frontpage</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Show/hide menu</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Product</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/en/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/authorization/">
+      <p class="product-item">Authorization</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/broker/">
+      <p class="product-item">Broker</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/correspondence/">
+      <p class="product-item">Correspondence</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/notifications/">
+      <p class="product-item">Notifications</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Search</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/en.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/notifications/explanation/sms-segmentation/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/notifications/explanation/sms-segmentation/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English ✓</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">What are you looking for?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Search');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Last modified: Nov 6, 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/en/notifications/"><span>Notifications</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/notifications/about/"><span>About Notifications</span></a></li>
+      <li class="dd-item">
+        <a href="/en/notifications/what-do-you-get/"><span>What do you get?</span></a></li>
+      <li class="dd-item">
+        <a href="/en/notifications/getting-started/"><span>Getting Started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/notifications/getting-started/altinn-app/"><span>Altinn App Integration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/notifications/getting-started/altinn-service/"><span>Altinn Service Integration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/notifications/getting-started/service-owner-system/"><span>Service Owner System Integration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/notifications/getting-started/terminology/"><span>Terminology</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/notifications/guides/"><span>User guides</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/notifications/guides/instant-notifications/"><span>Instant Notifications</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/notifications/reference/"><span>Reference</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/notifications/reference/openapi/"><span>OpenAPI</span></a></li>
+      <li class="dd-item">
+        <a href="/en/notifications/reference/api/"><span>API</span></a></li>
+      <li class="dd-item">
+        <a href="/en/notifications/reference/error-codes/"><span>Error Codes</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/notifications/explanation/"><span>Explanation</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/notifications/explanation/address-lookup/"><span>Address Lookup</span></a></li>
+      <li class="dd-item">
+        <a href="/en/notifications/explanation/recipient-deduplication/"><span>Contact Point Deduplication</span></a></li>
+      <li class="dd-item">
+        <a href="/en/notifications/explanation/recipient-lookup/"><span>Recipient lookup</span></a></li>
+      <li class="dd-item">
+        <a href="/en/notifications/explanation/send-condition/"><span>Send Condition</span></a></li>
+      <li class="dd-item">
+        <a href="/en/notifications/explanation/placeholder-keywords/"><span>Placeholders</span></a></li>
+      <li class="dd-item">
+        <a href="/en/notifications/explanation/sms-segmentation/"><span>SMS Segmentation</span></a></li>
+      <li class="dd-item">
+        <a href="/en/notifications/explanation/instant-notifications/"><span>Instant notifications</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/en/notifications/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/notifications/explanation/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/notifications/explanation/sms-segmentation/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/en/notifications/'>Notifications</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/notifications/explanation/'>Explanation</a> <span class='adocs-breadcrumb-divider'> / </span> SMS Segmentation</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">SMS Segmentation</h1>
+              <p class="a-leadText" id="leadText">Altinn Notifications automatically splits long SMS messages into multiple segments to ensure delivery. This article explains how SMS segmentation works, which character limits apply, and what will and will not work when using the API.</p>
+
+<h2 id="introduction">Introduction</h2>
+<p>SMS messages have technical limitations on how many characters can be sent in a single message. When you send SMS via Altinn Notifications, the system automatically handles the splitting of long messages into multiple segments. This allows you to send longer texts without having to split them manually.</p>
+<p>Understanding how segmentation works is important to ensure that your messages are delivered as expected and to avoid messages being rejected due to length limitations.</p>
+<h2 id="how-sms-segmentation-works">How SMS segmentation works</h2>
+<p>SMS technology has two different modes for message length:</p>
+<h3 id="single-message-up-to-160-characters">Single message (up to 160 characters)</h3>
+<p>If your message is <strong>160 characters or shorter</strong>, it is sent as a single SMS. This is the most efficient way to send short messages.</p>
+<h3 id="concatenated-messages-over-160-characters">Concatenated messages (over 160 characters)</h3>
+<p>When the message is <strong>longer than 160 characters</strong>, it is automatically split into multiple segments that are sent separately and reassembled on the recipient&rsquo;s phone. Each segment in a concatenated message can contain <strong>up to 134 characters</strong>.</p>
+<div class="notices info" >The reason segments are 134 characters instead of 160 characters is that some space is used for metadata that tells the recipient&rsquo;s phone how to reassemble the segments.</div>
+<h2 id="character-limitations">Character limitations</h2>
+<p>Altinn Notifications has the following limitations for SMS messages:</p>
+<ul>
+<li><strong>Single message</strong>: up to <strong>160 characters</strong></li>
+<li><strong>Concatenated message</strong>: up to <strong>134 characters per segment</strong></li>
+<li><strong>Maximum number of segments</strong>: <strong>16 segments</strong></li>
+<li><strong>Maximum total length</strong>: <strong>2144 characters</strong> (16 × 134 characters)</li>
+</ul>
+<div class="notices warning" >The maximum limit of 16 segments is a limitation in the SMS gateway that Altinn Notifications uses. Messages that exceed this limit are truncated to the first 16 segments.</div>
+<h3 id="segmentation-examples">Segmentation examples</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Message length</th>
+          <th>Number of segments</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>50 characters</td>
+          <td>1</td>
+          <td>Sent as a single SMS</td>
+      </tr>
+      <tr>
+          <td>160 characters</td>
+          <td>1</td>
+          <td>Sent as a single SMS (maximum length)</td>
+      </tr>
+      <tr>
+          <td>161 characters</td>
+          <td>2</td>
+          <td>Split into 2 segments (134 + 27 characters)</td>
+      </tr>
+      <tr>
+          <td>268 characters</td>
+          <td>2</td>
+          <td>Split into 2 segments (134 + 134 characters)</td>
+      </tr>
+      <tr>
+          <td>269 characters</td>
+          <td>3</td>
+          <td>Split into 3 segments (134 + 134 + 1 character)</td>
+      </tr>
+      <tr>
+          <td>2144 characters</td>
+          <td>16</td>
+          <td>Split into 16 segments (maximum length)</td>
+      </tr>
+      <tr>
+          <td>2145 characters</td>
+          <td>16</td>
+          <td>Truncated to 16 segments (content shortened)</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="special-characters-and-url-encoding">Special characters and URL encoding</h2>
+<p>When the system calculates message length, <strong>URL-encoded length</strong> is used. This means that certain special characters count as more than one character.</p>
+<h3 id="characters-that-affect-length">Characters that affect length</h3>
+<p>The following types of characters can affect the actual length of the message:</p>
+<ul>
+<li><strong>Æ, Ø, Å</strong> and other national special characters</li>
+<li><strong>Emojis</strong> and other special symbols</li>
+<li><strong>Line breaks</strong> and other control characters</li>
+</ul>
+<h3 id="practical-example">Practical example</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Original message: &#34;Meeting at 14:00&#34;
+</span></span><span style="display:flex;"><span>Character length: 16 characters
+</span></span><span style="display:flex;"><span>URL-encoded length: 22 characters (38% longer)
+</span></span></code></pre></div><p>The example shows how spaces become &ldquo;%20&rdquo; (3 characters) and colons become &ldquo;%3A&rdquo; (3 characters) in URL encoding.</p>
+<div class="notices info" >To be sure that your message does not exceed the limits, you should test with representative examples that contain the same types of special characters you plan to use.</div>
+<h2 id="limitations-and-what-does-not-work">Limitations and what does not work</h2>
+<h3 id="what-happens-to-messages-over-2144-characters">What happens to messages over 2144 characters?</h3>
+<p>When a message (measured in URL-encoded length) exceeds 2144 characters:</p>
+<ul>
+<li>The message is <strong>automatically truncated</strong> to the first 16 segments (2144 characters)</li>
+<li>Content beyond this limit <strong>is not sent</strong></li>
+<li>You receive <strong>no error message</strong> from the API indicating that the content has been truncated</li>
+</ul>
+<div class="notices warning" >The API will not notify you that the message has been truncated. It is therefore essential to test message length in advance, especially if you are using many special characters.</div>
+<h3 id="recommendations">Recommendations</h3>
+<p>To ensure that your messages are delivered as expected:</p>
+<ol>
+<li><strong>Keep messages short and concise</strong> - under 160 characters if possible</li>
+<li><strong>Avoid unnecessary emojis</strong> - these can significantly increase the length</li>
+<li><strong>Test with representative data</strong> - use special characters similar to what you will use in production</li>
+<li><strong>Plan for segmentation</strong> - if you know the message will be long, ensure it still makes sense even when split up</li>
+<li><strong>Consider alternative channels</strong> - for longer messages, email may be a better choice</li>
+</ol>
+<h2 id="how-the-api-handles-segmentation">How the API handles segmentation</h2>
+<p>When you send an SMS via the Altinn Notifications API:</p>
+<ol>
+<li><strong>You send the entire message</strong> - you do not need to split it yourself</li>
+<li><strong>The system calculates the length</strong> - based on URL-encoded length</li>
+<li><strong>The system calculates the number of segments</strong> - and limits to a maximum of 16 segments</li>
+<li><strong>The system splits the message</strong> - automatically into segments if necessary</li>
+<li><strong>The message is sent</strong> - segments are delivered to the SMS gateway</li>
+</ol>
+<div class="notices warning" >If the URL-encoded length of the message requires more than 16 segments, only the first 16 segments (2144 characters) are sent. You receive no error message about this, so it is important to validate message length in advance.</div>
+<div class="notices info" >You cannot control how the message is split into segments. The splitting happens automatically based on the character limits described in this article.</div>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/notifications/explanation/sms-segmentation/_index.en.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Edit page on GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#how-sms-segmentation-works">How SMS segmentation works</a>
+      <ul>
+        <li><a href="#single-message-up-to-160-characters">Single message (up to 160 characters)</a></li>
+        <li><a href="#concatenated-messages-over-160-characters">Concatenated messages (over 160 characters)</a></li>
+      </ul>
+    </li>
+    <li><a href="#character-limitations">Character limitations</a>
+      <ul>
+        <li><a href="#segmentation-examples">Segmentation examples</a></li>
+      </ul>
+    </li>
+    <li><a href="#special-characters-and-url-encoding">Special characters and URL encoding</a>
+      <ul>
+        <li><a href="#characters-that-affect-length">Characters that affect length</a></li>
+        <li><a href="#practical-example">Practical example</a></li>
+      </ul>
+    </li>
+    <li><a href="#limitations-and-what-does-not-work">Limitations and what does not work</a>
+      <ul>
+        <li><a href="#what-happens-to-messages-over-2144-characters">What happens to messages over 2144 characters?</a></li>
+        <li><a href="#recommendations">Recommendations</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-the-api-handles-segmentation">How the API handles segmentation</a></li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">About Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

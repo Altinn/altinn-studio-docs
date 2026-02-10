@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="" />
+<meta name="altinn_pagedir" class="elastic" content="events/reference/architecture/events/" />
+<meta name="altinn_title" class="elastic" content="Events" />
+<meta name="product" data-pagefind-filter="Product[content]" content="Events" />
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="Reference" />
+
+<title>Events – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/en/events/reference/architecture/events/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/en/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">To the frontpage</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Show/hide menu</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Product</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/en/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/authorization/">
+      <p class="product-item">Authorization</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/broker/">
+      <p class="product-item">Broker</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/correspondence/">
+      <p class="product-item">Correspondence</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/notifications/">
+      <p class="product-item">Notifications</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Search</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/en.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/events/reference/architecture/events/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/events/reference/architecture/events/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English ✓</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">What are you looking for?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Search');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Last modified: Sep 29, 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/en/events/"><span>Events</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/events/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/events/api/openapi/"><span>OpenAPI</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/events/publish-events/"><span>Publish events</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/events/publish-events/get-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/events/publish-events/get-started/api-access/"><span>API access</span></a></li>
+      <li class="dd-item">
+        <a href="/en/events/publish-events/get-started/resource-registry/"><span>Register resource</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/events/publish-events/developer-guides/"><span>Developer guides</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/events/publish-events/developer-guides/publish-app-events/"><span>Publish app events</span></a></li>
+      <li class="dd-item">
+        <a href="/en/events/publish-events/developer-guides/publish-events/"><span>Publish events</span></a></li>
+      <li class="dd-item">
+        <a href="/en/events/publish-events/developer-guides/grant-subscriber-access/"><span>Grant subscribers access</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/events/query-events/"><span>Query events</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/events/query-events/developer-guides/"><span>Developer guides</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/events/query-events/developer-guides/query-app-events-enduser/"><span>Query app events - end user</span></a></li>
+      <li class="dd-item">
+        <a href="/en/events/query-events/developer-guides/query-app-events-org/"><span>Query app events - org</span></a></li>
+      <li class="dd-item">
+        <a href="/en/events/query-events/developer-guides/query-events/"><span>Query events</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/events/subscribe-to-events/"><span>Subscribe to events</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/events/subscribe-to-events/get-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/events/subscribe-to-events/get-started/api-access/"><span>API access</span></a></li>
+      <li class="dd-item">
+        <a href="/en/events/subscribe-to-events/get-started/events-access/"><span>Event resource access</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/events/subscribe-to-events/developer-guides/"><span>Developer guides</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/events/subscribe-to-events/developer-guides/setup-subscription/"><span>Set up a subscription</span></a></li>
+      <li class="dd-item">
+        <a href="/en/events/subscribe-to-events/developer-guides/process-app-events/"><span>Processing app events</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/events/reference/"><span>Reference</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/events/reference/architecture/"><span>Architecture</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/events/reference/architecture/events/"><span>Events</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/events/explanation/"><span>Explanation</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/events/explanation/subject_authorization/"><span>Understanding Subjects in Cloud Events</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/en/events/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/events/reference/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/events/reference/architecture/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/events/reference/architecture/events/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/en/events/'>Events</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/events/reference/'>Reference</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/events/reference/architecture/'>Architecture</a> <span class='adocs-breadcrumb-divider'> / </span> Events</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Events</h1>
+              <p class="a-leadText" id="leadText"></p>
+
+<h2 id="api">API</h2>
+<h3 id="public-api">Public API</h3>
+<p>The following API controllers are defined:</p>
+<ul>
+<li><a href="https://github.com/Altinn/altinn-events/blob/main/src/Events/Controllers/AppController.cs">AppController</a> : publishes (store and forward) and retrieve app events</li>
+<li><a href="https://github.com/Altinn/altinn-events/blob/main/src/Events/Controllers/EventsController.cs">EventsController</a> : publishes (store and forward) and retrieve generic events</li>
+<li><a href="https://github.com/Altinn/altinn-events/blob/main/src/Events/Controllers/SubscriptionController.cs">SubscriptionController</a> : creates, retrieves, validates and deletes event subscriptions</li>
+</ul>
+<h3 id="private-api">Private API</h3>
+<p>The API controllers listed below are exclusively for use within the Notification solution:</p>
+<ul>
+<li><a href="https://github.com/Altinn/altinn-events/blob/main/src/Events/Controllers/StorageController.cs">StorageController</a> : saves incoming events to persistent storage (database)</li>
+<li><a href="https://github.com/Altinn/altinn-events/blob/main/src/Events/Controllers/InboundController.cs">InboundController</a> : pushes events to <em>events-inbound</em> queue</li>
+<li><a href="https://github.com/Altinn/altinn-events/blob/main/src/Events/Controllers/OutboundController.cs">OutboundController</a> : identify and authorize event subscribers and push event and subscriber details to <em>events-outbound</em> queue</li>
+<li><a href="https://github.com/Altinn/altinn-events/blob/main/src/Events/Controllers/WebhookReceiverController.cs">WebhookReceiverController</a> : provides end point to support automated testing of subscriptions</li>
+</ul>
+<h2 id="database">Database</h2>
+<p>Events data is persisted in a PostgreSQL database.</p>
+<h3 id="tables">Tables</h3>
+<p>Each table in the events schema is described in the table below, followed by a diagram showing the relation between the tables.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Table</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>events</td>
+          <td>Contains each cloud event and the registered time</td>
+      </tr>
+      <tr>
+          <td>subscription</td>
+          <td>Holds metadata for each event subscription</td>
+      </tr>
+  </tbody>
+</table>
+<!--Schema extracted through pgAdmin using ERD tool for schema-->
+<p><figure>
+    <a href="db-schema.png">
+        <img src="db-schema.png" alt="Diagram of Events Database" title="Diagram of Events Database">
+    </a>
+    <figcaption><em>Diagram of Events Database</em></figcaption>
+  </figure></p>
+<h3 id="indexes">Indexes</h3>
+<p>A number of indexes have been introduces to increased performance of the frequently used queries.</p>
+<table>
+  <thead>
+      <tr>
+          <th>index</th>
+          <th>table</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>events_pkey</td>
+          <td>events</td>
+      </tr>
+      <tr>
+          <td>idx_events_computed_time</td>
+          <td>events</td>
+      </tr>
+      <tr>
+          <td>idx_events_cloudevent_id</td>
+          <td>events</td>
+      </tr>
+      <tr>
+          <td>idx_events_cloudevent_subject</td>
+          <td>events</td>
+      </tr>
+      <tr>
+          <td>idx_events_cloudevent_alternativesubject</td>
+          <td>events</td>
+      </tr>
+      <tr>
+          <td>idx_events_cloudevent_source</td>
+          <td>events</td>
+      </tr>
+      <tr>
+          <td>idx_events_cloudevent_type</td>
+          <td>events</td>
+      </tr>
+      <tr>
+          <td>idx_events_cloudevent_time</td>
+          <td>events</td>
+      </tr>
+      <tr>
+          <td>idx_events_cloudevent_resource_sequenceno</td>
+          <td>events</td>
+      </tr>
+      <tr>
+          <td>idx_events_cloudevent_subject_time</td>
+          <td>events</td>
+      </tr>
+      <tr>
+          <td>eventssubscription_pkey</td>
+          <td>subscription</td>
+      </tr>
+      <tr>
+          <td>idx_gin_subscription_consumer</td>
+          <td>subscription</td>
+      </tr>
+      <tr>
+          <td>idx_subscription_subject_source_type</td>
+          <td>subscription</td>
+      </tr>
+      <tr>
+          <td>idx_btree_subscription_sourcefilterhash</td>
+          <td>subscription</td>
+      </tr>
+      <tr>
+          <td>idx_subscription_resourcefilter</td>
+          <td>subscription</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="azure-storage-queues">Azure Storage Queues</h2>
+<p>Azure Storage Queues have been set up to enable the .NET application and Azure Functions to send data for processing by
+a different service.</p>
+<p>Logic for enqueueing elements is handled by
+<a href="https://github.com/Altinn/altinn-events/blob/main/src/Events/Clients/EventsQueueClient.cs">EventsQueueClient</a> and
+called from all relevant services.</p>
+<p>The queues we operate with are</p>
+<ul>
+<li>events-registration</li>
+<li>events-inbound</li>
+<li>events-outbound</li>
+<li>subscription-validation</li>
+</ul>
+<h2 id="azure-functions">Azure Functions</h2>
+<p>Multiple <a href="https://docs.microsoft.com/en-us/azure/azure-functions/">Azure Functions</a> have been set up to
+decouple the processing and pushing of events as well as subscription validation.
+All functions run based on Storage Queue triggers. An important principle for the functions is that each function
+should only have a single dependency to a logical action e.g. save to database, push to recipient etc.
+This way, if the action fails a retry can be done without any unexpected side effects.</p>
+<ul>
+<li><a href="https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/EventsRegistration.cs">EventsRegistration</a> :
+Pushes events to internal API endpoint that persists cloud event to database and on success pushes to
+internal API endpoint for inbound processing.</li>
+<li><a href="https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/EventsInbound.cs">EventsInbound</a> :
+Pushes event to internal API endpoint that finds subscriptions with filters matching the cloud event.</li>
+<li><a href="https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/EventsOutbound.cs">EventsOutbound</a>
+POST cloud event to webhook endpoint associated with a subscription.</li>
+<li><a href="https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/SubscriptionValidation.cs">SubscriptionValidation</a>
+POST validation cloud event to user-defined webhook endpoint to check that it is ready to receive data.
+If so, a request is sent to internal API endpoint that updated the status in the database.</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th>Name</th>
+          <th>Trigger queue</th>
+          <th>Retry mechanism</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>EventRegistration</td>
+          <td>events-registration</td>
+          <td>default</td>
+      </tr>
+      <tr>
+          <td>EventsInbound</td>
+          <td>events-inbound</td>
+          <td>default</td>
+      </tr>
+      <tr>
+          <td>EventsOutbound</td>
+          <td>events-outbound</td>
+          <td><a href="https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/Factories/CustomQueueProcessorFactory.cs">CustomQueueProcessorFactory</a></td>
+      </tr>
+      <tr>
+          <td>SubscriptionValidation</td>
+          <td>subscription-validation</td>
+          <td><a href="https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/Factories/CustomQueueProcessorFactory.cs">CustomQueueProcessorFactory</a></td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="dependencies">Dependencies</h2>
+<p>The microservice takes use of a range of external and Altinn services as well as .NET libraries to support the provided
+functionality.
+Find descriptions of key dependencies below.</p>
+<h3 id="external-services">External Services</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Service</th>
+          <th>Purpose</th>
+          <th>Resources</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Azure Database for PostgreSQL</td>
+          <td>Hosts the database</td>
+          <td><a href="https://azure.microsoft.com/en-us/products/postgresql">Documentation</a></td>
+      </tr>
+      <tr>
+          <td>Azure API Management</td>
+          <td>Manages access to public API</td>
+          <td><a href="https://azure.microsoft.com/en-us/products/api-management">Documentation</a></td>
+      </tr>
+      <tr>
+          <td>Azure Functions</td>
+          <td>Hosts the server less functions</td>
+          <td><a href="https://azure.microsoft.com/nb-no/products/functions">Documentation</a></td>
+      </tr>
+      <tr>
+          <td>Azure Key Vault</td>
+          <td>Safeguards secrets used by the microservice</td>
+          <td><a href="https://azure.microsoft.com/en-us/products/key-vault">Documentation</a></td>
+      </tr>
+      <tr>
+          <td>Azure Kubernetes Services (AKS)</td>
+          <td>Hosts the microservice and cron jobs</td>
+          <td><a href="https://azure.microsoft.com/en-us/products/kubernetes-service/">Documentation</a></td>
+      </tr>
+      <tr>
+          <td>Azure Monitor</td>
+          <td>Telemetry from the application is sent to Application Insights</td>
+          <td><a href="https://azure.microsoft.com/en-us/products/monitor">Documentation</a></td>
+      </tr>
+      <tr>
+          <td>Azure Storage</td>
+          <td>Hosts the queues and persists data in queues</td>
+          <td><a href="https://azure.microsoft.com/nb-no/products/storage/">Documentation</a></td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="altinn-services">Altinn Services</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Service</th>
+          <th>Purpose</th>
+          <th>Resources</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Altinn Authorization</td>
+          <td>Authorizes access to the API</td>
+          <td><a href="https://github.com/altinn/altinn-authorization">Repository</a></td>
+      </tr>
+      <tr>
+          <td>Altinn Register</td>
+          <td>Provides lookup of alternative subjects person and org</td>
+          <td><a href="https://github.com/altinn/altinn-register">Repository</a></td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="net-libraries">.NET Libraries</h3>
+<p>The Events microservice and functions take use of a range of libraries to support the provided functionality.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Library</th>
+          <th>Purpose</th>
+          <th>Resources</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Azure.Storage.Queues</td>
+          <td>Used to send data to the storage queues</td>
+          <td><a href="https://github.com/Azure/azure-storage-net">Repository</a>, <a href="https://learn.microsoft.com/en-us/dotnet/api/overview/azure/storage.queues-readme?view=azure-dotnet">Documentation</a></td>
+      </tr>
+      <tr>
+          <td>CloudNative.CloudEvents.AspNetCore</td>
+          <td>Used for encoding and decoding cloud events</td>
+          <td><a href="https://github.com/cloudevents/sdk-csharp">Repository</a>, <a href="https://cloudevents.io/">Documentation</a></td>
+      </tr>
+      <tr>
+          <td>AccessToken</td>
+          <td>Used to validate tokens in requests</td>
+          <td><a href="https://github.com/altinn/altinn-accesstoken">Repository</a>, <a href="/en/authorization/reference/architecture/accesstoken/">Documentation</a></td>
+      </tr>
+      <tr>
+          <td>JWTCookieAuthentication</td>
+          <td>Used to validate Altinn token (JWT)</td>
+          <td><a href="https://github.com/Altinn/altinn-authentication">Repository</a>, <a href="/en/authorization/reference/architecture/jwtcookie/">Documentation</a></td>
+      </tr>
+      <tr>
+          <td>Npgsql</td>
+          <td>Used to access the database server</td>
+          <td><a href="https://github.com/npgsql/npgsql">Repository</a>, <a href="https://www.npgsql.org/">Documentation</a></td>
+      </tr>
+      <tr>
+          <td>Yuniql</td>
+          <td>DB migration</td>
+          <td><a href="https://github.com/rdagumampan/yuniql">Repository</a>, <a href="https://yuniql.io/">Documentation</a></td>
+      </tr>
+  </tbody>
+</table>
+<p><a href="https://github.com/Altinn/altinn-events/network/dependencies">A full list of NuGet dependencies is available on GitHub</a>.</p>
+<h2 id="testing">Testing</h2>
+<p>Quality gates implemented for a project require an 80 % code coverage for the unit and integration tests combined.
+<a href="https://xunit.net/">xUnit</a> is the framework used and the <a href="https://github.com/moq">Moq library</a> supports mocking
+parts of the solution.</p>
+<h3 id="unit-tests">Unit tests</h3>
+<p>The unit test projects are is available on GitHub.</p>
+<ul>
+<li><a href="https://github.com/Altinn/altinn-events/tree/main/test/Altinn.Events.Tests">Altinn.Platform.Events.Tests</a></li>
+<li><a href="https://github.com/Altinn/altinn-events/tree/main/test/Altinn.Platform.Events.Functions.Tests">Altinn.Platform.Events.Functions.Tests</a></li>
+</ul>
+<h3 id="integration-tests">Integration tests</h3>
+<p>No integration tests using external components haeve ben implemented for this solution.
+Look to unit test project for all tests related to Events.</p>
+<h3 id="automated-tests">Automated tests</h3>
+<p><a href="https://github.com/Altinn/altinn-events/tree/main/test/k6">The automated test project is available on GitHub</a></p>
+<p>The automated tests for this micro service are implemented through <a href="https://k6.io/">Grafana&rsquo;s k6</a>.
+The tool is specialized for load tests, but we do use it for automated API tests as well.
+The test set is used for both use case and regression tests.</p>
+<h4 id="use-case-tests">Use case tests</h4>
+<p><a href="https://github.com/Altinn/altinn-events/tree/main/.github/workflows">All use case workflows are available on GitHub</a></p>
+<p>Use case tests are run every 15 minutes through GitHub Actions.
+The tests run during the use case tests are defined in the k6 test project.
+The aim of the tests is to run through central functionality of the solution to ensure that it is running and available to our end users.</p>
+<h4 id="regression-tests">Regression tests</h4>
+<p>Regression tests are hosted in <a href="https://dev.azure.com/brreg/altinn-studio/_build?definitionId=96">Azure DevOps pipelines</a>
+and triggered at the end of a release pipeline.</p>
+<h2 id="hosting">Hosting</h2>
+<h3 id="web-api">Web API</h3>
+<p>The microservice runs in a Docker container hosted in AKS,
+and it is deployed as a Kubernetes deployment with autoscaling capabilities</p>
+<p>The events application runs on port 5090.</p>
+<p>See <a href="https://github.com/Altinn/altinn-events/blob/main/Dockerfile">DockerFile</a> for details.</p>
+<h3 id="azure-functions-1">Azure Functions</h3>
+<p>The Azure functions are hosted in a function app only containing event related functions.</p>
+<h3 id="azure-storage">Azure Storage</h3>
+<p>The Storage Queues are hosted in a geo-zone-redundant, general purpose v2 storage account.</p>
+<h3 id="database-1">Database</h3>
+<p>The database is hosted on a PostgreSQL flexible server in Azure.</p>
+<h2 id="build--deploy">Build &amp; deploy</h2>
+<h3 id="web-api-1">Web API</h3>
+<ul>
+<li>Build and Code analysis runs in a <a href="https://github.com/Altinn/altinn-events/actions">Github workflow</a></li>
+<li>Build of the image is done in an <a href="https://dev.azure.com/brreg/altinn-studio/_build?definitionId=383">Azure DevOps Pipeline</a></li>
+<li>Deploy of the image is enabled with Helm and implemented in an <a href="https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&amp;view=all&amp;definitionId=49">Azure Devops Release pipeline</a></li>
+</ul>
+<h3 id="azure-functions-2">Azure Functions</h3>
+<p>-Build of the Azure Function zip file is done in an <a href="https://dev.azure.com/brreg/altinn-studio/_build?definitionId=244">Azure DevOps Pipeline</a></p>
+<ul>
+<li>Deploy of the Azure Functions is done in an <a href="https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&amp;view=all&amp;definitionId=27">Azure DevOps Release pipeline</a></li>
+</ul>
+<h3 id="database-2">Database</h3>
+<ul>
+<li>Migration scripts are copied into the Docker image of the web API when this is build</li>
+<li>Execution of the scripts is on startup of the application and enabled by <a href="https://yuniql.io/">YUNIQL</a></li>
+</ul>
+<h2 id="run-on-local-machine">Run on local machine</h2>
+<p>Instructions on how to set up the service on local machine for development or testing is covered by
+<a href="https://github.com/Altinn/altinn-events">the README in the repository</a>.</p>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/events/reference/architecture/events/_index.en.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Edit page on GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#api">API</a>
+      <ul>
+        <li><a href="#public-api">Public API</a></li>
+        <li><a href="#private-api">Private API</a></li>
+      </ul>
+    </li>
+    <li><a href="#database">Database</a>
+      <ul>
+        <li><a href="#tables">Tables</a></li>
+        <li><a href="#indexes">Indexes</a></li>
+      </ul>
+    </li>
+    <li><a href="#azure-storage-queues">Azure Storage Queues</a></li>
+    <li><a href="#azure-functions">Azure Functions</a></li>
+    <li><a href="#dependencies">Dependencies</a>
+      <ul>
+        <li><a href="#external-services">External Services</a></li>
+        <li><a href="#altinn-services">Altinn Services</a></li>
+        <li><a href="#net-libraries">.NET Libraries</a></li>
+      </ul>
+    </li>
+    <li><a href="#testing">Testing</a>
+      <ul>
+        <li><a href="#unit-tests">Unit tests</a></li>
+        <li><a href="#integration-tests">Integration tests</a></li>
+        <li><a href="#automated-tests">Automated tests</a>
+          <ul>
+            <li><a href="#use-case-tests">Use case tests</a></li>
+            <li><a href="#regression-tests">Regression tests</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#hosting">Hosting</a>
+      <ul>
+        <li><a href="#web-api">Web API</a></li>
+        <li><a href="#azure-functions-1">Azure Functions</a></li>
+        <li><a href="#azure-storage">Azure Storage</a></li>
+        <li><a href="#database-1">Database</a></li>
+      </ul>
+    </li>
+    <li><a href="#build--deploy">Build &amp; deploy</a>
+      <ul>
+        <li><a href="#web-api-1">Web API</a></li>
+        <li><a href="#azure-functions-2">Azure Functions</a></li>
+        <li><a href="#database-2">Database</a></li>
+      </ul>
+    </li>
+    <li><a href="#run-on-local-machine">Run on local machine</a></li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">About Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

@@ -1,0 +1,1792 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Altinn Profile",
+    "version": "v1"
+  },
+    "servers": [
+    {
+      "url": "https://platform.tt02.altinn.no/profile/api/v1",
+      "description": "TT02"
+    },
+    {
+      "url": "https://platform.altinn.no/profile/api/v1",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/dashboard/organizations/{organizationNumber}/notificationaddresses": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "summary": "Endpoint that can retrieve a list of all Notification Addresses for the given organization",
+        "parameters": [
+          {
+            "name": "organizationNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DashboardNotificationAddressResponse"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/organizations/notificationaddresses/email/{emailAddress}": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "summary": "Endpoint that can retrieve a list of all Notification Addresses for the given email address",
+        "parameters": [
+          {
+            "name": "emailAddress",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DashboardNotificationAddressResponse"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/organizations/notificationaddresses/phonenumber/{phoneNumber}": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "summary": "Endpoint that can retrieve a list of all Notification Addresses for the given phone number",
+        "parameters": [
+          {
+            "name": "phoneNumber",
+            "in": "path",
+            "description": "The phone number to retrieve notification addresses for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "countrycode",
+            "in": "query",
+            "description": "The country code for the phone number (default: +47)",
+            "schema": {
+              "type": "string",
+              "default": "+47"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DashboardNotificationAddressResponse"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/organizations/{organizationNumber}/contactinformation": {
+      "get": {
+        "tags": [
+          "DashboardUserContactInformation"
+        ],
+        "summary": "Endpoint that can retrieve a list of all user contact information for the given organization.\r\nReturns the contact details that users have registered for acting on behalf of this organization.",
+        "parameters": [
+          {
+            "name": "organizationNumber",
+            "in": "path",
+            "description": "The organization number to retrieve contact information for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved user contact information. Returns an array of contacts (may be empty if organization exists but has no user contact info).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DashboardUserContactInformationResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters (model validation failed).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Caller does not have the required Dashboard Maskinporten scope (altinn:profile.support.admin).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organization number not found in the registry.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/organizations/contactinformation/email/{emailAddress}": {
+      "get": {
+        "tags": [
+          "DashboardUserContactInformation"
+        ],
+        "summary": "Endpoint that can retrieve a list of all user contact information for the given email address.\r\nReturns the contact details that users have registered with the specified email address.",
+        "parameters": [
+          {
+            "name": "emailAddress",
+            "in": "path",
+            "description": "The email address to retrieve contact information for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved user contact information. Returns an array of contacts for the specified email address (empty array if no contacts found)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DashboardUserContactInformationResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters (model validation failed).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Caller does not have the required Dashboard Maskinporten scope (altinn:profile.support.admin).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/organizations/contactinformation/phonenumber/{phoneNumber}": {
+      "get": {
+        "tags": [
+          "DashboardUserContactInformation"
+        ],
+        "summary": "Endpoint that can retrieve a list of all user contact information for the given phone number.\r\nReturns the contact details that users have registered with the specified phone number.",
+        "parameters": [
+          {
+            "name": "phoneNumber",
+            "in": "path",
+            "description": "The phone number to retrieve contact information for",
+            "required": true,
+            "schema": {
+              "pattern": "^[0-9]{5,15}$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "countrycode",
+            "in": "query",
+            "description": "The country code for the phone number",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved user contact information. Returns an array of contacts for the specified phone number (empty array if no contacts found)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DashboardUserContactInformationResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters (model validation failed).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Caller does not have the required Dashboard Maskinporten scope (altinn:profile.support.admin).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users/current/party-groups/favorites": {
+      "get": {
+        "tags": [
+          "Favorites"
+        ],
+        "summary": "Get the favorite parties for the current user",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GroupResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/users/current/party-groups/favorites/{partyUuid}": {
+      "put": {
+        "tags": [
+          "Favorites"
+        ],
+        "summary": "Add a party to the group of favorites for the current user",
+        "parameters": [
+          {
+            "name": "partyUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Returns status code 201 if the party is added to favorites"
+          },
+          "204": {
+            "description": "Returns status code 204 if the party is already in the favorites"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Favorites"
+        ],
+        "summary": "Remove a party from the group of favorites for the current user",
+        "parameters": [
+          {
+            "name": "partyUuid",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Returns status code 204 if the party was deleted from favorites"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Returns status code 404 if the party was not found in favorites"
+          }
+        }
+      }
+    },
+    "/users/current/notificationsettings/parties/{partyUuid}": {
+      "get": {
+        "tags": [
+          "NotificationsSettings"
+        ],
+        "summary": "Get the notification addresses the current user has registered for a party",
+        "parameters": [
+          {
+            "name": "partyUuid",
+            "in": "path",
+            "description": "The UUID of the party for which the notification address is being set",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationSettingsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "NotificationsSettings"
+        ],
+        "summary": "Add or update the notification addresses the current user has registered for a party",
+        "parameters": [
+          {
+            "name": "partyUuid",
+            "in": "path",
+            "description": "The UUID of the party for which the notification address is being set",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The request containing the notification address details",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NotificationSettingsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "NotificationsSettings"
+        ],
+        "summary": "Delete the notification addresses the current user has registered for a party",
+        "parameters": [
+          {
+            "name": "partyUuid",
+            "in": "path",
+            "description": "The UUID of the party for which the notification address is being deleted",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationSettingsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/users/current/notificationsettings/parties": {
+      "get": {
+        "tags": [
+          "NotificationsSettings"
+        ],
+        "summary": "Get the notification addresses the current user has registered for all parties",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/NotificationSettingsResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/organizations/{organizationNumber}/notificationaddresses/mandatory": {
+      "get": {
+        "tags": [
+          "Organizations"
+        ],
+        "summary": "Endpoint looking up the notification addresses for the given organization",
+        "parameters": [
+          {
+            "name": "organizationNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrganizationResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Organizations"
+        ],
+        "summary": "Create a new notification address for an organization.",
+        "parameters": [
+          {
+            "name": "organizationNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NotificationAddressRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the existing address if it is already registered. This means that duplicate create commands will only result in the creation one notification address.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationAddressResponse"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "Returns the newly created notification address",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationAddressResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/organizations/{organizationNumber}/notificationaddresses/mandatory/{notificationAddressId}": {
+      "get": {
+        "tags": [
+          "Organizations"
+        ],
+        "summary": "Endpoint looking up a specific notification address for the given organization",
+        "parameters": [
+          {
+            "name": "organizationNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "notificationAddressId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationAddressResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Organizations"
+        ],
+        "summary": "Update a notification address for an organization",
+        "parameters": [
+          {
+            "name": "organizationNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "notificationAddressId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NotificationAddressRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the updated address if it is already registered",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationAddressResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "409": {
+            "description": "Returns problem details with a reference to the conflicting address in the instance parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Organizations"
+        ],
+        "summary": "Delete a notification address for an organization",
+        "parameters": [
+          {
+            "name": "organizationNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "notificationAddressId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationAddressResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/users/current/party-groups": {
+      "get": {
+        "tags": [
+          "PartyGroups"
+        ],
+        "summary": "Retrieve all groups for a user",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/GroupResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          }
+        }
+      }
+    },
+    "/users/{userID}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Gets the user profile for a given user id",
+        "parameters": [
+          {
+            "name": "userID",
+            "in": "path",
+            "description": "The user id",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserProfile"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/users/byuuid/{userUuid}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Gets the user profile for a given user uuid",
+        "parameters": [
+          {
+            "name": "userUuid",
+            "in": "path",
+            "description": "The user uuid",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserProfile"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/users/current": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Gets the current user based on the request context",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserProfile"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Gets the user profile for a given SSN",
+        "requestBody": {
+          "description": "The user's social security number",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserProfile"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/users/current/profilesettings": {
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Updates the profile settings of the current user based on the request context",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProfileSettingPreference"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileSettingPreference"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Updates the profile settings of the current user based on the request context",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProfileSettingsPatchRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileSettingPreference"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "DashboardNotificationAddressResponse": {
+        "type": "object",
+        "properties": {
+          "notificationAddressId": {
+            "type": "integer",
+            "description": "Altinn.Profile.Models.DashboardNotificationAddressResponse.NotificationAddressId",
+            "format": "int32"
+          },
+          "countryCode": {
+            "type": "string",
+            "description": "Country code for phone number",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "description": "Email address",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "description": "Phone number",
+            "nullable": true
+          },
+          "sourceOrgNumber": {
+            "type": "string",
+            "description": "Source organization number",
+            "nullable": true
+          },
+          "requestedOrgNumber": {
+            "type": "string",
+            "description": "Requested organization number",
+            "nullable": true
+          },
+          "lastChanged": {
+            "type": "string",
+            "description": "Last changed timestamp",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a notification address"
+      },
+      "DashboardUserContactInformationResponse": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "nationalIdentityNumber": {
+            "type": "string",
+            "description": "Gets or sets the national identity number (SSN/D-number) of the user.",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "description": "Gets or sets the full name of the user.",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "description": "Gets or sets the email address registered by the user for this organization.\r\nMay be null if no email address is set.",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "description": "Gets or sets the phone number registered by the user for this organization.\r\nMay be null if no phone number is set.",
+            "nullable": true
+          },
+          "organizationNumber": {
+            "type": "string",
+            "description": "Gets or sets the organization number the user is acting on behalf of.\r\nMay be null if no organization number is set.",
+            "nullable": true
+          },
+          "lastChanged": {
+            "type": "string",
+            "description": "Gets or sets the timestamp when this contact information was last changed.\r\nThis timestamp applies to both email and phone number as they are stored together.\r\nTimestamps are stored and returned in UTC.",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Response model for user contact information registered for an organization in the Support Dashboard.\r\nRepresents a user's personal contact details they have registered for acting on behalf of an organization.\r\nThis also includes the organization number the user is acting on behalf of."
+      },
+      "GroupResponse": {
+        "type": "object",
+        "properties": {
+          "groupId": {
+            "type": "integer",
+            "description": "The unique identifier of the group",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the group",
+            "nullable": true
+          },
+          "isFavorite": {
+            "type": "boolean",
+            "description": "A flag indicating whether the group is a group of favorite parties"
+          },
+          "parties": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Array of party IDs that belong to this group",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "GroupResponse is used to represent a group of parties"
+      },
+      "GuidNullableOptional": {
+        "type": "object",
+        "properties": {
+          "hasValue": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "value": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "NotificationAddressRequest": {
+        "type": "object",
+        "properties": {
+          "countryCode": {
+            "pattern": "(^\\+([0-9]{1,3}))",
+            "type": "string",
+            "description": "Country code for phone number",
+            "nullable": true
+          },
+          "email": {
+            "pattern": "^((([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{}~])+(\\.([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{}~])+)*)@(((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9\\-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ]\\.)|[a-zA-Z0-9æøåÆØÅ]\\.){1,9})([a-zA-Z]{2,14})))$",
+            "type": "string",
+            "description": "Email address",
+            "nullable": true
+          },
+          "phone": {
+            "pattern": "(^[0-9]+$)",
+            "type": "string",
+            "description": "Phone number",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a notification address"
+      },
+      "NotificationAddressResponse": {
+        "type": "object",
+        "properties": {
+          "countryCode": {
+            "pattern": "(^\\+([0-9]{1,3}))",
+            "type": "string",
+            "description": "Country code for phone number",
+            "nullable": true
+          },
+          "email": {
+            "pattern": "^((([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{}~])+(\\.([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{}~])+)*)@(((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9\\-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ]\\.)|[a-zA-Z0-9æøåÆØÅ]\\.){1,9})([a-zA-Z]{2,14})))$",
+            "type": "string",
+            "description": "Email address",
+            "nullable": true
+          },
+          "phone": {
+            "pattern": "(^[0-9]+$)",
+            "type": "string",
+            "description": "Phone number",
+            "nullable": true
+          },
+          "notificationAddressId": {
+            "type": "integer",
+            "description": "Altinn.Profile.Models.NotificationAddressResponse.NotificationAddressId",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a notification address"
+      },
+      "NotificationSettingsRequest": {
+        "type": "object",
+        "properties": {
+          "emailAddress": {
+            "pattern": "^((\"[^\"]+\")|(([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{|}~])+(\\.([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9\\-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ]\\.)|[a-zA-Z0-9æøåÆØÅ]\\.){1,9})([a-zA-Z]{2,14}))|((\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})))$",
+            "type": "string",
+            "description": "The email address. May be null if no email address is set.",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "pattern": "^(([0-9]{5})|([0-9]{8})|((00[0-9]{2})[0-9]+)|((\\+[0-9]{2})[0-9]+))$",
+            "type": "string",
+            "description": "The phone number. May be null if no phone number is set.",
+            "nullable": true
+          },
+          "resourceIncludeList": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "A list of resources that the user has registered to receive notifications for. The format is in URN. This is used to determine which resources the user can receive notifications for.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Request model for the professional notification address for an organization, also called personal notification address."
+      },
+      "NotificationSettingsResponse": {
+        "type": "object",
+        "properties": {
+          "emailAddress": {
+            "pattern": "^((\"[^\"]+\")|(([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{|}~])+(\\.([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9\\-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ]\\.)|[a-zA-Z0-9æøåÆØÅ]\\.){1,9})([a-zA-Z]{2,14}))|((\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})))$",
+            "type": "string",
+            "description": "The email address. May be null if no email address is set.",
+            "nullable": true
+          },
+          "phoneNumber": {
+            "pattern": "^(([0-9]{5})|([0-9]{8})|((00[0-9]{2})[0-9]+)|((\\+[0-9]{2})[0-9]+))$",
+            "type": "string",
+            "description": "The phone number. May be null if no phone number is set.",
+            "nullable": true
+          },
+          "resourceIncludeList": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "A list of resources that the user has registered to receive notifications for. The format is in URN. This is used to determine which resources the user can receive notifications for.",
+            "nullable": true
+          },
+          "userId": {
+            "type": "integer",
+            "description": "The user id of logged-in user for whom the specific contact information belongs to.",
+            "format": "int32"
+          },
+          "partyUuid": {
+            "type": "string",
+            "description": "Id of the party",
+            "format": "uuid"
+          },
+          "needsConfirmation": {
+            "type": "boolean",
+            "description": "An indication of whether the notification address needs confirmation from a user"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Response model for the professional notification address for an organization, also called personal notification address."
+      },
+      "Organization": {
+        "type": "object",
+        "properties": {
+          "orgNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "unitType": {
+            "type": "string",
+            "nullable": true
+          },
+          "telephoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobileNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "faxNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "eMailAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "internetAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailingAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailingPostalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailingPostalCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "businessAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "businessPostalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "businessPostalCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "unitStatus": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "OrganizationResponse": {
+        "type": "object",
+        "properties": {
+          "organizationNumber": {
+            "type": "string",
+            "description": "The organizations organization number",
+            "nullable": true
+          },
+          "notificationAddresses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationAddressResponse"
+            },
+            "description": "Represents a list of mandatory notification address",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a on organization with  notification addresses"
+      },
+      "Party": {
+        "type": "object",
+        "properties": {
+          "partyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "partyUuid": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "partyTypeName": {
+            "$ref": "#/components/schemas/PartyType"
+          },
+          "orgNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "ssn": {
+            "type": "string",
+            "nullable": true
+          },
+          "unitType": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "onlyHierarchyElementWithNoAccess": {
+            "type": "boolean"
+          },
+          "person": {
+            "$ref": "#/components/schemas/Person"
+          },
+          "organization": {
+            "$ref": "#/components/schemas/Organization"
+          },
+          "childParties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Party"
+            },
+            "nullable": true
+          },
+          "lastChangedInAltinn": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lastChangedInExternalRegister": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PartyType": {
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Person": {
+        "type": "object",
+        "properties": {
+          "ssn": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "middleName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "telephoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobileNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailingAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailingPostalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailingPostalCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressMunicipalNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressMunicipalName": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressStreetName": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressHouseNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressHouseLetter": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressPostalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateOfDeath": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      },
+      "ProfileSettingPreference": {
+        "type": "object",
+        "properties": {
+          "languageType": {
+            "type": "string",
+            "nullable": true,
+            "writeOnly": true
+          },
+          "language": {
+            "type": "string",
+            "nullable": true
+          },
+          "preSelectedPartyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "doNotPromptForParty": {
+            "type": "boolean"
+          },
+          "preselectedPartyUuid": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "showClientUnits": {
+            "type": "boolean"
+          },
+          "shouldShowSubEntities": {
+            "type": "boolean"
+          },
+          "shouldShowDeletedEntities": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProfileSettingsPatchRequest": {
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string",
+            "description": "The language the user has selected in Altinn portal.",
+            "nullable": true
+          },
+          "doNotPromptForParty": {
+            "type": "boolean",
+            "description": "Indicates whether the user should not be prompted for party selection.\r\nCan be set without using PreselectedPartyUuid.",
+            "nullable": true
+          },
+          "preselectedPartyUuid": {
+            "$ref": "#/components/schemas/GuidNullableOptional"
+          },
+          "showClientUnits": {
+            "type": "boolean",
+            "description": "Indicates whether client units should be shown.",
+            "nullable": true
+          },
+          "shouldShowSubEntities": {
+            "type": "boolean",
+            "description": "Indicates whether sub-entities should be shown.",
+            "nullable": true
+          },
+          "shouldShowDeletedEntities": {
+            "type": "boolean",
+            "description": "Indicates whether deleted entities should be shown.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents user-specific portal settings and preferences."
+      },
+      "UserProfile": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userUuid": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "externalIdentity": {
+            "type": "string",
+            "nullable": true
+          },
+          "isReserved": {
+            "type": "boolean"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "partyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "party": {
+            "$ref": "#/components/schemas/Party"
+          },
+          "userType": {
+            "$ref": "#/components/schemas/UserType"
+          },
+          "profileSettingPreference": {
+            "$ref": "#/components/schemas/ProfileSettingPreference"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "ValidationProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          },
+          "errors": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      }
+    }
+  }
+}

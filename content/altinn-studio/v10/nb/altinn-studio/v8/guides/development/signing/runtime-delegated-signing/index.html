@@ -1,0 +1,2297 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Slik setter du opp brukerstyrt signering i tjenesten din." />
+<meta name="altinn_pagedir" class="elastic" content="altinn-studio/v8/guides/development/signing/runtime-delegated-signing/" />
+<meta name="altinn_title" class="elastic" content="Brukerstyrt signering" />
+<meta name="product" data-pagefind-filter="Produkt[content]" content="Altinn Studio" />
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="Guider" />
+
+<title>Brukerstyrt signering – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Produkt</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/authorization/">
+      <p class="product-item">Autorisasjon</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/broker/">
+      <p class="product-item">Formidling</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/">
+      <p class="product-item">Melding</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/notifications/">
+      <p class="product-item">Varsling</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Søk</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/nb.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">Hva leter du etter?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Søk');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Sist endret: 12. nov. 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+<div id="version-dropdown-top" class="product-version-dropdown">
+    <div class="version-selector-wrapper">
+        <label class="version-label" for="version-selector-button" id="version-selector-label">
+        Versjon:
+        </label>
+        <div class="dropdown">
+        <button
+            type="button"
+            id="version-selector-button"
+            class="nav-link dropdown-toggle version-switcher"
+            role="combobox"
+            aria-controls="version-dropdown-menu"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-labelledby="version-selector-label"
+            aria-describedby="version-selector-help"
+            data-toggle="dropdown">
+            <span id="current-version-top">Gjeldende (V8)</span>
+        </button>
+        <div
+            class="dropdown-menu version-dropdown"
+            role="listbox"
+            aria-labelledby="version-selector-label"
+            id="version-dropdown-menu"><a
+                class="dropdown-item version-option"
+                href="/nb/altinn-studio/v8/"
+                data-version="v8"
+                role="option"
+                tabindex="-1"
+                aria-selected="true">
+                <span class="version-item">Gjeldende (V8)</span>
+            </a></div>
+        </div>
+        <div id="version-selector-help" class="sr-only">
+          Bruk piltastene for å navigere mellom versjoner og Enter for å velge        
+        </div>
+    </div>
+</div>
+
+<style>
+   
+  .product-version-dropdown {
+    background: #f8f9fa;
+    padding: 10px;
+    border-bottom: 1px solid #ddd !important;
+    margin-bottom: 0;
+  }
+  #sidebar .product-version-dropdown {
+    border-bottom: 1px solid #ddd !important;
+  }
+  .version-selector-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .dropdown {
+    position: relative;
+  }
+  .version-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555 !important;
+    margin: 0 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .version-switcher {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    color: #333 !important;
+    text-decoration: none !important;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    text-align: left;
+  }
+  .version-switcher::after {
+    margin-left: auto;
+  }
+  #sidebar .version-switcher {
+    border-bottom: 1px solid #ccc !important;
+  }
+  .version-switcher:hover,
+  .version-switcher:focus {
+    background: #e9ecef;
+    outline: none;
+    border-color: #007bff;
+  }
+  .version-switcher:focus {
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+  .version-option:focus,
+  .version-option:hover {
+    background: #007bff !important;
+    color: white !important;
+    outline: none;
+  }
+  .version-option[aria-selected="true"] {
+    background: #28a745 !important;
+    color: white !important;
+  }
+  .sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+  .version-dropdown {
+    min-width: 200px;
+    max-height: none !important;
+    overflow-y: visible !important;
+    position: absolute;
+    z-index: 1000;
+  }
+  .version-item {
+    margin: 0;
+    padding: 4px 0;
+  }
+  .version-section {
+    padding-top: 10px;
+  }
+
+    
+  .version-root-item {
+    display: block !important;
+  }
+
+   
+  .version-content .version-section > li {
+    list-style: none;
+  }
+</style>
+
+<script>
+  (function() {
+    
+    setupVersionSelectorAccessibility();
+
+    function setupVersionSelectorAccessibility() {
+      var button = document.getElementById('version-selector-button');
+      var dropdown = document.getElementById('version-dropdown-menu');
+
+      if (!button || !dropdown) return;
+
+      var options = dropdown.querySelectorAll('.version-option');
+      var currentFocusIndex = -1;
+
+      button.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
+          e.preventDefault();
+          if (dropdown.style.display === 'none' || !dropdown.classList.contains('show')) {
+            showDropdown();
+            focusOption(0);
+          }
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          showDropdown();
+          focusOption(options.length - 1);
+        }
+      });
+
+      dropdown.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          focusOption(currentFocusIndex + 1);
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          focusOption(currentFocusIndex - 1);
+        } else if (e.key === 'Enter') {
+          e.preventDefault();
+          if (currentFocusIndex >= 0 && options[currentFocusIndex]) {
+            window.location.href = options[currentFocusIndex].href;
+          }
+        } else if (e.key === 'Escape') {
+          e.preventDefault();
+          hideDropdown();
+          button.focus();
+        }
+      });
+
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (dropdown.style.display === 'none' || !dropdown.classList.contains('show')) {
+          showDropdown();
+        } else {
+          hideDropdown();
+        }
+      });
+
+      function showDropdown() {
+        button.setAttribute('aria-expanded', 'true');
+        dropdown.classList.add('show');
+        dropdown.style.display = 'block';
+      }
+
+      function hideDropdown() {
+        button.setAttribute('aria-expanded', 'false');
+        dropdown.classList.remove('show');
+        dropdown.style.display = 'none';
+        currentFocusIndex = -1;
+        updateAriaSelected();
+      }
+
+      function focusOption(index) {
+        if (index < 0) index = options.length - 1;
+        if (index >= options.length) index = 0;
+
+        currentFocusIndex = index;
+        options[currentFocusIndex].focus();
+        updateAriaSelected();
+      }
+
+      function updateAriaSelected() {
+        
+        var currentVersion = button.querySelector('#current-version-top').textContent.trim();
+        options.forEach(function(option) {
+          var optionVersion = option.getAttribute('data-version');
+          option.setAttribute(
+            'aria-selected',
+            optionVersion === currentVersion ? 'true' : 'false'
+          );
+        });
+      }
+
+      
+      document.addEventListener('click', function(e) {
+        if (!button.contains(e.target) && !dropdown.contains(e.target)) {
+          hideDropdown();
+        }
+      });
+    }
+  })();
+</script>
+<li class="dd-item parent version-root-item">
+              <a href="/nb/altinn-studio/v8/">
+                <span>Altinn Studio</span>
+                <i class="fa fa-sort-down fa-lg category-icon"></i></a>
+              <ul class="version-content">
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/about/"><span>Om Altinn Studio</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/about/usecases/"><span>Bruksområder for Altinn Studio-apper</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/what-do-you-get/"><span>Hva får du?</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/create-user/"><span>Opprette bruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/navigation/"><span>Navigere Altinn Studio</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/navigation/designer/"><span>Designer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/navigation/dashboard/"><span>Dashboard</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/navigation/repos/"><span>Repos</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/app-dev-course/"><span>Introkurs</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/app-dev-course/case/"><span>Case</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/app-dev-course/modul1/"><span>Modul 1: Opprette tjenesten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/app-dev-course/modul2/"><span>Modul 2: Tilpasse datamodellen</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/app-dev-course/modul3/"><span>Modul 3: Utforme skjemaet</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/app-dev-course/modul4/"><span>Modul 4: Lage infoside</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/app-dev-course/modul5/"><span>Modul 5: Publisere tjenesten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/app-dev-course/modul6/"><span>Modul 6: Legge til kodelister</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/app-dev-course/modul7/"><span>Modul 7: Legge til dynamikk</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/"><span>Guider</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/"><span>Design</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/insight/"><span>Innsiktsfase</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/prototype/"><span>Prototype</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/usertest/"><span>Brukertest</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/"><span>Retningslinjer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/design-principles/"><span>Designprinsipper</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/link-to-app/"><span>Inngang til skjema</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/content/"><span>Innhold i skjema</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/consistency/"><span>Konsistens</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/components/"><span>UI-komponenter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/components/title-and-paragraph/"><span>Typografi</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/components/button/"><span>Knapp og lenke</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/components/input/"><span>Input</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/components/date/"><span>Dato</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/components/checkbox/"><span>Avkrysningsboks</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/components/radiobutton/"><span>Radioknapp</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/components/dropdown/"><span>Nedtrekksliste</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/components/helptext/"><span>Hjelpetekst</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/components/error-message/"><span>Feilmeldinger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/components/file-upload/"><span>Filopplasting</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/components/picture-component/"><span>Bilde</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/tone-of-voice/"><span>Språk</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/wcag/"><span>Tilgjengelighet</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/"><span>Utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/basic-form/"><span>Lage et enkelt skjema</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/organisation-library/"><span>Organisasjonsbibliotek</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/eformidling/"><span>eFormidling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/eformidling/legacy/"><span>eFormidling legacy</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/eformidling/service-task/"><span>eFormidling service task</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/fiks-arkiv/"><span>Fiks Arkiv</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/pdf/"><span>PDF</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/subform-pdf/"><span>PDF underskjema</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/dynamics/"><span>Dynamikk</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/branching/"><span>Grener</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/prefill/"><span>Forhåndsutfylling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/prefill/config/"><span>Konfigurasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/prefill/custom/"><span>Egendefinert kode</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/prefill/instantiation/"><span>Http post</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/prefill/query-params/"><span>Spørringsparametere</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/"><span>Svaralternativer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/sources/"><span>Kilder</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/sources/static/"><span>Statisk</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/sources/dynamic/"><span>Dynamisk</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/sources/from-data-model/"><span>Fra datamodellen</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/sources/organisation-library/"><span>Organisasjonsbibliotek</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/sources/shared/"><span>Felles</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/sources/altinn2/"><span>Fra Altinn 2</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/functionality/"><span>Funksjonalitet</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/functionality/data-binding/"><span>Dataknytning</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/functionality/automatic-cleanup/"><span>Automatisk opprydding</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/functionality/texts/"><span>Tekster</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/functionality/filtering/"><span>Filtrering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/functionality/preselection/"><span>Forhåndsvalg</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/functionality/sorting/"><span>Sortering</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/restricted-data/"><span>Beskyttede data</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/payment/"><span>Betaling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/summary2/"><span>Oppsummering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/signing/"><span>Signering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/"><span>Brukerstyrt signering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/signing/role-based-signing/"><span>Rolle/tilgangspakke</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/signing/sign-and-submit/"><span>Signer og send inn</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/signing/api-signing/"><span>API-basert signering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/subform/"><span>Underskjema</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/subform/config-options/"><span>Konfigurasjon</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/undeploy/"><span>Avpublisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/copy-app/"><span>Kopier app</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/multi-app-solution/"><span>Flerappsløsning</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/multi-app-solution/instructions/"><span>Instruksjoner</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/multi-app-solution/instructions/app-a/"><span>Applikasjon A</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/multi-app-solution/instructions/app-b/"><span>Applikasjon B</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/multi-app-solution/testing/"><span>Testing</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/local-dev/"><span>Lokal utvikling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/service-tasks/"><span>Systemoppgaver</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/service-tasks/custom/"><span>Egendefinert</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/administration/"><span>Forvaltning</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/administration/maintainance/"><span>Vedlikehold</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/administration/maintainance/dependencies/"><span>Avhengigheter</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/administration/access-management/"><span>Tilgangsstyring</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/administration/access-management/apps/"><span>Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/administration/access-management/studio/"><span>Studio</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/administration/monitor-and-instrument/"><span>Monitorer og instumenter</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/integration/"><span>Integrasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/integration/sbs/"><span>Sluttbrukersystemer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/integration/sbs/setup/"><span>Oppsett og konfigurasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/integration/sbs/apis/"><span>API integrasjon</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/integration/maskinporten/"><span>Maskinporten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/integration/correspondence/"><span>Meldingstjenesten</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/nb/altinn-studio/v8/guides/integration/correspondence/maskinporten/">
+            <span>Med Maskinporten</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/altinn-2/"><span>Altinn 2</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/altinn-2/altinn-2-datamodel/"><span>Altinn 2 Datamodell</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/altinn-2/seres-migration/"><span>Sereserstatning</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/altinn-2/migrate-services/"><span>Migrere tjenester</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/contributing/"><span>Bidra</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/contributing/create-new-component/"><span>Opprett en ny komponent</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/contributing/add-new-component/"><span>Legg til en ny komponent i Studio</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/"><span>Referanse</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/data/data-modeling/"><span>Datamodellering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/data/prefill/"><span>Forhåndsutfylling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/data/persistence/"><span>Lagring</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/data/attachments/"><span>Vedlegg</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/data/external-api/"><span>Eksternt API</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/"><span>Brukergrensesnitt</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/"><span>Komponenter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/commondefs/"><span>CommonProps</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/accordion/"><span>Accordion</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/accordiongroup/"><span>AccordionGroup</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/actionbutton/"><span>ActionButton</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/address/"><span>Address</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/alert/"><span>Alert</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/attachmentlist/"><span>AttachmentList</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/audio/"><span>Audio</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/checkboxes/"><span>Avkrysningsbokser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/image/"><span>Bilde</span></a></li><li class="dd-item">
+          <a href="/nb/altinn-studio/v8/reference/ux/components/imageupload/">
+            <span>Bildeopplaster</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/button/"><span>Button</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/button-group/"><span>ButtonGroup</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/cards/"><span>Cards</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/custom/"><span>Custom</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/custombutton/"><span>CustomButton</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/date/"><span>Date</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/datepicker/"><span>Datepicker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/fileupload/"><span>FileUpload</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/fileuploadwithtag/"><span>FileUploadWithTag</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/grid/"><span>Grid</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/group/"><span>Group</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/header/"><span>Header</span></a></li><li class="dd-item">
+          <a href="/nb/altinn-studio/v8/reference/ux/components/iframe/">
+            <span>IFrame</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/input/"><span>Input</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/instanceinformation/"><span>InstanceInformation</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/instantiationbutton/"><span>InstantiationButton</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/likert/"><span>Likert</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/link/"><span>Link</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/listcomponent/"><span>List</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/map/"><span>Map</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/multipleselect/"><span>MultipleSelect</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/navigationbar/"><span>NavigationBar</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/navigationbuttons/"><span>NavigationButtons</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/dropdown/"><span>Nedtrekksliste</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/number/"><span>Number</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/option/"><span>Option</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/organizationlookup/"><span>OrganisationLookup</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/panel/"><span>Panel</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/paragraph/"><span>Paragraph</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/personlookup/"><span>PersonLookup</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/printbutton/"><span>PrintButton</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/radiobuttons/"><span>RadioButtons</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/signeelist/"><span>SigneeList</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/signingactions/"><span>SigningActions</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/signingdocumentlist/"><span>SigningDocumentList</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/divider/"><span>Skillelinje</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/summary/"><span>Summary</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/summary2/"><span>Summary2</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/tabs/"><span>Tabs</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/text/"><span>Text</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/timepicker/"><span>TimePicker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/video/"><span>Video</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/pages/"><span>Sider</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/pages/navigation/"><span>Navigasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/pages/tracks/"><span>Sporvalg</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/pages/summary/"><span>Oppsummering</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/fields/"><span>Felter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/fields/grouping/"><span>Gruppering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/"><span>Repeterende</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/edit/"><span>Redigering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/table/"><span>Tabell</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/dynamics/"><span>Dynamikk</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/multipage/"><span>Flere sider</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/attachments/"><span>Vedlegg</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/fields/grouping/non-repeating/"><span>Ikke-repeterende</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/fields/grouping/panel/"><span>Panel</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/fields/settings/"><span>Innstillinger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/footer/"><span>Bunntekst</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/logo/"><span>Logo</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/styling/"><span>Styling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/texts/"><span>Tekster</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/texts/translation/"><span>Oversettelse av tekster</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/pdf/"><span>PDF</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/"><span>Logikk</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/events/"><span>App Events</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/events/subscribing/"><span>Abonnement</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/generic/"><span>Generelt</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/services/"><span>Tjenester</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/notifications/"><span>Varsler</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/notifications/email/"><span>E-post</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/notifications/sms/"><span>SMS</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/dataprocessing/"><span>Dataprosessering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/dynamic/"><span>Dynamikk</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/instantiation/"><span>Instansiering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/expressions/"><span>Uttrykk</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/validation/"><span>Validering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/validation/files/"><span>Utvidet filvalidering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/validation/expression-validation/"><span>Validering med uttrykk</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/"><span>Konfigurasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/messagebox/"><span>Meldingsboks</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/messagebox/create_copy/"><span>Lag kopi</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/messagebox/presentationfields/"><span>Presentasjonsfelter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/messagebox/hide_instances/"><span>Skjule instanser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/messagebox/advanced-sync/"><span>Synk-innstillinger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/authorization/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/nb/altinn-studio/v8/reference/configuration/authorization/api-scopes/">
+            <span>API Scopes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/authorization/rules/"><span>Regelbibliotek</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/"><span>Veiledning</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/"><span>Roller</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/"><span>Altinn-roller</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/altinn_roles_administration/"><span>Administrator roller</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/altinn_roles_persons/"><span>Personroller</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/altinn_roles_enterprices/"><span>Virksomhetsroller</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_er/"><span>ER-roller</span></a></li><li class="dd-item">
+          <a href="/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_ske/">
+            <span>SKE-roller</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/test_authorization_application/"><span>Testing</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/partytype/"><span>Aktørtyper</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/datafields/"><span>Datafelter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/shadowfields/"><span>Hjelpefelter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/process/"><span>Prosess</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/process/auto-delete/"><span>Automatisk sletting</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/process/pre-post-hooks/"><span>Definer egendefinerte prosess hooks</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/process/exclusive-gateways/"><span>Exclusive Gateways</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/process/message/"><span>Melding</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/process/customize/"><span>Tilpasse visninger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/queryparameters/"><span>Query parametere</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/secrets/"><span>Secrets</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/eformidling/"><span>eFormidling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/filescan/"><span>Virus skanning</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/settings/"><span>Settings</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/startup/"><span>Startup</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/stateless/"><span>Stateless</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/deployment/"><span>Publisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/authentication/"><span>Autentisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/autosavebehavior/"><span>Automatisk lagring</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/analysis/"><span>Analyse</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/analysis/rules/altinnapp0500/"><span>ALTINNAPP0500: farlig bruk av IHttpContextAccessor</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/api/auth/"><span>Autentisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/api/expose/"><span>Eksponere</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/api/instance/"><span>Instans</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/api/consume/"><span>Konsumere</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/testing/"><span>Testing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/testing/local/"><span>Lokalt</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/testing/local/apitests/"><span>API tests</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/testing/local/apitests/org/"><span>Org</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/testing/local/apitests/user/"><span>Sluttbruker</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/testing/local/debug/"><span>Debugging</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/testing/local/testusers/"><span>Testbrukere</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/testing/deploy/"><span>I testmiljø</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/cli/"><span>Altinn Studio CLI</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/cli/install/"><span>Installering</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/deployment/"><span>Produksjonssetting</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/deployment/firewall/"><span>Brannmur og IP konfigurasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/deployment/runtime-environment/"><span>Kjøremiljø</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/deployment/runtime-environment/resource-allocation/"><span>Ressurserfordeling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/deployment/runtime-environment/resource-allocation-tips/"><span>Tips til ressurserfordeling</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/process/"><span>Prosess handling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/process/tasks/"><span>Prosess oppgaver</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/process/tasks/signing/"><span>Signerings task</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/process/flowcontrol/"><span>Flytkontroll</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/process/actions/"><span>Handlinger</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/process/actions/serveraction/"><span>Server Action</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/process/actions/process-actions/"><span>Process actions</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/monitoring/"><span>Monitorering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/monitoring/configuration/"><span>Konfigurasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/monitoring/instrumentation/"><span>Instrumentering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/monitoring/registry/"><span>Telemetri-register</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/monitoring/registry/metrics/"><span>Metrikker</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/monitoring/visualisation/"><span>Visualisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/monitoring/faq/"><span>FAQ</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/monitoring/references/"><span>Ressurser</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/access-management/"><span>Tilgangsstyring</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/access-management/apps/"><span>Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/access-management/studio/"><span>Studio</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/concepts/"><span>Konsepter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/concepts/payment/"><span>Betaling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/concepts/data-model/"><span>Datamodell</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/concepts/data-model/restricted-data/"><span>Beskyttede data</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/concepts/prefill/"><span>Forhåndsutfylling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/concepts/organisation-library/"><span>Organisasjonsbibliotek</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/concepts/organisation-library/code-lists/"><span>Publiserte bibliotekskodelister</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/concepts/signing/"><span>Signering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/concepts/process/"><span>Prosess</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/concepts/undeploy/"><span>Avpublisering</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/news/"><span>Nyheter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/news/launched-apps/"><span>Eksempler lanserte apper</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/news/launched-apps/external/"><span>Eksterne</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/news/launched-apps/digdir/"><span>Digdir</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/news/launched-apps/digdir/bli-tjenesteeier/"><span>Bli tjenesteeier</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/news/launched-apps/digdir/godkjenn-bruksvilkaar/"><span>Godkjenn bruksvilkår</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/news/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li></ul>
+            </li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/nb/altinn-studio/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/altinn-studio/v8/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/altinn-studio/v8/guides/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/altinn-studio/v8/guides/development/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/altinn-studio/v8/guides/development/signing/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/nb/altinn-studio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/altinn-studio/v8/'>Gjeldende (V8)</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/altinn-studio/v8/guides/'>Guider</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/altinn-studio/v8/guides/development/'>Utvikling</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/altinn-studio/v8/guides/development/signing/'>Signering</a> <span class='adocs-breadcrumb-divider'> / </span> Brukerstyrt signering</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Brukerstyrt signering</h1>
+              <p class="a-leadText" id="leadText">Slik setter du opp brukerstyrt signering i tjenesten din.</p>
+
+  <style>
+code {
+    max-height: 500px;
+}
+code.language-xml {
+  white-space: pre !important;
+}
+code.language-xml > span[style*="background-color"] {
+  display: block !important;
+  min-width: var(--full-line-width, 100%);
+}
+</style>
+<script>
+$(window).load(function() {
+  const $codeBlock = $('.highlight code.language-xml').first();
+
+  function applyHighlightWidth() {
+    const $elmnt = $codeBlock.get(0);
+    if (!$elmnt)
+        return;
+
+    $elmnt.style.setProperty('--full-line-width', $elmnt.scrollWidth + 'px');
+  }
+
+  function scrollToHighlight() {
+    const $hlSpan = $codeBlock.find('span[style*="background-color"]').first();
+    if (!$hlSpan.length)
+        return;
+
+    const offsetTop = $hlSpan.position().top;
+    $codeBlock.scrollTop(offsetTop);
+  }
+
+  applyHighlightWidth();
+  scrollToHighlight();
+});
+</script>
+<div class="notices info" >Tilgjengelig fra <a href="https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.6.0">v8.6.0</a></div>
+<h2 id="hva-betyr-brukerstyrt-signering">Hva betyr brukerstyrt signering?</h2>
+  <p>Med brukerstyrt signering mener vi en app der de som skal signere får rettigheter til å signere mens de fyller ut skjemaet.</p>
+<p>Appen kan for eksempel be skjemaeieren om å oppgi fødselsnummer og etternavn for personer som skal signere, eller organisasjonsnummer hvis det er noen som skal ha rett til å signere på vegne av en virksomhet.</p>
+<p>Når skjemaet er ferdig fylt ut, klikker brukeren på <strong>Send til signering</strong>.
+Da vil appen delegere rettigheter og sende en melding til innboksen i Altinn.
+Det er også mulig å sette opp at de som skal signere får varsel på e-post og SMS.</p>
+<h2 id="avhengigheter">Avhengigheter</h2>
+<h3 id="maskinporten">Maskinporten</h3>
+<p>Maskinporten kreves av både <a href="#meldingstjenesten">meldingstjenesten</a> og for interaksjon med <a href="/nb/altinn-studio/v8/guides/development/restricted-data/">beskyttede data</a>.</p>
+<p>For brukerstyrt signering må Maskinporten-klienten din ha tilgang til følgende scopes:</p>
+<ul>
+<li><code>altinn:correspondence.read</code></li>
+<li><code>altinn:correspondence.write</code></li>
+<li><code>altinn:serviceowner/instances.read</code></li>
+<li><code>altinn:serviceowner/instances.write</code></li>
+</ul>
+<p>Scopes for correspondence brukes når appen sender meldinger til signatarer som et kall til handling.
+Tjenesteeier-scopes brukes for intern tilstands-føring i appen.</p>
+<p>Hvis du trenger hjelp med oppsett av Maskinporten i din app, finner du all informasjonen du trenger i <a href="/nb/altinn-studio/v8/guides/integration/maskinporten/">denne guiden</a>.</p>
+<h3 id="meldingstjenesten">Meldingstjenesten</h3>
+<p>Brukerstyrt signering avhenger av Meldingstjenesten (Correspondence) i Altinn, som krever et separat oppsett.</p>
+<p>Meldingstjenesten brukes for å gi beskjed til de som skal signere om at de må signere et skjema i Altinn, og for å sende en kvittering til innboksen deres når de har signert.</p>
+<p><a href="/nb/correspondence/getting-started/">Slik kommer du i gang med meldingstjenesten</a>.</p>
+<h2 id="eksempel-på-konfigurasjon">Eksempel på konfigurasjon</h2>
+<p>I dette <a href="https://altinn.studio/repos/ttd/signering-brukerstyrt">repoet</a> ligger det et eksempel på en app som har brukerstyrt signering.</p>
+<p>Flyten i appen er slik:</p>
+<ol>
+<li>Den som fyller ut skjemaet oppgir fødselsnummer og etternavn, eller eventuelt organisasjonsnummer hvis den som skal signere representerer en virksomhet.</li>
+<li>Når skjemaet er ferdig utfylt, klikker den som fyller ut på &ldquo;Til signering&rdquo;. Det beveger prosessen til neste steg, som er signeringssteget.</li>
+<li>Når signeringssteget blir startet, kaller appen opp en implementering av grensesnittet <code>ISigneeProvider</code> for å finne ut hvem som må få tillatelse til å signere.</li>
+<li>De som skal signere får delegert de rettighetene de trenger, og de blir varslet om at de har en signeringsoppgave.</li>
+<li>Skjemaet de skal signere kommer i innboksen slik at de kan åpne det, se over informasjonen og signere.</li>
+<li>Innsenderen signerer også, hvis appen er satt opp til det, og deretter blir skjemaet sendt inn.</li>
+</ol>
+<p><strong>Merk:</strong> Vi støtter ikke automatisk innsending enda.</p>
+<p>Følg trinnene under for å sette opp en slik app.</p>
+<h2 id="1-legg-til-en-signeringsoppgave-i-appens-prosess-med-tilhørende-konfigurasjon">1. Legg til en signeringsoppgave i appens prosess, med tilhørende konfigurasjon</h2>
+<div class="content-version-selector border-box">
+
+    
+    <ul id="content-version-tabs"></ul>
+
+    
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Manuelt oppsett
+    </label>
+      <h4 id="utvid-app-prosessen-med-et-signeringssteg">Utvid app-prosessen med et signeringssteg</h4>
+<p>Det må legges til et signeringssteg i appens prosess, som er definert i <code>App/config/process/process.bpmn</code>.</p>
+<p>Det anbefales å dra inn prosessteget via prosessdesigneren i Altinn Studio. Da får man generert BPMN-diagram som viser flyten i appen.
+Forløpig vil prosessdesigneren bare delvis konfigurere steget riktig, så det må suppleres med manuell konfigurasjon.</p>
+<p>Signering benytter to burkerhandlinger (user actions):</p>
+<ul>
+<li><code>sign</code>: Selve signeringshandlingen.</li>
+<li><code>reject</code>: Dersom det skal være mulig å avbryte signeringssteget, så må det også legges til en gateway for å styre hvor prosessen skal gå videre når det skjer.</li>
+</ul>
+<p>Dersom Altinn-brukergrensesnittet benyttes av appen, så vil handlingene ovenfor bli kalt ved knappetrykk i signeringssteget.
+Om kun API-et benyttes, så må disse kalles manuelt via <code>/actions</code>-endepunktet eller process next.</p>
+<p>Et signeringssteg kan se omtrent slik ut:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;bpmn:task</span> <span style="color:#50fa7b">id=</span><span style="color:#f1fa8c">&#34;SigningTask&#34;</span> <span style="color:#50fa7b">name=</span><span style="color:#f1fa8c">&#34;Signering&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;bpmn:extensionElements&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;altinn:taskExtension&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;altinn:taskType&gt;</span>signing<span style="color:#ff79c6">&lt;/altinn:taskType&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;altinn:actions&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;altinn:action&gt;</span>sign<span style="color:#ff79c6">&lt;/altinn:action&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;altinn:action&gt;</span>reject<span style="color:#ff79c6">&lt;/altinn:action&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/altinn:actions&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;altinn:signatureConfig&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">&lt;!-- De faktiske dataene som skal signeres. Kan være vedlegg, skjemadata i xml, eller PDF fra tidligere steg. --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;altinn:dataTypesToSign&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;altinn:dataType&gt;</span>ref-data-as-pdf<span style="color:#ff79c6">&lt;/altinn:dataType&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/altinn:dataTypesToSign&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">&lt;!-- Denne datatypen brukes for lagre signaturene. --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;altinn:signatureDataType&gt;</span>signatures<span style="color:#ff79c6">&lt;/altinn:signatureDataType&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">&lt;!-- Denne datatypen brukes for lagre signatarene og tilhørende informasjon. --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;altinn:signeeStatesDataTypeId&gt;</span>signeeState<span style="color:#ff79c6">&lt;/altinn:signeeStatesDataTypeId&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">&lt;!-- Denne ID-en angir hvilken implementasjon av C# interface-et --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">&lt;!-- ISigneeProvider som skal benyttes for dette signeringssteget. --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;altinn:signeeProviderId&gt;</span>signees<span style="color:#ff79c6">&lt;/altinn:signeeProviderId&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">&lt;!-- Her oppgis en correspondence resource, som brukes for å si fra til signatarene --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">&lt;!-- om at de må inn og signere, samt signeringskvittering. Påkrevd. --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;altinn:correspondenceResource&gt;</span>app-correspondence-resource<span style="color:#ff79c6">&lt;/altinn:correspondenceResource&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">&lt;!-- Dersom man ønsker at det skal bli generert en PDF av signeringssteget --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">&lt;!-- så kan man oppgi en datatype her av type application/pdf. --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;altinn:signingPdfDataType&gt;</span>signing-step-pdf<span style="color:#ff79c6">&lt;/altinn:signingPdfDataType&gt;</span> <span style="color:#6272a4">&lt;!-- optional --&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">&lt;!-- Vi har laget en standard validator som kan slås på her. --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">&lt;!-- Den validerer at påkrevd antall signaturer (minCount på signatur-datatypen) er oppfylt. --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">&lt;!-- Om denne ikke slås på, bør man skrive egen validering av signaturer. --&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;altinn:runDefaultValidator&gt;</span>true<span style="color:#ff79c6">&lt;/altinn:runDefaultValidator&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/altinn:signatureConfig&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/altinn:taskExtension&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/bpmn:extensionElements&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;bpmn:incoming&gt;</span>SequenceFlow_1oot28q<span style="color:#ff79c6">&lt;/bpmn:incoming&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;bpmn:outgoing&gt;</span>SequenceFlow_1if1sh9<span style="color:#ff79c6">&lt;/bpmn:outgoing&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/bpmn:task&gt;</span>
+</span></span></code></pre></div><h4 id="konfigurere-miljø-spesifikke-correspondence-ressurser">Konfigurere miljø-spesifikke correspondence ressurser</h4>
+  <p>Hvis du ønsker å bruke miljø-spesifikke correspondence ressurser kan du konfigurere dem ved å bruke følgende syntaks:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;altinn:signatureConfig&gt;</span>
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;altinn:correspondenceResource</span> <span style="color:#50fa7b">env=</span><span style="color:#f1fa8c">&#34;Development&#34;</span><span style="color:#ff79c6">&gt;</span>app-correspondence-resource-1<span style="color:#ff79c6">&lt;/altinn:correspondenceResource&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;altinn:correspondenceResource</span> <span style="color:#50fa7b">env=</span><span style="color:#f1fa8c">&#34;Staging&#34;</span><span style="color:#ff79c6">&gt;</span>app-correspondence-resource-2<span style="color:#ff79c6">&lt;/altinn:correspondenceResource&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;altinn:correspondenceResource</span> <span style="color:#50fa7b">env=</span><span style="color:#f1fa8c">&#34;Production&#34;</span><span style="color:#ff79c6">&gt;</span>app-correspondence-resource<span style="color:#ff79c6">&lt;/altinn:correspondenceResource&gt;</span>
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/altinn:signatureConfig&gt;</span>
+</span></span></code></pre></div><p><code>Env</code>-atributten godtar en rekke verdier, men vil til slutt kategorisere disse i tre kategorier som vist i tabellen under.
+Det skilles ikke mellom store og små bokstaver i verdiene.</p>
+<!-- HTML markup because this table could not be rendered using markdown inside an `insert` shortcode -->
+<table>
+  <thead>
+    <tr>
+      <th>Miljø</th>
+      <th>Aliaser</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Lokal test</td>
+      <td>development, dev, local, localtest</td>
+    </tr>
+    <tr>
+      <td>Test</td>
+      <td>staging, test, at22, at23, at24, tt02, yt01</td>
+    </tr>
+    <tr>
+      <td>Produksjon</td>
+      <td>production, prod, produksjon</td>
+    </tr>
+  </tbody>
+</table>
+<h4 id="legg-til-datatyper-for-å-lagre-signeringsdata">Legg til datatyper for å lagre signeringsdata</h4>
+<p>Disse datatypene legges til i <code>dataTypes</code> i <code>App/config/applicationmetadata.json</code>.</p>
+<p>Den første datatypen benyttes i signeringssteget til å lagre signaturene.</p>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signatures&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;application/json&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;allowedContributors&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;app:owned&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;actionRequiredToRead&#34;</span>: <span style="color:#f1fa8c">&#34;signature-access&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;actionRequiredToWrite&#34;</span>: <span style="color:#f1fa8c">&#34;signature-access&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+<p>Denne datatypen benyttes for å lagre informasjon om signatarene og statusen deres.</p>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signeeState&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;application/json&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;allowedContributors&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;app:owned&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;actionRequiredToRead&#34;</span>: <span style="color:#f1fa8c">&#34;signature-access&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;actionRequiredToWrite&#34;</span>: <span style="color:#f1fa8c">&#34;signature-access&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+<p>Det er viktig å sette <code>allowedContributors</code>, <code>actionRequiredToRead</code> og <code>actionRequiredToWrite</code> som beskrevet i eksemplene over. Dette gjør at disse dataene ikke kan redigeres via appens API, men kun av appen selv.</p>
+<p>Datatypenes ID-er må matche ID-ene som legges inn i <code>signatureDataType</code> og <code>signeeStatesDataTypeId</code> i prosesskonfigurasjonen.</p>
+<h4 id="tilgangsstyring-for-brukere">Tilgangsstyring for brukere</h4>
+<p>Gi <code>read</code>, <code>write</code> og eventuelt <code>sign</code> til den som fyller ut skjemaet.</p>
+<p>Mer informasjon om action-attributter finner du <a href="/nb/altinn-studio/v8/reference/configuration/authorization/#action-attributter">her</a>.</p>
+<h4 id="tilgangsstyring-for-appen">Tilgangsstyring for appen</h4>
+<p>For at appen skal kunne delegere rettigheter til de som skal signere så må appen få rettigheter til å delegere <code>read</code> og <code>sign</code>.</p>
+<p>Nedenfor finner du et eksempel på en slik policy. For at denne koden skal fungere i din egen app, må du gjøre følgende:</p>
+<ul>
+<li>Bytt ut <code>ttd</code> med riktig org.</li>
+<li>Bytt ut <code>app_ttd_signering-brukerstyrt</code> med tilsvarende <code>app_{org}_{appnavn}</code>.</li>
+<li>Bytt ut <code>signering-brukerstyrt</code> med appnavn.</li>
+</ul>
+<!-- Dummy to force end of list rendering -->
+<p><span></span></p>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org:ttd:signering-brukerstyrt:ruleid:7&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;xacml:Description&gt;</span>
+</span></span><span style="display:flex;"><span>    A rule defining all instance delegation rights the App itself is allowed to perform for instances of the app ttd/signering-brukerstyrt.
+</span></span><span style="display:flex;"><span>    In this example the app can delegate the Read and Sign actions for task SigningTask.
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>app_ttd_signering-brukerstyrt<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:resource:delegation&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>ttd<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:org&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>signering-brukerstyrt<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:app&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>SigningTask<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:task&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>read<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>sign<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/xacml:Target&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
+</span></span></code></pre></div>
+<h4 id="tilgangsstyring-for-tjenesteeiere">Tilgangsstyring for tjenesteeiere</h4>
+<p>Gi <code>signature-access</code> til tjenesteeiere. Dette gjør at appen (via Maskinporten) kan skrive og lese data i signaturdokumentene, samtidig som tjenesteeiere kan lese og verifisere signaturer når de måtte ønske det.</p>
+<p>Mer informasjon rundt dette konseptet finner du <a href="/nb/altinn-studio/v8/concepts/data-model/restricted-data/">her</a>.</p>
+
+</div>
+
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Altinn Studio Designer
+    </label>
+    <blockquote>
+<p>Dette steget må gjøres manuelt. Støtte for konfigurasjon i Altinn Studio kommer senere.
+Se &ldquo;Manuelt oppsett&rdquo;-fanen for denne seksjonen for veiledning.</p></blockquote>
+</div>
+
+
+
+</div>
+
+<h2 id="2-legg-til-layout-set-for-signering">2. Legg til layout-set for signering</h2>
+<div class="content-version-selector border-box">
+
+    
+    <ul id="content-version-tabs"></ul>
+
+    
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Manuelt oppsett
+    </label>
+      <p>Legg til en ny mappe under <code>App/ui</code> for signeringssteget ditt. Kall den f.eks. <code>signing</code>.</p>
+<p>I denne mappen, legg til en <code>layouts</code>-mappe og en <code>Settings.json</code>-fil.</p>
+<p>Legg til en layout-fil kalt f.eks. <code>signing.json</code> i <code>layouts</code>-mappen.</p>
+<p>Mappestrukturen skal se slik ut:</p>
+  <pre tabindex="0"><code>App/
+├── ui/
+│   └── signing/
+│       ├── layouts/
+│       │   └── signing.json
+│       └── Settings.json
+</code></pre>
+<p>Det finnes et sett med ferdige komponenter for å bygge opp layout for et signeringssteg. Vi anbefaler å bruke disse, men de er ikke obligatoriske.</p>
+<ul>
+<li>SigneeList:
+<ul>
+<li>Lister ut signatarer og tilhørende signeringsstatus. Les mer <a href="/nb/altinn-studio/v8/reference/ux/components/signeelist/">her</a>.</li>
+</ul>
+</li>
+<li>SigningDocumentList:
+<ul>
+<li>Lister ut dataene som blir signert på. Feks. vedlegg, xml-data eller PDF-oppsummering fra tidligere steg. Les mer <a href="/nb/altinn-studio/v8/reference/ux/components/signingdocumentlist/">her</a>.</li>
+</ul>
+</li>
+<li>SigningActions:
+<ul>
+<li>Utleder status for signeringssteget og viser relevante knapper til sluttbruker, f.eks. &ldquo;Signer&rdquo;-knappen. Les mer <a href="/nb/altinn-studio/v8/reference/ux/components/signingactions/">her</a>.</li>
+</ul>
+</li>
+</ul>
+<p>Dersom du ikke benytter <code>SigningActions</code> for å vise &ldquo;Signer&rdquo;-knappen, så må du legge til en egen action button med action &ldquo;sign&rdquo;, for å la sluttbruker signere.</p>
+<p>Eksempel på bruk av komponentene:</p>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/schemas/json/layout/layout.schema.v1.json&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;data&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;layout&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;headerSigningFounders&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Header&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;size&#34;</span>: <span style="color:#f1fa8c">&#34;M&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Her kan man ha en overskrift&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signee-list&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;SigneeList&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Personer som skal signere&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Personer som skal signere beskrivelse&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;help&#34;</span>: <span style="color:#f1fa8c">&#34;Dette er personer som skal signere&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signing-documents&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;SigningDocumentList&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Dokumenter som skal signeres&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;Dokumenter som skal signeres beskrivelse&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signing-state&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;SigningActions&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+<p>Oppdater filen <code>App/ui/layout-sets.json</code> med ny sidegruppe, som har samme <code>id</code> som mappen du nettopp opprettet.</p>
+<p>Din oppdaterte <code>layout-sets.json</code> kan se slik ut:</p>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;sets&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;form&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;dataType&#34;</span>: <span style="color:#f1fa8c">&#34;model&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;tasks&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#34;Task_1&#34;</span>
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signing&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;dataType&#34;</span>: <span style="color:#f1fa8c">&#34;model&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;tasks&#34;</span>: [
+</span></span><span style="display:flex;"><span>        <span style="color:#f1fa8c">&#34;SigningTask&#34;</span>
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+
+</div>
+
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Altinn Studio Designer
+    </label>
+    <blockquote>
+<p>Dette steget må gjøres manuelt. Støtte for konfigurasjon i Altinn Studio kommer senere.
+Se &ldquo;Manuelt oppsett&rdquo;-fanen for denne seksjonen for veiledning.</p></blockquote>
+</div>
+
+
+
+</div>
+
+<h2 id="3-valgfritt---egendefinert-validering">3. Valgfritt - Egendefinert validering</h2>
+  <p>Du kan bruke standardvalidatoren som nevnt i punkt 2. Den verifiserer at antall signaturer er minst det som er satt til
+<code>minCount</code> på feltet i datamodellen. Egendefinert validering kan settes opp ved å implementere <code>IValidator</code> eller <code>ITaskValidator</code>, som
+beskrevet i <a href="/nb/altinn-studio/v8/reference/logic/validation/#serverside-validering">Hvordan legge til egendefinert validering</a>.</p>
+<p>Om appen er konfigurert slik at utførelsen av signeringshandlingen gjøres i prosessnavigasjonen, så vil handlingen <a href="/nb/altinn-studio/v8/reference/logic/validation/#serverside-validering">utføres før valideringen</a>.</p>
+<p>Et eksempel er en validator som verifiserer at en signatur er gjort på vegne av en organisasjon:</p>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">SigningTaskValidator</span> : IValidator
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#ff79c6">readonly</span> IProcessReader _processReader;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> SigningTaskValidator(IProcessReader processReader)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    _processReader = processReader;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// We implement &lt;see cref=&#34;ShouldRunForTask&#34;/&gt; instead.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">string</span> TaskId =&gt; <span style="color:#f1fa8c">&#34;*&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// &lt;summary&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// Only runs for tasks that are of type &#34;signing&#34;.</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// &lt;/summary&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">bool</span> ShouldRunForTask(<span style="color:#8be9fd">string</span> taskId)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    AltinnTaskExtension? taskConfig;
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">try</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      taskConfig = _processReader.GetAltinnTaskExtension(taskId);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">catch</span> (Exception)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">false</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> taskConfig?.TaskType == <span style="color:#f1fa8c">&#34;signing&#34;</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">bool</span> NoIncrementalValidation =&gt; <span style="color:#ff79c6">true</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// &lt;inheritdoc /&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> Task&lt;<span style="color:#8be9fd">bool</span>&gt; HasRelevantChanges(IInstanceDataAccessor dataAccessor, <span style="color:#8be9fd">string</span> taskId, DataElementChanges changes)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">throw</span> <span style="color:#ff79c6">new</span> UnreachableException(
+</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#34;HasRelevantChanges should not be called because NoIncrementalValidation is true.&#34;</span>
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// &lt;inheritdoc /&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#6272a4">/// &lt;remarks&gt;Validates that at minimum one signature is done on behalf of an organisation.&lt;/remarks&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">async</span> Task&lt;List&lt;ValidationIssue&gt;&gt; Validate(
+</span></span><span style="display:flex;"><span>    IInstanceDataAccessor instanceDataAccessor,
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">string</span> taskId,
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">string?</span> language
+</span></span><span style="display:flex;"><span>  )
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    AltinnSignatureConfiguration signatureConfiguration =
+</span></span><span style="display:flex;"><span>      _processReader.GetAltinnTaskExtension(taskId)?.SignatureConfiguration
+</span></span><span style="display:flex;"><span>      ?? <span style="color:#ff79c6">throw</span> <span style="color:#ff79c6">new</span> ApplicationConfigException(<span style="color:#f1fa8c">&#34;Signing configuration not found in AltinnTaskExtension&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">string</span> signatureDataTypeId =
+</span></span><span style="display:flex;"><span>      signatureConfiguration.SignatureDataType
+</span></span><span style="display:flex;"><span>      ?? <span style="color:#ff79c6">throw</span> <span style="color:#ff79c6">new</span> ApplicationConfigException(<span style="color:#f1fa8c">&#34;SignatureDataType is not set in the signature configuration.&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    DataType signatureDataType = instanceDataAccessor.GetDataType(signatureDataTypeId);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// Set authentication override for the signature data, since this is a restricted type</span>
+</span></span><span style="display:flex;"><span>    instanceDataAccessor.OverrideAuthenticationMethod(signatureDataType, StorageAuthenticationMethod.ServiceOwner());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    IEnumerable&lt;DataElement&gt; signatureDataElements = instanceDataAccessor.GetDataElementsForType(
+</span></span><span style="display:flex;"><span>      signatureDataType
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    SignDocument[] signDocuments = <span style="color:#ff79c6">await</span> Task.WhenAll(
+</span></span><span style="display:flex;"><span>      signatureDataElements.Select(<span style="color:#8be9fd;font-style:italic">async</span> signatureDataElement =&gt;
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        ReadOnlyMemory&lt;<span style="color:#8be9fd">byte</span>&gt; data = <span style="color:#ff79c6">await</span> instanceDataAccessor.GetBinaryData(signatureDataElement);
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">string</span> signDocumentSerialized = Encoding.UTF8.GetString(data.ToArray());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> JsonSerializer.Deserialize&lt;SignDocument&gt;(signDocumentSerialized)
+</span></span><span style="display:flex;"><span>          ?? <span style="color:#ff79c6">throw</span> <span style="color:#ff79c6">new</span> JsonException(<span style="color:#f1fa8c">&#34;Could not deserialize signature document.&#34;</span>);
+</span></span><span style="display:flex;"><span>      })
+</span></span><span style="display:flex;"><span>    );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">var</span> organisationHasSigned = signDocuments.Any(doc =&gt; doc?.SigneeInfo?.OrganisationNumber <span style="color:#ff79c6">is</span> not <span style="color:#ff79c6">null</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (organisationHasSigned <span style="color:#ff79c6">is</span> <span style="color:#ff79c6">false</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span>
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">      [
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">        new ValidationIssue
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">        {
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">          Code = &#34;SignatureIssues&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">          Severity = ValidationIssueSeverity.Error,
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">          Description = &#34;An organisation must sign the document.&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">        },
+</span></span></span><span style="display:flex;"><span><span style="color:#50fa7b">      ]</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> [];
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+<h2 id="4-oppgi-hvem-som-skal-signere">4. Oppgi hvem som skal signere</h2>
+<div class="content-version-selector border-box">
+
+    
+    <ul id="content-version-tabs"></ul>
+
+    
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Manuelt oppsett
+    </label>
+      <p>For at appen skal vite hvem som skal få tilganger for å lese og signere må C# interface-et <code>ISigneeProvider</code> implementeres.</p>
+<p>Den må returnere et sett med personer og/eller virksomheter som skal få rettighetene. Det kan for eksempel være basert på datamodellen, som vist nedenfor.
+<code>Id</code>-attributtet i denne implementasjonen må matche ID som ble angitt i <code>&lt;altinn:signeeProviderId&gt;</code>.</p>
+<p>Når en organisasjon er oppgitt som signatar så vil de som har en <a href="/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_er/#n%C3%B8kkelroller">nøkkelrolle</a> i organisasjonen få <code>read</code> og <code>sign</code> rettigheter til instansen.</p>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#ff79c6">#nullable</span> enable
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Collections.Generic;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Linq;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> System.Threading.Tasks;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.Core.Features;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.Core.Features.Signing;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.App.Models.Skjemadata;
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">using</span> Altinn.Platform.Storage.Interface.Models;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">namespace</span> Altinn.App.logic;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">FounderSigneesProvider</span> : ISigneeProvider
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd">string</span> Id { <span style="color:#ff79c6">get</span>; <span style="color:#ff79c6">init</span>; } = <span style="color:#f1fa8c">&#34;founders&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">async</span> Task&lt;SigneeProviderResult&gt; GetSignees(GetSigneesParameters parameters)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    DataElement dataElement = parameters.InstanceDataAccessor
+</span></span><span style="display:flex;"><span>      .GetDataElementsForType(<span style="color:#f1fa8c">&#34;Skjemadata&#34;</span>)
+</span></span><span style="display:flex;"><span>      .Single();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">var</span> formData = <span style="color:#ff79c6">await</span> parameters.InstanceDataAccessor.GetFormData&lt;Skjemadata&gt;(dataElement);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    List&lt;ProvidedSignee&gt; providedSignees = [];
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">foreach</span> (StifterPerson stifterPerson <span style="color:#ff79c6">in</span> formData.StifterPerson)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#8be9fd">var</span> personSignee = <span style="color:#ff79c6">new</span> ProvidedPerson
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        FullName = <span style="color:#8be9fd">string</span>.Join(
+</span></span><span style="display:flex;"><span>          <span style="color:#f1fa8c">&#34; &#34;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#50fa7b">          [stifterPerson.Fornavn, stifterPerson.Mellomnavn, stifterPerson.Etternavn]</span>
+</span></span><span style="display:flex;"><span>        ),
+</span></span><span style="display:flex;"><span>        SocialSecurityNumber = stifterPerson.Foedselsnummer?.ToString() ?? <span style="color:#8be9fd">string</span>.Empty,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// CommunicationConfig added here is optional, shown and described in section 6</span>
+</span></span><span style="display:flex;"><span>      };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      providedSignees.Add(personSignee);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">foreach</span> (StifterVirksomhet stifterVirksomhet <span style="color:#ff79c6">in</span> formData.StifterVirksomhet)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#8be9fd">var</span> organisationSignee = <span style="color:#ff79c6">new</span> ProvidedOrganization
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        Name = stifterVirksomhet.Navn,
+</span></span><span style="display:flex;"><span>        OrganizationNumber =
+</span></span><span style="display:flex;"><span>          stifterVirksomhet.Organisasjonsnummer?.ToString() ?? <span style="color:#8be9fd">string</span>.Empty,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// CommunicationConfig added here is optional, shown and described in section 6</span>
+</span></span><span style="display:flex;"><span>      };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      providedSignees.Add(organisationSignee);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">new</span> SigneeProviderResult { Signees = providedSignees };
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+
+</div>
+
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Altinn Studio Designer
+    </label>
+    <blockquote>
+<p>Dette steget må gjøres manuelt. Støtte for konfigurasjon i Altinn Studio kommer senere.
+Se &ldquo;Manuelt oppsett&rdquo;-fanen for denne seksjonen for veiledning.</p></blockquote>
+</div>
+
+
+
+</div>
+
+<h2 id="5-valgfritt---legg-til-tekstressurser">5. Valgfritt - Legg til tekstressurser</h2>
+<p>Denne seksjonen er kun relevant for deg dersom du ønsker å endre på standardtekstene i kommunikasjon med signatarer - de
+som skal signere.</p>
+<p>Standardverdiene som brukes dersom kommunikasjonstekstene ikke overstyres er som følger:</p>
+<div class="content-version-selector border-box">
+
+    
+    <ul id="content-version-tabs"></ul>
+
+    
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Standardtekster bokmål
+    </label>
+    <table>
+  <thead>
+      <tr>
+          <th>Tekst</th>
+          <th>StandardVerdi</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Innboksmelding til signatar - tittel</td>
+          <td>&ldquo;{appName}: Oppgave til signering&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Innboksmelding til signatar - undertittel</td>
+          <td>&ldquo;Din signatur ventes for {appName}.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Innboksmelding til signatar - innhold</td>
+          <td>&ldquo;Du har en oppgave som venter på din signatur. &lt;a href=&quot;{instanceUrl}&quot;&gt;Klikk her for å åpne applikasjonen</a>.<br /><br />Hvis du lurer på noe, kan du kontakte {appOwner}.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Sms til signatar - innhold</td>
+          <td>&ldquo;Din signatur ventes for {appName}. Åpne Altinn-innboksen din for å fortsette.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>E-post til signatar - emne</td>
+          <td>&ldquo;{appName}: Oppgave til signering&rdquo;</td>
+      </tr>
+      <tr>
+          <td>E-post til signatar - innhold</td>
+          <td>&ldquo;Din signatur ventes for {appName}. Åpne Altinn-innboksen din for å fortsette.<br /><br />Hvis du lurer på noe, kan du kontakte {appOwner}.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Kvittering til signatar - tittel</td>
+          <td>&ldquo;{appName}: Signeringen er bekreftet&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Kvittering til signatar - undertittel</td>
+          <td>&ldquo;Du har signert for {appName}.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Kvittering til signatar - innhold</td>
+          <td>&ldquo;Dokumentene du har signert er vedlagt. Disse kan lastes ned om ønskelig. <br /><br />Hvis du lurer på noe, kan du kontakte {appOwner}.&rdquo;</td>
+      </tr>
+  </tbody>
+</table>
+
+</div>
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Standardtekster nynorsk
+    </label>
+    <table>
+  <thead>
+      <tr>
+          <th>Tekst</th>
+          <th>StandardVerdi</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Innboksmelding til signatar - tittel</td>
+          <td>&ldquo;{appName}: Oppgåve til signering&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Innboksmelding til signatar - undertittel</td>
+          <td>&ldquo;Signaturen din vert venta for {appName}.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Innboksmelding til signatar - innhold</td>
+          <td>&ldquo;Du har ei oppgåve som ventar på signaturen din. &lt;a href=&quot;{instanceUrl}&quot;&gt;Klikk her for å opne applikasjonen</a>.<br /><br />Om du lurer på noko, kan du kontakte {appOwner}.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Sms til signatar - innhold</td>
+          <td>&ldquo;Signaturen din vert venta for {appName}. Opne Altinn-innboksen din for å gå vidare.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>E-post til signatar - emne</td>
+          <td>&ldquo;{appName}: Oppgåve til signering&rdquo;</td>
+      </tr>
+      <tr>
+          <td>E-post til signatar - innhold</td>
+          <td>&ldquo;Signaturen din vert venta for {appName}. Opne Altinn-innboksen din for å gå vidare.<br /><br />Om du lurer på noko, kan du kontakte {appOwner}.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Kvittering til signatar - tittel</td>
+          <td>&ldquo;{appName}: Signeringa er stadfesta&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Kvittering til signatar - undertittel</td>
+          <td>&ldquo;Du har signert for {appName}.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Kvittering til signatar - innhold</td>
+          <td>&ldquo;Dokumenta du har signert er vedlagde. Dei kan lastast ned om ønskeleg. <br /><br />Om du lurer på noko, kan du kontakte {appOwner}.&rdquo;</td>
+      </tr>
+  </tbody>
+</table>
+
+</div>
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Standardtekster engelsk
+    </label>
+    <table>
+  <thead>
+      <tr>
+          <th>Tekst</th>
+          <th>StandardVerdi</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Innboksmelding til signatar - tittel</td>
+          <td>&ldquo;{appName}: Task for signing&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Innboksmelding til signatar - undertittel</td>
+          <td>&ldquo;Your signature is requested for {appName}.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Innboksmelding til signatar - innhold</td>
+          <td>&ldquo;You have a task waiting for your signature. &lt;a href=&quot;{instanceUrl}&quot;&gt;Click here to open the application</a>.<br /><br />If you have any questions, you can contact {appOwner}.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Sms til signatar - innhold</td>
+          <td>&ldquo;Your signature is requested for {appName}. Open your Altinn inbox to proceed.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>E-post til signatar - emne</td>
+          <td>&ldquo;{appName}: Task for signing&rdquo;</td>
+      </tr>
+      <tr>
+          <td>E-post til signatar - innhold</td>
+          <td>&ldquo;Your signature is requested for {appName}. Open your Altinn inbox to proceed.<br /><br />If you have any questions, you can contact {appOwner}.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Kvittering til signatar - tittel</td>
+          <td>&ldquo;{appName}: Signature confirmed&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Kvittering til signatar - undertittel</td>
+          <td>&ldquo;Your signature has been registered for {appName}.&rdquo;</td>
+      </tr>
+      <tr>
+          <td>Kvittering til signatar - innhold</td>
+          <td>&ldquo;The signed documents are attached. They may be downloaded. <br /><br />If you have any questions, you can contact {appOwner}.&rdquo;</td>
+      </tr>
+  </tbody>
+</table>
+
+</div>
+
+
+</div>
+
+<div class="content-version-selector border-box">
+
+    
+    <ul id="content-version-tabs"></ul>
+
+    
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Manual setup
+    </label>
+      <p>Dersom du ønsker å overstyre standardtekstene:</p>
+<p>Legg til en <a href="/nb/altinn-studio/v8/reference/ux/texts/">tekstressurs-fil</a> under ´App/config/texts´ for hvert språk du vil støtte.</p>
+<p>Med <code>CommunicationConfig</code> oppsettet for en oppgitt signatar i implementasjonen din av <code>ISigneeProvider</code> interfacet, kan
+du knytte opp tekstressurser for å <strong>overstyre</strong> innholdet i melding til innboksen i Altinn, samt sms og e-post som sendes
+for å varsle signatar om en signeringsoppgave.
+Disse kan du kalle hva du vil, og koble dem opp til <code>CommunicationConfig</code> i neste punkt (punkt 6.).</p>
+<p>Eksempel på tekstressurser for varsling med egne tekster for e-post, samt kvittering:</p>
+<div class="notices warning" >Legg merke til at tekstressursene for innhold i Altinn-innboksen har en <code>$instanceUrl$</code> plassholder (placeholder).
+Det vil erstattes med en lenke til skjemaet. Hvis dette overstyres uten å bruke denne plassholderen, så vil IKKE mottaker
+kunne finne frem til skjemaet med signeringsoppgaven!</div>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signing.correspondence_title_common&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Task - Sign founding documents&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signing.correspondence_summary_stifter_person&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;You have been added as a signee.&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signing.correspondence_summary_stifter_organisation&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;The organisation has been added as a signee.&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signing.correspondence_body_stifter_person&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;You have been added as a signee for founding documents. &lt;br /&gt; $instanceUrl$ &lt;br /&gt;&lt;br /&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signing.correspondence_body_stifter_organisation&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Your organisation has been added as a signee for founding documents. &lt;br /&gt; $instanceUrl$ &lt;br /&gt;&lt;br /&gt;&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signing.notification_content&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Hello $correspondenceRecipientName$,\n\nYou have received founding documents for signing in Altinn. Log in to Altinn to sign the documents.\n\nBest regards,\nBrønnøysund Register Centre&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signing.email_subject&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Founding documents received for signing in Altinn. Go to Altinn inbox to sign.&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span></code></pre></div>
+<p>Overstyring av kvittering er ikke mulig å gjøre per signatar, det gjøres generelt for alle signatarer. Her må navnet på
+tekstressursene være de følgende nøklene for at overstyringen skal skje:</p>
+<p><code>signing.correspondence_receipt_title</code> - tittel på kvitteringsmelding
+<code>signing.correspondence_receipt_summary</code> - undertittel på kvitteringsmelding
+<code>signing.correspondence_receipt_body</code> - innhold i kvitteringsmelding</p>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signing.correspondence_receipt_title&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Receipt: Signing of founding documents&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signing.correspondence_receipt_summary&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;You have signed the founding documents&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;signing.correspondence_receipt_body&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;The documents you have signed are attached. These can be downloaded if desired. &lt;br /&gt;&lt;br /&gt;If you have any questions, contact the Brønnøysund Register Centre at phone 75 00 75 00.&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span></code></pre></div>
+
+</div>
+
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Altinn Studio Designer
+    </label>
+    <blockquote>
+<p>Dette steget må gjøres manuelt. Støtte for konfigurasjon i Altinn Studio kommer senere.
+Se &ldquo;Manuelt oppsett&rdquo;-fanen for denne seksjonen for veiledning.</p></blockquote>
+</div>
+
+
+
+</div>
+
+<h2 id="6-valgfritt---skreddersy-hvordan-signatarene-varsles">6. Valgfritt - skreddersy hvordan signatarene varsles</h2>
+<p>Legg merke til at <code>CommunicationConfig</code> er valgfritt. Her kan du overstyre standardtekster brukt i kommunikasjon med signatarene,
+som beskrevet i forrige punkt. Du kan også overstyre e-post adresse og telefonnummer for signatarene.</p>
+<div class="notices info" >Dersom ikke overstyrt, vil en
+melding sendes til signatarenes Altinn-innboks med en lenke til den relevante applikasjons­instansen, og en notifikasjon vil bli
+sendt via e-post.</div>
+<p>Om ikke overstyrt, vil e-postadressene og telefonnumrene populeres som beskrevet i <a href="/nb/notifications/explanation/recipient-lookup/">Recipient lookup</a> og <a href="/nb/notifications/explanation/address-lookup/">Address lookup</a>.</p>
+<p>Dette er de mulige overstyringskonfigurasjonene for kommunikasjon med signatarer:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Property</th>
+          <th>Description</th>
+          <th>Type</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>CommunicationConfig</td>
+          <td>Objektet for kommunikasjonskonfigurasjon</td>
+          <td>Object</td>
+      </tr>
+      <tr>
+          <td>CommunicationConfig.InboxMessage</td>
+          <td>Objektet for innboksmeldingskonfigurasjon</td>
+          <td>Object</td>
+      </tr>
+      <tr>
+          <td>CommunicationConfig.InboxMessage.TitleTextResourceKey</td>
+          <td>Tekstressursnøkkelen for innboksmeldingstittel</td>
+          <td>String</td>
+      </tr>
+      <tr>
+          <td>CommunicationConfig.InboxMessage.SummaryTextResourceKey</td>
+          <td>Tekstressursnøkkelen for innboksmeldingssammendrag</td>
+          <td>String</td>
+      </tr>
+      <tr>
+          <td>CommunicationConfig.InboxMessage.BodyTextResourceKey</td>
+          <td>Tekstressursnøkkelen for innboksmeldingsinnhold</td>
+          <td>String</td>
+      </tr>
+      <tr>
+          <td>CommunicationConfig.Notification</td>
+          <td>Objektet for varslingskonfigurasjon</td>
+          <td>Object</td>
+      </tr>
+      <tr>
+          <td>CommunicationConfig.Notification.Email</td>
+          <td>Objektet for e-postvarselingskonfigurasjon</td>
+          <td>Object</td>
+      </tr>
+      <tr>
+          <td>CommunicationConfig.Notification.Email.EmailAddress</td>
+          <td>Tekstressursnøkkelen for e-postadresse</td>
+          <td>String</td>
+      </tr>
+      <tr>
+          <td>CommunicationConfig.Notification.Email.SubjectTextResourceKey</td>
+          <td>Tekstressursnøkkelen for e-postemne</td>
+          <td>String</td>
+      </tr>
+      <tr>
+          <td>CommunicationConfig.Notification.Email.BodyTextResourceKey</td>
+          <td>Tekstressursnøkkelen for e-postinnhold</td>
+          <td>String</td>
+      </tr>
+      <tr>
+          <td>CommunicationConfig.Notification.Sms</td>
+          <td>Objektet for SMS-varslingskonfigurasjon</td>
+          <td>Object</td>
+      </tr>
+      <tr>
+          <td>CommunicationConfig.Notification.Sms.MobileNumber</td>
+          <td>Tekstressursnøkkelen for mobilnummer</td>
+          <td>String</td>
+      </tr>
+      <tr>
+          <td>CommunicationConfig.Notification.Sms.BodyTextResourceKey</td>
+          <td>Tekstressursnøkkelen for SMS-innhold</td>
+          <td>String</td>
+      </tr>
+      <tr>
+          <td>CommunicationConfig.Notification.NotificationChoice</td>
+          <td>Varslingspreferansevalget</td>
+          <td>NotificationChoice enum (String)</td>
+      </tr>
+  </tbody>
+</table>
+<div class="content-version-selector border-box">
+
+    
+    <ul id="content-version-tabs"></ul>
+
+    
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Manuelt oppsett
+    </label>
+    <p>Følgende er et eksempel på overstyring av kommunikasjon med en <code>ProvidedPerson</code>, det samme gjelder for <code>ProvidedOrganization</code>:</p>
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#8be9fd">var</span> personSignee = <span style="color:#ff79c6">new</span> ProvidedPerson
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    CommunicationConfig = <span style="color:#ff79c6">new</span> CommunicationConfig
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        InboxMessage = <span style="color:#ff79c6">new</span> InboxMessage
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            TitleTextResourceKey = <span style="color:#f1fa8c">&#34;signing.correspondence_title_common&#34;</span>,
+</span></span><span style="display:flex;"><span>            SummaryTextResourceKey = <span style="color:#f1fa8c">&#34;signing.correspondence_summary_stifter_organisasjon&#34;</span>,
+</span></span><span style="display:flex;"><span>            BodyTextResourceKey = <span style="color:#f1fa8c">&#34;signing.correspondence_body_stifter_organisasjon&#34;</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        Notification = <span style="color:#ff79c6">new</span> Notification
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            Email = <span style="color:#ff79c6">new</span> Email
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                EmailAddress = stifterVirksomhet.Epost,
+</span></span><span style="display:flex;"><span>                SubjectTextResourceKey = <span style="color:#f1fa8c">&#34;signing.email_subject&#34;</span>,
+</span></span><span style="display:flex;"><span>                BodyTextResourceKey = <span style="color:#f1fa8c">&#34;signing.notification_content&#34;</span>.Replace(
+</span></span><span style="display:flex;"><span>                    <span style="color:#f1fa8c">&#34;{0}&#34;</span>,
+</span></span><span style="display:flex;"><span>                    stifterVirksomhet.Navn
+</span></span><span style="display:flex;"><span>                ),
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            Sms = <span style="color:#ff79c6">new</span> Sms
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>                MobileNumber = stifterVirksomhet.Mobiltelefon,
+</span></span><span style="display:flex;"><span>                BodyTextResourceKey = <span style="color:#f1fa8c">&#34;signing.notification_content&#34;</span>.Replace(
+</span></span><span style="display:flex;"><span>                    <span style="color:#f1fa8c">&#34;{0}&#34;</span>,
+</span></span><span style="display:flex;"><span>                    stifterVirksomhet.Navn
+</span></span><span style="display:flex;"><span>                ),
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            NotificationChoice = NotificationChoice.EmailPreferred,
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+</div>
+
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Altinn Studio Designer
+    </label>
+    <blockquote>
+<p>Dette steget må gjøres manuelt. Støtte for konfigurasjon i Altinn Studio kommer senere.
+Se &ldquo;Manuelt oppsett&rdquo;-fanen for denne seksjonen for veiledning.</p></blockquote>
+</div>
+
+
+
+</div>
+
+<h2 id="7-test-brukerstyrt-signering">7. Test brukerstyrt signering</h2>
+  <div class="notices warning" >SMS varsler er ikke tilgjengelige i TT02 eller andre testmiljøer. Dersom brukt vil det lede til en &ldquo;varsling mislyktes&rdquo;
+status i SigneeList komponenten. Signataren vil allikevel motta en melding i altinn innboksen.</div>
+<p>Det er caching i autorisasjonslaget som gjør at det kan ta tid før en bruker som har fått delegert tilgang til et skjema via brukerstyrt signering ser skjemaet i sin Altinn innboks.</p>
+<p>Men dette vil altså bare inntreffe for:</p>
+<ul>
+<li>De brukerne som er aktivt pålogget Altinn når instansdelegeringen skjer</li>
+<li>Ikke allerede har annen tilgang for InstanceOwner</li>
+</ul>
+<p>For å unngå å oppleve dette under testing kan man delegere til en person man ikke har brukt i testing den siste timen.</p>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#hva-betyr-brukerstyrt-signering">Hva betyr brukerstyrt signering?</a></li>
+    <li><a href="#avhengigheter">Avhengigheter</a>
+      <ul>
+        <li><a href="#maskinporten">Maskinporten</a></li>
+        <li><a href="#meldingstjenesten">Meldingstjenesten</a></li>
+      </ul>
+    </li>
+    <li><a href="#eksempel-på-konfigurasjon">Eksempel på konfigurasjon</a></li>
+    <li><a href="#1-legg-til-en-signeringsoppgave-i-appens-prosess-med-tilhørende-konfigurasjon">1. Legg til en signeringsoppgave i appens prosess, med tilhørende konfigurasjon</a></li>
+    <li><a href="#2-legg-til-layout-set-for-signering">2. Legg til layout-set for signering</a></li>
+    <li><a href="#3-valgfritt---egendefinert-validering">3. Valgfritt - Egendefinert validering</a></li>
+    <li><a href="#4-oppgi-hvem-som-skal-signere">4. Oppgi hvem som skal signere</a></li>
+    <li><a href="#5-valgfritt---legg-til-tekstressurser">5. Valgfritt - Legg til tekstressurser</a></li>
+    <li><a href="#6-valgfritt---skreddersy-hvordan-signatarene-varsles">6. Valgfritt - skreddersy hvordan signatarene varsles</a></li>
+    <li><a href="#7-test-brukerstyrt-signering">7. Test brukerstyrt signering</a></li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

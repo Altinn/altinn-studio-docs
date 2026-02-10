@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Overordnet om overgangs- og migreringsløsning for Altinn melding" />
+<meta name="altinn_pagedir" class="elastic" content="correspondence/transition/" />
+<meta name="altinn_title" class="elastic" content="Overgangs- og migreringsløsning" />
+<meta name="product" data-pagefind-filter="Produkt[content]" content="Melding" />
+
+
+<title>Overgangs- og migreringsløsning – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/correspondence/transition/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Produkt</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/authorization/">
+      <p class="product-item">Autorisasjon</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/broker/">
+      <p class="product-item">Formidling</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/">
+      <p class="product-item">Melding</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/notifications/">
+      <p class="product-item">Varsling</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Søk</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/nb.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/transition/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/correspondence/transition/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">Hva leter du etter?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Søk');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Sist endret: 10. okt. 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/nb/correspondence/"><span>Melding</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/correspondence/about/"><span>Om Altinn Melding</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/what-do-you-get/"><span>Hva får du?</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/correspondence/getting-started/developer-guides/serviceowner/"><span>Tjenesteeier</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/getting-started/developer-guides/systemprovider/"><span>Systemleverandør</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/getting-started/developer-guides/events/"><span>Hendelser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/getting-started/developer-guides/dialogporten-arbeidsflate/"><span>Transmissions</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/getting-started/developer-guides/notifications/"><span>Varsling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/getting-started/developer-guides/maskinporten/"><span>Maskinporten</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/explanation/"><span>Konsepter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/correspondence/explanation/basic-concepts/"><span>Konsepter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/explanation/status-lifecycle/"><span>Meldings Livssyklus</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/correspondence/explanation/status-lifecycle/pre-published/"><span>Livssyklus Før Publisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/explanation/status-lifecycle/post-published/"><span>Livssyklus Etter Publisering</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/explanation/taushetsbelagt-post/"><span>Taushetsbelagt post</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/explanation/access-management/"><span>Tilgangsstyring-melding</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/explanation/attachment-expiry/"><span>Utløpsdato for vedlegg</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/transition/"><span>Overgangsløsning</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/correspondence/transition/service-migration/"><span>Tjenestemigrering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/transition/data-migration/"><span>Datamigrering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/transition/delegation-migration/"><span>Delegeringsmigrering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/transition/portal/"><span>Altinn 2 Portal</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/transition/consequences/"><span>Konsekvenser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/transition/differences/"><span>Forskjeller</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/reference/"><span>Referansedokumentasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/correspondence/reference/terminology/"><span>Begreper</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/reference/system-interfaces/"><span>Systemgrensesnitt</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/reference/capabilities/"><span>Funksjonalitet</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/correspondence/reference/solution-architecture/"><span>Løsningsarkitektur</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/nb/correspondence/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/correspondence/transition/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/nb/correspondence/'>Melding</a> <span class='adocs-breadcrumb-divider'> / </span> Overgangsløsning</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Overgangs- og migreringsløsning</h1>
+              <p class="a-leadText" id="leadText">Overordnet om overgangs- og migreringsløsning for Altinn melding</p>
+
+<p>For å forenkle overgangen fra Altinn 2 til Altinn 3 versjonen av melding-produktet, så har man fulgt en overordnet strategi som har hatt som mål å balansere kompleksitet og brukervennlighet for alle parter.</p>
+<h2 id="migrering-av-altinn-2-meldinger">Migrering av Altinn 2 Meldinger</h2>
+<ul>
+<li>Altinn 3 melding har i stor grad lik datamodell som Altinn 2 for å muliggjøre mapping/migrering.</li>
+<li>Alle Altinn 2 meldinger og vedlegg migreres til Altinn 3 melding.</li>
+<li>Alle Altinn 2 meldingstjenester med data blir opprettet som Altinn 3 meldingstjenester.</li>
+<li>Man migrerer data og metadata til Altinn 3 i en prosess som er uavhengig av å tilgjengeliggjøre elementene i Dialogporten og Arbeidsflate.</li>
+<li>Å tilgjengeliggjøre data via Altinn 3 API og Dialogporten/Arbeidsflate gjøres som et separat steg etter migrering av data er utført.</li>
+<li>Migrering av delegeringer gjøres som et separat steg, men bør utføres før meldinger tilgjengeliggjøres  for sluttbrukere i A3 API og Dialogporten/Arbeidsflate.</li>
+<li>Migrering av historiske data vil ta tid (uker/måneder), og overgangsløsning bygges med dette i mente.</li>
+<li>Til slutt vil migrerings-jobben «ta igjen» Live/Ferske data, slik at elementene kan tilgjengeliggjøres i Altinn 3 kort tid etter at de var opprettet i Altinn 2.</li>
+<li>Siden endringer kan skje på migrerte elementer i både Altinn 2 og Altinn 3 så må dette synkroniseres på tvers. Men det vil være visse begrensinger i hva som kan synkroniseres.</li>
+</ul>
+<h2 id="overgangsløsning">Overgangsløsning</h2>
+<ul>
+<li>For å gjøre seg uavhengig av produksjonsdato for nye Arbeidsflate, så er Altinn 3 meldinger tilgjengeliggjort i <a href="./portal/">Altinn 2 Portal for sluttbrukere</a>.</li>
+<li>Det lages IKKE en overgangsløsning for API-endepunkter:
+<ul>
+<li>Sluttbrukersystemer og Tjenesteeiersystemer må opprettholde integrasjon mot både Altinn 2 og Altinn 3 i en overgangsperiode.</li>
+<li>Migrerte meldinger vil etter migrering kunne nås via både Altinn 2 og Altinn 3, da i sine respektive versjoner.</li>
+</ul>
+</li>
+</ul>
+<h2 id="overordnet-prosessflyt-for-migrering-av-historiske-meldinger">Overordnet prosessflyt for migrering av historiske meldinger</h2>
+<ol>
+<li><strong>Hovedmigrering av historiske meldingsdata:</strong> 1-gangs jobb over tid.
+<ol>
+<li>Migrering av historiske data og vedlegg - <a href="./data-migration/">migrering av meldingsdata</a>.</li>
+<li><a href="./service-migration/">Migrering av tjenestekonfigurasjon</a>.</li>
+</ol>
+</li>
+<li><strong>Data-synk periode:</strong> Starter når steg 1.1 er startet, fortsetter til Altinn 2 skrus av.
+<ol>
+<li>Kontinuerlig migrering av <strong>nye</strong> meldinger.</li>
+<li>Kontinuerlig synk av statusendringer for migrerte meldinger.</li>
+</ol>
+</li>
+<li><strong><a href="./delegation-migration/">Migrering av delegeringer</a>:</strong> Starter når steg 1.2 er utført.
+Vi forventer en stor &ldquo;backlogg&rdquo; når denne startes, men i praksis samme jobb/komponent som benyttes i steg 4.</li>
+<li><strong>Synk av delegering periode:</strong> når steg 1 og 3 er fullført, fortsetter til Altinn 2 skrus av.
+Kontinuerlig synk av endringer i delegeringer på tjeneste- og instansnivå.</li>
+<li><strong>Tilgjengeliggjøring av historiske meldinger i Altinn 3/Dialogporten/Arbeidsflate:</strong> kan i teorien skje etter steg 1 er utført, men for best resultat; når man er i periode 4.
+<ul>
+<li>Man tilgjengeliggjør først data fra 2025, og deretter jobber seg bakover.</li>
+</ul>
+</li>
+<li><strong>Løpende migrering og tilgjengeliggjøring av meldinger</strong> til slutt vil man være i en fase der alle nye meldinger i Altinn 2 nesten umiddelbart går gjennom steg 2,4 og 5 og dermed fortløpende er tilgjengelige i Dialogporten/Arbeidsflate.</li>
+</ol>
+<h2 id="ansvarsdeling">Ansvarsdeling</h2>
+<p><em>&ldquo;Flytt av Data&rdquo; prosjektet</em> tar ansvar for utvikling av komponenter til, og utføring av steg 1 og 2, samt steg 3 og 4 i samarbeid med <em>Team Autorisasjon</em>.
+De tar også ansvar for å sette i gang steg 6, i nært samarbeid med de andre partene.</p>
+<p><em>Team Dialogporten/Arbeidsflate</em> tar ansvar for når steg 5 skal skje, mens <em>Team Melding og Formidling</em> utfører de nødvendige aksjonene.</p>
+<h2 id="tidsplandatoer">Tidsplan/datoer</h2>
+<p>Per 09.10.2025 er dette status:</p>
+<p>I TT02/Staging:</p>
+<ul>
+<li>Steg 1, 2, 3, 4 og 6 er utført.</li>
+<li>Steg 5 er utført for meldinger nyere enn 01.08.2025, resten tas umiddelbart.</li>
+</ul>
+<p>I PROD/Produksjon:</p>
+<ul>
+<li>Steg 1,2, 3,4 er utført.</li>
+<li>Steg 5 og 6 avventer noe ytelsesoptimalisering, før man igangsetter steg 6 og 5 i parallel.</li>
+</ul>
+<ul class="children children-li js-moveChildrenFrom">
+
+	
+		<li>
+				<a href="/nb/correspondence/transition/service-migration/">Migrering av tjenestekonfigurasjon</a><p>Migrering av tjenestekonfigurasjon for Altinn Melding</p></li><li>
+				<a href="/nb/correspondence/transition/data-migration/">Migrering av meldingsdata</a><p>Migrering av meldingsdata for Altinn Melding</p></li><li>
+				<a href="/nb/correspondence/transition/delegation-migration/">Migrering av delegeringer</a><p>Migrering av delegeringer for Altinn Melding</p></li><li>
+				<a href="/nb/correspondence/transition/portal/">Altinn 2 Portalvisning</a><p>Visning av Altinn 3 Melding i Altinn 2 Portal</p></li><li>
+				<a href="/nb/correspondence/transition/consequences/">Konsekvenser</a><p>Konsekvenser for partene som bruker Altinn Melding</p></li><li>
+				<a href="/nb/correspondence/transition/differences/">Forskjeller mellom Altinn 2 og Altinn 3</a><p>Forskjeller mellom Altinn 2 og Altinn 3 for Melding</p></li>
+	
+</ul>
+
+
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/correspondence/transition/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#migrering-av-altinn-2-meldinger">Migrering av Altinn 2 Meldinger</a></li>
+    <li><a href="#overgangsløsning">Overgangsløsning</a></li>
+    <li><a href="#overordnet-prosessflyt-for-migrering-av-historiske-meldinger">Overordnet prosessflyt for migrering av historiske meldinger</a></li>
+    <li><a href="#ansvarsdeling">Ansvarsdeling</a></li>
+    <li><a href="#tidsplandatoer">Tidsplan/datoer</a></li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

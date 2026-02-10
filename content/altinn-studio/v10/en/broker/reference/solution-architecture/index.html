@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Altinn 3 Broker solution architecture for basic use cases of Managed File Transfers." />
+<meta name="altinn_pagedir" class="elastic" content="broker/reference/solution-architecture/" />
+<meta name="altinn_title" class="elastic" content="Solution Architecture" />
+<meta name="product" data-pagefind-filter="Product[content]" content="Broker" />
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="Reference" />
+
+<title>Solution Architecture – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/en/broker/reference/solution-architecture/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/en/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">To the frontpage</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Show/hide menu</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Product</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/en/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/authorization/">
+      <p class="product-item">Authorization</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/broker/">
+      <p class="product-item">Broker</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/correspondence/">
+      <p class="product-item">Correspondence</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/notifications/">
+      <p class="product-item">Notifications</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Search</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/en.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/broker/reference/solution-architecture/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/broker/reference/solution-architecture/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English ✓</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">What are you looking for?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Search');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Last modified: Sep 29, 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/en/broker/"><span>Broker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/about/"><span>About Broker</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/what-do-you-get/"><span>What do you get?</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/"><span>Getting Started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/common-steps/"><span>Common Steps</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/service-owner/"><span>Service Owner</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/developer-guides/"><span>Developer guides</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/developer-guides/send-files/"><span>Send files</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/developer-guides/receive-files/"><span>Receive Files</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/developer-guides/service-owner/"><span>Service Owner</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/developer-guides/events/"><span>Events</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/broker/explanation/"><span>Concepts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/explanation/basic-concepts/"><span>Basic Concepts</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/explanation/very-large-files/"><span>Large Files</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/"><span>Transition Solution</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/about/"><span>About Transition Solution</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/getting-started/"><span>Getting Started</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/technical-overview/"><span>Technical Overview</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/usage/"><span>Usage</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/usage/rest/"><span>Usage Rest</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/usage/soap/"><span>Usage SOAP</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/broker/reference/"><span>Reference documentation</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/reference/terminology/"><span>Terminology</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/reference/system-interfaces/"><span>System Interfaces</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/reference/capabilities/"><span>Capabilities</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/reference/rate-limits/"><span>Rate Limits</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/reference/solution-architecture/"><span>Solution Architecture</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/reference/security/"><span>Security</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/en/broker/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/broker/reference/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/broker/reference/solution-architecture/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/en/broker/'>Broker</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/broker/reference/'>Reference documentation</a> <span class='adocs-breadcrumb-divider'> / </span> Solution Architecture</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Solution Architecture</h1>
+              <p class="a-leadText" id="leadText">Altinn 3 Broker solution architecture for basic use cases of Managed File Transfers.</p>
+
+<div class="notices info" ><!-- info -->
+<p>The solution architecture described here is the foundation architecture for Altinn Broker,
+as relevant for the basic use cases of managed file transfers.
+Further descriptions of the solution architecture related to advanced use cases
+and possible future extensions
+will build on this foundation architecture.</p></div>
+
+<!--
+<ul class="children children-li js-moveChildrenFrom">
+
+	
+		
+	
+</ul>
+
+  
+-->
+<h2 id="guiding-architecture-principles">Guiding Architecture Principles</h2>
+<h3 id="overarching-architectural-principles-for-digitization-of-the-public-sector">Overarching architectural principles for digitization of the public sector</h3>
+<p><a href="https://www.digdir.no/digital-samhandling/overordnede-arkitekturprinsipper/1065%3E">The overarching architectural principles for digitization of the public sector</a> in Norway are a support for work with enterprise architecture and are intended to contribute to increased interoperability across enterprises and sectors.</p>
+<p>These high level principals apply.</p>
+<h3 id="general-altinn-3-architecture-principles">General Altinn 3 Architecture Principles</h3>
+<p>The <a href="/en/technology/architecture/principles">Altinn 3 Architecture Principles</a> apply.</p>
+<!--
+### Architecture Principles for Messaging and Data Sharing
+
+Altinn 3 Broker is one of several Digdir products within the product groups for 
+Messaging and Data Sharing. 
+Architecture principles for these product groups are under construction.
+-->
+<h3 id="further-considerations">Further considerations</h3>
+<p>Altinn 3 Broker is one of several Digdir products within the product groups for
+Messaging and Data Sharing.
+<em>Architecture principles for these product groups are under construction.</em></p>
+<p>Pending architecture principles for the relevant procuct areas,
+here are some important considerations for the Altinn 3 Broker solution architeture:</p>
+<ul>
+<li>
+<p><strong>Support for on-premise hosting and data storage</strong>.
+Due to information security concerns, some customers will not tolerate cloud hosting and storage
+on the cloud platform chosen by Altinn.
+The solution architecture should therefore allow for on premise hosting and storage on a per customer basis.</p>
+</li>
+<li>
+<p><strong>Future readiness in general</strong>. The international landscape of regulations, standards, technologies  and solutions
+is evolving. The solution architecture should take this into account, and prepare for
+compliance, interoperability and reuse. Examples: <a href="https://en.wikipedia.org/wiki/Semantic_Web">Semantic Web</a>
+and <a href="https://en.wikipedia.org/wiki/Linked_data">Linked Data</a>,
+<a href="https://en.wikipedia.org/wiki/Self-sovereign_identity">Self Souvereign Identity</a> and
+<a href="https://en.wikipedia.org/wiki/Verifiable_credentials">Verifiable Credentials</a>.</p>
+</li>
+<li>
+<p><strong>Compliance with EU regulations and standards</strong>.
+European regulations and standards for data sharing will apply for Norway in the coming years.
+Compliance will be mandated, and interoperability will be essential for cross border value chains.
+See e.g. <a href="https://www.digdir.no/datadeling/oversikt-over-eu-regelverk-om-deling-og-bruk-av-data/3251">Digdir&rsquo;s overview of EU legislation for data sharing</a>
+and <a href="https://dssc.eu/space/BVE/357074696/Regulatory+Compliance">Data Spaces Support Center om &ldquo;Regulatory Compliance&rdquo;</a></p>
+<p>the <a href="https://dssc.eu/page/knowledge-base">Data Spaces Support Center knowledge base</a></p>
+</li>
+</ul>
+<!--
+* Multi-channel and omni-channel support
+-->
+<h2 id="high-level-solution-overview--main-building-blocks">High Level Solution Overview – main building blocks</h2>
+<p>The following figure gives a high level solution overview.</p>
+<p><figure>
+    <a href="altinn3-broker-highlevel-solution-overview.en.png">
+        <img src="altinn3-broker-highlevel-solution-overview.en.png" alt="Altinn 3 Broker High Level Solution Overview" title="Altinn 3 Broker High Level Solution Overview">
+    </a>
+    <figcaption><em>Altinn 3 Broker High Level Solution Overview</em></figcaption>
+  </figure></p>
+<p>This diagram expands on
+the <a href="/en/broker/explanation/basic-concepts#context-overview">basic context overview</a>
+by indicating the involved building blocks.</p>
+<p>The Altinn application components (right side) realize the functionality as indicated by the
+high level application services (bottom).
+The exact mapping between services and conponents is not shown in this, high level diagram.</p>
+<p>In addition to general descriptions of each of the application components given elsewhere,
+here&rsquo;s a summary of how these components relates to and serves Altinn 3 Broker:</p>
+<ul>
+<li><a href="https://www.digdir.no/felleslosninger/id-porten/864">ID-porten</a>: Auhentication of human end users.</li>
+<li><a href="https://www.digdir.no/felleslosninger/maskinporten/869">Maskinporten</a>: Authentication and authorization of machines (End User Systems).
+Authorization features are realized in cooperation with the Altinn Authorization component.</li>
+<li><a href="/en/authorization/">Altinn Authorization</a>. Register services resources and authorize access.</li>
+<li><a href="/en/notifications/">Altinn Notifications</a>. Notifications to human end users via e-mail and sms.</li>
+<li><a href="/en/events/">Altinn Events</a>. Notifications to webhooks in End User Systems.</li>
+<li><a href="/en/altinn-studio/">Altinn Studio</a>. Applications and user interface for self service configuration of the solutions.</li>
+<li>Altinn Billing. Invoicing of customers.</li>
+</ul>
+<h2 id="related-solutions">Related solutions</h2>
+<p>An overview of related solutions is provided in the following diagram.
+This serves as a starting point for assessing interaction with, as well as the use and reuse of, other solutions
+in the detailed solution architecture for Altinn Broker.
+The most relevant solutions are highlighted in bold.</p>
+<p><figure>
+    <a href="digdir-solution-resources-for-altinn3-broker.en.png">
+        <img src="digdir-solution-resources-for-altinn3-broker.en.png" alt="Digdir Solution Resources for Altinn 3 Broker" title="Digdir Solution Resources for Altinn 3 Broker">
+    </a>
+    <figcaption><em>Digdir Solution Resources for Altinn 3 Broker</em></figcaption>
+  </figure></p>
+<h2 id="transition-architecture---altinn-2-to-altinn-3">Transition Architecture - Altinn 2 to Altinn 3</h2>
+<h3 id="general">General</h3>
+<p>Two migration options are supported for migration of Altinn Broker services -
+<em>hard shift</em> and <em>soft switch</em>.</p>
+<h3 id="hard-shift-from-altinn-2-to-altinn-3-for-all-users-of-a-service">Hard shift from Altinn 2 to Altinn 3 for all users of a service</h3>
+<p>With the <em>Hard shift</em> option, all users and End User Systems make a coordinated shift to Altinn 3.</p>
+<p>This option is recommended in cases where such a   coordinated shift is feasible. No transition solution is needed and all features of Altinn 3 may be used
+as soon as the shift has been made.</p>
+<p>Uploaded files are stored om Altinn 2 Broker File Storage up until the shift.</p>
+<p><figure>
+    <a href="altinn3-broker-migration-option-hardshift.en.png">
+        <img src="altinn3-broker-migration-option-hardshift.en.png" alt="Altinn 3 Broker Migration Option - Hard Shift" title="Altinn 3 Broker Migration Option - Hard Shift">
+    </a>
+    <figcaption><em>Altinn 3 Broker Migration Option - Hard Shift</em></figcaption>
+  </figure></p>
+<p><em>Note: In this case, it is assumed that Altinn 2 Broker files have been purged
+and are not needed in Altinn 3 Broker.
+However, if required, it will be possible to move files from Altinn 2 to Altinn 3 Broker File Storage after the transition.</em></p>
+<h3 id="soft-shift-from-altinn-2-to-altinn-3">Soft shift from Altinn 2 to Altinn 3</h3>
+<p>With the <em>Soft shift</em> option, users and End User Systems shift to Altinn 3 on an
+individual basis, when ready.
+The transition solution bridges between Altinn 2 and Altinn 3.</p>
+<p>During the transition period, uploaded files will always be stored on Altinn 3 Broker Storage.</p>
+<p><figure>
+    <a href="altinn3-broker-migration-option-softshift.en.png">
+        <img src="altinn3-broker-migration-option-softshift.en.png" alt="Altinn 3 Broker Migration Option - Soft Shift" title="Altinn 3 Broker Migration Option - Soft Shift">
+    </a>
+    <figcaption><em>Altinn 3 Broker Migration Option - Soft Shift</em></figcaption>
+  </figure></p>
+<!--
+### Solution Details
+
+#### Solution for uploading to Altinn 3 via Altinn 2
+TBD by Ragnar?
+
+#### Solution for downloading Altinn 3 files to Altinn 2
+TBD by Ragnar?
+-->
+<h2 id="file-storage">File storage</h2>
+<p>Broker File Storage is based MS Azure Blob Storage, and isolated to a storage account per Service Owner.</p>
+<p>Stored Files are always encrypted; ref. <a href="https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption">Azure Storage encryption for
+data at rest | Microsoft
+Learn</a>.</p>
+<h2 id="metadata-storage">Metadata storage</h2>
+<p>The following information model details the
+<a href="/en/broker/explanation/basic-concepts#conceptual-information-model">conceptual information model under basic concepts</a>.</p>
+<p><figure>
+    <a href="altinn3-broker-metadata-storage-information-model.en.png">
+        <img src="altinn3-broker-metadata-storage-information-model.en.png" alt="Altinn 3 Broker Metadata Storage Information Model" title="Altinn 3 Broker Metadata Storage Information Model">
+    </a>
+    <figcaption><em>Altinn 3 Broker Metadata Storage Information Model</em></figcaption>
+  </figure></p>
+<h2 id="addressing-and-routing">Addressing and Routing</h2>
+<p>The basic Altinn 3 Broker adressing and routing mechanisms are:</p>
+<ul>
+<li>Specific adressing of recipients</li>
+<li>Addressing via subscription</li>
+</ul>
+<p><em>Note: Further adressing capabilities are considered, including criteria based om role, service and context.</em></p>
+<h3 id="specific-adressing-of-recipients">Specific adressing of recipients</h3>
+<p>TBD.</p>
+<h3 id="addressing-via-subscription">Addressing via subscription</h3>
+<p>TBD.</p>
+<h2 id="notifications">Notifications</h2>
+<h3 id="notifications-to-human-end-users">Notifications to human end users</h3>
+<p>For notifications to human recipients via e-mail and sms,
+Altinn Broker uses the <a href="/en/notifications/">Altinn Notifications</a> component.</p>
+<h3 id="notifications-to-end-user-systems">Notifications to End User Systems</h3>
+<p>End User Systems may register custom webhooks for receiving events; see <a href="/en/events/">Altinn Events</a>.</p>
+<p>See <a href="https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-v1.json">the Altinn 3 Broker OpenAPI specification</a>
+for specification of the supported events.</p>
+<h2 id="api-management">API Management</h2>
+<p><a href="https://azure.microsoft.com/en-us/products/api-management">Azure API Management (APIM)</a>
+is used for scaling, operational insights, and securing Altinn Broker APIs.</p>
+<p>Altinn Broker runs on an APIM instance that is shared with other platform services in Altinn.</p>
+<h2 id="logging-and-monitoring">Logging and Monitoring</h2>
+<p>TBD - spring 2025.</p>
+<h2 id="clearing-and-billing">Clearing and Billing</h2>
+<p>TBD - spring 2025.</p>
+<h2 id="security-controls">Security Controls</h2>
+<div class="notices warning" ><!-- info -->
+<p>The documentation of security controls is work in progress,
+first in Norwegian, then to be translated to English.</p></div>
+
+<h2 id="security-controls-via-azure-api-management">Security Controls via Azure API Management</h2>
+<h3 id="security-controls-via-azure-vnet">Security Controls via Azure VNet</h3>
+<h3 id="authentication-and-authorization">Authentication and Authorization</h3>
+<h3 id="checksum-control">Checksum control</h3>
+<h3 id="virus-check">Virus check</h3>
+<h3 id="in-transit-protection">In-transit protection</h3>
+<h3 id="at-rest-protection">At rest protection</h3>
+<h4 id="altinn-broker-file-storage">Altinn Broker File Storage</h4>
+<h4 id="support-for-custom-storage-solutions">Support for custom storage solutions</h4>
+<h3 id="ddos-attack-prevention">DDoS attack prevention</h3>
+<h3 id="hosting-options">Hosting options</h3>
+<h3 id="coding-practices">Coding practices</h3>
+<h3 id="key-vault">Key Vault</h3>
+<h3 id="penetration-testing">Penetration testing</h3>
+<!--
+
+### Authentication and Authorization
+
+TBD: Maskinporten and Altinn Authorization...
+
+### Checksum
+
+TBD
+
+### Virus check
+
+When a file is uploaded to Broker, it undergoes a scan by Microsoft Defender Antivirus. 
+If no viruses are detected, the file is promptly published and made available for download by recipients. However, in cases where a virus is found or the scan fails, the file is removed, and the transfer status is updated to provide detailed information regarding the scan failure.
+
+
+### In-transit protection
+
+Encrypted file transfers with TLS/HTTPS.
+
+### At rest protection
+
+Encrypted Broker File Storage; ref. [Azure Storage encryption for data
+at rest \| Microsoft
+Learn](https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption).
+
+Encrypted Broker Metadata Storage, Metadata storage using the PostgreSQL Database. Details TBD.
+
+TBD: Specific encryption solution... firewall,  V-net... 
+
+
+### Alternative file storage solutions
+
+TBD
+
+### DDoS attack prevention
+
+DDoS attack prevention via Azure API Management.
+
+### Hosting
+
+Private cloud hosting
+
+On-premises hosting
+
+### Coding practices
+
+TBD Open source
+
+### Key Vault
+
+Azure Key Vault, Private keys, internals... identities (hidden tokens); secrets,  Altinn authentication
+
+### Penetration testing
+
+TBD
+
+## Further Solution Resources
+
+![Digdir Solution Resources for Altinn 3 Broker](digdir-solution-resources-for-altinn3-broker.en.png "Digdir Solution Resources for Altinn 3 Broker")
+
+
+-->
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/broker/reference/solution-architecture/_index.en.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Edit page on GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#guiding-architecture-principles">Guiding Architecture Principles</a>
+      <ul>
+        <li><a href="#overarching-architectural-principles-for-digitization-of-the-public-sector">Overarching architectural principles for digitization of the public sector</a></li>
+        <li><a href="#general-altinn-3-architecture-principles">General Altinn 3 Architecture Principles</a></li>
+        <li><a href="#further-considerations">Further considerations</a></li>
+      </ul>
+    </li>
+    <li><a href="#high-level-solution-overview--main-building-blocks">High Level Solution Overview – main building blocks</a></li>
+    <li><a href="#related-solutions">Related solutions</a></li>
+    <li><a href="#transition-architecture---altinn-2-to-altinn-3">Transition Architecture - Altinn 2 to Altinn 3</a>
+      <ul>
+        <li><a href="#general">General</a></li>
+        <li><a href="#hard-shift-from-altinn-2-to-altinn-3-for-all-users-of-a-service">Hard shift from Altinn 2 to Altinn 3 for all users of a service</a></li>
+        <li><a href="#soft-shift-from-altinn-2-to-altinn-3">Soft shift from Altinn 2 to Altinn 3</a></li>
+      </ul>
+    </li>
+    <li><a href="#file-storage">File storage</a></li>
+    <li><a href="#metadata-storage">Metadata storage</a></li>
+    <li><a href="#addressing-and-routing">Addressing and Routing</a>
+      <ul>
+        <li><a href="#specific-adressing-of-recipients">Specific adressing of recipients</a></li>
+        <li><a href="#addressing-via-subscription">Addressing via subscription</a></li>
+      </ul>
+    </li>
+    <li><a href="#notifications">Notifications</a>
+      <ul>
+        <li><a href="#notifications-to-human-end-users">Notifications to human end users</a></li>
+        <li><a href="#notifications-to-end-user-systems">Notifications to End User Systems</a></li>
+      </ul>
+    </li>
+    <li><a href="#api-management">API Management</a></li>
+    <li><a href="#logging-and-monitoring">Logging and Monitoring</a></li>
+    <li><a href="#clearing-and-billing">Clearing and Billing</a></li>
+    <li><a href="#security-controls">Security Controls</a></li>
+    <li><a href="#security-controls-via-azure-api-management">Security Controls via Azure API Management</a>
+      <ul>
+        <li><a href="#security-controls-via-azure-vnet">Security Controls via Azure VNet</a></li>
+        <li><a href="#authentication-and-authorization">Authentication and Authorization</a></li>
+        <li><a href="#checksum-control">Checksum control</a></li>
+        <li><a href="#virus-check">Virus check</a></li>
+        <li><a href="#in-transit-protection">In-transit protection</a></li>
+        <li><a href="#at-rest-protection">At rest protection</a>
+          <ul>
+            <li><a href="#altinn-broker-file-storage">Altinn Broker File Storage</a></li>
+            <li><a href="#support-for-custom-storage-solutions">Support for custom storage solutions</a></li>
+          </ul>
+        </li>
+        <li><a href="#ddos-attack-prevention">DDoS attack prevention</a></li>
+        <li><a href="#hosting-options">Hosting options</a></li>
+        <li><a href="#coding-practices">Coding practices</a></li>
+        <li><a href="#key-vault">Key Vault</a></li>
+        <li><a href="#penetration-testing">Penetration testing</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">About Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

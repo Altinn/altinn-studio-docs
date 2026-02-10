@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="How to work with NuGet packages in Altinn" />
+<meta name="altinn_pagedir" class="elastic" content="community/contributing/handbook/back-end/nuget-package/" />
+<meta name="altinn_title" class="elastic" content="NuGet Package" />
+
+
+
+<title>NuGet Package – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/community/contributing/handbook/back-end/nuget-package/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Produkt</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/authorization/">
+      <p class="product-item">Autorisasjon</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/broker/">
+      <p class="product-item">Formidling</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/">
+      <p class="product-item">Melding</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/notifications/">
+      <p class="product-item">Varsling</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Søk</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/nb.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/community/contributing/handbook/back-end/nuget-package/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/community/contributing/handbook/back-end/nuget-package/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">Hva leter du etter?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Søk');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Sist endret: 29. sep. 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/nb/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/about/"><span>Om</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/about/open-source/"><span>Åpen kildekode</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/about/goals/"><span>Mål</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/"><span>Bidra til utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/propose-component/"><span>Foreslå en ny komponent</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/develop-component/"><span>Utvikle en komponent</span></a></li><li class="dd-item">
+          <a href="/nb/community/contributing/intro/">
+            <span>Intro for utviklere</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/"><span>Håndbok</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/azure-devops/pipelines/"><span>Pipelines</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/azure-storage/"><span>Azure Storage</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/azure-storage/tools/"><span>Tools &amp; Software</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/azure-storage/queues/"><span>Queues</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/back-end/"><span>Back-end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/back-end/app-template-and-deps/"><span>App template and deps</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/back-end/async-programming/"><span>Async programming</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/back-end/error-flow/"><span>Error flow</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/back-end/exception-handling/"><span>Exception handling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/back-end/logging/"><span>Logging</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/back-end/nuget-package/"><span>NuGet Package</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/back-end/swagger/"><span>Swagger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/general/"><span>Cheat Sheet</span></a></li><li class="dd-item">
+          <a href="/nb/community/contributing/handbook/cosmosdb/">
+            <span>Cosmos DB</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/deployment/"><span>Deployment</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/docker/"><span>Docker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/nb/community/contributing/handbook/docker/with-docker-desktop/">
+            <span>Install Docker with Docker Desktop</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/docker/without-docker-desktop/"><span>Install Docker without Docker Desktop</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/nb/community/contributing/handbook/docker/without-docker-desktop/macos/">
+            <span>macOS</span></a></li><li class="dd-item">
+          <a href="/nb/community/contributing/handbook/docker/without-docker-desktop/windows/">
+            <span>Windows</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/front-end/"><span>Front-end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/front-end/getting-started/"><span>Getting started</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/front-end/studio-component/"><span>Studio components</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/front-end/developing/"><span>Developing locally</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/front-end/routine/"><span>Routines for development</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/front-end/new-component/"><span>Creating components</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/front-end/react/"><span>React</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/front-end/redux/"><span>Redux</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/front-end/debug/"><span>Debug</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/front-end/best-practices/"><span>Best practices</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/front-end/build/"><span>Build</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/front-end/component-library/"><span>Component Library</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/front-end/error-handling/"><span>Error handling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/front-end/postmessage/"><span>Post Message</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/front-end/styling/"><span>Styling (css)</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/front-end/versioning/"><span>Versioning</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/cheatsheet/"><span>General</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/getting-started/"><span>Getting started</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/git/"><span>Git</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/naming/"><span>Naming Conventions</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/loadbalancer/"><span>Nginx loadbalancing in studio</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/loadbalancer/ssl-certificate/"><span>Nginx SSL/TLS certificate</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/postgres/"><span>PostgreSQL</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/nb/community/contributing/handbook/postgres/best-practice-postgresql/">
+            <span>Best practice</span></a></li><li class="dd-item">
+          <a href="/nb/community/contributing/handbook/postgres/sample-queries/">
+            <span>Sample queries</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/rest/"><span>RESTful APIs (Representation State Transfer)</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/routing/"><span>Routing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/routing/nginx/"><span>Nginx routing</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/routing/traefik/"><span>Traefik routing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/routing/traefik/installation/"><span>Installation of Traefik 2.0</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/routing/traefik/tls-configuration/"><span>TLS in Traefik 2.0</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/routing/traefik/custom-resources/"><span>Traefik custom resources</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/securecoding/"><span>Secure DevOps</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/test/"><span>Test</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/test/automated-test-app/"><span>App for automated test</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/test/cypress/"><span>Cypress</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/test/k6/"><span>k6</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/test/postman/"><span>Postman</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/test/test-strategy/"><span>Test Strategy</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/test/unit-testing/"><span>Unit testing</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/test/xunit-testing/"><span>Xunit Testing</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/branching/"><span>Branching and Pull Requests</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/flight-rules/"><span>Flight Rules</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/gitea/"><span>Gitea</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/reusable-resources/"><span>Reusable resources</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/theming/"><span>Theming and styling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/contributing/handbook/troubleshooting/"><span>Troubleshooting</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/"><span>Endringslogg</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/"><span>App frontend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/v4/"><span>v4</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/v4/migrating-from-v3/"><span>Migrering fra v3</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/v3/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/v3/whats-new/"><span>Hva er nytt?</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-frontend/stricter-schema/"><span>JsonSchema</span></a></li><li class="dd-item">
+          <a href="/nb/community/changelog/app-frontend/designsystem-update/">
+            <span>Visuelle endringer</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/"><span>App nuget</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v8/"><span>v8</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v8/migrating-from-v7/"><span>Migrering fra v7</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v7/"><span>v7</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v7/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v7/whats-new/"><span>Hva er nytt?</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v6/"><span>v6</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v6/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v6/whats-new/"><span>Hva er nytt?</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v5/"><span>v5</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v5/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v5/whats-new/"><span>Hva er nytt?</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v4/"><span>v4</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v4/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v4/whats-new/"><span>Hva er nytt?</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v3/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/v3/whats-new/"><span>Hva er nytt?</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/older/"><span>Older</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/older/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/app-nuget/older/whats-new/"><span>What&#39;s new</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/deployment/"><span>Deployment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/deployment/migration/"><span>Migrering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/deployment/v1/"><span>v1</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/deployment/v1/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/deployment/v1/whats-new/"><span>Hva er nytt</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/deployment/v2/"><span>v2</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/deployment/v2/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/deployment/v2/whats-new/"><span>Hva er nytt</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/deployment/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/deployment/v3/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/deployment/v3/whats-new/"><span>Hva er nytt</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/storage-interfaces/"><span>Storage Interface</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/storage-interfaces/v3/"><span>v3</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/changelog/storage-interfaces/v2/"><span>v2</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/roadmap/"><span>Roadmap</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/devops/"><span>DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/devops/definition-of-ready/"><span>Definition of Ready</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/devops/roadmapprocess/"><span>Roadmap prosess</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/devops/teams/"><span>Teams</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/devops/teams/apps/"><span>Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/devops/teams/authorization/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/community/devops/teams/authorization/designfrontendprocess/"><span>Desgin/Frontend prosess</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/devops/teams/platform/"><span>Platform</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/community/devops/teams/studio/"><span>Studio</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/community/presentations/"><span>Presentasjoner</span></a></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/nb/community/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/community/contributing/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/community/contributing/handbook/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/community/contributing/handbook/back-end/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/community/contributing/handbook/back-end/nuget-package/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/nb/community/'>Community</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/community/contributing/'>Bidra til utvikling</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/community/contributing/handbook/'>Håndbok</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/community/contributing/handbook/back-end/'>Back-end</a> <span class='adocs-breadcrumb-divider'> / </span> NuGet Package</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">NuGet Package</h1>
+              <p class="a-leadText" id="leadText">How to work with NuGet packages in Altinn</p>
+
+<p>Altinn has published a number of nuget packages to share common libraries between different solutions.
+<a href="https://www.nuget.org/">You can read more about NuGet.</a>.</p>
+<p>All NuGet packages are available for download <a href="https://www.nuget.org/profiles/altinn">here</a></p>
+<p>This page covers how to set up your project to support the publishing of NuGet packages, both manual and automated,
+as well as developer workflows in both cases.</p>
+<ul>
+<li><a href="#github-automated-procedures">GitHub automated procedures</a>
+<ul>
+<li><a href="#project-setup">Project setup</a></li>
+<li><a href="#github-setup">GitHub setup</a></li>
+<li><a href="#package-creation">Package creation</a></li>
+<li><a href="#development-lifecycle">Development lifecycle</a></li>
+</ul>
+</li>
+<li><a href="#manual-procedures">Manual procedures</a>
+<ul>
+<li><a href="#project-setup-1">Project setup</a></li>
+<li><a href="#package-creation-1">Package creation</a></li>
+<li><a href="#development-lifecycle-1">Development lifecycle</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="github-automated-procedures">GitHub automated procedures</h2>
+<p>We use GitHub workflows and <a href="https://github.com/adamralph/minver">MinVer</a> to enable the automation of both
+package generation and publishing.</p>
+<h3 id="project-setup">Project setup</h3>
+<ol>
+<li>
+<p><strong>Clean up the .csproj file to not interfere with the MinVer versioning</strong></p>
+<p>The following properties should be removed from the <code>PropertyGroup</code> section of the .csproj file:</p>
+<ul>
+<li>AssemblyVersion</li>
+<li>FileVersion</li>
+<li>PackageVersion</li>
+<li>IncludeSymbols</li>
+<li>SymbolPackageFormat</li>
+</ul>
+</li>
+<li>
+<p>Add a <code>Directory.Build.props</code> file to the root of the <em>src</em> folder and copy the content below.</p>
+<p>NB! Check if newer versions of the nuget packages are available.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;Project&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;ItemGroup&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;MinVer&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;4.2.0&#34;</span> <span style="color:#50fa7b">PrivateAssets=</span><span style="color:#f1fa8c">&#34;All&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Microsoft.NETFramework.ReferenceAssemblies&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.0.3&#34;</span> <span style="color:#50fa7b">PrivateAssets=</span><span style="color:#f1fa8c">&#34;All&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/ItemGroup&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;PropertyGroup&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;RepoRoot&gt;</span>$([System.IO.Directory]::GetParent($(MSBuildThisFileDirectory)).Parent.FullName)<span style="color:#ff79c6">&lt;/RepoRoot&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;MinVerDefaultPreReleasePhase&gt;</span>preview<span style="color:#ff79c6">&lt;/MinVerDefaultPreReleasePhase&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;GenerateDocumentationFile&gt;</span>true<span style="color:#ff79c6">&lt;/GenerateDocumentationFile&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;LangVersion&gt;</span>10.0<span style="color:#ff79c6">&lt;/LangVersion&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/PropertyGroup&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;Target</span> <span style="color:#50fa7b">Name=</span><span style="color:#f1fa8c">&#34;AssemblyVersionTarget&#34;</span> <span style="color:#50fa7b">AfterTargets=</span><span style="color:#f1fa8c">&#34;MinVer&#34;</span> <span style="color:#50fa7b">Condition=</span><span style="color:#f1fa8c">&#34;&#39;$(BuildNumber)&#39; != &#39;&#39;&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;PropertyGroup&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;FileVersion&gt;</span>$(MinVerMajor).$(MinVerMinor).$(MinVerPatch).$(BuildNumber)<span style="color:#ff79c6">&lt;/FileVersion&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;Version&gt;</span>$(MinVerMajor).$(MinVerMinor).$(MinVerPatch).$(BuildNumber)<span style="color:#ff79c6">&lt;/Version&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;AssemblyVersion&gt;</span>$(MinVerMajor).$(MinVerMinor).$(MinVerPatch).$(BuildNumber)<span style="color:#ff79c6">&lt;/AssemblyVersion&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;MinVerTagPrefix</span> <span style="color:#50fa7b">Condition=</span><span style="color:#f1fa8c">&#34;&#39;$(MinVerTagPrefix)&#39; == &#39;&#39;&#34;</span><span style="color:#ff79c6">&gt;</span>$(PackageId).<span style="color:#ff79c6">&lt;/MinVerTagPrefix&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/PropertyGroup&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/Target&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;PropertyGroup</span> <span style="color:#50fa7b">Label=</span><span style="color:#f1fa8c">&#34;SourceLink&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;PublishRepositoryUrl&gt;</span>true<span style="color:#ff79c6">&lt;/PublishRepositoryUrl&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;EmbedUntrackedSources&gt;</span>true<span style="color:#ff79c6">&lt;/EmbedUntrackedSources&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;IncludeSymbols&gt;</span>true<span style="color:#ff79c6">&lt;/IncludeSymbols&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;SymbolPackageFormat&gt;</span>snupkg<span style="color:#ff79c6">&lt;/SymbolPackageFormat&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/PropertyGroup&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;ItemGroup</span> <span style="color:#50fa7b">Condition=</span><span style="color:#f1fa8c">&#34;&#39;$(Deterministic)&#39;==&#39;true&#39;&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;SourceRoot</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;$(MSBuildThisFileDirectory)/&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/ItemGroup&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;PropertyGroup</span> <span style="color:#50fa7b">Condition=</span><span style="color:#f1fa8c">&#34;&#39;$(Deterministic)&#39;==&#39;true&#39;&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;ContinuousIntegrationBuild&gt;</span>true<span style="color:#ff79c6">&lt;/ContinuousIntegrationBuild&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/PropertyGroup&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/Project&gt;</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Add a <code>Directory.Build.targets</code> file to the root of the <em>src</em> folder and copy the content below.</p>
+<p>NB! Check if newer versions of the nuget packages are available.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;Project&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;ItemGroup&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;PackageReference</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;Microsoft.SourceLink.GitHub&#34;</span> <span style="color:#50fa7b">Version=</span><span style="color:#f1fa8c">&#34;1.1.1&#34;</span> <span style="color:#50fa7b">Condition=</span><span style="color:#f1fa8c">&#34;&#39;$(IntegrationBuild)&#39; != &#39;true&#39;&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;PrivateAssets&gt;</span>all<span style="color:#ff79c6">&lt;/PrivateAssets&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&lt;IncludeAssets&gt;</span>runtime; build; native; contentfiles; analyzers<span style="color:#ff79c6">&lt;/IncludeAssets&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/PackageReference&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/ItemGroup&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;PropertyGroup&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;TargetFrameworkMonikerAssemblyAttributesPath&gt;</span>$([System.IO.Path]::Combine(&#39;$(IntermediateOutputPath)&#39;,&#39;$(TargetFrameworkMoniker).AssemblyAttributes$(DefaultLanguageSourceExtension)&#39;))<span style="color:#ff79c6">&lt;/TargetFrameworkMonikerAssemblyAttributesPath&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/PropertyGroup&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;ItemGroup&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;EmbeddedFiles</span> <span style="color:#50fa7b">Include=</span><span style="color:#f1fa8c">&#34;$(GeneratedAssemblyInfoFile)&#34;</span> <span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/ItemGroup&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/Project&gt;</span>
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="github-setup">GitHub setup</h3>
+<ol>
+<li>
+<p><strong>Generate an API key with publishing rights for the library on nuget.org</strong></p>
+<p>A few key points for the key setup:</p>
+<ul>
+<li>choose a descriptive name, to know which key to rotate when. E.g. <code>altinn-access-token-publish-pipeline</code></li>
+<li>if the repository or solution includes multiple libraries,
+find a matching global pattern to limit which packages the key is applicable to</li>
+</ul>
+</li>
+<li>
+<p><strong>Add the API key as a secret to the repository under the name <code>NUGET_API_KEY</code></strong></p>
+<p><a href="https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository">Please refer to GitHub&rsquo;s documentation on creating secrets</a></p>
+</li>
+<li>
+<p><strong>Set up a workflow for packing and publishing the library</strong></p>
+<p>We assume the basics of GitHub workflow&rsquo;s are known here. Make sure to change all references to
+<em>Altinn.Common.AccessTokenClient</em> in the example before using it in your repository.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#ff79c6">name</span>: Pack and publish NuGet packages
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">on</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">release</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">types</span>:
+</span></span><span style="display:flex;"><span>      - published
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">jobs</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">build-pack</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">runs-on</span>: ubuntu-latest
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">steps</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ff79c6">uses</span>: actions/checkout@v3
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">with</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">fetch-depth</span>: <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ff79c6">name</span>: Install dotnet
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">uses</span>: actions/setup-dotnet@v3
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">with</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">dotnet-version</span>: <span style="color:#bd93f9">8.0</span>.x
+</span></span><span style="display:flex;"><span>      - <span style="color:#ff79c6">name</span>: Install deps
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">run</span>: |<span style="color:#f1fa8c">
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">          cd src/Altinn.Common.AccessTokenClient
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">          dotnet restore</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ff79c6">name</span>: Build AccessTokenClient
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span>: startsWith(github.ref, &#39;refs/tags/Altinn.Common.AccessTokenClient-&#39;)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">run</span>: |<span style="color:#f1fa8c">
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">          cd src/Altinn.Common.AccessTokenClient
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">          dotnet build --configuration Release --no-restore -p:Deterministic=true -p:BuildNumber=${{ github.run_number }}</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ff79c6">name</span>: Pack and publish AccessTokenClient
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span>: startsWith(github.ref, &#39;refs/tags/Altinn.Common.AccessTokenClient-&#39;)
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">run</span>: |<span style="color:#f1fa8c">
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">          cd src/Altinn.Common.AccessTokenClient
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">          dotnet pack Altinn.Common.AccessTokenClient.csproj --configuration Release --no-restore --no-build -p:BuildNumber=${{ github.run_number }} -p:Deterministic=true
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">          dotnet nuget push bin/Release/*.nupkg --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}       </span>
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="package-creation">Package creation</h3>
+<p>Package creation is triggered by a new tag being added to the GitHub repository.
+On creation, the workflow will run and depending on the created tag matching the <em>if</em>-condition
+for the various steps, the building and publishing the NuGet package will commence.</p>
+<h3 id="development-lifecycle">Development lifecycle</h3>
+<ol>
+<li>
+<p>Implement all changes necessary in the NuGet package project.</p>
+</li>
+<li>
+<p>Submit a pull request on these changes and merge changes into main.</p>
+</li>
+<li>
+<p>Create and publish a new preview release in the GitHub repository. The tag should match the name and version of the nuget package.</p>
+<p>e.g: Altinn.Common.AccessTokenClient-1.2.0-preview</p>
+</li>
+<li>
+<p>Once feature is tested ok, create a new release with an updated final tag</p>
+<p>e.g. or Altinn.Common.AccessTokenClient-1.2.0</p>
+</li>
+</ol>
+<h2 id="manual-procedures">Manual procedures</h2>
+<h3 id="project-setup-1">Project setup</h3>
+<p>To manually work with nuget packages the configuration below is required in the <em>.csproj</em> file of the project.</p>
+<p>Below is an example of the required values to be able to produce nuget packages. Be sure to update the highlighted
+lines to reflect your project. All properties below are contained in the <em>&lt;PropertyGroup&gt;</em> tag.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;OutputType&gt;</span>Library<span style="color:#ff79c6">&lt;/OutputType&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">&lt;!-- NuGet package properties --&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;IsPackable&gt;</span>true<span style="color:#ff79c6">&lt;/IsPackable&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">&lt;PackageId&gt;</span>Altinn.Common.AccessToken<span style="color:#ff79c6">&lt;/PackageId&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">&lt;PackageTags&gt;</span>Altinn;AccessToken<span style="color:#ff79c6">&lt;/PackageTags&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;Description&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>      Package to verify Access Tokens from client. Require public certificates stored in Azure KeyVault.
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/Description&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;Authors&gt;</span>Altinn Contributors<span style="color:#ff79c6">&lt;/Authors&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;RepositoryType&gt;</span>git<span style="color:#ff79c6">&lt;/RepositoryType&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;RepositoryUrl&gt;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>      https://github.com/Altinn/altinn-accesstoken
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/RepositoryUrl&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;IncludeSymbols&gt;</span>true<span style="color:#ff79c6">&lt;/IncludeSymbols&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&lt;/PropertyGroup&gt;</span>
+</span></span></code></pre></div><h3 id="package-creation-1">Package creation</h3>
+<p>Detailed documentation on how to create a NuGet package, guidelines etc can be
+found <a href="https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-using-visual-studio">here</a>.</p>
+<p>What follows is the common workflow that most Altinn developers use:</p>
+<ol>
+<li>Save the changes</li>
+<li>Open a command line utility like <em>git bash</em>, <em>powershell</em> or <em>cmd</em>.</li>
+<li>Navigate to the project folder.</li>
+<li>Build the project using <em>Release</em> configuration:<br>
+<code>dotnet build -c Release</code></li>
+<li>Pack the project into a NuGet package:<br>
+<code>dotnet pack -c Release --include-source -p:SymbolPackageFormat=snupkg</code><br>
+The package will now be created in <strong>{projectfolder}\bin\Release</strong>.</li>
+<li>Navigate to the release folder.</li>
+<li>Publish the package:<br>
+<code>dotnet nuget push Altinn.Common.AccessToken.2.5.10.snupkg -k [nuget api key] -s https://api.nuget.org/v3/index.json</code></li>
+<li>Your package will now be published to nuget.org</li>
+</ol>
+<h3 id="development-lifecycle-1">Development lifecycle</h3>
+<ol>
+<li>Implement all changes necessary in the NuGet package project. Remember to update the package version,
+assembly version and file version so they match.</li>
+<li>Submit a pull request on these changes only. No implementation on other projects should be included.</li>
+<li>Once pull request is approved and changes are merged into master;
+create and publish new NuGet package based on master branch.</li>
+<li>Continue with implementation, referencing the updated package wherever it is needed.</li>
+<li>Remember to update all outdated references to the package and check that all
+tests run successfully before submitting a final PR.</li>
+</ol>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/community/contributing/handbook/back-end/nuget-package/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#github-automated-procedures">GitHub automated procedures</a>
+      <ul>
+        <li><a href="#project-setup">Project setup</a></li>
+        <li><a href="#github-setup">GitHub setup</a></li>
+        <li><a href="#package-creation">Package creation</a></li>
+        <li><a href="#development-lifecycle">Development lifecycle</a></li>
+      </ul>
+    </li>
+    <li><a href="#manual-procedures">Manual procedures</a>
+      <ul>
+        <li><a href="#project-setup-1">Project setup</a></li>
+        <li><a href="#package-creation-1">Package creation</a></li>
+        <li><a href="#development-lifecycle-1">Development lifecycle</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

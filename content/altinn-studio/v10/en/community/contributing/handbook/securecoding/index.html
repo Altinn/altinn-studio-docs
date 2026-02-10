@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Security is an important concern in all phases of the DevOps cycle." />
+<meta name="altinn_pagedir" class="elastic" content="community/contributing/handbook/securecoding/" />
+<meta name="altinn_title" class="elastic" content="Secure DevOps" />
+
+
+
+<title>Secure DevOps – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/en/community/contributing/handbook/securecoding/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/en/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">To the frontpage</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Show/hide menu</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Product</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/en/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/authorization/">
+      <p class="product-item">Authorization</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/broker/">
+      <p class="product-item">Broker</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/correspondence/">
+      <p class="product-item">Correspondence</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/notifications/">
+      <p class="product-item">Notifications</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Search</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/en.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/community/contributing/handbook/securecoding/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/community/contributing/handbook/securecoding/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English ✓</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">What are you looking for?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Search');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Last modified: Sep 29, 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/en/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/about/goals/"><span>Goals</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/about/open-source/"><span>Open source</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/develop-component/"><span>Develop a component</span></a></li><li class="dd-item">
+          <a href="/en/community/contributing/intro/">
+            <span>Intro for developers</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/azure-devops/pipelines/"><span>Pipelines</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/azure-storage/"><span>Azure Storage</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/azure-storage/tools/"><span>Tools &amp; Software</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/azure-storage/queues/"><span>Queues</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/back-end/"><span>Back-end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/back-end/app-template-and-deps/"><span>App template and deps</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/back-end/async-programming/"><span>Async programming</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/back-end/error-flow/"><span>Error flow</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/back-end/exception-handling/"><span>Exception handling</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/back-end/logging/"><span>Logging</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/back-end/nuget-package/"><span>NuGet Package</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/back-end/swagger/"><span>Swagger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/general/"><span>Cheat Sheet</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/deployment/"><span>Deployment</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/docker/"><span>Docker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/docker/without-docker-desktop/"><span>Install Docker without Docker Desktop</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/"><span>Front-end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/getting-started/"><span>Getting started</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/studio-component/"><span>Studio components</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/developing/"><span>Developing locally</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/routine/"><span>Routines for development</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/new-component/"><span>Creating components</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/react/"><span>React</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/redux/"><span>Redux</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/debug/"><span>Debug</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/best-practices/"><span>Best practices</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/build/"><span>Build</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/component-library/"><span>Component Library</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/error-handling/"><span>Error handling</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/postmessage/"><span>Post Message</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/styling/"><span>Styling (css)</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/versioning/"><span>Versioning</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/cheatsheet/"><span>General</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/getting-started/"><span>Getting started</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/git/"><span>Git</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/naming/"><span>Naming Conventions</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/loadbalancer/"><span>Nginx loadbalancing in studio</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/loadbalancer/ssl-certificate/"><span>Nginx SSL/TLS certificate</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/postgres/"><span>PostgreSQL</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/rest/"><span>RESTful APIs (Representation State Transfer)</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/routing/"><span>Routing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/routing/nginx/"><span>Nginx routing</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/routing/traefik/"><span>Traefik routing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/routing/traefik/installation/"><span>Installation of Traefik 2.0</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/routing/traefik/tls-configuration/"><span>TLS in Traefik 2.0</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/routing/traefik/custom-resources/"><span>Traefik custom resources</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/en/community/contributing/handbook/securecoding/checklist/">
+            <span>Code Checklist</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/test/"><span>Test</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/test/automated-test-app/"><span>App for automated test</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/test/cypress/"><span>Cypress</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/test/k6/"><span>k6</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/test/postman/"><span>Postman</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/test/test-strategy/"><span>Test Strategy</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/test/unit-testing/"><span>Unit testing</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/test/xunit-testing/"><span>Xunit Testing</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/branching/"><span>Branching and Pull Requests</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/flight-rules/"><span>Flight Rules</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/gitea/"><span>Gitea</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/reusable-resources/"><span>Reusable resources</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/theming/"><span>Theming and styling</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/troubleshooting/"><span>Troubleshooting</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/"><span>Changelog</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-frontend/"><span>App frontend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-frontend/v4/"><span>v4</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-frontend/v4/migrating-from-v3/"><span>Migration from v3</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-frontend/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-frontend/v3/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-frontend/v3/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-frontend/stricter-schema/"><span>JsonSchema</span></a></li><li class="dd-item">
+          <a href="/en/community/changelog/app-frontend/designsystem-update/">
+            <span>Visual changes</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/"><span>App nuget</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v8/"><span>v8</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v8/migrating-from-v7/"><span>Migration from v7</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v7/"><span>v7</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v7/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v7/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v6/"><span>v6</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v6/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v6/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v5/"><span>v5</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v5/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v5/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v4/"><span>v4</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v4/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v4/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v3/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v3/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/older/"><span>Older</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/older/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/older/whats-new/"><span>What&#39;s new</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/"><span>Deployment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/migration/"><span>Migration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v1/"><span>v1</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v1/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v1/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v2/"><span>v2</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v2/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v2/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v3/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v3/whats-new/"><span>What&#39;s new</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/storage-interfaces/"><span>Storage Interface</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/storage-interfaces/v3/"><span>v3</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/storage-interfaces/v2/"><span>v2</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/roadmap/"><span>Roadmap</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/devops/"><span>DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/devops/definition-of-ready/"><span>Definition of Ready</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/devops/roadmapprocess/"><span>Roadmap prosess</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/devops/teams/"><span>Teams</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/devops/teams/apps/"><span>Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/devops/teams/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/devops/teams/authorization/designfrontendprocess/"><span>Desgin/Frontend prosess</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/devops/teams/platform/"><span>Platform</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/devops/teams/studio/"><span>Studio</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/presentations/"><span>Presentations</span></a></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/en/community/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/community/contributing/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/community/contributing/handbook/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/community/contributing/handbook/securecoding/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/en/community/'>Community</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/community/contributing/'>Contributing</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/community/contributing/handbook/'>Handbook</a> <span class='adocs-breadcrumb-divider'> / </span> Secure DevOps</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Secure DevOps</h1>
+              <p class="a-leadText" id="leadText">Security is an important concern in all phases of the DevOps cycle.</p>
+
+<p>Having a Secure DevOps process requires that security is built into the applications, the process, the infrastructure,
+and the configuration, and more.</p>
+<figure>
+<object title="Secure DevOps phases" data="/en/security/whitepaper/development/devops.svg" type="image/svg+xml"></object>
+<figcaption>Secure DevOps phases (clickable)</figcaption>
+</figure>
+<p>Below you find information on what kind of tools, patterns, and processes we follow to make sure we think about
+application and infrastructure security for all phases.</p>
+<h2 id="planning-phase">Planning phase</h2>
+<p>During the planning phase, the requirements for features are gathered. Already in this phase, we identify changes that
+need special security considerations. Typically this is done as part of grooming to reach <a href="/en/community/devops/definition-of-ready/">Definition
+of Ready</a>.</p>
+<p>We mark our security-related features and bugs with the label
+<a href="https://github.com/search?q=org%3AAltinn+label%3Akind%2Fsecurity&amp;type=issues">kind/security</a>.<br>
+If <a href="https://owasp.org/www-community/Threat_Modeling">threat modeling</a> is deemed necessary, the label
+<a href="https://github.com/search?q=org%3AAltinn+label%3Atm%2Fyes&amp;type=issues">tm/yes</a> is used to indicate this.</p>
+<p>Details of security-related issues and threat modeling are in many cases kept out of GitHub.</p>
+<h2 id="code-phase">Code phase</h2>
+<p>During the development of a feature, we have several processes and tools to help us creating secure code.</p>
+<h3 id="development-checklists">Development checklists</h3>
+<p>We have a development checklists that ensures that developers and reviewers consider the different security aspects.</p>
+<p>See <a href="/en/community/contributing/handbook/securecoding/checklist/">checklist</a>.</p>
+<h3 id="ide-and-tools">IDE and tools</h3>
+<p>We use both Visual Studio and Visual Studio Code. Those provide us with tools for static code analysis.</p>
+<ul>
+<li>StyleCop analyzes C# source code to enforce a set of style and consistency rules. <a href="https://github.com/DotNetAnalyzers/StyleCopAnalyzers">See
+project</a></li>
+<li><a href="https://docs.microsoft.com/en-us/visualstudio/code-quality/roslyn-analyzers-overview?view=vs-2019">Code Analysis</a>
+verifies the code after a <a href="https://github.com/Altinn/altinn-studio/blob/master/Altinn3.ruleset">ruleset defined by
+Altinn</a></li>
+</ul>
+<h3 id="unit-and-integration-tests">Unit and integration tests</h3>
+<p>As part of the coding process unit and integration-tests are created. Besides, to cover functionality, many of them
+cover security aspects like authentication and authorization.</p>
+<h2 id="build-phase">Build phase</h2>
+<p>Once a developer has finished coding a feature he/she must create a
+<a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">pull request</a>.</p>
+<h3 id="peer-reviews">Peer Reviews</h3>
+<p>All pull requests require peer review from at least one other team member.</p>
+<p>See <a href="https://github.com/search?q=org%3AAltinn++&amp;type=pullrequests&amp;state=open">active pull requests</a>.</p>
+<h3 id="run-unit-and-integration-tests">Run Unit and integration tests</h3>
+<p>As part of the build pipelines, all unit and integration tests are run. This makes sure that security functionality has
+not been broken.</p>
+<h3 id="codeql">CodeQL</h3>
+<p><a href="https://codeql.github.com/">CodeQL</a> is a code analysis platform for identifying vulnerabilities and preventing
+them from reaching production.</p>
+<p>This is run for every pull request.</p>
+<h3 id="sonar-cloud">Sonar Cloud</h3>
+<p>Every pull request is analyzed by <a href="https://www.sonarcloud.io/github">Sonar Cloud</a>.</p>
+<p>Sonar Cloud analyzes the code by a <a href="https://sonarcloud.io/organizations/altinn/rules">defined rule set</a> and checks the
+code against OWASP Top 10 and SANS Top 25.</p>
+<p>We have defined some <a href="https://sonarcloud.io/organizations/altinn/quality_gates/show/3829">quality gates</a> that the code
+need to adhere to to be able to merging pull request in to master. Our current active issues are available
+<a href="https://sonarcloud.io/organizations/altinn/issues?resolved=false">here</a>.</p>
+<h3 id="secret-scanning">Secret scanning</h3>
+<p><a href="https://docs.github.com/en/code-security/secret-scanning/about-secret-scanning">Secret scanning</a> in GitHub is used to
+prevent secrets from being committed to the source code accidentally.</p>
+<h2 id="test-phase">Test phase</h2>
+<p>Each feature added to our platform is tested.</p>
+<ul>
+<li>Integration tested with positive and negative tests for access control where possible</li>
+<li>Manual functional tests</li>
+<li>Manual security testing for selected features</li>
+</ul>
+<h3 id="dynamic-code-analysis">Dynamic code analysis.</h3>
+<p>We use different tools to perform dynamic code analysis.</p>
+<p>Some of the tools are:</p>
+<ul>
+<li><a href="https://www.hcltechsw.com/products/appscan">HCL AppScan</a></li>
+</ul>
+<p>We also regulary use third party security companies to go through our code and
+perform <a href="https://en.wikipedia.org/wiki/Penetration_test">pen testing</a>.</p>
+<h2 id="release-phase">Release phase</h2>
+<p>Releases are created automatically using <a href="https://github.com/features/actions">Github Actions</a>, and the configuration
+for this is part of each product repository.</p>
+<p>Release notes should also be
+<a href="https://docs.github.com/en/repositories/releasing-projects-on-github/automatically-generated-release-notes">generated automatically</a>.</p>
+<h2 id="deploy-phase">Deploy phase</h2>
+<p>Deployment of the code to test and production environments are done automatically using <a href="https://github.com/features/actions">Github
+Actions</a>, and the configuration for this is part of each product repository.</p>
+<p>Applications and products are deployed as containers to either
+<a href="https://learn.microsoft.com/en-us/azure/aks/concepts-security">Azure Kubernetes Services</a> or
+<a href="https://azure.microsoft.com/en-us/products/container-apps">Azure Container Apps</a>.</p>
+<h2 id="operate-phase">Operate phase</h2>
+<p>When the different applications are in production the DevOps team make sure that everything works as expected.</p>
+<h2 id="monitor-phase">Monitor phase</h2>
+<p>During the monitor phase, the team follows up on how the different solutions are working and identifying improvements
+and changes.</p>
+<p>We use different tools to identify security threats for our running applications.</p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview">Application Insights</a> presents log
+and traffic information making it possible to detect different types of attacks</li>
+<li><a href="https://azure.microsoft.com/nb-no/products/microsoft-sentinel">Sentinel</a> is used to monitor the infrastructure and
+<a href="https://en.wikipedia.org/wiki/Anomaly_detection">anomaly detection</a></li>
+<li>&hellip;</li>
+</ul>
+<h3 id="dependency-updates">Dependency updates</h3>
+<p>We use <a href="https://docs.renovatebot.com/">Renovate</a> and
+<a href="https://docs.github.com/en/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates">Dependabot</a>
+to monitor updates for dependencies.</p>
+<p>These tools can automatically create pull requests with updates in each repository, and each team merges these.</p>
+<ul class="children children-li js-moveChildrenFrom">
+
+	
+		<li>
+				<a href="/en/community/contributing/handbook/securecoding/checklist/">Code Checklist</a><p>Checklist for security OWASP.</p></li>
+	
+</ul>
+
+
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/community/contributing/handbook/securecoding/_index.en.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Edit page on GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#planning-phase">Planning phase</a></li>
+    <li><a href="#code-phase">Code phase</a>
+      <ul>
+        <li><a href="#development-checklists">Development checklists</a></li>
+        <li><a href="#ide-and-tools">IDE and tools</a></li>
+        <li><a href="#unit-and-integration-tests">Unit and integration tests</a></li>
+      </ul>
+    </li>
+    <li><a href="#build-phase">Build phase</a>
+      <ul>
+        <li><a href="#peer-reviews">Peer Reviews</a></li>
+        <li><a href="#run-unit-and-integration-tests">Run Unit and integration tests</a></li>
+        <li><a href="#codeql">CodeQL</a></li>
+        <li><a href="#sonar-cloud">Sonar Cloud</a></li>
+        <li><a href="#secret-scanning">Secret scanning</a></li>
+      </ul>
+    </li>
+    <li><a href="#test-phase">Test phase</a>
+      <ul>
+        <li><a href="#dynamic-code-analysis">Dynamic code analysis.</a></li>
+      </ul>
+    </li>
+    <li><a href="#release-phase">Release phase</a></li>
+    <li><a href="#deploy-phase">Deploy phase</a></li>
+    <li><a href="#operate-phase">Operate phase</a></li>
+    <li><a href="#monitor-phase">Monitor phase</a>
+      <ul>
+        <li><a href="#dependency-updates">Dependency updates</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">About Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

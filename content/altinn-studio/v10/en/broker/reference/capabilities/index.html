@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Altinn 3 Broker Capabilities and Features." />
+<meta name="altinn_pagedir" class="elastic" content="broker/reference/capabilities/" />
+<meta name="altinn_title" class="elastic" content="Capabilities" />
+<meta name="product" data-pagefind-filter="Product[content]" content="Broker" />
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="Reference" />
+
+<title>Capabilities – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/en/broker/reference/capabilities/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/en/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">To the frontpage</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Show/hide menu</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Product</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/en/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/authorization/">
+      <p class="product-item">Authorization</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/broker/">
+      <p class="product-item">Broker</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/correspondence/">
+      <p class="product-item">Correspondence</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/notifications/">
+      <p class="product-item">Notifications</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Search</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/en.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/broker/reference/capabilities/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/broker/reference/capabilities/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English ✓</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">What are you looking for?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Search');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Last modified: Sep 29, 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/en/broker/"><span>Broker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/about/"><span>About Broker</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/what-do-you-get/"><span>What do you get?</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/"><span>Getting Started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/common-steps/"><span>Common Steps</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/service-owner/"><span>Service Owner</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/developer-guides/"><span>Developer guides</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/developer-guides/send-files/"><span>Send files</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/developer-guides/receive-files/"><span>Receive Files</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/developer-guides/service-owner/"><span>Service Owner</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/developer-guides/events/"><span>Events</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/broker/explanation/"><span>Concepts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/explanation/basic-concepts/"><span>Basic Concepts</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/explanation/very-large-files/"><span>Large Files</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/"><span>Transition Solution</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/about/"><span>About Transition Solution</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/getting-started/"><span>Getting Started</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/technical-overview/"><span>Technical Overview</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/usage/"><span>Usage</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/usage/rest/"><span>Usage Rest</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/usage/soap/"><span>Usage SOAP</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/broker/reference/"><span>Reference documentation</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/reference/terminology/"><span>Terminology</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/reference/system-interfaces/"><span>System Interfaces</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/reference/capabilities/"><span>Capabilities</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/reference/rate-limits/"><span>Rate Limits</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/reference/solution-architecture/"><span>Solution Architecture</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/reference/security/"><span>Security</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/en/broker/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/broker/reference/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/broker/reference/capabilities/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/en/broker/'>Broker</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/broker/reference/'>Reference documentation</a> <span class='adocs-breadcrumb-divider'> / </span> Capabilities</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Capabilities</h1>
+              <p class="a-leadText" id="leadText">Altinn 3 Broker Capabilities and Features.</p>
+
+<h2 id="organization-of-capabilities---value-stream-stages">Organization of capabilities - value stream stages</h2>
+<p>Defining capabilities and features within value stream stages gives context to
+the naming and descriptions of the capabilities.
+The following figure shows a value stream model for Altinn Broker and the main types of users,
+i.e. senders (data providers),  recipients (data consumers), and service owners.</p>
+<p><figure>
+    <a href="altinn3-broker-value-stream-model.en.png">
+        <img src="altinn3-broker-value-stream-model.en.png" alt="Altinn 3 Broker high level value stream stages" title="Altinn 3 Broker high level value stream stages">
+    </a>
+    <figcaption><em>Altinn 3 Broker high level value stream stages</em></figcaption>
+  </figure></p>
+<!--
+[<figure><img src="./Altinn%203%20Broker%20high%20level%20value%20streams%20%28en%20%29.png"
+    alt="Alt-text"><figcaption>
+      <h4>Figure: Altinn 3 Broker high level value streams</h4>
+    </figcaption>
+</figure>
+](https://altinn.github.io/ark/models/archi-all/?view=id-10895c7502b84511bb272d77e91ecb00)
+-->
+<h2 id="high-level-user-needs">High level user needs</h2>
+<p>To see the capabilities required by the Altinn Broker solution,
+we start by considering the user needs.
+The following diagram expresses the high level user needs for each value stream stage.</p>
+<p><figure>
+    <a href="high-level-user-needs-for-managed-file-transfer.en.png">
+        <img src="high-level-user-needs-for-managed-file-transfer.en.png" alt="High Level User Needs for Managed File Transfer" title="High Level User Needs for Managed File Transfer">
+    </a>
+    <figcaption><em>High Level User Needs for Managed File Transfer</em></figcaption>
+  </figure></p>
+<p>The user needs are here expressed as high level user stories, or epics,
+corresponding to user capabilities,
+i.e. what the users need to be capable of.</p>
+<!--
+_Note: This way of expressing used needs as  high level user stories, or epics, 
+is in line with by common frameworks for  agile development. See e.g. [the Scaled Agile Framework for Enterprises (SAFe)](https://scaledagileframework.com/)._
+-->
+<p>Examples of how to read the diagram:</p>
+<ul>
+<li>As a Service Owner, I need (the ability) to facilitate secure and user friendly solutions for transfer of large files.</li>
+<li>As a Sender, I need (the ability) to send large files to one or more recipients.</li>
+</ul>
+<h2 id="high-level-system-capabilities">High-level system capabilities</h2>
+<p>The following model shows the high-level system capabilities for each value stream stage,
+corresponding to the high user needs as expressed in the previous section.</p>
+<p><em>Note: The system capabilities does not need to match the user epics (or capabilities)
+on a on-to-one basis,
+though this may as well be so in many cases.</em></p>
+<p><figure>
+    <a href="altinn3-broker-high-level-capabilities.en.png">
+        <img src="altinn3-broker-high-level-capabilities.en.png" alt="Altinn 3 Broker High Level Capabilities" title="Altinn 3 Broker High Level Capabilities">
+    </a>
+    <figcaption><em>Altinn 3 Broker High Level Capabilities</em></figcaption>
+  </figure></p>
+<!-- Erik TO_DO: Diagram with mapping from user needs (or user capabilities) to system capabilities -->
+<h2 id="system-features">System features</h2>
+<p>For further breakdown of the high-level system capabilities into features, see the <a href="https://github.com/orgs/Altinn/projects/54/views/11">Altinn Broker epics on Github</a>.</p>
+<p><em>Note: Documentation of the breakdown into features is planned to also be included here.</em></p>
+<h2 id="non-functional-requirements">Non-functional requirements</h2>
+<p>Performance Requirements:</p>
+<ul>
+<li>Support for storage and transfer of large files. <em>Note: Exact file size specifications TBD.</em></li>
+<li>High throughput to handle large volumes of data transactions efficiently.</li>
+<li>Low latency in data processing and transmission.</li>
+</ul>
+<p>Scalability:</p>
+<ul>
+<li>Ability to scale up or down based on the demand and number of users.</li>
+<li>Support for horizontal and vertical scaling strategies.</li>
+</ul>
+<p>Availability and Reliability:</p>
+<ul>
+<li>High availability, aiming for near 100% uptime.</li>
+<li>Robust failover and redundancy mechanisms to ensure continuous  operation.</li>
+<li>Reliable file transfers. <em>Note: Detailed requirements TBD.</em></li>
+</ul>
+<p>Security:</p>
+<ul>
+<li>Strong encryption for data in transit and at rest.</li>
+<li>Comprehensive access control and authentication mechanisms.</li>
+<li>Regular security audits and compliance with relevant data protection regulations.</li>
+</ul>
+<p>Maintainability and Upgradability:</p>
+<ul>
+<li>Ease of maintenance and updates without significant downtime.</li>
+<li>Modular design to facilitate updates and integration of new features.</li>
+</ul>
+<p>Disaster Recovery and Data Backup:</p>
+<ul>
+<li>Effective disaster recovery plan to handle system failures.</li>
+<li>Regular data backups and secure storage solutions.</li>
+</ul>
+<p>Usability:</p>
+<ul>
+<li>User-friendly interface for both administrators and end-users.</li>
+<li>Comprehensive documentation and user support.</li>
+</ul>
+<p>Interoperability:</p>
+<ul>
+<li>Compatibility with various data formats and systems used by businesses
+and government agencies.</li>
+<li>APIs for integration with external systems and services.</li>
+</ul>
+<p>Compliance and Legal Requirements:</p>
+<ul>
+<li>Adherence to national and international standards and regulations.</li>
+<li>Regular compliance audits and updates as per legal changes.</li>
+</ul>
+<p>Monitoring and Logging:</p>
+<ul>
+<li>Extensive monitoring of system performance and security.</li>
+<li>Detailed logging of transactions and user activities for audit
+purposes.</li>
+</ul>
+<p>Data Integrity and Quality:</p>
+<ul>
+<li>Mechanisms to ensure the accuracy and consistency of data.</li>
+<li>Validation checks to maintain data quality.</li>
+</ul>
+<p>Load Balancing:</p>
+<ul>
+<li>Effective distribution of workload across servers and resources.</li>
+<li>Load balancing to optimize resource use and maximize throughput.</li>
+</ul>
+<p>Environmental and Operational Conditions:</p>
+<ul>
+<li>Designed to operate under the specified environmental conditions
+(e.g., data center temperature and humidity).</li>
+<li>Consideration for operational conditions like power consumption and
+cooling requirements.</li>
+</ul>
+<p>Also see:</p>
+<ol>
+<li><a href="https://docs.altinn.studio/en/technology/architecture/requirements/non_functional/">Altinn Studio Non-Functional Requirements</a></li>
+<li>Further descriptions regarding information security in separate sections.</li>
+</ol>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/broker/reference/capabilities/_index.en.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Edit page on GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#organization-of-capabilities---value-stream-stages">Organization of capabilities - value stream stages</a></li>
+    <li><a href="#high-level-user-needs">High level user needs</a></li>
+    <li><a href="#high-level-system-capabilities">High-level system capabilities</a></li>
+    <li><a href="#system-features">System features</a></li>
+    <li><a href="#non-functional-requirements">Non-functional requirements</a></li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">About Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

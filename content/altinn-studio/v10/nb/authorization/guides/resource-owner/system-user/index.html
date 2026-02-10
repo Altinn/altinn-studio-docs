@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="En veiledning for tjenesteeiere for å registrere sin ressurs med Altinn og etablere systembrukerintegrasjonen." />
+<meta name="altinn_pagedir" class="elastic" content="authorization/guides/resource-owner/system-user/" />
+<meta name="altinn_title" class="elastic" content="Systembruker for tjenesteeier" />
+<meta name="product" data-pagefind-filter="Produkt[content]" content="Autorisasjon" />
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="Guider" />
+
+<title>Systembruker for tjenesteeier – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/authorization/guides/resource-owner/system-user/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Produkt</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/authorization/">
+      <p class="product-item">Autorisasjon</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/broker/">
+      <p class="product-item">Formidling</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/">
+      <p class="product-item">Melding</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/notifications/">
+      <p class="product-item">Varsling</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Søk</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/nb.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/authorization/guides/resource-owner/system-user/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/authorization/guides/resource-owner/system-user/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">Hva leter du etter?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Søk');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Sist endret: 13. okt. 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/nb/authorization/"><span>Autorisasjon</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/about/"><span>Om Altinn Autorisasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/"><span>Hva får du?</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/authentication/"><span>Autentisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/rules/"><span>Autorisasjonsregler</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/"><span>Tilgangspakker og roller</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/"><span>Fullmaktsområder og tilgangspakker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/"><span>Administrere tilganger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/andretjenesteytende/"><span>Andre tjenesteytende næringer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/"><span>Bygg, anlegg og eiendom</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/energivannavlopavfall/"><span>Energi, vann, avløp og avfall</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/forholdvedvirksomheten/"><span>Forhold ved virksomheten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/forretningsforer/"><span>Forretningsfører</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/handelovernatting/"><span>Handel, overnatting og servering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/helsepleieomsorgvern/"><span>Helse, pleie, omsorg og vern</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/industrier/"><span>Industrier</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/integrasjoner/"><span>Integrasjoner</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/jordbrukskogbrukjaktfiskeakvakultur/"><span>Jordbruk, skogbruk, jakt, fiske og akvakultur</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/konkursbo/"><span>Konkursbo</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/kulturfrivillighet/"><span>Kultur og frivillighet</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/miljoulykkesikkerhet/"><span>Miljø, ulykke og sikkerhet</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/oppvekstutdanning/"><span>Oppvekst og utdanning</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/personale/"><span>Personale</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/postogarkiv/"><span>Post og arkiv</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/regnskapsforer/"><span>Regnskapsfører</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/revisor/"><span>Revisor</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/skattavgiftregnskaptoll/"><span>Skatt, avgift, regnskap og toll</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/transportoglagring/"><span>Transport og lagring</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/register_er/"><span>Fra Enhetsregisteret</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/register_er/knytning_org/"><span>Virksomhetsknytninger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/"><span>Innbyggere</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/arbeidslivskoleutdanning/"><span>Arbeidsliv, skole og utdanning</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/familiefritid/"><span>Familie og fritid</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/helseomsorg/"><span>Helse og omsorg</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/kulturidrettfrivillighet/"><span>Kultur, idrett og frivillighet</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/patentersertifikaterattester/"><span>Patenter, sertifikater og attester</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/privatperson/"><span>Privatperson</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/skattavgiftbankforsikring/"><span>Skatt, avgift, bank og forsikring</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/verger/"><span>Vergemal</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/resourceadministration/"><span>Ressursadministrasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/resourceadministration/studio/"><span>Ressurs Admin</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessmanagement/"><span>Tilgangsstyring</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accesscontrol/"><span>Tilgangskontroll</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/consent/"><span>Samtykke</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/systemuser/"><span>Systembruker</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/terms/"><span>Ordliste</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/authentication/"><span>Autentisering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/authentication/maskinporten/"><span>Maskinporten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/authentication/id-porten/"><span>ID-porten</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/maskinportenclient/"><span>Maskinporten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/resourceadministration/"><span>Ressursadministrasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/consent/"><span>Samtykke</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/systemuser/"><span>Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/enterpriseuser/"><span>Virksomhetsbrukere</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/"><span>Guider</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/"><span>Sluttbruker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/api-scheme/"><span>Delegerbare API ressurser</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/api-scheme/api-user/"><span>API-bruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/api-scheme/access-manager/"><span>Tilgangsstyrer</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/"><span>Systemtilgang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/accept-request/"><span>Godkjenne</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/delegate-clients/"><span>Klientdelegering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/setup-client-relationship/"><span>Sette opp klientforhold</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/create-systemuser/"><span>Opprett systemtilgang</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/delete-system-user/"><span>Slett systembruker</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/"><span>Systemleverandør</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/client-admin/"><span>Klientadministrasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/consent/"><span>Samtykke</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/consent/request/"><span>Be om samtykke</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/consent/retrieve-token/"><span>Hente samtykke-token</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/consent/behalf-of/"><span>På vegne av andre</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/"><span>Systembruker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/systemregistration/"><span>Registrering av system</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/systemuserrequest/"><span>Opprette Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/deleterequest/"><span>Slette Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/usetoken/"><span>Bruk av Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/changerequest/"><span>Endre Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/client-delegation/"><span>Klientdelegering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/userscenarios/"><span>Brukerscenarier</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/democlient/"><span>Demoklient</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/"><span>Tjenesteeier</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/api-scheme/"><span>Delegerbare API ressurser</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/api-scheme/create-apischeme-api/"><span>API Scheme via API</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/api-scheme/create-apischeme-resource-admin/"><span>Opprette API Scheme</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/generic-access-resource/"><span>Generiske tilgangsressurser</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/generic-access-resource/integrating-link-service/"><span>Ekstern autorisasjon</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/migrate/"><span>Migrering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/migrate/linked_services/"><span>Migrering lenketjenester</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/create-resource-resource-admin/"><span>Opprette ressurser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/consent/"><span>Samtykke</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/consent/create-resource/"><span>Opprette samtykke</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/consent/validate-concent/"><span>Validere</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/system-user/"><span>Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/accesslist/"><span>Tilgangslister</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/accesslist/manage-accesslists-resource-admin/"><span>Administrasjon av tilgangslister</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/accesslist/manage-accesslist-api/"><span>Tilgangslisteadministrasjon i API</span></a></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/"><span>Referanse</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/referenceimplementations/"><span>Referanseimplementasjoner</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/referenceimplementations/smartcloud/"><span>SmartCloud</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/referenceimplementations/systemadmin/"><span>Systemadministrator</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/referenceimplementations/systemuserapi/"><span>Systembruker API</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/xacml/"><span>XACML</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/"><span>Arkitektur</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesstoken/"><span>Access Token</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/authentication/"><span>Autentisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/jwtcookie/"><span>JWT Cookie</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/register/"><span>Register</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/resourceregistry/"><span>Ressursregister</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/resourceregistry/rrr/"><span>RRR</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/acessgroups/"><span>Tilgangsgrupper</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesscontrol/"><span>Tilgangskontroll</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesscontrol/contexthandler/"><span>Konteksthåndterer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesscontrol/pip/"><span>PIP</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesscontrol/prp/"><span>PRP</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesscontrol/pep/"><span>PEP</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accessmanagment/"><span>Tilgangsstyring</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accessmanagment/pap/"><span>PAP</span></a></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/"><span>Fremdriftsplan</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/api-migration/"><span>Endring API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/api-migration/sbs-api/"><span>Sluttbrukersystem-API</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/api-migration/te-api/"><span>Tjenesteeier-API</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/servicemigrationplan/"><span>Flytte Tjenester</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/informasjon-sent/"><span>Informasjonsskriv</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/nb/authorization/migration/informasjon-sent/letter-api-resources/">
+            <span>Infoskriv API ressurser</span></a></li><li class="dd-item">
+          <a href="/nb/authorization/migration/informasjon-sent/letter-accessgroupes/">
+            <span>Høring tilgangspakker</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/new-accessgroups/"><span>Nye tilgangspakker</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/nb/authorization/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/authorization/guides/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/authorization/guides/resource-owner/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/authorization/guides/resource-owner/system-user/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/nb/authorization/'>Autorisasjon</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/authorization/guides/'>Guider</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/authorization/guides/resource-owner/'>Tjenesteeier</a> <span class='adocs-breadcrumb-divider'> / </span> Systembruker</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Systembruker for tjenesteeier</h1>
+              <p class="a-leadText" id="leadText">En veiledning for tjenesteeiere for å registrere sin ressurs med Altinn og etablere systembrukerintegrasjonen.</p>
+
+<h2 id="forutsetninger-for-tjenesteeier">Forutsetninger for Tjenesteeier</h2>
+<p>For å bruke systembruker som tjenesteeier, må følgende forutsetninger være oppfylt:</p>
+<ul>
+<li>Avtale med Maskinporten AS som <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apitilbyder">Tjenesteeier</a></li>
+<li>Avtale med Digdir for tilgang til ressursregisteret for å opprette ressurser.</li>
+<li>Oppretting av <a href="/nb/authorization/guides/resource-owner/create-resource-resource-admin/">nødvendige ressurser</a> som må autoriseres</li>
+<li>Tildelt scope for PDP-integrasjon</li>
+<li>Integrasjon med Altinn PDP</li>
+</ul>
+<h4 id="forberedelse-av-tjenesteeier-skatteetaten">Forberedelse av Tjenesteeier (Skatteetaten)</h4>
+<ol>
+<li>
+<p>Utvikling av tjenesten/API</p>
+<ul>
+<li>Tjenesteeier (Skatteetaten) må først utvikle API-et som skal brukes av eksterne parter, i dette tilfellet tjenesten &lsquo;Krav og betalinger&rsquo;</li>
+<li>Dette API-et gjør det mulig for brukere å hente utestående skatte og avgiftskrav fra Skatteetaten.</li>
+</ul>
+</li>
+<li>
+<p>Konfigurere tilgang i Maskinporten</p>
+<ul>
+<li>Skatteetaten oppretter deretter et scope i Maskinporten (f.eks. skatteetaten:kravogbetalinger).</li>
+<li>Dette scopet er knyttet til de relevante tilgangene og tildeles organisasjoner som trenger tilgang til denne tjenesten, som for eksempel SmartCloud AS (systemleverandøren).</li>
+</ul>
+</li>
+<li>
+<p>Registrering av ressurser i ressursregisteret</p>
+<ul>
+<li>
+<p>Den siste steg for Skatteetaten er å registrere en ressurs i <a href="/nb/api/resourceregistry/">ressursregisteret</a>, knytte den til scopet og definere tilgangsreglene for eksterne brukere. Dette kan være en app i Altinn Studio eller et API på tjenesteeieren sin egen plattform.</p>
+<p>se <a href="/nb/api/authentication/systemuserapi/">API dokumentasjon</a> for mer informasjon om tilgjengeleige endepunkter.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="etter-opprettelse-av-systembruker">Etter opprettelse av systembruker</h4>
+<h2 id="validering-av-maskinporten-token">Validering av Maskinporten token</h2>
+<p>Selve tokenet valideres som et standardisert Maskinporten token. <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apitilbyder">Les mer hos Maskinporten</a>.</p>
+<p>Et systembrukertoken inneholder en del flere detaljer enn et vanlig Maskinporten token.</p>
+<p>Nedenfor vises et eksempeltoken.</p>
+<h3 id="jwt-token">JWT Token</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;authorization_details&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:systemuser&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;systemuser_org&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;authority&#34;</span>: <span style="color:#f1fa8c">&#34;iso6523-actorid-upis&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;0192:314168267&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;systemuser_id&#34;</span>: [<span style="color:#f1fa8c">&#34;ebe4a681-0a8c-429e-a36f-8f9ca942b59f&#34;</span>],
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;system_id&#34;</span>: <span style="color:#f1fa8c">&#34;matrix_test&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;scope&#34;</span>: <span style="color:#f1fa8c">&#34;krr:global/kontaktinformasjon.read&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;iss&#34;</span>: <span style="color:#f1fa8c">&#34;https://test.maskinporten.no/&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;client_amr&#34;</span>: <span style="color:#f1fa8c">&#34;private_key_jwt&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;token_type&#34;</span>: <span style="color:#f1fa8c">&#34;Bearer&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;exp&#34;</span>: <span style="color:#bd93f9">1718175135</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;iat&#34;</span>: <span style="color:#bd93f9">1718175015</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;client_id&#34;</span>: <span style="color:#f1fa8c">&#34;fc9a8287-e7cb-45e5-b90e-123048d32d85&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;jti&#34;</span>: <span style="color:#f1fa8c">&#34;-SpfU--1Zn_Oqvkpjwu3oVn--VLcPzSAwjqyiP6zBEw&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;consumer&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;authority&#34;</span>: <span style="color:#f1fa8c">&#34;iso6523-actorid-upis&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;ID&#34;</span>: <span style="color:#f1fa8c">&#34;0192:314330897&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Verdiene som er viktige for tjenesteeier er.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Verdi</th>
+          <th>Betydning</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>authorization_details:systemuser_id</td>
+          <td>Unik id for systembrukeren. Det er denne verdien som Altinn trenger for å kunne autorisere tilgang. Det er denne som har fått delegert tilganger.</td>
+      </tr>
+      <tr>
+          <td>authorization_details:systemuser_org:id</td>
+          <td>Organisasjonen som har opprettet systembrukeren</td>
+      </tr>
+      <tr>
+          <td>authorization_details:system_id</td>
+          <td>Referanse til systemet som systembrukeren peker på</td>
+      </tr>
+      <tr>
+          <td>Consumer:id</td>
+          <td>Organisasjonsnr til systemleverandør (organisasjon som har autentisert seg mot Maskinporten)</td>
+      </tr>
+  </tbody>
+</table>
+<p>Se også dokumentasjon hos <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker">Maskinporten</a>.</p>
+<h2 id="autorisasjon-av-systembruker">Autorisasjon av systembruker</h2>
+<p>Tjenesteeier må kalle Altinn PDP for å autorisere tilgangen til systembrukeren. Dette gjøres ved å sende et kall til Altinn PDP.</p>
+<p>Tjenesteeier må konfigurere hvilke handlinger og ressurser som aksesseres via API-et for å bygge opp den totale forespørselen.</p>
+<p>Nedenfor vises et eksempel på et kall utført av systembruker <strong>a545ca29-7fb8-4810-a2f2-0be171cb2a26</strong> som prøver å gjøre en <strong>read</strong>-operasjon
+på en ressurs av typen <strong>kravogbetaling</strong> for organisasjonen <strong>923609016</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;Request&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;ReturnPolicyIdList&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;AccessSubject&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Attribute&#34;</span>: [
+</span></span><span style="display:flex;"><span>          {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;AttributeId&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:systemuser:uuid&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;Value&#34;</span>: <span style="color:#f1fa8c">&#34;a545ca29-7fb8-4810-a2f2-0be171cb2a26&#34;</span>
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;Action&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Attribute&#34;</span>: [
+</span></span><span style="display:flex;"><span>          {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;AttributeId&#34;</span>: <span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;Value&#34;</span>: <span style="color:#f1fa8c">&#34;read&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;DataType&#34;</span>: <span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span>
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;Resource&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Attribute&#34;</span>: [
+</span></span><span style="display:flex;"><span>          {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;AttributeId&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:resource&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;Value&#34;</span>: <span style="color:#f1fa8c">&#34;kravogbetaling&#34;</span>
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>          {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;AttributeId&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:organization:identifier-no&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;Value&#34;</span>: <span style="color:#f1fa8c">&#34;923609016&#34;</span>
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Altinn PDP returnerer svaret som en XACML Json respons hvor det informeres om request autorisert eller ikke.</p>
+<p>Tjenesteeier må i sitt API ha logikk for å kunne avvise eller godta forespørsel fra system basert på dette.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;Response&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;Decision&#34;</span>: <span style="color:#f1fa8c">&#34;Permit&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;Status&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;StatusCode&#34;</span>: {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;Value&#34;</span>: <span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:status:ok&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;Obligations&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:obligation:authenticationLevel1&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">&#34;attributeAssignment&#34;</span>: [
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;attributeId&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:obligation-assignment:1&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;2&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;category&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:minimum-authenticationlevel&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;dataType&#34;</span>: <span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#integer&#34;</span>,
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">&#34;issuer&#34;</span>: <span style="color:#ff79c6">null</span>
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>          ]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Se flere eksempler på bruk av Altinn PDP her.</p>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/authorization/guides/resource-owner/system-user/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#forutsetninger-for-tjenesteeier">Forutsetninger for Tjenesteeier</a>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#forberedelse-av-tjenesteeier-skatteetaten">Forberedelse av Tjenesteeier (Skatteetaten)</a></li>
+            <li><a href="#etter-opprettelse-av-systembruker">Etter opprettelse av systembruker</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#validering-av-maskinporten-token">Validering av Maskinporten token</a>
+      <ul>
+        <li><a href="#jwt-token">JWT Token</a></li>
+      </ul>
+    </li>
+    <li><a href="#autorisasjon-av-systembruker">Autorisasjon av systembruker</a></li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

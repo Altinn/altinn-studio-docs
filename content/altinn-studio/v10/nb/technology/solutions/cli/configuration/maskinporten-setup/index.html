@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Her finner du informasjon om hvordan du setter opp Maskinporten-klient" />
+<meta name="altinn_pagedir" class="elastic" content="technology/solutions/cli/configuration/maskinporten-setup/" />
+<meta name="altinn_title" class="elastic" content="Oppsett av Maskinporten-klient" />
+
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="Referanse" />
+
+<title>Oppsett av Maskinporten-klient – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/technology/solutions/cli/configuration/maskinporten-setup/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Produkt</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/authorization/">
+      <p class="product-item">Autorisasjon</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/broker/">
+      <p class="product-item">Formidling</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/">
+      <p class="product-item">Melding</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/notifications/">
+      <p class="product-item">Varsling</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Søk</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/nb.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/technology/solutions/cli/configuration/maskinporten-setup/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/technology/solutions/cli/configuration/maskinporten-setup/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">Hva leter du etter?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Søk');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Sist endret: 29. sep. 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/nb/technology/"><span>Teknologi</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/"><span>Architecture</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/requirements/"><span>Requirements</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/requirements/functional/"><span>Functional</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/requirements/non_functional/"><span>Non-Functional</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/principles/"><span>Principles</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/patterns/"><span>Patterns</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/"><span>Capabilities</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/"><span>Runtime</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/appdeploy/"><span>App Build &amp; Deploy</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/appdevelopment/"><span>App Development</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/data/"><span>Data</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/integration/"><span>Integration</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/presentation/"><span>Presentation</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/processing/"><span>Processing &amp; Execution</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/processing/process/"><span>Process</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/nb/technology/architecture/capabilities/runtime/processing/process/process_interaction/">
+            <span>Process Interaction</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/security/"><span>Security</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/security/authentication/"><span>Authentication</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/security/authentication/accesstoken/"><span>Access Token</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/security/authentication/authentication-api/"><span>Authentication API</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/security/authentication/jwt-format/"><span>JWT Format</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/security/authentication/oidcproviders/"><span>OIDC Providers</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/security/authorization/"><span>Authorization</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/security/encryption/"><span>Encryption</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/"><span>DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/analysisanddesign/"><span>Analysis &amp; Design</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/build_and_test/"><span>Build &amp; Test</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/build_and_test/build/"><span>Build process</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/environments/"><span>Environments</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/platformoperations/"><span>Platform Operations</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/platformoperations/backupandrecovery/"><span>Backup &amp; Recovery</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/platformoperations/infrastructuremgmt/"><span>Infrastructure mgmt</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/platformoperations/monitoring/"><span>Monitoring</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/projectmanagement/"><span>Project Management</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/quality/"><span>Quality Management</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/softwareconfiguration/"><span>Software Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/softwareconfiguration/deployment/"><span>Deployment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/softwareconfiguration/deployment/altinn-studio/"><span>Altinn Studio</span></a></li></ul></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/"><span>Components</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/"><span>Application</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/"><span>Construction</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-apps/"><span>Altinn Apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-apps/kuberneteswrapper/"><span>Kubernetes Wrapper</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-apps/routing/"><span>Routing</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-platform/"><span>Altinn Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-platform/profile/"><span>Profile</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-platform/receipt/"><span>Receipt</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-platform/register/"><span>Register</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-platform/storage/"><span>Storage</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-platform/ttplog/"><span>Storage</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/nonsolutionspecific/"><span>Non-Solution</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/nonsolutionspecific/development/"><span>Development</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/nonsolutionspecific/operations/"><span>Operations</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/nonsolutionspecific/operations/backupandrecovery/"><span>Backup &amp; Recovery</span></a></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/data/conceptual/"><span>Conceptual</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/data/logical/"><span>Logical</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/infrastructure/"><span>Infrastructure</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/infrastructure/computing/"><span>Compute</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/infrastructure/computing/scaling/"><span>Scaling</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/infrastructure/network/"><span>Network</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/infrastructure/storage/"><span>Storage</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/platform/"><span>Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/platform/datareporting/"><span>Data &amp; Reporting</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/platform/integration/"><span>Integration</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/platform/logicexecution/"><span>Logic Execution</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/platform/oscloudplatform/"><span>OS &amp; Cloud Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/platform/oscloudplatform/kubernetes/"><span>Kubernetes</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/platform/presentation/"><span>Presentation</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/platform/presentation/altinn-cdn/"><span>Altinn CDN</span></a></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/informationmodel/"><span>Information Model</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/"><span>Løsningene</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/altinn-apps/"><span>Altinn Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/altinn-platform/"><span>Altinn Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/altinn-platform/profile/"><span>Profile</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/altinn-platform/receipt/"><span>Kvittering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/altinn-platform/storage/"><span>Storage</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/altinn-platform/ttplog/"><span>TTP Log</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/cli/"><span>Altinn CLI</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/cli/commands/"><span>Commands</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/cli/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/cli/configuration/maskinporten-setup/"><span>Maskinporten</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/cli/software-implementation/"><span>Software implementation</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/terms/"><span>Terms</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/"><span>Tools</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/dotnet-core/"><span>.NET</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/alpine-linux/"><span>Alpine Linux</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/bpmn/"><span>BPMN</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/c-sharp/"><span>C#</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/docker/"><span>Docker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/git/"><span>Git</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/gitea/"><span>Gitea</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/go/"><span>Go</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/grafana/"><span>Grafana</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/helm/"><span>Helm</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/hugo/"><span>Hugo</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/jest/"><span>Jest</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/kubernetes/"><span>Kubernetes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/markdown/"><span>Markdown</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/nginx/"><span>Nginx</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/node-js/"><span>Node.js</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/prometheus/"><span>Prometheus</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/react/"><span>React</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/react/architecture/"><span>Kodearkitektur</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/react/redux/"><span>Redux</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/terraform/"><span>Terraform</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/traefik/"><span>Traefik</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/typescript/"><span>TypeScript</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/vs-code/"><span>Visual Studio Code</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/nb/technology/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/technology/solutions/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/technology/solutions/cli/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/technology/solutions/cli/configuration/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/technology/solutions/cli/configuration/maskinporten-setup/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/nb/technology/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/technology/solutions/'>Løsningene</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/technology/solutions/cli/'>Altinn CLI</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/technology/solutions/cli/configuration/'>Configuration</a> <span class='adocs-breadcrumb-divider'> / </span> Maskinporten</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Oppsett av Maskinporten-klient</h1>
+              <p class="a-leadText" id="leadText">Her finner du informasjon om hvordan du setter opp Maskinporten-klient</p>
+
+<h2 id="sette-opp-en-maskinporten-klient">Sette opp en Maskinporten-klient</h2>
+  <p>Maskinporten-klienter opprettes i selvbetjeningsportalen:</p>
+<ul class="mb-3">
+<li>For produksjonsmiljøet opprettes klienter fra: <a href="https://sjolvbetjening.samarbeid.digdir.no">https://sjolvbetjening.samarbeid.digdir.no</a>.</li>
+<li>For testmiljøet opprettes klienter fra: <a href="https://sjolvbetjening.test.samarbeid.digdir.no">https://sjolvbetjening.test.samarbeid.digdir.no</a>.</li>
+</ul>
+<ol>
+<li>Start med å logge inn på kontoen din med valgt metode.</li>
+<li>Når du er logget inn på kontoen din, vises organisasjonen du representerer i toppmenyen til høyre.
+<figure>
+    <a href="/nb/shared/maskinporten/you_represent.nb.png">
+        <img src="/nb/shared/maskinporten/you_represent.nb.png" alt="Organisasjonen du representerer vises i toppmenyen" title="Organisasjonen du representerer vises i toppmenyen.">
+    </a>
+    <figcaption><em>Organisasjonen du representerer vises i toppmenyen.</em></figcaption>
+  </figure>
+Hvis du logget inn for å representere en syntetisk organisasjon, vil du også kunne endre den organisasjonen du representerer i nedtrekksmenyen på det elementet.
+<figure>
+    <a href="/nb/shared/maskinporten/change_synthetic_org.nb.png">
+        <img src="/nb/shared/maskinporten/change_synthetic_org.nb.png" alt="Du kan endre syntetisk organisasjon i nedtrekksmenyen" title="Du kan endre den syntetiske organisasjonen du representerer i nedtrekksmenyen.">
+    </a>
+    <figcaption><em>Du kan endre den syntetiske organisasjonen du representerer i nedtrekksmenyen.</em></figcaption>
+  </figure></li>
+<li>Velg <code>Opprett klient</code>-knappen for å begynne å opprette en ny klient for organisasjonen du representerer.</li>
+<li>Velg <code>Maskinporten</code> på <code>Legg til klient</code>-siden.</li>
+<li>På <code>Legg til Maskinporten klient</code>-siden fyll inn visningsnavn, beskrivelse og legg til dine nødvendige scopes (disse verdiene kan også endres senere). Klikk deretter <code>Opprett</code>-knappen.
+<figure>
+    <a href="/nb/shared/maskinporten/add_maskinporten_client_page.nb.png">
+        <img src="/nb/shared/maskinporten/add_maskinporten_client_page.nb.png" alt="Siden for å legge til Maskinporten-klient" title="Siden for å legge til Maskinporten-klient.">
+    </a>
+    <figcaption><em>Siden for å legge til Maskinporten-klient.</em></figcaption>
+  </figure></li>
+<li>Du har nå opprettet en Maskinporten-klient for din organisasjon.
+For å bruke denne klienten må du legge til minst én autentiseringsnøkkel. Klienten støtter JWK- og PEM-nøkler.
+Start med å enten finne en eksisterende nøkkel eller opprette en ny. Du kan bruke <a href="https://github.com/Altinn/altinn-authorization-utils/tree/main/src/Altinn.Cli">Altinn JWKS-verktøyet</a> eller annen nøkkelgenerator du ønsker til dette formålet.
+Naviger deretter til nøkkelseksjonen på klientsiden din og velg <code>Legg til</code>.
+<figure>
+    <a href="/nb/shared/maskinporten/key_section.nb.png">
+        <img src="/nb/shared/maskinporten/key_section.nb.png" alt="Velg nøkkelseksjonen på klientsiden din" title="Nøkler kan legges til i nøkkelseksjonen.">
+    </a>
+    <figcaption><em>Nøkler kan legges til i nøkkelseksjonen.</em></figcaption>
+  </figure>
+I feltet <code>JWK eller PEM format</code> lim inn din offentlige nøkkel og klikk <code>Lagre</code>. Nøkkelen er nå lagt til klienten.
+Lagre din private nøkkel fra din JWK eller PEM på et sikkert sted, da den brukes til å autorisere bruken av denne klienten.
+Hvis du bruker Azure Key Vault for å lagre dine private nøkler, må de være base64-kodet før opplasting.
+<figure>
+    <a href="/nb/shared/maskinporten/paste_public_key.nb.png">
+        <img src="/nb/shared/maskinporten/paste_public_key.nb.png" alt="Lim inn din offentlige nøkkel her" title="Den offentlige JWK- eller PEM-nøkkelen limes inn i dette feltet">
+    </a>
+    <figcaption><em>Den offentlige JWK- eller PEM-nøkkelen limes inn i dette feltet</em></figcaption>
+  </figure></li>
+<li>Hvis du ikke gjorde det i trinn 5, må du legge til ønskede scopes til klienten din før den kan brukes.
+<figure>
+    <a href="/nb/shared/maskinporten/add_scopes1.nb.png">
+        <img src="/nb/shared/maskinporten/add_scopes1.nb.png" alt="Legge til scopes til klienten" title="Fra Scopes-fanen på klientdefinisjonen din, klikk Legg til-knappen.">
+    </a>
+    <figcaption><em>Fra Scopes-fanen på klientdefinisjonen din, klikk Legg til-knappen.</em></figcaption>
+  </figure>
+<figure>
+    <a href="/nb/shared/maskinporten/add_scopes2.nb.png">
+        <img src="/nb/shared/maskinporten/add_scopes2.nb.png" alt="Legge til scopes til klienter" title="Scopes som er tilgjengelige for organisasjonen din vil vises i listen. Velg de nødvendige og klikk Send inn.">
+    </a>
+    <figcaption><em>Scopes som er tilgjengelige for organisasjonen din vil vises i listen. Velg de nødvendige og klikk Send inn.</em></figcaption>
+  </figure></li>
+</ol>
+<h2 id="påkrevde-scopes">Påkrevde scopes</h2>
+<p>Maskinporten-klienten din trenger følgende scopes lagt til:</p>
+<ul>
+<li><code>altinn:serviceowner</code></li>
+<li><code>altinn:serviceowner/instances.read</code></li>
+<li><code>altinn:serviceowner/instances.write</code></li>
+</ul>
+<h2 id="bruke-maskinporten-klienten-i-altinn-cli">Bruke Maskinporten-klienten i Altinn CLI</h2>
+<p>For å kunne ta i bruk Maskinporten-klienten i Altinn CLI, må du legge til JWK nøkkelparet fra <em>steg 6</em> i konfigurasjonen:</p>
+<p>Naviger til <a href="/nb/technology/solutions/cli/configuration/#maskinporten-settings">Maskinporten-konfigurasjonen i appsettings.json</a> og legg til en
+base64-formattert versjon av nøkkelen i <code>EncodedJwk</code> feltet.</p>
+<p>Hvis du brukte <a href="https://github.com/Altinn/altinn-authorization-utils/tree/main/src/Altinn.Cli">Altinn JWKS-verktøyet</a> til opprettelse
+av nøkkelen din, kan du eksportere en base64 versjon ved hjelp av <code>export</code> kommandoen sammen med <code>--base64</code> flagget. Ellers kan du
+benytte et hvilken som helst base64-encoder verkøy, for eksempel <a href="https://www.base64encode.org/">https://www.base64encode.org/</a>.</p>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/technology/solutions/cli/configuration/maskinporten-setup/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sette-opp-en-maskinporten-klient">Sette opp en Maskinporten-klient</a></li>
+    <li><a href="#påkrevde-scopes">Påkrevde scopes</a></li>
+    <li><a href="#bruke-maskinporten-klienten-i-altinn-cli">Bruke Maskinporten-klienten i Altinn CLI</a></li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

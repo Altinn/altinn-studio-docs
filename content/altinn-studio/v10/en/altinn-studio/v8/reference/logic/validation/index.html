@@ -1,0 +1,1903 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="How to add logic to validate form data?" />
+<meta name="altinn_pagedir" class="elastic" content="altinn-studio/v8/reference/logic/validation/" />
+<meta name="altinn_title" class="elastic" content="Validation" />
+<meta name="product" data-pagefind-filter="Product[content]" content="Altinn Studio" />
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="Reference" />
+
+<title>Validation – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/en/altinn-studio/v8/reference/logic/validation/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/en/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">To the frontpage</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Show/hide menu</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Product</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/en/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/authorization/">
+      <p class="product-item">Authorization</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/broker/">
+      <p class="product-item">Broker</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/correspondence/">
+      <p class="product-item">Correspondence</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/notifications/">
+      <p class="product-item">Notifications</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Search</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/en.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/reference/logic/validation/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/altinn-studio/v8/reference/logic/validation/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English ✓</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">What are you looking for?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Search');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Last modified: Sep 29, 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+<div id="version-dropdown-top" class="product-version-dropdown">
+    <div class="version-selector-wrapper">
+        <label class="version-label" for="version-selector-button" id="version-selector-label">
+        Version:
+        </label>
+        <div class="dropdown">
+        <button
+            type="button"
+            id="version-selector-button"
+            class="nav-link dropdown-toggle version-switcher"
+            role="combobox"
+            aria-controls="version-dropdown-menu"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-labelledby="version-selector-label"
+            aria-describedby="version-selector-help"
+            data-toggle="dropdown">
+            <span id="current-version-top">Current (V8)</span>
+        </button>
+        <div
+            class="dropdown-menu version-dropdown"
+            role="listbox"
+            aria-labelledby="version-selector-label"
+            id="version-dropdown-menu"><a
+                class="dropdown-item version-option"
+                href="/en/altinn-studio/v8/"
+                data-version="v8"
+                role="option"
+                tabindex="-1"
+                aria-selected="true">
+                <span class="version-item">Current (V8)</span>
+            </a></div>
+        </div>
+        <div id="version-selector-help" class="sr-only">
+          Use the arrow keys to navigate between versions and Enter to select        
+        </div>
+    </div>
+</div>
+
+<style>
+   
+  .product-version-dropdown {
+    background: #f8f9fa;
+    padding: 10px;
+    border-bottom: 1px solid #ddd !important;
+    margin-bottom: 0;
+  }
+  #sidebar .product-version-dropdown {
+    border-bottom: 1px solid #ddd !important;
+  }
+  .version-selector-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .dropdown {
+    position: relative;
+  }
+  .version-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555 !important;
+    margin: 0 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .version-switcher {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    color: #333 !important;
+    text-decoration: none !important;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    text-align: left;
+  }
+  .version-switcher::after {
+    margin-left: auto;
+  }
+  #sidebar .version-switcher {
+    border-bottom: 1px solid #ccc !important;
+  }
+  .version-switcher:hover,
+  .version-switcher:focus {
+    background: #e9ecef;
+    outline: none;
+    border-color: #007bff;
+  }
+  .version-switcher:focus {
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+  .version-option:focus,
+  .version-option:hover {
+    background: #007bff !important;
+    color: white !important;
+    outline: none;
+  }
+  .version-option[aria-selected="true"] {
+    background: #28a745 !important;
+    color: white !important;
+  }
+  .sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+  .version-dropdown {
+    min-width: 200px;
+    max-height: none !important;
+    overflow-y: visible !important;
+    position: absolute;
+    z-index: 1000;
+  }
+  .version-item {
+    margin: 0;
+    padding: 4px 0;
+  }
+  .version-section {
+    padding-top: 10px;
+  }
+
+    
+  .version-root-item {
+    display: block !important;
+  }
+
+   
+  .version-content .version-section > li {
+    list-style: none;
+  }
+</style>
+
+<script>
+  (function() {
+    
+    setupVersionSelectorAccessibility();
+
+    function setupVersionSelectorAccessibility() {
+      var button = document.getElementById('version-selector-button');
+      var dropdown = document.getElementById('version-dropdown-menu');
+
+      if (!button || !dropdown) return;
+
+      var options = dropdown.querySelectorAll('.version-option');
+      var currentFocusIndex = -1;
+
+      button.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
+          e.preventDefault();
+          if (dropdown.style.display === 'none' || !dropdown.classList.contains('show')) {
+            showDropdown();
+            focusOption(0);
+          }
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          showDropdown();
+          focusOption(options.length - 1);
+        }
+      });
+
+      dropdown.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          focusOption(currentFocusIndex + 1);
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          focusOption(currentFocusIndex - 1);
+        } else if (e.key === 'Enter') {
+          e.preventDefault();
+          if (currentFocusIndex >= 0 && options[currentFocusIndex]) {
+            window.location.href = options[currentFocusIndex].href;
+          }
+        } else if (e.key === 'Escape') {
+          e.preventDefault();
+          hideDropdown();
+          button.focus();
+        }
+      });
+
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (dropdown.style.display === 'none' || !dropdown.classList.contains('show')) {
+          showDropdown();
+        } else {
+          hideDropdown();
+        }
+      });
+
+      function showDropdown() {
+        button.setAttribute('aria-expanded', 'true');
+        dropdown.classList.add('show');
+        dropdown.style.display = 'block';
+      }
+
+      function hideDropdown() {
+        button.setAttribute('aria-expanded', 'false');
+        dropdown.classList.remove('show');
+        dropdown.style.display = 'none';
+        currentFocusIndex = -1;
+        updateAriaSelected();
+      }
+
+      function focusOption(index) {
+        if (index < 0) index = options.length - 1;
+        if (index >= options.length) index = 0;
+
+        currentFocusIndex = index;
+        options[currentFocusIndex].focus();
+        updateAriaSelected();
+      }
+
+      function updateAriaSelected() {
+        
+        var currentVersion = button.querySelector('#current-version-top').textContent.trim();
+        options.forEach(function(option) {
+          var optionVersion = option.getAttribute('data-version');
+          option.setAttribute(
+            'aria-selected',
+            optionVersion === currentVersion ? 'true' : 'false'
+          );
+        });
+      }
+
+      
+      document.addEventListener('click', function(e) {
+        if (!button.contains(e.target) && !dropdown.contains(e.target)) {
+          hideDropdown();
+        }
+      });
+    }
+  })();
+</script>
+<li class="dd-item parent version-root-item">
+              <a href="/en/altinn-studio/v8/">
+                <span>Altinn Studio</span>
+                <i class="fa fa-sort-down fa-lg category-icon"></i></a>
+              <ul class="version-content">
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/about/"><span>About Altinn Studio</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/about/usecases/"><span>Use Cases for Altinn Studio Apps</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/what-do-you-get/"><span>What do you get?</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/"><span>Getting Started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/create-user/"><span>Create user</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/navigation/"><span>Navigate Altinn Studio</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/navigation/designer/"><span>Designer</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/navigation/dashboard/"><span>Dashboard</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/navigation/repos/"><span>Repos</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/"><span>Intro Course</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/case/"><span>Case</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/modul1/"><span>Module 1: Create Service</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/modul2/"><span>Module 2: Customize Data Model</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/modul3/"><span>Module 3: Create Form</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/modul4/"><span>Module 4: Create Info Page</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/modul5/"><span>Module 5: Publish Service</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/modul6/"><span>Module 6: Add code lists</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/modul7/"><span>Module 7: Adding Dynamic Behavior</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/getting-started/app-dev-course/authorization-rules/"><span></span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/"><span>User guides</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/"><span>Design</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/insight/"><span>Preliminary considerations</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/prototype/"><span>Prototype</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/usertest/"><span>User testing</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/"><span>Guidelines</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/consistency/"><span>Consistency</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/content/"><span>Content in the form</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/design-principles/"><span>Design principles</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/link-to-app/"><span>Entering the form</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/"><span>UI-components</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/title-and-paragraph/"><span>Typography</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/button/"><span>Buttons and links</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/input/"><span>Input</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/date/"><span>Date</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/checkbox/"><span>Checkboxes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/radiobutton/"><span>Radio button</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/dropdown/"><span>Dropdown</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/helptext/"><span>Help texts</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/error-message/"><span>Error messages</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/file-upload/"><span>File upload</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/components/picture-component/"><span>Image</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/tone-of-voice/"><span>Language</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/design/guidelines/wcag/"><span>Accessibility</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/"><span>Development</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/organisation-library/"><span>Organisation library</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/basic-form/"><span>Simple Form</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/eformidling/"><span>eFormidling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/eformidling/legacy/"><span>eFormidling legacy</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/eformidling/service-task/"><span>eFormidling service task</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/fiks-arkiv/"><span>Fiks Arkiv</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/pdf/"><span>PDF</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/subform-pdf/"><span>PDF subform</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/branching/"><span>Branches</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/dynamics/"><span>Dynamikk</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/prefill/"><span>Prefill</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/prefill/config/"><span>Configuration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/prefill/custom/"><span>Custom code</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/prefill/instantiation/"><span>Http post</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/prefill/query-params/"><span>Query parameters</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/"><span>Options</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/sources/"><span>Sources</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/sources/static/"><span>Static</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/sources/dynamic/"><span>Dynamic</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/sources/from-data-model/"><span>From data model</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/sources/organisation-library/"><span>Organisation library</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/sources/shared/"><span>Shared</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/sources/altinn2/"><span>From Altinn 2</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/functionality/"><span>Functionality</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/functionality/data-binding/"><span>Data binding</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/functionality/automatic-cleanup/"><span>Automatic cleanup</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/functionality/texts/"><span>Texts</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/functionality/filtering/"><span>Filtering</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/functionality/preselection/"><span>Pre-selection</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/options/functionality/sorting/"><span>Sorting</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/payment/"><span>Payment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/restricted-data/"><span>Restricted data</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/signing/"><span>Signing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/"><span>Runtime delegated</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/signing/role-based-signing/"><span>Role and access package</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/signing/sign-and-submit/"><span>Sign and submit</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/signing/api-signing/"><span>API-based signing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/subform/"><span>Subform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/subform/config-options/"><span>Configuration</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/summary2/"><span>Summary</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/undeploy/"><span>Unpublishing</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/copy-app/"><span>Copy app</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/multi-app-solution/"><span>Multi-app solution</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/multi-app-solution/instructions/"><span>Instructions</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/multi-app-solution/instructions/app-a/"><span>Application A</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/multi-app-solution/instructions/app-b/"><span>Application B</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/multi-app-solution/testing/"><span>Testing</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/local-dev/"><span>Local Development</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/service-tasks/"><span>Service tasks</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/development/service-tasks/custom/"><span>Custom</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/administration/"><span>Administration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/administration/maintainance/"><span>Maintenance</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/administration/maintainance/dependencies/"><span>Dependencies</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/administration/access-management/"><span>Access management</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/administration/access-management/apps/"><span>Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/administration/access-management/studio/"><span>Studio</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/administration/monitor-and-instrument/"><span>Monitor and instrument</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/integration/"><span>Integration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/integration/sbs/"><span>End-user systems</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/integration/sbs/setup/"><span>Setup and configuration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/integration/sbs/apis/"><span>API integration</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/integration/correspondence/"><span>Correspondence</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/en/altinn-studio/v8/guides/integration/correspondence/maskinporten/">
+            <span>Using Maskinporten</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/integration/maskinporten/"><span>Maskinporten</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/altinn-2/"><span>Altinn 2</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/altinn-2/altinn-2-datamodel/"><span>Altinn 2 Data Model</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/altinn-2/seres-migration/"><span>Sereserstatning</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/altinn-2/migrate-services/"><span>Migrate services</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/contributing/create-new-component/"><span>Create a new component</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/guides/contributing/add-new-component/"><span>Add a new component in Studio</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/"><span>Reference</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/data/data-modeling/"><span>Data Modeling</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/data/persistence/"><span>Persistence</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/data/prefill/"><span>Prefill</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/data/attachments/"><span>Attachments</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/data/external-api/"><span>External API</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/"><span>User interface</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/"><span>Components</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/commondefs/"><span>CommonProps</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/accordion/"><span>Accordion</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/accordiongroup/"><span>AccordionGroup</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/actionbutton/"><span>ActionButton</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/address/"><span>Address</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/alert/"><span>Alert</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/attachmentlist/"><span>AttachmentList</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/audio/"><span>Audio</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/button/"><span>Button</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/button-group/"><span>ButtonGroup</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/cards/"><span>Cards</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/checkboxes/"><span>Checkboxes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/custom/"><span>Custom</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/custombutton/"><span>CustomButton</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/date/"><span>Date</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/datepicker/"><span>Datepicker</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/divider/"><span>Divider</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/dropdown/"><span>Dropdown</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/fileupload/"><span>FileUpload</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/fileuploadwithtag/"><span>FileUploadWithTag</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/grid/"><span>Grid</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/group/"><span>Group</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/header/"><span>Header</span></a></li><li class="dd-item">
+          <a href="/en/altinn-studio/v8/reference/ux/components/iframe/">
+            <span>IFrame</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/image/"><span>Image</span></a></li><li class="dd-item">
+          <a href="/en/altinn-studio/v8/reference/ux/components/imageupload/">
+            <span>Image Uploader</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/input/"><span>Input</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/instanceinformation/"><span>InstanceInformation</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/instantiationbutton/"><span>InstantiationButton</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/likert/"><span>Likert</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/link/"><span>Link</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/listcomponent/"><span>List</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/map/"><span>Map</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/multipleselect/"><span>MultipleSelect</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/navigationbar/"><span>NavigationBar</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/navigationbuttons/"><span>NavigationButtons</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/number/"><span>Number</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/option/"><span>Option</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/organizationlookup/"><span>OrganisationLookup</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/panel/"><span>Panel</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/paragraph/"><span>Paragraph</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/personlookup/"><span>PersonLookup</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/printbutton/"><span>PrintButton</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/radiobuttons/"><span>RadioButtons</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/signeelist/"><span>SigneeList</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/signingactions/"><span>SigningActions</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/signingdocumentlist/"><span>SigningDocumentList</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/summary/"><span>Summary</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/summary2/"><span>Summary2</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/tabs/"><span>Tabs</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/text/"><span>Text</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/timepicker/"><span>TimePicker</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/components/video/"><span>Video</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/pages/"><span>Pages</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/pages/navigation/"><span>Navigation</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/pages/tracks/"><span>Tracks</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/pages/summary/"><span>Summary</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/"><span>Fields</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/"><span>Grouping</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/"><span>Repeating</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/edit/"><span>Edit</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/table/"><span>Table</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/attachments/"><span>Attachments</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/dynamics/"><span>Dynamics</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/multipage/"><span>MultiPage</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/non-repeating/"><span>Non-repeating</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/grouping/panel/"><span>Panel</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/fields/settings/"><span>Settings</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/footer/"><span>Footer</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/logo/"><span>Logo</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/styling/"><span>Styling</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/texts/"><span>Texts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/texts/translation/"><span>Translation of texts</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/ux/pdf/"><span>PDF</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/"><span>Logic</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/events/"><span>App Events</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/events/subscribing/"><span>Subscribing</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/generic/"><span>Generic</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/notifications/"><span>Notifications</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/notifications/email/"><span>Email</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/notifications/sms/"><span>SMS</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/dataprocessing/"><span>Data processing</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/dynamic/"><span>Dynamics</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/expressions/"><span>Expressions</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/instantiation/"><span>Instantiation</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/services/"><span>Services</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/validation/"><span>Validation</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/validation/files/"><span>File validation</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/logic/validation/expression-validation/"><span>Validation using expressions</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/messagebox/"><span>MessageBox</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/messagebox/create_copy/"><span>Create copy</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/messagebox/hide_instances/"><span>Hide instances</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/messagebox/presentationfields/"><span>Presentation fields</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/messagebox/advanced-sync/"><span>Sync settings</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/en/altinn-studio/v8/reference/configuration/authorization/api-scopes/">
+            <span>API Scopes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/"><span>Guidelines</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/"><span>Roles</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/"><span>Altinn Roles</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/altinn_roles_administration/"><span>Administration roles</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/altinn_roles_enterprices/"><span>Enterprise roles</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/altinn_roles_persons/"><span>Person roles</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_er/"><span>ER-Roles</span></a></li><li class="dd-item">
+          <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_ske/">
+            <span>SKE-roles</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/test_authorization_application/"><span>Testing</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authorization/rules/"><span>Rule library</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/partytype/"><span>Party types</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/datafields/"><span>Data fields</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/process/"><span>Process</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/process/auto-delete/"><span>Automatic deletion</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/process/customize/"><span>Customize Views</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/process/pre-post-hooks/"><span>Define custom process hooks</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/process/exclusive-gateways/"><span>Exclusive gateways</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/process/message/"><span>Message</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/queryparameters/"><span>Query parameters</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/shadowfields/"><span>Shadow fields</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/secrets/"><span>Secrets</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/eformidling/"><span>eFormidling</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/filescan/"><span>Virus scan</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/settings/"><span>Settings</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/startup/"><span>Startup</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/stateless/"><span>Stateless</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/deployment/"><span>Deployment</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/authentication/"><span>Authentication</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/configuration/autosavebehavior/"><span>Auto Save Behavior</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/analysis/"><span>Analyse</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/analysis/rules/altinnapp0500/"><span>ALTINNAPP0500: farlig bruk av IHttpContextAccessor</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/api/auth/"><span>Authentication</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/api/consume/"><span>Consume</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/api/expose/"><span>Expose</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/api/instance/"><span>Instance</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/testing/"><span>Testing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/testing/local/"><span>Locally</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/testing/local/apitests/"><span>API tests</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/testing/local/apitests/user/"><span>End user</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/testing/local/apitests/org/"><span>Org</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/testing/local/debug/"><span>Debugging</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/testing/local/testusers/"><span>Test users</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/testing/deploy/"><span>In test environment</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/cli/"><span>Altinn Studio CLI</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/cli/install/"><span>Installation</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/deployment/"><span>Deployment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/deployment/firewall/"><span>Firewall &amp; IP Configuration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/deployment/runtime-environment/"><span>Runtime Environment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/deployment/runtime-environment/resource-allocation-tips/"><span>Practical tips for resource allocation</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/deployment/runtime-environment/resource-allocation/"><span>Resource Allocation</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/process/"><span>Process handling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/process/tasks/"><span>Process tasks</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/process/tasks/signing/"><span>Signing task</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/process/flowcontrol/"><span>Flowcontrol</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/process/actions/"><span>Actions</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/process/actions/serveraction/"><span>Server Action</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/process/actions/process-actions/"><span>Process actions</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/monitoring/"><span>Monitoring</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/monitoring/configuration/"><span>Configuration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/monitoring/instrumentation/"><span>Instrumentation</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/monitoring/registry/"><span>Telemetry registry</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/monitoring/registry/metrics/"><span>Metrics</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/monitoring/visualisation/"><span>Visualisation</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/monitoring/faq/"><span>FAQ</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/monitoring/references/"><span>Resources</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/access-management/"><span>Access management</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/access-management/apps/"><span>Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/reference/access-management/studio/"><span>Studio</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/"><span>Concepts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/data-model/"><span>Data model</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/data-model/restricted-data/"><span>Restricted data</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/organisation-library/"><span>Organisation Library</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/organisation-library/code-lists/"><span>Library Code Lists</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/payment/"><span>Payment</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/prefill/"><span>Prefill</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/signing/"><span>Signing</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/process/"><span>Process</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/concepts/undeploy/"><span>Unpublishing</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/news/"><span>Whats&#39;s new</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/news/launched-apps/"><span>Launched app examples</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/news/launched-apps/external/"><span>External</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/news/launched-apps/digdir/"><span>Digdir</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/news/launched-apps/digdir/bli-tjenesteeier/"><span>Bli tjenesteeier</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/news/launched-apps/digdir/godkjenn-bruksvilkaar/"><span>Godkjenn bruksvilkår</span></a></li>
+      <li class="dd-item">
+        <a href="/en/altinn-studio/v8/news/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li></ul>
+            </li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/en/altinn-studio/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/altinn-studio/v8/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/altinn-studio/v8/reference/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/altinn-studio/v8/reference/logic/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/altinn-studio/v8/reference/logic/validation/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/en/altinn-studio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/altinn-studio/v8/'>Current (V8)</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/altinn-studio/v8/reference/'>Reference</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/altinn-studio/v8/reference/logic/'>Logic</a> <span class='adocs-breadcrumb-divider'> / </span> Validation</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Validation</h1>
+              <p class="a-leadText" id="leadText">How to add logic to validate form data?</p>
+
+<h2 id="introduction">Introduction</h2>
+<p>Validations ensures that the user&rsquo;s input is valid with regard to the data model,
+in addition to all custom rules that are set up for the application.
+Validations can be run either on the client- (the browser) or the server-side.</p>
+<p>Validations can also be set up to <a href="/en/altinn-studio/v8/reference/ux/pages/navigation/#specifying-validation-on-page-change">trigger on page navigation</a>.</p>
+<h2 id="client-side-validation">Client-side validation</h2>
+<p>This is validation that is run in the browser, before data is sent to server for saving. This makes it possible to give quick feedback to
+the user during the process of filling out the form.</p>
+<p>Client-side validation is based on the data model of the form, and uses this to determine what is valid input in a
+field.
+Specifically, the JSON schema version of the data model is used for validation. This is automatically generated when
+uploading an XSD.
+It is possible to make changes in the JSON schema file directly to adapt the validation when needed.</p>
+<p><strong>Note that if you make changes in the JSON schema manually, and then update the XSD and re-upload it, a new
+JSON schema will also be generated and all manual adaptations will have to be remade. It is therefore recommended to
+make changes in the XSD and/or the data modeling tool
+for these changes to be reflected in the JSON schema.</strong></p>
+<p>An example of how a field can be defined in the JSON schema data model is:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;someField&#34;</span>: {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;maxLength&#34;</span>: <span style="color:#f1fa8c">&#34;4&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Input in this field will be validated towards the limits that are set, and an error message will appear if these are not met - in this case, if
+input is a text longer than four characters.</p>
+<h3 id="default-error-messages">Default error messages</h3>
+<p>Default error messages has been set up for all validations done on the client-side. See the overview below.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Rule</th>
+          <th>Error message bokmål</th>
+          <th>Error message nynorsk</th>
+          <th>Error message english</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>minimum</td>
+          <td>&lsquo;Minste gyldig verdi er {0}&rsquo;</td>
+          <td>&lsquo;Minste gyldig verdi er {0}&rsquo;</td>
+          <td>&lsquo;Minimum valid value is {0}&rsquo;</td>
+      </tr>
+      <tr>
+          <td>maximum</td>
+          <td>&lsquo;Største gyldig verdi er {0}&rsquo;</td>
+          <td>&lsquo;Største gyldig verdi er {0}&rsquo;</td>
+          <td>&lsquo;Maximum valid value is {0}&rsquo;</td>
+      </tr>
+      <tr>
+          <td>minLength</td>
+          <td>&lsquo;Bruk {0} eller flere tegn&rsquo;</td>
+          <td>&lsquo;Bruk {0} eller flere tegn&rsquo;</td>
+          <td>&lsquo;Use {0} or more characters&rsquo;</td>
+      </tr>
+      <tr>
+          <td>maxLength</td>
+          <td>&lsquo;Bruk {0} eller færre tegn&rsquo;</td>
+          <td>&lsquo;Bruk {0} eller færre tegn&rsquo;</td>
+          <td>&lsquo;Use {0} or fewer characters&rsquo;</td>
+      </tr>
+      <tr>
+          <td>length</td>
+          <td>&lsquo;Antall tillatte tegn er {0}&rsquo;</td>
+          <td>&lsquo;Antall tillatte tegn er {0}&rsquo;</td>
+          <td>&lsquo;Number of characters allowed is {0}&rsquo;</td>
+      </tr>
+      <tr>
+          <td>pattern</td>
+          <td>&lsquo;Feil format eller verdi&rsquo;</td>
+          <td>&lsquo;Feil format eller verdi&rsquo;</td>
+          <td>&lsquo;Wrong format or value&rsquo;</td>
+      </tr>
+      <tr>
+          <td>required</td>
+          <td>&lsquo;Du må fylle ut {0}&rsquo;</td>
+          <td>&lsquo;Du må fylle ut {0}&rsquo;</td>
+          <td>&lsquo;You have to fill out {0}&rsquo;</td>
+      </tr>
+      <tr>
+          <td>enum</td>
+          <td>&lsquo;Kun verdiene {0} er tillatt&rsquo;</td>
+          <td>&lsquo;Kun verdiene {0} er tillatt&rsquo;</td>
+          <td>&lsquo;Only the values {0} are permitted&rsquo;</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="more-about-error-messages-for-required-fields">More about error messages for required fields</h3>
+<p>For a smoother user experience, error messages for missing data in required fields won&rsquo;t be displayed automatically
+while filling out a form, unless validation is triggered <a href="#single-field-validation">for a single field</a>, when saving
+a <a href="#group-validation">row in a repeating group</a> or
+<a href="/en/altinn-studio/v8/reference/ux/pages/navigation/#specifying-validation-on-page-change">when navigating to another page</a>.</p>
+<p>The error message for required fields is as defined above, <em>&ldquo;You have to fill out {0}&rdquo;</em>. The <code>{0}</code> symbol is replaced with the field that
+the error message is shown for. This is done in the following way:</p>
+<ul>
+<li>If <code>shortName</code> text is defined for the component, this is used. <em>This is a new text that is currently used only for this specific error message.</em></li>
+<li>If the <code>shortName</code> text is not defined, the <code>title</code> text for the component is used - this is the components label text. The text will be converted to use a lowercase letter first, unless the text looks like an acronym.</li>
+<li>In some special cases (Address component) where there are multiple fields within the component, the default labels for the fields is used.</li>
+</ul>
+<h4 id="example-component-with-only-title">Example: Component with only <code>title</code></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;firstName&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;text-firstName&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  ... <span style="color:#6272a4">//etc
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
+</span></span></code></pre></div><p>With resource texts:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;text-firstName&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;First name&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The error message would then be <code>&quot;You have to fill out First name&quot;</code>.</p>
+<h4 id="example-component-with-shortname">Example: Component with <code>shortName</code></h4>
+<p>If the field&rsquo;s prompt is long or not suitable for use in the validation message, you can add a <code>shortName</code> text that can be used instead.
+<em>Note that this only applies to this specific validation message - the <code>shortName</code> text is not used otherwise in the solution as of now.</em></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;firstName&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;text-firstName&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;shortName&#34;</span>: <span style="color:#f1fa8c">&#34;firstName-short&#34;</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  ... <span style="color:#6272a4">//etc
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
+</span></span></code></pre></div><p>With resource texts:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;text-firstName&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Please type your first name in the field below:&#34;</span>
+</span></span><span style="display:flex;"><span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;firstName-short&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;your first name&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The error message would then be <code>&quot;You have to fill out your first name&quot;</code>.</p>
+<h3 id="replacing-the-required-validation-message-completely">Replacing the required validation message completely</h3>
+<p>If you want to replace the default error message for required fields completely, you can do this by adding the text key
+<code>requiredValidation</code> to the components <code>textResourceBindings</code> object. This will replace the default error message for
+required fields. The text can be a text key for a <a href="/en/altinn-studio/v8/reference/ux/texts/">text defined in the resource files</a> for multilingual
+support.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;firstName&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;text-firstName&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;requiredValidation&#34;</span>: <span style="color:#f1fa8c">&#34;myCustomRequiredValidation&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="custom-error-messages">Custom error messages</h3>
+<p>It is possible to define custom error messages that will be displayed when a field doesn&rsquo;t pass the validation check. This is done by including a parameter <code>errorMessage</code> where the field is defined in the JSON schema.
+The JSON schema file is in the folder <code>App/models</code> and has a naming patterns as follows; <code>*.schema.json</code>,</p>
+<p>An example of how to extend the example previously presented with a custom error message:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;someField&#34;</span>: {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;string&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;maxLength&#34;</span>: <span style="color:#f1fa8c">&#34;4&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;errorMessage&#34;</span>: <span style="color:#f1fa8c">&#34;myCustomError&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The error text can be included directly. To enable language support, add a text key for a <a href="/en/altinn-studio/v8/reference/ux/texts/">text defined in the resource files</a>.</p>
+<p>Notice that if you have a reference to a definition the error message must be added to the <code>property</code>-field and not the reference/definition.
+Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;properties&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;person&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;$ref&#34;</span> : <span style="color:#f1fa8c">&#34;#/definitions/personDefinition&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>        <span style="color:#ff79c6">&#34;errorMessage&#34;</span>: <span style="color:#f1fa8c">&#34;myCustomError&#34;</span>,
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;definitions&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;personDefinition&#34;</span> : {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;age&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;number&#34;</span>
+</span></span><span style="display:flex;"><span>      },
+</span></span><span style="display:flex;"><span>      ...
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><div class="notices warning" >Note that when the XSD is changed, the custom error messages will de removed from the JSON schema.
+In the future, there will be support for setting custom error messages in the data modelling tool in Altinn Studio. But for now, this is a manual job.</div>
+<h2 id="server-side-validation">Server-side validation</h2>
+<p>Server-side validation can be split into two categories:</p>
+<ul>
+<li><strong>Validations against data model</strong> - These run automatically whenever the user attempts to submit form data.</li>
+<li><strong>Custom validations</strong> - these are written by the application developer,
+and run when the user attempts to submit form data or move the process to a new step.</li>
+</ul>
+<h2 id="how-to-add-custom-validation">How to add custom validation</h2>
+<p>Custom validation can also be split into two categories; task-validation and data-validation.</p>
+<ul>
+<li>Task-validation will run each time validation is triggered either manually from the application or when you attempt to move forward in the process.</li>
+<li>Data-validation will run if you&rsquo;re on a step that has defined data elements associated with it.</li>
+</ul>
+<p>Validation for process navigation will run <em>after</em> any user action, if an action is specified. This is because the result of the
+action may be what makes the task valid. If validation on process next was done before the action, this would lead to a soft-lock.</p>
+<p>Validations are written i C# and depending on the version of the application template and Nuget packages you are using,
+the way the implementation is done varies slightly. In the earlier versions it&rsquo;s a pre-created file where you put your
+logic, while from version 7 and onwards you implement an interface in whatever class you like. The interface happens to
+be equal to the pre-defined class in the earlier versions. The examples below which referrers to the methods to add your
+validation logic to is the same.</p>
+<div class="content-version-selector border-box">
+
+    
+    <ul id="content-version-tabs"></ul>
+
+    
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        v7
+    </label>
+    <p>In version 7 the way to do custom code instantiation has changed. We now use an dependency injection based approach
+instead of overriding methods. If you previously used to place your custom code in the <em>ValidateData</em> and <em>ValidateTask</em>
+methods in the <em>ValidationHandler.cs</em> class you will see that it&rsquo;s mostly the same.</p>
+<ol>
+<li>Create a class that implements the <code>IInstanceValidator</code> interface found in the <code>Altinn.App.Core.Features.Validation</code> namespace.<br>
+You can name and place the file in any folder you like within your project, but we suggest you use meaningful namespaces like in any other .Net project.</li>
+<li>Register you custom implementation in the <em>Program.cs</em> class
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span>services.AddTransient&lt;IInstanceValidator, InstanceValidator&gt;();
+</span></span></code></pre></div>This ensures your custom code is known to the application and that it will be executed.</li>
+</ol>
+</div>
+
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        v4, v5, v6
+    </label>
+    Validations should be added to the <code>ValidationHandler.cs</code>-file in the application template.
+The file can be accessed and edited in Altinn Studio through the logic menu, by selecting <em>Rediger valideringer</em>,
+or directly in the application repo where the file is under the <code>logic/Validation</code>-folder.
+</div>
+
+
+
+</div>
+
+<p>From here on the examples should be valid for all versions:)</p>
+<p>Custom logic are added to the <code>ValidateData</code> and <code>ValidateTask</code>-methods.
+The former takes in a data object and the latter takes in the instance and taskId.
+To add a validation error, the <code>AddModelError</code>-method of the <code>validationResult</code>-object, which is a parameter in both methods, is used.</p>
+<p>An example of a simple data validation that tests that the field <em>FirstName</em> does not contain the value <em>1337</em>, when the root element of the model is <code>Skjema</code> is shown below:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#ff79c6">void</span> ValidateData(<span style="color:#8be9fd">object</span> data, ModelStateDictionary validationResults)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (data.GetType() == <span style="color:#ff79c6">typeof</span>(Skjema))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// Cast instance data to model type</span>
+</span></span><span style="display:flex;"><span>        Skjema model = (Skjema)data;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// Get value to test - FirstName</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">string</span> firstName = Skjema?.Person?.FirstName;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// Check if FirstName exists, and contains the value &#34;1337&#34;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>        <span style="color:#ff79c6">if</span> (firstName != <span style="color:#ff79c6">null</span> &amp;&amp; firstName.Contains(<span style="color:#f1fa8c">&#34;1337&#34;</span>))
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">// Add validation error, with error message and list</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">// of affected fields (in this case Person.FirstName)</span>
+</span></span><span style="display:flex;"><span>            validationResults.AddModelError(
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#34;Person.FirstName&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#34;Error: First name cannot contain the value &#39;1337&#39;.&#34;</span>
+</span></span><span style="display:flex;"><span>            );
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>See comments in code above for an explanation of what the different parts do.</p>
+<p>In the other parameter of the method <code>AddModelError</code>, where it says &ldquo;<em>Error: First name cannot contain the value '
+1337&rsquo;</em>&rdquo;, you can use a text key for a <a href="/en/altinn-studio/v8/reference/ux/texts/">text defined in the resource files</a> for multilingual support.</p>
+<p>An example of a simple task validation that checks how long the user spent on Task_1 and returns an error if there has gone more than three days:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">async</span> Task ValidateTask(Instance instance, <span style="color:#8be9fd">string</span> taskId, ModelStateDictionary validationResults)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">if</span> (taskId.Equals(<span style="color:#f1fa8c">&#34;Task_1&#34;</span>))
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    DateTime deadline = ((DateTime)instance.Created).AddDays(<span style="color:#bd93f9">3</span>);
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">if</span> (DateTime.UtcNow &lt; deadline)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      validationResults.AddModelError(<span style="color:#f1fa8c">&#34;Task_1&#34;</span>, <span style="color:#f1fa8c">$&#34;Completion of Task_1 has taken too long. Please start over.&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h2 id="single-field-validation">Single field validation</h2>
+<p>Single field validations are shown immediately when the user fills out a field.</p>
+<div class="content-version-selector border-box">
+
+    
+    <ul id="content-version-tabs"></ul>
+
+    
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        v4 (App Frontend)
+    </label>
+    <p>Setting the <code>showValidations</code> property on a component will cause validations to become visible immediately when they occur.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;some-input-field&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {...},
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {...},
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;showValidations&#34;</span>: [<span style="color:#f1fa8c">&#34;AllExceptRequired&#34;</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Where <code>showValidations</code> contains a set of validation types to check; this can be one or more of:</p>
+<ul>
+<li><code>Schema</code></li>
+<li><code>Component</code></li>
+<li><code>Expression</code></li>
+<li><code>CustomBackend</code></li>
+<li><code>Required</code></li>
+<li><code>AllExceptRequired</code></li>
+<li><code>All</code></li>
+</ul>
+<p><strong>Note</strong>: <code>&quot;showValidations&quot;: [&quot;AllExceptRequired&quot;]</code> is the default value if the property is not set.
+To avoid showing any validations immediately, set <code>showValidations</code> to an empty array <code>[]</code>.</p>
+
+</div>
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        v3 (App Frontend)
+    </label>
+    <div class="notices warning" ><strong>NOTE</strong>: Trigger for validation on single fields in Stateless apps is not currently supported.</div>
+<p>Note that in version 3 of app frontend, JSON schema and component specific validation is run automatically by default, adding the validation trigger causes custom backend validation to be run as well.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;some-input-field&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {...},
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {...},
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;triggers&#34;</span>: [<span style="color:#f1fa8c">&#34;validation&#34;</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The configuration above will result in your own custom validation in <code>ValidationHandler.cs</code>
+being triggered each time the field is updated. If you need to know which field
+triggered the validation, this is available in the http-context as a header of the request named <em>ValidationTriggerField</em>.</p>
+<p>An example of a custom validation where the header value is retrieved is shown below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span> <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">async</span> Task ValidateData(<span style="color:#8be9fd">object</span> data, ModelStateDictionary validationResults)
+</span></span><span style="display:flex;"><span> {
+</span></span><span style="display:flex;"><span>    _httpContextAccessor.HttpContext
+</span></span><span style="display:flex;"><span>        .Request.Headers
+</span></span><span style="display:flex;"><span>        .TryGetValue(<span style="color:#f1fa8c">&#34;ValidationTriggerField&#34;</span>, <span style="color:#ff79c6">out</span> StringValues triggerValues);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd">string</span> triggerField = triggerValues.FirstOrDefault(<span style="color:#8be9fd">string</span>.Empty);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (triggerField.Equals(<span style="color:#f1fa8c">&#34;kommune&#34;</span>))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#6272a4">// Cast instance data to model type</span>
+</span></span><span style="display:flex;"><span>      flyttemelding model = (flyttemelding)data;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#6272a4">// Get value to test - Kommune</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#8be9fd">string</span> kommune = model.kommune;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">if</span> (!kommune.Equals(<span style="color:#f1fa8c">&#34;Oslo&#34;</span>))
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>          validationResults.AddModelError(triggerField, <span style="color:#f1fa8c">&#34;This is not a valid municipality.&#34;</span>);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">await</span> Task.CompletedTask;
+</span></span><span style="display:flex;"><span> }
+</span></span></code></pre></div><p><strong>NOTE</strong> validation of single fields should be implemented in a way where it is both run on triggers and during general validation.
+The example that revolves multiple complex validations show how this can be implemented.</p>
+<p>Several things has been done to get this code to run</p>
+<ol>
+<li>In <em>ValidationHandler.cs</em> <code>using Microsoft.Extensions.Primitives;</code> is included at the top of the file to be able to use <code>StringValues</code>.</li>
+<li>In <em>App.cs</em> <code>using Microsoft.AspNetCore.Http;</code> is included at the top of the file to be able to use <code>IHttpContextAccessor</code>.</li>
+<li>In <em>App.cs</em> <code>IHttpContextAccessor</code> is dependency injected in the constructor and passed along to ValidationHandler.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> App(
+</span></span><span style="display:flex;"><span>            IAppResources appResourcesService,
+</span></span><span style="display:flex;"><span>            ILogger&lt;App&gt; logger,
+</span></span><span style="display:flex;"><span>            IData dataService,
+</span></span><span style="display:flex;"><span>            IProcess processService,
+</span></span><span style="display:flex;"><span>            IPDF pdfService,
+</span></span><span style="display:flex;"><span>            IProfile profileService,
+</span></span><span style="display:flex;"><span>            IRegister registerService,
+</span></span><span style="display:flex;"><span>            IPrefill prefillService,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>            IHttpContextAccessor httpContextAccessor <span style="color:#6272a4">// &lt;--- Add this line</span>
+</span></span><span style="display:flex;"><span>            ) : <span style="color:#ff79c6">base</span>(appResourcesService, logger, dataService, processService, pdfService, prefillService)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            _logger = logger;
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>            _validationHandler = <span style="color:#ff79c6">new</span> ValidationHandler(httpContextAccessor);  <span style="color:#6272a4">// &lt;--- Include the new property here</span>
+</span></span><span style="display:flex;"><span>            _calculationHandler = <span style="color:#ff79c6">new</span> CalculationHandler();
+</span></span><span style="display:flex;"><span>            _instantiationHandler = <span style="color:#ff79c6">new</span> InstantiationHandler(profileService, registerService);
+</span></span><span style="display:flex;"><span>        }
+</span></span></code></pre></div><p>If there are multiple complex validations that are time consuming, it is recommended to implement several private methods
+to validate these and use ValidationTriggerField to determine which private method is to be run.
+You can e.g. use a <em>switch statement</em> to accomplish this.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">async</span> Task ValidateData(<span style="color:#8be9fd">object</span> data, ModelStateDictionary validationResults)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (data <span style="color:#ff79c6">is</span> flyttemelding model)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        _httpContextAccessor.HttpContext
+</span></span><span style="display:flex;"><span>            .Request.Headers
+</span></span><span style="display:flex;"><span>            .TryGetValue(<span style="color:#f1fa8c">&#34;ValidationTriggerField&#34;</span>, <span style="color:#ff79c6">out</span> StringValues triggerValues);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">string</span> triggerField = triggerValues.FirstOrDefault(<span style="color:#8be9fd">string</span>.Empty);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">switch</span> (triggerField)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">case</span> <span style="color:#f1fa8c">&#34;kommune&#34;</span>:
+</span></span><span style="display:flex;"><span>                ValidateKommune(model, validationResults);
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">break</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">case</span> <span style="color:#f1fa8c">&#34;boaddresse&#34;</span>:
+</span></span><span style="display:flex;"><span>                ValidateBoAdresse(model, validationResults);
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">break</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">default</span>:
+</span></span><span style="display:flex;"><span>                ValidateKommune(model, validationResults);
+</span></span><span style="display:flex;"><span>                ValidateBoAdresse(model, validationResults);
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">break</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#ff79c6">void</span> ValidateKommune(flyttemelding model, ModelStateDictionary validationResults)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (model.kommune != <span style="color:#ff79c6">null</span> &amp;&amp; !model.kommune.Equals(<span style="color:#f1fa8c">&#34;Oslo&#34;</span>))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        validationResults.AddModelError(
+</span></span><span style="display:flex;"><span>            nameof(model.kommune),
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#34;This is not a valid municipality.&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#ff79c6">void</span> ValidateBoAdresse(flyttemelding model, ModelStateDictionary validationResults)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (model.boaddresse != <span style="color:#ff79c6">null</span> &amp;&amp; model.boaddresse.Length &gt; <span style="color:#bd93f9">150</span>)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        validationResults.AddModelError(
+</span></span><span style="display:flex;"><span>            nameof(model.boaddresse),
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#34;Address can not be longer than 150 characters.&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="specify-that-validation-errors-are-fixed">Specify that validation errors are fixed</h3>
+<p>When validation is triggered by a single field, all former validations on this field will be removed pending a response from the last validation.
+If a field triggers validation that updates/adds an error message to multiple fields at once, these will not be removed even when there no longer are any
+errors in these fields. This is because there is no way to know which fields may have been validated through a single field validation.</p>
+<p>For example, if you have two fields; first name and last name. Both fields trigger single field validation, and if both fields have a value, you can validate that
+the full name can not be longer than 50 characters. An error message is then set on both fields. If you correct this by changing the first name, the error message from first name will
+disappear, but the error message on the last name field will still be displayed even though the validation does not set any error messages on the fields.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#ff79c6">void</span> ValidateFullName(Datamodell model, ModelStateDictionary validationResults)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">if</span> (!<span style="color:#8be9fd">string</span>.isNullOrEmpty(model.fornavn) &amp;&amp; !<span style="color:#8be9fd">string</span>.isNullOrEmpty(model.etternavn)
+</span></span><span style="display:flex;"><span>    &amp;&amp; model.fornavn.Length + model.etternavn.Length &gt; <span style="color:#bd93f9">50</span>)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    validationResults.addModelError(nameof(model.fornavn),
+</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#34;Full name can not be longer than 50 characters.&#34;</span>);
+</span></span><span style="display:flex;"><span>    validationResults.addModelError(nameof(model.etternavn),
+</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#34;Full name can not be longer than 50 characters.&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>To be able to remove old error messages in a case like this, there has been added support to be able to specify that a validation error has been <strong>fixed</strong>.
+Then, the field in question will be able to be notified that a specific error message that it is displaying has been fixed and can now be hidden.</p>
+<p>This is done by adding a validation error in the code in the case where there are no errors in the validation,
+and set <code>*FIXED*</code> in front of the error message itself. This corresponds to the setup for <a href="#soft-validations">soft validation</a>.
+This prefix causes the error message that is set to be removed from the field in question, or ignored (if there is no error message on the field already).</p>
+<p>You can now expand the example above to support this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">private</span> <span style="color:#ff79c6">void</span> ValidateFullName(Datamodell model, ModelStateDictionary validationResults)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">if</span> (!<span style="color:#8be9fd">string</span>.isNullOrEmpty(model.fornavn) &amp;&amp; !<span style="color:#8be9fd">string</span>.isNullOrEmpty(model.etternavn)
+</span></span><span style="display:flex;"><span>    &amp;&amp; model.fornavn.Length + model.etternavn.Length &gt; <span style="color:#bd93f9">50</span>)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    validationResults.addModelError(nameof(model.fornavn),
+</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#34;Full name can not be longer than 50 characters.&#34;</span>);
+</span></span><span style="display:flex;"><span>    validationResults.addModelError(nameof(model.etternavn),
+</span></span><span style="display:flex;"><span>      <span style="color:#f1fa8c">&#34;Full name can not be longer than 50 characters.&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">else</span>
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    validationResults.addModelError(nameof(model.fornavn),
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>      <span style="color:#f1fa8c">&#34;*FIXED*Full name can not be longer than 50 characters.&#34;</span>);
+</span></span><span style="display:flex;"><span>    validationResults.addModelError(nameof(model.etternavn),
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>      <span style="color:#f1fa8c">&#34;*FIXED*Full name can not be longer than 50 characters.&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>If you are having trouble with getting this to work, and you are instead seeing validation messages that include the <code>*FIXED*</code>-prefix,
+double check that you have <code>&quot;FixedValidationPrefix&quot;: &quot;*FIXED*&quot;</code> set under <code>GeneralSettings</code> in <code>appsettings.json</code>.</p>
+
+</div>
+
+
+</div>
+
+<h2 id="soft-validations">Soft validations</h2>
+<p>Soft validations are validation messages that does not stop the user from submitting or move onto the next step of the process, but that are used to give the user different forms of information.
+These types of validations can for example be used to ask the user to verify input that seems wrong or strange, but which strictly speaking is not invalid, or give useful information for further filling out the form.</p>
+<p>Messages based on soft validation will be displayed once, but the user can choose to move on without making any changes.</p>
+<p>Soft validations are added from the server-side the application logic, in the same way as regular validation errors. The difference is that the validation message
+must be prefixed with the type of validation you want to give, e.g. <code>*WARNING*</code>. This will be interpreted as a soft validation. The prefix <code>*WARNING*</code> will not be displayed for the user.</p>
+<p>The different types of soft validations are <code>WARNING</code>, <code>INFO</code> and <code>SUCCESS</code>.</p>
+<p><strong>Code example</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">async</span> Task ValidateData(<span style="color:#8be9fd">object</span> data, ModelStateDictionary modelState)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">if</span> (data <span style="color:#ff79c6">is</span> TestModel testModel)
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>      <span style="color:#8be9fd">string</span> firstName = testModel?.Person?.FirstName;
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">if</span> (firstName != <span style="color:#ff79c6">null</span> &amp;&amp; firstName.Contains(<span style="color:#f1fa8c">&#34;1337&#34;</span>))
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        validationResults.AddModelError(
+</span></span><span style="display:flex;"><span>          <span style="color:#f1fa8c">&#34;Person.FirstName&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f1fa8c">&#34;*WARNING*Are you sure your first name contains 1337?&#34;</span>);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">if</span> (firstName != <span style="color:#ff79c6">null</span> &amp;&amp; firstname.Contains(<span style="color:#f1fa8c">&#34;Altinn&#34;</span>))
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        validationResults.AddModelError(
+</span></span><span style="display:flex;"><span>          <span style="color:#f1fa8c">&#34;Person.FirstName&#34;</span>,
+</span></span><span style="display:flex;"><span>          <span style="color:#f1fa8c">&#34;*SUCCESS*Altinn is a great name!&#34;</span>);
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">await</span> Task.CompletedTask;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Examples on display of different validations below:</p>
+<p><figure>
+    <a href="info-message.jpeg">
+        <img src="info-message.jpeg" alt="&ldquo;Information message&rdquo;" title="Example on information message (*INFO* - prefix)">
+    </a>
+    <figcaption><em>Example on information message (*INFO* - prefix)</em></figcaption>
+  </figure></p>
+<p><figure>
+    <a href="success-message.jpeg">
+        <img src="success-message.jpeg" alt="&ldquo;Success message&rdquo;" title="Example on success message (*SUCCESS* - prefix)">
+    </a>
+    <figcaption><em>Example on success message (*SUCCESS* - prefix)</em></figcaption>
+  </figure></p>
+<p><figure>
+    <a href="warning-message.jpeg">
+        <img src="warning-message.jpeg" alt="&ldquo;Warning message&rdquo;" title="Example on warning message (*WARNING* - prefix)">
+    </a>
+    <figcaption><em>Example on warning message (*WARNING* - prefix)</em></figcaption>
+  </figure></p>
+<h2 id="group-validation">Group validation</h2>
+<p>It is possible to check validations in a repeating group when the user saves a row in the group. If there are validations errors in the row, the user is prevented from closing that row until the errors are fixed.</p>
+<div class="content-version-selector border-box">
+
+    
+    <ul id="content-version-tabs"></ul>
+
+    
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        v4 (App Frontend)
+    </label>
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;demo-gruppe&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;children&#34;</span>: [...],
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">9</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {...},
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;validateOnSaveRow&#34;</span>: [<span style="color:#f1fa8c">&#34;All&#34;</span>],
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Where <code>validateOnSaveRow</code> contains a set of validation types to check; this can be one or more of:</p>
+<ul>
+<li><code>Schema</code></li>
+<li><code>Component</code></li>
+<li><code>Expression</code></li>
+<li><code>CustomBackend</code></li>
+<li><code>Required</code></li>
+<li><code>AllExceptRequired</code></li>
+<li><code>All</code></li>
+</ul>
+</div>
+
+  <div class="content-version-container">
+    <label class="content-version-label" hidden>
+        v3 (App Frontend)
+    </label>
+    <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;demo-gruppe&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;children&#34;</span>: [...],
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">9</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {...},
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;triggers&#34;</span>: [<span style="color:#f1fa8c">&#34;validateRow&#34;</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>If you add validation trigger on the group component, a call will be made towards the validation back-end with a header specifying which component triggered the validation: <code>ComponentId</code>.
+Additionally, the row index of the row being saved is available in the header <code>RowIndex</code>. If the group is a nested group, a comma separated list of row indices is returned, otherwise it is a single number.
+Validations are written in C# in the <code>ValidationHandler.cs</code>-file in the application template. In the validation, you can retrieve component id and tailor possible validations to run in the back-end, example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">async</span> Task ValidateData(<span style="color:#8be9fd">object</span> data, ModelStateDictionary validationResults)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">if</span> (data <span style="color:#ff79c6">is</span> flyttemelding model)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        _httpContextAccessor.HttpContext
+</span></span><span style="display:flex;"><span>            .Request.Headers
+</span></span><span style="display:flex;"><span>            .TryGetValue(<span style="color:#f1fa8c">&#34;ComponentId&#34;</span>, <span style="color:#ff79c6">out</span> StringValues compIdValues);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        _httpContextAccessor.HttpContext
+</span></span><span style="display:flex;"><span>            .Request.Headers
+</span></span><span style="display:flex;"><span>            .TryGetValue(<span style="color:#f1fa8c">&#34;RowIndex&#34;</span>, <span style="color:#ff79c6">out</span> StringValues rowIndexValues);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd">string</span> componentId = compIdValues.FirstOrDefault(<span style="color:#8be9fd">string</span>.Empty);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">switch</span> (componentId)
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">case</span> <span style="color:#f1fa8c">&#34;top-level-group&#34;</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#6272a4">// run validations specific to the group</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#6272a4">// Get row index for a non-nested group</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#8be9fd">int</span> rowIndex = <span style="color:#8be9fd">int</span>.Parse(rowIndexValues.FirstOrDefault(<span style="color:#8be9fd">string</span>.Empty));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">break</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">case</span> <span style="color:#f1fa8c">&#34;nested-group&#34;</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#6272a4">// Get all row indices for a nested group</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#8be9fd">int</span>[] rowIndices = rowIndexValues
+</span></span><span style="display:flex;"><span>                    .FirstOrDefault(<span style="color:#8be9fd">string</span>.Empty)
+</span></span><span style="display:flex;"><span>                    .Split(<span style="color:#f1fa8c">&#34;,&#34;</span>, StringSplitOptions.RemoveEmptyEntries)
+</span></span><span style="display:flex;"><span>                    .Select(s =&gt; <span style="color:#8be9fd">int</span>.Parse(s))
+</span></span><span style="display:flex;"><span>                    .ToArray();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">break</span>;
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">default</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#6272a4">// run the validations in their entirety</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">break</span>;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+</div>
+
+
+</div>
+
+<p>For tips on how you solve complex validations, see the examples under <a href="#single-field-validation">single field validation</a>.</p>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/altinn-studio/v8/reference/logic/validation/_index.en.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Edit page on GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#client-side-validation">Client-side validation</a>
+      <ul>
+        <li><a href="#default-error-messages">Default error messages</a></li>
+        <li><a href="#more-about-error-messages-for-required-fields">More about error messages for required fields</a>
+          <ul>
+            <li><a href="#example-component-with-only-title">Example: Component with only <code>title</code></a></li>
+            <li><a href="#example-component-with-shortname">Example: Component with <code>shortName</code></a></li>
+          </ul>
+        </li>
+        <li><a href="#replacing-the-required-validation-message-completely">Replacing the required validation message completely</a></li>
+        <li><a href="#custom-error-messages">Custom error messages</a></li>
+      </ul>
+    </li>
+    <li><a href="#server-side-validation">Server-side validation</a></li>
+    <li><a href="#how-to-add-custom-validation">How to add custom validation</a></li>
+    <li><a href="#single-field-validation">Single field validation</a></li>
+    <li><a href="#soft-validations">Soft validations</a></li>
+    <li><a href="#group-validation">Group validation</a></li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">About Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

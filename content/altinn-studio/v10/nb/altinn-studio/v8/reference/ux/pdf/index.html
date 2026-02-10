@@ -1,0 +1,1664 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Hvordan konfigurere generering av PDF" />
+<meta name="altinn_pagedir" class="elastic" content="altinn-studio/v8/reference/ux/pdf/" />
+<meta name="altinn_title" class="elastic" content="PDF" />
+<meta name="product" data-pagefind-filter="Produkt[content]" content="Altinn Studio" />
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="Referanse" />
+
+<title>PDF – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/altinn-studio/v8/reference/ux/pdf/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Produkt</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/authorization/">
+      <p class="product-item">Autorisasjon</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/broker/">
+      <p class="product-item">Formidling</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/">
+      <p class="product-item">Melding</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/notifications/">
+      <p class="product-item">Varsling</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Søk</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/nb.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/reference/ux/pdf/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/altinn-studio/v8/reference/ux/pdf/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">Hva leter du etter?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Søk');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Sist endret: 29. sep. 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+<div id="version-dropdown-top" class="product-version-dropdown">
+    <div class="version-selector-wrapper">
+        <label class="version-label" for="version-selector-button" id="version-selector-label">
+        Versjon:
+        </label>
+        <div class="dropdown">
+        <button
+            type="button"
+            id="version-selector-button"
+            class="nav-link dropdown-toggle version-switcher"
+            role="combobox"
+            aria-controls="version-dropdown-menu"
+            aria-expanded="false"
+            aria-haspopup="listbox"
+            aria-labelledby="version-selector-label"
+            aria-describedby="version-selector-help"
+            data-toggle="dropdown">
+            <span id="current-version-top">Gjeldende (V8)</span>
+        </button>
+        <div
+            class="dropdown-menu version-dropdown"
+            role="listbox"
+            aria-labelledby="version-selector-label"
+            id="version-dropdown-menu"><a
+                class="dropdown-item version-option"
+                href="/nb/altinn-studio/v8/"
+                data-version="v8"
+                role="option"
+                tabindex="-1"
+                aria-selected="true">
+                <span class="version-item">Gjeldende (V8)</span>
+            </a></div>
+        </div>
+        <div id="version-selector-help" class="sr-only">
+          Bruk piltastene for å navigere mellom versjoner og Enter for å velge        
+        </div>
+    </div>
+</div>
+
+<style>
+   
+  .product-version-dropdown {
+    background: #f8f9fa;
+    padding: 10px;
+    border-bottom: 1px solid #ddd !important;
+    margin-bottom: 0;
+  }
+  #sidebar .product-version-dropdown {
+    border-bottom: 1px solid #ddd !important;
+  }
+  .version-selector-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .dropdown {
+    position: relative;
+  }
+  .version-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #555 !important;
+    margin: 0 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .version-switcher {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    color: #333 !important;
+    text-decoration: none !important;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background: white;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    text-align: left;
+  }
+  .version-switcher::after {
+    margin-left: auto;
+  }
+  #sidebar .version-switcher {
+    border-bottom: 1px solid #ccc !important;
+  }
+  .version-switcher:hover,
+  .version-switcher:focus {
+    background: #e9ecef;
+    outline: none;
+    border-color: #007bff;
+  }
+  .version-switcher:focus {
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+  }
+  .version-option:focus,
+  .version-option:hover {
+    background: #007bff !important;
+    color: white !important;
+    outline: none;
+  }
+  .version-option[aria-selected="true"] {
+    background: #28a745 !important;
+    color: white !important;
+  }
+  .sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+  }
+  .version-dropdown {
+    min-width: 200px;
+    max-height: none !important;
+    overflow-y: visible !important;
+    position: absolute;
+    z-index: 1000;
+  }
+  .version-item {
+    margin: 0;
+    padding: 4px 0;
+  }
+  .version-section {
+    padding-top: 10px;
+  }
+
+    
+  .version-root-item {
+    display: block !important;
+  }
+
+   
+  .version-content .version-section > li {
+    list-style: none;
+  }
+</style>
+
+<script>
+  (function() {
+    
+    setupVersionSelectorAccessibility();
+
+    function setupVersionSelectorAccessibility() {
+      var button = document.getElementById('version-selector-button');
+      var dropdown = document.getElementById('version-dropdown-menu');
+
+      if (!button || !dropdown) return;
+
+      var options = dropdown.querySelectorAll('.version-option');
+      var currentFocusIndex = -1;
+
+      button.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ' || e.key === 'ArrowDown') {
+          e.preventDefault();
+          if (dropdown.style.display === 'none' || !dropdown.classList.contains('show')) {
+            showDropdown();
+            focusOption(0);
+          }
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          showDropdown();
+          focusOption(options.length - 1);
+        }
+      });
+
+      dropdown.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          focusOption(currentFocusIndex + 1);
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          focusOption(currentFocusIndex - 1);
+        } else if (e.key === 'Enter') {
+          e.preventDefault();
+          if (currentFocusIndex >= 0 && options[currentFocusIndex]) {
+            window.location.href = options[currentFocusIndex].href;
+          }
+        } else if (e.key === 'Escape') {
+          e.preventDefault();
+          hideDropdown();
+          button.focus();
+        }
+      });
+
+      button.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (dropdown.style.display === 'none' || !dropdown.classList.contains('show')) {
+          showDropdown();
+        } else {
+          hideDropdown();
+        }
+      });
+
+      function showDropdown() {
+        button.setAttribute('aria-expanded', 'true');
+        dropdown.classList.add('show');
+        dropdown.style.display = 'block';
+      }
+
+      function hideDropdown() {
+        button.setAttribute('aria-expanded', 'false');
+        dropdown.classList.remove('show');
+        dropdown.style.display = 'none';
+        currentFocusIndex = -1;
+        updateAriaSelected();
+      }
+
+      function focusOption(index) {
+        if (index < 0) index = options.length - 1;
+        if (index >= options.length) index = 0;
+
+        currentFocusIndex = index;
+        options[currentFocusIndex].focus();
+        updateAriaSelected();
+      }
+
+      function updateAriaSelected() {
+        
+        var currentVersion = button.querySelector('#current-version-top').textContent.trim();
+        options.forEach(function(option) {
+          var optionVersion = option.getAttribute('data-version');
+          option.setAttribute(
+            'aria-selected',
+            optionVersion === currentVersion ? 'true' : 'false'
+          );
+        });
+      }
+
+      
+      document.addEventListener('click', function(e) {
+        if (!button.contains(e.target) && !dropdown.contains(e.target)) {
+          hideDropdown();
+        }
+      });
+    }
+  })();
+</script>
+<li class="dd-item parent version-root-item">
+              <a href="/nb/altinn-studio/v8/">
+                <span>Altinn Studio</span>
+                <i class="fa fa-sort-down fa-lg category-icon"></i></a>
+              <ul class="version-content">
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/about/"><span>Om Altinn Studio</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/about/usecases/"><span>Bruksområder for Altinn Studio-apper</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/what-do-you-get/"><span>Hva får du?</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/create-user/"><span>Opprette bruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/navigation/"><span>Navigere Altinn Studio</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/navigation/designer/"><span>Designer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/navigation/dashboard/"><span>Dashboard</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/navigation/repos/"><span>Repos</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/app-dev-course/"><span>Introkurs</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/app-dev-course/case/"><span>Case</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/app-dev-course/modul1/"><span>Modul 1: Opprette tjenesten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/app-dev-course/modul2/"><span>Modul 2: Tilpasse datamodellen</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/app-dev-course/modul3/"><span>Modul 3: Utforme skjemaet</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/app-dev-course/modul4/"><span>Modul 4: Lage infoside</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/app-dev-course/modul5/"><span>Modul 5: Publisere tjenesten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/app-dev-course/modul6/"><span>Modul 6: Legge til kodelister</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/getting-started/app-dev-course/modul7/"><span>Modul 7: Legge til dynamikk</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/"><span>Guider</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/"><span>Design</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/insight/"><span>Innsiktsfase</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/prototype/"><span>Prototype</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/usertest/"><span>Brukertest</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/"><span>Retningslinjer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/design-principles/"><span>Designprinsipper</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/link-to-app/"><span>Inngang til skjema</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/content/"><span>Innhold i skjema</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/consistency/"><span>Konsistens</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/components/"><span>UI-komponenter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/components/title-and-paragraph/"><span>Typografi</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/components/button/"><span>Knapp og lenke</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/components/input/"><span>Input</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/components/date/"><span>Dato</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/components/checkbox/"><span>Avkrysningsboks</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/components/radiobutton/"><span>Radioknapp</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/components/dropdown/"><span>Nedtrekksliste</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/components/helptext/"><span>Hjelpetekst</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/components/error-message/"><span>Feilmeldinger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/components/file-upload/"><span>Filopplasting</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/components/picture-component/"><span>Bilde</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/tone-of-voice/"><span>Språk</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/design/guidelines/wcag/"><span>Tilgjengelighet</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/"><span>Utvikling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/basic-form/"><span>Lage et enkelt skjema</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/organisation-library/"><span>Organisasjonsbibliotek</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/eformidling/"><span>eFormidling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/eformidling/legacy/"><span>eFormidling legacy</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/eformidling/service-task/"><span>eFormidling service task</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/fiks-arkiv/"><span>Fiks Arkiv</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/pdf/"><span>PDF</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/subform-pdf/"><span>PDF underskjema</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/dynamics/"><span>Dynamikk</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/branching/"><span>Grener</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/prefill/"><span>Forhåndsutfylling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/prefill/config/"><span>Konfigurasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/prefill/custom/"><span>Egendefinert kode</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/prefill/instantiation/"><span>Http post</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/prefill/query-params/"><span>Spørringsparametere</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/"><span>Svaralternativer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/sources/"><span>Kilder</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/sources/static/"><span>Statisk</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/sources/dynamic/"><span>Dynamisk</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/sources/from-data-model/"><span>Fra datamodellen</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/sources/organisation-library/"><span>Organisasjonsbibliotek</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/sources/shared/"><span>Felles</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/sources/altinn2/"><span>Fra Altinn 2</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/functionality/"><span>Funksjonalitet</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/functionality/data-binding/"><span>Dataknytning</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/functionality/automatic-cleanup/"><span>Automatisk opprydding</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/functionality/texts/"><span>Tekster</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/functionality/filtering/"><span>Filtrering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/functionality/preselection/"><span>Forhåndsvalg</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/options/functionality/sorting/"><span>Sortering</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/restricted-data/"><span>Beskyttede data</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/payment/"><span>Betaling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/summary2/"><span>Oppsummering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/signing/"><span>Signering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/signing/runtime-delegated-signing/"><span>Brukerstyrt signering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/signing/role-based-signing/"><span>Rolle/tilgangspakke</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/signing/sign-and-submit/"><span>Signer og send inn</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/signing/api-signing/"><span>API-basert signering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/subform/"><span>Underskjema</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/subform/config-options/"><span>Konfigurasjon</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/undeploy/"><span>Avpublisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/copy-app/"><span>Kopier app</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/multi-app-solution/"><span>Flerappsløsning</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/multi-app-solution/instructions/"><span>Instruksjoner</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/multi-app-solution/instructions/app-a/"><span>Applikasjon A</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/multi-app-solution/instructions/app-b/"><span>Applikasjon B</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/multi-app-solution/testing/"><span>Testing</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/local-dev/"><span>Lokal utvikling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/service-tasks/"><span>Systemoppgaver</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/development/service-tasks/custom/"><span>Egendefinert</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/administration/"><span>Forvaltning</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/administration/maintainance/"><span>Vedlikehold</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/administration/maintainance/dependencies/"><span>Avhengigheter</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/administration/access-management/"><span>Tilgangsstyring</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/administration/access-management/apps/"><span>Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/administration/access-management/studio/"><span>Studio</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/administration/monitor-and-instrument/"><span>Monitorer og instumenter</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/integration/"><span>Integrasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/integration/sbs/"><span>Sluttbrukersystemer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/integration/sbs/setup/"><span>Oppsett og konfigurasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/integration/sbs/apis/"><span>API integrasjon</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/integration/maskinporten/"><span>Maskinporten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/integration/correspondence/"><span>Meldingstjenesten</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/nb/altinn-studio/v8/guides/integration/correspondence/maskinporten/">
+            <span>Med Maskinporten</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/altinn-2/"><span>Altinn 2</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/altinn-2/altinn-2-datamodel/"><span>Altinn 2 Datamodell</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/altinn-2/seres-migration/"><span>Sereserstatning</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/altinn-2/migrate-services/"><span>Migrere tjenester</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/contributing/"><span>Bidra</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/contributing/create-new-component/"><span>Opprett en ny komponent</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/guides/contributing/add-new-component/"><span>Legg til en ny komponent i Studio</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/"><span>Referanse</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/data/data-modeling/"><span>Datamodellering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/data/prefill/"><span>Forhåndsutfylling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/data/persistence/"><span>Lagring</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/data/attachments/"><span>Vedlegg</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/data/external-api/"><span>Eksternt API</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/"><span>Brukergrensesnitt</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/"><span>Komponenter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/commondefs/"><span>CommonProps</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/accordion/"><span>Accordion</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/accordiongroup/"><span>AccordionGroup</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/actionbutton/"><span>ActionButton</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/address/"><span>Address</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/alert/"><span>Alert</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/attachmentlist/"><span>AttachmentList</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/audio/"><span>Audio</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/checkboxes/"><span>Avkrysningsbokser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/image/"><span>Bilde</span></a></li><li class="dd-item">
+          <a href="/nb/altinn-studio/v8/reference/ux/components/imageupload/">
+            <span>Bildeopplaster</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/button/"><span>Button</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/button-group/"><span>ButtonGroup</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/cards/"><span>Cards</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/custom/"><span>Custom</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/custombutton/"><span>CustomButton</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/date/"><span>Date</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/datepicker/"><span>Datepicker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/fileupload/"><span>FileUpload</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/fileuploadwithtag/"><span>FileUploadWithTag</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/grid/"><span>Grid</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/group/"><span>Group</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/header/"><span>Header</span></a></li><li class="dd-item">
+          <a href="/nb/altinn-studio/v8/reference/ux/components/iframe/">
+            <span>IFrame</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/input/"><span>Input</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/instanceinformation/"><span>InstanceInformation</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/instantiationbutton/"><span>InstantiationButton</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/likert/"><span>Likert</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/link/"><span>Link</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/listcomponent/"><span>List</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/map/"><span>Map</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/multipleselect/"><span>MultipleSelect</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/navigationbar/"><span>NavigationBar</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/navigationbuttons/"><span>NavigationButtons</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/dropdown/"><span>Nedtrekksliste</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/number/"><span>Number</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/option/"><span>Option</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/organizationlookup/"><span>OrganisationLookup</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/panel/"><span>Panel</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/paragraph/"><span>Paragraph</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/personlookup/"><span>PersonLookup</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/printbutton/"><span>PrintButton</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/radiobuttons/"><span>RadioButtons</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/signeelist/"><span>SigneeList</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/signingactions/"><span>SigningActions</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/signingdocumentlist/"><span>SigningDocumentList</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/divider/"><span>Skillelinje</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/summary/"><span>Summary</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/summary2/"><span>Summary2</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/tabs/"><span>Tabs</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/text/"><span>Text</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/timepicker/"><span>TimePicker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/components/video/"><span>Video</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/pages/"><span>Sider</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/pages/navigation/"><span>Navigasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/pages/tracks/"><span>Sporvalg</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/pages/summary/"><span>Oppsummering</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/fields/"><span>Felter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/fields/grouping/"><span>Gruppering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/"><span>Repeterende</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/edit/"><span>Redigering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/table/"><span>Tabell</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/dynamics/"><span>Dynamikk</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/multipage/"><span>Flere sider</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/attachments/"><span>Vedlegg</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/fields/grouping/non-repeating/"><span>Ikke-repeterende</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/fields/grouping/panel/"><span>Panel</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/fields/settings/"><span>Innstillinger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/footer/"><span>Bunntekst</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/logo/"><span>Logo</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/styling/"><span>Styling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/texts/"><span>Tekster</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/texts/translation/"><span>Oversettelse av tekster</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/ux/pdf/"><span>PDF</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/"><span>Logikk</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/events/"><span>App Events</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/events/subscribing/"><span>Abonnement</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/generic/"><span>Generelt</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/services/"><span>Tjenester</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/notifications/"><span>Varsler</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/notifications/email/"><span>E-post</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/notifications/sms/"><span>SMS</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/dataprocessing/"><span>Dataprosessering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/dynamic/"><span>Dynamikk</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/instantiation/"><span>Instansiering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/expressions/"><span>Uttrykk</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/validation/"><span>Validering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/validation/files/"><span>Utvidet filvalidering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/logic/validation/expression-validation/"><span>Validering med uttrykk</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/"><span>Konfigurasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/messagebox/"><span>Meldingsboks</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/messagebox/create_copy/"><span>Lag kopi</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/messagebox/presentationfields/"><span>Presentasjonsfelter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/messagebox/hide_instances/"><span>Skjule instanser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/messagebox/advanced-sync/"><span>Synk-innstillinger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/authorization/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/nb/altinn-studio/v8/reference/configuration/authorization/api-scopes/">
+            <span>API Scopes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/authorization/rules/"><span>Regelbibliotek</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/"><span>Veiledning</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/"><span>Roller</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/"><span>Altinn-roller</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/altinn_roles_administration/"><span>Administrator roller</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/altinn_roles_persons/"><span>Personroller</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_altinn/altinn_roles_enterprices/"><span>Virksomhetsroller</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_er/"><span>ER-roller</span></a></li><li class="dd-item">
+          <a href="/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_ske/">
+            <span>SKE-roller</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/test_authorization_application/"><span>Testing</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/partytype/"><span>Aktørtyper</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/datafields/"><span>Datafelter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/shadowfields/"><span>Hjelpefelter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/process/"><span>Prosess</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/process/auto-delete/"><span>Automatisk sletting</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/process/pre-post-hooks/"><span>Definer egendefinerte prosess hooks</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/process/exclusive-gateways/"><span>Exclusive Gateways</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/process/message/"><span>Melding</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/process/customize/"><span>Tilpasse visninger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/queryparameters/"><span>Query parametere</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/secrets/"><span>Secrets</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/eformidling/"><span>eFormidling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/events/"><span>Events</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/filescan/"><span>Virus skanning</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/settings/"><span>Settings</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/startup/"><span>Startup</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/stateless/"><span>Stateless</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/deployment/"><span>Publisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/authentication/"><span>Autentisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/configuration/autosavebehavior/"><span>Automatisk lagring</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/analysis/"><span>Analyse</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/analysis/rules/altinnapp0500/"><span>ALTINNAPP0500: farlig bruk av IHttpContextAccessor</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/api/auth/"><span>Autentisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/api/expose/"><span>Eksponere</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/api/instance/"><span>Instans</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/api/consume/"><span>Konsumere</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/testing/"><span>Testing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/testing/local/"><span>Lokalt</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/testing/local/apitests/"><span>API tests</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/testing/local/apitests/org/"><span>Org</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/testing/local/apitests/user/"><span>Sluttbruker</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/testing/local/debug/"><span>Debugging</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/testing/local/testusers/"><span>Testbrukere</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/testing/deploy/"><span>I testmiljø</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/cli/"><span>Altinn Studio CLI</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/cli/install/"><span>Installering</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/deployment/"><span>Produksjonssetting</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/deployment/firewall/"><span>Brannmur og IP konfigurasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/deployment/runtime-environment/"><span>Kjøremiljø</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/deployment/runtime-environment/resource-allocation/"><span>Ressurserfordeling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/deployment/runtime-environment/resource-allocation-tips/"><span>Tips til ressurserfordeling</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/process/"><span>Prosess handling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/process/tasks/"><span>Prosess oppgaver</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/process/tasks/signing/"><span>Signerings task</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/process/flowcontrol/"><span>Flytkontroll</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/process/actions/"><span>Handlinger</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/process/actions/serveraction/"><span>Server Action</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/process/actions/process-actions/"><span>Process actions</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/monitoring/"><span>Monitorering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/monitoring/configuration/"><span>Konfigurasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/monitoring/instrumentation/"><span>Instrumentering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/monitoring/registry/"><span>Telemetri-register</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/monitoring/registry/metrics/"><span>Metrikker</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/monitoring/visualisation/"><span>Visualisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/monitoring/faq/"><span>FAQ</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/monitoring/references/"><span>Ressurser</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/access-management/"><span>Tilgangsstyring</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/access-management/apps/"><span>Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/reference/access-management/studio/"><span>Studio</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/concepts/"><span>Konsepter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/concepts/payment/"><span>Betaling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/concepts/data-model/"><span>Datamodell</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/concepts/data-model/restricted-data/"><span>Beskyttede data</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/concepts/prefill/"><span>Forhåndsutfylling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/concepts/organisation-library/"><span>Organisasjonsbibliotek</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/concepts/organisation-library/code-lists/"><span>Publiserte bibliotekskodelister</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/concepts/signing/"><span>Signering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/concepts/process/"><span>Prosess</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/concepts/undeploy/"><span>Avpublisering</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/news/"><span>Nyheter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/news/launched-apps/"><span>Eksempler lanserte apper</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/news/launched-apps/external/"><span>Eksterne</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/news/launched-apps/digdir/"><span>Digdir</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/news/launched-apps/digdir/bli-tjenesteeier/"><span>Bli tjenesteeier</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/news/launched-apps/digdir/godkjenn-bruksvilkaar/"><span>Godkjenn bruksvilkår</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/altinn-studio/v8/news/launched-apps/digdir/be-om-api-nokkel/"><span>Tilgang til REST API</span></a></li></ul></li></ul></li></ul></li></ul>
+            </li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/nb/altinn-studio/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/altinn-studio/v8/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/altinn-studio/v8/reference/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/altinn-studio/v8/reference/ux/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/altinn-studio/v8/reference/ux/pdf/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/nb/altinn-studio/'>Altinn Studio</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/altinn-studio/v8/'>Gjeldende (V8)</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/altinn-studio/v8/reference/'>Referanse</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/altinn-studio/v8/reference/ux/'>Brukergrensesnitt</a> <span class='adocs-breadcrumb-divider'> / </span> PDF</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">PDF</h1>
+              <p class="a-leadText" id="leadText">Hvordan konfigurere generering av PDF</p>
+
+<div class="notices warning" ><h2 id="ny-pdf-generering">Ny PDF-generering</h2>
+<h3 id="aktivere-ny-pdf-generering">Aktivere ny PDF-generering</h3>
+<p>Fra og med versjon 7.5 av nuget-pakkene (Altinn.App.Api og Altinn.App.Core) er det lansert en ny måte å generere PDF-er på. Denne nye måten kan skrus av og på ved å legge til følgende seksjon og innstilling i <em>appsettings.json</em>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#34;FeatureManagement&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;NewPdfGeneration&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>Dette vil sørge for at den nye PDF-tjenesten kalles. Denne aksepterer en URL som peker tilbake til en automatisk generert side i appen. Siden bygges opp og danner grunnlaget for PDF-en. Grensesnittet <code>IPdfFormatter</code> som dokumentert nedenfor er fortsatt relevant hvis du trenger spesiallogikk for å skjule komponenter/sider fra PDF-en.</p>
+<h3 id="innstillinger">Innstillinger</h3>
+<p>Selv om standardinnstillingene for den nye tjenesten skal være nok for de fleste applikasjoner, kan de overstyres ved å legge til en PdfGeneratorSettings-seksjon i <em>appsettings.json</em> (standardinnstillinger vises under).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#34;PdfGeneratorSettings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;ServiceEndpointUri&#34;</span>: <span style="color:#f1fa8c">&#34;https://{org}.apps.{hostName}/{appId}/#/instance/{instanceId}&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;AppPdfPageUriTemplate&#34;</span>: <span style="color:#f1fa8c">&#34;https://{org}.apps.{hostName}/{appId}/#/instance/{instanceId}?pdf=1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;WaitForSelector&#34;</span>: <span style="color:#f1fa8c">&#34;#readyForPrint&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;WaitForTime&#34;</span>: <span style="color:#bd93f9">5000</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><p>Hvis WaitForSelector er satt så blir WaitForTime ignorert. WaitForSelector sikrer at siden er ferdig oppbygd og presentert før PDF-en genereres.</p>
+</div>
+<p>Det er to ulike måter å konfigurere PDF-genereringen på:</p>
+<ol>
+<li><a href="#automatisk-konfigurasjon">Automatisk basert på skjema-sidene dine</a></li>
+<li><a href="#egendefinert-konfigurasjon">Manuelt basert på en egendefinert PDF-side</a></li>
+</ol>
+<p>Det er også mulig å se en <a href="#forh%C3%A5ndsvisning-i-nettleseren">forhåndsvisning</a> av hvordan PDF-en kommer til å se ut i nettleseren imens du jobber med den (kun v7.5+).</p>
+<h2 id="automatisk-konfigurasjon">Automatisk konfigurasjon</h2>
+<p>Denne metoden brukes som standard dersom du ikke har spesifisert en <a href="#egendefinert-konfigurasjon">egendefinert PDF-side</a>.
+Denne metoden trekker ut alle sidene og komponentene i den rekkefølgen de vises, og tar de med i PDF-dokumentet.</p>
+<p><strong>MERK</strong>: Denne metoden viser ikke oppsummerings-komponenter fra skjemaet.</p>
+<h3 id="ekskludering-av-sider-og-komponenter">Ekskludering av sider og komponenter</h3>
+<p>Som regel har man behov for å ekskludere visse sider og komponenter som ikke er relevant for PDF-dokumentet.
+Dette kan konfigureres på to ulike måter:</p>
+<ol>
+<li>Ved å modifisere <code>Settings.json</code>-filen for layout-settet.</li>
+<li>Programmatisk ved å implementere det i kode. Dette åpner for dynamisk ekskludering basert på skjemadataen.</li>
+</ol>
+<p>Avhengig av hvilken versjon du kjører setter man opp den programmatiske metoden litt forskjellig, men logikken er helt lik. Oversikten under viser hvordan det settes opp for versjonen du kjører:
+<div class="content-version-selector border-box">
+
+    
+    <ul id="content-version-tabs"></ul>
+
+    
+
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        v7
+    </label>
+    <ol>
+<li>Opprett en klasse som implementerer <code>IPdfFormatter</code>-grensesnittet som ligger i <code>Altinn.App.Core.Features</code>-navnerommet.<br>
+Du kan navngi og plassere filene i den mappestrukturen du selv ønsker i prosjektet ditt. Men vi anbefaler at du benytter meningsfulle navnerom som i et hvilket som helst annet .Net-prosjekt.</li>
+<li>Registrér din implementering i <em>Program.cs</em>-klassen.
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C#" data-lang="C#"><span style="display:flex;"><span>services.AddTransient&lt;IPdfFormatter, PdfFormatter&gt;();
+</span></span></code></pre></div>Dette sørger for at din kode er kjent for applikasjonen og at koden blir kjørt når den skal.</li>
+</ol>
+
+</div>
+
+
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        v4, v5, v6
+    </label>
+    Endre <code>PdfHandler.cs</code>-filen under <code>App/logic/Print</code>-mappen.
+</div>
+
+
+
+</div>
+</p>
+<div class="card adocs-expand" id="exclude-page">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-exclude-page"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>Ekskludere sider</a>
+	</div>
+	<div id="expandable-exclude-page" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#exclude-page"></a><h3 id="1-settingsjson">1. Settings.json</h3>
+<p>Legg til en liste med sidenavn som skal eksluderes på <code>excludeFromPdf</code> under <code>pages</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json&#34;</span>,
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&#34;pages&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;order&#34;</span>: [<span style="color:#f1fa8c">&#34;side1&#34;</span>, <span style="color:#f1fa8c">&#34;side2&#34;</span>],
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>      <span style="color:#ff79c6">&#34;excludeFromPdf&#34;</span>: [<span style="color:#f1fa8c">&#34;side2&#34;</span>]
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="2-programmatisk">2. Programmatisk</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">if</span> (data.GetType() == <span style="color:#ff79c6">typeof</span>(Skjema))
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    layoutSettings.Pages.ExcludeFromPdf.Add(<span style="color:#f1fa8c">&#34;side2&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(layoutSettings);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><br>
+<p><strong>NB</strong>: Du trenger kun å velge én av disse metodene.</p>
+</div>
+	</div>
+</div>
+<div class="card adocs-expand" id="exclude-component">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-exclude-component"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>Ekskludere komponenter</a>
+	</div>
+	<div id="expandable-exclude-component" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#exclude-component"></a><h3 id="1-settingsjson">1. Settings.json</h3>
+<p>Legg til en liste over komponent-ID-er som skal ekskluderes på <code>excludeFromPdf</code> under <code>components</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json&#34;</span>,
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&#34;pages&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;order&#34;</span>: [<span style="color:#f1fa8c">&#34;side1&#34;</span>]
+</span></span><span style="display:flex;"><span>   },
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&#34;components&#34;</span>: {
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>      <span style="color:#ff79c6">&#34;excludeFromPdf&#34;</span>: [<span style="color:#f1fa8c">&#34;bilde-komponent-id&#34;</span>]
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="2-programmatisk">2. Programmatisk</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">if</span> (data.GetType() == <span style="color:#ff79c6">typeof</span>(Skjema))
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    layoutSettings.Components.ExcludeFromPdf.Add(<span style="color:#f1fa8c">&#34;bilde-komponent-id&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(layoutSettings);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><br>
+<p><strong>NB</strong>: Du trenger kun å velge én av disse metodene.</p>
+</div>
+	</div>
+</div>
+<div class="card adocs-expand" id="exclude-specific-component">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-exclude-specific-component"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>Ekskludere komponenter fra en spesifikk rad i en repeterende gruppe</a>
+	</div>
+	<div id="expandable-exclude-specific-component" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#exclude-specific-component"></a><p>Dersom du trenger å ekskludere en komponent fra en spesifikk rad i en repeterende gruppe må du spesifisere radnummeret i tillegg til komponent-ID-en.</p>
+<p>Formatet er: <code>komponentID-&lt;rad-nummer&gt;</code>.</p>
+<h3 id="1-settingsjson">1. Settings.json</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json&#34;</span>,
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&#34;pages&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;order&#34;</span>: [<span style="color:#f1fa8c">&#34;side1&#34;</span>]
+</span></span><span style="display:flex;"><span>   },
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&#34;components&#34;</span>: {
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>      <span style="color:#ff79c6">&#34;excludeFromPdf&#34;</span>: [<span style="color:#f1fa8c">&#34;komponent-i-gruppe-1&#34;</span>]
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="2-programmatisk">2. Programmatisk</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cs" data-lang="cs"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">async</span> Task&lt;LayoutSettings&gt; FormatPdf(LayoutSettings layoutSettings, <span style="color:#8be9fd">object</span> data)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">if</span> (data.GetType() == <span style="color:#ff79c6">typeof</span>(Skjema))
+</span></span><span style="display:flex;"><span>  {
+</span></span><span style="display:flex;"><span>    layoutSettings.Components.ExcludeFromPdf.Add(<span style="color:#f1fa8c">&#34;komponent-i-gruppe-1&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">await</span> Task.FromResult(layoutSettings);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><br>
+<p><strong>NB</strong>: Du trenger kun å velge én av disse metodene.</p>
+</div>
+	</div>
+</div>
+<h2 id="egendefinert-konfigurasjon">Egendefinert konfigurasjon</h2>
+<h3 id="med-altinn-studio">Med Altinn Studio</h3>
+<p>Du kan legge til et tilpasset PDF-oppsett i Studio ved å konvertere en side til PDF-oppsett i sidekonfigurasjonen:</p>
+<p><p><img alt="Skjermbilde av PDF-bryteren" src="pdf-page-switch.png"></p></p>
+<p>Du kan bruke komponenten <a href="http://localhost:1313/nb/altinn-studio/v8/reference/ux/components/summary2/" title="Oppsummering">Oppsummering</a>, til å angi hvilke deler av oppsettet du vil ha med i PDF-en.</p>
+<p><p><img alt="Skjermbilde av en oppsummeringskomponent i en PDF-oppsett-side" src="pdf-summary-component.png"></p></p>
+<h3 id="manual-configuration">Manual configuration</h3>
+<div class="notices warning" >Denne metoden er kun tilgjengelig i versjon 7.5 og høyere.</div>
+<p>Denne metoden lar deg spesifisere en helt egendefinert PDF ved å definere en layout-fil som bestemmer hva den skal inneholde.</p>
+<p>For å ta i bruk denne metoden må du opprette en ny layout-fil for PDF-en og sette <code>pdfLayoutName</code> i <code>Settings.json</code> til å peke til den filen:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json&#34;</span>,
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&#34;pages&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;order&#34;</span>: [<span style="color:#f1fa8c">&#34;side1&#34;</span>],
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>      <span style="color:#ff79c6">&#34;pdfLayoutName&#34;</span>: <span style="color:#f1fa8c">&#34;minPdfLayout&#34;</span>
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Denne layout-filen konfigureres på akkurat samme måte som andre layout-filer, bortsett fra at ikke alle komponenttyper er tilgjengelig. Komponenttypene som kan brukes i en PDF-layout er følgende:</p>
+<ul>
+<li><code>Summary</code></li>
+<li><code>Group</code></li>
+<li><code>InstanceInformation</code></li>
+<li><code>Header</code></li>
+<li><code>Paragraph</code></li>
+<li><code>Image</code></li>
+<li><code>Panel</code></li>
+</ul>
+<div class="card adocs-expand" id="include-instance-information">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-include-instance-information"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>Inkludere instans-informasjon</a>
+	</div>
+	<div id="expandable-include-instance-information" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#include-instance-information"></a><p>Den automatiske PDF-layouten inkluder en forside med instans-informasjon som avsender, mottaker, dato, og referansenummer. Dette bør du også inkludere i din egendefinerte PDF-layout. Eksempelet under viser hvordan du kan inkludere denne informasjonen på akkurat samme måte som i den automatiske metoden:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json&#34;</span>,
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&#34;data&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;layout&#34;</span>: [
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>         {
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;pdf-instance&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>            <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;InstanceInformation&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>            <span style="color:#ff79c6">&#34;elements&#34;</span>: {
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>               <span style="color:#ff79c6">&#34;dateSent&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>               <span style="color:#ff79c6">&#34;sender&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>               <span style="color:#ff79c6">&#34;receiver&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>               <span style="color:#ff79c6">&#34;referenceNumber&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>            },
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>            <span style="color:#ff79c6">&#34;pageBreak&#34;</span>: {
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>               <span style="color:#ff79c6">&#34;breakAfter&#34;</span>: <span style="color:#f1fa8c">&#34;always&#34;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>            }
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>         },
+</span></span><span style="display:flex;"><span>         ...
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></div>
+	</div>
+</div>
+<div class="card adocs-expand" id="adding-page-breaks">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-adding-page-breaks"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>Legge til sideskift</a>
+	</div>
+	<div id="expandable-adding-page-breaks" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#adding-page-breaks"></a><p>Du kan spesifisere at en komponent skal starte på en ny side eller at et sideskift skal komme rett etter en komponent ved å bruke <code>pageBreak</code>-egenskapen. Denne egenskapen er tilgjengelig på alle komponenter. I eksempelet under brukes det på en overskrift for å sørge for at den starter på en ny side:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json&#34;</span>,
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&#34;data&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;layout&#34;</span>: [
+</span></span><span style="display:flex;"><span>         {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;pdf-header&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Header&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>               <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;Dette er en ny seksjon&#34;</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;size&#34;</span>: <span style="color:#f1fa8c">&#34;L&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>            <span style="color:#ff79c6">&#34;pageBreak&#34;</span>: {
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>               <span style="color:#ff79c6">&#34;breakBefore&#34;</span>: <span style="color:#f1fa8c">&#34;always&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>               <span style="color:#ff79c6">&#34;breakAfter&#34;</span>: <span style="color:#f1fa8c">&#34;avoid&#34;</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>            }
+</span></span><span style="display:flex;"><span>         }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>NB</strong>: Verdien av <code>breakBefore</code> og <code>breakAfter</code> kan enten være <code>auto</code> (standard), <code>always</code>, <code>avoid</code>, eller ett <a href="/nb/altinn-studio/v8/reference/logic/expressions/">uttrykk</a> som returnerer en av disse verdiene.</p>
+</div>
+	</div>
+</div>
+<div class="card adocs-expand" id="exclude-components-from-groups">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-exclude-components-from-groups"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>Ekskludere komponenter inne i en gruppe</a>
+	</div>
+	<div id="expandable-exclude-components-from-groups" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#exclude-components-from-groups"></a><p>Det er mulig å ekskludere enkeltkomponenter inne i en gruppe ved å bruke <code>excludedChildren</code>-egenskapen på en <code>Summary</code>-komponent som refererer til en <code>Group</code>-komponent. Dette gjøres ved å legge ID-en til komponenten i listen over ekskluderte komponenter som i eksempelet under:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json&#34;</span>,
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&#34;data&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;layout&#34;</span>: [
+</span></span><span style="display:flex;"><span>         {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;pdf-group-summary&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Summary&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;componentRef&#34;</span>: <span style="color:#f1fa8c">&#34;en-gruppe-komponent&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;excludedChildren&#34;</span>: [
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>               <span style="color:#f1fa8c">&#34;en-komponent-i-gruppen&#34;</span>
+</span></span><span style="display:flex;"><span>            ]
+</span></span><span style="display:flex;"><span>         }
+</span></span><span style="display:flex;"><span>      ]
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></div>
+	</div>
+</div>
+<h2 id="forhåndsvisning-i-nettleseren">Forhåndsvisning i nettleseren</h2>
+<div class="notices warning" >Forhåndsvisningen gjelder kun dersom du bruker ny PDF generering (v7.5+). Se <a href="#ny-pdf-generering">ovenfor</a> for mer informasjon.</div>
+<p>Det er mulig å se en forhåndsvisning av hvordan den genererte PDF-en kommer til å se ut i nettleseren imens du jobber. Følg instruksjonene nedenfor:</p>
+<ol>
+<li><strong>Viktig</strong>: Bruk Google Chrome til å forhåndsvise PDF.<br>PDF-generatoren bruker en variant av Chrome til å generere PDF-en, så andre nettlesere vil ikke produsere et korrekt resultat ved forhåndsvisning.</li>
+<li>Kjør opp appen din lokalt eller åpne appen din i testmiljøet, og start en instans.</li>
+<li>Åpne utviklerverktøyet ved å trykke på knappen nederst i høyre hjørne, eller bruk hurtigtasten <code>Ctrl+Shift+K</code>/<code>⌘+Shift+K</code>.
+<br><br>
+<p><img alt="Knappen som åpner utviklerverktøyet, skjermbilde" src="dev-tools-button.png"></p></li>
+<li>Trykk på <code>Forhåndsvis PDF</code>-knappen i utviklerverktøyet.
+<br><br>
+<p><img alt="Utviklerverktøyet, skjermbilde" src="preview-button.png"></p></li>
+</ol>
+<h2 id="pdf-footer">PDF footer</h2>
+<div class="notices warning" >Denne funksjonaliteten er kun tilgjengelig i versjon 8.3.8 og høyere.</div>
+<h3 id="forutsetninger">Forutsetninger</h3>
+<p>For å bruke PDF footer-funksjonaliteten må applikasjonen din støtte tidssoner. Dette gjøres ved å legge til følgende
+linjer i <code>Dockerfile</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Dockerfile" data-lang="Dockerfile"><span style="display:flex;"><span>  <span style="color:#6272a4"># Add globalization timezone support</span>
+</span></span><span style="display:flex;"><span>  RUN apk add --no-cache icu-libs icu-data-full tzdata
+</span></span><span style="display:flex;"><span>  ENV <span style="color:#8be9fd;font-style:italic">DOTNET_SYSTEM_GLOBALIZATION_INVARIANT</span><span style="color:#ff79c6">=</span>false
+</span></span></code></pre></div><p>Linjene må legges til etter &ldquo;FROM&rdquo;-seksjonen som ender på &ldquo;AS final&rdquo;</p>
+<h3 id="configuration">Configuration</h3>
+<p>Di kan legge til en footer i den genererte PDF-en ved å legge til <code>&quot;DisplayFooter&quot;: true</code> i <code>PdfGeneratorSettings</code>-seksjonen
+i <code>appsettings.json</code>-filen.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>  <span style="color:#f1fa8c">&#34;PdfGeneratorSettings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;DisplayFooter&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span></code></pre></div><h3 id="innhold">Innhold</h3>
+<p>Footeren vil inneholde følgende informasjon:</p>
+<ul>
+<li>
+<p>Navnet på appen</p>
+</li>
+<li>
+<p>Navnet på organisasjonen</p>
+</li>
+<li>
+<p>Dato og tid for når PDF-en ble generert</p>
+</li>
+<li>
+<p>Altinn referanse-ID</p>
+</li>
+<li>
+<p>Sidenummer</p>
+<p><p><img alt="PDF footer eksempel" src="pdf-footer-example.png"></p></p>
+</li>
+</ul>
+<h2 id="lag-en-pdf-i-figma">Lag en PDF i Figma</h2>
+<p>Hvis du vil teste og sette opp PDF-en din, kan du gjøre det her:<br>
+<a href="https://www.figma.com/community/file/1344307804742953785/altinn-studio-komponenter">Altinn Studio Komponenter</a>.<br>
+Merk at eksempelet ikke er identisk med den faktiske koden, men er tilpasset for å lage prototyper i Figma.</p>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/altinn-studio/v8/reference/ux/pdf/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#automatisk-konfigurasjon">Automatisk konfigurasjon</a>
+      <ul>
+        <li><a href="#ekskludering-av-sider-og-komponenter">Ekskludering av sider og komponenter</a></li>
+      </ul>
+    </li>
+    <li><a href="#egendefinert-konfigurasjon">Egendefinert konfigurasjon</a>
+      <ul>
+        <li><a href="#med-altinn-studio">Med Altinn Studio</a></li>
+        <li><a href="#manual-configuration">Manual configuration</a></li>
+      </ul>
+    </li>
+    <li><a href="#forhåndsvisning-i-nettleseren">Forhåndsvisning i nettleseren</a></li>
+    <li><a href="#pdf-footer">PDF footer</a>
+      <ul>
+        <li><a href="#forutsetninger">Forutsetninger</a></li>
+        <li><a href="#configuration">Configuration</a></li>
+        <li><a href="#innhold">Innhold</a></li>
+      </ul>
+    </li>
+    <li><a href="#lag-en-pdf-i-figma">Lag en PDF i Figma</a></li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

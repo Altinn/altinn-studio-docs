@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Overview of changes introduced in v3 of app frontend." />
+<meta name="altinn_pagedir" class="elastic" content="community/changelog/app-frontend/v3/whats-new/" />
+<meta name="altinn_title" class="elastic" content="What&#39;s new" />
+
+
+
+<title>What&#39;s new – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/en/community/changelog/app-frontend/v3/whats-new/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/en/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">To the frontpage</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Show/hide menu</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Product</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/en/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/authorization/">
+      <p class="product-item">Authorization</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/broker/">
+      <p class="product-item">Broker</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/correspondence/">
+      <p class="product-item">Correspondence</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/notifications/">
+      <p class="product-item">Notifications</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Search</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/en.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/community/changelog/app-frontend/v3/whats-new/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/community/changelog/app-frontend/v3/whats-new/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English ✓</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">What are you looking for?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Search');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Last modified: Sep 29, 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/en/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/about/goals/"><span>Goals</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/about/open-source/"><span>Open source</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/develop-component/"><span>Develop a component</span></a></li><li class="dd-item">
+          <a href="/en/community/contributing/intro/">
+            <span>Intro for developers</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/azure-devops/pipelines/"><span>Pipelines</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/azure-storage/"><span>Azure Storage</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/azure-storage/tools/"><span>Tools &amp; Software</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/azure-storage/queues/"><span>Queues</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/back-end/"><span>Back-end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/back-end/app-template-and-deps/"><span>App template and deps</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/back-end/async-programming/"><span>Async programming</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/back-end/error-flow/"><span>Error flow</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/back-end/exception-handling/"><span>Exception handling</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/back-end/logging/"><span>Logging</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/back-end/nuget-package/"><span>NuGet Package</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/back-end/swagger/"><span>Swagger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/general/"><span>Cheat Sheet</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/deployment/"><span>Deployment</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/docker/"><span>Docker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/docker/without-docker-desktop/"><span>Install Docker without Docker Desktop</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/"><span>Front-end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/getting-started/"><span>Getting started</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/studio-component/"><span>Studio components</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/developing/"><span>Developing locally</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/routine/"><span>Routines for development</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/new-component/"><span>Creating components</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/react/"><span>React</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/redux/"><span>Redux</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/debug/"><span>Debug</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/best-practices/"><span>Best practices</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/build/"><span>Build</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/component-library/"><span>Component Library</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/error-handling/"><span>Error handling</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/postmessage/"><span>Post Message</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/styling/"><span>Styling (css)</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/versioning/"><span>Versioning</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/cheatsheet/"><span>General</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/getting-started/"><span>Getting started</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/git/"><span>Git</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/naming/"><span>Naming Conventions</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/loadbalancer/"><span>Nginx loadbalancing in studio</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/loadbalancer/ssl-certificate/"><span>Nginx SSL/TLS certificate</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/postgres/"><span>PostgreSQL</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/rest/"><span>RESTful APIs (Representation State Transfer)</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/routing/"><span>Routing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/routing/nginx/"><span>Nginx routing</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/routing/traefik/"><span>Traefik routing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/routing/traefik/installation/"><span>Installation of Traefik 2.0</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/routing/traefik/tls-configuration/"><span>TLS in Traefik 2.0</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/routing/traefik/custom-resources/"><span>Traefik custom resources</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/en/community/contributing/handbook/securecoding/checklist/">
+            <span>Code Checklist</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/test/"><span>Test</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/test/automated-test-app/"><span>App for automated test</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/test/cypress/"><span>Cypress</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/test/k6/"><span>k6</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/test/postman/"><span>Postman</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/test/test-strategy/"><span>Test Strategy</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/test/unit-testing/"><span>Unit testing</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/test/xunit-testing/"><span>Xunit Testing</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/branching/"><span>Branching and Pull Requests</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/flight-rules/"><span>Flight Rules</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/gitea/"><span>Gitea</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/reusable-resources/"><span>Reusable resources</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/theming/"><span>Theming and styling</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/troubleshooting/"><span>Troubleshooting</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/"><span>Changelog</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-frontend/"><span>App frontend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-frontend/v4/"><span>v4</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-frontend/v4/migrating-from-v3/"><span>Migration from v3</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-frontend/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-frontend/v3/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-frontend/v3/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-frontend/stricter-schema/"><span>JsonSchema</span></a></li><li class="dd-item">
+          <a href="/en/community/changelog/app-frontend/designsystem-update/">
+            <span>Visual changes</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/"><span>App nuget</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v8/"><span>v8</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v8/migrating-from-v7/"><span>Migration from v7</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v7/"><span>v7</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v7/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v7/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v6/"><span>v6</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v6/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v6/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v5/"><span>v5</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v5/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v5/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v4/"><span>v4</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v4/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v4/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v3/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v3/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/older/"><span>Older</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/older/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/older/whats-new/"><span>What&#39;s new</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/"><span>Deployment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/migration/"><span>Migration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v1/"><span>v1</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v1/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v1/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v2/"><span>v2</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v2/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v2/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v3/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v3/whats-new/"><span>What&#39;s new</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/storage-interfaces/"><span>Storage Interface</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/storage-interfaces/v3/"><span>v3</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/storage-interfaces/v2/"><span>v2</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/roadmap/"><span>Roadmap</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/devops/"><span>DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/devops/definition-of-ready/"><span>Definition of Ready</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/devops/roadmapprocess/"><span>Roadmap prosess</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/devops/teams/"><span>Teams</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/devops/teams/apps/"><span>Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/devops/teams/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/devops/teams/authorization/designfrontendprocess/"><span>Desgin/Frontend prosess</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/devops/teams/platform/"><span>Platform</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/devops/teams/studio/"><span>Studio</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/presentations/"><span>Presentations</span></a></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/en/community/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/community/changelog/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/community/changelog/app-frontend/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/community/changelog/app-frontend/v3/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/community/changelog/app-frontend/v3/whats-new/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/en/community/'>Community</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/community/changelog/'>Changelog</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/community/changelog/app-frontend/'>App frontend</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/community/changelog/app-frontend/v3/'>v3</a> <span class='adocs-breadcrumb-divider'> / </span> What's new</span>
+            </div>            
+          </div><div id="body-inner"><h1 class="a-fontBold">What&#39;s new</h1>
+              <p class="a-leadText" id="leadText">Overview of changes introduced in v3 of app frontend.</p>
+
+<p>For a high-level overview of <a href="https://github.com/Altinn/altinn-roadmap/issues">upcoming changes, you can check out the roadmap</a>.</p>
+<h2 id="3372">&gt;3.37.2</h2>
+<p>Changelog for app-frontend can now be <a href="https://github.com/Altinn/app-frontend-react/releases">found on Github Releases</a>.</p>
+<h2 id="3372-2022-05-20---dependency-patching">3.37.2 (2022-05-20) - Dependency patching</h2>
+<p>Patching of external dependencies for week 20 of 2022.</p>
+<h2 id="3371-2022-05-15---fix-for-prefills-when-using-preselectedoptionindex">3.37.1 (2022-05-15) - Fix for prefills when using preselectedOptionIndex</h2>
+<p>When using <code>preselectedOptionIndex</code> on a field which is used to determine later dynamic
+prefills (or when clicking really fast), the wrong prefills could end up being used.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/8255">#8255</a>.</p>
+<h2 id="3370-2022-05-15---support-for-tracks-in-stateless-apps">3.37.0 (2022-05-15) - Support for tracks in stateless apps</h2>
+<p>Stateless apps can now utilize tracks. Requires version 5.1.0 or later of nuget packages.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/8347">#8347</a>.</p>
+<h2 id="3364-2022-05-10---fix-in-validation-of-required-field-in-hidden-groups-again">3.36.4 (2022-05-10) - Fix in validation of required field in hidden groups (again)</h2>
+<p>After the last fix, released in version 3.35.2, the problem would persist if the fields were hidden individually
+instead of hiding the entire group. This additional vector has now been fixed.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6398">#6398</a>.</p>
+<h2 id="3363-2022-05-10---only-reference-description-if-the-field-exists">3.36.3 (2022-05-10) - Only reference description if the field exists</h2>
+<p>Fixes a bug where components had defined <code>aria-describedby</code> to a element that did not exist.
+Issue <a href="https://github.com/Altinn/app-frontend-react/issues/23">#23</a>.</p>
+<h2 id="3362-2022-05-06---fixed-a-potential-crash-after-failing-validation-from-server">3.36.2 (2022-05-06) - Fixed a potential crash after failing validation from server</h2>
+<p>Fixes a recently introduced bug where some failing validations passed from the server could crash the app instance.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/8481">#8481</a>.<br>
+Patching of external dependencies for week 18 of 2022.</p>
+<h2 id="3361-2022-05-06---fix-in-validation-of-required-fields-in-repeating-multi-page-groups">3.36.1 (2022-05-06) - Fix in validation of required fields in repeating multi-page groups</h2>
+<p>Fixes a bug where required fields inside multi-page repeating groups were being marked with
+errors even when no instances of the repeating group had been added.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7478">#7478</a>.</p>
+<h2 id="3360-2022-05-03---added-support-for-dynamics-in-nested-repeating-groups">3.36.0 (2022-05-03) - Added support for dynamics in nested repeating groups.</h2>
+<p>Added support for dynamics in nested repeating groups.
+Issue <a href="https://github.com/Altinn/app-frontend-react/issues/55">#55</a>.</p>
+<h2 id="3352-2022-05-02---fix-in-validation-of-required-field-in-hidden-groups">3.35.2 (2022-05-02) - Fix in validation of required field in hidden groups</h2>
+<p>Fixes a bug where hiding a non-repeating group with required fields could display a message asking the user to fill
+the invisible required fields.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6398">#6398</a>.</p>
+<h2 id="3351-2022-04-28---dependency-patching">3.35.1 (2022-04-28) - Dependency patching</h2>
+<p>Patching of external dependencies for week 17 of 2022.</p>
+<h2 id="3350-2022-04-28---marking-required-fields">3.35.0 (2022-04-28) - Marking required fields</h2>
+<p>Changed default behaviour of marking optional fields to now mark required fields with * as default.
+Optional fields have no marking as default behaviour, but this can be configured using the <code>labelSettings</code>
+property of the field, see <a href="/en/altinn-studio/v8/reference/ux/fields/settings/">here</a>.</p>
+<h2 id="3344-2022-04-28---removed-out-of-place-heading-in-receipt-when-there-are-no-attachments">3.34.4 (2022-04-28) - Removed out-of-place heading in receipt when there are no attachments</h2>
+<p>When PDF generation has been disabled and there are no attachments, the heading indicating there should follow a list
+of attachments has also been hidden.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/8296">#8296</a>.</p>
+<h2 id="3343-2022-04-28---bugfixes-for-caching-of-lasted-visited-view">3.34.3 (2022-04-28) - Bugfixes for caching of lasted visited view</h2>
+<p>Fixes a bug where stateless app would use a shared key for persisting the last visited view. Also fixes an issue where an empty page would be displayed if the persisted layout id was no longer present.
+Issues <a href="https://github.com/Altinn/altinn-studio/issues/7897">#7897</a> and <a href="https://github.com/Altinn/altinn-studio/issues/6975">#6975</a>.</p>
+<h2 id="3342-2022-04-25---fixed-colors-in-radio-and-checkbox">3.34.2 (2022-04-25) - Fixed colors in radio and checkbox</h2>
+<p>The colors for radio and checkbox borders were not adhering to accessibility requirements from WCAG 2.1.
+These colors have been adjusted slightly to follow standard theme colors.
+Issue <a href="https://github.com/Altinn/app-frontend-react/issues/11">#11</a>.</p>
+<h2 id="3341-2022-04-22---fixed-invalid-html-attribute-in-imagecomponent">3.34.1 (2022-04-22) - Fixed invalid HTML attribute in ImageComponent</h2>
+<p>The <code>width</code> attribute on <code>img</code> element can only
+be <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-width">a number that represents px</a>. We have
+support for other units, f.ex %.
+The width declaration was moved to inline styling instead to resolve this issue.
+Issue <a href="https://github.com/Altinn/app-frontend-react/issues/14">#14</a>.</p>
+<h2 id="3340-2022-04-11---options-from-the-data-model">3.34.0 (2022-04-11) - Options from the data model</h2>
+<p>Added possibility to setup options from repeating groups in the data model. Read more on <a href="/en/altinn-studio/v8/guides/development/options/sources/from-data-model/">docs.</a>
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7626">#7626</a>.</p>
+<h2 id="3335-2022-04-11---external-dependency-patching">3.33.5 (2022-04-11) - External dependency patching</h2>
+<p>Patched external dependency to fix security issue.
+Pull request <a href="https://github.com/Altinn/altinn-studio/pull/8371">#8371</a>.</p>
+<h2 id="3334-2022-03-31---webpack-5--dependency-patching">3.33.4 (2022-03-31) - Webpack 5 + dependency patching</h2>
+<p>App frontend is now bundled with webpack 5. Also patched some external dependencies.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/5073">#5073</a>.</p>
+<h2 id="3333-2022-03-25---support-for-defining-row-or-columns-for-checkbox-and-radio">3.33.3 (2022-03-25) - Support for defining row or columns for checkbox and radio</h2>
+<p>Added support for defining row or columns layout for radio and checkbox.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/5730">#5730</a>.</p>
+<h2 id="3332-2022-03-24---adjusted-height-of-input-fields-and-date-picker">3.33.2 (2022-03-24) - Adjusted height of input fields and date picker</h2>
+<p>The height of these fields was incorrect. They are now set to 36px height.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7377">#7377</a>.</p>
+<h2 id="3331-2022-03-23---bugfix-for-dynamic-options">3.33.1 (2022-03-23) - Bugfix for dynamic options</h2>
+<p>Fixed bug where only fist options fetched when two components reference same optionId but with different mapping.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/8292">#8292</a>.</p>
+<h2 id="3330-2022-03-18---new-text-in-confirm-view--possible-to-customize">3.33.0 (2022-03-18) - New text in Confirm view + possible to customize</h2>
+<p>New text for <code>confirm.sender</code> in confirm view. Now also possible to override this text.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/8243">#8243</a>.</p>
+<h2 id="33210-2022-03-18---bugfix-for-datepicker">3.32.10 (2022-03-18) - Bugfix for Datepicker</h2>
+<p>Fixed a bug where malformed dates would not display any validation message.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/8121">#8121</a>.</p>
+<h2 id="3329-2022-03-10---bugfix-for-attachments-in-localtest">3.32.9 (2022-03-10) - Bugfix for attachments in LocalTest</h2>
+<p>Attachments are now possible to download in LocalTest.
+Pull request <a href="https://github.com/Altinn/altinn-studio/pull/7925">#7925</a>.</p>
+<h2 id="3328-2022-03-04---bugfix-for-dropdown-component-in-repeating-groups">3.32.8 (2022-03-04) - Bugfix for Dropdown-component in repeating groups</h2>
+<p>Fixed bug where a dropdown component in a repeating group would result in an unknown error.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/8169">#8169</a>.</p>
+<h2 id="3327-2022-03-04---dependency-patching">3.32.7 (2022-03-04) - Dependency patching</h2>
+<p>Patching of external dependencies for week 9 of 2022.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/8137">#8137</a>.</p>
+<h2 id="3326-2022-03-02---fixes-validation-on-multiple-tracks">3.32.6 (2022-03-02) - Fixes validation on multiple tracks</h2>
+<p>Fixed page validation on apps with multiple tracks.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/8145">#8145</a>.</p>
+<h2 id="3325-2022-03-02---fixes-for-text-elements">3.32.5 (2022-03-02) - Fixes for text elements</h2>
+<p>Multiple fixes for texts and support for markdown in header component.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7874">#7874</a>.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7571">#7571</a>.</p>
+<h2 id="3324-2022-03-01---ux-fixes-for-mobile-view">3.32.4 (2022-03-01) - UX fixes for mobile view</h2>
+<p>Fixed modal header padding in mobile view.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/8143">#8143</a>.</p>
+<h1 id="3323-2022-03-01---run-frontend-rules-on-backend-calculations">3.32.3 (2022-03-01) - Run frontend rules on backend calculations</h1>
+<p>Fixed a bug where frontend rules did not get triggered when a backend calculation has updated a connected field.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/8054">#8054</a>.</p>
+<h1 id="3322-2022-02-28---bugfix-for-address-component">3.32.2 (2022-02-28) - Bugfix for address component</h1>
+<p>Fixed a bug where address component could get in a bad state and not fetch post place based on zip code.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/8130">#8130</a>.</p>
+<h1 id="3321-2022-02-25---bugfix-for-handling-layout-name">3.32.1 (2022-02-25) - Bugfix for handling layout name</h1>
+<p>Fixed app loading with layout name as data.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/8125">#8125</a>.</p>
+<h2 id="3320-2022-02-23---secure-options">3.32.0 (2022-02-23) - Secure options</h2>
+<p>Now possible to setup secure options.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7893">#7893</a>.</p>
+<h2 id="3314-2022-02-23---bugfixes-for-confirm">3.31.4 (2022-02-23) - Bugfixes for confirm</h2>
+<p>Fixed bug where spinner for confirm button would not last the whole request.
+Also now displays the generated PDF in the confirm view.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7824">#7824</a>.</p>
+<h2 id="3313-2022-02-17---fix-alignment-of-label-grid">3.31.3 (2022-02-17) - Fix alignment of label grid</h2>
+<p>Fix alignment of label grid so that padding match normal grid.
+Pull request <a href="https://github.com/Altinn/altinn-studio/pull/8059">#8059</a>.</p>
+<h2 id="3312-2022-02-17---dependency-patching">3.31.2 (2022-02-17) - Dependency patching</h2>
+<p>Patching of external dependencies for week 7 of 2022.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/8048">#8048</a>.</p>
+<h2 id="3311-2022-02-16---new-styling-button">3.31.1 (2022-02-16) - New styling button</h2>
+<p>New styling for button component to match figma skcetches.
+Pull request <a href="https://github.com/Altinn/altinn-studio/pull/8057">#8057</a>.</p>
+<h2 id="3310-2022-02-16---added-possibility-to-override-texts-in-archive-receipt">3.31.0 (2022-02-16) - Added possibility to override texts in archive receipt</h2>
+<p>Texts in archive receipt can now be overridden by the application, and also supports markdown and variables.</p>
+<p>Issue <a href="https://github.com/Altinn/altinn-studio/issues/7902">#7902</a>.</p>
+<h2 id="3300-2022-02-16---added-refetching-of-options">3.30.0 (2022-02-16) - Added refetching of options.</h2>
+<p>Added functionality for refetching dynamic options when a mapping field changes.</p>
+<p>Issue <a href="https://github.com/Altinn/altinn-studio/issues/7888">#7888</a>.</p>
+<h2 id="3291-2022-02-14---fixed-issue-with-variables-in-texts-being-ignored-on-calculation">3.29.1 (2022-02-14) - Fixed issue with variables in texts being ignored on calculation</h2>
+<p>This fixes an issue that was introduced in 3.29.0</p>
+<p>Pull request <a href="https://github.com/Altinn/altinn-studio/pull/8045">#8045</a>.</p>
+<h2 id="3290-2022-02-11---added-navigation-bar-component">3.29.0 (2022-02-11) - Added Navigation bar component</h2>
+<p>Added Navigation bar component</p>
+<p>Issue <a href="https://github.com/Altinn/altinn-studio/issues/5893">#5893</a>.</p>
+<h2 id="3282-2022-02-10---moved-test-files">3.28.2 (2022-02-10) - Moved test files</h2>
+<p>No code changes</p>
+<p>Pull request <a href="https://github.com/Altinn/altinn-studio/pull/7999">#7999</a>.</p>
+<h2 id="3281-2022-02-09---fixed-an-issue-in-checkbox-component">3.28.1 (2022-02-09) - Fixed an issue in checkbox component</h2>
+<p>This fixed an issue introduced in 3.27.5, where changes to checkbox items could cause the simplebinding value to be set
+to <code>,</code>.</p>
+<p>Pull request <a href="https://github.com/Altinn/altinn-studio/pull/7996">#7996</a>.</p>
+<h2 id="3280-2022-02-09---added-fileuploadwithtag-component">3.28.0 (2022-02-09) - Added FileUploadWithTag component</h2>
+<p>Added file upload component with option to tag files</p>
+<p>Issue <a href="https://github.com/Altinn/altinn-studio/issues/6479">#6479</a>.</p>
+<h2 id="3275-2022-02-09---fixed-an-issue-in-the-checkbox-component">3.27.5 (2022-02-09) - Fixed an issue in the checkbox component</h2>
+<p>Fixed an issue in the checkbox component</p>
+<p>Related to issue <a href="https://github.com/Altinn/altinn-studio/issues/7464">#7464</a>.</p>
+<h2 id="3274-2022-02-08---fixed-an-issue-in-the-confirm-container">3.27.4 (2022-02-08) - Fixed an issue in the confirm container</h2>
+<p>Fixed an issue in the confirm container</p>
+<p>Related to issue <a href="https://github.com/Altinn/altinn-studio/issues/7464">#7464</a>.</p>
+<h2 id="3273-2022-02-07---fixed-an-issue-in-the-radiobutton-component">3.27.3 (2022-02-07) - Fixed an issue in the radiobutton component</h2>
+<p>Fixed an issue in the radiobutton component</p>
+<p>Related to issue <a href="https://github.com/Altinn/altinn-studio/issues/7464">#7464</a>.</p>
+<h2 id="3272-2022-02-07---fixed-an-issue-in-the-receipt-container">3.27.2 (2022-02-07) - Fixed an issue in the receipt container</h2>
+<p>Fixed an issue in the receipt container</p>
+<p>Related to issue <a href="https://github.com/Altinn/altinn-studio/issues/7464">#7464</a>.</p>
+<h2 id="3271-2022-02-07---fixed-an-issue-in-the-datepicker-component">3.27.1 (2022-02-07) - Fixed an issue in the datepicker component</h2>
+<p>Fixed an issue in the datepicker component</p>
+<p>Related to issue <a href="https://github.com/Altinn/altinn-studio/issues/7464">#7464</a>.</p>
+<h2 id="3270-2022-02-01---show-app-owner-in-header">3.27.0 (2022-02-01) - Show app owner in header</h2>
+<p>App owner will now be displayed in the app header to improve visibility to who owns the app.</p>
+<p>Issue <a href="https://github.com/Altinn/altinn-studio/issues/7227">#7227</a>.</p>
+<h2 id="3263-2022-02-01---fixed-an-issue-in-the-address-component">3.26.3 (2022-02-01) - Fixed an issue in the address component</h2>
+<p>Fixed an issue in the address component</p>
+<p>Related to issue <a href="https://github.com/Altinn/altinn-studio/issues/7464">#7464</a>.</p>
+<h2 id="3262-2022-02-01---fixed-an-issue-in-the-dropdown-component">3.26.2 (2022-02-01) - Fixed an issue in the dropdown component</h2>
+<p>Fixed an issue in the dropdown component</p>
+<p>Related to issue <a href="https://github.com/Altinn/altinn-studio/issues/7464">#7464</a>.</p>
+<h2 id="3261-2022-01-31---fixed-an-issue-in-the-instantiation-container">3.26.1 (2022-01-31) - Fixed an issue in the instantiation container</h2>
+<p>Fixed an issue in the instantiation container</p>
+<p>Related to issue <a href="https://github.com/Altinn/altinn-studio/issues/7464">#7464</a>.</p>
+<h2 id="3260-2022-01-30---design-updates-for-repeating-groups">3.26.0 (2022-01-30) - Design updates for repeating groups</h2>
+<ul>
+<li>&ldquo;Save&rdquo;-button will get a different style than the &ldquo;Next&rdquo;-button.</li>
+<li>&ldquo;Edit&rdquo;-button gets the same focus style as the editable box, so its easier to see which row is being edited.</li>
+<li>Icon is left adjusted for the text in all icon buttons.</li>
+<li>The margin in the group is changed so that the text uses the entire width, and flows on the same vertical line as the rest of the content of the form.</li>
+</ul>
+<p>Related to issue <a href="https://github.com/Altinn/altinn-studio/issues/7577">#7577</a>.</p>
+<h2 id="3251-2022-01-24---dependency-patching">3.25.1 (2022-01-24) - Dependency patching</h2>
+<p>Patching of external dependencies for week  4 av 2022.</p>
+<p>Issue <a href="https://github.com/Altinn/altinn-studio/issues/7842">#7842</a>.</p>
+<h2 id="3250-2022-01-24---added-more-data-sources-for-dynamic-texts">3.25.0 (2022-01-24) - Added more data sources for dynamic texts</h2>
+<p>The feature that adds support for variables in texts have recieved two new data sources. The new sources are the current Instance and ApplicationSettings. ApplicationSettings requires version 4.25.0 or newer of the backend NuGet packages.</p>
+<p>Related to issue <a href="https://github.com/Altinn/altinn-studio/issues/7520">#7520</a>.</p>
+<h2 id="3240-2022-01-24---neutral-design">3.24.0 (2022-01-24) - Neutral design</h2>
+<p>Added a more neutral design.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7234">#7234</a>.</p>
+<h2 id="3231-2022-01-24---dependency-patching">3.23.1 (2022-01-24) - Dependency patching</h2>
+<p>Patching of external dependencies for week 3 of 2022.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7842">#7842</a>.</p>
+<h2 id="3230-2022-01-21---dynamic-options">3.23.0 (2022-01-21) - Dynamic options</h2>
+<p>Added support for first version of dynamic options.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/5247">#5247</a>.</p>
+<h2 id="3229-2022-01-20---stable-formdata--typescript-improvements">3.22.9 (2022-01-20) - Stable FormData + Typescript improvements</h2>
+<p>Make FormData type stable and various improvements to typings.
+Pull request <a href="https://github.com/Altinn/altinn-studio/pull/7718">#7718</a>.</p>
+<h2 id="3228-2022-01-17---fix-for-various-eslint-rules">3.22.8 (2022-01-17) - Fix for various eslint rules</h2>
+<p>Fixes several eslint issues, adds some more test coverage. Minor refactors to some components that were very outdated.
+Pull request <a href="https://github.com/Altinn/altinn-studio/pull/7786">#7786</a>.</p>
+<h2 id="3227-2022-01-13---dependency-patching">3.22.7 (2022-01-13) - Dependency patching</h2>
+<p>Patching of external dependencies for week 2 of 2022.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7753">#7753</a>.</p>
+<h2 id="3226-2022-01-11---bugfix-repeating-groups">3.22.6 (2022-01-11) - Bugfix repeating groups</h2>
+<p>Fixed a bug where repeating group state would not be cleared when loading a new form layout.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7773">#7773</a>.</p>
+<h2 id="3225-2022-01-10---optimization-for-summarygroupcomponent">3.22.5 (2022-01-10) - Optimization for SummaryGroupComponent</h2>
+<p>Added missing keys for improved performance.
+Pull request <a href="https://github.com/Altinn/altinn-studio/pull/7720">#7720</a>.</p>
+<h2 id="3224-2022-01-07---display-error-when-rendering-unknown-component">3.22.4 (2022-01-07) - Display error when rendering unknown component</h2>
+<p>App frontend now shows an error when trying to render an unknown component.
+Pull request <a href="https://github.com/Altinn/altinn-studio/pull/7724">#7724</a>.</p>
+<h2 id="3223-2022-01-07---dependency-patching">3.22.3 (2022-01-07) - Dependency patching</h2>
+<p>Patching of external dependencies for week 1 of 2022.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7753">#7753</a>.</p>
+<h2 id="3222-2021-12-23---bugfix-variables-in-text">3.22.2 (2021-12-23) - Bugfix variables in text</h2>
+<p>Fixed a bug where variables in text not would get updated after a backend calculation.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7308">#7308</a>.</p>
+<h2 id="3221-2021-12-23---bugfix-missing-rights-for-stateless-view">3.22.1 (2021-12-23) - Bugfix missing rights for stateless view</h2>
+<p>Fixed a bug where missing rights would display generic error message and not the missing rights error.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6514">#6514</a>.</p>
+<h2 id="3220-2021-12-22---more-options-for-customization-of-repeating-groups">3.22.0 (2021-12-22) - More options for customization of repeating groups</h2>
+<p>Added more possible texts to override possibility to hide &ldquo;add new&rdquo; button for a repeating group.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7164">#7164</a>.</p>
+<h2 id="3211-2021-12-17---bugfix-for-task-validation">3.21.1 (2021-12-17) - Bugfix for task validation</h2>
+<p>Fixed a bug where validations set in <code>ValidateTask</code> in <code>ValidationHandler.cs</code> would not get presented to the user.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7333">#7333</a>.</p>
+<h2 id="3210-2021-12-17---possibility-to-use-h2-h3-and-h4-as-size-values-for-the-header-component-in-formlayout">3.21.0 (2021-12-17) - Possibility to use h2, h3 and h4 as size values for the header component in FormLayout</h2>
+<p>It is now possible to use h2, h3 and h4, instead of S, M and L as size values in the header component.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7611">#7611</a>.</p>
+<h2 id="3201-2021-12-16---bugfix-for-address-component">3.20.1 (2021-12-16) - Bugfix for address component</h2>
+<p>Fixed a bug where the address component would crash unexpectedly for empty values.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7658">#7658</a>.</p>
+<h2 id="3200-2021-12-14---support-for-custom-oidc-provider">3.20.0 (2021-12-14) - Support for custom OIDC provider</h2>
+<p>Added support in frontend so that Altinn.Apps can have a custom OIDC provider.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7173">#7173</a>.</p>
+<h2 id="3192-2021-12-09---dependency-patching">3.19.2 (2021-12-09) - Dependency patching</h2>
+<p>Patching of external dependencies for week 49.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7590">#7590</a>.</p>
+<h2 id="3191-2021-12-09---fixes-for-image-component">3.19.1 (2021-12-09) - Fixes for image component</h2>
+<p>Several fixes for image component.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7484">#7484</a>.</p>
+<h2 id="3190-2021-12-06---create-instance-from-stateless-view">3.19.0 (2021-12-06) - Create instance from stateless view</h2>
+<p>Support for starting a stateful app instance from a stateless view.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6196">#6196</a>.</p>
+<h2 id="3184-2021-12-03---optimization-for-mobile-view---bug-fix">3.18.4 (2021-12-03) - Optimization for mobile view - bug fix</h2>
+<p>Rollback maxWidth changes from version 3.18.3.
+Issue <a href="https://github.com/Altinn/altinn-studio/pull/7588">#7588</a>.</p>
+<h2 id="3183-2021-12-01---optimization-for-mobile-view---spacing">3.18.3 (2021-12-01) - Optimization for mobile view - spacing</h2>
+<p>Fixed maxWidth for input and spacing for address component.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6697">#6697</a>.</p>
+<h2 id="3182-2021-11-30---optimization-for-mobile-view---spacing">3.18.2 (2021-11-30) - Optimization for mobile view - spacing</h2>
+<p>Fixed spacing for header and paragraph.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6697">#6697</a>.</p>
+<h2 id="3181-2021-11-30---optimization-for-mobile-view---maxwidth">3.18.1 (2021-11-30) - Optimization for mobile view - maxWidth</h2>
+<p>Changed max-width of validation error from auto to none.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6697">#6697</a>.</p>
+<h2 id="3180-2021-11-29---support-for-label-grid">3.18.0 (2021-11-29) - Support for label grid</h2>
+<p>Support for label grid in grid enabling long lists of short questions and answers to be presented in a table like way
+Issue <a href="https://github.com/Altinn/altinn-studio/pull/7027">#7027</a>.</p>
+<h2 id="3171-2021-11-24---bugfix-dataprocesswrite">3.17.1 (2021-11-24) - Bugfix DataProcessWrite</h2>
+<p>Fixed bug where numeric fields that gets changed in DataProcessWrite are not updated if their value happened to be 0.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7393">#7393</a>.</p>
+<h2 id="3170-2021-11-24---mobile-optimization-layout">3.17.0 (2021-11-24) - Mobile optimization layout</h2>
+<p>Added some optimized layout for our mobile view.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6697">#6697</a>.</p>
+<h2 id="3160-2021-11-24---changed-icon-for-help-text">3.16.0 (2021-11-24) - Changed icon for help text</h2>
+<p>Changed help text icon from plus to question mark.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/5722">#5722</a>.</p>
+<h2 id="3151-2021-11-18---invalid-types-for-reselect">3.15.1 (2021-11-18) - Invalid types for reselect</h2>
+<p>Fixed invalid types in reselect.
+Pull request <a href="https://github.com/Altinn/altinn-studio/pull/7502">#7502</a>.</p>
+<h2 id="3150-2021-11-15---support-for-returnurl">3.15.0 (2021-11-15) - Support for returnUrl</h2>
+<p>Added support for returnUrl in app-frontend.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7183">#7183</a>.</p>
+<h2 id="3142-2021-11-11---patching-of-json-pointer">3.14.2 (2021-11-11) - Patching of json pointer</h2>
+<p>Patching of external dependency json pointer.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7317">#7317</a>.</p>
+<h2 id="3141-2021-11-11---dependency-patching">3.14.1 (2021-11-11) - Dependency patching</h2>
+<p>Patching of external dependencies for week 45.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7317">#7317</a>.</p>
+<h2 id="3140-2021-11-08---today-flag-for-datepicker-minmax-dates">3.14.0 (2021-11-08) - Today-flag for datepicker min/max dates</h2>
+<p>Added a flag to dynamicly control min/max dates based on the current date.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7228">#7228</a>.</p>
+<h2 id="3136-2021-11-04---dependency-patching">3.13.6 (2021-11-04) - Dependency patching</h2>
+<p>Patching of external dependencies for week 44.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7317">#7317</a>.</p>
+<h2 id="3135-2021-10-28---dependency-patching">3.13.5 (2021-10-28) - Dependency patching</h2>
+<p>Patching of external dependencies for week 43.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7303">#7303</a>.</p>
+<h2 id="3134-2021-10-22---dependency-patching">3.13.4 (2021-10-22) - Dependency patching</h2>
+<p>Patching of external dependencies for week 42.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7303">#7303</a>.</p>
+<h2 id="3133-2021-10-15---right-align-text-in-input-fields">3.13.3 (2021-10-15) - Right align text in input fields</h2>
+<p>Added functionality to right align text in input fields.
+Pull request <a href="https://github.com/Altinn/altinn-studio/pull/7034">#7034</a>.</p>
+<h2 id="3132-2021-10-14---dependency-patching">3.13.2 (2021-10-14) - Dependency patching</h2>
+<p>Patching of external dependencies for week 41.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7051">#7051</a>.</p>
+<h2 id="3131-2021-10-13---fix-for-custom-validation-of-attachment">3.13.1 (2021-10-13) - Fix for custom validation of attachment</h2>
+<p>Fixed appfrontend crash on custom validation of an attachment.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7107">#7107</a>.</p>
+<h2 id="3130-2021-10-11---start-from-active-instance">3.13.0 (2021-10-11) - Start from active instance</h2>
+<p>Added functionality to start an application from an active instance.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6766">#6766.</a></p>
+<h2 id="3124-2021-10-11---repeating-group-open-configuration">3.12.4 (2021-10-11) - Repeating group open configuration</h2>
+<p>Added functionality to configure that a repeating group should be opened in edit mode when the app starts.
+Solves parts of Issue <a href="https://github.com/Altinn/altinn-studio/issues/4870">#4870.</a></p>
+<h2 id="3123-2021-10-07---dependency-patching">3.12.3 (2021-10-07) - Dependency patching</h2>
+<p>Patching of external dependencies for week 40.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/7051">#7051</a>.</p>
+<h2 id="3122-2021-10-04---fixed-design-of-readonly-datepicker-component">3.12.2 (2021-10-04) - Fixed design of readonly datepicker component</h2>
+<p>Readonly datepicker component now follows design of other readonly components.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6253">#6253.</a></p>
+<h2 id="3121-2021-09-30---dependency-patching">3.12.1 (2021-09-30) - Dependency patching</h2>
+<p>Patching of external dependencies for w39.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6873">#6873.</a>.</p>
+<h2 id="3120-2021-09-29---image-component">3.12.0 (2021-09-29) - Image component</h2>
+<p>Added image component for easier adding of images to our apps.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/379">#379.</a></p>
+<h2 id="3119-2021-09-29---support-for-json-schema-2020-12-in-app-frontend">3.11.9 (2021-09-29) - Support for JSON Schema 2020-12 in app frontend</h2>
+<p>Fixed bug where JSON Schema 2020-12 not was supported in app frontend.
+Connected issues: <a href="https://github.com/Altinn/altinn-studio/issues/6703">#6703</a> <a href="https://github.com/Altinn/altinn-studio/issues/6812">#6812.</a></p>
+<h2 id="3118-2021-09-27---added-white-space-between-optional-label-and-title-text">3.11.8 (2021-09-27) - Added white space between optional label and title text</h2>
+<p>Added white space between optional label and title text in radiobutton, checkbox and address component.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6893">#6893</a>.</p>
+<h2 id="3117-2021-09-24---dependency-patching">3.11.7 (2021-09-24) - Dependency patching</h2>
+<p>Patching of external dependencies for w38.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6873">#6873</a>.</p>
+<h2 id="3116-20201-09-21---focus-indicator-input-field">3.11.6 (20201-09-21) - Focus indicator input field</h2>
+<p>Fixed bug for missing focus indicator on input field.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6801">#6801.</a></p>
+<h2 id="3115-2021-09-21---content-loader-overflow">3.11.5 (2021-09-21) - Content loader overflow</h2>
+<p>Fixed bug where content loader would overflow for small screens.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6876">#6876.</a></p>
+<h2 id="3114-2021-09-20---fix-parsing-error-in-confirm-page">3.11.4 (2021-09-20) - Fix parsing error in confirm page</h2>
+<p>Fix for text parsing error in confirm page.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6775">#6775</a>.</p>
+<h2 id="3113-2021-09-17---preselect-dropdown">3.11.3 (2021-09-17) - Preselect dropdown</h2>
+<p>Support for preselectedOptionIndex in dropdown component.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/5255">#5255</a>.</p>
+<h2 id="3112-2021-09-16---dependency-patching">3.11.2 (2021-09-16) - Dependency patching</h2>
+<p>Patching of external dependencies for w37.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6794">#6794</a>.</p>
+<h2 id="3111-2021-09-09---dependency-patching">3.11.1 (2021-09-09) - Dependency patching</h2>
+<p>Patching of external dependencies for w36.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6794">#6794</a>.</p>
+<h2 id="3110-2021-09-08---party-selection-in-stateless-view">3.11.0 (2021-09-08) - Party selection in stateless view</h2>
+<p>Added functionality for party selection in stateless view.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6443">#6443</a>.</p>
+<h2 id="3103-2021-08-23---added-some-ids-used-by-automated-tests">3.10.3 (2021-08-23) - Added some IDs used by automated tests</h2>
+<p>Non functional change. Not connected to an issue.</p>
+<h2 id="3102-2021-08-19---dependency-patching">3.10.2 (2021-08-19) - Dependency patching</h2>
+<p>Patching of external dependencies for w33.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6600">#6600</a>.</p>
+<h2 id="3101-2021-08-16---app-frontend-includes-partyid-for-stateless-apps">3.10.1 (2021-08-16) - App frontend includes partyID for stateless apps</h2>
+<p>App frontend includes partyID in calls for fetching stateless data.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6609">#6609</a>.</p>
+<h2 id="3100-2021-08-13---log-out-functionality">3.10.0 (2021-08-13) - Log out functionality</h2>
+<p>Added functionality for log out from app frontend.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6620">#6620</a>.</p>
+<h2 id="399-2021-08-12---dependency-patching">3.9.9 (2021-08-12) - Dependency patching</h2>
+<p>Patching of external dependencies for w32.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6600">#6600</a>.</p>
+<h2 id="398-2021-08-05---dependency-patching">3.9.8 (2021-08-05) - Dependency patching</h2>
+<p>Patching of external dependencies for w31.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6571">#6571</a>.</p>
+<h2 id="397-2021-08-03---bugfix-print-view">3.9.7 (2021-08-03) - Bugfix print view</h2>
+<p>Fixed a bug where the print view for Altinn Apps would display an empty container.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6578">#6578</a>.</p>
+<h2 id="396-2021-08-02---dependency-patching">3.9.6 (2021-08-02) - Dependency patching</h2>
+<p>Patching of external dependencies for w30.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6571">#6571</a>.</p>
+<h2 id="395-2021-07-28---bugfix-for-mobile-view-during-app-startup">3.9.5 (2021-07-28) - Bugfix for mobile view during app startup</h2>
+<p>Fixed a bug where the app modal would behave inconsistent during app startup on mobile devices.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6558">#6558</a>.</p>
+<h2 id="394-2021-07-23---bugfix-validation-trigger-for-groups">3.9.4 (2021-07-23) - Bugfix validation trigger for groups.</h2>
+<p>Fix a bug where validations would not be triggered when closing a repeating group by clicking <code>Edit</code> button when trigger was present.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6427">#6427</a>.</p>
+<h2 id="393-2021-07-23---dependency-patching">3.9.3 (2021-07-23) - Dependency patching</h2>
+<p>Patching of external dependencies for w29.</p>
+<h2 id="392-2021-07-02---dependency-patching">3.9.2 (2021-07-02) - Dependency patching</h2>
+<p>Patching of external dependencies for w26.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6385">#6385</a>.</p>
+<h2 id="391-2021-07-01---support-for-redirect-to-require-higher-authentication-level-for-stateless-app">3.9.1 (2021-07-01) - Support for redirect to require higher authentication level for stateless app</h2>
+<p>Fix for bug that didn&rsquo;t redirect user to login page with allowed authentication levels if logged in with a too low level.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6506">#6506</a>.</p>
+<h2 id="380-2021-06-29---several-updates-to-validation-functionality">3.8.0 (2021-06-29) - Several updates to validation functionality</h2>
+<ul>
+<li>Support for adding custom error messages to client side validations (JSON schema).</li>
+<li>Support for specifying single field validation (server) as FIXED to make sure resolved validation error messages are removed.</li>
+<li>Fixes bug where single field validation that returned empty (no errors/warnings) did not remove existing validation messages.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/5747">#5747</a>.</li>
+</ul>
+<h2 id="370-2021-06-29---support-for-posting-data-from-stateless-app">3.7.0 (2021-06-29) - Support for posting data from stateless app</h2>
+<p>Issue <a href="https://github.com/Altinn/altinn-studio/issues/6194">#6194</a>.</p>
+<h2 id="3614-2021-06-22---bug-fix-for-duplicated-validation-messages">3.6.14 (2021-06-22) - Bug fix for duplicated validation messages</h2>
+<p>Fixed a bug that caused validation messages on a FileUpload component to be displayed twice.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6400">#6400</a>.</p>
+<h2 id="3613-2021-06-18---bugfix-for-replaceall-with-variables-in-text">3.6.13 (2021-06-18) - Bugfix for replaceAll with variables in text</h2>
+<p>Fix for bug introduced in 3.6.9, where only the last variable in texts with multiple variables was replaced.
+The change in 3.6.9 also caused summary page to fail in some cases.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6455">#6455</a>.</p>
+<h2 id="3612-2021-06-18---dependency-patching">3.6.12 (2021-06-18) - Dependency patching</h2>
+<p>Patching of external dependencies.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6385">#6385</a>.</p>
+<h2 id="3611-2021-06-16---bugfix-for-disappearing-validation-messages">3.6.11 (2021-06-16) - Bugfix for disappearing validation messages</h2>
+<p>Fixed bug for disappearing validation messages. Single field validation response would overwrite all
+existing validations, causing earlier triggered validation messages to disappear.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/5857">#5857</a>.</p>
+<h2 id="3610-2021-06-15---bugfix-for-navigation-buttons-with-multiple-triggers">3.6.10 (2021-06-15) - Bugfix for navigation buttons with multiple triggers</h2>
+<p>Fixed bug for navigation buttons configured with multiple triggers, where only the first one was actually triggered.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6387">#6387</a>.</p>
+<h2 id="369-2021-06-14---bugfix-variables-in-text">3.6.9 (2021-06-14) - Bugfix variables in text</h2>
+<p>Fixed bug where only first occurrence of a variable in a given text was replaced.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6091">#6091</a></p>
+<h2 id="368-2021-06-11---new-endpoints-for-stateless-app">3.6.8 (2021-06-11) - New endpoints for stateless app</h2>
+<p>New endpoints for stateless app.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6227">#6227</a></p>
+<h2 id="367-2021-06-10---dependency-patching">3.6.7 (2021-06-10) - Dependency patching</h2>
+<p>Patching of external dependencies.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6385">#6385</a></p>
+<h2 id="366-2021-06-09---dependency-patching">3.6.6 (2021-06-09) - Dependency patching</h2>
+<p>Updated to latest major version of react v17.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/5072">#5072</a></p>
+<h2 id="365-2021-06-02-bugfix-for-stateless-app">3.6.5 (2021-06-02) Bugfix for stateless app</h2>
+<p>Fixed bug where stateless app with onEntry.show set to <code>new-instance</code> would crash.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6321">#6321</a>.</p>
+<h2 id="364-2021-06-02-bugfix-for-simple-receipt">3.6.4 (2021-06-02) Bugfix for simple receipt</h2>
+<p>Fixed bug where simple receipt did not parse markdown if the app overrides defult texts.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6362">#6232</a>.</p>
+<h2 id="363-2021-06-02-bugfix-for-content-loader">3.6.3 (2021-06-02) Bugfix for content loader</h2>
+<p>Fixed bug where content loader did not scale for whole view.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/4888">#4888</a>.</p>
+<h2 id="362-2021-06-01-bugfix-for-summary-view-of-group-with-multiple-pages">3.6.2 (2021-06-01) Bugfix for summary view of group with multiple pages</h2>
+<p>Fixed bug that caused app frontend to crash when rendering summary component for group when the group was defined with
+multiple pages in edit mode.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/6233">#6233</a>.</p>
+<h2 id="361-2021-05-28-dependency-patching">3.6.1 (2021-05-28) Dependency patching</h2>
+<p>Patching of external dependencies. Issue <a href="https://github.com/Altinn/altinn-studio/issues/6324">#6324</a>.</p>
+<h2 id="360-2021-05-28-support-for-hiding-back-button-in-apps">3.6.0 (2021-05-28) Support for hiding back button in apps</h2>
+<p>Issue <a href="https://github.com/altinn/altinn-studio/issues/6193">#6193</a>.</p>
+<h2 id="350-2021-05-27-support-for-number-formatting">3.5.0 (2021-05-27) Support for number formatting</h2>
+<p>Added support for formatting numbers for <code>Input</code>-components.
+Issue <a href="https://github.com/altinn/altinn-studio/issues/5972">#5972</a>.</p>
+<h2 id="342-2021-05-26-improve-look-of-summary-for-checkboxes-component">3.4.2 (2021-05-26) Improve look of summary for checkboxes component</h2>
+<p>Issue <a href="https://github.com/Altinn/altinn-studio/issues/6329">#6329</a>.</p>
+<h2 id="341-2021-05-20-dependency-patching">3.4.1 (2021-05-20) Dependency patching</h2>
+<p>Patching of external dependencies. Issue <a href="https://github.com/Altinn/altinn-studio/issues/6221">#6221</a>.</p>
+<h2 id="340-2021-05-18-support-for-stateless-apps">3.4.0 (2021-05-18) Support for stateless apps</h2>
+<p>Issue <a href="https://github.com/Altinn/altinn-studio/issues/6124">#6124</a>.</p>
+<h2 id="335-2021-05-14---dependency-patching">3.3.5 (2021-05-14) - Dependency patching</h2>
+<p>Patching of external dependencies. Issue <a href="https://github.com/Altinn/altinn-studio/issues/6221">#6221</a>.</p>
+<h2 id="334-2021-05-11-bugfix-for-calculation-in-groups">3.3.4 (2021-05-11) Bugfix for calculation in groups</h2>
+<p>Issue <a href="https://github.com/Altinn/altinn-studio/issues/6235">#6235</a>.</p>
+<h2 id="333-2021-05-11-run-data-validation-on-page-switch-and-fix-group-component-mobile-view">3.3.3 (2021-05-11) Run data validation on page switch, and fix group component mobile view</h2>
+<p>Issue <a href="https://github.com/Altinn/altinn-studio/issues/6236">#6236</a>.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/5977">#5977</a>.</p>
+<h2 id="332-2021-05-06---dependency-patching">3.3.2 (2021-05-06) - Dependency patching</h2>
+<p>Patching of external dependencies. Issue <a href="https://github.com/Altinn/altinn-studio/issues/6011">#6011</a>.</p>
+<h2 id="331-2021-05-06-support-for-markdown-in-validation-messages">3.3.1 (2021-05-06) Support for markdown in validation messages</h2>
+<p>Issue <a href="https://github.com/Altinn/altinn-studio/issues/5137">#5137</a>.</p>
+<h2 id="330-2021-05-03-support-for-multiple-views-in-repeating-group-edit-mode">3.3.0 (2021-05-03) Support for multiple views in repeating group edit mode</h2>
+<p>Issue <a href="https://github.com/Altinn/altinn-studio/issues/5869">#5869</a>.</p>
+<h2 id="322-2021-04-23---dependency-patching">3.2.2 (2021-04-23) - Dependency patching</h2>
+<p>Patching of external dependencies. Issue <a href="https://github.com/Altinn/altinn-studio/issues/6011">#6011.</a></p>
+<h2 id="321-2021-04-23---bugfix-for-group-validations">3.2.1 (2021-04-23) - Bugfix for group validations</h2>
+<p>Fixed a bug where groups with validation trigger would call the instance validation api. Now calls data validation. Issue <a href="https://github.com/Altinn/altinn-studio/issues/6089">#6089.</a></p>
+<h2 id="320-2021-04-21---validation-on-group-save">3.2.0 (2021-04-21) - Validation on group save</h2>
+<p>Added support for running validations on a group when the user tries to save an entry. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5281">#5281.</a></p>
+<h2 id="316-2021-04-19---bugfix-for-checkbox-values-in-summary-component">3.1.6 (2021-04-19) - Bugfix for checkbox values in summary component</h2>
+<p>Fixed bug where summary would display an empty string for checkboxes with multiple selected values. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5993">#5993.</a></p>
+<h2 id="315-2021-04-19---bugfix-for-repeating-group-state-on-calculation">3.1.5 (2021-04-19) - Bugfix for repeating group state on calculation</h2>
+<p>Fixed bug where repeating group state would not be updated if a backend calculation had altered a repeating group. Issue <a href="https://github.com/Altinn/altinn-studio/issues/6006">#6006.</a></p>
+<h2 id="314-2021-04-19---bugfix-for-validations-on-group-delete">3.1.4 (2021-04-19) - Bugfix for validations on group delete</h2>
+<p>Fixed bug where validations for a given group index would not be removed on delete. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5960">#5960.</a></p>
+<h2 id="313-2021-04-16---bugfix-for-validation">3.1.3 (2021-04-16) - Bugfix for validation</h2>
+<p>Fixed bug where single field validation would validate the whole instance and not data. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5885">#5885.</a></p>
+<h2 id="312-2021-04-12---dependency-patching">3.1.2 (2021-04-12) - Dependency patching.</h2>
+<p>Patching of external dependencies. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5957">#5957.</a></p>
+<h2 id="311-2021-04-09---bugfix-for-slow-calculate">3.1.1 (2021-04-09) - Bugfix for slow calculate</h2>
+<p>Fixed bug where a slow backend calculation can overwrite later entered data. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5754">#5754.</a></p>
+<h2 id="310-2021-04-07--help-text-for-paragraph-and-header-components">3.1.0 (2021-04-07)- Help text for paragraph and header components</h2>
+<p>App now supports help text for paragraph and header components. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5862">#5862.</a></p>
+<h2 id="3016-2021-04-06---dependency-patching">3.0.16 (2021-04-06) - Dependency patching</h2>
+<p>Patching of external dependencies. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5877">#5877.</a></p>
+<h2 id="3015-2021-03-22---bugfix-for-group-component-with-checkboxes">3.0.15 (2021-03-22) - Bugfix for group component with checkboxes</h2>
+<p>Fixed bug where group component summary would display an empty value for checkboxes that had several selected values. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5907">#5907.</a></p>
+<h2 id="3014-2021-03-19---dependency-patching">3.0.14 (2021-03-19) - Dependency patching</h2>
+<p>Patching of external dependencies. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5877">#5877.</a></p>
+<h2 id="3013-2021-03-18---internal-typings">3.0.13 (2021-03-18) - Internal typings</h2>
+<p>App frontend internal typings updated to fix failing tests. No issue connected.</p>
+<h2 id="3012-2021-03-17---bugfix-for-markdown-support-in-summary-and-group-titles">3.0.12 (2021-03-17) - Bugfix for markdown support in summary and group titles</h2>
+<p>Fixed bug where app frontend would not render markdown in summary and group titles. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5781">#5781.</a></p>
+<h2 id="3011-2021-03-17---bugfix-for-page-order-calculation">3.0.11 (2021-03-17) - Bugfix for page order calculation</h2>
+<p>Fixed bug where app frontend would trigger call to calculate page order even when no calculation trigger was present. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5863">#5863.</a></p>
+<h2 id="3010-2021-03-12---bugfix-for-page-order-calculation">3.0.10 (2021-03-12) - Bugfix for page order calculation</h2>
+<p>Fixed bug where app frontend would trigger call to calculate page order for single page applications. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5859">#5859.</a></p>
+<h2 id="309-2021-03-12---dependency-patching">3.0.9 (2021-03-12) - Dependency patching</h2>
+<p>Patching of external dependencies. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5771">#5771.</a></p>
+<h2 id="308-2021-03-12---support-for-dynamicly-getting-page-order">3.0.8 (2021-03-12) - Support for dynamicly getting page order</h2>
+<p>App frontend now supports dynamicly fetching the page order on next page (&ldquo;sporvalg&rdquo;). See <a href="https://altinn.github.io/docs/altinn-studio/app-creation/sporvalg/">docs</a> for more information. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5640">#5640.</a></p>
+<h2 id="307-2021-03-09---bugfix-for-page-caching">3.0.7 (2021-03-09) - Bugfix for page caching</h2>
+<p>Fixed issue where the app would cache the first page in alphabetical order and not respect the order in Settings.json. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5819">#5819.</a></p>
+<h2 id="306-2021-03-08---caching-of-last-viewed-page">3.0.6 (2021-03-08) - Caching of last viewed page</h2>
+<p>Introduced caching of the last viewed form page, so user is returned to this page when refreshing or coming back at a
+later
+time. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5278">#5278.</a></p>
+<h2 id="305-2021-03-05---dependency-patching">3.0.5 (2021-03-05) - Dependency patching</h2>
+<p>Patching of external dependencies. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5770">#5770.</a></p>
+<h2 id="304-2021-03-05---bugfix-for-text-styling-in-titlesdescriptions">3.0.4 (2021-03-05) - Bugfix for text styling in titles/descriptions</h2>
+<p>Fix issue where label and description texts would get cut off mid word.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/5810">#5810.</a></p>
+<h2 id="303-2021-03-02---bugfix-for-metadata-with-layout-sets">3.0.3 (2021-03-02) - Bugfix for metadata with layout sets</h2>
+<p>Fix issue where app-frontend fetched wrong metadata when using layout sets.
+Issue <a href="https://github.com/Altinn/altinn-studio/issues/5624">#5624.</a></p>
+<h2 id="302-2021-02-26---dependency-patching">3.0.2 (2021-02-26) - Dependency patching</h2>
+<p>Patching of external dependencies. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5676">#5676.</a></p>
+<h2 id="301-2021-02-25---horizontally-aligned-components--bugfix-for-loading-options">3.0.1 (2021-02-25) - Horizontally aligned components &amp; Bugfix for loading options</h2>
+<p>App-frontend now supports horizontally aligned components.
+See <a href="https://altinn.github.io/docs/altinn-studio/app-creation/ui-editor/layout-style/#sidestilte-komponenter">docs</a> for
+more information. Issue <a href="https://github.com/Altinn/altinn-studio/issues/1515">#1515.</a></p>
+<p>Fix issue that only loaded options related to form layout in first data task - for subsequent data tasks
+options were not loaded. Issue <a href="https://github.com/Altinn/altinn-studio/issues/5619">#5619.</a></p>
+<h2 id="300-2021-02-23---new-font-for-app-frontend">3.0.0 (2021-02-23) - New font for App Frontend</h2>
+<p>This version changes the font for the app frontend from Roboto to Altinn-DIN.
+For the apps to show fonts as expected, some changes need to be made. See <a href="/en/community/changelog/app-frontend/v3/breaking-changes/">breaking changes</a>
+for the details.</p>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/community/changelog/app-frontend/v3/whats-new/_index.en.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Edit page on GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#3372">&gt;3.37.2</a></li>
+    <li><a href="#3372-2022-05-20---dependency-patching">3.37.2 (2022-05-20) - Dependency patching</a></li>
+    <li><a href="#3371-2022-05-15---fix-for-prefills-when-using-preselectedoptionindex">3.37.1 (2022-05-15) - Fix for prefills when using preselectedOptionIndex</a></li>
+    <li><a href="#3370-2022-05-15---support-for-tracks-in-stateless-apps">3.37.0 (2022-05-15) - Support for tracks in stateless apps</a></li>
+    <li><a href="#3364-2022-05-10---fix-in-validation-of-required-field-in-hidden-groups-again">3.36.4 (2022-05-10) - Fix in validation of required field in hidden groups (again)</a></li>
+    <li><a href="#3363-2022-05-10---only-reference-description-if-the-field-exists">3.36.3 (2022-05-10) - Only reference description if the field exists</a></li>
+    <li><a href="#3362-2022-05-06---fixed-a-potential-crash-after-failing-validation-from-server">3.36.2 (2022-05-06) - Fixed a potential crash after failing validation from server</a></li>
+    <li><a href="#3361-2022-05-06---fix-in-validation-of-required-fields-in-repeating-multi-page-groups">3.36.1 (2022-05-06) - Fix in validation of required fields in repeating multi-page groups</a></li>
+    <li><a href="#3360-2022-05-03---added-support-for-dynamics-in-nested-repeating-groups">3.36.0 (2022-05-03) - Added support for dynamics in nested repeating groups.</a></li>
+    <li><a href="#3352-2022-05-02---fix-in-validation-of-required-field-in-hidden-groups">3.35.2 (2022-05-02) - Fix in validation of required field in hidden groups</a></li>
+    <li><a href="#3351-2022-04-28---dependency-patching">3.35.1 (2022-04-28) - Dependency patching</a></li>
+    <li><a href="#3350-2022-04-28---marking-required-fields">3.35.0 (2022-04-28) - Marking required fields</a></li>
+    <li><a href="#3344-2022-04-28---removed-out-of-place-heading-in-receipt-when-there-are-no-attachments">3.34.4 (2022-04-28) - Removed out-of-place heading in receipt when there are no attachments</a></li>
+    <li><a href="#3343-2022-04-28---bugfixes-for-caching-of-lasted-visited-view">3.34.3 (2022-04-28) - Bugfixes for caching of lasted visited view</a></li>
+    <li><a href="#3342-2022-04-25---fixed-colors-in-radio-and-checkbox">3.34.2 (2022-04-25) - Fixed colors in radio and checkbox</a></li>
+    <li><a href="#3341-2022-04-22---fixed-invalid-html-attribute-in-imagecomponent">3.34.1 (2022-04-22) - Fixed invalid HTML attribute in ImageComponent</a></li>
+    <li><a href="#3340-2022-04-11---options-from-the-data-model">3.34.0 (2022-04-11) - Options from the data model</a></li>
+    <li><a href="#3335-2022-04-11---external-dependency-patching">3.33.5 (2022-04-11) - External dependency patching</a></li>
+    <li><a href="#3334-2022-03-31---webpack-5--dependency-patching">3.33.4 (2022-03-31) - Webpack 5 + dependency patching</a></li>
+    <li><a href="#3333-2022-03-25---support-for-defining-row-or-columns-for-checkbox-and-radio">3.33.3 (2022-03-25) - Support for defining row or columns for checkbox and radio</a></li>
+    <li><a href="#3332-2022-03-24---adjusted-height-of-input-fields-and-date-picker">3.33.2 (2022-03-24) - Adjusted height of input fields and date picker</a></li>
+    <li><a href="#3331-2022-03-23---bugfix-for-dynamic-options">3.33.1 (2022-03-23) - Bugfix for dynamic options</a></li>
+    <li><a href="#3330-2022-03-18---new-text-in-confirm-view--possible-to-customize">3.33.0 (2022-03-18) - New text in Confirm view + possible to customize</a></li>
+    <li><a href="#33210-2022-03-18---bugfix-for-datepicker">3.32.10 (2022-03-18) - Bugfix for Datepicker</a></li>
+    <li><a href="#3329-2022-03-10---bugfix-for-attachments-in-localtest">3.32.9 (2022-03-10) - Bugfix for attachments in LocalTest</a></li>
+    <li><a href="#3328-2022-03-04---bugfix-for-dropdown-component-in-repeating-groups">3.32.8 (2022-03-04) - Bugfix for Dropdown-component in repeating groups</a></li>
+    <li><a href="#3327-2022-03-04---dependency-patching">3.32.7 (2022-03-04) - Dependency patching</a></li>
+    <li><a href="#3326-2022-03-02---fixes-validation-on-multiple-tracks">3.32.6 (2022-03-02) - Fixes validation on multiple tracks</a></li>
+    <li><a href="#3325-2022-03-02---fixes-for-text-elements">3.32.5 (2022-03-02) - Fixes for text elements</a></li>
+    <li><a href="#3324-2022-03-01---ux-fixes-for-mobile-view">3.32.4 (2022-03-01) - UX fixes for mobile view</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#3320-2022-02-23---secure-options">3.32.0 (2022-02-23) - Secure options</a></li>
+    <li><a href="#3314-2022-02-23---bugfixes-for-confirm">3.31.4 (2022-02-23) - Bugfixes for confirm</a></li>
+    <li><a href="#3313-2022-02-17---fix-alignment-of-label-grid">3.31.3 (2022-02-17) - Fix alignment of label grid</a></li>
+    <li><a href="#3312-2022-02-17---dependency-patching">3.31.2 (2022-02-17) - Dependency patching</a></li>
+    <li><a href="#3311-2022-02-16---new-styling-button">3.31.1 (2022-02-16) - New styling button</a></li>
+    <li><a href="#3310-2022-02-16---added-possibility-to-override-texts-in-archive-receipt">3.31.0 (2022-02-16) - Added possibility to override texts in archive receipt</a></li>
+    <li><a href="#3300-2022-02-16---added-refetching-of-options">3.30.0 (2022-02-16) - Added refetching of options.</a></li>
+    <li><a href="#3291-2022-02-14---fixed-issue-with-variables-in-texts-being-ignored-on-calculation">3.29.1 (2022-02-14) - Fixed issue with variables in texts being ignored on calculation</a></li>
+    <li><a href="#3290-2022-02-11---added-navigation-bar-component">3.29.0 (2022-02-11) - Added Navigation bar component</a></li>
+    <li><a href="#3282-2022-02-10---moved-test-files">3.28.2 (2022-02-10) - Moved test files</a></li>
+    <li><a href="#3281-2022-02-09---fixed-an-issue-in-checkbox-component">3.28.1 (2022-02-09) - Fixed an issue in checkbox component</a></li>
+    <li><a href="#3280-2022-02-09---added-fileuploadwithtag-component">3.28.0 (2022-02-09) - Added FileUploadWithTag component</a></li>
+    <li><a href="#3275-2022-02-09---fixed-an-issue-in-the-checkbox-component">3.27.5 (2022-02-09) - Fixed an issue in the checkbox component</a></li>
+    <li><a href="#3274-2022-02-08---fixed-an-issue-in-the-confirm-container">3.27.4 (2022-02-08) - Fixed an issue in the confirm container</a></li>
+    <li><a href="#3273-2022-02-07---fixed-an-issue-in-the-radiobutton-component">3.27.3 (2022-02-07) - Fixed an issue in the radiobutton component</a></li>
+    <li><a href="#3272-2022-02-07---fixed-an-issue-in-the-receipt-container">3.27.2 (2022-02-07) - Fixed an issue in the receipt container</a></li>
+    <li><a href="#3271-2022-02-07---fixed-an-issue-in-the-datepicker-component">3.27.1 (2022-02-07) - Fixed an issue in the datepicker component</a></li>
+    <li><a href="#3270-2022-02-01---show-app-owner-in-header">3.27.0 (2022-02-01) - Show app owner in header</a></li>
+    <li><a href="#3263-2022-02-01---fixed-an-issue-in-the-address-component">3.26.3 (2022-02-01) - Fixed an issue in the address component</a></li>
+    <li><a href="#3262-2022-02-01---fixed-an-issue-in-the-dropdown-component">3.26.2 (2022-02-01) - Fixed an issue in the dropdown component</a></li>
+    <li><a href="#3261-2022-01-31---fixed-an-issue-in-the-instantiation-container">3.26.1 (2022-01-31) - Fixed an issue in the instantiation container</a></li>
+    <li><a href="#3260-2022-01-30---design-updates-for-repeating-groups">3.26.0 (2022-01-30) - Design updates for repeating groups</a></li>
+    <li><a href="#3251-2022-01-24---dependency-patching">3.25.1 (2022-01-24) - Dependency patching</a></li>
+    <li><a href="#3250-2022-01-24---added-more-data-sources-for-dynamic-texts">3.25.0 (2022-01-24) - Added more data sources for dynamic texts</a></li>
+    <li><a href="#3240-2022-01-24---neutral-design">3.24.0 (2022-01-24) - Neutral design</a></li>
+    <li><a href="#3231-2022-01-24---dependency-patching">3.23.1 (2022-01-24) - Dependency patching</a></li>
+    <li><a href="#3230-2022-01-21---dynamic-options">3.23.0 (2022-01-21) - Dynamic options</a></li>
+    <li><a href="#3229-2022-01-20---stable-formdata--typescript-improvements">3.22.9 (2022-01-20) - Stable FormData + Typescript improvements</a></li>
+    <li><a href="#3228-2022-01-17---fix-for-various-eslint-rules">3.22.8 (2022-01-17) - Fix for various eslint rules</a></li>
+    <li><a href="#3227-2022-01-13---dependency-patching">3.22.7 (2022-01-13) - Dependency patching</a></li>
+    <li><a href="#3226-2022-01-11---bugfix-repeating-groups">3.22.6 (2022-01-11) - Bugfix repeating groups</a></li>
+    <li><a href="#3225-2022-01-10---optimization-for-summarygroupcomponent">3.22.5 (2022-01-10) - Optimization for SummaryGroupComponent</a></li>
+    <li><a href="#3224-2022-01-07---display-error-when-rendering-unknown-component">3.22.4 (2022-01-07) - Display error when rendering unknown component</a></li>
+    <li><a href="#3223-2022-01-07---dependency-patching">3.22.3 (2022-01-07) - Dependency patching</a></li>
+    <li><a href="#3222-2021-12-23---bugfix-variables-in-text">3.22.2 (2021-12-23) - Bugfix variables in text</a></li>
+    <li><a href="#3221-2021-12-23---bugfix-missing-rights-for-stateless-view">3.22.1 (2021-12-23) - Bugfix missing rights for stateless view</a></li>
+    <li><a href="#3220-2021-12-22---more-options-for-customization-of-repeating-groups">3.22.0 (2021-12-22) - More options for customization of repeating groups</a></li>
+    <li><a href="#3211-2021-12-17---bugfix-for-task-validation">3.21.1 (2021-12-17) - Bugfix for task validation</a></li>
+    <li><a href="#3210-2021-12-17---possibility-to-use-h2-h3-and-h4-as-size-values-for-the-header-component-in-formlayout">3.21.0 (2021-12-17) - Possibility to use h2, h3 and h4 as size values for the header component in FormLayout</a></li>
+    <li><a href="#3201-2021-12-16---bugfix-for-address-component">3.20.1 (2021-12-16) - Bugfix for address component</a></li>
+    <li><a href="#3200-2021-12-14---support-for-custom-oidc-provider">3.20.0 (2021-12-14) - Support for custom OIDC provider</a></li>
+    <li><a href="#3192-2021-12-09---dependency-patching">3.19.2 (2021-12-09) - Dependency patching</a></li>
+    <li><a href="#3191-2021-12-09---fixes-for-image-component">3.19.1 (2021-12-09) - Fixes for image component</a></li>
+    <li><a href="#3190-2021-12-06---create-instance-from-stateless-view">3.19.0 (2021-12-06) - Create instance from stateless view</a></li>
+    <li><a href="#3184-2021-12-03---optimization-for-mobile-view---bug-fix">3.18.4 (2021-12-03) - Optimization for mobile view - bug fix</a></li>
+    <li><a href="#3183-2021-12-01---optimization-for-mobile-view---spacing">3.18.3 (2021-12-01) - Optimization for mobile view - spacing</a></li>
+    <li><a href="#3182-2021-11-30---optimization-for-mobile-view---spacing">3.18.2 (2021-11-30) - Optimization for mobile view - spacing</a></li>
+    <li><a href="#3181-2021-11-30---optimization-for-mobile-view---maxwidth">3.18.1 (2021-11-30) - Optimization for mobile view - maxWidth</a></li>
+    <li><a href="#3180-2021-11-29---support-for-label-grid">3.18.0 (2021-11-29) - Support for label grid</a></li>
+    <li><a href="#3171-2021-11-24---bugfix-dataprocesswrite">3.17.1 (2021-11-24) - Bugfix DataProcessWrite</a></li>
+    <li><a href="#3170-2021-11-24---mobile-optimization-layout">3.17.0 (2021-11-24) - Mobile optimization layout</a></li>
+    <li><a href="#3160-2021-11-24---changed-icon-for-help-text">3.16.0 (2021-11-24) - Changed icon for help text</a></li>
+    <li><a href="#3151-2021-11-18---invalid-types-for-reselect">3.15.1 (2021-11-18) - Invalid types for reselect</a></li>
+    <li><a href="#3150-2021-11-15---support-for-returnurl">3.15.0 (2021-11-15) - Support for returnUrl</a></li>
+    <li><a href="#3142-2021-11-11---patching-of-json-pointer">3.14.2 (2021-11-11) - Patching of json pointer</a></li>
+    <li><a href="#3141-2021-11-11---dependency-patching">3.14.1 (2021-11-11) - Dependency patching</a></li>
+    <li><a href="#3140-2021-11-08---today-flag-for-datepicker-minmax-dates">3.14.0 (2021-11-08) - Today-flag for datepicker min/max dates</a></li>
+    <li><a href="#3136-2021-11-04---dependency-patching">3.13.6 (2021-11-04) - Dependency patching</a></li>
+    <li><a href="#3135-2021-10-28---dependency-patching">3.13.5 (2021-10-28) - Dependency patching</a></li>
+    <li><a href="#3134-2021-10-22---dependency-patching">3.13.4 (2021-10-22) - Dependency patching</a></li>
+    <li><a href="#3133-2021-10-15---right-align-text-in-input-fields">3.13.3 (2021-10-15) - Right align text in input fields</a></li>
+    <li><a href="#3132-2021-10-14---dependency-patching">3.13.2 (2021-10-14) - Dependency patching</a></li>
+    <li><a href="#3131-2021-10-13---fix-for-custom-validation-of-attachment">3.13.1 (2021-10-13) - Fix for custom validation of attachment</a></li>
+    <li><a href="#3130-2021-10-11---start-from-active-instance">3.13.0 (2021-10-11) - Start from active instance</a></li>
+    <li><a href="#3124-2021-10-11---repeating-group-open-configuration">3.12.4 (2021-10-11) - Repeating group open configuration</a></li>
+    <li><a href="#3123-2021-10-07---dependency-patching">3.12.3 (2021-10-07) - Dependency patching</a></li>
+    <li><a href="#3122-2021-10-04---fixed-design-of-readonly-datepicker-component">3.12.2 (2021-10-04) - Fixed design of readonly datepicker component</a></li>
+    <li><a href="#3121-2021-09-30---dependency-patching">3.12.1 (2021-09-30) - Dependency patching</a></li>
+    <li><a href="#3120-2021-09-29---image-component">3.12.0 (2021-09-29) - Image component</a></li>
+    <li><a href="#3119-2021-09-29---support-for-json-schema-2020-12-in-app-frontend">3.11.9 (2021-09-29) - Support for JSON Schema 2020-12 in app frontend</a></li>
+    <li><a href="#3118-2021-09-27---added-white-space-between-optional-label-and-title-text">3.11.8 (2021-09-27) - Added white space between optional label and title text</a></li>
+    <li><a href="#3117-2021-09-24---dependency-patching">3.11.7 (2021-09-24) - Dependency patching</a></li>
+    <li><a href="#3116-20201-09-21---focus-indicator-input-field">3.11.6 (20201-09-21) - Focus indicator input field</a></li>
+    <li><a href="#3115-2021-09-21---content-loader-overflow">3.11.5 (2021-09-21) - Content loader overflow</a></li>
+    <li><a href="#3114-2021-09-20---fix-parsing-error-in-confirm-page">3.11.4 (2021-09-20) - Fix parsing error in confirm page</a></li>
+    <li><a href="#3113-2021-09-17---preselect-dropdown">3.11.3 (2021-09-17) - Preselect dropdown</a></li>
+    <li><a href="#3112-2021-09-16---dependency-patching">3.11.2 (2021-09-16) - Dependency patching</a></li>
+    <li><a href="#3111-2021-09-09---dependency-patching">3.11.1 (2021-09-09) - Dependency patching</a></li>
+    <li><a href="#3110-2021-09-08---party-selection-in-stateless-view">3.11.0 (2021-09-08) - Party selection in stateless view</a></li>
+    <li><a href="#3103-2021-08-23---added-some-ids-used-by-automated-tests">3.10.3 (2021-08-23) - Added some IDs used by automated tests</a></li>
+    <li><a href="#3102-2021-08-19---dependency-patching">3.10.2 (2021-08-19) - Dependency patching</a></li>
+    <li><a href="#3101-2021-08-16---app-frontend-includes-partyid-for-stateless-apps">3.10.1 (2021-08-16) - App frontend includes partyID for stateless apps</a></li>
+    <li><a href="#3100-2021-08-13---log-out-functionality">3.10.0 (2021-08-13) - Log out functionality</a></li>
+    <li><a href="#399-2021-08-12---dependency-patching">3.9.9 (2021-08-12) - Dependency patching</a></li>
+    <li><a href="#398-2021-08-05---dependency-patching">3.9.8 (2021-08-05) - Dependency patching</a></li>
+    <li><a href="#397-2021-08-03---bugfix-print-view">3.9.7 (2021-08-03) - Bugfix print view</a></li>
+    <li><a href="#396-2021-08-02---dependency-patching">3.9.6 (2021-08-02) - Dependency patching</a></li>
+    <li><a href="#395-2021-07-28---bugfix-for-mobile-view-during-app-startup">3.9.5 (2021-07-28) - Bugfix for mobile view during app startup</a></li>
+    <li><a href="#394-2021-07-23---bugfix-validation-trigger-for-groups">3.9.4 (2021-07-23) - Bugfix validation trigger for groups.</a></li>
+    <li><a href="#393-2021-07-23---dependency-patching">3.9.3 (2021-07-23) - Dependency patching</a></li>
+    <li><a href="#392-2021-07-02---dependency-patching">3.9.2 (2021-07-02) - Dependency patching</a></li>
+    <li><a href="#391-2021-07-01---support-for-redirect-to-require-higher-authentication-level-for-stateless-app">3.9.1 (2021-07-01) - Support for redirect to require higher authentication level for stateless app</a></li>
+    <li><a href="#380-2021-06-29---several-updates-to-validation-functionality">3.8.0 (2021-06-29) - Several updates to validation functionality</a></li>
+    <li><a href="#370-2021-06-29---support-for-posting-data-from-stateless-app">3.7.0 (2021-06-29) - Support for posting data from stateless app</a></li>
+    <li><a href="#3614-2021-06-22---bug-fix-for-duplicated-validation-messages">3.6.14 (2021-06-22) - Bug fix for duplicated validation messages</a></li>
+    <li><a href="#3613-2021-06-18---bugfix-for-replaceall-with-variables-in-text">3.6.13 (2021-06-18) - Bugfix for replaceAll with variables in text</a></li>
+    <li><a href="#3612-2021-06-18---dependency-patching">3.6.12 (2021-06-18) - Dependency patching</a></li>
+    <li><a href="#3611-2021-06-16---bugfix-for-disappearing-validation-messages">3.6.11 (2021-06-16) - Bugfix for disappearing validation messages</a></li>
+    <li><a href="#3610-2021-06-15---bugfix-for-navigation-buttons-with-multiple-triggers">3.6.10 (2021-06-15) - Bugfix for navigation buttons with multiple triggers</a></li>
+    <li><a href="#369-2021-06-14---bugfix-variables-in-text">3.6.9 (2021-06-14) - Bugfix variables in text</a></li>
+    <li><a href="#368-2021-06-11---new-endpoints-for-stateless-app">3.6.8 (2021-06-11) - New endpoints for stateless app</a></li>
+    <li><a href="#367-2021-06-10---dependency-patching">3.6.7 (2021-06-10) - Dependency patching</a></li>
+    <li><a href="#366-2021-06-09---dependency-patching">3.6.6 (2021-06-09) - Dependency patching</a></li>
+    <li><a href="#365-2021-06-02-bugfix-for-stateless-app">3.6.5 (2021-06-02) Bugfix for stateless app</a></li>
+    <li><a href="#364-2021-06-02-bugfix-for-simple-receipt">3.6.4 (2021-06-02) Bugfix for simple receipt</a></li>
+    <li><a href="#363-2021-06-02-bugfix-for-content-loader">3.6.3 (2021-06-02) Bugfix for content loader</a></li>
+    <li><a href="#362-2021-06-01-bugfix-for-summary-view-of-group-with-multiple-pages">3.6.2 (2021-06-01) Bugfix for summary view of group with multiple pages</a></li>
+    <li><a href="#361-2021-05-28-dependency-patching">3.6.1 (2021-05-28) Dependency patching</a></li>
+    <li><a href="#360-2021-05-28-support-for-hiding-back-button-in-apps">3.6.0 (2021-05-28) Support for hiding back button in apps</a></li>
+    <li><a href="#350-2021-05-27-support-for-number-formatting">3.5.0 (2021-05-27) Support for number formatting</a></li>
+    <li><a href="#342-2021-05-26-improve-look-of-summary-for-checkboxes-component">3.4.2 (2021-05-26) Improve look of summary for checkboxes component</a></li>
+    <li><a href="#341-2021-05-20-dependency-patching">3.4.1 (2021-05-20) Dependency patching</a></li>
+    <li><a href="#340-2021-05-18-support-for-stateless-apps">3.4.0 (2021-05-18) Support for stateless apps</a></li>
+    <li><a href="#335-2021-05-14---dependency-patching">3.3.5 (2021-05-14) - Dependency patching</a></li>
+    <li><a href="#334-2021-05-11-bugfix-for-calculation-in-groups">3.3.4 (2021-05-11) Bugfix for calculation in groups</a></li>
+    <li><a href="#333-2021-05-11-run-data-validation-on-page-switch-and-fix-group-component-mobile-view">3.3.3 (2021-05-11) Run data validation on page switch, and fix group component mobile view</a></li>
+    <li><a href="#332-2021-05-06---dependency-patching">3.3.2 (2021-05-06) - Dependency patching</a></li>
+    <li><a href="#331-2021-05-06-support-for-markdown-in-validation-messages">3.3.1 (2021-05-06) Support for markdown in validation messages</a></li>
+    <li><a href="#330-2021-05-03-support-for-multiple-views-in-repeating-group-edit-mode">3.3.0 (2021-05-03) Support for multiple views in repeating group edit mode</a></li>
+    <li><a href="#322-2021-04-23---dependency-patching">3.2.2 (2021-04-23) - Dependency patching</a></li>
+    <li><a href="#321-2021-04-23---bugfix-for-group-validations">3.2.1 (2021-04-23) - Bugfix for group validations</a></li>
+    <li><a href="#320-2021-04-21---validation-on-group-save">3.2.0 (2021-04-21) - Validation on group save</a></li>
+    <li><a href="#316-2021-04-19---bugfix-for-checkbox-values-in-summary-component">3.1.6 (2021-04-19) - Bugfix for checkbox values in summary component</a></li>
+    <li><a href="#315-2021-04-19---bugfix-for-repeating-group-state-on-calculation">3.1.5 (2021-04-19) - Bugfix for repeating group state on calculation</a></li>
+    <li><a href="#314-2021-04-19---bugfix-for-validations-on-group-delete">3.1.4 (2021-04-19) - Bugfix for validations on group delete</a></li>
+    <li><a href="#313-2021-04-16---bugfix-for-validation">3.1.3 (2021-04-16) - Bugfix for validation</a></li>
+    <li><a href="#312-2021-04-12---dependency-patching">3.1.2 (2021-04-12) - Dependency patching.</a></li>
+    <li><a href="#311-2021-04-09---bugfix-for-slow-calculate">3.1.1 (2021-04-09) - Bugfix for slow calculate</a></li>
+    <li><a href="#310-2021-04-07--help-text-for-paragraph-and-header-components">3.1.0 (2021-04-07)- Help text for paragraph and header components</a></li>
+    <li><a href="#3016-2021-04-06---dependency-patching">3.0.16 (2021-04-06) - Dependency patching</a></li>
+    <li><a href="#3015-2021-03-22---bugfix-for-group-component-with-checkboxes">3.0.15 (2021-03-22) - Bugfix for group component with checkboxes</a></li>
+    <li><a href="#3014-2021-03-19---dependency-patching">3.0.14 (2021-03-19) - Dependency patching</a></li>
+    <li><a href="#3013-2021-03-18---internal-typings">3.0.13 (2021-03-18) - Internal typings</a></li>
+    <li><a href="#3012-2021-03-17---bugfix-for-markdown-support-in-summary-and-group-titles">3.0.12 (2021-03-17) - Bugfix for markdown support in summary and group titles</a></li>
+    <li><a href="#3011-2021-03-17---bugfix-for-page-order-calculation">3.0.11 (2021-03-17) - Bugfix for page order calculation</a></li>
+    <li><a href="#3010-2021-03-12---bugfix-for-page-order-calculation">3.0.10 (2021-03-12) - Bugfix for page order calculation</a></li>
+    <li><a href="#309-2021-03-12---dependency-patching">3.0.9 (2021-03-12) - Dependency patching</a></li>
+    <li><a href="#308-2021-03-12---support-for-dynamicly-getting-page-order">3.0.8 (2021-03-12) - Support for dynamicly getting page order</a></li>
+    <li><a href="#307-2021-03-09---bugfix-for-page-caching">3.0.7 (2021-03-09) - Bugfix for page caching</a></li>
+    <li><a href="#306-2021-03-08---caching-of-last-viewed-page">3.0.6 (2021-03-08) - Caching of last viewed page</a></li>
+    <li><a href="#305-2021-03-05---dependency-patching">3.0.5 (2021-03-05) - Dependency patching</a></li>
+    <li><a href="#304-2021-03-05---bugfix-for-text-styling-in-titlesdescriptions">3.0.4 (2021-03-05) - Bugfix for text styling in titles/descriptions</a></li>
+    <li><a href="#303-2021-03-02---bugfix-for-metadata-with-layout-sets">3.0.3 (2021-03-02) - Bugfix for metadata with layout sets</a></li>
+    <li><a href="#302-2021-02-26---dependency-patching">3.0.2 (2021-02-26) - Dependency patching</a></li>
+    <li><a href="#301-2021-02-25---horizontally-aligned-components--bugfix-for-loading-options">3.0.1 (2021-02-25) - Horizontally aligned components &amp; Bugfix for loading options</a></li>
+    <li><a href="#300-2021-02-23---new-font-for-app-frontend">3.0.0 (2021-02-23) - New font for App Frontend</a></li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">About Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

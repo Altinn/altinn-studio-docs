@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Difference in SOAP operation usage between Altinn 2 and Altinn 3 transitioned services." />
+<meta name="altinn_pagedir" class="elastic" content="broker/broker-transition/usage/soap/" />
+<meta name="altinn_title" class="elastic" content="Usage SOAP" />
+<meta name="product" data-pagefind-filter="Product[content]" content="Broker" />
+
+
+<title>Usage SOAP – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/en/broker/broker-transition/usage/soap/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/en/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">To the frontpage</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Show/hide menu</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Product</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/en/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/authorization/">
+      <p class="product-item">Authorization</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/broker/">
+      <p class="product-item">Broker</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/correspondence/">
+      <p class="product-item">Correspondence</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/notifications/">
+      <p class="product-item">Notifications</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Search</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/en.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/broker/broker-transition/usage/soap/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/broker/broker-transition/usage/soap/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English ✓</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">What are you looking for?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Search');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Last modified: Sep 29, 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/en/broker/"><span>Broker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/about/"><span>About Broker</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/what-do-you-get/"><span>What do you get?</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/"><span>Getting Started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/common-steps/"><span>Common Steps</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/service-owner/"><span>Service Owner</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/developer-guides/"><span>Developer guides</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/developer-guides/send-files/"><span>Send files</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/developer-guides/receive-files/"><span>Receive Files</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/developer-guides/service-owner/"><span>Service Owner</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/getting-started/developer-guides/events/"><span>Events</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/broker/explanation/"><span>Concepts</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/explanation/basic-concepts/"><span>Basic Concepts</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/explanation/very-large-files/"><span>Large Files</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/"><span>Transition Solution</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/about/"><span>About Transition Solution</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/getting-started/"><span>Getting Started</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/technical-overview/"><span>Technical Overview</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/usage/"><span>Usage</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/usage/rest/"><span>Usage Rest</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/broker-transition/usage/soap/"><span>Usage SOAP</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/broker/reference/"><span>Reference documentation</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/broker/reference/terminology/"><span>Terminology</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/reference/system-interfaces/"><span>System Interfaces</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/reference/capabilities/"><span>Capabilities</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/reference/rate-limits/"><span>Rate Limits</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/reference/solution-architecture/"><span>Solution Architecture</span></a></li>
+      <li class="dd-item">
+        <a href="/en/broker/reference/security/"><span>Security</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/en/broker/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/broker/broker-transition/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/broker/broker-transition/usage/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/broker/broker-transition/usage/soap/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/en/broker/'>Broker</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/broker/broker-transition/'>Transition Solution</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/broker/broker-transition/usage/'>Usage</a> <span class='adocs-breadcrumb-divider'> / </span> Usage SOAP</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Usage SOAP</h1>
+              <p class="a-leadText" id="leadText">Difference in SOAP operation usage between Altinn 2 and Altinn 3 transitioned services.</p>
+
+<h2 id="difference-in-usage-between-existing-altinn-2-soap-operations-and-altinn-3-soap-operations-that-have-been-transition-to-altinn-3">Difference in usage between existing Altinn 2 SOAP Operations and Altinn 3 SOAP operations that have been transition to Altinn 3.</h2>
+<p>SOAP operations for Altinn 2 Broker Service are spread over 3 endpoints.
+For most requests there will be no functional difference between Altinn 2 and Altinn 3 requests.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Service</th>
+          <th>Endpoint</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>BrokerService</td>
+          <td><a href="https://www.altinn.no/ServiceEngineExternal/BrokerServiceExternal.svc">Service WS</a></td>
+          <td>Handles metadata requests.</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td><a href="https://www.altinn.no/ServiceEngineExternal/BrokerServiceExternalBasic.svc">Service Basic</a></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td><a href="https://www.altinn.no/ServiceEngineExternal/BrokerServiceExternalEC2.svc">Service EC</a></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>BrokerService Streamed</td>
+          <td><a href="https://www.altinn.no/ServiceEngineExternal/BrokerServiceExternalStreamed.svc">Streamed WS</a></td>
+          <td>Handles file data requests.</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td><a href="https://www.altinn.no/ServiceEngineExternal/BrokerServiceExternalStreamedBasic.svc">Streamed Basic</a></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td><a href="https://www.altinn.no/ServiceEngineExternal/BrokerServiceExternalStreamedEC2.svc">Streamed EC</a></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td>Receipt</td>
+          <td><a href="https://www.altinn.no/IntermediaryExternal/ReceiptExternal.svc">Receipt WS</a></td>
+          <td>Handles receipt requests.</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td><a href="https://www.altinn.no/IntermediaryExternal/ReceiptExternalBasic.svc">Receipt Basic</a></td>
+          <td></td>
+      </tr>
+      <tr>
+          <td></td>
+          <td><a href="https://www.altinn.no/IntermediaryExternal/ReceiptExternalEC2.svc">Receipt EC</a></td>
+          <td></td>
+      </tr>
+  </tbody>
+</table>
+<p>For examples of SOAP implementation see <a href="https://altinn.github.io/docs/api/soap/grensesnitt/#brokerservice--formidlingstjenester-ws">existing documentation (norwegian only)</a></p>
+<h3 id="brokerservice-endpoint">BrokerService Endpoint</h3>
+<p>The BrokerService endpoint contains functions related to BrokerService metadata requests.</p>
+<h4 id="initiatebrokerservice">InitiateBrokerService</h4>
+<p>No functional difference for Transitioned services.</p>
+<h4 id="getavailablefiles">GetAvailableFiles</h4>
+<p>No functional difference for Transitioned services. If service code/service edition code is not supplied, only Altinn 2 files will be returned.</p>
+<h4 id="confirmdownloaded">ConfirmDownloaded</h4>
+<p>No functional difference for Transitioned services.</p>
+<h4 id="checkifavailablefiles">CheckIfAvailableFiles</h4>
+<p>No functional difference for Transitioned services. If service code/service edition code is not supplied, only Altinn 2 files will be returned.</p>
+<h3 id="brokerservicestreamed-endpoint">BrokerServiceStreamed Endpoint</h3>
+<p>The BrokerServiceStreamed endpoint contains functions related to BrokerService File Data requests.</p>
+<h4 id="uploadfilestreamed">UploadFileStreamed</h4>
+<p>No functional difference in the call. The reply will contain a pseudo-receipt generated from the Altinn 3 file metadata. ReceiptId will be 0.</p>
+<div class="notices warning" ><p>Since the Upload, and Upload processing of the file is an asynchronous process in Altinn 3, the immediate Receipt status received from the call will not necessarily reflect the final state of the file.
+Altinn 2 SOAP Broker Service offers no function that allows end users to verify that a file has been successfully processed and is ready for download for recipients.</p>
+<p>If possible, you should consider adding steps that make calls to <a href="/en/broker/broker-transition/usage/rest/#get-file-receipt-outbox-sender">Get File Receipt</a> to ensure that the file has been successfully processed.
+If you do not wish to implement REST, one workaround is implementing a request that retrieves available files for the recipients to ensure that the file you uploaded has been made available.</p>
+</div>
+<h5 id="verify-that-uploaded-file-has-been-made-available-for-download-via-soap">Verify that Uploaded File has been made available for download via SOAP</h5>
+<p>Step 1: Initiate file transfer</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-XML" data-lang="XML"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;soapenv:Envelope</span> <span style="color:#50fa7b">xmlns:soapenv=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/envelope/&#34;</span> <span style="color:#50fa7b">xmlns:ns=</span><span style="color:#f1fa8c">&#34;http://www.altinn.no/services/ServiceEngine/Broker/2015/06&#34;</span> <span style="color:#50fa7b">xmlns:ns1=</span><span style="color:#f1fa8c">&#34;http://schemas.altinn.no/services/ServiceEngine/Broker/2015/06&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&lt;soapenv:Header/&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&lt;soapenv:Body&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;ns:InitiateBrokerServiceBasic&gt;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&lt;ns:systemUserName&gt;</span>Senders System<span style="color:#ff79c6">&lt;/ns:systemUserName&gt;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&lt;ns:systemPassword&gt;</span>yourPassword<span style="color:#ff79c6">&lt;/ns:systemPassword&gt;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&lt;ns:brokerServiceInitiation&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;ns1:Manifest&gt;</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#ff79c6">&lt;ns1:ExternalServiceCode&gt;</span>4947<span style="color:#ff79c6">&lt;/ns1:ExternalServiceCode&gt;</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#ff79c6">&lt;ns1:ExternalServiceEditionCode&gt;</span>4678<span style="color:#ff79c6">&lt;/ns1:ExternalServiceEditionCode&gt;</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#6272a4">&lt;!--Optional:--&gt;</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#ff79c6">&lt;ns1:FileList&gt;</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#6272a4">&lt;!--Zero or more repetitions:--&gt;</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#ff79c6">&lt;ns1:File&gt;</span>
+</span></span><span style="display:flex;"><span>                     <span style="color:#ff79c6">&lt;ns1:FileName&gt;</span>Your FileName<span style="color:#ff79c6">&lt;/ns1:FileName&gt;</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#ff79c6">&lt;/ns1:File&gt;</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#ff79c6">&lt;/ns1:FileList&gt;</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#ff79c6">&lt;ns1:Reportee&gt;</span>Sender OrgNr<span style="color:#ff79c6">&lt;/ns1:Reportee&gt;</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#ff79c6">&lt;ns1:SendersReference&gt;</span>Your SendersReference<span style="color:#ff79c6">&lt;/ns1:SendersReference&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;/ns1:Manifest&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;ns1:RecipientList&gt;</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#6272a4">&lt;!--Zero or more repetitions:--&gt;</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#ff79c6">&lt;ns1:Recipient&gt;</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#ff79c6">&lt;ns1:PartyNumber&gt;</span>Recipient OrgNr<span style="color:#ff79c6">&lt;/ns1:PartyNumber&gt;</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#ff79c6">&lt;/ns1:Recipient&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;/ns1:RecipientList&gt;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&lt;/ns:brokerServiceInitiation&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/ns:InitiateBrokerServiceBasic&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&lt;/soapenv:Body&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/soapenv:Envelope&gt;</span>
+</span></span></code></pre></div><p>Returns:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-XML" data-lang="XML"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;s:Envelope</span> <span style="color:#50fa7b">xmlns:s=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/envelope/&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&lt;s:Body&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;InitiateBrokerServiceBasicResponse</span> <span style="color:#50fa7b">xmlns=</span><span style="color:#f1fa8c">&#34;http://www.altinn.no/services/ServiceEngine/Broker/2015/06&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&lt;InitiateBrokerServiceBasicResult&gt;</span>af303bd0-3333-4ec9-af6a-31dd05569011<span style="color:#ff79c6">&lt;/InitiateBrokerServiceBasicResult&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/InitiateBrokerServiceBasicResponse&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&lt;/s:Body&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/s:Envelope&gt;</span>
+</span></span></code></pre></div><p>Step 2: Upload File</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-XML" data-lang="XML"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;soapenv:Envelope</span> <span style="color:#50fa7b">xmlns:soapenv=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/envelope/&#34;</span> <span style="color:#50fa7b">xmlns:ns=</span><span style="color:#f1fa8c">&#34;http://www.altinn.no/services/ServiceEngine/Broker/2015/06&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&lt;soapenv:Header&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;ns:SystemUserName&gt;</span>Senders System<span style="color:#ff79c6">&lt;/ns:SystemUserName&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;ns:SystemPassword&gt;</span>yourPassword<span style="color:#ff79c6">&lt;/ns:SystemPassword&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;ns:Reportee&gt;</span>Senders OrgNr<span style="color:#ff79c6">&lt;/ns:Reportee&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;ns:Reference&gt;</span>af303bd0-3333-4ec9-af6a-31dd05569011<span style="color:#ff79c6">&lt;/ns:Reference&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;ns:FileName&gt;</span>yourFileName<span style="color:#ff79c6">&lt;/ns:FileName&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&lt;/soapenv:Header&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&lt;soapenv:Body&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;ns:StreamedPayloadBasicBE&gt;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&lt;ns:DataStream&gt;</span>[fileStream]<span style="color:#ff79c6">&lt;/ns:DataStream&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/ns:StreamedPayloadBasicBE&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&lt;/soapenv:Body&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/soapenv:Envelope&gt;</span>
+</span></span></code></pre></div><p>Returns:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-XML" data-lang="XML"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;s:Envelope</span> <span style="color:#50fa7b">xmlns:s=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/envelope/&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&lt;s:Body&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;ReceiptExternalStreamedBE</span> <span style="color:#50fa7b">xmlns=</span><span style="color:#f1fa8c">&#34;http://www.altinn.no/services/ServiceEngine/Broker/2015/06&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&lt;LastChanged&gt;</span>08.05.2024 13:29:28<span style="color:#ff79c6">&lt;/LastChanged&gt;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&lt;ParentReceiptId&gt;</span>0<span style="color:#ff79c6">&lt;/ParentReceiptId&gt;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&lt;ReceiptHistory</span> <span style="color:#50fa7b">i:nil=</span><span style="color:#f1fa8c">&#34;true&#34;</span> <span style="color:#50fa7b">xmlns:i=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&lt;ReceiptId&gt;</span>0<span style="color:#ff79c6">&lt;/ReceiptId&gt;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&lt;ReceiptStatusCode&gt;</span>OK<span style="color:#ff79c6">&lt;/ReceiptStatusCode&gt;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&lt;ReceiptText&gt;</span>Upload of file af303bd0-3333-4ec9-af6a-31dd05569011 was successful. Recipients can now download the file.<span style="color:#ff79c6">&lt;/ReceiptText&gt;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&lt;ReceiptTypeName&gt;</span>BrokerService<span style="color:#ff79c6">&lt;/ReceiptTypeName&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/ReceiptExternalStreamedBE&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&lt;/s:Body&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/s:Envelope&gt;</span>
+</span></span></code></pre></div><p>Step 3: As the sender, make a GetAvailableFiles request for files belonging to the recipient from step 1.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-XML" data-lang="XML"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;soapenv:Envelope</span> <span style="color:#50fa7b">xmlns:soapenv=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/envelope/&#34;</span> <span style="color:#50fa7b">xmlns:ns=</span><span style="color:#f1fa8c">&#34;http://www.altinn.no/services/ServiceEngine/Broker/2015/06&#34;</span> <span style="color:#50fa7b">xmlns:ns1=</span><span style="color:#f1fa8c">&#34;http://schemas.altinn.no/services/ServiceEngine/Broker/2015/06&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&lt;soapenv:Header/&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&lt;soapenv:Body&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;ns:GetAvailableFilesBasic&gt;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&lt;ns:systemUserName&gt;</span>Senders System<span style="color:#ff79c6">&lt;/ns:systemUserName&gt;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&lt;ns:systemPassword&gt;</span>password<span style="color:#ff79c6">&lt;/ns:systemPassword&gt;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&lt;ns:searchParameters&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">&lt;!--Optional:--&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;ns1:ExternalServiceCode&gt;</span>4947<span style="color:#ff79c6">&lt;/ns1:ExternalServiceCode&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#6272a4">&lt;!--Optional:--&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;ns1:ExternalServiceEditionCode&gt;</span>4678<span style="color:#ff79c6">&lt;/ns1:ExternalServiceEditionCode&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;ns1:FileStatus&gt;</span>Uploaded<span style="color:#ff79c6">&lt;/ns1:FileStatus&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;ns1:Reportee&gt;</span>Recipients OrgNr<span style="color:#ff79c6">&lt;/ns1:Reportee&gt;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&lt;/ns:searchParameters&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/ns:GetAvailableFilesBasic&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&lt;/soapenv:Body&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/soapenv:Envelope&gt;</span>
+</span></span></code></pre></div><p>If the file was successfully processed, it should be in the returned list. If the file does not appear in the list, it may have failed during processing in Altinn 3, or the recipient may have downloaded it already.
+If the file is not in this returned list, or in the list returned if you repeat the request in step 3 with FileStatus &ldquo;Downloaded&rdquo;, it means the file failed during processing.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-XML" data-lang="XML"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;s:Envelope</span> <span style="color:#50fa7b">xmlns:s=</span><span style="color:#f1fa8c">&#34;http://schemas.xmlsoap.org/soap/envelope/&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&lt;s:Body&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;GetAvailableFilesBasicResponse</span> <span style="color:#50fa7b">xmlns=</span><span style="color:#f1fa8c">&#34;http://www.altinn.no/services/ServiceEngine/Broker/2015/06&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&lt;GetAvailableFilesBasicResult</span> <span style="color:#50fa7b">xmlns:a=</span><span style="color:#f1fa8c">&#34;http://schemas.altinn.no/services/ServiceEngine/Broker/2015/06&#34;</span> <span style="color:#50fa7b">xmlns:i=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;a:BrokerServiceAvailableFile&gt;</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#ff79c6">&lt;a:ExternalServiceCode&gt;</span>4947<span style="color:#ff79c6">&lt;/a:ExternalServiceCode&gt;</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#ff79c6">&lt;a:ExternalServiceEditionCode&gt;</span>4678<span style="color:#ff79c6">&lt;/a:ExternalServiceEditionCode&gt;</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#ff79c6">&lt;a:FileName&gt;</span>Altinn2FileName<span style="color:#ff79c6">&lt;/a:FileName&gt;</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#ff79c6">&lt;a:FileReference&gt;</span>af303bd0-3333-4ec9-af6a-31dd05569011<span style="color:#ff79c6">&lt;/a:FileReference&gt;</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#ff79c6">&lt;a:FileSize&gt;</span>0<span style="color:#ff79c6">&lt;/a:FileSize&gt;</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#ff79c6">&lt;a:FileStatus&gt;</span>Uploaded<span style="color:#ff79c6">&lt;/a:FileStatus&gt;</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#ff79c6">&lt;a:IsSftpDownloadOnly&gt;</span>false<span style="color:#ff79c6">&lt;/a:IsSftpDownloadOnly&gt;</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#ff79c6">&lt;a:ReceiptID&gt;</span>0<span style="color:#ff79c6">&lt;/a:ReceiptID&gt;</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#ff79c6">&lt;a:Reportee&gt;</span>senders OrgNr<span style="color:#ff79c6">&lt;/a:Reportee&gt;</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#ff79c6">&lt;a:SendersReference&gt;</span>Your SendersReference<span style="color:#ff79c6">&lt;/a:SendersReference&gt;</span>
+</span></span><span style="display:flex;"><span>               <span style="color:#ff79c6">&lt;a:SentDate&gt;</span>2024-05-07T09:22:52.800185+02:00<span style="color:#ff79c6">&lt;/a:SentDate&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;/a:BrokerServiceAvailableFile&gt;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&lt;/GetAvailableFilesBasicResult&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&lt;/GetAvailableFilesBasicResponse&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#ff79c6">&lt;/s:Body&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/s:Envelope&gt;</span>
+</span></span></code></pre></div><h4 id="downloadfilestreamed">DownloadFileStreamed</h4>
+<p>No functional difference for Transitioned services.</p>
+<h3 id="receipt-endpoint">Receipt Endpoint</h3>
+<p>The Receipt endpoint contains requests used to retrieve Receipts for end users.
+Because Altinn 3 transitioned services will never create Receipts, no receipt data related to Altinn 3 transitioned files can
+be retrieved from this endpoint.</p>
+<p>If your use case requires receipt usage, please submit a feature request.</p>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/broker/broker-transition/usage/soap/_index.en.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Edit page on GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#difference-in-usage-between-existing-altinn-2-soap-operations-and-altinn-3-soap-operations-that-have-been-transition-to-altinn-3">Difference in usage between existing Altinn 2 SOAP Operations and Altinn 3 SOAP operations that have been transition to Altinn 3.</a>
+      <ul>
+        <li><a href="#brokerservice-endpoint">BrokerService Endpoint</a>
+          <ul>
+            <li><a href="#initiatebrokerservice">InitiateBrokerService</a></li>
+            <li><a href="#getavailablefiles">GetAvailableFiles</a></li>
+            <li><a href="#confirmdownloaded">ConfirmDownloaded</a></li>
+            <li><a href="#checkifavailablefiles">CheckIfAvailableFiles</a></li>
+          </ul>
+        </li>
+        <li><a href="#brokerservicestreamed-endpoint">BrokerServiceStreamed Endpoint</a>
+          <ul>
+            <li><a href="#uploadfilestreamed">UploadFileStreamed</a>
+              <ul>
+                <li><a href="#verify-that-uploaded-file-has-been-made-available-for-download-via-soap">Verify that Uploaded File has been made available for download via SOAP</a></li>
+              </ul>
+            </li>
+            <li><a href="#downloadfilestreamed">DownloadFileStreamed</a></li>
+          </ul>
+        </li>
+        <li><a href="#receipt-endpoint">Receipt Endpoint</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">About Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

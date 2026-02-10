@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Altinn Varslinger deler automatisk opp lange SMS-meldinger i flere segmenter for å sikre levering. Denne artikkelen forklarer hvordan SMS-segmentering fungerer, hvilke tegnbegrensninger som gjelder, og hva som fungerer og ikke fungerer når du bruker API-et." />
+<meta name="altinn_pagedir" class="elastic" content="notifications/explanation/sms-segmentation/" />
+<meta name="altinn_title" class="elastic" content="SMS-segmentering" />
+<meta name="product" data-pagefind-filter="Produkt[content]" content="Varsling" />
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="Forklaring" />
+
+<title>SMS-segmentering – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/notifications/explanation/sms-segmentation/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Produkt</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/authorization/">
+      <p class="product-item">Autorisasjon</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/broker/">
+      <p class="product-item">Formidling</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/">
+      <p class="product-item">Melding</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/notifications/">
+      <p class="product-item">Varsling</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Søk</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/nb.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/notifications/explanation/sms-segmentation/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/notifications/explanation/sms-segmentation/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">Hva leter du etter?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Søk');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Sist endret: 6. nov. 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/nb/notifications/"><span>Varslinger</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/notifications/about/"><span>Om Varslinger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/what-do-you-get/"><span>Hva får du?</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/notifications/getting-started/altinn-app/"><span>Altinn App-integrasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/getting-started/altinn-service/"><span>Altinn Tjeneste-integrasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/getting-started/service-owner-system/"><span>Tjenesteeiersystem-integrasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/getting-started/terminology/"><span>Terminologi</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/guides/"><span>Brukerveiledninger</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/notifications/guides/instant-notifications/"><span>Umiddelbar varsling</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/reference/"><span>Referanse</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/notifications/reference/openapi/"><span>OpenAPI</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/reference/api/"><span>API</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/reference/error-codes/"><span>Feilkoder</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/explanation/"><span>Forklaringer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/notifications/explanation/address-lookup/"><span>Adresseoppslag</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/explanation/recipient-deduplication/"><span>Deduplisering av kontaktpunkter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/explanation/recipient-lookup/"><span>Mottakeroppslag</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/explanation/send-condition/"><span>Sendebetingelse</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/explanation/placeholder-keywords/"><span>Plassholdere</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/explanation/sms-segmentation/"><span>SMS-segmentering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/explanation/instant-notifications/"><span>Umiddelbar varsling</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/nb/notifications/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/notifications/explanation/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/notifications/explanation/sms-segmentation/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/nb/notifications/'>Varslinger</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/notifications/explanation/'>Forklaringer</a> <span class='adocs-breadcrumb-divider'> / </span> SMS-segmentering</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">SMS-segmentering</h1>
+              <p class="a-leadText" id="leadText">Altinn Varslinger deler automatisk opp lange SMS-meldinger i flere segmenter for å sikre levering. Denne artikkelen forklarer hvordan SMS-segmentering fungerer, hvilke tegnbegrensninger som gjelder, og hva som fungerer og ikke fungerer når du bruker API-et.</p>
+
+<h2 id="introduksjon">Introduksjon</h2>
+<p>SMS-meldinger har tekniske begrensninger på hvor mange tegn som kan sendes i én enkelt melding. Når du sender SMS via Altinn Varslinger, håndterer systemet automatisk oppdeling av lange meldinger i flere segmenter. Dette gjør at du kan sende lengre tekster uten å måtte dele dem opp manuelt.</p>
+<p>Å forstå hvordan segmentering fungerer er viktig for å sikre at meldingene dine leveres som forventet, og for å unngå at meldinger blir avvist på grunn av lengdebegrensninger.</p>
+<h2 id="hvordan-sms-segmentering-fungerer">Hvordan SMS-segmentering fungerer</h2>
+<p>SMS-teknologien har to forskjellige måter å håndtere meldingslengde på:</p>
+<h3 id="enkeltmelding-opp-til-160-tegn">Enkeltmelding (opp til 160 tegn)</h3>
+<p>Hvis meldingen din inneholder <strong>160 tegn eller mindre</strong>, sendes den som én enkelt SMS. Dette er den mest effektive måten å sende korte meldinger på.</p>
+<h3 id="konkatenerte-meldinger-over-160-tegn">Konkatenerte meldinger (over 160 tegn)</h3>
+<p>Når meldingen er <strong>lengre enn 160 tegn</strong>, deles den automatisk opp i flere segmenter som sendes separat og settes sammen igjen på mottakerens telefon. Hvert segment i en konkatenert melding kan inneholde <strong>opp til 134 tegn</strong>.</p>
+<div class="notices info" >Grunnen til at segmentene er på 134 tegn i stedet for 160 tegn, er at noe plass brukes til metadata som forteller mottakerens telefon hvordan segmentene skal settes sammen igjen.</div>
+<h2 id="tegnbegrensninger">Tegnbegrensninger</h2>
+<p>Altinn Varslinger har følgende begrensninger for SMS-meldinger:</p>
+<ul>
+<li><strong>Enkeltmelding</strong>: opp til <strong>160 tegn</strong></li>
+<li><strong>Konkatenert melding</strong>: opp til <strong>134 tegn per segment</strong></li>
+<li><strong>Maksimalt antall segmenter</strong>: <strong>16 segmenter</strong></li>
+<li><strong>Maksimal totallengde</strong>: <strong>2144 tegn</strong> (16 × 134 tegn)</li>
+</ul>
+<div class="notices warning" >Den maksimale grensen på 16 segmenter er en begrensning i SMS-gatewayen som Altinn Varslinger bruker. Meldinger som overskrider denne grensen avkortes til de første 16 segmentene.</div>
+<h3 id="eksempel-på-segmentering">Eksempel på segmentering</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Meldingslengde</th>
+          <th>Antall segmenter</th>
+          <th>Beskrivelse</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>50 tegn</td>
+          <td>1</td>
+          <td>Sendes som én enkelt SMS</td>
+      </tr>
+      <tr>
+          <td>160 tegn</td>
+          <td>1</td>
+          <td>Sendes som én enkelt SMS (maksimal lengde)</td>
+      </tr>
+      <tr>
+          <td>161 tegn</td>
+          <td>2</td>
+          <td>Deles i 2 segmenter (134 + 27 tegn)</td>
+      </tr>
+      <tr>
+          <td>268 tegn</td>
+          <td>2</td>
+          <td>Deles i 2 segmenter (134 + 134 tegn)</td>
+      </tr>
+      <tr>
+          <td>269 tegn</td>
+          <td>3</td>
+          <td>Deles i 3 segmenter (134 + 134 + 1 tegn)</td>
+      </tr>
+      <tr>
+          <td>2144 tegn</td>
+          <td>16</td>
+          <td>Deles i 16 segmenter (maksimal lengde)</td>
+      </tr>
+      <tr>
+          <td>2145 tegn</td>
+          <td>16</td>
+          <td>Avkortes til 16 segmenter (innhold forkortes)</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="spesialtegn-og-url-koding">Spesialtegn og URL-koding</h2>
+<p>Når systemet beregner meldingslengden, måles lengden basert på <strong>URL-kodet format</strong>. Dette betyr at visse spesialtegn teller som mer enn ett tegn.</p>
+<h3 id="tegn-som-påvirker-lengden">Tegn som påvirker lengden</h3>
+<p>Følgende typer tegn kan påvirke den faktiske lengden av meldingen:</p>
+<ul>
+<li><strong>Æ, Ø, Å</strong> og andre nasjonale spesialtegn</li>
+<li><strong>Emojier</strong> og andre spesialsymboler</li>
+<li><strong>Linjeskift</strong> og andre kontrolltegn</li>
+</ul>
+<h3 id="praktisk-eksempel">Praktisk eksempel</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Original melding: &#34;Møte kl. 14:00&#34;
+</span></span><span style="display:flex;"><span>Lengde i tegn: 14 tegn
+</span></span><span style="display:flex;"><span>URL-kodet lengde: 25 tegn (nesten dobbelt så lang)
+</span></span></code></pre></div><p>Eksempelet viser hvordan norske tegn som &ldquo;ø&rdquo; blir til &ldquo;%C3%B8&rdquo; (6 tegn) og mellomrom blir til &ldquo;%20&rdquo; (3 tegn) i URL-koding.</p>
+<div class="notices info" >For å være sikker på at meldingen din ikke overstiger grensene, bør du teste med representative eksempler som inneholder de samme typene spesialtegn du planlegger å bruke.</div>
+<h2 id="begrensninger-og-hva-som-ikke-fungerer">Begrensninger og hva som ikke fungerer</h2>
+<h3 id="hva-skjer-med-meldinger-over-2144-tegn">Hva skjer med meldinger over 2144 tegn?</h3>
+<p>Når en melding (målt i URL-kodet lengde) overskrider 2144 tegn:</p>
+<ul>
+<li>Meldingen <strong>avkortes automatisk</strong> til de første 16 segmentene (2144 tegn)</li>
+<li>Innhold utover denne grensen <strong>sendes ikke</strong></li>
+<li>Du får <strong>ingen feilmelding</strong> fra API-et om at innholdet er avkortet</li>
+</ul>
+<div class="notices warning" >API-et vil ikke varsle deg om at meldingen er avkortet. Det er derfor svært viktig å teste meldingslengden på forhånd, spesielt hvis du bruker mange spesialtegn.</div>
+<h3 id="anbefalinger">Anbefalinger</h3>
+<p>For å sikre at meldingene dine leveres som forventet:</p>
+<ol>
+<li><strong>Hold meldinger korte og konsise</strong> - under 160 tegn om mulig</li>
+<li><strong>Unngå unødvendige emojier</strong> - disse kan øke lengden betydelig</li>
+<li><strong>Test med representative data</strong> - bruk spesialtegn som ligner på det du vil bruke i produksjon</li>
+<li><strong>Planlegg for segmentering</strong> - dersom du vet at meldingen blir lang, sørg for at den fortsatt gir mening selv om den deles opp</li>
+<li><strong>Vurder alternative kanaler</strong> - for lengre meldinger kan e-post være et bedre valg</li>
+</ol>
+<h2 id="hvordan-api-et-håndterer-segmentering">Hvordan API-et håndterer segmentering</h2>
+<p>Når du sender en SMS via Altinn Varslinger API-et:</p>
+<ol>
+<li><strong>Du sender hele meldingen</strong> - du trenger ikke dele den opp selv</li>
+<li><strong>Systemet beregner lengden</strong> - basert på URL-kodet lengde</li>
+<li><strong>Systemet beregner antall segmenter</strong> - og begrenser til maksimalt 16 segmenter</li>
+<li><strong>Systemet deler opp meldingen</strong> - automatisk i segmenter dersom nødvendig</li>
+<li><strong>Meldingen sendes</strong> - segmentene leveres til SMS-gatewayen</li>
+</ol>
+<div class="notices warning" >Hvis den URL-kodede lengden av meldingen krever mer enn 16 segmenter, sendes kun de første 16 segmentene (2144 tegn). Du får ingen feilmelding om dette, så det er viktig å validere meldingslengden på forhånd.</div>
+<div class="notices info" >Du kan ikke kontrollere hvordan meldingen deles opp i segmenter. Oppdelingen skjer automatisk basert på tegngrensene beskrevet i denne artikkelen.</div>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/notifications/explanation/sms-segmentation/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduksjon">Introduksjon</a></li>
+    <li><a href="#hvordan-sms-segmentering-fungerer">Hvordan SMS-segmentering fungerer</a>
+      <ul>
+        <li><a href="#enkeltmelding-opp-til-160-tegn">Enkeltmelding (opp til 160 tegn)</a></li>
+        <li><a href="#konkatenerte-meldinger-over-160-tegn">Konkatenerte meldinger (over 160 tegn)</a></li>
+      </ul>
+    </li>
+    <li><a href="#tegnbegrensninger">Tegnbegrensninger</a>
+      <ul>
+        <li><a href="#eksempel-på-segmentering">Eksempel på segmentering</a></li>
+      </ul>
+    </li>
+    <li><a href="#spesialtegn-og-url-koding">Spesialtegn og URL-koding</a>
+      <ul>
+        <li><a href="#tegn-som-påvirker-lengden">Tegn som påvirker lengden</a></li>
+        <li><a href="#praktisk-eksempel">Praktisk eksempel</a></li>
+      </ul>
+    </li>
+    <li><a href="#begrensninger-og-hva-som-ikke-fungerer">Begrensninger og hva som ikke fungerer</a>
+      <ul>
+        <li><a href="#hva-skjer-med-meldinger-over-2144-tegn">Hva skjer med meldinger over 2144 tegn?</a></li>
+        <li><a href="#anbefalinger">Anbefalinger</a></li>
+      </ul>
+    </li>
+    <li><a href="#hvordan-api-et-håndterer-segmentering">Hvordan API-et håndterer segmentering</a></li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

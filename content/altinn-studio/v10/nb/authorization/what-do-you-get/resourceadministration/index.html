@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Ressursregisteret i Altinn Autorisasjon er et sentralt register som inneholder definisjoner av digitale tjenester og ressurser som kan autoriseres." />
+<meta name="altinn_pagedir" class="elastic" content="authorization/what-do-you-get/resourceadministration/" />
+<meta name="altinn_title" class="elastic" content="Ressursadministrasjon" />
+<meta name="product" data-pagefind-filter="Produkt[content]" content="Autorisasjon" />
+
+
+<title>Ressursadministrasjon – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/authorization/what-do-you-get/resourceadministration/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Produkt</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/authorization/">
+      <p class="product-item">Autorisasjon</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/broker/">
+      <p class="product-item">Formidling</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/">
+      <p class="product-item">Melding</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/notifications/">
+      <p class="product-item">Varsling</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Søk</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/nb.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/authorization/what-do-you-get/resourceadministration/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/authorization/what-do-you-get/resourceadministration/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">Hva leter du etter?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Søk');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Sist endret: 4. des. 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/nb/authorization/"><span>Autorisasjon</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/about/"><span>Om Altinn Autorisasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/"><span>Hva får du?</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/authentication/"><span>Autentisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/rules/"><span>Autorisasjonsregler</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/"><span>Tilgangspakker og roller</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/"><span>Fullmaktsområder og tilgangspakker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/"><span>Administrere tilganger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/andretjenesteytende/"><span>Andre tjenesteytende næringer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/"><span>Bygg, anlegg og eiendom</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/energivannavlopavfall/"><span>Energi, vann, avløp og avfall</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/forholdvedvirksomheten/"><span>Forhold ved virksomheten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/forretningsforer/"><span>Forretningsfører</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/handelovernatting/"><span>Handel, overnatting og servering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/helsepleieomsorgvern/"><span>Helse, pleie, omsorg og vern</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/industrier/"><span>Industrier</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/integrasjoner/"><span>Integrasjoner</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/jordbrukskogbrukjaktfiskeakvakultur/"><span>Jordbruk, skogbruk, jakt, fiske og akvakultur</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/konkursbo/"><span>Konkursbo</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/kulturfrivillighet/"><span>Kultur og frivillighet</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/miljoulykkesikkerhet/"><span>Miljø, ulykke og sikkerhet</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/oppvekstutdanning/"><span>Oppvekst og utdanning</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/personale/"><span>Personale</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/postogarkiv/"><span>Post og arkiv</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/regnskapsforer/"><span>Regnskapsfører</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/revisor/"><span>Revisor</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/skattavgiftregnskaptoll/"><span>Skatt, avgift, regnskap og toll</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/transportoglagring/"><span>Transport og lagring</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/register_er/"><span>Fra Enhetsregisteret</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/register_er/knytning_org/"><span>Virksomhetsknytninger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/"><span>Innbyggere</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/arbeidslivskoleutdanning/"><span>Arbeidsliv, skole og utdanning</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/familiefritid/"><span>Familie og fritid</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/helseomsorg/"><span>Helse og omsorg</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/kulturidrettfrivillighet/"><span>Kultur, idrett og frivillighet</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/patentersertifikaterattester/"><span>Patenter, sertifikater og attester</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/privatperson/"><span>Privatperson</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/skattavgiftbankforsikring/"><span>Skatt, avgift, bank og forsikring</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/verger/"><span>Vergemal</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/resourceadministration/"><span>Ressursadministrasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/resourceadministration/studio/"><span>Ressurs Admin</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessmanagement/"><span>Tilgangsstyring</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accesscontrol/"><span>Tilgangskontroll</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/consent/"><span>Samtykke</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/systemuser/"><span>Systembruker</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/terms/"><span>Ordliste</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/authentication/"><span>Autentisering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/authentication/maskinporten/"><span>Maskinporten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/authentication/id-porten/"><span>ID-porten</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/maskinportenclient/"><span>Maskinporten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/resourceadministration/"><span>Ressursadministrasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/consent/"><span>Samtykke</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/systemuser/"><span>Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/enterpriseuser/"><span>Virksomhetsbrukere</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/"><span>Guider</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/"><span>Sluttbruker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/api-scheme/"><span>Delegerbare API ressurser</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/api-scheme/api-user/"><span>API-bruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/api-scheme/access-manager/"><span>Tilgangsstyrer</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/"><span>Systemtilgang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/accept-request/"><span>Godkjenne</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/delegate-clients/"><span>Klientdelegering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/setup-client-relationship/"><span>Sette opp klientforhold</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/create-systemuser/"><span>Opprett systemtilgang</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/delete-system-user/"><span>Slett systembruker</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/"><span>Systemleverandør</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/client-admin/"><span>Klientadministrasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/consent/"><span>Samtykke</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/consent/request/"><span>Be om samtykke</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/consent/retrieve-token/"><span>Hente samtykke-token</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/consent/behalf-of/"><span>På vegne av andre</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/"><span>Systembruker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/systemregistration/"><span>Registrering av system</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/systemuserrequest/"><span>Opprette Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/deleterequest/"><span>Slette Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/usetoken/"><span>Bruk av Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/changerequest/"><span>Endre Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/client-delegation/"><span>Klientdelegering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/userscenarios/"><span>Brukerscenarier</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/democlient/"><span>Demoklient</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/"><span>Tjenesteeier</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/api-scheme/"><span>Delegerbare API ressurser</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/api-scheme/create-apischeme-api/"><span>API Scheme via API</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/api-scheme/create-apischeme-resource-admin/"><span>Opprette API Scheme</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/generic-access-resource/"><span>Generiske tilgangsressurser</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/generic-access-resource/integrating-link-service/"><span>Ekstern autorisasjon</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/migrate/"><span>Migrering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/migrate/linked_services/"><span>Migrering lenketjenester</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/create-resource-resource-admin/"><span>Opprette ressurser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/consent/"><span>Samtykke</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/consent/create-resource/"><span>Opprette samtykke</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/consent/validate-concent/"><span>Validere</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/system-user/"><span>Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/accesslist/"><span>Tilgangslister</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/accesslist/manage-accesslists-resource-admin/"><span>Administrasjon av tilgangslister</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/accesslist/manage-accesslist-api/"><span>Tilgangslisteadministrasjon i API</span></a></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/"><span>Referanse</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/referenceimplementations/"><span>Referanseimplementasjoner</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/referenceimplementations/smartcloud/"><span>SmartCloud</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/referenceimplementations/systemadmin/"><span>Systemadministrator</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/referenceimplementations/systemuserapi/"><span>Systembruker API</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/xacml/"><span>XACML</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/"><span>Arkitektur</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesstoken/"><span>Access Token</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/authentication/"><span>Autentisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/jwtcookie/"><span>JWT Cookie</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/register/"><span>Register</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/resourceregistry/"><span>Ressursregister</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/resourceregistry/rrr/"><span>RRR</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/acessgroups/"><span>Tilgangsgrupper</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesscontrol/"><span>Tilgangskontroll</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesscontrol/contexthandler/"><span>Konteksthåndterer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesscontrol/pip/"><span>PIP</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesscontrol/prp/"><span>PRP</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesscontrol/pep/"><span>PEP</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accessmanagment/"><span>Tilgangsstyring</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accessmanagment/pap/"><span>PAP</span></a></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/"><span>Fremdriftsplan</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/api-migration/"><span>Endring API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/api-migration/sbs-api/"><span>Sluttbrukersystem-API</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/api-migration/te-api/"><span>Tjenesteeier-API</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/servicemigrationplan/"><span>Flytte Tjenester</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/informasjon-sent/"><span>Informasjonsskriv</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/nb/authorization/migration/informasjon-sent/letter-api-resources/">
+            <span>Infoskriv API ressurser</span></a></li><li class="dd-item">
+          <a href="/nb/authorization/migration/informasjon-sent/letter-accessgroupes/">
+            <span>Høring tilgangspakker</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/new-accessgroups/"><span>Nye tilgangspakker</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/nb/authorization/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/authorization/what-do-you-get/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/authorization/what-do-you-get/resourceadministration/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/nb/authorization/'>Autorisasjon</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/authorization/what-do-you-get/'>Hva får du?</a> <span class='adocs-breadcrumb-divider'> / </span> Ressursadministrasjon</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Ressursadministrasjon</h1>
+              <p class="a-leadText" id="leadText">Ressursregisteret i Altinn Autorisasjon er et sentralt register som inneholder definisjoner av digitale tjenester og ressurser som kan autoriseres.</p>
+
+<p>Ressursregisteret lagrer informasjon om tjenesteressurser som bruker Altinn til autorisasjon. Registeret er et felles grunnlag for tilgangsstyring, tilgangskontroll og visning av tjenester i kataloger.</p>
+<p>Det fungerer som en katalog hvor tjenesteeiere (offentlige etater og virksomheter) registrerer sine digitale tjenester og API-er. For hver ressurs defineres:</p>
+<p>Metadata om tjenesten - navn, beskrivelse, eier
+Tilgangsregler - hvilke roller, rettigheter eller krav som gir tilgang
+Delegeringsregler - om og hvordan tilganger kan delegeres videre til andre</p>
+<p>Dette gjør at Altinn kan håndtere autorisasjon på tvers av mange ulike tjenester på en standardisert måte. Når en bruker eller virksomhet skal få tilgang til en tjeneste, sjekker Altinn mot ressursregisteret for å se om de har nødvendige rettigheter.
+Ressursregisteret er spesielt viktig i den nye Altinn 3-plattformen, hvor det erstatter tidligere konsepter som &ldquo;tjenester&rdquo; og &ldquo;roller&rdquo; med en mer fleksibel ressursbasert tilgangsmodell. Det støtter også integrasjon med eksterne systemer gjennom API-er, slik at andre kan bygge løsninger som benytter Altinns autorisasjonsinfrastruktur.</p>
+<p>Ressursregisteret tilbyr API for alle typer håndtering av ressurser. I tilegg kan man som del av Altinn studio kan administrere ressursene.</p>
+<h2 id="ressurstypene">Ressurstypene</h2>
+<h3 id="generisk-tilgangsressurs">Generisk tilgangsressurs</h3>
+<p>Generisk tilgangsressurser er tjenester som bruker Altinn Autorsiasjon som autoriseringstjenste men som kjører på tjenesteeiers egen plattform. Tjenesteeier registrerer legger inn metadat og regler for ressursen i ressursregisteret og kaller Altinn Autorisasjon for autorisering fra egen tjeneste.</p>
+<h3 id="maskinporten-skjema">Maskinporten-skjema</h3>
+<p>Maskinporten-skjema gjør det mulig å gi annen virksomhet fullmakt til å benytte API på vegne av seg. Dette benyttes gjeren i leverandørforhold der det er en driftsleverandør som står for infrastrukturen og muliggjør at denne kan bruke eget virkrsomhetsertifikat eller jwk ved oppslag.
+I praksis deleregerer man her tilgang til scopes og må ikke forvekles med systembruker der man delegerer</p>
+<h3 id="formidlingstjeneste">Formidlingstjeneste</h3>
+<p>Benyttes for beskrivelse av og regler for <a href="/nb/broker/">Altinn Formidling</a></p>
+<h3 id="meldingstjeneste">Meldingstjeneste</h3>
+<p>Benyttes for beskrivelse av og regler for <a href="/nb/correspondence/">Altinn Melding</a></p>
+<h3 id="samtykkeressurs">Samtykkeressurs</h3>
+<p>Benyttes for beskrivelse av og regler for <a href="/nb/authorization/what-do-you-get/consent/">Altinn Samtykke</a></p>
+<p>Eksempler:</p>
+<ul>
+<li>API-eksponeringsdata – <a href="exampleresource3.json">Eksempel 3</a> / <a href="policysample3.xml">XACML</a></li>
+<li>Portalfunksjonalitet i Altinn – <a href="exampleresource1.json">Eksempel 1</a> / <a href="policysample3.xml">XACML</a></li>
+<li>Portalfunksjonalitet i ekstern portal – <a href="exampleresource2.json">Eksempel 2</a></li>
+<li>Samordnet registermelding – <a href="exampleresource4.json">Eksempel 4</a> / <a href="policysample4.xml">XACML</a></li>
+<li>Avtale om arbeidstrening – <a href="exampleresource6.json">Eksempel 6</a> / <a href="policysample6.xml">XACML</a></li>
+<li>Lakselus Maskinporten-schema – <a href="exampleresource7.json">Eksempel 7</a> / <a href="policysample7.xml">XACML</a></li>
+</ul>
+<h2 id="ressursattributter">Ressursattributter</h2>
+<p>Tabellen under viser hvilke attributter en ressurs har i Ressursregisteret. For attributter som er definert i cpsv:PublicService lenker vi til den offisielle beskrivelsen.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Attributt</th>
+          <th>Beskrivelse</th>
+          <th>Bruk i Altinn</th>
+          <th>Format</th>
+          <th>Påkrevd</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><a href="https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste-identifikator">identifier</a></td>
+          <td>Identifiserer ressursen.</td>
+          <td>Altinn tjenestekatalog, tilgangsstyring og tilgangskontroll.</td>
+          <td>Unik og persistent identifikator. Fritekst. Maks lengde avklares. Bør være lesbar.</td>
+          <td>Ja</td>
+      </tr>
+      <tr>
+          <td><a href="https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste-navn">title</a></td>
+          <td>Ressursens tittel.</td>
+          <td>Altinn tjenestekatalog og tilgangsstyring (søk).</td>
+          <td>Fritekst på bokmål, nynorsk og engelsk. Maks lengde avklares.</td>
+          <td>Ja</td>
+      </tr>
+      <tr>
+          <td><a href="https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjenest-beskrivelse">description</a></td>
+          <td>Beskrivelse av ressursen.</td>
+          <td>Altinn tjenestekatalog og tilgangsstyring (søk).</td>
+          <td>Fritekst på bokmål, nynorsk og engelsk. Maks lengde avklares.</td>
+          <td>Ja</td>
+      </tr>
+      <tr>
+          <td><a href="https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste-harKompetentOrgan">hasCompetent Authority</a></td>
+          <td>Ressurseier (offentlig virksomhet).</td>
+          <td>Altinn tjenestekatalog og tilgangsstyring (søk/filtrering).</td>
+          <td>Organisasjonsnummer, tjenesteeierkode (fra Altinn 2) og navn (nb, nn, en).</td>
+          <td>Ja</td>
+      </tr>
+      <tr>
+          <td><a href="https://informasjonsforvaltning.github.io/cpsv-ap-no/#Tjeneste-eiesAv">ownedBy</a></td>
+          <td>Ressurseier (privat virksomhet).</td>
+          <td>Ingen private tjenester i Altinn i dag.</td>
+          <td>Organisasjonsnummer.</td>
+          <td>Nei</td>
+      </tr>
+      <tr>
+          <td><a href="https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste-kontaktpunkt">contactPoint</a></td>
+          <td>Kontaktinformasjon for tjenesten.</td>
+          <td>Altinn tjenestekatalog.</td>
+          <td>E-post, telefonnummer eller URL til kontaktside.</td>
+          <td>Ja</td>
+      </tr>
+      <tr>
+          <td><a href="https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste-hjemmeside">homepage</a></td>
+          <td>Nettside for tjenesten.</td>
+          <td>Altinn tjenestekatalog.</td>
+          <td>URL.</td>
+          <td>Nei</td>
+      </tr>
+      <tr>
+          <td><a href="https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste-n%C3%B8kkelord">keyword</a></td>
+          <td>Stikkord eller uttrykk som beskriver tjenesten.</td>
+          <td>Altinn tjenestekatalog (søk).</td>
+          <td>Fritekst. Maks lengde avklares.</td>
+          <td>Nei</td>
+      </tr>
+      <tr>
+          <td><a href="https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste-status">status</a></td>
+          <td>Angir gjeldende status for tjenesten.</td>
+          <td>Altinn tjenestekatalog.</td>
+          <td>Verdier i henhold til <a href="https://raw.githubusercontent.com/SEMICeu/ADMS-AP/master/purl.org/ADMS_SKOS_v1.00.rdf">standarden</a>: «Completed», «Deprecated», «UnderDevelopment» eller «Withdrawn».</td>
+          <td>Nei</td>
+      </tr>
+      <tr>
+          <td><a href="https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste-erDelAv">isPartOf</a></td>
+          <td>Lenker til relaterte tjenester.</td>
+          <td>Altinn tjenestekatalog og tilgangsstyring.</td>
+          <td>Referanse til <a href="https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste">cpsv:PublicService</a> eller <a href="https://informasjonsforvaltning.github.io/cpsv-ap-no/#Tjeneste">cpsvno:Service</a>. Kan brukes til å bygge tjenestegrupper.</td>
+          <td>Nei</td>
+      </tr>
+      <tr>
+          <td><a href="https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste-dekningsomr%C3%A5de">spatial</a></td>
+          <td>Beskriver geografisk dekning.</td>
+          <td>Altinn tjenestekatalog.</td>
+          <td>EU Vocab-verdier for <a href="https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/continent">Continent</a>, <a href="https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/country">Country</a> eller <a href="https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/place">Place</a>. For Norge brukes <a href="https://data.geonorge.no/administrativeEnheter/nasjon/doc/173163">Administrative enheter</a>.</td>
+          <td>Nei</td>
+      </tr>
+      <tr>
+          <td><a href="https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste-produserer">produces</a></td>
+          <td>Lenker til resultatet av tjenesten.</td>
+          <td>Altinn tjenestekatalog og tilgangsstyring.</td>
+          <td><a href="https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste-produserer">cv:Output</a> med identifikator og fritekst.</td>
+          <td>Nei</td>
+      </tr>
+      <tr>
+          <td>rightsDescription</td>
+          <td>Beskriver hvilke rettigheter som gis i tilgangsstyringen.</td>
+          <td>Tilgangsstyring.</td>
+          <td>Fritekst. Maks lengde avklares.</td>
+          <td>Nei</td>
+      </tr>
+      <tr>
+          <td>limitedByRRR</td>
+          <td>Angir om ressursen begrenses av Roller og rettigheter (RRR).</td>
+          <td>Tilgangsstyring og tilgangskontroll.</td>
+          <td>Boolsk verdi (true/false).</td>
+          <td>Ja</td>
+      </tr>
+      <tr>
+          <td>availableForType</td>
+          <td>Angir hvilke aktørtyper som kan bruke tjenesten.</td>
+          <td>Altinn tjenestekatalog og tilgangsstyring.</td>
+          <td>Mulige verdier: Privatperson, Juridisk enhet, Bedrift, Konkursbo, Selvregistrert bruker.</td>
+          <td>Ja</td>
+      </tr>
+      <tr>
+          <td>ServiceContext</td>
+          <td>Angir hvilken plattform tjenesten hører til.</td>
+          <td>Tilgangsstyring.</td>
+          <td>Mulige verdier: Altinn2, Altinn3, AltinnResourceRegistry (arbeidstittel).</td>
+          <td>Ja</td>
+      </tr>
+      <tr>
+          <td>ServiceResource</td>
+          <td>Angir hvor autorisasjon avgjøres.</td>
+          <td>Tilgangsstyring.</td>
+          <td>Mulige verdier: CorePDP (utvides ved behov).</td>
+          <td>Ja</td>
+      </tr>
+      <tr>
+          <td>ServiceResourceReference</td>
+          <td>Referanse til ressursen i Altinn.</td>
+          <td>Tilgangsstyring.</td>
+          <td>Gjenbruk av Altinn Resource Reference.</td>
+          <td>Ja</td>
+      </tr>
+      <tr>
+          <td>AlternativeRepresentation</td>
+          <td>Lenker til andre beskrivelser.</td>
+          <td>Tilgangsstyring.</td>
+          <td>For eksempel lenke til dokumentasjon i Altinn Studio.</td>
+          <td>Nei</td>
+      </tr>
+      <tr>
+          <td><a href="https://informasjonsforvaltning.github.io/cpsv-ap-no/#OffentligTjeneste-harInndata">hasInput</a></td>
+          <td>Lenker til inn-data eller forutsetninger for tjenesten.</td>
+          <td>Altinn tjenestekatalog.</td>
+          <td><a href="https://informasjonsforvaltning.github.io/cpsv-ap-no/#cv-EvidenceTypeList">cv:EvidenceTypeList</a>.</td>
+          <td>Nei</td>
+      </tr>
+      <tr>
+          <td>ResponsibleEnterpriseUser</td>
+          <td>Krever at forespørsler kommer fra en virksomhetsbruker.</td>
+          <td>Tilgangsstyring.</td>
+          <td>Boolsk verdi (true/false).</td>
+          <td>Ja</td>
+      </tr>
+      <tr>
+          <td>SelfIdentified UserEnabled</td>
+          <td>Tillater selvidentifiserte brukere å representere en part.</td>
+          <td>Tilgangsstyring og tilgangskontroll.</td>
+          <td>Boolsk verdi (true/false).</td>
+          <td>Ja</td>
+      </tr>
+      <tr>
+          <td>Enterprise UserEnabled</td>
+          <td>Tillater virksomhetsbrukere å representere en part.</td>
+          <td>Tilgangsstyring og tilgangskontroll.</td>
+          <td>Boolsk verdi (true/false).</td>
+          <td>Ja</td>
+      </tr>
+      <tr>
+          <td>Reference</td>
+          <td>Referanse til andre ID-er eller verdier.</td>
+          <td>Tilgangsstyring og tilgangskontroll.</td>
+          <td>Mulige verdier: ServiceEditionCode, ServiceCode, MaskinportenScope, DelegationSchemeID, AppID, URI.</td>
+          <td>Nei</td>
+      </tr>
+      <tr>
+          <td>ResourceType</td>
+          <td>Type ressurs.</td>
+          <td>Tilgangsstyring.</td>
+          <td>Mulige verdier: SystemResource, MaskinportenSchema, GenericAccessResource.</td>
+          <td>Ja</td>
+      </tr>
+      <tr>
+          <td>delegable</td>
+          <td>Angir om rettigheter kan delegeres videre.</td>
+          <td>Tilgangsstyring.</td>
+          <td>Boolsk verdi (true/false).</td>
+          <td>Ja</td>
+      </tr>
+      <tr>
+          <td>visible</td>
+          <td>Angir om tjenesten skal være synlig for brukere i grensesnittet.</td>
+          <td>Tilgangsstyring.</td>
+          <td>Boolsk verdi (true/false).</td>
+          <td>Ja</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="retningslinjer">Retningslinjer</h2>
+<p>Ressursregisteret lagrer policyene (retningslinjene) som defineres for apper og andre tjenesteressurser.</p>
+<h3 id="app-retningslinjer">App-retningslinjer</h3>
+<p>App-policyene gjelder for apper <a href="/nb/altinn-studio/v8/reference/configuration/authorization/">opprettet i Altinn Studio</a>.
+Policyen utvikles i Altinn Studio og migreres til Access Policy-komponenten når appen distribueres til test- eller produksjonsmiljø.</p>
+<p>En app-policy beskriver hvilke ressurser som finnes i appen, hvilke operasjoner som er tillatt, og for hvem.
+Subjektene identifiseres med Altinn-roller, tilgangspakker eller roller og grupper fra andre kilder.</p>
+<h3 id="retningslinjer-for-ressursregisteret">Retningslinjer for ressursregisteret</h3>
+<p>Policyene for ressursregisteret gjelder ressurser som ikke kommer fra Altinn 3-apper. Dette kan være funksjonalitet på hvilken som helst plattform.</p>
+<p>Både digitale og analoge tjenester kan registreres i Ressursregisteret.</p>
+<h2 id="konstruksjon">Konstruksjon</h2>
+<p>Se <a href="../../reference/architecture/resourceregistry/">konstruksjonskomponenter</a> hvis du vil se hvordan komponenten er bygget.</p>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/authorization/what-do-you-get/resourceadministration/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ressurstypene">Ressurstypene</a>
+      <ul>
+        <li><a href="#generisk-tilgangsressurs">Generisk tilgangsressurs</a></li>
+        <li><a href="#maskinporten-skjema">Maskinporten-skjema</a></li>
+        <li><a href="#formidlingstjeneste">Formidlingstjeneste</a></li>
+        <li><a href="#meldingstjeneste">Meldingstjeneste</a></li>
+        <li><a href="#samtykkeressurs">Samtykkeressurs</a></li>
+      </ul>
+    </li>
+    <li><a href="#ressursattributter">Ressursattributter</a></li>
+    <li><a href="#retningslinjer">Retningslinjer</a>
+      <ul>
+        <li><a href="#app-retningslinjer">App-retningslinjer</a></li>
+        <li><a href="#retningslinjer-for-ressursregisteret">Retningslinjer for ressursregisteret</a></li>
+      </ul>
+    </li>
+    <li><a href="#konstruksjon">Konstruksjon</a></li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

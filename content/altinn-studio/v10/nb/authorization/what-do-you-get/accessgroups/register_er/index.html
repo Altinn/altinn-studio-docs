@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Altinn bruker Enhetsregisteret som kilde for hvem som har fullmakter på vegne av en virksomhet fra Enhetsregistert" />
+<meta name="altinn_pagedir" class="elastic" content="authorization/what-do-you-get/accessgroups/register_ER/" />
+<meta name="altinn_title" class="elastic" content="Fullmakter fra Enhetsregisteret" />
+<meta name="product" data-pagefind-filter="Produkt[content]" content="Autorisasjon" />
+
+
+<title>Fullmakter fra Enhetsregisteret – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/authorization/what-do-you-get/accessgroups/register_er/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Produkt</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/authorization/">
+      <p class="product-item">Autorisasjon</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/broker/">
+      <p class="product-item">Formidling</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/">
+      <p class="product-item">Melding</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/notifications/">
+      <p class="product-item">Varsling</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Søk</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/nb.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/authorization/what-do-you-get/accessgroups/register_er/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/authorization/what-do-you-get/accessgroups/register_er/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">Hva leter du etter?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Søk');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Sist endret: 19. jan. 2026</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/nb/authorization/"><span>Autorisasjon</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/about/"><span>Om Altinn Autorisasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/"><span>Hva får du?</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/authentication/"><span>Autentisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/rules/"><span>Autorisasjonsregler</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/"><span>Tilgangspakker og roller</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/"><span>Fullmaktsområder og tilgangspakker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/"><span>Administrere tilganger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/andretjenesteytende/"><span>Andre tjenesteytende næringer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/"><span>Bygg, anlegg og eiendom</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/energivannavlopavfall/"><span>Energi, vann, avløp og avfall</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/forholdvedvirksomheten/"><span>Forhold ved virksomheten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/forretningsforer/"><span>Forretningsfører</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/handelovernatting/"><span>Handel, overnatting og servering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/helsepleieomsorgvern/"><span>Helse, pleie, omsorg og vern</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/industrier/"><span>Industrier</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/integrasjoner/"><span>Integrasjoner</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/jordbrukskogbrukjaktfiskeakvakultur/"><span>Jordbruk, skogbruk, jakt, fiske og akvakultur</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/konkursbo/"><span>Konkursbo</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/kulturfrivillighet/"><span>Kultur og frivillighet</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/miljoulykkesikkerhet/"><span>Miljø, ulykke og sikkerhet</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/oppvekstutdanning/"><span>Oppvekst og utdanning</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/personale/"><span>Personale</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/postogarkiv/"><span>Post og arkiv</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/regnskapsforer/"><span>Regnskapsfører</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/revisor/"><span>Revisor</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/skattavgiftregnskaptoll/"><span>Skatt, avgift, regnskap og toll</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/transportoglagring/"><span>Transport og lagring</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/register_er/"><span>Fra Enhetsregisteret</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/register_er/knytning_org/"><span>Virksomhetsknytninger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/"><span>Innbyggere</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/arbeidslivskoleutdanning/"><span>Arbeidsliv, skole og utdanning</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/familiefritid/"><span>Familie og fritid</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/helseomsorg/"><span>Helse og omsorg</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/kulturidrettfrivillighet/"><span>Kultur, idrett og frivillighet</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/patentersertifikaterattester/"><span>Patenter, sertifikater og attester</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/privatperson/"><span>Privatperson</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/skattavgiftbankforsikring/"><span>Skatt, avgift, bank og forsikring</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/verger/"><span>Vergemal</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/resourceadministration/"><span>Ressursadministrasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/resourceadministration/studio/"><span>Ressurs Admin</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessmanagement/"><span>Tilgangsstyring</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accesscontrol/"><span>Tilgangskontroll</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/consent/"><span>Samtykke</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/systemuser/"><span>Systembruker</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/terms/"><span>Ordliste</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/authentication/"><span>Autentisering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/authentication/maskinporten/"><span>Maskinporten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/authentication/id-porten/"><span>ID-porten</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/maskinportenclient/"><span>Maskinporten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/resourceadministration/"><span>Ressursadministrasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/consent/"><span>Samtykke</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/systemuser/"><span>Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/enterpriseuser/"><span>Virksomhetsbrukere</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/"><span>Guider</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/"><span>Sluttbruker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/api-scheme/"><span>Delegerbare API ressurser</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/api-scheme/api-user/"><span>API-bruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/api-scheme/access-manager/"><span>Tilgangsstyrer</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/"><span>Systemtilgang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/accept-request/"><span>Godkjenne</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/delegate-clients/"><span>Klientdelegering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/setup-client-relationship/"><span>Sette opp klientforhold</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/create-systemuser/"><span>Opprett systemtilgang</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/delete-system-user/"><span>Slett systembruker</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/"><span>Systemleverandør</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/client-admin/"><span>Klientadministrasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/consent/"><span>Samtykke</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/consent/request/"><span>Be om samtykke</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/consent/retrieve-token/"><span>Hente samtykke-token</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/consent/behalf-of/"><span>På vegne av andre</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/"><span>Systembruker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/systemregistration/"><span>Registrering av system</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/systemuserrequest/"><span>Opprette Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/deleterequest/"><span>Slette Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/usetoken/"><span>Bruk av Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/changerequest/"><span>Endre Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/client-delegation/"><span>Klientdelegering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/userscenarios/"><span>Brukerscenarier</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/democlient/"><span>Demoklient</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/"><span>Tjenesteeier</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/api-scheme/"><span>Delegerbare API ressurser</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/api-scheme/create-apischeme-api/"><span>API Scheme via API</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/api-scheme/create-apischeme-resource-admin/"><span>Opprette API Scheme</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/generic-access-resource/"><span>Generiske tilgangsressurser</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/generic-access-resource/integrating-link-service/"><span>Ekstern autorisasjon</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/migrate/"><span>Migrering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/migrate/linked_services/"><span>Migrering lenketjenester</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/create-resource-resource-admin/"><span>Opprette ressurser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/consent/"><span>Samtykke</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/consent/create-resource/"><span>Opprette samtykke</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/consent/validate-concent/"><span>Validere</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/system-user/"><span>Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/accesslist/"><span>Tilgangslister</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/accesslist/manage-accesslists-resource-admin/"><span>Administrasjon av tilgangslister</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/accesslist/manage-accesslist-api/"><span>Tilgangslisteadministrasjon i API</span></a></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/"><span>Referanse</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/referenceimplementations/"><span>Referanseimplementasjoner</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/referenceimplementations/smartcloud/"><span>SmartCloud</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/referenceimplementations/systemadmin/"><span>Systemadministrator</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/referenceimplementations/systemuserapi/"><span>Systembruker API</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/xacml/"><span>XACML</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/"><span>Arkitektur</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesstoken/"><span>Access Token</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/authentication/"><span>Autentisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/jwtcookie/"><span>JWT Cookie</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/register/"><span>Register</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/resourceregistry/"><span>Ressursregister</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/resourceregistry/rrr/"><span>RRR</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/acessgroups/"><span>Tilgangsgrupper</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesscontrol/"><span>Tilgangskontroll</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesscontrol/contexthandler/"><span>Konteksthåndterer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesscontrol/pip/"><span>PIP</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesscontrol/prp/"><span>PRP</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesscontrol/pep/"><span>PEP</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accessmanagment/"><span>Tilgangsstyring</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accessmanagment/pap/"><span>PAP</span></a></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/"><span>Fremdriftsplan</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/api-migration/"><span>Endring API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/api-migration/sbs-api/"><span>Sluttbrukersystem-API</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/api-migration/te-api/"><span>Tjenesteeier-API</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/servicemigrationplan/"><span>Flytte Tjenester</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/informasjon-sent/"><span>Informasjonsskriv</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/nb/authorization/migration/informasjon-sent/letter-api-resources/">
+            <span>Infoskriv API ressurser</span></a></li><li class="dd-item">
+          <a href="/nb/authorization/migration/informasjon-sent/letter-accessgroupes/">
+            <span>Høring tilgangspakker</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/new-accessgroups/"><span>Nye tilgangspakker</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/nb/authorization/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/authorization/what-do-you-get/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/authorization/what-do-you-get/accessgroups/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/authorization/what-do-you-get/accessgroups/register_er/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/nb/authorization/'>Autorisasjon</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/authorization/what-do-you-get/'>Hva får du?</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/authorization/what-do-you-get/accessgroups/'>Tilgangspakker og roller</a> <span class='adocs-breadcrumb-divider'> / </span> Fra Enhetsregisteret</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Fullmakter fra Enhetsregisteret</h1>
+              <p class="a-leadText" id="leadText">Altinn bruker Enhetsregisteret som kilde for hvem som har fullmakter på vegne av en virksomhet fra Enhetsregistert</p>
+
+<p><em>Innhold på siden er under arbeid. Innholdet vil ikke være gjeldende før nye <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/">tilgangspakker</a> trer i kraft. Dette må derfor ikke ansees som en fasit pr nå</em></p>
+<h2 id="enhetsregisteret-som-fullmaktskilde">Enhetsregisteret som fullmaktskilde</h2>
+<p>Alle virksomheter i Norge registeres i <a href="https://www.brreg.no/om-oss/registrene-vare/om-enhetsregisteret/">Enhetsregisteret</a> og får et organisasjonsnummer som de identifiseres ved.
+I den forbindelse registreres også personer eller virksomheter som har ulike roller og med det fullmakt til å opptre på vegene av virksomheten i ulike sammenhenger.</p>
+<p>Ulike organisasjonsformer kan registrere ulike roller og hvilke fullmakter disse har vil være avhengig av lovverket som regulerer de ulike organisasjonsformene.</p>
+<h2 id="rolletyper-fra-enhetsregisteret">Rolletyper fra Enhetsregisteret</h2>
+<p>Følgende rolletyper finnes i enhetsregisteret:</p>
+<table>
+  <thead>
+      <tr>
+          <th>Kode</th>
+          <th>Navn</th>
+          <th>Kommentar</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>ADOS</td>
+          <td>Administrativ enhet - offentlig sektor</td>
+          <td>Ingen fullmakter</td>
+      </tr>
+      <tr>
+          <td>BEST</td>
+          <td>Bestyrende reder</td>
+          <td>Nøkkelrolle, har de fleste fullmakter</td>
+      </tr>
+      <tr>
+          <td>BOBE</td>
+          <td>Bostyrer</td>
+          <td>Nøkkelrolle, har de fleste fullmakter</td>
+      </tr>
+      <tr>
+          <td>DAGL</td>
+          <td>Daglig leder</td>
+          <td>Nøkkelrolle, har de fleste fullmakter</td>
+      </tr>
+      <tr>
+          <td>DTPR</td>
+          <td>Deltaker med proratarisk ansvar (delt ansvar)</td>
+          <td>Nøkkelrolle når rollen er registrert på fnr, har de fleste fullmakter</td>
+      </tr>
+      <tr>
+          <td>DTSO</td>
+          <td>Deltaker med solidarisk ansvar (fullt ansvarlig)</td>
+          <td>Nøkkelrolle når rollen er registrert på fnr, har de fleste fullmakter</td>
+      </tr>
+      <tr>
+          <td>EIKM</td>
+          <td>Eierkommune</td>
+          <td>Ingen fullmakter</td>
+      </tr>
+      <tr>
+          <td>FFØR</td>
+          <td>Forretningsfører</td>
+          <td>Forretningsfører for Borettslag og Eierseksjonssameier har fullmakter, øvrige FFØR ingen fullmakter</td>
+      </tr>
+      <tr>
+          <td>HFOR</td>
+          <td>Opplysninger om foretaket i hjemlandet</td>
+          <td>Ingen fullmakter</td>
+      </tr>
+      <tr>
+          <td>HLSE</td>
+          <td>Helseforetak</td>
+          <td>Ingen fullmakter</td>
+      </tr>
+      <tr>
+          <td>INNH</td>
+          <td>Innehaver</td>
+          <td>Nøkkelrolle, har de fleste fullmakter</td>
+      </tr>
+      <tr>
+          <td>KDEB</td>
+          <td>Konkursdebitor</td>
+          <td>Ingen fullmakter</td>
+      </tr>
+      <tr>
+          <td>KENK</td>
+          <td>Den personlige konkursen angår</td>
+          <td>Ingen fullmakter</td>
+      </tr>
+      <tr>
+          <td>KIRK</td>
+          <td>Inngår i kirkelig fellesråd</td>
+          <td>Ingen fullmakter</td>
+      </tr>
+      <tr>
+          <td>KOMP</td>
+          <td>Komplementar (i kommandittselskap?)</td>
+          <td>Ingen fullmakter</td>
+      </tr>
+      <tr>
+          <td>KONT</td>
+          <td>Kontaktperson</td>
+          <td>Ingen fullmakter</td>
+      </tr>
+      <tr>
+          <td>KTRF</td>
+          <td>Inngår i kontorfellesskap</td>
+          <td>Ingen fullmakter</td>
+      </tr>
+      <tr>
+          <td>LEDE</td>
+          <td>Styrets leder</td>
+          <td>Nøkkelrolle, har de fleste fullmakter</td>
+      </tr>
+      <tr>
+          <td>MEDL</td>
+          <td>Styremedlem</td>
+          <td>Ingen fullmakter</td>
+      </tr>
+      <tr>
+          <td>NEST</td>
+          <td>Nestleder</td>
+          <td>Ingen fullmakter</td>
+      </tr>
+      <tr>
+          <td>OBS</td>
+          <td>Observatør</td>
+          <td>Ingen fullmakter</td>
+      </tr>
+      <tr>
+          <td>OPMV</td>
+          <td>er særskilt oppdelt enhet til</td>
+          <td>Ingen fullmakter</td>
+      </tr>
+      <tr>
+          <td>ORGL</td>
+          <td>Organisasjonsledd i offentlig sektor</td>
+          <td>Ingen fullmakter</td>
+      </tr>
+      <tr>
+          <td>REGN</td>
+          <td>Regnskapsfører</td>
+          <td>Utvalgte fullmakter for klienter/kunder</td>
+      </tr>
+      <tr>
+          <td>REPR</td>
+          <td>Norsk representant for utenlandsk enhet</td>
+          <td>Ingen fullmakter</td>
+      </tr>
+      <tr>
+          <td>REVI</td>
+          <td>Revisor</td>
+          <td>Utvalgte fullmakter for klienter/kunder</td>
+      </tr>
+      <tr>
+          <td>VARA</td>
+          <td>Varamedlem</td>
+          <td>Ingen fullmakter</td>
+      </tr>
+  </tbody>
+</table>
+<h1 id="organisasjonsformer-og-roller-som-altinn-leser-inn-fra-enhetsregisteret">Organisasjonsformer og roller som Altinn leser inn fra Enhetsregisteret</h1>
+<h2 id="organisasjonsformer-for-selskap-med-begrenset-ansvar">Organisasjonsformer for selskap med begrenset ansvar</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Navn (kode)</th>
+          <th>Beskrivelse</th>
+          <th>Roller med utvalgte fullmakter</th>
+          <th>Nøkkel-roller</th>
+          <th>Roller med knytning uten fullmakter</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Aksjeselskap (AS)</td>
+          <td>En organisasjonsform med begrenset ansvar for eierne (aksjonærene).</td>
+          <td>KONT, FFØR, REGN, REVI</td>
+          <td>DAGL, LEDE</td>
+          <td>NEST, MEDL, VARA, OBS</td>
+      </tr>
+      <tr>
+          <td>Allmennaksjeselskap (ASA)</td>
+          <td>Et aksjeselskap med begrenset ansvar for eierne. Denne organisasjonsformen kan brukes av selskaper som har mange aksjonærer, og/eller ønsker mulighet til å innhente kapital fra allmennheten</td>
+          <td>KONT, FFØR, REGN, REVI</td>
+          <td>DAGL, LEDE</td>
+          <td>NEST, MEDL, VARA, OBS</td>
+      </tr>
+      <tr>
+          <td>Europeisk selskap (SE)</td>
+          <td>En transnasjonal europeisk selskapsform av allmennaksjeselskapstypen.</td>
+          <td>KONT, FFØR, REGN, REVI</td>
+          <td>DAGL, LEDE</td>
+          <td>NEST, MEDL, VARA, OBS</td>
+      </tr>
+      <tr>
+          <td>Selskap med begrenset ansvar (BA)</td>
+          <td>Samvirkeforetak opprettet før 1.januar 2008</td>
+          <td>KONT, FFØR, REGN, REVI</td>
+          <td>DAGL, LEDE</td>
+          <td>NEST, MEDL, VARA, OBS</td>
+      </tr>
+      <tr>
+          <td>Samvirkeforetak (SA)</td>
+          <td>Har som hovedformål å fremme medlemmenes økonomiske interesser ved at de deltar i foretakets aktiviteter, enten som forbrukere, leverandører eller på annen lignende måte. Det må være en form for utveksling av varer eller tjenester mellom foretaket og medlemmene. Medlemmene har begrenset økonomisk ansvar. Det vil si at de ikke har ansvar for foretakets gjeld utover den innskutte andelskapitalen. Foretakets overskudd blir enten stående i foretaket eller fordelt mellom medlemmene ut fra den enkeltes andel i omsetningen.</td>
+          <td>KONT, FFØR, REGN, REVI</td>
+          <td>DAGL, LEDE</td>
+          <td>NEST, MEDL, VARA, OBS</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="organisasjonsformer-for-selskap-med-ubegrenset-ansvar">Organisasjonsformer for selskap med ubegrenset ansvar</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Navn (kode)</th>
+          <th>Beskrivelse</th>
+          <th>Roller med utvalgte fullmakter</th>
+          <th>Nøkkel-roller</th>
+          <th>Roller med knytning uten fullmakter</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Enkeltpersonforetak (ENK)</td>
+          <td>I et enkeltpersonforetak er én person fullt økonomisk ansvarlig for den næringsaktiviteten som drives.</td>
+          <td>KONT, FFØR, REGN, REVI</td>
+          <td>DAGL, LEDE, *INNH</td>
+          <td>NEST, MEDL, VARA, OBS</td>
+      </tr>
+      <tr>
+          <td>Ansvarlig selskap med delt ansvar (DA)</td>
+          <td>Et ansvarlig selskap med delt ansvar er et selskap med to eller flere eiere (deltakere). Deltakerne har til sammen et personlig ansvar for hele gjelden, men hver enkelt deltaker er bare ansvarlig for sin ansvarsandel.</td>
+          <td>KONT, FFØR, REGN, REVI</td>
+          <td>DAGL, LEDE, **DTPR</td>
+          <td>NEST, MEDL, VARA, OBS, *DTPR</td>
+      </tr>
+      <tr>
+          <td>Ansvarlig selskap med solidarisk ansvar (ANS)</td>
+          <td>Ansvarlig selskap er et selskap med to eller flere eiere (deltakere). Deltakerne har et ubegrenset personlig ansvar for hele gjelden.</td>
+          <td>KONT, FFØR, REGN, REVI</td>
+          <td>DAGL, LEDE, **DTSO</td>
+          <td>NEST, MEDL, VARA, OBS, *DTSO</td>
+      </tr>
+      <tr>
+          <td>Kommandittselskap (KS)</td>
+          <td>Et kommandittselskap er et selskap hvor minst en deltaker hefter ubegrenset for selskapsforpliktelsene (komplementar), og minst en deltaker har begrenset sitt ansvar til et nærmere fastsatt innskudd (kommandittist)</td>
+          <td>KONT, FFØR, REGN, REVI</td>
+          <td>DAGL, LEDE, **KOMP</td>
+          <td>NEST, MEDL, VARA, OBS, *KOMP</td>
+      </tr>
+  </tbody>
+</table>
+<p>Roller merket * betyr at andre organisasjoner/personer som har en spesial rolle for denne organisasjonsformen.</p>
+<p>Roller merket ** betyr at bare når rolleinnehaver er en person så får denne nøkkelrolle for virksomheten. Hvis rolleinnehaver er en organisasjon så får man en knytning uten fullmakter til organisasjonen.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Navn (kode)</th>
+          <th>Beskrivelse</th>
+          <th>Roller med utvalgte fullmakter</th>
+          <th>Nøkkel-roller</th>
+          <th>Roller med knytning uten fullmakter</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Tingsrettslig sameie (SAM)</td>
+          <td>Et tingsrettslig sameie er en måte to eller flere personer kan eie en eller flere formuesgjenstander på. Eksempel: når to eller flere eier en hytte, en vei, en russebuss eller lignende sammen.</td>
+          <td>KONT, FFØR, REGN, REVI</td>
+          <td>DAGL, LEDE</td>
+          <td>NEST, MEDL, VARA, OBS</td>
+      </tr>
+      <tr>
+          <td>Borettslag (BRL)</td>
+          <td>Et borettslag eies av de som bor der. Når du kjøper en bolig i et borettslag, blir du samtidig andelseier. Andelseierne i borettslaget eier bygninger og tomt i fellesskap, og tar beslutninger om oppussing, vedlikehold og påkostninger av bygninger og fellesarealer. Som andelseier er du ikke ansvarlig for lagets forpliktelser overfor kreditorer.</td>
+          <td>KONT, FFØR, REGN, REVI</td>
+          <td>DAGL, LEDE</td>
+          <td>NEST, MEDL, VARA, OBS</td>
+      </tr>
+      <tr>
+          <td>Boligbyggelag (BBL)</td>
+          <td>Et boligbyggelag har til hovedformål å bygge, omsette og forvalte boliger for sine andelseiere. Et boligbyggelag kan gjerne bestå av flere borettslag.</td>
+          <td>KONT, FFØR, REGN, REVI</td>
+          <td>DAGL, LEDE</td>
+          <td>NEST, MEDL, VARA, OBS</td>
+      </tr>
+      <tr>
+          <td>Eierseksjonssameie (ESEK)</td>
+          <td>Et eierseksjonssameie er en bebygd eiendom som er seksjonert og tinglyst på et gårds- og bruksnummer. Eiendommen eies i fellesskap, men eierne har enerett til å bruke sin seksjon. Et eierseksjonssameie kan ha både boligseksjoner og næringsseksjoner.</td>
+          <td>KONT, FFØR, REGN, REVI</td>
+          <td>LEDE</td>
+          <td>NEST, MEDL, VARA, OBS</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="organisasjonsformer-for-spesielle-bransjer">Organisasjonsformer for spesielle bransjer</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Navn (kode)</th>
+          <th>Beskrivelse</th>
+          <th>Roller med utvalgte fullmakter</th>
+          <th>Nøkkel-roller</th>
+          <th>Roller med knytning uten fullmakter</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Sparebank (SPA)</td>
+          <td>En sparebank er en bank som er organisert som en selveiende institusjon, det vil si uten eksterne eiere. Dette til forskjell fra en forretningsbank organisert som et aksjeselskap og altså med aksjonærene som eiere.</td>
+          <td>KONT, REGN, REVI</td>
+          <td>DAGL, LEDE</td>
+          <td>NEST, MEDL, VARA, OBS</td>
+      </tr>
+      <tr>
+          <td>Pensjonskasse (PK)</td>
+          <td>Pensjonskasse er en annen form for pensjonsforsikringshåndtering. Enkelte større selskaper velger å ha sin egen pensjonskasse i stedet for å tegne en kollektiv pensjonsavtale med et forsikringsselskap. Forvaltning av pensjonskasser gjøres av forsikringsselskaper, egne spesialiserte selskaper eller for noen av de større av seg selv. Eksempler på det siste er Statens pensjonskasse og Telenor Pensjonskasse.</td>
+          <td>KONT, REGN, REVI</td>
+          <td>DAGL, LEDE</td>
+          <td>NEST, MEDL, VARA, OBS</td>
+      </tr>
+      <tr>
+          <td>Gjensidig forsikringsselskap (GFS)</td>
+          <td>Gjensidig forsikringsselskap en offentlig selskaps-/organisasjonsform som ofte nyttes ved organisering av forsikringsselskap. Selskapsformen innebærer at forsikringstagerne danner og eier selskapet, dets eventuelle aktiva og også deler den risikoen selskapet har påtatt seg. Dette innebærer altså at kunde- og eiergruppen er sammenfallende.</td>
+          <td>KONT, REGN, REVI</td>
+          <td>DAGL, LEDE</td>
+          <td>NEST, MEDL, VARA, OBS</td>
+      </tr>
+      <tr>
+          <td>Partrederi (PRE)</td>
+          <td>Et partrederi er et selskap som har til formål å drive rederivirksomhet. I et partrederi med solidarisk ansvar har alle deltakerne et personlig ansvar for hele gjelden. Det en deltaker ikke kan betale, kan kreves helt og fullt fra de andre deltakerne. I et partrederi med delt ansvar har deltakerne et personlig ansvar for hele gjelden, men hver enkelt deltaker er bare ansvarlig for sin ansvarsdel.</td>
+          <td>KONT, FFØR, REGN, REVI</td>
+          <td>LEDE, *BEST</td>
+          <td>NEST, MEDL, VARA, OBS, *DTPR</td>
+      </tr>
+      <tr>
+          <td>Verdipapirfond (VPFO)</td>
+          <td>I et verdipapirfond går andelseiere sammen om å plassere sine midler i verdipapirmarkedet. Fondet forvaltes av et forvaltningsselskap med konsesjon fra Finanstilsynet.Verdipapirfond deles inn i fem hovedgrupper etter hvilke verdier de investerer i: aksjefond, obligasjonsfond, pengemarkedsfond, kombinasjonsfond og spesialfond.</td>
+          <td>KONT, FFØR, REGN, REVI</td>
+          <td>DAGL</td>
+          <td>(ingen)</td>
+      </tr>
+      <tr>
+          <td>Annen juridisk person (ANNA)</td>
+          <td>Annen juridisk person er en virksomhet som kan påta seg rettigheter og plikter. Denne organisasjonsformen skal brukes for en svært begrenset gruppe virksomheter, og bare når ingen av de andre organisasjonsformene er aktuelle. Eksempler på virksomheter som kan registreres som annen juridisk person er ambassader, bygdeallmenninger, fjellstyre, katolske menigheter, reinbeitedistrikt, statsallmenninger, stortingsgrupper, interkommunale politiske råd og kommunalt oppgavefellesskap.</td>
+          <td>KONT, FFØR, REGN, REVI</td>
+          <td>DAGL, LEDE</td>
+          <td>NEST, MEDL, VARA, OBS</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="organisasjoner-for-frivillig-sektor">Organisasjoner for frivillig sektor</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Navn</th>
+          <th>Beskrivelse</th>
+          <th>Roller med utvalgte fullmakter</th>
+          <th>Nøkkel-roller</th>
+          <th>Roller med enkel knytning uten fullmakter</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Forening/lag/innretning (FLI)</td>
+          <td>En forening er en selveiende sammenslutning med medlemmer, som skal fremme ett eller flere formål av ideelt, politisk eller annen art. Rettsforholdet i foreninger er ikke regulert i lov, men det har over tid utviklet seg foreningsrettslige prinsipper.</td>
+          <td>KONT, FFØR, REGN, REVI</td>
+          <td>DAGL, LEDE</td>
+          <td>NEST, MEDL, VARA, OBS</td>
+      </tr>
+      <tr>
+          <td>Stiftelse (STI)</td>
+          <td>En stiftelse er en formuesverdi som ved testamente, gave eller annen rettslig disposisjon selvstendig er stilt til rådighet for et bestemt formål. Formålet kan være av ideell, humanitær, kulturell, sosial, utdanningsmessig, økonomisk eller annen art. Stiftelser må ha en grunnkapital. Kravet til minste grunnkapital er 100 000 kroner for alminnelige stiftelser og 200 000 kroner for stiftelser som driver næringsaktivitet.</td>
+          <td>KONT, FFØR, REGN, REVI</td>
+          <td>DAGL, LEDE</td>
+          <td>NEST, MEDL, VARA, OBS</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="organisasjonsformer-for-offentlig-sektor">Organisasjonsformer for offentlig sektor</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Navn (kode)</th>
+          <th>Beskrivelse</th>
+          <th>Roller med utvalgte fullmakter</th>
+          <th>Nøkkel-roller</th>
+          <th>Roller med knytning uten fullmakter</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Kommune (KOMM)</td>
+          <td>(mangler)</td>
+          <td>KONT, REGN, REVI, FFØR</td>
+          <td>DAGL</td>
+          <td>(ingen)</td>
+      </tr>
+      <tr>
+          <td>Staten (STAT)</td>
+          <td>(mangler)</td>
+          <td>KONT, REGN, REVI, FFØR</td>
+          <td>DAGL</td>
+          <td>(ingen)</td>
+      </tr>
+      <tr>
+          <td>Fylkeskommune (FYLK)</td>
+          <td>(mangler)</td>
+          <td>KONT, REGN, REVI, FFØR</td>
+          <td>DAGL</td>
+          <td>(ingen)</td>
+      </tr>
+      <tr>
+          <td>Organisasjonsledd (ORGL)</td>
+          <td>(mangler)</td>
+          <td>KONT, REGN, REVI, FFØR</td>
+          <td>DAGL, LEDE</td>
+          <td>NEST, MEDL, VARA, OBS, *ORGL</td>
+      </tr>
+      <tr>
+          <td>Administrativ enhet -offentlig sektor (ADOS)</td>
+          <td>(mangler)</td>
+          <td>KONT,REGN, REVI</td>
+          <td>LEDE</td>
+          <td>NEST, MEDL, VARA, OBS, *ADOS</td>
+      </tr>
+      <tr>
+          <td>Interkommunalt selskap (IKS)</td>
+          <td>Er en norsk organisasjonsform for selskaper innen offentlig sektor der flere kommuner og/eller fylkeskommuner er eiere. Selskapsdriften reguleres av Lov om interkommunale selskaper. Interkommunale vannverk, arkivdrift og regionmuseer er typiske funksjonsområder for interkommunale selskaper.</td>
+          <td>KONT, FFØR, REGN, REVI</td>
+          <td>DAGL,LEDE</td>
+          <td>*DTPR, NEST, MEDL, VARA, OBS,</td>
+      </tr>
+      <tr>
+          <td>Kommunalt foretak (KF)</td>
+          <td>er betegnelse for en selskapsform som brukes for virksomheter som er eid av norske kommuner.</td>
+          <td>KONT, FFØR, REGN, REVI,</td>
+          <td>DAGL, LEDE,</td>
+          <td>NEST, MEDL, VARA, OBS, *EIKM</td>
+      </tr>
+      <tr>
+          <td>Fylkeskommunalt foretak (FKF)</td>
+          <td>er betegnelse for en selskapsform som brukes for virksomheter som er eid av fylkeskommune .</td>
+          <td>KONT, FFØR, REGN, REVI,</td>
+          <td>DAGL, LEDE,</td>
+          <td>NEST, MEDL, VARA, OBS, *EIKM</td>
+      </tr>
+      <tr>
+          <td>Statsforetak (SF)</td>
+          <td>er en norsk selskapsform regulert av lov om statsforetak av 30. august 1991. Statsforetak stiftes av Kongen i statsråd og eies av den norske stat i sin helhet, representert ved et departement.</td>
+          <td>KONT, REGN, REVI,</td>
+          <td>DAGL, LEDE,</td>
+          <td>NEST, MEDL, VARA, OBS</td>
+      </tr>
+  </tbody>
+</table>
+<p>Roller merket * betyr at andre organisasjoner/personer som har en spesial rolle for denne organisasjonsformen.</p>
+<h2 id="organisasjonsformer-for-utenlandske-virksomheter">Organisasjonsformer for utenlandske virksomheter</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Navn (kode)</th>
+          <th>Beskrivelse</th>
+          <th>Roller med utvalgte fullmakter</th>
+          <th>Nøkkel-roller</th>
+          <th>Roller med knytning uten fullmakter</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Norskregistrert utenlandsk foretak (NUF)</td>
+          <td>Norskregistrert utenlandsk foretak er en norsk filial av et utenlandskregistrert selskap. I denne sammenheng må det skilles mellom «utenlandsk selskap» i selskapsrettslig og skatterettslig forstand. NUF er norske avdelinger av utenlandske selskap i en selskapsrettslig forstand, og kan derfor godt være skattemessig tilhørende til Norge. Ordningen blir anvendt av flere større selskaper som driver på tvers av landegrensene. Innføringen av selskapsformen NUF i norsk selskapsrett var et resultat av EØS-avtalen, ettersom fri etableringsrett på tvers av landegrenser er et prinsipp i EU-retten.</td>
+          <td>KONT, FFØR, REGN, REVI,</td>
+          <td>DAGL, LEDE, *REPR</td>
+          <td>NEST, MEDL, VARA, OBS</td>
+      </tr>
+      <tr>
+          <td>Europeisk selskap (SE)</td>
+          <td>Europeisk selskap er en transnasjonal europeisk selskapsform av allmennaksjeselskapstypen. Selskapsformen ble etablert fra og med 8. oktober 2004. Rettsgrunnlaget er EU-forordning 2157/2001.</td>
+          <td>KONT, FFØR, REGN, REVI,</td>
+          <td>DAGL,  LEDE</td>
+          <td>NEST, MEDL, VARA, OBS</td>
+      </tr>
+      <tr>
+          <td>Utenlandsk enhet (UTLA)</td>
+          <td>(mangler)</td>
+          <td>KONT, FFØR</td>
+          <td>DAGL</td>
+          <td>(ingen)</td>
+      </tr>
+      <tr>
+          <td>Europeisk økonomisk foretaksgruppe (EOFG)</td>
+          <td>(mangler)</td>
+          <td>KONT, FFØR, REGN, REVI,</td>
+          <td>DAGL, LEDE</td>
+          <td>NEST, MEDL, VARA, OBS</td>
+      </tr>
+  </tbody>
+</table>
+<p>Roller merket * betyr at andre organisasjoner/personer som har en spesial rolle for denne organisasjonsformen.</p>
+<h2 id="andre-særskilte-organisasjonsformer">Andre særskilte organisasjonsformer</h2>
+<table>
+  <thead>
+      <tr>
+          <th>Navn (kode)</th>
+          <th>Beskrivelse</th>
+          <th>Roller med utvalgte fullmakter</th>
+          <th>Nøkkel-roller</th>
+          <th>Roller med knytning uten fullmakter</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Kontorfellesskap (KTRF)</td>
+          <td>(mangler)</td>
+          <td>KONT, REGN, REVI</td>
+          <td>(ingen)</td>
+          <td>*KTRF</td>
+      </tr>
+      <tr>
+          <td>Særskilt oppdelt enhet jfr mval § 2-2 (OPMV)</td>
+          <td>(mangler)</td>
+          <td>KONT, FFØR, REGN, REVI</td>
+          <td>DAGL, LEDE</td>
+          <td>NEST, MEDL, VARA, OBS, *OPMV</td>
+      </tr>
+      <tr>
+          <td>Andre bo (BO)</td>
+          <td>Andre bo er en organisasjonsform som brukes ved registrering av dødsbo og felleseiebo.</td>
+          <td>KONT, REGN, REVI</td>
+          <td>DAGL, LEDE</td>
+          <td>NEST, MEDL, VARA, OBS</td>
+      </tr>
+      <tr>
+          <td>Konkursbo (KBO)</td>
+          <td>(mangler)</td>
+          <td>REGN, REVI</td>
+          <td>BOBE</td>
+          <td>(ingen)</td>
+      </tr>
+      <tr>
+          <td>Tvangsregistrert for MVA (TVAM)</td>
+          <td>(mangler)</td>
+          <td>KONT, FFØR, REGN, REVI</td>
+          <td>INNH, DAGL, LEDE</td>
+          <td>NEST, MEDL, VARA, OBS</td>
+      </tr>
+      <tr>
+          <td>Andre enkeltpersoner som registreres i tilknyttet register (PERS)</td>
+          <td>(mangler)</td>
+          <td>KONT, REGN, REVI</td>
+          <td>(ingen)</td>
+          <td>(ingen)</td>
+      </tr>
+      <tr>
+          <td>Den norske kirke (KIRK)</td>
+          <td>Trossamfunnet Den norske kirke registreres i Enhetsregisteret med organisasjonsformen Den norske kirke. Dette gjelder både kirkelige fellesråd, soknene eller menighetene.</td>
+          <td>KONT, FFØR, REGN, REVI,</td>
+          <td>DAGL, LEDE,</td>
+          <td>NEST, MEDL, VARA, OBS, *KIRK</td>
+      </tr>
+      <tr>
+          <td>Annet foretak iflg. særskilt lov (SÆR)</td>
+          <td>Et særlovselskap skiller seg fra andre statlige aksjeselskap og statsforetak ved at hvert enkelt av selskapene er opprettet og drives med hjemmel i en egen lov,[1] eller en lov som gjelder flere selskaper av lignende karakter. Dette omfatter blant annet helseforetak (HF), regionalt helseforetak (RHF), studentsamskipnader og enkelte folkehøgskoler. Særlovselskapene er i hovedsak opprettet der hovedvirksomheten er et monopol eller brukes som et politisk instrument. Oppgavene varierer fra pengespillforvaltning, næringsvirksomhet, bankvirksomhet til disponering av budsjettpolitiske virkemidler.</td>
+          <td>KONT, FFØR, REGN, REVI,</td>
+          <td>DAGL, LEDE,</td>
+          <td>NEST, MEDL, VARA, OBS, *HLSE</td>
+      </tr>
+  </tbody>
+</table>
+<p>Roller merket * betyr at andre organisasjoner/personer som har en spesial rolle for denne organisasjonsformen.</p>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/authorization/what-do-you-get/accessgroups/register_ER/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#enhetsregisteret-som-fullmaktskilde">Enhetsregisteret som fullmaktskilde</a></li>
+    <li><a href="#rolletyper-fra-enhetsregisteret">Rolletyper fra Enhetsregisteret</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#organisasjonsformer-for-selskap-med-begrenset-ansvar">Organisasjonsformer for selskap med begrenset ansvar</a></li>
+    <li><a href="#organisasjonsformer-for-selskap-med-ubegrenset-ansvar">Organisasjonsformer for selskap med ubegrenset ansvar</a></li>
+    <li><a href="#organisasjonsformer-for-spesielle-bransjer">Organisasjonsformer for spesielle bransjer</a></li>
+    <li><a href="#organisasjoner-for-frivillig-sektor">Organisasjoner for frivillig sektor</a></li>
+    <li><a href="#organisasjonsformer-for-offentlig-sektor">Organisasjonsformer for offentlig sektor</a></li>
+    <li><a href="#organisasjonsformer-for-utenlandske-virksomheter">Organisasjonsformer for utenlandske virksomheter</a></li>
+    <li><a href="#andre-særskilte-organisasjonsformer">Andre særskilte organisasjonsformer</a></li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

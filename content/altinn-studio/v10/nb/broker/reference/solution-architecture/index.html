@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Altinn 3 Formidling grunnleggende løsningsarkitektur" />
+<meta name="altinn_pagedir" class="elastic" content="broker/reference/solution-architecture/" />
+<meta name="altinn_title" class="elastic" content="Løsningsarkitektur" />
+<meta name="product" data-pagefind-filter="Produkt[content]" content="Formidling" />
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="Referanse" />
+
+<title>Løsningsarkitektur – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/broker/reference/solution-architecture/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Produkt</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/authorization/">
+      <p class="product-item">Autorisasjon</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/broker/">
+      <p class="product-item">Formidling</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/">
+      <p class="product-item">Melding</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/notifications/">
+      <p class="product-item">Varsling</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Søk</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/nb.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/broker/reference/solution-architecture/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/broker/reference/solution-architecture/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">Hva leter du etter?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Søk');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Sist endret: 29. sep. 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/nb/broker/"><span>Formidling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/broker/about/"><span>Om Altinn Formidling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/what-do-you-get/"><span>Hva får du?</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/getting-started/"><span>Komme i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/broker/getting-started/common-steps/"><span>Felles steg</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/getting-started/service-owner/"><span>Tjenesteeier</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/getting-started/developer-guides/"><span>Utviklerveiledning</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/broker/getting-started/developer-guides/send-files/"><span>Send filer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/getting-started/developer-guides/receive-files/"><span>Motta filer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/getting-started/developer-guides/service-owner/"><span>Tjenesteeier</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/getting-started/developer-guides/events/"><span>Hendelser</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/broker/explanation/"><span>Konsepter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/broker/explanation/basic-concepts/"><span>Konsepter og begreper</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/explanation/very-large-files/"><span>Store filer</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/broker/broker-transition/"><span>Overgangsløsning</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/broker/broker-transition/usage/"><span>Bruksanvisning</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/broker/broker-transition/usage/rest/"><span>Bruksanvisning REST</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/broker-transition/usage/soap/"><span>Bruksanvisning SOAP</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/broker/broker-transition/getting-started/"><span>Komme i gang</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/broker-transition/about/"><span>Om Overgangsløsningen</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/broker-transition/technical-overview/"><span>Teknisk oversikt</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/broker/reference/"><span>Referansedokumentasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/broker/reference/terminology/"><span>Begreper</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/reference/system-interfaces/"><span>Systemgrensesnitt</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/reference/capabilities/"><span>Funksjonalitet</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/reference/rate-limits/"><span>Hastighetsbegrensning</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/reference/solution-architecture/"><span>Løsningsarkitektur</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/reference/security/"><span>Sikkerhet</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/nb/broker/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/broker/reference/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/broker/reference/solution-architecture/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/nb/broker/'>Formidling</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/broker/reference/'>Referansedokumentasjon</a> <span class='adocs-breadcrumb-divider'> / </span> Løsningsarkitektur</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Løsningsarkitektur</h1>
+              <p class="a-leadText" id="leadText">Altinn 3 Formidling grunnleggende løsningsarkitektur</p>
+
+<div class="notices info" ><!-- info -->
+<p>Løsningsarkitekturen beskrevet her er grunnarkitekturen for Altinn Formidling,
+slik den er relevant for de grunnleggende brukstilfellene av styrte filoverføringer.
+Ytterligere beskrivelser av løsningsarkitekturen relatert til avanserte brukstilfeller
+og mulige fremtidige utvidelser vil bygge på denne grunnarkitekturen.</p></div>
+
+<!--
+<ul class="children children-li js-moveChildrenFrom">
+
+	
+		
+	
+</ul>
+
+  
+-->
+<h2 id="arkitekturprinsipper">Arkitekturprinsipper</h2>
+<h3 id="overordnede-arkitekturprinsipper-for-digitalisering-av-offentlig-sektor">Overordnede arkitekturprinsipper for digitalisering av offentlig sektor</h3>
+<p><a href="https://www.digdir.no/digital-samhandling/overordnede-arkitekturprinsipper/1065%3E">Overordnede arkitekturprinsipper for digitalisering av offentlig sektor</a>
+i Norge skal være en støtte til arbeid med virksomhetsarkitektur og bidra til økt samhandlingsevne på tvers av virksomheter og sektorer.
+Disse prinsippene gjelder.</p>
+<h3 id="general-altinn-3-architecture-principles">General Altinn 3 Architecture Principles</h3>
+<p><a href="/nb/technology/architecture/principles">Altinn 3 arkitekturprinsipper </a> gjelder.</p>
+<!--
+### Architecture Principles for Messaging and Data Sharing
+
+Altinn 3 Broker is one of several Digdir products within the product groups for 
+Messaging and Data Sharing. 
+Architecture principles for these product groups are under construction.
+-->
+<h3 id="ytterligere-betraktninger">Ytterligere betraktninger</h3>
+<p>Altinn 3 Formidling er ett av flere Digdir-produkter innen områdene meldingsutveksling og datadeling.
+Tilpassede arkitekturprinsipper for disse områdene er under utvikling.
+I påvente av arkitekturprinsipper for de relevante produktområdene,
+følger her noen betraktninger for løsningsarkitekturen til Altinn 3 Formidling.</p>
+<p><strong>Støtte for lokal hosting og datalagring.</strong>
+Grunnet bekymringer knyttet til informasjonssikkerhet,
+kan noen kunder og brukere ha problemer med å akseptere hosting eller lagring på en skyplattform valgt av Altinn.
+Løsningsarkitekturen bør derfor tillate lokal hosting og lagring for kunder og brukere som ønsker det.</p>
+<p><strong>Framtidssikker arkitektur</strong>.</p>
+<ul>
+<li>
+<p>Det internasjonale landskapet av forskrifter, standarder, teknologier og løsninger
+er i endring. Løsningsarkitekturen bør ta hensyn til dette, og forberede for
+samsvar, samhandling og gjenbruk.
+Eksempler:
+<a href="https://en.wikipedia.org/wiki/Semantic_Web">Semantisk web</a>,
+<a href="https://en.wikipedia.org/wiki/Linked_data">lenkede data</a>,
+<a href="https://en.wikipedia.org/wiki/Self-sovereign_identity">selvstyrt identitet</a> og
+<a href="https://en.wikipedia.org/wiki/Verifiable_credentials">&ldquo;verifiable credentials&rdquo;</a>.</p>
+</li>
+<li>
+<p><strong>Etterlevelse av EU-regler og -standarder</strong>.
+Europeiske regler og standarder for datadeling vil gjelde for Norge i de kommende årene.
+Etterlevelse vil være påkrevd, og  samhandling vil være essensielt for grensekryssende verdikjeder.
+Se f.eks. <a href="https://www.digdir.no/datadeling/oversikt-over-eu-regelverk-om-deling-og-bruk-av-data/3251">Digdirs oversikt over EU-regelverk om deling og bruk av data</a>
+og <a href="https://dssc.eu/space/BVE/357074696/Regulatory+Compliance">Data Spaces Support Center om &ldquo;Regulatory Compliance&rdquo;</a></p>
+</li>
+</ul>
+<!--
+* Multi-channel and omni-channel support
+-->
+<h2 id="overordnet-løsningsarkitektur">Overordnet løsningsarkitektur</h2>
+<p>Følgende figur gir en oversikt over de vikigste byggeklossene i overordnet løsningsarktitektur for Altinn 3 Formidling.</p>
+<p><figure>
+    <a href="altinn3-broker-highlevel-solution-overview.nb.png">
+        <img src="altinn3-broker-highlevel-solution-overview.nb.png" alt="Byggeklosser i Altinn 3 Formidling - overordnet løsningsarkitektur" title="Byggeklosser i Altinn 3 Formidling - overordnet løsningsarkitektur">
+    </a>
+    <figcaption><em>Byggeklosser i Altinn 3 Formidling - overordnet løsningsarkitektur</em></figcaption>
+  </figure></p>
+<p>Dette diagrammet bygger videre på
+<a href="/nb/broker/explanation/basic-concepts#context-overview">den overordnede kontekstoversikten</a>
+ved å angi de viktigste Digdir-løsningene.
+Applikasjonskomponenter i form av Digdir-løsninger (på høyre side) realiserer funksjonaliteten
+som indikert av  applikasjonstjenestene (nederst).</p>
+<!--Den eksakte tilordningen mellom tjenester og komponenter er ikke vist i dette høynivådiagrammet.-->
+<p>Generelle beskrivelser av hver applikasjonskomponent er gitt andre steder.
+Her gis et sammendrag av hvordan disse komponentene forholder seg til og tjener Altinn 3 Formidling:</p>
+<ul>
+<li><a href="https://www.digdir.no/felleslosninger/id-porten/864">ID-porten</a>: Autentisering av menneskelige sluttbrukere.</li>
+<li><a href="https://www.digdir.no/felleslosninger/maskinporten/869">Maskinporten</a>: Autentisering og autorisering av
+maskiner (sluttbrukersystemer). Autorisasjonsfunksjonene realiseres i samarbeid med Altinn-autorisasjonskomponenten.</li>
+<li><a href="/nb/authorization/">Altinn Autorisasjon</a>. Registrer tjenesteressurser og autoriser tilgang.</li>
+<li>Altinn Notifications. Varsler til menneskelige sluttbrukere via e-post og SMS.</li>
+<li>Altinn Events. Varsler til webhooks i sluttbrukersystemer.</li>
+<li><a href="/nb/altinn-studio/">Altinn Studio</a>. Verktøy for utvikling av digitale tjenester for innbyggere og virksomheter. Brukes også til applikasjoner og brukergrensesnitt for selvbetjent konfigurasjon av løsningskomponenenter i Altinn.</li>
+</ul>
+<!-- * Altinn Fakturering. Fakturering av kunder. -->
+<h2 id="relaterte-løsninger">Relaterte løsninger</h2>
+<p>En oversikt over relaterte løsninger er gitt i følgende diagram.
+De mest relevante løsningene er angitt med uthevet skrift.
+Dette er et utgangspunkt for å vurdere samspill med, samt bruk og gjenbruk av, andre løsningskomponenter
+i løsningsarkitekturen for Altinn Formidling.</p>
+<p><figure>
+    <a href="digdir-solution-resources-for-altinn3-broker.nb.png">
+        <img src="digdir-solution-resources-for-altinn3-broker.nb.png" alt="Relaterte løsninger" title="Relaterte løsninger">
+    </a>
+    <figcaption><em>Relaterte løsninger</em></figcaption>
+  </figure></p>
+<h2 id="overgangsarkitektur---altinn-2-til-altinn-3">Overgangsarkitektur - Altinn 2 til Altinn 3</h2>
+<h3 id="generelt">Generelt</h3>
+<p>To migreringsalternativer støttes for migrering av Altinn Formidlingstjenester -
+<em>hard overgang</em> og <em>myk overgang</em>.</p>
+<h3 id="hard-overgang-fra-altinn-2-til-altinn-3-for-alle-brukere-av-en-tjeneste">Hard overgang fra Altinn 2 til Altinn 3 for alle brukere av en tjeneste</h3>
+<p>Med alternativet <em>Hard overgang</em> må alle brukere og sluttbrukersystemer gjøre en koordinert og samtidig overgang til Altinn 3.</p>
+<p>Dette alternativet anbefales i tilfeller hvor en slik koordinert overgang er gjennomførbar.
+Ingen overgangsløsning er nødvendig,
+og alle funksjoner i Altinn 3 kan brukes så snart overgangen er gjennomført.</p>
+<p>Opplastede filer lagres i Altinn 2 Formidling Fillager frem til overgangen.</p>
+<p><figure>
+    <a href="altinn3-broker-migration-option-hardshift.nb.png">
+        <img src="altinn3-broker-migration-option-hardshift.nb.png" alt="Altinn 3 Formidling migreringsopsjon - hard overgang" title="Altinn 3 Formidling migreringsopsjon - hard overgang">
+    </a>
+    <figcaption><em>Altinn 3 Formidling migreringsopsjon - hard overgang</em></figcaption>
+  </figure></p>
+<p><em>Merk: I dette tilfellet antas det at filer fra Altinn 2 Formidling er slettet
+og ikke behøves i Altinn 3 Formidling.
+Hvis nødvendig, vil det likevel være mulig å flytte filer
+fra Altinn 2 til Altinn 3 Formidling Fillager etter overgangen.</em></p>
+<h3 id="myk-overgang-fra-altinn-2-til-altinn-3">Myk overgang fra Altinn 2 til Altinn 3</h3>
+<p>Med alternativet <em>Myk</em> overgang gjør brukere og sluttbrukersystemer
+overgangen til Altinn 3 på individuell basis, når de er klare.
+Overgangsløsningen fungerer som en bro mellom Altinn 2 og Altinn 3.</p>
+<p>I overgangsperioden vil opplastede filer alltid lagres i Altinn 3 Formidling Fillager.</p>
+<p><figure>
+    <a href="altinn3-broker-migration-option-softshift.nb.png">
+        <img src="altinn3-broker-migration-option-softshift.nb.png" alt="Altinn 3 Formidling migreringsopsjon - myk overgang" title="Altinn 3 Formidling migreringsopsjon - myk overgang">
+    </a>
+    <figcaption><em>Altinn 3 Formidling migreringsopsjon - myk overgang</em></figcaption>
+  </figure></p>
+<!--
+### Solution Details
+
+#### Solution for uploading to Altinn 3 via Altinn 2
+TBD by Ragnar?
+
+#### Solution for downloading Altinn 3 files to Altinn 2
+TBD by Ragnar?
+-->
+<h2 id="fillager">Fillager</h2>
+<p>Altinn 3 Formidling Fillager er basert på Microsoft Azure Blob Storage.</p>
+<p>Lagrede filer vil bestandig være krypterte; ref. <a href="https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption">Azure Storage encryption for
+data at rest | Microsoft
+Learn</a>.</p>
+<h2 id="metadatalager">Metadatalager</h2>
+<p>Følgende informasjonsmodell detaljerer
+<a href="/nb/broker/explanation/basic-concepts#conceptual-information-model">den konseptuelle informasjonsmodellen under <em>grunnleggende konsepter</em>:</a>.
+Her angis hvilke data som lagres, som utgangspunkt for vurdering av behov for
+sikkerhetskontroller.</p>
+<p><figure>
+    <a href="altinn3-broker-metadata-storage-information-model.nb.png">
+        <img src="altinn3-broker-metadata-storage-information-model.nb.png" alt="Altinn 3 Broker Metadata Storage Information Model" title="Altinn 3 Broker Metadata Storage Information Model">
+    </a>
+    <figcaption><em>Altinn 3 Broker Metadata Storage Information Model</em></figcaption>
+  </figure></p>
+<h2 id="adressering-og-ruting">Adressering og ruting</h2>
+<p>De grunnleggende adresserings- og ruteringsmekanismene for Altinn 3 Formidling er:</p>
+<ul>
+<li>Spesifikk adressering av mottakere</li>
+<li>Abonnementsbasert adressering</li>
+</ul>
+<!-- _Merk: Ytterligere adresseringsfunksjoner vurderes, slik som kriterier basert på rolle, tjeneste og kontekst._ -->
+<p>Løsningene for disse mekanismee beskrives nærmere i det følgende.</p>
+<h3 id="spesifikk-adressering-av-mottakere">Spesifikk adressering av mottakere</h3>
+<p>Avsender gir inn en liste med en eller flere mottakere
+ved initalisering av ny filoveføring (API-kall). For hver mottaker angis om nedlasting er påkrevd.</p>
+<p>Altinn Formidling sender notifikasjoner (varsler) gjennom webhooks til hver mottaker (sluttbrukersystem)
+gjennom Altinn Events
+straks filen er ferdig opplastet og kontrollert,
+for de sluttbrukersystemene som abonnerer på slike varsler.</p>
+<p>Mottakere kan også polle Altinn Formidling for oversikt over tilgjengelige filer for nedlasting.</p>
+<p>Rettigheter til nedlasting av filer som er lagret i Altinn Fillager settes opp og kontrolleres
+gjennom Altinn Autorisasjon.</p>
+<h3 id="abonnementsbasert-adressering">Abonnementsbasert adressering</h3>
+<p>Abonnementsbasert adressering gjøres gjennom Altinn Events.</p>
+<p>Løsningen tilsvarer notifikasjon (varsling) gjennom webhooks til spesifikt adresserte mottakere.</p>
+<ul>
+<li>I begge tilfeller vil mottaker kunne laste ned fil fra angitt fillager og rapportere status.</li>
+<li>Rettigheter til nedlasting av filer som er lagret i Altinn Fillager settes opp og kontrolleres
+gjennom Altinn Autorisasjon.</li>
+<li>Selv om det i utgangspunktet ikke er kjent for avsender hvem som er mottakere,
+kan Altinn Formidling avgjøre dette ved å se på oppsettet av abonnementer.</li>
+<li>Logikk for statusrapportering og sanering av filer kan gjøres helt tilsvarende og bygge på samme kode,
+forutsatt at det i oppsettet er angitt om nedlasting er påkrevd.</li>
+</ul>
+<h2 id="varsling">Varsling</h2>
+<h3 id="varsler-til-menneskelige-sluttbrukere">Varsler til menneskelige sluttbrukere</h3>
+<!--  Erik 2024-04-28: 
+Altinn Notifications mangler norsk oversettelse , så bruk url i stedet for relativ lenke så lenge
+Relativ lenke: [Varslingskomponenten i Altinn](/nb/notifications/)
+-->
+<p>Varsler til menneskelige sluttbrukere via e-post og sms
+er realisert via <a href="/nb/notifications/">Varslingskomponenten i Altinn</a>.</p>
+<h3 id="varsler-til-sluttbrukersystemer">Varsler til sluttbrukersystemer</h3>
+<!--  Erik 2024-04-28: 
+Altinn Events mangler norsk oversettelse , så bruk url i stedet for relativ lenke så lenge
+Relativ lenke: [Altinn Events](/nb/events/)
+-->
+<p>Altinn Formidling baserer seg på støtten i <a href="/nb/events/">Altinn Events</a>
+for å sende varsler til <em>webhooks</em> i sluttbrukersystemene.</p>
+<p>Det må da settes opp abonnementer i <a href="/nb/events/">Altinn Events</a>,
+med tilgangsstyring av aktuelle tjenesteressurser i <a href="/nb/authorization/">Altinn Autorisasjon</a>.</p>
+<p>Se også <a href="https://github.com/Altinn/altinn-broker/blob/main/altinn-broker-v1.json">Altinn 3 Broker OpenAPI specification</a>
+for spesifikasjon av  hendelser som støttes av Altinn Formidling.</p>
+<h2 id="api-management">API Management</h2>
+<p><a href="https://azure.microsoft.com/en-us/products/api-management">Azure API Management (APIM)</a> benyttes for skalering, operasjonell innsikt
+og sikring av Altinn Formidling API-er.</p>
+<p>Altinn Formidling kjører på en APIM-instans som deles med andre plattformtjenester i Altinn.</p>
+<h2 id="nettverksvirtualisering">Nettverksvirtualisering</h2>
+<p>Nettverksvirtualisering er realisert gjennom Microsoft Azure VNet.</p>
+<h2 id="logging-og-monitorering">Logging og monitorering</h2>
+<p>TBD (avklaringer i arbeid vår 2025).</p>
+<h2 id="avregning-og-fakturering">Avregning og fakturering</h2>
+<p>TBD (avklaringer i arbeid vår 2025).</p>
+<h2 id="security-controls">Sikkerhetskontroller</h2>
+<h3 id="autentisering-og-autorisasjon">Autentisering og Autorisasjon</h3>
+<p>Autentisering og autorisasjon støttes gjennom Maskinporten og Altinn Autorisasjon.</p>
+<p>Dette beskytter særlig mot følgende trusler:</p>
+<ul>
+<li>Uautorisert tilgang: Autentisering hjelper til med å sikre at bare legitimerte brukere kan få tilgang til systemet ved å verifisere deres identitet. Dette kan forebygge tilgang av uautoriserte brukere, inkludert hackere eller andre med ondsinnede hensikter.</li>
+<li>Identitetstyvery: Autentiseringstiltak som tofaktorautentisering (2FA) og multifaktorautentisering (MFA) kan redusere risikoen for identitetstyveri. Disse metodene krever mer enn bare brukernavn og passord for å bekrefte identiteten til en bruker.</li>
+<li>Privilegiumeskalering: Autorisasjon sørger for at brukere bare har tilgang til de ressursene og funksjonene som er nødvendige for deres roller. Dette hindrer brukere fra å utføre handlinger utenfor deres tillatte privilegier, noe som kan beskytte mot interne trusler og feilaktig bruk av systemet.</li>
+<li>Session Hijacking: Sterke autentiseringsteknikker kan også bidra til å forhindre session hijacking, der en angriper tar over en brukersesjon etter at autentiseringen er gjennomført.</li>
+<li>Datalekkasjer: Ved å sørge for at bare autoriserte brukere har tilgang til sensitiv informasjon, reduserer man risikoen for utilsiktet eller ondsinnet spredning av konfidensielle data.</li>
+</ul>
+<h3 id="sjekksumkontroll">Sjekksumkontroll</h3>
+<p>Altinn Formidling kontrollerer opplastede filer ved å sammenlikne sjekksum angitt av avsender med
+sjekksum generert ved mottak.</p>
+<p>Kontroll av sjekksum kan også gjøres av mottakers sluttbrukersystem.</p>
+<p>Forutsatt at mottatt sjekksum er korrekt, sikrer dette integriteten
+til både opplastede og nedlastede filer.</p>
+<p>Sjekksummens integritet sikres gjennom kryptering, både under overføring og lagring.</p>
+<p>Se også:</p>
+<ul>
+<li><a href="#in-transit-protection">Beskyttelse under overføring</a></li>
+<li><a href="#at-rest-protection">Beskyttelse under lagring</a></li>
+</ul>
+<h3 id="viruskontroll">Viruskontroll</h3>
+<p>Når en fil lastes opp til Altinn Formidling, skannes den av Microsoft Defender Antivirus.
+Hvis det ikke oppdages virus, publiseres filen umiddelbart
+og gjøres tilgjengelig for nedlasting av mottakere.</p>
+<p>Imidlertid, i tilfeller der det oppdages et virus eller skanningen mislykkes,
+fjernes filen, og overføringsstatusen oppdateres
+for å gi detaljert informasjon om skanningsfeilen.</p>
+<h3 id="in-transit-protection">Beskyttelse under overføring</h3>
+<p>Filoverføringer krypteres og sendes via TLS/HTTPS, både fra avsender mot Altinn Formidling
+og fra Altinn Formidling mot mottakere.</p>
+<h3 id="at-rest-protection">Beskyttelse under lagring</h3>
+<h4 id="altinn-formidling-fillager">Altinn Formidling Fillager</h4>
+<!-- Brannmur på databasen??? -->
+<p>Kryptert lagring av filer i Altinn 3 Formidling Fillager gjøres gjennom  <a href="https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption">Azure Storage encryption for data
+at rest | Microsoft Learn</a>.</p>
+<p>Kryptert lagring av metadata i Altinn 3 Formidling Metadatalager gjøres gjennom
+funksjoner i PostgreSQL-databasen.</p>
+<!-- @Roar: Mer spesifikt om dette -  krypteringsløsning... brannmur, V-net... -->
+<h4 id="støtte-for-alternative-lagringsløsninger">Støtte for alternative lagringsløsninger</h4>
+<p>Avsendere kan velge å peke til egne lagringsløsninger i stedet for å laste opp filer
+til Altinn 3 Formidling Fillager.</p>
+<h3 id="forebygging-av-ddos-angrep">Forebygging av DDoS-angrep</h3>
+<p>Forebygging av DDoS-angrep gjøres via Azure API Management.</p>
+<h3 id="alternativ-hosting-og-skyleverandør">Alternativ hosting og skyleverandør</h3>
+<p>Som alternativ til default Altinn hosting, kan programvaren hostes ut fra tjenesteiers valg,
+enten i form av egen (privat) sky-hosting eller on-premise hosting.</p>
+<p>Løsnigens sikkerhet er dermed ikke begrenset av Altinns valg av hosting- og skyleverandør.</p>
+<h3 id="god-kodepraksis">God kodepraksis</h3>
+<p>God kodepraksis er grunnleggende for å styrke informasjonssikkerheten i programvareutvikling.
+Altinn Formidling følger retningslinjer for god kodepraksis i Altinn.
+Disse bidrar til å sikre programvarens integritet og beskytte mot sikkerhetstrusler.</p>
+<!--
+Aktuelle kodepraksiser som bidrar til å sikre programvarens integritet og beskytte mot sikkerhetstrusler:
+
+* Minste privilegiums prinsipp: Utviklere bør designe programvare slik at hvert komponent, prosess og bruker har de minst mulige privilegiene som er nødvendige for å utføre sine funksjoner. Dette begrenser skadepotensialet dersom et sikkerhetsbrudd skulle oppstå.
+* Inputvalidering: All brukerinnsendt data bør valideres både på klient- og serversiden for å hindre vanlige angrep som SQL-injeksjon og cross-site scripting (XSS). Validering innebærer å sjekke at inndata er av riktig type, lengde, format og innenfor forventede grenser.
+* Feilhåndtering: Sikker og konsistent feilhåndtering er viktig. Programmet bør ikke lekke sensitiv informasjon gjennom feilmeldinger eller loggfiler. Unngå å bruke generiske eller uklare feilmeldinger som kan gi angripere innsikt i systemets struktur.
+* Kryptering: Bruk sterk kryptering for å beskytte data i hvile og overføring. Dette inkluderer bruk av HTTPS for webapplikasjoner, samt sikring av databaser og lagringsmedier.
+* Regelmessig oppdatering og patching: Hold alle systemer, biblioteker og avhengigheter oppdaterte med de siste sikkerhetspatchene for å beskytte mot kjente sårbarheter.
+* Kodegjennomgang og parprogrammering: Regelmessig kodegjennomgang og parprogrammering kan hjelpe med å identifisere og rette sikkerhetsrelaterte feil før de blir implementert i produksjon. Dette inkluderer å sjekke for logiske feil, uventede sideeffekter og andre sikkerhetsbrister.
+* Bruk av sikkerhetsvurderingsverktøy: Automatiserte verktøy som statisk og dynamisk kodeanalyse kan hjelpe med å oppdage potensielle sikkerhetssvakheter i koden. Disse verktøyene bør integreres i utviklingsprosessen.
+* Sikkerhetsopplæring for utviklere: Kontinuerlig opplæring og bevisstgjøring om de nyeste sikkerhetstruslene og beste praksiser er avgjørende for å hjelpe utviklere med å skrive sikrere kode.
+* Bruk av trygge og velprøvde biblioteker: Foretrekk å bruke velprøvde biblioteker og rammeverk med et sterkt fokus på sikkerhet, i stedet for å skrive egen kode for komplekse funksjoner, særlig når det gjelder kryptering og autentisering.
+-->
+<h3 id="åpen-kildekode">Åpen kildekode</h3>
+<p>Altinn Formidling kode er åpen kildekode.</p>
+<p>Fra et sikkerhetsperspektiv fungerer åpen kildekode  som en sikkerhetskontroll
+gjennom det som ofte kalles &ldquo;sikkerhet gjennom gjennomsiktighet.&rdquo; Noen av fordelene er:</p>
+<ul>
+<li>Forbedret sikkerhetsgjennomgang: Flere øyne på koden kan øke sannsynligheten for å oppdage feil og sårbarheter.</li>
+<li>Raskere feilretting: Et aktivt fellesskap kan bidra til raskere patching av sikkerhetshull.</li>
+<li>Økt tillit: Brukere og organisasjoner kan selv vurdere sikkerheten i koden, noe som kan øke tilliten til programvaren.</li>
+</ul>
+<h3 id="nøkkelhvelv">Nøkkelhvelv</h3>
+<p>Azure Key Vault er en skylagringstjeneste fra Microsoft som tilbyr
+sikker håndtering av krypteringsnøkler,
+noe som er sentralt for å beskytte sensitiv informasjon.
+Her er en kort oppsummering av funksjonaliteten relatert til nøkkelhåndtering i Azure Key Vault
+med fokus på sikkerhetskontroller:</p>
+<ul>
+<li>Sentralisert nøkkelhåndtering: Key Vault tillater opprettelse, lagring, og administrasjon av krypteringsnøkler i et sikkert miljø. Dette inkluderer funksjoner for import og eksport av nøkler, noe som gir fleksibilitet i håndtering av nøkler på tvers av ulike miljøer.</li>
+<li>Automatisert nøkkelrotering: Nøkkelrotering er en viktig sikkerhetspraksis for å redusere risikoen for nøkkelkompromittering. Azure Key Vault støtter automatisering av nøkkelrotering, hvor gamle nøkler automatisk erstattes med nye på en sikker måte uten å forstyrre applikasjonens funksjonalitet.</li>
+<li>Tilgangskontroll: Integrert med Azure Active Directory, gir Key Vault detaljerte tilgangskontroller som bestemmer hvilke brukere eller systemer som kan se, bruke, eller administrere nøklene. Dette styrker sikkerheten ved å begrense tilgang til nøkler til bare autoriserte entiteter.</li>
+<li>Sikkerhet og Overvåking: Alle operasjoner på nøkler, inkludert tilgang og modifikasjoner, logges for å tilby fullstendig revisjonsspor. Integrering med Azure Security Center muliggjør avansert overvåking og varsling for sikkerhetstrusler.</li>
+<li>Kryptering av data i ro: Nøklene lagres i hvile ved bruk av sterk kryptering, sikret av enten Microsofts administrerte nøkler eller brukeradministrerte nøkler. Dette sikrer at nøklene er beskyttet mot uautorisert tilgang og datalekkasjer.</li>
+</ul>
+<h3 id="sikkerhetskontroller-gjennom-azure-api-management">Sikkerhetskontroller gjennom Azure API Management</h3>
+<ul>
+<li>Rate Limiting og Quotas: Disse funksjonene begrenser antall forespørsler
+en bruker kan sende til et API i en gitt tidsperiode,
+noe som hjelper til med å beskytte APIer mot overbelastningsangrep og misbruk.</li>
+<li>IP-filtrering: APIM tillater konfigurering av tillatte eller blokkerte IP-adresser,
+som gir en ekstra lag med sikkerhet ved å begrense hvem som kan sende forespørsler til APIene.</li>
+<li>Beskyttelse mot angrep: Selv om ikke på samme nivå som dedikerte sikkerhetsløsninger,
+tilbyr APIM noen kapabiliteter for å identifisere og blokkere potensielt skadelige forespørsler
+og angrep som  SQL-injeksjonsangrep.</li>
+</ul>
+<h3 id="sikkerhetskontroller-gjennom-azure-vnet">Sikkerhetskontroller gjennom Azure VNet</h3>
+<ul>
+<li>Isolasjon: Ved å virtualisere nettverkene kan vi skille
+utviklings-, test- og produksjonsmiljøer, eller forskjellige applikasjonsstacks.
+Dette hindrer uautorisert tilgang og datalekkasje mellom systemer.</li>
+<li>Segmentering: Nettverkssegmentering gjør det mulig å kontrollere trafikkflyten mellom nettverkssegmentene strengt,
+noe som reduserer angrepsflaten ved å begrense en angripers evne til å bevege seg lateralt i nettverket.</li>
+<li>Tilgangskontroll: Implementering av sikkerhetstiltak som nettverkssikkerhetsgrupper (NSGs)
+og brannmurer innen et VNet tillater detaljert styring av tilgangsregler og policyer på nettverksnivå,
+basert på behovene til hvert segment.</li>
+<li>Sikker kommunikasjon: Ved å benytte VPN (Virtual Private Network) og andre krypteringsmekanismer,
+kan nettverksvirtualisering sikre dataene som overføres mellom forskjellige deler av nettverket
+eller mellom skyen og on-premises infrastruktur.</li>
+</ul>
+<h3 id="penetrasjonstesting">Penetrasjonstesting</h3>
+<p>Grundig penetrasjonstesting (pen testing) benyttes for å
+teste robustheten til systemets sikkerhetsmekanismer og oppdage eventuelle sikkerhetshull
+før de kan bli utnyttet av ondsinnede aktører.</p>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/broker/reference/solution-architecture/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#arkitekturprinsipper">Arkitekturprinsipper</a>
+      <ul>
+        <li><a href="#overordnede-arkitekturprinsipper-for-digitalisering-av-offentlig-sektor">Overordnede arkitekturprinsipper for digitalisering av offentlig sektor</a></li>
+        <li><a href="#general-altinn-3-architecture-principles">General Altinn 3 Architecture Principles</a></li>
+        <li><a href="#ytterligere-betraktninger">Ytterligere betraktninger</a></li>
+      </ul>
+    </li>
+    <li><a href="#overordnet-løsningsarkitektur">Overordnet løsningsarkitektur</a></li>
+    <li><a href="#relaterte-løsninger">Relaterte løsninger</a></li>
+    <li><a href="#overgangsarkitektur---altinn-2-til-altinn-3">Overgangsarkitektur - Altinn 2 til Altinn 3</a>
+      <ul>
+        <li><a href="#generelt">Generelt</a></li>
+        <li><a href="#hard-overgang-fra-altinn-2-til-altinn-3-for-alle-brukere-av-en-tjeneste">Hard overgang fra Altinn 2 til Altinn 3 for alle brukere av en tjeneste</a></li>
+        <li><a href="#myk-overgang-fra-altinn-2-til-altinn-3">Myk overgang fra Altinn 2 til Altinn 3</a></li>
+      </ul>
+    </li>
+    <li><a href="#fillager">Fillager</a></li>
+    <li><a href="#metadatalager">Metadatalager</a></li>
+    <li><a href="#adressering-og-ruting">Adressering og ruting</a>
+      <ul>
+        <li><a href="#spesifikk-adressering-av-mottakere">Spesifikk adressering av mottakere</a></li>
+        <li><a href="#abonnementsbasert-adressering">Abonnementsbasert adressering</a></li>
+      </ul>
+    </li>
+    <li><a href="#varsling">Varsling</a>
+      <ul>
+        <li><a href="#varsler-til-menneskelige-sluttbrukere">Varsler til menneskelige sluttbrukere</a></li>
+        <li><a href="#varsler-til-sluttbrukersystemer">Varsler til sluttbrukersystemer</a></li>
+      </ul>
+    </li>
+    <li><a href="#api-management">API Management</a></li>
+    <li><a href="#nettverksvirtualisering">Nettverksvirtualisering</a></li>
+    <li><a href="#logging-og-monitorering">Logging og monitorering</a></li>
+    <li><a href="#avregning-og-fakturering">Avregning og fakturering</a></li>
+    <li><a href="#security-controls">Sikkerhetskontroller</a>
+      <ul>
+        <li><a href="#autentisering-og-autorisasjon">Autentisering og Autorisasjon</a></li>
+        <li><a href="#sjekksumkontroll">Sjekksumkontroll</a></li>
+        <li><a href="#viruskontroll">Viruskontroll</a></li>
+        <li><a href="#in-transit-protection">Beskyttelse under overføring</a></li>
+        <li><a href="#at-rest-protection">Beskyttelse under lagring</a>
+          <ul>
+            <li><a href="#altinn-formidling-fillager">Altinn Formidling Fillager</a></li>
+            <li><a href="#støtte-for-alternative-lagringsløsninger">Støtte for alternative lagringsløsninger</a></li>
+          </ul>
+        </li>
+        <li><a href="#forebygging-av-ddos-angrep">Forebygging av DDoS-angrep</a></li>
+        <li><a href="#alternativ-hosting-og-skyleverandør">Alternativ hosting og skyleverandør</a></li>
+        <li><a href="#god-kodepraksis">God kodepraksis</a></li>
+        <li><a href="#åpen-kildekode">Åpen kildekode</a></li>
+        <li><a href="#nøkkelhvelv">Nøkkelhvelv</a></li>
+        <li><a href="#sikkerhetskontroller-gjennom-azure-api-management">Sikkerhetskontroller gjennom Azure API Management</a></li>
+        <li><a href="#sikkerhetskontroller-gjennom-azure-vnet">Sikkerhetskontroller gjennom Azure VNet</a></li>
+        <li><a href="#penetrasjonstesting">Penetrasjonstesting</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

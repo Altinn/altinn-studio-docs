@@ -10,7 +10,7 @@ weight: 500
 
 ## Introduksjon til stateless apper
 
-En stateless app, eller tilstandsløs app, skiller seg fra vanlige apper ved at den ikke lagrer noe data - hverken skjemadata eller metadata om instanser av appen. Appen havner heller ikke i innboksen til brukeren. En stateless app tilsvarer en innsynstjeneste i Altinn 2.
+En stateless app, eller tilstandsløs app, skiller seg fra vanlige apper ved at den ikke lagrer noe data - hverken skjemadata eller metadata om instanser av appen. Appen kommer heller ikke inn i innboksen til brukeren. En stateless app tilsvarer en innsynstjeneste i Altinn 2.
 
 Stateless-apper passer godt som innsynstjenester der en bruker eller et system gjør et oppslag mot en ressurs, eller presenterer data fra en tredjepart basert på identiteten til brukeren. Du kan også konfigurere en stateless-app til å tillate anonyme brukere, det vil si brukere som ikke er pålogget.
 
@@ -105,11 +105,11 @@ Eksempel app-struktur for en applikasjon som er satt opp på denne måten:
                   {page}.json
 ```
 
-`{page}.json` kan settes opp på samme måte som en vanlig side i appen, og støtter alle komponenter med unntak av:
+Du kan gjøre dette enten via [Altinn Studio](https://altinn.studio) og konfigurere *Kodeliste-ID* for komponenten din i brukergrensesnittet, eller du kan konfigurere komponenten ved å redigere egenskapen `optionsId` på komponenten i layout-filen.
 - Filopplaster
 - Knapp
 
-Appens frontend leser konfigurasjonen fra `applicationmetadata.json` og forstår at den ikke skal opprette en instans. I stedet henter den layout-filene og tilhørende datamodeller, og presenterer dem for brukeren.
+Appens frontend leser konfigurasjonen fra `applicationmetadata.json` og forstår at den ikke skal opprette en instans. I stedet henter den layout-filene og tilhørende datamodeller, og viser dem for brukeren.
 
 ### Konfigurere tilgang uten innlogging
 
@@ -162,15 +162,16 @@ App/config/applicationmetadata.json
 }
 ```
 
-## Datapopulering
+## Slik populerer du data
 
 Når du bruker en stateless datatype, kan du populere datamodellen når app-frontend spør om skjemadataen.
 
-Datapopuleringen skjer i to steg på det første kallet fra frontend (GET):
+Du populerer dataen i to steg på det første kallet fra frontend (GET):
+
 1. [Forhåndsutfylling](/nb/altinn-studio/v10/develop-a-service/reference/data/prefill/)
 2. [Dataprosessering](/nb/altinn-studio/v10/develop-a-service/reference/logic/dataprocessing/)
 
-På påfølgende oppdateringer av samme skjemadata (POST) kjøres ikke prefill på nytt, men kalkuleringen trigges. Dette gjør det mulig å endre dataen basert på brukerens input, selv i en stateless tilstand.
+På påfølgende oppdateringer av samme skjemadata (POST) kjører systemet ikke prefill på nytt, men starter kalkulering. Dette gjør det mulig å endre dataen basert på brukerens input, selv i en stateless tilstand.
 
 Eksempel på en kalkulering som populerer datamodellen nevnt i eksempelet over:
 
@@ -190,9 +191,9 @@ public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object 
 }
 ```
 
-## Autorisasjon med tredjepartsløsninger
+## Slik autoriserer du med tredjepartsløsninger
 
-Tilgangsstyring for stateless apper kan løses med [standard app-autorisasjon](/nb/altinn-studio/v8/reference/configuration/authorization/), der du ved hjelp av Altinn-roller definerer hvem som har tilgang til å bruke tjenesten. Hvis du har behov for ytterligere sikring av tjenesten, kan du implementere logikk for autorisasjon av brukere med tredjepartsløsninger. Dette kan være API-er som er eksponert innenfor egen virksomhet, eller åpne API fra andre tilbydere.
+Du kan løse tilgangsstyring for stateless apper med [standard app-autorisasjon](/nb/altinn-studio/v8/reference/configuration/authorization/), der du ved hjelp av Altinn-roller definerer hvem som har tilgang til å bruke tjenesten. Hvis du har behov for ytterligere sikring av tjenesten, kan du implementere logikk for autorisasjon av brukere med tredjepartsløsninger. Dette kan være API-er som er eksponert innenfor egen virksomhet, eller åpne API fra andre tilbydere.
 
 Eksempelet nedenfor bruker Finanstilsynets API til å fastslå om virksomheten som en bruker representerer i Altinn, har tilstrekkelige lisenser til å bruke tjenesten.
 
@@ -207,7 +208,7 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
 
 1. **Utvid datamodellen med felter for autorisasjon**
 
-    I tillegg til et felt for å ta input fra brukeren og et felt for å vise resultatet, har vi i dette eksempelet et felt for å holde på informasjon om hvorvidt brukeren er autentisert, og et felt for å holde på en dynamisk feilmelding.
+    I tillegg til et felt for å ta input fra brukeren og et felt for å vise resultatet, har vi i dette eksempelet et felt for å holde på informasjon om hvorvidt brukeren er autorisert, og et felt for å holde på en dynamisk feilmelding.
 
     ```xml
     <xs:sequence>
@@ -338,11 +339,11 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
       "value": "Legg inn søkeord her:"
     },
     ```
-5. **Implementér autorisasjonslogikk**
+5. **Sett opp autorisasjonslogikk**
 
-    Alt av dataprosessering for stateless apper ligger i filen `App\logic\DataProcessing\DataProcessingHandler.cs`, og det er her autorisasjonslogikken skal plasseres.
+    Alt av dataprosessering for stateless apper ligger i filen `App\logic\DataProcessing\DataProcessingHandler.cs`, og det er her autorisasjonslogikken skal ligge.
 
-    Logikk for å slå opp data og autorisere brukeren ligger i metoden `ProcessDataRead`. Denne kalles hver gang en bruker åpner appen eller sender inn inputdata.
+    Logikk for å slå opp data og autorisere brukeren ligger i metoden `ProcessDataRead`. Systemet kaller denne metoden hver gang en bruker åpner appen eller sender inn inputdata.
 
     ```cs
      public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object data)
@@ -400,11 +401,11 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
 
     Den andre sjekken kaller `_finanstilsynet.HasReqiuiredLicence()`, en metode som slår opp i Finanstilsynets API for å avgjøre om organisasjonen har en gitt lisens. Implementasjonen av servicen er tilgjengelig [her](https://altinn.studio/repos/ttd/extra-credentials-demo/src/branch/master/App/services/FinanstilsynetService.cs).
 
-    Hvis ingen av sjekkene er vellykkede, populeres to felter i datamodellen:
+    Hvis ingen av sjekkene er vellykkede, fyller systemet ut to felter i datamodellen:
     - en indikator på at brukeren ikke er autorisert
     - en feilmelding, her kun navnet til brukeren
 
-    og `true` returneres for å indikere at dataverdier har blitt oppdatert.
+    og returnerer `true` for å indikere at dataverdier har blitt oppdatert.
 
     ```cs
     lookup.userAuthorized = false;
@@ -425,9 +426,9 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
     return false;
     ```
 
-    `lookup.result` populeres med verdien av oppslaget. I dette tilfellet skriver vi bare søkestrengen tilbake til brukeren. Igjen returneres `true` for å indikere at en dataverdi er blitt endret, og `false` hvis dette ikke er tilfellet.
+    Systemet fyller ut `lookup.result` med verdien av oppslaget. I dette tilfellet skriver vi bare søkestrengen tilbake til brukeren. Igjen returnerer systemet `true` for å indikere at en dataverdi er blitt endret, og `false` hvis dette ikke er tilfellet.
 
-## Starte instans fra et stateless skjema
+## Slik starter du en instans fra et stateless skjema
 
 {{%notice warning%}}
 
@@ -441,9 +442,9 @@ Fra en stateless app kan du bruke `InstantiationButton`-komponenten til å start
 
 Det er laget en eksempel-app som er satt opp som en innsynstjeneste hvor brukeren kan velge å starte en instans på den aktuelle appen. Denne kan brukes til inspirasjon for videre utvikling. Appen med kildekode finnes [her](https://altinn.studio/repos/ttd/start-from-stateless).
 
-### Instansiere med prefill
+### Slik instansierer du med prefill
 
-Et bruksområde for å starte en instans fra et stateless view kan være at du først ønsker at appen skal oppføre seg som en innsynstjeneste der brukeren blir presentert for aktuelle data. Fra denne informasjonen kan brukeren velge å agere videre på dataene som listes opp, og da går du over til en vanlig innsendingstjeneste.
+Et bruksområde for å starte en instans fra et stateless view kan være at du først ønsker at appen skal oppføre seg som en innsynstjeneste der systemet viser aktuelle data for brukeren. Fra denne informasjonen kan brukeren velge å agere videre på dataene som vises, og da går du over til en vanlig innsendingstjeneste.
 
 For å få til en slik flyt må du først sette opp appen som en stateless app som beskrevet under [konfigurasjon](#konfigurasjon). Når dette er gjort, kan du utvide stateless-visningen til å inkludere `InstantiationButton`, som starter en ny instans når brukeren klikker på knappen. Standard oppførsel for denne knappen er å sende inn hele datamodellen som brukeren har brukt, som en del av instansieringen under feltet `prefill`. Hvis du ønsker å velge ut deler av datamodellen som er brukt i det stateless-steget, kan du også gjøre det ved å legge til `mapping` på `InstantiationButton`-komponenten. For eksempel:
 

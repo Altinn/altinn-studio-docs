@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Kodearkitektur for React og tilhørende teknologi" />
+<meta name="altinn_pagedir" class="elastic" content="technology/tools/react/architecture/" />
+<meta name="altinn_title" class="elastic" content="Kodearkitektur" />
+
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="Referanse" />
+
+<title>Kodearkitektur – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/technology/tools/react/architecture/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Produkt</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/authorization/">
+      <p class="product-item">Autorisasjon</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/broker/">
+      <p class="product-item">Formidling</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/">
+      <p class="product-item">Melding</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/notifications/">
+      <p class="product-item">Varsling</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Søk</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/nb.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/technology/tools/react/architecture/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/technology/tools/react/architecture/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">Hva leter du etter?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Søk');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Sist endret: 29. sep. 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/nb/technology/"><span>Teknologi</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/"><span>Architecture</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/requirements/"><span>Requirements</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/requirements/functional/"><span>Functional</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/requirements/non_functional/"><span>Non-Functional</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/principles/"><span>Principles</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/patterns/"><span>Patterns</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/"><span>Capabilities</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/"><span>Runtime</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/appdeploy/"><span>App Build &amp; Deploy</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/appdevelopment/"><span>App Development</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/data/"><span>Data</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/integration/"><span>Integration</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/presentation/"><span>Presentation</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/processing/"><span>Processing &amp; Execution</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/processing/process/"><span>Process</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/nb/technology/architecture/capabilities/runtime/processing/process/process_interaction/">
+            <span>Process Interaction</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/security/"><span>Security</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/security/authentication/"><span>Authentication</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/security/authentication/accesstoken/"><span>Access Token</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/security/authentication/authentication-api/"><span>Authentication API</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/security/authentication/jwt-format/"><span>JWT Format</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/security/authentication/oidcproviders/"><span>OIDC Providers</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/security/authorization/"><span>Authorization</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/security/encryption/"><span>Encryption</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/"><span>DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/analysisanddesign/"><span>Analysis &amp; Design</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/build_and_test/"><span>Build &amp; Test</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/build_and_test/build/"><span>Build process</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/environments/"><span>Environments</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/platformoperations/"><span>Platform Operations</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/platformoperations/backupandrecovery/"><span>Backup &amp; Recovery</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/platformoperations/infrastructuremgmt/"><span>Infrastructure mgmt</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/platformoperations/monitoring/"><span>Monitoring</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/projectmanagement/"><span>Project Management</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/quality/"><span>Quality Management</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/softwareconfiguration/"><span>Software Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/softwareconfiguration/deployment/"><span>Deployment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/softwareconfiguration/deployment/altinn-studio/"><span>Altinn Studio</span></a></li></ul></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/"><span>Components</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/"><span>Application</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/"><span>Construction</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-apps/"><span>Altinn Apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-apps/kuberneteswrapper/"><span>Kubernetes Wrapper</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-apps/routing/"><span>Routing</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-platform/"><span>Altinn Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-platform/profile/"><span>Profile</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-platform/receipt/"><span>Receipt</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-platform/register/"><span>Register</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-platform/storage/"><span>Storage</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-platform/ttplog/"><span>Storage</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/nonsolutionspecific/"><span>Non-Solution</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/nonsolutionspecific/development/"><span>Development</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/nonsolutionspecific/operations/"><span>Operations</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/nonsolutionspecific/operations/backupandrecovery/"><span>Backup &amp; Recovery</span></a></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/data/conceptual/"><span>Conceptual</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/data/logical/"><span>Logical</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/infrastructure/"><span>Infrastructure</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/infrastructure/computing/"><span>Compute</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/infrastructure/computing/scaling/"><span>Scaling</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/infrastructure/network/"><span>Network</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/infrastructure/storage/"><span>Storage</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/platform/"><span>Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/platform/datareporting/"><span>Data &amp; Reporting</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/platform/integration/"><span>Integration</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/platform/logicexecution/"><span>Logic Execution</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/platform/oscloudplatform/"><span>OS &amp; Cloud Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/platform/oscloudplatform/kubernetes/"><span>Kubernetes</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/platform/presentation/"><span>Presentation</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/platform/presentation/altinn-cdn/"><span>Altinn CDN</span></a></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/informationmodel/"><span>Information Model</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/"><span>Løsningene</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/altinn-apps/"><span>Altinn Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/altinn-platform/"><span>Altinn Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/altinn-platform/profile/"><span>Profile</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/altinn-platform/receipt/"><span>Kvittering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/altinn-platform/storage/"><span>Storage</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/altinn-platform/ttplog/"><span>TTP Log</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/cli/"><span>Altinn CLI</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/cli/commands/"><span>Commands</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/cli/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/cli/configuration/maskinporten-setup/"><span>Maskinporten</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/cli/software-implementation/"><span>Software implementation</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/terms/"><span>Terms</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/"><span>Tools</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/dotnet-core/"><span>.NET</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/alpine-linux/"><span>Alpine Linux</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/bpmn/"><span>BPMN</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/c-sharp/"><span>C#</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/docker/"><span>Docker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/git/"><span>Git</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/gitea/"><span>Gitea</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/go/"><span>Go</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/grafana/"><span>Grafana</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/helm/"><span>Helm</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/hugo/"><span>Hugo</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/jest/"><span>Jest</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/kubernetes/"><span>Kubernetes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/markdown/"><span>Markdown</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/nginx/"><span>Nginx</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/node-js/"><span>Node.js</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/prometheus/"><span>Prometheus</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/react/"><span>React</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/react/architecture/"><span>Kodearkitektur</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/react/redux/"><span>Redux</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/terraform/"><span>Terraform</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/traefik/"><span>Traefik</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/typescript/"><span>TypeScript</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/vs-code/"><span>Visual Studio Code</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/nb/technology/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/technology/tools/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/technology/tools/react/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/technology/tools/react/architecture/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/nb/technology/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/technology/tools/'>Tools</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/technology/tools/react/'>React</a> <span class='adocs-breadcrumb-divider'> / </span> Kodearkitektur</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Kodearkitektur</h1>
+              <p class="a-leadText" id="leadText">Kodearkitektur for React og tilhørende teknologi</p>
+
+<h2 id="bruk-av-redux-store-i-containere-og-components">Bruk av Redux Store i Containere og Components.</h2>
+<h3 id="kort-oppsummert-tldr">Kort oppsummert (TL;DR)</h3>
+<p>Send &ldquo;ID&rdquo; eller andre identifikatorer via Props til komponenten og la komponenten hente data fra Redux Store.</p>
+<h3 id="utfordring-why">Utfordring (Why?)</h3>
+<p>Hvis en del av Redux Store sendes som Props så vil komponenten re-rendres ved endringer av denne Prop/Store. Det er ønskelig at komponenter ikke rendrer unødvendig.</p>
+<h3 id="re-rendring-trigges-av">Re-rendring trigges av…</h3>
+<ul>
+<li>Endring av Props.</li>
+<li>Endring av State som endrer Props.</li>
+</ul>
+<h4 id="kilder">Kilder</h4>
+<ul>
+<li><a href="https://medium.com/lexical-labs-engineering/redux-best-practices-64d59775802e">Redux best practices</a></li>
+<li><a href="https://itnext.io/redux-ruins-you-react-app-performance-you-are-doing-something-wrong-82e28ec96cf5">Common pitfalls</a></li>
+</ul>
+<h2 id="filtrering-av-redux-store-i-mapstatetoprops-ved-help-av-selector">Filtrering av Redux Store i mapStateToProps() ved help av Selector</h2>
+<h3 id="kort-oppsummert-tldr-1">Kort oppsummert (TL;DR)</h3>
+<p>Bruk Memoized Selector for å filtrere Redux Store til Props når Redux Store er stor.</p>
+<h3 id="utfordring-why-1">Utfordring (Why?)</h3>
+<p>Hver gang (en del av) Redux Store endrer seg vil funksjoner som filtrerer ut deler av Redux Store kjøres. Hvis Redux Store (state tree) er stor (mange endringer) eller funksjonen er krevende kan det føre til ytelsesproblemer.</p>
+<h3 id="løsningen">Løsningen</h3>
+<p>En Selector funksjon, med bruk av &ldquo;reduxjs/reselect&rdquo; vil kun kjøres når en definert del av Redux Store endres (eks &ldquo;state.del.underdel&rdquo;).</p>
+<h4 id="kilder-1">Kilder</h4>
+<ul>
+<li><a href="https://github.com/reduxjs/reselect">Reselect</a></li>
+<li><a href="https://blog.rangle.io/react-and-redux-performance-with-reselect/">Comparing shouldComponentUpdate() and Reselect</a></li>
+</ul>
+<h3 id="eksempel">Eksempel</h3>
+<h4 id="selector">Selector</h4>
+<p>Dette er en enkel Selector uten mye logikk og filtrering. Jo større logikk i &ldquo;filtreringen&rdquo; jo mer &ldquo;sparer&rdquo; man i ytelse.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> { createSelector } from <span style="color:#f1fa8c">&#39;reselect&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">/**
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"> * Reselect version
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"> */</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> formDataSelector <span style="color:#ff79c6">=</span> (state<span style="color:#ff79c6">:</span> any, providedProps<span style="color:#ff79c6">:</span> any) =&gt; {
+</span></span><span style="display:flex;"><span>  console.log(<span style="color:#f1fa8c">&#39;formdata selector&#39;</span>, providedProps.id);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> state.formFiller.formData;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> dataModelBindingSelector <span style="color:#ff79c6">=</span> (state<span style="color:#ff79c6">:</span> any, providedProps<span style="color:#ff79c6">:</span> any) =&gt; {
+</span></span><span style="display:flex;"><span>  console.log(<span style="color:#f1fa8c">&#39;datamodelBindingSelector&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> state.formDesigner.layout.components[providedProps.id].dataModelBinding;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> getFormData <span style="color:#ff79c6">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  console.log(<span style="color:#f1fa8c">&#39;getFormData() is trigggered, selector is created&#39;</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> createSelector(
+</span></span><span style="display:flex;"><span>    [formDataSelector, dataModelBindingSelector],
+</span></span><span style="display:flex;"><span>    (formData<span style="color:#ff79c6">:</span> any, dataModelBinding<span style="color:#ff79c6">:</span> any) =&gt; {
+</span></span><span style="display:flex;"><span>      console.log(<span style="color:#f1fa8c">&#39;ouput selector running&#39;</span>, formData);
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>formData) <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>formData[dataModelBinding]) <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> formData[dataModelBinding];
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">const</span> makeGetFormDataSelector <span style="color:#ff79c6">=</span> getFormData;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Alternativt en enda enklere variant, som er implementert p.t.
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> { createSelector } from <span style="color:#f1fa8c">&#39;reselect&#39;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> formDataSelector <span style="color:#ff79c6">=</span> (state<span style="color:#ff79c6">:</span> any, providedProps<span style="color:#ff79c6">:</span> any) =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> state.formFiller.formData[state.formDesigner.layout.components[providedProps.id].dataModelBinding];
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">const</span> getFormData <span style="color:#ff79c6">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> createSelector(
+</span></span><span style="display:flex;"><span>    [formDataSelector],
+</span></span><span style="display:flex;"><span>    (formData<span style="color:#ff79c6">:</span> any) =&gt; {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">if</span> (<span style="color:#ff79c6">!</span>formData) <span style="color:#ff79c6">return</span> <span style="color:#f1fa8c">&#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">return</span> formData;
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>  );
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">const</span> makeGetFormDataSelector <span style="color:#ff79c6">=</span> getFormData;
+</span></span></code></pre></div><h4 id="implementasjon-i-mapstatetoprops">Implementasjon i mapStateToProps</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#ff79c6">const</span> makeMapStateToProps <span style="color:#ff79c6">=</span> () =&gt; {
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> GetFormDataSelector <span style="color:#ff79c6">=</span> makeGetFormDataSelector();
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">const</span> mapStateToProps <span style="color:#ff79c6">=</span> (state<span style="color:#ff79c6">:</span> IAppState, props<span style="color:#ff79c6">:</span> IProvidedProps)<span style="color:#ff79c6">:</span> IFormElementProps =&gt; ({
+</span></span><span style="display:flex;"><span>    id<span style="color:#ff79c6">:</span> props.id,
+</span></span><span style="display:flex;"><span>    formData<span style="color:#ff79c6">:</span> GetFormDataSelector(state, props),
+</span></span><span style="display:flex;"><span>  });
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> mapStateToProps;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">export</span> <span style="color:#ff79c6">const</span> FormComponentWrapper <span style="color:#ff79c6">=</span> connect(makeMapStateToProps)(FormComponent);
+</span></span></code></pre></div><p>makeMapStateToProps implementeres slik at Selectoren kan gjenbrukes på tvers av flere komponenter.</p>
+<h2 id="higher-order-components">Higher-Order Components</h2>
+<p>Higher-Order component er en funksjon som tar imot en component og returnerer et nytt komponent med ekstra funksjoner, eller ekstra data.
+Et eksempel på dette er <em>connect</em>-funksjonen fra &ldquo;redux&rdquo;, som tar imot en funksjon som velger redux-state data, og en komponent som disse dataene skal sendes til.</p>
+<h3 id="hvorfor">Hvorfor?</h3>
+<p>Ved å wrappe induviduelle komponenter i en higher-order component, vil vi få enklere kode mtp. at en funksjon håndterer endringer i skjemaet på kun en komponent, i motsetning til å ha en funksjon som håndterer alle endringer i skjemaet.
+Dette vil også gi tredjeparts-utviklere en enklere måte å skrive egne funksjoner for håndtering av endringer i deres komponenter.</p>
+<h4 id="eksempel-på-bruk-i-altinn-studio">Eksempel på bruk i Altinn Studio</h4>
+<p>Når bruker lager en tjeneste med 3. parts komponenter vil vi wrappe disse komponentene i en
+Higher Order Component som gir den en callback funksjon som tar imot data som komponenten har,
+og kjøre en redux-action som oppdaterer data i redux-state. Uten at utvikleren av 3. parts komponenten må sette seg inn i hvilke actions som skal kjøres.
+Dette gir også bedre mulighet for å gjennbruke 3. parts komponenter.</p>
+<h4 id="eksempel-på-higher-order-component">Eksempel på Higher Order Component</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#ff79c6">const</span> FormComponentWrapper <span style="color:#ff79c6">=</span> (WrappedComponent, ...) =&gt; {
+</span></span><span style="display:flex;"><span>	<span style="color:#6272a4">// Feel free to do anything that will enhance the components properties
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span>	<span style="color:#6272a4">// Return a react component
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	<span style="color:#ff79c6">return</span> <span style="color:#ff79c6">class</span> <span style="color:#ff79c6">extends</span> React.Component {
+</span></span><span style="display:flex;"><span>		<span style="color:#6272a4">// Add functions for handling changing of data
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>		handleDataChange <span style="color:#ff79c6">=</span> (dataModelBinding, data) =&gt; {
+</span></span><span style="display:flex;"><span>			<span style="color:#6272a4">// fire off an action for adding the changed data to redux state
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>		}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		render() {
+</span></span><span style="display:flex;"><span>			<span style="color:#ff79c6">return</span>(
+</span></span><span style="display:flex;"><span>				<span style="color:#ff79c6">&lt;</span>WrappedComponent onFormDataChange<span style="color:#ff79c6">=</span>{<span style="color:#ff79c6">this</span>.handleDataChange} {...props}<span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>			);
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="kilder-2">Kilder</h4>
+<ul>
+<li><a href="https://reactjs.org/docs/higher-order-components.html">Higher-Order component</a></li>
+</ul>
+<h2 id="normalized-redux-store">Normalized Redux Store</h2>
+<h3 id="kort-oppsummert-tldr-2">Kort oppsummert (TL;DR)</h3>
+<ul>
+<li>Hver datatype får sin egen &ldquo;tabell&rdquo; i State.</li>
+<li>Hver &ldquo;tabell&rdquo; skal lagre individuelle &ldquo;data&rdquo; som objekter, med IDer som nøkler og &ldquo;dataen&rdquo; som verdi.</li>
+<li>Referansene til de individuelle &ldquo;dataene&rdquo; lagres ved å lagre IDene.</li>
+<li>Array med IDene brukes for å indikere sortering.</li>
+</ul>
+<h3 id="utfordring-why-2">Utfordring (Why?)</h3>
+<ul>
+<li>Kompliserte reducers for å oppdatere nøstet state struktur.</li>
+<li>Unødvendig re-rendering grunnet oppdatering av nøstede objekter.</li>
+</ul>
+<h3 id="eksempel-1">Eksempel</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    posts <span style="color:#ff79c6">:</span> {
+</span></span><span style="display:flex;"><span>        byId <span style="color:#ff79c6">:</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#34;post1&#34;</span> <span style="color:#ff79c6">:</span> {
+</span></span><span style="display:flex;"><span>                id <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;post1&#34;</span>,
+</span></span><span style="display:flex;"><span>                author <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;user1&#34;</span>,
+</span></span><span style="display:flex;"><span>                body <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;......&#34;</span>,
+</span></span><span style="display:flex;"><span>                comments <span style="color:#ff79c6">:</span> [<span style="color:#f1fa8c">&#34;comment1&#34;</span>, <span style="color:#f1fa8c">&#34;comment2&#34;</span>]    
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#34;post2&#34;</span> <span style="color:#ff79c6">:</span> {
+</span></span><span style="display:flex;"><span>                id <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;post2&#34;</span>,
+</span></span><span style="display:flex;"><span>                author <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;user2&#34;</span>,
+</span></span><span style="display:flex;"><span>                body <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;......&#34;</span>,
+</span></span><span style="display:flex;"><span>                comments <span style="color:#ff79c6">:</span> [<span style="color:#f1fa8c">&#34;comment3&#34;</span>, <span style="color:#f1fa8c">&#34;comment4&#34;</span>, <span style="color:#f1fa8c">&#34;comment5&#34;</span>]    
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        allIds <span style="color:#ff79c6">:</span> [<span style="color:#f1fa8c">&#34;post1&#34;</span>, <span style="color:#f1fa8c">&#34;post2&#34;</span>]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    comments <span style="color:#ff79c6">:</span> {
+</span></span><span style="display:flex;"><span>        byId <span style="color:#ff79c6">:</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#34;comment1&#34;</span> <span style="color:#ff79c6">:</span> {
+</span></span><span style="display:flex;"><span>                id <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;comment1&#34;</span>,
+</span></span><span style="display:flex;"><span>                author <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;user2&#34;</span>,
+</span></span><span style="display:flex;"><span>                comment <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;.....&#34;</span>,
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#34;comment2&#34;</span> <span style="color:#ff79c6">:</span> {
+</span></span><span style="display:flex;"><span>                id <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;comment2&#34;</span>,
+</span></span><span style="display:flex;"><span>                author <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;user3&#34;</span>,
+</span></span><span style="display:flex;"><span>                comment <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;.....&#34;</span>,
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#34;comment3&#34;</span> <span style="color:#ff79c6">:</span> {
+</span></span><span style="display:flex;"><span>                id <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;comment3&#34;</span>,
+</span></span><span style="display:flex;"><span>                author <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;user3&#34;</span>,
+</span></span><span style="display:flex;"><span>                comment <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;.....&#34;</span>,
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#34;comment4&#34;</span> <span style="color:#ff79c6">:</span> {
+</span></span><span style="display:flex;"><span>                id <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;comment4&#34;</span>,
+</span></span><span style="display:flex;"><span>                author <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;user1&#34;</span>,
+</span></span><span style="display:flex;"><span>                comment <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;.....&#34;</span>,
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#34;comment5&#34;</span> <span style="color:#ff79c6">:</span> {
+</span></span><span style="display:flex;"><span>                id <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;comment5&#34;</span>,
+</span></span><span style="display:flex;"><span>                author <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;user3&#34;</span>,
+</span></span><span style="display:flex;"><span>                comment <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;.....&#34;</span>,
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        allIds <span style="color:#ff79c6">:</span> [<span style="color:#f1fa8c">&#34;comment1&#34;</span>, <span style="color:#f1fa8c">&#34;comment2&#34;</span>, <span style="color:#f1fa8c">&#34;comment3&#34;</span>, <span style="color:#f1fa8c">&#34;commment4&#34;</span>, <span style="color:#f1fa8c">&#34;comment5&#34;</span>]
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    users <span style="color:#ff79c6">:</span> {
+</span></span><span style="display:flex;"><span>        byId <span style="color:#ff79c6">:</span> {
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#34;user1&#34;</span> <span style="color:#ff79c6">:</span> {
+</span></span><span style="display:flex;"><span>                username <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;user1&#34;</span>,
+</span></span><span style="display:flex;"><span>                name <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;User 1&#34;</span>,
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#34;user2&#34;</span> <span style="color:#ff79c6">:</span> {
+</span></span><span style="display:flex;"><span>                username <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;user2&#34;</span>,
+</span></span><span style="display:flex;"><span>                name <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;User 2&#34;</span>,
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#34;user3&#34;</span> <span style="color:#ff79c6">:</span> {
+</span></span><span style="display:flex;"><span>                username <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;user3&#34;</span>,
+</span></span><span style="display:flex;"><span>                name <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;User 3&#34;</span>,
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        allIds <span style="color:#ff79c6">:</span> [<span style="color:#f1fa8c">&#34;user1&#34;</span>, <span style="color:#f1fa8c">&#34;user2&#34;</span>, <span style="color:#f1fa8c">&#34;user3&#34;</span>]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="kilder-3">Kilder</h4>
+<ul>
+<li><a href="https://redux.js.org/recipes/structuringreducers/normalizingstateshape">Normalizing State Shape</a></li>
+</ul>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/technology/tools/react/architecture/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#bruk-av-redux-store-i-containere-og-components">Bruk av Redux Store i Containere og Components.</a>
+      <ul>
+        <li><a href="#kort-oppsummert-tldr">Kort oppsummert (TL;DR)</a></li>
+        <li><a href="#utfordring-why">Utfordring (Why?)</a></li>
+        <li><a href="#re-rendring-trigges-av">Re-rendring trigges av…</a>
+          <ul>
+            <li><a href="#kilder">Kilder</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#filtrering-av-redux-store-i-mapstatetoprops-ved-help-av-selector">Filtrering av Redux Store i mapStateToProps() ved help av Selector</a>
+      <ul>
+        <li><a href="#kort-oppsummert-tldr-1">Kort oppsummert (TL;DR)</a></li>
+        <li><a href="#utfordring-why-1">Utfordring (Why?)</a></li>
+        <li><a href="#løsningen">Løsningen</a>
+          <ul>
+            <li><a href="#kilder-1">Kilder</a></li>
+          </ul>
+        </li>
+        <li><a href="#eksempel">Eksempel</a>
+          <ul>
+            <li><a href="#selector">Selector</a></li>
+            <li><a href="#implementasjon-i-mapstatetoprops">Implementasjon i mapStateToProps</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#higher-order-components">Higher-Order Components</a>
+      <ul>
+        <li><a href="#hvorfor">Hvorfor?</a>
+          <ul>
+            <li><a href="#eksempel-på-bruk-i-altinn-studio">Eksempel på bruk i Altinn Studio</a></li>
+            <li><a href="#eksempel-på-higher-order-component">Eksempel på Higher Order Component</a></li>
+            <li><a href="#kilder-2">Kilder</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#normalized-redux-store">Normalized Redux Store</a>
+      <ul>
+        <li><a href="#kort-oppsummert-tldr-2">Kort oppsummert (TL;DR)</a></li>
+        <li><a href="#utfordring-why-2">Utfordring (Why?)</a></li>
+        <li><a href="#eksempel-1">Eksempel</a>
+          <ul>
+            <li><a href="#kilder-3">Kilder</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

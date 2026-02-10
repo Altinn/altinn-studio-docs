@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Referanseinformasjon om autorisasjonsattributter" />
+<meta name="altinn_pagedir" class="elastic" content="dialogporten/reference/authorization/attributes/" />
+<meta name="altinn_title" class="elastic" content="Autorisasjonsattributter" />
+<meta name="product" data-pagefind-filter="Produkt[content]" content="Dialogporten" />
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="Referanse" />
+
+<title>Autorisasjonsattributter – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/dialogporten/reference/authorization/attributes/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Produkt</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/authorization/">
+      <p class="product-item">Autorisasjon</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/broker/">
+      <p class="product-item">Formidling</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/">
+      <p class="product-item">Melding</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/notifications/">
+      <p class="product-item">Varsling</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Søk</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/nb.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/reference/authorization/attributes/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/dialogporten/reference/authorization/attributes/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">Hva leter du etter?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Søk');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Sist endret: 2. feb. 2026</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/nb/dialogporten/"><span>Dialogporten</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/about-dialogporten/"><span>Om Dialogporten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/what-do-you-get/"><span>Hva får du?</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/"><span>Komme i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/dialogs/"><span>Dialoger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/authorization/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/authorization/parties/"><span>Parter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/authorization/service-resource/"><span>Tjenesteressurs</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/authorization/attributes/"><span>Autorisasjonsattributter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/authorization/dialog-tokens/"><span>Dialog Tokens</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/events/"><span>Hendelser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/front-channel-embeds/"><span>Front channel embeds</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/write-actions/"><span>Skrivehandlinger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/process-identifiers/"><span>Prosessidentifikatorer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/seen-log/"><span>Sett-logg</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/getting-started/activity-log/"><span>Aktivitetslogg</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/"><span>Brukerhåndbøker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/authenticating/"><span>Autentisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/authorized-parties/"><span>Finne autoriserte parter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/searching-for-dialogs/"><span>Søke etter dialoger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/getting-dialog-details/"><span>Hente dialogdetaljer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/detecting-changes/"><span>Oppdage endringer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/service-owners/"><span>Tjenesteeiere</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/service-owners/creating-resources/"><span>Opprette ressurser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/service-owners/creating-dialogs/"><span>Opprette dialoger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/service-owners/updating-dialogs/"><span>Oppdatere dialoger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/service-owners/impersonating-users/"><span>Impersonering av brukere</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/service-owners/integrating-altinn-apps/"><span>Integrere Altinn Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/service-owners/api-client/"><span>API-klient for .NET</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/user-guides/migrating-from-altinn2/"><span>Migrering fra Altinn 2</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/"><span>Referanse</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/openapi/"><span>OpenAPI</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/graphql/"><span>GraphQL</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/entities/"><span>Entiteter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/entities/dialog/"><span>Dialog</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/entities/transmission/"><span>Forsendelse</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/entities/attachment/"><span>Vedlegg</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/entities/activity/"><span>Aktivitet</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/entities/seen/"><span>Sett</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/entities/systemlabel/"><span>Systemetikett</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/entities/action/"><span>Handling</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/authorization/"><span>Autorisasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/authorization/altinn-authorization/"><span>Altinn Autorisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/authorization/attributes/"><span>Autorisasjonsattributter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/authorization/parties/"><span>Autoriserte parter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/authorization/dialog-tokens/"><span>Dialog Tokens</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/front-end/"><span>Front end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/front-end/front-channel-embeds/"><span>Front channel embeds</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/front-end/write-actions/"><span>Skrivehandlinger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/front-end/subscriptions/"><span>GraphQL-abonnementer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/front-end/altinn-apps/"><span>Altinn Apps integrasjon</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/events/"><span>Hendelser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/reference/content-types/"><span>Innholdstyper</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/news/"><span>Nyheter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/dialogporten/status-migration/"><span>Status migrering</span></a></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/nb/dialogporten/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/dialogporten/reference/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/dialogporten/reference/authorization/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/dialogporten/reference/authorization/attributes/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/nb/dialogporten/'>Dialogporten</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/dialogporten/reference/'>Referanse</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/dialogporten/reference/authorization/'>Autorisasjon</a> <span class='adocs-breadcrumb-divider'> / </span> Autorisasjonsattributter</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Autorisasjonsattributter</h1>
+              <p class="a-leadText" id="leadText">Referanseinformasjon om autorisasjonsattributter</p>
+
+<h2 id="introduksjon">Introduksjon</h2>
+<p>Se <a href="/nb/dialogporten/reference/authorization/attributes/../../../getting-started/authorization/attributes/">komme i gang med autorisasjonsattributter</a> for en funksjonell oversikt over autorisasjonsattributter og hva de kan brukes til.</p>
+<p>Autorisasjonsattributter er en måte å kontrollere hvordan XACML-forespørselen er konstruert for en gitt dialog, noe som gjør det mulig å ha mer finkornede regler og til og med referere til flere distinkte ressurspolicyer.</p>
+<div class="notices info" >Autorisasjonsattributter vurderes bare i single dialog-endepunkter, dvs. når du ber om en dialog etter ID. For dialogsøk/lister blir ikke autorisasjonsattributtene vurdert.</div>
+
+<h2 id="bruk">Bruk</h2>
+<p>Autorisasjonsattributter kan leveres på:</p>
+<ul>
+<li>GUI-handlinger</li>
+<li>API-handlinger</li>
+<li>Overføringer</li>
+</ul>
+<h2 id="grunnleggende-format">Grunnleggende format</h2>
+<p>Verdien til autorisasjonsattributtet vil bli mappet til en XACML-ressurs som Altinn Authorization kan forstå, dvs. en URN. Gyldige eksempler:</p>
+<pre tabindex="0"><code>urn:altinn:subresource:mysubresource
+urn:altinn:task:Task_1
+urn:altinn:resource:someotherresource
+</code></pre><div class="notices info" >I tillegg kan en bar ikke-URN-streng som <code>foobar</code> leveres som en snarvei for <code>urn:altinn:subresource:foobar</code></div>
+
+<p>Autorisasjonsattributtet er delt ved det siste segmentet, og den første delen brukes som <em>attributt-ID</em> og den andre delen som <em>attributtverdi</em>.</p>
+<h2 id="mapping-til-xacml">Mapping til XACML</h2>
+<p>Eks. gitt en dialog som har <code>ServiceResource</code> satt til <code>urn:altinn:resource:myfirstservice</code> og en GUI/API-handling formet som dette på en dialog:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;action&#34;</span>: <span style="color:#f1fa8c">&#34;sign&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;authorizationAttribute&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:task:gm_signing_task&#34;</span>,
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>vil resultere i en XACML-forespørsel som dette:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;Request&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;AccessSubject&#34;</span>: [ /* information about the user omitted */ ],
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;Action&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Attribute&#34;</span>: [
+</span></span><span style="display:flex;"><span>          {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;AttributeId&#34;</span>: <span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;Value&#34;</span>: <span style="color:#f1fa8c">&#34;sign&#34;</span>
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;Resource&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Attribute&#34;</span>: [
+</span></span><span style="display:flex;"><span>          {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;AttributeId&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:resource&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;Value&#34;</span>: <span style="color:#f1fa8c">&#34;myfirstservice&#34;</span>
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>          {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;AttributeId&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:task&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;Value&#34;</span>: <span style="color:#f1fa8c">&#34;gm_signing_task&#34;</span>
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>          /* information about the party owning the dialog omitted */
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Dette kan styres av en policyregel som dette:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:1&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;xacml:Description&gt;</span>En regel som gir bruker med rolle DAGL til å &#34;sign&#34; innenfor oppgaven med navnet &#34;gm_signing_task&#34;<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>DAGL<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:rolecode&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>myfirstservice<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:resource&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>gm_signing_task<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:task&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>sign<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:Target&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
+</span></span></code></pre></div><p>Hvis forespørselen mislykkes, vil Dialogporten flagge GUI/API-handlingen eller overføringen med <code>isAuthorized: false</code> og fjerne de tilknyttede URL-ene. Dette gjør at sluttbrukersystemer kan indikere til brukeren at tilgang til den gitte handlingen er nektet.</p>
+<div class="notices warning" >Selv om Dialogporten indikerer at handlingen er uautorisert, og fjerner URL-ene, bør endepunktet fortsatt alltid utføre autentisering/autorisasjon på innkommende forespørsler og ikke stole på at Dialogporten bare skjuler tilgangen til endepunktene</div>
+
+<h2 id="bruke-autorisasjonsattributter-på-forsendelser">Bruke autorisasjonsattributter på forsendelser</h2>
+<p>For forsendelser (&ldquo;transmissions&rdquo;) er mekanismen den samme, men det er ingen eksplisitte handlinger knyttet til en forsendelse. Derfor er enten <code>read</code> eller <code>transmissionread</code>-handlinger utledet og brukt i XACML-forespørslene.</p>
+<p>Hvis et autorisasjonsattributt er oppgitt som refererer til en separat ressurs/policy i Resource Registry (se nedenfor), vil <code>read</code> bli brukt som handlingen i autorisasjonssjekken. <code>read</code> brukes også hvis ingen autorisasjonsattributt er oppgitt i det hele tatt. Men hvis et autorisasjonsattributt som IKKE refererer til en separat ressurs/policy i Resource Registry leveres, vil <code>transmissionread</code> bli brukt som handlingen i autorisasjonssjekken.</p>
+<p>Årsaken til dette er at <code>read</code>-handlingen vanligvis er definert for hele ressursen, som vil inkludere alle underressurser på grunn av den matchende naturen til XACML-autorisasjon &ldquo;permit&rdquo;-regler brukt i Altinn Authorization (en XACML-regel definerer begrensninger, dvs. attributter som må være tilstede i forespørselen; en tom XACML-regel vil dermed matche - og returnere &ldquo;permit&rdquo; - enhver forespørsel). Så for å bruke autorisasjonsattributter som refererer til regler innenfor samme policy som skal definere separate tilgangskrav, er det nødvendig å bruke noe annet enn <code>read</code>, dvs. <code>transmissionread</code>.</p>
+<p>Eksempel:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:1&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;xacml:Description&gt;</span>En regel som gir brukere med rolle UTINN eller DAGL til å lese dialogen<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>UTINN<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:rolecode&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>DAGL<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:rolecode&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>myfirstservice<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:resource&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>read<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:Target&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;xacml:Rule</span> <span style="color:#50fa7b">RuleId=</span><span style="color:#f1fa8c">&#34;urn:altinn:example:ruleid:2&#34;</span> <span style="color:#50fa7b">Effect=</span><span style="color:#f1fa8c">&#34;Permit&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;xacml:Description&gt;</span>En regel som gir brukere med DAGL til å lese en bestemt overføring<span style="color:#ff79c6">&lt;/xacml:Description&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;xacml:Target&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>DAGL<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:rolecode&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:subject-category:access-subject&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>myfirstservice<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:resource&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>sometransmission<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:altinn:subresource&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:resource&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>            
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;xacml:Match</span> <span style="color:#50fa7b">MatchId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:function:string-equal&#34;</span><span style="color:#ff79c6">&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&lt;xacml:AttributeValue</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span><span style="color:#ff79c6">&gt;</span>transmissionread<span style="color:#ff79c6">&lt;/xacml:AttributeValue&gt;</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#ff79c6">&lt;xacml:AttributeDesignator</span> <span style="color:#50fa7b">AttributeId=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span> <span style="color:#50fa7b">Category=</span><span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:3.0:attribute-category:action&#34;</span> <span style="color:#50fa7b">DataType=</span><span style="color:#f1fa8c">&#34;http://www.w3.org/2001/XMLSchema#string&#34;</span> <span style="color:#50fa7b">MustBePresent=</span><span style="color:#f1fa8c">&#34;false&#34;</span><span style="color:#ff79c6">/&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&lt;/xacml:Match&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&lt;/xacml:AllOf&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&lt;/xacml:AnyOf&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&lt;/xacml:Target&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">&lt;/xacml:Rule&gt;</span>
+</span></span></code></pre></div><p>I eksemplet ovenfor vil følgende XACML-forespørsel:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;Request&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;AccessSubject&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Attribute&#34;</span>: [
+</span></span><span style="display:flex;"><span>          {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;AttributeId&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:rolecode&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;Value&#34;</span>: <span style="color:#f1fa8c">&#34;UTINN&#34;</span>
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;Action&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Attribute&#34;</span>: [
+</span></span><span style="display:flex;"><span>          {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;AttributeId&#34;</span>: <span style="color:#f1fa8c">&#34;urn:oasis:names:tc:xacml:1.0:action:action-id&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;Value&#34;</span>: <span style="color:#f1fa8c">&#34;read&#34;</span>
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;Resource&#34;</span>: [
+</span></span><span style="display:flex;"><span>      {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;Attribute&#34;</span>: [
+</span></span><span style="display:flex;"><span>          {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;AttributeId&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:resource&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;Value&#34;</span>: <span style="color:#f1fa8c">&#34;myfirstservice&#34;</span>
+</span></span><span style="display:flex;"><span>          },
+</span></span><span style="display:flex;"><span>          {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;AttributeId&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:subresource&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;Value&#34;</span>: <span style="color:#f1fa8c">&#34;sometransmission&#34;</span>
+</span></span><span style="display:flex;"><span>          }
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Vil resultere i <code>Permit</code>, fordi forespørselen tilfredsstiller alle begrensningene definert i den første regelen, som ikke er det vi ønsker. Ved å bruke en annen handling, dvs. <code>transmissionread</code>, vil den ikke lenger samsvare med den første regelen, og fordi UTINN ikke er en del av subjektet i den andre regelen, vil et <code>Permit</code>-svar ikke bli gitt, og overføringen vil bli flagget som utilgjengelig av Dialogporten.</p>
+<h2 id="referer-til-separat-ressurspolicy-i-resource-registry">Referer til separat ressurs/policy i Resource Registry</h2>
+<p>Hvis autorisasjonsattributtverdien starter med enten <code>urn:altinn:resource</code> eller <code>urn:altinn:app</code>, og hele verdien avviker fra hva <code>ServiceResource</code> for den gitte dialogen er satt til, anses autorisasjonsattributtet som å referere til forskjellige ressurser i Resource Registry. På denne måten kan tilgang til de forskjellige delene av en dialog styres av forskjellige policyer.</p>
+<p>Et typisk brukstilfelle er å ha dialoger som alle refererer til forskjellige ressurser/policyer, men innenfor dem inneholder <a href="/nb/dialogporten/reference/authorization/attributes/../../entities/transmission/">forsendelser</a> som representerer en felles type kommunikasjon (dvs. varsel om tvangsgebyr) som styres av samme autorisasjonspolicy, uavhengig av dialogen der den brukes.</p>
+<p>Eksempel:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#6272a4">// First dialog
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;019275d2-1b5d-7b82-b436-4b74e5cbd02b&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;serviceResource&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:resource:some-service&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;transmissions&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;019275d3-41d5-743c-be44-aa729cf95acf&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;authorizationAttribute&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:resource:notice-of-coervice-fine&#34;</span>,
+</span></span><span style="display:flex;"><span>            ...
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Second dialog
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;019275d4-d550-7e93-9819-1e40579f243a&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;serviceResource&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:resource:other-service&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;transmissions&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;019275d5-0044-7b10-803a-fa5e6ac3f593&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;authorizationAttribute&#34;</span>: <span style="color:#f1fa8c">&#34;urn:altinn:resource:notice-of-coervice-fine&#34;</span>,
+</span></span><span style="display:flex;"><span>            ...
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Dette gir mulighet for å ha finkornet kontroll over hvilke deler av dialoger en gitt rolle får tilgang til, samtidig som man unngår å duplisere policyregler på tvers av policyene som styrer tilgang til ulike dialogtyper.</p>
+<ul class="children children-li js-moveChildrenFrom">
+
+	
+		
+	
+</ul>
+
+
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/dialogporten/reference/authorization/attributes/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduksjon">Introduksjon</a></li>
+    <li><a href="#bruk">Bruk</a></li>
+    <li><a href="#grunnleggende-format">Grunnleggende format</a></li>
+    <li><a href="#mapping-til-xacml">Mapping til XACML</a></li>
+    <li><a href="#bruke-autorisasjonsattributter-på-forsendelser">Bruke autorisasjonsattributter på forsendelser</a></li>
+    <li><a href="#referer-til-separat-ressurspolicy-i-resource-registry">Referer til separat ressurs/policy i Resource Registry</a></li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

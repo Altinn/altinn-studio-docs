@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="The Storage component gives storage capabilities to the apps." />
+<meta name="altinn_pagedir" class="elastic" content="technology/solutions/altinn-platform/storage/" />
+<meta name="altinn_title" class="elastic" content="Storage" />
+
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="Referanse" />
+
+<title>Storage – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/technology/solutions/altinn-platform/storage/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Produkt</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/authorization/">
+      <p class="product-item">Autorisasjon</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/broker/">
+      <p class="product-item">Formidling</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/">
+      <p class="product-item">Melding</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/notifications/">
+      <p class="product-item">Varsling</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Søk</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/nb.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/technology/solutions/altinn-platform/storage/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/technology/solutions/altinn-platform/storage/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">Hva leter du etter?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Søk');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Sist endret: 29. sep. 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/nb/technology/"><span>Teknologi</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/"><span>Architecture</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/requirements/"><span>Requirements</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/requirements/functional/"><span>Functional</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/requirements/non_functional/"><span>Non-Functional</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/principles/"><span>Principles</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/patterns/"><span>Patterns</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/"><span>Capabilities</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/"><span>Runtime</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/appdeploy/"><span>App Build &amp; Deploy</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/appdevelopment/"><span>App Development</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/data/"><span>Data</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/integration/"><span>Integration</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/presentation/"><span>Presentation</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/processing/"><span>Processing &amp; Execution</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/processing/process/"><span>Process</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/nb/technology/architecture/capabilities/runtime/processing/process/process_interaction/">
+            <span>Process Interaction</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/security/"><span>Security</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/security/authentication/"><span>Authentication</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/security/authentication/accesstoken/"><span>Access Token</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/security/authentication/authentication-api/"><span>Authentication API</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/security/authentication/jwt-format/"><span>JWT Format</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/security/authentication/oidcproviders/"><span>OIDC Providers</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/security/authorization/"><span>Authorization</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/runtime/security/encryption/"><span>Encryption</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/"><span>DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/analysisanddesign/"><span>Analysis &amp; Design</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/build_and_test/"><span>Build &amp; Test</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/build_and_test/build/"><span>Build process</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/environments/"><span>Environments</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/platformoperations/"><span>Platform Operations</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/platformoperations/backupandrecovery/"><span>Backup &amp; Recovery</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/platformoperations/infrastructuremgmt/"><span>Infrastructure mgmt</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/platformoperations/monitoring/"><span>Monitoring</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/projectmanagement/"><span>Project Management</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/quality/"><span>Quality Management</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/softwareconfiguration/"><span>Software Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/softwareconfiguration/deployment/"><span>Deployment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/capabilities/devops/softwareconfiguration/deployment/altinn-studio/"><span>Altinn Studio</span></a></li></ul></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/"><span>Components</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/"><span>Application</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/"><span>Construction</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-apps/"><span>Altinn Apps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-apps/kuberneteswrapper/"><span>Kubernetes Wrapper</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-apps/routing/"><span>Routing</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-platform/"><span>Altinn Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-platform/profile/"><span>Profile</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-platform/receipt/"><span>Receipt</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-platform/register/"><span>Register</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-platform/storage/"><span>Storage</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/construction/altinn-platform/ttplog/"><span>Storage</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/nonsolutionspecific/"><span>Non-Solution</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/nonsolutionspecific/development/"><span>Development</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/nonsolutionspecific/operations/"><span>Operations</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/application/nonsolutionspecific/operations/backupandrecovery/"><span>Backup &amp; Recovery</span></a></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/data/"><span>Data</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/data/conceptual/"><span>Conceptual</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/data/logical/"><span>Logical</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/infrastructure/"><span>Infrastructure</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/infrastructure/computing/"><span>Compute</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/infrastructure/computing/scaling/"><span>Scaling</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/infrastructure/network/"><span>Network</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/infrastructure/storage/"><span>Storage</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/platform/"><span>Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/platform/datareporting/"><span>Data &amp; Reporting</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/platform/integration/"><span>Integration</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/platform/logicexecution/"><span>Logic Execution</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/platform/oscloudplatform/"><span>OS &amp; Cloud Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/platform/oscloudplatform/kubernetes/"><span>Kubernetes</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/platform/presentation/"><span>Presentation</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/components/platform/presentation/altinn-cdn/"><span>Altinn CDN</span></a></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/architecture/informationmodel/"><span>Information Model</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/"><span>Løsningene</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/altinn-apps/"><span>Altinn Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/altinn-platform/"><span>Altinn Platform</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/altinn-platform/profile/"><span>Profile</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/altinn-platform/receipt/"><span>Kvittering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/altinn-platform/storage/"><span>Storage</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/altinn-platform/ttplog/"><span>TTP Log</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/cli/"><span>Altinn CLI</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/cli/commands/"><span>Commands</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/cli/configuration/"><span>Configuration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/cli/configuration/maskinporten-setup/"><span>Maskinporten</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/solutions/cli/software-implementation/"><span>Software implementation</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/terms/"><span>Terms</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/"><span>Tools</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/dotnet-core/"><span>.NET</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/alpine-linux/"><span>Alpine Linux</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/bpmn/"><span>BPMN</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/c-sharp/"><span>C#</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/docker/"><span>Docker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/git/"><span>Git</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/gitea/"><span>Gitea</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/go/"><span>Go</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/grafana/"><span>Grafana</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/helm/"><span>Helm</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/hugo/"><span>Hugo</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/jest/"><span>Jest</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/kubernetes/"><span>Kubernetes</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/markdown/"><span>Markdown</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/nginx/"><span>Nginx</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/node-js/"><span>Node.js</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/prometheus/"><span>Prometheus</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/react/"><span>React</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/react/architecture/"><span>Kodearkitektur</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/react/redux/"><span>Redux</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/terraform/"><span>Terraform</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/traefik/"><span>Traefik</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/typescript/"><span>TypeScript</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/technology/tools/vs-code/"><span>Visual Studio Code</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/nb/technology/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/technology/solutions/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/technology/solutions/altinn-platform/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/technology/solutions/altinn-platform/storage/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/nb/technology/'>Teknologi</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/technology/solutions/'>Løsningene</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/technology/solutions/altinn-platform/'>Altinn Platform</a> <span class='adocs-breadcrumb-divider'> / </span> Storage</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Storage</h1>
+              <p class="a-leadText" id="leadText">The Storage component gives storage capabilities to the apps.</p>
+
+<p>Storage support storage of structured and unstructured data for apps.
+Apps that need the cabability to store data uses the storage service in the Altinn platform to store both metadata and actual data.</p>
+<h2 id="metadata">Metadata</h2>
+<p>Stored in Azure Cosmos Db.</p>
+<h2 id="formdata-and-attachments">Formdata and attachments</h2>
+<p>Stored in Azure Blob Storage. One storage account for each application owner.</p>
+<h2 id="additional-details">Additional details</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;test/sailor&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;versionId&#34;</span>: <span style="color:#f1fa8c">&#34;v32.23-xyp&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;org&#34;</span>: <span style="color:#f1fa8c">&#34;test&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;app&#34;</span>: <span style="color:#f1fa8c">&#34;sailor&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2019-03-06T13:46:48.6882148+01:00&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#f1fa8c">&#34;XXX&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;title&#34;</span>: { <span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;Testapplikasjon&#34;</span>, <span style="color:#ff79c6">&#34;en&#34;</span>: <span style="color:#f1fa8c">&#34;Test Application&#34;</span> },
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;processId&#34;</span>: <span style="color:#f1fa8c">&#34;standard&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;validFrom&#34;</span>: <span style="color:#f1fa8c">&#34;2019-04-01T12:14:22+01:00&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;validTo&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dataTypes&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;boatdata&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;description&#34;</span>: {<span style="color:#ff79c6">&#34;nb&#34;</span>: <span style="color:#f1fa8c">&#34;Båtdata&#34;</span>, <span style="color:#ff79c6">&#34;en&#34;</span>: <span style="color:#f1fa8c">&#34;Boat data&#34;</span>},
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [<span style="color:#f1fa8c">&#34;application/json&#34;</span>],
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;appLogic&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&#34;autoCreate&#34;</span>: <span style="color:#ff79c6">true</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&#34;classRef&#34;</span>: <span style="color:#f1fa8c">&#34;Skjema&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&#34;schemaRef&#34;</span>: <span style="color:#f1fa8c">&#34;schemas/boatname&#34;</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#bd93f9">200000</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;crewlist&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [<span style="color:#f1fa8c">&#34;application/xml&#34;</span>],
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_2&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;appLogic&#34;</span>: {
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&#34;autoCreate&#34;</span>: <span style="color:#ff79c6">false</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&#34;classRef&#34;</span>: <span style="color:#f1fa8c">&#34;CrewList&#34;</span>,
+</span></span><span style="display:flex;"><span>                <span style="color:#ff79c6">&#34;schemaRef&#34;</span>: <span style="color:#f1fa8c">&#34;schemas/crewlist&#34;</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">3</span>
+</span></span><span style="display:flex;"><span>        },
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;certificate&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;allowedContentType&#34;</span>: [<span style="color:#f1fa8c">&#34;application/pdf&#34;</span>],
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;appLogic&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="application-type">Application type</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>id</td>
+          <td>string</td>
+          <td>application id</td>
+      </tr>
+      <tr>
+          <td>versionId</td>
+          <td>string</td>
+          <td>release or commit id</td>
+      </tr>
+      <tr>
+          <td>processId</td>
+          <td>string</td>
+          <td>application process id</td>
+      </tr>
+      <tr>
+          <td>title</td>
+          <td>LanguageString[]</td>
+          <td>application title in different languages</td>
+      </tr>
+      <tr>
+          <td>validFrom</td>
+          <td>dateTime</td>
+          <td>when the application is valid from</td>
+      </tr>
+      <tr>
+          <td>validTo</td>
+          <td>dateTime?</td>
+          <td>when the application is valid to</td>
+      </tr>
+      <tr>
+          <td>dataTypes</td>
+          <td>DataType[]</td>
+          <td>Metadata about data requirements in the application. See <a href="#datatype">DataType</a>.</td>
+      </tr>
+      <tr>
+          <td>maxSize</td>
+          <td>integer</td>
+          <td>the maximum number of bytes that the data elements can have</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="datatype">DataType</h3>
+<p>The DataType model represents data requirements for an application for different process tasks.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>id</td>
+          <td>string</td>
+          <td>Required. Id of the data type.</td>
+      </tr>
+      <tr>
+          <td>description</td>
+          <td>LanguageString[]</td>
+          <td>A short description of the data type. Language support.</td>
+      </tr>
+      <tr>
+          <td>allowedContentTypes</td>
+          <td>string[]</td>
+          <td>A list of allowed content types.</td>
+      </tr>
+      <tr>
+          <td>allowedContributers</td>
+          <td>string[]</td>
+          <td>A list of allowed contributers. On the format &lsquo;{keyword}:{value}&rsquo; Approved keywords are: <em>org</em> and <em>orgno</em>.</td>
+      </tr>
+      <tr>
+          <td>taskId</td>
+          <td>string</td>
+          <td>Required. Associated task from the process definition. Defines that the data is required to progress to next task in a process.</td>
+      </tr>
+      <tr>
+          <td>appLogic</td>
+          <td>ApplicationLogic</td>
+          <td>Data object that connect data to application models. This should be null for data types describing attachments. See <a href="#applicationlogic">ApplicationLogic</a>.</td>
+      </tr>
+      <tr>
+          <td>maxSize</td>
+          <td>int</td>
+          <td>Maximum allowed size of a data item of this type. Undefined means that the limit is unbounded.</td>
+      </tr>
+      <tr>
+          <td>maxCount</td>
+          <td>int</td>
+          <td>Maximum allowed data item count of this type. Zero or below indicate unbounded.</td>
+      </tr>
+      <tr>
+          <td>minCount</td>
+          <td>int</td>
+          <td>Minimum number of data items of this type. Zero or below indicate that the data type is optional.</td>
+      </tr>
+  </tbody>
+</table>
+<h4 id="example">Example</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;receipt&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;allowedContentTypes&#34;</span>: [<span style="color:#f1fa8c">&#34;image/jpeg&#34;</span>, <span style="color:#f1fa8c">&#34;image/png&#34;</span>],
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;taskId&#34;</span>: <span style="color:#f1fa8c">&#34;Task_1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;appLogic&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;maxSize&#34;</span>: <span style="color:#bd93f9">20</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;minCount&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">3</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>In order to complete process task <strong>Task_1</strong> the user must upload at least one image. It can be either a jpg or png below 20 MB. The user is allowed to upload additional 2 images. The application does not have any business logic associated with the data type.</p>
+<h3 id="applicationlogic">ApplicationLogic</h3>
+<p>The ApplicationLogic model describes the connection between a data type and a corresponding data model in the application. This is required for all data types associated with an XSD or JSON Schema. In most cases it also implies that there is a UI with a form the user can fill in.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>autoCreate</td>
+          <td>bool</td>
+          <td>Indicate that the application should automatically create a data item of this type with every new application instance.</td>
+      </tr>
+      <tr>
+          <td>classRef</td>
+          <td>string</td>
+          <td>Reference to the class definition representing the data model.</td>
+      </tr>
+      <tr>
+          <td>schemaRef</td>
+          <td>string</td>
+          <td>Reference to the XSD or JSON schema.</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="operations">Operations</h3>
+<p>Get a list of all Applications</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /applications
+</span></span></code></pre></div><p>Get metadata about a specific application</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /applications/{appId}
+</span></span></code></pre></div><p>Get application events.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /applications/{appId}/events
+</span></span></code></pre></div><h2 id="instanceevent">InstanceEvent</h2>
+<p>User actions on an instance trigger instance events such as <em>created</em>, <em>saved</em>, _submitted, <em>deleted</em>, and <em>undeleted</em>.
+The events are associated with an instance, a user and an instance owner and generated by the application and stored in CosmosDB.</p>
+<p>Format of the JSON object stored in the database.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>:<span style="color:#f1fa8c">&#34;6dff32bc-0928-4ae8-937c-b362d6941c89&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;instanceId&#34;</span>: <span style="color:#f1fa8c">&#34;60238/5c6b1a71-2e1f-447a-ae2f-d1807dcffbfb&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;eventType&#34;</span>: <span style="color:#f1fa8c">&#34;deleted&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2019-05-02T13:08:21.981476Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;instanceOwnerPartyId&#34;</span>: <span style="color:#f1fa8c">&#34;60238&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;user&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;userId&#34;</span>: <span style="color:#bd93f9">3</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;authenticationLevel&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;enduserSystemId&#34;</span>: <span style="color:#bd93f9">2</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="instance-event-type">Instance Event type</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Type</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>id</td>
+          <td>Guid?</td>
+          <td>Id set by CosmosDB when the instance event is stored</td>
+      </tr>
+      <tr>
+          <td>instanceId</td>
+          <td>string</td>
+          <td>{instanceOwnerPartyId}/{instanceGuid}</td>
+      </tr>
+      <tr>
+          <td>dataId</td>
+          <td>string</td>
+          <td>Id of data element if event is related to a data element.</td>
+      </tr>
+      <tr>
+          <td>created</td>
+          <td>DateTime?</td>
+          <td>DateTime set by CosmosDB when the event is stored</td>
+      </tr>
+      <tr>
+          <td>eventType</td>
+          <td>string</td>
+          <td>the event type. Available instance event types are listed <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Enums/InstanceEventType.cs">here</a></td>
+      </tr>
+      <tr>
+          <td>instanceOwnerPartyId</td>
+          <td>string</td>
+          <td>the instance owner id</td>
+      </tr>
+      <tr>
+          <td>user.userId</td>
+          <td>int?</td>
+          <td>the user who triggered the event</td>
+      </tr>
+      <tr>
+          <td>user.authenticationLevel</td>
+          <td>int</td>
+          <td>the authentication level for the user or system that triggered the event</td>
+      </tr>
+      <tr>
+          <td>user.endUserSystemId</td>
+          <td>int?</td>
+          <td>the end user system that triggered the event</td>
+      </tr>
+      <tr>
+          <td>process</td>
+          <td>ProcessState</td>
+          <td>the process step during which the event occured</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="operations-1">Operations</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /instances/{instanceId}/events
+</span></span></code></pre></div><p>Create an event. POST with body.
+<strong>Note</strong> id and createDateTime is set by the system and should not be included in the json object.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>POST /instances/{instanceId}/events
+</span></span></code></pre></div><p>Get all instance events for a specific instance.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /instances/{instanceId}/events
+</span></span></code></pre></div><p>Get all instance events for a specific instance filtered by event types</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /instances/{instanceId}/events?eventTypes={eventTypeA},{eventTypeB}
+</span></span></code></pre></div><p>Get all instance events for a specific instance within a time frame
+The times are strings defined in UTC-format. E.g. &ldquo;2019-05-03T12:55:23&rdquo;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /instances/{instanceId}/events?from={fromtime}&amp;to={totime}
+</span></span></code></pre></div><p>Get all instance events for a specific instance within a time frame filtered by event types</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /instances/{instanceId}/events?from={fromtime}&amp;to={totime}&amp;eventTypes={eventTypeA},{eventTypeB}
+</span></span></code></pre></div><p>Delete all instance events for a specific instance. DELETE request.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>DELETE /instances/{instanceId}/events
+</span></span></code></pre></div><h2 id="messageboxinstance">MessageBoxInstance</h2>
+<p>A message box instance is a compressed instance object stripped for data that is
+not relevant for the Altinn II message box. In addition some properties from the application
+metadata such as application title are included in the object.</p>
+<h3 id="messageboxinstance-type">MessageBoxInstance type</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Type</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>id</td>
+          <td>string</td>
+          <td>unique id (corrresponds to instance guid)</td>
+      </tr>
+      <tr>
+          <td>instanceOwnerId</td>
+          <td>integer</td>
+          <td>id of instance owner</td>
+      </tr>
+      <tr>
+          <td>org</td>
+          <td>string</td>
+          <td>Application owner for the app</td>
+      </tr>
+      <tr>
+          <td>appName</td>
+          <td>string</td>
+          <td>name of the application</td>
+      </tr>
+      <tr>
+          <td>title</td>
+          <td>string</td>
+          <td>title of the application in language defined in the request</td>
+      </tr>
+      <tr>
+          <td>processCurrentTask</td>
+          <td>string</td>
+          <td>current task in the process state</td>
+      </tr>
+      <tr>
+          <td>createDateTime</td>
+          <td>dateTime</td>
+          <td>creation time</td>
+      </tr>
+      <tr>
+          <td>lastChangedBy</td>
+          <td>string</td>
+          <td>user id of the user who last changed the instance</td>
+      </tr>
+      <tr>
+          <td>lastChangedBy</td>
+          <td>string</td>
+          <td>user id</td>
+      </tr>
+      <tr>
+          <td>dueDateTime</td>
+          <td>dateTime?</td>
+          <td>deadline for submit</td>
+      </tr>
+      <tr>
+          <td>bool</td>
+          <td>allowDelete</td>
+          <td>is current user allowed to delete instance</td>
+      </tr>
+      <tr>
+          <td>bool</td>
+          <td>authorizedForWrite</td>
+          <td>is current user allowed to write to edit the instance</td>
+      </tr>
+      <tr>
+          <td>deletedDateTime</td>
+          <td>dateTime?</td>
+          <td>date the instance was deleted</td>
+      </tr>
+      <tr>
+          <td>archivedDateTime</td>
+          <td>dateTime?</td>
+          <td>date the instance was archived</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="operations-2">Operations</h3>
+<p>Get a single instance in message box instance format in (optional) preffered language. Default lanugage is norsk bokmål (nb).
+Available language specifications: en, nb, nn-NO.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /sbl/instances/{instanceOwnerPartyId}/{instanceId}?language={languageId}
+</span></span></code></pre></div><p>Get list of all instances for an instance owner in a specific state, with a visible dateTime that has passed and (optional) preffered language.
+Available states: active, deleted, archived.
+Available language specifications: en, nb, nn-NO.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /sbl/instances/{instanceOwnerPartyId}?state={instanceState}&amp;language={languageId}
+</span></span></code></pre></div><p>Search instances based on query parameters
+All query parameters are optional.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /sbl/instances/search?instanceOwner.partyId={instanceOwnerPartyId}&amp;language={languageId}&amp;appId={applicationId}
+</span></span></code></pre></div><p>Mark an instance for deletion in storage. Set parameter hard equal to true or false to indicate soft or hard deletion.
+Calling this endpoint will not the delete the instance from Storage, simply mark is as deleted.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>DELETE /sbl/instances/{instanceOwnerPartyId}/{instanceId}?hard={true/false}
+</span></span></code></pre></div><p>Restore a soft deleted instance.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>PUT /sbl/instances/{instanceOwnerPartyId}/{instanceId}/undelete
+</span></span></code></pre></div><h2 id="processhistory">ProcessHistory</h2>
+<p>The process history is a list comprised of process history events for a given instance.</p>
+<h3 id="processhistoryitem-type">ProcessHistoryItem type</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Type</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>EventType</td>
+          <td>string</td>
+          <td>the event type. Available process event types are listed <a href="https://github.com/Altinn/altinn-studio/blob/master/src/Altinn.Platform/Altinn.Platform.Storage/Storage.Interface/Enums/InstanceEventType.cs">here</a> with the prefix <em>process</em>_</td>
+      </tr>
+      <tr>
+          <td>ElementId</td>
+          <td>string</td>
+          <td>element id for the process flow step</td>
+      </tr>
+      <tr>
+          <td>Occured</td>
+          <td>DateTime?</td>
+          <td>event occurence time</td>
+      </tr>
+      <tr>
+          <td>Started</td>
+          <td>DateTime?</td>
+          <td>task start time</td>
+      </tr>
+      <tr>
+          <td>Ended</td>
+          <td>DateTime?</td>
+          <td>task end time</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="operations-3">Operations</h3>
+<p>Get process history for a given instance</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /instances/{instanceOwnerPartyId}/{instanceId}/process/history
+</span></span></code></pre></div><h2 id="texts">Texts</h2>
+<p>Represents text resources for an application.</p>
+<h3 id="text-type">Text type</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>id</td>
+          <td>string</td>
+          <td>text id {org-app-language}. Only used internally for storage purposes. Auto generated.</td>
+      </tr>
+      <tr>
+          <td>language</td>
+          <td>string</td>
+          <td>the language. Two letter ISO name.</td>
+      </tr>
+      <tr>
+          <td>org</td>
+          <td>string</td>
+          <td>the org. Only used internally for storage purposes. Auto generated.</td>
+      </tr>
+      <tr>
+          <td>resources</td>
+          <td>TextResource[]</td>
+          <td>list of text resources</td>
+      </tr>
+  </tbody>
+</table>
+<p>The <code>id</code> and <code>org</code> fields are generated by the system, and should not be included when using POST the text resource object.
+Example of an text element that should be sent during a POST:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;language&#34;</span>: <span style="color:#f1fa8c">&#34;nb&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;resources:&#34;</span>: [
+</span></span><span style="display:flex;"><span>        {<span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;some_id&#34;</span>, <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;some value&#34;</span>},
+</span></span><span style="display:flex;"><span>        {<span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;some_other_id&#34;</span>, <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;some other value&#34;</span>},
+</span></span><span style="display:flex;"><span>        {<span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;yet_another_id&#34;</span>, <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;Text containing two variables: {0} and {1}.&#34;</span>,
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&#34;variables&#34;</span>:[
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;dataSouce.TextKey_1&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.dataModelName&#34;</span>
+</span></span><span style="display:flex;"><span>            },
+</span></span><span style="display:flex;"><span>            {
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;dataSouce.TextKey_2&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">&#34;dataSource&#34;</span>: <span style="color:#f1fa8c">&#34;dataModel.dataModelName&#34;</span>
+</span></span><span style="display:flex;"><span>            }]
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="textresource-type">TextResource type</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>id</td>
+          <td>string</td>
+          <td>text resource id (for instance schema.postplace)</td>
+      </tr>
+      <tr>
+          <td>value</td>
+          <td>string</td>
+          <td>the value</td>
+      </tr>
+      <tr>
+          <td>variables</td>
+          <td>list&lt;TextResourceVariable&gt;</td>
+          <td>list of text resource variables.</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="textresourcevariable-type">TextResourceVariable type</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>key</td>
+          <td>string</td>
+          <td>the key for the text resource variable</td>
+      </tr>
+      <tr>
+          <td>dataSource</td>
+          <td>string</td>
+          <td>the datasource for the text resource variable. Allowed prefix: &ldquo;dataModel&rdquo;</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="operations-4">Operations</h3>
+<p>Create a new text resource for an application.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>POST /applications/{appId}/texts
+</span></span></code></pre></div><p>Get a specific text resource for an application.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>GET /applications/{appId}/texts/{language}
+</span></span></code></pre></div><p>Update a specific text resource for an application.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>PUT /applications/{appId}/texts/{language}
+</span></span></code></pre></div><p>Delete a specific text resource for an application.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>DELETE /applications/{appId}/texts/{language}
+</span></span></code></pre></div>
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/technology/solutions/altinn-platform/storage/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#metadata">Metadata</a></li>
+    <li><a href="#formdata-and-attachments">Formdata and attachments</a></li>
+    <li><a href="#additional-details">Additional details</a>
+      <ul>
+        <li><a href="#application-type">Application type</a></li>
+        <li><a href="#datatype">DataType</a>
+          <ul>
+            <li><a href="#example">Example</a></li>
+          </ul>
+        </li>
+        <li><a href="#applicationlogic">ApplicationLogic</a></li>
+        <li><a href="#operations">Operations</a></li>
+      </ul>
+    </li>
+    <li><a href="#instanceevent">InstanceEvent</a>
+      <ul>
+        <li><a href="#instance-event-type">Instance Event type</a></li>
+        <li><a href="#operations-1">Operations</a></li>
+      </ul>
+    </li>
+    <li><a href="#messageboxinstance">MessageBoxInstance</a>
+      <ul>
+        <li><a href="#messageboxinstance-type">MessageBoxInstance type</a></li>
+        <li><a href="#operations-2">Operations</a></li>
+      </ul>
+    </li>
+    <li><a href="#processhistory">ProcessHistory</a>
+      <ul>
+        <li><a href="#processhistoryitem-type">ProcessHistoryItem type</a></li>
+        <li><a href="#operations-3">Operations</a></li>
+      </ul>
+    </li>
+    <li><a href="#texts">Texts</a>
+      <ul>
+        <li><a href="#text-type">Text type</a></li>
+        <li><a href="#textresource-type">TextResource type</a></li>
+        <li><a href="#textresourcevariable-type">TextResourceVariable type</a></li>
+        <li><a href="#operations-4">Operations</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

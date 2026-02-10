@@ -1,0 +1,49 @@
+Resource Registry
+- API for å kunne registrere metadata om eksterne ressurser eller andre ressurser som ikke er apps fra Altinn Studio
+- Metadata inneholder navn og forskjellige typer beskrivelser på forskjellige språk. F.eks samtykke tekst
+- Policies kan knyttes mot disse ressursene. 
+- Vi må definere format for ressurs. Kan potensielt 
+
+
+Altinn Studio Policy Admin
+- GUI basert definering av XACML Policy for apps eller eksterne ressurser. 
+- Validering av Policy mot annet metdata. (riktige ressurser, prosess, roller/grupper valgt)
+
+
+Altinn Policies
+- Lager for XACML policies
+- Policy for apps
+- Policy for eksterne ressurser
+- Policy opprettet av sluttbrukere under delegeringing
+
+
+Policy Decision Point
+- Tar avgjørelsen om tilgang for apps.
+- Tilbyr api for eksterne for å ta avgjørelse
+- Benytter seg av Altinn Roles og Altinn Policies
+- Bruker informasjon fra Altinn Storage for Altinn Apps for berikelse av nødvendig informasjon
+
+
+Altinn Roles
+- Kopi av ER rollene
+- Altinns grupper/roller
+- Informasjon om hierky og rolle/gruppetyper
+- Får migrert inn dagens rolledatabase 
+
+Legacy Policy Decision Point
+- Avgjør tilgang til Altinn 2 data
+- Benytter seg av Altinn Roles for å finne roller/grupper
+- Benytter seg av Legacy Policy
+
+Legacy Altinn Policy 
+- Inneholder regler definert i TUL
+- Inneholder informasjon om lokale roller (klarer vi kvitte oss med dem)
+- Inneholder informasjon om instansdelegering og tjenestedelegeringer
+
+
+
+Policy And Role Administration
+- 
+
+
+

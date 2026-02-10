@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Oversikt over aktuelle brukerscenarier for systembruker" />
+<meta name="altinn_pagedir" class="elastic" content="authorization/guides/system-vendor/system-user/userscenarios/" />
+<meta name="altinn_title" class="elastic" content="Brukerscenarier" />
+<meta name="product" data-pagefind-filter="Produkt[content]" content="Autorisasjon" />
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="Guider" />
+
+<title>Brukerscenarier – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/authorization/guides/system-vendor/system-user/userscenarios/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Produkt</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/authorization/">
+      <p class="product-item">Autorisasjon</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/broker/">
+      <p class="product-item">Formidling</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/">
+      <p class="product-item">Melding</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/notifications/">
+      <p class="product-item">Varsling</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Søk</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/nb.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/authorization/guides/system-vendor/system-user/userscenarios/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/authorization/guides/system-vendor/system-user/userscenarios/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">Hva leter du etter?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Søk');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Sist endret: 4. des. 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/nb/authorization/"><span>Autorisasjon</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/about/"><span>Om Altinn Autorisasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/"><span>Hva får du?</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/authentication/"><span>Autentisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/rules/"><span>Autorisasjonsregler</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/"><span>Tilgangspakker og roller</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/"><span>Fullmaktsområder og tilgangspakker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/"><span>Administrere tilganger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/andretjenesteytende/"><span>Andre tjenesteytende næringer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/"><span>Bygg, anlegg og eiendom</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/energivannavlopavfall/"><span>Energi, vann, avløp og avfall</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/forholdvedvirksomheten/"><span>Forhold ved virksomheten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/forretningsforer/"><span>Forretningsfører</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/handelovernatting/"><span>Handel, overnatting og servering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/helsepleieomsorgvern/"><span>Helse, pleie, omsorg og vern</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/industrier/"><span>Industrier</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/integrasjoner/"><span>Integrasjoner</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/jordbrukskogbrukjaktfiskeakvakultur/"><span>Jordbruk, skogbruk, jakt, fiske og akvakultur</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/konkursbo/"><span>Konkursbo</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/kulturfrivillighet/"><span>Kultur og frivillighet</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/miljoulykkesikkerhet/"><span>Miljø, ulykke og sikkerhet</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/oppvekstutdanning/"><span>Oppvekst og utdanning</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/personale/"><span>Personale</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/postogarkiv/"><span>Post og arkiv</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/regnskapsforer/"><span>Regnskapsfører</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/revisor/"><span>Revisor</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/skattavgiftregnskaptoll/"><span>Skatt, avgift, regnskap og toll</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/transportoglagring/"><span>Transport og lagring</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/register_er/"><span>Fra Enhetsregisteret</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/register_er/knytning_org/"><span>Virksomhetsknytninger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/"><span>Innbyggere</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/arbeidslivskoleutdanning/"><span>Arbeidsliv, skole og utdanning</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/familiefritid/"><span>Familie og fritid</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/helseomsorg/"><span>Helse og omsorg</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/kulturidrettfrivillighet/"><span>Kultur, idrett og frivillighet</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/patentersertifikaterattester/"><span>Patenter, sertifikater og attester</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/privatperson/"><span>Privatperson</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/skattavgiftbankforsikring/"><span>Skatt, avgift, bank og forsikring</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/verger/"><span>Vergemal</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/resourceadministration/"><span>Ressursadministrasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/resourceadministration/studio/"><span>Ressurs Admin</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accessmanagement/"><span>Tilgangsstyring</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/accesscontrol/"><span>Tilgangskontroll</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/consent/"><span>Samtykke</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/what-do-you-get/systemuser/"><span>Systembruker</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/terms/"><span>Ordliste</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/authentication/"><span>Autentisering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/authentication/maskinporten/"><span>Maskinporten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/authentication/id-porten/"><span>ID-porten</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/maskinportenclient/"><span>Maskinporten</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/resourceadministration/"><span>Ressursadministrasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/consent/"><span>Samtykke</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/systemuser/"><span>Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/getting-started/enterpriseuser/"><span>Virksomhetsbrukere</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/"><span>Guider</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/"><span>Sluttbruker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/api-scheme/"><span>Delegerbare API ressurser</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/api-scheme/api-user/"><span>API-bruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/api-scheme/access-manager/"><span>Tilgangsstyrer</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/"><span>Systemtilgang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/accept-request/"><span>Godkjenne</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/delegate-clients/"><span>Klientdelegering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/setup-client-relationship/"><span>Sette opp klientforhold</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/create-systemuser/"><span>Opprett systemtilgang</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/end-user/system-user/delete-system-user/"><span>Slett systembruker</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/"><span>Systemleverandør</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/client-admin/"><span>Klientadministrasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/consent/"><span>Samtykke</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/consent/request/"><span>Be om samtykke</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/consent/retrieve-token/"><span>Hente samtykke-token</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/consent/behalf-of/"><span>På vegne av andre</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/"><span>Systembruker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/systemregistration/"><span>Registrering av system</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/systemuserrequest/"><span>Opprette Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/deleterequest/"><span>Slette Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/usetoken/"><span>Bruk av Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/changerequest/"><span>Endre Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/client-delegation/"><span>Klientdelegering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/userscenarios/"><span>Brukerscenarier</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/system-vendor/system-user/democlient/"><span>Demoklient</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/"><span>Tjenesteeier</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/api-scheme/"><span>Delegerbare API ressurser</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/api-scheme/create-apischeme-api/"><span>API Scheme via API</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/api-scheme/create-apischeme-resource-admin/"><span>Opprette API Scheme</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/generic-access-resource/"><span>Generiske tilgangsressurser</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/generic-access-resource/integrating-link-service/"><span>Ekstern autorisasjon</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/migrate/"><span>Migrering</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/migrate/linked_services/"><span>Migrering lenketjenester</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/create-resource-resource-admin/"><span>Opprette ressurser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/consent/"><span>Samtykke</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/consent/create-resource/"><span>Opprette samtykke</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/consent/validate-concent/"><span>Validere</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/system-user/"><span>Systembruker</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/accesslist/"><span>Tilgangslister</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/accesslist/manage-accesslists-resource-admin/"><span>Administrasjon av tilgangslister</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/guides/resource-owner/accesslist/manage-accesslist-api/"><span>Tilgangslisteadministrasjon i API</span></a></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/"><span>Referanse</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/referenceimplementations/"><span>Referanseimplementasjoner</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/referenceimplementations/smartcloud/"><span>SmartCloud</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/referenceimplementations/systemadmin/"><span>Systemadministrator</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/referenceimplementations/systemuserapi/"><span>Systembruker API</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/xacml/"><span>XACML</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/"><span>Arkitektur</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesstoken/"><span>Access Token</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/authentication/"><span>Autentisering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/jwtcookie/"><span>JWT Cookie</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/register/"><span>Register</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/resourceregistry/"><span>Ressursregister</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/resourceregistry/rrr/"><span>RRR</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/acessgroups/"><span>Tilgangsgrupper</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesscontrol/"><span>Tilgangskontroll</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesscontrol/contexthandler/"><span>Konteksthåndterer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesscontrol/pip/"><span>PIP</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesscontrol/prp/"><span>PRP</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accesscontrol/pep/"><span>PEP</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accessmanagment/"><span>Tilgangsstyring</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/reference/architecture/accessmanagment/pap/"><span>PAP</span></a></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/"><span>Fremdriftsplan</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/api-migration/"><span>Endring API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/api-migration/sbs-api/"><span>Sluttbrukersystem-API</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/api-migration/te-api/"><span>Tjenesteeier-API</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/servicemigrationplan/"><span>Flytte Tjenester</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/informasjon-sent/"><span>Informasjonsskriv</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/nb/authorization/migration/informasjon-sent/letter-api-resources/">
+            <span>Infoskriv API ressurser</span></a></li><li class="dd-item">
+          <a href="/nb/authorization/migration/informasjon-sent/letter-accessgroupes/">
+            <span>Høring tilgangspakker</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/authorization/migration/new-accessgroups/"><span>Nye tilgangspakker</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/nb/authorization/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/authorization/guides/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/authorization/guides/system-vendor/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/authorization/guides/system-vendor/system-user/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/authorization/guides/system-vendor/system-user/userscenarios/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/nb/authorization/'>Autorisasjon</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/authorization/guides/'>Guider</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/authorization/guides/system-vendor/'>Systemleverandør</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/authorization/guides/system-vendor/system-user/'>Systembruker</a> <span class='adocs-breadcrumb-divider'> / </span> Brukerscenarier</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Brukerscenarier</h1>
+              <p class="a-leadText" id="leadText">Oversikt over aktuelle brukerscenarier for systembruker</p>
+
+<h2 id="begreper">Begreper</h2>
+<p>Nedenfor finner du sentrale begreper som brukes i brukerscenarioene.</p>
+<h3 id="systemleverandør">Systemleverandør</h3>
+<p>Leverandør av sluttbrukersystem tilgjengelig i markedet. Har tilgang til systemregisteret i Altinn for å registrere programvare med nødvendige rettigheter.</p>
+<p>Ved lokal eller egenutviklet programvare registreres systemkunden også som leverandør.</p>
+<h3 id="sluttbrukersystem">Sluttbrukersystem</h3>
+<p>Programvare som vanligvis kjører i public cloud, men kan også kjøres lokalt med noen begrensninger. Sluttbrukersystemet støtter virksomhets- og innbyggerprosesser, og kan for eksempel brukes til lakselusrapportering eller MVA-rapportering.</p>
+<p>Sluttbrukersystemet kan identifisere seg som systembruker knyttet til systemet. Hvilke rettigheter som kreves avhenger av hvilke prosesser som støttes.</p>
+<h3 id="systembruker">Systembruker</h3>
+<p>Virtuell bruker som systemleverandører kan få utstedt token for. Gir sluttbrukersystemet de rettighetene systembrukeren har.<br>
+Systembrukeren får kun tildelt rettigheter fra systemkunden.</p>
+<h3 id="systemkunde">Systemkunde</h3>
+<p>Virksomheten som har anskaffet sluttbrukersystem. Systembrukeren opprettes for systemkunden, og systemleverandøren gis fullmakt til å autentisere seg som systembrukeren på vegne av systemkunden.</p>
+<h3 id="systembruker-for-klientforhold">Systembruker for klientforhold</h3>
+<p>Virtuell bruker som systemleverandør kan få utstedt token for, og som brukes i klientforhold der systembrukeren får delegert rettigheter for én eller flere klienter.</p>
+<h3 id="systembruker-token">Systembruker-token</h3>
+<p>Token utstedt fra Maskinporten som identifiserer en systembruker. Inneholder også informasjon om sluttbrukersystemet og systemleverandøren.</p>
+<h3 id="klient">Klient</h3>
+<p>Virksomhet som har avtale med tjenestetilbyder om støtte for virksomhetsprosesser. Klient brukes ofte i regnskaps- og revisorbransjen, og tilsvarer &ldquo;kunde&rdquo;.<br>
+I rapporteringsforhold omtales klienten ofte som &ldquo;part&rdquo;.</p>
+<h3 id="klientadministrator">Klientadministrator</h3>
+<p>Ansatt hos systemkunden, ansvarlig for å knytte sine klienter (kunder) til riktige systembrukere.</p>
+<h3 id="tilgangspakke">Tilgangspakke</h3>
+<p>En samling rettigheter for offentlige tjenester, definert i Altinn. Tjenesteeiere knytter rettigheter til en gitt pakke, som har et navn/område tilpasset tjenestene.</p>
+<hr>
+<h2 id="generelle-forutsetninger">Generelle forutsetninger</h2>
+<p>Følgende gjelder for de fleste brukerscenarier:</p>
+<ol>
+<li><strong>Systemleverandørens ansvar for tilgangskontroll</strong>
+<ul>
+<li>Ha oversikt over hvilke rettigheter systembrukere trenger (f.eks. tilgangspakker eller enkeltrettigheter for MVA-rapportering).<br>
+Informasjon om rettigheter innhentes fra tjenesteeier eller via Altinn API. Tjenesteeier må kommunisere krav tydelig.</li>
+<li>Konfigurere disse rettighetene i systemregisteret slik at systembrukere kan tildeles nødvendige rettigheter per kunde.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="tilgangskontroll-i-sluttbrukersystem">Tilgangskontroll i sluttbrukersystem</h2>
+<p>Ved bruk av systembruker vil offentlige tjenester ikke kjenne identiteten til personen bak programvaren som utløser utstedelse av systembruker-token og API-kall.</p>
+<p>For å unngå misbruk må systemleverandører ha gode rutiner for autentisering og autorisering av brukere i sluttbrukersystemet, slik at kun autoriserte brukere får tilgang til systembruker-token.</p>
+<p>Dette er spesielt viktig for større virksomheter, som regnskapsbyråer med mange kunder og ansatte, hvor det er behov for å begrense tilgangen til data for ulike kunder.</p>
+<hr>
+<h2 id="1-registrert-regnskapsfører-rapporterer-data-for-klient">1. Registrert regnskapsfører rapporterer data for klient</h2>
+<p><strong>Eksempel:</strong> MVA-rapportering</p>
+<h3 id="forutsetninger">Forutsetninger</h3>
+<ul>
+<li>Regnskapsfører er <a href="https://info.altinn.no/skjemaoversikt/bronnoysundregistrene/registrere-nye-og-endre-eksisterende-foretak-og-enheter---samordnet-registermelding/">registrert i Enhetsregisteret</a> for aktuell klient.</li>
+<li>Skatteetaten har definert policy på applikasjon slik at brukere med tilgangspakken MVA rapportering får tilgang.</li>
+<li><a href="/nb/authorization/guides/system-vendor/system-user/">Sluttbrukersystemet er satt opp</a> med <a href="/nb/authorization/what-do-you-get/accessgroups/accessgroups/">nødvendige tilgangspakker</a> for MVA-rapportering.</li>
+<li>Regnskapsfører har opprettet en <a href="/nb/authorization/guides/system-vendor/system-user/#systembruker-for-klientsystem"><em>systembruker for klientforhold</em></a> knyttet til sluttbrukersystemet.</li>
+</ul>
+<h3 id="steg">Steg</h3>
+<ol>
+<li><strong>Legg til klient</strong>.
+Klientadministrator hos regnskapsfører <a href="/nb/authorization/guides/end-user/system-user/delegate-clients/">knytter regnskapskunden (klient) til systembrukeren</a>. Tilgang for regnskapskunden delegeres automatisk til systembrukeren.</li>
+<li><strong>Hent token</strong><br>
+Sluttbrukersystemet <a href="/nb/authorization/guides/system-vendor/system-user">henter systembruker-token via Maskinporten</a>.</li>
+<li><strong>Send rapport</strong><br>
+Sluttbrukersystemet sender MVA-rapport via API med gyldig token.</li>
+<li><strong>Validering og bekreftelse</strong><br>
+API kaller Altinn Autorisasjon PDP for å <a href="/nb/authorization/guides/resource-owner/generic-access-resource/integrating-link-service/">sjekke tilgang</a>. API returnerer bekreftelse.</li>
+</ol>
+<p><strong>Støtte:</strong> Utvikles som del av systembrukerleveranse 5.</p>
+<hr>
+<h2 id="2-forretningsfører-rapporterer-data-for-oppgavegiver">2. Forretningsfører rapporterer data for oppgavegiver</h2>
+<p>Rett Revisjon er forretningsfører for flere boligsameier. De har et eget team som arbeider med boligsameier, og ønsker et systembrukeroppsett som er begrenset til dette teamet og håndterer at teamet har registrerte og uregistrerte forretningsførere.</p>
+<p><strong>Tjeneste:</strong> <a href="https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-boligsameie">Rapportering for boligsameie</a></p>
+<p>Denne tjenesten har satt opp at følgende tilgangspakker gir rettighet til å rapportere boligsameie</p>
+<ul>
+<li>regnskapsforer-med-signeringsrettighet</li>
+<li>ansvarlig-revisor</li>
+<li>skattegrunnlag</li>
+<li>forretningsforer-eiendom</li>
+</ul>
+<h3 id="forutsetninger-1">Forutsetninger</h3>
+<ul>
+<li>Forretningsfører er <a href="https://info.altinn.no/skjemaoversikt/bronnoysundregistrene/registrere-nye-og-endre-eksisterende-foretak-og-enheter---samordnet-registermelding/">registrert i Enhetsregisteret</a> for boligsameiet.</li>
+<li>Systemleverandøren har registrert systemet i systemregisteret med nevnte tilgangspakke.</li>
+<li>Systemleverandøren har brukerhåndtering slik at forretningsførerteamet kan tildeles rettigheter for funksjonalitet som bruker systembruker.</li>
+</ul>
+<h3 id="steg-1">Steg</h3>
+<ol>
+<li>Systemleverandør sender forespørsel om opprettelse av systembruker for klienter til forretningsfører (kunden). Tilgangspakken <strong>forretningsforer-eiendom</strong> legges inn som krav.</li>
+<li>Forretningsfører godkjenner forespørselen.</li>
+<li>Forretningsfører definerer forretningsførerteamet i sluttbrukersystemet og tilordner hvilke autentiserte brukere (dvs. ansatte) som kan benytte seg av forretningsfører-funksjonaliteten.</li>
+<li>Klientadministrator legger til boligsameiet som kunde/klient på systembrukeren. Tilgangspakken videredelegeres automatisk til systembrukeren.</li>
+<li>Den ansatte logger inn og sluttbrukersystemet validerer at den ansatte kan bruke forretningsfører-funksjonalitet.</li>
+<li>Rapportering skjer via systemet.</li>
+<li>Systembruker-token hentes fra Maskinporten.</li>
+<li>Innsending skjer via API.</li>
+<li>Tilgang verifiseres av Altinn PDP API.</li>
+</ol>
+<p><figure>
+    <a href="team_access.png">
+        <img src="team_access.png" alt="Team tilgang" title="Kunder med flere typer klientforhold">
+    </a>
+    <figcaption><em>Kunder med flere typer klientforhold</em></figcaption>
+  </figure></p>
+<p><strong>Støtte:</strong> Utviklet som del av systembrukerleveranse 5.</p>
+<hr>
+<h2 id="3-regnskapsfører-med-behov-for-å-differensiere-tilgang-til-systembruker">3. Regnskapsfører med behov for å differensiere tilgang til systembruker</h2>
+<p>Rett Revisjon sin avdeling for små bedrifter fordeler oppgaver internt og har nå fordelt innrapportering av betalinger til selvstendig næringsdrivende til medarbeidere som er uregistrerte regnskapsførere for bedriftene.</p>
+<p>Noen får delegert tilgangspakker fra sine klienter.<br>
+Noen får videredelegert tilgangspakker fra registrert revisor i Rett Revisjon.</p>
+<p>Rett Revisjon er bekymret for at det kan utføres handlinger på vegne av bedriftene via systembruker som ikke ligger innenfor ansvaret til de uregistrerte regnskapsførerne (ofte ved uhell).</p>
+<h3 id="utfordring">Utfordring</h3>
+<p>Ved bruk av systembruker kjenner ikke tjenesten identiteten til personen som utløser kallene. Det kan være helt automatiserte prosesser eller handlinger utført av en innlogget bruker i sluttbrukersystemet. Delegasjoner i Altinn autorisasjon påvirker ikke hvem som faktisk bruker systemet, og et sluttbrukersystem har derfor i utgangspunktet ingen pålitelig måte å verifisere hvilke rettigheter den enkelte bruker har fått i Altinn.</p>
+<p>Konsekvens: sluttbrukersystemet må håndtere lokal autentisering og autorisasjon slik at kun autoriserte medarbeidere får tilgang til funksjonalitet som kaller Altinn på vegne av klienter.</p>
+<p><strong>Tjeneste:</strong> <a href="https://www.skatteetaten.no/bedrift-og-organisasjon/rapportering-og-bransjer/tredjepartsopplysninger/andre-bransjer/betalinger-til-s-n/">Betalinger til selvstendig næringsdrivende</a></p>
+<p>Følgende tilgangspakker er relevante for rapportering:</p>
+<ul>
+<li>regnskapsforer-med-signeringsrettighet</li>
+<li>ansvarlig-revisor</li>
+<li>skattegrunnlag</li>
+</ul>
+<h3 id="forutsetninger-2">Forutsetninger</h3>
+<ul>
+<li>Rett Revisjon er registrert i Enhetsregisteret for relevante kunder.</li>
+<li>Uregistrerte kunder har virksomhetsdelegert tilgangspakken skattegrunnlag til Rett Revisjon.</li>
+<li>Systemleverandøren har registrert systemet i systemregisteret med nødvendige tilgangspakker.</li>
+<li>Systemet støtter kundeadministrasjon slik at klienter kan fordeles på ansatte/roller.</li>
+<li>Rett Revisjon har definert hvilke kunder som er registrerte vs. uregistrerte.</li>
+</ul>
+<h3 id="steg-2">Steg</h3>
+<ol>
+<li>Systemleverandør sender forespørsel om opprettelse av systembruker for registrerte klienter (krav: regnskapsforer-med-signeringsrettighet).</li>
+<li>Systemleverandør sender forespørsel om opprettelse av systembruker for uregistrerte klienter (krav: skattegrunnlag).</li>
+<li>Rett Revisjon godkjenner forespørslene.</li>
+<li>Rett Revisjon definerer hvilke medarbeidere som skal ha tilgang til registrerte og uregistrerte kunder i sluttbrukersystemet.</li>
+<li>Klientadministrator fordeler klientene på riktige systembrukere (tilgangene videredelegeres til systembrukeren).</li>
+<li>Den ansatte logger inn i sluttbrukersystemet; systemet validerer lokalt at vedkommende har rettigheter for valgt kunde.</li>
+<li>Rapportering sendes via systemet.</li>
+<li>Systembruker-token hentes fra Maskinporten.</li>
+<li>Innsending skjer via API.</li>
+<li>Tilgang verifiseres av Altinn PDP API.</li>
+</ol>
+<p><figure>
+    <a href="accesscontrol.png">
+        <img src="accesscontrol.png" alt="Team tilgang" title="Systemet må selv implementere tilgangskontroll">
+    </a>
+    <figcaption><em>Systemet må selv implementere tilgangskontroll</em></figcaption>
+  </figure></p>
+<hr>
+<h2 id="4-uregistrert-regnskapsfører-rapporterer-data-for-klient">4. Uregistrert regnskapsfører rapporterer data for klient</h2>
+<p><strong>Scenario:</strong> Klienten er ikke registrert i Enhetsregisteret med regnskapsfører.</p>
+<h3 id="forutsetninger-3">Forutsetninger</h3>
+<ul>
+<li>Klienten (regnskapsførerkunde) har avtale med regnskapsfører om regnskapstjenester.</li>
+<li>Regnskapsfører har kjøpt sluttbrukersystem og satt det opp.</li>
+</ul>
+<h3 id="steg-3">Steg</h3>
+<ol>
+<li><strong>Forespørsel om tilgang</strong><br>
+Regnskapsfører ber klienten delegere nødvendige rettigheter.</li>
+<li><strong>Delegering</strong><br>
+Klienten delegerer via Altinn.</li>
+<li><strong>Legg til klient</strong><br>
+Klientadministrator hos regnskapsfører knytter klient til systembrukeren. Tilgang videredelegeres til systembrukeren.</li>
+<li><strong>Hent token</strong><br>
+Systembruker-token hentes fra Maskinporten.</li>
+<li><strong>Rapportering</strong><br>
+Innsending skjer via API.</li>
+<li><strong>Validering</strong><br>
+Altinn verifiserer tilgang og returnerer bekreftelse.</li>
+</ol>
+<p><strong>Støtte:</strong> Utvikles som del av systembrukerleveranse 6.</p>
+<hr>
+<h2 id="5-virksomhet-rapporterer-egne-data">5. Virksomhet rapporterer egne data</h2>
+<p>I dette scenarioet har møbelprodusenten Myke Møbler kjøpt seg tilgang på sluttbrukersystem. De står selv ansvarlig for
+rapporteringen.</p>
+<h3 id="forutsetninger-4">Forutsetninger</h3>
+<ul>
+<li>Systemet er satt opp med ressursen som definerer tjenesten.</li>
+</ul>
+<h3 id="steg-4">Steg</h3>
+<ol>
+<li><strong>Anskaffelse av system</strong><br>
+Virksomheten kjøper system fra leverandør.</li>
+<li><strong>Forespørsel om systembruker</strong><br>
+Leverandør sender forespørsel om opprettelse av systembruker med nødvendige tilganger.</li>
+<li><strong>Godkjenning</strong><br>
+Virksomheten godkjenner, og systembrukeren opprettes.</li>
+<li><strong>Rapportering</strong><br>
+Systemet henter token og sender data via API.</li>
+<li><strong>Validering</strong><br>
+API sjekker tilgang og returnerer bekreftelse.</li>
+</ol>
+<p><strong>Støtte:</strong> Oppsett med enkeltrettighet ble utviklet som del av systembrukerleveranse 2.<br>
+Oppsett med tilgangspakker utvikles som del av systembrukerleveranse 4.</p>
+<p><figure>
+    <a href="standarduser.png">
+        <img src="standarduser.png" alt="alt text" title="Rapportering av egne data">
+    </a>
+    <figcaption><em>Rapportering av egne data</em></figcaption>
+  </figure></p>
+<hr>
+<h2 id="6-regnskapsfører-henter-meldinger-for-klient-via-dialogporten">6. Regnskapsfører henter meldinger for klient via Dialogporten</h2>
+<p><strong>Scenario:</strong> Systembruker henter meldinger sendt til klient.</p>
+<h3 id="forutsetninger-5">Forutsetninger</h3>
+<ul>
+<li>Tilgang til meldinger er inkludert i tilgangspakken.</li>
+<li>Systemet støtter Dialogporten.</li>
+</ul>
+<h3 id="steg-5">Steg</h3>
+<ol>
+<li><strong>Forespørsel om systembruker</strong><br>
+Leverandør sender forespørsel med krav til meldingsscope.</li>
+<li><strong>Godkjenning</strong><br>
+Regnskapsfører/virksomhet godkjenner forespørselen.</li>
+<li><strong>Klientknytning</strong><br>
+Klientadministrator har knyttet klient til systembrukeren.</li>
+<li><strong>Hent token</strong><br>
+Token hentes fra Maskinporten.</li>
+<li><strong>Hent meldinger</strong><br>
+Meldinger hentes via API.</li>
+<li><strong>Validering</strong><br>
+Altinn validerer og returnerer meldinger.</li>
+</ol>
+<hr>
+<h2 id="7-virksomhet-sender-fil-via-formidlingstjeneste-broker">7. Virksomhet sender fil via formidlingstjeneste (broker)</h2>
+<p><strong>Scenario:</strong> Innsending av tinglysning via Kartverkets formidlingstjeneste.</p>
+<h3 id="forutsetninger-6">Forutsetninger</h3>
+<ul>
+<li>Kartverket har definert ressurs og tilgang.</li>
+<li>Systemleverandør har registrert systemet og fått godkjenning.</li>
+</ul>
+<h3 id="steg-6">Steg</h3>
+<ol>
+<li>Bruker sender tinglysning via systemet.</li>
+<li>Token hentes fra Maskinporten.</li>
+<li>API kalles med token.</li>
+<li>Tilgang valideres av Altinn.</li>
+</ol>
+<hr>
+<h2 id="8-virksomhet-har-utviklet-eget-rapporteringssystem">8. Virksomhet har utviklet eget rapporteringssystem</h2>
+<p>I dette scenarioet har konsulentfirmaet Leet Consulting laget et eget system for automatisk innraportering
+av data til myndighetene.</p>
+<h3 id="forutsetninger-7">Forutsetninger</h3>
+<ol>
+<li>Avtale med DigDir og tilgang til systemregisteret.</li>
+<li>System registreres med nødvendige rettigheter i systemregisteret</li>
+</ol>
+<h3 id="steg-7">Steg</h3>
+<ol>
+<li>Forespørsel om systembruker sendes (til seg selv) med krav om tilgangspakker</li>
+<li>Forespørsel godkjennes.</li>
+<li>Token hentes.</li>
+<li>Systemet sender data via API.</li>
+</ol>
+<p><figure>
+    <a href="homemadesystem.png">
+        <img src="homemadesystem.png" alt="Team tilgang" title="Egenutviklet system">
+    </a>
+    <figcaption><em>Egenutviklet system</em></figcaption>
+  </figure></p>
+<hr>
+<h2 id="9-virksomhet-har-kjøpt-inn-sap-for-lokal-installasjon">9. Virksomhet har kjøpt inn SAP for lokal installasjon</h2>
+<p><strong>Scenario:</strong> SAP-programvare installeres på virksomhetens egne servere, uten at SAP har kontroll.</p>
+<h3 id="forutsetninger-8">Forutsetninger</h3>
+<ol>
+<li>Virksomheten har avtale med Digdir for tilgang til systemregisteret.</li>
+<li>Virksomheten har opprettet Maskinporten-klient.</li>
+<li>Virksomheten registrerer systemet i registeret som representerer SAP-installasjonen, med nødvendige rettigheter.</li>
+<li>Nøkkel for klient er installert og tilgjengelig på server.</li>
+</ol>
+<h3 id="steg-8">Steg</h3>
+<ol>
+<li>Forespørsel om opprettelse av systembruker sendes til egen virksomhet.</li>
+<li>Forespørsel godkjennes og systembruker opprettes med riktige rettigheter.</li>
+<li>Systemet kan nå opprette Maskinporten-token for systembrukeren og kalle nødvendige API.</li>
+</ol>
+<p><strong>Merknad:</strong> I slike scenarioer kan ikke systemleverandør dele eget sertifikat/nøkkelpar med systemkunde, da det kan medføre misbruk og tilgang til kundedata på tvers av systemkunder.</p>
+<hr>
+<h2 id="10-rett-revisjon-er-regnskapsfører-og-revisor-rapporterer-aksjonærregisteroppgaven-for-kunder">10. Rett Revisjon er regnskapsfører og revisor rapporterer aksjonærregisteroppgaven for kunder</h2>
+<p><strong>Scenario:</strong> Firmaet Rett Revisjon tilbyr regnskapstjenester og revisortjenester i markedet. For revisorklientene er Rett Revisjon registrert i ER med rollen REVI for sine kunder.</p>
+<p>For regnskapskunder har noen registrert at Rett Revisjon er regnskapsfører med rollen REGN, mens andre har virksomhetsdelegerte tilgangspakker som Skattegrunnlag.</p>
+<p>Tjenesten <strong>Rapportering aksjonærregister</strong> har et oppsett som gir følgende tilgangspakker rettighet til å rapportere</p>
+<ul>
+<li>regnskapsforer-med-signeringsrettighet (ER registrert regnskapsfører)</li>
+<li>ansvarlig-revisor (ER registrert revisor)</li>
+<li>skattegrunnlag (virksomhetsdelegert tilgangspakke fra daglig leder hos klient)</li>
+<li>revisormedarbeider (ER registrert revisor)</li>
+</ul>
+<p>Rett Revisjon har kjøpt inn Maestro for å rapportere aksjonærregisteroppgaven.</p>
+<h3 id="forutsetninger-9">Forutsetninger</h3>
+<ul>
+<li>Rett Revisjon har delt med Maestro hvilket kundeforhold de har for hver enkelt kunde.</li>
+</ul>
+<h3 id="steg-9">Steg</h3>
+<ol>
+<li>Maestro sender forespørsel om å opprette systembruker for klientforhold som krever <em>revisormedarbeider</em>.</li>
+<li>Maestro sender forespørsel om å opprette systembruker for klientforhold som krever <em>skattegrunnlag</em>.</li>
+<li>Maestro sender forespørsel om å opprette systembruker for klientforhold som krever <em>regnskapsforer-med-signeringsrettighet</em>.</li>
+<li>Rett Revisjon aksepterer disse forespørslene.</li>
+<li>Rett Revisjon fordeler klientene sine på riktige systembrukere (se hvilken pakke som er knyttet til systembruker).</li>
+<li>Rett Revisjon benytter Maestro for å rapportere for Kunde A.</li>
+<li>Maestro må i innsendingsøyeblikket vite hvilken type klientforhold Kunde A har til Rett Revisjon, for å velge riktig systembruker. Dette må deles av Rett Revisjon.</li>
+<li>Maestro må spørre Maskinporten om systembrukertoken for riktig systembruker.</li>
+<li>Maestro sender inn aksjonærregisteroppgaven med riktig systembrukertoken.</li>
+<li>SKD autoriserer at systembrukeren har rettighet til å rapportere aksjonærregisteroppgaven for Kunde A.</li>
+</ol>
+<p><figure>
+    <a href="two_system_users.png">
+        <img src="two_system_users.png" alt="Scenario med systembruker for kunder med flere typer klientforhold" title="Kunder med flere typer klientforhold">
+    </a>
+    <figcaption><em>Kunder med flere typer klientforhold</em></figcaption>
+  </figure></p>
+<p><strong>Merk</strong> Alternativ løsning for dette vil være at man registrerer et system per kundetype og knytter hver systembruker mot dette. Dette gjør at man unngår extref, men må da håndtere tilsvarende mange klienter.</p>
+<h2 id="10b-nye-kunder">10b. Nye kunder</h2>
+<p>Rett Revisjon har fått nye kunder. Disse må knyttes til riktig systembruker basert på type klientforhold.</p>
+<h3 id="forutsetninger-10">Forutsetninger</h3>
+<ul>
+<li>Rett Revisjon vet selv at de har fått nye kunder.</li>
+</ul>
+<h3 id="steg-10">Steg</h3>
+<ol>
+<li>Gå til systembrukeradmin.</li>
+<li>Identifiser riktig systembruker basert på hvilken kunde man skal knytte til systembruker.</li>
+<li>Legg til kunde.</li>
+</ol>
+<h3 id="skjermbilder">Skjermbilder</h3>
+<p>Nedenfor vises noen skjermbilder for dette scenarioet.</p>
+<p><figure>
+    <a href="request_1.png">
+        <img src="request_1.png" alt="Forespørsel om systembruker" title="Forespørsel om systembruker">
+    </a>
+    <figcaption><em>Forespørsel om systembruker</em></figcaption>
+  </figure></p>
+<p><figure>
+    <a href="request_2.png">
+        <img src="request_2.png" alt="Forespørsel om systembruker" title="Forespørsel om systembruker">
+    </a>
+    <figcaption><em>Forespørsel om systembruker</em></figcaption>
+  </figure></p>
+<p><figure>
+    <a href="systemusers.png">
+        <img src="systemusers.png" alt="Forespørsel om systembruker" title="Oversikt over systembrukere">
+    </a>
+    <figcaption><em>Oversikt over systembrukere</em></figcaption>
+  </figure></p>
+<p><figure>
+    <a href="systemuserdetails.png">
+        <img src="systemuserdetails.png" alt="Forespørsel om systembruker" title="Detaljer om systembruker">
+    </a>
+    <figcaption><em>Detaljer om systembruker</em></figcaption>
+  </figure></p>
+<p><figure>
+    <a href="addclient.png">
+        <img src="addclient.png" alt="Forespørsel om systembruker" title="Knytt klient til systembruker">
+    </a>
+    <figcaption><em>Knytt klient til systembruker</em></figcaption>
+  </figure></p>
+<h2 id="nav-scenario-a-funksjonalitet-ikke-prioritert-per-nå">NAV Scenario A (funksjonalitet ikke prioritert per nå)</h2>
+<p><strong>Eksempel:</strong> Regnskapsfører bruker “Superavstemming” fra Kontrollen AS.</p>
+<h3 id="utfordringer">Utfordringer</h3>
+<ul>
+<li>NAV tilbyr ikke tilgangspakker med granularitet kun for A06/A07.</li>
+<li>Granulerte rettigheter for systembrukere eller klienter støttes ikke.</li>
+</ul>
+<h3 id="steg-11">Steg</h3>
+<ol>
+<li>Systemleverandør sender forespørsel om begrenset systembruker.</li>
+<li>Regnskapsfører godkjenner.</li>
+<li>Klienter legges til og tildeles kun A06/A07.</li>
+<li>Rapportering skjer via systemet.</li>
+<li>Token hentes og API kalles.</li>
+<li>Autorisasjon via Altinn PDP.</li>
+</ol>
+<hr>
+<h2 id="nav-scenario-b-funksjonalitet-ikke-prioritert-per-nå">NAV Scenario B (funksjonalitet ikke prioritert per nå)</h2>
+<p>Tjenesteleverandør har kjøpt systemet Superavstemming fra Kontrollen AS.<br>
+Superavstemming trenger nødvendige tilganger til å hente avstemmingsdata for a-melding (A06/A07) for de klientene systemet skal brukes for.<br>
+Tjenesteleverandøren ønsker å sikre at Superavstemming ikke får rettigheter utover å hente avstemmingsdata for a-melding.<br>
+Klienten har kun kjøpt tjenesten &ldquo;avstemming av a-melding&rdquo; og ønsker kun å delegere rettigheter for dette.<br>
+(Her er det noen få spesifikke rettigheter som er nødvendige, trolig ikke en hel tilgangspakke, da tilgangspakker ofte er grovkornede.)</p>
+<hr>
+<h2 id="nav-scenario-c-funksjonalitet-ikke-prioritert-per-nå">NAV Scenario C (funksjonalitet ikke prioritert per nå)</h2>
+<p>Tjenesteleverandør har kjøpt systemet Superavstemming fra Kontrollen AS.<br>
+Superavstemming trenger nødvendige tilganger til å hente avstemmingsdata for a-melding (A06/A07) for de aktuelle klientene.<br>
+Tjenesteleverandøren ønsker å sikre at Superavstemming ikke får rettigheter utover det som er nødvendig.<br>
+Klienten har kjøpt flere tjenester, men ønsker kun å delegere nødvendige rettigheter for de aktuelle tjenestene.<br>
+(Her vil det være flere ulike rettigheter som er aktuelle, men det finnes ikke én passende tilgangspakke.)</p>
+<hr>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/authorization/guides/system-vendor/system-user/userscenarios/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#begreper">Begreper</a>
+      <ul>
+        <li><a href="#systemleverandør">Systemleverandør</a></li>
+        <li><a href="#sluttbrukersystem">Sluttbrukersystem</a></li>
+        <li><a href="#systembruker">Systembruker</a></li>
+        <li><a href="#systemkunde">Systemkunde</a></li>
+        <li><a href="#systembruker-for-klientforhold">Systembruker for klientforhold</a></li>
+        <li><a href="#systembruker-token">Systembruker-token</a></li>
+        <li><a href="#klient">Klient</a></li>
+        <li><a href="#klientadministrator">Klientadministrator</a></li>
+        <li><a href="#tilgangspakke">Tilgangspakke</a></li>
+      </ul>
+    </li>
+    <li><a href="#generelle-forutsetninger">Generelle forutsetninger</a></li>
+    <li><a href="#tilgangskontroll-i-sluttbrukersystem">Tilgangskontroll i sluttbrukersystem</a></li>
+    <li><a href="#1-registrert-regnskapsfører-rapporterer-data-for-klient">1. Registrert regnskapsfører rapporterer data for klient</a>
+      <ul>
+        <li><a href="#forutsetninger">Forutsetninger</a></li>
+        <li><a href="#steg">Steg</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-forretningsfører-rapporterer-data-for-oppgavegiver">2. Forretningsfører rapporterer data for oppgavegiver</a>
+      <ul>
+        <li><a href="#forutsetninger-1">Forutsetninger</a></li>
+        <li><a href="#steg-1">Steg</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-regnskapsfører-med-behov-for-å-differensiere-tilgang-til-systembruker">3. Regnskapsfører med behov for å differensiere tilgang til systembruker</a>
+      <ul>
+        <li><a href="#utfordring">Utfordring</a></li>
+        <li><a href="#forutsetninger-2">Forutsetninger</a></li>
+        <li><a href="#steg-2">Steg</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-uregistrert-regnskapsfører-rapporterer-data-for-klient">4. Uregistrert regnskapsfører rapporterer data for klient</a>
+      <ul>
+        <li><a href="#forutsetninger-3">Forutsetninger</a></li>
+        <li><a href="#steg-3">Steg</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-virksomhet-rapporterer-egne-data">5. Virksomhet rapporterer egne data</a>
+      <ul>
+        <li><a href="#forutsetninger-4">Forutsetninger</a></li>
+        <li><a href="#steg-4">Steg</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-regnskapsfører-henter-meldinger-for-klient-via-dialogporten">6. Regnskapsfører henter meldinger for klient via Dialogporten</a>
+      <ul>
+        <li><a href="#forutsetninger-5">Forutsetninger</a></li>
+        <li><a href="#steg-5">Steg</a></li>
+      </ul>
+    </li>
+    <li><a href="#7-virksomhet-sender-fil-via-formidlingstjeneste-broker">7. Virksomhet sender fil via formidlingstjeneste (broker)</a>
+      <ul>
+        <li><a href="#forutsetninger-6">Forutsetninger</a></li>
+        <li><a href="#steg-6">Steg</a></li>
+      </ul>
+    </li>
+    <li><a href="#8-virksomhet-har-utviklet-eget-rapporteringssystem">8. Virksomhet har utviklet eget rapporteringssystem</a>
+      <ul>
+        <li><a href="#forutsetninger-7">Forutsetninger</a></li>
+        <li><a href="#steg-7">Steg</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-virksomhet-har-kjøpt-inn-sap-for-lokal-installasjon">9. Virksomhet har kjøpt inn SAP for lokal installasjon</a>
+      <ul>
+        <li><a href="#forutsetninger-8">Forutsetninger</a></li>
+        <li><a href="#steg-8">Steg</a></li>
+      </ul>
+    </li>
+    <li><a href="#10-rett-revisjon-er-regnskapsfører-og-revisor-rapporterer-aksjonærregisteroppgaven-for-kunder">10. Rett Revisjon er regnskapsfører og revisor rapporterer aksjonærregisteroppgaven for kunder</a>
+      <ul>
+        <li><a href="#forutsetninger-9">Forutsetninger</a></li>
+        <li><a href="#steg-9">Steg</a></li>
+      </ul>
+    </li>
+    <li><a href="#10b-nye-kunder">10b. Nye kunder</a>
+      <ul>
+        <li><a href="#forutsetninger-10">Forutsetninger</a></li>
+        <li><a href="#steg-10">Steg</a></li>
+        <li><a href="#skjermbilder">Skjermbilder</a></li>
+      </ul>
+    </li>
+    <li><a href="#nav-scenario-a-funksjonalitet-ikke-prioritert-per-nå">NAV Scenario A (funksjonalitet ikke prioritert per nå)</a>
+      <ul>
+        <li><a href="#utfordringer">Utfordringer</a></li>
+        <li><a href="#steg-11">Steg</a></li>
+      </ul>
+    </li>
+    <li><a href="#nav-scenario-b-funksjonalitet-ikke-prioritert-per-nå">NAV Scenario B (funksjonalitet ikke prioritert per nå)</a></li>
+    <li><a href="#nav-scenario-c-funksjonalitet-ikke-prioritert-per-nå">NAV Scenario C (funksjonalitet ikke prioritert per nå)</a></li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Altinn 3 Formidling Systemgrensesnitt" />
+<meta name="altinn_pagedir" class="elastic" content="broker/reference/system-interfaces/" />
+<meta name="altinn_title" class="elastic" content="Systemgrensesnitt" />
+<meta name="product" data-pagefind-filter="Produkt[content]" content="Formidling" />
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="Referanse" />
+
+<title>Systemgrensesnitt – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/broker/reference/system-interfaces/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Produkt</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/authorization/">
+      <p class="product-item">Autorisasjon</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/broker/">
+      <p class="product-item">Formidling</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/">
+      <p class="product-item">Melding</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/notifications/">
+      <p class="product-item">Varsling</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Søk</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/nb.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/broker/reference/system-interfaces/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/broker/reference/system-interfaces/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">Hva leter du etter?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Søk');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Sist endret: 4. des. 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/nb/broker/"><span>Formidling</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/broker/about/"><span>Om Altinn Formidling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/what-do-you-get/"><span>Hva får du?</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/getting-started/"><span>Komme i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/broker/getting-started/common-steps/"><span>Felles steg</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/getting-started/service-owner/"><span>Tjenesteeier</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/getting-started/developer-guides/"><span>Utviklerveiledning</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/broker/getting-started/developer-guides/send-files/"><span>Send filer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/getting-started/developer-guides/receive-files/"><span>Motta filer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/getting-started/developer-guides/service-owner/"><span>Tjenesteeier</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/getting-started/developer-guides/events/"><span>Hendelser</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/broker/explanation/"><span>Konsepter</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/broker/explanation/basic-concepts/"><span>Konsepter og begreper</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/explanation/very-large-files/"><span>Store filer</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/broker/broker-transition/"><span>Overgangsløsning</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/broker/broker-transition/usage/"><span>Bruksanvisning</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/broker/broker-transition/usage/rest/"><span>Bruksanvisning REST</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/broker-transition/usage/soap/"><span>Bruksanvisning SOAP</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/broker/broker-transition/getting-started/"><span>Komme i gang</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/broker-transition/about/"><span>Om Overgangsløsningen</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/broker-transition/technical-overview/"><span>Teknisk oversikt</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/broker/reference/"><span>Referansedokumentasjon</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/broker/reference/terminology/"><span>Begreper</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/reference/system-interfaces/"><span>Systemgrensesnitt</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/reference/capabilities/"><span>Funksjonalitet</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/reference/rate-limits/"><span>Hastighetsbegrensning</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/reference/solution-architecture/"><span>Løsningsarkitektur</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/broker/reference/security/"><span>Sikkerhet</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/nb/broker/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/broker/reference/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/broker/reference/system-interfaces/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/nb/broker/'>Formidling</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/broker/reference/'>Referansedokumentasjon</a> <span class='adocs-breadcrumb-divider'> / </span> Systemgrensesnitt</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Systemgrensesnitt</h1>
+              <p class="a-leadText" id="leadText">Altinn 3 Formidling Systemgrensesnitt</p>
+
+<h2 id="oversikt-over-altinn-3-formidling-eksterne-grensesnitt">Oversikt over Altinn 3 Formidling eksterne grensesnitt</h2>
+<p>Følgende figur indikerer de viktigste systemgrensesnittene for Altinn 3 Formidling som selvstendig løsning (uten Dialogporten):</p>
+<p><figure>
+    <a href="altinn3-broker-standalone-interfaces-overview.nb.png">
+        <img src="altinn3-broker-standalone-interfaces-overview.nb.png" alt="Oversikt over eksterne grensesnitt for Altinn 3 Formidling som selvstendig løsning" title="Oversikt over eksterne grensesnitt for Altinn 3 Formidling som selvstendig løsning">
+    </a>
+    <figcaption><em>Oversikt over eksterne grensesnitt for Altinn 3 Formidling som selvstendig løsning</em></figcaption>
+  </figure></p>
+<!--
+*TIP: The details of the interfaces are not shown by the image as
+such, however the image hyperlinks to a clickable web version with further details.*
+-->
+<p><strong>Grensesnitt for konfigurering av tjenester og alternativer i designfasen:</strong></p>
+<!-- Erik, lenke til API/Swagger-spec. også for API for configuration of Altinn Formidling -->
+<ul>
+<li>API for konfigurering av Altinn Formidling</li>
+<li>API for konfigurering av Maskinporten (autentisering og grovkornet autorisasjon)</li>
+<li>API for konfigurering av Altinn Autorisasjon (finkornet autorisasjon)</li>
+<li>API for oppsett av hendelsesabonnementer via Altinn Hendelser</li>
+<li>GUI for konfigurering av Altinn Formidling</li>
+<li>GUI for konfigurering av Maskinporten</li>
+<li>GUI for konfigurering av Altinn Autorisasjon</li>
+</ul>
+<!--
+  Erik [13:39] Fatland, Ragnar Inge
+https://docs.altinn.studio/authorization/what-do-you-get/resourceadministration/studio/
+Ressurs Admin Altinn Studio – Altinn
+Ressursregisteret tilbyr API for alle typer håndtering av ressurser. I tilegg kan man  som del av Altinn studio kan administrere ressursene.
+-->
+<p><em>Merk: Altinn 3 Formidling tilbyr inntli videre ikke et eget GUI for filoverføringsoperasjoner,
+men overlater dette til sluttbrukersystemene.</em></p>
+<p><strong>Grensesnitt for kjøretidsoperasjoner:</strong></p>
+<ul>
+<li>API for individuelle filoverføringer, inkludert opplasting, nedlasting og statusovervåking</li>
+</ul>
+<p><strong>Grensesnitt for historiske data og statistikk:</strong></p>
+<ul>
+<li>API for historiske data og statistikk</li>
+</ul>
+<!--
+
+### Authorizarions interfaces
+
+
+## Altinn 3 Broker File Transfer Interfaces
+
+
+### Event Subscriptions
+See https://docs.altinn.studio/events/subscribe-to-events/developer-guides/setup-subscription/
+
+
+TBD.
+
+### User Interfaces
+
+Altinn 3 Broker does not currently provide a GUI for file transfer operations, but relies om End User System GUIs.
+
+-->
+<h2 id="altinn-3-broker-application-services">API-operasjoner</h2>
+<p>En oversikt over operasjoner i Altinn 3 Formidling API gis av følgende figur:</p>
+<div class="notices warning" ><!-- info -->
+<p>Merk: Navnene på API-operasjonene er ikke oversatt til norsk, for å unngå misforståelser opp mot tekniske OpenAPI-spesifikasjoner.</p></div>
+
+<p><figure>
+    <a href="altinn3-broker-application-services.nb.png">
+        <img src="altinn3-broker-application-services.nb.png" alt="Altinn 3 Formidling applikasjonstjenester" title="Altinn 3 Formidling applikasjonstjenester">
+    </a>
+    <figcaption><em>Altinn 3 Formidling applikasjonstjenester</em></figcaption>
+  </figure></p>
+<p>Hver av disse applikasjonstjenestene tilsvarer en <em>path</em> i <a href="https://docs.altinn.studio/nb/api/broker/spec/">Altinn 3 Formidling OpenAPI spesifikasjon</a>.</p>
+<h2 id="notifikasjoner-om-hendelser---maskin-til-maskin">Notifikasjoner om hendelser - maskin-til-maskin</h2>
+<p>Varsler om nye meldinger og andre hendelser leveres til abonnenter av webhooks.
+De spesifikke hendelsene er spesifisert som en del av
+<a href="https://docs.altinn.studio/nb/api/broker/spec/">Altinn 3 Formidling OpenAPI spesifikasjon</a>.</p>
+<p>Oppsummering:</p>
+<div class="notices warning" ><!-- info -->
+<p>Merk: Navnene på hendelsene er ikke oversatt til norsk, for å unngå misforståelser opp mot tekniske spesifikasjoner.</p></div>
+
+<ul>
+<li>
+<p>filetransferinitialized: Informasjom om en ny filoverføring</p>
+</li>
+<li>
+<p>filedeleted: Filen har blitt slettet fra Altinn Formidling</p>
+</li>
+<li>
+<p>fileneverconfirmeddownloaded: Filen har ikke blitt bekreftet nedlastet av noen mottaker</p>
+</li>
+<li>
+<p>uploadprocessing: Filen har blitt opplastet til Altinn Formidling, og blir kontrollert</p>
+</li>
+<li>
+<p>published: Filen er ferdig opplstet og kontrollert, og er klar for nedlasting</p>
+</li>
+<li>
+<p>uploadfailed: Filopplasting eller kontroll feilet</p>
+</li>
+<li>
+<p>downloadconfirmed: En eller flere mottakere har bekreftet vellykket nedlasting</p>
+</li>
+<li>
+<p>allconfirmeddownloaded: Alle aktuelle mottakere har bekreftet vellykket nedlasting</p>
+</li>
+<li>
+<p>Se også:</p>
+</li>
+<li>
+<p><a href="https://docs.altinn.studio/events/">Funksjonalitet for notifikasjon om hendelser i Altinn 3</a></p>
+</li>
+<li>
+<p><a href="https://docs.altinn.studio/nb/events/subscribe-to-events/developer-guides/setup-subscription/">Veiledning for oppsett av abonnement på notifikasjon om hendelser i Altinn 3</a></p>
+</li>
+</ul>
+<!--
+Webhooks are a way for an app or a service to provide real-time information to other apps or services. They are used to trigger automatic reactions or notifications when specific events occur. Essentially, a webhook sends an HTTP POST request to a specified URL in response to an event — for example, when a new record is added to a database, or a user completes a purchase.
+
+How Webhooks Work:
+1. Event Occurrence: A webhook is configured to listen for certain events in a source application (e.g., a new post on a blog, a new payment received, a new user registration).
+2. Notification: When the specified event occurs, the source application generates an HTTP POST request. This request contains information or data related to the event, formatted in a way that the receiving application expects (usually as JSON or XML).
+3. Listener: The target application (or a server-side script) listens for incoming POST requests on a specified URL (the webhook URL).
+4. Action: Once the target application receives the data, it can use it to perform an action, update its own database, send a notification, or trigger other workflows.
+
+Advantages of Webhooks:
+* Real-Time: Webhooks provide a mechanism for real-time data transfer and event handling, as opposed to traditional polling mechanisms where an application repeatedly checks for updates at regular intervals.
+* Efficient: They are more efficient than polling because they only send data when there is an actual event, reducing unnecessary network traffic and server load.
+* Customizable: Webhooks can be configured to listen for specific events, making them highly customizable and flexible for various use cases.
+
+Considerations:
+* Security: Since webhooks involve sending data from one service to another, they need to be secured to prevent unauthorized access or data interception. This often involves validating the incoming requests and using HTTPS for encryption.
+* Error Handling: The receiving application needs to be capable of handling errors or exceptions that may occur during data processing. This includes dealing with malformed data, service downtime, or network issues.
+* Infrastructure: The server that receives the webhook must be set up to handle potentially high volumes of incoming HTTP requests and process them efficiently.
+-->
+<h2 id="varsling-til-sluttbrukere-via-e-post-og-sms">Varsling til sluttbrukere via e-post og SMS</h2>
+<p>Varsler til sluttbrukere om nye meldinger, filer og andre hendelser sendes via Altinns varslingstjeneste.</p>
+<p>Se også:</p>
+<ul>
+<li><a href="https://docs.altinn.studio/notifications/">Altinn 3 varsling</a></li>
+</ul>
+<h2 id="scenariobeskrivelser">Scenariobeskrivelser</h2>
+<h3 id="ende-til-ende-typisk-sekvens">Ende-til-ende typisk sekvens</h3>
+<p>Følgende sekvensdiagram viser typisk &ldquo;happy path&rdquo; meldingssekvens:</p>
+<div class="notices warning" ><!-- info -->
+<p>Merk: Meldingsnavnene er ikke oversatt til norsk, for å unngå misforståelser opp mot tekniske spesifikasjoner.</p></div>
+
+<p><figure>
+    <a href="altinn3-broker-file-transfer-sequence-diagram.nb.png">
+        <img src="altinn3-broker-file-transfer-sequence-diagram.nb.png" alt="Sekvensdiagram for Altinn 3 Formidling filoverføring (happy path)" title="Sekvensdiagram for Altinn 3 Formidling filoverføring (happy path)">
+    </a>
+    <figcaption><em>Sekvensdiagram for Altinn 3 Formidling filoverføring (happy path)</em></figcaption>
+  </figure></p>
+<!--
+Note: Explanations for each arrow should match the online, clickable Archi version.
+Issue: How to link to the specific OpenAPI specification of this particular API call?
+-->
+<p>Meldingene i dette sekvensdiagrammet er realisert som API-kall til applikasjonstjenester.
+Se <a href="#altinn-3-broker-application-services">Altinn 3 applikasjonstjenester</a> for
+dokumentasjon av de aktuelle applikasjonstjenestene (API-kallene).</p>
+<p>Legg merke til at dette sekvensdiagrammet bare viser utvalgte meldingsparametre.
+Se <a href="https://docs.altinn.studio/nb/api/broker/spec/">Altinn 3 Formidling OpenAPI spesifikasjonen</a>
+for den komplette dokumentasjonen av parametre.</p>
+<!--
+Here's a high level description of the message flow:
+
+<span class="mark">Note: Details regarding authentication and
+authorization not shown here.</span>
+
+
+<!-- 4. CheckIfAvailableFiles: --
+
+1. InitalizeTransfer (id, type, options): Initialize a new file transfer, indicating a message id, the type of message (Altinn resourceid) and any non-default selection of options.
+2. UploadFile (fileId, protocol): Upload a file to the Broker filestore for an already initialized file transfer operation.
+3. NewFileUploaded: ...
+4. ListFiles (new):
+5. FileList (fileIds):
+6. DownloadRequest (fileId):
+7. DownloadConfirmation:
+8.  TransferCompleted (fileId):
+9.  GetFileStatus (fileId):
+10. FileStatusOverview (fileId):
+11. GetFileStatusDetailed:
+12. FileStatusDetails (fileId):
+-->
+<!--
+### Exception scenarios
+The following ... TBD ..
+
+1. Failing upload
+2. Failing download
+3. Resuming a failed upload
+4. Resuming a failed download
+
+### Other scenarios
+
+    Reporting sequence – service owner fetching statistics
+    Reporting sequence –provider fetching statistics
+    Reporting sequence –consumer fetching statistics
+    File storage purging
+
+-->
+<!-- References within this document: -->
+<!-- Erik, lenk til Swagger-spec. : -->
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/broker/reference/system-interfaces/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#oversikt-over-altinn-3-formidling-eksterne-grensesnitt">Oversikt over Altinn 3 Formidling eksterne grensesnitt</a></li>
+    <li><a href="#altinn-3-broker-application-services">API-operasjoner</a></li>
+    <li><a href="#notifikasjoner-om-hendelser---maskin-til-maskin">Notifikasjoner om hendelser - maskin-til-maskin</a></li>
+    <li><a href="#varsling-til-sluttbrukere-via-e-post-og-sms">Varsling til sluttbrukere via e-post og SMS</a></li>
+    <li><a href="#scenariobeskrivelser">Scenariobeskrivelser</a>
+      <ul>
+        <li><a href="#ende-til-ende-typisk-sekvens">Ende-til-ende typisk sekvens</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

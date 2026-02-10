@@ -1,0 +1,4625 @@
+﻿1
+00:00:01,320 --> 00:00:05,120
+Thank you for joining this session
+where we are going to talk about-
+
+2
+00:00:05,200 --> 00:00:08,480
+-how we are building an open source
+ government application platform-
+
+3
+00:00:08,560 --> 00:00:11,320
+-in the cloud.
+
+4
+00:00:11,400 --> 00:00:15,760
+We are three members of the team that's
+building the Altinn 3 platform-
+
+5
+00:00:15,840 --> 00:00:18,480
+-for Norwegian Digitalization Agency.
+
+6
+00:00:18,560 --> 00:00:21,160
+The team consists of members
+from the agency itself-
+
+7
+00:00:21,240 --> 00:00:23,720
+-and consultants
+ from different companies.
+
+8
+00:00:23,800 --> 00:00:27,920
+My name is Rune T. Larsen,
+and I work for Accenture Technology.
+
+9
+00:00:28,000 --> 00:00:30,840
+I've been doing that since 2005.
+
+10
+00:00:30,920 --> 00:00:33,280
+I've been working on
+the Altinn platform since 2008,-
+
+11
+00:00:33,360 --> 00:00:37,520
+-and I was part of the team that
+ built the 2. generation of Altinn.
+
+12
+00:00:37,600 --> 00:00:39,760
+I'm a developer
+and technical architect,-
+
+13
+00:00:39,840 --> 00:00:42,640
+-and I do most of my coding in .NET.
+
+14
+00:00:45,160 --> 00:00:47,880
+Hi, everyone.
+My name is Nina Kylstad.
+
+15
+00:00:47,960 --> 00:00:50,480
+I also work at Accenture Technology,-
+
+16
+00:00:50,560 --> 00:00:53,320
+-and I've been working there
+ for the past six years.
+
+17
+00:00:53,400 --> 00:00:58,080
+For the past five years, I've also
+been working on the Altinn platform.
+
+18
+00:00:58,160 --> 00:01:01,240
+I am a developer
+and technical architect.
+
+19
+00:01:01,320 --> 00:01:04,720
+I like to think of myself
+as a full-stack developer.
+
+20
+00:01:04,800 --> 00:01:08,480
+But I do work
+mostly front-end these days.
+
+21
+00:01:08,560 --> 00:01:10,880
+Outside of work,
+I have a one-year-old-
+
+22
+00:01:10,960 --> 00:01:13,880
+-who keeps me busy most of the time.
+
+23
+00:01:13,960 --> 00:01:17,520
+When I do have some spare time,
+I like to read,-
+
+24
+00:01:17,600 --> 00:01:20,360
+-and I've also
+ dusted off my sewing machine-
+
+25
+00:01:20,440 --> 00:01:24,160
+-in these times when
+ we're staying so much at home.
+
+26
+00:01:25,680 --> 00:01:28,640
+Hi, guys!
+My name is Stephanie Buadu.
+
+27
+00:01:28,720 --> 00:01:32,880
+I've been with Avanade
+and the Altinn team since 2018.
+
+28
+00:01:32,960 --> 00:01:36,960
+On this project, I've focused mostly
+on the back-end part of our solution-
+
+29
+00:01:37,040 --> 00:01:40,400
+-and also our integrations
+ with Altinn 2.
+
+30
+00:01:40,480 --> 00:01:43,440
+In my spare time,
+I quite like knitting.
+
+31
+00:01:43,520 --> 00:01:47,000
+That's a great hobby
+to combine with Netflix,-
+
+32
+00:01:47,080 --> 00:01:50,280
+-so I do quite a bit of that as well.
+
+33
+00:01:56,800 --> 00:02:00,920
+In this presentation, we're going to
+talk about what Altinn is.
+
+34
+00:02:01,000 --> 00:02:04,200
+Give a little introduction
+for you guys who doesn't know that.
+
+35
+00:02:04,280 --> 00:02:07,600
+We're going to
+talk about the Altinn 3 project.
+
+36
+00:02:07,680 --> 00:02:11,360
+How that started
+and the technical principles
+
+37
+00:02:11,440 --> 00:02:13,280
+we are using when building the new platform.
+
+38
+00:02:13,360 --> 00:02:16,400
+And we'll go into details
+about the new platform,-
+
+39
+00:02:16,480 --> 00:02:18,960
+-the components
+ and the solution we are creating.
+
+40
+00:02:19,040 --> 00:02:21,760
+Then we are going through
+the cloud architecture-
+
+41
+00:02:21,840 --> 00:02:24,800
+-and the components we are using
+ as part of the solution.
+
+42
+00:02:24,880 --> 00:02:27,000
+We are going to give you
+the current status-
+
+43
+00:02:27,080 --> 00:02:30,400
+-and what we will be working on next.
+
+44
+00:02:30,480 --> 00:02:34,520
+At the end, we open up for questions,
+so please ask questions.
+
+45
+00:02:37,360 --> 00:02:40,280
+So, what is Altinn?
+
+46
+00:02:40,360 --> 00:02:42,080
+Imagine you work
+for a government agency-
+
+47
+00:02:42,160 --> 00:02:45,520
+-that needs to get data
+ from the citizens of Norway.
+
+48
+00:02:45,600 --> 00:02:49,000
+Maybe you want them
+to report their covid-19 symptoms.
+
+49
+00:02:49,080 --> 00:02:50,920
+Maybe you want
+a digital service online-
+
+50
+00:02:51,000 --> 00:02:53,640
+-where they can receive that data.
+
+51
+00:02:53,720 --> 00:02:56,640
+Then Altinn is the platform for you.
+
+52
+00:02:57,800 --> 00:03:01,040
+Altinn is an Internet portal
+for dialogue between the citizens,-
+
+53
+00:03:01,120 --> 00:03:04,160
+-the businesses
+ and the agencies of Norway.
+
+54
+00:03:04,240 --> 00:03:06,400
+It's also a technical platform-
+
+55
+00:03:06,480 --> 00:03:11,160
+-where the agencies can build
+ and host their digital services.
+
+56
+00:03:11,240 --> 00:03:15,000
+Altinn was one of the first platforms
+as a service provider,-
+
+57
+00:03:15,080 --> 00:03:18,000
+-because it already started
+ back in 2002.
+
+58
+00:03:18,080 --> 00:03:20,680
+When three agencies joined forces-
+
+59
+00:03:20,760 --> 00:03:24,560
+-to build a common platform
+ for reporting to the government.
+
+60
+00:03:24,640 --> 00:03:27,800
+And in 2003,
+the first generation was launched.
+
+61
+00:03:27,880 --> 00:03:32,120
+In 2010,
+the second generation went live.
+
+62
+00:03:32,200 --> 00:03:36,000
+And during those years, more than
+50 agencies had joined the platform.
+
+63
+00:03:36,080 --> 00:03:39,200
+Including the armed forces,
+the police, health-
+
+64
+00:03:39,280 --> 00:03:43,560
+-and many more covering most
+ of the government sectors of Norway.
+
+65
+00:03:43,640 --> 00:03:46,200
+There are now
+more than 1,000 digital services-
+
+66
+00:03:46,280 --> 00:03:48,480
+-available through the platform.
+
+67
+00:03:48,560 --> 00:03:51,360
+That includes everything
+from naming your firstborn-
+
+68
+00:03:51,440 --> 00:03:54,120
+-to report an aircraft incident.
+
+69
+00:03:54,200 --> 00:03:58,120
+Almost all businesses in Norway
+uses Altinn every year.
+
+70
+00:03:58,200 --> 00:04:00,600
+And as this diagram shows,-
+
+71
+00:04:00,680 --> 00:04:05,840
+-almost everyone from 13 to 110
+ uses Altinn every year.
+
+72
+00:04:06,920 --> 00:04:09,600
+In Altinn,
+everyone has their own inbox-
+
+73
+00:04:09,680 --> 00:04:12,440
+-where they find their communication
+ with the government.
+
+74
+00:04:12,520 --> 00:04:14,760
+You also have a service catalogue-
+
+75
+00:04:14,840 --> 00:04:18,040
+-where you can find your
+ digital service and what you need.
+
+76
+00:04:18,120 --> 00:04:20,520
+Having this common platform
+is quite unique.
+
+77
+00:04:20,600 --> 00:04:22,000
+It's regarded as one of the reasons-
+
+78
+00:04:22,080 --> 00:04:25,000
+-that Norway is a leader
+ in digital government.
+
+79
+00:04:25,080 --> 00:04:28,520
+Another good functionaliy is that-
+
+80
+00:04:28,600 --> 00:04:30,720
+-every functionality
+ is available through APIs.
+
+81
+00:04:30,800 --> 00:04:34,840
+A lot of software vendors have
+implemented integration with Altinn.
+
+82
+00:04:34,920 --> 00:04:40,240
+You can submit your tax report
+directly from your financial system.
+
+83
+00:04:40,320 --> 00:04:42,720
+Gartner regards Altinn
+as one of the top five-
+
+84
+00:04:42,800 --> 00:04:46,800
+-government technical platforms
+ in the world.
+
+85
+00:04:46,880 --> 00:04:49,120
+So back again to the agency-
+
+86
+00:04:49,200 --> 00:04:51,680
+-and the need for having data
+ from the citizens.
+
+87
+00:04:51,760 --> 00:04:56,360
+From what I said, maybe you think
+Altinn 2 is the perfect platform.
+
+88
+00:04:56,440 --> 00:04:59,320
+But there are some limitations.
+
+89
+00:04:59,400 --> 00:05:02,080
+We based the current platform
+on physical hardware.
+
+90
+00:05:02,160 --> 00:05:05,440
+So even if our traffic
+varies from 100,000 a day-
+
+91
+00:05:05,520 --> 00:05:08,280
+-to 2,5 million a day,-
+
+92
+00:05:08,360 --> 00:05:11,800
+-we are scaled the same
+ all year long.
+
+93
+00:05:12,600 --> 00:05:16,960
+As an agency today, you will
+need to make a digital service-
+
+94
+00:05:17,040 --> 00:05:20,440
+-that is well supported
+ on mobile and on desktop.
+
+95
+00:05:20,520 --> 00:05:25,720
+But we are using Infopath, and it's
+limited what you can do with that.
+
+96
+00:05:25,800 --> 00:05:28,760
+There's a limitation
+to what kind of process flow-
+
+97
+00:05:28,840 --> 00:05:31,600
+-you can support for the end-users.
+
+98
+00:05:31,680 --> 00:05:35,000
+It's quite time consuming
+to do testing-
+
+99
+00:05:35,080 --> 00:05:37,000
+-because every time
+ we do a little change,-
+
+100
+00:05:37,080 --> 00:05:39,960
+-we need to deploy it
+ through the test environment.
+
+101
+00:05:40,040 --> 00:05:41,920
+And version control
+is done through SharePoint,-
+
+102
+00:05:42,000 --> 00:05:44,280
+-so it's very difficult to understand
+ what kind of changes-
+
+103
+00:05:44,360 --> 00:05:47,600
+-you or others had done
+ previous on your digital service.
+
+104
+00:05:47,680 --> 00:05:50,840
+And when you're done testing
+and ready to go into production,-
+
+105
+00:05:50,920 --> 00:05:55,560
+-on today's platform, you need to get
+ help from a technician to deploy it.
+
+106
+00:05:55,640 --> 00:05:57,840
+Those are some of the limitations-
+
+107
+00:05:57,920 --> 00:06:01,680
+-we have started building
+ on the next generation of Altinn.
+
+108
+00:06:03,120 --> 00:06:07,760
+So, this project
+started already back in 2016.
+
+109
+00:06:07,840 --> 00:06:11,200
+And we had at that time
+looked into what kind of product-
+
+110
+00:06:11,280 --> 00:06:13,160
+-could replace Infopath.
+
+111
+00:06:13,240 --> 00:06:17,360
+But we realized that maybe we
+should build something from scratch.
+
+112
+00:06:17,440 --> 00:06:20,120
+So we did a small proof of concept
+at that time.
+
+113
+00:06:20,200 --> 00:06:25,040
+Are we able to build a platform
+using ASP.NET Core?
+
+114
+00:06:25,120 --> 00:06:27,560
+And we kind of: Yes, it's possible.
+
+115
+00:06:27,640 --> 00:06:33,520
+And in 2018 we were ready to do
+a full-fledged proof of concept.
+
+116
+00:06:34,480 --> 00:06:38,120
+We wanted to build a new platform
+using .NET Core.
+
+117
+00:06:38,200 --> 00:06:42,800
+We wanted to use React as front-end,
+and Docker and Kubernetes.
+
+118
+00:06:42,880 --> 00:06:46,360
+And in the spring of 2018,-
+
+119
+00:06:46,440 --> 00:06:49,160
+-we started to verify:
+ Are we able to do this?
+
+120
+00:06:49,240 --> 00:06:51,480
+And during the summer of 2018
+we were saying:
+
+121
+00:06:51,560 --> 00:06:53,680
+We were able to prove
+our main concept.
+
+122
+00:06:53,760 --> 00:06:57,400
+We are going to build
+a UI-designer using React.
+
+123
+00:06:57,480 --> 00:07:00,440
+We then finalized the concept,-
+
+124
+00:07:00,520 --> 00:07:03,360
+-and got ready to start
+ a minimum viable product project.
+
+125
+00:07:03,440 --> 00:07:07,120
+And that is what we are
+presenting to you today.
+
+126
+00:07:07,200 --> 00:07:10,840
+So what is our concept
+of the new platform?
+
+127
+00:07:10,920 --> 00:07:16,840
+We will let the developers
+working for the agencies-
+
+128
+00:07:16,920 --> 00:07:20,960
+-be able to develop,
+ by themselves or as a group,-
+
+129
+00:07:21,040 --> 00:07:26,480
+-digital services, deploy it
+ to production as containers-
+
+130
+00:07:26,560 --> 00:07:29,640
+-to a public cloud infrastructure.
+
+131
+00:07:29,720 --> 00:07:32,560
+And all that without you
+needing to know programming-
+
+132
+00:07:32,640 --> 00:07:36,080
+-or anything about
+ cloud infrastructure.
+
+133
+00:07:36,160 --> 00:07:38,000
+Pretty cool.
+
+134
+00:07:38,080 --> 00:07:40,960
+So, to do this new platform,-
+
+135
+00:07:41,040 --> 00:07:44,200
+-we defined
+ some architecture principles.
+
+136
+00:07:44,280 --> 00:07:48,560
+I'm just going to mention
+the five most important ones.
+
+137
+00:07:50,560 --> 00:07:52,160
+We want to be open source.
+
+138
+00:07:52,240 --> 00:07:57,920
+We want others to use our platform
+and components if they want.
+
+139
+00:07:58,000 --> 00:07:59,840
+Other agencies
+want to use it internally-
+
+140
+00:07:59,920 --> 00:08:02,240
+-or maybe a different country.
+
+141
+00:08:02,320 --> 00:08:05,080
+And we also want contribution
+from the agency-
+
+142
+00:08:05,160 --> 00:08:07,440
+-that needs some features
+ to their platform.
+
+143
+00:08:07,520 --> 00:08:10,720
+So all our code
+is available on GitHub.
+
+144
+00:08:10,800 --> 00:08:14,000
+All our issues
+are available on GitHub.
+
+145
+00:08:14,080 --> 00:08:18,000
+And we only use tools and framework
+that are open source.
+
+146
+00:08:18,960 --> 00:08:22,480
+The second principle
+is that we really want-
+
+147
+00:08:22,560 --> 00:08:24,840
+-the platform to be loved.
+
+148
+00:08:24,920 --> 00:08:28,600
+So we build with tools
+that the developers like.
+
+149
+00:08:28,680 --> 00:08:31,640
+So we have chosen
+the most loved web framework,-
+
+150
+00:08:31,720 --> 00:08:34,240
+-according to Stack Overflow, React.
+
+151
+00:08:34,320 --> 00:08:39,480
+We are using the most loved back-end
+framework, that is .NET Core.
+
+152
+00:08:39,560 --> 00:08:41,400
+And we are using
+the most loved platform-
+
+153
+00:08:41,480 --> 00:08:45,480
+-since we are using Linux containers
+ based on Docker.
+
+154
+00:08:45,560 --> 00:08:49,120
+And everything is
+built around Visual Studio Code,-
+
+155
+00:08:49,200 --> 00:08:51,680
+-that is the most loved
+ development environment.
+
+156
+00:08:51,760 --> 00:08:54,240
+We truly love
+working with our platform,-
+
+157
+00:08:54,320 --> 00:08:57,240
+-and we believe that others will too.
+
+158
+00:08:57,320 --> 00:09:02,120
+These are some of the tools
+we have been using in our platform.
+
+159
+00:09:05,200 --> 00:09:09,640
+The third principle is that we are
+building everything as microservices.
+
+160
+00:09:09,720 --> 00:09:13,080
+We want to scale independently
+the different components.
+
+161
+00:09:13,160 --> 00:09:14,880
+We want to be able to deploy them.
+
+162
+00:09:14,960 --> 00:09:19,320
+To have teams responsible
+for different components.
+
+163
+00:09:19,400 --> 00:09:21,960
+Every component
+is deployed as a microservice,-
+
+164
+00:09:22,040 --> 00:09:25,680
+-and all the digital services
+ are created and deployed-
+
+165
+00:09:25,760 --> 00:09:28,320
+-as a microservice.
+
+166
+00:09:30,320 --> 00:09:33,520
+The fourth principle
+is also very important for us.
+
+167
+00:09:33,600 --> 00:09:38,240
+Because we are going to end up with
+a big infrastructure in the cloud.
+
+168
+00:09:38,320 --> 00:09:41,040
+And we are not able
+to run that by ourselves-
+
+169
+00:09:41,120 --> 00:09:43,120
+-if we're going to
+ manage it as a team.
+
+170
+00:09:43,200 --> 00:09:47,400
+So we favor using managed services
+available in Azure.
+
+171
+00:09:47,480 --> 00:09:49,920
+As an example
+Azure Kubernetes Service.
+
+172
+00:09:50,000 --> 00:09:53,200
+Stephanie will tell you
+more about that later.
+
+173
+00:09:55,320 --> 00:09:56,760
+And the last one.
+
+174
+00:09:56,840 --> 00:10:00,480
+Application owners
+will be isolated from each other.
+
+175
+00:10:00,560 --> 00:10:02,400
+We don't want an application owner-
+
+176
+00:10:02,480 --> 00:10:04,920
+-to be able to affect the service
+ for others-
+
+177
+00:10:05,000 --> 00:10:07,280
+-or be able to
+ access data for others.
+
+178
+00:10:07,360 --> 00:10:12,120
+So we have isolated infrastructure
+for every application owner.
+
+179
+00:10:12,200 --> 00:10:15,280
+And we also have isolated
+and separated data storage-
+
+180
+00:10:15,360 --> 00:10:17,600
+-for every application owner.
+
+181
+00:10:17,680 --> 00:10:22,640
+Nina is going to tell you more about
+the solution we are building.
+
+182
+00:10:24,720 --> 00:10:27,280
+Thank you, Rune.
+
+183
+00:10:35,000 --> 00:10:38,800
+So we had our overall concept,-
+
+184
+00:10:38,880 --> 00:10:41,480
+-and we had
+ our architecture principles-
+
+185
+00:10:41,560 --> 00:10:44,840
+-and we had
+ the proof of concept ready.
+
+186
+00:10:44,920 --> 00:10:49,120
+And based on this,
+we started building our solutions.
+
+187
+00:10:49,200 --> 00:10:54,080
+Altinn 3 is made up of
+three solutions that work together.
+
+188
+00:10:55,560 --> 00:10:58,040
+First we have
+the Altinn Studio Solution.
+
+189
+00:10:58,120 --> 00:11:00,520
+This is our design-time solution-
+
+190
+00:11:00,600 --> 00:11:04,400
+-to create, develop
+ and deploy applications,-
+
+191
+00:11:04,480 --> 00:11:07,120
+-or apps as we call them.
+
+192
+00:11:07,920 --> 00:11:10,040
+We have the Altinn Apps Solution.
+
+193
+00:11:10,120 --> 00:11:13,600
+This is the collection
+of all of the running apps-
+
+194
+00:11:13,680 --> 00:11:17,120
+-and the Kubernetes clusters
+ on which they run.
+
+195
+00:11:18,520 --> 00:11:21,800
+Finally we have
+the Altinn Platform Solution,-
+
+196
+00:11:21,880 --> 00:11:26,880
+-which provides the common
+ back-end functionality for the apps.
+
+197
+00:11:28,880 --> 00:11:32,960
+Let's look at how
+these three solutions work together-
+
+198
+00:11:33,040 --> 00:11:35,080
+-to support the next generation-
+
+199
+00:11:35,160 --> 00:11:39,720
+-of digital services
+ for the people of Norway.
+
+200
+00:11:39,800 --> 00:11:43,640
+So let's go back to this scenario
+of a government agency-
+
+201
+00:11:43,720 --> 00:11:45,720
+-that wants to collect some data,-
+
+202
+00:11:45,800 --> 00:11:50,120
+-and they want to create
+ a digital service to do this.
+
+203
+00:11:50,200 --> 00:11:52,480
+And we'll see how we can solve this-
+
+204
+00:11:52,560 --> 00:11:56,320
+-by creating an app
+ using the Altinn 3 solutions.
+
+205
+00:11:58,920 --> 00:12:04,520
+These are some of the key features
+that we want to support.
+
+206
+00:12:04,600 --> 00:12:08,520
+These are also some pain points
+from the existing platform-
+
+207
+00:12:08,600 --> 00:12:11,720
+-that we would like to improve on.
+
+208
+00:12:15,360 --> 00:12:19,600
+So what is an app in this context?
+
+209
+00:12:19,680 --> 00:12:22,000
+An app is a digital service-
+
+210
+00:12:22,080 --> 00:12:25,560
+-in the form of
+ a stand-alone application.
+
+211
+00:12:25,640 --> 00:12:29,360
+And this application
+exposes some APIs,-
+
+212
+00:12:29,440 --> 00:12:32,080
+-it has some sort of
+ graphical user interface-
+
+213
+00:12:32,160 --> 00:12:35,840
+-and it runs in a Docker container.
+
+214
+00:12:35,920 --> 00:12:39,840
+So to support this,
+we have created an app template.
+
+215
+00:12:39,920 --> 00:12:43,640
+This is the starting point
+for all of the apps.
+
+216
+00:12:43,720 --> 00:12:49,640
+The app template is
+a .NET Core MVC Application,-
+
+217
+00:12:49,720 --> 00:12:51,280
+-completely standard.
+
+218
+00:12:51,360 --> 00:12:55,680
+And then we have extended it
+with some supporting libraries.
+
+219
+00:12:55,760 --> 00:12:59,480
+These are projects
+that we publish as Nuget packages.
+
+220
+00:12:59,560 --> 00:13:02,960
+Nuget is .NET's package manager.
+
+221
+00:13:03,040 --> 00:13:05,600
+And these supporting libraries
+contain-
+
+222
+00:13:05,680 --> 00:13:09,680
+-things like the standard APIs
+ that the apps should expose,-
+
+223
+00:13:09,760 --> 00:13:13,800
+-as well as integration
+ with the Altinn platform.
+
+224
+00:13:13,880 --> 00:13:17,360
+We've also added
+placeholders for custom logic-
+
+225
+00:13:17,440 --> 00:13:19,880
+-and a set of configuration files-
+
+226
+00:13:19,960 --> 00:13:24,760
+-that the app developers
+ can use to configure the apps.
+
+227
+00:13:24,840 --> 00:13:28,000
+The app also refers to a front-end.
+
+228
+00:13:28,080 --> 00:13:30,160
+This is a React application-
+
+229
+00:13:30,240 --> 00:13:34,160
+-that is loaded from a content
+ delivery network at runtime.
+
+230
+00:13:34,240 --> 00:13:38,520
+All of the apps use
+the same front-end by default.
+
+231
+00:13:38,600 --> 00:13:40,920
+And the front-end
+can then be configured-
+
+232
+00:13:41,000 --> 00:13:43,760
+-to work with the specific apps.
+
+233
+00:13:43,840 --> 00:13:46,440
+The front-end integrates
+with the app itself-
+
+234
+00:13:46,520 --> 00:13:50,000
+-via the APIs that the app exposes.
+
+235
+00:13:51,000 --> 00:13:57,760
+Let's look at how an app developer
+can actually customize the app.
+
+236
+00:13:57,840 --> 00:14:00,520
+As I mentioned,
+one of the ways to do this,-
+
+237
+00:14:00,600 --> 00:14:03,480
+-is through
+ a set of configuration files.
+
+238
+00:14:03,560 --> 00:14:07,280
+One of the most important
+configurations that we set up,-
+
+239
+00:14:07,360 --> 00:14:09,000
+-is the process.
+
+240
+00:14:09,080 --> 00:14:12,320
+The process defines the set of tasks-
+
+241
+00:14:12,400 --> 00:14:17,200
+-that the end-user that actually
+ uses the app, must go through.
+
+242
+00:14:17,280 --> 00:14:21,320
+For example,
+think back at our scenario-
+
+243
+00:14:21,400 --> 00:14:25,360
+-of a government agency
+ that wants to collect data.
+
+244
+00:14:25,440 --> 00:14:29,000
+So the end-user
+might have to fill in a form.
+
+245
+00:14:29,080 --> 00:14:31,760
+This would be a Data type task.
+
+246
+00:14:31,840 --> 00:14:35,360
+They might then have to confirm
+that their data is correct.
+
+247
+00:14:35,440 --> 00:14:38,720
+So this would be a Confirmation task.
+
+248
+00:14:38,800 --> 00:14:42,480
+Finally they might need to
+wait for some response-
+
+249
+00:14:42,560 --> 00:14:45,400
+-from the agency
+ they are submitting their data to.
+
+250
+00:14:45,480 --> 00:14:47,680
+This would be the Feedback type task.
+
+251
+00:14:47,760 --> 00:14:50,640
+These are the three task types
+that we support.
+
+252
+00:14:50,720 --> 00:14:55,600
+And they can be combined in any way
+to create a process.
+
+253
+00:14:55,680 --> 00:15:00,880
+Defining the process is done through
+the process configuration file.
+
+254
+00:15:00,960 --> 00:15:03,160
+When we set up
+our configuration files,-
+
+255
+00:15:03,240 --> 00:15:09,120
+-we tried where possible to use
+ existing standards for the format.
+
+256
+00:15:09,200 --> 00:15:14,200
+For the process,
+we used the BPMN 2.0 standard.
+
+257
+00:15:14,280 --> 00:15:19,640
+This is an XML notation
+for defining processes.
+
+258
+00:15:19,720 --> 00:15:26,400
+We've also used the XACML standard
+for our authorization policies.
+
+259
+00:15:26,480 --> 00:15:31,200
+This is an XML standard
+for defining access control.
+
+260
+00:15:31,280 --> 00:15:34,160
+Now authorization policies
+can be applied-
+
+261
+00:15:34,240 --> 00:15:40,000
+-to the entire app as a whole,
+ or to specific process tasks.
+
+262
+00:15:41,720 --> 00:15:45,120
+That was a little bit
+about setting up the app-
+
+263
+00:15:45,200 --> 00:15:47,000
+-using the configuration files.
+
+264
+00:15:47,080 --> 00:15:53,840
+The app developers can also
+customize the apps through code.
+
+265
+00:15:53,920 --> 00:15:58,120
+As I mentioned, we set up
+some placeholders for custom logic.
+
+266
+00:15:58,200 --> 00:16:03,360
+This is for things like validation,
+calculation or pre-filling of data.
+
+267
+00:16:03,440 --> 00:16:06,960
+But this is
+really just the beginning.
+
+268
+00:16:07,040 --> 00:16:09,760
+App developers
+can really do anything they want-
+
+269
+00:16:09,840 --> 00:16:12,320
+-as long as they
+ can put it into code.
+
+270
+00:16:12,400 --> 00:16:15,920
+For example, they could
+fetch data from the Altinn platform-
+
+271
+00:16:16,000 --> 00:16:18,320
+-or from external sources.
+
+272
+00:16:18,400 --> 00:16:22,520
+They could create and expose APIs.
+The list goes on and on.
+
+273
+00:16:22,600 --> 00:16:26,840
+As I said, if it can be coded,
+it can be done.
+
+274
+00:16:30,160 --> 00:16:33,320
+Now let's take this one step further.
+
+275
+00:16:33,400 --> 00:16:39,000
+I said that the apps all use
+the same front-end by default.
+
+276
+00:16:39,080 --> 00:16:41,760
+And then that front-end
+can be configured.
+
+277
+00:16:41,840 --> 00:16:43,960
+Imagine that this doesn't cut it.
+
+278
+00:16:44,040 --> 00:16:48,920
+You can't configure the standard
+front-end to do what you want.
+
+279
+00:16:49,000 --> 00:16:52,360
+Allright - replace it with something
+different.
+
+280
+00:16:52,440 --> 00:16:56,080
+Since we just refer to
+the app front-end from the app,-
+
+281
+00:16:56,160 --> 00:17:00,080
+-you can just refer to something else
+ and load it at runtime.
+
+282
+00:17:00,160 --> 00:17:02,960
+Or drop the front-end entirely-
+
+283
+00:17:03,040 --> 00:17:08,120
+-and have your end-users
+ go directly to the app via the APIs.
+
+284
+00:17:09,840 --> 00:17:12,520
+And if we go even further now.
+
+285
+00:17:12,600 --> 00:17:15,800
+Nothing is really stopping you
+from doing the same thing-
+
+286
+00:17:15,880 --> 00:17:19,400
+-with the app template itself.
+
+287
+00:17:19,480 --> 00:17:25,040
+If it doesn't work for you, you could
+replace it with something different.
+
+288
+00:17:25,120 --> 00:17:27,720
+Maybe even a Java application...
+
+289
+00:17:29,840 --> 00:17:33,920
+Personally,
+I would not choose to replace-
+
+290
+00:17:34,000 --> 00:17:39,640
+-our beautiful, amazing .NET app template
+ with a Java application.
+
+291
+00:17:41,000 --> 00:17:44,320
+But joking aside,-
+
+292
+00:17:44,400 --> 00:17:47,520
+-if the standard template
+ doesn't do it for you,-
+
+293
+00:17:47,600 --> 00:17:51,440
+-then of course it's possible
+ to replace it with something else.
+
+294
+00:17:51,520 --> 00:17:54,360
+We see that in the future
+we might actually have-
+
+295
+00:17:54,440 --> 00:17:57,800
+-a set of app templates
+ using different technologies-
+
+296
+00:17:57,880 --> 00:18:02,440
+-that you can choose from
+ when you are creating an app.
+
+297
+00:18:05,280 --> 00:18:09,080
+Let's go back now
+and assume that you want to keep-
+
+298
+00:18:09,160 --> 00:18:12,640
+-the app template
+ and front-end as is-
+
+299
+00:18:12,720 --> 00:18:16,160
+-and then just work
+ on configuring it.
+
+300
+00:18:16,240 --> 00:18:23,200
+As we've said before,
+we want the UIs to be modern.
+
+301
+00:18:23,280 --> 00:18:26,640
+We want them to work
+on both desktop and mobile.
+
+302
+00:18:26,720 --> 00:18:30,080
+One of the ways to configure the UI,-
+
+303
+00:18:30,160 --> 00:18:35,080
+-is by creating a form
+ for collecting data.
+
+304
+00:18:35,160 --> 00:18:38,560
+So we decided to build our own tool-
+
+305
+00:18:38,640 --> 00:18:42,440
+-instead of using
+ existing tools to do this.
+
+306
+00:18:42,520 --> 00:18:47,680
+So we built a drag-and-drop
+Forms Editor using React.
+
+307
+00:18:48,720 --> 00:18:53,320
+And this Forms Editor has
+a library of available components,-
+
+308
+00:18:54,560 --> 00:18:58,720
+-that can be dragged into
+the form layout and then configured.
+
+309
+00:18:58,800 --> 00:19:01,520
+Currently we only support
+very simple forms,-
+
+310
+00:19:01,600 --> 00:19:06,480
+-with a single column layout,
+ and we do aim to expand on this.
+
+311
+00:19:06,560 --> 00:19:14,400
+When an app developer works
+on configuring a form like this,-
+
+312
+00:19:14,480 --> 00:19:18,760
+-the actual form configuration
+ and the definition of the form-
+
+313
+00:19:18,840 --> 00:19:21,400
+-is stored in a JSON layout file.
+
+314
+00:19:21,480 --> 00:19:26,720
+This is our form layout file, and
+it defines how the form should look.
+
+315
+00:19:27,680 --> 00:19:34,240
+At runtime, the app front-end
+then parses this layout file-
+
+316
+00:19:34,320 --> 00:19:36,440
+-and renders the form.
+
+317
+00:19:38,760 --> 00:19:43,280
+This configuration
+is for the Data type tasks,-
+
+318
+00:19:43,360 --> 00:19:45,800
+-so forms are for collecting data.
+
+319
+00:19:45,880 --> 00:19:48,920
+But we do have the possibility
+to configure views-
+
+320
+00:19:49,000 --> 00:19:51,960
+-for the other task types as well.
+
+321
+00:19:52,040 --> 00:19:55,520
+That would be Confirmation and
+Feedback. We have views for these.
+
+322
+00:19:55,600 --> 00:20:00,240
+The app owners can then configure
+the content that will be shown.
+
+323
+00:20:03,000 --> 00:20:05,560
+So far I've talked about the apps.
+
+324
+00:20:05,640 --> 00:20:10,880
+But how do we actually develop apps
+into complete digital services?
+
+325
+00:20:12,120 --> 00:20:15,480
+This is done in
+the Altinn Studio Solution.
+
+326
+00:20:15,560 --> 00:20:18,400
+Altinn Studio
+is made up of three parts.
+
+327
+00:20:18,480 --> 00:20:20,800
+We have the Designer Application.
+
+328
+00:20:20,880 --> 00:20:22,920
+This is the graphical user interface
+
+329
+00:20:23,000 --> 00:20:28,120
+-that app developers use
+ to create and develop their apps.
+
+330
+00:20:28,200 --> 00:20:30,160
+This is what it looks like.
+
+331
+00:20:30,240 --> 00:20:35,800
+In the Designer Application, we have
+the Forms Builder that I showed you.
+
+332
+00:20:35,880 --> 00:20:40,520
+We have an editor for setting up
+texts for language support.
+
+333
+00:20:40,600 --> 00:20:45,040
+We have some support
+for simple code editing,-
+
+334
+00:20:45,120 --> 00:20:49,360
+-using an embedded code editor, 
+and of course deploy.
+
+335
+00:20:49,440 --> 00:20:54,120
+The Designer Application integrates
+with the Repository Application.
+
+336
+00:20:54,200 --> 00:20:58,800
+This is where all the apps
+in Altinn Studio are stored.
+
+337
+00:20:58,880 --> 00:21:01,680
+The Repository Application
+is built on Gitea.
+
+338
+00:21:01,760 --> 00:21:06,600
+This is an open source
+code hosting solution that uses GIT.
+
+339
+00:21:07,640 --> 00:21:11,320
+And it looks like this,
+a little bit like GitHub.
+
+340
+00:21:11,400 --> 00:21:15,640
+Each app in Altinn Studio
+is stored in a GIT Repository.
+
+341
+00:21:15,720 --> 00:21:21,000
+When an app developer works on an app
+in the Altinn Studio solution,-
+
+342
+00:21:21,080 --> 00:21:24,920
+-they are working on a clone
+ of the Central App Repository.
+
+343
+00:21:25,000 --> 00:21:26,360
+And when they're done
+with their changes,-
+
+344
+00:21:26,440 --> 00:21:29,400
+-they can push their changes
+ to the App Repository.
+
+345
+00:21:29,480 --> 00:21:32,320
+This makes it easy
+for multiple developers-
+
+346
+00:21:32,400 --> 00:21:36,160
+-to work on the same app
+ at the same time.
+
+347
+00:21:36,240 --> 00:21:41,240
+And all of the files are version
+controlled, just like normal source code.
+
+348
+00:21:42,400 --> 00:21:45,720
+We have set up load balancer to route-
+
+349
+00:21:45,800 --> 00:21:49,360
+-between the Repository Application
+ and the Designer Application,-
+
+350
+00:21:49,440 --> 00:21:53,200
+-based on the URL that comes in.
+
+351
+00:21:55,320 --> 00:21:59,520
+Building applications through
+a graphical user interface,-
+
+352
+00:21:59,600 --> 00:22:01,960
+-drag and drop, is cool.
+
+353
+00:22:02,040 --> 00:22:05,520
+Unfortunately, not all of
+the functionality of the apps-
+
+354
+00:22:05,600 --> 00:22:08,440
+-is supported to be configured-
+
+355
+00:22:08,520 --> 00:22:12,840
+-through a graphical user interface
+ in Altinn Studio.
+
+356
+00:22:12,920 --> 00:22:16,680
+In addition, some developers might
+actually like to use their own tools.
+
+357
+00:22:16,760 --> 00:22:19,640
+Especially when it comes to
+writing code.
+
+358
+00:22:19,720 --> 00:22:21,920
+So we support local development.
+
+359
+00:22:22,000 --> 00:22:26,320
+Where app developers can use their
+favorite tools to work on the apps.
+
+360
+00:22:26,400 --> 00:22:28,080
+So once an app is created,-
+
+361
+00:22:28,160 --> 00:22:32,400
+-it can be cloned to your local
+ computer where you can work on it.
+
+362
+00:22:32,480 --> 00:22:36,320
+Once you're done, you can push it
+back up to the App Repository-
+
+363
+00:22:36,400 --> 00:22:38,320
+-for deploy.
+
+364
+00:22:39,960 --> 00:22:46,680
+One very important aspect
+of developing an app is testing.
+
+365
+00:22:46,760 --> 00:22:49,120
+Apps need to be tested.
+
+366
+00:22:49,200 --> 00:22:55,360
+And the apps need the Altinn
+Platform Solution to actually run.
+
+367
+00:22:55,440 --> 00:22:58,920
+One possibility is to deploy the app
+to a test environment-
+
+368
+00:22:59,000 --> 00:23:02,000
+-where the Altinn Platform Solution
+ is running.
+
+369
+00:23:02,080 --> 00:23:07,200
+However, if you're just testing
+while you are developing-
+
+370
+00:23:07,280 --> 00:23:12,320
+-and testing incremental changes,
+ this can be very time consuming.
+
+371
+00:23:13,400 --> 00:23:16,560
+So in order to support
+local testing,-
+
+372
+00:23:16,640 --> 00:23:19,080
+-we have created a platform mock.
+
+373
+00:23:19,160 --> 00:23:23,240
+This can be downloaded and run
+in parallel with the apps-
+
+374
+00:23:23,320 --> 00:23:29,520
+-in order to test the apps locally,
+ on the fly, while developing.
+
+375
+00:23:29,600 --> 00:23:32,880
+This platform mock is also used a lot
+by the development team-
+
+376
+00:23:32,960 --> 00:23:36,840
+-when we're developing
+ new features for the apps.
+
+377
+00:23:41,000 --> 00:23:42,920
+Let's look at Deploy.
+
+378
+00:23:43,000 --> 00:23:46,400
+Apps are deployed
+from the Altinn Studio solution-
+
+379
+00:23:46,480 --> 00:23:50,720
+-to a Kubernetes cluster
+ in the Altinn Apps Solution.
+
+380
+00:23:50,800 --> 00:23:55,680
+As Rune mentioned,
+each app owner or government agency,-
+
+381
+00:23:55,760 --> 00:24:00,960
+-has their own Kubernetes cluster
+ to which they deploy their apps.
+
+382
+00:24:01,040 --> 00:24:05,840
+This is true for both
+test environments and production.
+
+383
+00:24:05,920 --> 00:24:08,160
+This means that
+the apps of one agency-
+
+384
+00:24:08,240 --> 00:24:11,560
+-do not affect the apps
+ of another agency.
+
+385
+00:24:11,640 --> 00:24:15,800
+And this is what allows us
+to provide self-service deploys-
+
+386
+00:24:15,880 --> 00:24:18,320
+-all the way to production.
+
+387
+00:24:20,360 --> 00:24:23,240
+Deploy is a two-step process.
+
+388
+00:24:24,520 --> 00:24:28,400
+First we need to
+actually build the application.
+
+389
+00:24:28,480 --> 00:24:32,720
+And this builds
+a Docker image for the app,-
+
+390
+00:24:32,800 --> 00:24:36,480
+-and then pushes it to
+ an Azure Container Registry.
+
+391
+00:24:36,560 --> 00:24:39,040
+This is done via
+an Azure DevOps pipeline-
+
+392
+00:24:39,120 --> 00:24:41,600
+-which you can see
+ an example of here.
+
+393
+00:24:41,680 --> 00:24:43,960
+Once the build is done,-
+
+394
+00:24:44,040 --> 00:24:47,480
+-we can deploy the app
+ to the environment that we choose.
+
+395
+00:24:47,560 --> 00:24:49,640
+And this fetches that Docker image-
+
+396
+00:24:49,720 --> 00:24:52,360
+-and deploys it to
+ the specified environment.
+
+397
+00:24:52,440 --> 00:24:55,600
+Again done using
+an Azure DevOps pipeline.
+
+398
+00:25:01,280 --> 00:25:02,840
+Now Rune is going to show you-
+
+399
+00:25:02,920 --> 00:25:05,480
+-a little bit about
+ the Altinn Platform.
+
+400
+00:25:10,360 --> 00:25:14,120
+The Altinn Platform
+is the part of our new platform-
+
+401
+00:25:14,200 --> 00:25:17,240
+-that contains all the functionality
+ needed by the apps.
+
+402
+00:25:17,320 --> 00:25:18,760
+We have grouped the functionality-
+
+403
+00:25:18,840 --> 00:25:22,440
+-into different containers
+ or micro services.
+
+404
+00:25:22,520 --> 00:25:26,440
+And those are available through APIs.
+
+405
+00:25:26,520 --> 00:25:29,680
+The first component is
+the Authentification Component.
+
+406
+00:25:29,760 --> 00:25:32,760
+That's responsible for authenticating
+the user and system-
+
+407
+00:25:32,840 --> 00:25:34,720
+-wanted to accessing an app.
+
+408
+00:25:34,800 --> 00:25:37,800
+The component works as
+an identity provider for the apps.
+
+409
+00:25:37,880 --> 00:25:41,400
+This again is integrated with
+other external identity providers-
+
+410
+00:25:41,480 --> 00:25:44,160
+-like the national ID port in Norway.
+
+411
+00:25:44,240 --> 00:25:47,080
+The Authorization Component
+is authorizing access-
+
+412
+00:25:47,160 --> 00:25:49,800
+-for every app, the APIs and so on.
+
+413
+00:25:49,880 --> 00:25:53,280
+This is a XACML 3.0
+Policy Decision Point-
+
+414
+00:25:53,360 --> 00:25:55,480
+-that reads the policy file defined-
+
+415
+00:25:55,560 --> 00:26:00,560
+-as part of the Application
+ Repository, just mentioned by Nina.
+
+416
+00:26:00,640 --> 00:26:03,800
+Every app will call
+the authorization point-
+
+417
+00:26:03,880 --> 00:26:09,680
+-and get a response saying if
+ the user or system can access it.
+
+418
+00:26:09,760 --> 00:26:12,480
+We believe that this component can
+be used in other types of scenarios.
+
+419
+00:26:12,560 --> 00:26:13,800
+It's available in our source code-
+
+420
+00:26:13,880 --> 00:26:18,400
+-and could be used
+ everywhere you can use a PDP.
+
+421
+00:26:18,480 --> 00:26:20,160
+Then you have the Profile Component,-
+
+422
+00:26:20,240 --> 00:26:22,760
+-where it gets the user information
+ for the users.
+
+423
+00:26:22,840 --> 00:26:24,800
+You have the Register Component-
+
+424
+00:26:24,880 --> 00:26:26,840
+-where you find information
+ about all the citizens-
+
+425
+00:26:26,920 --> 00:26:30,600
+-and businesses of Norway.
+ Often used in apps.
+
+426
+00:26:30,680 --> 00:26:34,400
+We have the Receipt Component-
+
+427
+00:26:34,480 --> 00:26:38,960
+-that provides a receipt for earlier
+ communication with the government.
+
+428
+00:26:39,040 --> 00:26:43,160
+All those apps I mentioned
+are based on ASP.NET Core.
+
+429
+00:26:43,240 --> 00:26:47,000
+But the PDF component
+is in fact a Java application.
+
+430
+00:26:47,080 --> 00:26:50,120
+We were not able
+to find a good enough-
+
+431
+00:26:50,200 --> 00:26:53,160
+-open source PDF tool for .NET.
+
+432
+00:26:53,240 --> 00:26:57,800
+So if anybody wants to build it,
+we'll truly appreciate it.
+
+433
+00:26:57,880 --> 00:27:01,720
+And then we have
+the Receipt Component.
+
+434
+00:27:01,800 --> 00:27:05,320
+No, I'm sorry, the Storage Component.
+
+435
+00:27:05,400 --> 00:27:08,800
+Where you'll find the storage
+functionality for the apps.
+
+436
+00:27:08,880 --> 00:27:12,120
+This is where the user
+will end up storing their data.
+
+437
+00:27:12,200 --> 00:27:16,240
+This is also where the agency will
+retrieve their data through the APIs.
+
+438
+00:27:16,320 --> 00:27:18,000
+So when a user submits data
+in our app,-
+
+439
+00:27:18,080 --> 00:27:19,680
+-the app will call
+ this storage component,-
+
+440
+00:27:19,760 --> 00:27:25,600
+-and they will be stored down to
+ a separate storage account in Azure.
+
+441
+00:27:25,680 --> 00:27:27,680
+So those are the components we have.
+
+442
+00:27:27,760 --> 00:27:31,200
+The next step is what kind of
+cloud architecture are we building?
+
+443
+00:27:31,280 --> 00:27:34,760
+Stephanie is going to give you
+details about that.
+
+444
+00:27:35,880 --> 00:27:38,160
+Thanks.
+
+445
+00:27:41,520 --> 00:27:46,600
+We're going to talk a bit about
+our public cloud components-
+
+446
+00:27:46,680 --> 00:27:48,680
+-and our architecure in Azure.
+
+447
+00:27:48,760 --> 00:27:50,840
+We're going to exemplify this
+by looking at-
+
+448
+00:27:50,920 --> 00:27:53,760
+-how we deploy our microservices.
+
+449
+00:27:53,840 --> 00:27:58,960
+Microsoft established their first
+Norwegian data centers this winter.
+
+450
+00:27:59,040 --> 00:28:02,200
+One placed East
+and one placed West in the country.
+
+451
+00:28:02,280 --> 00:28:04,960
+This makes them
+the only large cloud provider-
+
+452
+00:28:05,040 --> 00:28:07,840
+-with data centers in Norway.
+
+453
+00:28:07,920 --> 00:28:10,200
+Given that they have
+two data centers,-
+
+454
+00:28:10,280 --> 00:28:14,680
+-we're able to have redundancy
+ within Norwegian borders.
+
+455
+00:28:14,760 --> 00:28:18,280
+This is great as we then
+can take on application owners-
+
+456
+00:28:18,360 --> 00:28:23,680
+-that have a requirement that
+ their data is stored within Norway.
+
+457
+00:28:23,760 --> 00:28:27,120
+Another great thing about using
+the Norwegian data centers,-
+
+458
+00:28:27,200 --> 00:28:30,240
+-is that we get a lower latency
+ in the communications-
+
+459
+00:28:30,320 --> 00:28:34,640
+-between our own premise
+ and cloud solutions.
+
+460
+00:28:34,720 --> 00:28:39,080
+Nina and Rune have told you about
+our different microservices.
+
+461
+00:28:39,160 --> 00:28:41,560
+We have the different
+platform components.
+
+462
+00:28:41,640 --> 00:28:45,400
+We also have the apps of our users
+and Altinn Studio.
+
+463
+00:28:45,480 --> 00:28:47,280
+What I want to take you through,-
+
+464
+00:28:47,360 --> 00:28:51,240
+-is how do we get from
+ a bunch of code on GitHub or Gitea-
+
+465
+00:28:51,320 --> 00:28:53,880
+-to running services online.
+
+466
+00:28:53,960 --> 00:28:58,000
+The exciting thing is that
+the concepts I'm going to show you,-
+
+467
+00:28:58,080 --> 00:29:01,560
+-are the same we use whether
+ we're deploying our microservices-
+
+468
+00:29:01,640 --> 00:29:05,920
+-or the microservices of our users,
+ the app developers.
+
+469
+00:29:07,800 --> 00:29:11,720
+The first step of course
+is source control.
+
+470
+00:29:11,800 --> 00:29:15,040
+We use GitHub for all the code
+that we're developing,-
+
+471
+00:29:15,120 --> 00:29:19,360
+-and Gitea for all the code
+ related to the applications.
+
+472
+00:29:19,440 --> 00:29:23,360
+At this stage, we also like
+to run analysis on our code.
+
+473
+00:29:23,440 --> 00:29:28,040
+So we use LGTM, Looks Good To Me,
+for security analysis,-
+
+474
+00:29:28,120 --> 00:29:31,760
+-and SonarCloud to ensure that
+ we have a maintainable code base.
+
+475
+00:29:31,840 --> 00:29:35,120
+That's just a few of the tools
+that we're using.
+
+476
+00:29:35,200 --> 00:29:38,320
+So once we have
+a new feature for the platform,-
+
+477
+00:29:38,400 --> 00:29:42,960
+-or an application owner decides
+ it's time to build their app,-
+
+478
+00:29:43,040 --> 00:29:46,680
+-a build pipeline is triggered
+ in Azure DevOps.
+
+479
+00:29:48,560 --> 00:29:53,320
+So this build pipeline is
+made out of ready template tasks-
+
+480
+00:29:53,400 --> 00:29:57,400
+-in Azure DevOps,
+making them really easy to configure.
+
+481
+00:29:57,480 --> 00:29:59,320
+It's a two-step pipeline
+
+482
+00:29:59,400 --> 00:30:02,480
+-where the first step
+ is building a Docker image-
+
+483
+00:30:02,560 --> 00:30:07,440
+-and the second step is pushing
+ that image to Container Registry.
+
+484
+00:30:08,680 --> 00:30:11,360
+Container Registry
+is hosted in Azure,-
+
+485
+00:30:11,440 --> 00:30:13,880
+-and this is where we store
+ all of our images-
+
+486
+00:30:13,960 --> 00:30:16,760
+-until we're ready to deploy
+ the microservice.
+
+487
+00:30:16,840 --> 00:30:19,440
+There are two important things
+I'd like to point out-
+
+488
+00:30:19,520 --> 00:30:21,760
+-about the Container Registry.
+
+489
+00:30:21,840 --> 00:30:26,000
+The first point being
+that we are a public platform,-
+
+490
+00:30:26,080 --> 00:30:29,720
+-and our users must be able to trust
+ that their data is safe.
+
+491
+00:30:29,800 --> 00:30:32,640
+Going back to
+the Isolation Principle.
+
+492
+00:30:32,720 --> 00:30:37,720
+This is why we have a container
+registry for each of our application owners-
+
+493
+00:30:37,800 --> 00:30:41,760
+-where only their Docker images
+ are stored.
+
+494
+00:30:41,840 --> 00:30:46,600
+Secondly, a single Docker image might
+be deployed to multiple environments.
+
+495
+00:30:46,680 --> 00:30:49,680
+So both testing and production.
+
+496
+00:30:49,760 --> 00:30:52,400
+This is why we treat
+our Container Registry-
+
+497
+00:30:52,480 --> 00:30:56,840
+-and all the Docker images
+ as production resources.
+
+498
+00:30:56,920 --> 00:30:59,040
+Meaning that we set restrictions on-
+
+499
+00:30:59,120 --> 00:31:02,160
+-what and who is able
+ to access the resource,-
+
+500
+00:31:02,240 --> 00:31:05,400
+-as well as which availability
+ we're expecting,-
+
+501
+00:31:05,480 --> 00:31:10,320
+-and also which region
+ we're hosting the resource in.
+
+502
+00:31:10,400 --> 00:31:14,000
+Next step, once we have the Docker
+image in Container Registry-
+
+503
+00:31:14,080 --> 00:31:16,520
+-and we're ready
+ to deploy the microservice,-
+
+504
+00:31:16,600 --> 00:31:19,160
+-is that we trigger
+ a release pipeline.
+
+505
+00:31:19,240 --> 00:31:22,360
+This is also hosted in Azure DevOps.
+
+506
+00:31:22,440 --> 00:31:24,640
+And this pipeline would use Helm-
+
+507
+00:31:24,720 --> 00:31:27,760
+-to install the microservice
+ on the cluster.
+
+508
+00:31:27,840 --> 00:31:29,680
+But I do have a confession to make-
+
+509
+00:31:29,760 --> 00:31:33,360
+-before we take a closer look
+ at the release pipeline.
+
+510
+00:31:33,440 --> 00:31:35,200
+Because we are
+an open source project,-
+
+511
+00:31:35,280 --> 00:31:39,000
+-and we really like mentioning it
+because we really like that fact,-
+
+512
+00:31:39,080 --> 00:31:42,720
+-but truth be told,
+ we do have an additional repository-
+
+513
+00:31:42,800 --> 00:31:44,680
+-which is protected.
+
+514
+00:31:44,760 --> 00:31:46,720
+This is where we store
+sensitive data,-
+
+515
+00:31:46,800 --> 00:31:49,240
+-such as helm charts
+ and instrumentation keys-
+
+516
+00:31:49,320 --> 00:31:52,800
+-for some of our resources in Azure.
+
+517
+00:31:52,880 --> 00:31:56,160
+So this helm chart
+and the other secrets-
+
+518
+00:31:56,240 --> 00:31:58,320
+-are packed as an artifact-
+
+519
+00:31:58,400 --> 00:32:02,280
+-and included into
+ the release pipeline that way.
+
+520
+00:32:03,360 --> 00:32:05,560
+What we see here, is an overview-
+
+521
+00:32:05,640 --> 00:32:10,120
+-of the release pipeline for
+ one of our platform components.
+
+522
+00:32:12,280 --> 00:32:16,200
+We can see that two artifacts
+are included in the pipeline.
+
+523
+00:32:16,280 --> 00:32:21,240
+The first artifact is to identify
+which Docker image we want to deploy.
+
+524
+00:32:21,320 --> 00:32:23,880
+The second artifact
+would be the helm charts-
+
+525
+00:32:23,960 --> 00:32:27,160
+-from that repository
+ I was just mentioning.
+
+526
+00:32:29,320 --> 00:32:33,080
+Once we have the artifacts, we're
+ready to deploy this microservice-
+
+527
+00:32:33,160 --> 00:32:35,440
+-to one of our environments.
+
+528
+00:32:35,520 --> 00:32:39,920
+What we can see here, are
+all of our environments listed up.
+
+529
+00:32:40,000 --> 00:32:43,240
+In the first stage,
+you'll find our acceptance testing-
+
+530
+00:32:43,320 --> 00:32:45,560
+-and load testing environments.
+
+531
+00:32:45,640 --> 00:32:48,320
+In the second stage,-
+
+532
+00:32:48,400 --> 00:32:51,640
+-we have the testing environment
+ for our application owners.
+
+533
+00:32:51,720 --> 00:32:55,040
+And then finally we have production.
+
+534
+00:32:55,120 --> 00:32:59,640
+So for these various stages,
+we have different triggers.
+
+535
+00:32:59,720 --> 00:33:02,200
+With regards to
+a platform component,-
+
+536
+00:33:02,280 --> 00:33:06,600
+-a new release would go to
+ the acceptance testing environment-
+
+537
+00:33:06,680 --> 00:33:09,720
+-whenever a new Docker container
+ is available.
+
+538
+00:33:09,800 --> 00:33:12,640
+Or a Docker image is available.
+
+539
+00:33:12,720 --> 00:33:16,800
+For our application owner testing
+environments and also production-
+
+540
+00:33:16,880 --> 00:33:18,680
+-we have weekly releases.
+
+541
+00:33:18,760 --> 00:33:22,560
+We also have some manual checkpoints
+prior to each release-
+
+542
+00:33:22,640 --> 00:33:25,400
+-to ensure that
+ we have people at work-
+
+543
+00:33:25,480 --> 00:33:28,560
+-in case something was to go wrong.
+
+544
+00:33:28,640 --> 00:33:31,920
+But the most important thing
+about this release pipeline,-
+
+545
+00:33:32,000 --> 00:33:35,320
+-is the tasks that it completes.
+
+546
+00:33:35,400 --> 00:33:38,280
+The most important task
+is that the pipeline-
+
+547
+00:33:38,360 --> 00:33:42,680
+-would run a helm upgrade
+ or helm install task-
+
+548
+00:33:42,760 --> 00:33:47,680
+-depending on if the microservice
+ has been deployed previously or not.
+
+549
+00:33:47,760 --> 00:33:51,280
+The result of this task,
+is that a new pod will spin up-
+
+550
+00:33:51,360 --> 00:33:54,120
+-in the Azure Kubernetes
+ Services cluster.
+
+551
+00:33:55,200 --> 00:33:58,280
+Which brings us to the final step.
+
+552
+00:33:58,360 --> 00:34:01,680
+So a new pod spins up
+in the Kubernetes cluster,-
+
+553
+00:34:01,760 --> 00:34:05,480
+-and the reference to docker image
+ is pulled onto the pod,-
+
+554
+00:34:05,560 --> 00:34:08,400
+-and the microservice starts up.
+
+555
+00:34:08,480 --> 00:34:12,440
+And it's always ensured that
+the microservice is fully up and running-
+
+556
+00:34:12,520 --> 00:34:17,040
+-before we terminate any pre-existing
+ versions of that microservice.
+
+557
+00:34:17,120 --> 00:34:21,920
+This results in a deploy
+without any downtime.
+
+558
+00:34:22,000 --> 00:34:24,400
+So this is our overall process-
+
+559
+00:34:24,480 --> 00:34:29,120
+-for getting from code on GitHub
+ to running services online.
+
+560
+00:34:29,200 --> 00:34:31,920
+And again,
+it's the exact same process-
+
+561
+00:34:32,000 --> 00:34:34,080
+-whether we're deploying
+ our microservices-
+
+562
+00:34:34,160 --> 00:34:38,960
+-so a platform component
+ or the applications of our users.
+
+563
+00:34:39,040 --> 00:34:42,080
+But let's take a look
+at how this looks in Azure-
+
+564
+00:34:42,160 --> 00:34:45,720
+-once all the microservices
+ are deployed.
+
+565
+00:34:49,440 --> 00:34:51,080
+So what we can see here,-
+
+566
+00:34:51,160 --> 00:34:55,200
+-is an overview of how we've
+ set up our infrastructure in Azure-
+
+567
+00:34:55,280 --> 00:34:58,000
+-for our different solutions.
+
+568
+00:35:01,400 --> 00:35:03,440
+Starting with Altinn Studio,-
+
+569
+00:35:03,520 --> 00:35:07,040
+-we can see that this runs in
+ a separate Kubernetes cluster.
+
+570
+00:35:07,120 --> 00:35:12,680
+We can see the two services, Altinn
+Designer and Altinn Repositories.
+
+571
+00:35:12,760 --> 00:35:16,720
+Within Altinn Studio,
+you'll also find a virtual network.
+
+572
+00:35:16,800 --> 00:35:19,840
+We have a key vault where
+we store secrets and certificates-
+
+573
+00:35:19,920 --> 00:35:23,120
+-that are accessible
+ by the microservices.
+
+574
+00:35:23,200 --> 00:35:26,160
+And we have an Ingress route
+to control the traffic-
+
+575
+00:35:26,240 --> 00:35:29,520
+-onto the correct node
+ running the pods.
+
+576
+00:35:29,600 --> 00:35:32,440
+And then we have a load balancer-
+
+577
+00:35:32,520 --> 00:35:37,400
+-to direct the traffic
+ to the right microservice again.
+
+578
+00:35:37,480 --> 00:35:39,320
+I think that's
+the other way around, sorry.
+
+579
+00:35:39,400 --> 00:35:43,200
+So the load balancer handles
+the incoming network traffic-
+
+580
+00:35:43,280 --> 00:35:46,560
+-so directing us to the correct node.
+
+581
+00:35:46,640 --> 00:35:51,440
+Then the Ingress route would direct
+us to the correct microservice.
+
+582
+00:35:51,520 --> 00:35:56,680
+We can also see the connection here
+to the build and release pipelines-
+
+583
+00:35:56,760 --> 00:35:58,440
+-that are triggered by users-
+
+584
+00:35:58,520 --> 00:36:01,480
+-when they're building
+ and deploying their applications-
+
+585
+00:36:01,560 --> 00:36:04,120
+-through Altinn Studio.
+
+586
+00:36:05,640 --> 00:36:08,640
+So the next component
+is Altinn Apps.
+
+587
+00:36:08,720 --> 00:36:13,480
+And I think this might be the most
+exciting part of our infrastructure.
+
+588
+00:36:13,560 --> 00:36:15,280
+So what we can see here,-
+
+589
+00:36:15,360 --> 00:36:18,400
+-are two examples
+ of application clusters.
+
+590
+00:36:18,480 --> 00:36:22,160
+And they've each got
+four running applications.
+
+591
+00:36:23,880 --> 00:36:27,400
+So when an application owner
+decides to join our solution,-
+
+592
+00:36:27,480 --> 00:36:30,320
+-they're given two
+ Azure Subscriptions.
+
+593
+00:36:30,400 --> 00:36:36,400
+One for their testing resources and
+one for their production resources.
+
+594
+00:36:36,480 --> 00:36:39,760
+Within this subscription,
+you'll find the Kubernetes cluster-
+
+595
+00:36:39,840 --> 00:36:43,400
+-where they host their microservices
+ or their apps.
+
+596
+00:36:43,480 --> 00:36:47,400
+You'll find the key vault
+for sensitive data,-
+
+597
+00:36:47,480 --> 00:36:50,080
+-accessible by the microservices.
+
+598
+00:36:50,160 --> 00:36:52,000
+You'll find the virtual network,-
+
+599
+00:36:52,080 --> 00:36:55,520
+-the container registry
+ where we store the Docker images.
+
+600
+00:36:55,600 --> 00:36:58,240
+And you'll also find
+the storage account.
+
+601
+00:36:58,320 --> 00:37:00,840
+In this storage account,
+we'll store all the data-
+
+602
+00:37:00,920 --> 00:37:04,080
+-collected through
+ their applications.
+
+603
+00:37:04,160 --> 00:37:06,800
+And again we have the Ingress route-
+
+604
+00:37:06,880 --> 00:37:11,560
+-to control the incoming network
+ traffic and the load balancer.
+
+605
+00:37:11,640 --> 00:37:13,480
+And common for these apps,-
+
+606
+00:37:13,560 --> 00:37:17,960
+-is that many of them
+ would require the shared platform.
+
+607
+00:37:19,600 --> 00:37:24,120
+So the communication to get
+from the apps to the platform-
+
+608
+00:37:24,200 --> 00:37:26,960
+-has to pass through
+ an application gateway-
+
+609
+00:37:27,040 --> 00:37:31,560
+-and then API management
+ before reaching our microservices.
+
+610
+00:37:31,640 --> 00:37:33,960
+So what we can see listed here,-
+
+611
+00:37:34,040 --> 00:37:37,440
+-are our different services
+ and the platform.
+
+612
+00:37:37,520 --> 00:37:42,920
+Each platform component
+runs on their own Docker container.
+
+613
+00:37:43,000 --> 00:37:45,680
+We do actually have
+quite a bit of communication-
+
+614
+00:37:45,760 --> 00:37:48,200
+-within these microservices as well.
+
+615
+00:37:48,280 --> 00:37:51,920
+Especially to
+the authorization component-
+
+616
+00:37:52,000 --> 00:37:54,480
+-to authorize the different actions.
+
+617
+00:37:54,560 --> 00:37:58,200
+So this communication
+is enabled through Linkerd.
+
+618
+00:37:58,280 --> 00:38:02,200
+We have an encrypted
+pod to pod communication.
+
+619
+00:38:02,280 --> 00:38:04,800
+So this saves us
+from routing that traffic-
+
+620
+00:38:04,880 --> 00:38:09,600
+-through the Internet and then
+ back to the same Kubernetes cluster.
+
+621
+00:38:09,680 --> 00:38:12,760
+I'd like to draw your attention
+to the bottom component,-
+
+622
+00:38:12,840 --> 00:38:14,920
+-Platform Storage.
+
+623
+00:38:15,000 --> 00:38:19,040
+We can see that this component
+would connect to Cosmos DB,-
+
+624
+00:38:19,120 --> 00:38:22,160
+-or a storage account,
+ depending on who owns the data-
+
+625
+00:38:22,240 --> 00:38:25,360
+-it's handling in
+ a given transaction.
+
+626
+00:38:28,000 --> 00:38:31,520
+We also our connection
+to the on-premise environment-
+
+627
+00:38:31,600 --> 00:38:34,080
+-which is Altinn 2.
+
+628
+00:38:34,160 --> 00:38:37,440
+So this is enabled
+with an express route.
+
+629
+00:38:37,520 --> 00:38:39,920
+And this gives us
+a high-speed communication-
+
+630
+00:38:40,000 --> 00:38:43,920
+-between our on-prem
+ and cloud solution.
+
+631
+00:38:45,760 --> 00:38:48,520
+So looking at this infrastructure
+as a whole,-
+
+632
+00:38:48,600 --> 00:38:52,760
+-there's a varying level of
+ how consistent the components are.
+
+633
+00:38:52,840 --> 00:38:54,960
+For Altinn Apps, for instance,-
+
+634
+00:38:55,040 --> 00:38:58,320
+-we'll be having new service owners
+ or application owners-
+
+635
+00:38:58,400 --> 00:39:00,520
+-wanting to join our solution.
+
+636
+00:39:00,600 --> 00:39:05,120
+Or we'll have requests to upgrade
+some of their components.
+
+637
+00:39:05,200 --> 00:39:07,600
+Of course we have the standard work-
+
+638
+00:39:07,680 --> 00:39:11,080
+-like upgrading
+ our Kubernetes Services cluster-
+
+639
+00:39:11,160 --> 00:39:14,720
+-or our version of
+ Application Gateway, for instance.
+
+640
+00:39:16,600 --> 00:39:19,120
+We've struggled a bit
+with finding a good way-
+
+641
+00:39:19,200 --> 00:39:21,640
+-to maintain our infrastructure.
+
+642
+00:39:21,720 --> 00:39:24,920
+But recently
+we started using Terraform.
+
+643
+00:39:25,000 --> 00:39:27,920
+Terraform is a great tool
+as it allows us both-
+
+644
+00:39:28,000 --> 00:39:31,640
+-to provision and evolve
+ our infrastructure.
+
+645
+00:39:31,720 --> 00:39:35,040
+Even better,
+it's all written in code.
+
+646
+00:39:35,120 --> 00:39:38,520
+That allows developers like us
+to take a much larger part-
+
+647
+00:39:38,600 --> 00:39:42,400
+-in both setting up
+ and maintaining our infrastructure.
+
+648
+00:39:42,480 --> 00:39:44,560
+This is because
+we are able to read the code-
+
+649
+00:39:44,640 --> 00:39:47,520
+-and modify it to suit our needs.
+
+650
+00:39:49,640 --> 00:39:51,800
+And so looking at this picture,-
+
+651
+00:39:51,880 --> 00:39:54,840
+-you can see that there are
+ quite a number of cloud components-
+
+652
+00:39:54,920 --> 00:39:58,280
+-involved in setting up
+ our infrastructure.
+
+653
+00:39:58,360 --> 00:40:01,320
+And of course, some parallels
+can be drawn to technology-
+
+654
+00:40:01,400 --> 00:40:05,200
+-that we've used on-premise,
+ but not always.
+
+655
+00:40:05,280 --> 00:40:09,440
+And so when we tried to select
+which cloud components to use-
+
+656
+00:40:09,520 --> 00:40:12,800
+-or how to configure
+ our virtual network, for instance.
+
+657
+00:40:12,880 --> 00:40:17,320
+We've had to base our decisions
+on the points that you can see here.
+
+658
+00:40:25,360 --> 00:40:28,920
+And I would say that
+the point right at the bottom here-
+
+659
+00:40:29,000 --> 00:40:31,640
+-might be the most important one.
+
+660
+00:40:31,720 --> 00:40:34,640
+So which components
+do we think have the potential-
+
+661
+00:40:34,720 --> 00:40:36,600
+-to evolve along with our platform-
+
+662
+00:40:36,680 --> 00:40:42,160
+-and the capabilities we expect
+ to deliver or offer in the future?
+
+663
+00:40:43,720 --> 00:40:46,160
+And I think this
+says something about-
+
+664
+00:40:46,240 --> 00:40:48,480
+-daring to imagine
+ what the future looks like-
+
+665
+00:40:48,560 --> 00:40:51,440
+-or dream about
+ what we wish the future might be,-
+
+666
+00:40:51,520 --> 00:40:54,160
+-even though
+ we don't have it right now.
+
+667
+00:40:54,240 --> 00:40:58,600
+In some cases, it also means
+doing the necessary work-
+
+668
+00:40:58,680 --> 00:41:01,120
+-to make sure that
+ our needs and expectations-
+
+669
+00:41:01,200 --> 00:41:06,040
+-are made clear to those
+ that are further developing Azure.
+
+670
+00:41:07,920 --> 00:41:11,240
+Here we can see
+the most central cloud components-
+
+671
+00:41:11,320 --> 00:41:14,360
+-that we're using at the moment.
+
+672
+00:41:18,760 --> 00:41:24,200
+Luckily, a lot of these components
+are fully managed by Azure.
+
+673
+00:41:24,280 --> 00:41:27,120
+This limits the number of variables
+for us to tweak,-
+
+674
+00:41:27,200 --> 00:41:30,960
+-as well as the time we need to spend
+ maintaining these resources.
+
+675
+00:41:31,040 --> 00:41:33,520
+And we would have never
+had to capacity-
+
+676
+00:41:33,600 --> 00:41:37,280
+-to have this many new components
+ in our solution all at once-
+
+677
+00:41:37,360 --> 00:41:41,400
+-if we were supposed to
+ manage them all ourselves.
+
+678
+00:41:42,320 --> 00:41:43,920
+And my reason for emphasizing-
+
+679
+00:41:44,000 --> 00:41:47,520
+-that these are the components
+ that we're using at the moment,-
+
+680
+00:41:47,600 --> 00:41:52,880
+-is that we do have a quite
+ high rate of change, I would say.
+
+681
+00:41:52,960 --> 00:41:55,480
+So we started
+developing this solution-
+
+682
+00:41:55,560 --> 00:41:59,200
+-before the Norwegian data centers
+ were established.
+
+683
+00:41:59,280 --> 00:42:01,120
+This means that we've had to adapt-
+
+684
+00:42:01,200 --> 00:42:05,480
+-to which features would
+ be offered in Norway and not.
+
+685
+00:42:05,560 --> 00:42:09,320
+Also taking into account the rapid
+evolution of cloud technology.
+
+686
+00:42:09,400 --> 00:42:12,600
+We're always prepared
+to swap out a component-
+
+687
+00:42:12,680 --> 00:42:16,000
+-or to upgrade the existing ones
+ that we have.
+
+688
+00:42:16,080 --> 00:42:20,960
+Terraform, as I mentioned, is a great tool
+for doing exactly that.
+
+689
+00:42:23,040 --> 00:42:27,040
+Another important thing for us lately
+has been cost management.
+
+690
+00:42:27,120 --> 00:42:30,200
+With regards to
+these cloud components.
+
+691
+00:42:30,280 --> 00:42:33,960
+If you're shy when selecting
+a cost plan for these components,-
+
+692
+00:42:34,040 --> 00:42:36,800
+-the bills could quickly add up.
+
+693
+00:42:36,880 --> 00:42:40,960
+So we've had to sit down
+and ask ourselves questions like:
+
+694
+00:42:41,040 --> 00:42:43,960
+Do we need the trace log
+from our backup function?
+
+695
+00:42:44,040 --> 00:42:46,440
+And how long
+are we actually willing to wait-
+
+696
+00:42:46,520 --> 00:42:50,640
+-to find log data
+ that's more than 30 days old?
+
+697
+00:42:50,720 --> 00:42:55,880
+And by asking these questions,
+we've been able to...
+
+698
+00:42:55,960 --> 00:43:00,960
+Sorry, lost the thread there.
+Let me just get back in.
+
+699
+00:43:01,040 --> 00:43:05,440
+So asking these questions, we've
+been able to tweak our solution-
+
+700
+00:43:05,520 --> 00:43:08,040
+-in order to save cost
+ without compromising-
+
+701
+00:43:08,120 --> 00:43:10,840
+-the functionality of our solution.
+
+702
+00:43:11,840 --> 00:43:16,080
+So I'm going to talk about
+some of the cloud components-
+
+703
+00:43:16,160 --> 00:43:18,680
+-that we're really happy with using.
+
+704
+00:43:18,760 --> 00:43:22,600
+The first one is
+Azure Kubernetes Services.
+
+705
+00:43:22,680 --> 00:43:24,760
+As you can see
+from our infrastructure,-
+
+706
+00:43:24,840 --> 00:43:29,040
+-we do have quite a number
+ of Kubernetes clusters.
+
+707
+00:43:29,120 --> 00:43:34,840
+And again, this is a great resource
+because it's fully managed.
+
+708
+00:43:34,920 --> 00:43:37,560
+This means that
+we have very few responsibilities-
+
+709
+00:43:37,640 --> 00:43:42,440
+-outside of deploying
+ our microservices and managing them.
+
+710
+00:43:42,520 --> 00:43:47,760
+In addition, Azure Kubernetes
+Services supports autoscaling.
+
+711
+00:43:47,840 --> 00:43:52,080
+This means that our applications
+are able to scale both up and down-
+
+712
+00:43:52,160 --> 00:43:55,960
+-depending on
+ the load that they're facing.
+
+713
+00:43:56,040 --> 00:43:59,040
+Once we've transferred
+all of the application owners-
+
+714
+00:43:59,120 --> 00:44:01,400
+-from Altinn 2 to Altinn 3,-
+
+715
+00:44:01,480 --> 00:44:05,960
+-we're expecting to have
+ several hundred Kubernetes clusters.
+
+716
+00:44:06,040 --> 00:44:09,680
+So Microsoft's Azure team
+might have a bit more to do,-
+
+717
+00:44:09,760 --> 00:44:13,160
+-but we should be able
+ to manage just fine.
+
+718
+00:44:14,400 --> 00:44:17,160
+We have Azure Cosmos DB.
+
+719
+00:44:17,240 --> 00:44:20,760
+This is a document database
+that we use to store metadata-
+
+720
+00:44:20,840 --> 00:44:24,560
+-about the applications
+ and their instances.
+
+721
+00:44:24,640 --> 00:44:27,840
+Cosmos DB
+is said to be highly available.
+
+722
+00:44:27,920 --> 00:44:33,880
+And it's documented
+to have an availability of 99.999 %.
+
+723
+00:44:33,960 --> 00:44:36,800
+Pretty high.
+And if that wasn't enough,-
+
+724
+00:44:36,880 --> 00:44:43,200
+-it also duplicates our data into
+ multiple locations automatically.
+
+725
+00:44:43,280 --> 00:44:46,400
+As this database is hosted in Azure,-
+
+726
+00:44:46,480 --> 00:44:49,640
+-you could say that we have
+ an unlimited amount of storage,-
+
+727
+00:44:49,720 --> 00:44:51,880
+-should we need it.
+
+728
+00:44:51,960 --> 00:44:54,240
+And at Microsoft Build,-
+
+729
+00:44:54,320 --> 00:44:57,280
+-autoscaling for Cosmos DB
+ was announced.
+
+730
+00:44:57,360 --> 00:44:59,720
+And we're really excited-
+
+731
+00:44:59,800 --> 00:45:03,880
+-to incorporate this feature
+ into our solution as well.
+
+732
+00:45:05,080 --> 00:45:09,640
+And finally, we've saved the best
+for last, Application Insights.
+
+733
+00:45:09,720 --> 00:45:11,440
+So you know when you have a bug-
+
+734
+00:45:11,520 --> 00:45:14,760
+-and you're not quite sure
+ where the root cause is,-
+
+735
+00:45:14,840 --> 00:45:16,960
+-where to start debugging.
+
+736
+00:45:17,040 --> 00:45:22,000
+Application Insights would be
+my starting point 9 out of 10 times.
+
+737
+00:45:22,080 --> 00:45:26,960
+So we use Application Insights
+to monitor our microservices.
+
+738
+00:45:27,040 --> 00:45:30,680
+This goes for both the platform
+components, Altinn Studio-
+
+739
+00:45:30,760 --> 00:45:34,720
+-and also all the apps
+ of our application owners.
+
+740
+00:45:34,800 --> 00:45:39,840
+App Insights will draw out an
+application map as you can see here.
+
+741
+00:45:39,920 --> 00:45:42,040
+Where we can see
+all of our microservices-
+
+742
+00:45:42,120 --> 00:45:46,480
+-and also the communication lines
+ between them.
+
+743
+00:45:46,560 --> 00:45:49,840
+Another feature that
+Application Insights provides-
+
+744
+00:45:49,920 --> 00:45:52,960
+-is that we can drill down
+ to a specific timeframe-
+
+745
+00:45:53,040 --> 00:45:55,800
+-and see which requests
+ are used the most often,-
+
+746
+00:45:55,880 --> 00:45:59,000
+-and also
+ their average response times.
+
+747
+00:45:59,080 --> 00:46:03,360
+Another great feature
+is drilling into a single request.
+
+748
+00:46:03,440 --> 00:46:08,560
+This way we can see how the request
+flows through all of our services.
+
+749
+00:46:08,640 --> 00:46:11,240
+And these two features
+that I just mentioned-
+
+750
+00:46:11,320 --> 00:46:14,120
+-have been heavily used
+ during our load testing.
+
+751
+00:46:14,200 --> 00:46:16,840
+We've been able
+to identify bottlenecks,-
+
+752
+00:46:16,920 --> 00:46:21,160
+-and unnecessary
+ or duplicate requests as well.
+
+753
+00:46:21,240 --> 00:46:23,440
+So I'm going to hand you guys
+over to Nina now.
+
+754
+00:46:23,520 --> 00:46:28,560
+She's going to share our experiences
+working on this project.
+
+755
+00:46:36,720 --> 00:46:44,400
+We've been working on this project
+now for a little over two years.
+
+756
+00:46:44,480 --> 00:46:48,320
+And we are definitely
+some experiences richer,-
+
+757
+00:46:48,400 --> 00:46:54,120
+-and we would like to share some
+ of those experiences with you guys.
+
+758
+00:46:54,200 --> 00:46:57,840
+The first point
+that I would like to make,-
+
+759
+00:46:57,920 --> 00:47:01,360
+-is that working on
+ an open source project-
+
+760
+00:47:01,440 --> 00:47:03,440
+-has been really great.
+
+761
+00:47:03,520 --> 00:47:06,880
+We have our backlog open on GitHub.
+
+762
+00:47:06,960 --> 00:47:10,200
+On the right side here
+you can see a screen shot-
+
+763
+00:47:10,280 --> 00:47:13,160
+-from just a few days ago.
+
+764
+00:47:13,240 --> 00:47:15,920
+Having our backlog open on GitHub,-
+
+765
+00:47:16,000 --> 00:47:18,480
+-in addition of course
+ to our source code,-
+
+766
+00:47:18,560 --> 00:47:22,760
+-means that we have
+ gotten feedback and wishes-
+
+767
+00:47:22,840 --> 00:47:25,400
+-from the app developers
+ and government agencies-
+
+768
+00:47:25,480 --> 00:47:27,360
+-that have been
+ following this project-
+
+769
+00:47:27,440 --> 00:47:29,240
+-at a very early stage.
+
+770
+00:47:29,320 --> 00:47:31,920
+We've had app developers
+submit issues-
+
+771
+00:47:32,000 --> 00:47:35,160
+-and they can follow
+ the progress of those issues-
+
+772
+00:47:35,240 --> 00:47:39,080
+-to see how they will be solved.
+
+773
+00:47:39,160 --> 00:47:43,760
+Now since we also only use
+open source projects ourselves,-
+
+774
+00:47:43,840 --> 00:47:45,720
+-we can do the same.
+
+775
+00:47:45,800 --> 00:47:50,440
+So we can modify things
+to suit our needs.
+
+776
+00:47:50,520 --> 00:47:54,520
+We also have great insight into
+when new functionality-
+
+777
+00:47:54,600 --> 00:48:00,000
+-will become available in
+the tools and frameworks that we use.
+
+778
+00:48:00,080 --> 00:48:02,920
+While having
+an open backlog on GitHub-
+
+779
+00:48:03,000 --> 00:48:05,520
+-has been a really good thing,-
+
+780
+00:48:05,600 --> 00:48:09,800
+-"plain" GitHub as a tool-
+
+781
+00:48:09,880 --> 00:48:13,800
+-for managing the project
+ and managing the backlog,-
+
+782
+00:48:13,880 --> 00:48:17,320
+-has not worked that well for us.
+
+783
+00:48:17,400 --> 00:48:22,640
+Currently we are a quite small team,
+and that makes it manageable.
+
+784
+00:48:22,720 --> 00:48:28,400
+But as you can see at the very top
+of this screenshot from our backlog,-
+
+785
+00:48:28,480 --> 00:48:31,320
+-there are currently
+ almost 600 open issues,-
+
+786
+00:48:31,400 --> 00:48:33,800
+-and there have been a lot more.
+
+787
+00:48:33,880 --> 00:48:37,640
+So actually managing this
+and prioritizing,-
+
+788
+00:48:37,720 --> 00:48:41,960
+-and seeing who is working on what,
+ has been quite challenging.
+
+789
+00:48:42,040 --> 00:48:46,560
+Especially previously
+when we were a much larger team.
+
+790
+00:48:46,640 --> 00:48:51,760
+We've had to test several different
+plug-ins to work with GitHub,-
+
+791
+00:48:51,840 --> 00:48:54,880
+-and we've ended up
+ with a plug-in called ZenHub,-
+
+792
+00:48:54,960 --> 00:48:58,760
+-which we feel
+ works quite well for us.
+
+793
+00:48:58,840 --> 00:49:02,200
+Finally a note on direction.
+
+794
+00:49:02,280 --> 00:49:06,560
+And we would like to say
+that shifting direction mid project,-
+
+795
+00:49:06,640 --> 00:49:09,920
+-can actually be a good thing.
+
+796
+00:49:10,000 --> 00:49:12,320
+And now to elaborate
+a little bit on that.
+
+797
+00:49:12,400 --> 00:49:14,680
+When we started this project,-
+
+798
+00:49:14,760 --> 00:49:18,720
+-we focused a lot around
+ the Altinn Studio solution-
+
+799
+00:49:18,800 --> 00:49:22,560
+-as a tool to build apps.
+
+800
+00:49:24,160 --> 00:49:26,280
+And we focused so much on the tool,-
+
+801
+00:49:26,360 --> 00:49:31,800
+-and possibly not enough
+ on the actual apps themselves.
+
+802
+00:49:31,880 --> 00:49:39,800
+We decided to switch our direction
+to focus more on the actual apps.
+
+803
+00:49:39,880 --> 00:49:41,760
+This resulted in us having to-
+
+804
+00:49:41,840 --> 00:49:46,560
+-switch also from focusing
+ on users who do not know coding-
+
+805
+00:49:46,640 --> 00:49:49,560
+-towards users
+ who actually do know how to code.
+
+806
+00:49:49,640 --> 00:49:54,000
+I'm sure you've seen this reflected
+in what we've been explaining today.
+
+807
+00:49:54,080 --> 00:49:58,520
+Probably you would need to know
+at least a little bit of coding-
+
+808
+00:49:58,600 --> 00:50:01,800
+-to properly customize your app.
+
+809
+00:50:01,880 --> 00:50:04,840
+Hopefully going forward,
+we can now continue-
+
+810
+00:50:04,920 --> 00:50:06,720
+-building on
+ the Altinn Studio solution-
+
+811
+00:50:06,800 --> 00:50:10,600
+-now that our apps are more mature.
+
+812
+00:50:13,960 --> 00:50:17,360
+I'll hand you over to Rune-
+
+813
+00:50:17,440 --> 00:50:21,920
+-who will tell you a little bit more
+ about our current status.
+
+814
+00:50:26,520 --> 00:50:32,480
+It's now 6,000 days since
+Altinn 1 went into production.
+
+815
+00:50:32,560 --> 00:50:36,360
+It's 3,500 days since Altinn 2
+went into production.
+
+816
+00:50:36,440 --> 00:50:39,800
+And it's over two years since we
+started this minimum viable product.
+
+817
+00:50:39,880 --> 00:50:44,000
+So what is our status?
+Are we done yet?
+
+818
+00:50:44,080 --> 00:50:46,720
+We went live on Monday, in fact.
+
+819
+00:50:46,800 --> 00:50:49,240
+It's a great success for us-
+
+820
+00:50:49,320 --> 00:50:53,680
+-that we are able to
+ launch this platform this Monday.
+
+821
+00:50:53,760 --> 00:50:57,520
+So this means that
+the pilots are getting ready-
+
+822
+00:50:57,600 --> 00:51:02,320
+-to deploy their first applications
+ to the productions.
+
+823
+00:51:02,400 --> 00:51:06,160
+We are helping them out
+with initial apps.
+
+824
+00:51:06,240 --> 00:51:10,000
+We have around 600 open issues,
+as mentioned.
+
+825
+00:51:10,080 --> 00:51:14,400
+And we are still working from home,
+but it works fine.
+
+826
+00:51:14,480 --> 00:51:17,080
+Forward, we're going to
+focus on more stuff.
+
+827
+00:51:17,160 --> 00:51:23,000
+We have more than 1,000 digital
+services on the old platform,-
+
+828
+00:51:23,080 --> 00:51:24,960
+-and we want to move that
+ to the new one.
+
+829
+00:51:25,040 --> 00:51:29,800
+So we will focus on building
+more flexibility on the forms.
+
+830
+00:51:29,880 --> 00:51:34,520
+Being able to build more advanced
+forms, components and so on.
+
+831
+00:51:34,600 --> 00:51:39,160
+We will expand the types of
+process tasks we can support.
+
+832
+00:51:39,240 --> 00:51:43,800
+Like payment and signing we will add,
+and many more.
+
+833
+00:51:43,880 --> 00:51:46,680
+This is
+an event driven architecture,-
+
+834
+00:51:46,760 --> 00:51:51,720
+-and we need to define how
+ we're going to expose the events.
+
+835
+00:51:51,800 --> 00:51:54,520
+The goal for us
+is to have an event feat-
+
+836
+00:51:54,600 --> 00:51:59,400
+-for every citizen of Norway,
+ every organization and every agency.
+
+837
+00:51:59,480 --> 00:52:03,240
+It's going to be an exciting task
+to build that solution.
+
+838
+00:52:03,320 --> 00:52:05,720
+As mentioned many times,
+we are open source.
+
+839
+00:52:05,800 --> 00:52:09,560
+Our documentation
+is fully open source too.
+
+840
+00:52:09,640 --> 00:52:15,680
+And on GitHub you'll find a link to
+the different documentation we have.
+
+841
+00:52:15,760 --> 00:52:19,880
+There you'll find full details
+about the requirements,-
+
+842
+00:52:19,960 --> 00:52:22,960
+-both functional
+ and technical requirements.
+
+843
+00:52:23,040 --> 00:52:25,160
+The principles we have,-
+
+844
+00:52:25,240 --> 00:52:28,440
+-the different patterns we follow,
+ what kind of capabilities,-
+
+845
+00:52:28,520 --> 00:52:32,600
+-both the develop and runtime
+ capabilities of the platform.
+
+846
+00:52:32,680 --> 00:52:36,200
+And all the components
+and code structure we are building.
+
+847
+00:52:36,280 --> 00:52:38,800
+Every design detail
+you'll find there.
+
+848
+00:52:38,880 --> 00:52:44,080
+Take a look, you'll find details
+about all the platform components.
+
+849
+00:52:44,160 --> 00:52:47,640
+And you will also find
+the presentation we just had there-
+
+850
+00:52:47,720 --> 00:52:50,760
+-in a couple of hours.
+
+851
+00:52:50,840 --> 00:52:55,520
+I want to thank everyone for joining.
+
+852
+00:52:56,720 --> 00:53:01,280
+I want to thank NDC
+for letting us come and present.
+
+853
+00:53:01,360 --> 00:53:05,520
+We are opening up
+for answering questions.
+
+854
+00:53:06,520 --> 00:53:09,360
+I can see we have
+a few questions on YouTube,-
+
+855
+00:53:09,440 --> 00:53:11,760
+-so we'll start here first.
+
+856
+00:53:11,840 --> 00:53:13,640
+The first question is:
+
+857
+00:53:13,720 --> 00:53:18,000
+Are the development teams
+centered around those microservices?
+
+858
+00:53:18,080 --> 00:53:22,960
+Do we have an authorization team,
+a PDF team, and etc.?
+
+859
+00:53:23,040 --> 00:53:26,880
+So are there different teams available?
+
+860
+00:53:26,960 --> 00:53:31,240
+Are they responsible
+for the different services?
+
+861
+00:53:31,320 --> 00:53:35,080
+I guess the answer now: No, not yet.
+
+862
+00:53:35,160 --> 00:53:41,760
+We are currently not a big team,
+so we are covering more components.
+
+863
+00:53:41,840 --> 00:53:45,360
+But there are special members of the team
+that focus on different components.
+
+864
+00:53:45,440 --> 00:53:51,600
+So currently we have
+one team sharing all components.
+
+865
+00:53:53,200 --> 00:53:58,720
+We're like 5-6 developers,
+so it's not that big a team.
+
+866
+00:53:58,800 --> 00:54:01,120
+I don't even think
+we have enough team members-
+
+867
+00:54:01,200 --> 00:54:04,120
+-to have a component each.
+
+868
+00:54:04,200 --> 00:54:06,960
+Another question here, let's see.
+
+869
+00:54:07,040 --> 00:54:10,360
+You mentioned that you
+don't do multi-tenant architecture,-
+
+870
+00:54:10,440 --> 00:54:13,880
+-is this due to
+ a government requirement?
+
+871
+00:54:17,360 --> 00:54:22,240
+We of course investigate
+what the government agencies need,-
+
+872
+00:54:22,320 --> 00:54:23,360
+-and some agencies would require-
+
+873
+00:54:23,440 --> 00:54:26,560
+-that they have an infrastructure
+ that is separated from others.
+
+874
+00:54:26,640 --> 00:54:29,960
+And we want to support
+as many agencies as possible.
+
+875
+00:54:30,040 --> 00:54:34,000
+Based on history on the current
+platform that is not separated,-
+
+876
+00:54:34,080 --> 00:54:37,000
+-we have seen instances of-
+
+877
+00:54:37,080 --> 00:54:40,480
+-poor code in one digital service
+ affecting others-
+
+878
+00:54:40,560 --> 00:54:42,480
+-because of high load.
+
+879
+00:54:42,560 --> 00:54:46,520
+So it's a natural experience,
+and some requirements.
+
+880
+00:54:47,960 --> 00:54:50,480
+So another question
+from Brian here is:
+
+881
+00:54:50,560 --> 00:54:53,680
+Since you're running multiple,
+several hundred...
+
+882
+00:54:53,760 --> 00:54:57,720
+Soon to be several hundred,
+we're not quite there yet.
+
+883
+00:54:57,800 --> 00:55:00,600
+So, since we're running
+several Kubernetes clusters-
+
+884
+00:55:00,680 --> 00:55:06,320
+-and Application Insights, and Cosmos DB,
+how are we hosting the costs?
+
+885
+00:55:06,400 --> 00:55:11,560
+-Do you want to answer that, Nina?
+-Rune has the best answer for this.
+
+886
+00:55:11,640 --> 00:55:15,880
+Currently this is a governmental
+platform, and it will be that,-
+
+887
+00:55:15,960 --> 00:55:22,800
+-and how the cost is shared,
+ is a deal that's between the agency-
+
+888
+00:55:22,880 --> 00:55:25,280
+-and the Norwegian
+ Digitalization Agency.
+
+889
+00:55:25,360 --> 00:55:28,200
+I think with the new architecture-
+
+890
+00:55:28,280 --> 00:55:31,520
+-it's more possible
+ to split the cost-
+
+891
+00:55:31,600 --> 00:55:34,040
+-if they want to,
+ to the different agencies.
+
+892
+00:55:34,120 --> 00:55:36,520
+On the current platform,
+that's impossible,-
+
+893
+00:55:36,600 --> 00:55:38,840
+-because we are using
+ shared resources.
+
+894
+00:55:38,920 --> 00:55:44,480
+Saying that you are using 10 per cent
+is not possible.
+
+895
+00:55:44,560 --> 00:55:47,360
+We've used examples
+of application owners-
+
+896
+00:55:47,440 --> 00:55:49,760
+-with really large attachments.
+
+897
+00:55:49,840 --> 00:55:51,560
+Should we share those costs,-
+
+898
+00:55:51,640 --> 00:55:56,440
+-or should they be responsible for
+paying for storing those attachments?
+
+899
+00:55:56,520 --> 00:55:58,120
+With our separate storage accounts-
+
+900
+00:55:58,200 --> 00:56:02,640
+-it's pretty easy to see how much
+ they're using and what it costs.
+
+901
+00:56:02,720 --> 00:56:05,880
+So another good question here.
+Let's see.
+
+902
+00:56:05,960 --> 00:56:10,120
+Tom had the same questions as Brian.
+Let's hope we've answered them.
+
+903
+00:56:10,200 --> 00:56:12,360
+We have Cybernetics100:
+
+904
+00:56:12,440 --> 00:56:15,920
+Despite all the good work
+with the new Altinn Platform,-
+
+905
+00:56:16,000 --> 00:56:19,800
+-what are some top challenges
+ that still remain to be addressed-
+
+906
+00:56:19,880 --> 00:56:22,560
+-in or by the new platform?
+
+907
+00:56:25,560 --> 00:56:28,040
+We're taking too long to think here.
+
+908
+00:56:28,120 --> 00:56:31,520
+One thing that was
+barely mentioned at the end,-
+
+909
+00:56:31,600 --> 00:56:34,880
+-was this idea of
+ being able to build the services-
+
+910
+00:56:34,960 --> 00:56:38,120
+-without having
+ a lot of technical background.
+
+911
+00:56:38,200 --> 00:56:44,280
+In the existing platform we do...
+
+912
+00:56:44,360 --> 00:56:47,200
+Yes, there are flaws,
+but it is possible to build-
+
+913
+00:56:47,280 --> 00:56:50,960
+-a complete digital service
+ without having to know any code.
+
+914
+00:56:51,040 --> 00:56:56,640
+If you're going to build an app
+in the Altinn 3 solution right now,-
+
+915
+00:56:56,720 --> 00:56:58,760
+-and you don't know
+ anything about coding,-
+
+916
+00:56:58,840 --> 00:57:01,600
+-it would have to be
+ a very, very simple app.
+
+917
+00:57:01,680 --> 00:57:08,960
+So extending that and making it
+easier to actually build the apps,-
+
+918
+00:57:09,040 --> 00:57:10,840
+-that's probably something.
+
+919
+00:57:10,920 --> 00:57:14,080
+We have seen
+during the development time-
+
+920
+00:57:14,160 --> 00:57:18,360
+-that when making it user-friendly,
+ it limits the flexibility.
+
+921
+00:57:18,440 --> 00:57:24,320
+I don't believe we want to go 100 %
+user-friendly like we talked about.
+
+922
+00:57:24,400 --> 00:57:25,760
+I think it's easier.
+
+923
+00:57:25,840 --> 00:57:31,240
+We are learning kids to code, we
+can learn the agencies to code too.
+
+924
+00:57:31,320 --> 00:57:33,520
+Pretty much, yeah.
+
+925
+00:57:33,600 --> 00:57:37,440
+Brian made a comment here
+regarding the costs.
+
+926
+00:57:37,520 --> 00:57:40,640
+He's saying:
+"ah, oil money. Say no more."
+
+927
+00:57:40,720 --> 00:57:42,640
+I guess that might be true.
+
+928
+00:57:42,720 --> 00:57:45,360
+We have another question here
+from Steffen.
+
+929
+00:57:45,440 --> 00:57:48,640
+Could you say anything
+about the advantages-
+
+930
+00:57:48,720 --> 00:57:53,040
+-that you gain from hosting
+ in the cloud versus on-premise?
+
+931
+00:57:54,560 --> 00:57:57,080
+-Do you want to take this one?
+-Yes.
+
+932
+00:57:57,160 --> 00:57:59,560
+I was talking about
+Application Insights.
+
+933
+00:57:59,640 --> 00:58:03,640
+So we're using that
+only to react to instances,-
+
+934
+00:58:03,720 --> 00:58:05,600
+-or incidents at the moment.
+
+935
+00:58:05,680 --> 00:58:10,160
+But using this as a predictive tool
+as well, I think would be great.
+
+936
+00:58:10,240 --> 00:58:13,400
+And also for our agencies
+to get more feedback-
+
+937
+00:58:13,480 --> 00:58:16,760
+-on how their applications are used
+ and when they're used,-
+
+938
+00:58:16,840 --> 00:58:20,680
+-to be able to collect more data
+ about the citizens-
+
+939
+00:58:20,760 --> 00:58:23,880
+-or the companies
+ that they're interacting with.
+
+940
+00:58:23,960 --> 00:58:27,120
+I think another great thing
+would be to run-
+
+941
+00:58:27,200 --> 00:58:30,400
+-larger analysis on the datasets
+ that they are collecting.
+
+942
+00:58:30,480 --> 00:58:34,600
+Because that's pretty easy
+now that it's in the cloud.
+
+943
+00:58:34,680 --> 00:58:36,360
+Any other advantages?
+
+944
+00:58:36,440 --> 00:58:38,760
+I think the last thing you mentioned.
+
+945
+00:58:38,840 --> 00:58:42,440
+Having one common platform,
+you have enormous advantages-
+
+946
+00:58:42,520 --> 00:58:46,520
+-in doing big data analysis
+ of the data going through.
+
+947
+00:58:46,600 --> 00:58:49,160
+For an agency, if they want to.
+
+948
+00:58:49,240 --> 00:58:53,560
+A final question.
+Another one from Brian.
+
+949
+00:58:53,640 --> 00:58:58,880
+Azure DevOps, Azure API Management,
+Cosmos DB.
+
+950
+00:58:58,960 --> 00:59:01,960
+Would we say that
+we're heavily cloud locked,-
+
+951
+00:59:02,040 --> 00:59:05,400
+-if we were to decide to
+ go to a competing vendor-
+
+952
+00:59:05,480 --> 00:59:09,280
+-or go back to
+ an on-premise solution.
+
+953
+00:59:09,360 --> 00:59:10,920
+It's a good question.
+
+954
+00:59:11,000 --> 00:59:13,560
+One of the other principles
+I didn't mention,-
+
+955
+00:59:13,640 --> 00:59:16,000
+-was to prevent that
+ we are locking ourselves in.
+
+956
+00:59:16,080 --> 00:59:18,240
+We have selected Cosmos DB,-
+
+957
+00:59:18,320 --> 00:59:22,600
+-but it's a document database, we
+could replace it with something else.
+
+958
+00:59:22,680 --> 00:59:25,800
+API Management
+probably will be more difficult.
+
+959
+00:59:25,880 --> 00:59:29,080
+We are not using so much
+the features in API Management,-
+
+960
+00:59:29,160 --> 00:59:31,280
+-it's just a gateway for API,-
+
+961
+00:59:31,360 --> 00:59:36,320
+-so we could easily
+ replace it with another software.
+
+962
+00:59:36,400 --> 00:59:39,400
+It has been an important requirement-
+
+963
+00:59:39,480 --> 00:59:41,080
+-for the Norwegian
+ Digitalization Agency-
+
+964
+00:59:41,160 --> 00:59:43,160
+-that we're not locking in on Azure.
+
+965
+00:59:43,240 --> 00:59:48,440
+We are selecting Azure now. It could
+be something else in the future.
+
+966
+00:59:48,520 --> 00:59:50,560
+It's important for us too.
+
+967
+00:59:50,640 --> 00:59:54,040
+We should get
+some more data centers in Norway-
+
+968
+00:59:54,120 --> 00:59:56,240
+-before we could consider them.
+
+969
+00:59:56,320 --> 00:59:59,360
+I think that's about
+what we have of time.
+
+970
+00:59:59,440 --> 01:00:01,320
+Thanks so much for watching us.
+
+971
+01:00:01,400 --> 01:00:05,640
+Reach out to us on
+Twitter, LinkedIn, where ever.
+
+972
+01:00:05,720 --> 01:00:08,640
+And go see our code on GitHub.
+
+973
+01:00:08,720 --> 01:00:12,520
+-The link is right here.
+-Make a pull request, please.

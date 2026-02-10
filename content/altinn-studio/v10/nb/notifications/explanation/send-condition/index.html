@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Altinn Varslinger tilbyr en funksjon kalt Sendebetingelse, som lar deg opprette varslingsordrer som kun sendes til mottakere når en spesifisert betingelse er oppfylt." />
+<meta name="altinn_pagedir" class="elastic" content="notifications/explanation/send-condition/" />
+<meta name="altinn_title" class="elastic" content="Sendebetingelse" />
+<meta name="product" data-pagefind-filter="Produkt[content]" content="Varsling" />
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="Forklaring" />
+
+<title>Sendebetingelse – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/notifications/explanation/send-condition/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Produkt</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/authorization/">
+      <p class="product-item">Autorisasjon</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/broker/">
+      <p class="product-item">Formidling</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/">
+      <p class="product-item">Melding</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/notifications/">
+      <p class="product-item">Varsling</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Søk</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/nb.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/notifications/explanation/send-condition/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/notifications/explanation/send-condition/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">Hva leter du etter?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Søk');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Sist endret: 9. jul. 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/nb/notifications/"><span>Varslinger</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/notifications/about/"><span>Om Varslinger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/what-do-you-get/"><span>Hva får du?</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/getting-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/notifications/getting-started/altinn-app/"><span>Altinn App-integrasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/getting-started/altinn-service/"><span>Altinn Tjeneste-integrasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/getting-started/service-owner-system/"><span>Tjenesteeiersystem-integrasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/getting-started/terminology/"><span>Terminologi</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/guides/"><span>Brukerveiledninger</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/notifications/guides/instant-notifications/"><span>Umiddelbar varsling</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/reference/"><span>Referanse</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/notifications/reference/openapi/"><span>OpenAPI</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/reference/api/"><span>API</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/reference/error-codes/"><span>Feilkoder</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/explanation/"><span>Forklaringer</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/notifications/explanation/address-lookup/"><span>Adresseoppslag</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/explanation/recipient-deduplication/"><span>Deduplisering av kontaktpunkter</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/explanation/recipient-lookup/"><span>Mottakeroppslag</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/explanation/send-condition/"><span>Sendebetingelse</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/explanation/placeholder-keywords/"><span>Plassholdere</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/explanation/sms-segmentation/"><span>SMS-segmentering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/notifications/explanation/instant-notifications/"><span>Umiddelbar varsling</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/nb/notifications/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/notifications/explanation/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/notifications/explanation/send-condition/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/nb/notifications/'>Varslinger</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/notifications/explanation/'>Forklaringer</a> <span class='adocs-breadcrumb-divider'> / </span> Sendebetingelse</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Sendebetingelse</h1>
+              <p class="a-leadText" id="leadText">Altinn Varslinger tilbyr en funksjon kalt Sendebetingelse, som lar deg opprette varslingsordrer som kun sendes til mottakere når en spesifisert betingelse er oppfylt.</p>
+
+<h2 id="introduksjon">Introduksjon</h2>
+<p>Funksjonen Sendebetingelse lar deg opprette en varslingsordre som kun vil bli sendt til mottaker(e)
+hvis en spesifisert betingelse er oppfylt. Du kan velge å sende varselet umiddelbart eller planlegge det for en fremtidig dato.</p>
+<h3 id="eksempel-på-bruk">Eksempel på bruk</h3>
+<p>Et vanlig bruksområde er å sette påminnelser, der et varsel kun sendes
+hvis en bruker ikke har fullført en bestemt handling. Med sendebetingelsen kan
+både det opprinnelige varselet som ber om handlingen og påminnelsesvarselet bestilles samtidig med forskjellige sendingsdatoer.</p>
+<h3 id="betingelsesevaluering">Betingelsesevaluering</h3>
+<p>En sendebetingelse blir evaluert som enten <strong>sant</strong> eller <strong>usant</strong>, og den anses som <strong>sant</strong> når betingelsen for å sende varselet er oppfylt.</p>
+<h2 id="betingelsesendepunkt">Betingelsesendepunkt</h2>
+<p>Sendebetingelsen blir sjekket av applikasjonen gjennom betingelsesendepunktet
+spesifisert i varslingsordren. Nedenfor er et eksempel på en forespørsel om varslingsordre med betingelsesendepunktet:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;subject&#34;</span>: <span style="color:#f1fa8c">&#34;Påminnelse om å fullføre oppgave&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;sendersReference&#34;</span>: <span style="color:#f1fa8c">&#34;application:qwerty&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;requestedSendTime&#34;</span>: <span style="color:#f1fa8c">&#34;2024-07-24T12:00:00Z&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;body&#34;</span>: <span style="color:#f1fa8c">&#34;Påminnelse om å fullføre søknaden innen 31.07. Vennlig hilsen, tjenesteeier&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;recipients&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;emailAddress&#34;</span>: <span style="color:#f1fa8c">&#34;recipient@domain.com&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;conditionEndpoint&#34;</span>: <span style="color:#f1fa8c">&#34;https://serviceowner.com/application/qwerty/reminderRequired&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="forespørsel">Forespørsel</h3>
+<p>API-klienten i Altinn Varslinger vil sende en GET-forespørsel til det oppgitte endepunktet med et bærertoken.
+Tokenet vil være et Maskinporten-token som inkluderer Digitaliseringsdirektoratets organisasjonsnummer som en del av
+forbruker-claimet, sammen med scopet <code>altinn:system/notifications.condition.check</code>.</p>
+<ul>
+<li><strong>Metode:</strong> GET</li>
+<li><strong>Headers:</strong>
+<ul>
+<li><code>Authorization: Bearer &lt;maskinporten_token&gt;</code></li>
+<li><code>Content-Type: application/json</code></li>
+</ul>
+</li>
+<li><strong>URL-parametre:</strong> Ingen</li>
+</ul>
+<h4 id="eksempel-på-forespørsel">Eksempel på forespørsel</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#50fa7b">GET</span> /application/qwerty/reminderRequired <span style="color:#ff79c6">HTTP</span><span style="color:#ff79c6">/</span><span style="color:#bd93f9">1.1</span>
+</span></span><span style="display:flex;"><span>Host<span style="color:#ff79c6">:</span> serviceowner.com
+</span></span><span style="display:flex;"><span>Authorization<span style="color:#ff79c6">:</span> Bearer eyJhbGciOiJSUzI1NiIsInR5cCI...
+</span></span><span style="display:flex;"><span>Content-Type<span style="color:#ff79c6">:</span> application/json
+</span></span></code></pre></div><h4 id="eksempel-på-dekodet-token">Eksempel på dekodet token</h4>
+<p>Her er et eksempel som viser noen av kravene i et dekodet Maskinporten-token fra Altinn Varslinger:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;scope&#34;</span>: <span style="color:#f1fa8c">&#34;altinn:system/notifications.condition.check&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;iss&#34;</span>: <span style="color:#f1fa8c">&#34;https://maskinporten.no/&#34;</span>,  
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;consumer&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;authority&#34;</span>: <span style="color:#f1fa8c">&#34;iso6523-actorid-upis&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;ID&#34;</span>: <span style="color:#f1fa8c">&#34;0192:991825827&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>scope: Spesifiserer scopet til tokenet. Dette vil alltid være <code>altinn:system/notifications.condition.check</code></li>
+<li>iss: Spesifiserer utstederen av tokenet.
+<ul>
+<li>Produksjon: <em><a href="https://maskinporten.no/">https://maskinporten.no/</a></em></li>
+<li>Test: <em><a href="https://test.maskinporten.no/">https://test.maskinporten.no/</a></em></li>
+</ul>
+</li>
+<li>consumer: Spesifiserer forbrukerinformasjonen. ID vil alltid være <code>0192:991825827</code>, som representerer Digdir.</li>
+</ul>
+<h3 id="respons">Respons</h3>
+<p>Etter å ha evaluert betingelsen spesifisert i forespørselen,
+skal endepunktet svare med et JSON-objekt som indikerer om varselet skal sendes.
+Responskoden må være 200 OK, uavhengig av om betingelsen er oppfylt.</p>
+<p>Enhver annen statuskode resulterer i et nytt forsøk fra API-klienten.</p>
+<h4 id="eksempel-på-respons">Eksempel på respons</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;sendNotification&#34;</span>: <span style="color:#ff79c6">true</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>sendNotification: En boolsk verdi (true eller false) som indikerer om varselet skal sendes (true) eller ikke (false).</li>
+</ul>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/notifications/explanation/send-condition/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduksjon">Introduksjon</a>
+      <ul>
+        <li><a href="#eksempel-på-bruk">Eksempel på bruk</a></li>
+        <li><a href="#betingelsesevaluering">Betingelsesevaluering</a></li>
+      </ul>
+    </li>
+    <li><a href="#betingelsesendepunkt">Betingelsesendepunkt</a>
+      <ul>
+        <li><a href="#forespørsel">Forespørsel</a>
+          <ul>
+            <li><a href="#eksempel-på-forespørsel">Eksempel på forespørsel</a></li>
+            <li><a href="#eksempel-på-dekodet-token">Eksempel på dekodet token</a></li>
+          </ul>
+        </li>
+        <li><a href="#respons">Respons</a>
+          <ul>
+            <li><a href="#eksempel-på-respons">Eksempel på respons</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

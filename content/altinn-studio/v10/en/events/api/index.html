@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="An overview of the Altinn Events API" />
+<meta name="altinn_pagedir" class="elastic" content="events/api/" />
+<meta name="altinn_title" class="elastic" content="Altinn Events API" />
+<meta name="product" data-pagefind-filter="Product[content]" content="Events" />
+
+
+<title>Altinn Events API – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/en/events/api/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/en/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">To the frontpage</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Show/hide menu</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Product</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/en/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/authorization/">
+      <p class="product-item">Authorization</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/broker/">
+      <p class="product-item">Broker</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/correspondence/">
+      <p class="product-item">Correspondence</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/notifications/">
+      <p class="product-item">Notifications</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Search</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/en.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/events/api/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/events/api/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English ✓</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">What are you looking for?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Search');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Last modified: Oct 2, 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/en/events/"><span>Events</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/events/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/events/api/openapi/"><span>OpenAPI</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/events/publish-events/"><span>Publish events</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/events/publish-events/get-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/events/publish-events/get-started/api-access/"><span>API access</span></a></li>
+      <li class="dd-item">
+        <a href="/en/events/publish-events/get-started/resource-registry/"><span>Register resource</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/events/publish-events/developer-guides/"><span>Developer guides</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/events/publish-events/developer-guides/publish-app-events/"><span>Publish app events</span></a></li>
+      <li class="dd-item">
+        <a href="/en/events/publish-events/developer-guides/publish-events/"><span>Publish events</span></a></li>
+      <li class="dd-item">
+        <a href="/en/events/publish-events/developer-guides/grant-subscriber-access/"><span>Grant subscribers access</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/events/query-events/"><span>Query events</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/events/query-events/developer-guides/"><span>Developer guides</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/events/query-events/developer-guides/query-app-events-enduser/"><span>Query app events - end user</span></a></li>
+      <li class="dd-item">
+        <a href="/en/events/query-events/developer-guides/query-app-events-org/"><span>Query app events - org</span></a></li>
+      <li class="dd-item">
+        <a href="/en/events/query-events/developer-guides/query-events/"><span>Query events</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/events/subscribe-to-events/"><span>Subscribe to events</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/events/subscribe-to-events/get-started/"><span>Get started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/events/subscribe-to-events/get-started/api-access/"><span>API access</span></a></li>
+      <li class="dd-item">
+        <a href="/en/events/subscribe-to-events/get-started/events-access/"><span>Event resource access</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/events/subscribe-to-events/developer-guides/"><span>Developer guides</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/events/subscribe-to-events/developer-guides/setup-subscription/"><span>Set up a subscription</span></a></li>
+      <li class="dd-item">
+        <a href="/en/events/subscribe-to-events/developer-guides/process-app-events/"><span>Processing app events</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/events/reference/"><span>Reference</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/events/reference/architecture/"><span>Architecture</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/events/reference/architecture/events/"><span>Events</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/events/explanation/"><span>Explanation</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/events/explanation/subject_authorization/"><span>Understanding Subjects in Cloud Events</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/en/events/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/events/api/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/en/events/'>Events</a> <span class='adocs-breadcrumb-divider'> / </span> API</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Altinn Events API</h1>
+              <p class="a-leadText" id="leadText">An overview of the Altinn Events API</p>
+
+<p>The Altinn Events API is an HTTP-based RESTful API that provides endpoints and actions for publishing of events and subscribing to events from Altinn 3 Apps and other registered sources.</p>
+<h2 id="base-url">Base URL</h2>
+<p>The following base urls correspond to each environment</p>
+<ul>
+<li>
+<p>AT (Private Altinn acceptance test environment)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>https://platform.{environment}.altinn.cloud/events/api/v1
+</span></span></code></pre></div></li>
+<li>
+<p>TT02 (Application owner test environment)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span>https://platform.tt02.altinn.no/events/api/v1
+</span></span></code></pre></div></li>
+<li>
+<p>Production</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span> https://platform.altinn.no/events/api/v1
+</span></span></code></pre></div></li>
+</ul>
+<h2 id="authentication--authorization">Authentication &amp; Authorization</h2>
+<h3 id="altinn-token">Altinn token</h3>
+<p>The Events API is secured using OAuth2 and all requests must include a valid Altinn token either in the Authorization header or
+in the <em>AltinnStudioRuntime</em> cookie.</p>
+<p>For clients within the Altinn eco-system representing an external user or organization,
+the Altinn token in an incoming request can be forwarded to the Events API.</p>
+<p>If you are using the API from an external system you will need to generate a Maskinporten or ID-Porten token
+and exchange this for an Altinn token before calling the Events API.</p>
+<p>Below are two guides on how to achieve this.</p>
+<div class="card adocs-expand" id="guide-altinn-token-maskinporten">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-guide-altinn-token-maskinporten"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>Guide on how to generate an Altinn token with Maskinporten</a>
+	</div>
+	<div id="expandable-guide-altinn-token-maskinporten" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#guide-altinn-token-maskinporten"></a><!--
+- fakta messig hvordan går man gjennom ting
+- gi en heads up om at vi også har en API-client for .NET
+-->
+<div class="notices info" >We are working on providing you with a guide.</div>
+</div>
+	</div>
+</div>
+<div class="card adocs-expand" id="guide-altinn-token-id-porten">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-guide-altinn-token-id-porten"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>Guide on how to generate an Altinn token with id-Porten</a>
+	</div>
+	<div id="expandable-guide-altinn-token-id-porten" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#guide-altinn-token-id-porten"></a><div class="notices info" >We are working on providing you with a guide.</div>
+</div>
+	</div>
+</div>
+<h3 id="maskinporten-scopes">Maskinporten scopes</h3>
+  <p>Some endpoints in the API may require additional authorization in the form of a Maskinporten scope.
+A scope represents a permission that a consumer has access to.</p>
+<p>You can connect a given set of scopes to the specific Maskinporten integration instance that
+provides your API client with Maskinporten tokens upon request.</p>
+<div class="card adocs-expand" id="guide-mp-int-api">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-guide-mp-int-api"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>Guide on how to register a new Maskinporten integration through API</a>
+	</div>
+	<div id="expandable-guide-mp-int-api" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#guide-mp-int-api"></a><p>Please reference <a href="https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument">Maskinporten&rsquo;s own documentation</a>
+on registering a new integration through their self service API.</p>
+</div>
+	</div>
+</div>
+<div class="card adocs-expand" id="guide-mp-int-samarbeid">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-guide-mp-int-samarbeid"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>Guide on how to register a new Maskinporten integration in Samarbeidsportalen</a>
+	</div>
+	<div id="expandable-guide-mp-int-samarbeid" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#guide-mp-int-samarbeid"></a>  <p>Maskinporten clients are created in the self-service portal:</p>
+<ul class="mb-3">
+<li>For the production environment, clients are created from: <a href="https://sjolvbetjening.samarbeid.digdir.no">https://sjolvbetjening.samarbeid.digdir.no</a>.</li>
+<li>For the test environment, clients are created from: <a href="https://sjolvbetjening.test.samarbeid.digdir.no">https://sjolvbetjening.test.samarbeid.digdir.no</a>.</li>
+</ul>
+<ol>
+<li>Start by logging into your account with your chosen method.</li>
+<li>When logged into your account, the organisation you represent is shown in the top menu to the right.
+<figure>
+    <a href="/en/shared/maskinporten/you_represent.en.png">
+        <img src="/en/shared/maskinporten/you_represent.en.png" alt="The organisation you represent is shown in the top menu" title="The organisation you represent is shown in the top menu.">
+    </a>
+    <figcaption><em>The organisation you represent is shown in the top menu.</em></figcaption>
+  </figure>
+If you logged in to represent a synthetic organisation, you will also be able to change the synthetic organisation you represent in the drop down menu on that item.
+<figure>
+    <a href="/en/shared/maskinporten/change_synthetic_org.en.png">
+        <img src="/en/shared/maskinporten/change_synthetic_org.en.png" alt="You can change synthetic organisation in the drop down menu" title="You can change the synthetic organisation you represent in the drop down menu.">
+    </a>
+    <figcaption><em>You can change the synthetic organisation you represent in the drop down menu.</em></figcaption>
+  </figure></li>
+<li>Select the <code>Create client</code> button to start creating a new client for the organisation you represent.</li>
+<li>On the <code>Add client</code> page select Maskinporten.</li>
+<li>On the <code>Add Maskinporten client</code> page fill in the display name, description and add your required scopes (these values can also be changed later). Then click the <code>Create</code> button.
+<figure>
+    <a href="/en/shared/maskinporten/add_maskinporten_client_page.en.png">
+        <img src="/en/shared/maskinporten/add_maskinporten_client_page.en.png" alt="The add Maskinporten client page" title="The &#39;Add Maskinporten client&#39; page.">
+    </a>
+    <figcaption><em>The &#39;Add Maskinporten client&#39; page.</em></figcaption>
+  </figure></li>
+<li>You have now created a Maskinporten client for your organisation.
+To use this client you need to add at least one authentication key. The client supports JWK and PEM keys.
+Start by either locating an existing key or creating a new one. You can use the <a href="https://github.com/Altinn/altinn-authorization-utils/tree/main/src/Altinn.Cli">Altinn JWKS tool</a> or other key generator of your choice for this.
+Next, navigate to the key section on your client page and select <code>Add</code>.
+<figure>
+    <a href="/en/shared/maskinporten/key_section.en.png">
+        <img src="/en/shared/maskinporten/key_section.en.png" alt="Select the key section on your client page" title="Keys can be added in the key section.">
+    </a>
+    <figcaption><em>Keys can be added in the key section.</em></figcaption>
+  </figure>
+In the <code>JWK or PEM format</code> field paste your public key and click <code>Save</code>. The key is now added to the client.
+Store your private key from your JWK or PEM in a secure location, as it is used to authorize the use of this client.
+If you use Azure Key Vault to store your private keys, they need to be base64-encoded before uploading.
+<figure>
+    <a href="/en/shared/maskinporten/paste_public_key.en.png">
+        <img src="/en/shared/maskinporten/paste_public_key.en.png" alt="Paste your public key here" title="The JWK or PEM public key is pasted in this field">
+    </a>
+    <figcaption><em>The JWK or PEM public key is pasted in this field</em></figcaption>
+  </figure></li>
+<li>If you didn&rsquo;t do so in step 5, you need to add the desired scopes to your client before it can be used.
+<figure>
+    <a href="/en/shared/maskinporten/add_scopes1.en.png">
+        <img src="/en/shared/maskinporten/add_scopes1.en.png" alt="Adding scopes to the client" title="From the Scopes tab on your client definition, click the Add button.">
+    </a>
+    <figcaption><em>From the Scopes tab on your client definition, click the Add button.</em></figcaption>
+  </figure>
+<figure>
+    <a href="/en/shared/maskinporten/add_scopes2.en.png">
+        <img src="/en/shared/maskinporten/add_scopes2.en.png" alt="Adding scopes to the client" title="Scopes available to your organisation will be shown in the list. Select the required ones and click Submit.">
+    </a>
+    <figcaption><em>Scopes available to your organisation will be shown in the list. Select the required ones and click Submit.</em></figcaption>
+  </figure></li>
+</ol>
+</div>
+	</div>
+</div>
+<h3 id="platform-access-token">Platform Access token</h3>
+  <p>The access to a subset of endpoints in the API is limited to callers within the Altinn ecosystem.
+These APIs require additional authorization in the form of a
+Platform Access Token.</p>
+<p>Please reference developer documentation for the client system on how to generate
+the token.</p>
+<h3 id="private-apis">Private APIs</h3>
+<p>The API contains a set of private APIs that are only accessible within the Events-component.
+These are marked as <em>Private API</em> in the OpenAPI specification and require an access token in the request header.</p>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/events/api/_index.en.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Edit page on GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#base-url">Base URL</a></li>
+    <li><a href="#authentication--authorization">Authentication &amp; Authorization</a>
+      <ul>
+        <li><a href="#altinn-token">Altinn token</a></li>
+        <li><a href="#maskinporten-scopes">Maskinporten scopes</a></li>
+        <li><a href="#platform-access-token">Platform Access token</a></li>
+        <li><a href="#private-apis">Private APIs</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">About Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

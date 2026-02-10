@@ -1,0 +1,2914 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Altinn.Correspondence.API",
+    "version": "1.0.0",
+    "description": "API for Altinn Correspondence functionality."
+  },
+  "servers": [
+    {
+      "url": "https://platform.tt02.altinn.no",
+      "description": "TT02"
+    }
+  ],
+  "paths": {
+    "/correspondence/api/v1/attachment": {
+      "post": {
+        "tags": [
+          "Attachment"
+        ],
+        "summary": "Initialize a new Attachment to be shared in correspondences",
+        "description": "One of the scopes: \r\n\r\n- altinn:correspondence.write \r\n\r\nOnly required if the attachment is to be shared, otherwise this is done as part of the Initialize Correspondence operation",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InitializeAttachmentExt"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns the attachment id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "<ul>\r\n  <li>2010: Filename is missing</li>\r\n  <li>2011: Filename is too long</li>\r\n  <li>2012: Filename contains invalid characters</li>\r\n  <li>2013: Filetype not allowed</li>\r\n  <li>2017: Attachment expirationTime must be at least 14 days from now (1 day in non-production environments)</li>\r\n  <li>4002: Could not retrieve party uuid from lookup in Altinn Register </li>\r\n  <li>4009: Resource type is not supported. Resource must be of type GenericAccessResource or CorrespondenceService. </li>\r\n</ul>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/correspondence/api/v1/attachment/{attachmentId}/upload": {
+      "post": {
+        "tags": [
+          "Attachment"
+        ],
+        "summary": "Upload attachment data to Altinn Correspondence blob storage",
+        "description": "One of the scopes: \r\n\r\n- altinn:correspondence.write \r\n\r\nSupports file sizes up to 5 GB \r\n",
+        "parameters": [
+          {
+            "name": "attachmentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns attachment metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttachmentOverviewExt"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "<ul>\r\n  <li>2003: Cannot upload attachment to a correspondence that has been created</li>\r\n  <li>2004: File must have content and has a max file size of 5GB</li>\r\n  <li>2005: File has already been or is being uploaded</li>\r\n  <li>2008: Checksum mismatch</li>\r\n  <li>2009: Could not get data location url</li>\r\n  <li>4002: Could not retrieve party uuid from lookup in Altinn Register</li>\r\n</ul>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "2001: The requested attachment was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "2002: Error occurred during upload"
+          }
+        }
+      }
+    },
+    "/correspondence/api/v1/attachment/{attachmentId}": {
+      "get": {
+        "tags": [
+          "Attachment"
+        ],
+        "summary": "Get information about the attachment and its current status",
+        "description": "One of the scopes: \r\n\r\n- altinn:correspondence.write \r\n",
+        "parameters": [
+          {
+            "name": "attachmentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns attachment metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttachmentOverviewExt"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "2001: The requested attachment was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Attachment"
+        ],
+        "summary": "Deletes the attachment",
+        "description": "One of the scopes: \r\n\r\n- altinn:correspondence.write \r\n",
+        "parameters": [
+          {
+            "name": "attachmentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns no data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttachmentOverviewExt"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "<ul>\r\n  <li>2006: File has already been purged</li>\r\n  <li>2007: Attachment cannot be purged as it is linked to at least one existing correspondence</li>\r\n  <li>4002: Could not retrieve party uuid from lookup in Altinn Register</li>\r\n  <li>2018: File has expired</li>\r\n</ul>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "2001: The requested attachment was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/correspondence/api/v1/attachment/{attachmentId}/details": {
+      "get": {
+        "tags": [
+          "Attachment"
+        ],
+        "summary": "Get information about the attachment and its current status",
+        "description": "One of the scopes: \r\n\r\n- altinn:correspondence.write \r\n",
+        "parameters": [
+          {
+            "name": "attachmentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns attachment metadata",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AttachmentDetailsExt"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "2001: The requested attachment was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/correspondence/api/v1/attachment/{attachmentId}/download": {
+      "get": {
+        "tags": [
+          "Attachment"
+        ],
+        "summary": "Downloads the attachment data",
+        "description": "One of the scopes: \r\n\r\n- altinn:correspondence.write \r\n",
+        "parameters": [
+          {
+            "name": "attachmentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the attachment",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "2001: The requested attachment was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/correspondence/api/v1/correspondence": {
+      "post": {
+        "tags": [
+          "Correspondence"
+        ],
+        "summary": "Initialize Correspondences",
+        "description": "One of the scopes: \r\n\r\n- altinn:correspondence.write \r\n\r\nRequires uploads of specified attachments if any before it can be Published",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InitializeCorrespondencesExt"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns metadata about the initialized correspondence",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InitializeCorrespondencesResponseExt"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "<ul>\r\n  <li>1002: Message title must be plain text</li>\r\n  <li>1003: Message body must be markdown</li>\r\n  <li>1004: Message summary must be plain text</li>\r\n  <li>1006: Recipients must be unique</li>\r\n  <li>1007: Existing attachment not found</li>\r\n  <li>1008: DueDateTime cannot be prior to today</li>\r\n  <li>1009: DueDateTime cannot be prior to RequestedPublishTime</li>\r\n  <li>1010: AllowSystemDelete cannot be prior to today</li>\r\n  <li>1011: AllowSystemDelete cannot be prior to RequestedPublishTime</li>\r\n  <li>1012: AllowSystemDelete cannot be prior to DueDateTime</li>\r\n  <li>1013: Sender cannot delete correspondence that has been published</li>\r\n  <li>1016: DueDateTime is required when confirmation is needed</li>\r\n  <li>1017: The sender of the correspondence must be equal the sender of existing attachments</li>\r\n  <li>1018: Attachment is not published</li>\r\n  <li>1019: The Content field must be provided for the correspondence</li>\r\n  <li>1020: Message title cannot be empty</li>\r\n  <li>1021: Message body cannot be empty</li>\r\n  <li>1022: Message body cannot exceed 30000 characters</li>\r\n  <li>1023: Invalid language chosen. Supported languages is Norsk bokmål (nb), Nynorsk (nn) and English (en)</li>\r\n  <li>1033: The idempotency key must be a valid non-empty GUID</li>\r\n  <li>1035: Reply options must be well-formed URIs and HTTPS with a max length of 255 characters</li>\r\n  <li>1036: ResourceId must match an existing resource in the resource registry</li>\r\n  <li>1037: Message title cannot exceed 255 characters</li>\r\n  <li>1038: A correspondence cannot contain more than 100 attachments in total</li>\r\n  <li>1039: Message sender must be plain text</li>\r\n  <li>1042: Message summary, if not null, must be between 0 and 255 characters long</li>\r\n  <li>1044: The following recipients lack required roles to read the correspondence: {recipients}</li>\r\n  <li>1045: Transmission correspondences only support one recipient</li>\r\n  <li>1046: The recipient of the correspondence must be equal to the party of the dialog of the transmission</li>\r\n  <li>1047: Idempotency key is not supported for requests with multiple recipients</li>\r\n  <li>1048: DialogId must be a valid non-empty GUID</li>\r\n  <li>1050: The service owner of a transmission can not differ from the service owner of the dialog</li>\r\n  <li>1052: Only one DialogportenTransmissionType external reference is allowed</li>\r\n  <li>1053: DialogportenTransmissionType external reference requires a DialogportenDialogId external reference</li>\r\n  <li>1054: Dialogporten dialog with the given id was not found</li>\r\n  <li>1055: Existing attachment is expiring within 6 hour(s) and cannot be attached to a new correspondence</li>\r\n  <li>3001: The requested notification template with the given language was not found</li>\r\n  <li>3002: Email body and subject must be provided when sending email notifications</li>\r\n  <li>3003: Reminder email body and subject must be provided when sending reminder email notifications</li>\r\n  <li>3004: SMS body must be provided when sending SMS notifications</li>\r\n  <li>3005: Reminder SMS body must be provided when sending reminder SMS notifications</li>\r\n  <li>3006: Email body, subject and SMS body must be provided when sending preferred notifications</li>\r\n  <li>3007: Reminder email body, subject and SMS body must be provided when sending reminder preferred notifications</li>\r\n  <li>3011: Invalid email provided for custom recipient</li>\r\n  <li>3012: Invalid mobile number provided. Mobile number can contain only '+' and numeric characters, and it must adhere to the E.164 standard</li>\r\n  <li>3015: Recipient overrides with email or mobile number are not allowed when using notification recipient name because of name lookup</li>\r\n  <li>3017: Custom recipient with multiple recipients is not allowed</li>\r\n  <li>3018: Custom recipient with multiple identifiers is not allowed</li>\r\n  <li>3019: Custom recipient without identifier is not allowed</li>\r\n  <li>3024: Email body, subject and SMS body must be provided when sending email and SMS notifications</li>\r\n  <li>3025: Reminder email body, subject and SMS body must be provided when sending reminder email and SMS notifications</li>\r\n  <li>4002: Could not retrieve party uuid from lookup in Altinn Register</li>\r\n  <li>4009: Resource type is not supported. Resource must be of type GenericAccessResource or CorrespondenceService</li>\r\n</ul>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "<ul>\r\n  <li>4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization</li>\r\n</ul>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "<ul>\r\n  <li>1029: Could not find partyId for the following recipients: {recipients}</li>\r\n  <li>3001: The requested notification template with the given language was not found</li>\r\n</ul>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "<ul>\r\n  <li>1030: Recipient {recipientId} has reserved themselves from public correspondences. Can be overridden using the 'IgnoreReservation' flag</li>\r\n</ul>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "<ul>\r\n  <li>1034: A correspondence with the same idempotent key already exists</li>\r\n</ul>"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Correspondence"
+        ],
+        "summary": "Gets a list of Correspondences for the authenticated user",
+        "description": "One of the scopes: \r\n\r\n- altinn:correspondence.read \r\n\r\n- altinn:correspondence.write \r\n\r\nMeant for Receivers, but also available for Senders to track Correspondences",
+        "parameters": [
+          {
+            "name": "resourceId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Represents the important statuses for an Correspondence",
+            "schema": {
+              "$ref": "#/components/schemas/CorrespondenceStatusExt"
+            }
+          },
+          {
+            "name": "role",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/CorrespondencesRoleType"
+            }
+          },
+          {
+            "name": "onBehalfOf",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sendersReference",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "idempotentKey",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns a list of Correspondences",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CorrespondencesExt"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "<ul>\r\n  <li>1027: From date cannot be after to date</li>\r\n  <li>4002: Could not retrieve party uuid from lookup in Altinn Register</li>\r\n</ul>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "<ul>\r\n  <li>4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization</li>\r\n  <li>4006: Could not determine the caller</li>\r\n</ul>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/correspondence/api/v1/correspondence/upload": {
+      "post": {
+        "tags": [
+          "Correspondence"
+        ],
+        "summary": "Initialize Correspondences and uploads attachments in the same request",
+        "description": "One of the scopes: \r\n\r\n- altinn:correspondence.write \r\n\r\nRequires uploads of specified attachments if any before it can be Published. \r\n\r\nSupports file sizes up to 2 GB each \r\n",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "Correspondence.Content.MessageBody",
+                  "Correspondence.Content.MessageTitle",
+                  "Correspondence.ResourceId",
+                  "Correspondence.SendersReference",
+                  "Recipients"
+                ],
+                "type": "object",
+                "properties": {
+                  "Correspondence.ResourceId": {
+                    "maxLength": 255,
+                    "minLength": 1,
+                    "type": "string",
+                    "description": "The Resource Id associated with the correspondence service."
+                  },
+                  "Correspondence.Sender": {
+                    "type": "string",
+                    "description": "The Sending organization of the correspondence.",
+                    "deprecated": true
+                  },
+                  "Correspondence.SendersReference": {
+                    "maxLength": 4096,
+                    "minLength": 1,
+                    "type": "string",
+                    "description": "A reference used by senders and receivers to identify a specific Correspondence using external identification methods."
+                  },
+                  "Correspondence.MessageSender": {
+                    "maxLength": 255,
+                    "minLength": 0,
+                    "type": "string",
+                    "description": "An alternative name for the sender of the correspondence. The name will be displayed instead of the organization name."
+                  },
+                  "Correspondence.Content.Language": {
+                    "type": "string",
+                    "description": "Gets or sets the language of the correspondence, specified according to ISO 639-1",
+                    "default": "nb"
+                  },
+                  "Correspondence.Content.MessageTitle": {
+                    "type": "string",
+                    "description": "Gets or sets the correspondence message title. Subject."
+                  },
+                  "Correspondence.Content.MessageSummary": {
+                    "type": "string",
+                    "description": "Gets or sets a summary text of the correspondence."
+                  },
+                  "Correspondence.Content.MessageBody": {
+                    "type": "string",
+                    "description": "Gets or sets the main body of the correspondence."
+                  },
+                  "Correspondence.Content.Attachments": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/InitializeCorrespondenceAttachmentExt"
+                    },
+                    "description": "Gets or sets metadata of the attachments added in the Attachments field. Uses the InitializeCorrespondenceAttachmentExt model."
+                  },
+                  "Correspondence.RequestedPublishTime": {
+                    "type": "string",
+                    "description": "When the correspondence should become visible to the recipient.",
+                    "format": "date-time"
+                  },
+                  "Correspondence.AllowSystemDeleteAfter": {
+                    "type": "string",
+                    "description": "When Altinn can remove the correspondence from its database.",
+                    "format": "date-time"
+                  },
+                  "Correspondence.DueDateTime": {
+                    "type": "string",
+                    "description": "When the recipient must reply to the correspondence",
+                    "format": "date-time"
+                  },
+                  "Correspondence.ExternalReferences": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/ExternalReferenceExt"
+                    },
+                    "description": "A list of references Senders can use to tell the recipient that the correspondence is related to the referenced item(s)\r\nExamples include Altinn App instances, Altinn Broker File Transfers"
+                  },
+                  "Correspondence.PropertyList": {
+                    "type": "object",
+                    "additionalProperties": {
+                      "type": "string"
+                    },
+                    "description": "User-defined properties related to the Correspondence"
+                  },
+                  "Correspondence.ReplyOptions": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/CorrespondenceReplyOptionExt"
+                    },
+                    "description": "Options for how the recipient can reply to the Correspondence"
+                  },
+                  "Correspondence.Notification.NotificationTemplate": {
+                    "$ref": "#/components/schemas/NotificationTemplateExt"
+                  },
+                  "Correspondence.Notification.EmailSubject": {
+                    "maxLength": 512,
+                    "minLength": 0,
+                    "type": "string",
+                    "description": "The emails subject for the main notification.\r\nMaximum length is 512 characters."
+                  },
+                  "Correspondence.Notification.EmailBody": {
+                    "maxLength": 10000,
+                    "minLength": 0,
+                    "type": "string",
+                    "description": "The email body for the main notification. \r\nMaximum length is 10,000 characters."
+                  },
+                  "Correspondence.Notification.EmailContentType": {
+                    "$ref": "#/components/schemas/EmailContentType"
+                  },
+                  "Correspondence.Notification.SmsBody": {
+                    "maxLength": 2144,
+                    "minLength": 0,
+                    "type": "string",
+                    "description": "The sms body for the main notification. \r\nMaximum length is 2,144 characters (16 SMS segments × 134 characters per segment).\r\nThis aligns with the Altinn Notifications service SMS processing limits."
+                  },
+                  "Correspondence.Notification.SendReminder": {
+                    "type": "boolean",
+                    "description": "Should a reminder be sent if the notification is not confirmed or opened"
+                  },
+                  "Correspondence.Notification.ReminderEmailSubject": {
+                    "maxLength": 512,
+                    "minLength": 0,
+                    "type": "string",
+                    "description": "The email subject to use for the reminder notification\r\nMaximum length is 512 characters."
+                  },
+                  "Correspondence.Notification.ReminderEmailBody": {
+                    "maxLength": 10000,
+                    "minLength": 0,
+                    "type": "string",
+                    "description": "The email body to use for the reminder notification. \r\nMaximum length is 10,000 characters."
+                  },
+                  "Correspondence.Notification.ReminderEmailContentType": {
+                    "$ref": "#/components/schemas/EmailContentType"
+                  },
+                  "Correspondence.Notification.ReminderSmsBody": {
+                    "maxLength": 2144,
+                    "minLength": 0,
+                    "type": "string",
+                    "description": "The sms body to use for the reminder notification. \r\nMaximum length is 2,144 characters (16 SMS segments × 134 characters per segment).\r\nThis aligns with the Altinn Notifications service SMS processing limits."
+                  },
+                  "Correspondence.Notification.NotificationChannel": {
+                    "$ref": "#/components/schemas/NotificationChannelExt"
+                  },
+                  "Correspondence.Notification.ReminderNotificationChannel": {
+                    "$ref": "#/components/schemas/NotificationChannelExt"
+                  },
+                  "Correspondence.Notification.SendersReference": {
+                    "type": "string",
+                    "description": "Senders Reference for this notification"
+                  },
+                  "Correspondence.Notification.RequestedSendTime": {
+                    "type": "string",
+                    "description": "The date and time for when the notification should be sent.",
+                    "format": "date-time"
+                  },
+                  "Correspondence.Notification.CustomRecipients": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/NotificationRecipientExt"
+                    },
+                    "description": "A list of additional recipients for the notification. These are processed in addition to the Correspondence recipient;\r\nif not set, only the Correspondence recipient receives the notification."
+                  },
+                  "Correspondence.Notification.CustomRecipient.EmailAddress": {
+                    "type": "string",
+                    "description": "the email address of the recipient"
+                  },
+                  "Correspondence.Notification.CustomRecipient.MobileNumber": {
+                    "type": "string",
+                    "description": "the mobileNumber of the recipient"
+                  },
+                  "Correspondence.Notification.CustomRecipient.OrganizationNumber": {
+                    "type": "string",
+                    "description": "the organization number of the recipient"
+                  },
+                  "Correspondence.Notification.CustomRecipient.NationalIdentityNumber": {
+                    "type": "string",
+                    "description": "The SSN of the recipient"
+                  },
+                  "Correspondence.Notification.CustomRecipient.IsReserved": {
+                    "type": "boolean",
+                    "description": "Boolean indicating if the recipient is reserved"
+                  },
+                  "Correspondence.Notification.CustomNotificationRecipients": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/CustomNotificationRecipientExt"
+                    },
+                    "description": "Only the first list of recipients will be used. If not set, the notification will be sent to the recipient of the Correspondence",
+                    "deprecated": true
+                  },
+                  "Correspondence.Notification.OverrideRegisteredContactInformation": {
+                    "type": "boolean",
+                    "description": "When set to true, only CustomRecipients will be used for notifications, overriding the default correspondence recipient.\r\nThis flag can only be used when CustomRecipients is provided.\r\nDefault value is false (use default contact info + custom recipients)."
+                  },
+                  "Correspondence.IgnoreReservation": {
+                    "type": "boolean",
+                    "description": "Specifies whether the correspondence can override reservation against digital communication in KRR.\r\nThis field only applies to recipients who are persons with person numbers (both default and custom recipients).\r\nIt has no effect for organization recipients or email/sms recipients through custom recipients."
+                  },
+                  "Correspondence.IsConfirmationNeeded": {
+                    "type": "boolean",
+                    "description": "Specifies whether reading the correspondence needs to be confirmed by the recipient"
+                  },
+                  "Correspondence.IsConfidential": {
+                    "type": "boolean",
+                    "description": "Specifies whether the correspondence is confidential"
+                  },
+                  "Recipients": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    },
+                    "description": "List of recipients for the correspondence, either as organization(urn:altinn:organization:identifier-no:ORGNR) or national identity number(urn:altinn:person:identifier-no:SSN)"
+                  },
+                  "ExistingAttachments": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "uuid"
+                    },
+                    "description": "Existing attachments that should be added to the correspondence"
+                  },
+                  "IdempotentKey": {
+                    "type": "string",
+                    "description": "Optional idempotency key to prevent duplicate correspondence creation",
+                    "format": "uuid"
+                  },
+                  "attachments": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                }
+              },
+              "encoding": {
+                "Correspondence.ResourceId": {
+                  "style": "form"
+                },
+                "Correspondence.Sender": {
+                  "style": "form"
+                },
+                "Correspondence.SendersReference": {
+                  "style": "form"
+                },
+                "Correspondence.MessageSender": {
+                  "style": "form"
+                },
+                "Correspondence.Content.Language": {
+                  "style": "form"
+                },
+                "Correspondence.Content.MessageTitle": {
+                  "style": "form"
+                },
+                "Correspondence.Content.MessageSummary": {
+                  "style": "form"
+                },
+                "Correspondence.Content.MessageBody": {
+                  "style": "form"
+                },
+                "Correspondence.Content.Attachments": {
+                  "style": "form"
+                },
+                "Correspondence.RequestedPublishTime": {
+                  "style": "form"
+                },
+                "Correspondence.AllowSystemDeleteAfter": {
+                  "style": "form"
+                },
+                "Correspondence.DueDateTime": {
+                  "style": "form"
+                },
+                "Correspondence.ExternalReferences": {
+                  "style": "form"
+                },
+                "Correspondence.PropertyList": {
+                  "style": "form"
+                },
+                "Correspondence.ReplyOptions": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.NotificationTemplate": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.EmailSubject": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.EmailBody": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.EmailContentType": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.SmsBody": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.SendReminder": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.ReminderEmailSubject": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.ReminderEmailBody": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.ReminderEmailContentType": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.ReminderSmsBody": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.NotificationChannel": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.ReminderNotificationChannel": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.SendersReference": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.RequestedSendTime": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.CustomRecipients": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.CustomRecipient.EmailAddress": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.CustomRecipient.MobileNumber": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.CustomRecipient.OrganizationNumber": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.CustomRecipient.NationalIdentityNumber": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.CustomRecipient.IsReserved": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.CustomNotificationRecipients": {
+                  "style": "form"
+                },
+                "Correspondence.Notification.OverrideRegisteredContactInformation": {
+                  "style": "form"
+                },
+                "Correspondence.IgnoreReservation": {
+                  "style": "form"
+                },
+                "Correspondence.IsConfirmationNeeded": {
+                  "style": "form"
+                },
+                "Correspondence.IsConfidential": {
+                  "style": "form"
+                },
+                "Recipients": {
+                  "style": "form"
+                },
+                "ExistingAttachments": {
+                  "style": "form"
+                },
+                "IdempotentKey": {
+                  "style": "form"
+                },
+                "attachments": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Returns metadata about the initialized correspondence",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InitializeCorrespondencesResponseExt"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "<ul>\r\n  <li>1002: Message title must be plain text</li>\r\n  <li>1003: Message body must be markdown</li>\r\n  <li>1004: Message summary must be plain text</li>\r\n  <li>1005: Mismatch between uploaded files and attachment metadata</li>\r\n  <li>1006: Recipients must be unique</li>\r\n  <li>1007: Existing attachment not found</li>\r\n  <li>1008: DueDateTime cannot be prior to today</li>\r\n  <li>1009: DueDateTime cannot be prior to RequestedPublishTime</li>\r\n  <li>1010: AllowSystemDelete cannot be prior to today</li>\r\n  <li>1011: AllowSystemDelete cannot be prior to RequestedPublishTime</li>\r\n  <li>1012: AllowSystemDelete cannot be prior to DueDateTime</li>\r\n  <li>1013: Sender cannot delete correspondence that has been published</li>\r\n  <li>1016: DueDateTime is required when confirmation is needed</li>\r\n  <li>1017: The sender of the correspondence must be equal the sender of existing attachments</li>\r\n  <li>1018: Attachment is not published</li>\r\n  <li>1019: The Content field must be provided for the correspondence</li>\r\n  <li>1020: Message title cannot be empty</li>\r\n  <li>1021: Message body cannot be empty</li>\r\n  <li>1022: Message body cannot exceed 30000 characters</li>\r\n  <li>1023: Invalid language chosen. Supported languages is Norsk bokmål (nb), Nynorsk (nn) and English (en)</li>\r\n  <li>1033: The idempotency key must be a valid non-empty GUID</li>\r\n  <li>1035: Reply options must be well-formed URIs and HTTPS with a max length of 255 characters</li>\r\n  <li>1036: ResourceId must match an existing resource in the resource registry</li>\r\n  <li>1037: Message title cannot exceed 255 characters</li>\r\n  <li>1038: A correspondence cannot contain more than 100 attachments in total</li>\r\n  <li>1039: Message sender must be plain text</li>\r\n  <li>1042: Message summary, if not null, must be between 0 and 255 characters long</li>\r\n  <li>1044: The following recipients lack required roles to read the correspondence: {recipients}</li>\r\n  <li>1045: Transmission correspondences only support one recipient</li>\r\n  <li>1046: The recipient of the correspondence must be equal to the party of the dialog of the transmission</li>\r\n  <li>1047: Idempotency key is not supported for requests with multiple recipients</li>\r\n  <li>1048: DialogId must be a valid non-empty GUID</li>\r\n  <li>1050: The service owner of a transmission can not differ from the service owner of the dialog</li>\r\n  <li>1052: Only one DialogportenTransmissionType external reference is allowed</li>\r\n  <li>1053: DialogportenTransmissionType external reference requires a DialogportenDialogId external reference</li>\r\n  <li>1054: Dialogporten dialog with the given id was not found</li>\r\n  <li>1055: Existing attachment is expiring within 6 hour(s) and cannot be attached to a new correspondence</li>\r\n  <li>2001: The requested attachment was not found</li>\r\n  <li>2004: File must have content and has a max file size of 2GB</li>\r\n  <li>2008: Checksum mismatch</li>\r\n  <li>2009: Could not get data location url</li>\r\n  <li>2010: Filename is missing</li>\r\n  <li>2011: Filename is too long</li>\r\n  <li>2012: Filename contains invalid characters</li>\r\n  <li>2013: Filetype not allowed</li>\r\n  <li>2017: Attachment expirationTime must be at least 14 days from now (1 day in non-production environments)</li>\r\n  <li>3001: The requested notification template with the given language was not found</li>\r\n  <li>3002: Email body and subject must be provided when sending email notifications</li>\r\n  <li>3003: Reminder email body and subject must be provided when sending reminder email notifications</li>\r\n  <li>3004: SMS body must be provided when sending SMS notifications</li>\r\n  <li>3005: Reminder SMS body must be provided when sending reminder SMS notifications</li>\r\n  <li>3006: Email body, subject and SMS body must be provided when sending preferred notifications</li>\r\n  <li>3007: Reminder email body, subject and SMS body must be provided when sending reminder preferred notifications</li>\r\n  <li>3011: Invalid email provided for custom recipient</li>\r\n  <li>3012: Invalid mobile number provided. Mobile number can contain only '+' and numeric characters, and it must adhere to the E.164 standard</li>\r\n  <li>3015: Recipient overrides with email or mobile number are not allowed when using notification recipient name because of name lookup</li>\r\n  <li>3017: Custom recipient with multiple recipients is not allowed</li>\r\n  <li>3018: Custom recipient with multiple identifiers is not allowed</li>\r\n  <li>3019: Custom recipient without identifier is not allowed</li>\r\n  <li>3024: Email body, subject and SMS body must be provided when sending email and SMS notifications</li>\r\n  <li>3025: Reminder email body, subject and SMS body must be provided when sending reminder email and SMS notifications</li>\r\n  <li>4002: Could not retrieve party uuid from lookup in Altinn Register</li>\r\n  <li>4009: Resource type is not supported. Resource must be of type GenericAccessResource or CorrespondenceService</li>\r\n</ul>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "<ul>\r\n  <li>4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization</li>\r\n</ul>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "<ul>\r\n  <li>1029: Could not find partyId for the following recipients: {recipients}</li>\r\n  <li>3001: The requested notification template with the given language was not found</li>\r\n</ul>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "<ul>\r\n  <li>1030: Recipient {recipientId} has reserved themselves from public correspondences. Can be overridden using the 'IgnoreReservation' flag</li>\r\n</ul>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "<ul>\r\n  <li>1034: A correspondence with the same idempotent key already exists</li>\r\n</ul>"
+          },
+          "502": {
+            "description": "<ul>\r\n  <li>2002: Error occurred during upload</li>\r\n</ul>"
+          }
+        }
+      }
+    },
+    "/correspondence/api/v1/correspondence/{correspondenceId}": {
+      "get": {
+        "tags": [
+          "Correspondence"
+        ],
+        "summary": "Get information about the Correspondence and its current status",
+        "description": " One of the scopes: \r\n\r\n - altinn:correspondence.read \r\n\r\n - altinn:correspondence.write \r\n\r\nMostly for use by recipients and occasional status checks",
+        "parameters": [
+          {
+            "name": "correspondenceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns an overview of metadata about the published correspondence",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CorrespondenceOverviewExt"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "4002: Could not retrieve party uuid from lookup in Altinn Register",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "1001: The requested correspondence was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/correspondence/api/v1/correspondence/{correspondenceId}/details": {
+      "get": {
+        "tags": [
+          "Correspondence"
+        ],
+        "summary": "Get more detailed information about the Correspondence and its current status as well as noticiation statuses, if available",
+        "description": " One of the scopes: \r\n\r\n - altinn:correspondence.read \r\n\r\n - altinn:correspondence.write \r\n\r\nMeant for Senders that want a complete overview of the status and history of the Correspondence, but also available for Receivers",
+        "parameters": [
+          {
+            "name": "correspondenceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Detailed information about the correspondence with current status and status history",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CorrespondenceDetailsExt"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "4002: Could not retrieve party uuid from lookup in Altinn Register",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "1001: The requested correspondence was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/correspondence/api/v1/correspondence/{correspondenceId}/content": {
+      "get": {
+        "tags": [
+          "Correspondence"
+        ],
+        "summary": "Gets the message body of a correspondence",
+        "description": "Meant for use with Felles Arbeidsflate",
+        "parameters": [
+          {
+            "name": "correspondenceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/correspondence/api/v1/correspondence/{correspondenceId}/confirm": {
+      "post": {
+        "tags": [
+          "Correspondence"
+        ],
+        "summary": "Mark Correspondence found by ID as confirmed",
+        "description": "One of the scopes: \r\n\r\n- altinn:correspondence.read \r\n",
+        "parameters": [
+          {
+            "name": "correspondenceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "the Id of the correspondence",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "4002: Could not retrieve party uuid from lookup in Altinn Register",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "1001: The requested correspondence was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/correspondence/api/v1/correspondence/{correspondenceId}/purge": {
+      "delete": {
+        "tags": [
+          "Correspondence"
+        ],
+        "summary": "Delete Correspondence found by ID",
+        "description": "One of the scopes: \r\n\r\n- altinn:correspondence.read \r\n\r\n- altinn:correspondence.write \r\n (Can only purge before the correspondence is published)",
+        "parameters": [
+          {
+            "name": "correspondenceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "the Id of the correspondence",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "<ul>\r\n  <li>1013: Sender cannot delete correspondence that has been published</li>\r\n  <li>1014: Correspondence has already been purged</li>\r\n  <li>1015: Could not retrieve highest status for correspondence</li>\r\n  <li>1026: Cannot archive or delete a correspondence which has not been confirmed when confirmation is required</li>\r\n  <li>1043: Cannot purge correspondence linked to a Dialogporten Transmission</li>\r\n  <li>4002: Could not retrieve party uuid from lookup in Altinn Register</li>\r\n</ul>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "1001: The requested correspondence was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/correspondence/api/v1/correspondence/{correspondenceId}/attachment/{attachmentId}/download": {
+      "get": {
+        "tags": [
+          "Correspondence"
+        ],
+        "summary": "Downloads the attachment data",
+        "description": "One of the scopes: \r\n\r\n- altinn:correspondence.read \r\n",
+        "parameters": [
+          {
+            "name": "correspondenceId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "attachmentId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the attachment file",
+            "content": {
+              "application/octet-stream": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "4001: You must use an Altinn token, DialogToken or log in to IDPorten as someone with access to the resource and organization in Altinn Authorization",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "<ul>\r\n  <li>1001: The requested correspondence was not found</li>\r\n  <li>2001: The requested attachment was not found</li>\r\n</ul>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "4002: Could not retrieve party uuid from lookup in Altinn Register"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AltinnProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "$ref": "#/components/schemas/ErrorCode"
+          }
+        },
+        "additionalProperties": { }
+      },
+      "AttachmentDataLocationTypeExt": {
+        "enum": [
+          "AltinnCorrespondenceAttachment",
+          "ExternalStorage"
+        ],
+        "type": "string",
+        "description": "Defines the location of the attachment data"
+      },
+      "AttachmentDetailsExt": {
+        "required": [
+          "attachmentId",
+          "correspondenceIds",
+          "resourceId",
+          "sendersReference",
+          "status",
+          "statusChanged",
+          "statusText"
+        ],
+        "type": "object",
+        "properties": {
+          "fileName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "The name of the attachment file.",
+            "nullable": true
+          },
+          "displayName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "A logical name for the file, which will be shown in Altinn Inbox.",
+            "nullable": true
+          },
+          "isEncrypted": {
+            "type": "boolean",
+            "description": "A value indicating whether the attachment is encrypted or not."
+          },
+          "checksum": {
+            "type": "string",
+            "description": "MD5 checksum for file data.",
+            "nullable": true
+          },
+          "sendersReference": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string",
+            "description": "A reference value given to the attachment by the creator."
+          },
+          "expirationInDays": {
+            "type": "integer",
+            "description": "Relative expiration time (days) for the attachment.",
+            "format": "int32",
+            "nullable": true
+          },
+          "resourceId": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string",
+            "description": "Gets or sets the Resource Id for the correspondence service."
+          },
+          "sender": {
+            "type": "string",
+            "description": "The Sending organisation of the correspondence.",
+            "nullable": true,
+            "deprecated": true
+          },
+          "attachmentId": {
+            "type": "string",
+            "description": "Unique Id for this attachment",
+            "format": "uuid"
+          },
+          "status": {
+            "$ref": "#/components/schemas/AttachmentStatusExt"
+          },
+          "statusText": {
+            "type": "string",
+            "description": "Current attachment status text description",
+            "nullable": true
+          },
+          "statusChanged": {
+            "type": "string",
+            "description": "Timestamp for when the Current Attachment Status was changed",
+            "format": "date-time"
+          },
+          "correspondenceIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "List of correspondences that are using this attachment",
+            "nullable": true
+          },
+          "dataType": {
+            "type": "string",
+            "description": "The attachment data type in MIME format",
+            "nullable": true
+          },
+          "statusHistory": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttachmentStatusEvent"
+            },
+            "description": "The Status history for the Attachment",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents an overview of a shared attachment that can be used by multiple correspondences"
+      },
+      "AttachmentOverviewExt": {
+        "required": [
+          "attachmentId",
+          "correspondenceIds",
+          "resourceId",
+          "sendersReference",
+          "status",
+          "statusChanged",
+          "statusText"
+        ],
+        "type": "object",
+        "properties": {
+          "fileName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "The name of the attachment file.",
+            "nullable": true
+          },
+          "displayName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "A logical name for the file, which will be shown in Altinn Inbox.",
+            "nullable": true
+          },
+          "isEncrypted": {
+            "type": "boolean",
+            "description": "A value indicating whether the attachment is encrypted or not."
+          },
+          "checksum": {
+            "type": "string",
+            "description": "MD5 checksum for file data.",
+            "nullable": true
+          },
+          "sendersReference": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string",
+            "description": "A reference value given to the attachment by the creator."
+          },
+          "expirationInDays": {
+            "type": "integer",
+            "description": "Relative expiration time (days) for the attachment.",
+            "format": "int32",
+            "nullable": true
+          },
+          "resourceId": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string",
+            "description": "Gets or sets the Resource Id for the correspondence service."
+          },
+          "sender": {
+            "type": "string",
+            "description": "The Sending organisation of the correspondence.",
+            "nullable": true,
+            "deprecated": true
+          },
+          "attachmentId": {
+            "type": "string",
+            "description": "Unique Id for this attachment",
+            "format": "uuid"
+          },
+          "status": {
+            "$ref": "#/components/schemas/AttachmentStatusExt"
+          },
+          "statusText": {
+            "type": "string",
+            "description": "Current attachment status text description",
+            "nullable": true
+          },
+          "statusChanged": {
+            "type": "string",
+            "description": "Timestamp for when the Current Attachment Status was changed",
+            "format": "date-time"
+          },
+          "correspondenceIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "List of correspondences that are using this attachment",
+            "nullable": true
+          },
+          "dataType": {
+            "type": "string",
+            "description": "The attachment data type in MIME format",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents an overview of a shared attachment that can be used by multiple correspondences"
+      },
+      "AttachmentStatusEvent": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/AttachmentStatusExt"
+          },
+          "statusText": {
+            "type": "string",
+            "description": "Attachment status text description",
+            "nullable": true
+          },
+          "statusChanged": {
+            "type": "string",
+            "description": "Timestamp for when the Attachment Status occurred",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "An entity representing a Attachment Status Event"
+      },
+      "AttachmentStatusExt": {
+        "enum": [
+          "Initialized",
+          "UploadProcessing",
+          "Published",
+          "Purged",
+          "Failed",
+          "Expired"
+        ],
+        "type": "string",
+        "description": "Represents the important statuses for an attachment"
+      },
+      "BaseCorrespondenceExt": {
+        "required": [
+          "resourceId",
+          "sendersReference"
+        ],
+        "type": "object",
+        "properties": {
+          "resourceId": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string",
+            "description": "The Resource Id associated with the correspondence service."
+          },
+          "sendersReference": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string",
+            "description": "A reference used by senders and receivers to identify a specific Correspondence using external identification methods."
+          },
+          "messageSender": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "An alternative name for the sender of the correspondence. The name will be displayed instead of the organization name.",
+            "nullable": true
+          },
+          "content": {
+            "$ref": "#/components/schemas/InitializeCorrespondenceContentExt"
+          },
+          "requestedPublishTime": {
+            "type": "string",
+            "description": "When the correspondence should become visible to the recipient.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "allowSystemDeleteAfter": {
+            "type": "string",
+            "description": "When Altinn can remove the correspondence from its database.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dueDateTime": {
+            "type": "string",
+            "description": "When the recipient must reply to the correspondence",
+            "format": "date-time",
+            "nullable": true
+          },
+          "externalReferences": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExternalReferenceExt"
+            },
+            "description": "A list of references Senders can use to tell the recipient that the correspondence is related to the referenced item(s)\r\nExamples include Altinn App instances, Altinn Broker File Transfers",
+            "nullable": true
+          },
+          "propertyList": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "User-defined properties related to the Correspondence",
+            "nullable": true
+          },
+          "replyOptions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CorrespondenceReplyOptionExt"
+            },
+            "description": "Options for how the recipient can reply to the Correspondence",
+            "nullable": true
+          },
+          "notification": {
+            "$ref": "#/components/schemas/InitializeCorrespondenceNotificationExt"
+          },
+          "ignoreReservation": {
+            "type": "boolean",
+            "description": "Specifies whether the correspondence can override reservation against digital communication in KRR.\r\nThis field only applies to recipients who are persons with person numbers (both default and custom recipients).\r\nIt has no effect for organization recipients or email/sms recipients through custom recipients.",
+            "nullable": true
+          },
+          "isConfirmationNeeded": {
+            "type": "boolean",
+            "description": "Specifies whether reading the correspondence needs to be confirmed by the recipient"
+          },
+          "isConfidential": {
+            "type": "boolean",
+            "description": "Specifies whether the correspondence is confidential"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a request object for the operation, InitializeCorrespondence, that can create a correspondence in Altinn."
+      },
+      "CorrespondenceAttachmentExt": {
+        "required": [
+          "dataLocationType",
+          "sendersReference"
+        ],
+        "type": "object",
+        "properties": {
+          "fileName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "The name of the attachment file.",
+            "nullable": true
+          },
+          "displayName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "A logical name for the file, which will be shown in Altinn Inbox.",
+            "nullable": true
+          },
+          "isEncrypted": {
+            "type": "boolean",
+            "description": "A value indicating whether the attachment is encrypted or not."
+          },
+          "checksum": {
+            "type": "string",
+            "description": "MD5 checksum for file data.",
+            "nullable": true
+          },
+          "sendersReference": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string",
+            "description": "A reference value given to the attachment by the creator."
+          },
+          "expirationInDays": {
+            "type": "integer",
+            "description": "Relative expiration time (days) for the attachment.",
+            "format": "int32",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "description": "A unique id for the correspondence attachment.",
+            "format": "uuid"
+          },
+          "dataLocationType": {
+            "$ref": "#/components/schemas/AttachmentDataLocationTypeExt"
+          },
+          "created": {
+            "type": "string",
+            "description": "The date on which this attachment is created",
+            "format": "date-time"
+          },
+          "status": {
+            "$ref": "#/components/schemas/AttachmentStatusExt"
+          },
+          "statusText": {
+            "type": "string",
+            "description": "Current attachment status text description",
+            "nullable": true
+          },
+          "statusChanged": {
+            "type": "string",
+            "description": "Timestamp for when the Current Attachment Status was changed",
+            "format": "date-time"
+          },
+          "dataType": {
+            "type": "string",
+            "description": "The attachment data type in MIME format",
+            "nullable": true
+          },
+          "expirationTime": {
+            "type": "string",
+            "description": "The expiration time for this attachment on this correspondence.",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a binary attachment to a Correspondence"
+      },
+      "CorrespondenceContentExt": {
+        "required": [
+          "attachments",
+          "messageBody",
+          "messageTitle"
+        ],
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string",
+            "description": "Gets or sets the language of the correspondence, specified according to ISO 639-1",
+            "default": "nb",
+            "nullable": true
+          },
+          "messageTitle": {
+            "type": "string",
+            "description": "Gets or sets the correspondence message title. Subject.",
+            "nullable": true
+          },
+          "messageSummary": {
+            "type": "string",
+            "description": "Gets or sets a summary text of the correspondence.",
+            "nullable": true
+          },
+          "messageBody": {
+            "type": "string",
+            "description": "Gets or sets the main body of the correspondence.",
+            "nullable": true
+          },
+          "attachments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CorrespondenceAttachmentExt"
+            },
+            "description": "Gets or sets a list of attachments.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents the content of a reportee element of the type correspondence."
+      },
+      "CorrespondenceDetailsExt": {
+        "required": [
+          "correspondenceId",
+          "created",
+          "recipient",
+          "resourceId",
+          "sendersReference"
+        ],
+        "type": "object",
+        "properties": {
+          "resourceId": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string",
+            "description": "The Resource Id associated with the correspondence service."
+          },
+          "sender": {
+            "type": "string",
+            "description": "The Sending organization of the correspondence.",
+            "nullable": true,
+            "deprecated": true
+          },
+          "sendersReference": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string",
+            "description": "A reference used by senders and receivers to identify a specific Correspondence using external identification methods."
+          },
+          "messageSender": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "An alternative name for the sender of the correspondence. The name will be displayed instead of the organization name.",
+            "nullable": true
+          },
+          "content": {
+            "$ref": "#/components/schemas/CorrespondenceContentExt"
+          },
+          "requestedPublishTime": {
+            "type": "string",
+            "description": "When the correspondence should become visible to the recipient.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "allowSystemDeleteAfter": {
+            "type": "string",
+            "description": "When Altinn can remove the correspondence from its database.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dueDateTime": {
+            "type": "string",
+            "description": "When the recipient must reply to the correspondence",
+            "format": "date-time",
+            "nullable": true
+          },
+          "externalReferences": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExternalReferenceExt"
+            },
+            "description": "A list of references Senders can use to tell the recipient that the correspondence is related to the referenced item(s)\r\nExamples include Altinn App instances, Altinn Broker File Transfers",
+            "nullable": true
+          },
+          "propertyList": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "User-defined properties related to the Correspondence",
+            "nullable": true
+          },
+          "replyOptions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CorrespondenceReplyOptionExt"
+            },
+            "description": "Options for how the recipient can reply to the Correspondence",
+            "nullable": true
+          },
+          "notification": {
+            "$ref": "#/components/schemas/InitializeCorrespondenceNotificationExt"
+          },
+          "ignoreReservation": {
+            "type": "boolean",
+            "description": "Specifies whether the correspondence can override reservation against digital communication in KRR.\r\nThis field only applies to recipients who are persons with person numbers (both default and custom recipients).\r\nIt has no effect for organization recipients or email/sms recipients through custom recipients.",
+            "nullable": true
+          },
+          "isConfirmationNeeded": {
+            "type": "boolean",
+            "description": "Specifies whether reading the correspondence needs to be confirmed by the recipient"
+          },
+          "isConfidential": {
+            "type": "boolean",
+            "description": "Specifies whether the correspondence is confidential"
+          },
+          "recipient": {
+            "type": "string",
+            "description": "The recipient of the correspondence.",
+            "nullable": true
+          },
+          "correspondenceId": {
+            "type": "string",
+            "description": "Unique Id for this correspondence",
+            "format": "uuid"
+          },
+          "created": {
+            "type": "string",
+            "description": "When the correspondence was created",
+            "format": "date-time"
+          },
+          "status": {
+            "$ref": "#/components/schemas/CorrespondenceStatusExt"
+          },
+          "statusText": {
+            "type": "string",
+            "description": "The current status text for the Correspondence",
+            "nullable": true
+          },
+          "statusChanged": {
+            "type": "string",
+            "description": "Timestamp for when the Current Correspondence Status was changed",
+            "format": "date-time"
+          },
+          "notifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationExt"
+            },
+            "description": "Notifications directly related to this Correspondence.",
+            "nullable": true
+          },
+          "altinn2CorrespondenceId": {
+            "type": "integer",
+            "description": "The identifier/reference from Altinn 2 for migrated correspondence. Will be null for correspondence created in Altinn 3.",
+            "format": "int32",
+            "nullable": true
+          },
+          "published": {
+            "type": "string",
+            "description": "Is null until the correspondence is published.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "statusHistory": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CorrespondenceStatusEventExt"
+            },
+            "description": "The Status history for the Correspondence",
+            "nullable": true
+          },
+          "systemLabel": {
+            "$ref": "#/components/schemas/DialogPortenSystemLabel"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A more detailed object representing all the details for a correspondence, including status history and notifications"
+      },
+      "CorrespondenceNotificationOverview": {
+        "type": "object",
+        "properties": {
+          "notificationOrderId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "isReminder": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CorrespondenceOverviewExt": {
+        "required": [
+          "correspondenceId",
+          "created",
+          "recipient",
+          "resourceId",
+          "sendersReference"
+        ],
+        "type": "object",
+        "properties": {
+          "resourceId": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string",
+            "description": "The Resource Id associated with the correspondence service."
+          },
+          "sender": {
+            "type": "string",
+            "description": "The Sending organization of the correspondence.",
+            "nullable": true,
+            "deprecated": true
+          },
+          "sendersReference": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string",
+            "description": "A reference used by senders and receivers to identify a specific Correspondence using external identification methods."
+          },
+          "messageSender": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "An alternative name for the sender of the correspondence. The name will be displayed instead of the organization name.",
+            "nullable": true
+          },
+          "content": {
+            "$ref": "#/components/schemas/CorrespondenceContentExt"
+          },
+          "requestedPublishTime": {
+            "type": "string",
+            "description": "When the correspondence should become visible to the recipient.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "allowSystemDeleteAfter": {
+            "type": "string",
+            "description": "When Altinn can remove the correspondence from its database.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "dueDateTime": {
+            "type": "string",
+            "description": "When the recipient must reply to the correspondence",
+            "format": "date-time",
+            "nullable": true
+          },
+          "externalReferences": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExternalReferenceExt"
+            },
+            "description": "A list of references Senders can use to tell the recipient that the correspondence is related to the referenced item(s)\r\nExamples include Altinn App instances, Altinn Broker File Transfers",
+            "nullable": true
+          },
+          "propertyList": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "description": "User-defined properties related to the Correspondence",
+            "nullable": true
+          },
+          "replyOptions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CorrespondenceReplyOptionExt"
+            },
+            "description": "Options for how the recipient can reply to the Correspondence",
+            "nullable": true
+          },
+          "notification": {
+            "$ref": "#/components/schemas/InitializeCorrespondenceNotificationExt"
+          },
+          "ignoreReservation": {
+            "type": "boolean",
+            "description": "Specifies whether the correspondence can override reservation against digital communication in KRR.\r\nThis field only applies to recipients who are persons with person numbers (both default and custom recipients).\r\nIt has no effect for organization recipients or email/sms recipients through custom recipients.",
+            "nullable": true
+          },
+          "isConfirmationNeeded": {
+            "type": "boolean",
+            "description": "Specifies whether reading the correspondence needs to be confirmed by the recipient"
+          },
+          "isConfidential": {
+            "type": "boolean",
+            "description": "Specifies whether the correspondence is confidential"
+          },
+          "recipient": {
+            "type": "string",
+            "description": "The recipient of the correspondence.",
+            "nullable": true
+          },
+          "correspondenceId": {
+            "type": "string",
+            "description": "Unique Id for this correspondence",
+            "format": "uuid"
+          },
+          "created": {
+            "type": "string",
+            "description": "When the correspondence was created",
+            "format": "date-time"
+          },
+          "status": {
+            "$ref": "#/components/schemas/CorrespondenceStatusExt"
+          },
+          "statusText": {
+            "type": "string",
+            "description": "The current status text for the Correspondence",
+            "nullable": true
+          },
+          "statusChanged": {
+            "type": "string",
+            "description": "Timestamp for when the Current Correspondence Status was changed",
+            "format": "date-time"
+          },
+          "notifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CorrespondenceNotificationOverview"
+            },
+            "description": "An overview of the notifications for this correspondence",
+            "nullable": true
+          },
+          "altinn2CorrespondenceId": {
+            "type": "integer",
+            "description": "The identifier/reference from Altinn 2 for migrated correspondence. Will be null for correspondence created in Altinn 3.",
+            "format": "int32",
+            "nullable": true
+          },
+          "published": {
+            "type": "string",
+            "description": "Is null until the correspondence is published.",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "An object representing an overview of a correspondence with enough details to drive the business process"
+      },
+      "CorrespondenceReplyOptionExt": {
+        "required": [
+          "linkURL"
+        ],
+        "type": "object",
+        "properties": {
+          "linkURL": {
+            "type": "string",
+            "description": "Gets or sets the URL to be used as a reply/response to a correspondence.",
+            "nullable": true
+          },
+          "linkText": {
+            "type": "string",
+            "description": "Gets or sets the url text.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a ReplyOption with information provided by the sender.\r\nA reply option is a way for recipients to respond to a correspondence in addition to the normal Read and Confirm operations"
+      },
+      "CorrespondenceStatusEventExt": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "$ref": "#/components/schemas/CorrespondenceStatusExt"
+          },
+          "statusText": {
+            "type": "string",
+            "description": "Correspondence Status Text description",
+            "nullable": true
+          },
+          "statusChanged": {
+            "type": "string",
+            "description": "Timestamp for when this Correspondence Status Event occurred",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "An entity representing a Correspondence Status Event"
+      },
+      "CorrespondenceStatusExt": {
+        "enum": [
+          "Initialized",
+          "ReadyForPublish",
+          "Published",
+          "Fetched",
+          "Read",
+          "Replied",
+          "Confirmed",
+          "PurgedByRecipient",
+          "PurgedByAltinn",
+          "Archived",
+          "Reserved",
+          "Failed",
+          "AttachmentsDownloaded"
+        ],
+        "type": "string",
+        "description": "Represents the important statuses for an Correspondence"
+      },
+      "CorrespondencesExt": {
+        "type": "object",
+        "properties": {
+          "ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Correspondence ids",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "An entity representing a a list of Correspondences"
+      },
+      "CorrespondencesRoleType": {
+        "enum": [
+          "Recipient",
+          "Sender",
+          "RecipientAndSender"
+        ],
+        "type": "string"
+      },
+      "CustomNotificationRecipientExt": {
+        "required": [
+          "recipients",
+          "recipientToOverride"
+        ],
+        "type": "object",
+        "properties": {
+          "recipientToOverride": {
+            "type": "string",
+            "description": "This is not used, but is required by the API.",
+            "nullable": true
+          },
+          "recipients": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationRecipientExt"
+            },
+            "description": "Only the first recipient will be used as custom recipient.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a custom notification recipient with override options"
+      },
+      "DialogPortenSystemLabel": {
+        "enum": [
+          "Default",
+          "Bin",
+          "Archive",
+          "MarkedAsUnopened",
+          "Sent"
+        ],
+        "type": "string"
+      },
+      "EmailContentType": {
+        "enum": [
+          "Plain",
+          "Html"
+        ],
+        "type": "string"
+      },
+      "ErrorCode": {
+        "type": "integer",
+        "description": "A machine readable error code.",
+        "format": "int32"
+      },
+      "ExternalReferenceExt": {
+        "required": [
+          "referenceType",
+          "referenceValue"
+        ],
+        "type": "object",
+        "properties": {
+          "referenceValue": {
+            "type": "string",
+            "description": "The Reference Value",
+            "nullable": true
+          },
+          "referenceType": {
+            "$ref": "#/components/schemas/ReferenceTypeExt"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a reference to another item in the Altinn ecosystem"
+      },
+      "InitializeAttachmentDataLocationTypeExt": {
+        "enum": [
+          "NewCorrespondenceAttachment",
+          "ExistingCorrespondenceAttachment",
+          "ExistingExternalStorage"
+        ],
+        "type": "string",
+        "description": "Defines the location of the attachment data during the Initialize Correspondence Operation"
+      },
+      "InitializeAttachmentExt": {
+        "required": [
+          "resourceId",
+          "sendersReference"
+        ],
+        "type": "object",
+        "properties": {
+          "fileName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "The name of the attachment file.",
+            "nullable": true
+          },
+          "displayName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "A logical name for the file, which will be shown in Altinn Inbox.",
+            "nullable": true
+          },
+          "isEncrypted": {
+            "type": "boolean",
+            "description": "A value indicating whether the attachment is encrypted or not."
+          },
+          "checksum": {
+            "type": "string",
+            "description": "MD5 checksum for file data.",
+            "nullable": true
+          },
+          "sendersReference": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string",
+            "description": "A reference value given to the attachment by the creator."
+          },
+          "expirationInDays": {
+            "type": "integer",
+            "description": "Relative expiration time (days) for the attachment.",
+            "format": "int32",
+            "nullable": true
+          },
+          "resourceId": {
+            "maxLength": 255,
+            "minLength": 1,
+            "type": "string",
+            "description": "Gets or sets the Resource Id for the correspondence service."
+          },
+          "sender": {
+            "type": "string",
+            "description": "The Sending organisation of the correspondence.",
+            "nullable": true,
+            "deprecated": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a container object for attachments used when initiating a shared attachment"
+      },
+      "InitializeCorrespondenceAttachmentExt": {
+        "required": [
+          "dataLocationType",
+          "sendersReference"
+        ],
+        "type": "object",
+        "properties": {
+          "fileName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "The name of the attachment file.",
+            "nullable": true
+          },
+          "displayName": {
+            "maxLength": 255,
+            "minLength": 0,
+            "type": "string",
+            "description": "A logical name for the file, which will be shown in Altinn Inbox.",
+            "nullable": true
+          },
+          "isEncrypted": {
+            "type": "boolean",
+            "description": "A value indicating whether the attachment is encrypted or not."
+          },
+          "checksum": {
+            "type": "string",
+            "description": "MD5 checksum for file data.",
+            "nullable": true
+          },
+          "sendersReference": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string",
+            "description": "A reference value given to the attachment by the creator."
+          },
+          "expirationInDays": {
+            "type": "integer",
+            "description": "Relative expiration time (days) for the attachment.",
+            "format": "int32",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "description": "A unique id for the correspondence attachment.",
+            "format": "uuid"
+          },
+          "dataLocationType": {
+            "$ref": "#/components/schemas/InitializeAttachmentDataLocationTypeExt"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents an attachment to a specific correspondence as part of Initialize Correspondence Operation"
+      },
+      "InitializeCorrespondenceContentExt": {
+        "required": [
+          "messageBody",
+          "messageTitle"
+        ],
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string",
+            "description": "Gets or sets the language of the correspondence, specified according to ISO 639-1",
+            "default": "nb",
+            "nullable": true
+          },
+          "messageTitle": {
+            "type": "string",
+            "description": "Gets or sets the correspondence message title. Subject.",
+            "nullable": true
+          },
+          "messageSummary": {
+            "type": "string",
+            "description": "Gets or sets a summary text of the correspondence.",
+            "nullable": true
+          },
+          "messageBody": {
+            "type": "string",
+            "description": "Gets or sets the main body of the correspondence.",
+            "nullable": true
+          },
+          "attachments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InitializeCorrespondenceAttachmentExt"
+            },
+            "description": "Gets or sets metadata of the attachments added in the Attachments field. Uses the InitializeCorrespondenceAttachmentExt model.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents the content of a Correspondence."
+      },
+      "InitializeCorrespondenceNotificationExt": {
+        "type": "object",
+        "properties": {
+          "notificationTemplate": {
+            "$ref": "#/components/schemas/NotificationTemplateExt"
+          },
+          "emailSubject": {
+            "maxLength": 512,
+            "minLength": 0,
+            "type": "string",
+            "description": "The emails subject for the main notification.\r\nMaximum length is 512 characters.",
+            "nullable": true
+          },
+          "emailBody": {
+            "maxLength": 10000,
+            "minLength": 0,
+            "type": "string",
+            "description": "The email body for the main notification. \r\nMaximum length is 10,000 characters.",
+            "nullable": true
+          },
+          "emailContentType": {
+            "$ref": "#/components/schemas/EmailContentType"
+          },
+          "smsBody": {
+            "maxLength": 2144,
+            "minLength": 0,
+            "type": "string",
+            "description": "The sms body for the main notification. \r\nMaximum length is 2,144 characters (16 SMS segments × 134 characters per segment).\r\nThis aligns with the Altinn Notifications service SMS processing limits.",
+            "nullable": true
+          },
+          "sendReminder": {
+            "type": "boolean",
+            "description": "Should a reminder be sent if the notification is not confirmed or opened"
+          },
+          "reminderEmailSubject": {
+            "maxLength": 512,
+            "minLength": 0,
+            "type": "string",
+            "description": "The email subject to use for the reminder notification\r\nMaximum length is 512 characters.",
+            "nullable": true
+          },
+          "reminderEmailBody": {
+            "maxLength": 10000,
+            "minLength": 0,
+            "type": "string",
+            "description": "The email body to use for the reminder notification. \r\nMaximum length is 10,000 characters.",
+            "nullable": true
+          },
+          "reminderEmailContentType": {
+            "$ref": "#/components/schemas/EmailContentType"
+          },
+          "reminderSmsBody": {
+            "maxLength": 2144,
+            "minLength": 0,
+            "type": "string",
+            "description": "The sms body to use for the reminder notification. \r\nMaximum length is 2,144 characters (16 SMS segments × 134 characters per segment).\r\nThis aligns with the Altinn Notifications service SMS processing limits.",
+            "nullable": true
+          },
+          "notificationChannel": {
+            "$ref": "#/components/schemas/NotificationChannelExt"
+          },
+          "reminderNotificationChannel": {
+            "$ref": "#/components/schemas/NotificationChannelExt"
+          },
+          "sendersReference": {
+            "type": "string",
+            "description": "Senders Reference for this notification",
+            "nullable": true
+          },
+          "requestedSendTime": {
+            "type": "string",
+            "description": "The date and time for when the notification should be sent.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "customRecipients": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationRecipientExt"
+            },
+            "description": "A list of additional recipients for the notification. These are processed in addition to the Correspondence recipient;\r\nif not set, only the Correspondence recipient receives the notification.",
+            "nullable": true
+          },
+          "customRecipient": {
+            "$ref": "#/components/schemas/NotificationRecipientExt"
+          },
+          "customNotificationRecipients": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CustomNotificationRecipientExt"
+            },
+            "description": "Only the first list of recipients will be used. If not set, the notification will be sent to the recipient of the Correspondence",
+            "nullable": true,
+            "deprecated": true
+          },
+          "overrideRegisteredContactInformation": {
+            "type": "boolean",
+            "description": "When set to true, only CustomRecipients will be used for notifications, overriding the default correspondence recipient.\r\nThis flag can only be used when CustomRecipients is provided.\r\nDefault value is false (use default contact info + custom recipients)."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Used to specify a single notification connected to a specific Correspondence during the Initialize Correspondence operation"
+      },
+      "InitializeCorrespondencesExt": {
+        "required": [
+          "correspondence",
+          "recipients"
+        ],
+        "type": "object",
+        "properties": {
+          "correspondence": {
+            "$ref": "#/components/schemas/BaseCorrespondenceExt"
+          },
+          "recipients": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of recipients for the correspondence, either as organization(urn:altinn:organization:identifier-no:ORGNR) or national identity number(urn:altinn:person:identifier-no:SSN)"
+          },
+          "existingAttachments": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "Existing attachments that should be added to the correspondence",
+            "nullable": true
+          },
+          "idempotentKey": {
+            "type": "string",
+            "description": "Optional idempotency key to prevent duplicate correspondence creation",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InitializeCorrespondencesResponseExt": {
+        "type": "object",
+        "properties": {
+          "correspondences": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InitializedCorrespondencesExt"
+            },
+            "description": "The initialized correspondences",
+            "nullable": true
+          },
+          "attachmentIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "The IDs of the attachments that is included in the correspondences",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Contains information about the created correspondences and their attachments."
+      },
+      "InitializedCorrespondencesExt": {
+        "required": [
+          "recipient"
+        ],
+        "type": "object",
+        "properties": {
+          "correspondenceId": {
+            "type": "string",
+            "description": "The ID of the correspondence",
+            "format": "uuid"
+          },
+          "status": {
+            "$ref": "#/components/schemas/CorrespondenceStatusExt"
+          },
+          "recipient": {
+            "type": "string",
+            "description": "The recipient of the correspondence",
+            "nullable": true
+          },
+          "notifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InitializedCorrespondencesNotificationsExt"
+            },
+            "description": "Information about the notifications that were created for the correspondence",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a correspondence that has been initialized"
+      },
+      "InitializedCorrespondencesNotificationsExt": {
+        "type": "object",
+        "properties": {
+          "orderId": {
+            "type": "string",
+            "description": "The order ID of the notification",
+            "format": "uuid",
+            "nullable": true
+          },
+          "isReminder": {
+            "type": "boolean",
+            "description": "Boolean indicating if the notification is a reminder",
+            "nullable": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/InitializedNotificationStatusExt"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Information about a notification that were created for the correspondence"
+      },
+      "InitializedNotificationStatusExt": {
+        "enum": [
+          "Success",
+          "MissingContact",
+          "Failure"
+        ],
+        "type": "string"
+      },
+      "NotificationChannelExt": {
+        "enum": [
+          "Email",
+          "Sms",
+          "EmailPreferred",
+          "SmsPreferred",
+          "EmailAndSms"
+        ],
+        "type": "string",
+        "description": "Enum describing available notification channels."
+      },
+      "NotificationDetailsExt": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The notification id",
+            "format": "uuid",
+            "nullable": true
+          },
+          "succeeded": {
+            "type": "boolean",
+            "description": "Boolean indicating if the sending of the notification was successful"
+          },
+          "recipient": {
+            "$ref": "#/components/schemas/NotificationRecipientExt"
+          },
+          "sendStatus": {
+            "$ref": "#/components/schemas/NotificationStatusExt"
+          }
+        },
+        "additionalProperties": false,
+        "description": "An abstract class representing a status overview of a notification channels"
+      },
+      "NotificationExt": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The id of the notification order",
+            "nullable": true
+          },
+          "sendersReference": {
+            "type": "string",
+            "description": "An optional senders reference of the notification",
+            "nullable": true
+          },
+          "requestedSendTime": {
+            "type": "string",
+            "description": "The requested send time of the notification",
+            "format": "date-time"
+          },
+          "creator": {
+            "type": "string",
+            "description": "The short name of the creator of the notification order",
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "description": "The date and time of when the notification order was created",
+            "format": "date-time"
+          },
+          "isReminder": {
+            "type": "boolean",
+            "description": "whether the notification is a reminder notification"
+          },
+          "notificationChannel": {
+            "$ref": "#/components/schemas/NotificationChannelExt"
+          },
+          "ignoreReservation": {
+            "type": "boolean",
+            "description": "Whether notifications generated by this order should ignore KRR reservations",
+            "nullable": true
+          },
+          "resourceId": {
+            "type": "string",
+            "description": "The id of the resource that the notification is related to",
+            "nullable": true
+          },
+          "processingStatus": {
+            "$ref": "#/components/schemas/NotificationProcessStatusExt"
+          },
+          "notificationStatusDetails": {
+            "$ref": "#/components/schemas/NotificationStatusDetailsExt"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a notification connected to a specific correspondence"
+      },
+      "NotificationProcessStatusExt": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The actual status of the notification",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the status",
+            "nullable": true
+          },
+          "lastUpdate": {
+            "type": "string",
+            "description": "The date time of when the status was last updated",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "An abstract class representing a status overview of a notification channels"
+      },
+      "NotificationRecipientExt": {
+        "type": "object",
+        "properties": {
+          "emailAddress": {
+            "type": "string",
+            "description": "the email address of the recipient",
+            "nullable": true
+          },
+          "mobileNumber": {
+            "type": "string",
+            "description": "the mobileNumber of the recipient",
+            "nullable": true
+          },
+          "organizationNumber": {
+            "type": "string",
+            "description": "the organization number of the recipient",
+            "nullable": true
+          },
+          "nationalIdentityNumber": {
+            "type": "string",
+            "description": "The SSN of the recipient",
+            "nullable": true
+          },
+          "isReserved": {
+            "type": "boolean",
+            "description": "Boolean indicating if the recipient is reserved",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A class representing a a recipient of a notification"
+      },
+      "NotificationStatusDetailsExt": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "$ref": "#/components/schemas/NotificationDetailsExt"
+          },
+          "sms": {
+            "$ref": "#/components/schemas/NotificationDetailsExt"
+          },
+          "emails": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationDetailsExt"
+            },
+            "nullable": true
+          },
+          "smses": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationDetailsExt"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A class representing a summary of status overviews of all notification channels"
+      },
+      "NotificationStatusExt": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "description": "The actual status of the notification",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "description": "The description of the status",
+            "nullable": true
+          },
+          "lastUpdate": {
+            "type": "string",
+            "description": "The date time of when the status was last updated",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A class representing a status summary"
+      },
+      "NotificationTemplateExt": {
+        "enum": [
+          "CustomMessage",
+          "GenericAltinnMessage"
+        ],
+        "type": "string",
+        "description": "Enum describing available notification templates."
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      },
+      "ReferenceTypeExt": {
+        "enum": [
+          "Generic",
+          "AltinnAppInstance",
+          "AltinnBrokerFileTransfer",
+          "DialogportenDialogId",
+          "DialogportenProcessId",
+          "DialogportenTransmissionId",
+          "DialogportenTransmissionType"
+        ],
+        "type": "string",
+        "description": "Defines what kind of reference"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Attachment"
+    },
+    {
+      "name": "Correspondence"
+    }
+  ]
+}

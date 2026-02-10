@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Overview of breaking changes introduced in v4 of app frontend." />
+<meta name="altinn_pagedir" class="elastic" content="community/changelog/app-frontend/v4/" />
+<meta name="altinn_title" class="elastic" content="v4" />
+
+
+
+<title>v4 – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/en/community/changelog/app-frontend/v4/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/en/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">To the frontpage</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Show/hide menu</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Product</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/en/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/authorization/">
+      <p class="product-item">Authorization</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/broker/">
+      <p class="product-item">Broker</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/correspondence/">
+      <p class="product-item">Correspondence</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/notifications/">
+      <p class="product-item">Notifications</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Search</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/en.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/community/changelog/app-frontend/v4/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/community/changelog/app-frontend/v4/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English ✓</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">What are you looking for?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Search');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Last modified: Sep 29, 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/en/community/"><span>Community</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/about/"><span>About</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/about/goals/"><span>Goals</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/about/open-source/"><span>Open source</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/"><span>Contributing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/propose-component/"><span>Propose a new component</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/develop-component/"><span>Develop a component</span></a></li><li class="dd-item">
+          <a href="/en/community/contributing/intro/">
+            <span>Intro for developers</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/"><span>Handbook</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/azure-devops/"><span>Azure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/azure-devops/pipelines/"><span>Pipelines</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/azure-storage/"><span>Azure Storage</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/azure-storage/tools/"><span>Tools &amp; Software</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/azure-storage/queues/"><span>Queues</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/back-end/"><span>Back-end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/back-end/app-template-and-deps/"><span>App template and deps</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/back-end/async-programming/"><span>Async programming</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/back-end/error-flow/"><span>Error flow</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/back-end/exception-handling/"><span>Exception handling</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/back-end/logging/"><span>Logging</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/back-end/nuget-package/"><span>NuGet Package</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/back-end/swagger/"><span>Swagger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/general/"><span>Cheat Sheet</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/deployment/"><span>Deployment</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/docker/"><span>Docker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/docker/without-docker-desktop/"><span>Install Docker without Docker Desktop</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/"><span>Front-end</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/getting-started/"><span>Getting started</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/studio-component/"><span>Studio components</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/developing/"><span>Developing locally</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/routine/"><span>Routines for development</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/new-component/"><span>Creating components</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/react/"><span>React</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/redux/"><span>Redux</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/debug/"><span>Debug</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/best-practices/"><span>Best practices</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/build/"><span>Build</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/component-library/"><span>Component Library</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/error-handling/"><span>Error handling</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/postmessage/"><span>Post Message</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/styling/"><span>Styling (css)</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/front-end/versioning/"><span>Versioning</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/cheatsheet/"><span>General</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/getting-started/"><span>Getting started</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/git/"><span>Git</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/naming/"><span>Naming Conventions</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/loadbalancer/"><span>Nginx loadbalancing in studio</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/loadbalancer/ssl-certificate/"><span>Nginx SSL/TLS certificate</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/postgres/"><span>PostgreSQL</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/rest/"><span>RESTful APIs (Representation State Transfer)</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/routing/"><span>Routing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/routing/nginx/"><span>Nginx routing</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/routing/traefik/"><span>Traefik routing</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/routing/traefik/installation/"><span>Installation of Traefik 2.0</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/routing/traefik/tls-configuration/"><span>TLS in Traefik 2.0</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/routing/traefik/custom-resources/"><span>Traefik custom resources</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/routing/traefik/ingress-routes/"><span>Traefik ingress routes</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/securecoding/"><span>Secure DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/en/community/contributing/handbook/securecoding/checklist/">
+            <span>Code Checklist</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/test/"><span>Test</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/test/automated-test-app/"><span>App for automated test</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/test/cypress/"><span>Cypress</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/test/k6/"><span>k6</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/test/postman/"><span>Postman</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/test/test-strategy/"><span>Test Strategy</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/test/unit-testing/"><span>Unit testing</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/test/xunit-testing/"><span>Xunit Testing</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/branching/"><span>Branching and Pull Requests</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/flight-rules/"><span>Flight Rules</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/gitea/"><span>Gitea</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/reusable-resources/"><span>Reusable resources</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/theming/"><span>Theming and styling</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/contributing/handbook/troubleshooting/"><span>Troubleshooting</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/"><span>Changelog</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-frontend/"><span>App frontend</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-frontend/v4/"><span>v4</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-frontend/v4/migrating-from-v3/"><span>Migration from v3</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-frontend/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-frontend/v3/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-frontend/v3/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-frontend/stricter-schema/"><span>JsonSchema</span></a></li><li class="dd-item">
+          <a href="/en/community/changelog/app-frontend/designsystem-update/">
+            <span>Visual changes</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/"><span>App nuget</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v8/"><span>v8</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v8/migrating-from-v7/"><span>Migration from v7</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v7/"><span>v7</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v7/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v7/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v6/"><span>v6</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v6/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v6/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v5/"><span>v5</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v5/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v5/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v4/"><span>v4</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v4/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v4/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v3/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/v3/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/older/"><span>Older</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/older/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/app-nuget/older/whats-new/"><span>What&#39;s new</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/"><span>Deployment</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/migration/"><span>Migration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v1/"><span>v1</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v1/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v1/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v2/"><span>v2</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v2/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v2/whats-new/"><span>What&#39;s new</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v3/"><span>v3</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v3/breaking-changes/"><span>Breaking changes</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/deployment/v3/whats-new/"><span>What&#39;s new</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/storage-interfaces/"><span>Storage Interface</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/changelog/storage-interfaces/v3/"><span>v3</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/changelog/storage-interfaces/v2/"><span>v2</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/roadmap/"><span>Roadmap</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/devops/"><span>DevOps</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/devops/definition-of-ready/"><span>Definition of Ready</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/devops/roadmapprocess/"><span>Roadmap prosess</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/devops/teams/"><span>Teams</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/devops/teams/apps/"><span>Apps</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/devops/teams/authorization/"><span>Authorization</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/community/devops/teams/authorization/designfrontendprocess/"><span>Desgin/Frontend prosess</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/devops/teams/platform/"><span>Platform</span></a></li>
+      <li class="dd-item">
+        <a href="/en/community/devops/teams/studio/"><span>Studio</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/community/presentations/"><span>Presentations</span></a></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/en/community/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/community/changelog/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/community/changelog/app-frontend/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/community/changelog/app-frontend/v4/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/en/community/'>Community</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/community/changelog/'>Changelog</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/community/changelog/app-frontend/'>App frontend</a> <span class='adocs-breadcrumb-divider'> / </span> v4</span>
+            </div>            
+          </div><div id="body-inner"><h1 class="a-fontBold">v4</h1>
+              <p class="a-leadText" id="leadText">Overview of breaking changes introduced in v4 of app frontend.</p>
+
+<p>App frontend v4 brings with it some new features and breaking changes. This document aims to give an overview of the
+changes and how they may affect your app. As always, with a new major version, we recommend that you test your app
+thoroughly before deploying to production.</p>
+<div class="notices warning" >Make sure to read through this page before you continue with the <a href="migrating-from-v3">migration routine</a>, and
+make the necessary changes throughout your app.</div>
+<h2 id="requires-backend-version-800">Requires backend version 8.0.0</h2>
+<p>App frontend v4 requires at least version 8.0.0 of the <code>Altinn.App.Core</code> and <code>Altinn.App.Api</code> nuget packages.
+See the <a href="/en/community/changelog/app-nuget/v8/">overview of changes in backend v8</a> for more information on how to upgrade.</p>
+<h2 id="using-layout-sets-is-now-required">Using layout sets is now required</h2>
+<p>Layout sets is a way to support multiple forms in a single application.
+This entails a slightly different folder structure in the <code>ui</code> folder of your app, as well as a new <code>layout-sets.json</code> file.
+This used to be optional, but as of v4 it is required, even for apps with only a single data step.
+See the <a href="/en/altinn-studio/v8/reference/ux/pages/#setup">documentation on pages</a> for more information.</p>
+<h2 id="defining-a-custom-receipt-is-now-done-with-a-layout-set">Defining a custom receipt is now done with a layout set</h2>
+<div class="notices info" >This change was introduced in <code>v4.0.0-rc3</code>. It was not present in <code>v4.0.0-rc1</code> or <code>v4.0.0-rc2</code>. In these previous versions,
+a custom receipt was not supported.</div>
+<p>A custom receipt view can now be created in the same way as all other form pages.</p>
+<p>To create a custom receipt view, you create a new layout set. This layout set works exactly like
+all other page types. Within the layout set, you can create a <code>layouts</code> folder and define all the pages you want to
+include in the receipt view here (Yes, the receipt view supports multiple pages!). Inside the layout set, you must also create
+a <code>Settings.json</code>, where you can define the order of the pages in the receipt view.</p>
+<p>For the app to understand that this layout set should be used as a receipt view, you must refer to the name of the layout set
+in <code>layout-sets.json</code>. Add a new layout set with <code>id</code> that refers to the name of your layout set, and add
+the key value <code>&quot;CustomReceipt&quot;</code> in the <code>tasks</code> array of the layout set. In addition, you can specify which data model
+should be available in the receipt view by adding the key <code>dataType</code> with the name of the data model you want to support.</p>
+<p>Here is a complete example where we have a layout set named custom-receipt that will be used as a receipt view:</p>
+<div class="content-version-selector border-box">
+
+    
+    <ul id="content-version-tabs"></ul>
+
+    
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Folder structure
+    </label>
+    <pre tabindex="0"><code>|- App/
+  |- ui/
+    |- layout-sets.json
+    |- custom-receipt/
+      |- layouts/
+        |- page1.json
+        |- page2.json
+      |- Settings.json
+</code></pre>
+</div>
+
+
+</div>
+
+<div class="content-version-selector border-box">
+
+    
+    <ul id="content-version-tabs"></ul>
+
+    
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Code
+    </label>
+    <div class="code-title">
+    <code>
+App/ui/layout-sets.json
+</code>
+</div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;sets&#34;</span>: [
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;custom-receipt&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>      <span style="color:#ff79c6">&#34;dataType&#34;</span>: <span style="color:#f1fa8c">&#34;fields&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;tasks&#34;</span>: [<span style="color:#f1fa8c">&#34;CustomReceipt&#34;</span>]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+</div>
+
+
+</div>
+
+<div class="content-version-selector border-box">
+
+    
+    <ul id="content-version-tabs"></ul>
+
+    
+<div class="content-version-container">
+    <label class="content-version-label" hidden>
+        Code
+    </label>
+    <div class="code-title">
+    <code>
+App/ui/custom-receipt/Settings.json
+</code>
+</div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;$schema&#34;</span>: <span style="color:#f1fa8c">&#34;https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;pages&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;order&#34;</span>: [<span style="color:#f1fa8c">&#34;page1&#34;</span>, <span style="color:#f1fa8c">&#34;page2&#34;</span>]
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+</div>
+
+
+</div>
+
+<h2 id="addresscomponent-has-been-renamed-to-address">AddressComponent has been renamed to Address</h2>
+<div class="notices info" >This change was introduced in <code>v4.0.0-rc2</code>. It was not present in <code>v4.0.0-rc1</code>, so the component was still called
+<code>AddressComponent</code> in that release.</div>
+<p>In the layout files, the <code>AddressComponent</code> component has been renamed to <code>Address</code>. Our upgrade tool will rename
+this for you automatically, but if you are migrating manually you will have to do this yourself.</p>
+<h2 id="language-and-text-resource-changes">Language and text resource changes</h2>
+<p>The language system that handles internal texts and app-specific text resources has been rewritten and improved.
+It should work mostly the same as before, but there are a few subtle changes that may affect your app:</p>
+<ul>
+<li>Previously, when referring to a path in the data model which resulted in a null value, the full path would be shown
+instead for most components. However, in options from repeating groups, it would instead show an empty string in place
+of the null value. This has been changed so that the full path is shown in all cases instead.</li>
+<li>To alleviate the problem of referring to null values, a new <code>defaultValue</code> property has been added to the text
+resources that, if set, will be shown instead of the data model path.
+See the <a href="/en/altinn-studio/v8/reference/ux/texts/#default-value">documentation on text resources</a> for more information.</li>
+<li>Variables in text are now supported for items in nested repeating groups. Previously, only items in top-level repeating groups
+were supported in text resource variables.</li>
+<li>Using <code>dataModel.default</code> as the data source in text resources is no longer recommended. Instead, refer to the
+specific data type like this: <code>dataModel.myDataModel</code>. The frontend will now automatically retrieve the data model
+it needs when a text resource is displayed anywhere on the page, but <code>dataModel.default</code> will only work when rendering
+a form, as it will use the default data model for that form. We&rsquo;re planning to add support for multiple data models
+in one form in the future, and at that point there will be no concept of a default data model.</li>
+</ul>
+<h2 id="most-users-will-be-prompted-for-party-each-time">Most users will be prompted for party each time</h2>
+<p>In the Altinn profile it was possible to change a setting to &rsquo;not be prompted for party each time&rsquo;. This setting was
+mistakenly never read by app-frontend, so we failed to respect it. The default setting in Altinn profile is
+<em>to be prompted</em> for a party each time, so in v4 we changed the default behaviour of app-frontend to match the
+setting in Altinn profile. This means that most users will be prompted for party each time they start an app, unless
+they have changed the setting in Altinn profile.</p>
+<p>The setting can be found under <strong>Advanced settings</strong> in the Altinn profile:
+<figure>
+    <a href="profile-preference-en.png">
+        <img src="profile-preference-en.png" alt="Altinn profile setting called &lsquo;Do not ask what party I represent each time I start to fill in a new form&rsquo;" title="Altinn profile setting called &#39;Do not ask what party I represent each time I start to fill in a new form&#39;">
+    </a>
+    <figcaption><em>Altinn profile setting called &#39;Do not ask what party I represent each time I start to fill in a new form&#39;</em></figcaption>
+  </figure></p>
+<p>Unless the user changes this setting, they will be prompted with the following page each time they start a new instance:
+<figure>
+    <a href="prompt-en.png">
+        <img src="prompt-en.png" alt="Page asking who the user wants to represent" title="Page asking who the user wants to represent">
+    </a>
+    <figcaption><em>Page asking who the user wants to represent</em></figcaption>
+  </figure></p>
+<h2 id="tracks-are-no-longer-supported">Tracks are no longer supported</h2>
+<p>Showing and hiding pages using <a href="/en/altinn-studio/v8/reference/ux/pages/tracks/">tracks</a> (calculate page order) is no longer supported.
+This also means that the trigger <code>calculatePageOrder</code> no longer has any effect and should be removed from any components where it is used.
+Instead, you should use dynamic expressions on the <code>hidden</code> property of a layout page to determine whether pages should be visible or hidden.</p>
+<p>To opt-in for an automatic AI-generated Pull Request to help you migrate from the old tracks feature, see the <a href="/en/community/changelog/app-frontend/v4/migrating-from-v3/#opt-in-to-altinn-ai-for-tracks-migration">Opt-in to Altinn AI for tracks migration</a>.</p>
+<p>See the <a href="/en/altinn-studio/v8/reference/logic/expressions/#showhide-entire-pages">documentation on dynamic expressions</a> for more information.</p>
+<h2 id="data-model-schema-validation-works-for-more-data-models">Data model schema validation works for more data models</h2>
+<p>The form data gets validated against the data model schema to show validation messages to the user filling out the form.
+There was a bug in v3 that caused this validation to not happen at all for certain data model structures.
+This has been now been fixed, but is a breaking change since if you previously did not get any schema validation errors, you may suddenly see them now.
+If this was the case you should test your app to make sure validation works as expected.</p>
+<h2 id="support-for-number-integer-and-boolean-and-other-data-types">Support for <code>number</code>, <code>integer</code> and <code>boolean</code> and other data types</h2>
+<p>One of the new features is full support for non-string data types in the data model. This means that you can now have
+data model fields of type <code>number</code>, <code>boolean</code>, and bind them to components. For example, if you bind
+a <code>Checkboxes</code> component to a <code>boolean</code> field, and provide an options list with the strings <code>&quot;true&quot;</code> and <code>&quot;false&quot;</code>, the
+frontend will convert the strings to booleans.</p>
+<p>If you bind an <code>Input</code> component to a <code>number</code> field, the frontend will convert the string to a number while the user
+is typing. For the best possible user experience, set up <a href="/en/altinn-studio/v8/reference/ux/styling/#formatting-numbers">number formatting</a>
+on the <code>Input</code> component.</p>
+<p><strong>Note:</strong> If you have set up a <code>RuleHandler.js</code> file in your app, you may need to update it to handle the new data types.
+In cases where the <code>RuleConfiguration.json</code> file specified a path that pointed to a <code>number</code> or <code>boolean</code> field,
+the <code>RuleHandler.js</code> file would previously receive a string value. This is no longer the case, and
+code in <code>RuleHandler.js</code> should be updated accordingly.</p>
+<p><strong>Note:</strong> In addition to all of this, the app frontend now properly supports objects and <code>null</code> values. This should
+not affect most apps, but it might be of interest when writing data processor code on the backend. If your data model
+initializes an object, even if empty, the app-frontend will now preserve that object in later communication with the
+backend. Previously, app-frontend would remove empty objects from the data model, leading to data processors
+having to re-initialize the object on the backend every time. Please note that app-frontend does not initialize
+objects for you the first time, so you still need to do that in your data model or data processor code.</p>
+<h2 id="the-savewhiletyping-property-now-only-accepts-numbers">The <code>saveWhileTyping</code> property now only accepts numbers</h2>
+<p>The <code>saveWhileTyping</code> property on the <code>Input</code> component and other Input-like components used to accept a boolean value
+for turning off saving while typing. In v4, saving while typing is always enabled, but it is still possible to
+delay saving by setting <code>saveWhileTyping</code> to a number larger than 400 (our default debounce time in milliseconds).</p>
+<p>When delaying saving, we may still save the data to the backend before that time, for example when the user navigates
+away from the field and starts typing in a new field (with a lower, or default <code>saveWhileTyping</code> value).</p>
+<p>If your app relied on disabling <code>saveWhileTyping</code> to ensure your custom data processor was not called too often
+(as we&rsquo;ve often seen done when a change in one field triggers an API call), you should consider making the expensive
+action in your data processor a custom action instead, via adding
+a <a href="/en/altinn-studio/v8/reference/ux/components/custombutton/">CustomButton component</a> nearby the field. This way the user controls
+when the action is triggered, not our automatic saving functionality.</p>
+<h2 id="components-will-not-show-up-if-they-contain-configuration-errors">Components will not show up if they contain configuration errors</h2>
+<p>Because of the support for other data types, we now have to be more strict about the configuration of components,
+as the frontend has to make sure it is able to look up the data model value expected for a component in order to save
+data into it. Previously the app-frontend would assume data model bindings were correct, and in combination with the
+backend, invalid bindings would result in data being lost.</p>
+<p>To be on the safer side, components will now be replaced with an error message if they contain configuration errors,
+including invalid data model bindings. These error messages will only appear in development mode (i.e. in a test
+environment, or when running locally). In production, it will appear as if invalid components are hidden.</p>
+<p>You should thoroughly test your app to make sure that components display correctly and that all data model bindings
+are correct. Testing this should include opening repeating groups and triggering conditions to unhide
+hidden components.</p>
+<p>If you get an error message for an invalid binding you disagree with, please check that the data model <code>*.schema.json</code>
+file is up-to-date with the latest changes to the data model. Do not hesitate to contact us if you need help with this.</p>
+<p><figure>
+    <a href="component-render-err.png">
+        <img src="component-render-err.png" alt="Error message shown when a component has an invalid data model binding" title="Error message shown when a component has an invalid data model binding">
+    </a>
+    <figcaption><em>Error message shown when a component has an invalid data model binding</em></figcaption>
+  </figure></p>
+<h2 id="the-group-component-has-been-split-into-multiple-components">The group component has been split into multiple components</h2>
+<p>The different methods of configuring the <code>Group</code> component have been split into separate components.</p>
+<div class="card adocs-expand" id="group">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-group"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>Group</a>
+	</div>
+	<div id="expandable-group" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#group"></a><ul>
+<li>The group component is now only used to group components together and provide them with an
+accessible top level title and description as well as optionally visually grouping the items together by using <code>&quot;groupingIndicator&quot;</code>.</li>
+<li>After the split, invalid configurations for a <code>Group</code> will be shown as an error message. Consider if you want to use
+one of the other group components instead. A commonly confused configuration is using <code>&quot;dataModelBindings&quot;</code> on a
+<code>Group</code> component, which is not supported. The group itself does not bind to data, only its children may.</li>
+</ul>
+</div>
+	</div>
+</div>
+<div class="card adocs-expand" id="group-as-panel">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-group-as-panel"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>Group as panel</a>
+	</div>
+	<div id="expandable-group-as-panel" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#group-as-panel"></a><ul>
+<li>Severity indicators (the icons and meaning bearing colors) have been removed, the default color (blue) is used. This
+is done since the display of important information should be handled with Alert and its meaning bearing colors and icons.</li>
+<li><code>showGroupingIndicator</code> has changed name to <code>&quot;groupingIndicator&quot;</code>, and has been changed from a boolean to an enum of
+<code>&quot;panel&quot;</code> or <code>&quot;indented&quot;</code>. Where <code>&quot;indented&quot;</code> behaves like the old <code>&quot;showGroupingIndicator&quot;: true</code></li>
+<li>Using the panel styling is now achieved by setting <code>&quot;groupingIndicator&quot;</code> to <code>&quot;panel&quot;</code>.</li>
+</ul>
+<p>Example of old to new config:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;my-id&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;My title&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;My description&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;panel&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;variant&#34;</span>: <span style="color:#f1fa8c">&#34;info&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;showIcon&#34;</span>: <span style="color:#ff79c6">false</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;children&#34;</span>: [<span style="color:#f1fa8c">&#34;some-child-id&#34;</span>, <span style="color:#f1fa8c">&#34;some-other-child-id&#34;</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>&ndash;&gt;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;my-id&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;My title&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;description&#34;</span>: <span style="color:#f1fa8c">&#34;My description&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;groupingIndicator&#34;</span>: <span style="color:#f1fa8c">&#34;panel&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;children&#34;</span>: [<span style="color:#f1fa8c">&#34;some-child-id&#34;</span>, <span style="color:#f1fa8c">&#34;some-other-child-id&#34;</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></div>
+	</div>
+</div>
+<div class="card adocs-expand" id="repeating-group">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-repeating-group"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>Repeating group</a>
+	</div>
+	<div id="expandable-repeating-group" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#repeating-group"></a><ul>
+<li>Repeating group is no longer configured with <code>&quot;type&quot;: &quot;Group&quot;</code> and a <code>maxCount</code> greater than 1, but with its own
+type; <code>&quot;RepeatingGroup&quot;</code></li>
+<li><code>&quot;maxCount&quot;</code> is no longer required to create a repeating group, but is still able to be used to restrict the maximum
+number of addable rows.</li>
+<li><code>edit.filter</code> is no longer supported, but the same functionality (or better) can be achieved by using the
+existing <code>hiddenRow</code> property with <a href="/en/altinn-studio/v8/reference/logic/expressions">expressions</a>.</li>
+</ul>
+<p>Example of old to new config:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;my-id&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">99</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;My title&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;group&#34;</span>: <span style="color:#f1fa8c">&#34;Datamodel.MyGroup&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;children&#34;</span>: [<span style="color:#f1fa8c">&#34;some-child-id&#34;</span>, <span style="color:#f1fa8c">&#34;some-other-child-id&#34;</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>&ndash;&gt;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;my-id&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;RepeatingGroup&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;My title&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;group&#34;</span>: <span style="color:#f1fa8c">&#34;Datamodel.MyGroup&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;children&#34;</span>: [<span style="color:#f1fa8c">&#34;some-child-id&#34;</span>, <span style="color:#f1fa8c">&#34;some-other-child-id&#34;</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></div>
+	</div>
+</div>
+<div class="card adocs-expand" id="likert-group">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-likert-group"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>Likert group</a>
+	</div>
+	<div id="expandable-likert-group" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#likert-group"></a><ul>
+<li>The Likert component is no longer configured using a <code>&quot;Group&quot;</code> component with <code>&quot;edit&quot;: {&quot;mode&quot;: &quot;likert&quot;}</code> and a separate
+<code>&quot;Likert&quot;</code> component as a child of the group that handles the possible answers to the questions. It is now configured with
+a single component using <code>&quot;type&quot;: &quot;Likert&quot;</code></li>
+<li>The <code>&quot;filter&quot;</code> property have been moved out of the <code>&quot;edit&quot;</code> property, as the edit property has been removed. This is done
+because the filter property was the only one that was valid for the likert component, and the likert does not have an edit functionality.</li>
+<li>New <code>textResourceBindings</code> has been added to control the texts available on the likert questions.
+<ul>
+<li><code>&quot;questions&quot;</code> is used for the question labels themselves.</li>
+<li><code>&quot;questionDescriptions&quot;</code> is used for the description of the questions, displayed beneath each question.</li>
+<li><code>&quot;questionHelpTexts&quot;</code> is used for the help text of the questions, displayed after each question.</li>
+</ul>
+</li>
+</ul>
+<p>Example of old to new config:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;my-id&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">99</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;My title&#34;</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;group&#34;</span>: <span style="color:#f1fa8c">&#34;Questions&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;children&#34;</span>: [
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;my-likert-id&#34;</span>
+</span></span><span style="display:flex;"><span>  ],
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;edit&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;mode&#34;</span>: <span style="color:#f1fa8c">&#34;likert&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;filter&#34;</span>: [
+</span></span><span style="display:flex;"><span>       {
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;start&#34;</span>,
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>       },
+</span></span><span style="display:flex;"><span>       {
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;stop&#34;</span>,
+</span></span><span style="display:flex;"><span>         <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;3&#34;</span>
+</span></span><span style="display:flex;"><span>       }
+</span></span><span style="display:flex;"><span>    ],
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>},
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;my-likert-id&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Likert&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;dynamic-text-resource-binding-title&#34;</span>,
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;simpleBinding&#34;</span>: <span style="color:#f1fa8c">&#34;Questions.Answer&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;options&#34;</span>: <span style="color:#f1fa8c">&#34;optionsId&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>&ndash;&gt;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;my-likert-id&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Likert&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;My title&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;questions&#34;</span>: <span style="color:#f1fa8c">&#34;dynamic-text-resource-binding-title&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;questions&#34;</span>: <span style="color:#f1fa8c">&#34;Questions&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;answer&#34;</span>: <span style="color:#f1fa8c">&#34;Questions.Answer&#34;</span>
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;options&#34;</span>: <span style="color:#f1fa8c">&#34;optionsId&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;filter&#34;</span>: [
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;start&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;0&#34;</span>
+</span></span><span style="display:flex;"><span>    },
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;key&#34;</span>: <span style="color:#f1fa8c">&#34;stop&#34;</span>,
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;value&#34;</span>: <span style="color:#f1fa8c">&#34;3&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  ]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></div>
+	</div>
+</div>
+<div class="card adocs-expand" id="repeating-group-reference">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-repeating-group-reference"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>Repeating group reference</a>
+	</div>
+	<div id="expandable-repeating-group-reference" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#repeating-group-reference"></a><ul>
+<li>This feature has been removed in favour of code maintenance because it is not used anywhere.</li>
+</ul>
+</div>
+	</div>
+</div>
+<h2 id="title-and-description-changes-for-groups">Title and description changes for Groups</h2>
+<p>The <code>title</code> attribute in <code>textResourceBindings</code> for the <code>RepeatingGroup</code> component previously only applied
+to the title shown above each row in the summary view of the repeating group. This attribute is now only used as the
+title for the repeating group in the form view. This means that the title will now be shown above the repeating group in
+the form view if it has been set.</p>
+<p>The <code>summaryTitle</code> attribute in <code>textResourceBindings</code> for the <code>RepeatingGroup</code> component will override the <code>title</code>, and
+is used for displaying the title above each row in the summary view of the repeating group.</p>
+<p>The <code>body</code> attribute in <code>textResourceBindings</code> for the <code>Group</code> component and <code>RepeatingGroup</code> component is now called
+<code>description</code> in order to be more consistent with the rest of the components.</p>
+<h2 id="validation-triggers-have-been-replaced">Validation triggers have been replaced</h2>
+<p>The concept of triggering validations has been removed in favor of keeping the validations in sync with the data model.
+Instead of controlling when validations are triggered, you now control when validations are displayed to the user.
+This functions more or less the same as before, but the configuration has been changed.</p>
+<p>This change also has the advantage that the need for <code>*FIXED*</code> validations no longer exists, as a
+<code>IFormDataValidator</code> in your custom backend code can now control when it should run, and when it runs all its validation
+messages are treated as one <em>group</em>. This means that if you have a validation that checks the value of <em>another field</em>,
+or multiple fields at once, the validation message will disappear in frontend when the validation message is no longer
+added to the list of validation messages in the backend - even if another component than the validation message target
+was the one that changed.</p>
+<div class="card adocs-expand" id="validate-page">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-validate-page"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>Validation on page navigation</a>
+	</div>
+	<div id="expandable-validate-page" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#validate-page"></a><p>The old configuration for triggering validation on page change was the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;nav-buttons1&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationButtons&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {...},
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;triggers&#34;</span>: [<span style="color:#f1fa8c">&#34;validatePage&#34;</span>]
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Where the trigger could be one of: <code>validatePage | validateAllPages | validateCurrentAndPreviousPages</code>.</p>
+<p>To achieve the same result in v4, you instead use the new <code>validateOnNext</code> property:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;nav-buttons1&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;NavigationButtons&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {...},
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;validateOnNext&#34;</span>: {
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">&#34;page&#34;</span>: <span style="color:#f1fa8c">&#34;current&#34;</span>,
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>    <span style="color:#ff79c6">&#34;show&#34;</span>: [<span style="color:#f1fa8c">&#34;All&#34;</span>]
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Where <code>page</code> can be one of: <code>current | all | currentAndPrevious</code>. And <code>show</code> contains a set of validation types to check; this can be one or more of:</p>
+<ul>
+<li><code>Schema</code></li>
+<li><code>Component</code></li>
+<li><code>Expression</code></li>
+<li><code>CustomBackend</code></li>
+<li><code>Required</code></li>
+<li><code>AllExceptRequired</code></li>
+<li><code>All</code></li>
+</ul>
+<p>Note that there is also a new <code>validateOnPrevious</code> property, which works the same way as <code>validateOnNext</code>. Equivalently, for the <code>NavigationBar</code> component, there is a new <code>validateOnForward</code> and <code>validateOnBackward</code> property.</p>
+</div>
+	</div>
+</div>
+<div class="card adocs-expand" id="validate-repeating-group-row">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-validate-repeating-group-row"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>Validation when saving repeating group row</a>
+	</div>
+	<div id="expandable-validate-repeating-group-row" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#validate-repeating-group-row"></a><p>The old configuration for triggering validation when saving a repeating group row was the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;repeating-group&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;children&#34;</span>: [...],
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">99</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {...},
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;triggers&#34;</span>: [<span style="color:#f1fa8c">&#34;validateRow&#34;</span>],
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>To achieve the same result in v4, you instead use the new <code>validateOnSaveRow</code> property:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;repeating-group&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Group&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;children&#34;</span>: [...],
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;maxCount&#34;</span>: <span style="color:#bd93f9">99</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {...},
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;validateOnSaveRow&#34;</span>: [<span style="color:#f1fa8c">&#34;All&#34;</span>],
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Where <code>validateOnSaveRow</code> contains a set of validation types to check; this can be one or more of:</p>
+<ul>
+<li><code>Schema</code></li>
+<li><code>Component</code></li>
+<li><code>Expression</code></li>
+<li><code>CustomBackend</code></li>
+<li><code>Required</code></li>
+<li><code>AllExceptRequired</code></li>
+<li><code>All</code></li>
+</ul>
+</div>
+	</div>
+</div>
+<div class="card adocs-expand" id="single-field-validation">
+	<div>
+		<a
+			data-toggle="collapse"
+			href="#expandable-single-field-validation"
+			role="tab"
+			aria-expanded="false"
+			class="a-collapse-title no-decoration collapsed a-h3"
+		>
+			<span class="a-dropdownCircleArrow">
+			<i class="ai ai-expand ai-sm"><span class="sr-only">Vis/skjul innhold</span></i>
+			</span>Single field validation</a>
+	</div>
+	<div id="expandable-single-field-validation" class="a-collapseContent collapse" role="tabpanel">
+		<div class="a-collapseContent-inside">
+			<a name="#single-field-validation"></a><p>The old configuration for single field validation was the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;some-input-field&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {...},
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {...},
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;triggers&#34;</span>: [<span style="color:#f1fa8c">&#34;validation&#34;</span>]
+</span></span><span style="display:flex;"><span>},
+</span></span></code></pre></div><p>To achieve the same result in v4, you instead use the new <code>showValidations</code> property:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;some-input-field&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;Input&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;textResourceBindings&#34;</span>: {...},
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;dataModelBindings&#34;</span>: {...},
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#ff79c6">&#34;showValidations&#34;</span>: [<span style="color:#f1fa8c">&#34;AllExceptRequired&#34;</span>]
+</span></span><span style="display:flex;"><span>},
+</span></span></code></pre></div><p>Where <code>showValidations</code> contains a set of validation types to check; this can be one or more of:</p>
+<ul>
+<li><code>Schema</code></li>
+<li><code>Component</code></li>
+<li><code>Expression</code></li>
+<li><code>CustomBackend</code></li>
+<li><code>Required</code></li>
+<li><code>AllExceptRequired</code></li>
+<li><code>All</code></li>
+</ul>
+<p>This causes validations to become visible immediately when they occur.
+Because of this, you may want to make sure that any custom validation code you have written does not produce a validation error when the field is empty,
+as this will cause the validation to be shown immediately when the user enters the page.
+If leaving the field empty is invalid, please mark the field as required instead of validating that with custom code.</p>
+<p><strong>Note</strong>: <code>&quot;showValidations&quot;: [&quot;AllExceptRequired&quot;]</code> is the default value if the property is not set.
+Meaning that all validations except for <code>Required</code> valdiations will be shown immediately.
+This also includes any custom validations implemented in the backend which previously needed <code>&quot;triggers&quot;: [&quot;validation&quot;]</code> to be set on the component.
+To avoid showing certain types of validations immediately, you can override the <code>showValidations</code> property on the component.</p>
+</div>
+	</div>
+</div>
+<h2 id="attachmentlist-config-changes">AttachmentList config changes</h2>
+<p>The <code>AttachmentList</code> component has undergone updates in v4 to address two key issues:</p>
+<h3 id="1-enhanced-attachment-display">1. Enhanced Attachment Display</h3>
+<p>Previously, the AttachmentList could only show either PDFs or other attachments.
+In version 4, it has been changed to show both PDFs and other attachments simultaneously.</p>
+<p>Changes to configurations:<br>
+The <code>includePDF</code> property has been removed. It was previously used to display generated PDFs,
+but when set to <code>true</code>, it excluded all other attachments. Now the AttachmentList can display both PDFs and other attachments by using one of the following configurations:</p>
+<ul>
+<li><code>&quot;dataTypeIds&quot;: [&quot;include-all&quot;]</code> <br>This is a new property and will display all data types including PDFs.</li>
+<li><code>&quot;dataTypeIds&quot;: [&quot;fileUpload-changename&quot;, &quot;ref-data-as-pdf&quot;]</code> <br>This will display both PDFs and other attachments that are specified, in this case the data type <code>fileUpload-changename</code>.</li>
+</ul>
+<h3 id="2-displaying-attachments-from-other-process-tasks">2. Displaying Attachments from other process tasks</h3>
+<p>Previously, the AttachmentList was limited to displaying attachments solely from the current process task, which was not optimal.
+This limitation was particularly noticeable when the component was used in the receipt page, which is displayed only after the last process task.</p>
+<p>Changes to configurations:<br>
+Now, by default, the AttachmentList will display attachments from other process tasks as well.
+If <code>dataTypeIds</code> is undefined or an empty array, it will show all attachments (excluding PDFs) from different process tasks.
+Alternatively, configuring <code>dataTypeIds</code> as <code>[&quot;current-task&quot;]</code> will yield the same behavior but for the current task only.</p>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/community/changelog/app-frontend/v4/_index.en.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Edit page on GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#requires-backend-version-800">Requires backend version 8.0.0</a></li>
+    <li><a href="#using-layout-sets-is-now-required">Using layout sets is now required</a></li>
+    <li><a href="#defining-a-custom-receipt-is-now-done-with-a-layout-set">Defining a custom receipt is now done with a layout set</a></li>
+    <li><a href="#addresscomponent-has-been-renamed-to-address">AddressComponent has been renamed to Address</a></li>
+    <li><a href="#language-and-text-resource-changes">Language and text resource changes</a></li>
+    <li><a href="#most-users-will-be-prompted-for-party-each-time">Most users will be prompted for party each time</a></li>
+    <li><a href="#tracks-are-no-longer-supported">Tracks are no longer supported</a></li>
+    <li><a href="#data-model-schema-validation-works-for-more-data-models">Data model schema validation works for more data models</a></li>
+    <li><a href="#support-for-number-integer-and-boolean-and-other-data-types">Support for <code>number</code>, <code>integer</code> and <code>boolean</code> and other data types</a></li>
+    <li><a href="#the-savewhiletyping-property-now-only-accepts-numbers">The <code>saveWhileTyping</code> property now only accepts numbers</a></li>
+    <li><a href="#components-will-not-show-up-if-they-contain-configuration-errors">Components will not show up if they contain configuration errors</a></li>
+    <li><a href="#the-group-component-has-been-split-into-multiple-components">The group component has been split into multiple components</a></li>
+    <li><a href="#title-and-description-changes-for-groups">Title and description changes for Groups</a></li>
+    <li><a href="#validation-triggers-have-been-replaced">Validation triggers have been replaced</a></li>
+    <li><a href="#attachmentlist-config-changes">AttachmentList config changes</a>
+      <ul>
+        <li><a href="#1-enhanced-attachment-display">1. Enhanced Attachment Display</a></li>
+        <li><a href="#2-displaying-attachments-from-other-process-tasks">2. Displaying Attachments from other process tasks</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">About Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

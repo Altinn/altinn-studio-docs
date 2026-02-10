@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Hvordan-guide for å sette opp et abonnement for hendelser fra en spesifikk ressurs" />
+<meta name="altinn_pagedir" class="elastic" content="events/subscribe-to-events/developer-guides/setup-subscription/" />
+<meta name="altinn_title" class="elastic" content="Hvordan sette opp et abonnement" />
+<meta name="product" data-pagefind-filter="Produkt[content]" content="Events" />
+
+
+<title>Hvordan sette opp et abonnement – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/events/subscribe-to-events/developer-guides/setup-subscription/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Produkt</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/authorization/">
+      <p class="product-item">Autorisasjon</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/broker/">
+      <p class="product-item">Formidling</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/">
+      <p class="product-item">Melding</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/notifications/">
+      <p class="product-item">Varsling</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Søk</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/nb.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/events/subscribe-to-events/developer-guides/setup-subscription/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/events/subscribe-to-events/developer-guides/setup-subscription/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">Hva leter du etter?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Søk');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Sist endret: 29. sep. 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/nb/events/"><span>Events</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/events/api/"><span>API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/events/api/openapi/"><span>OpenAPI</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/events/subscribe-to-events/"><span>Abonner på hendelser</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/events/subscribe-to-events/get-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/events/subscribe-to-events/get-started/api-access/"><span>API-tilgang</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/events/subscribe-to-events/get-started/events-access/"><span>Tilgang til hendelsesressurs</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/events/subscribe-to-events/developer-guides/"><span>Utviklerguider</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/events/subscribe-to-events/developer-guides/setup-subscription/"><span>Sett opp abonnement</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/events/subscribe-to-events/developer-guides/process-app-events/"><span>Prosessere app-hendelser</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/events/publish-events/"><span>Publiser hendelser</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/events/publish-events/get-started/"><span>Kom i gang</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/events/publish-events/get-started/api-access/"><span>API-tilgang</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/events/publish-events/get-started/resource-registry/"><span>Registrer ressurs</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/events/publish-events/developer-guides/"><span>Utviklerguider</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/events/publish-events/developer-guides/publish-app-events/"><span>Publiser app-hendelser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/events/publish-events/developer-guides/publish-events/"><span>Publiser hendelser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/events/publish-events/developer-guides/grant-subscriber-access/"><span>Gi abonnenter tilgang</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/events/query-events/"><span>Spør etter hendelser</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/events/query-events/developer-guides/"><span>Utviklerveiledninger</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/events/query-events/developer-guides/query-app-events-org/"><span>Søk app-hendelser - org</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/events/query-events/developer-guides/query-events/"><span>Søk etter hendelser</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/events/query-events/developer-guides/query-app-events-enduser/"><span>Spørre etter app-hendelser - sluttbruker</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/events/reference/"><span>Referanse</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/events/reference/architecture/"><span>Arkitektur</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/events/reference/architecture/events/"><span>Events</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/events/explanation/"><span>Forklaring</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/events/explanation/subject_authorization/"><span>Forstå subjekter i Cloud Events</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/nb/events/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/events/subscribe-to-events/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/events/subscribe-to-events/developer-guides/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/events/subscribe-to-events/developer-guides/setup-subscription/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/nb/events/'>Events</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/events/subscribe-to-events/'>Abonner på hendelser</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/events/subscribe-to-events/developer-guides/'>Utviklerguider</a> <span class='adocs-breadcrumb-divider'> / </span> Sett opp abonnement</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">Hvordan sette opp et abonnement</h1>
+              <p class="a-leadText" id="leadText">Hvordan-guide for å sette opp et abonnement for hendelser fra en spesifikk ressurs</p>
+
+<h2 id="endepunkt">Endepunkt</h2>
+<p>POST /subscriptions</p>
+<div class="notices info" >Eksempel brukstilfelle: Bruk dette endepunktet når du vil legge til et abonnement på din Altinn Studio-apps hendelser. Bruk filteregenskapene for å spesifisere hvilke hendelser du vil abonnere på.</div>
+<h2 id="autentisering">Autentisering</h2>
+<p>Dette API-et krever autentisering.</p>
+<p>Når du abonnerer på generiske hendelser kreves Maskinporten-scope <strong>altinn:events.subscribe</strong>.</p>
+<p>Hvis du abonnerer på hendelser som tjenesteeier kreves også Maskinporten-scope <strong>altinn:serviceowner</strong>.</p>
+<p>Se <a href="/nb/events/api/#autentisering-og-autorisasjon">Autentisering og autorisasjon</a> for mer informasjon.</p>
+<h2 id="request">Forespørsel</h2>
+<h3 id="content-type">Content-Type</h3>
+<p>application/json</p>
+<h3 id="forespørselstekst">Forespørselstekst</h3>
+<div class="notices info" >Listen over påkrevde egenskaper nedenfor viser hva som generelt kreves.
+Kravene varierer basert på hvem abonnenten er og hvilken type ressurs
+abonnementet retter seg mot. Bruk dokumentasjonen nedenfor som veiledning og se problemdetaljene
+hvis abonnementsforespørselen din ikke blir akseptert.</div>
+<h3 id="påkrevde-egenskaper-for-abonnementsforespørsel">Påkrevde egenskaper for abonnementsforespørsel</h3>
+<h4 id="endpoint">endPoint</h4>
+<ul>
+<li>webhook-URL for å motta HTTP POST-forespørsel fra Altinn Events</li>
+</ul>
+<div class="notices warning" >HTTPS-endepunkter må bruke offentlig gyldige TLS-sertifikater. Selvsignerte sertifikater støttes ikke og vil føre til feil ved validering av abonnement.</div>
+<p>Endepunktet bør svare med 200 OK når en hendelse mottas.
+I tillegg bør det returnere 200 OK når det mottar vår tilpassede valideringshendelse:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#f1fa8c">&#34;694caa35-8b25-4cd7-b800-f6eeb93c56ed&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;source&#34;</span>: <span style="color:#f1fa8c">&#34;https://platform.altinn.no/events/api/v1/subscriptions/1234&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;platform.events.validatesubscription&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;specversion&#34;</span>: <span style="color:#f1fa8c">&#34;1.0&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><em>Eksempel på valideringshendelse</em></p>
+<h3 id="resourcefilter">resourceFilter*</h3>
+<ul>
+<li>filter for hendelsesressursen</li>
+</ul>
+<p>Må være et eksakt treff med ressursen satt på de genererte hendelsene</p>
+<h4 id="sourcefilter">sourceFilter**</h4>
+<ul>
+<li>filter for cloud event-kilden</li>
+</ul>
+<p>Når du abonnerer på en app-hendelse er formatet for kildefilter <code>https://digdir.apps.altinn.no/digdir/demoapp</code></p>
+<p>* påkrevd for abonnementer på generiske hendelser, valgfritt for app-hendelsesabonnementer
+** kun påkrevd for app-abonnementer i tilfeller hvor intet ressursfilter er oppgitt</p>
+<h3 id="valgfrie-egenskaper-for-abonnementsforespørsel">Valgfrie egenskaper for abonnementsforespørsel</h3>
+<h4 id="subjectfilter">subjectFilter</h4>
+<ul>
+<li>filter for cloud event-subjektet</li>
+</ul>
+<h4 id="alternativesubjectfilter">alternativeSubjectFilter</h4>
+<ul>
+<li>filter for cloud event-alternativsubjektet</li>
+</ul>
+<h4 id="typefilter">typeFilter</h4>
+<ul>
+<li>filter for cloud event-typen</li>
+</ul>
+<p>Utelat denne egenskapen hvis du vil abonnere på alle hendelsestyper for den gitte kilden og/eller ressursen</p>
+<h2 id="respons">Respons</h2>
+<p>En vellykket abonnementsregistrering bør resultere i en 201 created-respons med
+<a href="https://raw.githubusercontent.com/Altinn/altinn-events/main/src/Events/Models/Subscription.cs">abonnementet</a>
+serialisert som en JSON-streng i responsteksten.</p>
+<p>201-responskoden indikerer ikke om abonnementet har blitt validert eller ikke.
+Altinn vil kun begynne å pushe hendelser til et abonnementsendepunkt når abonnementsendepunktet har blitt validert.
+Du kan hente abonnementet ditt ved å bruke abonnements-ID-en for å sikre at abonnementet ditt har blitt validert ok.</p>
+<h3 id="content-type-1">Content-Type</h3>
+<ul>
+<li>application/json</li>
+</ul>
+<h3 id="responskoder">Responskoder</h3>
+<ul>
+<li>
+<p>201 Created: Abonnementet har blitt registrert med suksess.</p>
+</li>
+<li>
+<p>401 Unauthorized: Indikerer en manglende, ugyldig eller utløpt autorisasjonsheader eller at forbrukeren ikke har tillatelse
+til å abonnere på hendelser fra denne ressursen basert på filterparametere</p>
+</li>
+<li>
+<p>403 Forbidden: Indikerer at nødvendig scope for å abonnere på hendelser mangler</p>
+</li>
+</ul>
+<h2 id="eksempler">Eksempler</h2>
+<h3 id="forespørsel">Forespørsel</h3>
+<p>Merk at et Altinn Token bør inkluderes i autorisasjonsheaderen.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl <span style="color:#f1fa8c">\
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"></span>--location <span style="color:#f1fa8c">&#39;https://platform.altinn.no/events/api/v1/subscriptions&#39;</span> <span style="color:#f1fa8c">\
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"></span>--header <span style="color:#f1fa8c">&#39;Accept: application/xml&#39;</span> <span style="color:#f1fa8c">\
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"></span>--header <span style="color:#f1fa8c">&#39;Authorization: Bearer {insert Altinn token}&#39;</span> <span style="color:#f1fa8c">\
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"></span>--header <span style="color:#f1fa8c">&#39;Content-Type: application/json&#39;</span> <span style="color:#f1fa8c">\
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c"></span>--data <span style="color:#f1fa8c">&#39;{
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">  &#34;sourceFilter&#34;: &#34;https://digdir.apps.altinn.no/digdir/demoapp&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">  &#34;endpoint&#34;:&#34;https://webhook.site/&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#f1fa8c">  }&#39;</span>
+</span></span></code></pre></div><h3 id="respons-1">Respons</h3>
+<h4 id="201-created">201 Created</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#bd93f9">1619</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;endPoint&#34;</span>: <span style="color:#f1fa8c">&#34;https://webhook.site/43cec4b7-b20b-4cbd-9b47-592750bf06d1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;sourceFilter&#34;</span>: <span style="color:#f1fa8c">&#34;https://digdir.apps.at22.altinn.cloud/digdir/demoapp&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;consumer&#34;</span>: <span style="color:#f1fa8c">&#34;/org/digdir&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;createdBy&#34;</span>: <span style="color:#f1fa8c">&#34;/org/digdir&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;created&#34;</span>: <span style="color:#f1fa8c">&#34;2023-04-05T13:57:11.234994Z&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;validated&#34;</span>: <span style="color:#ff79c6">false</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="400-bad-request">400 Bad Request</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;type&#34;</span>: <span style="color:#f1fa8c">&#34;https://tools.ietf.org/html/rfc7231#section-6.5.1&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;One or more validation errors occurred.&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;status&#34;</span>: <span style="color:#bd93f9">400</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;traceId&#34;</span>: <span style="color:#f1fa8c">&#34;00-3755bd55cf6d4e1ebdf7ed49b6f3d3be-154ebd2ad01de860-00&#34;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;errors&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;$&#34;</span>: [
+</span></span><span style="display:flex;"><span>            <span style="color:#f1fa8c">&#34;The JSON object contains a trailing comma at the end which is not supported in this mode. Change the reader options. Path: $ | LineNumber: 2 | BytePositionInLine: 2.&#34;</span>
+</span></span><span style="display:flex;"><span>        ]
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h4 id="401-unauthorized">401 Unauthorized</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#f1fa8c">&#34;Not authorized to create a subscription with subject /organisation/989271156&#34;</span>
+</span></span></code></pre></div>
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/events/subscribe-to-events/developer-guides/setup-subscription/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#endepunkt">Endepunkt</a></li>
+    <li><a href="#autentisering">Autentisering</a></li>
+    <li><a href="#request">Forespørsel</a>
+      <ul>
+        <li><a href="#content-type">Content-Type</a></li>
+        <li><a href="#forespørselstekst">Forespørselstekst</a></li>
+        <li><a href="#påkrevde-egenskaper-for-abonnementsforespørsel">Påkrevde egenskaper for abonnementsforespørsel</a>
+          <ul>
+            <li><a href="#endpoint">endPoint</a></li>
+          </ul>
+        </li>
+        <li><a href="#resourcefilter">resourceFilter*</a>
+          <ul>
+            <li><a href="#sourcefilter">sourceFilter**</a></li>
+          </ul>
+        </li>
+        <li><a href="#valgfrie-egenskaper-for-abonnementsforespørsel">Valgfrie egenskaper for abonnementsforespørsel</a>
+          <ul>
+            <li><a href="#subjectfilter">subjectFilter</a></li>
+            <li><a href="#alternativesubjectfilter">alternativeSubjectFilter</a></li>
+            <li><a href="#typefilter">typeFilter</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#respons">Respons</a>
+      <ul>
+        <li><a href="#content-type-1">Content-Type</a></li>
+        <li><a href="#responskoder">Responskoder</a></li>
+      </ul>
+    </li>
+    <li><a href="#eksempler">Eksempler</a>
+      <ul>
+        <li><a href="#forespørsel">Forespørsel</a></li>
+        <li><a href="#respons-1">Respons</a>
+          <ul>
+            <li><a href="#201-created">201 Created</a></li>
+            <li><a href="#400-bad-request">400 Bad Request</a></li>
+            <li><a href="#401-unauthorized">401 Unauthorized</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

@@ -1,0 +1,404 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Altinn.AccessManagement.Api.Enterprise | v1",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://localhost:7211/"
+    }
+  ],
+  "paths": {
+    "/accessmanagement/api/v1/enterprise/consentrequests": {
+      "post": {
+        "tags": [
+          "Consent"
+        ],
+        "operationId": "enterprisecreateconsentrequest",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConsentRequestDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConsentRequestDto"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConsentRequestDetailsDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": { }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": { }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accessmanagement/api/v1/enterprise/consentrequests/{consentRequestId}": {
+      "get": {
+        "tags": [
+          "Consent"
+        ],
+        "operationId": "enterprisegetconsentrequest",
+        "parameters": [
+          {
+            "name": "consentRequestId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConsentRequestDetailsDto"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": { }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": { }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ConsentPartyUrn": {
+        "nullable": true
+      },
+      "ConsentPortalViewMode": {
+        "enum": [
+          "Hide",
+          "Show"
+        ]
+      },
+      "ConsentRequestDetailsDto": {
+        "required": [
+          "id",
+          "from",
+          "to",
+          "validTo",
+          "consentRights",
+          "redirectUrl",
+          "consentRequestEvents"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "from": {
+            "$ref": "#/components/schemas/ConsentPartyUrn"
+          },
+          "to": {
+            "$ref": "#/components/schemas/ConsentPartyUrn"
+          },
+          "requiredDelegator": {
+            "$ref": "#/components/schemas/ConsentPartyUrn"
+          },
+          "handledBy": {
+            "$ref": "#/components/schemas/ConsentPartyUrn"
+          },
+          "validTo": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "consentRights": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConsentRightDto"
+            },
+            "nullable": true
+          },
+          "requestMessage": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "status": {
+            "$ref": "#/components/schemas/ConsentRequestStatusType"
+          },
+          "consented": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "redirectUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "consentRequestEvents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConsentRequestEventDto"
+            },
+            "nullable": true
+          },
+          "viewUri": {
+            "type": "string",
+            "nullable": true
+          },
+          "portalViewMode": {
+            "$ref": "#/components/schemas/ConsentPortalViewMode"
+          }
+        }
+      },
+      "ConsentRequestDto": {
+        "required": [
+          "id",
+          "from",
+          "to",
+          "validTo",
+          "consentRights",
+          "redirectUrl"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "from": {
+            "$ref": "#/components/schemas/ConsentPartyUrn"
+          },
+          "requiredDelegator": {
+            "$ref": "#/components/schemas/ConsentPartyUrn"
+          },
+          "to": {
+            "$ref": "#/components/schemas/ConsentPartyUrn"
+          },
+          "validTo": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "consentRights": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConsentRightDto"
+            },
+            "nullable": true
+          },
+          "requestMessage": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "redirectUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "portalViewMode": {
+            "$ref": "#/components/schemas/NullableOfConsentPortalViewMode"
+          }
+        }
+      },
+      "ConsentRequestEventDto": {
+        "required": [
+          "performedBy"
+        ],
+        "type": "object",
+        "properties": {
+          "consentEventID": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "performedBy": {
+            "$ref": "#/components/schemas/ConsentPartyUrn"
+          },
+          "eventType": {
+            "$ref": "#/components/schemas/ConsentRequestEventType"
+          },
+          "consentRequestID": {
+            "type": "string",
+            "format": "uuid"
+          }
+        }
+      },
+      "ConsentRequestEventType": {
+        "enum": [
+          "Created",
+          "Rejected",
+          "Accepted",
+          "Revoked",
+          "Deleted",
+          "Expired",
+          "Used"
+        ]
+      },
+      "ConsentRequestStatusType": {
+        "enum": [
+          "Created",
+          "Rejected",
+          "Accepted",
+          "Revoked",
+          "Deleted"
+        ]
+      },
+      "ConsentResourceAttributeDto": {
+        "required": [
+          "type",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "ConsentRightDto": {
+        "required": [
+          "action",
+          "resource"
+        ],
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "resource": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConsentResourceAttributeDto"
+            },
+            "nullable": true
+          },
+          "metadata": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        }
+      },
+      "NullableOfConsentPortalViewMode": {
+        "enum": [
+          "Hide",
+          "Show",
+          null
+        ],
+        "nullable": true
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Consent"
+    }
+  ]
+}

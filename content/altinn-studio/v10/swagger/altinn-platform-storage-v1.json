@@ -1,0 +1,3709 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Altinn Platform Storage",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "https://platform.tt02.altinn.no/storage/api/v1",
+      "description": "TT02"
+    },
+    {
+      "url": "https://platform.altinn.no/storage/api/v1",
+      "description": "Production"
+    }
+  ],
+  "paths": {
+    "/applications": {
+      "get": {
+        "tags": [
+          "Applications"
+        ],
+        "summary": "Get all applications.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApplicationList"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Applications"
+        ],
+        "summary": "Inserts metadata about a new application.",
+        "parameters": [
+          {
+            "name": "appId",
+            "in": "query",
+            "description": "The unique identification of the application to be added. Format: '{org}/{app}'",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The application metadata object to store.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Application"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Application"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/applications/{org}": {
+      "get": {
+        "tags": [
+          "Applications"
+        ],
+        "summary": "Get all applications deployed by a given application owner.",
+        "parameters": [
+          {
+            "name": "org",
+            "in": "path",
+            "description": "The id of the application owner.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApplicationList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/applications/{org}/{app}": {
+      "get": {
+        "tags": [
+          "Applications"
+        ],
+        "summary": "Get the metadata for a spesific application based on the given application identifiers.",
+        "parameters": [
+          {
+            "name": "org",
+            "in": "path",
+            "description": "Unique identifier of the organisation responsible for the app.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "app",
+            "in": "path",
+            "description": "Application identifier which is unique within an organisation.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Application"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Applications"
+        ],
+        "summary": "Updates application metadata for a given application.",
+        "parameters": [
+          {
+            "name": "org",
+            "in": "path",
+            "description": "The id of theowner of the application to update.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "app",
+            "in": "path",
+            "description": "The name of the application.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The application metadata object to store.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Application"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Application"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Applications"
+        ],
+        "summary": "Delete an application metadata object. Applications will not be deleted, but will be marked as deleted.",
+        "parameters": [
+          {
+            "name": "org",
+            "in": "path",
+            "description": "Unique identifier of the organisation responsible for the app.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "app",
+            "in": "path",
+            "description": "Application identifier which is unique within an organisation.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "hard",
+            "in": "query",
+            "description": "Controls whether the application should be deleted permanently.",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Application"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instances/{instanceOwnerPartyId}/{instanceGuid}/data/{dataGuid}": {
+      "delete": {
+        "tags": [
+          "Data"
+        ],
+        "summary": "Deletes a specific data element.",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance that the data element is associated with.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "dataGuid",
+            "in": "path",
+            "description": "The id of the data element to delete.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "delay",
+            "in": "query",
+            "description": "A boolean to indicate if the delete should be immediate or delayed following Altinn's business logic",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataElement"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "summary": "Gets a data file from storage. The content type is the same as the file was stored with.",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance that the data element is associated with.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "dataGuid",
+            "in": "path",
+            "description": "The id of the data element to retrieve.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Data"
+        ],
+        "summary": "Replaces an existing data element with the attached file. The StreamContent.Headers.ContentDisposition.FileName property shall be used to set the filename on client side",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance that the data element is associated with.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "dataGuid",
+            "in": "path",
+            "description": "The id of the data element to replace.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "refs",
+            "in": "query",
+            "description": "An optional array of data element references.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          },
+          {
+            "name": "generatedFromTask",
+            "in": "query",
+            "description": "An optional id of the task the data element was generated from",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataElement"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Content",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instances/{instanceOwnerPartyId}/{instanceGuid}/dataelements": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "summary": "Returns a list of data elements of an instance.",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance that the data element is associated with.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataElementList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instances/{instanceOwnerPartyId}/{instanceGuid}/data": {
+      "post": {
+        "tags": [
+          "Data"
+        ],
+        "summary": "Create and save the data element. The StreamContent.Headers.ContentDisposition.FileName property shall be used to set the filename on client side",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance that the data element is associated with.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "dataType",
+            "in": "query",
+            "description": "The data type identifier for the data being uploaded.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "refs",
+            "in": "query",
+            "description": "An optional array of data element references.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          },
+          {
+            "name": "generatedFromTask",
+            "in": "query",
+            "description": "An optional id of the task the data element was generated from",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataElement"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instances/{instanceOwnerPartyId}/{instanceGuid}/dataelements/{dataGuid}": {
+      "put": {
+        "tags": [
+          "Data"
+        ],
+        "summary": "Replaces the existing metadata for a data element with the new data element.",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance that the data element is associated with.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "dataGuid",
+            "in": "path",
+            "description": "The id of the data element to update.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The new metadata for the data element.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataElement"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DataElement"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instances/{instanceOwnerPartyId}/{instanceGuid}/dataelements/{dataGuid}/filescanstatus": {
+      "put": {
+        "tags": [
+          "Data"
+        ],
+        "summary": "Sets the file scan status for an existing data element.",
+        "parameters": [
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance that the data element is associated with.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "dataGuid",
+            "in": "path",
+            "description": "The id of the data element to update.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The file scan results for this data element.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FileScanStatus"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instances/{instanceOwnerPartyId}/{instanceGuid}/events": {
+      "post": {
+        "tags": [
+          "InstanceEvents"
+        ],
+        "summary": "Inserts new instance event into the instanceEvent collection.",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance that the event is associated with.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The instance event object to be inserted",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/InstanceEvent"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "InstanceEvents"
+        ],
+        "summary": "Retrieves all instance events related to given instance id, listed event types, and given time frame from instanceEvent collection.",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance that the event(s) is associated with.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "eventTypes",
+            "in": "query",
+            "description": "Array of event types to filter the events by.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "description": "Lower bound for DateTime span to filter events by.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "description": "Upper bound for DateTime span to filter events by.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstanceEventList"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instances/{instanceOwnerPartyId}/{instanceGuid}/events/{eventGuid}": {
+      "get": {
+        "tags": [
+          "InstanceEvents"
+        ],
+        "summary": "Get information about one specific event.",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance that the event is associated with.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "eventGuid",
+            "in": "path",
+            "description": "The unique id of the specific event to retrieve.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstanceEvent"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instances": {
+      "get": {
+        "tags": [
+          "Instances"
+        ],
+        "summary": "Retrieves all instances that match the specified query parameters. Parameters can be combined. Invalid or unknown parameter values will result in a 400 Bad Request response.",
+        "parameters": [
+          {
+            "name": "org",
+            "in": "query",
+            "description": "The organization identifier.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "appId",
+            "in": "query",
+            "description": "The application identifier.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "process.currentTask",
+            "in": "query",
+            "description": "The current task identifier.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "process.isComplete",
+            "in": "query",
+            "description": "A value indicating whether the process is completed.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "process.endEvent",
+            "in": "query",
+            "description": "The process end state.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "process.ended",
+            "in": "query",
+            "description": "The process ended value.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "instanceOwner.partyId",
+            "in": "query",
+            "description": "The instance owner party identifier.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "lastChanged",
+            "in": "query",
+            "description": "The last changed date.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "created",
+            "in": "query",
+            "description": "The creation date.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "visibleAfter",
+            "in": "query",
+            "description": "The visible after date time.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "dueBefore",
+            "in": "query",
+            "description": "The due before date time.",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "excludeConfirmedBy",
+            "in": "query",
+            "description": "A string that will hide instances already confirmed by stakeholder.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "status.isSoftDeleted",
+            "in": "query",
+            "description": "A value indicating whether the instance is soft deleted.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "status.isHardDeleted",
+            "in": "query",
+            "description": "A value indicating whether the instance is hard deleted.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "status.isArchived",
+            "in": "query",
+            "description": "A value indicating whether the instance is archived.",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "continuationToken",
+            "in": "query",
+            "description": "The continuation token.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "size",
+            "in": "query",
+            "description": "The page size.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "X-Ai-InstanceOwnerIdentifier",
+            "in": "header",
+            "description": "The instance owner identifier.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "mainVersionInclude",
+            "in": "query",
+            "description": "The Altinn version to include. E.g. \"mainVersionInclude=3\" will filter the response to only get the Altinn 3 instances.",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 3
+            }
+          },
+          {
+            "name": "mainVersionExclude",
+            "in": "query",
+            "description": "The Altinn version to exclude. E.g. \"mainVersionExclude=3\" will filter the response to exclude Altinn 3 instances.",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "searchString",
+            "in": "query",
+            "description": "Gets or sets the search string.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Gets or sets the value by which the result will be sorted.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstanceQueryResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Instances"
+        ],
+        "summary": "Inserts new instance into the instance collection.",
+        "parameters": [
+          {
+            "name": "appId",
+            "in": "query",
+            "description": "the application id",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The instance details to store.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Instance"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Instance"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instances/{instanceOwnerPartyId}/{instanceGuid}": {
+      "get": {
+        "tags": [
+          "Instances"
+        ],
+        "summary": "Gets a specific instance with the given instance id.",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance to retrieve.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Instance"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Instances"
+        ],
+        "summary": "Delete an instance.",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance that should be deleted.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "hard",
+            "in": "query",
+            "description": "if true hard delete will take place. if false, the instance gets its status.softDelete attribute set to current date and time.",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Instance"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instances/{instanceOwnerPartyId}/{instanceGuid}/complete": {
+      "post": {
+        "tags": [
+          "Instances"
+        ],
+        "summary": "Add complete confirmation.",
+        "description": "Add to an instance that a given stakeholder considers the instance as no longer needed by them. The stakeholder has\r\ncollected all the data and information they needed from the instance and expect no additional data to be added to it.\r\nThe body of the request isn't used for anything despite this being a POST operation.",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance to confirm as complete.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Instance"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instances/{instanceOwnerPartyId}/{instanceGuid}/readstatus": {
+      "put": {
+        "tags": [
+          "Instances"
+        ],
+        "summary": "Update instance read status.",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance to confirm as complete.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "description": "The updated read status.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Instance"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instances/{instanceOwnerPartyId}/{instanceGuid}/substatus": {
+      "put": {
+        "tags": [
+          "Instances"
+        ],
+        "summary": "Update instance sub status.",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance to confirm as complete.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The updated sub status.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Substatus"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Substatus"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Substatus"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Substatus"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Instance"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instances/{instanceOwnerPartyId}/{instanceGuid}/presentationtexts": {
+      "put": {
+        "tags": [
+          "Instances"
+        ],
+        "summary": "Updates the presentation texts on an instance",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance to confirm as complete.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Collection of changes to the presentation texts collection.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PresentationTexts"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Instance"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instances/{instanceOwnerPartyId}/{instanceGuid}/datavalues": {
+      "put": {
+        "tags": [
+          "Instances"
+        ],
+        "summary": "Updates the data values on an instance.",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance to confirm as complete.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Collection of changes to the data values collection.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DataValues"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Instance"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instances/{instanceOwnerPartyId}/{instanceGuid}/process": {
+      "put": {
+        "tags": [
+          "Process"
+        ],
+        "summary": "Updates the process of an instance.",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance that should have its process updated.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The new process state of the instance.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProcessState"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Instance"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instances/{instanceOwnerPartyId}/{instanceGuid}/process/instanceandevents": {
+      "put": {
+        "tags": [
+          "Process"
+        ],
+        "summary": "Updates the process state of an instance.",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance that should have its process updated.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The new process state of the instance (including instance events).",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProcessStateUpdate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Instance"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instances/{instanceOwnerPartyId}/{instanceGuid}/process/history": {
+      "get": {
+        "tags": [
+          "Process"
+        ],
+        "summary": "Get the process history for an instance.",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance whos process history to retrieve.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProcessHistoryList"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instances/{instanceOwnerPartyId}/{instanceGuid}/sign": {
+      "post": {
+        "tags": [
+          "Sign"
+        ],
+        "summary": "Create signature document from listed data elements.",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The guid of the instance.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Signrequest containing data element ids and sign status.",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignRequest"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SignRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/applications/{org}/{app}/texts": {
+      "post": {
+        "tags": [
+          "Texts"
+        ],
+        "summary": "Creates a new text resource",
+        "parameters": [
+          {
+            "name": "org",
+            "in": "path",
+            "description": "the org",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "app",
+            "in": "path",
+            "description": "the application",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "the text resource to be stored",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TextResource"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TextResource"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TextResource"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TextResource"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TextResource"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/applications/{org}/{app}/texts/{language}": {
+      "get": {
+        "tags": [
+          "Texts"
+        ],
+        "summary": "Gets a text resource",
+        "parameters": [
+          {
+            "name": "org",
+            "in": "path",
+            "description": "the org",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "app",
+            "in": "path",
+            "description": "the app",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "language",
+            "in": "path",
+            "description": "the language, must be a two letter ISO name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TextResource"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Texts"
+        ],
+        "summary": "Updates an existing text",
+        "parameters": [
+          {
+            "name": "org",
+            "in": "path",
+            "description": "the org",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "app",
+            "in": "path",
+            "description": "the app",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "language",
+            "in": "path",
+            "description": "the language, must be a two letter ISO name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "the text resource",
+          "content": {
+            "application/json-patch+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TextResource"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TextResource"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TextResource"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TextResource"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TextResource"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Texts"
+        ],
+        "summary": "Deletes an existing text",
+        "parameters": [
+          {
+            "name": "org",
+            "in": "path",
+            "description": "the org",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "app",
+            "in": "path",
+            "description": "the app",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "language",
+            "in": "path",
+            "description": "the language, must be a two letter ISO name",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Application": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "versionId": {
+            "type": "string",
+            "nullable": true
+          },
+          "org": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "validFrom": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "validTo": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "processId": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataTypes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DataType"
+            },
+            "nullable": true
+          },
+          "partyTypesAllowed": {
+            "$ref": "#/components/schemas/PartyTypesAllowed"
+          },
+          "autoDeleteOnProcessEnd": {
+            "type": "boolean"
+          },
+          "preventInstanceDeletionForDays": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "presentationFields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DataField"
+            },
+            "nullable": true
+          },
+          "dataFields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DataField"
+            },
+            "nullable": true
+          },
+          "eFormidling": {
+            "$ref": "#/components/schemas/EFormidlingContract"
+          },
+          "onEntry": {
+            "$ref": "#/components/schemas/OnEntryConfig"
+          },
+          "messageBoxConfig": {
+            "$ref": "#/components/schemas/MessageBoxConfig"
+          },
+          "copyInstanceSettings": {
+            "$ref": "#/components/schemas/CopyInstanceSettings"
+          },
+          "storageAccountNumber": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "disallowUserInstantiation": {
+            "type": "boolean"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "createdBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastChanged": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lastChangedBy": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApplicationList": {
+        "type": "object",
+        "properties": {
+          "applications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Application"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApplicationLogic": {
+        "type": "object",
+        "properties": {
+          "autoCreate": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "classRef": {
+            "type": "string",
+            "nullable": true
+          },
+          "schemaRef": {
+            "type": "string",
+            "nullable": true
+          },
+          "allowAnonymousOnStateless": {
+            "type": "boolean"
+          },
+          "autoDeleteOnProcessEnd": {
+            "type": "boolean"
+          },
+          "disallowUserCreate": {
+            "type": "boolean"
+          },
+          "disallowUserDelete": {
+            "type": "boolean"
+          },
+          "allowInSubform": {
+            "type": "boolean",
+            "deprecated": true
+          },
+          "shadowFields": {
+            "$ref": "#/components/schemas/ShadowFields"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompleteConfirmation": {
+        "type": "object",
+        "properties": {
+          "stakeholderId": {
+            "type": "string",
+            "nullable": true
+          },
+          "confirmedOn": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CopyInstanceSettings": {
+        "type": "object",
+        "properties": {
+          "enabled": {
+            "type": "boolean"
+          },
+          "excludedDataTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "excludedDataFields": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DataElement": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "instanceGuid": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataType": {
+            "type": "string",
+            "nullable": true
+          },
+          "filename": {
+            "type": "string",
+            "nullable": true
+          },
+          "contentType": {
+            "type": "string",
+            "nullable": true
+          },
+          "blobStoragePath": {
+            "type": "string",
+            "nullable": true
+          },
+          "selfLinks": {
+            "$ref": "#/components/schemas/ResourceLinks"
+          },
+          "size": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "contentHash": {
+            "type": "string",
+            "nullable": true
+          },
+          "locked": {
+            "type": "boolean"
+          },
+          "refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "isRead": {
+            "type": "boolean"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "userDefinedMetadata": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KeyValueEntry"
+            },
+            "nullable": true
+          },
+          "metadata": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/KeyValueEntry"
+            },
+            "nullable": true
+          },
+          "deleteStatus": {
+            "$ref": "#/components/schemas/DeleteStatus"
+          },
+          "fileScanResult": {
+            "$ref": "#/components/schemas/FileScanResult"
+          },
+          "references": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Reference"
+            },
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "createdBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastChanged": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lastChangedBy": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DataElementList": {
+        "type": "object",
+        "properties": {
+          "dataElements": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DataElement"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DataElementSignature": {
+        "type": "object",
+        "properties": {
+          "dataElementId": {
+            "type": "string",
+            "nullable": true
+          },
+          "signed": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DataField": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "path": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataTypeId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DataType": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "allowedContentTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "allowedContributers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "appLogic": {
+            "$ref": "#/components/schemas/ApplicationLogic"
+          },
+          "taskId": {
+            "type": "string",
+            "nullable": true
+          },
+          "maxSize": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "maxCount": {
+            "type": "integer",
+            "format": "int32",
+            "default": 1
+          },
+          "minCount": {
+            "type": "integer",
+            "format": "int32",
+            "default": 1
+          },
+          "grouping": {
+            "type": "string",
+            "nullable": true
+          },
+          "enablePdfCreation": {
+            "type": "boolean"
+          },
+          "enableFileScan": {
+            "type": "boolean"
+          },
+          "validationErrorOnPendingFileScan": {
+            "type": "boolean"
+          },
+          "enabledFileAnalysers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "enabledFileValidators": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "allowedKeysForUserDefinedMetadata": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DataValues": {
+        "type": "object",
+        "properties": {
+          "values": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DeleteStatus": {
+        "type": "object",
+        "properties": {
+          "isHardDeleted": {
+            "type": "boolean"
+          },
+          "hardDeleted": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EFormidlingContract": {
+        "type": "object",
+        "properties": {
+          "serviceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "dpfShipmentType": {
+            "type": "string",
+            "nullable": true
+          },
+          "receiver": {
+            "type": "string",
+            "nullable": true
+          },
+          "sendAfterTaskId": {
+            "type": "string",
+            "nullable": true
+          },
+          "process": {
+            "type": "string",
+            "nullable": true
+          },
+          "standard": {
+            "type": "string",
+            "nullable": true
+          },
+          "typeVersion": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "securityLevel": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dataTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FileScanResult": {
+        "enum": [
+          "NotApplicable",
+          "Pending",
+          "Clean",
+          "Infected"
+        ],
+        "type": "string"
+      },
+      "FileScanStatus": {
+        "type": "object",
+        "properties": {
+          "contentHash": {
+            "type": "string",
+            "nullable": true
+          },
+          "fileScanResult": {
+            "$ref": "#/components/schemas/FileScanResult"
+          }
+        },
+        "additionalProperties": false
+      },
+      "HideSettings": {
+        "type": "object",
+        "properties": {
+          "hideAlways": {
+            "type": "boolean"
+          },
+          "hideOnTask": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Instance": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "instanceOwner": {
+            "$ref": "#/components/schemas/InstanceOwner"
+          },
+          "appId": {
+            "type": "string",
+            "nullable": true
+          },
+          "org": {
+            "type": "string",
+            "nullable": true
+          },
+          "selfLinks": {
+            "$ref": "#/components/schemas/ResourceLinks"
+          },
+          "dueBefore": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "visibleAfter": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "process": {
+            "$ref": "#/components/schemas/ProcessState"
+          },
+          "status": {
+            "$ref": "#/components/schemas/InstanceStatus"
+          },
+          "completeConfirmations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CompleteConfirmation"
+            },
+            "nullable": true
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DataElement"
+            },
+            "nullable": true
+          },
+          "presentationTexts": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "dataValues": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "createdBy": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastChanged": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lastChangedBy": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InstanceEvent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "instanceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataId": {
+            "type": "string",
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "eventType": {
+            "type": "string",
+            "nullable": true
+          },
+          "instanceOwnerPartyId": {
+            "type": "string",
+            "nullable": true
+          },
+          "user": {
+            "$ref": "#/components/schemas/PlatformUser"
+          },
+          "relatedUser": {
+            "$ref": "#/components/schemas/PlatformUser"
+          },
+          "processInfo": {
+            "$ref": "#/components/schemas/ProcessState"
+          },
+          "additionalInfo": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InstanceEventList": {
+        "type": "object",
+        "properties": {
+          "instanceEvents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InstanceEvent"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InstanceOwner": {
+        "type": "object",
+        "properties": {
+          "partyId": {
+            "type": "string",
+            "nullable": true
+          },
+          "personNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "organisationNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "username": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InstanceQueryResponse": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "description": "The number of items in this response.",
+            "format": "int64"
+          },
+          "self": {
+            "type": "string",
+            "description": "The current query.",
+            "nullable": true
+          },
+          "next": {
+            "type": "string",
+            "description": "A link to the next page.",
+            "nullable": true
+          },
+          "instances": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Instance"
+            },
+            "description": "The metadata.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Query response object"
+      },
+      "InstanceStatus": {
+        "type": "object",
+        "properties": {
+          "isArchived": {
+            "type": "boolean"
+          },
+          "archived": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isSoftDeleted": {
+            "type": "boolean"
+          },
+          "softDeleted": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "isHardDeleted": {
+            "type": "boolean"
+          },
+          "hardDeleted": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "readStatus": {
+            "$ref": "#/components/schemas/ReadStatus"
+          },
+          "substatus": {
+            "$ref": "#/components/schemas/Substatus"
+          }
+        },
+        "additionalProperties": false
+      },
+      "KeyValueEntry": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MarginOptions": {
+        "type": "object",
+        "properties": {
+          "top": {
+            "type": "string",
+            "description": "Top margin, accepts values labeled with units.",
+            "nullable": true
+          },
+          "left": {
+            "type": "string",
+            "description": "Left margin, accepts values labeled with units",
+            "nullable": true
+          },
+          "bottom": {
+            "type": "string",
+            "description": "Bottom margin, accepts values labeled with units",
+            "nullable": true
+          },
+          "right": {
+            "type": "string",
+            "description": "Right margin, accepts values labeled with units",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "This class is created to match the PDF generator marking options."
+      },
+      "MessageBoxConfig": {
+        "type": "object",
+        "properties": {
+          "hideSettings": {
+            "$ref": "#/components/schemas/HideSettings"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MessageBoxQueryModel": {
+        "required": [
+          "instanceOwnerPartyIdList"
+        ],
+        "type": "object",
+        "properties": {
+          "instanceOwnerPartyIdList": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "description": "List of instance owner party id(s)"
+          },
+          "appId": {
+            "type": "string",
+            "description": "The application id",
+            "nullable": true
+          },
+          "includeActive": {
+            "type": "boolean",
+            "description": "Boolean indicating whether to include active instances."
+          },
+          "includeArchived": {
+            "type": "boolean",
+            "description": "Boolean indicating whether to include archived instances."
+          },
+          "includeDeleted": {
+            "type": "boolean",
+            "description": "Boolean indicating whether to include deleted instances."
+          },
+          "fromLastChanged": {
+            "type": "string",
+            "description": "Gets or sets the from last changed date.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "toLastChanged": {
+            "type": "string",
+            "description": "Gets or sets the to last changed date.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "fromCreated": {
+            "type": "string",
+            "description": "Gets or sets the from created time.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "toCreated": {
+            "type": "string",
+            "description": "Gets or sets the to created time.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "searchString": {
+            "type": "string",
+            "description": "Search string.",
+            "nullable": true
+          },
+          "archiveReference": {
+            "type": "string",
+            "description": "The archive reference.",
+            "nullable": true
+          },
+          "language": {
+            "type": "string",
+            "description": "Language nb, en, nn",
+            "nullable": true
+          },
+          "filterMigrated": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether to filter migrated a1/a2 elements",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents queryparams for search from messagebox."
+      },
+      "OnEntryConfig": {
+        "type": "object",
+        "properties": {
+          "show": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PartyTypesAllowed": {
+        "type": "object",
+        "properties": {
+          "bankruptcyEstate": {
+            "type": "boolean"
+          },
+          "organisation": {
+            "type": "boolean"
+          },
+          "person": {
+            "type": "boolean"
+          },
+          "subUnit": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PdfGeneratorRequest": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The Url that the PDF generator will used to obtain the HTML needed to created the PDF\r\nif Html is not specified. Don't use both!",
+            "nullable": true
+          },
+          "html": {
+            "type": "string",
+            "description": "The html that is input to the PDF generator if Url is not specified. Don't use both!",
+            "nullable": true
+          },
+          "options": {
+            "$ref": "#/components/schemas/PdfGeneratorRequestOptions"
+          }
+        },
+        "additionalProperties": false,
+        "description": "This class is created to match the input required to generate a PDF by the PDF generator service."
+      },
+      "PdfGeneratorRequestOptions": {
+        "type": "object",
+        "properties": {
+          "printBackground": {
+            "type": "boolean",
+            "description": "Indicate wheter the background should be included."
+          },
+          "format": {
+            "type": "string",
+            "description": "Defines the page size. Default is A4.",
+            "nullable": true
+          },
+          "landscape": {
+            "type": "boolean",
+            "description": "Whether to print in landscape orientation"
+          },
+          "margin": {
+            "$ref": "#/components/schemas/MarginOptions"
+          },
+          "scale": {
+            "type": "number",
+            "description": "Scales the rendering of the web page. Amount must be between 0.1 and 2",
+            "format": "float"
+          }
+        },
+        "additionalProperties": false,
+        "description": "This class is created to match the PDF generator options used by the PDF generator."
+      },
+      "PlatformUser": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "orgId": {
+            "type": "string",
+            "nullable": true
+          },
+          "authenticationLevel": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "endUserSystemId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "nationalIdentityNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "systemUserId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "systemUserOwnerOrgNo": {
+            "type": "string",
+            "nullable": true
+          },
+          "systemUserName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PresentationTexts": {
+        "type": "object",
+        "properties": {
+          "texts": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": { }
+      },
+      "ProcessElementInfo": {
+        "type": "object",
+        "properties": {
+          "flow": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "started": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "elementId": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "altinnTaskType": {
+            "type": "string",
+            "nullable": true
+          },
+          "ended": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "validated": {
+            "$ref": "#/components/schemas/ValidationStatus"
+          },
+          "flowType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProcessHistoryItem": {
+        "type": "object",
+        "properties": {
+          "eventType": {
+            "type": "string",
+            "nullable": true
+          },
+          "elementId": {
+            "type": "string",
+            "nullable": true
+          },
+          "occured": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "started": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "ended": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "performedBy": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProcessHistoryList": {
+        "type": "object",
+        "properties": {
+          "processHistory": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProcessHistoryItem"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProcessState": {
+        "type": "object",
+        "properties": {
+          "started": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "startEvent": {
+            "type": "string",
+            "nullable": true
+          },
+          "currentTask": {
+            "$ref": "#/components/schemas/ProcessElementInfo"
+          },
+          "ended": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "endEvent": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProcessStateUpdate": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "$ref": "#/components/schemas/ProcessState"
+          },
+          "events": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/InstanceEvent"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReadStatus": {
+        "enum": [
+          "Unread",
+          "Read",
+          "UpdatedSinceLastReview"
+        ],
+        "type": "string"
+      },
+      "Reference": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "relation": {
+            "$ref": "#/components/schemas/RelationType"
+          },
+          "valueType": {
+            "$ref": "#/components/schemas/ReferenceType"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReferenceType": {
+        "enum": [
+          "DataElement",
+          "Task"
+        ],
+        "type": "string"
+      },
+      "RelationType": {
+        "enum": [
+          "GeneratedFrom"
+        ],
+        "type": "string"
+      },
+      "ResourceLinks": {
+        "type": "object",
+        "properties": {
+          "apps": {
+            "type": "string",
+            "nullable": true
+          },
+          "platform": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ShadowFields": {
+        "type": "object",
+        "properties": {
+          "prefix": {
+            "type": "string",
+            "nullable": true
+          },
+          "saveToDataType": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SignRequest": {
+        "type": "object",
+        "properties": {
+          "signatureDocumentDataType": {
+            "type": "string",
+            "nullable": true
+          },
+          "generatedFromTask": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataElementSignatures": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DataElementSignature"
+            },
+            "nullable": true
+          },
+          "signee": {
+            "$ref": "#/components/schemas/Signee"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Signee": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "string",
+            "nullable": true
+          },
+          "systemUserId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "personNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "organisationNumber": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Substatus": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TextResource": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "org": {
+            "type": "string",
+            "nullable": true
+          },
+          "language": {
+            "type": "string",
+            "nullable": true
+          },
+          "resources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TextResourceElement"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TextResourceElement": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          },
+          "variables": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TextResourceVariable"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TextResourceVariable": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "nullable": true
+          },
+          "dataSource": {
+            "type": "string",
+            "nullable": true
+          },
+          "defaultValue": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ValidationStatus": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "canCompleteTask": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "JwtCookie": {
+        "type": "apiKey",
+        "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\". Remember to add \"Bearer\" to the input below before your token.",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "JwtCookie": [ ]
+    }
+  ]
+}

@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Overview of relevant user scenarios for system users" />
+<meta name="altinn_pagedir" class="elastic" content="authorization/guides/system-vendor/system-user/userscenarios/" />
+<meta name="altinn_title" class="elastic" content="User scenarios for system user" />
+<meta name="product" data-pagefind-filter="Product[content]" content="Authorization" />
+<meta name="diataxis" data-pagefind-filter="Type[content]" content="How-to guides" />
+
+<title>User scenarios for system user – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/en/authorization/guides/system-vendor/system-user/userscenarios/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Jump to the main content</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Jump to the main menu</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/en/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">To the frontpage</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Show/hide menu</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Product</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/en/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/authorization/">
+      <p class="product-item">Authorization</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/broker/">
+      <p class="product-item">Broker</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/correspondence/">
+      <p class="product-item">Correspondence</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/en/notifications/">
+      <p class="product-item">Notifications</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/en/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Search</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/en.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/authorization/guides/system-vendor/system-user/userscenarios/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/authorization/guides/system-vendor/system-user/userscenarios/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English ✓</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">What are you looking for?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Search');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Last modified: Dec 4, 2025</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/en/authorization/"><span>Authorization</span><i class="fa fa-sort-down fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/about/"><span>About Authorization</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/"><span>What do you get?</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/authentication/"><span>Authentication</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/"><span>Access Packages</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups-citizens/arbeidslivskoleutdanning/"><span>Arbeidsliv, skole og utdanning</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups-citizens/familiefritid/"><span>Familie og fritid</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups/"><span>Fullmaktsområder og tilgangspakker</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups/andretjenesteytende/"><span>Andre tjenesteytende næringer</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/"><span>Bygg, anlegg og eiendom</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups/energivannavlopavfall/"><span>Energi, vann, avløp og avfall</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups/forholdvedvirksomheten/"><span>Forhold ved virksomheten</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups/forretningsforer/"><span>Forretningsfører</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups/handelovernatting/"><span>Handel, overnatting og servering</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups/helsepleieomsorgvern/"><span>Helse, pleie, omsorg og vern</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups/industrier/"><span>Industrier</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups/integrasjoner/"><span>Integrasjoner</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups/jordbrukskogbrukjaktfiskeakvakultur/"><span>Jordbruk, skogbruk, jakt, fiske og akvakultur</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups/konkursbo/"><span>Konkursbo</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups/kulturfrivillighet/"><span>Kultur og frivillighet</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups/adminstreretilganger/"><span>Managing Access</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups/miljoulykkesikkerhet/"><span>Miljø, ulykke og sikkerhet</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups/oppvekstutdanning/"><span>Oppvekst og utdanning</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups/personale/"><span>Personale</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups/postogarkiv/"><span>Post og arkiv</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups/regnskapsforer/"><span>Regnskapsfører</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups/revisor/"><span>Revisor</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups/skattavgiftregnskaptoll/"><span>Skatt, avgift, regnskap og toll</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups/transportoglagring/"><span>Transport og lagring</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups-citizens/helseomsorg/"><span>Helse og omsorg</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups-citizens/kulturidrettfrivillighet/"><span>Kultur, idrett og frivillighet</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups-citizens/patentersertifikaterattester/"><span>Patenter, sertifikater og attester</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups-citizens/privatperson/"><span>Privatperson</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups-citizens/skattavgiftbankforsikring/"><span>Skatt, avgift, bank og forsikring</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/register_er/"><span>Fra Enhetsregisteret</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/register_er/knytning_org/"><span>Virksomhetsknytninger</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessgroups/accessgroups-citizens/verger/"><span>Vergemal</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/resourceadministration/"><span>Resource administration</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/resourceadministration/studio/"><span>Ressurs Admin</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accessmanagement/"><span>Access Management</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/accesscontrol/"><span>Access Control</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/consent/"><span>Consent</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/what-do-you-get/systemuser/"><span>System User</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/authorization/getting-started/"><span>Getting started</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/getting-started/terms/"><span>Glossary</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/getting-started/authentication/"><span>Authentication</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/getting-started/authentication/maskinporten/"><span>Maskinporten</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/getting-started/authentication/id-porten/"><span>ID-porten</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/authorization/getting-started/consent/"><span>Consent</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/getting-started/enterpriseuser/"><span>Enterprise Users</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/getting-started/maskinportenclient/"><span>Maskinporten</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/getting-started/resourceadministration/"><span>Ressursadministration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/getting-started/systemuser/"><span>System User</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/"><span>User Guides</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/end-user/"><span>End user</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/end-user/api-scheme/"><span>Delegable API resources</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/end-user/api-scheme/access-manager/"><span>Access manager</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/end-user/api-scheme/api-user/"><span>API-User</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/end-user/system-user/"><span>System user</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/end-user/system-user/delegate-clients/"><span>Client Delegation</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/end-user/system-user/setup-client-relationship/"><span>Set up client relationship</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/end-user/system-user/delete-system-user/"><span>Delete System User</span></a></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/resource-owner/"><span>Service owner</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/resource-owner/accesslist/"><span>Access lists</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/resource-owner/accesslist/manage-accesslists-resource-admin/"><span>Access List Admin</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/resource-owner/accesslist/manage-accesslist-api/"><span>Access List Admin via API</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/resource-owner/consent/"><span>Consent</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/resource-owner/consent/create-resource/"><span>Consent</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/resource-owner/consent/validate-concent/"><span>Validate</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/resource-owner/create-resource-resource-admin/"><span>Creating Resources</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/resource-owner/api-scheme/"><span>Delegable API resources</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/resource-owner/api-scheme/create-apischeme-api/"><span>API Scheme via API</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/resource-owner/api-scheme/create-apischeme-resource-admin/"><span>Creating Resources</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/resource-owner/generic-access-resource/"><span>Generic access resources</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/resource-owner/generic-access-resource/integrating-link-service/"><span>External authorization</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/resource-owner/migrate/"><span>Migrate</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/resource-owner/migrate/linked_services/"><span>Migration of Linked Services</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/resource-owner/system-user/"><span>System-user</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/system-vendor/"><span>System vendor</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/system-vendor/consent/"><span>Consent</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/system-vendor/consent/request/"><span>Request consent</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/system-vendor/consent/retrieve-token/"><span>Retrieve consent token</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/system-vendor/consent/behalf-of/"><span>Consent on behalf of others</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/system-vendor/system-user/"><span>System User</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/system-vendor/system-user/systemregistration/"><span>System Registration</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/system-vendor/system-user/systemuserrequest/"><span>Create System User</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/system-vendor/system-user/deleterequest/"><span>Delete System User</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/system-vendor/system-user/usetoken/"><span>Using System User</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/system-vendor/system-user/userscenarios/"><span>User scenarios</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/guides/system-vendor/system-user/democlient/"><span>Reference implementation</span></a></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/authorization/reference/"><span>Reference</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/reference/referenceimplementations/"><span>Reference Implementations</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/reference/referenceimplementations/smartcloud/"><span>SmartCloud</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/reference/referenceimplementations/systemadmin/"><span>System Admin</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/reference/referenceimplementations/systemuserapi/"><span>SystemUser API</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/authorization/reference/xacml/"><span>XACML</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/reference/architecture/"><span>Architecture</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/reference/architecture/accesscontrol/"><span>Access Control</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/reference/architecture/accesscontrol/contexthandler/"><span>Context Handler</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/reference/architecture/accesscontrol/pip/"><span>PIP</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/reference/architecture/accesscontrol/prp/"><span>PRP</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/reference/architecture/accesscontrol/pep/"><span>PEP</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/authorization/reference/architecture/acessgroups/"><span>Access Groups</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/reference/architecture/accessmanagment/"><span>Access Management</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/reference/architecture/accessmanagment/pap/"><span>PAP</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/authorization/reference/architecture/accesstoken/"><span>Access Token</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/reference/architecture/authentication/"><span>Authentication</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/reference/architecture/jwtcookie/"><span>JWT Cookie</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/reference/architecture/register/"><span>Register</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/reference/architecture/resourceregistry/"><span>Resource Registry</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/reference/architecture/resourceregistry/rrr/"><span>RRR</span></a></li></ul></li></ul></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/authorization/migration/"><span>Fremdriftsplan</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/migration/api-migration/"><span>Endring API</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/en/authorization/migration/api-migration/sbs-api/"><span>End‑User System API</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/migration/api-migration/te-api/"><span>Tjenesteeier-API</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/authorization/migration/servicemigrationplan/"><span>Flytte Tjenester</span></a></li>
+      <li class="dd-item">
+        <a href="/en/authorization/migration/informasjon-sent/"><span>Informasjonsskriv</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul><li class="dd-item">
+          <a href="/en/authorization/migration/informasjon-sent/letter-api-resources/">
+            <span>API resources info letter</span></a></li><li class="dd-item">
+          <a href="/en/authorization/migration/informasjon-sent/letter-accessgroupes/">
+            <span>Access packages consultation</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/en/authorization/migration/new-accessgroups/"><span>Nye tilgangspakker</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/en/authorization/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/authorization/guides/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/authorization/guides/system-vendor/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/authorization/guides/system-vendor/system-user/']").parent().addClass("parent");
+ $("li.dd-item a[href='/en/authorization/guides/system-vendor/system-user/userscenarios/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/en/authorization/'>Authorization</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/authorization/guides/'>User Guides</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/authorization/guides/system-vendor/'>System vendor</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/en/authorization/guides/system-vendor/system-user/'>System User</a> <span class='adocs-breadcrumb-divider'> / </span> User scenarios</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">User scenarios for system user</h1>
+              <p class="a-leadText" id="leadText">Overview of relevant user scenarios for system users</p>
+
+<h2 id="terms">Terms</h2>
+<p>Below are key terms used in the user scenarios.</p>
+<h3 id="system-vendor">System vendor</h3>
+<p>Provider of end-user software available on the market. Has access to the system register in Altinn to register software with the necessary rights.</p>
+<p>For locally installed or self-developed software, the system customer is also registered as the vendor.</p>
+<h3 id="end-user-system">End-user system</h3>
+<p>Software that usually runs in the public cloud, but can also be run locally with some limitations. The end-user system supports organization and citizen processes and can for example be used for lice reporting or VAT reporting.</p>
+<p>The end-user system can identify itself as a system user associated with the system. Which rights are required depends on the processes supported.</p>
+<h3 id="system-user">System user</h3>
+<p>Virtual user for which system vendors can obtain tokens. Grants the end-user system the rights that the system user has.<br>
+The system user is only assigned rights from the system customer.</p>
+<h3 id="system-customer">System customer</h3>
+<p>The organization that has procured the end-user system. The system user is created for the system customer, and the system vendor is given authority to authenticate as the system user on behalf of the system customer.</p>
+<h3 id="system-user-for-client-relationships">System user for client relationships</h3>
+<p>Virtual user for which the system vendor can obtain tokens, used in client relationships where the system user is delegated rights for one or more clients.</p>
+<h3 id="system-user-token">System user token</h3>
+<p>Token issued by Maskinporten that identifies a system user. Also contains information about the end-user system and the system vendor.</p>
+<h3 id="client">Client</h3>
+<p>Organization that has an agreement with a service provider for support of organization processes. “Client” is often used in accounting and auditor contexts and corresponds to &ldquo;customer&rdquo;.<br>
+In reporting contexts the client is often referred to as the &ldquo;party&rdquo;.</p>
+<h3 id="client-administrator">Client administrator</h3>
+<p>Employee at the system customer responsible for linking their clients (customers) to the correct system users.</p>
+<h3 id="access-package">Access package</h3>
+<p>A collection of rights for public services, defined in Altinn. Service owners bind rights to a given package, which has a name/scope adapted to the services.</p>
+<hr>
+<h2 id="general-assumptions">General assumptions</h2>
+<p>The following apply to most user scenarios:</p>
+<ol>
+<li>System vendor responsibility for access control
+<ul>
+<li>Have an overview of which rights system users need (e.g., access packages or individual rights for VAT reporting).<br>
+Information about rights is obtained from the service owner or via the Altinn API. The service owner must communicate requirements clearly.</li>
+<li>Configure these rights in the system register so that system users can be granted the necessary rights per customer.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="access-control-in-the-end-user-system">Access control in the end-user system</h2>
+<p>When using a system user, public services will not know the identity of the person behind the software that triggers issuance of a system user token and API calls.</p>
+<p>To avoid misuse, system vendors must have good routines for authentication and authorization of users in the end-user system so that only authorized users get access to system user tokens.</p>
+<p>This is especially important for larger organizations, such as accounting firms with many customers and employees, where there is a need to restrict access to data for different customers.</p>
+<hr>
+<h2 id="1-registered-accountant-reports-data-for-a-client">1. Registered accountant reports data for a client</h2>
+<p>Example: VAT reporting</p>
+<h3 id="preconditions">Preconditions</h3>
+<ul>
+<li>The accountant is <a href="https://info.altinn.no/skjemaoversikt/bronnoysundregistrene/registrere-nye-og-endre-eksisterende-foretak-og-enheter---samordnet-registermelding/">registered in the Enhetsregisteret</a> for the relevant client.</li>
+<li>The Tax Administration has <a href="/en/altinn-studio/v8/reference/configuration/authorization/">defined a policy on the application</a> so that users with the access package &ldquo;VAT reporting&rdquo; get access.</li>
+<li><a href="/en/authorization/guides/system-vendor/system-user/">The end-user system is configured</a> with the <a href="https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/">necessary access packages</a> for VAT reporting.</li>
+<li>The accountant has created a <a href="/en/authorization/guides/system-vendor/system-user/"><em>system user for client relationships</em></a> linked to the end-user system.</li>
+</ul>
+<h3 id="steps">Steps</h3>
+<ol>
+<li>Add client<br>
+The client administrator at the accounting firm <a href="/en/authorization/guides/end-user/system-user/">links the accounting client (client) to the system user</a>. Access for the accounting client is automatically delegated to the system user.</li>
+<li>Retrieve token<br>
+The end-user system <a href="/en/authorization/guides/system-vendor/system-user/">retrieves a system user token via Maskinporten</a>.</li>
+<li>Send report<br>
+The end-user system sends the VAT report via the API with a valid token.</li>
+<li>Validation and confirmation<br>
+The API calls Altinn Authorization PDP to <a href="/en/authorization/guides/resource-owner/generic-access-resource/integrating-link-service/">check access</a>. The API returns confirmation.</li>
+</ol>
+<p>Support: Developed as part of system user delivery 5.</p>
+<hr>
+<h2 id="2-property-manager-reports-data-for-the-principal">2. Property manager reports data for the principal</h2>
+<p>Rett Revisjon is property manager for several housing cooperatives. They have a dedicated team working with housing cooperatives and want a system user setup limited to this team and able to handle both registered and unregistered property managers.</p>
+<p>Service: <a href="https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-boligsameie">Reporting for housing cooperatives</a></p>
+<p>This service has configured that the following access packages grant the right to report for housing cooperatives</p>
+<ul>
+<li>regnskapsforer-med-signeringsrettighet</li>
+<li>ansvarlig-revisor</li>
+<li>skattegrunnlag</li>
+<li>forretningsforer-eiendom</li>
+</ul>
+<h3 id="preconditions-1">Preconditions</h3>
+<ul>
+<li>The property manager is <a href="https://info.altinn.no/skjemaoversikt/bronnoysundregistrene/registrere-nye-og-endre-eksisterende-foretak-og-enheter---samordnet-registermelding/">registered in the Enhetsregisteret</a> for the housing cooperative.</li>
+<li>The system vendor has registered the system in the system register with the mentioned access package.</li>
+<li>The system vendor has user management such that the property manager team can be assigned rights for functionality that uses the system user.</li>
+</ul>
+<h3 id="steps-1">Steps</h3>
+<ol>
+<li>System vendor sends a request to create a system user for clients to the property manager (the customer). The access package <strong>forretningsforer-eiendom</strong> is included as a requirement.</li>
+<li>The property manager approves the request.</li>
+<li>The property manager defines the property manager team in the end-user system and assigns which authenticated users (i.e., employees) can use the property manager functionality.</li>
+<li>The client administrator adds the housing cooperative as a customer/client on the system user. The access package is automatically delegated to the system user.</li>
+<li>The employee logs in and the end-user system validates that the employee can use the property manager functionality.</li>
+<li>Reporting takes place via the system.</li>
+<li>A system user token is retrieved from Maskinporten.</li>
+<li>Submission is done via API.</li>
+<li>Access is verified by Altinn PDP API.</li>
+</ol>
+<p><figure>
+    <a href="team_access.png">
+        <img src="team_access.png" alt="Team access" title="Customers with multiple types of client relationships">
+    </a>
+    <figcaption><em>Customers with multiple types of client relationships</em></figcaption>
+  </figure></p>
+<p>Support: Developed as part of system user delivery 5.</p>
+<hr>
+<h2 id="3-accountant-needing-to-differentiate-access-to-system-user">3. Accountant needing to differentiate access to system user</h2>
+<p>Rett Revisjon&rsquo;s small business division allocates tasks internally and has now delegated reporting of payments to self-employed individuals to staff who are unregistered accountants for those companies.</p>
+<p>Some are delegated access packages from their clients.<br>
+Some have access packages re-delegated from a registered auditor at Rett Revisjon.</p>
+<p>Rett Revisjon is concerned that actions may be performed on behalf of companies via the system user that exceed the responsibility of the unregistered accountants (often by accident).</p>
+<h3 id="challenge">Challenge</h3>
+<p>When using a system user, the service does not know the identity of the person initiating the calls. It may be fully automated processes or actions performed by a logged-in user in the end-user system. Delegations in Altinn authorization do not affect who is actually using the system, and an end-user system therefore has no reliable way to verify which rights each user has been granted in Altinn.</p>
+<p>Consequence: the end-user system must handle local authentication and authorization so that only authorized employees get access to functionality that calls Altinn on behalf of clients.</p>
+<p>Service: <a href="https://www.skatteetaten.no/bedrift-og-organisasjon/rapportering-og-bransjer/tredjepartsopplysninger/andre-bransjer/betalinger-til-s-n/">Payments to self-employed persons</a></p>
+<p>The following access packages are relevant for reporting:</p>
+<ul>
+<li>regnskapsforer-med-signeringsrettighet</li>
+<li>ansvarlig-revisor</li>
+<li>skattegrunnlag</li>
+</ul>
+<h3 id="preconditions-2">Preconditions</h3>
+<ul>
+<li>Rett Revisjon is registered in the Enhetsregisteret for relevant clients.</li>
+<li>Unregistered clients have organization-delegated the access package skattegrunnlag to Rett Revisjon.</li>
+<li>The system vendor has registered the system in the system register with the required access packages.</li>
+<li>The system supports customer management so clients can be assigned to employees/roles.</li>
+<li>Rett Revisjon has defined which clients are registered vs. unregistered.</li>
+</ul>
+<h3 id="steps-2">Steps</h3>
+<ol>
+<li>System vendor sends a request to create a system user for registered clients (requirement: regnskapsforer-med-signeringsrettighet).</li>
+<li>System vendor sends a request to create a system user for unregistered clients (requirement: skattegrunnlag).</li>
+<li>Rett Revisjon approves the requests.</li>
+<li>Rett Revisjon defines which employees should have access to registered and unregistered clients in the end-user system.</li>
+<li>The client administrator distributes the clients across the correct system users (the accesses are re-delegated to the system user).</li>
+<li>The employee logs in to the end-user system; the system validates locally that the person has the rights for the chosen client.</li>
+<li>Reporting is sent via the system.</li>
+<li>A system user token is retrieved from Maskinporten.</li>
+<li>Submission is done via API.</li>
+<li>Access is verified by Altinn PDP API.</li>
+</ol>
+<p><figure>
+    <a href="accesscontrol.png">
+        <img src="accesscontrol.png" alt="Team access" title="The system must implement access control itself">
+    </a>
+    <figcaption><em>The system must implement access control itself</em></figcaption>
+  </figure></p>
+<hr>
+<h2 id="4-unregistered-accountant-reports-data-for-a-client">4. Unregistered accountant reports data for a client</h2>
+<p>Scenario: The client is not registered in Enhetsregisteret with an accountant.</p>
+<h3 id="preconditions-3">Preconditions</h3>
+<ul>
+<li>The client (accounting customer) has an agreement with the accountant for accounting services.</li>
+<li>The accountant has purchased the end-user system and configured it.</li>
+</ul>
+<h3 id="steps-3">Steps</h3>
+<ol>
+<li>Request access<br>
+The accountant asks the client to delegate the necessary rights.</li>
+<li>Delegation<br>
+The client delegates via Altinn.</li>
+<li>Add client<br>
+The client administrator at the accounting firm links the client to the system user. Access is re-delegated to the system user.</li>
+<li>Retrieve token<br>
+The system user token is retrieved from Maskinporten.</li>
+<li>Reporting<br>
+Submission is done via API.</li>
+<li>Validation<br>
+Altinn verifies access and returns confirmation.</li>
+</ol>
+<p>Support: Developed as part of system user delivery 6.</p>
+<hr>
+<h2 id="5-organization-reports-its-own-data">5. Organization reports its own data</h2>
+<p>Scenario: The organization uses a system user for reporting.</p>
+<h3 id="preconditions-4">Preconditions</h3>
+<ul>
+<li>The system is configured with the resource that defines the service.</li>
+</ul>
+<h3 id="steps-4">Steps</h3>
+<ol>
+<li>Procurement of the system<br>
+The organization purchases a system from a vendor.</li>
+<li>Request a system user<br>
+The vendor sends a request to create a system user with the necessary accesses.</li>
+<li>Approval<br>
+The organization approves, and the system user is created.</li>
+<li>Reporting<br>
+The system retrieves a token and sends data via API.</li>
+<li>Validation<br>
+The API checks access and returns confirmation.</li>
+</ol>
+<p>Support: Setup with single rights was developed as part of system user delivery 2.<br>
+Setup with access packages is developed as part of system user delivery 4.</p>
+<p><figure>
+    <a href="standarduser.png">
+        <img src="standarduser.png" alt="Organization reporting own data" title="Reporting of own data">
+    </a>
+    <figcaption><em>Reporting of own data</em></figcaption>
+  </figure></p>
+<hr>
+<h2 id="6-accountant-retrieves-messages-for-a-client-via-dialogporten">6. Accountant retrieves messages for a client via Dialogporten</h2>
+<p>Scenario: System user retrieves messages sent to a client.</p>
+<h3 id="preconditions-5">Preconditions</h3>
+<ul>
+<li>Access to messages is included in the access package.</li>
+<li>The system supports Dialogporten.</li>
+</ul>
+<h3 id="steps-5">Steps</h3>
+<ol>
+<li>Request a system user<br>
+The vendor sends a request with requirements for message scope.</li>
+<li>Approval<br>
+The accountant/organization approves the request.</li>
+<li>Client linking<br>
+The client administrator has linked the client to the system user.</li>
+<li>Retrieve token<br>
+Token is retrieved from Maskinporten.</li>
+<li>Retrieve messages<br>
+Messages are fetched via API.</li>
+<li>Validation<br>
+Altinn validates and returns messages.</li>
+</ol>
+<hr>
+<h2 id="7-organization-sends-a-file-via-a-brokerage-service-broker">7. Organization sends a file via a brokerage service (broker)</h2>
+<p>Scenario: Submission of registration of title (tinglysning) via the Land Registry&rsquo;s brokerage service.</p>
+<h3 id="preconditions-6">Preconditions</h3>
+<ul>
+<li>The Land Registry has defined a resource and access.</li>
+<li>The system vendor has registered the system and received approval.</li>
+</ul>
+<h3 id="steps-6">Steps</h3>
+<ol>
+<li>User sends the registration via the system.</li>
+<li>Token is retrieved from Maskinporten.</li>
+<li>The API is called with the token.</li>
+<li>Access is validated by Altinn.</li>
+</ol>
+<hr>
+<h2 id="8-organization-has-developed-its-own-reporting-system">8. Organization has developed its own reporting system</h2>
+<p>Scenario: Self-developed solution for submission via a brokerage service.</p>
+<h3 id="preconditions-7">Preconditions</h3>
+<ol>
+<li>Agreement with DigDir and access to the system register.</li>
+<li>The system is registered with the necessary rights.</li>
+</ol>
+<h3 id="steps-7">Steps</h3>
+<ol>
+<li>A request for a system user is sent (to itself).</li>
+<li>The request is approved.</li>
+<li>Token is retrieved.</li>
+<li>The system sends data via API.</li>
+</ol>
+<p><figure>
+    <a href="homemadesystem.png">
+        <img src="homemadesystem.png" alt="Team access" title="Homemade system">
+    </a>
+    <figcaption><em>Homemade system</em></figcaption>
+  </figure></p>
+<hr>
+<h2 id="9-organization-has-purchased-sap-for-local-installation">9. Organization has purchased SAP for local installation</h2>
+<p>Scenario: SAP software is installed on the organization&rsquo;s own servers, without SAP having control.</p>
+<h3 id="preconditions-8">Preconditions</h3>
+<ol>
+<li>The organization has an agreement with DigDir for access to the system register.</li>
+<li>The organization has created a Maskinporten client.</li>
+<li>The organization registers the system in the register representing the SAP installation, with the necessary access rights.</li>
+<li>The key for the client is installed and available on the server.</li>
+</ol>
+<h3 id="steps-8">Steps</h3>
+<ol>
+<li>A request to create a system user is sent to the organization itself.</li>
+<li>The request is approved and the system user is created with the correct rights.</li>
+<li>The system can now create Maskinporten tokens for the system user and call the necessary APIs.</li>
+</ol>
+<p>Note: In such scenarios, the system vendor cannot share its own certificate/key pair with the system customer, as this could lead to misuse and access to customer data across system customers.</p>
+<hr>
+<h2 id="10-rett-revisjon-is-accountant-and-auditor-reporting-the-shareholder-register-for-clients">10. Rett Revisjon is accountant and auditor reporting the shareholder register for clients</h2>
+<p>Scenario: The firm Rett Revisjon offers accounting and auditing services in the market. For audit clients, Rett Revisjon is registered in the ER with the role REVI for their customers.</p>
+<p>For accounting clients, some have registered Rett Revisjon as their accountant with the role REGN, while others have organization-delegated access packages such as Skattegrunnlag.</p>
+<p>The service &ldquo;Reporting shareholder register&rdquo; has a setup that grants the following access packages the right to report</p>
+<ul>
+<li>regnskapsforer-med-signeringsrettighet (ER registered accountant)</li>
+<li>ansvarlig-revisor (ER registered auditor)</li>
+<li>skattegrunnlag (organization-delegated access package from the client&rsquo;s CEO)</li>
+<li>revisormedarbeider (ER registered auditor)</li>
+</ul>
+<p>Rett Revisjon has purchased Maestro to report the shareholder register.</p>
+<h3 id="preconditions-9">Preconditions</h3>
+<ul>
+<li>Rett Revisjon has shared with Maestro which client relationship they have for each customer.</li>
+</ul>
+<h3 id="steps-9">Steps</h3>
+<ol>
+<li>Maestro sends a request to create a system user for client relationships that require <em>revisormedarbeider</em>.</li>
+<li>Maestro sends a request to create a system user for client relationships that require <em>skattegrunnlag</em>.</li>
+<li>Maestro sends a request to create a system user for client relationships that require <em>regnskapsforer-med-signeringsrettighet</em>.</li>
+<li>Rett Revisjon accepts these requests.</li>
+<li>Rett Revisjon allocates their clients to the correct system users (see which package is linked to the system user).</li>
+<li>Rett Revisjon uses Maestro to report for Customer A.</li>
+<li>Maestro must at submission time know which type of client relationship Customer A has with Rett Revisjon to select the correct system user. This must be shared by Rett Revisjon.</li>
+<li>Maestro must request a system user token from Maskinporten for the correct system user.</li>
+<li>Maestro submits the shareholder register with the correct system user token.</li>
+<li>The Tax Administration authorizes that the system user has the right to report the shareholder register for Customer A.</li>
+</ol>
+<p><figure>
+    <a href="two_system_users.png">
+        <img src="two_system_users.png" alt="Scenario with system user for customers with multiple types of client relationships" title="Customers with multiple types of client relationships">
+    </a>
+    <figcaption><em>Customers with multiple types of client relationships</em></figcaption>
+  </figure></p>
+<p>Note: An alternative solution would be to register a system per customer type and link each system user to that. This avoids extref but then you must manage a corresponding large number of clients.</p>
+<h2 id="10b-new-customers">10b. New customers</h2>
+<p>Rett Revisjon has acquired new customers. These must be linked to the correct system user based on the type of client relationship.</p>
+<h3 id="preconditions-10">Preconditions</h3>
+<ul>
+<li>Rett Revisjon knows it has acquired new customers.</li>
+</ul>
+<h3 id="steps-10">Steps</h3>
+<ol>
+<li>Go to system user admin.</li>
+<li>Identify the correct system user based on which customer to link to the system user.</li>
+<li>Add the customer.</li>
+</ol>
+<h3 id="screenshots">Screenshots</h3>
+<p>Below are some screenshots for this scenario.</p>
+<p><figure>
+    <a href="request_1.png">
+        <img src="request_1.png" alt="System user request" title="System user request">
+    </a>
+    <figcaption><em>System user request</em></figcaption>
+  </figure></p>
+<p><figure>
+    <a href="request_2.png">
+        <img src="request_2.png" alt="System user request" title="System user request">
+    </a>
+    <figcaption><em>System user request</em></figcaption>
+  </figure></p>
+<p><figure>
+    <a href="systemusers.png">
+        <img src="systemusers.png" alt="System user request" title="Overview of system users">
+    </a>
+    <figcaption><em>Overview of system users</em></figcaption>
+  </figure></p>
+<p><figure>
+    <a href="systemuserdetails.png">
+        <img src="systemuserdetails.png" alt="System user request" title="System user details">
+    </a>
+    <figcaption><em>System user details</em></figcaption>
+  </figure></p>
+<p><figure>
+    <a href="addclient.png">
+        <img src="addclient.png" alt="System user request" title="Link client to system user">
+    </a>
+    <figcaption><em>Link client to system user</em></figcaption>
+  </figure></p>
+<h2 id="nav-scenario-a-functionality-not-currently-prioritized">NAV Scenario A (functionality not currently prioritized)</h2>
+<p>Example: Accountant uses &ldquo;Superavstemming&rdquo; from Kontrollen AS.</p>
+<h3 id="challenges">Challenges</h3>
+<ul>
+<li>NAV does not offer access packages with granularity only for A06/A07.</li>
+<li>Granular rights for system users or clients are not supported.</li>
+</ul>
+<h3 id="steps-11">Steps</h3>
+<ol>
+<li>System vendor sends a request for a limited system user.</li>
+<li>The accountant approves.</li>
+<li>Clients are added and assigned only A06/A07.</li>
+<li>Reporting occurs via the system.</li>
+<li>Token is retrieved and the API is called.</li>
+<li>Authorization via Altinn PDP.</li>
+</ol>
+<hr>
+<h2 id="nav-scenario-b-functionality-not-currently-prioritized">NAV Scenario B (functionality not currently prioritized)</h2>
+<p>The service provider has purchased the system Superavstemming from Kontrollen AS.<br>
+Superavstemming needs the necessary accesses to retrieve reconciliation data for the a-reporting (A06/A07) for the clients the system will be used for.<br>
+The service provider wants to ensure that Superavstemming does not receive rights beyond retrieving reconciliation data for a-reporting.<br>
+The client has only purchased the service &ldquo;reconciliation of a-reporting&rdquo; and wants to delegate rights only for this.<br>
+(Here there are a few specific rights needed, likely not a whole access package, as access packages are often coarse-grained.)</p>
+<hr>
+<h2 id="nav-scenario-c-functionality-not-currently-prioritized">NAV Scenario C (functionality not currently prioritized)</h2>
+<p>The service provider has purchased the system Superavstemming from Kontrollen AS.<br>
+Superavstemming needs the necessary accesses to retrieve reconciliation data for a-reporting (A06/A07) for the relevant clients.<br>
+The service provider wants to ensure that Superavstemming does not receive rights beyond what is necessary.<br>
+The client has purchased several services but wants to delegate only the necessary rights for the relevant services.<br>
+(Here there will be several different rights relevant, but there is no single suitable access package.)</p>
+<hr>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/authorization/guides/system-vendor/system-user/userscenarios/_index.en.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Edit page on GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#terms">Terms</a>
+      <ul>
+        <li><a href="#system-vendor">System vendor</a></li>
+        <li><a href="#end-user-system">End-user system</a></li>
+        <li><a href="#system-user">System user</a></li>
+        <li><a href="#system-customer">System customer</a></li>
+        <li><a href="#system-user-for-client-relationships">System user for client relationships</a></li>
+        <li><a href="#system-user-token">System user token</a></li>
+        <li><a href="#client">Client</a></li>
+        <li><a href="#client-administrator">Client administrator</a></li>
+        <li><a href="#access-package">Access package</a></li>
+      </ul>
+    </li>
+    <li><a href="#general-assumptions">General assumptions</a></li>
+    <li><a href="#access-control-in-the-end-user-system">Access control in the end-user system</a></li>
+    <li><a href="#1-registered-accountant-reports-data-for-a-client">1. Registered accountant reports data for a client</a>
+      <ul>
+        <li><a href="#preconditions">Preconditions</a></li>
+        <li><a href="#steps">Steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-property-manager-reports-data-for-the-principal">2. Property manager reports data for the principal</a>
+      <ul>
+        <li><a href="#preconditions-1">Preconditions</a></li>
+        <li><a href="#steps-1">Steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-accountant-needing-to-differentiate-access-to-system-user">3. Accountant needing to differentiate access to system user</a>
+      <ul>
+        <li><a href="#challenge">Challenge</a></li>
+        <li><a href="#preconditions-2">Preconditions</a></li>
+        <li><a href="#steps-2">Steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-unregistered-accountant-reports-data-for-a-client">4. Unregistered accountant reports data for a client</a>
+      <ul>
+        <li><a href="#preconditions-3">Preconditions</a></li>
+        <li><a href="#steps-3">Steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-organization-reports-its-own-data">5. Organization reports its own data</a>
+      <ul>
+        <li><a href="#preconditions-4">Preconditions</a></li>
+        <li><a href="#steps-4">Steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-accountant-retrieves-messages-for-a-client-via-dialogporten">6. Accountant retrieves messages for a client via Dialogporten</a>
+      <ul>
+        <li><a href="#preconditions-5">Preconditions</a></li>
+        <li><a href="#steps-5">Steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#7-organization-sends-a-file-via-a-brokerage-service-broker">7. Organization sends a file via a brokerage service (broker)</a>
+      <ul>
+        <li><a href="#preconditions-6">Preconditions</a></li>
+        <li><a href="#steps-6">Steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#8-organization-has-developed-its-own-reporting-system">8. Organization has developed its own reporting system</a>
+      <ul>
+        <li><a href="#preconditions-7">Preconditions</a></li>
+        <li><a href="#steps-7">Steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#9-organization-has-purchased-sap-for-local-installation">9. Organization has purchased SAP for local installation</a>
+      <ul>
+        <li><a href="#preconditions-8">Preconditions</a></li>
+        <li><a href="#steps-8">Steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#10-rett-revisjon-is-accountant-and-auditor-reporting-the-shareholder-register-for-clients">10. Rett Revisjon is accountant and auditor reporting the shareholder register for clients</a>
+      <ul>
+        <li><a href="#preconditions-9">Preconditions</a></li>
+        <li><a href="#steps-9">Steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#10b-new-customers">10b. New customers</a>
+      <ul>
+        <li><a href="#preconditions-10">Preconditions</a></li>
+        <li><a href="#steps-10">Steps</a></li>
+        <li><a href="#screenshots">Screenshots</a></li>
+      </ul>
+    </li>
+    <li><a href="#nav-scenario-a-functionality-not-currently-prioritized">NAV Scenario A (functionality not currently prioritized)</a>
+      <ul>
+        <li><a href="#challenges">Challenges</a></li>
+        <li><a href="#steps-11">Steps</a></li>
+      </ul>
+    </li>
+    <li><a href="#nav-scenario-b-functionality-not-currently-prioritized">NAV Scenario B (functionality not currently prioritized)</a></li>
+    <li><a href="#nav-scenario-c-functionality-not-currently-prioritized">NAV Scenario C (functionality not currently prioritized)</a></li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">About Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+

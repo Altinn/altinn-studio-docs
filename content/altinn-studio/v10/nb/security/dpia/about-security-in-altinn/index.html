@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="nb" class="js csstransforms3d">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="" />
+<meta name="altinn_pagedir" class="elastic" content="security/dpia/about-security-in-altinn/" />
+<meta name="altinn_title" class="elastic" content="5. Om sikkerheten i Altinn" />
+
+
+
+<title>5. Om sikkerheten i Altinn – Altinn</title><link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+    <link href="/css/nucleus.css" rel="stylesheet">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/css/hybrid.css" rel="stylesheet">
+
+    <link href="/css/fortawesome.css" rel="stylesheet">
+    <link href="/css/designsystem.css" rel="stylesheet"><link href="/css/theme.css" rel="stylesheet"><script src="/js/jquery-2.x.min.js"></script>
+<link href="/css/custom.css" rel="stylesheet">
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114303148-1"></script>
+<script>
+var host = window.location.hostname;
+if(host != "localhost")
+{
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
+}
+</script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script><style>
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+  </head>
+  <body class="a-page" data-url="/nb/security/dpia/about-security-in-altinn/"><nav class="a-jumpnav">
+  <ul class="no-decoration d-flex">
+    <li><a class="sr-only sr-only-focusable" href="#content">Hopp til hovedinnholdet</a></li><li><a class="sr-only sr-only-focusable" href="#docsmenu">Hopp til hovedmeny</a></li></ul>
+</nav>
+
+<header class="a-header ">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+
+        
+        <nav class="a-globalNav " id="primary-nav">
+          <a href="/nb/" class="a-globalNav-logo">
+            <img src="/images/altinn-new-logo-white.svg" alt="Altinn logo" class="adocs-logo">
+            <span class="sr-only">Til forsiden</span>
+          </a>
+
+          <button class="navbar-toggler d-md-none" type="button"><span class="sr-only">Vis/skjul meny</span></button>
+
+          <div class="collapse navbar-toggleable-sm a-globalNav-main" id="exCollapsingNavbar2">
+            <ul id="exCollapsingNavbar">
+              <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <span>Produkt</span>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle">
+    <a aria-hidden="true" class="dropdown-item" href="/nb/altinn-studio/v8/">
+      <p class="product-item">Altinn Studio</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/authorization/">
+      <p class="product-item">Autorisasjon</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/dialogporten/">
+      <p class="product-item">Dialogporten</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/broker/">
+      <p class="product-item">Formidling</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/events/">
+      <p class="product-item">Events</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/correspondence/">
+      <p class="product-item">Melding</p>
+    </a>
+    <a aria-hidden="true" class="dropdown-item" href="/nb/notifications/">
+      <p class="product-item">Varsling</p>
+    </a>
+</div>
+</li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/api/">api</a>
+              </li>
+              <li>
+                <a class="a-nav-link a-hvr-underline " href="/nb/community/">community</a>
+              </li>
+            </ul>
+          </div>
+        </nav> 
+
+        <ul class="nav nav-pills a-header-options" id="nav-list">
+           <li class="nav-item d-md-block">
+              <button id="search-button" class="nav-link adocs-toggle-search" type="button"
+                  data-toggle="collapse" data-target="#collapseSearchContent" aria-expanded="false" aria-controls="collapseSearchContent"
+                  onclick="setTimeout(function(){document.getElementsByClassName('pagefind-ui__search-input')[0].focus()},100); return true;">
+                  <span>
+                      <i class="ai ai-search">
+                        <span class="sr-only">Søk</span></i>
+                  </span>
+              </button>
+          </li>
+          <li class="nav-item dropdown d-md-block"><a class="nav-link dropdown-toggle a-languageSwitcher" aria-expanded="false" data-toggle="dropdown" aria-haspopup="true" href="#">
+  <img src="/images/nb.svg" class="" alt="Language" style="height: 1.2em; vertical-align: bottom;"/>
+</a>
+<div class="dropdown-menu a-dropdown-languages a-dropdownTriangle" style="z-index:100000;"><a aria-hidden="true" class="dropdown-item" href="/nb/security/dpia/about-security-in-altinn/">
+      <img src="/images/nb.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">Bokmål ✓</span><br></p>
+    </a><a aria-hidden="true" class="dropdown-item" href="/en/security/dpia/about-security-in-altinn/">
+      <img src="/images/en.svg" class="a-iconLeft a-flag" alt="" />
+      <p>
+        <span class="a-h3">English</span><br></p>
+    </a></div>
+</li>
+        </ul>
+
+      </div>
+    </div> 
+  </div> 
+</header>
+
+<div id="collapseSearchContent" class="a-collapseContent adocs-collapseSearch collapse">
+  <div class="a-collapseContent-inside px-0">
+    <div class="bg-white pt-3 pb-3"><div class="container">
+    <div class="row">
+         
+        <div class="form-group a-form-group a-form-group-large col-sm-12">
+            <label class="a-h2" for="search-by">Hva leter du etter?</label>
+            <div id="search-by" style="margin: auto;" class=""></div>
+        </div>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', (event) => {
+                new PagefindUI({
+                    element: "#search-by",
+                    pageSize: 10,
+                    excerptLength: 25,
+                    showSubResults: true,
+                    resetStyles: true,
+                    showImages: true,
+                    processResult: function (result) {
+                        if (result?.meta?.image) {
+                            let resultBase = new URL(result.url, window.location);
+                            let remappedImage = new URL(result.meta.image, resultBase);
+                            if (remappedImage.hostname !== window.location.hostname) {
+                                result.meta.image = remappedImage.toString();
+                            } else {
+                                result.meta.image = remappedImage.pathname;
+                            }
+                        }
+                    }
+                });
+                
+                var searchField = document.getElementsByClassName("pagefind-ui__search-input")[0];
+                if (searchField) {
+                    searchField.setAttribute('aria-label', 'Søk');
+                }
+
+                var sKey = "as";
+                searchField.addEventListener("blur", () => {
+                    sessionStorage.setItem(sKey, searchField.value);
+                });
+
+                var searchButton = document.getElementById("search-button");
+                searchButton.addEventListener("click", () => {
+                    var scrollContainer = document.getElementsByClassName('adocs-scrollcontainer')[0];
+                    if (!searchField.checkVisibility()) {
+                        scrollContainer.setAttribute('style', 'visibility: hidden !important');
+                    } else {
+                        scrollContainer.removeAttribute('style');
+                    }
+                }); 
+                
+                if (sessionStorage.getItem(sKey)) {
+                    searchField.value = sessionStorage.getItem(sKey);
+                    searchField.dispatchEvent(new Event("input"));
+                }
+            });
+        </script>
+        <style>
+          :root {
+            --pagefind-ui-scale: 0.9;
+            --pagefind-ui-text: #000000;
+            --pagefind-ui-border: #1EAEF7;
+            --pagefind-ui-border-radius: 0;
+          }
+          .pagefind-ui__search-input::placeholder {
+            color: #757575 !important;
+            opacity: 1 !important;
+            font-weight: normal !important;
+          }
+          .pagefind-ui__result-link:hover, .pagefind-ui__result-link:hover {
+            text-decoration: none !important;
+          }
+          .pagefind-ui__form:before {
+            opacity: 1 !important;
+          }
+        </style>
+        
+    </div>
+</div></div>
+  </div>
+</div>
+<div class="container pt-2 pt-md-3 pt-lg-5">      
+      <div class="adocs-scrollcontainer">
+        <div class="row">
+          <div class="col-sm-12 col-md-10 last-modified">Sist endret: 24. mar. 2024</div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 col-md-10"><nav id="sidebar" class=""><div class="highlightable">
+  <ul id="docsmenu" class="topics">
+      <li class="dd-item">
+        <a href="/nb/security/"><span>Sikkerhet</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/security/dpia/"><span>DPIA</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/security/dpia/summary/"><span>Sammendrag</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/security/dpia/introduction/"><span>1. Innledning</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/security/dpia/processing-and-purpose/"><span>2. Behandling og formål</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/security/dpia/about-use-of-cloud/"><span>3. Bruk av skytjenester</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/security/dpia/privacy-assessments/"><span>4. Personvernvurderinger</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/security/dpia/about-security-in-altinn/"><span>5. Om sikkerheten i Altinn</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/security/dpia/conclusion/"><span>6. Konklusjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/security/dpia/change-log/"><span>Endringslogg</span></a></li></ul></li>
+      <li class="dd-item">
+        <a href="/nb/security/whitepaper/"><span>Whitepaper</span><i class="fa fa-caret-right fa-lg category-icon"></i></a><ul>
+      <li class="dd-item">
+        <a href="/nb/security/whitepaper/terms/"><span>Begreper</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/security/whitepaper/cloud/"><span>Sikkerhet i skyen</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/security/whitepaper/open-source/"><span>Åpen kildekode</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/security/whitepaper/development/"><span>Sikker utvikling</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/security/whitepaper/environments/"><span>Miljøer</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/security/whitepaper/access-control/"><span>Tilgangsstyring</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/security/whitepaper/encryption/"><span>Kryptering</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/security/whitepaper/isolation/"><span>Isolasjon</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/security/whitepaper/monitoring/"><span>Overvåkning</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/security/whitepaper/testing/"><span>Sikkerhetstesting</span></a></li>
+      <li class="dd-item">
+        <a href="/nb/security/whitepaper/attachments/"><span>Tillegg</span></a></li></ul></li></ul></li></ul>
+</div>
+</nav>
+
+<script>
+          $("li.dd-item a[href='/nb/security/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/security/dpia/']").parent().addClass("parent");
+ $("li.dd-item a[href='/nb/security/dpia/about-security-in-altinn/']").parent().addClass("active");
+        </script>
+        <section id="body">
+          <div id="content" class="adocs-content js-moveChildrenTo">
+        <div id="overlay"></div>
+        <div class="a-text"><div id="top-bar">            
+            <div id="breadcrumbs">
+                <span id="sidebar-toggle-span" class="adocs-sidebarToggle">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                    <span class="sr-only">Vis/skjul meny</span>
+                  </a>
+                </span>
+                <span class="links" data-pagefind-meta="🍞"><a href='/nb/security/'>Sikkerhet</a> <span class='adocs-breadcrumb-divider'> / </span> <a href='/nb/security/dpia/'>DPIA</a> <span class='adocs-breadcrumb-divider'> / </span> 5. Om sikkerheten i Altinn</span>
+            </div>            
+          </div><div id="body-inner" data-pagefind-body><h1 class="a-fontBold">5. Om sikkerheten i Altinn</h1>
+              <p class="a-leadText" id="leadText"></p>
+
+<h2 id="51om-informasjonssikkerhet-i-altinn">5.1	Om informasjonssikkerhet i Altinn</h2>
+<p>Digdir er forpliktet til å ivareta ansvaret for informasjonssikkerhet i henhold til personopplysningslovens § 1, jf.
+personvernforordningen artikkel 32. Informasjonssikkerhet omfatter:</p>
+<ul>
+<li>Sikring av konfidensialitet; beskyttelse mot at uvedkommende får innsyn i opplysningene.</li>
+<li>Sikring av integritet; beskyttelse mot utilsiktet endring av opplysningene.</li>
+<li>Sikring av tilgjengelighet; sørge for at tilstrekkelige og relevante opplysninger er til stede.</li>
+</ul>
+<p>Digdir plikter for øvrig å etterkomme krav til behandlingsaktivitetene som ellers følger av relevante lover og
+forskrifter. Databehandlingen vil i tillegg utføres i henhold til gjeldende systemdokumentasjon og øvrige
+rutinebeskrivelser for Altinn. Dokumentasjon på dette er på forespørsel tilgjengelig for blant annet Datatilsynet og
+Personvernnemnda.</p>
+<p>ASF har forpliktet seg til aktivt å opprettholde en forståelse for relevante trusler og risiko, og å vedlikeholde
+tilstrekkelige sikkerhetstiltak ut fra et besluttet risikonivå. Overordnet oversikt over tiltak oppdateres i protokoll
+over behandlingsaktiviteter for Altinn.</p>
+<p>Videre skal den enkelte tjenesteeier administrere de tilganger som deres egne ansatte/konsulenter har til informasjon i
+dokumentasjon om Altinn-løsningene og i servicedialogen mellom tjenesteeierne og ASF. Tilgangen skal være styrt i
+henhold til tjenstlig behov.</p>
+<p>I avtalene med flere av våre underleverandører for Altinn II er det kravsatt at de etterlever egne prosesser og rutiner
+fra eget ISMS. Når det gjelder Altinn 3 etterlever Microsoft Azure en rekke nasjonale og internasjonale standarder og
+blir revidert av tredjeparter.</p>
+<p>Det er innført regler for å støtte sikker utviklingsprosess, og vi har også innført automatiske verktøy for ytterligere
+støtte til å oppnå sikker kode med god kvalitet. Det utføres personvernmessige og sikkerhetsmessige vurderinger for alle
+nye behovsforespørsler. Alle rettinger (bugfix) og endringer (change) blir kontrollert for sikkerhetssvakheter både
+logisk (funksjon) og teknisk (kode). Rettinger og endringer som kan ha en sikkerhetsmessig risiko blir sikkerhetstestet
+etter anbefalte teknikker før deployering til produksjon. Vi engasjerer innleid tredjepart med jevne mellomrom for
+sikkerhetstesting av store endringer og gjennomgang av eksisterende funksjonalitet.</p>
+<p>Det utføres risikovurderinger tilknyttet ny funksjonalitet i løsningen, og ved innføring av nye verktøy og systemer for
+bruk i utvikling eller forvaltning av løsningen. Det er kravsatt at levererandørene for systemdrift og applikasjonsdrift
+av Altinn II også utfører regelmessige ROS-analyser, samt ved endringer relatert til løsningen. For Altinn 3 utfører
+Digdir selv ROS-analyser, og benytter seg av innleide sikkerhetskonsulenter ved behov. Innleide utviklings- og
+forvaltningsressurser bidrar også.</p>
+<p>Det gjennomføres regelmessige sikkerhetsrevisjoner av Altinn-løsningen, både Altinn II og 3. Tjenesteeierne i Altinn kan
+be om å bli forelagt sikkerhetsrevisjoner som viser hvordan Altinn håndterer tjenesteeiers data, og har også muligheten
+til å be om ytterligere sikkerhetsrevisjoner. Sikkerhetsrelatert informasjon kan være underlagt særlige begrensninger
+når det gjelder innsyn og spredning, som tjenesteeier må forholde seg til, herunder at informasjonen kan være gradert
+iht. sikkerhetsloven.</p>
+<h3 id="511-risikovurdering">5.1.1 Risikovurdering</h3>
+<p>Som det fremgår ovenfor, er Altinn underlagt strenge krav til sikkerheten. ROS-analyser gjøres og oppdateres løpende.
+Risikoreduserende tiltak implementeres for å ta ned risikoer.</p>
+<p>Også for skydrift av Altinn er det gjennomført analyser av risikoer og sårbarheter, med tilhørende risikoreduserende
+tiltak. I det følgende vil vi redegjøre for risikoer med fokus på sluttbrukerens personvern.</p>
+<h4 id="5111-integritet-og-konfidensialitet">5.1.1.1 Integritet og konfidensialitet</h4>
+<p>Trusler mot integriteten og konfidensialiteten av sluttbrukerens personopplysninger eksisterer allerede i Altinn II, som
+driftes og forvaltes “on-prem” ved hjelp av private leverandører. Ved skydrift av Altinn av en internasjonal
+skyleverandør, har vi vurdert det slik at risikobildet ikke endres.</p>
+<p>Det er en viss risiko for at skyleverandøren, eller dennes underleverandører, har urettmessige tilganger til data i
+løsningen, som kan bli utnyttet av en høykapasitet trusselagent.</p>
+<p>Det er også er betydelige fordeler for integriteten og konfidensialiteten ved bruk av en velrennomert
+skytjenesteleverandør som Microsoft, da en slik leverandør har betydelige kapabiliteter når det gjelder å jobbe med
+informasjonssikkerhet enn mindre, lokale, leverandører med betydelig færre ressurser og midler.</p>
+<h4 id="5112-tilgjengelighet">5.1.1.2 Tilgjengelighet</h4>
+<p>Når det gjelder tilgjengeligheten av dataene, har Microsoft Azure høyt tjenestenivå og oppetid. Imidlertid inneholder
+standardvilkårene bestemmelser om at leverandøren på svært kort tid kan legge ned sine tjenester eller avslutte avtalen.</p>
+<p>Denne risikoen vil medføre at det i utgangspunktet, teoretisk og avtalemessig, er en mulighet for endring knyttet til
+tilgjengeligheten av sluttbrukerens personopplysninger, selv om tjenestenivået til daglig vil kunne være bedre enn
+allerede etablerte nasjonale driftsløsninger.</p>
+<p>Vi vurderer det imidlertid også slik at en stor internasjonal skytjenesteleverandør er avhengig av tillit, og
+tilgjengelighet på sine løsninger – og kundens data. Og at leverandøren vil strekke seg langt for å sikre svært god
+tilgjengelighet.</p>
+<h4 id="5113-rett-til-informasjon-og-innsyn-åpenhet">5.1.1.3 Rett til informasjon og innsyn (åpenhet)</h4>
+<p>Det er Digdir ved ASF som vil håndtere den registrertes rett til informasjon og innsyn i data som vi er
+behandlingsansvarlige for.</p>
+<p>Tjenesteeierne vil håndtere den registrertes rett til informasjon og innsyn i data i sine tjenester, som tjenesteeierne
+er behandlingsansvarlige for. Skyleverandørenes standardvilkår har generelt bestemmelser om at leverandøren vil
+understøtte slike forespørsler fra kunden. Vi kan derfor ikke se at risiko for brudd på den registrertes rett til
+informasjon og innsyn vil øke med skydrift av Altinn.</p>
+<h4 id="5114-korrigering-endring-begrensning-og-sletting">5.1.1.4 Korrigering, endring, begrensning og sletting</h4>
+<p>Som tilfellet for informasjon og innsyn, er det fortsatt Digdir ved ASF som vil håndtere den registrertes rettigheter
+knyttet til dette. Og i de fleste tilfeller vil Altinn måtte henvise sluttbrukeren til den offentlige virksomhet som er
+datakilden for grunndatainformasjon som Altinn benytter, eller tjenesteeier for den enkelte tjenesten i Altinn.</p>
+<p>Vi kan i utgangspunktet ikke se større risiko for brudd på den registrertes rett til å få korrigert, endret eller
+begrenset behandlingen av sine personopplysninger.</p>
+<h4 id="5115-kobling-av-datasett">5.1.1.5 Kobling av datasett</h4>
+<p>Når det gjelder urettmessig kobling av datasett, vil i utgangspunktet ikke risikoen for dette øke – da det fortsatt er
+ASF og tjenesteeierne som vil kontrollere dette.</p>
+<h4 id="5116-særlige-forhold-ved-skytjenester">5.1.1.6 Særlige forhold ved skytjenester</h4>
+<p>Inngåelse av kontrakt med en internasjonal skydriftsleverandør betyr et stort utenlandsk selskap som kontraktsmotpart.
+Dette har konsekvenser for avtalen som inngås, som i stor grad består av standardvilkår.</p>
+<p>Dette er relevant fordi det ofte er et annet lands rett og tolkningsprinsipper som må legges til grunn i
+avtaleforholdet. Digdir sin avtale med Microsoft er underlagt irsk rett. Dette innfører tolkningsrisiko, prosessrisiko
+og praktiske begrensinger i vår evne og vilje til å forfølge avtalebrudd rettslig.</p>
+<h3 id="512-risikoreduserende-tiltak">5.1.2 Risikoreduserende tiltak</h3>
+<p>Digdir har innført økte og delvis nye risikoreduserende tiltak. Innføringen av slike tiltak, og den kontinuerlige
+oppfølgingen og kontrollen av dem, vil være underlagt etatens rutiner og prosesser, herunder vårt internkontrollregime.</p>
+<p>Risikoene og de risikoreduserende tiltakene er mer utførlig beskrevet i egne ROS-analyser og sikkerhetsdokumentasjon for
+Altinn 3, med mulige tiltakspunkter.</p>
+<h2 id="52-fordeler-for-den-registrertes-personvern">5.2 Fordeler for den registrertes personvern</h2>
+<p>Skydrift av Altinn vil også medføre positive konsekvenser for den registrertes personvern. Mer effektive digitale
+løsninger gjør at man kan forbedre dataminimering, samt enda enklere få oppdaterte og riktige opplysninger fra
+datakildene. Løsninger for tilgangsstyring, autorisasjon og samtykke for delingen av data kan også forbedres og få
+større gjenbruk i offentlig sektor, også i samspill med privat sektor.</p>
+<p>Bruk av kraftig prosesseringskraft og skalerbarhet i skyen, koblet med lavere kostnader forbundet med å utnytte en slik
+fleksibilitet, muliggjør også personvernvennlige tiltak i den digitale tjenesten som etableres.</p>
+<p>Det vil også bli langt raskere, enklere og mindre kostnadskrevende å konfigurere opp og ned miljøer etter behov, som
+gjør at man til enhver tid bare har det nødvendige antall tekniske miljø som inneholder data.</p>
+<p>Det er også slik at Microsoft, som de andre store skytjenesteleverandørene, benytter teknologi og standard programvare
+som generelt sett vil være enklere mht å oppdatere programvare med patching av sårbarheter enn en mer proprietær
+utviklet løsning.</p>
+<p>Microsoft lever også av å selge tillitstjenester, og er derfor svært opptatt av sikkerheten i sine løsninger og kundenes
+data – selv om de tar juridiske forbehold for å kunne operere globalt med akseptabel juridisk risiko. De vil generelt ha
+større kompetanse og kapasitet til å videreforedle sine løsninger og tjenester for å imøtekomme et trusselbilde som er i
+stadig endring, enn f.eks. lokale driftsleverandører som utelukkende opererer i Norge.</p>
+<p>Microsoft Azure er også sertifisert i henhold til svært mange nasjonale og internasjonale standarder, herunder i henhold
+til adekvansbeslutningen, og revideres jevnlig av tredjeparter – hvor det også blir tilgjengeliggjort rapporter for
+kundene.</p>
+
+
+<footer class=" footline" ></footer>
+                </div>
+              </div>
+              
+              
+            </div><div id="top-github-link">
+                  <a class="" href="https://github.com/altinn/altinn-studio-docs/blob/master/content/security/dpia/about-security-in-altinn/_index.nb.md" target="blank">
+                    <i class="fa fa-code-fork"></i>
+                    Endre denne siden i GitHub
+                  </a>
+                </div></section>
+        </div> 
+        <div class="col-md-2 d-none d-md-block">
+          <div class="toc-container">
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#51om-informasjonssikkerhet-i-altinn">5.1	Om informasjonssikkerhet i Altinn</a>
+      <ul>
+        <li><a href="#511-risikovurdering">5.1.1 Risikovurdering</a>
+          <ul>
+            <li><a href="#5111-integritet-og-konfidensialitet">5.1.1.1 Integritet og konfidensialitet</a></li>
+            <li><a href="#5112-tilgjengelighet">5.1.1.2 Tilgjengelighet</a></li>
+            <li><a href="#5113-rett-til-informasjon-og-innsyn-åpenhet">5.1.1.3 Rett til informasjon og innsyn (åpenhet)</a></li>
+            <li><a href="#5114-korrigering-endring-begrensning-og-sletting">5.1.1.4 Korrigering, endring, begrensning og sletting</a></li>
+            <li><a href="#5115-kobling-av-datasett">5.1.1.5 Kobling av datasett</a></li>
+            <li><a href="#5116-særlige-forhold-ved-skytjenester">5.1.1.6 Særlige forhold ved skytjenester</a></li>
+          </ul>
+        </li>
+        <li><a href="#512-risikoreduserende-tiltak">5.1.2 Risikoreduserende tiltak</a></li>
+      </ul>
+    </li>
+    <li><a href="#52-fordeler-for-den-registrertes-personvern">5.2 Fordeler for den registrertes personvern</a></li>
+  </ul>
+</nav></div>
+        </div>
+      </div> 
+    </div>
+    </div> <footer class="adocs-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <ul>
+                    <li>
+                        <a href="https://www.altinn.no/om-altinn/">Om Altinn</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn/altinn-studio/issues">Backlog</a>
+                    </li>
+                    <li>
+                        <a href="https://digdir-samarbeid.slack.com">Slack</a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Altinn">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js"></script>
+    <script src="/js/html5shiv-printshiv.min.js"></script>
+    <script src="/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js"></script>
+    <script src="/js/altinninfoportal.js"></script>
+    <script src="/js/altinndocs.js"></script>
+    <script src="/js/altinndocs-learn.js"></script>
+    <script src="/js/stickysidebar/rAF.js"></script>
+    <script src="/js/stickysidebar/ResizeSensor.js"></script>
+    <script src="/js/stickysidebar/sticky-sidebar.js"></script>
+
+    <style>
+      #TableOfContents {overflow-x: visible; overflow-y: scroll; scrollbar-width: none; -ms-overflow-style: none;}
+      #TableOfContents::-webkit-scrollbar {display: none;  }
+      #TableOfContents > ul > li {margin-top: 0.8em !important; list-style-type:none; list-style-position:inside;}
+      #TableOfContents li li {margin-left: 0.4em; list-style-type:circle;}
+      #TableOfContents li li:has(a.text-active) {list-style-type:disc;}
+      #TableOfContents a {border-bottom: 2px solid transparent;}
+      #TableOfContents a.text-active, #TableOfContents a:hover {border-bottom: 2px solid #1EAEF7;}
+    </style>
+    <script>
+      
+      class Scroller {
+        static init() {
+          if(document.querySelector('#TableOfContents')) {
+            this.tocLinks = document.querySelectorAll('#TableOfContents a');
+            this.headers = Array.from(this.tocLinks).map(link => {
+              var s = link.href.split('#')[1];
+              s = s.replace(/%C3%A6/g, "æ");
+              s = s.replace(/%C3%B8/g, "ø");
+              s = s.replace(/%C3%A5/g, "å");
+
+              return document.getElementById(s);
+            })
+            this.ticking = false;
+            window.addEventListener('scroll', (e) => {
+              this.onScroll()
+            })
+          }
+        }
+
+        static onScroll() {
+          if(!this.ticking) {
+            requestAnimationFrame(this.update.bind(this));
+            this.ticking = true;
+          }
+        }
+
+        static update() {
+          this.activeHeader ||= this.headers[0];
+          let activeIndex = this.headers.findIndex((header) => {
+            if (header != null) {
+              return header.getBoundingClientRect().top > 180;
+            }
+          });
+          if(activeIndex == -1) {
+            activeIndex = this.headers.length - 1;
+          } else if(activeIndex > 0) {
+            activeIndex--;
+          }
+          let active = this.headers[activeIndex];
+          if(active !== this.activeHeader) {
+            this.activeHeader = active;
+            this.tocLinks.forEach(link => link.classList.remove('text-active'));
+            this.tocLinks[activeIndex].classList.add('text-active');
+          }
+          this.ticking = false;
+        }
+      }
+
+      var a = new StickySidebar('#sidebar', {
+        topSpacing: 20,
+        bottomSpacing: 60,
+        containerSelector: '.adocs-scrollcontainer',
+        innerWrapperSelector: '.sidebar__inner',
+        minWidth: 768
+      });
+      if (document.getElementById("TableOfContents")) {
+        var a = new StickySidebar('.toc-container', {
+          topSpacing: 20,
+          bottomSpacing: 60,
+          containerSelector: '.adocs-scrollcontainer',
+          innerWrapperSelector: '#TableOfContents',
+          minWidth: 768
+        });
+      }
+    </script>
+    <link href="/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+    <script src="/mermaid/mermaid.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function(e) { Scroller.init();});
+      mermaid.initialize({startOnLoad:true});
+    </script>
+<script src="/js/custom.js"></script></body>
+</html>
+
