@@ -12,7 +12,7 @@ aliases:
 
 Statiske svaralternativer og kodelister er lettest å sette opp. Du kan legge dem direkte i komponentkonfigurasjonen (vi kaller dette ofte svaralternativer) eller i en json-fil i app-repositoriet (den enkleste formen for kodeliste). Velg metode basert på hvor mange komponenter som skal bruke dem. Hvis flere komponenter trenger de samme svaralternativene, bør du [legge dem i en json-fil](#fra-json-filer-kodeliste) og gjøre dem om til en kodeliste.
 
-Du kan også gjøre statiske svaralternativer (litt mer) dynamiske ved å [filtrere dem](../filtering/) med uttrykk. Trenger du enda mer fleksibilitet, kan du [lage en egen kodebasert kodeliste](../dynamic/).
+Du kan også gjøre statiske svaralternativer (litt mer) dynamiske ved å [filtrere dem](../../functionality/filtering/) med uttrykk. Trenger du enda mer fleksibilitet, kan du [lage en egen kodebasert kodeliste](../dynamic/).
 
 ## I komponentkonfigurasjonen (svaralternativer)
 

@@ -188,7 +188,7 @@ Du kan legge til både statiske og dynamiske parametre ved å sette opp `queryPa
 
 I eksempelet over vil systemet alltid sende parameteret `loyvetype=garanti` med (dette er helt statisk og vil ikke endre seg). Systemet sender parameteret `orgnummer={nr}` med, hvor `{nr}` er verdien på feltet `soknad.transportorOrgnummer` i datamodellen. Systemet sender parameteret `myndig={bool}` med, hvor `{bool}` blir enten `true` eller `false` basert på om verdien på feltet `soknad.alder` er større enn eller lik 18.
 
-Flere eksempler på uttrykk finner du i [dokumentasjonen for dynamikk]({{< relref "../../../dynamics" >}}), og den fullstendige oversikten over tilgjengelige funksjoner finner du i [referanseoversikten over uttrykk]({{< relref "../../../reference/logic/expressions" >}}).
+Flere eksempler på uttrykk finner du i [dokumentasjonen for dynamikk]({{< relref "../../../dynamics" >}}), og den fullstendige oversikten over tilgjengelige funksjoner finner du i [referanseoversikten over uttrykk](/nb/altinn-studio/v8/reference/logic/expressions/).
 
 ### Basert på datamodellen
 
