@@ -9,7 +9,7 @@ tags: [needsReview, translate]
 Legg til et prosessteg i `App/config/process/process.bpmn`, som i eksemplet nedenfor.
 
 {{% notice info %}}
-Vi anbefaler å dra inn prosessteget via prosessdesigneren i Altinn Studio. Da blir det generert et BPMN-diagram som viser flyten i appen. Merk at prosessdesigneren foreløpig ikke håndterer alle aspekter av konfigurasjonen, så du må supplere med noe manuelt oppsett.
+Vi anbefaler å dra inn prosessteget via prosessdesigneren i Altinn Studio. Da blir det generert et BPMN-diagram som viser flyten i appen. Merk at prosessdesigneren bare konfigurerer deler av steget, så du må legge til noe manuelt etterpå.
 {{% /notice %}}
 
 Signering består av to brukerhandlinger (user actions). Dersom Altinn-brukergrensesnittet brukes av appen, så vil disse bli kalt automatisk når man står i signeringssteget. Om kun API-et benyttes, så må disse kalles manuelt via `/actions`-endepunktet eller process next.

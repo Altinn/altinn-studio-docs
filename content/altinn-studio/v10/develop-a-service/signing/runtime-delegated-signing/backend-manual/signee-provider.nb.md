@@ -5,7 +5,7 @@ hidden: true
 tags: [needsReview, translate]
 ---
 
-For at appen skal vite hvem som skal få tilganger for å lese og signere må du implementere C#-grensesnittet `ISigneeProvider`.
+For at appen skal vite hvem som skal få tilganger for å lese og signere, må du implementere C#-grensesnittet `ISigneeProvider`.
 
 Grensesnittet må returnere et sett med personer og/eller virksomheter som skal få rettighetene. Det kan for eksempel være basert på datamodellen, som vist nedenfor. `Id`-attributtet i denne implementasjonen må matche ID-en som ble angitt i `<altinn:signeeProviderId>`.
 

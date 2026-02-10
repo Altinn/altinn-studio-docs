@@ -17,7 +17,7 @@ aliases:
 ## Avhengigheter
 
 ### Maskinporten
-Du trenger Maskinporten hvis du vil bruke [meldingstjenesten](#meldingstjenesten) og/eller begrense tilgangen på signaturobjektene.
+Du trenger Maskinporten hvis du vil bruke [meldingstjenesten](#meldingstjenesten-i-altinn) og/eller begrense tilgangen på signaturobjektene.
 
 Hvis du trenger hjelp med å sette opp Maskinporten i appen din, finner du det du trenger i [denne veiledningen](/nb/altinn-studio/v10/develop-a-service/reference/integration/maskinporten/).
 
