@@ -3,7 +3,7 @@ draft: true
 title: Kodelister fra repeterede strukturer
 linktitle: Fra datamodellen
 description: Kodelister hentet fra en repeterende struktur i datamodellen
-weight: 150
+
 tags: [needsReview, translate]
 aliases:
   - /nb/altinn-studio/guides/development/options/repeating-group-codelists

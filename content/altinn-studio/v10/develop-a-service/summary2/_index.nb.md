@@ -4,7 +4,7 @@ title: Legge til en oppsummering i en app
 linktitle: Oppsummering
 description: Slik legger du til en oppsummering i appen din
 tags: [oppsummering]
-weight: 110
+
 aliases:
   - /nb/altinn-studio/guides/summary2/
 ---

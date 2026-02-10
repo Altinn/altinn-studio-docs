@@ -4,7 +4,7 @@ title: Signer og send inn
 linktitle: Signer og send inn
 description: Slik setter du opp signering og innsending i ett steg i appen din.
 tags: [signering, needsReview, translate]
-weight: 52
+
 aliases:
 - /nb/altinn-studio/guides/signing/sign-and-submit
 ---

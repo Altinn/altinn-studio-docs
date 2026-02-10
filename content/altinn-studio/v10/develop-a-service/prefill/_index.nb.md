@@ -4,7 +4,7 @@ title: Forhåndsutfylling
 linktitle: Forhåndsutfylling
 description: Forhåndsutfylle data i appen
 tags: [needsReview, needsTranslation]
-weight: 70
+
 aliases:
 - /nb/altinn-studio/guides/prefill/
 ---

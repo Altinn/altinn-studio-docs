@@ -4,7 +4,7 @@ title: How to configure signing in your Altinn app
 linktitle: Signing
 description: Below you will find guides for common configurations of signing.
 tags: [signing]
-weight: 50
+
 aliases:
   - /altinn-studio/guides/signing/
 ---

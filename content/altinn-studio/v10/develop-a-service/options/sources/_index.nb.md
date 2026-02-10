@@ -2,7 +2,7 @@
 draft: true
 title: Kilder
 description: De ulike kildene Altinn Studio kan bruke for svaralternativer
-weight: 10
+
 tags: [needsReview, translate]
 ---
 

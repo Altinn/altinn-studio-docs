@@ -3,7 +3,7 @@ draft: true
 title: Datamodellering i Altinn Studio
 linktitle: Datamodellering
 description: Slik bruker du datamodelleringsverktøyet i Altinn Studio til å lage og redigere datamodeller
-weight: 1
+
 toc: true
 tags: [needsReview]
 aliases:

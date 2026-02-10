@@ -4,7 +4,7 @@ title: Sette opp et underskjema i en app
 linktitle: Underskjema
 description: Slik setter du opp et underskjema i appen din
 tags: [underskjema, needsReview, translate]
-weight: 150
+
 aliases:
   - /nb/altinn-studio/guides/subform/
 ---

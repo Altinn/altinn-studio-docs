@@ -4,7 +4,7 @@ title: Brukerstyrt signering
 linktitle: Brukerstyrt signering
 description: Slik setter du opp brukerstyrt signering i tjenesten din.
 tags: [signering, needsReview, translate]
-weight: 50
+
 aliases:
   - /nb/altinn-studio/guides/signing/runtime-delegated-signing
 ---

@@ -2,7 +2,7 @@
 draft: true
 title: Sorting
 description: Sorting the options in the list
-weight: 300
+
 ---
 
 Options are usually displayed in the order they are defined, but it is also possible to sort them alphabetically by

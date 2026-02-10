@@ -4,7 +4,7 @@ title: Rolle- og tilgangspakkebasert signering
 linktitle: Rolle/tilgangspakke
 description: Slik setter du opp signering basert på rolle eller tilgangspakke.
 tags: [rollebasert, signering, needsReview, translate, missingDesignerDocs]
-weight: 51
+
 aliases:
 - /nb/altinn-studio/guides/signing/role-based-signing
 ---

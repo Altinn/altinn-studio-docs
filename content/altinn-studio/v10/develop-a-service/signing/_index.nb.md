@@ -4,7 +4,7 @@ title: Signering
 linktitle: Signering
 description: Slik setter du opp signering i Altinn-appen din.
 tags: [signering, needsReview, translate]
-weight: 130
+
 aliases:
 - /nb/altinn-studio/guides/signing/
 - /nb/altinn-studio/v8/concepts/signing/

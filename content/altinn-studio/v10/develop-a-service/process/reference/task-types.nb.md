@@ -1,14 +1,13 @@
 ---
 draft: true
-title: Prosessoppgaver
-description: Prosessoppgaver i Altinn Studio
-tags: [altinn-apps, process, bpmn, task]
+title: Oppgavetyper
+linktitle: Oppgavetyper
+description: Oversikt over de forskjellige oppgavetypene i Altinn Studio
+tags: [needsReview, needsTranslation]
 
 ---
 
-## Oppgavetyper
-
-### Dataoppgave
+## Dataoppgave
 
 En dataoppgave er der brukeren/systemet som bruker den digitale tjenesten gjennom brukergrensesnittet eller API kan lese, skrive og endre data relatert til en digital tjeneste.
 
@@ -16,8 +15,6 @@ En dataoppgave krever at all data for en gitt prosessoppgave er gyldig og at bru
 
 Datavalidering er en del av standardlogikken i malen. Applikasjonsutviklere kan legge til egendefinert validering for hvert dataelement og oppgave.
 
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="v8">}}
 ```xml
 <bpmn:task id="Task_1" name="Utfylling">
     <bpmn:incoming>Flow1</bpmn:incoming>
@@ -29,18 +26,8 @@ Datavalidering er en del av standardlogikken i malen. Applikasjonsutviklere kan 
     </bpmn:extensionElements>
 </bpmn:task>
 ```
-{{</content-version-container>}}
-{{<content-version-container version-label="v7">}}
-```xml
-<bpmn:task id="Task_1" name="Utfylling" dataType="data">
-    <bpmn:incoming>Flow1</bpmn:incoming>
-    <bpmn:outgoing>Flow2</bpmn:outgoing>
-</bpmn:task>
-```
-{{</content-version-container>}}
-{{</content-version-selector>}}
 
-### Bekreftelsesoppgave
+## Bekreftelsesoppgave
 
 En bekreftelsesoppgave er der sluttbrukeren som bruker applikasjonen gjennom nettleseren eller systemet gjennom API kan bekrefte data som er en del av prosessen.
 
@@ -48,8 +35,6 @@ Når en bruker bekrefter en bekreftelsesoppgave oppretter systemet en bekreftels
 
 Eksempel på en bekreftelsesoppgave:
 
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="v8">}}
 ```xml
 <bpmn:task id="Task_2" name="Bekreftelse">
     <bpmn:incoming>Flow1</bpmn:incoming>
@@ -64,24 +49,14 @@ Eksempel på en bekreftelsesoppgave:
     </bpmn:extensionElements>
 </bpmn:task>
 ```
-{{</content-version-container>}}
-{{<content-version-container version-label="v7">}}
-```xml
-<bpmn:task id="Task_2" name="Bekreftelse" dataType="confirmation">
-    <bpmn:incoming>Flow1</bpmn:incoming>
-    <bpmn:outgoing>Flow2</bpmn:outgoing>
-</bpmn:task>
-```
-{{</content-version-container>}}
-{{</content-version-selector>}}
 
-### Signeringsoppgave
+## Signeringsoppgave
 
 En signeringsoppgave er der sluttbrukeren som bruker applikasjonen gjennom nettleseren eller systemet gjennom API kan signere data som er en del av prosessen.
 
 Når en bruker utfører en signering genererer systemet et signaturobjekt som inneholder brukerinformasjonen og en hash av dataelementene du har definert i prosessoppgaven. Samtidig oppretter systemet en hendelseslogg for instansen som detaljerer at bruker/system X har signert.
 
-Eksempel på en signeringsoppgave (bare tilgjengelig fra versjon 8):
+Eksempel på en signeringsoppgave:
 
 ```xml
 <bpmn:task id="Task_1">
@@ -109,14 +84,12 @@ Eksempel på en signeringsoppgave (bare tilgjengelig fra versjon 8):
 
 Som eksempelet ovenfor viser, krever en signaturoppgave ekstra informasjon. Se [Konfigurering av signering](signing) for detaljer om hvordan du konfigurerer en signaturoppgave og dens effekter.
 
-### Tilbakemeldingsoppgave
+## Tilbakemeldingsoppgave
 
 En tilbakemeldingsoppgave lar tjenesteeieren eller andre gi tilbakemeldinger til enheten som rapporterer data. Dette lar brukeren laste opp data og fortsette prosessen.
 
 Eksempel på en tilbakemeldingsoppgave:
 
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="v8">}}
 ```xml
 <bpmn:task id="Task_2" name="Bekreftelse">
     <bpmn:incoming>Flow1</bpmn:incoming>
@@ -128,13 +101,3 @@ Eksempel på en tilbakemeldingsoppgave:
     </bpmn:extensionElements>
 </bpmn:task>
 ```
-{{</content-version-container>}}
-{{<content-version-container version-label="v7">}}
-```xml
-<bpmn:task id="Task_2" name="Bekreftelse" dataType="feedback">
-    <bpmn:incoming>Flow1</bpmn:incoming>
-    <bpmn:outgoing>Flow2</bpmn:outgoing>
-</bpmn:task>
-```
-{{</content-version-container>}}
-{{</content-version-selector>}}

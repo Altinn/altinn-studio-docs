@@ -5,7 +5,7 @@ linktitle: Spørringsparametere
 description: Slik konfigurerer du forhåndsutfylling for en app basert på spørringsparametere.
 tags: [needsReview, needsTranslation]
 toc: false
-weight: 400
+
 ---
 
 Altinn-apper støtter forhåndsutfylling basert på spørringsparametere.

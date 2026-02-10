@@ -4,7 +4,7 @@ title: Dynamiske kodelister
 linktitle: Dynamisk
 description: Generert ved kjøring fra C#-kode
 toc: false
-weight: 100
+
 tags: [needsReview, translate]
 aliases:
   - /nb/altinn-studio/guides/development/options/dynamic-codelists

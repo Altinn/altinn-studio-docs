@@ -4,7 +4,7 @@ title: Runtime delegated signing
 linktitle: Runtime delegated
 description: Follow these steps to implement runtime delegated signing in your service
 tags: [signing]
-weight: 50
+
 aliases:
   - /altinn-studio/guides/signing/runtime-delegated-signing
 ---

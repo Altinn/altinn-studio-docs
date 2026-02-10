@@ -4,7 +4,7 @@ title: Kodelister og svaralternativer
 linktitle: Svaralternativer
 description: Slik konfigurerer du svaralternativer for en app
 toc: true
-weight: 140
+
 tags: [needsReview, translate]
 aliases:
 - /nb/altinn-studio/guides/options

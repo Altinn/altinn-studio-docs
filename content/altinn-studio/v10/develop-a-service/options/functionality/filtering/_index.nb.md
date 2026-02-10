@@ -2,7 +2,7 @@
 draft: true
 title: Filtrering
 description: Slik fjerner du noen alternativer fra listen
-weight: 200
+
 tags: [needsReview, translate]
 ---
 
