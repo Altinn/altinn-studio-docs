@@ -50,7 +50,7 @@ Det er satt opp standard feilmeldinger for alle valideringene som kjører på kl
 ### Standard feilmelding for obligatoriske felter
 
 Brukeren ser ikke feilmeldinger for tomme obligatoriske felter mens de fyller ut skjemaet.
-Feilmeldingene dukker først opp når systemet kjører validering – det vil si ved [enkeltfeltvalidering](#enkeltfeltvalidering), ved [lagring av en rad i en repeterende gruppe](#gruppevalidering) eller ved [navigering til en annen side]().
+Feilmeldingene dukker først opp når systemet kjører validering – det vil si ved [enkeltfeltvalidering](#enkeltfeltvalidering), ved [lagring av en rad i en repeterende gruppe](#gruppevalidering) eller ved navigering til en annen side.
 
 Feilmeldingen for obligatoriske felter er _"Du må fylle ut {0}"_. Her erstatter systemet `{0}` med feltet feilmeldingen gjelder.
 Systemet finner feltnavn på følgende måte:
@@ -153,7 +153,7 @@ Du kan for eksempel utvide eksempelet over:
 }
 ```
 
-Du kan skrive ønsket tekst direkte inn her, eller bruke en tekstnøkkel for en [tekst definert i ressursfilene]() for språkstøtte.
+Du kan skrive ønsket tekst direkte inn her, eller bruke en tekstnøkkel for en [tekst definert i ressursfilene](/nb/altinn-studio/v10/develop-a-service/options/functionality/texts/) for språkstøtte.
 
 Legg merke til at hvis du har en referanse til en definisjon, må feilmeldingen ligge på `property`-feltet, ikke på referansen/definisjonen.
 Eksempel:
@@ -262,7 +262,7 @@ public void ValidateData(object data, ModelStateDictionary validationResults)
 
 Se kommentarer i koden over for en forklaring på hva de ulike delene gjør.
 
-I det andre parameteret til metoden `AddModelError`, der det står "_Error: First name cannot contain the value '1337'_", kan du bruke en tekstnøkkel for en [tekst definert i ressursfilene]() for språkstøtte.
+I det andre parameteret til metoden `AddModelError`, der det står "_Error: First name cannot contain the value '1337'_", kan du bruke en tekstnøkkel for en [tekst definert i ressursfilene](/nb/altinn-studio/v10/develop-a-service/options/functionality/texts/) for språkstøtte.
 
 Et eksempel på en enkel task-validering som sjekker hvor lang tid brukeren har brukt på Task_1 og returnerer en feil hvis det har tatt lenger enn tre dager:
 
