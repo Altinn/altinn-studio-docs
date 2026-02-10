@@ -20,8 +20,8 @@ Dette er imidlertid ikke en langsiktig løsning, og med utgivelsen av [Altinn fe
 
 Du kan fortsatt oppleve at det mangler en eller to kodelister i Altinn 3 sammenlignet med Altinn 2. I så fall kan du vurdere følgende:
 
-- Kan du opprette en "pull request" i [Altinn felles kodelister-repositoriet](https://github.com/Altinn/codelists-lib-dotnet) og bidra til felleskapet slik at andre kan gjenbruke implementasjonen din?
-- Hvis du ikke har kunnskapen eller tiden til å opprette en "pull request", kan du gi oss beskjed ved å opprette en [ny sak](https://github.com/Altinn/codelists-lib-dotnet/issues/new/choose) og beskrive hvilken kodeliste du trenger, så vil vi enten opprette den eller hjelpe deg med å gjøre det.
+- Kan du opprette en pull request i [Altinn felles kodelister-repositoriet](https://github.com/Altinn/codelists-lib-dotnet) og bidra til felleskapet slik at andre kan gjenbruke implementasjonen din?
+- Hvis du ikke har kunnskapen eller tiden til å opprette en pull request, kan du gi oss beskjed ved å opprette en [ny sak](https://github.com/Altinn/codelists-lib-dotnet/issues/new/choose) og beskrive hvilken kodeliste du trenger, så vil vi enten opprette den eller hjelpe deg med å gjøre det.
 - Hvis du bestemmer deg for å bruke Altinn 2-versjonen, vær oppmerksom på at dette API-et ikke er tilgjengelig etter juni 2025.
 {{</notice>}}
 

@@ -11,7 +11,7 @@ Svaralternativer vises vanligvis i rekkefølgen de er definert i, men det er ogs
 Verdt å vite:
 
 - Sorteringen kan endre seg underveis dersom brukeren endrer språk i skjemaet.
-- Selve sorteringen gjøres etter [forhåndsvalgt verdi](/nb/altinn-studio/v8/guides/development/options/functionality/preselection/) har blitt funnet. Det betyr at sorteringsrekkefølgen ikke skal påvirke hvilket svaralternativ som er forhåndsvalgt.
+- Selve sorteringen gjøres etter [forhåndsvalgt verdi](../../preselection/) har blitt funnet. Det betyr at sorteringsrekkefølgen ikke skal påvirke hvilket svaralternativ som er forhåndsvalgt.
 
 ### Konfigurasjon
 

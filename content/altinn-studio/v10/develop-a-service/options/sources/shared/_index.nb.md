@@ -13,7 +13,7 @@ aliases:
 ## Hva er felles standard kodelister?
 Felles standard kodelister er lister som land, fylker, kommuner, kjønn, sivilstatus etc som du kan bruke i applikasjonen din uten at du selv trenger å vedlikeholde disse kodelistene.
 
-Kodelistene er laget som en egen [nuget-pakke](https://www.nuget.org/packages/Altinn.Codelists) som du kan importere inn i applikasjonen din. Dette er gjort for å holde kjernen i en Altinn 3-applikasjon så liten som mulig og for å kunne nye release og ta i bruk nye kodelister uten å være avhengig av å måtte oppgradere applikasjonen (utover v7.8.0).
+Kodelistene er laget som en egen [nuget-pakke](https://www.nuget.org/packages/Altinn.Codelists) som du kan importere inn i applikasjonen din. Dette er gjort for å holde kjernen i en Altinn 3-applikasjon så liten som mulig og for å kunne publisere nye utgaver og ta i bruk nye kodelister uten å være avhengig av å måtte oppgradere applikasjonen (utover v7.8.0).
 
 ## Tilgjengelige kodelister
 

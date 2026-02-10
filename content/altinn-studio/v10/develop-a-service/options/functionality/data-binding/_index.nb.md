@@ -34,8 +34,8 @@ Komponenter som bruker svaralternativer må settes opp til å lagre valgte alter
 I eksempelet over vil komponenten lagre valget av om brukeren eier en katt i feltet `Submitter.HasCat` i datamodellen.
 Dette feltet får verdien `y` om brukeren velger "Ja" og `n` om brukeren velger "Nei".
 
-For flervalgskomponenter som f.eks. [`Checkboxes`](/nb/altinn-studio/v8/reference/ux/components/checkboxes/) og
-[`MultipleSelect`](/nb/altinn-studio/v8/reference/ux/components/multipleselect/), vil komponenten lagre en kommaseparert
+For flervalgskomponenter som f.eks. [`Checkboxes`]({{< relref "../../../../reference/ux/components/checkboxes" >}}) og
+[`MultipleSelect`]({{< relref "../../../../reference/ux/components/multipleselect" >}}), vil komponenten lagre en kommaseparert
 liste av valgte verdier i datamodellen.
 
 ```json
@@ -82,7 +82,7 @@ Dette konfigureres ved å ha en separat binding med nøkkelen `label`. Denne bin
 
 ### Lagring av metadata
 
-Når appen henter svaralternativer, spesielt [felles kodelister](/nb/altinn-studio/v8/guides/development/options/sources/shared/), kan det være nyttig å lagre noen metadata som beskriver hvordan svaralternativene ble hentet. Dette kan være nyttig for å rekonstruere svaralternativene etter at skjemaet er sendt inn, samt for logging.
+Når appen henter svaralternativer, spesielt [felles kodelister](../../../sources/shared/), kan det være nyttig å lagre noen metadata som beskriver hvordan svaralternativene ble hentet. Dette kan være nyttig for å rekonstruere svaralternativene etter at skjemaet er sendt inn, samt for logging.
 
 Dette kan konfigureres ved å sette `metadata`-egenskapen på komponentens `dataModelBinding`-egenskap til et felt i datamodellen som inneholder en `string`-verdi:
 

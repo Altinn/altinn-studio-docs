@@ -8,7 +8,7 @@ tags: [needsReview, translate]
 
 ## Ledetekst
 
-Den vanligste tekstegenskapen for svaralternativer er `label` (ledetekst). Dette er teksten som vises for brukeren i brukergrensesnittet (i motsetning til `value`, som er [verdien som lagres i datamodellen](/nb/altinn-studio/v8/guides/development/options/functionality/data-binding/)). Både `label` og `value` er påkrevde egenskaper for et svaralternativ.
+Den vanligste tekstegenskapen for svaralternativer er `label` (ledetekst). Dette er teksten som vises for brukeren i brukergrensesnittet (i motsetning til `value`, som er [verdien som lagres i datamodellen](../../data-binding/)). Både `label` og `value` er påkrevde egenskaper for et svaralternativ.
 
 ```json
 [
@@ -19,13 +19,13 @@ Den vanligste tekstegenskapen for svaralternativer er `label` (ledetekst). Dette
 
 Ledetekster, som alle tekster, kan være enten ren tekst eller en nøkkel som peker til en tekstressurs. Hvis `label` er en nøkkel som peker til en tekstressurs, kan teksten endres i henhold til brukerens valgte språk.
 
-Den endelige teksten som vises for brukeren kan [også lagres i datamodellen](/nb/altinn-studio/v8/guides/development/options/functionality/data-binding/#lagring-av-ledetekst--visningsverdi) hvis det er nødvendig.
+Den endelige teksten som vises for brukeren kan [også lagres i datamodellen](../../data-binding/#lagring-av-ledetekst--visningsverdi) hvis det er nødvendig.
 
 ## Beskrivelse og hjelpetekst
 
 Hvis du trenger å gi ytterligere informasjon om et alternativ, kan du bruke egenskapene `description` og `helpText`. `description` og `helpText` kan vises av komponentene `RadioButtons` og `Checkboxes`.
 
-Beskrivelser og hjelpetekster kan spesifiseres på samme måte som en ledetekst (`label`) er gitt, enten i [statiske](/nb/altinn-studio/v8/guides/development/options/sources/static/), [dynamiske](/nb/altinn-studio/v8/guides/development/options/sources/dynamic/) eller [svaralternativer fra datamodellen](/nb/altinn-studio/v8/guides/development/options/sources/from-data-model/).
+Beskrivelser og hjelpetekster kan spesifiseres på samme måte som en ledetekst (`label`) er gitt, enten i [statiske](../../../sources/static/), [dynamiske](../../../sources/dynamic/) eller [svaralternativer fra datamodellen](../../../sources/from-data-model/).
 
 Klikk på overskriftene nedenfor for å utvide eksemplene.
 
@@ -70,7 +70,7 @@ var options = new AppOptions
 {{% /expandlarge %}}
 
 {{% expandlarge id="from-data-model" header="Svaralternativer basert på repeterende strukturer i datamodellen" %}}
-Legg merke til at egenskapene `label`, `description` og `helpText` også kan være [dynamiske uttrykk](/nb/altinn-studio/v8/guides/development/dynamics/) i denne modusen.
+Legg merke til at egenskapene `label`, `description` og `helpText` også kan være [dynamiske uttrykk]({{< relref "../../../../dynamics" >}}) i denne modusen.
 
 ```json
 {
