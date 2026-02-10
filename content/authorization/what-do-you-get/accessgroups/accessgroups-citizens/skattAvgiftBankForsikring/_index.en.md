@@ -13,6 +13,7 @@ weight: 100
 |[Forsikring](#forsikring)|
 |[Toll og avgift](#toll-og-avgift)|
 |[Støtte og tilskudd](#støtte-og-tilskudd)|
+|[Innkreving](#innkreving)|
 
 
 ### Skatteforhold for privatpersoner
@@ -35,6 +36,10 @@ Denne tilgangspakken gir fullmakter til tjenester og korrespondanse knyttet til 
 Denne tilgangspakken gir fullmakter til tjenester og korrespondanse knyttet til ulike støtte- og tilskuddsordninger. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.    
 *urn:altinn:accesspackage:innbygger:stotte-tilskudd*
 
+### Innkreving
+Denne tilgangspakken gir fullmakter til tjenester og korrespondanse knyttet til innkreving for privatpersoner. Tilgangspakken er forbeholdt Skatteetaten. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+*urn:altinn:accesspackage:innbygger-innkreving*
+
 
 ## Hvilke roller får fullmakt til tilgangspakken
 |**Tilgangspakke**|**Tilknyttet rolle**|**Delegerbar**|
@@ -44,3 +49,4 @@ Denne tilgangspakken gir fullmakter til tjenester og korrespondanse knyttet til 
 |Forsikring|Privatperson|Ja|
 |Toll og avgift|Privatperson|Ja|
 |Støtte og tilskudd|Privatperson|Ja|
+|Innkreving|Privatperson|Ja|
