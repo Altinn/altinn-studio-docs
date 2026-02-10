@@ -41,7 +41,7 @@ Denne funksjonaliteten følger et sett med regler:
 - Hvis datamodellen allerede har en verdi for feltet, setter ikke systemet forhåndsvalget.
 - Hvis systemet allerede har satt en forhåndsvalgt verdi tidligere (og f.eks. valgt bort), skjer ikke dette igjen så lenge appen er åpen i nettleseren. Hvis brukeren laster siden på nytt, kan systemet sette forhåndsvalget igjen.
 - Systemet setter forhåndsvalget med en gang siden har lastet og komponentene er klare, uavhengig av om komponenten vises på skjermen eller ikke.
-- Systemet setter ikke forhåndsvalgte verdier for komponenter som er skjult via [dynamikk]({{< relref "../../dynamics" >}}). Hvis komponenten senere blir vist igjen, kan systemet sette forhåndsvalget.
+- Systemet setter ikke forhåndsvalgte verdier for komponenter som er skjult via [dynamikk]({{< relref "../../../dynamics" >}}). Hvis komponenten senere blir vist igjen, kan systemet sette forhåndsvalget.
 - Systemet bestemmer det forhåndsvalgte alternativet etter [filtrering](../../filtering/), men før [sortering](../../sorting/).
 
 
