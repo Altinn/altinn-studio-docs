@@ -13,7 +13,7 @@ aliases:
 ## Hva er felles standard kodelister?
 Felles standard kodelister er lister som land, fylker, kommuner, kjønn, sivilstatus etc som du kan bruke i applikasjonen din uten at du selv trenger å vedlikeholde disse kodelistene.
 
-Kodelistene er laget som en egen [nuget-pakke](https://www.nuget.org/packages/Altinn.Codelists) som du kan importere inn i applikasjonen din. Dette er gjort for å holde kjernen i en Altinn 3-applikasjon så liten som mulig og for å kunne publisere nye utgaver og ta i bruk nye kodelister uten å være avhengig av å måtte oppgradere applikasjonen (utover v7.8.0).
+Kodelistene er laget som en egen [nuget-pakke](https://www.nuget.org/packages/Altinn.Codelists) som du kan importere inn i applikasjonen din. Dette er gjort for å holde kjernen i en Altinn 3-applikasjon så liten som mulig og for å kunne publisere nye utgaver og ta i bruk nye kodelister uten å være avhengig av å måtte oppgradere applikasjonen (utover versjon 7.8.0).
 
 ## Tilgjengelige kodelister
 
@@ -126,7 +126,7 @@ Eksemplet benytter en kodeliste fra SSB og spesifiserer et filter for å bare he
 ```csharp
 services.AddSSBClassificationCodelistProvider("næring", Classification.IndustryGrouping, new Dictionary<string, string>() { { "level", "1" } });
 ```
-Standardparameterne er en samling av navn/verdi-par som gjør det mulig å sende inn hvilken som helst parameter som implementasjonen av kodelistetilbyderen kan plukke opp.
+Standardparametrene er en samling av navn/verdi-par som gjør det mulig å sende inn hvilken som helst parameter som implementasjonen av kodelistetilbyderen kan plukke opp.
 
 ### Legg til en kodeliste som har støtte for beskrivelses- og/eller hjelpetekstverdier
 Mens en vanlig kodeliste bare er nøkkel/verdi-par, kan du utvide dette ved å legge til beskrivelses- og hjelpetekster som gir et mer beskrivende brukergrensesnitt.

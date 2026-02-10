@@ -64,7 +64,7 @@ Legg merke til at verdien for hvert svaralternativ må være unik, og hvis du br
 
 ### Slik lagrer du ledetekst og visningsverdi
 
-Komponenter som bruker svaralternativer lagrer vanligvis bare verdien av det valgte alternativet i datamodellen. Dette er ofte tilstrekkelig, men i noen tilfeller kan det være nyttig å lagre ledeteksten til det valgte alternativet også. Dette kan for eksempel være nyttig hvis du trenger å vise det valgte alternativet i en enkel tekstvisning senere, uten å måtte gjøre ytterligere oppslag. Det kan også være nyttig å huske hvilken ledetekst brukeren faktisk valgte i tilfelle den endres over tid. Når du lagrer ledeteksten i datamodellen, følger den brukerens valgte språk, slår opp teksten i tekstressursene og lagrer den endelige verdien i datamodellen.
+Komponenter som bruker svaralternativer lagrer vanligvis bare verdien av det valgte alternativet i datamodellen. Dette er ofte tilstrekkelig, men i noen tilfeller kan det være nyttig å lagre ledeteksten til det valgte alternativet også. Dette kan for eksempel være nyttig hvis du trenger å vise det valgte alternativet i en enkel tekstvisning senere, uten å måtte gjøre ytterligere oppslag. Det kan også være nyttig å huske hvilken ledetekst brukeren faktisk valgte i tilfelle den endres over tid. Når du lagrer ledeteksten i datamodellen, følger systemet brukerens valgte språk, slår opp teksten i tekstressursene og lagrer den endelige verdien i datamodellen.
 
 Dette konfigureres ved å ha en separat binding med nøkkelen `label`. Denne bindingen må peke på et felt i datamodellen av typen `string`:
 

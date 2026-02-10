@@ -48,7 +48,7 @@ Denne funksjonaliteten følger et sett med regler:
 {{% notice warning %}}
 I noen tilfeller fungerer ikke forhåndsvalg med denne egenskapen optimalt, og kan føre til situasjoner brukeren opplever som feil:
 
-- Hvis systemet setter et forhåndsvalg, brukeren fjerner det, og skjemaet laster på nytt senere, setter systemet forhåndsvalget igjen - selv om komponenten er på en side lenge før den brukeren ser på, og som brukeren ikke vil se igjen.
+- Hvis systemet setter et forhåndsvalg, brukeren fjerner det, og skjemaet laster på nytt senere, setter systemet forhåndsvalget igjen - selv om komponenten er på en side som brukeren var innom lenge før, og som brukeren ikke vil se igjen.
 - Når brukeren sender inn skjemaet via API-et, har ikke forhåndsvalg du setter med denne egenskapen noen effekt. Denne egenskapen krever at skjemaet er åpent i nettleseren for å fungere.
 - Hvis skjemaet er i en tilstand hvor systemet ikke kan skrive til datamodellen (f.eks. i PDF-generatoren), kan forhåndsvalgte verdier potensielt føre til feilmeldinger og mislykket innsending hvis datamodellen ikke allerede hadde en verdi.
 

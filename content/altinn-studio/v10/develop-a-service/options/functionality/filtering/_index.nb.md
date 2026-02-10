@@ -12,7 +12,7 @@ Legg merke til at det allerede finnes flere måter å gjøre svaralternativene d
 
 - Ved å bruke [dynamikk]({{< relref "../../../dynamics" >}}) for å skjule og vise helt forskjellige komponenter basert på en betingelse. Disse komponentene kan være bundet til samme sted i datamodellen, men ha forskjellige svaralternativer. Merk at [automatisk opprydding](../automatic-cleanup/) kan fjerne verdier fra datamodellen når du bruker denne metoden.
 - Ved å bruke [dynamiske alternativer](../../sources/dynamic/) og sende spørringsparametre til backenden, kan du skrive kode for å generere et annet sett med alternativer basert på disse spørringsparametrene. Dette kan være nyttig, men kan føre til mye nettverkstrafikk hvis alternativene og spørringsparametrene endres ofte.
-- Ved å bruke [svaralternativer fra en repeterende struktur i datamodellen](../../sources/from-data-model/). I kombinasjon med dataprosessering på backenden kan dette være en kraftig måte å lage egendefinerte svaralternativer på, selv når dynamiske alternativer basert på spørringsparametre ville være problematisk.
+- Ved å bruke [svaralternativer fra en repeterende struktur i datamodellen](../../sources/from-data-model/). I kombinasjon med dataprosessering på backenden kan dette være en kraftig måte å lage egendefinerte svaralternativer på, selv når dynamiske alternativer basert på spørringsparametre ville være problematiske.
 
 Filtrering av svaralternativer via `optionFilter`-egenskapen fungerer med alle de nevnte metodene, inkludert [statiske svaralternativer](../../../sources/static/). Dette gjør det mulig å bruke et [dynamisk uttrykk]({{< relref "../../../dynamics" >}}) for å filtrere ut svaralternativer basert på den nåværende tilstanden i skjemaet.
 

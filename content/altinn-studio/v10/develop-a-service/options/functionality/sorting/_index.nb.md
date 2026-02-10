@@ -11,7 +11,7 @@ Systemet viser svaralternativer vanligvis i rekkefølgen de er definert i, men d
 Verdt å vite:
 
 - Sorteringen kan endre seg underveis dersom brukeren endrer språk i skjemaet.
-- Systemet sorterer etter det har funnet [forhåndsvalgt verdi](../preselection/). Det betyr at sorteringsrekkefølgen ikke skal påvirke hvilket svaralternativ som er forhåndsvalgt.
+- Systemet sorterer etter at det har funnet [forhåndsvalgt verdi](../preselection/). Det betyr at sorteringsrekkefølgen ikke skal påvirke hvilket svaralternativ som er forhåndsvalgt.
 
 ### Konfigurasjon
 
