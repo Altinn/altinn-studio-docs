@@ -2,7 +2,7 @@
 draft: true
 title: API-basert signering
 linktitle: API-basert signering
-description: Slik implementerer du signering via API.
+description: Slik setter du opp signering via API.
 tags: [signering, needsReview, translate]
 weight: 53
 aliases:
