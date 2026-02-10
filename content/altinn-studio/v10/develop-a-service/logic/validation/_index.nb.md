@@ -9,7 +9,7 @@ tags: [needsReview, needsTranslation]
 Valideringer sikrer at brukerens inndata er gyldige i henhold til datamodellen og eventuelle egendefinerte regler du setter opp.
 Du kan kjøre valideringer enten på klientsiden (i nettleseren) eller på serversiden.
 
-Du kan også sette opp validering til å [kjøre ved sidebytte]().
+Du kan også sette opp validering til å kjøre ved sidebytte.
 
 ## Klientside-validering
 
