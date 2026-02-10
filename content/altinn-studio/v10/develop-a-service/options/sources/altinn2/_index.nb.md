@@ -40,7 +40,7 @@ services.AddAltinn2CodeList(
     metadataApiId: "ASF_Land" // Code list name in Altinn 2 (use id if missing)
 );
 ```
-Det eneste som er påkrevd er `id` for hva kodelisten heter i Altinn 2, og `transform` for å fortelle hvilke kolonner du ønsker å bruke som `Value` og `Label`. Oversetting fungerer automatisk. Etter versjon `v7.2.0` vil `nb` bli brukt om listen mangler språket brukeren har valgt. Om du ønsker to ulike transformasjoner av samme liste, blir `id` navnet som brukes i Altinn 3 og `metadataApiId` brukes i oppslaget mot Altinn 2
+Det eneste som er påkrevd er `id` for hva kodelisten heter i Altinn 2, og `transform` for å fortelle hvilke kolonner du ønsker å bruke som `Value` og `Label`. Oversetting fungerer automatisk. Etter versjon `v7.2.0` vil systemet bruke `nb` om listen mangler språket brukeren har valgt. Om du ønsker to ulike transformasjoner av samme liste, bruker systemet `id` som navnet i Altinn 3 og bruker `metadataApiId` i oppslaget mot Altinn 2.
 
 Bruken er som alle andre kodelister der `id` kommer igjen som `optionsId` i komponenten.
 

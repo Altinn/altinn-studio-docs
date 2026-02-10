@@ -8,7 +8,7 @@ tags: [needsReview, translate]
 
 ## Ledetekst
 
-Den vanligste tekstegenskapen for svaralternativer er `label` (ledetekst). Dette er teksten som vises for brukeren i brukergrensesnittet (i motsetning til `value`, som er [verdien som lagres i datamodellen](../../data-binding/)). Både `label` og `value` er påkrevde egenskaper for et svaralternativ.
+Den vanligste tekstegenskapen for svaralternativer er `label` (ledetekst). Dette er teksten systemet viser for brukeren i brukergrensesnittet (i motsetning til `value`, som er [verdien som lagres i datamodellen](../../data-binding/)). Både `label` og `value` er påkrevde egenskaper for et svaralternativ.
 
 ```json
 [
@@ -19,13 +19,13 @@ Den vanligste tekstegenskapen for svaralternativer er `label` (ledetekst). Dette
 
 Ledetekster, som alle tekster, kan være enten ren tekst eller en nøkkel som peker til en tekstressurs. Hvis `label` er en nøkkel som peker til en tekstressurs, kan teksten endres i henhold til brukerens valgte språk.
 
-Den endelige teksten som vises for brukeren kan [også lagres i datamodellen](../../data-binding/#lagring-av-ledetekst--visningsverdi) hvis det er nødvendig.
+Du kan [også lagre den endelige teksten systemet viser for brukeren i datamodellen](../../data-binding/#slik-lagrer-du-ledetekst-og-visningsverdi) hvis det er nødvendig.
 
 ## Beskrivelse og hjelpetekst
 
-Hvis du trenger å gi ytterligere informasjon om et alternativ, kan du bruke egenskapene `description` og `helpText`. `description` og `helpText` kan vises av komponentene `RadioButtons` og `Checkboxes`.
+Hvis du trenger å gi ytterligere informasjon om et alternativ, kan du bruke egenskapene `description` og `helpText`. Komponentene `RadioButtons` og `Checkboxes` kan vise `description` og `helpText`.
 
-Beskrivelser og hjelpetekster kan spesifiseres på samme måte som en ledetekst (`label`) er gitt, enten i [statiske](../../../sources/static/), [dynamiske](../../../sources/dynamic/) eller [svaralternativer fra datamodellen](../../../sources/from-data-model/).
+Du kan spesifisere beskrivelser og hjelpetekster på samme måte som en ledetekst (`label`), enten i [statiske](../../../sources/static/), [dynamiske](../../../sources/dynamic/) eller [svaralternativer fra datamodellen](../../../sources/from-data-model/).
 
 Klikk på overskriftene nedenfor for å utvide eksemplene.
 

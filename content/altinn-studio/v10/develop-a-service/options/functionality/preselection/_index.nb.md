@@ -38,19 +38,19 @@ I konfigurasjonen over vil "Blå" være forhåndsvalgt når komponenten vises. B
 
 Denne funksjonaliteten følger et sett med regler:
 
-- Hvis datamodellen allerede har en verdi for feltet, blir ikke forhåndsvalget satt.
-- Hvis en forhåndsvalgt verdi allerede har blitt satt tidligere (og f.eks. valgt bort), skjer ikke dette igjen så lenge appen er åpen i nettleseren. Hvis brukeren laster siden på nytt, kan forhåndsvalget bli satt igjen.
-- Forhåndsvalget settes med en gang siden har lastet og komponentene er klare, uavhengig av om komponenten vises på skjermen eller ikke.
-- Forhåndsvalgte verdier blir ikke satt for komponenter som er skjult via [dynamikk]({{< relref "../../../dynamics" >}}). Hvis komponenten senere blir vist igjen, kan forhåndsvalget bli satt.
-- Det forhåndsvalgte alternativet blir bestemt etter [filtrering](../../filtering/), men før [sortering](../../sorting/) blir utført.
+- Hvis datamodellen allerede har en verdi for feltet, setter ikke systemet forhåndsvalget.
+- Hvis systemet allerede har satt en forhåndsvalgt verdi tidligere (og f.eks. valgt bort), skjer ikke dette igjen så lenge appen er åpen i nettleseren. Hvis brukeren laster siden på nytt, kan systemet sette forhåndsvalget igjen.
+- Systemet setter forhåndsvalget med en gang siden har lastet og komponentene er klare, uavhengig av om komponenten vises på skjermen eller ikke.
+- Systemet setter ikke forhåndsvalgte verdier for komponenter som er skjult via [dynamikk]({{< relref "../../../dynamics" >}}). Hvis komponenten senere blir vist igjen, kan systemet sette forhåndsvalget.
+- Systemet bestemmer det forhåndsvalgte alternativet etter [filtrering](../../filtering/), men før [sortering](../../sorting/).
 
 
 {{% notice warning %}}
 Det finnes situasjoner hvor forhåndsvalg med denne egenskapen ikke er optimalt, og kan føre til situasjoner som kan oppleves som feil:
 
-- Hvis et alternativ blir valgt, brukeren velger det bort igjen, og så laster skjemaet på nytt senere, blir forhåndsvalget satt igjen - selv om komponenten er på en side lenge før den brukeren ser på, og ikke vil se igjen.
+- Hvis et alternativ velges, brukeren velger det bort igjen, og så laster skjemaet på nytt senere, setter systemet forhåndsvalget igjen - selv om komponenten er på en side lenge før den brukeren ser på, og ikke vil se igjen.
 - Når skjemaet sendes inn via API-et, har ikke forhåndsvalg satt med denne egenskapen noen effekt. Denne egenskapen krever at skjemaet er åpent i nettleseren for å fungere.
-- Hvis skjemaet er i en tilstand hvor datamodellen ikke er skrivbar (f.eks. i PDF-generatoren), kan setting av forhåndsvalgte verdier potensielt føre til feilmeldinger og mislykket innsending hvis datamodellen ikke allerede hadde en verdi.
+- Hvis skjemaet er i en tilstand hvor datamodellen ikke er skrivbar (f.eks. i PDF-generatoren), kan det å sette forhåndsvalgte verdier potensielt føre til feilmeldinger og mislykket innsending hvis datamodellen ikke allerede hadde en verdi.
 
 Av disse grunnene anbefaler vi at du bruker denne egenskapen med forsiktighet, og vurderer et av de andre alternativene for forhåndsvalg som er beskrevet over.
 {{% /notice %}}

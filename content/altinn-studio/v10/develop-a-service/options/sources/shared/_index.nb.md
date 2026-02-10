@@ -105,7 +105,7 @@ Dette registrerer `ICountryClient`-grensesnittet som gir detaljert informasjon o
 
 Bruk en av kodeliste-ID-ene fra de tilgjengelige kodelistene ovenfor.
 
-Du kan gjøre dette enten ved hjelp av [Altinn Studio](https://altinn.studio) og konfigurere *Kodeliste-ID* for komponenten din i brukergrensesnittet, eller du kan konfigurere komponenten ved å redigere egenskapen `optionsId` på komponenten i layout-filen.
+Du kan gjøre dette enten via [Altinn Studio](https://altinn.studio) og konfigurere *Kodeliste-ID* for komponenten din i brukergrensesnittet, eller du kan konfigurere komponenten ved å redigere egenskapen `optionsId` på komponenten i layout-filen.
 
 ## Tilpasset konfigurasjon
 Mens konfigurasjonen nevnt ovenfor der du kaller `services.AddAltinnCodelists();` vil legge til alle tilgjengelige kodelister med standardverdier, kan det være tilfeller der du ønsker å tilpasse konfigurasjonen av en kodeliste. Eksemplene under vil variere noe avhengig av kilden til kodelisten siden de ulike kildene tilbyr ulike muligheter.
@@ -119,14 +119,14 @@ services.AddSSBClassificationCodelistProvider("næring", Classification.Industry
 ```
 
 ### Legg til en kodeliste med standardparametere
-Noen av kodelistene godtar parametere som styrer hva som blir returnert.
+Noen av kodelistene godtar parametere som styrer hva systemet returnerer.
 
 Eksemplet benytter en kodeliste fra SSB og spesifiserer et filter for å bare hente verdier fra første nivå (denne spesifikke kodelisten er hierarkisk).
 
 ```csharp
 services.AddSSBClassificationCodelistProvider("næring", Classification.IndustryGrouping, new Dictionary<string, string>() { { "level", "1" } });
 ```
-Standardparameterne er en samling av navn/verdi-par som gjør det mulig å sende inn hvilken som helst parameter som kan plukkes opp av implementasjonen av kodelistetilbyderen.
+Standardparameterne er en samling av navn/verdi-par som gjør det mulig å sende inn hvilken som helst parameter som implementasjonen av kodelistetilbyderen kan plukke opp.
 
 ### Legg til en kodeliste som har støtte for beskrivelses- og/eller hjelpetekstverdier
 Mens en vanlig kodeliste bare er nøkkel/verdi-par, kan du utvide dette ved å legge til beskrivelses- og hjelpetekster som gir et mer beskrivende brukergrensesnitt.
@@ -138,7 +138,7 @@ services.AddSSBClassificationCodelistProvider("næring", Classification.Industry
     new ClassificationOptions() { MapNotesToDescription = true },
     new Dictionary<string, string>() { { "level", "1" } });
 ```
-Eksemplet aktiverer en forhåndsdefinert måte å legge til en beskrivelsestekst på. Hvis du vil tilpasse beskrivelsesteksten enda mer, kan du sende inn en funksjon. Eksemplet under sender inn en funksjon som vil bli evaluert når kodelisten fylles ut, og vil returnere en kombinasjon av klassifiseringskoden og notatfeltene, separert med kolon.
+Eksemplet aktiverer en forhåndsdefinert måte å legge til en beskrivelsestekst på. Hvis du vil tilpasse beskrivelsesteksten enda mer, kan du sende inn en funksjon. Eksemplet under sender inn en funksjon som systemet evaluerer når kodelisten fylles ut, og vil returnere en kombinasjon av klassifiseringskoden og notatfeltene, separert med kolon.
 
 ```csharp
 services.AddSSBClassificationCodelistProvider(
