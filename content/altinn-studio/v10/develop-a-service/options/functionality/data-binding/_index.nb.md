@@ -34,8 +34,8 @@ Komponenter som bruker svaralternativer må settes opp til å lagre valgte alter
 I eksempelet over vil komponenten lagre valget av om brukeren eier en katt i feltet `Submitter.HasCat` i datamodellen.
 Dette feltet får verdien `y` om brukeren velger "Ja" og `n` om brukeren velger "Nei".
 
-For flervalgskomponenter som f.eks. [`Checkboxes`]({{< relref "../../../../reference/ux/components/checkboxes" >}}) og
-[`MultipleSelect`]({{< relref "../../../../reference/ux/components/multipleselect" >}}), vil komponenten lagre en kommaseparert
+For flervalgskomponenter som f.eks. [`Checkboxes`](/nb/altinn-studio/v8/reference/ux/components/checkboxes/) og
+[`MultipleSelect`](/nb/altinn-studio/v8/reference/ux/components/multipleselect/), vil komponenten lagre en kommaseparert
 liste av valgte verdier i datamodellen.
 
 ```json

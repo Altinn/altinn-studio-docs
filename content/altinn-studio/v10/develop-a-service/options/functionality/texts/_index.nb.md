@@ -70,7 +70,7 @@ var options = new AppOptions
 {{% /expandlarge %}}
 
 {{% expandlarge id="from-data-model" header="Svaralternativer basert på repeterende strukturer i datamodellen" %}}
-Legg merke til at egenskapene `label`, `description` og `helpText` også kan være [dynamiske uttrykk]({{< relref "../../../../dynamics" >}}) i denne modusen.
+Legg merke til at egenskapene `label`, `description` og `helpText` også kan være [dynamiske uttrykk]({{< relref "../../../dynamics" >}}) i denne modusen.
 
 ```json
 {
