@@ -82,7 +82,7 @@ Dette konfigureres ved å ha en separat binding med nøkkelen `label`. Denne bin
 
 ### Slik lagrer du metadata
 
-Når appen henter svaralternativer, spesielt [felles kodelister](../../../sources/shared/), kan det være nyttig å lagre noen metadata som beskriver hvordan systemet hentet svaralternativene. Dette kan være nyttig for å rekonstruere svaralternativene etter at skjemaet er sendt inn, samt for logging.
+Når appen henter svaralternativer, spesielt [felles kodelister](../../sources/shared/), kan det være nyttig å lagre noen metadata som beskriver hvordan systemet hentet svaralternativene. Dette kan være nyttig for å rekonstruere svaralternativene etter at skjemaet er sendt inn, samt for logging.
 
 Dette kan konfigureres ved å sette `metadata`-egenskapen på komponentens `dataModelBinding`-egenskap til et felt i datamodellen som inneholder en `string`-verdi:
 

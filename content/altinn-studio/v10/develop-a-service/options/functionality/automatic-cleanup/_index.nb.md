@@ -6,7 +6,7 @@ weight: 100
 tags: [needsReview, translate]
 ---
 
-Noen svaralternativer for komponenter kan være dynamiske. Enten direkte via [dynamiske svaralternativer](../../../sources/dynamic/), [svaralternativer hentet fra en endrende datamodell](../../../sources/from-data-model/), eller via [statiske svaralternativer](../../../sources/static/) hvor noen verdier kan være [filtrert](../../filtering/) bort.
+Noen svaralternativer for komponenter kan være dynamiske. Enten direkte via [dynamiske svaralternativer](../../sources/dynamic/), [svaralternativer hentet fra en endrende datamodell](../../sources/from-data-model/), eller via [statiske svaralternativer](../../sources/static/) hvor noen verdier kan være [filtrert](../filtering/) bort.
 
 Når svaralternativene er dynamiske, kan datamodellen inneholde verdier som ikke lenger er gyldige. Dette kan skje hvis brukeren (eller forhåndsutfyllingen) har valgt et alternativ som ikke lenger er tilgjengelig. I slike tilfeller fjerner systemet ukjente svaralternativer automatisk for å forhindre at datamodellen inneholder ugyldige verdier.
 

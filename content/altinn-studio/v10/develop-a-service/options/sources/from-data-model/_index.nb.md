@@ -11,9 +11,9 @@ aliases:
 
 Når alternativene i en kodeliste endrer seg ofte basert på data i datamodellen, har du to hovedalternativer:
 
-- **Dynamiske kodelister med spørringsparametre** (beskrevet under [Dynamiske kodelister](/nb/altinn-studio/v8/guides/development/options/sources/dynamic/)): Du skriver kode på backend for å generere kodelisten og sender verdier fra datamodellen til backend via [spørringsparametre](/nb/altinn-studio/v8/guides/development/options/sources/dynamic#spørringsparametre). Ulempen er at denne fremgangsmåten skalerer dårlig når kodelisten endrer alternativene ofte.
+- **Dynamiske kodelister med spørringsparametre** (beskrevet under [Dynamiske kodelister](../dynamic/)): Du skriver kode på backend for å generere kodelisten og sender verdier fra datamodellen til backend via [spørringsparametre](../dynamic/#spørringsparametre). Ulempen er at denne fremgangsmåten skalerer dårlig når kodelisten endrer alternativene ofte.
 
-- **Kodelister fra repeterende strukturer** (anbefalt): Du setter opp en kodeliste basert direkte på en repeterende struktur i datamodellen. Datamodellen blir da selve kilden til alternativene. Dette er spesielt nyttig i kombinasjon med [RepeatingGroup](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)-komponenten, da brukeren kan legge til og fjerne elementer fra listen, og alternativene oppdateres automatisk.
+- **Kodelister fra repeterende strukturer** (anbefalt): Du setter opp en kodeliste basert direkte på en repeterende struktur i datamodellen. Datamodellen blir da selve kilden til alternativene. Dette er spesielt nyttig i kombinasjon med [RepeatingGroup]({{< relref "../../../reference/ux/fields/grouping/repeating" >}})-komponenten, da brukeren kan legge til og fjerne elementer fra listen, og systemet oppdaterer alternativene automatisk.
 
 Du trenger ikke en `RepeatingGroup`-komponent for å bruke denne funksjonaliteten, men datamodellen må inneholde en repeterende struktur.
 
@@ -37,13 +37,13 @@ For å sette opp kodelister som hentes ut fra datamodellen, bruker du egenskapen
 Forklaring:
 
 - `group` - den repeterende strukturen i datamodellen som du baserer kodelisten på.
-- `label` - en referanse til en tekstnøkkel som du bruker som ledetekst for hvert svaralternativ. Se mer under.
-- `value` - en referanse til feltet i den repeterende strukturen som du bruker som verdi, og som lagres når brukeren gjør et valg. Legg merke til at vi har fylt inn `[{0}]`, som blir erstattet med indeksen til det repeterende elementet.
+- `label` - en referanse til en tekstnøkkel du bruker som ledetekst for hvert svaralternativ. Se mer under.
+- `value` - en referanse til feltet i den repeterende strukturen du bruker som verdi, og som systemet lagrer når brukeren gjør et valg. Legg merke til at vi har fylt inn `[{0}]`, som systemet erstatter med indeksen til det repeterende elementet.
 
 
-Verdien hentet ut fra `value` må være unik for hvert repeterende element. Hvis du ikke har et felt som er unikt per rad, anbefaler vi at du legger på et ekstra felt i datamodellen som kan brukes som identifikator. For eksempel en GUID eller liknende. Hvis verdien ikke er unik, blir den filtrert bort fra alle kodelister, og antallet svaralternativer tilgjengelige for brukeren kan da være noen færre enn forventet ut fra det som ligger i datamodellen.
+Verdien hentet ut fra `value` må være unik for hvert repeterende element. Hvis du ikke har et felt som er unikt per rad, anbefaler vi at du legger på et ekstra felt i datamodellen som kan brukes som identifikator. For eksempel en GUID eller liknende. Hvis verdien ikke er unik, filtrerer systemet den bort fra alle kodelister, og antallet svaralternativer tilgjengelige for brukeren kan da være noen færre enn forventet ut fra det som ligger i datamodellen.
 
-For `label`-feltet må vi definere en tekstressurs som kan bli brukt som ledetekst for hvert svaralternativ. I eksempelet under, brukes andre verdier fra den repeterende strukturen i ledeteksten via [variabler i tekst](/nb/altinn-studio/v8/reference/ux/texts/):
+For `label`-feltet må vi definere en tekstressurs som systemet kan bruke som ledetekst for hvert svaralternativ. I eksempelet under, brukes andre verdier fra den repeterende strukturen i ledeteksten via [variabler i tekst]({{< relref "../../../reference/ux/texts" >}}):
 
 ```json
 {
@@ -69,7 +69,7 @@ For `label`-feltet må vi definere en tekstressurs som kan bli brukt som ledetek
 
 ### Støtte for uttrykk
 
-Egenskapene `label`, `description` og `helpText` støtter også [dynamiske uttrykk](/nb/altinn-studio/v8/guides/development/dynamics/) i denne modusen.
+Egenskapene `label`, `description` og `helpText` støtter også [dynamiske uttrykk]({{< relref "../../../dynamics" >}}) i denne modusen.
 
 ```json {hl_lines=["9-14"]}
 {

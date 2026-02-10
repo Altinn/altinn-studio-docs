@@ -10,9 +10,9 @@ Filtrering gjør det mulig å fjerne noen av svaralternativene fra listen. Dette
 
 Legg merke til at det allerede finnes flere måter å gjøre svaralternativene dynamiske på:
 
-- Ved å bruke [dynamikk]({{< relref "../../../dynamics" >}}) for å skjule og vise helt forskjellige komponenter basert på en betingelse. Disse komponentene kan være bundet til samme sted i datamodellen, men ha forskjellige svaralternativer. Merk at [automatisk opprydding](../../automatic-cleanup/) kan fjerne verdier fra datamodellen når du bruker denne metoden.
-- Ved å bruke [dynamiske alternativer](../../../sources/dynamic/) og sende spørringsparametre til backenden, kan du skrive kode for å generere et annet sett med alternativer basert på disse spørringsparametrene. Dette kan være nyttig, men kan føre til mye nettverkstrafikk hvis alternativene og spørringsparametrene endres ofte.
-- Ved å bruke [svaralternativer fra en repeterende struktur i datamodellen](../../../sources/from-data-model/). I kombinasjon med dataprosessering på backenden kan dette være en kraftig måte å lage egendefinerte svaralternativer på, selv når dynamiske alternativer basert på spørringsparametre ville være problematisk.
+- Ved å bruke [dynamikk]({{< relref "../../../dynamics" >}}) for å skjule og vise helt forskjellige komponenter basert på en betingelse. Disse komponentene kan være bundet til samme sted i datamodellen, men ha forskjellige svaralternativer. Merk at [automatisk opprydding](../automatic-cleanup/) kan fjerne verdier fra datamodellen når du bruker denne metoden.
+- Ved å bruke [dynamiske alternativer](../../sources/dynamic/) og sende spørringsparametre til backenden, kan du skrive kode for å generere et annet sett med alternativer basert på disse spørringsparametrene. Dette kan være nyttig, men kan føre til mye nettverkstrafikk hvis alternativene og spørringsparametrene endres ofte.
+- Ved å bruke [svaralternativer fra en repeterende struktur i datamodellen](../../sources/from-data-model/). I kombinasjon med dataprosessering på backenden kan dette være en kraftig måte å lage egendefinerte svaralternativer på, selv når dynamiske alternativer basert på spørringsparametre ville være problematisk.
 
 Filtrering av svaralternativer via `optionFilter`-egenskapen fungerer med alle de nevnte metodene, inkludert [statiske svaralternativer](../../../sources/static/). Dette gjør det mulig å bruke et [dynamisk uttrykk]({{< relref "../../../dynamics" >}}) for å filtrere ut svaralternativer basert på den nåværende tilstanden i skjemaet.
 
@@ -44,12 +44,12 @@ I eksempelet over bruker du `value`-funksjonen til å få tilgang til verdien av
 
 - `["value"]` og `["value", "value"]` er like, og vil returnere verdien av det nåværende alternativet.
 - `["value", "label"]` vil returnere ledeteksten til det nåværende alternativet. Denne teksten er teksten som er gitt i `label`-egenskapen til alternativet, før noen teksteressurser slås opp.
-- `["value", "description"]` vil returnere [beskrivelsen av det nåværende alternativet](../../texts/), hvis satt.
-- `["value", "helpText"]` vil returnere [hjelpeteksten til det nåværende alternativet](../../texts/), hvis satt.
+- `["value", "description"]` vil returnere [beskrivelsen av det nåværende alternativet](../texts/), hvis satt.
+- `["value", "helpText"]` vil returnere [hjelpeteksten til det nåværende alternativet](../texts/), hvis satt.
 
 ### Sammen med kodelister fra repeterende strukturer
 
-Hvis du bruker [kodelister fra en repeterende struktur i datamodellen](../../../sources/from-data-model/), evaluerer systemet uttrykket i `optionFilter`-egenskapen for hver _rad_ i den repeterende strukturen. Det betyr at hvis du gjør oppslag i datamodellen (via `dataModel`-funksjonen) i uttrykket, får du tilgang til data fra den nåværende raden som kodeliste-elementet kommer fra.
+Hvis du bruker [kodelister fra en repeterende struktur i datamodellen](../../sources/from-data-model/), evaluerer systemet uttrykket i `optionFilter`-egenskapen for hver _rad_ i den repeterende strukturen. Det betyr at hvis du gjør oppslag i datamodellen (via `dataModel`-funksjonen) i uttrykket, får du tilgang til data fra den nåværende raden som kodeliste-elementet kommer fra.
 
 Hvis det finnes en `RepeatingGroup`-komponent knyttet til denne repeterende strukturen, kan `optionFilter`-egenskapen også slå opp verdier fra `component`-funksjonen for å få tilgang til data fra komponenter inne i den repeterende gruppen. Returverdien fra denne funksjonen er alltid `null` hvis raden er skjult via [dynamikk i `hiddenRow`-egenskapen](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/dynamics/), selv om et oppslag med `dataModel`-funksjonen ville returnert data fra den skjulte raden.
 
@@ -112,7 +112,7 @@ Konfigurasjonen for dette eksempelet er som følger:
 Noen ting å merke seg om konfigurasjonen:
 
 - Systemet lagrer de allerede brukte ingredienstypene i en kommaseparert liste i feltet `UsedTypes` i datamodellen. Dataprosessering oppdaterer dette feltet og finner alle unike ingredienstyper i `Ingredients`-lista. Se [dataprosessering]({{< relref "../../../logic/dataprocessing" >}}).
-- Hvis vi bare sjekket `UsedTypes`-feltet mot `value`-verdien til den nåværende `Dropdown`-komponenten, ville systemet fjerne alternativet fra listen med en gang en ingrediens ble valgt, og systemet ville da [rydde opp verdien i datamodellen automatisk](../../automatic-cleanup/). Av denne grunn sjekker vi også at `value` ikke er lik verdien til den nåværende `Dropdown`-komponenten.
+- Hvis vi bare sjekket `UsedTypes`-feltet mot `value`-verdien til den nåværende `Dropdown`-komponenten, ville systemet fjerne alternativet fra listen med en gang en ingrediens ble valgt, og systemet ville da [rydde opp verdien i datamodellen automatisk](../automatic-cleanup/). Av denne grunn sjekker vi også at `value` ikke er lik verdien til den nåværende `Dropdown`-komponenten.
 
 {{% notice warning %}}
 Eksempelet ovenfor er avhengig av å lagre skjemadata til backenden og kjøre dataprosessering for å oppdatere `UsedTypes`-feltet. Av denne grunn er det fortsatt fullt mulig å velge den samme ingrediensen i flere rader i den repeterende gruppen hvis du er rask nok. Når du bruker en metode som dette bør du også [sette opp validering]({{< relref "../../../logic/validation" >}}) for å fange opp eventuelle duplikate verdier.
