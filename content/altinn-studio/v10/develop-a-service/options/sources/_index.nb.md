@@ -6,7 +6,7 @@ weight: 10
 tags: [needsReview, translate]
 ---
 
-Når du setter opp en komponent i Altinn Studio som skal ha svaralternativer, må den kobles til en kilde for svaralternativer. Det er tre forskjellige egenskaper i komponentkonfigurasjonen som kan brukes til dette, avhengig av bruksområdet:
+Når du setter opp en komponent i Altinn Studio som skal ha svaralternativer, må du koble den til en kilde for svaralternativer. Det er tre forskjellige egenskaper i komponentkonfigurasjonen du kan bruke til dette, avhengig av bruksområdet:
 
 | Egenskap    | Bruksområde                                                                                                                                          |
 |-------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -14,6 +14,6 @@ Når du setter opp en komponent i Altinn Studio som skal ha svaralternativer, m�
 | `optionsId` | Enten [statiske kodelister fra json-filer](./static/#fra-json-filer-kodeliste), [dynamiske kodelister](./dynamic) eller [delte kodelister](./shared) |
 | `source`    | [Kodelister fra datamodellen](./from-data-model)                                                                                                     |
 
-Minst en slik egenskap må settes i komponentkonfigurasjonen. Hvis flere er satt, vil konfigurasjonsprioriteten være motsatt av tabellen ovenfor, slik at `source` vil ha forrang over `optionsId`, som vil ha forrang over `options`.
+Du må sette minst én slik egenskap i komponentkonfigurasjonen. Hvis du setter flere, vil `source` ha forrang over `optionsId`, som vil ha forrang over `options`.
 
 {{<children />}}
