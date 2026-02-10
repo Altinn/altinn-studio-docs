@@ -15,7 +15,7 @@ Verdt å vite:
 
 ### Konfigurasjon
 
-Egenskapen `sortOrder` er valgfri, og kan settes til en av følgende verdier:
+Egenskapen `sortOrder` er valgfri, og du kan sette den til en av følgende verdier:
 
 - `asc` (ascending) - sorterer i stigende rekkefølge. Systemet sorterer tekster alfabetisk fra A til Å.
 - `desc` (descending) - sorterer i synkende rekkefølge. Systemet sorterer tekster alfabetisk fra Å til A.

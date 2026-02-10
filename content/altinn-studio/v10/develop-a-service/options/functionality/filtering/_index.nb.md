@@ -28,7 +28,7 @@ Uttrykket evalueres for hvert svaralternativ, og hvis det returnerer `true`, beh
   "type": "Dropdown",
   ...
   "options": [
-    { "value": "should-be-removed", "label": "Denne blir fjernet" },
+    { "value": "should-be-removed", "label": "Systemet fjerner denne" },
     { "value": "red", "label": "Rød" },
     { "value": "blue", "label": "Blå" }
   ],
@@ -40,7 +40,7 @@ Resultatet av konfigurasjonen over vil være en nedtrekksliste med to alternativ
 
 ### `value`-funksjonen
 
-I eksempelet over bruker du `value`-funksjonen til å få tilgang til verdien av det nåværende alternativet. Denne funksjonen kan brukes med argumenter for å få tilgang til andre verdier i svaralternativet også.
+I eksempelet over bruker du `value`-funksjonen til å få tilgang til verdien av det nåværende alternativet. Du kan bruke denne funksjonen med argumenter for å få tilgang til andre verdier i svaralternativet også.
 
 - `["value"]` og `["value", "value"]` er like, og vil returnere verdien av det nåværende alternativet.
 - `["value", "label"]` vil returnere ledeteksten til det nåværende alternativet. Denne teksten er teksten som er gitt i `label`-egenskapen til alternativet, før noen teksteressurser slås opp.
@@ -49,7 +49,7 @@ I eksempelet over bruker du `value`-funksjonen til å få tilgang til verdien av
 
 ### Sammen med kodelister fra repeterende strukturer
 
-Hvis du bruker [kodelister fra en repeterende struktur i datamodellen](../../../sources/from-data-model/), blir uttrykket i `optionFilter`-egenskapen evaluert for hver _rad_ i den repeterende strukturen. Det betyr at hvis du gjør oppslag i datamodellen (via `dataModel`-funksjonen) i uttrykket, får du tilgang til data fra den nåværende raden som kodeliste-elementet er hentet fra.
+Hvis du bruker [kodelister fra en repeterende struktur i datamodellen](../../../sources/from-data-model/), evaluerer systemet uttrykket i `optionFilter`-egenskapen for hver _rad_ i den repeterende strukturen. Det betyr at hvis du gjør oppslag i datamodellen (via `dataModel`-funksjonen) i uttrykket, får du tilgang til data fra den nåværende raden som kodeliste-elementet kommer fra.
 
 Hvis det finnes en `RepeatingGroup`-komponent knyttet til denne repeterende strukturen, kan `optionFilter`-egenskapen også slå opp verdier fra `component`-funksjonen for å få tilgang til data fra komponenter inne i den repeterende gruppen. Returverdien fra denne funksjonen er alltid `null` hvis raden er skjult via [dynamikk i `hiddenRow`-egenskapen](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/dynamics/), selv om et oppslag med `dataModel`-funksjonen ville returnert data fra den skjulte raden.
 
@@ -101,7 +101,7 @@ Konfigurasjonen for dette eksempelet er som følger:
    "optionsId": "foods",
    "optionFilter": [
       "or",
-      // Fjern de som har blitt brukt andre steder
+      // Fjern de som systemet allerede har brukt andre steder
       ["not", ["commaContains", ["dataModel", "UsedTypes"], ["value"]]],
       // Men ikke hvis det er den valgte ingrediensen her
       ["equals", ["component", "ingredientType"], ["value"]]

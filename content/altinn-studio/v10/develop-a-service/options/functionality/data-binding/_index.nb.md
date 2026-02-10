@@ -12,7 +12,7 @@ tags: [needsReview, translate]
 Under følger noen eksempler på oppsett av dataknytning for komponenter som bruker svaralternativer. For noen komponenter vil oppsettet være annerledes, og det anbefales å se på komponentens spesifikke dokumentasjon for mer informasjon.
 {{</notice>}}
 
-Komponenter som bruker svaralternativer må settes opp til å lagre valgte alternativer i datamodellen. Vanligvis vil komponenten lagre verdien av det valgte alternativet i datamodellen mot et felt av typen `string`, satt opp i komponentens konfigurasjon med nøkkelen `simpleBinding`:
+Du må sette opp komponenter som bruker svaralternativer til å lagre valgte alternativer i datamodellen. Vanligvis vil komponenten lagre verdien av det valgte alternativet i datamodellen mot et felt av typen `string`, satt opp i komponentens konfigurasjon med nøkkelen `simpleBinding`:
 
 ```json {hl_lines=["8"]}
 {
@@ -82,7 +82,7 @@ Dette konfigureres ved å ha en separat binding med nøkkelen `label`. Denne bin
 
 ### Slik lagrer du metadata
 
-Når appen henter svaralternativer, spesielt [felles kodelister](../../../sources/shared/), kan det være nyttig å lagre noen metadata som beskriver hvordan svaralternativene ble hentet. Dette kan være nyttig for å rekonstruere svaralternativene etter at skjemaet er sendt inn, samt for logging.
+Når appen henter svaralternativer, spesielt [felles kodelister](../../../sources/shared/), kan det være nyttig å lagre noen metadata som beskriver hvordan systemet hentet svaralternativene. Dette kan være nyttig for å rekonstruere svaralternativene etter at skjemaet er sendt inn, samt for logging.
 
 Dette kan konfigureres ved å sette `metadata`-egenskapen på komponentens `dataModelBinding`-egenskap til et felt i datamodellen som inneholder en `string`-verdi:
 

@@ -12,7 +12,7 @@ Når svaralternativene er dynamiske, kan datamodellen inneholde verdier som ikke
 
 ## Slik fungerer det
 
-Når skjemaet lastes, henter systemet svaralternativene for alle komponenter og sammenligner dem med verdiene i datamodellen. Selv om en komponent ikke er synlig (her mener vi at den er på en side som for øyeblikket ikke vises, _ikke_ at den er aktivt skjult via `hidden`-egenskapen), vil app-frontend fortsatt sjekke svaralternativene for den komponenten og fjerne eventuelle verdier som ikke er i svaralternativlisten.
+Når skjemaet lastes, henter systemet svaralternativene for alle komponenter og sammenligner dem med verdiene i datamodellen. Selv om en komponent ikke er synlig (her mener vi at den er på en side som for øyeblikket ikke er synlig, _ikke_ at den er aktivt skjult via `hidden`-egenskapen), vil app-frontend fortsatt sjekke svaralternativene for den komponenten og fjerne eventuelle verdier som ikke er i svaralternativlisten.
 
 Dette har noen implikasjoner som du bør være klar over:
 
