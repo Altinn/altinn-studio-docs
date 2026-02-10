@@ -84,7 +84,7 @@ Når prosessen i Altinn er gjennomført, kan du laste ned alle data inkludert si
 
 #### Du kan konfigurere hvor lenge data skal lagres
 
-Du kan konfigurere hvor lenge Altinn skal lagre instansen og dataene. Hvis du ikke konfigurerer dette, gjelder følgende:
+Du kan konfigurere hvor lenge Altinn skal lagre instansen og dataene.
 
 #### Sluttbruker kan slette sin kvittering
 
