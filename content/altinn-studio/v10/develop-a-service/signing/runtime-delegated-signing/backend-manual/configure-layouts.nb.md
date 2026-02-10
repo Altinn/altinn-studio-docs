@@ -2,35 +2,35 @@
 draft: true
 headless: true
 hidden: true
+tags: [needsReview, translate]
 ---
 
-Legg til en ny mappe under `App/ui` for signeringssteget ditt. Kall den f.eks. `signing`.
+1. Legg til en ny mappe under `App/ui` for signeringssteget. Kall den for eksempel `signing`.
 
-I denne mappen, legg til en `layouts`-mappe og en `Settings.json`-fil.
+2. I denne mappen legger du til en `layouts`-mappe og en `Settings.json`-fil.
 
-Legg til en layout-fil kalt f.eks. `signing.json` i `layouts`-mappen.
+3. Legg til en layout-fil kalt for eksempel `signing.json` i `layouts`-mappen.
 
-Mappestrukturen skal se slik ut:
+   Mappestrukturen skal se slik ut:
 
-{{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/backend-manual/configure-layouts-code-01.en.md" %}}
+   {{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/backend-manual/configure-layouts-code-01.en.md" %}}
 
-Det finnes et sett med ferdige komponenter for å bygge opp layout for et signeringssteg. Vi anbefaler å bruke disse, men de er ikke obligatoriske.
+4. Legg til innhold i layout-filen.
 
-- SigneeList:
-  - Lister ut signatarer og tilhørende signeringsstatus. Les mer [her](/nb/altinn-studio/v10/reference/ux/components/signeelist/).
-- SigningDocumentList:
-  - Lister ut dataene som blir signert på. Feks. vedlegg, xml-data eller PDF-oppsummering fra tidligere steg. Les mer [her](/nb/altinn-studio/v10/reference/ux/components/signingdocumentlist/).
-- SigningActions:
-  - Utleder status for signeringssteget og viser relevante knapper til sluttbruker, f.eks. "Signer"-knappen. Les mer [her](/nb/altinn-studio/v10/reference/ux/components/signingactions/).
+   Det finnes et sett med ferdige komponenter for å bygge opp layout for et signeringssteg. Vi anbefaler å bruke disse, men de er ikke obligatoriske:
 
-Dersom du ikke benytter `SigningActions` for å vise "Signer"-knappen, så må du legge til en egen action button med action "sign", for å la sluttbruker signere.
+   - **SigneeList**: Lister ut de som skal signere og tilhørende signeringsstatus. [Les om SigneeList-komponenten](/nb/altinn-studio/v10/reference/ux/components/signeelist/).
+   - **SigningDocumentList**: Lister ut dataene som blir signert på, for eksempel vedlegg, xml-data eller PDF-oppsummering fra tidligere steg. [Les om SigningDocumentList-komponenten](/nb/altinn-studio/v10/reference/ux/components/signingdocumentlist/).
+   - **SigningActions**: Sjekker status for signeringssteget og viser relevante knapper til sluttbruker, for eksempel **Signer**-knappen. [Les om SigningActions-komponenten](/nb/altinn-studio/v10/reference/ux/components/signingactions/).
 
-Eksempel på bruk av komponentene:
+   Hvis du ikke bruker `SigningActions` for å vise **Signer**-knappen, må du legge til en egen action button med action "sign" for å la sluttbruker signere.
 
-{{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/backend-manual/configure-layouts-code-02.en.md" %}}
+   Eksempel på bruk av komponentene:
 
-Oppdater filen `App/ui/layout-sets.json` med ny sidegruppe, som har samme `id` som mappen du nettopp opprettet.
+   {{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/backend-manual/configure-layouts-code-02.en.md" %}}
 
-Din oppdaterte `layout-sets.json` kan se slik ut:
+5. Oppdater filen `App/ui/layout-sets.json` med ny sidegruppe som har samme `id` som mappen du opprettet i steg 1.
 
-{{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/backend-manual/configure-layouts-code-03.en.md" %}}
+   Den oppdaterte `layout-sets.json` kan se slik ut:
+
+   {{% insert "content/altinn-studio/v10/develop-a-service/signing/runtime-delegated-signing/backend-manual/configure-layouts-code-03.en.md" %}}
