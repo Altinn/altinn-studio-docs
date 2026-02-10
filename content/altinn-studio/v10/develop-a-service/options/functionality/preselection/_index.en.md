@@ -2,7 +2,7 @@
 draft: true
 title: Pre-selection
 description: Making one option selected by default
-
+weight: 250
 ---
 
 In some cases it is desirable that one of the options is pre-selected. There are different ways to achieve this.

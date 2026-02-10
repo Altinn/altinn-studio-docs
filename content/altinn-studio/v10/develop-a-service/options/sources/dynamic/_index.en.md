@@ -4,7 +4,7 @@ title: Dynamic code lists
 linktitle: Dynamic
 description: Generated runtime by custom C# code
 toc: false
-
+weight: 100
 aliases:
   - /altinn-studio/guides/development/options/dynamic-codelists
 ---

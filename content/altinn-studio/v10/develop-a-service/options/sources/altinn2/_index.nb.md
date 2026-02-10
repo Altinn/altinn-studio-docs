@@ -4,7 +4,7 @@ title: Gjenbruk av svaralternativer fra Altinn 2
 linktitle: Fra Altinn 2
 description: Svaralternativer hentet fra Altinn 2
 toc: false
-
+weight: 300
 tags: [deprecated]
 hidden: true
 aliases:
@@ -20,8 +20,8 @@ Dette er imidlertid ikke en langsiktig løsning, og med utgivelsen av [Altinn fe
 
 Du kan fortsatt oppleve at det mangler en eller to kodelister i Altinn 3 sammenlignet med Altinn 2. I så fall kan du vurdere følgende:
 
-- Kan du opprette en "pull request" i [Altinn felles kodelister-repositoriet](https://github.com/Altinn/codelists-lib-dotnet) og bidra til felleskapet slik at andre kan gjenbruke implementasjonen din?
-- Hvis du ikke har kunnskapen eller tiden til å opprette en "pull request", kan du gi oss beskjed ved å opprette en [ny sak](https://github.com/Altinn/codelists-lib-dotnet/issues/new/choose) og beskrive hvilken kodeliste du trenger, så vil vi enten opprette den eller hjelpe deg med å gjøre det.
+- Kan du opprette en pull request i [Altinn felles kodelister-repositoriet](https://github.com/Altinn/codelists-lib-dotnet) og bidra til felleskapet slik at andre kan gjenbruke implementasjonen din?
+- Hvis du ikke har kunnskapen eller tiden til å opprette en pull request, kan du gi oss beskjed ved å opprette en [ny sak](https://github.com/Altinn/codelists-lib-dotnet/issues/new/choose) og beskrive hvilken kodeliste du trenger, så vil vi enten opprette den eller hjelpe deg med å gjøre det.
 - Hvis du bestemmer deg for å bruke Altinn 2-versjonen, vær oppmerksom på at dette API-et ikke er tilgjengelig etter juni 2025.
 {{</notice>}}
 
@@ -40,7 +40,7 @@ services.AddAltinn2CodeList(
     metadataApiId: "ASF_Land" // Code list name in Altinn 2 (use id if missing)
 );
 ```
-Det eneste som er påkrevd er `id` for hva kodelisten heter i Altinn 2, og `transform` for å fortelle hvilke kolonner du ønsker å bruke som `Value` og `Label`. Oversetting fungerer automatisk. Etter versjon `v7.2.0` vil `nb` bli brukt om listen mangler språket brukeren har valgt. Om du ønsker to ulike transformasjoner av samme liste, blir `id` navnet som brukes i Altinn 3 og `metadataApiId` brukes i oppslaget mot Altinn 2
+Det eneste som er påkrevd er `id` for hva kodelisten heter i Altinn 2, og `transform` for å fortelle hvilke kolonner du ønsker å bruke som `Value` og `Label`. Oversetting fungerer automatisk. Etter versjon `v7.2.0` vil systemet bruke `nb` om listen mangler språket brukeren har valgt. Om du ønsker to ulike transformasjoner av samme liste, bruker systemet `id` som navnet i Altinn 3 og bruker `metadataApiId` i oppslaget mot Altinn 2.
 
 Bruken er som alle andre kodelister der `id` kommer igjen som `optionsId` i komponenten.
 

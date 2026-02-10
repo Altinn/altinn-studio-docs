@@ -1,8 +1,8 @@
 ---
 draft: true
 title: Funksjonalitet
-description: Felles funksjonalitet for alle kildene til kodelister
-
+description: Felles funksjonalitet for alle kilder til kodelister
+weight: 20
 tags: [needsReview, translate]
 ---
 

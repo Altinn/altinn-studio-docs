@@ -2,7 +2,7 @@
 draft: true
 title: Filtering
 description: Removing some options from the list
-
+weight: 200
 ---
 
 Filtering is a way to remove some of the options from the list. This can be useful if you want to limit which

@@ -4,15 +4,15 @@ title: Dynamiske kodelister
 linktitle: Dynamisk
 description: Generert ved kjøring fra C#-kode
 toc: false
-
+weight: 100
 tags: [needsReview, translate]
 aliases:
   - /nb/altinn-studio/guides/development/options/dynamic-codelists
 ---
 
-I en Altinn 3-app kan du lage dynamiske kodelister som genereres fortløpende ved kjøring av appen. Dette gjør det mulig å lage dynamiske verdier, for eksempel ved å hente og filtrere verdier fra andre kilder. Dynamiske kodelister kan enten være åpne (tilgjengelig for alle, uten autentisering), eller sikret slik at brukeren må ha tilgang til instansen for å hente kodelisten.
+I en Altinn 3-app kan du lage dynamiske kodelister som systemet genererer fortløpende ved kjøring av appen. Dette gjør det mulig å lage dynamiske verdier, for eksempel ved å hente og filtrere verdier fra andre kilder. Dynamiske kodelister kan enten være åpne (tilgjengelig for alle, uten autentisering), eller sikret slik at brukeren må ha tilgang til instansen for å hente kodelisten.
 
-For åpne kodelister implementerer du `IAppOptionsProvider`-interfacet, mens for sikrede kodelister implementerer du `IInstanceAppOptionsProvider`. Fremgangsmåten er den samme for begge og modellen som returneres er lik. Hold implementeringen adskilt for ikke å eksponere kodelister som skulle vært sikret.
+For åpne kodelister implementerer du `IAppOptionsProvider`-interfacet, mens for sikrede kodelister implementerer du `IInstanceAppOptionsProvider`. Fremgangsmåten er den samme for begge og modellen du returnerer er lik. Hold implementeringen adskilt for ikke å eksponere kodelister som skulle vært sikret.
 
 ## Åpne kodelister
 
@@ -61,7 +61,7 @@ Registrer implementasjonen i `Program.cs` slik at applikasjonen plukker den opp:
 services.AddTransient<IAppOptionsProvider, CountryAppOptionsProvider>();
 ```
 
-Implementasjonen blir tilgjengelig på endepunktet `{org}/{app}/api/options/countries`. Du kan bruke identifikatoren i komponenter. For å bruke kodelisten i en `Dropdown`-komponent, setter du `optionsId` som i følgende eksempel:
+Systemet gjør implementasjonen tilgjengelig på endepunktet `{org}/{app}/api/options/countries`. Du kan bruke identifikatoren i komponenter. For å bruke kodelisten i en `Dropdown`-komponent, setter du `optionsId` som i følgende eksempel:
 
 ```json {hl_lines=[10]}
 {
@@ -135,7 +135,7 @@ Registrer implementasjonen i `Program.cs` slik at applikasjonen plukker den opp:
 services.AddTransient<IInstanceAppOptionsProvider, ChildrenAppOptionsProvider>();
 ```
 
-Implementasjonen blir tilgjengelig på endepunktet `{org}/{app}/instances/{instanceOwnerId}/{instanceGUID}/options/children`. Du kan bruke identifikatoren i komponenter. For å bruke kodelisten i en `Dropdown`-komponent, setter du `optionsId` som i følgende eksempel. Husk også å sette `secure`-egenskapen til `true` for å indikere at dette er en sikret kodeliste.
+Systemet gjør implementasjonen tilgjengelig på endepunktet `{org}/{app}/instances/{instanceOwnerId}/{instanceGUID}/options/children`. Du kan bruke identifikatoren i komponenter. For å bruke kodelisten i en `Dropdown`-komponent, setter du `optionsId` som i følgende eksempel. Husk også å sette `secure`-egenskapen til `true` for å indikere at dette er en sikret kodeliste.
 
 ```json {hl_lines=["10-11"]}
 {
@@ -154,7 +154,7 @@ Implementasjonen blir tilgjengelig på endepunktet `{org}/{app}/instances/{insta
 
 ## Spørringsparametre
 
-Kodeliste-endepunktet du lager støtter spørringsparametre. Parameteren `language` sendes med automatisk, og du kan sende andre parametre fra komponentkonfigurasjonen. Du kan lese disse ut fra `keyValuePairs`-parameteren i implementasjonen. Dette er nyttig for å filtrere kodelisten basert på data i datamodellen, eller variere kodelisten basert på kontekst.
+Kodeliste-endepunktet du lager støtter spørringsparametre. Systemet sender parameteren `language` med automatisk, og du kan sende andre parametre fra komponentkonfigurasjonen. Du kan lese disse ut fra `keyValuePairs`-parameteren i implementasjonen. Dette er nyttig for å filtrere kodelisten basert på data i datamodellen, eller variere kodelisten basert på kontekst.
 
 Tenk deg et skjema med to `Dropdown`-komponenter som er knyttet sammen. Den første lar brukeren velge et fylke, og den andre lar brukeren velge en kommune. Kommunene som vises i den andre komponenten skal være filtrert basert på fylket som er valgt i den første komponenten. Du løser dette ved å sende med fylket som et spørringsparameter til kodelisten for kommuner.
 
@@ -186,9 +186,9 @@ Du kan legge til både statiske og dynamiske parametre ved å sette opp `queryPa
 }
 ```
 
-I eksempelet over vil parameteret `loyvetype=garanti` alltid bli sendt med (dette er helt statisk og vil ikke endre seg). Parameteret `orgnummer={nr}` vil bli sendt med, hvor `{nr}` er verdien på feltet `soknad.transportorOrgnummer` i datamodellen. Parameteret `myndig={bool}` vil bli sendt med, hvor `{bool}` blir enten `true` eller `false` basert på om verdien på feltet `soknad.alder` er større enn eller lik 18.
+I eksempelet over vil systemet alltid sende parameteret `loyvetype=garanti` med (dette er helt statisk og vil ikke endre seg). Systemet sender parameteret `orgnummer={nr}` med, hvor `{nr}` er verdien på feltet `soknad.transportorOrgnummer` i datamodellen. Systemet sender parameteret `myndig={bool}` med, hvor `{bool}` blir enten `true` eller `false` basert på om verdien på feltet `soknad.alder` er større enn eller lik 18.
 
-Flere eksempler på uttrykk finner du i [dokumentasjonen for dynamikk](/nb/altinn-studio/v8/guides/development/dynamics/), og den fullstendige oversikten over tilgjengelige funksjoner finner du i [referanseoversikten over uttrykk](/nb/altinn-studio/v8/reference/logic/expressions/).
+Flere eksempler på uttrykk finner du i [dokumentasjonen for dynamikk]({{< relref "../../../dynamics" >}}), og den fullstendige oversikten over tilgjengelige funksjoner finner du i [referanseoversikten over uttrykk](/nb/altinn-studio/v8/reference/logic/expressions/).
 
 ### Basert på datamodellen
 
@@ -218,8 +218,8 @@ Du kan legge til dynamiske parametre ved å sette opp `mapping` på den aktuelle
 }
 ```
 
-I eksempelet over blir parameteren `orgnummer={nr}` sendt med. `{nr}` er verdien på feltet `soknad.transportorOrgnummer`.
-Når du setter opp en kobling til et datafelt og dette feltet endrer seg, henter appen kodelisten på nytt. På denne måten kan du dynamisk styre hvilke valg som vises basert på informasjon gitt av sluttbrukeren.
+I eksempelet over sender systemet parameteren `orgnummer={nr}` med. `{nr}` er verdien på feltet `soknad.transportorOrgnummer`.
+Når du setter opp en kobling til et datafelt og dette feltet endrer seg, henter appen kodelisten på nytt. På denne måten kan du dynamisk styre hvilke valg systemet viser basert på informasjon gitt av sluttbrukeren.
 
 Når du sender med parametre fra repeterende grupper, legger du ved en indeks-indikator for de relevante gruppene. Eksempel:
 
@@ -268,7 +268,7 @@ For et komplett eksempel kan du se vår [demo app.](https://altinn.studio/repos/
 
 - Metoden `GetAppOptionsAsync` får inn en språkkode i parameteren `language`. Språkkoder bør baseres på ISO 639-1 standarden eller W3C IANA Language Subtag Registry standarden. Sistnevnte bygger på ISO 639-1 standarden men garanterer at alle kodene er unike, noe ISO 639-1 ikke gjør.
 - En app kan ha mange implementasjoner av disse interfacene, en for hver kodeliste. Den rette implementasjonen finnes gjennom å se på hvilken kodeliste-identifikator det spørres etter, og sammenlignes med `Id`-egenskapen i implementasjonen. Dette er også identifikatoren som brukes i `optionsId`-egenskapen i komponentkonfigurasjonen. Dermed må også `Id`-egenskapen i implementasjonen være unik per app.
-- Det kan være fristende å sette opp en dynamisk og sikret kodeliste hvor du henter ut data fra datamodellen og produserer kodelisten basert på dette. Vi anbefaler ikke dette, da appens frontend bare henter kodelisten én gang for hvert unike sett med spørringsparametre. Det betyr at visningen av kodelisten ikke oppdaterer seg i tråd med endringene i datamodellen.
-    - Et alternativ er å bruke funksjonaliteten for [dynamiske kodelister basert på datamodell](/nb/altinn-studio/v8/guides/development/options/sources/from-data-model/), i noen tilfeller sammen med tilsvarende kode i [DataProcessor](/nb/altinn-studio/v8/reference/logic/dataprocessing/).
+- Det kan være fristende å sette opp en dynamisk og sikret kodeliste hvor du henter ut data fra datamodellen og produserer kodelisten basert på dette. Vi anbefaler ikke dette, da appens frontend bare henter kodelisten én gang for hvert unike sett med spørringsparametre. Det betyr at systemet ikke oppdaterer visningen av kodelisten i tråd med endringene i datamodellen.
+    - Et alternativ er å bruke funksjonaliteten for [dynamiske kodelister basert på datamodell](../from-data-model/), i noen tilfeller sammen med tilsvarende kode i [DataProcessor]({{< relref "../../../logic/dataprocessing" >}}).
     - Et annet alternativ kan være å bruke spørringsparametre, som beskrevet over.
-- Når du bruker spørringsparametre, kan det være lurt å tenke gjennom hvor mange unike kombinasjoner av parametre som typisk blir brukt i appen. Hvis det er mange, kan du vurdere å bruke en annen tilnærming, som for eksempel å hente ut all data og filtrere gyldige alternativer i frontend ved hjelp av [`optionFilter`](/nb/altinn-studio/v8/guides/development/options/functionality/filtering/). Mange ulike kombinasjoner av spørringsparametre kan føre til at appen må gjøre mye unødvendig arbeid for å hente kodelisten på nytt hver gang brukeren gjør en endring i skjemaet.
+- Når du bruker spørringsparametre, kan det være lurt å tenke gjennom hvor mange unike kombinasjoner av parametre systemet typisk bruker i appen. Hvis det er mange, kan du vurdere å bruke en annen tilnærming, som for eksempel å hente ut all data og filtrere gyldige alternativer i frontend ved hjelp av [`optionFilter`](../../functionality/filtering/). Mange ulike kombinasjoner av spørringsparametre kan føre til at appen må gjøre mye unødvendig arbeid for å hente kodelisten på nytt hver gang brukeren gjør en endring i skjemaet.

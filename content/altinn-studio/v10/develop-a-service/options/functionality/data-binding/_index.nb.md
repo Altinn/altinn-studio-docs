@@ -1,18 +1,18 @@
 ---
 draft: true
 title: Dataknytning
-description: Hva kan lagres i datamodellen
-
+description: Hva du kan lagre i datamodellen
+weight: 50
 tags: [needsReview, translate]
 ---
 
-### Lagring av valgt alternativ
+## Slik lagrer du valgte alternativer
 
 {{<notice info>}}
 Under følger noen eksempler på oppsett av dataknytning for komponenter som bruker svaralternativer. For noen komponenter vil oppsettet være annerledes, og det anbefales å se på komponentens spesifikke dokumentasjon for mer informasjon.
 {{</notice>}}
 
-Komponenter som bruker svaralternativer må settes opp til å lagre valgte alternativer i datamodellen. Vanligvis vil komponenten lagre verdien av det valgte alternativet i datamodellen mot et felt av typen `string`, satt opp i komponentens konfigurasjon med nøkkelen `simpleBinding`:
+Du må sette opp komponenter som bruker svaralternativer til å lagre valgte alternativer i datamodellen. Vanligvis vil komponenten lagre verdien av det valgte alternativet i datamodellen mot et felt av typen `string`, satt opp i komponentens konfigurasjon med nøkkelen `simpleBinding`:
 
 ```json {hl_lines=["8"]}
 {
@@ -62,9 +62,9 @@ I eksempelet over vil komponenten lagre en kommaseparert liste av valgte kjæled
 Legg merke til at verdien for hvert svaralternativ må være unik, og hvis du bruker flervalgskomponenter kan ingen av verdiene inneholde et komma.
 {{</notice>}}
 
-### Lagring av ledetekst / visningsverdi
+## Slik lagrer du ledetekst og visningsverdi
 
-Komponenter som bruker svaralternativer lagrer vanligvis bare verdien av det valgte alternativet i datamodellen. Dette er ofte tilstrekkelig, men i noen tilfeller kan det være nyttig å lagre ledeteksten til det valgte alternativet også. Dette kan for eksempel være nyttig hvis du trenger å vise det valgte alternativet i en enkel tekstvisning senere, uten å måtte gjøre ytterligere oppslag. Det kan også være nyttig å huske hvilken ledetekst brukeren faktisk valgte i tilfelle den endres over tid. Når ledeteksten lagres i datamodellen, følger den brukerens valgte språk, slår opp teksten i tekstressursene og lagrer den endelige verdien i datamodellen.
+Komponenter som bruker svaralternativer lagrer vanligvis bare verdien av det valgte alternativet i datamodellen. Dette er ofte tilstrekkelig, men i noen tilfeller kan det være nyttig å lagre ledeteksten til det valgte alternativet også. Dette kan for eksempel være nyttig hvis du trenger å vise det valgte alternativet i en enkel tekstvisning senere, uten å måtte gjøre ytterligere oppslag. Det kan også være nyttig å huske hvilken ledetekst brukeren faktisk valgte i tilfelle den endres over tid. Når du lagrer ledeteksten i datamodellen, følger systemet brukerens valgte språk, slår opp teksten i tekstressursene og lagrer den endelige verdien i datamodellen.
 
 Dette konfigureres ved å ha en separat binding med nøkkelen `label`. Denne bindingen må peke på et felt i datamodellen av typen `string`:
 
@@ -80,9 +80,9 @@ Dette konfigureres ved å ha en separat binding med nøkkelen `label`. Denne bin
 }
 ```
 
-### Lagring av metadata
+## Slik lagrer du metadata
 
-Når appen henter svaralternativer, spesielt [felles kodelister](/nb/altinn-studio/v8/guides/development/options/sources/shared/), kan det være nyttig å lagre noen metadata som beskriver hvordan svaralternativene ble hentet. Dette kan være nyttig for å rekonstruere svaralternativene etter at skjemaet er sendt inn, samt for logging.
+Når appen henter svaralternativer, spesielt [felles kodelister](../../sources/shared/), kan det være nyttig å lagre noen metadata som beskriver hvordan systemet hentet svaralternativene. Dette kan være nyttig for å rekonstruere svaralternativene etter at skjemaet er sendt inn, samt for logging.
 
 Dette kan konfigureres ved å sette `metadata`-egenskapen på komponentens `dataModelBinding`-egenskap til et felt i datamodellen som inneholder en `string`-verdi:
 

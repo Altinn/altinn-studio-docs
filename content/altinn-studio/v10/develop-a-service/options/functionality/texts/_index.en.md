@@ -2,7 +2,7 @@
 draft: true
 title: Texts
 description: The different text properties that can be used for options
-
+weight: 150
 ---
 
 ## Label
