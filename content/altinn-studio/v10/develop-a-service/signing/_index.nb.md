@@ -112,7 +112,7 @@ Hvis noen endrer signaturobjektet i ettertid, kan du oppdage det ved å sjekke h
 
 For at dette skal fungere, må både du og sluttbruker ha en kopi av hash-koden. Sluttbruker får hash-koden på sin kvittering.
 
-[Her kan du kan lese en teknisk beskrivelse for hvordan verifisering av signaturen gjøres.]({{< relref "../reference/process/tasks/signing#verifisering-av-sha256-hash" >}})
+[Her kan du lese en teknisk beskrivelse for hvordan verifisering av signaturen gjøres.]({{< relref "../reference/process/tasks/signing#verifisering-av-sha256-hash" >}})
 
 ---
 
