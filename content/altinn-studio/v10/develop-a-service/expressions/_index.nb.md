@@ -9,14 +9,14 @@ toc: true
 ## Introduksjon
 Uttrykksspråket i Altinn Studio gjør det mulig å definere enkle regler for hvordan ulike deler av tjenesten skal oppføre seg uten å måtte programmere det med et tradisjonelt programmeringsspråk. Du kan gjerne sammenligne uttrykk med enkle makroer i Excel. Uttrykkene kan enten skrives for hånd eller de kan konfigureres via grensesnittet i Altinn Studio verktøyet. 
 
-Uttryk vil typisk brukes ifm dynamikk og kan brukes til å:
+Uttrykk vil typisk brukes ifm dynamikk og kan brukes til å:
 * vise og skjule 
   * komponenter/skjemafelt
-  * deler av en kompoent (rad i repeterende gruppe, verdi i kodeliste)
-  * en gruppe av kompoenter
+  * deler av en komponent (rad i repeterende gruppe, verdi i kodeliste)
+  * en gruppe av komponenter
   * hele sider
 * bygge opp dynamiske kodelister
-* kontrollere hvordan prosessen skal være f eks hoppe over et signeringsteg hvis reglene tilsier at det ikke er nødvendig
+* kontrollere hvordan prosessen skal være f.eks. hoppe over et signeringsteg hvis reglene tilsier at det ikke er nødvendig
 
 Uansett hva du bruker uttrykk til så er språket det samme og du vil kjenne igjen funksjonene selv om du bruker de på forskjellige steder.
 
@@ -154,7 +154,7 @@ redigerings-knapp med teksten `"View"`. Hvis `IsPrefill` er `false` blir teksten
 `"Edit"`.
 
 Det er verdt å merke seg at dersom et oppslag på `IsPrefill` gir resultatet `null`(ikke funnet) så konverteres
-resultatet til `false` når det blir brukt i en `if`. Les mer detaljert om dette i seksjonene [if](#func-if) og [datatyper](#datatyper)
+resultatet til `false` når det blir brukt i en `if`. Les mer detaljert om dette i seksjonene [if](/content/altinn-studio/v10/develop-a-service/expressions/reference/functions/_index.nb.md#func-if) og [datatyper](/content/altinn-studio/v10/develop-a-service/expressions/reference/datatypes/)
 
 ```json
 {
@@ -179,7 +179,7 @@ resultatet til `false` når det blir brukt i en `if`. Les mer detaljert om dette
 
 {{% /expandlarge %}}
 
-{{% expandlarge id="rep-group-expandable" header="Vise/skjule hele sider" %}}
+{{% expandlarge id="show-hide-pages" header="Vise/skjule hele sider" %}}
 Uttrykk kan brukes til å vise/skjule hele sider. I eksempelet under vil hele siden skjules dersom en komponent
 (på en av de andre sidene) har verdien _no_ eller ikke er satt.
 
@@ -203,13 +203,13 @@ i [side-rekkefølgen](/nb/altinn-studio/v8/reference/ux/pages/navigation/). Om a
 siden i rekkefølgen istedenfor.
 {{% /expandlarge %}}
 
-{{% expandlarge id="rep-group-expandable" header="ID-er og evaluering i repterende grupper" %}}
+{{% expandlarge id="rep-group-expandable" header="ID-er og evaluering i repeterende grupper" %}}
 
 **NB:** Dette eksemplet er kun relevant når du skal prøve et uttrykk i utviklerverktøyene som er avhengig av en kjent posisjon i en
 repeterende gruppe. Dette kan endres i fremtiden, og slike endringer vil ikke påvirke uttrykk som man har definert i en
 applikasjon. Der hentes konteksten ut fra hvor uttrykket er definert i layout-filen.
 
-Se for deg en [repeterende gruppe](#fix-this) for personer med to felt; `navn` og `alder`.
+Se for deg en repeterende gruppe for personer med to felt; `navn` og `alder`.
 Gitt dette uttrykket:
 
 `["component", "alder"]`
@@ -218,7 +218,7 @@ Hva vil alderen være? Det vil kunne variere etter hvilken gruppe som evaluerer
 uttrykket. Har man har to grupper/rader vil både `navn`- og `alder`-komponentene finnes to ganger hver. Disse vil få
 ID-ene `navn-0` og `alder-0` (for den første raden) og `navn-1` og `alder-1` (for den andre raden).
 
-Tenk deg at følgende data er fyllt inn i en repeterende gruppe:
+Tenk deg at følgende data er fylt inn i en repeterende gruppe:
 
 | Navn | Komponent-ID | Alder | Komponent-ID |
 | ---- | ------------ | ----- | ------------ |
