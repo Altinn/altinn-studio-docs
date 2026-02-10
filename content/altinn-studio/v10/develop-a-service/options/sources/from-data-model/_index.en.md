@@ -3,7 +3,7 @@ draft: true
 title: Code list from repeating structures
 linktitle: From data model
 description: Code list made from a repeating structure in the data model
-
+weight: 150
 aliases:
   - /altinn-studio/guides/development/options/repeating-group-codelists
 ---

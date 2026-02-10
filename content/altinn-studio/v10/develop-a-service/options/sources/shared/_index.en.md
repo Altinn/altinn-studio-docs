@@ -4,7 +4,7 @@ title: Common shared code lists
 linktitle: Shared
 description: Code lists that are shared across applications
 toc: false
-
+weight: 200
 aliases:
   - /altinn-studio/guides/development/options/common-codelists
 ---

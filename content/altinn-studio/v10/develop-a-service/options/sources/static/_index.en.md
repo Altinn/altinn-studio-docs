@@ -4,7 +4,7 @@ title: Static options
 linktitle: Static
 description: Lists of options that does not change, but can be filtered
 toc: false
-
+weight: 50
 aliases:
   - /altinn-studio/guides/development/options/static-codelists
 ---
