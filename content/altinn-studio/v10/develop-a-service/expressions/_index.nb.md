@@ -9,7 +9,7 @@ toc: true
 ## Introduksjon
 Uttrykksspråket i Altinn Studio gjør det mulig å definere enkle regler for hvordan ulike deler av tjenesten skal oppføre seg uten å måtte programmere det med et tradisjonelt programmeringsspråk. Du kan gjerne sammenligne uttrykk med enkle makroer i Excel. Uttrykkene kan enten skrives for hånd eller de kan konfigureres via grensesnittet i Altinn Studio verktøyet. 
 
-Uttrykk vil typisk brukes ifm dynamikk og kan brukes til å:
+Uttrykk vil typisk brukes ifm. dynamikk og kan brukes til å:
 * vise og skjule 
   * komponenter/skjemafelt
   * deler av en komponent (rad i repeterende gruppe, verdi i kodeliste)
@@ -112,22 +112,22 @@ Dynamiske uttrykk er tilgjengelig for bruk i disse egenskapene, som definert i [
 
 | Komponenter                                                                                                     | Egenskap                      | Forventet verdi            | Frontend | Backend |
 | --------------------------------------------------------------------------------------------------------------- | ----------------------------- | -------------------------- | -------- | ------- |
-| [Sider/layouts](#viseskjule-hele-sider)                                                                         | `hidden`                      | [Boolsk](#boolske-verdier) | ✅       | ✅      |
-| Alle                                                                                                            | `hidden`                      | [Boolsk](#boolske-verdier) | ✅       | ✅      |
-| Skjemakomponenter                                                                                               | `required`                    | [Boolsk](#boolske-verdier) | ✅       | ✅      |
-| Skjemakomponenter                                                                                               | `readOnly`                    | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `hiddenRow`                   | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `edit.addButton`              | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `edit.saveButton`             | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `edit.deleteButton`           | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `edit.alertOnDelete`          | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `edit.saveAndNextButton`      | [Boolsk](#boolske-verdier) | ✅       | ❌      |
-| [Kodelistebaserte komponenter](/nb/altinn-studio/v8/guides/development/options/sources/from-data-model/#støtte-for-uttrykk) | `source.label`                | [Streng](#strenger)        | ✅       | ❌      |
-| [Kodelistebaserte komponenter](/nb/altinn-studio/v8/guides/development/options/sources/from-data-model/#støtte-for-uttrykk) | `source.description`          | [Streng](#strenger)        | ✅       | ❌      |
-| [Kodelistebaserte komponenter](/nb/altinn-studio/v8/guides/development/options/sources/from-data-model/#støtte-for-uttrykk) | `source.helpText`             | [Streng](#strenger)        | ✅       | ❌      |
-| [Kodelistebaserte komponenter](/nb/altinn-studio/v8/guides/development/options/sources/dynamic/#basert-på-uttrykk)          | `queryParameters.[*]`         | [Streng](#strenger)        | ✅       | ❌      |
-| [Kodelistebaserte komponenter](/nb/altinn-studio/v8/guides/development/options/functionality/filtering/)                     | `optionFilter`                | [Streng](#strenger)        | ✅       | ❌      |
-| Alle                                                                                                            | `textResourceBindings.[*]` \* | [Streng](#strenger)        | ✅       | ❌      |
+| [Sider/layouts](#viseskjule-hele-sider)                                                                         | `hidden`                      | Boolsk | ✅       | ✅      |
+| Alle                                                                                                            | `hidden`                      | Boolsk | ✅       | ✅      |
+| Skjemakomponenter                                                                                               | `required`                    | Boolsk | ✅       | ✅      |
+| Skjemakomponenter                                                                                               | `readOnly`                    | Boolsk | ✅       | ❌      |
+| [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `hiddenRow`                   | Boolsk | ✅       | ❌      |
+| [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `edit.addButton`              | Boolsk | ✅       | ❌      |
+| [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `edit.saveButton`             | Boolsk | ✅       | ❌      |
+| [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `edit.deleteButton`           | Boolsk | ✅       | ❌      |
+| [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `edit.alertOnDelete`          | Boolsk | ✅       | ❌      |
+| [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `edit.saveAndNextButton`      | Boolsk | ✅       | ❌      |
+| [Kodelistebaserte komponenter](/nb/altinn-studio/v8/guides/development/options/sources/from-data-model/#støtte-for-uttrykk) | `source.label`                | Streng       | ✅       | ❌      |
+| [Kodelistebaserte komponenter](/nb/altinn-studio/v8/guides/development/options/sources/from-data-model/#støtte-for-uttrykk) | `source.description`          | Streng       | ✅       | ❌      |
+| [Kodelistebaserte komponenter](/nb/altinn-studio/v8/guides/development/options/sources/from-data-model/#støtte-for-uttrykk) | `source.helpText`             | Streng       | ✅       | ❌      |
+| [Kodelistebaserte komponenter](/nb/altinn-studio/v8/guides/development/options/sources/dynamic/#basert-på-uttrykk)          | `queryParameters.[*]`         | Streng       | ✅       | ❌      |
+| [Kodelistebaserte komponenter](/nb/altinn-studio/v8/guides/development/options/functionality/filtering/)                     | `optionFilter`                | Streng       | ✅       | ❌      |
+| Alle                                                                                                            | `textResourceBindings.[*]` \* | Streng       | ✅       | ❌      |
 
 \* = Hvilke verdier man kan overstyre med textResourceBindings varierer fra komponent til komponent, men vil fungere på
 alle steder der det brukes. TextResourceBindings for repeterende grupper finner
