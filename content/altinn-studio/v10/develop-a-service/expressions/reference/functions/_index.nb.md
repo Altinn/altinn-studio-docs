@@ -542,7 +542,7 @@ automatisk slette skjulte data (`RemoveHiddenDataPreview`).
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-instancecontext" header="instanceContext (oppslag)" %}}
-Denne funksjonen gjør det mulig å hente ut informasjon om gjeldende instans. Følgende nøkler kan brukes fom første
+Denne funksjonen gjør det mulig å hente ut informasjon om gjeldende instans. Følgende nøkler kan brukes fra og med første
 argument:
 
 | Nøkkel                   | Verdi                          | Eksempelverdi                                       |
@@ -552,7 +552,7 @@ argument:
 | `instanceOwnerPartyType` | Hva slags aktør eier instansen | `"org", "person", "selfIdentified" eller "unknown"` |
 | `appId`                  | Den aktive appen sin ID        | `org/app-name`                                      |
 
-Alle disse oppslagene vil gi verdien `null` om man jobber i en [tiltandsløs kontekst](/nb/altinn-studio/v8/reference/configuration/stateless/).
+Alle disse oppslagene vil gi verdien `null` om man jobber i en [tilstandsløs kontekst](/nb/altinn-studio/v8/reference/configuration/stateless/).
 Om man gir andre nøkler enn de over, vil oppslaget resultere i en feilmelding. Denne oppførselen er unik blant
 oppslagsfunksjonene, og gjøres for å sikre at man ikke prøver å hente informasjon som finnes i instansen men som ikke
 (enda) er eksponert via en nøkkel her. [Gi oss en tilbakemelding](https://github.com/Altinn/app-frontend-react/issues/new?assignees=&labels=kind%2Ffeature-request%2Cstatus%2Ftriage&template=feature_request.yml) om du har ønsker om å hente ut
