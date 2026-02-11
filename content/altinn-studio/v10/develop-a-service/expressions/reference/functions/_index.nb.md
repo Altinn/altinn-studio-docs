@@ -15,66 +15,66 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 
 | Funksjonsnavn                                | Parametre                                 | Returverdi                 | Frontend | Backend |
 | -------------------------------------------- | ----------------------------------------- | -------------------------- | -------- | ------- |
-| [`compare`](#func-compare)                   | [Se detaljert beskrivelse](#func-compare) | [Boolsk](#boolske-verdier) | ✅       | ✅      |
-| [`equals`](#func-equals)                     | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅       | ✅      |
-| [`notEquals`](#func-equals)                  | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅       | ✅      |
-| [`not`](#func-not)                           | [Boolsk](#boolske-verdier)                | [Boolsk](#boolske-verdier) | ✅       | ✅      |
-| [`greaterThan`](#func-gt)                    | [Tall](#tall), [Tall](#tall)              | [Boolsk](#boolske-verdier) | ✅       | ✅      |
-| [`greaterThanEq`](#func-gt)                  | [Tall](#tall), [Tall](#tall)              | [Boolsk](#boolske-verdier) | ✅       | ✅      |
-| [`lessThan`](#func-gt)                       | [Tall](#tall), [Tall](#tall)              | [Boolsk](#boolske-verdier) | ✅       | ✅      |
-| [`lessThanEq`](#func-gt)                     | [Tall](#tall), [Tall](#tall)              | [Boolsk](#boolske-verdier) | ✅       | ✅      |
-| [`concat`](#func-concat)                     | Ingen eller flere [strenger](#strenger)   | [Streng](#strenger)        | ✅       | ✅      |
-| [`contains`](#func-contains-not-contains)    | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅       | ✅      |
-| [`notContains`](#func-contains-not-contains) | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅       | ✅      |
-| [`commaContains`](#func-commaContains)       | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅       | ✅      |
-| [`startsWith`](#func-starts-ends-with)       | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅       | ✅      |
-| [`endsWith`](#func-starts-ends-with)         | [Streng](#strenger), [Streng](#strenger)  | [Boolsk](#boolske-verdier) | ✅       | ✅      |
+| [`compare`](#func-compare)                   | [Se detaljert beskrivelse](#func-compare) | Boolsk | ✅       | ✅      |
+| [`equals`](#func-equals)                     | Streng, Streng  | Boolsk | ✅       | ✅      |
+| [`notEquals`](#func-equals)                  | Streng, Streng  | Boolsk | ✅       | ✅      |
+| [`not`](#func-not)                           | Boolsk                | Boolsk | ✅       | ✅      |
+| [`greaterThan`](#func-gt)                    | Tall, Tall              | Boolsk | ✅       | ✅      |
+| [`greaterThanEq`](#func-gt)                  | Tall, Tall              | Boolsk | ✅       | ✅      |
+| [`lessThan`](#func-gt)                       | Tall, Tall              | Boolsk | ✅       | ✅      |
+| [`lessThanEq`](#func-gt)                     | Tall, Tall              | Boolsk | ✅       | ✅      |
+| [`concat`](#func-concat)                     | Ingen eller flere strenger   | Streng        | ✅       | ✅      |
+| [`contains`](#func-contains-not-contains)    | Streng, Streng  | Boolsk | ✅       | ✅      |
+| [`notContains`](#func-contains-not-contains) | Streng, Streng  | Boolsk | ✅       | ✅      |
+| [`commaContains`](#func-commaContains)       | Streng, Streng  | Boolsk | ✅       | ✅      |
+| [`startsWith`](#func-starts-ends-with)       | Streng, Streng  | Boolsk | ✅       | ✅      |
+| [`endsWith`](#func-starts-ends-with)         | Streng, Streng  | Boolsk | ✅       | ✅      |
 
 ### Logikk
 
 | Funksjonsnavn      | Parametre                                          | Returverdi                           | Frontend | Backend |
 | ------------------ | -------------------------------------------------- | ------------------------------------ | -------- | ------- |
-| [`and`](#func-and) | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
-| [`or`](#func-and)  | En eller flere [boolske verdier](#boolske-verdier) | [Boolsk](#boolske-verdier)           | ✅       | ✅      |
+| [`and`](#func-and) | En eller flere boolske verdier| Boolsk           | ✅       | ✅      |
+| [`or`](#func-and)  | En eller flere boolske verdier| Boolsk           | ✅       | ✅      |
 | [`if`](#func-if)   | [Se detaljert beskrivelse](#func-if)               | [Se detaljert beskrivelse](#func-if) | ✅       | ✅      |
 
 ### Strenger og tall
 
 | Funksjonsnavn                             | Parametre                                                     | Returverdi          | Frontend | Backend |
 | ----------------------------------------- | ------------------------------------------------------------- | ------------------- | -------- | ------- |
-| [`lowerCase`](#func-lowerCase-upperCase)  | [Streng](#strenger)                                           | [Streng](#strenger) | ✅       | ✅      |
-| [`upperCase`](#func-lowerCase-upperCase)  | [Streng](#strenger)                                           | [Streng](#strenger) | ✅       | ✅      |
-| [`lowerCaseFirst`](#func-lcFirst-ucFirst) | [Streng](#strenger)                                           | [Streng](#strenger) | ✅       | ✅      |
-| [`upperCaseFirst`](#func-lcFirst-ucFirst) | [Streng](#strenger)                                           | [Streng](#strenger) | ✅       | ✅      |
-| [`stringLength`](#func-stringLength)      | [Streng](#strenger)                                           | [Tall](#tall)       | ✅       | ✅      |
-| [`stringIndexOf`](#func-stringIndexOf)    | [Streng](#strenger), [Streng](#strenger)                      | [Tall](#tall)       | ✅       | ✅      |
-| [`stringSlice`](#func-stringSlice)        | [Streng](#strenger), [Tall](#tall), valgfritt [Tall](#tall)   | [Streng](#strenger) | ✅       | ✅      |
-| [`stringReplace`](#func-stringReplace)    | [Streng](#strenger), [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅       | ✅      |
-| [`text`](#func-text)                      | [Streng](#strenger)                                           | [Streng](#strenger) | ✅       | ❌      |
-| [`language`](#func-language)              | Ingenting                                                     | [Streng](#strenger) | ✅       | ❌      |
-| [`displayValue`](#func-displayValue)      | [Streng](#strenger)                                           | [Streng](#strenger) | ✅       | ❌      |
-| [`round`](#func-round)                    | [Tall](#tall), valgfritt [Tall](#tall)                        | [Streng](#strenger) | ✅       | ✅      |
-| [`formatDate`](#func-formatDate)          | [Dato/tid](#datoer), valgfri [Streng](#strenger)              | [Streng](#strenger) | ✅       | ✅      |
+| [`lowerCase`](#func-lowerCase-upperCase)  | Streng                                           | Streng | ✅       | ✅      |
+| [`upperCase`](#func-lowerCase-upperCase)  | Streng                                           | Streng | ✅       | ✅      |
+| [`lowerCaseFirst`](#func-lcFirst-ucFirst) | Streng                                           | Streng | ✅       | ✅      |
+| [`upperCaseFirst`](#func-lcFirst-ucFirst) | Streng                                           | Streng | ✅       | ✅      |
+| [`stringLength`](#func-stringLength)      | Streng                                           | Tall       | ✅       | ✅      |
+| [`stringIndexOf`](#func-stringIndexOf)    | Streng, Streng                      | Tall       | ✅       | ✅      |
+| [`stringSlice`](#func-stringSlice)        | Streng, Tall, valgfritt Tall   | Streng | ✅       | ✅      |
+| [`stringReplace`](#func-stringReplace)    | Streng, Streng, Streng | Streng | ✅       | ✅      |
+| [`text`](#func-text)                      | Streng                                           | Streng | ✅       | ❌      |
+| [`language`](#func-language)              | Ingenting                                                     | Streng | ✅       | ❌      |
+| [`displayValue`](#func-displayValue)      | Streng                                           | Streng | ✅       | ❌      |
+| [`round`](#func-round)                    | Tall, valgfritt Tall                        | Streng | ✅       | ✅      |
+| [`formatDate`](#func-formatDate)          | Dato/tid, valgfri Streng              | Streng | ✅       | ✅      |
 
 ### Oppslag, komponenter og data
 
 | Funksjonsnavn                                  | Parametre                                | Returverdi          | Frontend | Backend |
 | ---------------------------------------------- | ---------------------------------------- | ------------------- | -------- | ------- |
-| [`instanceContext`](#func-instancecontext)     | [Streng](#strenger)                      | [Streng](#strenger) | ✅       | ✅      |
-| [`frontendSettings`](#func-frontendsettings)   | [Streng](#strenger)                      | [Streng](#strenger) | ✅       | ✅      |
-| [`countDataElements`](#func-countDataElements) | [Streng](#strenger)                      | [Tall](#tall)       | ✅       | ✅      |
-| [`dataModel`](#func-datamodel)                 | [Streng](#strenger)                      | [Streng](#strenger) | ✅       | ✅      |
-| [`component`](#func-component)                 | [Streng](#strenger)                      | [Streng](#strenger) | ✅       | ✅      |
-| [`linkToPage`](#func-linkToPage)               | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅       | ❌      |
-| [`linkToComponent`](#func-linkToComponent)     | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅       | ❌      |
-| [`optionLabel`](#func-optionLabel)             | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅       | ❌      |
+| [`instanceContext`](#func-instancecontext)     | Streng                      | Streng | ✅       | ✅      |
+| [`frontendSettings`](#func-frontendsettings)   | Streng                      | Streng | ✅       | ✅      |
+| [`countDataElements`](#func-countDataElements) | Streng                      | Tall       | ✅       | ✅      |
+| [`dataModel`](#func-datamodel)                 | Streng                      | Streng | ✅       | ✅      |
+| [`component`](#func-component)                 | Streng                      | Streng | ✅       | ✅      |
+| [`linkToPage`](#func-linkToPage)               | Streng, Streng | Streng | ✅       | ❌      |
+| [`linkToComponent`](#func-linkToComponent)     | Streng, Streng | Streng | ✅       | ❌      |
+| [`optionLabel`](#func-optionLabel)             | Streng, Streng | Streng | ✅       | ❌      |
 
 ### Spesialfunksjoner
 
 | Funksjonsnavn          | Parametre                   | Returverdi          | Frontend | Backend |
 | ---------------------- | --------------------------- | ------------------- | -------- | ------- |
-| [`argv`](#func-argv)   | [Tall](#tall)               | [Streng](#strenger) | ✅       | ✅      |
-| [`value`](#func-value) | valgfri [Streng](#strenger) | [Streng](#strenger) | ✅       | ❌      |
+| [`argv`](#func-argv)   | Tall               | Streng | ✅       | ✅      |
+| [`value`](#func-value) | valgfri Streng | Streng | ✅       | ❌      |
 
 Detaljerte beskrivelser og eksempler
 
@@ -110,15 +110,15 @@ operatoren som brukes. For eksempel kan operatoren `equals` sammenligne strenger
 | Operator        | Parametre                | Beskrivelse                                                                                      |
 | --------------- | ------------------------ | ------------------------------------------------------------------------------------------------ |
 | `equals`        | [Alle typer](#datatyper) | Returnerer `true` om de to verdiene er like, `false` ellers.                                     |
-| `greaterThan`   | [Tall](#tall)            | Returnerer `true` om det første tallet er større enn det andre tallet, `false` ellers.           |
-| `greaterThanEq` | [Tall](#tall)            | Returnerer `true` om det første tallet er større enn eller lik det andre tallet, `false` ellers. |
-| `lessThan`      | [Tall](#tall)            | Returnerer `true` om det første tallet er mindre enn det andre tallet, `false` ellers.           |
-| `lessThanEq`    | [Tall](#tall)            | Returnerer `true` om det første tallet er mindre enn eller lik det andre tallet, `false` ellers. |
-| `isBefore`      | [Dato/tid](#datoer)      | Returnerer `true` om den første datoen er før den andre datoen, `false` ellers.                  |
-| `isBeforeEq`    | [Dato/tid](#datoer)      | Returnerer `true` om den første datoen er før eller lik den andre datoen, `false` ellers.        |
-| `isAfter`       | [Dato/tid](#datoer)      | Returnerer `true` om den første datoen er etter den andre datoen, `false` ellers.                |
-| `isAfterEq`     | [Dato/tid](#datoer)      | Returnerer `true` om den første datoen er etter eller lik den andre datoen, `false` ellers.      |
-| `isSameDay`     | [Dato/tid](#datoer)      | Returnerer `true` om de to datoene er på samme dag, `false` ellers.                              |
+| `greaterThan`   | Tall            | Returnerer `true` om det første tallet er større enn det andre tallet, `false` ellers.           |
+| `greaterThanEq` | Tall            | Returnerer `true` om det første tallet er større enn eller lik det andre tallet, `false` ellers. |
+| `lessThan`      | Tall            | Returnerer `true` om det første tallet er mindre enn det andre tallet, `false` ellers.           |
+| `lessThanEq`    | Tall            | Returnerer `true` om det første tallet er mindre enn eller lik det andre tallet, `false` ellers. |
+| `isBefore`      | Dato/tid      | Returnerer `true` om den første datoen er før den andre datoen, `false` ellers.                  |
+| `isBeforeEq`    | Dato/tid      | Returnerer `true` om den første datoen er før eller lik den andre datoen, `false` ellers.        |
+| `isAfter`       | Dato/tid      | Returnerer `true` om den første datoen er etter den andre datoen, `false` ellers.                |
+| `isAfterEq`     | Dato/tid      | Returnerer `true` om den første datoen er etter eller lik den andre datoen, `false` ellers.      |
+| `isSameDay`     | Dato/tid      | Returnerer `true` om de to datoene er på samme dag, `false` ellers.                              |
 
 {{% /expandlarge %}}
 
@@ -206,7 +206,7 @@ et mer lesbart resultat anbefales det å legge inn bindetegn hvor nødvendig:
 
 Uttrykket over gir teksten `Gratulerer med 18-årsdagen!` dersom verdien i alder-komponenten var `18`.
 
-I `concat`-funksjonen tolkes [`null`](#null)-verdier som tomme strenger. [Boolske verdier](#boolske-verdier) skrives
+I `concat`-funksjonen tolkes [`null`](#null)-verdier som tomme strenger. boolske verdierskrives
 ut som strengene `"true"` og `"false"`.
 {{% /expandlarge %}}
 
@@ -229,10 +229,10 @@ boolsk uttrykk. Funksjonen kan kalles på to forskjellige måter; med 2 eller 4 
 
 | Argument        | Alternativ 1                 | Alternativ 2                 |
 | --------------- | ---------------------------- | ---------------------------- |
-| Første argument | [Boolsk](#boolske-verdier)   | [Boolsk](#boolske-verdier)   |
-| Andre argument  | [Vilkårlig type](#datatyper) | [Vilkårlig type](#datatyper) |
+| Første argument | Boolsk   | Boolsk   |
+| Andre argument  | Vilkårlig type | Vilkårlig type |
 | Tredje argument |                              | Strengen `"else"`            |
-| Fjerde argument |                              | [Vilkårlig type](#datatyper) |
+| Fjerde argument |                              | Vilkårlig type |
 
 I **alternativ 1** vil returverdien til funksjonen bli verdien gitt som andre argument _dersom første argument er sant
 (`true`)_. Om ikke returneres verdien `null`.
@@ -281,7 +281,7 @@ Om gjeldende språk er ukjent, vil `nb` returneres, som er standardspråket for 
 på at denne funksjonen alltid returnerer et gyldig språk.
 
 **Bemerk:** Denne funksjonen er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
-brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+brukt noen steder hvor uttrykk kjøres på backend, og om man har slått på funksjonaliteten for å
 automatisk slette skjulte data (`RemoveHiddenDataPreview`).
 
 {{% /expandlarge %}}

@@ -83,7 +83,7 @@ Det kan kanskje se ut som følgende uttrykk er like:
 Hvis verdien (her gitt fra oppslaget `["dataModel", "hideName"]`) er `true` eller `"true"` vil
 komponenten skjules, men dersom verdien er `1` eller `"1"` vil komponenten bare skjules med uttrykkene i alternativ
 1 og 3. Dette fordi resultatet i uttrykket for `hidden` [konverteres til en boolsk verdi](#bruksområder), og
-`if` [forventer en boolsk verdi som første argument](#func-if). Derimot vil `equals` sammenligne verdiene som strenger,
+`if` forventer en boolsk verdi som første argument. Derimot vil `equals` sammenligne verdiene som strenger,
 og `"1"` er ikke lik `"true"`.
 
 Se også tips og triks under [_Streng eller mindre streng sammenligning?_](#streng-eller-mindre-streng-sammenligning)
