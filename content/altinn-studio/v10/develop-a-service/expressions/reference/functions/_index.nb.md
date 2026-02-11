@@ -109,7 +109,7 @@ operatoren som brukes. For eksempel kan operatoren `equals` sammenligne strenger
 
 | Operator        | Parametre                | Beskrivelse                                                                                      |
 | --------------- | ------------------------ | ------------------------------------------------------------------------------------------------ |
-| `equals`        | [Alle typer](#datatyper) | Returnerer `true` om de to verdiene er like, `false` ellers.                                     |
+| `equals`        | Alle typer      | Returnerer `true` om de to verdiene er like, `false` ellers.                                     |
 | `greaterThan`   | Tall            | Returnerer `true` om det første tallet er større enn det andre tallet, `false` ellers.           |
 | `greaterThanEq` | Tall            | Returnerer `true` om det første tallet er større enn eller lik det andre tallet, `false` ellers. |
 | `lessThan`      | Tall            | Returnerer `true` om det første tallet er mindre enn det andre tallet, `false` ellers.           |
@@ -124,8 +124,7 @@ operatoren som brukes. For eksempel kan operatoren `equals` sammenligne strenger
 
 {{% expandlarge id="func-equals" header="equals / notEquals" %}}
 Disse to funksjonene sammenligner to strenger for å sjekke om de er like (`equals`) eller ulike (`notEquals`). Om
-du sender inn andre verdier enn strenger, blir verdiene konvertert og sammenlignet som strenger
-([les mer om konvertering her](#strenger)).
+du sender inn andre verdier enn strenger, blir verdiene konvertert og sammenlignet som strenger.
 
 Eksempler:
 
@@ -147,11 +146,11 @@ Eksempler:
 
 `notEquals` er i prinsippet det samme som, og en snarvei til, `["not", ["equals", ...]]`.
 
-Se også tips og triks under [_Streng eller mindre streng sammenligning?_](#streng-eller-mindre-streng-sammenligning)
+Se også tips og triks under [_Streng eller mindre streng sammenligning?_](/nb/altinn-studio/v10/develop-a-service/expressions/reference/datatypes/#streng-eller-mindre-streng-sammenligning)
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-not" header="not" %}}
-Denne funksjonen tar inn en [boolsk verdi](#boolske-verdier) eller noe som kan konverteres til en boolsk verdi, og
+Denne funksjonen tar inn en boolsk verdi eller noe som kan konverteres til en boolsk verdi, og
 returnerer den motsatte boolske verdien. Sann blir til usann, usann blir til sann.
 
 Funksjonen kan være nyttig om du ønsker å _snu_ et uttrykk. Istedenfor å tenke at du skal skrive et uttrykk som
@@ -206,7 +205,7 @@ et mer lesbart resultat anbefales det å legge inn bindetegn hvor nødvendig:
 
 Uttrykket over gir teksten `Gratulerer med 18-årsdagen!` dersom verdien i alder-komponenten var `18`.
 
-I `concat`-funksjonen tolkes [`null`](#null)-verdier som tomme strenger. boolske verdierskrives
+I `concat`-funksjonen tolkes `null`-verdier som tomme strenger. boolske verdierskrives
 ut som strengene `"true"` og `"false"`.
 {{% /expandlarge %}}
 
@@ -220,7 +219,7 @@ _minst en_ av verdiene var sanne (`true`).
 | `or`     | Er **minst ett** av argumentene sanne? (`true`) |
 
 Gir man [`null`](#null)-verdier tolkes disse som usann (`false`). Eksempler på bruk finnes
-under [_Streng eller mindre streng sammenligning?_](#streng-eller-mindre-streng-sammenligning)
+under [_Streng eller mindre streng sammenligning?_](/nb/altinn-studio/v10/develop-a-service/expressions/reference/datatypes/#streng-eller-mindre-streng-sammenligning)
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-if" header="if" %}}
@@ -536,7 +535,7 @@ Eksempel:
 ```
 
 **Bemerk:** Denne funksjonen er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
-brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+brukt noen steder hvor uttrykk kjøres på backend, og om man har slått på funksjonaliteten for å
 automatisk slette skjulte data `RemoveHiddenDataPreview`.
 
 {{% /expandlarge %}}
