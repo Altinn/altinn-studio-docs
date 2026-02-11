@@ -10,17 +10,17 @@ Filtrering gjør det mulig å fjerne noen av svaralternativene fra listen. Dette
 
 Legg merke til at det allerede finnes flere måter å gjøre svaralternativene dynamiske på:
 
-- Ved å bruke [dynamikk](/nb/altinn-studio/v8/guides/development/dynamics/) for å skjule og vise helt forskjellige komponenter basert på en betingelse. Disse komponentene kan være bundet til samme sted i datamodellen, men ha forskjellige svaralternativer. Merk at [automatisk opprydding](/nb/altinn-studio/v8/guides/development/options/functionality/automatic-cleanup/) kan fjerne verdier fra datamodellen når du bruker denne metoden.
-- Ved å bruke [dynamiske alternativer](/nb/altinn-studio/v8/guides/development/options/sources/dynamic/) og sende spørringsparametre til backenden, kan du skrive kode for å generere et annet sett med alternativer basert på disse spørringsparametrene. Dette kan være nyttig, men kan føre til mye nettverkstrafikk hvis alternativene og spørringsparametrene endres ofte.
-- Ved å bruke [svaralternativer fra en repeterende struktur i datamodellen](/nb/altinn-studio/v8/guides/development/options/sources/from-data-model/). I kombinasjon med dataprosessering på backenden kan dette være en kraftig måte å lage egendefinerte svaralternativer på, selv når dynamiske alternativer basert på spørringsparametre ville være problematisk.
+- Ved å bruke [dynamikk]({{< relref "../../../dynamics" >}}) for å skjule og vise helt forskjellige komponenter basert på en betingelse. Disse komponentene kan være bundet til samme sted i datamodellen, men ha forskjellige svaralternativer. Merk at [automatisk opprydding](../automatic-cleanup/) kan fjerne verdier fra datamodellen når du bruker denne metoden.
+- Ved å bruke [dynamiske alternativer](../../sources/dynamic/) og sende spørringsparametre til backenden, kan du skrive kode for å generere et annet sett med alternativer basert på disse spørringsparametrene. Dette kan være nyttig, men kan føre til mye nettverkstrafikk hvis alternativene og spørringsparametrene endres ofte.
+- Ved å bruke [svaralternativer fra en repeterende struktur i datamodellen](../../sources/from-data-model/). I kombinasjon med dataprosessering på backenden kan dette være en kraftig måte å lage egendefinerte svaralternativer på, selv når dynamiske alternativer basert på spørringsparametre ville være problematiske.
 
-Filtrering av svaralternativer via `optionFilter`-egenskapen fungerer med alle de nevnte metodene, inkludert [statiske svaralternativer](/nb/altinn-studio/v8/guides/development/options/sources/static/). Dette gjør det mulig å bruke et [dynamisk uttrykk](/nb/altinn-studio/v8/guides/development/dynamics/) for å filtrere ut svaralternativer basert på den nåværende tilstanden i skjemaet.
+Filtrering av svaralternativer via `optionFilter`-egenskapen fungerer med alle de nevnte metodene, inkludert [statiske svaralternativer](../../../sources/static/). Dette gjør det mulig å bruke et [dynamisk uttrykk]({{< relref "../../../dynamics" >}}) for å filtrere ut svaralternativer basert på den nåværende tilstanden i skjemaet.
 
 ### Konfigurasjon
 
 I eksempelet under er `optionFilter`-egenskapen satt til et dynamisk uttrykk som filtrerer ut alternativet `should-be-removed`. Merk at `optionFilter`-egenskapen bruker et uttrykk for å bestemme hvilke alternativer som skal beholdes. Hvis du vil fjerne alternativer, må du snu om logikken. Du kan for eksempel pakke inn hele uttrykket i en `not`-funksjon.
 
-Uttrykket evalueres for hvert svaralternativ, og hvis det returnerer `true`, beholdes alternativet. Alle andre alternativer fjernes.
+Uttrykket evalueres for hvert svaralternativ, og hvis det returnerer `true`, beholdes alternativet. Systemet fjerner alle andre alternativer.
 
 ```json {hl_lines=["10"]}
 {
@@ -28,7 +28,7 @@ Uttrykket evalueres for hvert svaralternativ, og hvis det returnerer `true`, beh
   "type": "Dropdown",
   ...
   "options": [
-    { "value": "should-be-removed", "label": "Denne blir fjernet" },
+    { "value": "should-be-removed", "label": "Systemet fjerner denne" },
     { "value": "red", "label": "Rød" },
     { "value": "blue", "label": "Blå" }
   ],
@@ -40,18 +40,18 @@ Resultatet av konfigurasjonen over vil være en nedtrekksliste med to alternativ
 
 ### `value`-funksjonen
 
-I eksempelet over brukes `value`-funksjonen til å få tilgang til verdien av det nåværende alternativet. Denne funksjonen kan brukes med argumenter for å få tilgang til andre verdier i svaralternativet også.
+I eksempelet over bruker du `value`-funksjonen til å få tilgang til verdien av det nåværende alternativet. Du kan bruke denne funksjonen med argumenter for å få tilgang til andre verdier i svaralternativet også.
 
 - `["value"]` og `["value", "value"]` er like, og vil returnere verdien av det nåværende alternativet.
 - `["value", "label"]` vil returnere ledeteksten til det nåværende alternativet. Denne teksten er teksten som er gitt i `label`-egenskapen til alternativet, før noen teksteressurser slås opp.
-- `["value", "description"]` vil returnere [beskrivelsen av det nåværende alternativet](/nb/altinn-studio/v8/guides/development/options/functionality/texts/), hvis satt.
-- `["value", "helpText"]` vil returnere [hjelpeteksten til det nåværende alternativet](/nb/altinn-studio/v8/guides/development/options/functionality/texts/), hvis satt.
+- `["value", "description"]` vil returnere [beskrivelsen av det nåværende alternativet](../texts/), hvis satt.
+- `["value", "helpText"]` vil returnere [hjelpeteksten til det nåværende alternativet](../texts/), hvis satt.
 
 ### Sammen med kodelister fra repeterende strukturer
 
-Hvis du bruker [kodelister fra en repeterende struktur i datamodellen](/nb/altinn-studio/v8/guides/development/options/sources/from-data-model/), blir uttrykket i `optionFilter`-egenskapen evaluert for hver _rad_ i den repeterende strukturen. Det betyr at hvis du gjør oppslag i datamodellen (via `dataModel`-funksjonen) i uttrykket, får du tilgang til data fra den nåværende raden som kodeliste-elementet er hentet fra.
+Hvis du bruker [kodelister fra en repeterende struktur i datamodellen](../../sources/from-data-model/), evaluerer systemet uttrykket i `optionFilter`-egenskapen for hver _rad_ i den repeterende strukturen. Det betyr at hvis du gjør oppslag i datamodellen (via `dataModel`-funksjonen) i uttrykket, får du tilgang til data fra den nåværende raden som kodeliste-elementet kommer fra.
 
-Hvis det finnes en `RepeatingGroup`-komponent knyttet til denne repeterende strukturen, kan `optionFilter`-egenskapen også slå opp verdier fra `component`-funksjonen for å få tilgang til data fra komponenter inne i den repeterende gruppen. Returverdien fra denne funksjonen er alltid `null` hvis raden er skjult ved hjelp av [dynamikk i `hiddenRow`-egenskapen](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/dynamics/), selv om et oppslag med `dataModel`-funksjonen ville returnert data fra den skjulte raden.
+Hvis det finnes en `RepeatingGroup`-komponent knyttet til denne repeterende strukturen, kan `optionFilter`-egenskapen også slå opp verdier fra `component`-funksjonen for å få tilgang til data fra komponenter inne i den repeterende gruppen. Returverdien fra denne funksjonen er alltid `null` hvis raden er skjult via [dynamikk i `hiddenRow`-egenskapen](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/dynamics/), selv om et oppslag med `dataModel`-funksjonen ville returnert data fra den skjulte raden.
 
 Et eksempel på denne kombinasjonen:
 
@@ -75,9 +75,10 @@ Et eksempel på denne kombinasjonen:
 ```
 
 I dette eksempelet vil `optionFilter`-egenskapen filtrere ut alle kjæledyr som:
-- Ikke har et navn (stien `MyPets.Name` er `null` eller en tom streng)
-- Eies av noen andre (verdien i `pet-owned-by-someone-else`-komponenten er `true`). I dette eksempelet antar vi at denne komponenten er satt opp inne i en `RepeatingGroup`-komponent som er knyttet til `MyPets`-strukturen.
-- Har ID-en `example-cat-id`. Siden `value`-feltet hentes fra stien `MyPets[{0}].Id`, vil resultatet være det samme som om man skrev `["notEquals", ["dataModel", "MyPets.Id"], "example-cat-id"]`.
+
+- Ikke har et navn (stien `MyPets.Name` er `null` eller en tom streng).
+- Noen andre eier (verdien i `pet-owned-by-someone-else`-komponenten er `true`). I dette eksempelet antar vi at denne komponenten er satt opp inne i en `RepeatingGroup`-komponent som er knyttet til `MyPets`-strukturen.
+- Har ID-en `example-cat-id`. Siden systemet henter `value`-feltet fra stien `MyPets[{0}].Id`, vil resultatet være det samme som om man skrev `["notEquals", ["dataModel", "MyPets.Id"], "example-cat-id"]`.
 
 ### Eksempel: Filtrere duplikate alternativer i en repeterende gruppe
 
@@ -100,7 +101,7 @@ Konfigurasjonen for dette eksempelet er som følger:
    "optionsId": "foods",
    "optionFilter": [
       "or",
-      // Fjern de som har blitt brukt andre steder
+      // Fjern de som systemet allerede har brukt andre steder
       ["not", ["commaContains", ["dataModel", "UsedTypes"], ["value"]]],
       // Men ikke hvis det er den valgte ingrediensen her
       ["equals", ["component", "ingredientType"], ["value"]]
@@ -110,9 +111,9 @@ Konfigurasjonen for dette eksempelet er som følger:
 
 Noen ting å merke seg om konfigurasjonen:
 
-- De allerede brukte ingredienstypene lagres i en kommaseparert liste i feltet `UsedTypes` i datamodellen. Dette feltet oppdateres ved hjelp av [dataprosessering](/nb/altinn-studio/v8/reference/logic/dataprocessing/) som finner alle unike ingredienstyper i `Ingredients`-lista.
-- Hvis vi bare sjekket `UsedTypes`-feltet mot `value`-verdien til den nåværende `Dropdown`-komponenten, ville alternativet blitt fjernet fra listen med en gang en ingrediens ble valgt, og verdien i datamodellen ville da [blitt automatisk ryddet opp](/nb/altinn-studio/v8/guides/development/options/functionality/automatic-cleanup/). Av denne grunn sjekker vi også at `value` ikke er lik verdien til den nåværende `Dropdown`-komponenten.
+- Systemet lagrer de allerede brukte ingredienstypene i en kommaseparert liste i feltet `UsedTypes` i datamodellen. Dataprosessering oppdaterer dette feltet og finner alle unike ingredienstyper i `Ingredients`-lista. Se [dataprosessering]({{< relref "../../../logic/dataprocessing" >}}).
+- Hvis vi bare sjekket `UsedTypes`-feltet mot `value`-verdien til den nåværende `Dropdown`-komponenten, ville systemet fjerne alternativet fra listen med en gang en ingrediens ble valgt, og systemet ville da [rydde opp verdien i datamodellen automatisk](../automatic-cleanup/). Av denne grunn sjekker vi også at `value` ikke er lik verdien til den nåværende `Dropdown`-komponenten.
 
 {{% notice warning %}}
-Eksempelet ovenfor er avhengig av å lagre skjemadata til backenden og kjøre dataprosessering for å oppdatere `UsedTypes`-feltet. Av denne grunn er det fortsatt fullt mulig å velge den samme ingrediensen i flere rader i den repeterende gruppen hvis du er rask nok. Når du bruker en metode som dette bør du også [implementere validering](/nb/altinn-studio/v8/reference/logic/validation/) for å fange opp eventuelle duplikate verdier.
+Eksempelet ovenfor er avhengig av å lagre skjemadata til backenden og kjøre dataprosessering for å oppdatere `UsedTypes`-feltet. Av denne grunn er det fortsatt fullt mulig å velge den samme ingrediensen i flere rader i den repeterende gruppen hvis du er rask nok. Når du bruker en metode som dette bør du også [sette opp validering]({{< relref "../../../logic/validation" >}}) for å fange opp eventuelle duplikate verdier.
 {{% /notice %}}

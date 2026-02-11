@@ -3,7 +3,7 @@ draft: true
 title: Ressursfordeling
 description: Hvilke ressurser fordeles i et cluster og hvordan?
 toc: true
-weight: 40
+
 ---
 
 Clusteret fordeler primært CPU og minne. Du kan sette minimum (requests) og et tak (limit) for en container. Hvis en pod har flere containere summerer Kubernetes disse.

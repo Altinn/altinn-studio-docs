@@ -3,7 +3,7 @@ draft: true
 title: Beskyttede data
 description: Hvordan sette opp ekstra databeskyttelse for en app
 tags: [needsReview, needsTranslation]
-weight: 20
+
 ---
 
 {{% insert "content/altinn-studio/v10/develop-a-service/restricted-data/shared/style.css.md" %}}

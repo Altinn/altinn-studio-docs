@@ -5,7 +5,7 @@ linktitle: Apps
 description: Hvordan bestille tilganger til app-logger og hemmeligheter.
 tags: [needsReview, needsTranslation]
 toc: true
-weight: 200
+
 aliases:
 - /nb/altinn-studio/guides/administration/access-management/apps/
 ---

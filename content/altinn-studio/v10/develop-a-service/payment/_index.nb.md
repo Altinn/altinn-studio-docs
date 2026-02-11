@@ -4,7 +4,7 @@ title: Slik konfigurerer du betaling i din Altinn-app
 linktitle: Betaling
 description: Følg disse grunnleggende stegene for å komme i gang med å integrere betaling i din Altinn App.
 tags: [betaling, needsReview, needsTranslation]
-weight: 30
+
 aliases:
 - /nb/altinn-studio/v8/guides/payment/
 ---

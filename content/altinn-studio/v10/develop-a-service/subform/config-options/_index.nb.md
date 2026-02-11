@@ -3,7 +3,7 @@ draft: true
 title: Konfigurasjonsalternativer for underskjema
 linktitle: Konfigurasjon
 description: Parametere og innstillinger for underskjema-komponenten
-weight: 120
+
 tags: [needsReview, translate]
 ---
 

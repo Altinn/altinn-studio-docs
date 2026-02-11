@@ -4,7 +4,7 @@ title: Test app i testmiljø
 linktitle: I testmiljø
 description: Testing i testmiljø
 toc: true
-weight: 200
+
 aliases:
 - /nb/altinn-studio/v8/reference/testing/deploy/
 ---

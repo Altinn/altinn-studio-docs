@@ -3,7 +3,7 @@ draft: true
 title: Handlinger
 description: 
 tags: [altinn-apper, prosess, bpmn, gateway, handling, handlinger]
-weight: 30
+
 toc: false
 ---
 
