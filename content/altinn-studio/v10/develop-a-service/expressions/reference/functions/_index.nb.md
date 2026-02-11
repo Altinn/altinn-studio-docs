@@ -218,7 +218,7 @@ _minst en_ av verdiene var sanne (`true`).
 | `and`    | Er **alle** argumentene sanne? (`true`)         |
 | `or`     | Er **minst ett** av argumentene sanne? (`true`) |
 
-Gir man [`null`](#null)-verdier tolkes disse som usann (`false`). Eksempler på bruk finnes
+Gir man ```null```-verdier tolkes disse som usann (`false`). Eksempler på bruk finnes
 under [_Streng eller mindre streng sammenligning?_](/nb/altinn-studio/v10/develop-a-service/expressions/reference/datatypes/#streng-eller-mindre-streng-sammenligning)
 {{% /expandlarge %}}
 
@@ -683,7 +683,7 @@ versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelig
 rullerende versjonen av v4.
 {{% /notice %}}
 
-Funksjonen `formatDate` tar imot en [dato](#datoer) som første argument, og et format som andre argument.
+Funksjonen `formatDate` tar imot en ```dato``` som første argument, og et format som andre argument.
 Formatargumentet er en valgfri streng som støtter _noen_ tokens i
 [Unicode Tokens](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table).
 
