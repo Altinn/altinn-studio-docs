@@ -81,7 +81,7 @@ Detaljerte beskrivelser og eksempler
 {{% expandlarge id="func-compare" header="compare" %}}
 {{% notice info %}}
 Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
-versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelige i versjon 4.17.0 og nyere, inkludert den siste
+versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelig i versjon 4.17.0 og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
 
