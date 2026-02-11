@@ -336,7 +336,7 @@ Dersom strengen er `null` vil `stringLength` returnere `0`.
 {{% expandlarge id="func-stringIndexOf" header="stringIndexOf" %}}
 {{% notice info %}}
 Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
-versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelige i versjon 4.17.0 og nyere, inkludert den siste
+versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelig i versjon 4.17.0 og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
 
@@ -357,7 +357,7 @@ funksjonen returnere 4.
 {{% expandlarge id="func-stringSlice" header="stringSlice" %}}
 {{% notice info %}}
 Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
-versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelige i versjon 4.17.0 og nyere, inkludert den siste
+versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelig i versjon 4.17.0 og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
 
@@ -380,7 +380,7 @@ navn er "John Doe", vil funksjonen returnere "Doe".
 {{% expandlarge id="func-stringReplace" header="stringReplace" %}}
 {{% notice info %}}
 Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
-versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelige i versjon 4.17.0 og nyere, inkludert den siste
+versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelig i versjon 4.17.0 og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
 
@@ -470,7 +470,7 @@ gjøres uavhengig av om det ble brukt store eller små bokstaver i input-verdien
 {{% expandlarge id="func-lcFirst-ucFirst" header="lowerCaseFirst/upperCaseFirst" %}}
 {{% notice info %}}
 Disse funksjonene er kun tilgjengelige på backend med [nuget-pakker](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
-versjon 8.6.0-preview.3 eller nyere. I frontend er disse funksjonene tilgjengelige i versjon 4.17.0 og nyere, inkludert den siste
+versjon 8.6.0-preview.3 eller nyere. I frontend er disse funksjonene tilgjengelig i versjon 4.17.0 og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
 
@@ -575,7 +575,7 @@ her, for å indikere at oppslag ikke kan gjøres i resten av `appsettings.{milj�
 {{% expandlarge id="func-countDataElements" header="countDataElements (oppslag)" %}}
 {{% notice info %}}
 Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
-versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelige i versjon 4.17.0 og nyere, inkludert den siste
+versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelig i versjon 4.17.0 og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
 
@@ -680,7 +680,7 @@ i gjeldende rad, før det letes oppover i sidestrukturen.
 
 {{% notice info %}}
 Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
-versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelige i versjon 4.0.0 og nyere, inkludert den siste
+versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelig i versjon 4.0.0 og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
 
