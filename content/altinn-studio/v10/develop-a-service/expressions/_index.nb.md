@@ -28,7 +28,7 @@ Uansett hva du bruker uttrykk til så er språket det samme og du vil kjenne igj
 - **Underuttrykk**: Et begrep som brukes for å omtale den mest elementære enheten i et uttrykk. Et underuttrykk består
   av en funksjon og to verdier, der en verdi kan være et enkelt element eller et sammensatt element der den første delen
   av elementet definerer en kilde hvor den etterfulgte verdien kan bli funnet.
-- **Egenskap** eller **Felt**: Det boolske egenskapen eller feltet til komponenten som uttrykket skal kobles til.
+- **Egenskap** eller **Felt**: Den boolske egenskapen eller feltet til komponenten som uttrykket skal kobles til.
 - **Funksjon**: Funksjonen som skal brukes til å sammenligne de to verdiene i underuttrykket.
 - **Datakilde**: Kilden for verdiene i underuttrykket. Kan også omtales som _typen_ til verdien.
 - **Verdi for datakilde**: Den faktiske verdien som skal brukes til å evaluere underuttrykket. Hvis verdien har
@@ -51,7 +51,7 @@ av verdiene sendes som inndata/argumenter til funksjonen. Inndata/argumentene ka
 
 I eksempelet over brukes funksjonen ```equals``` (første verdi i listen) og deretter blir strengene "foo" og "bar" sammenlignet. De er ulike, så resultatet av dette uttrykket blir en boolsk verdi; ```false```.
 
-Funksjonen ```equals```, forventer å få inn to strenger (tekstverdier) som inndata/argumenter. I eksemplet over er tekstverdiene faste og de samme hver gang. Det er mulig benytte andre uttrykk som igjen returnerer en tekstverdi. Gjør man dette vil uttrykket bli tolket slik at de innerste funksjonene blir kjørt først, og de ytterste kjørt sist.
+Funksjonen ```equals```, forventer å få inn to strenger (tekstverdier) som inndata/argumenter. I eksemplet over er tekstverdiene faste og de samme hver gang. Det er mulig å benytte andre uttrykk som igjen returnerer en tekstverdi. Gjør man dette vil uttrykket bli tolket slik at de innerste funksjonene blir kjørt først, og de ytterste kjørt sist.
 
 ```json
 ["equals", ["component", "firstName"], "John"]
@@ -112,7 +112,7 @@ Dynamiske uttrykk er tilgjengelig for bruk i disse egenskapene, som definert i [
 
 | Komponenter                                                                                                     | Egenskap                      | Forventet verdi            | Frontend | Backend |
 | --------------------------------------------------------------------------------------------------------------- | ----------------------------- | -------------------------- | -------- | ------- |
-| [Sider/layouts](#viseskjule-hele-sider)                                                                         | `hidden`                      | Boolsk | ✅       | ✅      |
+| [Sider/layouts](#show-hide-pages)                                                                         | `hidden`                      | Boolsk | ✅       | ✅      |
 | Alle                                                                                                            | `hidden`                      | Boolsk | ✅       | ✅      |
 | Skjemakomponenter                                                                                               | `required`                    | Boolsk | ✅       | ✅      |
 | Skjemakomponenter                                                                                               | `readOnly`                    | Boolsk | ✅       | ❌      |
@@ -215,7 +215,7 @@ Gitt dette uttrykket:
 `["component", "alder"]`
 
 Hva vil alderen være? Det vil kunne variere etter hvilken gruppe som evaluerer
-uttrykket. Har man har to grupper/rader vil både `navn`- og `alder`-komponentene finnes to ganger hver. Disse vil få
+uttrykket. Har man to grupper/rader vil både `navn`- og `alder`-komponentene finnes to ganger hver. Disse vil få
 ID-ene `navn-0` og `alder-0` (for den første raden) og `navn-1` og `alder-1` (for den andre raden).
 
 Tenk deg at følgende data er fylt inn i en repeterende gruppe:
@@ -244,7 +244,7 @@ Hva vil resultatet bli i de forskjellige eksemplene? Her er svarene:
 1. Denne vil finne "første og beste" `alder`-komponent, og finner dermed `alder-0`. Den returnerer
    derfor _24_, Per sin alder.
 2. Her prøver vi å lete i kontekst av `navn`-komponenten på første rad, og igjen finner vi _24_, Per sin alder.
-3. siste eksempel har vi spesifisert andre rad i den repeterende gruppen ved å evaluere i kontekst av `navn-1`.
+3. Siste eksempel har vi spesifisert andre rad i den repeterende gruppen ved å evaluere i kontekst av `navn-1`.
    Her finner vi den nærmeste `alder`-komponenten `alder-1`, som er _36_, Kari sin alder.
 
 {{% /expandlarge %}}

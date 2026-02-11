@@ -518,7 +518,7 @@ Eksempel:
 forventet.
 
 **Bemerk:** Denne funksjonen er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
-brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
+brukt noen steder hvor uttrykk kjøres på backend, og om man har slått på funksjonaliteten for å
 automatisk slette skjulte data (`RemoveHiddenDataPreview`).
 
 {{% /expandlarge %}}
@@ -601,7 +601,7 @@ må peke et sted i datamodellen, og bruker det samme punktum-separerte formatet 
 bruk inne i [repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/) trenger man _ikke_ bruke plassholdere for
 indekser til gruppen - uttrykket finner selv den relative plasseringen i kontekst av en repeterende gruppe.
 
-Legg merke til at oppslag bare fungerer mot [datatyper](#datatyper) som allerede er støttet i uttrykkene. Dersom man
+Legg merke til at oppslag bare fungerer mot datatyper som allerede er støttet i uttrykkene. Dersom man
 slår opp et objekt eller en liste/array i datamodellen med `dataModel`-funksjonen får man alltid resultatet `null`.
 Denne funksjonaliteten kan endres, da det er planlagt støtte for objekter og lister i uttrykkene i fremtiden.
 
