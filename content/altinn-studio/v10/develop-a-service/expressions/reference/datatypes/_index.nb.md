@@ -8,7 +8,7 @@ toc: true
 
 ## Datatyper
 
-Funksjoner i uttrykkene forventer at argumentene som blir sendt inn har en spefikk type. Dersom et argument
+Funksjoner i uttrykkene forventer at argumentene som blir sendt inn har en spesifikk type. Dersom et argument
 blir sendt inn har en annen type enn forventet, blir verdien forsøkt konvertert til riktig type. Som et eksempel
 forventer funksjonen `equals` to strenger, men om du sender inn den boolske verdien `true` som det ene eller andre
 argumentet fungerer det også fint, siden den boolske verdien `true` blir konvertert til strengen `"true"`.
@@ -82,7 +82,7 @@ Det kan kanskje se ut som følgende uttrykk er like:
 
 Hvis verdien (her gitt fra oppslaget `["dataModel", "hideName"]`) er `true` eller `"true"` vil
 komponenten skjules, men dersom verdien er `1` eller `"1"` vil komponenten bare skjules med uttrykkene i alternativ
-1 og 3. Dette fordi resultatet i uttrykket for `hidden` [konverteres til en boolsk verdi](#bruksområder), og
+1 og 3. Dette fordi resultatet i uttrykket for `hidden` konverteres til en boolsk verdi, og
 `if` forventer en boolsk verdi som første argument. Derimot vil `equals` sammenligne verdiene som strenger,
 og `"1"` er ikke lik `"true"`.
 

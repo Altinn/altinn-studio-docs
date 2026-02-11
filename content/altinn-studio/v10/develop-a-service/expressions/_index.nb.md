@@ -154,7 +154,7 @@ redigerings-knapp med teksten `"View"`. Hvis `IsPrefill` er `false` blir teksten
 `"Edit"`.
 
 Det er verdt å merke seg at dersom et oppslag på `IsPrefill` gir resultatet `null`(ikke funnet) så konverteres
-resultatet til `false` når det blir brukt i en `if`. Les mer detaljert om dette i seksjonene [if](/content/altinn-studio/v10/develop-a-service/expressions/reference/functions/_index.nb.md#func-if) og [datatyper](/content/altinn-studio/v10/develop-a-service/expressions/reference/datatypes/)
+resultatet til `false` når det blir brukt i en `if`. Les mer detaljert om dette i seksjonene [if](/nb/altinn-studio/v10/develop-a-service/expressions/reference/functions/#func-if) og [datatyper](/nb/altinn-studio/v10/develop-a-service/expressions/reference/datatypes/)
 
 ```json
 {

@@ -282,7 +282,7 @@ på at denne funksjonen alltid returnerer et gyldig språk.
 
 **Bemerk:** Denne funksjonen er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
 brukt noen steder hvor uttrykk kjøres på backend, og om man har slått på funksjonaliteten for å
-automatisk slette skjulte data (`RemoveHiddenDataPreview`).
+automatisk slette skjulte data `RemoveHiddenDataPreview`.
 
 {{% /expandlarge %}}
 
@@ -519,7 +519,7 @@ forventet.
 
 **Bemerk:** Denne funksjonen er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
 brukt noen steder hvor uttrykk kjøres på backend, og om man har slått på funksjonaliteten for å
-automatisk slette skjulte data (`RemoveHiddenDataPreview`).
+automatisk slette skjulte data `RemoveHiddenDataPreview`.
 
 {{% /expandlarge %}}
 
@@ -537,7 +537,7 @@ Eksempel:
 
 **Bemerk:** Denne funksjonen er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
 brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
-automatisk slette skjulte data (`RemoveHiddenDataPreview`).
+automatisk slette skjulte data `RemoveHiddenDataPreview`.
 
 {{% /expandlarge %}}
 
