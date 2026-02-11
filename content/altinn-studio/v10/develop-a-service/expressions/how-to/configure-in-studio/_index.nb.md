@@ -56,7 +56,7 @@ gang, følg denne veiledningen:
 
     - Streng: Lar deg tilordne en hvilken som helst tilpasset streng som verdien
     - Tall: Lar deg tilordne et hvilket som helst tilpasset tall som verdien
-    - Boolesk: Lar deg tilordne verdien som `true` eller `false`
+    - Boolsk: Lar deg tilordne verdien som `true` eller `false`
     - Null: Tildeler automatisk verdien som `null`
 
    ![Velg en datakilde for den første delen av underuttrykket ditt](3-choose-data-source.png)
@@ -100,18 +100,18 @@ måte, for eksempel uten å inkludere funksjonen, der det vil bli tolket av app-
 
 ![Eksempel på komplekst uttrykk](complex-expression-example.png)
 
-Denne alternative uttrykksbyggingen kan også tilgjengliggjøres når som helst mens du bygger uttrykket ditt i Studio
+Denne alternative uttrykksbyggingen kan også tilgjengeliggjøres når som helst mens du bygger uttrykket ditt i Studio
 verktøyet. Vær obs på at du ikke når som helst kan gå tilbake til å redigere i uttrykksverktøyet da switchen vil gå i
-kun lese modus når uttrykket er i en tilstand hvor det ikke kan tolkes av verktøyet.
+kun lesemodus når uttrykket er i en tilstand hvor det ikke kan tolkes av verktøyet.
 
 Se at switchen er tilgjengelig for å redigere i fritekst:
 ![Rediger uttrykk med fritekst](edit-expression-free-style.png)
 
 Trykk på switchen for å kunne redigere uttrykket ditt i fritekst:
-![Tillat fritekst redigering av uttrykk](enable-edit-expression-free-style.png)
+![Tillat fritekstredigering av uttrykk](enable-edit-expression-free-style.png)
 
 Endringer som fører til et ugyldig (eller ikke-tolkbart) uttrykk vil gjøre switchen kun lesbar:
-![Ikke mulighet for å avbryte fritekst redigering av uttrykk](disabled-edit-expression-free-style.png)
+![Ikke mulighet for å avbryte fritekstredigering av uttrykk](disabled-edit-expression-free-style.png)
 
 ## Begrensninger
 
@@ -122,7 +122,7 @@ Som nevnt er det noen begrensninger i Studio-verktøyet for konfigurasjon av utt
 For det første er det bare noen komponentfelter som Studio kan tolke og bygge tilknyttede
 uttrykk for. På et senere utviklingsstadium vil vi gjøre det mulig å bygge og tolke uttrykk knyttet til
 
-- tekstreseursbindinger på komponenter
+- tekstressursbindinger på komponenter
 - prosess
 
 ### <a name="Nøsting"></a>Nøsting
@@ -140,7 +140,7 @@ felt som opprinnelig hadde en boolsk verdi, og deretter sletter uttrykket, vil f
 vurdert til sin
 standardverdi.
 
-## Hva er et gyldig uttrykk sett fra Studios synspunkt
+## Hva er et gyldig uttrykkssett fra Studios synspunkt
 
 For å tillate lagring av et uttrykk i layoutfilen, vil Studio bare visualisere **Lagre**-knappen når noen gitte
 betingelser gjelder:

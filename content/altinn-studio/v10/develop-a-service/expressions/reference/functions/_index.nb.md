@@ -81,7 +81,7 @@ Detaljerte beskrivelser og eksempler
 {{% expandlarge id="func-compare" header="compare" %}}
 {{% notice info %}}
 Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
-versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelige i versjon 4.17.0 og nyere, inkludert den siste
+versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelig i versjon 4.17.0 og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
 
@@ -182,7 +182,7 @@ Disse 4 funksjonene forventer to tall inn, og sammenligner om _det første_ med 
 | `lessThan`      | Er det første tallet _mindre enn_ det andre tallet?           | \<     |
 | `lessThanEq`    | Er det første tallet _mindre enn eller lik_ det andre tallet? | ≤      |
 
-Dersom noen av argumentene til disse funksjonene er [`null`](#null) blir resultatet `false` (uavhengig av om det er det
+Dersom noen av argumentene til disse funksjonene er ```null``` blir resultatet ```false``` (uavhengig av om det er det
 første eller andre argumentet).
 
 Eksempel som sjekker om alder er over (eller lik) 18:
@@ -273,14 +273,14 @@ Eksempel:
    "id": "lastName",
    "type": "Input",
    ...
-   "readOnly": ["equal", ["language"], "en"],
+   "readOnly": ["equals", ["language"], "en"],
 }
 ```
 
 Om gjeldende språk er ukjent, vil `nb` returneres, som er standardspråket for Altinn 3-apper. Dermed kan man være trygg
 på at denne funksjonen alltid returnerer et gyldig språk.
 
-**Bemerk:** Denne funksjonen er ikke tigjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
+**Bemerk:** Denne funksjonen er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
 brukt noen steder [hvor uttrykk kjøres på backend](#bruksområder), og om man har slått på funksjonaliteten for å
 automatisk slette skjulte data (`RemoveHiddenDataPreview`).
 
@@ -542,7 +542,7 @@ automatisk slette skjulte data (`RemoveHiddenDataPreview`).
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-instancecontext" header="instanceContext (oppslag)" %}}
-Denne funksjonen gjør det mulig å hente ut informasjon om gjeldende instans. Følgende nøkler kan brukes fom første
+Denne funksjonen gjør det mulig å hente ut informasjon om gjeldende instans. Følgende nøkler kan brukes fra og med første
 argument:
 
 | Nøkkel                   | Verdi                          | Eksempelverdi                                       |
@@ -552,7 +552,7 @@ argument:
 | `instanceOwnerPartyType` | Hva slags aktør eier instansen | `"org", "person", "selfIdentified" eller "unknown"` |
 | `appId`                  | Den aktive appen sin ID        | `org/app-name`                                      |
 
-Alle disse oppslagene vil gi verdien `null` om man jobber i en [tiltandsløs kontekst](/nb/altinn-studio/v8/reference/configuration/stateless/).
+Alle disse oppslagene vil gi verdien `null` om man jobber i en [tilstandsløs kontekst](/nb/altinn-studio/v8/reference/configuration/stateless/).
 Om man gir andre nøkler enn de over, vil oppslaget resultere i en feilmelding. Denne oppførselen er unik blant
 oppslagsfunksjonene, og gjøres for å sikre at man ikke prøver å hente informasjon som finnes i instansen men som ikke
 (enda) er eksponert via en nøkkel her. [Gi oss en tilbakemelding](https://github.com/Altinn/app-frontend-react/issues/new?assignees=&labels=kind%2Ffeature-request%2Cstatus%2Ftriage&template=feature_request.yml) om du har ønsker om å hente ut

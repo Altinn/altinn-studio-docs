@@ -8,7 +8,7 @@ toc: true
 
 ## Datatyper
 
-Funksjoner i uttrykkene har en forventning om at argumentene som blir sendt inn har en spefikk type. Dersom et argument
+Funksjoner i uttrykkene forventer at argumentene som blir sendt inn har en spefikk type. Dersom et argument
 blir sendt inn har en annen type enn forventet, blir verdien forsøkt konvertert til riktig type. Som et eksempel
 forventer funksjonen `equals` to strenger, men om du sender inn den boolske verdien `true` som det ene eller andre
 argumentet fungerer det også fint, siden den boolske verdien `true` blir konvertert til strengen `"true"`.
@@ -71,7 +71,7 @@ verdi, kan man også sende inn enkelte andre typer, som blir konvertert til en b
 Alle andre verdier gir en feilmelding om de blir sendt til en funksjon som forventer en boolsk verdi. Legg merke til
 at disse reglene er litt forskjellige fra reglene til [strenger](#strenger). Det er dermed forskjell på hvilke verdier
 som kan _tolkes_ som en boolsk verdi for en funksjon som forventer et boolsk argument - og hvilke verdier som er _like_
-en boolsk verdi. Funksjonen [`equals`](#func-equals) sammenligner verdier som strenger, og dermed vil tallet `1` og
+en boolsk verdi. Funksjonen ```equals``` sammenligner verdier som strenger, og dermed vil tallet `1` og
 strengen `"1"` sammenlignes som like, men den vil ikke gjenkjenne `1` og `true` som like verdier.
 
 Det kan kanskje se ut som følgende uttrykk er like:
@@ -132,7 +132,7 @@ sammenligner med `equals`). Det er et designvalg gjort i Altinn av to grunner:
 2. Hvis uttrykkene behandler mange ulike verdier som like, fratar vi deg muligheten til å skille mellom dem om du skulle
    ønske det.
 
-Om man ønsker mindre streng sammenligning, kan man f.eks. konstruere et uttrykk som bruker [`or`](#func-and)-funksjonen
+Om man ønsker mindre streng sammenligning, kan man f.eks. konstruere et uttrykk som bruker ```or```-funksjonen
 til å gjenkjenne flere forskjellige verdier:
 
 ```json
