@@ -273,7 +273,7 @@ Eksempel:
    "id": "lastName",
    "type": "Input",
    ...
-   "readOnly": ["equal", ["language"], "en"],
+   "readOnly": ["equals", ["language"], "en"],
 }
 ```
 
