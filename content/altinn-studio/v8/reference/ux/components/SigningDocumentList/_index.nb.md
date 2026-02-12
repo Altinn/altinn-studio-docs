@@ -71,3 +71,5 @@ Komponenten legges til i et side-layout slik:
     },
 
 Vedleggstypen til et dokument kan endres ved å legge til en eller flere tags.
+
+Fra [v8.9.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.9.0) sorteres radene i tabellen først etter rekkefølgen av datatypene i `dataTypesToSign` i process.bpmn, og deretter etter dokumentenes opprettelsesdato.
