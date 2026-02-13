@@ -52,7 +52,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 ```
 
 ### Legg til en serviceTask-node i BPMN-prosessen. 
-Verdien i taskType må være like Type-property på C#-implementasjonen.
+Verdien i taskType må være lik Type-property på C#-implementasjonen.
 
 ```xml
 <bpmn:serviceTask id="ExampleServiceTask" name="Example service task">
