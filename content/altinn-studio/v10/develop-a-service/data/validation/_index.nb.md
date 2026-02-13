@@ -123,7 +123,7 @@ Da blir valideringsmeldingen `"Du må fylle ut fornavnet ditt"`.
 
 Hvis du ønsker å erstatte standardfeilmeldingen for obligatoriske felt fullstendig, kan du legge til
 tekstnøkkelen `requiredValidation` i komponentens `textResourceBindings`-objekt. Dette erstatter standardfeilmeldingen
-for obligatoriske felt. Teksten kan være en [tekstnøkkel for en tekst som er definert i ressursfilene]({{< relref "/altinn-studio/v10/develop-a-service/options/functionality/texts" >}})
+for obligatoriske felt. Teksten kan være en [tekstnøkkel for en tekst som er definert i ressursfilene]({{< relref "/altinn-studio/v10/develop-a-service/look-and-feel/options/functionality/texts" >}})
 for flerspråklig støtte.
 
 ```json
@@ -153,7 +153,7 @@ Du kan for eksempel utvide eksempelet over:
 }
 ```
 
-Du kan skrive ønsket tekst direkte inn her, eller bruke en tekstnøkkel for en [tekst definert i ressursfilene](/nb/altinn-studio/v10/develop-a-service/options/functionality/texts/) for språkstøtte.
+Du kan skrive ønsket tekst direkte inn her, eller bruke en tekstnøkkel for en [tekst definert i ressursfilene](/nb/altinn-studio/v10/develop-a-service/look-and-feel/options/functionality/texts/) for språkstøtte.
 
 Legg merke til at hvis du har en referanse til en definisjon, må feilmeldingen ligge på `property`-feltet, ikke på referansen/definisjonen.
 Eksempel:
@@ -262,7 +262,7 @@ public void ValidateData(object data, ModelStateDictionary validationResults)
 
 Se kommentarer i koden over for en forklaring på hva de ulike delene gjør.
 
-I det andre parameteret til metoden `AddModelError`, der det står "_Error: First name cannot contain the value '1337'_", kan du bruke en tekstnøkkel for en [tekst definert i ressursfilene](/nb/altinn-studio/v10/develop-a-service/options/functionality/texts/) for språkstøtte.
+I det andre parameteret til metoden `AddModelError`, der det står "_Error: First name cannot contain the value '1337'_", kan du bruke en tekstnøkkel for en [tekst definert i ressursfilene](/nb/altinn-studio/v10/develop-a-service/look-and-feel/options/functionality/texts/) for språkstøtte.
 
 Et eksempel på en enkel task-validering som sjekker hvor lang tid brukeren har brukt på Task_1 og returnerer en feil hvis det har tatt lenger enn tre dager:
 
