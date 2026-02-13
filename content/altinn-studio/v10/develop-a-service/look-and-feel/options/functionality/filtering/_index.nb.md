@@ -111,9 +111,9 @@ Konfigurasjonen for dette eksempelet er som følger:
 
 Noen ting å merke seg om konfigurasjonen:
 
-- Systemet lagrer de allerede brukte ingredienstypene i en kommaseparert liste i feltet `UsedTypes` i datamodellen. Dataprosessering oppdaterer dette feltet og finner alle unike ingredienstyper i `Ingredients`-lista. Se [dataprosessering]({{< relref "../../../logic/dataprocessing" >}}).
+- Systemet lagrer de allerede brukte ingredienstypene i en kommaseparert liste i feltet `UsedTypes` i datamodellen. Dataprosessering oppdaterer dette feltet og finner alle unike ingredienstyper i `Ingredients`-lista. Se [dataprosessering]({{< relref "/altinn-studio/v10/develop-a-service/data/dataprocessing" >}}).
 - Hvis vi bare sjekket `UsedTypes`-feltet mot `value`-verdien til den nåværende `Dropdown`-komponenten, ville systemet fjerne alternativet fra listen med en gang en ingrediens ble valgt, og systemet ville da [rydde opp verdien i datamodellen automatisk](../automatic-cleanup/). Av denne grunn sjekker vi også at `value` ikke er lik verdien til den nåværende `Dropdown`-komponenten.
 
 {{% notice warning %}}
-Eksempelet ovenfor er avhengig av å lagre skjemadata til backenden og kjøre dataprosessering for å oppdatere `UsedTypes`-feltet. Av denne grunn er det fortsatt fullt mulig å velge den samme ingrediensen i flere rader i den repeterende gruppen hvis du er rask nok. Når du bruker en metode som dette bør du også [sette opp validering]({{< relref "../../../logic/validation" >}}) for å fange opp eventuelle duplikate verdier.
+Eksempelet ovenfor er avhengig av å lagre skjemadata til backenden og kjøre dataprosessering for å oppdatere `UsedTypes`-feltet. Av denne grunn er det fortsatt fullt mulig å velge den samme ingrediensen i flere rader i den repeterende gruppen hvis du er rask nok. Når du bruker en metode som dette bør du også [sette opp validering]({{< relref "/altinn-studio/v10/develop-a-service/data/validation" >}}) for å fange opp eventuelle duplikate verdier.
 {{% /notice %}}
