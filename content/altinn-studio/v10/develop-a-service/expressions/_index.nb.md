@@ -4,6 +4,7 @@ linktitle: Uttrykk
 description: Introduksjon til uttrykksspråket i Altinn Studio og hvordan dette kan benyttes for å lage mer dynamiske skjema.
 tags: [expressions, dynamics]
 toc: true
+weight: 50
 ---
 
 ## Introduksjon
