@@ -41,6 +41,16 @@ public class ExampleServiceTask : IServiceTask
 
 ```
 
+Register your implementation in `Program.cs` like this:
+
+```C#
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+    // Register your apps custom service implementations here.
+    services.AddTransient<IServiceTask, ExampleServiceTask>();
+}
+```
+
 ### Add a serviceTask node in the BPMN process
 The value in taskType must match the Type property in the C# implementation.
 
