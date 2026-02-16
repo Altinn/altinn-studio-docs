@@ -13,7 +13,6 @@ Altinn tilbyr nå et klientadministrasjons-API for å håndtere klienter og bruk
 - Man har satt opp en ID-porten-klient i applikasjonen som ber om dette scopet.
 - Man logger inn som klientadministrator for tjenestetilbyderen.
 
-
 ## Hva er en tjenestetilbyder?
 
 I denne sammenhengen er en tjenestetilbyder en virksomhet som:
@@ -549,3 +548,12 @@ Eksempelrespons
   ]
 }
 ```
+
+### Klientadministrasjon for agenter
+
+Via API er det også muligheter for agent å kunne se sine clienter og hvilke virksomheter som har delegert klientrettigheter til seg.
+
+Man kan ogås slette slike forhold via API.  
+
+Krever eget scope for den påloggede brukeren. 
+
