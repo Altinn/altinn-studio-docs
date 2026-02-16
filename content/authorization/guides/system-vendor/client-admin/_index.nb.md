@@ -13,7 +13,6 @@ Altinn tilbyr nå et klientadministrasjons-API for å håndtere klienter og bruk
 - Man har satt opp en ID-porten-klient i applikasjonen som ber om dette scopet.
 - Man logger inn som klientadministrator for tjenestetilbyderen.
 
-
 ## Hva er en tjenestetilbyder?
 
 I denne sammenhengen er en tjenestetilbyder en virksomhet som:
@@ -331,13 +330,19 @@ Eksempelrespons
 ```
 
 
+{{% notice warning %}}
+Klient-API inkluderer også virksomheter som har gitt tilgang på andre måter enn det som er nevnt som klienter. Disse vil det ikke være noen delegerbare klientforhold på. Dette gjelder f.eks:
+
+- BEDR-relasjon – underenheter som i Enhetsregisteret har BEDR-knytning til aktuell party.
+{{% /notice %}}
+
 ### API: Delegere klientrettigheter til agent
 
 Dette API-et gjør det mulig å videredelegere tilgangspakker som tjenestetilbyderen har for klienter.
 
 
-- **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&from={{fromOrg}}&to={{to}}`
-- **Production**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&from={{fromOrg}}&to={{to}}`
+- **Test**: `POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&from={{fromOrg}}&to={{to}}`
+- **Production**: `POST https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&from={{fromOrg}}&to={{to}}`
 
 {{party}} er partyUuid for tjenestetilbyderen.
 {{fromOrg}} er partyUuid for klienten.
@@ -378,8 +383,8 @@ Eksempelrespons
 
 Dette API-et lar deg fjerne en eller flere tilgangspakker som er klientdelegert til en agent for en klient.
 
-- **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&from={{from}}&to={{to}}`
-- **Production**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&from={{from}}&to={{to}}`
+- **Test**: `DELETE https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&from={{from}}&to={{to}}`
+- **Production**: `DELETE https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&from={{from}}&to={{to}}`
 
 ```json
 {
@@ -543,3 +548,12 @@ Eksempelrespons
   ]
 }
 ```
+
+### Klientadministrasjon for agenter
+
+Via API er det også muligheter for agent å kunne se sine clienter og hvilke virksomheter som har delegert klientrettigheter til seg.
+
+Man kan ogås slette slike forhold via API.  
+
+Krever eget scope for den påloggede brukeren. 
+
