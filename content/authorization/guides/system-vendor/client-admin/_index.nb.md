@@ -333,6 +333,7 @@ Eksempelrespons
 
 {{% notice warning %}}
 Klient-API inkluderer også virksomheter som har gitt tilgang på andre måter enn det som er nevnt som klienter. Disse vil det ikke være noen delegerbare klientforhold på. Dette gjelder f.eks:
+
 - BEDR-relasjon – underenheter som i Enhetsregisteret har BEDR-knytning til aktuell party.
 {{% /notice %}}
 
