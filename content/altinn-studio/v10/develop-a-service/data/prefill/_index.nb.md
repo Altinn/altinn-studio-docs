@@ -19,7 +19,7 @@ Altinn-appen din kan automatisk fylle ut deler av skjemaet før brukeren begynne
 - Folkeregisteret (for personinformasjon)
 - Brukerens Altinn-profil
 
-Når noen starter skjemaet, blir feltene du velger, fylt ut automatisk med riktige data.
+Når noen starter skjemaet, fyller systemet automatisk ut feltene du velger med riktige data.
 
 ### Når bør jeg bruke dette?
 Hvis du skal forhåndsutfylle data fra en av kildene listet over. Det er et begrenset sett med felter som er tilgjengelige. 
@@ -67,9 +67,7 @@ nyttig f.eks. om det er behov for å forhåndsutfylle forskjellig verdi basert p
 ### Forbehold
 Det er imidlertid noen viktige forbehold knyttet til sikkerhet når du bruker denne tilnærmingen.
 
-1. Forhåndsutfylling med spørringsparametere bare brukes i en stateless-oppgave - dvs. FØR skjema-instansen
-    faktisk opprettes (og før noe data faktisk lagres). Dette gjør at dataene kan vises til brukeren før instansiering, slik at brukeren fortsatt har kontroll
-    over hvilke data som lagres.
+1. Du kan bare bruke forhåndsutfylling med spørringsparametere i en stateless-oppgave - dvs. FØR du faktisk oppretter skjema-instansen (og før du lagrer noe data). Dette gjør at brukeren kan se dataene før instansiering, slik at brukeren fortsatt har kontroll over hvilke data systemet lagrer.
     > Uten dette kravet, ville det vært mulig for en angriper å endre verdien i parameteren og få den 
     > verdien til å dukke opp direkte i mottakerens Altinn-innboks.
 
