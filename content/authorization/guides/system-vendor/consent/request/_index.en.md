@@ -52,7 +52,8 @@ toc: false
       }
     }
   ],
-  "redirectUrl": "https://bankenmin.no/huslaan?consentId=77ed8698-e619-4066-9eb4-5c1eb3f165a1"
+  "redirectUrl": "https://bankenmin.no/huslaan?consentId=77ed8698-e619-4066-9eb4-5c1eb3f165a1",
+  "portalViewMode": "hide"
 }
 ```
 
