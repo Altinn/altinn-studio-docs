@@ -89,9 +89,46 @@ Ved å sjekke Metadata API-et for tilgangspakker vil man få bekreftet at tjenes
 
 **Spørsmål:** Hvordan sikrer jeg at systembrukeren har tilgang til alle tjenester som kommer i Dialogporten for min virksomhet?
 
-**Svar:** For å være sikker på dette må man delegere **[alle](https://platform.altinn.no/accessmanagement/api/v1/meta/info/accesspackages/)** tilgangspakker som er knyttet til tjenester, samt enkeltrettigheter for tjenester som er
+**Svar:** For å være sikker på dette må man delegere **[alle](https://platform.altinn.no/accessmanagement/api/v1/meta/info/accesspackages/export/)** tilgangspakker som er knyttet til tjenester, samt enkeltrettigheter for tjenester som er
 knyttet til tilgangspakkene (se [eksplisitt tjenestedelegering](https://platform.altinn.no/accessmanagement/api/v1/meta/info/accesspackages/package/c0eb20c1-2268-48f5-88c5-f26cb47a6b1f)),
 og enkeltrettigheter for alle tjenester som kun er knyttet til roller fra Enhetsregisteret.
+
+
+**Spørsmål:** Hvordan skal jeg tolke reglene for å finne hvilke tilgangspakker systemet trenger?
+
+**Svar:** [Dette eksempelet](https://platform.altinn.no/resourceregistry/api/v1/resource/ldir-correspondence/policy/rules) viser reglene for den nevnte meldingstjenesten fra Landbruksdirektoratet.
+
+Hvis man ser på denne ene regelen fra regeloversikten, ser man følgende:
+
+Tilgangspakken **ordinaer-post-til-virksomheten** har **read**-rettighet til ressursen **ldir-correspondence**:
+
+```json
+{
+	"subject": [
+		{
+			"type": "urn:altinn:accesspackage",
+			"value": "ordinaer-post-til-virksomheten"
+		}
+	],
+	"action": {
+		"type": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+		"value": "read"
+	},
+	"resource": [
+		{
+			"type": "urn:altinn:resource",
+			"value": "ldir-correspondence"
+		}
+	]
+}
+```
+
+Dermed kan man tolke seg frem til at hvis systembrukeren får delegert tilgangspakken **ordinaer-post-til-virksomheten**, vil man få listet ut dialoger av denne typen.
+
+**Spørsmål:** Finnes det et tilsvarende konsept som «delegerbar nøkkelrolle» for virksomhetsbruker, som ga tilgang til alt?
+
+**Svar:** Det gjør det ikke. Vurderingen er at en slik funksjonalitet gjør at systemer får langt større tilgang enn man har tenkt, eller er klar over. Derfor ønsker vi at de som har ansvaret i virksomheten, er bevisste på hvilke
+tilganger man gir til systemer.
 
 
 
