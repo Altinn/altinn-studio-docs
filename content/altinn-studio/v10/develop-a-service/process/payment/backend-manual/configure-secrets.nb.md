@@ -8,7 +8,7 @@ tags: [needsReview, needsTranslation]
 
 1. [Hent din hemmelige nøkkel fra Nets.](https://developer.nexigroup.com/nexi-checkout/en-EU/docs/access-your-integration-keys/)
 Pass på at du bruker testnøkkelen under utvikling.
-2. Gjør appen din klar for bruk av Azure Key Vault som konfigurasjonskilde, hvis dette ikke allerede er gjort tidligere. Se [relevant dokumentasjon](/nb/altinn-studio/v8/reference/configuration/secrets/).
+2. Gjør appen din klar for bruk av Azure Key Vault som konfigurasjonskilde, hvis du ikke allerede har gjort dette tidligere. Se [relevant dokumentasjon](/nb/altinn-studio/v8/reference/configuration/secrets/).
 3. Legg til din hemmelige nøkkel i Key Vault med variabelnavnet `NetsPaymentSettings--SecretApiKey`. På denne måten overstyrer den `SecretApiKey` i `appsettings.json`.
 4. Legg til `NetsPaymentSettings` i din `appsettings.json`.
     ```json

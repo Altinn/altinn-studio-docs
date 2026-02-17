@@ -12,13 +12,13 @@ Her implementerer du logikken din for å regne ut hva brukeren skal betale for.
 Du kan for eksempel aksessere skjemadata, legge til obligatoriske avgifter eller bare legge til en fast kostnad for skjemaet. 
 
 Returverdien fra metoden `CalculateOrderDetails` angir:
-- Betalingsbehandler som skal brukes for ordren. Disse tilgjengeliggjøres ved å implementere interfacet `IPaymentProcessor` og registrere dem som `transient` i `program.cs`. Fyll ut `Nets Easy` for å bruke standardimplementasjonen for Nets Easy.
+- Betalingsbehandler som ordren skal bruke. Du gjør disse tilgjengelige ved å implementere interfacet `IPaymentProcessor` og registrere dem som `transient` i `program.cs`. Fyll ut `Nets Easy` for å bruke standardimplementasjonen for Nets Easy.
 - Valuta
 - Ordrelinjer
 - Detaljer om betalingsmottaker. Brukes i kvittering.
-- Detaljer om betaler (valgfritt), hvis du ønsker å forhåndsutfylle denne informasjonen hos Nets Easy. Kan brukes i kombinasjon med Nets Easy sitt flagg `MerchantHandlesConsumerData`, som vi har eksponert via appsettings.json `NetsPaymentSettings.MerchantHandlesConsumerData`. Hvis den er satt til `true`, må detaljer om betaler sendes med, ellers feiler det.
+- Detaljer om betaler (valgfritt), hvis du ønsker å forhåndsutfylle denne informasjonen hos Nets Easy. Du kan bruke dette i kombinasjon med Nets Easy sitt flagg `MerchantHandlesConsumerData`, som vi har eksponert via appsettings.json `NetsPaymentSettings.MerchantHandlesConsumerData`. Hvis du setter den til `true`, må du sende med detaljer om betaler, ellers feiler det.
 
-I dette eksempelet regnes ordrelinjene ut basert på skjemadata:
+I dette eksempelet regner systemet ut ordrelinjene basert på skjemadata:
 
 ```c#
 public class OrderDetailsCalculator : IOrderDetailsCalculator
