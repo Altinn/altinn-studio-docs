@@ -38,21 +38,104 @@ Andre kommandoer:
 
 **VIKTIG: Følg alltid denne arbeidsflyten:**
 
-1. **Lag ny branch** for hver oppgave
-   - Bruk beskrivende branchnavn (f.eks. `feature/add-authentication-docs`, `fix/broken-links`)
-   - Branch fra `master` med mindre annet er spesifisert
+### Før du starter en oppgave
 
-2. **Gjør endringer** i feature-branchen
-   - Test lokalt med `hugo server -D` for å se draft-innhold
-   - Sørg for at alle endringer fungerer som forventet
+1. **Start ALLTID fra oppdatert master:**
+   ```bash
+   git checkout master
+   git pull origin master
+   ```
+   ⚠️ **KRITISK**: Verifiser at du faktisk er på master!
 
-3. **Commit endringer** med klare, beskrivende meldinger
+2. **Verifiser at du er på riktig branch:**
+   ```bash
+   git branch --show-current
+   ```
+   **Skal vise: `master`** (IKKE noen annen branch!)
+   
+   Hvis du ikke er på master, start på nytt fra steg 1.
 
-4. **Merge tilbake til master** når oppgaven er ferdig
-   - Lag pull request hvis du jobber i team
-   - Eller merge direkte hvis passende
+3. **Sjekk om branchnavn finnes fra før:**
+   ```bash
+   git branch -a | grep branchnavn
+   ```
+   - Hvis den finnes lokalt: `git branch -D branchnavn`
+   - Hvis den finnes på remote: `git push origin --delete branchnavn`
+
+4. **Lag NY branch:**
+   ```bash
+   git checkout -b branchnavn
+   ```
+   - Bruk beskrivende branchnavn (f.eks. `klarsprak-svaralternativer`, `fix/broken-links`)
+
+5. **DOBBELTSJEKK at ny branch er basert på master:**
+   ```bash
+   git log --oneline -1
+   ```
+   Skal matche siste commit i master!
+   
+   Hvis ikke - STOPP og start på nytt fra steg 1.
+
+### Under arbeidet
+
+1. **Test Hugo-bygget kontinuerlig:**
+   - Bruker starter Hugo i separat terminal: `hugo server -D`
+   - Sjekk at sider vises korrekt i nettleseren
+   - Sjekk lenker mens du vasker
+
+2. **ALDRI commit genererte filer:**
+   - Ikke commit `public/`-mappen
+   - Ikke commit `.html`-filer i `content/`
+   - Sjekk `.gitignore` inneholder `/public/`
+
+### Før hver commit
+
+1. **Sjekk hva som skal committes:**
+   ```bash
+   git status
+   git diff --name-only
+   ```
+   - Hvis du ser `.html` eller `public/`: `git reset` og rens opp
+   - Skal kun se `.md`-filer (og evt. bilder/kode)
+
+2. **Commit med klar melding:**
+   ```bash
+   git add -A
+   git commit -m "Beskrivende melding"
+   ```
+
+### Før PR
+
+1. **Verifiser antall endrede filer:**
+   ```bash
+   git diff --name-only master..branchnavn | wc -l
+   ```
+   - Skal være ~20-50 filer for en typisk språkvask
+   - IKKE tusener av filer!
+
+2. **Test at Hugo bygger uten feil:**
+   ```bash
+   hugo
+   ```
+   - Sjekk at det ikke er REF_NOT_FOUND-feil
+
+3. **Push og lag PR:**
+   ```bash
+   git push -u origin branchnavn
+   ```
+
+### Etter CodeRabbit-review
+
+- Rett småfeil med én gang (tar vanligvis bare 5-10 min)
+- De er ofte grammatikkfeil som er lette å fikse
+- Commit og push rettelsene
 
 ### Draft-innhold
+
+- Mange artikler i v10 er merket med `draft: true` i frontmatter
+- `-D`-flagget i utviklingsserveren sørger for at draft-innhold vises under utvikling
+- Draft-innhold publiseres ikke i produksjonsbygg
+
 
 - Mange artikler i v10 er merket med `draft: true` i frontmatter
 - `-D`-flagget i utviklingsserveren sørger for at draft-innhold vises under utvikling
