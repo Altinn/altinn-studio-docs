@@ -9,7 +9,7 @@ tags: [needsReview, needsTranslation]
 Dette viser en tabell som viser elementene brukeren må betale for.
 Du kan plassere dette hvor som helst i appen din, men vi anbefaler å sette det på den siste siden før brukeren blir bedt om å betale.
 
-For å få oppdatert ordrelinjene etter hvert som data som brukes til å beregne ordrelinjer, endres, må du legge til en mapping til datafeltene som brukes til å beregne ordrelinjene.
+For å oppdatere ordrelinjene etter hvert som data som systemet bruker til å beregne ordrelinjer endres, må du legge til en mapping til datafeltene som systemet bruker til å beregne ordrelinjene.
 
 ```json
 {
