@@ -16,7 +16,7 @@ toc: false
    - `appModel.schema.json` 
    - `appModel.prefill.json`  &larr; *den nye filen*
 
-## 2. Legg inn grunnkonfigurasjon
+## 2. Legg til grunnkonfigurasjon
 
    Kopier denne konfigurasjonskoden inn i den nye filen:
 
@@ -55,9 +55,9 @@ Alle eksemplene tar utgangspunkt i datamodellen vist under:
 
 ![Datamodell for skjema](exampleModel.png "Datamodell for skjema")
 
-### Hent organisasjonsnummer fra Enhetsregisteret (ER)
+### Eksempel: Hent organisasjonsnummer fra Enhetsregisteret (ER)
 
-Dette fyller ut feltet `Organisasjon.Orgnr` med organisasjonsnummeret 
+Dette fyller ut feltet `Organisasjon.Orgnr` med organisasjonsnummeret fra 
 Enhetsregisteret:
 
 ```json
