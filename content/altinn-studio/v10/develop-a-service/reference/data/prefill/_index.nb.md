@@ -6,7 +6,7 @@ description: Oversikt over tilgjengelige felter for forhåndsutfylling med konfi
 tags: [needsReview, needsTranslation]
 
 ---
-Les mer om [forhåndsutfylling](/nb/altinn-studio/v8/concepts/prefill/), og se [veiledning for hvordan det settes opp](/nb/altinn-studio/v8/guides/development/prefill/config/).
+Les mer om [forhåndsutfylling](/nb/altinn-studio/v10/this-is-AS/explanations/prefill/), og se [veiledning for hvordan du setter det opp](/nb/altinn-studio/v10/develop-a-service/prefill/how-to/config/).
 
 ## Felter i _prefill.json_-filen
 
@@ -27,7 +27,7 @@ JSON-schema-definisjonen av prefill-filen er også tilgjengelig [her](https://al
 
 ### Folkeregisteret (DSF)
 
-Persondata som eksponeres er tilknyttet personen som appen startes på vegne av. Hvis Ola Nordmann starter en app på vegne av Kari Nordmann, vil det være Kari sine data som eksponeres. Tilgjengelige verdier for forhåndsutfylling inkluderer:
+Persondata som eksponeres er tilknyttet personen som appen startes på vegne av. Hvis Ola Nordmann starter en app på vegne av Kari Nordmann, vil det være Karis data som eksponeres. Tilgjengelige verdier for forhåndsutfylling inkluderer:
 
 - SSN
 - Name
@@ -71,9 +71,9 @@ Tilgjengelige verdier for forhåndsutfylling inkluderer:
 
 Brukerprofilen som eksponeres tilhører den som starter tjenesten. Hvis Ola Nordmann starter et skjema på vegne av Kari Nordmann, hentes data om Ola.
 
-Objektene Party.Organization og Party.Person inneholder samme felter som ER og DSF-forhåndsutfylling. Party.Organization er null hvis brukeren er logget inn som privatperson. Party.Person er null hvis brukeren er logget inn som virksomhetsbruker.
+Objektene Party.Organization og Party.Person inneholder de samme feltene som ER og DSF-forhåndsutfylling. Party.Organization er null hvis brukeren er logget inn som privatperson. Party.Person er null hvis brukeren er logget inn som virksomhetsbruker.
 
-Forhåndsutfyllingen feiler hvis objektet du bruker ikke finnes. Hvis du vil forhåndsutfylle dynamisk basert på disse verdiene, må du sette opp [egendefinert forhåndsutfylling](/nb/altinn-studio/v8/guides/development/prefill/custom/).
+Forhåndsutfyllingen feiler hvis objektet du bruker ikke finnes. Hvis du vil forhåndsutfylle dynamisk basert på disse verdiene, må du sette opp [egendefinert forhåndsutfylling](/nb/altinn-studio/v10/develop-a-service/prefill/how-to/custom/).
 
 Tilgjengelige verdier for forhåndsutfylling inkluderer:
 
