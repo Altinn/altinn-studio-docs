@@ -57,7 +57,7 @@ Alle eksemplene tar utgangspunkt i datamodellen vist under:
 
 ### Eksempel: Hent organisasjonsnummer fra Enhetsregisteret (ER)
 
-Dette fyller ut feltet `Organisasjon.Orgnr` med organisasjonsnummeret 
+Dette fyller ut feltet `Organisasjon.Orgnr` med organisasjonsnummeret fra 
 Enhetsregisteret:
 
 ```json
