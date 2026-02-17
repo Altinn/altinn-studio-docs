@@ -19,7 +19,7 @@ Dette i seg selv gir likevel ikke rett til å lese data i Dialogporten. Dialogpo
 Det betyr at systembrukeren må ha fått delegert enten tilgangspakkene som gir tilgang til dialogene som skal leses, eller enkelttjenesten(e) som dialogene består av.
 Enkeltjenestedelegering er kun mulig for systembruker i egen virksomhet.
 
-Uten rettigheter vil listen fra dialogporten alltid være tom.
+Uten slike rettigheter vil listen fra Dialogporten alltid være tom.
 
 ## Hvordan finner jeg ut hvilke tilgangspakker jeg trenger?
 
@@ -27,7 +27,7 @@ I utgangspunktet er det tjenesteeierne for dialogtjenestene som vises i Dialogpo
 
 Denne informasjonen vil normalt tjenesteeier dele sammen med øvrig dokumentasjon om tjenestene.
 
-For regnskapsfører- og revisorscenarier vil man typisk knytte tjenestene til eksisterende tilgangspakker. Da blir de automatisk inkludert i resultat fra Dialogporten hvis revisor/regnskapsfører pakkene er delegert til systembruker.
+For regnskapsfører- og revisorscenarier vil man typisk knytte tjenestene til eksisterende tilgangspakker. Da blir de automatisk inkludert i resultatene fra Dialogporten, dersom revisor-/regnskapsførerpakkene er delegert til systembrukeren.
 
 For andre scenarier kan det være aktuelt å opprette helt nye tilgangspakker for et nytt område. Da må disse tilgangspakkene også legges til systembrukeren.
 
@@ -37,10 +37,9 @@ Altinn eksponerer et Metadata API. Her finner du oversikt over hvilke tilgangspa
 
 Ved å overvåke dette API-et kan du til enhver tid være informert om nye tjenester som kan være aktuelle å gi systembrukeren rettigheter til, slik at de inkluderes når systembrukeren kaller Dialogporten.
 
-En visuell ovesikt over Metadata kan du finner i [Altinn Access Manager](https://altinnaccessmanager.azurewebsites.net/) (demo applikasjon.)
+En visuell oversikt over metadata finner du i [Altinn Access Manager](https://altinnaccessmanager.azurewebsites.net/) (demoapplikasjon).
 
-
-Se også mer informasjon om systembrukere [her](https://samarbeid.digdir.no/altinn/systembruker/2542)
+Se også mer informasjon om systembrukere hos Digdir [her](https://samarbeid.digdir.no/altinn/systembruker/2542).
 
 
 
