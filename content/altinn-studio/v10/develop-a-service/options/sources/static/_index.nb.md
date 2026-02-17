@@ -45,7 +45,7 @@ I dette eksempelet setter vi opp en Dropdown-komponent med statiske svaralternat
 
 ## Fra JSON-filer (kodeliste)
 
-Legg JSON-lister i `options`-mappen i app-repositoriet. Appen leser filen automatisk og eksponerer den via `options`-API-et. Options-filene må ligge under `App/options/`. Lager du f.eks. `land.json`, kan du sette opp en komponent med egenskapen `"optionsId": "land"`. Kodelisten er da tilgjengelig fra API-et via endepunktet `{org}/{app}/api/options/land`.
+Legg JSON-lister i `options`-mappen i app-repositoriet. Appen leser filene automatisk og eksponerer dem via `options`-API-et. `options`-filene må ligge under `App/options/`. Lager du f.eks. `land.json`, kan du sette opp en komponent med egenskapen `"optionsId": "land"`. Kodelisten er da tilgjengelig fra API-et via endepunktet `{org}/{app}/api/options/land`.
 
 Kodelistene må følge et spesifikt format. Her er et eksempel på en kodeliste som inneholder land (`App/options/land.json`):
 
