@@ -89,7 +89,7 @@ Ved å sjekke Metadata API-et for tilgangspakker vil man få bekreftet at tjenes
 
 **Spørsmål:** Hvordan sikrer jeg at systembrukeren har tilgang til alle tjenester som kommer i Dialogporten for min virksomhet?
 
-**Svar:** For å være sikker på dette må man delegere **alle** tilgangspakker som er knyttet til tjenester, samt enkeltrettigheter for tjenester som er
+**Svar:** For å være sikker på dette må man delegere **[alle](https://platform.altinn.no/accessmanagement/api/v1/meta/info/accesspackages/)** tilgangspakker som er knyttet til tjenester, samt enkeltrettigheter for tjenester som er
 knyttet til tilgangspakkene (se [eksplisitt tjenestedelegering](https://platform.altinn.no/accessmanagement/api/v1/meta/info/accesspackages/package/c0eb20c1-2268-48f5-88c5-f26cb47a6b1f)),
 og enkeltrettigheter for alle tjenester som kun er knyttet til roller fra Enhetsregisteret.
 
