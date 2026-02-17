@@ -40,7 +40,7 @@ Ved å overvåke dette API-et kan du til enhver tid være informert om nye tjene
 En visuell ovesikt over Metadata kan du finner i [Altinn Access Manager](https://altinnaccessmanager.azurewebsites.net/) (demo applikasjon.)
 
 
-Se også mer detaljert [dokumentasjon for Dialogporten hos Digdir](https://www.digdir.no/media/5750/download).
+Se også mer informasjon om systembrukere [her](https://samarbeid.digdir.no/altinn/systembruker/2542)
 
 
 
