@@ -68,6 +68,8 @@ If there is a need to receive an identifier back in the response, this can be ad
 https://bankenmin.no/huslaan/?consentId=77ed8698-e619-4066-9eb4-5c1eb3f165a1&authorizationCode={id}
 ```
 
+#### PortalViewMode
+If the consent is not part of a synchronous flow (where the user is expected to consent immediately), the consent request can be set to PortalViewMode to "show". After the request is sent, the user who is to give consent will see the consent request in the Altinn portal under access control, and can give their consent there.
 
 ### Response (example)
 
