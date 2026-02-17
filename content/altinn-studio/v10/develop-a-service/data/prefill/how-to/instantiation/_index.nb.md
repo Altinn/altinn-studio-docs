@@ -6,7 +6,7 @@ description: Slik konfigurerer du forhåndsutfylling for en app ved bruk av http
 tags: [needsReview, needsTranslation]
 ---
 
-Du kan sende inn forhåndsutfylte data når du instansierer en app. Dataene sendes som en multipart i HTTP POST-requesten til appen. 
+Du kan sende inn forhåndsutfylte data når du instansierer en app. Send dataene som en multipart i HTTP POST-requesten til appen. 
 Nedenfor ser du et eksempel på hvordan du instansierer en app med forhåndsutfylte data for partyId 12345.
 
 ```http {hl_lines=[10]}
