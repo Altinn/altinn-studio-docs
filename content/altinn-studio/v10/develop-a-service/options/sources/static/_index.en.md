@@ -2,7 +2,7 @@
 draft: true
 title: Static options
 linktitle: Static
-description: Lists of options that does not change, but can be filtered
+description: Lists of options that do not change but can be filtered
 toc: false
 weight: 50
 aliases:
@@ -10,10 +10,10 @@ aliases:
 ---
 
 For simpler use cases, a static list of options or a simple code list is easy to configure.
-These can either be set directly in the component configuration (in which case we call them options) or in a json file
+These can either be set directly in the component configuration (in which case we call them options) or in a JSON file
 in the application repository (the simplest form for code lists). Which method to use depends on the need for reusability.
 If multiple components need to use the same set of options, it is recommended to
-use the [json file method](#from-json-files-code-list) and thus turn it into a code list.
+use the [JSON file method](#from-json-files-code-list) and thus turn it into a code list.
 
 Note that even though a list of options can be completely static, it is also possible to make it (a bit more) dynamic
 by [filtering the options](/en/altinn-studio/v8/guides/development/options/functionality/filtering/) using expressions. If you want even more flexibility,
@@ -53,12 +53,12 @@ the user.
 
 ## From JSON files (code list)
 
-By adding json based option files in the application repository, the application will automatically read the file
-and expose it through the options api. For this to work, the files must be placed in the `App/options/` folder and be
+By adding JSON-based option files in the application repository, the application will automatically read the file
+and expose it through the options API. For this to work, the files must be placed in the `App/options/` folder and be
 named according to the following conventions `{optionId}.json` for the application to recognize them.
 
 For example if you have a list of countries in a file named `countries.json`, the optionId would be `countries`, and
-would be exposed through the api at `{org}/{app}/api/options/countries`.
+would be exposed through the API at `{org}/{app}/api/options/countries`.
 
 The static code lists should be in the format as shown below:
 
