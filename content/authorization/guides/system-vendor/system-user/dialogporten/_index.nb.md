@@ -24,6 +24,15 @@ Enkeltjenestedelegering er kun mulig for systembruker i egen virksomhet.
 
 Dette er tilsvarende hvis man som sluttbruker logger inn i Altinn og velger en innboks hvor man ikke har rettighet til noe av innholdet i innboksen.
 
+## Hvilke typer dialogtjenester finnes?
+
+Det er flere kategorier tjenester som er tilgjengelige via Dialogporten:
+
+- AltinnApp: Digitale tjenester som utvikles og kjøres som del av Altinn-infrastrukturen. Metadata er tilgjengelig i Dialogporten, mens API for å manipulere og hente data er tilgjengelig på Altinn-plattformen.
+- CorrespondenceService: Meldingstjenester hvor metadata om meldingen er tilgjengelig i Dialogporten, og selve meldingen hentes fra [Altinn Correspondence](/nb/correspondence/).
+- BrokerService: Formidlingstjenester hvor metadata om tjenesten er tilgjengelig via Dialogporten, mens data er tilgjengelig på [Altinn Broker](/nb/broker/).
+- GenericAccessResource: Generelle tjenester hvor metadata er tilgjengelig i Dialogporten, mens API for manipulering og uthenting av data er tilgjengelig fra plattformer hos tjenesteeier (for eksempel Skatteetaten eller NAV). En del av disse tjenestene vil aldri tilgjengeliggjøres via Dialogporten.
+
 ## Hvordan finner jeg ut hvilke tilgangspakker jeg trenger?
 
 I utgangspunktet er det tjenesteeierne for dialogtjenestene som vises i Dialogporten som definerer hvilke tilgangspakker som er knyttet til tjenestene.
