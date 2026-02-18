@@ -16,9 +16,9 @@ Dette i seg selv gir likevel **ikke rett til å lese data fra Dialogporten**. Di
 
 **Uten slike rettigheter vil listen fra Dialogporten alltid være tom.**
 
-Dette er tilsvarende hvis man som sluttbruker logger inn i Altinn og velger en innboks hvor man ikke har rettighet til noe av innholdet i innboksen.
+Dette tilsvarer situasjonen der en sluttbruker logger inn i Altinn og velger en innboks hvor brukeren ikke har rettighet til noe av innholdet.
 
-Denne guiden beskriver hva som kreves for å sette opp korrekte tilganger på en systembruker. 
+Denne veiledningen beskriver hva som kreves for å sette opp riktige tilganger for en systembruker.
 
 ## Hvilke typer dialogtjenester finnes?
 
@@ -41,12 +41,17 @@ som man kanskje ikke har tenkt på før de ligger i virksomhetens innboks, sendt
 
 Denne veiledningen forklarer noen muligheter virksomheten har for å oppdage nye tjenester, og dermed kunne sette riktig tilgangsnivå på systembrukerne sine.
 
-
 ### Informasjon fra tjenesteeiere
 
 Den vanligste måten man blir klar over en aktuell tjeneste på, er informasjon fra tjenesteeiere. Dette kan være informasjon om nye eller endrede rapporteringsplikter.
 Typisk vil tjenesteeier da informere om tilgangskravet til tjenestene.
 
+#### Eksempel: Skatteetaten A-melding
+
+Skatteetaten har god dokumentasjon på tjenesten A-melding.
+
+[Her](https://www.skatteetaten.no/samarbeidspartnere/sluttbrukersystemer/sbs-nyheter/testing-av-nytt-a-meldings-api/) finner du overordnet informasjon om tjenesten.
+[Her](https://skatteetaten.github.io/api-dokumentasjon/om/systembruker) finner du detaljer om tilgangspakker som må settes opp på systemet.
 
 ### Sjekke innboksen i Arbeidsflate
 
@@ -59,14 +64,16 @@ Ved å følge med på alle tjenester som legges til her vil man kunne ha den ful
 
 En komplett ressursliste (tjenester) finner du [her](https://platform.altinn.no/resourceregistry/api/v1/resource/resourcelist).
 
+#### Eksempel: Skatteetaten A-melding
 
-## Hvordan finner jeg ut hvilke tilgangspakker jeg trenger?
+For eksempel for A-meldingstjenesten beskrevet over finner du informasjon om ressursen [her](https://platform.altinn.no/resourceregistry/api/v1/resource/ske-innrapportering-amelding).
 
-I utgangspunktet er det tjenesteeierne for dialogtjenestene som vises i Dialogporten som definerer hvilke tilgangspakker som er knyttet til tjenestene.
+## Hvordan finner jeg ut hvilke tilganger systembrukeren trenger?
 
-Denne informasjonen vil normalt tjenesteeier dele sammen med øvrig dokumentasjon om tjenestene.
+Tjenesteeiere vil typisk inkludere informasjon om rettighetskrav sammen med annen dokumentasjon de publiserer om tjenesten, slik eksempelet for A-meldingen viser.
 
-For regnskapsfører- og revisorscenarier vil man typisk knytte tjenestene til eksisterende tilgangspakker. Da blir de automatisk inkludert i resultatene fra Dialogporten, dersom revisor-/regnskapsførerpakkene er delegert til systembrukeren.
+For regnskapsfører- og revisorscenarier vil tjenesteeier typisk knytte tjenestene til eksisterende tilgangspakker.
+Da blir dialogelementene for disse tjenestene automatisk inkludert i resultatene fra Dialogporten, dersom revisor-/regnskapsførerpakkene er delegert til systembrukeren.
 
 For andre scenarier kan det være aktuelt å opprette helt nye tilgangspakker for et nytt område. Da må disse tilgangspakkene også legges til systembrukeren.
 
