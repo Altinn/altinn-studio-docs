@@ -1,4 +1,19 @@
 public
+# Hugo kan noen ganger bygge output til content-mappen - ignorer disse
+content/**/index.html
+content/**/sitemap.xml
+content/**/none.html
+content/**/favicon.ico
+content/**/en/
+content/**/nb/
+content/**/css/
+content/**/js/
+content/**/fonts/
+content/**/images/
+content/**/icons/
+content/**/mermaid/
+content/**/revealjs/
+content/**/swagger/
 *.exe
 *.doc
 *.docx

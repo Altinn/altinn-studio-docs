@@ -85,8 +85,10 @@ Keywords is a list of tokens which enable personalization in notifications. Thes
 |---------------------------------|-------------------------------------------------------------------------------------------------------------------------------------- |-------------------------------------------------------------------------------------------|
 | \$sendersName\$                 | Will be supplied with the senders name. Either by the "MessageSender" attribute if it has value, or by a lookup in Altinn Register.   | Supported for all scenarios                                                               |
 | \$correspondenceRecipientName\$ | Will be supplied with the correspondence recipient's name, which will be either the organization's name or a person's name            | Supported for all scenarios                                                               |
-| \$recipientName\$               | Will be supplied with the notification recipient's name, which will be either the organization's name or a person's name              | Is not supported when notifications is sent directly to an email adress or a phone number |
-| \$recipientNumber\$             | If the recipient is a organization, it will be supplied with the organization number, otherwise it will be left empty                 | Is not supported when notifications is sent directly to an email adress or a phone number |
+| \$recipientName\$               | Will be supplied with the notification recipient's name, which will be either the organization's name or a person's name              | Is not supported for customRecipients when notifications are sent to an email address or a phone number |
+| \$recipientNumber\$             | If the recipient is an organization, it will be supplied with the organization number, otherwise it will be left empty                 | Is not supported for customRecipients when notifications are sent to an email address or a phone number |
+| \$messageTitle\$                | Will be supplied with the title of the correspondence                                                                                 | Supported for all scenarios                                                               |
+| \$resourceName\$                | Will be supplied with the name of the resource                                                                                        | Supported for all scenarios                                                               |
 
 ## Notification Templates
 
@@ -98,18 +100,19 @@ Two types of notification templates are offered when using notifications through
 
 **GenericAltinnMessage:**
 
-A generic Altinn text with the option to supplement with additional text. Currently supported languages are Norwegian, Nynorsk, and English.
-The language is chosen based on the language defined in the message.
+- A generic Altinn text with the option to supplement with additional text. Currently supported languages are Norwegian, Nynorsk, and English. The language is chosen based on the language defined in the message.
+- This notification text has been prepared by Altinn User Support and contains information that will be valuable to the end user. Altinn therefore recommends that service owners use this template.
 
-**Title:** A message has been received in Altinn {textToken}<br>
-**Content:** Hello. $correspondenceRecipientName$ has received a new message from $sendersName$. {textToken} Log in to Altinn to see this message.
 
-**Reminder Title:** Reminder - a message has been received in Altinn {textToken}<br>
-**Reminder Content:** Hello. This is a reminder that $correspondenceRecipientName$ has received a new message from $sendersName$. {textToken} Log in to Altinn to see this message.
+**Title:** A new message is available in Altinn for $correspondenceRecipientName$
+**Content:** Hi. $correspondenceRecipientName$ $recipientNumber$ has received a new message $messageTitle$ from $sendersName$. (To see this message you need access to $resourceName$.) Log in to Altinn to see this message.
 
-In the text, textToken will be replaced with the value given in, for example, "EmailSubject" for the title. SMS uses only the content, not the title.
+**Reminder Title:** Reminder - a message is available in Altinn for $correspondenceRecipientName$
+**Reminder Content:** Hi. This is a reminder that $correspondenceRecipientName$ $recipientNumber$ has received a message $messageTitle$ from $sendersName$. (To see this message you need access to $resourceName$.) Log in to Altinn to see this message.
 
-Note! Links should NEVER be used in notifications.
+- SMS uses only the content, not the title.
+
+Note! Links should NEVER be sent in notifications!
 
 ## Notification Channels
 

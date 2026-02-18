@@ -63,13 +63,14 @@ By signing the [terms of use for Maskinporten and ID-porten](https://samarbeid.d
 2. Create a Maskinporten client. You can create the client in Samarbeidsportalen or through the API. Creating a client requires that the Maskinporten connection is in place. See the [Maskinporten client guide](https://docs.altinn.studio/nb/correspondence/getting-started/developer-guides/maskinporten/).
    {{< /stepcard >}}
 
-{{< stepcard step="2" title="Receive consent scopes from Digdir" >}}
+{{< stepcard step="2" title="Receive consent scopes and API Key from Digdir" >}}
 
 - Sign the [terms of use for Altinn end-user system vendors](https://samarbeid.digdir.no/altinn/bruksvilkar-sluttbrukersystemleverandorer-i-altinn/3002) to access the test and production environments.
 - Complete the [registration form for end-user system vendors](https://forms.office.com/Pages/ResponsePage.aspx?id=D1aOAK8I7EygVrNUR1A5kcdP2Xp78HZOttvolvmHfSJUOFFBMThaOTI1UlVEVU9VM0FaTVZLMzg0Vi4u) and tick consent to obtain the required scopes:
   - altinn:consentrequests.read
   - altinn:consentrequests.write
-    {{< /stepcard >}}
+
+{{< /stepcard >}}
 
 {{< stepcard step="3" title="Request access to the service owner's APIs" >}}
 

@@ -198,9 +198,9 @@ When creating a dialog, the service owner system should consider the state of th
 
 ## Ensuring idempotency
 
-Dialogporten offers two optional mechanisms to ensure that any given dialog is only created once:
+Dialogporten offers two optional mechanisms to ensure that both dialogs and transmissions are only created once:
 
-- User-supplied dialog IDs. Service owner systems can define their own UUIDv7s (which might be deterministcally derived from internal identifiers)
+- User-supplied dialog and transmission IDs. Service owner systems can define their own UUIDv7s (which might be deterministically derived from internal identifiers)
 - A dedicated idempotency key
 
 The first option is a simple mechanism which for most service owner systems might be sufficient, while the other can more easily used to implement arbitrary business rules (eg. any given dialog should be associated with only one tuple of reporting party, reporting service and year/month).

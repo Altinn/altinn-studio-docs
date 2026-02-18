@@ -19,7 +19,7 @@ Denne veiledningen er for deg som er tjenesteeier og ønsker å bruke Altinn For
 
 ## 1. Kom i gang som tjenesteeier i Altinn {#get-started-as-service-owner-in-altinn}
 
-For å komme i gang med Altinn Formidling må virksomheten din være registrert som en tjenesteeier i Altinn. For en trinnvis veiledning, se [Kom i gang med Altinn-guiden](https://www.altinndigital.no/kom-i-gang/guide-kom-i-gang-med-altinn/).
+For å komme i gang med Altinn Formidling må virksomheten din være registrert som en tjenesteeier i Altinn. For en trinnvis veiledning, se [Kom i gang med Altinn-guiden](https://samarbeid.digdir.no/altinn/bli-tjenesteeier-i-altinn/2819/).
 
 Dette trinnet er bare nødvendig for nye virksomheter som ennå ikke har etablert seg som tjenesteeiere på Altinn-plattformen. Som en eksisterende tjenesteeier kan du gå direkte videre til de neste trinnene for å begynne å bruke Altinn Formidling.
 

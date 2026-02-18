@@ -21,6 +21,7 @@ aliases:
 | [Revisorattesterer](#revisorattesterer)|
 | [Toll](#toll)|
 | [Revisjon](#revisjon)|
+| [MVA-kompensasjon revisorattesterer](#mva-kompensasjon-revisorattesterer)|
 
 
 ### Skatt næring
@@ -57,6 +58,10 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til toll og fortolling
 Denne tilgangspakken gir fullmakter til tjenester knyttet til revisjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:revisjon*
 
+### MVA-kompensasjon revisorattesterer
+Denne fullmakten gir statsautoriserte revisorer tilgang til å attestere "Kompensasjonsmelding for merverdiavgift". Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
+*urn:altinn:accesspackage:mva-kompensasjon-revisorattesterer*
+
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
 |**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
@@ -72,3 +77,4 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til revisjon. Ved rege
 |Revisorattesterer|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
 |Toll|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
 |Revisjon|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|MVA-kompensasjon revisorattesterer|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|

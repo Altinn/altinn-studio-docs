@@ -58,3 +58,26 @@ Her ser vi at tokenet har fått samtykket `samtykke-test-vegard` for inntektsår
   }
 }
 ```
+
+
+## Validering av konverterte samtykker
+
+Som del av migrasjonsprosessen fra Altinn 2 til Altinn 3 vil Altinn automatisk konvertere eksisterende samtykker. 
+
+Dette betyr at tjenestetilbydere må være forberedt på å håndtere tre ulike typer samtykke-token:
+
+1. **Eksisterende Altinn 2-token** - Gamle samtykke-token som fortsatt er gyldige
+2. **Nye Altinn 3-token** - Token basert på nye ressursdefinisjoner opprettet av tjenesteeier
+3. **Migrerte token** - Token for tjenester som opprinnelig ble samtykket til i Altinn 2, men som nå er konvertert til Altinn 3-format
+
+### Ansvar og konfigurasjonsarbeid
+
+Altinn tar ansvaret for selve konverteringen av ressurser og migreringen av samtykker. Tjenesteeieren må imidlertid konfigurere sitt API slik at det godkjenner token med migrerte ressurser. 
+
+RessursID for migrerte ressurser følger formatet: `{org}_{serviceCode}_{serviceEditionCode}`
+
+{{% alert title="Viktig" color="warning" %}}
+**Parametere i samtykket vil også bli konvertert til små bokstaver (lowercased) under migreringen.**
+{{% /alert %}}
+
+
