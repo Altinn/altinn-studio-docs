@@ -4,6 +4,11 @@ linktitle: Vergemål
 description: Som tjenesteeier innfører du støtte for vergemål i tre steg.
 ---
 
+{{% notice warning %}}
+Dette er funksjonalitet som enda ikke er i TEST eller PROD, men som er planlagt lansert tidlig i mars.
+For å være klar kan du starte med å finne ut hva som er relevante vergemål, samt integrere mot aktørvalg og autorisasjonsoppslag.
+{{% /notice %}}
+
 {{< stepcard step="1" title="Vergemål i tilgangsregler" >}}
 
 Det første steget er å opprette tilgangsregler som definerer hvilke handlinger de ulike vergemålstypene gir tilgang til på tjenesten.

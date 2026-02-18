@@ -4,6 +4,11 @@ linktitle: Guardianship
 description: As a service owner, you can add support for guardianship in three steps.
 ---
 
+{{% notice warning %}}
+This functionality is not yet available in TEST or PROD, but is planned for launch in early March.
+To be prepared, you can start by identifying the relevant guardianship types and integrating with the party selector and authorisation lookup.
+{{% /notice %}}
+
 {{< stepcard step="1" title="Guardianship in access rules" >}}
 
 The first step is to create access rules that define which actions the different guardianship types grant access to on the service.
