@@ -52,6 +52,7 @@ toc: false
     },
   ],
   "redirectUrl": "https://bankenmin.no/huslaan/?consentId=77ed8698-e619-4066-9eb4-5c1eb3f165a1",
+  "portalViewMode": "hide"
 }
 ```
 
@@ -67,6 +68,9 @@ I eksemplet under er consentId=77ed8698-e619-4066-9eb4-5c1eb3f165a1 angitt slik.
 ```
 https://bankenmin.no/huslaan/?consentId=77ed8698-e619-4066-9eb4-5c1eb3f165a1&Status=OK
 ```
+
+#### PortalViewMode
+Dersom samtykket ikke er del av en synkron flyt (der brukeren forventes å ta stilling til samtykket med en gang), kan man i samtykkeforespørselen sette PortalViewMode til "show". Etter forespørselen er sendt, vil brukeren som skal gi samtykke se samtykkeforespørselen i Altinn-portalen under tilgangsstyring, og kan gi sitt samtykke der.
 
 ### Svar (eksempel)
 
