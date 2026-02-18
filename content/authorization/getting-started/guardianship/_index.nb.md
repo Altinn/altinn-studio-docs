@@ -5,7 +5,7 @@ description: Som tjenesteeier innfører du støtte for vergemål i tre steg.
 ---
 
 {{% notice warning %}}
-Dette er funksjonalitet som enda ikke er i TEST eller PROD, men som er planlagt lansert tidlig i mars.
+Dette er funksjonalitet som ennå ikke er i TEST eller PROD, men som er planlagt lansert tidlig i mars.
 For å være klar kan du starte med å finne ut hva som er relevante vergemål, samt integrere mot aktørvalg og autorisasjonsoppslag.
 {{% /notice %}}
 
@@ -21,7 +21,8 @@ Se [beskrivelse av de forskjellige vergemålstypene](/nb/authorization/what-do-y
 Se [gjennomgang av hvordan du oppretter og publiserer en ressurs](/nb/authorization/guides/resource-owner/create-resource-resource-admin/).
 
 > Dersom tjenesten som skal støtte vergemål er en Altinn Studio-app, trenger du kun å gjennomføre dette steget.
-> {{< /stepcard >}}
+
+{{< /stepcard >}}
 
 {{< stepcard step="2" title="Legg til aktørvelger" >}}
 Vergen må kunne velge hvem hen skal representere i tjenesten.
@@ -29,10 +30,10 @@ Bruk grensesnittet Autoriserte parter (Authorized Parties) for å vise hvem verg
 
 ![Autoriserte parter fra vegvesen.no](./authorizedparty.png "Autoriserte parter fra Altinn presentert på vegvesen.no")
 
-Se [implementasjonsguide for Autoriserte parter](/nb/authorization/guides/resource-owner/generic-access-resource/integrating-link-service/#integrasjon-med-api-for-autoriserte-parter-avgivere/).
+Se [implementasjonsguide for Autoriserte parter](/nb/authorization/guides/resource-owner/generic-access-resource/integrating-link-service/#integrasjon-med-api-for-autoriserte-parter-avgivere).
 {{< /stepcard >}}
 
 {{< stepcard step="3" title="Autorisasjonsoppslag" >}}
 For å kontrollere at vergen har lov til å handle på vegne av vergehaver, må tjenesten gjøre et autorisasjonsoppslag.
-Se [dokumentasjon for hvordan du gjør autorisasjonsoppslag](/nb/authorization/guides/resource-owner/generic-access-resource/integrating-link-service/#integrasjon-med-pdp/).
+Se [dokumentasjon for hvordan du gjør autorisasjonsoppslag](/nb/authorization/guides/resource-owner/generic-access-resource/integrating-link-service/#integrasjon-med-pdp).
 {{< /stepcard >}}

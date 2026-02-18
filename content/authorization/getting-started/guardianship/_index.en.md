@@ -29,10 +29,11 @@ Use the Authorised Parties interface to display who the guardian can act on beha
 
 ![Authorised parties from vegvesen.no](./authorizedparty.png "Authorised parties from Altinn displayed on vegvesen.no")
 
-See the [implementation guide for Authorised Parties](/en/authorization/guides/resource-owner/generic-access-resource/integrating-link-service/#integrasjon-med-api-for-autoriserte-parter-avgivere/).
+See the [implementation guide for Authorised Parties](/en/authorization/guides/resource-owner/generic-access-resource/integrating-link-service/#integrasjon-med-api-for-autoriserte-parter-avgivere).
 {{< /stepcard >}}
 
 {{< stepcard step="3" title="Authorisation lookup" >}}
 To verify that the guardian is permitted to act on behalf of the ward, the service must perform an authorisation lookup.
-See the [documentation on how to perform authorisation lookups](/en/authorization/guides/resource-owner/generic-access-resource/integrating-link-service/#integrasjon-med-pdp/).
+
+See the [documentation on how to perform authorisation lookups](/en/authorization/guides/resource-owner/generic-access-resource/integrating-link-service/#integrasjon-med-pdp).
 {{< /stepcard >}}
