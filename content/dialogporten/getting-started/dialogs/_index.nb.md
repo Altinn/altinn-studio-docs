@@ -31,7 +31,7 @@ I tillegg kan en dialog inneholde en innholdsreferanse kalt en [front channel em
 
 ## Forsendelser
 
-En forsendelse brukes til å beskrive en enkelt "kommunikasjon" mellom tjenesteeieren og parten i en dialog. Forsendelser kan typisk være meldinger, forhåndsutfylte skjemaer og kvitteringer fra tjenesteleverandøren, eller innsendte skjemaer/meldinger fra parten knyttet til dialogen. Dialogen kan inneholde null eller flere forsendelser representert i en kronologisk sortert liste. Hver forsendelse og listen over forsendelser er uforanderlige; det er bare mulig å legge til nye forsendelser i listen, ikke endre eller slette forsendelser.
+En forsendelse brukes til å beskrive en enkelt "kommunikasjon" mellom tjenesteeieren og parten i en dialog. Forsendelser kan typisk være meldinger, forhåndsutfylte skjemaer og kvitteringer fra tjenesteleverandøren, eller innsendte skjemaer/meldinger fra parten knyttet til dialogen. Dialogen kan inneholde null eller flere forsendelser representert i en liste sortert etter ID. Denne IDen kan både settes manuelt, eller bli generert automatisk ved opprettelse av en ny forsendelse. Hver forsendelse og listen over forsendelser er uforanderlige; det er bare mulig å legge til nye forsendelser i listen, ikke endre eller slette forsendelser.
 
 En forsendelse inneholder noen tekstlige metadata (tittel, sammendrag) som forklarer hva forsendelsen er, inkludert [front channel embed](/nb/dialogporten/getting-started/front-channel-embeds/). I tillegg kan en forsendelse inneholde ett eller flere [vedlegg](#vedlegg).
 
@@ -47,7 +47,7 @@ API-handlinger og aktivitetsloggoppføringer kan referere til enkelte forsendels
 
 Vedlegg er filer referert av en eller flere URL-er, som støtter ulike representasjoner av den samme logiske ressursen (dvs. ulike formater, som PDF, XML, JSON osv.), for enten GUI-konsumenter (dvs. sluttbruker i nettleser) eller API-konsumenter (strukturerte formater for tilpassede sluttbrukersystemer). I tillegg til URL-ene er det noen beskrivende metadata som kan brukes til å identifisere hva vedlegget er.
 
-Vedlegg kan brukes både på forsendelse- og dialognivå.
+Vedlegg kan brukes både på forsendelse- og dialognivå. De er også sortert på ID som kan settes manuelt eller bli generert automatisk ved opprettelse.
 
 **Les mer**
 

@@ -31,7 +31,7 @@ Additionally, a dialog may contain a content reference called a [front channel e
 
 ## Transmissions
 
-A transmission is used to describe a single "communication" between the service owner and the party within a dialog Transmissions can typically be messages, pre-filled forms and receipts from the service provider, or submitted forms/messages from the party related to the dialog. The dialog may contain zero or more transmissions represented in a chronologically sorted list. Each transmission and the list of transmissions are immutable; it is only possible to append new tranmissions to the list, not change or delete transmissions.
+A transmission is used to describe a single "communication" between the service owner and the party within a dialog Transmissions can typically be messages, pre-filled forms and receipts from the service provider, or submitted forms/messages from the party related to the dialog. The dialog may contain zero or more transmissions represented in a list sorted by ID. This ID can both be set manual or be auto generated on creation. Each transmission and the list of transmissions are immutable; it is only possible to append new tranmissions to the list, not change or delete transmissions.
 
 A transmission contains some textual metadata (title, summary) that explains what the transmission is, including [front channel embeds](/en/dialogporten/getting-started/front-channel-embeds/). Additionally, a transmission may contain one or more [attachments](#attachments).
 
@@ -47,7 +47,7 @@ API actions and activity log entries may refer to single transmissions.
 
 Attachments are files referenced by one or more URLs, supporting various representations of the same logical resource (ie. various formats, such as PDF, XML, JSON etc), for either GUI-consumers (ie. end user in web browser) or API-consumers (structured formats for custom end user systems). In addition to the URLs, there are some describing metadata that can be used to identity what the attachment is.
 
-Attachments can be used on both transmission and dialog level.
+Attachments can be used on both transmission and dialog level. They are also sorted on ID which can be set manually or auto generated on creation
 
 **Read more**
 
