@@ -7,7 +7,7 @@ weight: 4
 ---
 
 ## Før du starter
-Denne guiden tar utgangspunkt i at du har satt opp en stateless app, som beskrevet i [guide for oppsett av stateless app](./configure-stateless.nb.md).
+Denne guiden tar utgangspunkt i at du har satt opp en stateless app, som beskrevet i [guide for oppsett av stateless app](./configure-stateless).
 
 Denne funksjonaliteten er kun tilgjengelig for innloggede brukere. Hvis du har en stateless app konfigurert med
 bruk uten innlogging vil stegene under ikke fungere.

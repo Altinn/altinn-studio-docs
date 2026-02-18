@@ -6,7 +6,7 @@ weight: 60
 tags: [needsReview, translate-to-english, migrate-from-v8]
 ---
 
-En Altinn app har en forretningsprosess, definert i [BPMN](https://www.bpmn.org/)-notasjon. Denne prosessen styrer hele 
+En Altinn-app har en forretningsprosess, definert i [BPMN](https://www.bpmn.org/)-notasjon. Denne prosessen styrer hele 
 flyten i appen, bl.a. hvilke oppgaver sluttbrukeren skal innom, hvilke oppgaver appen skal gjøre automatisk, og hvilke
 sporvalg som skal tas basert på kriteriene som er satt opp.
 

@@ -21,7 +21,7 @@ Dette gjør du ved å endre det aktuelle `dataType`-elementet i `applicationMeta
 
 Lim inn følgende i datatypen `model` sin `appLogic`:
 
-```
+```json
 "allowAnonymousOnStateless": true
 ```
 

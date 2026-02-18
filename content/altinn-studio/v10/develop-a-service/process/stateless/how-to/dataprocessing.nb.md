@@ -10,7 +10,7 @@ draft: true
 
 ## 1. Implementer dataprosessering
 
-Eksempel på en kalkulering som populerer datamodellen nevnt i eksempelet over:
+Eksempel på en kalkulering som populerer datamodellen ved navn `StatelessV1`:
 
 ```c#
 public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object data)
@@ -22,7 +22,7 @@ public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object 
         // hvis tjenesten skal oppføre seg som en innsynstjeneste.
         form.Fornavn = "Test";
         form.Etternavn = "Testesten";
-        return true
+        return true;
     }
     return false;
 }

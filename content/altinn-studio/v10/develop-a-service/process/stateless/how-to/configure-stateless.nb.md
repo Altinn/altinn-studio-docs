@@ -63,7 +63,7 @@ App/config/applicationmetadata.json
     }
   ],
   ...
-  "onEntry": { "show": "stateless" } // legg til denne linjen
+  "onEntry": { "show": "form" }
 }
 ```
 
