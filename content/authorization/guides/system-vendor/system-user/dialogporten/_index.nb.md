@@ -1,28 +1,24 @@
 ---
-title: Systembruker og dialogporten API
-description: Denne veiledningen forklarer hvordan man benytter systembruker mot Dialogporten API.
-linktitle: Systembruker og dialogporten API
+title: Systembruker og Dialogporten-API-et
+description: Denne veiledningen forklarer hvordan du setter opp en systembruker for å få tilgang til data fra Dialogporten-API-et.
+linktitle: Systembruker og Dialogporten-API-et
 toc: false
 ---
 
 Et vanlig bruksområde er å sette opp en systembruker som skal overvåke innboksen til én eller flere virksomheter i Dialogporten.
-Dette gjøres via søke-API-et til Dialogporten. Dette er beskrevet nærmere [her](https://docs.altinn.studio/nb/dialogporten/user-guides/searching-for-dialogs/).
+Dette gjøres via søke-API-et i Dialogporten. Dette er beskrevet nærmere i veiledningen [Søke etter dialoger](https://docs.altinn.studio/nb/dialogporten/user-guides/searching-for-dialogs/).
 
-For å kunne kalle Dialogporten API kreves det riktige OAuth-scopes. Følgende scopes må benyttes:
-
-- digdir:dialogporten
-- altinn:correspondence.read
+Detaljer om tilpasning av søk og informasjon om scope er beskrevet i den veiledningen, blant annet informasjon om påkrevd scope satt i Maskinporten.
 
 Dette gir grunnleggende tilgang til API-et.
 
-Dette i seg selv gir likevel **ikke rett til å lese data fra Dialogporten**. Dialogporten returnerer kun dialoger som en systembruker har blitt delegert tilgang til.
-
-Det betyr at systembrukeren må ha fått delegert enten tilgangspakkene som gir tilgang til dialogene som skal leses, eller enkelttjenesten(e) som dialogene består av.
-Enkeltjenestedelegering er kun mulig for systembruker i egen virksomhet.
+Dette i seg selv gir likevel **ikke rett til å lese data fra Dialogporten**. Dialogporten returnerer kun dialoger som en systembruker har fått delegert tilgang til.
 
 **Uten slike rettigheter vil listen fra Dialogporten alltid være tom.**
 
 Dette er tilsvarende hvis man som sluttbruker logger inn i Altinn og velger en innboks hvor man ikke har rettighet til noe av innholdet i innboksen.
+
+Denne guiden beskriver hva som kreves for å sette opp korrekte tilganger på en systembruker. 
 
 ## Hvilke typer dialogtjenester finnes?
 
@@ -30,8 +26,39 @@ Det er flere kategorier tjenester som er tilgjengelige via Dialogporten:
 
 - AltinnApp: Digitale tjenester som utvikles og kjøres som del av Altinn-infrastrukturen. Metadata er tilgjengelig i Dialogporten, mens API for å manipulere og hente data er tilgjengelig på Altinn-plattformen.
 - CorrespondenceService: Meldingstjenester hvor metadata om meldingen er tilgjengelig i Dialogporten, og selve meldingen hentes fra [Altinn Correspondence](/nb/correspondence/).
-- BrokerService: Formidlingstjenester hvor metadata om tjenesten er tilgjengelig via Dialogporten, mens data er tilgjengelig på [Altinn Broker](/nb/broker/).
 - GenericAccessResource: Generelle tjenester hvor metadata er tilgjengelig i Dialogporten, mens API for manipulering og uthenting av data er tilgjengelig fra plattformer hos tjenesteeier (for eksempel Skatteetaten eller NAV). En del av disse tjenestene vil aldri tilgjengeliggjøres via Dialogporten.
+
+## Hvordan finner jeg ut hvilke tjenester som er aktuelle for en gitt virksomhet?
+
+Med mange hundre tjenester som publiserer data til Dialogporten kan det være vanskelig for en gitt virksomhet å ha full oversikt over hvilke tjenester som er aktuelle
+for virksomhetens innboks i Dialogporten.
+
+Daglig leder eller andre med nøkkelrolle i virksomheten kan stort sett forvente at nye tjenester blir tilgjengeliggjort automatisk. For ansatte eller systemer som må få delegert tilgang til virksomheten,
+er det derimot vanskeligere å ha full oversikt over hvilke tjenester man vil få tilgang til i virksomhetens innboks, og hvilke tjenester som krever flere tilganger for å kunne se dialogene.
+
+Det finnes mange tjenester som er godt kjent blant virksomheter, som man vet at man trenger tilgang til (for eksempel A-melding, merverdiavgift og sykmeldinger), mens det også finnes tjenester
+som man kanskje ikke har tenkt på før de ligger i virksomhetens innboks, sendt fra tjenesteeier.
+
+Denne veiledningen forklarer noen muligheter virksomheten har for å oppdage nye tjenester, og dermed kunne sette riktig tilgangsnivå på systembrukerne sine.
+
+
+### Informasjon fra tjenesteeiere
+
+Den vanligste måten man blir klar over en aktuell tjeneste på, er informasjon fra tjenesteeiere. Dette kan være informasjon om nye eller endrede rapporteringsplikter.
+Typisk vil tjenesteeier da informere om tilgangskravet til tjenestene.
+
+
+### Sjekke innboksen i Arbeidsflate
+
+Daglig leder eller andre med nøkkelrolle i virksomheten vil stort sett kunne se alt i innboksen i Altinn. Ved å manuelt sjekke jevnlig vil man kunne identifisere nye tjenester som ikke er satt opp til å behandles av systembrukere.
+
+### Hente informasjon fra API
+
+Altinn Ressursregister er et register over digitale tjenester i Norge. Registeret inkluderer alle som vil publisere informasjon i Dialogporten, men inkluderer også tjenester som ikke publiseres i Dialogporten.
+Ved å følge med på alle tjenester som legges til her vil man kunne ha den fulle oversikten over aktuelle tjenester.
+
+En komplett ressursliste (tjenester) finner du [her](https://platform.altinn.no/resourceregistry/api/v1/resource/resourcelist).
+
 
 ## Hvordan finner jeg ut hvilke tilgangspakker jeg trenger?
 
@@ -57,7 +84,7 @@ at systembrukeren er delegert disse rettighetene.
 
 ## Finnes det API for å ha oversikten?
 
-Altinn eksponerer et Metadata API. Her finner du oversikt over hvilke tilgangspakker som finnes, og hvilke tjenester som er knyttet til den enkelte tilgangspakke.
+Altinn eksponerer et metadata-API. Her finner du oversikt over hvilke tilgangspakker som finnes, og hvilke tjenester som er knyttet til den enkelte tilgangspakke.
 
 Vi har også et åpent ressurs-API som viser hvilke ressurser som er publisert i Altinn, slik at man kan vurdere om dette er noe som er aktuelt for egen innboks.
 
@@ -70,8 +97,8 @@ Se også mer informasjon om systembrukere hos Digdir [her](https://samarbeid.dig
 
 ### Eksempel på å finne tilgangskrav
 
-Normalt sett vil det være naturlig at det er tjenesteeier som informerer om tilgangskrav på sine tjenester.  
-Hvis man ikke har denne informasjonen kan man benytte Altinn API.
+Normalt sett vil det være naturlig at det er tjenesteeier som informerer om tilgangskrav på sine tjenester.
+Hvis man ikke har denne informasjonen, kan man benytte Altinn-API-et.
 
 #### ldir-correspondence (Landbruksdirektoratets meldingstjeneste)
 
@@ -82,7 +109,7 @@ Av reglene ser man at tilgangspakkene **ordinaer-post-til-virksomheten**, **regn
 
 Det betyr at systembrukeren trenger å få delegert minst én av disse tilgangspakkene for å kunne lese meldingene fra Landbruksdirektoratet.
 
-Ved å sjekke Metadata API-et for tilgangspakker vil man få bekreftet at tjenesten er en del av pakken.
+Ved å sjekke metadata-API-et for tilgangspakker vil man få bekreftet at tjenesten er en del av pakken.
 
 [Metadata om pakken ordinaer-post-til-virksomheten](https://platform.altinn.no/accessmanagement/api/v1/meta/info/accesspackages/package/91cf61ae-69ab-49d5-b51a-80591c91f255)
 
@@ -90,7 +117,7 @@ Ved å sjekke Metadata API-et for tilgangspakker vil man få bekreftet at tjenes
 
 **Spørsmål:** Hvordan kan jeg få oversikt over potensielle tjenester som kan komme i Dialogporten?
 
-**Svar:** Hovedkilden bør være tjenesteeiere, men alle dialoger som presenteres i Dialogporten har en definisjon i Altinn ressursregister. Du finner dem i ressurslisten [her](https://platform.altinn.no/resourceregistry/api/v1/resource/resourcelist).
+**Svar:** Hovedkilden bør være tjenesteeiere, men alle dialoger som presenteres i Dialogporten, har en definisjon i Altinn Ressursregister. Du finner dem i ressurslisten [her](https://platform.altinn.no/resourceregistry/api/v1/resource/resourcelist).
 
 **Spørsmål:** Er det mulig å skille mellom ressurser som kan komme i Dialogporten og de som ikke kan?
 
