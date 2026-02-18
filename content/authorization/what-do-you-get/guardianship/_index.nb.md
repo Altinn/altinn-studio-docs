@@ -1,33 +1,49 @@
 ---
 title: Vergemål
 linktitle: Vergemål
-description: Personer som ikke kan ta hånd om interessene sine selv på grunn av en skade, sykdom eller funksjonsnedsetting kan få hjelp av en verge. En slik ordning, et vergemål, er frivillig og tilpasset ønskene og behovene til den som har verge. Det er statsforvalteren som oppnevner og følger opp vergene, og det er Sivilrettsforvaltningen som er sentral vergemålsmyndighet.
+description: Altinn Autorisasjon gjør det enkelt for tjenesteeiere å innføre støtte for vergemål i sine tjenester.
+tags: [needsReview]
 ---
 
-Altinn Autorisjon tilrettelegger slik at tjenesteeiere på en enkelt måte kan innføre støtte for vergemål på tjenester som benytter Altinn Autorisasjon
+Personer som ikke kan ta hånd om interessene sine selv på grunn av skade, sykdom eller funksjonsnedsettelse, kan få hjelp av en verge.
+En slik ordning er frivillig og tilpasset ønskene og behovene til den som har verge.
+Statsforvalteren oppnevner og følger opp vergene, og Sivilrettsforvaltningen er sentral vergemålsmyndighet.
 
-- Legitimasjoner mappes 1:1 mot tilgangspakke i Altinn Autorisajon
-- Tjenesteeier lager regler knyttet til tilgangspakkene for sin tjeneste
-- Tjenesteeier tilgjengeliggjør aktørvalg i sin tjeneste
-- Tjenesteeier gjør autorisasjonsoppslag (PDP) fra tjenesten
-- FREG autorativ kilde, kan ikke gi eller trekke tilbake vergefullmakter i Altinn.
-- Ved behov for gi private fullmakter finns tilgangspakker for privatperosner
+{{% notice warning %}}
+Dette er funksjonalitet som enda ikke er i TEST eller PROD, men som er planlagt lansert tidlig i mars.
+For å være klar kan du starte med å finne ut hva som er relevante vergemål, samt integrere mot aktørvalg og autorisasjonsoppslag.
+{{% /notice %}}
 
-Hvordan fungerer det i praksis
+## Slik fungerer vergemål i Altinn
 
-- sekvnes diagram?
-- Steg for steg punkter med bilde
+Altinn Autorisasjon tilrettelegger slik at tjenesteeiere enkelt kan innføre støtte for vergemål i tjenester som bruker Altinn Autorisasjon:
 
-1. Opprett autorisasjonsressurs
-2. Sett regler for vergemål
-3. Støtte for aktørvalg og autorisasjonsoppslag
-4. Verge logger inn og velger å representere vergehaver
-5. Utfører handlinger i tjeneste
+![Overordnet arkitektur for vergemål i Altinn](./GuardianshipOverview.png "Overordnet arkitektur for vergemål i Altinn")
 
-I tilgangsstyring brukerflate vil vergehaver se verger, verger vil personer hen er verge for. Dersom en vergehaver har flere verger vil dette vises, men ikke innenfor hvilke områder dette gjelder
+- Legitimasjoner definert av Sivilrettsforvaltningen hentes fra Folkeregisteret og kobles direkte mot tilgangspakker i Altinn Autorisasjon.
+- Tjenesteeier oppretter tilgangsregler knyttet til tilgangspakkene for sin tjeneste.
+- Tjenesteeier legger til aktørvalg i tjenesten sin.
+- Tjenesteeier gjør autorisasjonsoppslag (PDP) fra tjenesten.
+- Folkeregisteret er autoritativ kilde — det er ikke mulig å gi eller trekke tilbake vergefullmakter i Altinn.
+- Ved behov for å gi private fullmakter finnes det egne tilgangspakker for privatpersoner.
 
-Les mer informasjon om vergemål fra [Sivilrettsforvaltningen](https://www.vergemal.no)
+## Slik ser det ut for brukerne
 
-Statsforvalteren er lokal vergemålsmyndighet og fatter vedtak om opprettelse, endring og opphør av vergemål, samt oppnevner og fører tilsyn med verger. Vedtak og opplysninger om vergemål meldes til Folkeregisteret for registrering og tilgjengeliggjøring for relevante aktører, mens Sivilrettsforvaltningen er overordnet fag- og klageinstans og forvalter midler der dette er aktuelt.
+I brukerflaten for tilgangsstyring vil vergehaver se sine verger, og verger vil se personene de er verge for.
+Dersom en vergehaver har flere verger, vises alle, men det vises ikke innenfor hvilke områder den enkelte vergen har ansvar.
 
-![Bilde som viser overordnet arkritektur for vergemål i Altinn](GuardianshipOverview.png)
+## Slik innfører du støtte for vergemål
+
+1. Opprett en autorisasjonsressurs.
+2. Sett tilgangsregler for vergemål.
+3. Legg til støtte for aktørvalg og autorisasjonsoppslag.
+
+Når dette er på plass, kan vergen logge inn, velge å representere vergehaver og utføre handlinger i tjenesten.
+
+Se [steg-for-steg-guide for å innføre vergemål](/nb/authorization/getting-started/guardianship/).
+
+## Les mer
+
+- Les mer om vergemål hos [Sivilrettsforvaltningen](https://www.vergemal.no).
+- Statsforvalteren er lokal vergemålsmyndighet og fatter vedtak om opprettelse, endring og opphør av vergemål.
+  Vedtak og opplysninger meldes til Folkeregisteret for registrering, mens Sivilrettsforvaltningen er overordnet fag- og klageinstans.
