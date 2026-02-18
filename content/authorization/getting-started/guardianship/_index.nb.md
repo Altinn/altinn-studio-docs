@@ -1,33 +1,34 @@
 ---
 title: Vergemål
 linktitle: Vergemål
-description: Som tjenesteier vil du enkelt innføre støtte for vergemål ved 3 steg.
+description: Som tjenesteeier innfører du støtte for vergemål i tre steg.
+tags: [needsReview]
 ---
 
 {{< stepcard step="1" title="Vergemål i tilgangsregler" >}}
 
-Første skritt for å støtte vergemål på tjeneste er å legge opprette tilgangsregler som sier hva et gitt vergemål gir tilgang til på tjensten. Dette kan gjøres via API eller i policy editoren i Resursadministrasjon.
+Det første steget er å opprette tilgangsregler som definerer hvilke handlinger de ulike vergemålstypene gir tilgang til på tjenesten.
+Du kan gjøre dette via API eller i Policy editor i Ressursadministrasjon.
 
-![Policy editor i Altinn Studio](vergemal_regler.png "Policy editor i Altinn Studio")
+![Policy editor i Altinn Studio](./vergemal_regler.png "Policy editor i Altinn Studio")
 
-Beskrivelse av de forskjellige vergemålene finnes [her](/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/verger/).
+Se [beskrivelse av de forskjellige vergemålstypene](/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/verger/).
 
-Detaljert gjennomgang av opprettelse og publisering av ressurs finnes [her](/nb/authorization/guides/resource-owner/create-resource-resource-admin/).
+Se [gjennomgang av hvordan du oppretter og publiserer en ressurs](/nb/authorization/guides/resource-owner/create-resource-resource-admin/).
 
-> Dersom tjensten som sakl støtte Vergemål er en Atlinn Studio app trenger du kun gjennomføre dette stegeg
-> {{< /stepcard >}}
+> Dersom tjenesten som skal støtte vergemål er en Altinn Studio-app, trenger du kun å gjennomføre dette steget.
+{{< /stepcard >}}
 
-{{< stepcard step="2" title="Tilgjengeliggjør aktørvelger" >}}
-For å kunne utføre tjenester på vegne av vergehaver må verge kunne velge hvem hen ønsker å representere i tjenesten. Authorized Parties
+{{< stepcard step="2" title="Legg til aktørvelger" >}}
+Vergen må kunne velge hvem hen skal representere i tjenesten.
+Bruk grensesnittet Autoriserte parter (Authorized Parties) for å vise hvem vergen kan handle på vegne av.
 
-![Autoriserte parter fra vegvesen.no](authorizedparty.png "Autoriserter parter fra Altinn presentert på vegvesen.no")
+![Autoriserte parter fra vegvesen.no](./authorizedparty.png "Autoriserte parter fra Altinn presentert på vegvesen.no")
 
-APIet gir denne oversiktnen. Når du har hentet denne oversikten kan verge velge hvem hen skal representere.
-
-Implementasjonsguide for Authorized Parties finnes [her](/nb/authorization/guides/resource-owner/generic-access-resource/integrating-link-service/#integrasjon-med-api-for-autoriserte-parter-avgivere/).
+Se [implementasjonsguide for Autoriserte parter](/nb/authorization/guides/resource-owner/generic-access-resource/integrating-link-service/#integrasjon-med-api-for-autoriserte-parter-avgivere/).
 {{< /stepcard >}}
 
 {{< stepcard step="3" title="Autorisasjonsoppslag" >}}
-For å sikre at en beruker har lov til å gjøre en konkret handling på vegne av en annen må det gjøres autorisasjonsoppslag. Dokumentasjon for hvordan dette oppslaget gjøres finner du
-[her](/nb/authorization/guides/resource-owner/generic-access-resource/integrating-link-service/#integrasjon-med-pdp).
+For å kontrollere at vergen har lov til å handle på vegne av vergehaver, må tjenesten gjøre et autorisasjonsoppslag.
+Se [dokumentasjon for hvordan du gjør autorisasjonsoppslag](/nb/authorization/guides/resource-owner/generic-access-resource/integrating-link-service/#integrasjon-med-pdp/).
 {{< /stepcard >}}
