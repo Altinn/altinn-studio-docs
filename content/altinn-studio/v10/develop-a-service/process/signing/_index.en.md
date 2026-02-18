@@ -15,23 +15,23 @@ The different scenarios below can to some extent be combined with each other, bu
 
 ## Runtime delegated signing
 
-{{% insert "content/altinn-studio/v10/develop-a-service/process/signing/runtime-delegated-signing/intro.en.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/process/signing/how-to/runtime-delegated-signing/intro.en.md" %}}
 
-[How to configure](/en/altinn-studio/v10/develop-a-service/process/signing/runtime-delegated-signing/)
+[How to configure](/en/altinn-studio/v10/develop-a-service/process/signing/how-to/runtime-delegated-signing/)
 
 ## Role/access package-based signing
 
-{{% insert "content/altinn-studio/v10/develop-a-service/process/signing/role-based-signing/intro.en.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/process/signing/how-to/role-based-signing/intro.en.md" %}}
 
-[How to configure](/en/altinn-studio/v10/develop-a-service/process/signing/role-based-signing/)
+[How to configure](/en/altinn-studio/v10/develop-a-service/process/signing/how-to/role-based-signing/)
 
 ## Sign and submit
 
-{{% insert "content/altinn-studio/v10/develop-a-service/process/signing/sign-and-submit/intro.en.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/process/signing/how-to/sign-and-submit/intro.en.md" %}}
 
-[How to configure](/en/altinn-studio/v10/develop-a-service/process/signing/sign-and-submit/)
+[How to configure](/en/altinn-studio/v10/develop-a-service/process/signing/how-to/sign-and-submit/)
 
 ## API-based signing
-{{% insert "content/altinn-studio/v10/develop-a-service/process/signing/api-signing/intro.en.md" %}}
+{{% insert "content/altinn-studio/v10/develop-a-service/process/signing/how-to/api-signing/intro.en.md" %}}
 
-[How to configure](/en/altinn-studio/v10/develop-a-service/process/signing/api-signing/)
+[How to configure](/en/altinn-studio/v10/develop-a-service/process/signing/how-to/api-signing/)
