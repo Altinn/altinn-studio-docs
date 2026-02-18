@@ -50,8 +50,7 @@ Typisk vil tjenesteeier da informere om tilgangskravet til tjenestene.
 
 Skatteetaten har god dokumentasjon på tjenesten A-melding.
 
-[Her](https://www.skatteetaten.no/samarbeidspartnere/sluttbrukersystemer/sbs-nyheter/testing-av-nytt-a-meldings-api/) finner du overordnet informasjon om tjenesten.
-[Her](https://skatteetaten.github.io/api-dokumentasjon/om/systembruker) finner du detaljer om tilgangspakker som må settes opp på systemet.
+[Her](https://skatteetaten.github.io/api-dokumentasjon/api/innrapportering-amelding) finner du detaljert informasjon om API for tjenesten og hvilke tilganger som kreves.
 
 ### Sjekke innboksen i Arbeidsflate
 
