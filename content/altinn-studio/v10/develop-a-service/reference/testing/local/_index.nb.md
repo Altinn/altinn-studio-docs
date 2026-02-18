@@ -3,7 +3,7 @@ draft: true
 title: Test av app lokalt
 linktitle: Lokalt
 description: Testing av app lokalt på egen maskin
-weight: 100
+
 aliases:
 - /nb/altinn-studio/v8/reference/testing/local/
 ---

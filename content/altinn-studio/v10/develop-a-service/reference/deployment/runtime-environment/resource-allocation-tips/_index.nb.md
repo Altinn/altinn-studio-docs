@@ -2,7 +2,7 @@
 draft: true
 title: Tips til ressursfordeling
 description: Hva kan og bør du gjøre utover standard innstillinger?
-weight: 40
+
 ---
 
 Før vi går på konkrete tips må vi kort introdusere Helm Chart. Helm Chart er filen eller filene som styrer hvordan applikasjonen din distribueres til Kubernetes. Det er også her du styrer CPU- og minneallokering. Du finner `Chart.yaml` og `values.yaml` i deployment-mappen i applikasjonen din. Disse viktige filene er lette å overse og ikke ha et aktivt forhold til.

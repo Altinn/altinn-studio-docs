@@ -2,7 +2,7 @@
 draft: true
 title: Brannmur og IP-konfigurasjon
 description: Nettverkskonfigurasjon, IPv4/IPv6-støtte og utgående IP-adresser for Altinn-tjenester
-weight: 24
+
 ---
 
 ## Nettverk og brannmurkonfigurasjon

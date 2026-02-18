@@ -198,9 +198,9 @@ Når du oppretter en dialog, bør tjenesteeiersystemet vurdere tilstanden til tj
 
 ## Sikre idempotens
 
-Dialogporten tilbyr to valgfrie mekanismer for å sikre at en gitt dialog bare opprettes én gang:
+Dialogporten tilbyr to valgfrie mekanismer for å sikre at både dialoger og forsendelser bare opprettes én gang:
 
-- Brukerleverte dialog-ID-er. Tjenesteeiersystemer kan definere sine egne UUIDv7-er (som kan være deterministisk avledet fra interne identifikatorer)
+- Brukerleverte dialog- og forsendelse-ID-er. Tjenesteeiersystemer kan definere sine egne UUIDv7-er (som kan være deterministisk avledet fra interne identifikatorer)
 - En dedikert idempotensnøkkel
 
 Det første alternativet er en enkel mekanisme som for de fleste tjenesteeiersystemer kan være tilstrekkelig, mens det andre lettere kan brukes til å implementere vilkårlige forretningsregler (f.eks. enhver gitt dialog skal være knyttet til bare én tupel av rapporteringspart, rapporteringstjeneste og år/måned).

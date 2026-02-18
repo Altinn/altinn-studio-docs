@@ -28,10 +28,10 @@ Databehandler->>+Altinn: POST /consentrequest med id
 Note over Databehandler,Altinn: body med id
 Altinn-->>-Databehandler: 201 + body
 Note over Altinn,Databehandler: body med id og redirectURL
-Databehandler-->>-Sluttbruker: redirect(redirectURL)
+Databehandler-->>-Sluttbruker: redirect(redirectURL?consetnId=id)
 Sluttbruker->>+Altinn: Godkjenn samtykke (id)
-Altinn-->>-Sluttbruker: redirect(redirectURL?requestId=id)
-Sluttbruker->>+Databehandler: GET /redirectURL?requestId=id
+Altinn-->>-Sluttbruker: redirect(redirectURL?consetnId=id&Status=OK)
+Sluttbruker->>+Databehandler: GET /redirectURL?consetnId=id
 opt Valgfri verifisering
 Databehandler->>+Altinn: GET /consentrequest/consentRequestId
 Altinn-->>-Databehandler: status
@@ -48,6 +48,7 @@ Databehandler-->>-Sluttbruker: Ferdig
 {{< /mermaid >}}
 
 When using consent, you follow the flow above.
+In the redirectURL you can specify any parameter you want the end user to be redirected with. The redirectURL will also contain the consent status (OK/Failed) and an ErrorMessage if Failed.  
 After the user has processed the consent request and is redirected back to the data consumer, you can either query to retrieve the status or simply fetch the consent token and try it against the service.
 If the user has not approved the consent, you will receive an error message from the service you use the consent token against.
 
