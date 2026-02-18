@@ -19,7 +19,8 @@ Legg til en instansieringsknapp i sideoppsettet som brukes til stateless-visning
 ## 2. Send med datafelter for forhåndsutfylling (valgfritt)
 
 ### Instansiere med prefill
-Standard oppførsel for denne knappen er å sende inn hele datamodellen som brukeren har brukt, som en del av instansieringen under feltet `prefill`. Hvis du ønsker å velge ut deler av datamodellen som er brukt i det stateless-steget, kan du også gjøre det ved å legge til `mapping` på `InstantiationButton`-komponenten. For eksempel:
+Standard oppførsel for denne knappen er å sende inn hele datamodellen som brukeren har brukt, som en del av instansieringen 
+under feltet `prefill`. Hvis du ønsker å velge ut deler av datamodellen som er brukt i det stateless-steget, kan du også gjøre det ved å legge til `mapping` på `InstantiationButton`-komponenten. For eksempel:
 
 ```json
  {
