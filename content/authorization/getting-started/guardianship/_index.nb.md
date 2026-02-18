@@ -2,7 +2,6 @@
 title: Vergemål
 linktitle: Vergemål
 description: Som tjenesteeier innfører du støtte for vergemål i tre steg.
-tags: [needsReview]
 ---
 
 {{< stepcard step="1" title="Vergemål i tilgangsregler" >}}
@@ -17,7 +16,7 @@ Se [beskrivelse av de forskjellige vergemålstypene](/nb/authorization/what-do-y
 Se [gjennomgang av hvordan du oppretter og publiserer en ressurs](/nb/authorization/guides/resource-owner/create-resource-resource-admin/).
 
 > Dersom tjenesten som skal støtte vergemål er en Altinn Studio-app, trenger du kun å gjennomføre dette steget.
-{{< /stepcard >}}
+> {{< /stepcard >}}
 
 {{< stepcard step="2" title="Legg til aktørvelger" >}}
 Vergen må kunne velge hvem hen skal representere i tjenesten.

@@ -2,7 +2,6 @@
 title: Guardianship
 linktitle: Guardianship
 description: As a service owner, you can add support for guardianship in three steps.
-tags: [needsReview]
 ---
 
 {{< stepcard step="1" title="Guardianship in access rules" >}}
@@ -17,7 +16,7 @@ See the [description of the different guardianship types](/en/authorization/what
 See the [guide on how to create and publish a resource](/en/authorization/guides/resource-owner/create-resource-resource-admin/).
 
 > If the service that needs guardianship support is an Altinn Studio app, you only need to complete this step.
-{{< /stepcard >}}
+> {{< /stepcard >}}
 
 {{< stepcard step="2" title="Add party selector" >}}
 The guardian must be able to select who they wish to represent in the service.
