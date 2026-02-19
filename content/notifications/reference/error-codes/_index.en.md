@@ -133,3 +133,4 @@ In addition to the specific error codes above, the API also returns standard HTT
 - [Instant Notifications Guide](/en/notifications/guides/instant-notifications/)
 - [Altinn Notifications API Reference](/en/notifications/reference/api/)
 - [OpenAPI Specification](/en/notifications/reference/openapi/)
+ - [Status values for orders and notifications]({{< relref "/notifications/reference/notification-status" >}})
