@@ -7,6 +7,11 @@ toc: false
 
 Altinn tilbyr nå et klientadministrasjons-API for å håndtere klienter og brukere for tjenestetilbydere.
 
+## OpenAPI 
+
+- [EndUser](../../../../api/accessmanagement/enduser/)
+- [Metadata](../../../../api/accessmanagement/metadata/)
+
 ## Forutsetninger for bruk
 
 Det er to måter du kan autentisere deg mot disse API-ene. Forutsetningene er forskjellige avhengig av hvilken måte du velger.
