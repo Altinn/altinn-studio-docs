@@ -52,7 +52,7 @@ The following is a list of the properties available for {{% title %}}.
 | `textResourceBindings.noActionRequiredPanelDescriptionHasSigned`         | string   | The description of the panel displayed when the user has signed and no further action is required.                  |
 | `textResourceBindings.noActionRequiredPanelDescriptionNotSigned`         | string   | The description of the panel displayed when the user has not signed and no further action is required.              |
 | `textResourceBindings.noActionRequiredButton`                            | string   | The text to display in the button that navigates to the inbox when no further action is required.                   |
-| `textResourceBindings.awaitingOtherSignaturesPanelTitle`                 | string   | The title for the panel when the signing task is not ready for submit.                                              |
+| `textResourceBindings.awaitingOtherSignaturesPanelTitle`                 | string   | The title for the panel when the signing task is not ready for submission.                                          |
 | `textResourceBindings.awaitingOtherSignaturesPanelDescriptionNotSigning` | string   | The description for the panel when the current user is not signing.                                                 |
 | `textResourceBindings.awaitingOtherSignaturesPanelDescriptionSigned`     | string   | The description for the panel when the current user has signed.                                                     |
 | `textResourceBindings.submitPanelTitle`                                  | string   | The title for the panel when the signing task is ready for submit.                                                  |
