@@ -7,6 +7,11 @@ toc: false
 
 Altinn provides a client administration API for managing clients and users on behalf of service providers.
 
+## OpenAPI 
+
+- [EndUser](../../../../api/accessmanagement/enduser/)
+- [Metadata](../../../../api/accessmanagement/metadata/)
+
 ## Prerequisites
 
 There are two ways you can authenticate towards these APIs. The prerequisites differ depending on which method you choose.
