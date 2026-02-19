@@ -1,7 +1,7 @@
 ---
 title: API Scopes-konfigurasjon
 linktitle: API Scopes
-description: Konfigurer tilpassede API-scopes for tjenesten din.
+description: Slik konfigurerer du tilpassede API-scopes for tjenesten.
 weight: 200
 toc: true
 tags: [needsReview]
