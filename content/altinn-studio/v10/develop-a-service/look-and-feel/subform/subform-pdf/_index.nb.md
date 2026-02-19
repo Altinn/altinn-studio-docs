@@ -70,19 +70,21 @@ Husk at oppgaven må ha en inngående og en utgående sekvensflyt.
 | `subformComponentId`(*)   | ID-en til underskjemakomponenten. Du må ha en kopi av komponenten både der underskjemaet ligger i hovedskjemaet, og i ServiceTask.json-layouten til systemoppgaven.                                                |
 | `subformDatatTypeId`(*)   | Datatype-ID-en for underskjemaet.                                                                                                                                                                                  |
 
+**(*) Merk:** Disse parameterne krever at du har en matchende komponent/datatype både i hovedskjemaet og i ServiceTask.json-layouten.
+
 Eksempel på tekstressurs for filnavn med variabel:
 
 ```json
 {
-      "id": "pdfFileName",
-      "value": "Mitt filnavn {0}",
-      "variables": [
-        {
-          "key": "MySubformProperty",
-          "dataSource": "dataModel.SubformModel"
-        }
-      ]
+  "id": "pdfFileName",
+  "value": "Mitt filnavn {0}",
+  "variables": [
+    {
+      "key": "MySubformProperty",
+      "dataSource": "dataModel.SubformModel"
     }
+  ]
+}
 ```
 
 ### layout-sets.json
@@ -145,19 +147,19 @@ App/ui/
 }
 ```
 
-#### underskjema/layout/Underskjema.json
+#### underskjema/layouts/Underskjema.json
 
 ```
 Det legges til grunn at det allerede finnes et underskjema definert i denne filen.
 ```
 
-#### underskjema/layout/PdfLayout.json
+#### underskjema/layouts/PdfLayout.json
 
 Denne filen definerer hvordan PDF-en skal se ut. Her bruker du typisk en `Summary2`-komponent for å vise en oppsummering av underskjemaet:
 
 
 {{< code-title >}}
-ui/underskjema/layout/PdfLayout.json
+ui/underskjema/layouts/PdfLayout.json
 {{< /code-title >}}
 
 ```json
@@ -192,7 +194,7 @@ ui/underskjemaPdf/Settings.json
     }
 }
 ```
-#### underskjemaPdf/layout/ServiceTask.json
+#### underskjemaPdf/layouts/ServiceTask.json
 
 Denne layout-filen viser innhold til brukeren hvis PDF-genereringen feiler, for eksempel feilmeldinger eller instruksjoner.
 
@@ -201,7 +203,7 @@ Hvis du vil la brukeren avbryte systemoppgaven, for eksempel for å gå tilbake 
 **OBS:** Du må også legge til en skjult kopi av underskjemakomponenten i denne layouten for at PDF-genereringen skal fungere korrekt. Se `mySubformComponentId` nedenfor. Vi håper å kunne fjerne dette kravet i en fremtidig versjon, men foreløpig er det påkrevd.
 
 {{< code-title >}}
-ui/underskjemaPdf/layout/ServiceTask.json
+ui/underskjemaPdf/layouts/ServiceTask.json
 {{< /code-title >}}
 
 ```json
