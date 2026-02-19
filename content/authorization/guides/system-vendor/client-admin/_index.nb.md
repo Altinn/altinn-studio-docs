@@ -9,9 +9,34 @@ Altinn tilbyr nå et klientadministrasjons-API for å håndtere klienter og bruk
 
 ## Forutsetninger for bruk
 
+Det er to måter du kan autentisere deg mot disse API-ene. Forutsetningene er forskjellige avhengig av hvilken måte du velger.
+
+### Autentisering med ID-porten
+
+Ved bruk av ID-porten kan personen som er klientadministrator i en virksomhet logge inn i et system som benytter seg av API-et.
+
 - Man er delegert scopet `altinn:clientdelegations.write`.
 - Man har satt opp en ID-porten-klient i applikasjonen som ber om dette scopet.
 - Man logger inn som klientadministrator for tjenestetilbyderen.
+- Systemet veksler inn ID-porten-token til et Altinn-token.
+
+Når dette er gjennomført, har man et token for en person som har rett til å kalle API-et som er beskrevet i denne veiledningen.
+
+### Autentisering med systembruker 
+
+Det er også mulig å benytte en systembruker som klientadministrator i virksomheten.
+
+Dette krever følgende:
+
+- Man er delegert scopet `altinn:clientdelegations.write`.
+- Man har satt opp en Maskinporten-klient med dette scopet.
+- Man har [definert et system](../system-user/systemregistration/) i systemregisteret med tilgangspakken `urn:altinn:accesspackage:klientadministrator`.
+- Man har [sendt forespørsel om opprettelse av systembruker](../system-user/systemuserrequest/) til egen virksomhet hvor tilgangspakken `urn:altinn:accesspackage:klientadministrator` er satt som krav.
+- Man har [godkjent forespørsel](../../end-user/system-user/accept-request/).
+- Man har et system som er konfigurert med registrert klient som [henter ut systembruker-token](../system-user/usetoken/) fra Maskinporten.
+- Man har vekslet systembrukertoken til Altinn-token.
+
+Når dette er gjennomført, har man et token for en systembruker som har rett til å kalle API-et som er beskrevet i denne veiledningen.
 
 ## Hva er en tjenestetilbyder?
 
@@ -76,7 +101,7 @@ Dette gjøres via eget API. Sletting av agentforholdet vil samtidig fjerne alle 
 
 API-et lar deg:
 
-- Legge til nye brukere i virksomheten
+- Legge til nye brukere i virksomheten.
 - Gi brukere klientrettigheter for en klient ved å videredelegere tilgangspakker.
 - Liste brukere med rettigheter for en klient.
 
@@ -91,8 +116,8 @@ ID-porten-tokenet må veksles inn til et Altinn-token.
 
 ### Identifikatorer 
 
-I dagens versjon av API-et benyttes Altinns `partyUuid`-identifikatorer. 
-Dette er UUID-er; hver person eller virksomhet i Altinn har en unik UUID. 
+I dagens versjon av API-et benyttes Altinns `partyUuid`-identifikatorer.
+Dette er UUID-er; hver person eller virksomhet i Altinn har en unik UUID.
 
 #### Hvordan finner man disse?
 
@@ -551,9 +576,9 @@ Eksempelrespons
 
 ### Klientadministrasjon for agenter
 
-Via API er det også muligheter for agent å kunne se sine clienter og hvilke virksomheter som har delegert klientrettigheter til seg.
+Via API-et er det også mulig for en agent å se sine klienter og hvilke virksomheter som har delegert klientrettigheter til seg.
 
-Man kan ogås slette slike forhold via API.  
+Man kan også slette slike forhold via API-et.
 
-Krever eget scope for den påloggede brukeren. 
+Dette krever et eget scope for den påloggede brukeren.
 
