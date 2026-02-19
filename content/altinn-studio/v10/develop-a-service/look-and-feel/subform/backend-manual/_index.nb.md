@@ -4,22 +4,22 @@ hidden: true
 ---
 
 1. [Opprett en datamodell](/nb/altinn-studio/v8/reference/data/data-modeling/) for underskjemaet.
-2. Du skal nå se tre filer under `App/model`: klassen i C#, json schema og xsd.
+2. Du skal nå se tre filer under `App/model`: klassen i C#, JSON-schema og XSD.
 3. Sett [appLogic.allowInSubform](/nb/api/models/app-metadata/#applicationlogic) til **true** i **applicationMetadata.json**.
 4. Opprett en mappe under **App/ui** med det navnet du vil ha på underskjemaet.
-5. Gå til underskjemamappen, legg til `Settings.json`-filen og en mappe med navn **layouts**.
+5. Gå til underskjemamappen, legg til `Settings.json`-filen og en mappe med navnet **layouts**.
 6. Du kan legge til sideoppsett i layouts-mappen slik du ville gjort for hovedskjemaet.
    {{< notice warning >}}
    Underskjema støtter ikke vedlegg, og nøsting av underskjema er ikke tillatt (underskjema i underskjema).
    {{< /notice >}}
 7. [Konfigurer filen for underskjema](/nb/altinn-studio/v8/reference/ux/pages/#innstillinger), **Settings.json**, som normalt.
-8. Legg til en egendefinert knapp for å lukke underskjemaet: [CustomButton](/nb/altinn-studio/v8/reference/ux/components/custombutton/) med `closeSubform`-handling. Du bestemmer selv om underskjemaet skal valideres før det lukkes.
+8. Legg til en egendefinert knapp for å lukke underskjemaet: [CustomButton](/nb/altinn-studio/v8/reference/ux/components/custombutton/) med `closeSubform`-handling. Du velger selv om underskjemaet skal valideres før det lukkes.
    ```json
    {
      "id": "subform-exitbutton",
      "type": "CustomButton",
      "textResourceBindings": {
-       "title": "The button title" // Blir `general.done` om utelatt
+       "title": "The button title" // Blir `general.done` hvis utelatt
      },
      "actions": [
        {
@@ -41,7 +41,7 @@ hidden: true
       "dataType": "underskjema-datatype"
     }
     ```
-10. Gå til layout for siden i hovedskjemaet der du ønsker å legge inn underskjematabellen.
+10. Gå til layouten for siden i hovedskjemaet der du vil legge inn underskjematabellen.
 11. Legg til `Subform` med [ønsket konfigurasjon](/nb/altinn-studio/v10/develop-a-service/look-and-feel/subform/config-options/). Eksempel:
     ```json
     {
@@ -80,5 +80,5 @@ hidden: true
 
 {{< notice info >}}
 Et underskjema kan ha sin egen oppsummeringsside, men kan også være en del av oppsummeringen for hovedskjemaet.
-Hvis du vil legge til underskjemaet i oppsummeringen til hovedskjemaet, bruker du den ID-en som lagt inn i utformingen for hovedskjemaet og typen "component".
+Hvis du vil legge til underskjemaet i oppsummeringen til hovedskjemaet, bruker du ID-en som er lagt inn i utformingen for hovedskjemaet og typen "component".
 {{< /notice >}}
