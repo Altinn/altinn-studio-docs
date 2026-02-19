@@ -22,13 +22,8 @@ weight: 1
 
 ## Eskalere forespørsel
 
-Dersom den som åpner godkjenningslinken ikke har nødvendige fullmakter til å kunne godkjenne opprettelse er det mulig å "videresende" denne til bruker med nødvidige fullmakter
+Hvis brukeren som åpner godkjenningslenken ikke har de nødvendige fullmaktene til å godkjenne opprettelsen, kan vedkommende videresende forespørselen til en bruker med nødvendige fullmakter.
 
-Dette gjøres med ved å trykke "Ja, send videre" (bildet 1). Etter man har sendt forespørselen videre kan man avslutte (bilde 2) og/eller varsle tilgangsstyrer om at forespørselen er videresendt.
-Forespøslen vil da dukke opp ved valg av menypunktet Systemtilganger i brukerflaten for tilgangsstyring i Altinn (bilde 3)
-
-![Bilde 1:Eskalere forespørsel ved å trykke send videre kanpp](eskaler_1.png "Eskalere forespørsel ved å trykke send videre kanpp")
-
-![Bilde 2: Avsklutter etter å ha sendt videre](eskaler_2.png "Avsklutter etter å ha sendt videre")
-
-![Bilde 3: Tilgangsstyrer finner eskalert forespørsel og godkjener](eskaler_3.png "Tilgangsstyrer finner eskalert forespørsel og godkjener")
+1. Trykk **Ja, send videre** for å videresende forespørselen til en bruker med nødvendige fullmakter. ![Eskalere forespørsel ved å trykke på send videre-knappen](eskaler_1.png "Eskalere forespørsel ved å trykke på send videre-knappen")
+2. Etter at forespørselen er videresendt, kan du avslutte og eventuelt varsle tilgangsstyreren om at forespørselen er videresendt. ![Avslutte etter å ha sendt forespørselen videre](eskaler_2.png "Avslutte etter å ha sendt forespørselen videre")
+3. Tilgangsstyreren finner den eskalerte forespørselen under **Systemtilganger** i brukerflaten for tilgangsstyring i Altinn. ![Tilgangsstyrer finner eskalert forespørsel og godkjenner](eskaler_3.png "Tilgangsstyrer finner eskalert forespørsel og godkjenner")
