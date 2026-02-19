@@ -12,7 +12,7 @@ tags: [needsReview, translate]
 | Parameter                                     | Type   | Påkrevd | Beskrivelse                                                                                                                                                            |
 | --------------------------------------------- | ------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | id                                            | string | Ja      | En unik ID, som ID-en på andre komponenter. Må være unik i layout-filen, og bør være unik på tvers av sider.                                                           |
-| type                                          | string | Ja      | Må settes til 'Subform'                                                                                                                                                |
+| type                                          | string | Ja      | Må være 'Subform'                                                                                                                                                |
 | layoutSet                                     | string | Ja      | ID for sidegruppe til underskjema. Må være unik i layout-sets.json.                                                                                                    |
 | [tableColumns](#tablecolumns)                 | array  | Ja      | En liste med objekter som inneholder kolonnedefinisjoner for tabellen. Hver oppføring har en overskrift, celleforespørsel og standardverdi for cellen. |
 | showAddButton                                 | bool   | Nei     | Vis Legg til-knapp? Standardverdien er true.                                                                                                                           |
@@ -23,9 +23,9 @@ tags: [needsReview, translate]
 
 Du kan tilpasse disse nøklene i `textResourceBindings`-objektet:
 
-- `title` - Tittelen på underskjema-komponenten.
-- `description` - En beskrivelse av komponenten, som vises under tittelen.
-- `addButton` - Hva Legg til-knappen skal inneholde.
+- `title` - Tittelen på underskjema-komponenten
+- `description` - En beskrivelse av komponenten, som vises under tittelen
+- `addButton` - Hva Legg til-knappen skal inneholde
 
 ## tableColumns
 
