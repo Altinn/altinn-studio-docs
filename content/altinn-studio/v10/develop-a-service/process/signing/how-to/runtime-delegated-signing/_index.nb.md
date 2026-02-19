@@ -4,9 +4,6 @@ title: Brukerstyrt signering
 linktitle: Brukerstyrt signering
 description: Slik setter du opp brukerstyrt signering i tjenesten din.
 tags: [signering, needsReview, translate]
-
-aliases:
-  - /nb/altinn-studio/guides/signing/runtime-delegated-signing
 ---
 
 {{% insert "content/altinn-studio/v10/develop-a-service/data/restricted-data/shared/style.css.md" %}}
@@ -15,10 +12,7 @@ aliases:
 Tilgjengelig fra [v8.6.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.6.0)
 {{%/notice%}}
 
-## Slik fungerer brukerstyrt signering
-{{% insert "content/altinn-studio/v10/develop-a-service/process/signing/how-to/runtime-delegated-signing/intro.nb.md" %}}
-
-## Avhengigheter
+## Før du starter
 
 ### Maskinporten
 Du trenger Maskinporten både for [meldingstjenesten](#meldingstjenesten) og for å jobbe med [beskyttede data](/nb/altinn-studio/v10/develop-a-service/data/restricted-data/).
@@ -153,6 +147,9 @@ Disse standardverdiene brukes hvis du ikke endrer kommunikasjonstekstene:
 {{</content-version-container>}}
 
 {{</content-version-selector>}}
+
+
+<!-- {{% insert "content/altinn-studio/v10/develop-a-service/process/signing/how-to/runtime-delegated-signing/backend-manual/setup-text-resources.nb.md" %}} -->
 
 ## 6. Valgfritt - Tilpass hvordan de som skal signere varsles
 

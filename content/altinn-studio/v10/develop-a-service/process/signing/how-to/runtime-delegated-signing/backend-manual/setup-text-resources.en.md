@@ -30,4 +30,17 @@ resources must match the following keys in order to take effect.
 `signing.correspondence_receipt_summary` - summary
 `signing.correspondence_receipt_body` - content
 
-{{% insert "content/altinn-studio/v10/develop-a-service/process/signing/how-to/runtime-delegated-signing/backend-manual/setup-text-resources-code-02.en.md" %}}
+```json
+{
+  "id": "signing.correspondence_receipt_title",
+  "value": "Receipt: Signing of founding documents"
+},
+{
+  "id": "signing.correspondence_receipt_summary",
+  "value": "You have signed the founding documents"
+},
+{
+  "id": "signing.correspondence_receipt_body",
+  "value": "The documents you have signed are attached. These can be downloaded if desired. <br /><br />If you have any questions, contact the Brønnøysund Register Centre at phone 75 00 75 00."
+}
+```
