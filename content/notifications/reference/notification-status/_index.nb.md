@@ -65,10 +65,10 @@ Ordrestatus beskriver hvor langt en varslingsordre har kommet i behandlingen.
 |----------------------|----------------------|-----------------------------------------------------------------------------|-------------------|
 | `Registered`         | `Order_Registered`   | Ordren er opprettet og lagret, men behandlingen har ikke startet ennå.     | Midlertidig       |
 | `Processing`         | `Order_Processing`   | Ordren behandles nå (mottakeroppslag, evaluering av sendebetingelser osv.).| Midlertidig       |
+| `Processed`          | `Order_Processed`    | Ordren er ferdig behandlet og er overlevert til e‑post- og SMS‑kanalene.   | Midlertidig       |
 | `Completed`          | `Order_Completed`    | Ordren er ferdig behandlet, og alle varsler har fått endelig leveringsstatus. | Endelig        |
 | `SendConditionNotMet`| `Order_SendConditionNotMet` | Sendebetingelsen var ikke oppfylt, derfor ble ingen varsler sendt. | Endelig           |
 | `Cancelled`          | `Order_Cancelled`    | Ordren ble kansellert før utsending.                                       | Endelig           |
-| `Processed`          | `Order_Processed`    | Ordren er ferdig behandlet og er overlevert til e‑post- og SMS‑kanalene.   | Midlertidig       |
 
 **Forskjellen mellom `Completed` og `Processed`**
 

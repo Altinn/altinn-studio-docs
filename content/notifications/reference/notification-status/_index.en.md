@@ -75,7 +75,7 @@ Order status describes how far a notification order has progressed in processing
 
 - `Processed` means that the system has processed the order and created all
   required notifications, but is still waiting for final delivery status from
-  the email and/or SMS providers.
+  the email and SMS providers.
 - `Completed` means that both the order and all related notifications have
   reached a final delivery status (for example delivered or failed in the
   email and SMS channels).

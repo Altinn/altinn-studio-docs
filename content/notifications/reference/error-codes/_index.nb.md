@@ -132,4 +132,4 @@ I tillegg til de spesifikke feilkodene ovenfor returnerer API-et også standard 
 - [Veiledning for umiddelbare varsler](/nb/notifications/guides/instant-notifications/)
 - [Altinn Notifications API-referanse](/nb/notifications/reference/api/)
 - [OpenAPI-spesifikasjon](/nb/notifications/reference/openapi/)
- - [Statusverdier for ordre og varsler]({{< relref "/notifications/reference/notification-status" >}})
+- [Statusverdier for ordre og varsler](/nb/notifications/reference/notification-status)
