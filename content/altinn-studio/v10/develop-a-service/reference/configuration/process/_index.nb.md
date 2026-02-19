@@ -8,9 +8,9 @@ tags: [needsReview]
 
 En tjeneste har en definert prosess som styrer flyten. Prosessen er definert som [BPMN 2.0](https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation).
 
-## Støttede prosess-task-typer
+## StÃ¸ttede prosess-task-typer
 
-Nåværende applikasjonsmal støtter følgende tasks:
+NÃ¥vÃ¦rende applikasjonsmal stÃ¸tter fÃ¸lgende tasks:
 
 - Data (Data) (tilsvarer utfyllingssteg i Altinn II)
 - Bekreftelse (Confirmation)
@@ -20,15 +20,15 @@ Nåværende applikasjonsmal støtter følgende tasks:
 
 - Signering (Signing)
 - Betaling (Payment)
-- Parallellsignering (Parallel Signing)
+- Parallellsignering (Paralell Signing)
 - Brukerstyrt signering (User Controlled Signing)
 - Ekstern validering (External Validation)
 
 ## Endre prosessen
 
-For å endre prosessen kan du manuelt redigere BPMN-filen med en valgfri XML- eller BPMN-editor. Den ligger lagret i applageret som `App/config/process/process.bpmn`.
+For Ã¥ endre prosessen kan du manuelt redigere BPMN-filen med en valgfri XML- eller BPMN-editor. Den ligger lagret i app-lageret som `App/config/process/process.bpmn`.
 
-## Eksempler på process-filer
+## Eksempler pÃ¥ process-filer
 
 - [Data_Confirmation_Process.bpmn](Data_Confirmation_Process.bpmn)
 - [Data_Data_Data_Process.bpmn](Data_Data_Data_Process.bpmn)

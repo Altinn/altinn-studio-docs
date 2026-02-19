@@ -7,38 +7,44 @@ toc: true
 tags: [needsReview]
 ---
 
-Tilpassede API-scopes lar deg definere API-nivå klienttilgang til tjenestens instansrelaterte API-er.
+Tilpassede API-scopes lar deg definere API-nivÃ¥ klienttilgang til tjenestens instansrelaterte API-er.
 
 {{% notice info %}}
 Tilgjengelig fra [v8.9.0-preview.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.9.0-preview.0)
 {{% /notice %}}
 
 {{%notice warning%}}
-Scope-konfigurasjon håndheves ikke ennå i Storage-API-er. Dette kommer i en fremtidig utgivelse, og dokumentasjonen oppdateres da. Vi varsler på Slack når dette er tilgjengelig.
+Scope-konfigurasjon hÃ¥ndheves ikke ennÃ¥ i Storage-API-er. Dette kommer i en fremtidig utgivelse, og dokumentasjonen oppdateres da. Vi varsler pÃ¥ Slack nÃ¥r dette er tilgjengelig.
 {{% /notice%}}
 
 ## Oversikt
 
-Mens XACML muliggjør granulær tilgangskontroll til de faktiske underliggende ressursene (instanser), implementerer API scope-autorisasjonen enkel autorisasjon av klienter for instansrelaterte API-er i appen din. Den inntreffer _før_ XACML-autorisasjonen.
+Mens XACML muliggjÃ¸r granulÃ¦r tilgangskontroll til de faktiske underliggende ressursene (instanser), implementerer API scope-autorisasjonen enkel autorisasjon av klienter for instansrelaterte API-er i appen din. Den inntreffer _fÃ¸r_ XACML-autorisasjonen.
 
 Det finnes innebygde scopes for brukere og tjenesteeiere:
+* `altinn:instances.read` og `altinn:instances.write` for brukere (og systembrukere)
+* `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write` for tjenesteeiere
 
-- `altinn:instances.read` og `altinn:instances.write` for brukere (og systembrukere)
-- `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write` for tjenesteeiere
-
-Disse er "globale", i den forstand at de gir en klient tilgang til app-API-ene for _alle Altinn-apper_. Vi støtter konfigurasjon for å gjøre det mulig for apper å ha app-spesifikke scopes, slik at en gitt klient kan hente tilgangstokens som har scopes som er spesifikke for én eller flere apper.
+Disse er "globale", i den forstand at de gir en klient tilgang til app-API-ene for _alle Altinn-apper_.
+Vi stÃ¸tter konfigurasjon for Ã¥ gjÃ¸re det mulig for apper Ã¥ ha app-spesifikke scopes, slik at en gitt klient kan hente
+tilgangstokens som har scopes som er spesifikke for en eller flere apper.
 
 ## Konfigurasjon
 
-App-spesifikke API-scopes konfigureres i [`applicationmetadata.json`-filen](https://github.com/Altinn/altinn-studio/blob/main/src/App/template/src/App/config/applicationmetadata.json) som ligger i `App/config/` i applageret.
+App-spesifikke API-scopes konfigureres i [`applicationmetadata.json`-filen](https://github.com/Altinn/altinn-studio/blob/main/src/App/template/src/App/config/applicationmetadata.json) 
+som ligger i `App/config/` i applikasjonsrepositoryet ditt.
 
 ### Eksempel
 
-Her er et eksempel på konfigurasjon som bruker en lignende scope-struktur, men med et tilpasset ID-porten scope-prefiks og bruker `[app]`-plassholderstøtten (den erstattes med app-navnet under kjøring).
+Her er et eksempel pÃ¥ konfigurasjon som bruker en lignende scope-struktur, men med et tilpasset ID-porten scope-prefiks
+og bruker `[app]`-plassholderstÃ¸tten (den vil bli erstattet med app-navnet under kjÃ¸ring).
 
 {{% insert "content/altinn-studio/v8/reference/configuration/authorization/shared/api-scopes-example.md" %}}
 
-`errorMessageTextResourceKey` spesifisert ovenfor er standardverdiene. De kan overstyres på begge nivåer, og de indre nøklene har prioritet hvis de er satt (de er valgfrie). Verdien som løses gjennom tekstressursene, settes i `details`-egenskapen i `ProblemDetails` 403-responsen når scope-autorisasjon mislykkes.
+`errorMessageTextResourceKey` spesifisert ovenfor er standardverdiene.
+De kan overstyres pÃ¥ begge nivÃ¥er, og de indre nÃ¸klene har prioritet hvis de er satt (de er valgfrie).
+Verdien som lÃ¸ses gjennom tekstressursene blir satt i `details`-egenskapen i `ProblemDetails` 403-responsen
+nÃ¥r scope-autorisasjon ikke lykkes.
 
 ### Konfigurasjonsegenskaper
 
@@ -46,13 +52,13 @@ Her er et eksempel på konfigurasjon som bruker en lignende scope-struktur, men m
 |----------|-------------|
 | `users` | Definerer API-scopes for vanlige brukere |
 | `serviceOwners` | Definerer API-scopes for tjenesteeier-klienter |
-| `read` | Scope påkrevd for leseoperasjoner |
-| `write` | Scope påkrevd for skriveoperasjoner |
-| `errorMessageTextResourceKey` | Tilpasset feilmeldingsnøkkel (valgfritt) |
+| `read` | Scope pÃ¥krevd for leseoperasjoner |
+| `write` | Scope pÃ¥krevd for skriveoperasjoner |
+| `errorMessageTextResourceKey` | Tilpasset feilmeldingsnÃ¸kkel (valgfritt) |
 
 ## API-respons
 
-Når scope-autorisasjon feiler, returnerer appen en 403-respons med `ProblemDetails`-format:
+NÃ¥r scope-autorisasjon feiler, returnerer appen en 403-respons med `ProblemDetails`-format:
 
 ```json
 {
@@ -65,12 +71,15 @@ Når scope-autorisasjon feiler, returnerer appen en 403-respons med `ProblemDetai
 
 `detail`-egenskapen til responsen overstyres gjennom `errorMessageTextResourceKey`-konfigurasjonen.
 
-### Feilsøking
+### FeilsÃ¸king
 
-Appen beregner og bufrer nødvendige scopes per API-endepunkt under oppstart av tjenesten. Hvis du vil se resultatene av dette, kan du aktivere `Debug`-logger i `appsettings` JSON-filen og kjøre tjenesten på nytt. Da logger den en liste over endepunkter og nødvendige scopes per bruker/tjenesteeier. Disse loggene kommer fra `ScopeAuthorizationService` i bibliotekskoden.
+Appen beregner og bufrer nÃ¸dvendige scopes per API-endepunkt under oppstart av applikasjonen.
+Hvis du vil se resultatene av dette, kan du aktivere `Debug`-logger i `appsettings` JSON-filen
+og kjÃ¸re applikasjonen pÃ¥ nytt. Da vil den logge en liste over endepunkter og nÃ¸dvendige scopes per bruker/tjenesteeier.
+Disse loggene kommer fra `ScopeAuthorizationService` i bibliotekskoden.
 
 ## Relatert dokumentasjon
 
-- [Autorisasjonsretningslinjer](../) - Lær om XACML-basert autorisasjon
-- [Autentisering](../../../api/auth/) - Forstå autentiseringsmekanismer
+- [Autorisasjonsretningslinjer](../) - LÃ¦r om XACML-basert autorisasjon
+- [Autentisering](../../../api/auth/) - ForstÃ¥ autentiseringsmekanismer
 - [Tekstressurser](../../../ux/texts/) - Konfigurer tilpassede tekstmeldinger

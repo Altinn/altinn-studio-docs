@@ -7,13 +7,13 @@ weight: 100
 tags: [needsReview, needsTranslation]
 ---
 
-Applikasjonsutvikleren definerer autorisasjonsreglene for en tjeneste i en XACML-policyfil som ligger i applageret. XACML-policyen inneholder én eller flere regler som bestemmer hvem som kan utføre forskjellige handlinger på forskjellige ressurser. Du kan redigere XACML-filen i et tekstredigeringsprogram etter eget valg.
+Applikasjonsutvikleren definerer autorisasjonsreglene for en tjeneste i en XACML-policyfil som ligger i app-lageret. XACML-policyen inneholder én eller flere regler som bestemmer hvem som kan utføre forskjellige handlinger på forskjellige ressurser. Du kan redigere XACML-filen i et tekstredigeringsprogram etter eget valg.
 
 ## Regler fra applikasjonsmalen
 
-Når du oppretter en app i Altinn Studio, er den basert på gjeldende ASP.NET-mal og inkluderer en autogenerert [XACML policy-fil](https://raw.githubusercontent.com/Altinn/app-template-dotnet/refs/heads/main/src/App/config/authorization/policy.xml).
+Når du oppretter en app i Altinn Studio, er den basert på gjeldende ASP.NET-mal og inkluderer en autogenerert XACML policy-fil (`policy.xml`).
 
-Du kan endre autorisasjonsreglene i `policy.xml`, som ligger i `App/config/authorization` i applageret. Du finner detaljer om konfigurering av policyfilen nedenfor. Du kan også finne mange eksempler på regler [her](rules).
+Du kan endre autorisasjonsreglene i `policy.xml`, som ligger i `App/config/authorization` i app-lageret. Du finner detaljer om konfigurering av policyfilen nedenfor. Du kan også finne mange eksempler på regler [her](rules).
 
 {{%notice warning%}}
 Vær oppmerksom på at endringer i policyfilen er på egen risiko, og at det alltid anbefales å delegere lesetillatelser til enheter med skrivetillatelser.
@@ -60,9 +60,9 @@ Subjektdelen for regelen definerer hvem regelen er rettet mot.
 | urn:altinn:rolecode   | Rollekoden brukes for regler som retter seg mot sluttbrukere og systemer. |
 | urn:altinn:org        | Organisasjonskoden brukes for regler som retter seg mot organisasjoner.                   |
 
-En fullstendig liste over rolletyper finner du [her](https://www.altinn.no/api/metadata/roledefinitions).
+En fullstendig liste over rolletyper finner du på [Altinn API](https://www.altinn.no/api/metadata/roledefinitions).
 
-**Det er viktig å lese [Veiledning for autorisasjonsregler](guidelines_authorization) før du velger rolle.**
+**Det er viktig å lese [Veiledning for autorisasjonsregler](/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/) før du velger rolle.**
 
 ### Eksempler
 

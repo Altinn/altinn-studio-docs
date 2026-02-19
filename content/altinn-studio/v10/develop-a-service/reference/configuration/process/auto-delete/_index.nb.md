@@ -1,22 +1,25 @@
 ---
 title: Automatisk sletting
 linktitle: Automatisk sletting
-description: En tjeneste kan konfigureres til å slette alle spor når prosessen er slutt.
+description: En tjeneste kan konfigureres til Ã¥ slette alle spor nÃ¥r prosessen er slutt.
 toc: true
 tags: [needsReview]
 ---
 
-Hvis du ønsker å begrense sluttbrukerens tilgang til en instans eller data etter innsending, kan dette gjøres ved å konfigurere automatisk sletting. I praksis gjøres ressursen utilgjengelig for sluttbruker etter innsending, mens tjenesteeier fremdeles har tilgang i tråd med tjenestens autorisasjonsregler.
+Hvis du Ã¸nsker Ã¥ begrense sluttbrukerens tilgang til en instans eller data etter innsending, kan dette gjÃ¸res ved Ã¥ konfigurere automatisk sletting. I praksis gjÃ¸res ressursen utilgjengelig for sluttbruker etter innsending, mens tjenesteeier fremdeles har tilgang i trÃ¥d med tjenestens autorisasjonsregler. 
 
-Hvis sluttbruker forsøker å aksessere en hard deleted ressurs med en direkte lenke, får de `404 - Not found` i respons. Ressursen vises heller ikke i meldingsboksen eller listes i API-responser.
 
-Når tjenesteeier bekrefter at instansen er mottatt på deres side (complete confirmed), markeres instansen som klar for sletting og saneres fra Altinns database i løpet av sju dager.
+Hvis sluttbruker forsÃ¸ker Ã¥ aksessere en hard deleted ressurs med en direkte lenke, fÃ¥r de `404 - Not found` i respons. Ressursen vises heller ikke i meldingsboksen eller listes i API-responser.
 
-Konfigurasjonen for automatisk sletting gjøres i `applicationmetadata.json` med flagget `"autoDeleteOnProcessEnd": true`.
+NÃ¥r tjenesteeier bekrefter at instansen er mottatt pÃ¥ deres side (complete confirmed), markeres instansen som klar for sletting og saneres fra Altinns database i lÃ¸pet av sju dager.
+
+Konfigurasjonen for automatisk sletting gjÃ¸res i `applicationmetadata.json` med flagget `"autoDeleteOnProcessEnd": true`.
+
+
 
 ## Automatisk sletting av instans
 
-Eksempel på konfigurasjon i `applicationmetadata.json` for instanser:
+Eksempel pÃ¥ konfigurasjon i  `applicationmetadata.json` for instanser:
 
 ```json {linenos=false,hl_lines=[48]}
 {
@@ -72,7 +75,7 @@ Eksempel på konfigurasjon i `applicationmetadata.json` for instanser:
 
 ## Automatisk sletting av data
 
-Eksempel på konfigurasjon i `applicationmetadata.json` for datatype:
+Eksempel pÃ¥ konfigurasjon i `applicationmetadata.json` for datatype:
 
 ```json {linenos=false,hl_lines=[11, 35]}
 "dataTypes":[

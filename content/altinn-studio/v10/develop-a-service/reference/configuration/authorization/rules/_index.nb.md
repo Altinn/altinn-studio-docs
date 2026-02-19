@@ -1,14 +1,14 @@
 ---
 title: Regelbibliotek
 linktitle: Regelbibliotek
-description: Bibliotek av autorisasjonsregler du kan bruke i en app. Husk å bytte ut tags ([RULE_ID]) med en egen ID. [ORG] og [APP] kan stå som de er, siden de erstattes med informasjon fra applicationmetadata.json hvis du har oppdatert LocalTest etter januar 2023.
+description: Bibliotek av autorisasjonsregler du kan bruke i en app. Husk Ã¥ bytte ut tags ([RULE_ID]) med en egen ID. [ORG] og [APP] kan stÃ¥ som de er, siden de erstattes med informasjon fra applicationmetadata.json hvis du har oppdatert LocalTest etter januar 2023.
 toc: true
 tags: [needsReview]
 ---
 
 ## [ORG] kan instansiere [ORG]/[APP]
 
-[ORG_1] og [ORG_2] kan her være like eller ulike. I tilfellet at de er ulike, tilsvarer [ORG_1] applikasjonseieren og [ORG_2] en annen organisasjon som får lov til å instansiere.
+[ORG_1] og [ORG_2] kan her vÃ¦re like eller ulike. I tilfellet at de er ulike, tilsvarer [ORG_1] applikasjonseieren og [ORG_2] en annen organisasjon som fÃ¥r lov til Ã¥ instansiere. 
 
 ```xml {linenos=false,hl_lines=[2,7,15,19,27]}
 <xacml:Rule RuleId="urn:altinn:example:ruleid:[RULE_ID]" Effect="Permit">
@@ -48,7 +48,7 @@ tags: [needsReview]
 
 ## Bruker med rollen REGNA kan lese instanser av [ORG]/[APP] som er i Task_1
 
-Ved å endre rolle og task i denne regelen kan du gi rettigheter til å lese instansdata på en gitt task i prosessflyten.
+Ved Ã¥ endre rolle og task i denne regelen kan du gi rettigheter til Ã¥ lese instansdata pÃ¥ en gitt task i prosessflyten.
 
 ```xml {linenos=false,hl_lines=[2,7,15,19,23,31]}
 <xacml:Rule RuleId="urn:altinn:example:ruleid:[RULE_ID]" Effect="Permit">
@@ -60,7 +60,7 @@ Ved å endre rolle og task i denne regelen kan du gi rettigheter til å lese insta
           <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">REGNA</xacml:AttributeValue>
           <xacml:AttributeDesignator AttributeId="urn:altinn:rolecode" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
         </xacml:Match>
-      </xacml:AllOf>
+      </xacml:AllOf>  
     </xacml:AnyOf>
     <xacml:AnyOf>
       <xacml:AllOf>
@@ -132,7 +132,7 @@ Denne regelen kan brukes hvis applikasjonseier skal kunne oppdatere instanser ua
 
 ## Bruker med rollen REGNA eller DAGL kan bekrefte instanser av [ORG]/[APP] som er i Task_2
 
-Denne regelen begrenser rettigheten til å bekrefte en instans i en bestemt task til kun to roller. Ved å enten modifisere task eller roller kan du sette regler for hvem som får bekrefte instansen i ulike faser av prosessen.
+Denne regelen begrenser rettigheten til Ã¥ bekrefte en instans i en bestemt task til kun to roller. Ved Ã¥ enten modifisere task eller roller kan du sette regler for hvem som fÃ¥r bekrefte instansen i ulike faser av prosessen.
 
 ```xml {linenos=false,hl_lines=[2,7,13,21,25,29,37]}
 <xacml:Rule RuleId="urn:altinn:example:ruleid:[RULE_ID]" Effect="Permit">
@@ -182,7 +182,7 @@ Denne regelen begrenser rettigheten til å bekrefte en instans i en bestemt task 
 
 ## Bruker med rolle REGNA kan lese instanser av [ORG]/[APP] som er i EndEvent_1
 
-Denne regelen tillater en bruker med den gitte rollen å lese instansdata etter at prosessen er avsluttet. Dette inkluderer blant annet å laste ned vedlegg og kvitteringer knyttet til instansen.
+Denne regelen tillater en bruker med den gitte rollen Ã¥ lese instansdata etter at prosessen er avsluttet. Dette inkluderer blant annet Ã¥ laste ned vedlegg og kvitteringer knyttet til instansen.
 
 ```xml {linenos=false,hl_lines=[2,7,14,18,22,30]}
 <xacml:Rule RuleId="urn:altinn:example:ruleid:[RULE_ID]" Effect="Permit">
@@ -223,9 +223,9 @@ Denne regelen tillater en bruker med den gitte rollen å lese instansdata etter a
 </xacml:Rule>
 ```
 
-## Regel som definerer at [ORG] kan fullføre en instans av [ORG]/[APP] som har en fullført prosess
+## Regel som definerer at [ORG] kan fullfÃ¸re en instans av [ORG]/[APP] som har en fullfÃ¸rt prosess.
 
-Denne regelen tillater applikasjonseier å utføre en kvittering på at de er ferdig med en instans. Instansen må ha en fullført prosess.
+Denne regelen tillatter applikasjonseier Ã¥ utfÃ¸re en kvittering pÃ¥ at de er ferdig med en instans. Instansen mÃ¥ ha en fullfÃ¸rt process.
 
 ```xml {linenos=false,hl_lines=[2,7,15,19,23,31]}
 <xacml:Rule RuleId="urn:altinn:example:ruleid:[RULE_ID]" Effect="Permit">
@@ -269,7 +269,7 @@ Denne regelen tillater applikasjonseier å utføre en kvittering på at de er ferdi
 
 ## [ORG] kan slette en instans av [ORG]/[APP] uavhengig av hvor den er i prosessen
 
-Denne regelen tillater applikasjonseier å slette en instans. Dette kan gjøres uavhengig av hvor i prosessen instansen er.
+Denne regelen tillatter applikasjonseier Ã¥ slette en instans. Dette kan gjÃ¸res uavhengig av hvor i prosessen instansen er.
 
 ```xml
 <xacml:Rule RuleId="urn:altinn:example:ruleid:[RULE_ID]" Effect="Permit">
@@ -306,8 +306,7 @@ Denne regelen tillater applikasjonseier å slette en instans. Dette kan gjøres ua
   </xacml:Target>
 </xacml:Rule>
 ```
-
-## Bruker med rollen [REGNA] kan lese/abonnere på events generert av app [ORG]/[APP]
+## Bruker med rollen [REGNA] kan lese/abonnere pÃ¥ events generert av app [ORG]/[APP]
 
 ```xml
   <xacml:Rule RuleId="urn:altinn:example:ruleid:[RULE_ID]" Effect="Permit">
@@ -349,7 +348,7 @@ Denne regelen tillater applikasjonseier å slette en instans. Dette kan gjøres ua
   </xacml:Rule>
   ```
 
-## [ORG] kan aksessere med autentiseringsnivå 3
+## [ORG] kan aksesserere med autentiseringsnivÃ¥ 3
 
 ```xml
   <xacml:ObligationExpressions>
