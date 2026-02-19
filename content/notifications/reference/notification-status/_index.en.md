@@ -88,7 +88,7 @@ Status for a single email notification to one recipient.
 |--------------------------------|-----------------------------------|--------------------------------------------------------------|-------------|
 | `New`                          | `Email_New`                       | The email has been created, but not yet sent further.        | Temporary   |
 | `Sending`                      | `Email_Sending`                   | The email is currently being sent.                           | Temporary   |
-| `Succeeded`                    | `Email_Succeeded`                 | The email has been accepted by the email provider.           | Temporary   |
+| `Succeeded`                    | `Email_Succeeded`                 | The email has been accepted by the email provider, and before any delivery confirmation           | Temporary   |
 | `Delivered`                    | `Email_Delivered`                 | The provider has confirmed that the email was delivered.     | Final       |
 | `Failed`                       | `Email_Failed`                    | Failure without a more specific reason.                      | Final       |
 | `Failed_RecipientNotIdentified`| `Email_Failed_RecipientNotIdentified` | The recipient could not be identified.                | Final       |

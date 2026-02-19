@@ -7,7 +7,7 @@ toc: true
 ---
 
 Denne siden beskriver statusverdiene som brukes når Altinn Notifications rapporterer
-framdrift for varslingsordrer og leveringsresultat for e‑post og SMS.
+fremdrift for varslingsordrer og leveringsresultat for e‑post og SMS.
 
 Disse verdiene vises i svarene fra status‑API‑ene (for eksempel
 `/future/shipment/{id}` og statusfeed). De hjelper deg å
@@ -85,14 +85,14 @@ Status for ett enkelt e‑postvarsel til én mottaker.
 |--------------------------------|--------------------------------|--------------------------------------------------------------|-------------|
 | `New`                          | `Email_New`                    | E‑posten er opprettet, men ikke sendt videre ennå.          | Midlertidig |
 | `Sending`                      | `Email_Sending`                | E‑posten er i ferd med å bli sendt.                         | Midlertidig |
-| `Succeeded`                    | `Email_Succeeded`              | E‑posten er akseptert av e‑postleverandøren.                | Midlertidig (før eventuell leveringsbekreftelse) |
+| `Succeeded`                    | `Email_Succeeded`              | E‑posten er akseptert av e‑postleverandøren og ingen leveringsbekreftelse er mottatt.                | Midlertidig |
 | `Delivered`                    | `Email_Delivered`              | Leverandøren har bekreftet at e‑posten er levert.           | Endelig     |
 | `Failed`                       | `Email_Failed`                 | Feil uten mer spesifikk årsak.                              | Endelig     |
 | `Failed_RecipientNotIdentified`| `Email_Failed_RecipientNotIdentified` | Mottakeren kunne ikke identifiseres.               | Endelig     |
 | `Failed_InvalidFormat`         | `Email_Failed_InvalidFormat`          | Ugyldig e‑postadresseformat.                        | Endelig     |
 | `Failed_RecipientReserved`     | `Email_Failed_RecipientReserved`      | Mottakeren er reservert eller blokkert.             | Endelig     |
 | `Failed_SuppressedRecipient`   | `Email_Failed_SuppressedRecipient`    | Mottakeren er undertrykt hos leverandøren.          | Endelig     |
-| `Failed_TransientError`        | `Email_Failed_TransientError`         | Midlertidig feil hos leverandøren. Denne varslingen blir ikke forsøkt på nytt automatisk, men en ny varslingsordre kan lykkes.                  | Endelig     |
+| `Failed_TransientError`        | `Email_Failed_TransientError`         | Midlertidig feil hos leverandøren. Dette varselet blir ikke forsøkt på nytt automatisk, men en ny varslingsordre kan lykkes.                  | Endelig     |
 | `Failed_Bounced`               | `Email_Failed_Bounced`                | E‑posten kom i retur (bounce).                      | Endelig     |
 | `Failed_FilteredSpam`          | `Email_Failed_FilteredSpam`           | Filtrert som spam av leverandøren.                  | Endelig     |
 | `Failed_Quarantined`           | `Email_Failed_Quarantined`            | Satt i karantene hos leverandøren.                  | Endelig     |
