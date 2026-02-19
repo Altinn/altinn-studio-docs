@@ -2,37 +2,33 @@
 draft: true
 title: Definere autorisasjonspolicy
 linktitle: Autorisasjon
-description: I Altinn Studio designer kan applikasjonsutvikleren definere policyen for applikasjonen som er opprettet
+description: I Altinn Studio kan applikasjonsutvikleren definere autorisasjonspolicyen for tjenesten.
+weight: 100
 tags: [needsReview, needsTranslation]
-
 ---
 
-Applikasjonsutvikleren definerer autorisasjonsreglene for en app i en XACML-policyfil som er plassert i applageret. XACML-policyen inneholder én eller flere regler som bestemmer hvem som kan utføre forskjellige handlinger på forskjellige ressurser.
-Du kan redigere XACML-filen i et tekstredigeringsprogram etter eget valg.
+Applikasjonsutvikleren definerer autorisasjonsreglene for en tjeneste i en XACML-policyfil som ligger i applageret. XACML-policyen inneholder én eller flere regler som bestemmer hvem som kan utføre forskjellige handlinger på forskjellige ressurser. Du kan redigere XACML-filen i et tekstredigeringsprogram etter eget valg.
 
-## Regler fra applikasjonsmal
+## Regler fra applikasjonsmalen
 
-Når du oppretter en app i Altinn studio, er den basert på gjeldende asp.net-mal og vil inkludere en autogenerert
-[XACML policy-fil](https://raw.githubusercontent.com/Altinn/app-template-dotnet/refs/heads/main/src/App/config/authorization/policy.xml).
+Når du oppretter en app i Altinn Studio, er den basert på gjeldende ASP.NET-mal og inkluderer en autogenerert [XACML policy-fil](https://raw.githubusercontent.com/Altinn/app-template-dotnet/refs/heads/main/src/App/config/authorization/policy.xml).
 
-Du kan endre autorisasjonsreglene i *policy.xml*, som ligger i `App/config/authorization` i programlageret.
-Du finner detaljer om konfigurering av policyfilen nedenfor.
-Du kan også finne en god mengde eksempler på regler [her](rules).
+Du kan endre autorisasjonsreglene i `policy.xml`, som ligger i `App/config/authorization` i applageret. Du finner detaljer om konfigurering av policyfilen nedenfor. Du kan også finne mange eksempler på regler [her](rules).
 
 {{%notice warning%}}
 Vær oppmerksom på at endringer i policyfilen er på egen risiko, og at det alltid anbefales å delegere lesetillatelser til enheter med skrivetillatelser.
 {{% /notice%}}
 
-## Ressursattributtene
+## Ressursattributter
 
-Ressursattributtene til regler beskriver hvilken app eller hvilken del av appen reglene gjelder for.
+Ressursattributtene til regler beskriver hvilken tjeneste eller del av tjenesten reglene gjelder for.
 
-| Attribute         | Description                                                                                           |
+| Attributt         | Beskrivelse                                                                                           |
 | ------------      | ----------------------------------------------------------------------------------------------------- |
 | urn:altinn:org    | Organisasjonsdelen av ressursattributtet definerer hvilken organisasjon som eier appen.                       |
-| urn:altinn:app    |Appdelen som identifiserer selve appen                                                        |
+| urn:altinn:app    | Appdelen identifiserer selve appen.                                                        |
 | urn:altinn:task   | Oppgavedelen av ressursen gjør det mulig å ha egne regler for de ulike oppgavene. |
-| urn:altinn:event  |Arrangementsdelen av ressursen gjør det mulig å ha egne regler for lesing av hendelser.  |
+| urn:altinn:event  | Hendelses-delen av ressursen gjør det mulig å ha egne regler for lesing av hendelser.  |
 
 ### Eksempel
 
@@ -55,14 +51,14 @@ Eksempelet nedenfor viser en del av XACML 3.0-policyen der en ressurs er definer
 </xacml:AllOf>
 ```
 
-## Subjektattributtene
+## Subjektattributter
 
 Subjektdelen for regelen definerer hvem regelen er rettet mot.
 
-| Attribute             | Description                                                       |
+| Attributt             | Beskrivelse                                                       |
 | ---------             | ----------------------------------------------------------------- |
-| urn:altinn:rolecode   | The role code is used for rule that target end users and systems. |
-| urn:altinn:org        | The org code is used for rule that target orgs.                   |
+| urn:altinn:rolecode   | Rollekoden brukes for regler som retter seg mot sluttbrukere og systemer. |
+| urn:altinn:org        | Organisasjonskoden brukes for regler som retter seg mot organisasjoner.                   |
 
 En fullstendig liste over rolletyper finner du [her](https://www.altinn.no/api/metadata/roledefinitions).
 
@@ -81,7 +77,7 @@ Eksempel med rollekode:
 </xacml:AllOf>
 ```
 
-Eksempel med org:
+Eksempel med organisasjon:
 
 ```xml {linenos=false,hl_lines=[3]}
 <xacml:AllOf>
@@ -96,9 +92,9 @@ Eksempel med org:
 
 Action-attributtene beskriver hvilken operasjon regelen gjelder for.
 
-| Attribute             | Description                                                       |
+| Attributt             | Beskrivelse                                                       |
 | ---------             | ----------------------------------------------------------------- |
-| urn:oasis:names:tc:xacml:1.0:action:action-id  | Handlingen som regelen gjelder for. I [appen](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Api/Extensions/ServiceCollectionExtensions.cs#L96) kan dette være read, write, instantiate, complete og delete. Dette vil bli utvidet når ny funksjonalitet legges til.|
+| urn:oasis:names:tc:xacml:1.0:action:action-id  | Handlingen som regelen gjelder for. I [appen](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Api/Extensions/ServiceCollectionExtensions.cs#L96) kan dette være read, write, instantiate, complete og delete. Dette utvides når ny funksjonalitet legges til. |
 
 Eksempel med read-operasjon:
 
@@ -112,10 +108,9 @@ Eksempel med read-operasjon:
 
 ## Obligation
 
-Obligation-delen av policy brukes til å definere informasjon som skal brukes av PEP. Det nødvendige autentiseringsnivået er satt til 2 som standard. Dette gjøres som en forpliktelse i XACML Policy-filen.
+Obligation-delen av policyen brukes til å definere informasjon som skal brukes av PEP (Policy Enforcement Point). Det nødvendige autentiseringsnivået er satt til 2 som standard. Dette gjøres som en obligation i XACML Policy-filen.
 
-Hvis nødvendig autentiseringsnivå er satt til 4, må du definere at tjenesteeier kan samhandle med det gjennom nivå 3-autentisering for Maskinporten.
-Dette fordi Maskinporten er definert som nivå 3. Se regelbiblioteket for eksempler.
+Hvis nødvendig autentiseringsnivå er satt til 4, må du definere at tjenesteeier kan samhandle med det gjennom nivå 3-autentisering for Maskinporten. Dette fordi Maskinporten er definert som nivå 3. Se regelbiblioteket for eksempler.
 
 Eksempel med autentiseringsnivå 2:
 
@@ -128,5 +123,16 @@ Eksempel med autentiseringsnivå 2:
     </xacml:ObligationExpression>
   </xacml:ObligationExpressions>
 ```
+
+## API Scopes
+
+API-scopes brukes for å autorisere tilgang til API-ene selv, nærmere bestemt API-ene som har med "instans"-ressursen å gjøre.
+
+Det finnes innebygde scopes for brukere og tjenesteeiere:
+
+- `altinn:instances.read` og `altinn:instances.write` for brukere (og systembrukere)
+- `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write` for tjenesteeiere
+
+Disse scopene kan også skreddersys spesifikt fra app til app. Lær mer om [API Scopes-konfigurasjon](api-scopes).
 
 {{<children />}}

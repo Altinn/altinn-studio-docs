@@ -1,0 +1,37 @@
+---
+title: Definere applikasjonsprosess
+linktitle: Prosess
+description: Slik definerer du prosessen til en tjeneste.
+weight: 200
+tags: [needsReview]
+---
+
+En tjeneste har en definert prosess som styrer flyten. Prosessen er definert som [BPMN 2.0](https://en.wikipedia.org/wiki/Business_Process_Model_and_Notation).
+
+## Støttede prosess-task-typer
+
+Nåværende applikasjonsmal støtter følgende tasks:
+
+- Data (Data) (tilsvarer utfyllingssteg i Altinn II)
+- Bekreftelse (Confirmation)
+- Feedback
+
+## Fremtidige prosess-tasker (tentativ)
+
+- Signering (Signing)
+- Betaling (Payment)
+- Parallellsignering (Parallel Signing)
+- Brukerstyrt signering (User Controlled Signing)
+- Ekstern validering (External Validation)
+
+## Endre prosessen
+
+For å endre prosessen kan du manuelt redigere BPMN-filen med en valgfri XML- eller BPMN-editor. Den ligger lagret i applageret som `App/config/process/process.bpmn`.
+
+## Eksempler på process-filer
+
+- [Data_Confirmation_Process.bpmn](Data_Confirmation_Process.bpmn)
+- [Data_Data_Data_Process.bpmn](Data_Data_Data_Process.bpmn)
+- [Data_Process.bpmn](Data_Process.bpmn)
+
+{{<children />}}
