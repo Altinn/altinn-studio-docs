@@ -135,6 +135,8 @@ weight: 15
     }
     ```
 
+  For en fullstendig oversikt over hvilke statusverdier som kan dukke opp i `status`‑feltet, se referansen for [statusverdier for ordre og varsler]({{< relref "/notifications/reference/notification-status" >}}).
+
 - #### Varslingskanal
 
   En _varslingskanal_ refererer til kommunikasjonsveiene som Altinn bruker for å levere varsler til sluttbrukere. Vanlige kanaler inkluderer e-post og SMS.

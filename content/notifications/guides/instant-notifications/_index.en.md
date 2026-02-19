@@ -10,6 +10,8 @@ weight: 30
 Before you start, make sure you have read the [explanation of instant notifications](/en/notifications/explanation/instant-notifications/) to understand when and how you should use this feature.
 {{% /notice %}}
 
+When you test and monitor instant notifications, you can look up detailed descriptions of order and notification status values in the reference for [status values for orders and notifications]({{< relref "/notifications/reference/notification-status" >}}).
+
 ## Prerequisites
 
 Before you can send instant notifications, you must have:
