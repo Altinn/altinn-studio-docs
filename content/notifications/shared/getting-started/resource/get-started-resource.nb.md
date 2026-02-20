@@ -14,7 +14,7 @@ policy.
 
 En ressurs i dette tilfellet kan være både en Altinn App eller en ressurs (tjenesteeierressurs).
 
-For Altinn Apps må du også sørge for at tilgangssubjektet har `read`-tilgang for __alle__ relevante oppgaver og hendelser.
+For Altinn Apps må du også sørge for at tilgangssubjektet har `read`-tilgang for **alle** relevante oppgaver og hendelser.
 
 En ny Altinn-ressurs kan registreres i Altinn Studio eller via et API.
 [Vennligst se Altinn Ressursadministrasjon for instruksjoner om hvordan du oppretter en ny ressurs.](/nb/authorization/what-do-you-get/resourceadministration/)
