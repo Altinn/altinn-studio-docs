@@ -58,11 +58,11 @@ App/config/applicationmetadata.json
 }
 ```
 
-I feltet `onEntry.show` kan du velge hvilket layout-sett som skal vises når appen starter.
+I feltet `onEntry.show` kan du velge hvilket layoutsett som skal vises når appen starter.
 
-Selve layout-settet er definert i konfigurasjonsfilen `App/ui/layout-sets.json`. Hvis filen ikke eksisterer, kan du opprette den. Du kan finne mer informasjon om layout-sett [her](/nb/altinn-studio/v8/reference/ux/pages/#oppsett).
+Selve layoutsettet er definert i konfigurasjonsfilen `App/ui/layout-sets.json`. Hvis filen ikke eksisterer, kan du opprette den. [Les mer om layoutsett](/nb/altinn-studio/v8/reference/ux/pages/#oppsett).
 
-Eksempel på layout-sett:
+Eksempel på layoutsett:
 
 {{< code-title >}}
 App/ui/layout-sets.json
@@ -80,9 +80,9 @@ App/ui/layout-sets.json
 }
 ```
 
-I eksempelet over referer layout-settet `stateless` til datamodellen `Stateless-model`.
+I eksempelet over referer layoutsettet `stateless` til datamodellen `Stateless-model`.
 
-Eksempel app-struktur for en applikasjon som er satt opp på denne måten:
+Eksempel app-struktur for en app som er satt opp på denne måten:
 
 ```text
 ├───App
@@ -116,7 +116,7 @@ Appens frontend leser konfigurasjonen fra `applicationmetadata.json` og forstår
 {{%notice warning%}}
 OBS! Skjemakomponenter som påvirker prosess (knapp for innsending eller instansiering) er ikke støttet for anonyme brukere!
 
-**MERK:** for å benytte denne funksjonaliteten må man bruke versjon >= 5.1.0 av [nuget-pakkene](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
+**MERK:** For å benytte denne funksjonaliteten må du bruke versjon >= 5.1.0 av [nuget-pakkene](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
 
 {{%/notice%}}
 
@@ -192,7 +192,7 @@ public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object 
 
 ## Autorisasjon med tredjepartsløsninger
 
-Tilgangsstyring for stateless apper kan løses med [standard app-autorisasjon](/nb/altinn-studio/v8/reference/configuration/authorization/), der du ved hjelp av Altinn-roller definerer hvem som har tilgang til å bruke tjenesten. Hvis du har behov for ytterligere sikring av tjenesten, kan du implementere logikk for autorisasjon av brukere med tredjepartsløsninger. Dette kan være API-er som er eksponert innenfor egen virksomhet, eller åpne API fra andre tilbydere.
+Tilgangsstyring for stateless apper kan løses med [standard app-autorisasjon](/nb/altinn-studio/v8/reference/configuration/authorization/), der du ved hjelp av Altinn-roller definerer hvem som har tilgang til å bruke tjenesten. Hvis du har behov for ytterligere sikring av tjenesten, kan du skrive logikk for autorisasjon av brukere med tredjepartsløsninger. Dette kan være API-er som er eksponert innenfor egen virksomhet, eller åpne API fra andre tilbydere.
 
 Eksempelet nedenfor bruker Finanstilsynets API til å fastslå om virksomheten som en bruker representerer i Altinn, har tilstrekkelige lisenser til å bruke tjenesten.
 
@@ -201,7 +201,7 @@ Eksempelet nedenfor bruker Finanstilsynets API til å fastslå om virksomheten s
 ![GUI for ikke-autorisert bruker](extra-credentials-example-denied.png "GUI for ikke-autorisert bruker")
 
 
-Kildekoden til applikasjonen som eksempelet er basert på finnes [her](https://altinn.studio/repos/ttd/extra-credentials-demo) (krever bruker i Altinn Studio).
+[Se kildekoden til appen som eksempelet er basert på](https://altinn.studio/repos/ttd/extra-credentials-demo) (krever bruker i Altinn Studio).
 
 Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet representert av en person i Altinn.
 
@@ -275,7 +275,7 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
 
     Vi bruker dynamikkregler til å vise/skjule felter avhengig av om en bruker er autorisert eller ikke.
 
-    Det er lagt inn en dynamikkregel i `RuleHandler.js` som sjekker om et felt i datamodellen har verdien `false`. Konfigurasjon av regler er beskrevet nærmere [her](/nb/altinn-studio/v8/reference/logic/dynamic/#legg-tilrediger-funksjoner-for-beregninger-eller-visskjul).
+    Det er lagt inn en dynamikkregel i `RuleHandler.js` som sjekker om et felt i datamodellen har verdien `false`. [Les mer om konfigurasjon av dynamikkregler](/nb/altinn-studio/v8/reference/logic/dynamic/#legg-tilrediger-funksjoner-for-beregninger-eller-visskjul).
 
     I `RuleConfiguration.json` ser du hvordan regelen brukes. Hvis inputverdien fra datamodellen `userAuthorized` er false, vises errorBoks-komponenten, mens det motsatte skjer med søke- og resultatfeltene - disse skjules.
 
@@ -433,13 +433,13 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
 
 Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre og vil ikke være støttet i Altinn Studio.
 
-**MERK:** for å benytte denne funksjonaliteten må man versjon >= 4.17.2 av [nuget-pakkene](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
+**MERK:** For å benytte denne funksjonaliteten må du bruke versjon >= 4.17.2 av [nuget-pakkene](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
 
 {{%/notice%}}
 
 Fra en stateless app kan du bruke `InstantiationButton`-komponenten til å starte en instans. Foreløpig støtter vi kun å starte en instans innad i samme appen som stateless-skjemaet vises i. Muligheten til å starte en instans i en annen app kommer senere.
 
-Det er laget en eksempel-app som er satt opp som en innsynstjeneste hvor brukeren kan velge å starte en instans på den aktuelle appen. Denne kan brukes til inspirasjon for videre utvikling. Appen med kildekode finnes [her](https://altinn.studio/repos/ttd/start-from-stateless).
+Det er laget en eksempelapp som er satt opp som en innsynstjeneste hvor brukeren kan velge å starte en instans på den aktuelle appen. Denne kan brukes til inspirasjon for videre utvikling. [Se appen med kildekode](https://altinn.studio/repos/ttd/start-from-stateless).
 
 ### Instansiere med prefill
 

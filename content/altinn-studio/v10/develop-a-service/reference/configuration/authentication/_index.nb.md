@@ -1,14 +1,14 @@
 ---
-title: Konfigurasjon av autentisering
+title: Konfigurere autentisering
 linktitle: Autentisering
-description: Noen konfigurasjoner kan være nyttige når det gjelder autentisering.
+description: Slik konfigurerer du autentisering.
 weight: 800
 tags: [needsReview]
 ---
 
 ## Autentiseringsnivå
 
-Påkrevd autentiseringsnivå settes i [XACML Policy]({{< relref "../authorization" >}}) som obligation.
+Du setter påkrevd autentiseringsnivå i [XACML Policy]({{< relref "../authorization" >}}) som obligation.
 
 ## ID-provider
 

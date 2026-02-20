@@ -194,6 +194,24 @@ Andre kommandoer:
 - **Bruk etterstilte pronomen** på norsk
   - ❌ Feil: "ditt system", "din tjeneste", "dine data"
   - ✅ Riktig: "systemet ditt", "tjenesten din", "dataene dine"
+- **Bruk bestemt form** når du snakker om spesifikke ting
+  - ❌ Feil: "flyt", "prosess", "kode", "applikasjon"
+  - ✅ Riktig: "flyten", "prosessen", "koden", "applikasjonen"
+- **ALLTID erstatt anglisismer og unødvendige fremmedord** med norske alternativer
+  - ❌ Feil: "interfacet", "aksessere", "definere egendefinert"
+  - ✅ Riktig: "grensesnittet", "få tilgang til", "skrive egen kode"
+  - Vanlige anglisismer å se etter: implementere (gjennomføre), validere (godkjenne/kontrollere), initialisere (starte)
+- **Sammensetninger skrives uten bindestreker** (med mindre det er nødvendig for forståelse)
+  - ❌ Feil: "meldings-visning", "kvitterings-siden", "data-steg"
+  - ✅ Riktig: "meldingsvisning", "kvitteringssiden", "datasteg"
+  - Unntak: Når det er nødvendig for å unngå misforståelser eller når det er tre eller flere ord
+- **Bruk korrekte produktnavn**
+  - ❌ Feil: "UI-editoren", "skjema-editoren", "form editoren"
+  - ✅ Riktig: "Altinn Studio Designer" (eller bare "Designer" hvis konteksten er klar)
+- **Tekniske termer som skal skrives i ett ord**
+  - ❌ Feil: "layout set", "layout-sett", "form layout-filer"
+  - ✅ Riktig: "layoutsett", "layoutfiler"
+  - Forklaring: "layout" er innarbeidet i norsk teknisk språk, så vi skriver sammensatte ord i ett ord
 - Lenker skal helst være fullstendige setninger
 - Tall under 12: Skriv med bokstaver i løpende tekst ("fire filer", "tre alternativer")
   - Unntak: Statistikk, tabeller, eller når tallet er spesielt viktig ("maks 10 filer tillatt")

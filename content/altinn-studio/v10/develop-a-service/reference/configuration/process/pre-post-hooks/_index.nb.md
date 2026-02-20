@@ -1,6 +1,7 @@
 ---
-title: Definer egendefinerte prosess-hooks
-description: Slik definerer du egendefinert kode som skal kjøres før eller etter at en task er startet eller avsluttet.
+title: Definere egne prosess-hooks
+linktitle: Prosess-hooks
+description: Slik skriver du kode som skal kjøres før eller etter at en oppgave er startet eller avsluttet.
 toc: true
 tags: [needsReview]
 ---
@@ -9,28 +10,28 @@ tags: [needsReview]
 Funksjonaliteten beskrevet på denne siden krever minimum versjon 7 av Altinn-nugets.
 {{%/notice%}}
 
-Det er mulig å skrive egendefinert kode som kjøres når en task i prosessen starter, avsluttes eller forlates. Alle registrerte klasser blir kjørt for hver task som starter eller avsluttes. Det er derfor viktig at du tar høyde for dette hvis du kun ønsker at koden skal kjøres i forbindelse med spesifikke tasker.
+Du kan skrive egendefinert kode som kjøres når en oppgave i prosessen starter, avsluttes eller forlates. Alle registrerte klasser kjøres for hver oppgave som starter eller avsluttes. Det er derfor viktig at du tar høyde for dette hvis du kun ønsker at koden skal kjøres i forbindelse med spesifikke oppgaver.
 
-## Kjør egendefinert kode før en task starter
+## Kjøre egendefinert kode før en oppgave starter
 
-For å få egendefinert kode kjørt når en task i prosessen startes, må du opprette en klasse som implementerer `Altinn.App.Core.Features.IProcessTaskStart` og registrere denne som en transient.
+For å få egendefinert kode kjørt når en oppgave i prosessen startes, må du opprette en klasse som bruker `Altinn.App.Core.Features.IProcessTaskStart` og registrere denne som en transient.
 
-Det er mulig å legge til flere klasser som implementerer dette interfacet. Alle blir kjørt hver gang en task i prosessen starter.
+Du kan legge til flere klasser som bruker dette grensesnittet. Alle kjøres hver gang en oppgave i prosessen starter.
 
-[Se interfacet her](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Features/IProcessTaskStart.cs)
+[Se grensesnittet her](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Features/IProcessTaskStart.cs)
 
-## Kjør egendefinert kode når en task avsluttes
+## Kjøre egendefinert kode når en oppgave avsluttes
 
-For å få egendefinert kode kjørt når en task i prosessen avsluttes, må du opprette en klasse som implementerer `Altinn.App.Core.Features.IProcessTaskEnd` og registrere denne som en transient.
+For å få egendefinert kode kjørt når en oppgave i prosessen avsluttes, må du opprette en klasse som bruker `Altinn.App.Core.Features.IProcessTaskEnd` og registrere denne som en transient.
 
-Det er mulig å legge til flere klasser som implementerer dette interfacet. Alle blir kjørt hver gang en task i prosessen avsluttes (videre til neste steg).
+Du kan legge til flere klasser som bruker dette grensesnittet. Alle kjøres hver gang en oppgave i prosessen avsluttes (videre til neste steg).
 
-[Se interfacet her](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Features/IProcessTaskEnd.cs)
+[Se grensesnittet her](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Features/IProcessTaskEnd.cs)
 
-## Kjør egendefinert kode når en task avbrytes
+## Kjøre egendefinert kode når en oppgave avbrytes
 
-For å få egendefinert kode kjørt når en task i prosessen avbrytes, må du opprette en klasse som implementerer `Altinn.App.Core.Features.IProcessTaskAbandon` og registrere denne som en transient.
+For å få egendefinert kode kjørt når en oppgave i prosessen avbrytes, må du opprette en klasse som bruker `Altinn.App.Core.Features.IProcessTaskAbandon` og registrere denne som en transient.
 
-Det er mulig å legge til flere klasser som implementerer dette interfacet. Alle blir kjørt hver gang en task i prosessen blir avbrutt.
+Du kan legge til flere klasser som bruker dette grensesnittet. Alle kjøres hver gang en oppgave i prosessen blir avbrutt.
 
-[Se interfacet her](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Features/IProcessTaskAbandon.cs)
+[Se grensesnittet her](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Features/IProcessTaskAbandon.cs)

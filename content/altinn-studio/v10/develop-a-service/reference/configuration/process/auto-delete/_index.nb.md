@@ -1,23 +1,23 @@
 ---
-title: Automatisk sletting
+title: Slette en tjeneste automatisk
 linktitle: Automatisk sletting
-description: En tjeneste kan konfigureres til å slette alle spor når prosessen er slutt.
+description: Slik konfigurerer du automatisk sletting av en tjeneste når prosessen er slutt.
 toc: true
 tags: [needsReview]
 ---
 
-Hvis du ønsker å begrense sluttbrukerens tilgang til en instans eller data etter innsending, kan dette gjøres ved å konfigurere automatisk sletting. I praksis gjøres ressursen utilgjengelig for sluttbruker etter innsending, mens tjenesteeier fremdeles har tilgang i tråd med tjenestens autorisasjonsregler. 
+Hvis du ønsker å begrense sluttbrukerens tilgang til en instans eller data etter innsending, kan du konfigurere automatisk sletting. I praksis blir ressursen utilgjengelig for sluttbrukeren etter innsending, mens tjenesteeieren fremdeles har tilgang i tråd med tjenestens autorisasjonsregler. 
 
 
-Hvis sluttbruker forsøker å aksessere en hard deleted ressurs med en direkte lenke, får de `404 - Not found` i respons. Ressursen vises heller ikke i meldingsboksen eller listes i API-responser.
+Hvis sluttbrukeren forsøker å få tilgang til en slettet ressurs med en direkte lenke, får de `404 - Not found` i respons. Ressursen vises heller ikke i meldingsboksen eller i API-responser.
 
-Når tjenesteeier bekrefter at instansen er mottatt på deres side (complete confirmed), markeres instansen som klar for sletting og saneres fra Altinns database i løpet av sju dager.
+Når tjenesteeieren bekrefter at instansen er mottatt på deres side (complete confirmed), blir instansen markert som klar for sletting og fjernet fra Altinns database i løpet av sju dager.
 
-Konfigurasjonen for automatisk sletting gjøres i `applicationmetadata.json` med flagget `"autoDeleteOnProcessEnd": true`.
+Du konfigurerer automatisk sletting i `applicationmetadata.json` med flagget `"autoDeleteOnProcessEnd": true`.
 
 
 
-## Automatisk sletting av instans
+## Slette instans automatisk
 
 Eksempel på konfigurasjon i  `applicationmetadata.json` for instanser:
 
@@ -73,7 +73,7 @@ Eksempel på konfigurasjon i  `applicationmetadata.json` for instanser:
 }
 ```
 
-## Automatisk sletting av data
+## Slette data automatisk
 
 Eksempel på konfigurasjon i `applicationmetadata.json` for datatype:
 

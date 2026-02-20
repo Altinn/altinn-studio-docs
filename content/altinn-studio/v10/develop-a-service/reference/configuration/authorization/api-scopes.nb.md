@@ -81,5 +81,5 @@ Disse loggene kommer fra `ScopeAuthorizationService` i bibliotekskoden.
 ## Relatert dokumentasjon
 
 - [Autorisasjonsretningslinjer](../) - Lær om XACML-basert autorisasjon
-- [Autentisering](../../../api/auth/) - Forstå autentiseringsmekanismer
-- [Tekstressurser](../../../ux/texts/) - Konfigurer tilpassede tekstmeldinger
+- [Autentisering](../authentication/) - Forstå autentiseringsmekanismer
+- [Tekstressurser](../../../../look-and-feel/options/functionality/texts/) - Konfigurer tilpassede tekstmeldinger

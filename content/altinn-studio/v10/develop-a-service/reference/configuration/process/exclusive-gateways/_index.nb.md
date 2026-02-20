@@ -1,6 +1,7 @@
 ---
-title: Exclusive Gateways
-description: Slik definerer du egendefinert kode som avgjør flyt ut av en exclusive gateway.
+title: Definere egne gateways
+linktitle: Exclusive Gateways
+description: Slik skriver du kode som avgjør flyten ut av en exclusive gateway.
 toc: true
 tags: [gateways, bpmn, process, prosess, needsReview]
 ---
@@ -11,10 +12,10 @@ Funksjonaliteten beskrevet på denne siden krever minimum versjon 7.1.0 av Altin
 
 ## Forutsetninger
 
-- Applikasjonen din benytter versjon 7.1.0 eller nyere av Altinn-nugets
-- En applikasjon med exclusive gateway(s) definert i prosessen
+- Applikasjonen din må bruke versjon 7.1.0 eller nyere av Altinn-nugets.
+- Du må ha en applikasjon med exclusive gateway(s) definert i prosessen.
 
-## Eksempel prosess med exclusive gateways
+## Eksempel på prosess med exclusive gateways
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -59,21 +60,21 @@ Visuell representasjon av bpmn definisjonen over
 
 ![BPMN definition diagram](process-definition.svg "BPMN definition diagram")
 
-## Implementer og inject egendefinert gateway-kode
+## Skrive og registrere gateway-kode
 
-For å velge riktig sequenceflow ut av en exclusive gateway basert på instansdataene, må applikasjonen inneholde en implementasjon av `Altinn.App.Core.Features.IProcessExclusiveGateway` og registrere denne med dependency injection-systemet.
+For å velge riktig sequenceflow ut av en exclusive gateway basert på instansdataene, må du skrive en klasse som bruker `Altinn.App.Core.Features.IProcessExclusiveGateway` og registrere denne med dependency injection-systemet.
 
-Interfacet har en string-property `GatewayId` og en metode `FilterAsync`.
+Grensesnittet har en string-property `GatewayId` og en metode `FilterAsync`.
 
-`GatewayId` brukes for å identifisere gatewayen i prosessen som koden er koblet til.
+Du bruker `GatewayId` for å identifisere gatewayen i prosessen som koden er koblet til.
 
 I eksempelet over vil en implementasjon ha propertien satt til `Gateway_1`, siden dette er verdien på attributtet _id_ i gatewayen vi ønsker å skrive logikk for (den eneste med to sequenceflows ut av seg).
 
-Metoden FilterAsync er hvor du implementerer din egendefinerte kode som skal filtrere og returnere gyldige sequenceflow(er) ut av gatewayen basert på instansens data.
+I metoden FilterAsync skriver du koden som skal filtrere og returnere gyldige sequenceflow(er) ut av gatewayen basert på instansens data.
 
-For mer dokumentasjon av interfacet, se xml-dokumentasjonen på interfacet [her](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Features/IProcessExclusiveGateway.cs).
+For mer dokumentasjon av grensesnittet, se xml-dokumentasjonen [her](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Features/IProcessExclusiveGateway.cs).
 
-Etter at du har skrevet logikken din, må den registreres i dependency injection-systemet. Dette gjøres i metoden `RegisterCustomAppServices` i filen `Program.cs`.
+Etter at du har skrevet logikken, må du registrere den i dependency injection-systemet. Du gjør dette i metoden `RegisterCustomAppServices` i filen `Program.cs`.
 
 Eksempel: 
 

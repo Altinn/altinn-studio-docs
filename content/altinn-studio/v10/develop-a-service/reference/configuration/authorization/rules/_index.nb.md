@@ -1,14 +1,14 @@
 ---
 title: Regelbibliotek
 linktitle: Regelbibliotek
-description: Bibliotek av autorisasjonsregler du kan bruke i en app. Husk å bytte ut tags ([RULE_ID]) med en egen ID. [ORG] og [APP] kan stå som de er, siden de erstattes med informasjon fra applicationmetadata.json hvis du har oppdatert LocalTest etter januar 2023.
+description: Her finner du eksempler på autorisasjonsregler du kan bruke i en app. Husk å bytte ut tags ([RULE_ID]) med en egen ID. [ORG] og [APP] kan stå som de er, siden de erstattes med informasjon fra applicationmetadata.json hvis du har oppdatert LocalTest etter januar 2023.
 toc: true
 tags: [needsReview]
 ---
 
-## [ORG] kan instansiere [ORG]/[APP]
+## [ORG] kan starte en instans av [ORG]/[APP]
 
-[ORG_1] og [ORG_2] kan her være like eller ulike. I tilfellet at de er ulike, tilsvarer [ORG_1] applikasjonseieren og [ORG_2] en annen organisasjon som får lov til å instansiere. 
+[ORG_1] og [ORG_2] kan her være like eller ulike. I tilfellet at de er ulike, tilsvarer [ORG_1] applikasjonseieren og [ORG_2] en annen organisasjon som får lov til å starte en instans. 
 
 ```xml {linenos=false,hl_lines=[2,7,15,19,27]}
 <xacml:Rule RuleId="urn:altinn:example:ruleid:[RULE_ID]" Effect="Permit">
@@ -348,7 +348,7 @@ Denne regelen tillatter applikasjonseier å slette en instans. Dette kan gjøres
   </xacml:Rule>
   ```
 
-## [ORG] kan aksesserere med autentiseringsnivå 3
+## [ORG] kan få tilgang med autentiseringsnivå 3
 
 ```xml
   <xacml:ObligationExpressions>
