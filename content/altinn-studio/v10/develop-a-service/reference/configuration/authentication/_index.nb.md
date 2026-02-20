@@ -19,7 +19,7 @@ De eneste godkjente ID-providerene for øyeblikket er:
 - [FEIDE](https://www.feide.no/)
 - [UIDP](https://www.udir.no/verktoy/uidp/)
 
-Bruk av OIDC-provider angis i appSettings:
+Bruk av OIDC-provider angis i `appSettings`:
 
 ```json
 "AppOidcProvider": "uidp"

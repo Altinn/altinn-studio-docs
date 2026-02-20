@@ -56,7 +56,7 @@ Funksjonaliteten beskrevet på denne siden krever minimum versjon 7.1.0 av Altin
 </bpmn:definitions>
 ```
 
-Visuell representasjon av bpmn definisjonen over
+Visuell representasjon av BPMN-definisjonen over
 
 ![BPMN definition diagram](process-definition.svg "BPMN definition diagram")
 

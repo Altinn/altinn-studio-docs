@@ -14,7 +14,7 @@ Ved å konfigurere presentasjonsfelter på en app henter du ut verdier fra skjem
 
 Du konfigurerer presentasjonsfelter i `applicationmetadata.json` som ligger i repoet under mappen `App/config`.
 
-Legg til en ny seksjon med navn `presentationField` med følgende underfelter:
+Legg til en ny seksjon med navn `presentationFields` med følgende underfelter:
 
 | Navn        | Beskrivelse                                                                                                       |
 |-------------|-------------------------------------------------------------------------------------------------------------------|

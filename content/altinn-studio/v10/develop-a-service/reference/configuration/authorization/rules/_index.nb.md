@@ -186,7 +186,7 @@ Denne regelen tillater en bruker med den gitte rollen å lese instansdata etter 
 
 ```xml {linenos=false,hl_lines=[2,7,14,18,22,30]}
 <xacml:Rule RuleId="urn:altinn:example:ruleid:[RULE_ID]" Effect="Permit">
-  <xacml:Description>User with role REGNA can read instanes of [ORG]/[APP] when it is in EndEvent_1</xacml:Description>
+  <xacml:Description>User with role REGNA can read instances of [ORG]/[APP] when it is in EndEvent_1</xacml:Description>
   <xacml:Target>
     <xacml:AnyOf>
       <xacml:AllOf>
@@ -195,6 +195,7 @@ Denne regelen tillater en bruker med den gitte rollen å lese instansdata etter 
           <xacml:AttributeDesignator AttributeId="urn:altinn:rolecode" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
         </xacml:Match>
       </xacml:AllOf>
+    </xacml:AnyOf>
     <xacml:AnyOf>
       <xacml:AllOf>
         <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">

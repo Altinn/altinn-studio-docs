@@ -1,6 +1,6 @@
 ---
 title: Meldingsboks
-description: Slik konfigurerer du hvordan applikasjonsinstanser presenteres i meldingsboksen i Altinn.
+description: Slik konfigurerer du hvordan appinstanser presenteres i meldingsboksen i Altinn.
 weight: 40
 tags: [needsReview]
 ---

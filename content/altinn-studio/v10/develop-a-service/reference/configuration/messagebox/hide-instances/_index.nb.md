@@ -16,9 +16,9 @@ Denne konfigurasjonen gjelder også for instanser som allerede er opprettet.
 
 Konfigurasjon av skjuling fra meldingsboks gjøres i `applicationmetadata.json` som ligger i repoet under mappen `App/config`.
 
-Legg til en ny seksjon med navn `messageBoxConfiguration` med følgende underfelt: `hideSettings`.
+Legg til en ny seksjon med navn `messageBoxConfig` med følgende underfelt: `hideSettings`.
 
-HideSettings kan igjen bestå av én av to properties:
+`hideSettings` kan igjen bestå av én av to egenskaper:
 
 | Navn         | Beskrivelse                                                                                 |
 |--------------|---------------------------------------------------------------------------------------------|

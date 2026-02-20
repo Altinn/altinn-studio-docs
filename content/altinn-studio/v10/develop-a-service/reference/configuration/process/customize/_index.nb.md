@@ -363,7 +363,7 @@ App/ui/custom-receipt/layouts/side1.json
         }
       },
       {
-        "id": "ReceiptHeader",
+        "id": "ReceiptHeaderSubmitted",
         "type": "Header",
         "textResourceBindings": {
           "title": "receipt.title_submitted"

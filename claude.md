@@ -142,11 +142,6 @@ Andre kommandoer:
 - `-D`-flagget i utviklingsserveren sørger for at draft-innhold vises under utvikling
 - Draft-innhold publiseres ikke i produksjonsbygg
 
-
-- Mange artikler i v10 er merket med `draft: true` i frontmatter
-- `-D`-flagget i utviklingsserveren sørger for at draft-innhold vises under utvikling
-- Draft-innhold publiseres ikke i produksjonsbygg
-
 ---
 
 ## Dokumentasjonsrammeverk
@@ -200,7 +195,7 @@ Andre kommandoer:
 - **ALLTID erstatt anglisismer og unødvendige fremmedord** med norske alternativer
   - ❌ Feil: "interfacet", "aksessere", "definere egendefinert"
   - ✅ Riktig: "grensesnittet", "få tilgang til", "skrive egen kode"
-  - Vanlige anglisismer å se etter: implementere (gjennomføre), validere (godkjenne/kontrollere), initialisere (starte)
+  - Vanlige anglisismer å se etter: implementere (gjennomføre), validere (godkjenne/kontrollere), initialisere (klargjøre/sette opp)
 - **Sammensetninger skrives uten bindestreker** (med mindre det er nødvendig for forståelse)
   - ❌ Feil: "meldings-visning", "kvitterings-siden", "data-steg"
   - ✅ Riktig: "meldingsvisning", "kvitteringssiden", "datasteg"

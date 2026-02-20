@@ -45,7 +45,7 @@ Eksempelet nedenfor viser en del av XACML 3.0-policyen der en ressurs er definer
     <xacml:AttributeDesignator AttributeId="urn:altinn:app" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
   </xacml:Match>
   <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">instansiate</xacml:AttributeValue>
+    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">instantiate</xacml:AttributeValue>
     <xacml:AttributeDesignator AttributeId="urn:altinn:event" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
   </xacml:Match>
 </xacml:AllOf>
@@ -124,7 +124,7 @@ Eksempel med autentiseringsnivå 2:
   </xacml:ObligationExpressions>
 ```
 
-## API Scopes
+## API-scopes
 
 API-scopes brukes for å autorisere tilgang til API-ene selv, nærmere bestemt API-ene som har med "instans"-ressursen å gjøre.
 
@@ -133,6 +133,6 @@ Det finnes innebygde scopes for brukere og tjenesteeiere:
 - `altinn:instances.read` og `altinn:instances.write` for brukere (og systembrukere)
 - `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write` for tjenesteeiere
 
-Disse scopene kan også skreddersys spesifikt fra app til app. Lær mer om [API Scopes-konfigurasjon](api-scopes).
+Disse scopene kan også skreddersys spesifikt fra app til app. [Les om hvordan du konfigurerer API-scopes](api-scopes).
 
 {{<children />}}

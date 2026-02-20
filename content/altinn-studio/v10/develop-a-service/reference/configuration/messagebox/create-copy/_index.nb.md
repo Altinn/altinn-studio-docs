@@ -17,9 +17,9 @@ Lag ny kopi-funksjonaliteten ble introdusert i versjon 7.9.0 av nuget-pakkene.
 
 ## Konfigurasjon
 
-{{% notice info  %}}
+{{%notice info%}}
 Konfigurasjonen har tilbakevirkende kraft på tidligere arkiverte instanser.
-{{% /notice %}}
+{{% /notice%}}
 
 I tillegg til å slå funksjonaliteten av og på, er det mulig å ekskludere datatyper og datafelter i et skjema fra å bli kopiert.
 
@@ -67,6 +67,6 @@ applicationmetadata.json
 }
 ```
 
-## Programatiske endringer
+## Programmatiske endringer
 
-Under kopiering av skjema utfører logikken metodekall mot **IInstantiationProcessor.DataCreation**. Dette gjør det mulig å gjøre programatiske endringer i data som blir kopiert. [Les mer om egendefinert forhåndsutfylling](/nb/altinn-studio/v8/guides/development/prefill/custom/).
+Under kopiering av skjema utfører logikken metodekall mot **IInstantiationProcessor.DataCreation**. Dette gjør det mulig å gjøre programmatiske endringer i data som kopieres. [Les mer om egendefinert forhåndsutfylling](/nb/altinn-studio/v8/guides/development/prefill/custom/).

@@ -18,7 +18,7 @@ For å få egendefinert kode kjørt når en oppgave i prosessen startes, må du 
 
 Du kan legge til flere klasser som bruker dette grensesnittet. Alle kjøres hver gang en oppgave i prosessen starter.
 
-[Se grensesnittet her](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Features/IProcessTaskStart.cs)
+[Se grensesnittet IProcessTaskStart på GitHub](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Features/IProcessTaskStart.cs)
 
 ## Kjøre egendefinert kode når en oppgave avsluttes
 
@@ -26,7 +26,7 @@ For å få egendefinert kode kjørt når en oppgave i prosessen avsluttes, må d
 
 Du kan legge til flere klasser som bruker dette grensesnittet. Alle kjøres hver gang en oppgave i prosessen avsluttes (videre til neste steg).
 
-[Se grensesnittet her](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Features/IProcessTaskEnd.cs)
+[Se grensesnittet IProcessTaskEnd på GitHub](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Features/IProcessTaskEnd.cs)
 
 ## Kjøre egendefinert kode når en oppgave avbrytes
 
@@ -34,4 +34,4 @@ For å få egendefinert kode kjørt når en oppgave i prosessen avbrytes, må du
 
 Du kan legge til flere klasser som bruker dette grensesnittet. Alle kjøres hver gang en oppgave i prosessen blir avbrutt.
 
-[Se grensesnittet her](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Features/IProcessTaskAbandon.cs)
+[Se grensesnittet IProcessTaskAbandon på GitHub](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Features/IProcessTaskAbandon.cs)

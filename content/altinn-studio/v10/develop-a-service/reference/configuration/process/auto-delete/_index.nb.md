@@ -19,7 +19,7 @@ Du konfigurerer automatisk sletting i `applicationmetadata.json` med flagget `"a
 
 ## Slette instans automatisk
 
-Eksempel på konfigurasjon i  `applicationmetadata.json` for instanser:
+Eksempel på konfigurasjon i `applicationmetadata.json` for instanser:
 
 ```json {linenos=false,hl_lines=[48]}
 {
