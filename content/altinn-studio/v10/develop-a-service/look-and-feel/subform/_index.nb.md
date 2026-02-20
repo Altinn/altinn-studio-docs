@@ -1,17 +1,17 @@
 ---
 draft: true
-title: Sette opp et underskjema i en app
+title: Sette opp underskjema i en app
 linktitle: Underskjema
-description: Slik setter du opp et underskjema i appen din
+description: Slik setter du opp underskjema i appen din
 tags: [underskjema, needsReview, translate]
 
 aliases:
   - /nb/altinn-studio/guides/subform/
 ---
 
-Et underskjema er et skjema som er en del av et annet skjema. Du setter opp underskjemaene i tilhørende tabeller. Denne veiledningen forklarer hvordan du oppretter en tabell for underskjema og setter opp underskjemaet som skal være knyttet til den.
+Et underskjema er et skjema som er en del av et annet skjema. Du setter opp underskjemaer i tilhørende tabeller. Denne veiledningen forklarer hvordan du oppretter en tabell for underskjema og setter opp underskjemaet som skal være knyttet til tabellen.
 
-## Sette opp et underskjema
+## Slik setter du opp underskjema
 
 Velg hvordan du vil sette opp underskjemaet:
 

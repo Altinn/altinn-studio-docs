@@ -10,6 +10,8 @@ weight: 30
 Før du begynner, sørg for at du har lest [forklaringen om umiddelbar varsling](/nb/notifications/explanation/instant-notifications/) for å forstå når og hvordan du bør bruke denne funksjonen.
 {{% /notice %}}
 
+Når du tester og overvåker umiddelbare varsler, kan du slå opp detaljerte beskrivelser av ordre‑ og varslingsstatus i referansen for [statusverdier for ordre og varsler]({{< relref "/notifications/reference/notification-status" >}}).
+
 ## Forutsetninger
 
 Før du kan sende umiddelbare varsler må du ha:

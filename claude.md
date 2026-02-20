@@ -40,6 +40,12 @@ Andre kommandoer:
 
 ### Før du starter en oppgave
 
+**🚨 OBLIGATORISK: Spør ALLTID brukeren før du starter arbeid:**
+
+> "Skal jeg først oppdatere master og lage ny branch?"
+
+**Vent på bekreftelse. Gjør DERETTER følgende:**
+
 1. **Start ALLTID fra oppdatert master:**
    ```bash
    git checkout master
