@@ -94,7 +94,7 @@ Action-attributtene beskriver hvilken operasjon regelen gjelder for.
 
 | Attributt             | Beskrivelse                                                       |
 | ---------             | ----------------------------------------------------------------- |
-| urn:oasis:names:tc:xacml:1.0:action:action-id  | Handlingen som regelen gjelder for. I [appen](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Api/Extensions/ServiceCollectionExtensions.cs#L96) kan dette være read, write, instantiate, complete og delete. Dette utvides når ny funksjonalitet legges til. |
+| urn:oasis:names:tc:xacml:1.0:action:action-id  | Handlingen som regelen gjelder for. I [app-lib-dotnet](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Api/Extensions/ServiceCollectionExtensions.cs#L96) kan dette være read, write, instantiate, complete og delete. Dette utvides når ny funksjonalitet legges til. |
 
 Eksempel med read-operasjon:
 
