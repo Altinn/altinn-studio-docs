@@ -1,7 +1,7 @@
 ---
 draft: true
-title: Lage en bruker i Altinn Studio
-linktitle: Lage en bruker
+title: Lag en bruker i Altinn Studio
+linktitle: Lag en bruker
 description: Slik lager du deg en bruker i Altinn Studio
 toc: true
 weight: 2

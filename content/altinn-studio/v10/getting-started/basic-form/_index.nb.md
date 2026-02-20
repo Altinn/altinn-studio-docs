@@ -1,13 +1,13 @@
 ---
 draft: true
-title: Lage et enkelt skjema
+title: Lag et enkelt skjema
 description: I denne veiledningen lærer du hvordan du lager og publiserer en app i Altinn Studio, for eksempel et enkelt skjema.
 weight: 10
 aliases:
 - /nb/altinn-studio/guides/basic-form/
 ---
 
-{{% expandlarge id="create-service" header="Opprett en ny app" %}}
+## 1. Opprett en ny app
 Logg inn i Altinn Studio. Hvis du ikke har en bruker, kan du opprette en fra forsiden. 
 
 1. Klikk på __Opprett ny app__ øverst til høyre i skjermbildet.
@@ -22,18 +22,16 @@ Logg inn i Altinn Studio. Hvis du ikke har en bruker, kan du opprette en fra for
 4. Klikk på __Opprett app__.
 
 Når appen er opprettet, ser du den på oversiktssiden.
-{{%/expandlarge%}}
 
-{{% expandlarge id="set-service-name" header="Legg inn det navnet som skal vises for appen" %}}
+## 2. Legg inn det navnet som skal vises for appen
 Gi appen en eget visningsnavn, Dette navnet vises som overskrift på skjemaet og i brukerens innboks i Altinn.
 
 1. Klikk på Innstillinger i menylinjen øverst til venstre.
 2.  I feltet __Navn på appen__ skriver du det navnet du vil at skjemaet dit skal ha, for eksempel "Innrapportering av sjeldne arter i bydel Sagene".
 
 Navnet blir lagret når du klikker utenfor feltet, og det blir oppdatert på oversiktssiden.
-{{%/expandlarge%}}
 
-{{% expandlarge id="create-datamodel" header="Lag en datamodell for skjemaet ditt" %}}
+## 3. Lag en datamodell for skjemaet ditt
 En datamodell er en slags innholdsfortegnelse for skjemaet. 
 Datamodellen brukes til å bestemme _hva_ du vil  hente inn av data og _hvordan_ dataene
 skal se ut.
@@ -52,10 +50,9 @@ for å tydelig vise hva de representerer, og du kan legge til egne felter.
    - Desimaltall
 4. Legg eventuelt til flere felt. 
 Hvis du vil gruppere flere felt, kan velge __Objekt__ fra Legg til-menyen, og så legge til felter i dette objektet.
-5. Klikk på  __Generer modeller__. Du får en melding om at datamodellen din er opprettet.
-{{%/expandlarge%}}
+1. Klikk på  __Generer modeller__. Du får en melding om at datamodellen din er opprettet.
 
-{{% expandlarge id="create-form" header="Dra inn skjemakomponenter i skjemaet og velg egenskaper for dem" %}}
+## 4. Legg inn skjemakomponenter i skjemaet og velg egenskaper for dem
 Du lager selve skjemaet på __Utforming__-siden i Altinn Studio. Her kan du dra inn de skjemakomponentene du vil ha med på hver side i skjemaet. 
 
 ### Legge til felter i skjemaet
@@ -81,16 +78,15 @@ Komponentene du kan bruke i skjemaet er delt i tre kategorier:
    - justere bredden til komponenten
    - sette at den skal være skrivebeskyttet
 
-### Nyttig informasjon
+### Tips
 - Du må legge til en Send inn-knapp i skjemaet. Bruk komponenten __Send inn__.
 - Du legger til nye sider med knappen __Legg til ny side__ som vises under eksisterende sider.
 - Hvis du vil endre ID-en til en side, velger du siden og klikker på __Side-ID__.
   - Under __Tekst__ kan du endre navnet som skal vises på siden, i feltet __Visningsnavn for side__.
 - Når du legger til sider, blir det blir automatisk lagt til navigasjonsknapper med navnene Neste og Forrige for å kunne gå frem og tilbake i skjemaet.
-{{%/expandlarge%}}
 
 
-{{% expandlarge id="configure-access-rules" header="Sette opp tilgangsregler" %}}
+## 5. Sett opp tilgangsregler
 
 {{% notice warning %}}
 Du _må_ ikke gjennomføre dette steget for å få en fungerende tjeneste ut i testmiljøet, men du må bestemme hvem som skal ha ha tilgang til tjenesten før du legger den ut i produksjon.
@@ -134,10 +130,9 @@ Slik kan du for eksempel fjerne rollen "Daglig leder":
 3. Finn __Regel 1__.
 4. Gå til feltet __Hvem skal ha disse rettighetene?__ og klikk på krysset ved __Daglig leder__. Du har nå tatt bort daglig leder.
    Hvis du trenger det, kan du legge til andre roller fra nedtrekkslisten her.
-6. Endringen dine blir lagret med en gang og du kan lukke __Innstillinger__-vinduet.
-{{%/expandlarge%}}
+5. Endringen dine blir lagret med en gang og du kan lukke __Innstillinger__-vinduet.
 
-{{% expandlarge id="push-changes" header="Lagre endringer" %}}
+## 6. Lagre endringer
 Når du arbeider med appen din, jobber du på en _kopi_ av den. Alle endringer du gjør blir 
 lagret automatisk underveis. De ligger på _din brukers filområde i Altinn Studio_. For at de endringen du gjør skal bli tilgjengelige for 
 andre, må du dele endringene dine til _det sentrale filområdet_. 
@@ -168,9 +163,8 @@ Da blir appen tilbakestilt til den versjonen som er på det sentrale filområdet
 3. Hvis du har gjort noen endringer du vil ta vare på, kan du enten velge å laste ned hele repoet, eller bare de filene som er endret.
 4. Klikk på __Slett lokale endringer__ for å slette de lokale endringene dine.
 5. Skriv inn navnet på appen din og klikk på __Slett mine endringer__ for å slette, eller velg __Avbryt__ for å avbryte og gå tilbake til appen.
-{{% /expandlarge %}}
 
-{{% expandlarge id="publish-service" header="Publisere appen" %}}
+## 7. Publiser appen
 {{% notice info %}}
 Denne delen gjelder bare hvis du har lagd en tjeneste for en _organisasjon_. 
 {{% /notice %}}
@@ -203,4 +197,3 @@ Når versjonen er ferdig bygget kan du publisere den ti ldet miljøet der du vil
 Nå settes publiseringen i gang. Det kan ta litt tid. Du ser oppdatert status for publiseringen så snart tjenesten er tilgjengelig i miljøet.
 
 <video autoplay loop controls muted src="./publish-version.mp4">Nettleseren din støtter ikke videoavspilling.</video>
-{{%/expandlarge%}}
