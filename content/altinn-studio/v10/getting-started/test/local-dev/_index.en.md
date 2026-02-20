@@ -5,7 +5,7 @@ linktitle: Local development
 description: Getting started with local development
 tags: [needsReview]
 toc: true
-weight: 900
+weight: 40
 aliases:
 - /altinn-studio/guides/local-dev/
 ---

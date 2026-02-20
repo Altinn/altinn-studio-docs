@@ -3,7 +3,7 @@ title: Tilpasninger i egenutviklet kode
 linktitle: Egne tilpasninger
 description: Gjør tilpasninger i appen din med egen kode
 draft: true
-weight: 20
+weight: 40
 ---
 
 ## Om bruk av egen kode i en Altinn-app
@@ -22,7 +22,7 @@ Listen er ikke utfyllende - her kan du i praksis få til hva som helst!
 - Oppsett på funksjonalitet som ikke enda er støttet via konfigurasjon alene, f.eks. betaling.
 - Behov for nye konsepter som ikke er støttet ut av boksen i en Altinn-app per i dag
 
-## Konsept: Dependency injection
+<!-- ## Konsept: Dependency injection
 En Altinn-app bruker biblioteker som Digdir utvikler og forvalter. Gjennom disse bibliotekene eksponeres det grensesnitt
 for konkret funksjonalitet. Når disse grensesnittene implementeres i din app og registreres der, vil koden som er implementert
-kjøres ved definerte tidspunkt/hendelser.
+kjøres ved definerte tidspunkt/hendelser. -->
