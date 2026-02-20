@@ -34,6 +34,61 @@ Andre kommandoer:
 
 ---
 
+## Språkvask-sjekkliste (OBLIGATORISK)
+
+**Før du sier at en språkvask er ferdig, SKAL du systematisk gjennomføre alle disse punktene:**
+
+1. **Grep etter passive konstruksjoner** og endre til aktiv stemme:
+   - `gjøres`, `settes`, `brukes`, `legges`, `hentes`, `opprettes`
+   - `kan være`, `vil være`, `blir`, `vil bli`, `er tilgjengelig`
+   - Eksempel: "Konfigurasjon gjøres i" → "Du konfigurerer i"
+
+2. **Grep etter anglisismer** og erstatt med norske alternativer:
+   - `implementer` → `skriver`/`bruker`/`gjennomfører`
+   - `interface` → `grensesnitt`
+   - `aksessere` → `få tilgang til`
+   - `validere` → `godkjenne`/`kontrollere`
+   - `initialisere` → `starte`
+   - `definere egendefinert` → `skrive egen kode`
+
+3. **Grep etter "task"/"tasker"** og erstatt med "oppgave"/"oppgaver"
+
+4. **Grep etter lenker med "her"** og endre til fullstendige setninger:
+   - ❌ "Les mer [her](url)"
+   - ✅ "[Les mer om egendefinert forhåndsutfylling](url)"
+
+5. **Grep etter v8-lenker** og sjekk at de har `/nb/`:
+   - ❌ `/altinn-studio/v8/reference/`
+   - ✅ `/nb/altinn-studio/v8/reference/`
+
+6. **Grep etter substantiveringer** ("av + -ing"):
+   - `Konfigurasjon av` → `Konfigurere`
+   - `Validering av` → `Validere`
+   - `Ekskludering av` → `Ekskludere`
+
+7. **Sjekk alle overskrifter** for riktig form:
+   - Artikkeloverskrifter (title): infinitiv ("Konfigurere autentisering")
+   - Underoverskrifter rett før prosedyre: imperativ ("Lag en ny kopi")
+   - Underoverskrifter med innledende tekst: infinitiv ("Lage ny kopi")
+
+8. **Sjekk alle lister** for Type 1 vs Type 2:
+   - Type 1: Liten forbokstav, ingen punktum, ingen kolon
+   - Type 2: Stor forbokstav, punktum, kolon etter innledning
+
+9. **Grep etter sammensetninger** med unødvendige bindestreker:
+   - `layout-sett` → `layoutsett`
+   - `meldings-visning` → `meldingsvisning`
+   - `kvitterings-siden` → `kvitteringssiden`
+
+10. **Sjekk manglende artikler/bestemt form**:
+    - `for app` → `for en app` eller `for appen`
+    - `i prosess` → `i prosessen`
+    - `flyt` → `flyten`
+
+**VIKTIG:** Bruk Grep-verktøyet for hvert av disse punktene. Ikke stol på manuell gjennomgang alene.
+
+---
+
 ## Arbeidsflyt
 
 **VIKTIG: Følg alltid denne arbeidsflyten:**
