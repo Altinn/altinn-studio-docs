@@ -14,7 +14,7 @@ resource.
 
 A resource in this case can be both an Altinn App or a resource (tjenesteeierressurs).
 
-For Altinn Apps, you must also ensure that the access-subject has `read` granted for __all__  relevant tasks and events. 
+For Altinn Apps, you must also ensure that the access-subject has `read` granted for **all** relevant tasks and events. 
 
 A new Altinn Resources can be registered in Altinn Studio or through an API.
 [Please reference Altinn Resource Administration for instructions on how to create a new resource.](/en/authorization/what-do-you-get/resourceadministration/)
