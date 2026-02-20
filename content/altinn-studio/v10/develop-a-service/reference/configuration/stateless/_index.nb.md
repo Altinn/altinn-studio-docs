@@ -192,7 +192,7 @@ public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object 
 
 ## Autorisasjon med tredjepartsløsninger
 
-Tilgangsstyring for stateless apper kan løses med [standard appautorisasjon](/nb/altinn-studio/v8/reference/configuration/authorization/), der du ved hjelp av Altinn-roller definerer hvem som har tilgang til å bruke tjenesten. Hvis du har behov for ytterligere sikring av tjenesten, kan du skrive logikk for autorisasjon av brukere med tredjepartsløsninger. Dette kan være API-er som er eksponert innenfor egen virksomhet, eller åpne API fra andre tilbydere.
+Tilgangsstyring for stateless apper kan løses med [standard appautorisasjon](/nb/altinn-studio/v10/develop-a-service/reference/configuration/authorization/), der du ved hjelp av Altinn-roller definerer hvem som har tilgang til å bruke tjenesten. Hvis du har behov for ytterligere sikring av tjenesten, kan du skrive logikk for autorisasjon av brukere med tredjepartsløsninger. Dette kan være API-er som er eksponert innenfor egen virksomhet, eller åpne API fra andre tilbydere.
 
 Eksempelet nedenfor bruker Finanstilsynets API til å fastslå om virksomheten som en bruker representerer i Altinn, har tilstrekkelige lisenser til å bruke tjenesten.
 
@@ -275,7 +275,7 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
 
     Vi bruker dynamikkregler til å vise/skjule felter avhengig av om en bruker er autorisert eller ikke.
 
-    Det er lagt inn en dynamikkregel i `RuleHandler.js` som sjekker om et felt i datamodellen har verdien `false`. [Les mer om konfigurasjon av dynamikkregler](/nb/altinn-studio/v8/reference/logic/dynamic/#legg-tilrediger-funksjoner-for-beregninger-eller-visskjul).
+    Det er lagt inn en dynamikkregel i `RuleHandler.js` som sjekker om et felt i datamodellen har verdien `false`. [Les mer om konfigurasjon av dynamikkregler](/nb/altinn-studio/v10/develop-a-service/look-and-feel/dynamics/).
 
     I `RuleConfiguration.json` ser du hvordan regelen brukes. Hvis inputverdien fra datamodellen `userAuthorized` er false, vises errorBoks-komponenten, mens det motsatte skjer med søke- og resultatfeltene - disse skjules.
 
