@@ -2,7 +2,7 @@
 draft: true
 title: Signering
 linktitle: Signering
-description: Slik setter du opp signering i Altinn-appen din.
+description: Om signering i en Altinn-app
 tags: [signering, needsReview, translate]
 
 aliases:
@@ -10,109 +10,60 @@ aliases:
 - /nb/altinn-studio/v8/concepts/signing/
 ---
 
-## Hva er signering?
+Elektronisk signatur handler om sporbarhet. Det vil si at du i ettertid kan dokumentere at en bestemt person utførte en 
+bestemt handling på et bestemt tidspunkt.
 
-### Autentisert elektronisk signatur
+Altinn tilbyr **autentisert elektronisk signatur**. Dette gjør det mulig for deg som tjenesteeier å dokumentere at en 
+identifisert person bekreftet noe på et bestemt tidspunkt. For eksempel kan sluttbruker signere for å bekrefte at opplysninger i et skjema er riktige.
 
-Elektronisk signatur handler om sporbarhet. Det vil si at du i ettertid kan dokumentere at en bestemt person utførte en bestemt handling på et bestemt tidspunkt.
+Signeringsløsningen i Altinn støtter [sikkerhetsnivå](https://info.altinn.no/hjelp/innlogging/diverse-om-innlogging/hva-er-sikkerhetsniva/) 
+3 eller 4. Du velger selv hvilket sikkerhetsnivå tjenesten din skal kreve. 
+Du kan også velge lavere sikkerhetsnivå hvis du har behov for det.
 
-Altinn tilbyr autentisert elektronisk signatur. Dette gjør det mulig for deg som tjenesteeier å dokumentere at en identifisert person bekreftet noe på et bestemt tidspunkt. For eksempel kan sluttbruker signere for å bekrefte at opplysninger i et skjema er riktige.
-
-#### Altinn støtter sikkerhetsnivå 3 og 4
-
-Signeringsløsningen i Altinn støtter sikkerhetsnivå 3 eller 4. Du velger selv hvilket sikkerhetsnivå tjenesten din skal kreve. Du kan også velge lavere sikkerhetsnivå hvis du har behov for det.
-
-#### Avansert signatur krever eksterne produkter
-
-Altinn tilbyr autentisert signatur. Trenger du avansert signatur (med sertifikat), må du bruke eksterne produkter som 
+Altinn tilbyr kun autentisert signatur. Trenger du avansert signatur (med sertifikat), må du bruke eksterne produkter som 
 [eSignering fra Digdir](https://samarbeid.digdir.no/esignering/esignering/22).
 
-#### Du må vurdere hvilken signatur tjenesten din trenger
+## Slik fungerer signering i Altinn
 
-Du må vurdere hvilken type elektronisk signatur tjenesten din trenger. Vurderingen bør ta utgangspunkt i hvilke krav regelverket ditt stiller til signatur og sporbarhet.
+### Hva signeres det på?
 
-### Slik fungerer signering i Altinn
+Du velger hvilke dataelementer sluttbruker skal signere på. Du velger også hvilket sikkerhetsnivå (identifikasjonsnivå) 
+sluttbruker må bruke når de logger inn for å signere. Tjenesten din kan ha ett eller flere signeringssteg etter hverandre.
 
-#### Hva signeres det på?
-
-Du velger hvilke dataelementer sluttbruker skal signere på. Du velger også hvilket sikkerhetsnivå (identifikasjonsnivå) sluttbruker må bruke når de logger inn for å signere. Tjenesten din kan ha ett eller flere signeringssteg etter hverandre.
-
-#### Altinn oppretter et signaturobjekt når noen signerer
+### Hva lagres ifm en signering?
 
 Når en bruker signerer, oppretter Altinn et signaturobjekt. Signaturobjektet inneholder
 
 - hvilke dataelementer som ble signert
 - en hash-kode av dataene
 
-#### Hash-koden gjør det mulig å oppdage endringer
+### Signaturen kan verifiseres i ettertid
+En hash-kode er en unik kode som beregnes ut fra innholdet i dataene. Hvis bare ett tegn i dataene endres, 
+blir hash-koden en annen. Dette gjør at du kan oppdage om noen har endret dataene etter at de ble signert.
 
-En hash-kode er en unik kode som beregnes ut fra innholdet i dataene. Hvis bare ett tegn i dataene endres, blir hash-koden en annen. Dette gjør at du kan oppdage om noen har endret dataene etter at de ble signert.
+## Rolle-/tilgangspakkebasert signering
+### Hva gjør denne funksjonen?
+Med rolle- og tilgangspakkebasert signering kan personer signere fordi de har en bestemt rolle eller tilgangspakke. 
+Du definerer hvilke roller eller tilgangspakker som skal ha rett til å lese og signere i tjenestens policy. 
+Dette kan for eksempel være daglig leder, regnskapsfører eller revisor.
 
-#### Altinn logger alle signeringer
+### Når bør jeg bruke dette?
+Når det er definert hva slags rolle/tilgangspakke den som skal signere skal ha for avgiveren.
 
-Altinn logger alle signeringer. Loggen inneholder
+## Brukerstyrt signering
+### Hva gjør denne funksjonen?
+{{% insert "content/altinn-studio/v10/develop-a-service/process/signing/how-to/runtime-delegated-signing/intro.nb.md" %}}
 
-- hvem som signerte (ID som kan kobles til fødselsnummer)
-- hvilket sikkerhetsnivå personen brukte da de logget inn
-- når signeringen skjedde
-- hvilket steg i prosessen signeringen skjedde på
+### Når bør jeg bruke dette?
+Når det er data fra utfyllingen (f.eks. fra brukeren selv) som bestemmer hvem som skal signere, heller enn en definert
+rolle/tilgangspakke.
 
-Altinn lagrer disse loggdataene adskilt fra tjenestene i en sentral database.
+## Signering som del av utfylling
+### Hva gjør denne funksjonen?
+Dette er et scenario der brukeren som fyller ut skjemaet, også signerer det når skjemaet sendes inn. Brukeren signerer 
+og sender inn med ett knappetrykk.
 
-### Slik behandles personopplysninger ved signering
-
-#### Altinn logger disse personopplysningene
-
-For å sikre sporbarhet logger Altinn disse personopplysningene:
-
-- ID til den som signerte (kan kobles til fødselsnummer)
-- sikkerhetsnivå for innloggingen
-- hvilket steg i prosessen signeringen skjedde på
-- når signeringen skjedde
-
-Digdir er behandlingsansvarlig for denne loggingen.
-
-#### Du er ansvarlig for personopplysninger i tjenesten din
-
-Du er behandlingsansvarlig for personopplysninger i tjenestene dine og skjema. Dette inkluderer signaturobjektet og tilhørende data, som inneholder ID og fødselsnummer til den som signerte. I henhold til samarbeidsavtalen er Digdir databehandler for deg.
-
-### Slik lagres data fra signering
-
-#### Du kan laste ned data når prosessen er ferdig
-
-Når prosessen i Altinn er gjennomført, kan du laste ned alle data inkludert signaturobjektet. Sluttbruker får en kvittering (PDF).
-
-#### Du kan konfigurere hvor lenge data skal lagres
-
-Du kan konfigurere hvor lenge Altinn skal lagre instansen og dataene.
-
-#### Sluttbruker kan slette sin kvittering
-
-Du kvitterer ut at du har lastet ned signaturobjektet og tilhørende data. Sluttbruker kan velge å beholde eller slette sin kvittering i innboksen.
-
-Hvis sluttbruker sletter kvitteringen etter at du har lastet ned signaturobjektet, sletter Digdir signaturobjektet i våre systemer. Du må derfor lagre signaturobjektet og tilhørende data i egne systemer hvis du vil arkivere signaturen.
-
-#### Altinn lagrer loggen uansett
-
-Digdir logger at signeringen ble utført. Selv om signaturobjektet blir slettet, lagrer Digdir fortsatt loggen som viser at noen signerte.
-
-Altinn lagrer vanlige applikasjonslogger (for feilsøking) i 90 dager. Hendelseslogger lagres i 13 måneder.
-
-### Slik verifiserer du signaturen
-
-#### Lagre signaturobjektet i arkivsystemet ditt
-
-Du lagrer signaturobjektet i arkivsystemet ditt. Signaturobjektet inneholder en hash-kode av dataene.
-
-#### Sjekk hash-koden for å oppdage endringer
-
-Hvis noen endrer signaturobjektet i ettertid, kan du oppdage det ved å sjekke hash-koden. Hvis hash-koden ikke stemmer, betyr det at noen har endret dataene etter at de ble signert.
-
-#### Både du og sluttbruker må ha hash-koden
-
-For at dette skal fungere, må både du og sluttbruker ha en kopi av hash-koden. Sluttbruker får hash-koden på sin kvittering.
-
-[Her kan du lese en teknisk beskrivelse for hvordan verifisering av signaturen gjøres.]({{< relref "../../reference/process/tasks/signing#verifisering-av-sha256-hash" >}})
+## API-basert signering
 
 ---
 

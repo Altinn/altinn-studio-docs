@@ -1,0 +1,41 @@
+---
+draft: true
+headless: true
+hidden: true
+tags: [needsReview, translate]
+---
+
+Hvis du vil endre standardtekstene, legger du til en [tekstressurs-fil](/nb/altinn-studio/v10/reference/ux/texts/) under `App/config/texts` for hvert språk du vil støtte.
+
+Med `CommunicationConfig`-oppsettet for en person som skal signere i implementasjonen av `ISigneeProvider`-grensesnittet, kan du knytte opp tekstressurser for å **endre** innholdet i melding til innboksen i Altinn, samt sms og e-postmeldinger som sendes for å varsle den som skal signere om en signeringsoppgave.
+Disse kan du kalle hva du vil og koble dem opp til `CommunicationConfig` i neste punkt (punkt 4).
+
+Eksempel på tekstressurser for varsling med egne tekster for e-postmeldinger, samt kvittering:
+
+{{% notice warning %}}
+Legg merke til at tekstressursene for innhold i innboksen i Altinn har en `$instanceUrl$`-plassholder (placeholder).
+Altinn erstatter den automatisk med en lenke til skjemaet. Hvis du endrer dette uten å bruke denne plassholderen, vil IKKE mottakeren kunne finne frem til skjemaet med signeringsoppgaven.
+{{% /notice %}}
+
+{{% insert "content/altinn-studio/v10/develop-a-service/process/signing/how-to/runtime-delegated-signing/backend-manual/setup-text-resources-code-01.en.md" %}}
+
+Du kan ikke endre kvitteringen per person som skal signere, bare generelt for alle. Her må tekstressursene ha disse nøklene for at endringen skal fungere:
+
+- `signing.correspondence_receipt_title` - tittel på kvitteringsmelding
+- `signing.correspondence_receipt_summary` - undertittel på kvitteringsmelding
+- `signing.correspondence_receipt_body` - innhold i kvitteringsmelding
+
+```json
+{
+  "id": "signing.correspondence_receipt_title",
+  "value": "Receipt: Signing of founding documents"
+},
+{
+  "id": "signing.correspondence_receipt_summary",
+  "value": "You have signed the founding documents"
+},
+{
+  "id": "signing.correspondence_receipt_body",
+  "value": "The documents you have signed are attached. These can be downloaded if desired. <br /><br />If you have any questions, contact the Brønnøysund Register Centre at phone 75 00 75 00."
+}
+```
