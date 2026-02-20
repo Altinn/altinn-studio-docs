@@ -30,8 +30,8 @@ Du kan endre prosessen ved å redigere BPMN-filen med en valgfri XML- eller BPMN
 
 ## Eksempler på process-filer
 
-- [Data_Confirmation_Process.bpmn](/altinn-studio/v8/reference/configuration/process/Data_Confirmation_Process.bpmn)
-- [Data_Data_Data_Process.bpmn](/altinn-studio/v8/reference/configuration/process/Data_Data_Data_Process.bpmn)
-- [Data_Process.bpmn](/altinn-studio/v8/reference/configuration/process/Data_Process.bpmn)
+- [Data_Confirmation_Process.bpmn](/nb/altinn-studio/v8/reference/configuration/process/Data_Confirmation_Process.bpmn)
+- [Data_Data_Data_Process.bpmn](/nb/altinn-studio/v8/reference/configuration/process/Data_Data_Data_Process.bpmn)
+- [Data_Process.bpmn](/nb/altinn-studio/v8/reference/configuration/process/Data_Process.bpmn)
 
 {{<children />}}
