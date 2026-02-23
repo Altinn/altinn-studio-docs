@@ -1,15 +1,14 @@
 ---
-draft: true
 title: Definere autorisasjonspolicy
 linktitle: Autorisasjon
-description: I Altinn Studio kan applikasjonsutvikleren definere autorisasjonspolicyen for tjenesten.
+description: I Altinn Studio kan apputvikleren definere autorisasjonspolicyen for tjenesten.
 weight: 100
 tags: [needsReview, needsTranslation]
 ---
 
-Applikasjonsutvikleren definerer autorisasjonsreglene for en tjeneste i en XACML-policyfil som ligger i app-lageret. XACML-policyen inneholder én eller flere regler som bestemmer hvem som kan utføre forskjellige handlinger på forskjellige ressurser. Du kan redigere XACML-filen i et tekstredigeringsprogram etter eget valg.
+Apputvikleren definerer autorisasjonsreglene for en tjeneste i en XACML-policyfil som ligger i app-lageret. XACML-policyen inneholder én eller flere regler som bestemmer hvem som kan utføre forskjellige handlinger på forskjellige ressurser. Du kan redigere XACML-filen i et tekstredigeringsprogram etter eget valg.
 
-## Regler fra applikasjonsmalen
+## Regler fra app-malen
 
 Når du oppretter en app i Altinn Studio, er den basert på gjeldende ASP.NET-mal og inkluderer en autogenerert XACML policy-fil (`policy.xml`).
 

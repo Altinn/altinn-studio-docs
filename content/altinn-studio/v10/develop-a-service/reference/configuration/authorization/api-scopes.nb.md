@@ -13,9 +13,9 @@ Tilpassede API-scopes lar deg definere API-nivå klienttilgang til tjenestens in
 Tilgjengelig fra [v8.9.0-preview.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.9.0-preview.0)
 {{% /notice %}}
 
-{{%notice warning%}}
+{{% notice warning %}}
 Scope-konfigurasjon håndheves ikke ennå i Storage-API-er. Dette kommer i en fremtidig utgivelse, og dokumentasjonen oppdateres da. Vi varsler på Slack når dette er tilgjengelig.
-{{% /notice%}}
+{{% /notice %}}
 
 ## Oversikt
 
@@ -32,7 +32,7 @@ tilgangstokens som har scopes som er spesifikke for en eller flere apper.
 ## Konfigurasjon
 
 App-spesifikke API-scopes konfigureres i [`applicationmetadata.json`-filen](https://github.com/Altinn/altinn-studio/blob/main/src/App/template/src/App/config/applicationmetadata.json) 
-som ligger i `App/config/` i applikasjonsrepositoryet ditt.
+som ligger i `App/config/` i app-lageret ditt.
 
 ### Eksempel
 
@@ -73,13 +73,13 @@ Når scope-autorisasjon feiler, returnerer appen en 403-respons med `ProblemDeta
 
 ### Feilsøking
 
-Appen beregner og bufrer nødvendige scopes per API-endepunkt under oppstart av applikasjonen.
+Appen beregner og bufrer nødvendige scopes per API-endepunkt under oppstart av appen.
 Hvis du vil se resultatene av dette, kan du aktivere `Debug`-logger i `appsettings` JSON-filen
-og kjøre applikasjonen på nytt. Da vil den logge en liste over endepunkter og nødvendige scopes per bruker/tjenesteeier.
+og kjøre appen på nytt. Da vil den logge en liste over endepunkter og nødvendige scopes per bruker/tjenesteeier.
 Disse loggene kommer fra `ScopeAuthorizationService` i bibliotekskoden.
 
 ## Relatert dokumentasjon
 
-- [Autorisasjonsretningslinjer]({{< relref "../_index.nb.md" >}}) - Lær om XACML-basert autorisasjon
+- [Autorisasjonsretningslinjer](../) - Lær om XACML-basert autorisasjon
 - [Autentisering](../../authentication/) - Forstå autentiseringsmekanismer
 - [Tekstressurser](../../../../ux/texts/) - Konfigurer tilpassede tekstmeldinger
