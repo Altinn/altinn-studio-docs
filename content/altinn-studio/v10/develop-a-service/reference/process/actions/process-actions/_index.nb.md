@@ -20,10 +20,10 @@ Standardhandling som systemet utfører når en data- eller tilbakemeldingsoppgav
 Standardhandling som systemet utfører når en bekreftelsesoppgave sendes inn.
 
 ### sign
-Handling som genererer et signaturobjekt basert på konfigurasjonen av oppgaven. Se [Signatur](../../tasks/signing/).
+Handling som genererer et signaturobjekt basert på konfigurasjonen av oppgaven. Se [Signering](../../tasks/signing/).
 
 ### reject
-Handling du bruker når du flytter tilbake fra en oppgave til en annen. Handlingen "reject" sikrer at dataelementene i måloppgaven låses opp.
+Handling du bruker når du flytter tilbake fra en oppgave til en annen. Handlingen "reject" sørger for at dataelementene i måloppgaven blir låst opp.
 
 ## Egendefinerte handlinger og egendefinert logikk når handlingen utføres
 
@@ -138,13 +138,13 @@ Dette defineres i policy.xml:
 
 ### Slik skriver du tilpasset kode og registrerer den som tjeneste
 
-Systemet utfører den tilpassede koden assosiert med en prosesshandling før prosessen flyttes til neste oppgave.
+Systemet utfører den tilpassede koden du har knyttet til en prosesshandling før prosessen flyttes til neste oppgave.
 
 For å skrive tilpasset logikk, opprett en ny klasse som implementerer `Altinn.App.Core.Models.UserAction.IUserAction`.
 
-Dette grensesnittet krever at du definerer en `Id` og en implementering av `public async Task<UserActionResult> HandleAction(UserActionContext context)`. Systemet bruker ID-en for å finne riktig C#-implementasjon av handlingen som er definert i prosessfilen.
+Dette grensesnittet krever at du definerer en `Id` og en utføring av `public async Task<UserActionResult> HandleAction(UserActionContext context)`. Systemet bruker ID-en for å finne riktig C#-utføring av handlingen som er definert i prosessfilen.
 
-En svært enkel implementering av _custom_-handlingen som bare logger brukerens bruker-ID og instans-ID kan implementeres som følger:
+Et svært enkelt eksempel på _custom_-handlingen som bare logger brukerens bruker-ID og instans-ID:
 
 ```csharp
 using System.Threading.Tasks;
