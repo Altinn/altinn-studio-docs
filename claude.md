@@ -38,6 +38,30 @@ Andre kommandoer:
 
 **VIKTIG: Følg alltid denne arbeidsflyten:**
 
+### Strategi for språkvask-PR-er
+
+**Maksimum per PR:**
+- 5 store filer (>500 linjer) ELLER
+- 10 små filer (<500 linjer) ELLER
+- En kombinasjon som totalt blir ca. 2000-3000 linjer
+
+**Navnekonvensjon for greiner:**
+- `klarsprak-<område>-<delnummer>` (f.eks. `klarsprak-datamodell-1`, `klarsprak-datamodell-2`)
+- Eller bare `klarsprak-<emne>` hvis det er ett logisk område
+
+**Fordeler med små PR-er:**
+- ✅ Raskere reviews fra CodeRabbit
+- ✅ Lettere å finne og fikse lenker
+- ✅ Mindre risiko for konflikter
+- ✅ Enklere å rulle tilbake hvis noe går galt
+- ✅ Mer motiverende å se fremgang
+
+**Prosess:**
+1. Velg neste logisk område (f.eks. alle filer under `datamodell/`)
+2. Tell filer/linjer - hvis for mange → del i batch 1, 2, osv.
+3. Lag gren, vask, commit, push, PR
+4. Vent på grønn sjekk og merge før du starter neste
+
 ### Før du starter en oppgave
 
 **🚨 OBLIGATORISK: Spør ALLTID brukeren før du starter arbeid:**
