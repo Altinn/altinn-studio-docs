@@ -1,10 +1,10 @@
 ---
-draft: true
 title: Handlinger
-description: 
-tags: [altinn-apper, prosess, bpmn, gateway, handling, handlinger]
-
+linktitle: Handlinger
+description: Slik definerer du hva en bruker kan gjøre i en oppgave.
+tags: [altinn-apper, prosess, bpmn, gateway, handling, handlinger, needsReview, needsTranslation]
 toc: false
+weight: 30
 ---
 
 Du bruker handlinger til å definere hva en bruker kan gjøre i en oppgave. Du definerer handlinger i prosessen (BPMN) og setter tilgangsregler i tilgangskontrollfilen (XACML) som styrer hvem som kan utføre dem. Vi har to typer handlinger:
