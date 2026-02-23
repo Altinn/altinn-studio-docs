@@ -19,7 +19,7 @@ Scope-konfigurasjon håndheves ikke ennå i Storage-API-er. Dette kommer i en fr
 
 ## Oversikt
 
-Mens XACML muliggjør granulær tilgangskontroll til de faktiske underliggende ressursene (instanser), implementerer API scope-autorisasjonen enkel autorisasjon av klienter for instansrelaterte API-er i appen din. Den inntreffer _før_ XACML-autorisasjonen.
+Mens XACML muliggjør granulær tilgangskontroll til de faktiske underliggende ressursene (instanser), implementerer API-scope-autorisasjonen enkel autorisasjon av klienter for instansrelaterte API-er i appen din. Den inntreffer _før_ XACML-autorisasjonen.
 
 Det finnes innebygde scopes for brukere og tjenesteeiere:
 * `altinn:instances.read` og `altinn:instances.write` for brukere (og systembrukere)
