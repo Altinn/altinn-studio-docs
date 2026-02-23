@@ -36,8 +36,8 @@ som ligger i `App/config/` i applikasjonsrepositoryet ditt.
 
 ### Eksempel
 
-Her er et eksempel på konfigurasjon som bruker en lignende scope-struktur, men med et tilpasset ID-porten scope-prefiks
-og bruker `[app]`-plassholderstøtten (den vil bli erstattet med app-navnet under kjøring).
+Her er et eksempel på konfigurasjon med en lignende scope-struktur, men med et tilpasset ID-porten scope-prefiks
+og med `[app]`-plassholderstøtte (den vil bli erstattet med app-navnet under kjøring).
 
 {{% insert "content/altinn-studio/v8/reference/configuration/authorization/shared/api-scopes-example.md" %}}
 
