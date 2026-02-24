@@ -5,7 +5,7 @@ hidden: true
 tags: [needsReview, translate]
 ---
 
-Hvis du ønsker å bruke forskjellige meldingsressurser i forskjellige miljøer, kan du legge til en `env` attributt
+Hvis du ønsker å bruke forskjellige meldingsressurser i forskjellige miljøer, kan du legge til en `env`-attributt
 på oppsettet. Se eksempel under:
 
 ```xml
