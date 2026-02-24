@@ -1,103 +1,37 @@
 ---
-title: Create and Publish Consent Resource
+title: Consent for Service Owners
 linktitle: Consent
-description: This guide explains what to do as a service-owner to use Altinn Consent
+description: Overview and introduction to the Altinn Consent guides for service owners.
 toc: false
 ---
 
-To use Altinn Consent, you must create consent resources for each set of services or data to be included in a consent.
+Altinn Consent lets a service owner request explicit permission before data is shared or processes are started.  
+As a service owner you need to both set up the consent resource in Altinn and ensure your service can read and verify the consent issued via Maskinporten.
 
-Examples of such resources are the Tax Administration's "income API" and tax base, which banks use to access financial information during loan applications.
+This page gives you a high-level introduction to the guides in this section and helps you pick the right path.
 
-This guide explains how to set up a consent resource.
+## Guides in this section
 
-## Prerequisites
+### Create and configure a consent resource
 
-You must have access to resource administration for your organization. See the [Getting Started Guide](/en/authorization/getting-started/resource-admin-studio/).
+- **Who:** Resource administrators and service owners who describe the data covered by the consent.
+- **What:** Explains how to name the resource, choose a consent template, configure metadata, access rules, and delegation.
+- **Link:** [Open the guide for creating a consent resource](./create-resource/).
 
-## Create New Resource
+### Validate consent inside your service
 
-Select **Create Resource** in the upper right corner.
+- **Who:** Developers and integration teams that consume the Maskinporten token in their own solution.
+- **What:** Covers how to interpret `authorization_details` and `consentRights`, and how to verify that the token includes the rights your service requires.
+- **Link:** [Open the guide for validating consent](./validate-concent/).
 
-The resource ID should be named in the format `{serviceowner-code}-{understandableresourceid}`.
+## Before you start
 
-![consentresource](consentresource1.png)
+You must have resource administration access for your organization in Altinn Studio. If you do not, follow the steps in the [Getting Started guide](/en/authorization/getting-started/resourceadministration/).
 
-### Name and Description
+### Recommended order of work
 
-Give the consent resource a name and description. This is shown to users when they delegate access to give consent on behalf of organizations.
+1. Read the guide on [creating the consent resource](./create-resource/) and configure the resource in the TT02 test environment.
+2. Implement and [validate the consent inside your service](./validate-concent/) before moving to production.
+3. Run an end-to-end test with both the resource administrator and the service integration to confirm the consent covers the right dataset and that the token is interpreted correctly.
 
-![consentresource](consentresource2.png)
-
-### Consent Template
-
-The choice of consent template determines how the consent is presented in Altinn for the user who will accept it.
-
-For example, the template decides whether you can add custom text for the consent.
-
-![consentresource](consentresource3.png)
-
-### Metadata and Consent Text
-
-Metadata is used for consent services where information beyond the service itself is needed. For example, this could be a restriction on which data or which year the consent applies to.
-
-This metadata can be presented as part of the consent text shown to the end user.
-
-![consentresource](consentresource4.png)
-
-### One-Time Consent
-
-If you want the service to only be available via one-time consent, you can set this option.
-
-This means that the party requesting consent can only retrieve data once, regardless of the period length.
-
-## Validate Consent
-
-In the new consent solution for Altinn 3, it is **Maskinporten** that issues the consent token.  
-The token is issued as a regular Maskinporten token, but also includes `authorization_details` attributes containing information about which rights the consent grants.
-
-The example below shows a token from the **Smartbank** demo application in the TT02 test environment:
-
-```json
-{
-  "authorization_details": [
-    {
-      "type": "urn:altinn:consent",
-      "id": "93413201-b7e8-4ec3-a899-580fc02c6aeb",
-      "from": "urn:altinn:person:identifier-no:25922947409",
-      "to": {
-        "authority": "iso6523-actorid-upis",
-        "ID": "0192:991825827"
-      },
-      "consented": "2025-07-18T07:57:30.409251+00:00",
-      "validTo": "2026-07-18T07:57:15.639509+00:00",
-      "consentRights": [
-        {
-          "action": ["consent"],
-          "resource": [
-            {
-              "type": "urn:altinn:resource",
-              "value": "samtykke-test-vegard"
-            }
-          ],
-          "metadata": {
-            "inntektsaar": "2022"
-          }
-        }
-      ]
-    }
-  ],
-  "scope": "altinn:consentrequests.read",
-  "iss": "https://test.maskinporten.no/",
-  "client_amr": "private_key_jwt",
-  "token_type": "Bearer",
-  "exp": 1752825571,
-  "iat": 1752825451,
-  "client_id": "107c6f58-e06b-44e9-be7a-11ea44c7ad8b",
-  "jti": "T2KUt3ufgIPycdoGPMEFU87pNm9e9nPB1ODkJj5wH0k",
-  "consumer": {
-    "authority": "iso6523-actorid-upis",
-    "ID": "0192:991825827"
-  }
-}
-```
+Once both guides are completed, you are ready to publish the consent resource and start receiving consent requests from end users.

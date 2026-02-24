@@ -67,10 +67,10 @@ Når du oppretter varslinger, gjelder følgende valideringsregler og tegnbegrens
 
 | Felt | Maksimal lengde | Beskrivelse |
 |------|----------------|-------------|
-| `emailSubject` | 128 tegn | Anbefalt av Altinn Notifications-tjenesten for å sikre at e-postemnet vises korrekt i e-postklienter |
+| `emailSubject` | 512 tegn | Øvre grensen for e-postemner i varslinger. Altinn Notifications-tjenesten anbefaler å holde e-postemnet kortere enn 128 tegn for å sikre at emnet vises korrekt i e-postklienter |
 | `emailBody` | 10 000 tegn | Støtter detaljert innhold i både ren tekst og HTML-format |
 | `smsBody` | 2 144 tegn | Samsvarer med Altinn Notifications-tjenestens SMS-behandlingsgrenser. Tilsvarer 16 SMS-segmenter (16 × 134 tegn per segment) |
-| `reminderEmailSubject` | 128 tegn | Samme anbefaling som hovedvarslingens e-postemne |
+| `reminderEmailSubject` | 512 tegn | Samme grense og anbefaling som hovedvarslingens e-postemne |
 | `reminderEmailBody` | 10 000 tegn | Støtter detaljert innhold i både ren tekst og HTML-format |
 | `reminderSmsBody` | 2 144 tegn | Samme grense som hovedvarslingens SMS-innhold |
 
@@ -83,8 +83,10 @@ Keywords er en liste tokens som lar deg personalisere varslingene med for eksemp
 |---------------------------------|--------------------------------------------------------------------------------------------------------------------------------------- |--------------------------------------------------------------------------------------|
 | \$sendersName\$                 | Blir byttet ut med avsenders navn. Enten "MessageSender" om attributten har en verdi, eller basert på ett oppslag i Altinn Register.   | Støttes for alle scenarioer                                                          |
 | \$correspondenceRecipientName\$ | Blir byttet ut med melding mottakers navn. Dette vil være enten organisasjonsnavn eller personens navn.                                | Støttes for alle scenarioer                                                          |
-| \$recipientName\$               | Blir byttet ut med varsling mottakers navn. Dette vil være enten organisasjonsnavn eller personens navn.                               | Støttes ikke dersom varsel blir sendt direkte til e-post adresse eller telefonnummer |
-| \$recipientNumber\$             | Dersom mottaker er en organisasjon vises Organisasjonsnummer. Dersom mottaker er en privatperson vises ingenting                       | Støttes ikke dersom varsel blir sendt direkte til e-post adresse eller telefonnummer |
+| \$recipientName\$               | Blir byttet ut med varslingsmottakers navn. Dette vil være enten organisasjonsnavn eller personens navn.                               | Støttes ikke for customRecipients dersom varsel blir sendt til e-postadresse eller telefonnummer |
+| \$recipientNumber\$             | Dersom mottaker er en organisasjon vises Organisasjonsnummer. Dersom mottaker er en privatperson vises ingenting                       | Støttes ikke for customRecipients dersom varsel blir sendt til e-postadresse eller telefonnummer |
+| \$messageTitle\$                | Blir byttet ut med tittelen på meldingen                                                                                               | Støttes for alle scenarioer                                                          |
+| \$resourceName\$                | Blir byttet ut med navnet på ressursen                                                                                                 | Støttes for alle scenarioer                                                          |
 
 ## Varslingsmaler
 
@@ -97,17 +99,19 @@ Det tilbys to typer varslingsmaler når du bruker varsling gjennom Meldings-API`
 **GenericAltinnMessage:**
 
 - En generisk Altinn-tekst med mulighet for å supplere med ekstra tekst. Foreløpig støttede språk er norsk, nynorsk og engelsk. Språk velges basert på språket definert i meldingen
+- Denne varslingsteksten er utarbeidet av Altinn brukerservice og inneholder informasjon som vil være verdifull for sluttbrukeren. Altinn anbefaler derfor tjenesteeiere å bruke denne malen. 
 
-**Tittel:** En melding har blitt mottatt i Altinn {textToken}<br>
-**Innhold:** Hei. $correspondenceRecipientName$ har mottatt en ny melding fra $sendersName$. {textToken}Logg deg inn i Altinn for å se denne meldingen.
+**Tittel:** En ny melding er tilgjengelig i Altinn for $correspondenceRecipientName$
+**Innhold:** Hei. $correspondenceRecipientName$ $recipientNumber$ har mottatt meldingen $messageTitle$ fra $sendersName$. (For å se denne meldingen kreves tilgang til $resourceName$.) Logg inn i Altinn for å se meldingen.
 
-**Revarsel tittel:** Påminnelse - en melding har blitt mottatt i Altinn {textToken}<br>
-**Revarsel innhold:** Hei. Dette er en påminnelse om at $correspondenceRecipientName$ har mottatt en ny melding fra $sendersName$. {textToken}Logg deg inn i Altinn for å se denne meldingen.
+**Revarsel tittel:** Påminnelse - en ny melding er tilgjengelig i Altinn for $correspondenceRecipientName$
+**Revarsel innhold:** Hei. Dette er en påminnelse om at $correspondenceRecipientName$ $recipientNumber$ har mottatt meldingen $messageTitle$ fra $sendersName$. (For å se denne meldingen kreves tilgang til $resourceName$.) Logg inn i Altinn for å se meldingen.
 
-I teksten vil textToken bli byttet ut med verdien gitt i for eksempel "EmailSubject" for tittelen. SMS bruker kun innholdet, ikke tittelen.
-\$recipientName\$ vil bli byttet ut med mottakers navn. Dette vil være enten organisasjonsnavn eller personens navn.
+
+- SMS bruker kun innholdet, ikke tittelen. 
+- Se [keyword-støtte](https://docs.altinn.studio/nb/correspondence/getting-started/developer-guides/notifications/#keyword-støtte) for hva keywords veksles inn i.
  
-NB! Linker skal ALDRI brukes i varslinger.
+NB! Hyperlenke til nettsider skal ALDRI sendes i varslingen!
 
 ## Varslingskanaler
 

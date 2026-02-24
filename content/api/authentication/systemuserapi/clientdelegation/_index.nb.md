@@ -41,7 +41,7 @@ application/json
 
 ## Query parametere
 
-#### party
+### party
 
 orgnummer til eier systembruker
 
@@ -116,7 +116,7 @@ application/json
 
 ## Query parametere
 
-#### agent
+### agent
 
 Den unike identifikatoren til agent-systembrukeren
 
@@ -175,7 +175,7 @@ application/json
 
 ## Query parametere
 
-#### agent
+### agent
 
 Den unike identifikatoren til agent-systembrukeren
 
@@ -224,11 +224,11 @@ application/json
 
 ## Query parametere
 
-#### agent
+### agent
 
 Den unike identifikatoren til agent-systembrukeren
 
-#### client
+### client
 
 Den unike identifikatoren til klienten som skal legges til systembrukeren
 
@@ -263,11 +263,11 @@ application/json
 
 ## Query parametere
 
-#### agent
+### agent
 
 Den unike identifikatoren til agent-systembrukeren
 
-#### client
+### client
 
 Den unike identifikatoren til klienten som skal fjernes fra systembrukeren
 

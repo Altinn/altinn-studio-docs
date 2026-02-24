@@ -5,24 +5,31 @@ description: API for the vendor to get system information from the system regist
 toc: false
 weight: 3
 ---
+
 ## Get a system
+
 Retrieves a system by the system id
 
 ### Endpoint
+
 GET authentication/api/v1/systemregister/vendor/{systemId}
 
 ### Scopes
+
 Maskinporten token with scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
+
 application/json
 
-## Arguments
+### Arguments
 
 #### systemId
-The id should be in the format of {systemvendororgno}_{name chosen by the vendor}. F.example "310547891_testproduct". This is a unique id to identify the product.
 
-## Example of Response Model
+The id should be in the format of {systemvendororgno}\_{name chosen by the vendor}. F.example "310547891_testproduct". This is a unique id to identify the product.
+
+### Example of Response Model
+
 ```
 {
     "id": "312605031_b217b2f5-362f-4aa2-b919-ceaeaf9f15a1",
@@ -44,11 +51,15 @@ The id should be in the format of {systemvendororgno}_{name chosen by the vendor
             "resource": [
                 {
                     "id": "urn:altinn:resource",
-                    "value": "authentication-e2e-test"
-                },
+                    "value": "app_ttd_endring-av-navn-v2"
+                }
+            ]
+        },
+        {
+            "resource": [
                 {
                     "id": "urn:altinn:resource",
-                    "value": "authentication-e2e-test"
+                    "value": "ske-krav-og-betalinger"
                 }
             ]
         }
@@ -65,66 +76,88 @@ The id should be in the format of {systemvendororgno}_{name chosen by the vendor
 }
 ```
 
-## Get Rights of a system
-Get the rights defined for a system. This is an open api.
+## Get Changelog for a system
+Retrieves list of updates made to the system
 
 ### Endpoint
-GET authentication/api/v1/systemregister/vendor/{systemId}/rights
+
+GET authentication/api/v1/systemregister/vendor/{systemId}/changelog
 
 ### Scopes
-No authentication required
+
+Maskinporten token with scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
+
 application/json
 
-## Arguments
+### Arguments
 
 #### systemId
-The id should be in the format of {systemvendororgno}_{name chosen by the vendor}. F.example "310547891_testproduct". This is a unique id to identify the product.
 
-## Example of Response Model
+The id should be in the format of {systemvendororgno}\_{name chosen by the vendor}. F.example "310547891_testproduct". This is a unique id to identify the product.
+
+### Example of Response Model
+
 ```
 [
     {
-        "resource": [
-            {
-                "id": "urn:altinn:resource",
-                "value": "authentication-e2e-test"
-            },
-            {
-                "id": "urn:altinn:resource",
-                "value": "authentication-e2e-test"
-            }
-        ]
-    }
-]
-```
-
-## Get AccessPackages of a system
-Get the accesspackages defined for a system. This is an open api.
-
-### Endpoint
-GET authentication/api/v1/systemregister/{systemId}/accesspackages
-
-### Scopes
-No authentication required
-
-### Content types
-application/json
-
-## Arguments
-
-#### systemId
-The id should be in the format of {systemvendororgno}_{name chosen by the vendor}. F.example "310547891_testproduct". This is a unique id to identify the product.
-
-## Example of Response Model
-```
-[
-    {
-        "urn": "urn:altinn:accesspackage:revisormedarbeider"
+        "systemInternalId": "d66af1e2-afbd-482f-bb55-eb7c31fae385",
+        "changedByOrgNumber": "312605031",
+        "changeType": "delete",
+        "clientId": "89708189-bb7f-475b-b0ac-0219f3271318",
+        "created": "2025-12-09T07:04:20.246224+00:00"
     },
     {
-        "urn": "urn:altinn:accesspackage:ansvarlig-revisor"
+        "systemInternalId": "d66af1e2-afbd-482f-bb55-eb7c31fae385",
+        "changedByOrgNumber": "312605031",
+        "changeType": "create",
+        "changedData": {
+            "Id": "312605031_E2Etests-App3317e85f-31bd-46bb-9880-7a13a4ff50d4",
+            "Name": {
+                "en": "E2Etests-App3317e85f-31bd-46bb-9880-7a13a4ff50d4",
+                "nb": "E2Etests-App3317e85f-31bd-46bb-9880-7a13a4ff50d4",
+                "nn": "E2Etests-App3317e85f-31bd-46bb-9880-7a13a4ff50d4"
+            },
+            "Rights": [
+                {
+                    "Action": null,
+                    "Resource": [
+                        {
+                            "id": "urn:altinn:resource",
+                            "value": "app_ttd_endring-av-navn-v2"
+                        }
+                    ]
+                },
+                {
+                    "Action": null,
+                    "Resource": [
+                        {
+                            "id": "urn:altinn:resource",
+                            "value": "vegardtestressurs"
+                        }
+                    ]
+                }
+            ],
+            "Vendor": {
+                "ID": "0192:312605031"
+            },
+            "ClientId": [
+                "cd218b5f-6265-44e2-abc5-e181b0bc56a1"
+            ],
+            "IsVisible": false,
+            "Description": {
+                "en": "This is auto generated by an integration test. Some data is randomized, but some is not - like this description",
+                "nb": "Integrasjonstest. Noe er randomisert her, men mye blir likt.",
+                "nn": "integrasjonstest på nynorsk. Noe er randomisert her, men mye blir likt."
+            },
+            "AccessPackages": [],
+            "AllowedRedirectUrls": [
+                "https://altinn.no"
+            ]
+        },
+        "clientId": "89708189-bb7f-475b-b0ac-0219f3271318",
+        "created": "2025-12-09T07:04:19.203762+00:00"
     }
 ]
 ```

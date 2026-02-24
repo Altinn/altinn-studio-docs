@@ -1,65 +1,62 @@
 ---
-title: Application construction components - Altinn Authorization
+title: Komponentarkitektur - Altinn Autorisasjon
 linktitle: Arkitektur
-description: Altinn Authorization is constructed as serveral components.
+description: Altinn Autorisasjon består av flere komponenter.
 tags: [architecture, solution]
 weight: 999
 toc: false
 ---
 
-When defining the authorization components, we used the [XACML reference architecture](https://en.wikipedia.org/wiki/XACML).
+Da vi definerte autorisasjonskomponentene, tok vi utgangspunkt i [XACML-referansearkitekturen](https://en.wikipedia.org/wiki/XACML).
 
-## Conceptual components
+## Konseptuelle komponenter
 
-We have defined the following conceptual components/functional areas from the reference architecture.
+Vi har definert følgende konseptuelle komponenter/funksjonsområder fra referansearkitekturen.
 
 ### PDP - Policy Decision Point
 
-The policy decision point is responsible for deciding if an authorization request
-is authorized or not. It bases its decision on rules and information it has of the resource and the user/system
-trying to access and perform an operation on a resource.
+Policy Decision Point har ansvar for å avgjøre om en autorisasjonsforespørsel skal godkjennes eller ikke. Beslutningen baseres på regler og informasjon om ressursen og brukeren/systemet som forsøker å få tilgang og gjennomføre en operasjon på ressursen.
 
-[Read more](/nb/authorization/reference/architecture/accesscontrol/)
+[Les mer](/nb/authorization/reference/architecture/accesscontrol/)
 
 ### PAP - Policy Administration Point
 
-Responsible for defining and administering authorization policies.
+Har ansvar for å definere og administrere autorisasjonspolicyer.
 
-In Altinn Authorization, there are the following components that function as a PAP
+I Altinn Autorisasjon finnes følgende komponenter som fungerer som PAP:
 
-- Altinn Studio to define rules for Apps
-- Altinn Access Management for defining delegated rules
-- Altinn Resource Registry allows the administration of resource policies.
+- Altinn Studio for å definere regler for apper
+- Altinn Access Management for å definere delegerte regler
+- Altinn Resource Registry som gjør det mulig å administrere ressurspolicyer
 
-[Read more](/nb/authorization/what-do-you-get/accessmanagement/pap/)
+[Les mer](/nb/authorization/reference/architecture/accessmanagment/pap/)
 
 ### PRP - Policy Retrieval Point
 
-The Policy Retrieval Point is responsible for finding the right policy.
+Policy Retrieval Point har ansvar for å finne riktig policy.
 
-In Altinn, there are two sources of Policies. Altinn Access Management for delegated policies
-and Altinn Resource Registry
+I Altinn finnes det to kilder til policyer: Altinn Access Management for delegerte policyer og Altinn Resource Registry.
 
-[Read more](/nb/authorization/what-do-you-get/resourceregistry/prp/)
+[Les mer](/nb/authorization/reference/architecture/accesscontrol/prp/)
 
-### Context Handler - In production
+### Context Handler - i produksjon
 
-Responsible for enriching the decision request so authorization correctly can be evaluated. [Read more](/nb/authorization/reference/architecture/accesscontrol/contexthandler/)
+Har ansvar for å berike beslutningsforespørselen slik at autorisasjon kan evalueres korrekt. [Les mer](/nb/authorization/reference/architecture/accesscontrol/contexthandler/)
 
-### PIP - Policy information point - In production
+### PIP - Policy Information Point - i produksjon
 
-Responsible for providing information about the subject and the resource to the context handler.
+Har ansvar for å gi informasjon om subjektet og ressursen til konteksthandleren.
 
-### PEP - Policy Enforcement Point - In Pro
+### PEP - Policy Enforcement Point - i produksjon
 
-Responsible for enforcing the decision from PDP. PEP is the component that blocks a request or lets it through.
+Har ansvar for å håndheve beslutningen fra PDP. PEP er komponenten som blokkerer en forespørsel eller slipper den gjennom.
 
-[Read more](/nb/authorization/reference/architecture/accesscontrol/pep/)
+[Les mer](/nb/authorization/reference/architecture/accesscontrol/pep/)
 
-For a functional description see details in [application solution components](/nb/authorization/).
+For en funksjonell beskrivelse, se detaljer i [løsningskomponenter for applikasjoner](/nb/authorization/).
 
-## Construction diagram Authorization
+## Konstruksjonsdiagram Autorisasjon
 
-![Construction](authorizationbff.drawio.svg "Construction diagram Altinn authorization")
+![Arkitektur](authorizationbff.drawio.svg "Konstruksjonsdiagram Altinn Autorisasjon")
 
 {{<children />}}

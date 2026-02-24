@@ -7,7 +7,7 @@ toc: false
 
 ## Prerequisites
 
-You need to have access to resource administration for your organization. See [Getting started guide](/en/authorization/getting-started/resource-admin-studio/)
+You need to have access to resource administration for your organization. See [Getting started guide](/en/authorization/getting-started/resourceadministration/)
 
 ## Step 1 Create Resource
 
@@ -98,7 +98,8 @@ Define the action for the rule
 
 ### Subject
 
-Define the subject for the role. You can choose amongst ER roles, Altinn Roles, and Access Packages(todo)
+Define the subject for the role. You can choose amongst ER roles, Altinn Roles, and Access Packages
+Read more about access packages and roles [here](/en/authorization/what-do-you-get/accessgroups/).
 
 ![Create Resource](create_resource_13.png)
 

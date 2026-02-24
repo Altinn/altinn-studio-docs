@@ -17,14 +17,14 @@ It is important to reduce the risk of losing data on the platform. The risks tha
 
 In Altinn Platform different types of data is stored
 
-#### Cosmos DB
+## Cosmos DB
 
 - Instances: Metadata about instances created
 - InstanceEvents
 - DataElements
 - Applications
 
-#### Blob Storage
+## Blob Storage
 
 - Data for data elements (structured and unstructured data, small to potential gigabytes of data)
 - XACML Policy for applications

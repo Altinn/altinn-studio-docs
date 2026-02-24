@@ -5,25 +5,32 @@ description: API for leverandøren for å hente systeminformasjon fra systemregi
 toc: false
 weight: 3
 ---
+
 ## Hent System
+
 Henter et system ved system-ID.
 
 ### Endepunkt
+
 GET authentication/api/v1/systemregister/vendor/{systemId}
 
 ### Scopes
+
 Maskinporten-token med scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
+
 application/json
 
-## Argumenter
+### Argumenter
 
 #### systemId
-ID-en skal være i formatet {systemleverandørorgnr}_{navn valgt av leverandøren}. For eksempel '310547891_testprodukt'. Dette er en unik ID for å identifisere systemet.
 
-## Eksempel på responsmodell
-```
+ID-en skal være i formatet {systemleverandørorgnr}\_{navn valgt av leverandøren}. For eksempel '310547891_testprodukt'. Dette er en unik ID for å identifisere systemet.
+
+### Eksempel på responsmodell
+
+```json
 {
     "id": "312605031_b217b2f5-362f-4aa2-b919-ceaeaf9f15a1",
     "vendor": {
@@ -44,11 +51,15 @@ ID-en skal være i formatet {systemleverandørorgnr}_{navn valgt av leverandøre
             "resource": [
                 {
                     "id": "urn:altinn:resource",
-                    "value": "authentication-e2e-test"
-                },
+                    "value": "app_ttd_endring-av-navn-v2"
+                }
+            ]
+        },
+        {
+            "resource": [
                 {
                     "id": "urn:altinn:resource",
-                    "value": "authentication-e2e-test"
+                    "value": "ske-krav-og-betalinger"
                 }
             ]
         }
@@ -65,66 +76,88 @@ ID-en skal være i formatet {systemleverandørorgnr}_{navn valgt av leverandøre
 }
 ```
 
-## Hent rettigheter for et system
-Hent rettighetene som er definert for et system. Dette er et åpent API.
+## Hent endringslogg for et system
+Henter liste over endringer til et system
 
 ### Endepunkt
-GET authentication/api/v1/systemregister/vendor/{systemId}/rights
+
+GET authentication/api/v1/systemregister/vendor/{systemId}/changelog
 
 ### Scopes
-Ingen autentisering kreves.
+
+Maskinporten-token med scope <mark>altinn:authentication/systemregister.write</mark>
 
 ### Content types
+
 application/json
 
-## Argumenter
+### Argumenter
 
 #### systemId
-ID-en skal være i formatet {systemleverandørorgnr}_{navn valgt av leverandøren}. For eksempel '310547891_testprodukt'. Dette er en unik ID for å identifisere systemet.
 
-## Eksempel på responsmodell
-```
+ID-en skal være i formatet {systemleverandørorgnr}\_{navn valgt av leverandøren}. For eksempel '310547891_testprodukt'. Dette er en unik ID for å identifisere systemet.
+
+### Eksempel på responsmodell
+
+```json
 [
     {
-        "resource": [
-            {
-                "id": "urn:altinn:resource",
-                "value": "authentication-e2e-test"
-            },
-            {
-                "id": "urn:altinn:resource",
-                "value": "authentication-e2e-test"
-            }
-        ]
-    }
-]
-```
-
-## Hent tilgangspakker for et system
-Hent tilgangspakkene som er definert for et system. Dette er et åpent API.
-
-### Endepunkt
-GET authentication/api/v1/systemregister/{systemId}/accesspackages
-
-### Scopes
-Ingen autentisering kreves.
-
-### Content types
-application/json
-
-## Argumnenter
-
-#### systemId
-ID-en skal være i formatet {systemleverandørorgnr}_{navn valgt av leverandøren}. For eksempel '310547891_testprodukt'. Dette er en unik ID for å identifisere systemet.
-
-## Eksempel på responsmodell
-```
-[
-    {
-        "urn": "urn:altinn:accesspackage:revisormedarbeider"
+        "systemInternalId": "d66af1e2-afbd-482f-bb55-eb7c31fae385",
+        "changedByOrgNumber": "312605031",
+        "changeType": "delete",
+        "clientId": "89708189-bb7f-475b-b0ac-0219f3271318",
+        "created": "2025-12-09T07:04:20.246224+00:00"
     },
     {
-        "urn": "urn:altinn:accesspackage:ansvarlig-revisor"
+        "systemInternalId": "d66af1e2-afbd-482f-bb55-eb7c31fae385",
+        "changedByOrgNumber": "312605031",
+        "changeType": "create",
+        "changedData": {
+            "Id": "312605031_E2Etests-App3317e85f-31bd-46bb-9880-7a13a4ff50d4",
+            "Name": {
+                "en": "E2Etests-App3317e85f-31bd-46bb-9880-7a13a4ff50d4",
+                "nb": "E2Etests-App3317e85f-31bd-46bb-9880-7a13a4ff50d4",
+                "nn": "E2Etests-App3317e85f-31bd-46bb-9880-7a13a4ff50d4"
+            },
+            "Rights": [
+                {
+                    "Action": null,
+                    "Resource": [
+                        {
+                            "id": "urn:altinn:resource",
+                            "value": "app_ttd_endring-av-navn-v2"
+                        }
+                    ]
+                },
+                {
+                    "Action": null,
+                    "Resource": [
+                        {
+                            "id": "urn:altinn:resource",
+                            "value": "vegardtestressurs"
+                        }
+                    ]
+                }
+            ],
+            "Vendor": {
+                "ID": "0192:312605031"
+            },
+            "ClientId": [
+                "cd218b5f-6265-44e2-abc5-e181b0bc56a1"
+            ],
+            "IsVisible": false,
+            "Description": {
+                "en": "This is auto generated by an integration test. Some data is randomized, but some is not - like this description",
+                "nb": "Integrasjonstest. Noe er randomisert her, men mye blir likt.",
+                "nn": "integrasjonstest på nynorsk. Noe er randomisert her, men mye blir likt."
+            },
+            "AccessPackages": [],
+            "AllowedRedirectUrls": [
+                "https://altinn.no"
+            ]
+        },
+        "clientId": "89708189-bb7f-475b-b0ac-0219f3271318",
+        "created": "2025-12-09T07:04:19.203762+00:00"
     }
 ]
 ```

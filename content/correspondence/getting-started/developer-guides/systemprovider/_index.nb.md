@@ -9,7 +9,7 @@ weight: 20
 
 {{<children />}}
 
-Vi anbefaler systemleverandører å integrere seg mot Dialogportens APIer for å hente Altinn melding. Da vil man også få andre type brev (dialoger/transmissions) som ikke sendes med Altinn Melding APIer. Dette gjelder for eksempel brev fra Skatteetaten, Nav og andre avsendere. Skatteetaten har allerede tatt i bruk dialoger. (Disse brevene når man ikke dersom man integrerer seg kun mot Meldings APIer.)
+**Vi anbefaler systemleverandører å integrere seg mot Dialogportens APIer for å hente Altinn melding**. Da vil man også få andre type brev (dialoger/transmissions) som ikke sendes med Altinn Melding APIer. Dette gjelder for eksempel brev fra Skatteetaten, Nav og andre avsendere. Skatteetaten har allerede tatt i bruk dialoger. (Disse brevene når man ikke dersom man integrerer seg kun mot Meldings APIer.)
 
 
 {{% expandlarge id="onboarding-process" header="Onboarding prosess" %}}
@@ -29,6 +29,17 @@ Se hvilke tjenester du kan sette opp integrasjon mot [her](https://samarbeid.dig
 For å kunne autentisere og sikre at du kan utføre operasjoner via meldings-APIet, må Altinn gi deg tilgang på de scopes du trenger. Dette sikrer at kun autoriserte klienter kan sende og motta filer, og opprettholder dermed sikkerheten i tjenesten. 
 - Oversikt over aktuelle scopes finner du [her](https://samarbeid.digdir.no/altinn/scopeoversikt-produkt-og-funksjonsomrade/3017).
 - For å få tilgang til scopes, send en forespørsel til: [servicedesk@altinn.no](mailto:servicedesk@altinn.no). Forespørselen må inneholde de scopes du trenger for ditt system.
+{{% /expandlarge %}}
+
+{{% expandlarge id="test-end-user-system" header="Test sluttbrukersystem" %}}
+
+Bare tjenesteeiere har tilgang til å sende meldinger med Correspondence API-et.
+For å teste sluttbrukersystemet kan du sende en forespørsel til [servicedesk@altinn.no](mailto:servicedesk@altinn.no) og spørre om de kan sende meldinger til en bestemt mottaker i testmiljøet.
+I forespørselen bør du oppgi hvilken mottaker servicedesk skal sende testmeldinger til, hvor mange testmeldinger og eventuelle føringer til meldingsinnholdet.
+
+Meldinger sendt til testmiljøet kan leses på [af.tt02.altinn.no](https://af.tt02.altinn.no/).
+
+Testmottakere kan hentes hos [Tenor testdata](https://www.skatteetaten.no/testdata/).
 {{% /expandlarge %}}
 
 ### Kontakt oss:

@@ -1,15 +1,15 @@
 ---
-title: OrganizationLookup
-linktitle: OrganizationLookup
-description: The OrganizationLookup component lets you look up an organization within The Central Coordinating Register for Legal Entities by its organization number.
-schemaname: OrganizationLookup
+title: OrganisationLookup
+linktitle: OrganisationLookup
+description: The OrganisationLookup component lets you look up an organization within The Central Coordinating Register for Legal Entities by its organization number.
+schemaname: OrganisationLookup
 weight: 10
 toc: true
 ---
 
 ## Usage
 
-The `OrganizationLookup` component takes an organization number as input, verifies that the organization exists, and stores the 
+The `OrganisationLookup` component takes an organization number as input, verifies that the organization exists, and stores the 
 organization number and organization name with a data model binding.
 
 ## Anatomy

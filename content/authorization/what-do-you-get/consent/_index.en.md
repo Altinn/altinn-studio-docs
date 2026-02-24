@@ -1,7 +1,7 @@
 ---
 title: Consent
 description: The Altinn consent functionality is a technical solution for sharing data from a service owner to a data consumer based on the consent of the individual or organisation the information concerns.
-tags: [platform, register]
+weight: 7
 ---
 
 ![Consent](samtykke_overordnet.png)

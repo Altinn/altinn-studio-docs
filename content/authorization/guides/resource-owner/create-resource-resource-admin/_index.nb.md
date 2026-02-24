@@ -9,7 +9,7 @@ I Altinn Studio Resource admin kan du opprette ressurser som skal brukes som gru
 
 ## Forutsetninger
 
-Du må ha tilgang til ressursadministrasjon for organisasjonen din. Se [Kom i gang-veiledningen](/nb/authorization/getting-started/resource-admin-studio/)
+Du må ha tilgang til ressursadministrasjon for organisasjonen din. Se [Kom i gang-veiledningen](/nb/authorization/getting-started/resourceadministration/).
 
 ## Trinn 1 Opprett ressurs
 
@@ -100,7 +100,8 @@ Definer handlingen for regelen
 
 ### Emne
 
-Definer emnet for rollen. Du kan velge mellom ER-roller, Altinn-roller og tilgangspakker (todo)
+Definer emnet for rollen. Du kan velge mellom ER-roller, Altinn-roller og tilgangspakker.  
+Les mer om tilgangspakker og roller [her](/nb/authorization/what-do-you-get/accessgroups/).
 
 ![Create Resource](create_resource_13.png)
 

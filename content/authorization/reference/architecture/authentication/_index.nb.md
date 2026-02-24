@@ -1,25 +1,25 @@
 ---
-title: Application construction components - Altinn Platform Authentication
+title: Komponentarkitektur - Autentisering
 linktitle: Autentisering
-description: The authentication component in Altinn platform is constructed as an asp.net core web API application deployed as a docker container to a Kubernetes cluster.
+description: Autentiseringskomponenten i Altinn-plattformen er en ASP.NET Core web-API-applikasjon som driftes som en Docker-kontainer i en Kubernetes-klynge.
 tags: [architecture, solution]
 aliases:
   - /authentication/architecture/
 ---
 
-The application runs on port 5040.
-See full details in [dockerfile](https://github.com/Altinn/altinn-authentication/blob/main/Dockerfile)
+Applikasjonen kjører på port 5040.  
+Se detaljer i [Dockerfile](https://github.com/Altinn/altinn-authentication/blob/main/Dockerfile).
 
-## Api Controllers
+## API-kontrollere
 
-- [Authentication](https://github.com/Altinn/altinn-authentication/blob/main/src/Authentication/Controllers/AuthenticationController.cs) : Functionality to convert the different ID-tokens from ID providers
-- [OpenID](https://github.com/Altinn/altinn-authentication/blob/main/src/Authentication/Controllers/OpenIdController.cs) : Contains well known endpoint
-- [Logout](https://github.com/Altinn/altinn-authentication/blob/main/src/Authentication/Controllers/LogoutController.cs) : Logout
+- [Authentication](https://github.com/Altinn/altinn-authentication/blob/main/src/Authentication/Controllers/AuthenticationController.cs): Konverterer ulike ID-token fra identitetsleverandører
+- [OpenID](https://github.com/Altinn/altinn-authentication/blob/main/src/Authentication/Controllers/OpenIdController.cs): Inneholder well-known-endepunkt
+- [Logout](https://github.com/Altinn/altinn-authentication/blob/main/src/Authentication/Controllers/LogoutController.cs): Utlogging
 - [Introspection](https://github.com/Altinn/altinn-authentication/blob/main/src/Authentication/Controllers/IntrospectionController.cs)
 
 ## Dependencies
 
-Authentication component take use of libraries for OpenID connect to create and validate JWT tokens.
+Autentiseringskomponenten bruker biblioteker for OpenID Connect til å opprette og validere JWT-token.
 
-See full list of dependencies in
-[csproj](https://github.com/Altinn/altinn-authentication/blob/main/src/Authentication/Altinn.Platform.Authentication.csproj).
+Se komplett liste over avhengigheter i
+[csproj-filen](https://github.com/Altinn/altinn-authentication/blob/main/src/Authentication/Altinn.Platform.Authentication.csproj).

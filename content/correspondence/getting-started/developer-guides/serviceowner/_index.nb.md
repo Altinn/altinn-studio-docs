@@ -12,7 +12,7 @@ weight: 10
 {{% expandlarge id="get-started-as-service-owner-in-altinn" header="1. Registrer deg som tjenesteeier hos Altinn" %}}
 
 For å sette opp en meldingstjeneste i Altinn Melding, må virksomheten din være registrert som en tjenesteeier hos Altinn. Se hvordan du går frem her:
-[Kom i gang med Altinn](https://www.altinndigital.no/kom-i-gang/guide-kom-i-gang-med-altinn/).
+[Kom i gang med Altinn](https://samarbeid.digdir.no/altinn/bli-tjenesteeier-i-altinn/2819/).
 
 Dette steget er kun nødvendig for nye virksomheter som ikke er etablert som en tjenesteeier i Altinn.
 {{% /expandlarge %}}
@@ -30,7 +30,7 @@ Se [Opprette bruker i Altinn Studio](https://docs.altinn.studio/nb/altinn-studio
 For å kunne sende meldinger via Altinn Melding, må meldingen være tilknyttet en ressurs. Ressurser registreres via Altinn Studio og brukes til å definere tilgangsregler og tilgangslister, dette sikrer at bare autoriserte brukere kan utføre bestemte handlinger.
 Man aktiverer ressursadministrasjonen ved å opprette et spesifikt repo (repository) og en ressursgruppe for organisasjonen din. (Har du allerede aktivert ressursadministrasjon kan du gå til steg 4.)
 
-Se [Ressursadministrasjon](https://docs.altinn.studio/nb/authorization/getting-started/resource-admin-studio/#opprett-ressursadministrasjonsarkivet-for-organisasjonen) for en detaljert veiledning.
+Se [Ressursadministrasjon](https://docs.altinn.studio/nb/authorization/getting-started/resourceadministration/) for en detaljert veiledning.
 {{% /expandlarge %}}
 
 {{% expandlarge id="registeraresourceinaltinnresourceregistry" header="4. Opprett en ressurs" %}}
@@ -38,31 +38,26 @@ Se [Ressursadministrasjon](https://docs.altinn.studio/nb/authorization/getting-s
 1. Logg inn på Altinn Studio og naviger til ressursdashboardet.
 
       *Obs. I forbindelse med Altinns migrering av eksisterende meldinger, opprettes det nye ressurser i deres (tjenesteeiers) ressursdashboard. Disse meldingsressursene er altså kun til bruk for Altinn II meldinger og skal ikke benyttes for nye utsendelser. Ressursene kjennes igjen ved at de inneholder "migratedcorrespondence" i ressurs-id. Se [Overgangsløsning](https://docs.altinn.studio/nb/correspondence/transition/) for mer informasjon.*
-2. Opprett ny ressurs, følg veiledningen og fyll inn nødvendig informasjon og detaljer om tjenesten. Se [Ressursregister](https://docs.altinn.studio/nb/authorization/guides/resource-owner/create-resource-resource-admin/#trinn-1-opprett-ressurs) for en detaljert veiledning.
+2. Opprett ny meldingsressurs. Følg veiledningen og fyll inn nødvendig informasjon og detaljer om tjenesten. 
+   - *Ressurs-ID* skal bestå av tjenesteeierkode etterfulgt av en beskrivelse av tjenesten, for eksempel: «digdir-dokumentbestilling». Ressurs-ID kan ikke endres senere. Vær oppmerksom på at samme ressurs brukes både i test- og produksjonsmiljø, og gi den et korrekt og gjennomtenkt navn fra start. 
+   - *Navn på tjenesten* er det sluttbrukeren ser. Velg et tydelig og beskrivende navn, slik at det er lett å forstå hvilken type melding dette er. Feks. "Post fra det offentlige via eFormidling" eller "Meldingstjeneste for Regnskapsregisteret".
+   - Se [Ressursregister](https://docs.altinn.studio/nb/authorization/guides/resource-owner/create-resource-resource-admin/#trinn-1-opprett-ressurs) for en detaljert veiledning.
 3. Opprett policy: her angis tilgangsregler for ressursen. Tilgangsregler for ressursen må konfigureres slik at de tillater følgende handlinger:
    - "read" ment for at mottakere skal kunne åpne og lese en melding.
    - "write" ment for at avsendere skal kunne sende en melding.
    - "subscribe" for å registrere hendelsesabonnement i Altinn Events.
-4. Altinn II rollene erstattes av tilgangspakker i Altinn 3. Frem til juni 2026 anbefaler vi at man setter både roller og tilgangspakker på ressursen. Det er viktig å ta en grundig vurdering på hvilken tilgangspakke ressursen skal ha. 
+4. Altinn II rollene erstattes av tilgangspakker i Altinn 3. Frem til juni 2026 anbefaler vi at man setter både roller og tilgangspakker på ressursen. Det er viktig å ta en grundig vurdering på hvilken tilgangspakke ressursen skal ha. Her finner du oversikt over [fullmaktsområder og tilgangspakker](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/).
    - **Vanlig post:** Den gamle Altinn II rollen "Post/arkiv" erstattes av tilgangspakken "Ordinær post til virksomheten".
-   - **Taushetsbelagt post:** Dersom ressursen skal være taushetsbelagt må dere: 
-      - velge tilgangspakken "Post til virksomheten med taushetsbelagt innhold"
+   - **Taushetsbelagt post:** Dersom ressursen skal være taushetsbelagt må du: 
+      - velge tilgangspakken "Post til virksomheten med taushetsbelagt innhold".
       - sende med flagget "IsConfidential" satt til: "true".
 
          Les mer om taushetsbelagt post [her](https://docs.altinn.studio/nb/correspondence/explanation/taushetsbelagt-post/).
-
-**Eksempelpolicy:**
-
-Merk at denne eksempelpolicyen angir en påkrevd brukerrolle "DAGL(daglig leder)" for brukeren som har tilgang til ressursen. Med en så åpen policy er det anbefalt å bruke [Ressursrettighetsregister](https://docs.altinn.studio/nb/authorization/what-do-you-get/resourceregistry/) (gå til engelsk språk for å se dokumentasjon for RRR) for å gi tilgang til spesifikke organisasjoner.
-En bruker med denne tilgangen kan deretter delegere tilgangen til virksomhetsbruker/systembruker.
 
 {{% notice warning  %}}
 **Viktig**: Som tjenesteeier trenger du kun å sette opp "read"-regler via tilgangspakker i GUI-et.
 {{% /notice %}}
 
-Her er [eksempelpolicyen](https://docs.altinn.studio/nb/correspondence/getting-started/ExamplePolicy.xml).
-
-**TIPS**: Verifiser konfigurasjonene dine ved hjelp av [Postman-samlingen](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json), og erstatt testtokenene med enten dine egne Altinn-tokens (se "Logg inn i Maskinporten (Initialiser)" forespørsel i Authenticator-mappen) eller dine Maskinporten-tokens, avhengig av hva du velger for autentiseringsmetode.
 {{% /expandlarge %}}
 
 {{% expandlarge id="get-access-to-scopes" header="5. Tilgang til scopes" %}}
@@ -124,7 +119,7 @@ Vi ønsker bidrag til løsningen velkommen.
 
 Se [Readme-filen på GitHub](https://github.com/Altinn/altinn-correspondence/blob/main/README.md) for en introduksjon til Altinn 3 Melding, og kan kjøre koden lokalt sammen med Docker.
 
-Repoet inneholder også en [Postman-samling](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json) med eksempler.
+Repoet inneholder også en [Bruno-pakke](https://github.com/Altinn/altinn-correspondence/blob/main/.bruno/collection.bru) med eksempler.
 
 Swagger for meldings-APIet finner du [her](/nb/api/correspondence/spec/).
 {{% /expandlarge %}}
@@ -133,9 +128,9 @@ Swagger for meldings-APIet finner du [her](/nb/api/correspondence/spec/).
 
 Før produksjonssetting bør du verifisere at meldinger vises riktig for mottakere.
 
-1. Send en testmelding til en testmottaker via ønsket verktøy (Postman, SDK eller din integrasjon).
+1. Send en testmelding til en testmottaker via ønsket verktøy (Bruno, SDK eller din integrasjon).
 2. Verifiser i Arbeidsflate:
-   - Logg inn som testmottaker på [af.tt.altinn.no](https://af.tt.altinn.no/).
+   - Logg inn som testmottaker på [af.tt02.altinn.no](https://af.tt02.altinn.no/).
    - Sjekk at innholdet i testmeldingen er formatert som tiltenkt.
 3. Verifiser i Altinn 2-innboks:
    - Logg inn som testmottaker på [info.tt02.altinn.no](https://info.tt02.altinn.no/).

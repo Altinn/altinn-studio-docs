@@ -1,32 +1,32 @@
 ---
-title: Application construction components - Altinn Resource Registry
+title: Komponentarkitektur - Ressursregister
 linktitle: Ressursregister
-description: The Resource Registry component in Altinn platform is constructed as an asp.net core 6 web API application deployed as a docker container to a Kubernetes cluster.
+description: Ressursregisteret i Altinn-plattformen er en ASP.NET Core 6 web-API-applikasjon som driftes som en Docker-kontainer i en Kubernetes-klynge.
 tags: [architecture, solution]
 toc: false
 ---
 
-Also see [solution components](/nb/authorization/what-do-you-get/resourceregistry/) for details about functionality.
+Se også [løsningskomponenter](/nb/authorization/what-do-you-get/resourceadministration/) for funksjonell beskrivelse.
 
 ![Resource Registry](resourceregistry.drawio.svg "Construction Components Altinn Resource Registry")
 
 ## API
 
-The following API is available in component
+Komponenten eksponerer følgende API-er:
 
 - [ResourceRegistryAPI](https://github.com/Altinn/altinn-resource-registry/blob/main/src/ResourceRegistry/Controllers/ResourceController.cs)
 - [ExportAPI](https://github.com/Altinn/altinn-resource-registry/blob/main/src/ResourceRegistry/Controllers/ExportController.cs)
 
 ## Repository
 
-The resources is stored as JSOM in a PostgreSQL database.
+Ressursene lagres som JSON i en PostgreSQL-database.
 
 - [Table Setup](https://github.com/Altinn/altinn-resource-registry/blob/main/src/ResourceRegistry/Migration/v0.00-resource-registry/01-setup-tables.sql)
 
-The policies are stored as XML documents in Azure Blob storage
+Policyer lagres som XML-dokumenter i Azure Blob Storage.
 
 ## Build & Deploy
 
-- Build and Code analysis are done by an [Github action](https://github.com/Altinn/altinn-resource-registry/actions)
-- Build of image is done in [Azure Devops](https://dev.azure.com/brreg/altinn-studio/_build?definitionId=385)
-- Deploy of Image is done in [Azure Devops](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=all&definitionId=36)
+- Bygg og kodeanalyse kjøres av en [GitHub Action](https://github.com/Altinn/altinn-resource-registry/actions)
+- Container-image bygges i [Azure DevOps](https://dev.azure.com/brreg/altinn-studio/_build?definitionId=385)
+- Deploy av imaget gjøres i [Azure DevOps](https://dev.azure.com/brreg/altinn-studio/_release?_a=releases&view=all&definitionId=36)

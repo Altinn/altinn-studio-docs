@@ -11,8 +11,8 @@ weight: 10
 
 {{% expandlarge id="get-started-as-service-owner-in-altinn" header="1. Get started as service owner in Altinn" %}}
 
-To get started with Altinn Correspondence, your enterprise must be registered as a service owner in Altinn. For a step-by-step guide see:
-[Get started with Altinn guide (Norwegian language only)](https://www.altinndigital.no/kom-i-gang/guide-kom-i-gang-med-altinn/).
+To get started with Altinn Correspondence, your enterprise must be registered as a service owner in Altinn. For a guide see:
+[Get started with Altinn guide (Norwegian language only)](https://samarbeid.digdir.no/altinn/bli-tjenesteeier-i-altinn/2819).
 
 This step is only necessary for new enterprises that have not yet established themselves as service owners on the Altinn platform. As an existing service owner, you can proceed directly with the next steps to start using Altinn Correspondence.
 {{% /expandlarge %}}
@@ -29,7 +29,7 @@ See [Create a User in Altinn Studio](https://docs.altinn.studio/en/altinn-studio
 To send messages via Altinn Melding, the message must be linked to a resource. Resources are registered through Altinn Studio and are used to define access rules and access lists, ensuring that only authorized users can perform specific actions.
 You activate the resource management system by creating a specific repository and a resource group for your organization. (You can skip this step if you have activated the resource management system.)
 
-See [Resource Management](https://docs.altinn.studio/authorization/getting-started/resource-admin-studio/#create-the-resource-admin-repository-for-the-organization) for a detailed guide.
+See [Resource Management](https://docs.altinn.studio/en/authorization/getting-started/resourceadministration/) for a detailed guide.
 {{% /expandlarge %}}
 
 {{% expandlarge id="registeraresourceinaltinnresourceregistry" header="4. Create a Resource" %}}
@@ -37,31 +37,25 @@ See [Resource Management](https://docs.altinn.studio/authorization/getting-start
 1. Log in to Altinn Studio and navigate to the resource dashboard.
    
    *Note: As part of Altinn's migration of existing messages, new resources are being created in your (service owner) resource dashboard. These message resources are intended only for use for Altinn II messages and must not be used for new correspondences. They can be identified by the inclusion of "migratedcorrespondence" in the resource ID. See [Transition Solution](https://docs.altinn.studio/en/correspondence/transition/) for more information.*
-2. Create a new resource, follow the guide, and fill in the necessary information and details about the service. See [Resource Registry](https://docs.altinn.studio/authorization/guides/resource-owner/create-resource-resource-admin/#step-1-create-resource) for a detailed instruction.
+2. Create a new correspondence resource (meldingsressurs).  Follow the guide, and fill in the necessary information and details about the service. 
+   - *Resource-ID* must consist of the service owner code followed by a description of the service, for example: «digdir-dokumentbestilling». The Resource-ID cannot be changed later. Note that the same resource is used in both test and production environments, so make sure to choose a correct and well-considered name from the start. 
+   - *Service name* is what the end user sees. Choose a clear and descriptive name so it is easy to understand what type of message this is, for example: "Post from the public sector via eFormidling" or "Correspondence services for the Register of Company Accounts".
+   - See [Resource Registry](https://docs.altinn.studio/authorization/guides/resource-owner/create-resource-resource-admin/#step-1-create-resource) for a detailed instruction.
 3. Set policy rules for the resource. Your policy must be configured in such a way that they permit the actions:
    - "read" meant for recipients to open and read a message.
    - "write" meant for senders to send a message.
    - "subscribe" to register event subscriptions in Altinn Events.
-4. The roles in Altinn II will be replaced by access packages in Altinn 3. We recommend all our service owners use both roles and access packages until June 2026. It's important to thoroughly assess which access package to assign to each resource. 
+4. The roles in Altinn II will be replaced by access packages in Altinn 3. We recommend all our service owners use both roles and access packages until June 2026. It's important to thoroughly assess which access package to assign to each resource. Here you will find information about [access packages](https://docs.altinn.studio/en/authorization/what-do-you-get/accessgroups/accessgroups/).
    - **Ordinary mail:** The Altinn II role "Mail/Archive" this is now replaced by the access package "Ordinær post til virksomheten".
    - **Confidential mail:** If the resource is to be confidential, you have to:
-      - select the access package "Post til virksomheten med taushetsbelagt innhold"
+      - select the access package "Post til virksomheten med taushetsbelagt innhold".
       - include the flag "IsConfidential" set to: "true".
 
          Read about confidential mail [here](https://docs.altinn.studio/en/correspondence/explanation/taushetsbelagt-post/).
 
-**Example policy:**
-
-Note that this example policy sets a required user role "DAGL" for the user who has access to the resource, and requires the use of [Resource Rights Registry](https://docs.altinn.studio/authorization/what-do-you-get/resourceregistry/rrr/) to grant access to specific organizations.
-A user with that access can then delegate the access to the enterprise user/system user.
-
 {{% notice warning  %}}
 **Important**: As a service owner, you only need to configure "read" rules via access packages in the GUI.
 {{% /notice %}}
-
-Here is the [example policy](https://docs.altinn.studio/correspondence/getting-started/ExamplePolicy.xml).
-
-**TIP**: Verify your configurations using the [Postman collection](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json), substituting the test tokens with either your own Altinn tokens (see "Login to Maskinporten (Initialize)" request in Authenticator folder) or your Maskinporten tokens, depending on what you are choosing for authentication method.
 {{% /expandlarge %}}
 
 {{% expandlarge id="get-access-to-scopes" header="5. Access to scopes" %}}
@@ -125,7 +119,7 @@ We also welcome contributions to the solution.
 
 See the [readme file on GitHub](https://github.com/Altinn/altinn-correspondence/blob/main/README.md) for an introduction to Altinn 3 Correspondence, and how to build and run it in your dev environment.
 
-The Repo also contains a [Postman collection](https://github.com/Altinn/altinn-correspondence/blob/main/altinn-correspondence-postman-collection.json) with examples.
+The Repo also contains a [Bruno-collection](https://github.com/Altinn/altinn-correspondence/blob/main/.bruno/collection.bru) with examples.
 
 Swagger for the correspondence API is hosted [here](https://docs.altinn.studio/api/correspondence/spec/).
 {{% /expandlarge %}}
@@ -134,9 +128,9 @@ Swagger for the correspondence API is hosted [here](https://docs.altinn.studio/a
 
 Before going live, verify that correspondences render as intended for recipients.
 
-1. Send a test correspondence to a test recipient using your preferred tool (Postman, SDK, or your integration).
+1. Send a test correspondence to a test recipient using your preferred tool (Bruno, SDK, or your integration).
 2. Verify in Arbeidsflate:
-   - Log in with the test recipient in [af.tt.altinn.no](https://af.tt.altinn.no/).
+   - Log in with the test recipient in [af.tt02.altinn.no](https://af.tt02.altinn.no/).
    - Check that the test correspondence content is formatted as intended.
 3. Verify in Altinn 2 inbox:
    - Log in with the test recipient in [info.tt02.altinn.no](https://info.tt02.altinn.no/).

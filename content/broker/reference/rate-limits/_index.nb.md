@@ -11,7 +11,7 @@ weight: 40
 
 Vi har innført følgende grenseverdier for å balansere ressursbruken per part og unngå overbelastning av infrastrukturen. Bruk av hendelser/webhooks i løsningen din bør eliminere behovet for polling av mange av disse operasjonene.
 
-Hastighetsbegrensning av API-forespørsler gjelder per abonnementnøkkel (Ocp-Apim-Subscription-Key). Kontakt oss for mer kapasitet.
+Hastighetsbegrensning av API-forespørsler gjelder per Maskinporten-integrasjon. Kontakt oss for mer kapasitet.
 
 - `POST /broker/api/v1/filetransfer`
   - Beskrivelse: Initialiser en filoverføring

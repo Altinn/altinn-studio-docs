@@ -2,6 +2,7 @@
     {
         "id": "bst_krav",
         "version": 1,
+        "isActive": false,
         "title": "Brukerstyrt tilgang til kravoversikt",
         "isPoa": false,
         "isMessageSetInRequest": true,
@@ -92,8 +93,102 @@
         }
     },
     {
+        "id": "bst_krav_v2",
+        "version": 1,
+        "isActive": true,
+        "title": "Brukerstyrt tilgang til kravoversikt",
+        "isPoa": false,
+        "isMessageSetInRequest": true,
+        "restrictedToServiceOwners": [
+            "skd",
+            "ttd"
+        ],
+        "texts": {
+            "title": {
+                "person": {
+                    "nb": "Godkjenne deling med banken",
+                    "nn": "Godkjenne deling med banken",
+                    "en": "Consent to share information with the bank"
+                },
+                "org": {
+                    "nb": "Godkjenne deling med banken",
+                    "nn": "Godkjenne deling med banken",
+                    "en": "Consent to share information with the bank"
+                }
+            },
+            "heading": {
+                "person": {
+                    "nb": "{CoveredBy} ønsker å hente opplysninger om deg",
+                    "nn": "{CoveredBy} ønskjer å hente opplysningar om deg",
+                    "en": "{CoveredBy} wishes to collect your information"
+                },
+                "org": {
+                    "nb": "{CoveredBy} ønsker å hente opplysninger om {OfferedBy}",
+                    "nn": "{CoveredBy} ønskjer å hente opplysningar om {OfferedBy}",
+                    "en": "{CoveredBy} wishes to collect information about {OfferedBy}"
+                }
+            },
+            "serviceIntro": {
+                "person": {
+                    "nb": "Skatteetaten har utviklet en løsning for å dele informasjon med banker. Det betyr at din virksomhet kan se opplysninger fra Skatteetaten i bankens kundeflater. {CoveredBy} er en av disse bankene. For å se informasjonen i bankens kundeflater, må du godkjenne at Skatteetaten gir virksomhetens bankforbindelse tilgang til disse opplysningene. Denne godkjenningen har en varighet på 1 år. Godkjennelsen kan når som helst trekkes tilbake i Altinn.",
+                    "nn": "Skatteetaten har utvikla ei løysing for å dele informasjon med bankar. Det betyr at verksemda di kan sjå opplysningar frå Skatteetaten i banken sine kundeflater. {CoveredBy} er ein av desse bankane. For å sjå informasjonen i banken sine kundeflater, må du godkjenne at Skatteetaten gir verksemda sin bank tilgang til desse opplysningane. Denne godkjenninga er gyldig i eitt år. Godkjenninga kan når som helst trekkjast tilbake i Altinn.",
+                    "en": "The Tax Administration has developed a solution for sharing information with banks. This means that your business can see information from the Tax Administration in the bank’s customer interfaces. {CoveredBy} is one of these banks. To see the information in the bank’s customer interfaces, you must consent to the Tax Administration granting your bank access to this information. This consent is valid for one year. You can withdraw this consent at any time via Altinn."
+                },
+                "org": {
+                    "nb": "Skatteetaten har utviklet en løsning for å dele informasjon med banker. Det betyr at din virksomhet kan se opplysninger fra Skatteetaten i bankens kundeflater. {CoveredBy} er en av disse bankene. For å se informasjonen i bankens kundeflater, må du godkjenne at Skatteetaten gir virksomhetens bankforbindelse tilgang til disse opplysningene. Denne godkjenningen har en varighet på 1 år. Godkjennelsen kan når som helst trekkes tilbake i Altinn.",
+                    "nn": "Skatteetaten har utvikla ei løysing for å dele informasjon med bankar. Det betyr at verksemda di kan sjå opplysningar frå Skatteetaten i banken sine kundeflater. {CoveredBy} er ein av desse bankane. For å sjå informasjonen i banken sine kundeflater, må du godkjenne at Skatteetaten gir verksemda sin bank tilgang til desse opplysningane. Denne godkjenninga er gyldig i eitt år. Godkjenninga kan når som helst trekkjast tilbake i Altinn.",
+                    "en": "The Tax Administration has developed a solution for sharing information with banks. This means that your business can see information from the Tax Administration in the bank’s customer interfaces. {CoveredBy} is one of these banks. To see the information in the bank’s customer interfaces, you must consent to the Tax Administration granting your bank access to this information. This consent is valid for one year. You can withdraw this consent at any time via Altinn."
+                }
+            },
+            "overriddenDelegationContext": null,
+            "expiration": {
+                "nb": "Samtykket er tidsbegrenset og vil gå ut {Expiration}",
+                "nn": "Samtykket er tidsavgrensa og vil gå ut {Expiration}",
+                "en": "The consent is for a limited period and expires {Expiration}"
+            },
+            "expirationOneTime": {
+                "nb": "Samtykket gjelder én gangs utlevering av opplysningene.",
+                "nn": "Samtykket gjeld ein gongs utlevering av opplysningane.",
+                "en": "The consent applies for one-time disclosure of information."
+            },
+            "handledBy": {
+                "nb": "{HandledBy} foretar dette oppslaget på vegne av {CoveredBy}.",
+                "nn": "{HandledBy} gjer dette oppslaget på vegne av {CoveredBy}.",
+                "en": "{HandledBy} performs the lookup on behalf of {CoveredBy}."
+            },
+            "titleAccepted": {
+                "nb": "Samtykke gitt til {CoveredBy}",
+                "nn": "Samtykke gitt til {CoveredBy}",
+                "en": "Consent given to {CoveredBy}"
+            },
+            "serviceIntroAccepted": {
+                "person": {
+                    "nb": "Samtykket gir {CoveredBy} tilgang til følgende opplysninger om deg",
+                    "nn": "Samtykket gir {CoveredBy} tilgang til følgjande opplysningar om deg",
+                    "en": "The consent gives {CoveredBy} access to the following information about you"
+                },
+                "org": {
+                    "nb": "Samtykket gir {CoveredBy} tilgang til følgende opplysninger om {OfferedBy}",
+                    "nn": "Samtykket gir {CoveredBy} tilgang til følgjande opplysningar om {OfferedBy}",
+                    "en": "The consent gives {CoveredBy} access to the following information about {OfferedBy}"
+                }
+            },
+            "historyUsedBody": {
+                "nb": "{CoveredBy} har hentet data for {OfferedBy}. Samtykket opphører {Expiration}",
+                "nn": "{CoveredBy} har henta data for {OfferedBy}. Samtykket opphøyrer {Expiration}",
+                "en": "{CoveredBy} has retrieved data for {OfferedBy}. The consent expires {Expiration}"
+            },
+            "historyUsedByHandledByBody": {
+                "nb": "{HandledBy} har, på vegne av {CoveredBy}, hentet data om {OfferedBy}. Samtykket opphører {Expiration}",
+                "nn": "{HandledBy} har, på vegne av {CoveredBy}, henta data om {OfferedBy}. Samtykket opphøyrer {Expiration}",
+                "en": "{HandledBy} has, on behalf of {CoveredBy}, retrieved data about {OfferedBy}. The consent expires {Expiration}"
+            }
+        }
+    },
+    {
         "id": "default",
         "version": 1,
+        "isActive": true,
         "title": "Samtykke til å dele data (standard)",
         "isPoa": false,
         "isMessageSetInRequest": true,
@@ -183,6 +278,7 @@
     {
         "id": "sblanesoknad",
         "version": 1,
+        "isActive": true,
         "title": "Samtykkebasert lånesøknad",
         "isPoa": false,
         "isMessageSetInRequest": false,
@@ -279,6 +375,7 @@
     {
         "id": "poa",
         "version": 1,
+        "isActive": true,
         "title": "Fullmakt til å utføre en tjeneste",
         "isPoa": true,
         "isMessageSetInRequest": true,
@@ -368,6 +465,7 @@
     {
         "id": "samtykkemal_simpleconsent",
         "version": 1,
+        "isActive": true,
         "title": "Enkelt samtykke (uten melding)",
         "isPoa": false,
         "isMessageSetInRequest": true,

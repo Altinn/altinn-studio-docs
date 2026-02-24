@@ -1,46 +1,45 @@
 ---
 title: JWTCookieAuthentication
 linktitle: JWT Cookie
-description: This is the description of JWTCookieAuthentication.
+description: Beskrivelse av JWTCookieAuthentication.
 tags: [architecture, security, needstranslation]
 toc: true
 ---
 
-JWTCookieAuthentication is an [ASP.NET Core authentication service](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/)
-created for supporting [JSON Web Tokens](https://jwt.io/) (JWT) as [bearer tokens](https://oauth.net/2/bearer-tokens/) and JWT in Cookies. It is based
-on [JWTBearer](https://github.com/aspnet/Security/tree/master/src/Microsoft.AspNetCore.Authentication.JwtBearer)
+JWTCookieAuthentication er en [ASP.NET Core-autentiseringstjeneste](https://docs.microsoft.com/en-us/aspnet/core/security/authentication/)
+laget for å støtte [JSON Web Tokens](https://jwt.io/) (JWT) både som [bearer-tokens](https://oauth.net/2/bearer-tokens/) og som JWT i informasjonskapsler. Løsningen bygger på
+[JWTBearer](https://github.com/aspnet/Security/tree/master/src/Microsoft.AspNetCore.Authentication.JwtBearer).
 
-This is created for scenarios where you have need for APIs that will be accessed from system using bearer tokens and from
-Single-page applications (SPA) where you want to protect the JWT from the SPA ([XSS attacks](<https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)>)). When the JWT is stored in an [HTTP-only cookie](https://www.owasp.org/index.php/HttpOnly) it is not accessible from the SPA and cannot be stolen by malicious JavaScript
-running in the browser.
+Tjenesten er laget for scenarier der API-er må være tilgjengelige både fra systemer som bruker bearer-token og fra
+enkelt-sides applikasjoner (SPA), hvor man ønsker å beskytte JWT mot tilgang fra selve SPA-en ([XSS-angrep](<https://www.owasp.org/index.php/Cross-site_Scripting_(XSS)>)). Når JWT lagres i en [HTTP-only-informasjonskapsel](https://www.owasp.org/index.php/HttpOnly), er den ikke tilgjengelig fra SPA-en og kan ikke stjeles av ondsinnet JavaScript i nettleseren.
 
-This is created as a [separate C# Project](https://github.com/Altinn/altinn-authentication/tree/main/src/jwtcookie/Authentication) and published as a
-NuGet package [here](https://www.nuget.org/packages/JWTCookieAuthentication/).
+Løsningen er laget som et [separat C#-prosjekt](https://github.com/Altinn/altinn-authentication/tree/main/src/jwtcookie/Authentication) og publisert som
+NuGet-pakken [JWTCookieAuthentication](https://www.nuget.org/packages/JWTCookieAuthentication/).
 
-## Features Consumer
+## Funksjoner for konsument
 
-- Support Verification of JWT Tokens as bearer tokens
-- Support Verification of JWT Tokens from cookie
-- Configurable cookie name
-- Automatic detection if request contains Authorization bearer token or JWT in cookie
-- Uses [Microsoft.IdentityModel.Tokens](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) for verification and generation.
-- Uses [OpenID connect](https://openid.net/connect/) well-known endpoint to retrieve the JSON Web Key (JWK) used to sign JWT from the [JSON Web Key Set](https://auth0.com/docs/jwks)
-- Support multiple OIDC providers configured.
-- Support rotating of JWK (TODO)
+- Støtte for verifisering av JWT som bearer-token
+- Støtte for verifisering av JWT fra informasjonskapsel
+- Konfigurerbart navn på informasjonskapselen
+- Automatisk deteksjon av om forespørselen inneholder Authorization-bearer eller JWT i informasjonskapsel
+- Bruker [Microsoft.IdentityModel.Tokens](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) til verifisering og generering
+- Bruker [OpenID Connect](https://openid.net/connect/) well-known-endepunkt for å hente JSON Web Key (JWK) fra [JSON Web Key Set](https://auth0.com/docs/jwks)
+- Støtte for flere konfigurerte OIDC-leverandører
+- Støtte for rotering av JWK (TODO)
 
-## Features ID Provider
+## Funksjoner for ID-leverandør
 
-- Support Generation of JWT Tokens as bearer tokens
-- Support Generation of JWT Tokens inside Cookies
-- Configurable cookie name
-- Configurable Signing Certificate
-- Uses standard JWT Library for verification and generation.
-- Uses OpenID connect well known endpoint to retrieve the JSON Web Key (JWK) used to sign JWT from the [JSON Web Key Set](https://auth0.com/docs/jwks)
-- Support rotating of JWK (TODO)
+- Støtte for generering av JWT som bearer-token
+- Støtte for generering av JWT i informasjonskapsler
+- Konfigurerbart navn på informasjonskapselen
+- Konfigurerbart signeringssertifikat
+- Bruker standard JWT-bibliotek for verifisering og generering
+- Bruker OpenID Connect well-known-endepunkt for å hente JSON Web Key (JWK) fra [JSON Web Key Set](https://auth0.com/docs/jwks)
+- Støtte for rotering av JWK (TODO)
 
-## How To Configure JWTCookieAuthentication
+## Konfigurering av JWTCookieAuthentication
 
-### Configuration for consumers
+### Konfigurasjon for konsumenter
 
 ```C#
 // Configure Authentication
@@ -66,9 +65,9 @@ services.AddAuthentication(JwtCookieDefaults.AuthenticationScheme)
     });
 ```
 
-### Configuration for the identity provider
+### Konfigurasjon for identitetsleverandør
 
-The below configuration is relevant for the Identity Provider application.
+Konfigurasjonen under er relevant for applikasjonen som fungerer som ID-leverandør.
 
 ```C#
 // Use [Authorize] to require login on MVC Controller Actions
@@ -80,9 +79,9 @@ services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     })
 ```
 
-## How to get access to user information
+## Hvordan hente brukerinformasjon
 
-When a application is configured with JWTCookie-authentication, the information is available in httpContext about the user.
+Når en applikasjon er konfigurert med JWTCookie-autentisering, er brukerinformasjonen tilgjengelig i `HttpContext`.
 
 ```C#
  public static int GetUserId(HttpContext context)

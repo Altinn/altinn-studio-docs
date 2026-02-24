@@ -6,42 +6,42 @@ toc: true
 ---
 ## Model
 
-#### id
+### id
 En unik identifikator generert av Altinn når systembrukeren blir opprettet.
 
-#### integrationtitle
+### integrationtitle
 Et brukervennlig navn som leverandøren oppgir ved oppretting av systembrukeren. Hvis det opprettes via portalen, blir det automatisk satt til systemnavnet.
 
-#### systemid
+### systemid
 Den unike identifikatoren for systemet.
 
-#### productname
+### productname
 Et brukervennlig navn gitt av leverandøren for systemet.
 
-#### systeminternalid
+### systeminternalid
 En unik identifikator for systemet, generert av Altinn når systemet blir opprettet.
 
-#### partyid
+### partyid
 Partyid for organisasjonen som eier systembrukeren.
 
-#### reporteeorgno
+### reporteeorgno
 Organisasjonsnummeret til organisasjonen som eier systembrukeren.
 
-#### created
+### created
 Datoen systembrukeren ble opprettet.
 
-#### isDeleted
+### isDeleted
 Indikerer om systembrukeren er slettet. True betyr at brukeren er slettet, og False betyr at brukeren ikke er slettet.
 
-#### suppliername
+### suppliername
 Navnet på systemleverandøren.
 
-#### supplierorgno
+### supplierorgno
 Organisasjonsnummeret til systemleverandøren.
 
-#### externalref
+### externalref
 Dette er en valgfri referanse satt av leverandøren for systembrukerforespørselen. Hvis den ikke er oppgitt, vil den automatisk settes til partyOrgNo. Hvis den er spesifisert, må denne verdien brukes i token-forespørselen til Maskinporten.
 
-#### usertype
+### usertype
 Indikerer typen systembruker. Standardbrukere er typiske systembrukere, mens agentbrukere brukes for klientdelegasjon.
 

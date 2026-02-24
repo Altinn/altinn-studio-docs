@@ -34,7 +34,7 @@ Denne metoden baserer seg på et "OG-forhold". Det innebærer at sluttbrukeren m
 
 ## Systembruker for eget system
 
-Dette alternativet passer dersom systemet skal brukes til å hente eller sende data for egen virksomhet. 
+Brukes når systemet skal brukes til å hente eller sende data for egen virksomhet. 
 ![Leverandørstyrt opprettelse av kundestyrt system](eget_system.png)
 *Figuren viser leverandørstyrt opprettelse for eget system*
 
@@ -52,6 +52,8 @@ Dette alternativet passer dersom systemet skal brukes til å hente eller sende d
 - Det er ikke nødvendig med delegeringer fra andre virksomheter.
 - Tilgangsstyringen er enkel og knyttet direkte til egen organisasjon.
 
+> Støtter tilgangspakker og enkeltrettigheter  
+> Tilgangspakkene må ha isAssignable=false og isDelegable=true  
 > Systembruker for eget system kan opprettes ved enten [**brukerstyrt eller leverandørstyrt opprettelse.**](https://docs.altinn.studio/nb/authorization/guides/system-vendor/system-user/systemuserrequest/#1-opprette-systembruker-for-eget-system) 
 
 
@@ -59,7 +61,7 @@ Dette alternativet passer dersom systemet skal brukes til å hente eller sende d
 
 (tidligere agent-systembruker)
 
-Dette alternativet passer dersom systemet ditt skal gjøre det mulig for sluttbrukere å rapportere for andre virksomheter – for eksempel kunder, klienter eller samarbeidspartnere.
+Brukes for system der sluttbruker rapporterer for andre virksomheter – for eksempel kunder, klienter eller samarbeidspartnere.
 
 Du kan få fullmakter for kunden på to måter:
 
@@ -79,6 +81,9 @@ Når tjenesteleverandøren har mottatt fullmakten, kan deres klientadministrator
 - Sluttbrukeren er regnskapsfører, konsulent eller tjenesteyter.
 - De logger inn i systemet og kan velge hvilken klient/virksomhet de skal rapportere for.
 - Systemet må støtte flere organisasjonsnumre og håndtere delegeringer via Altinn eller tilsvarende løsning.
+
+> Støtter kun tilgangspakker, <u>ikke</u> enkeltrettigheter  
+> Tilgangspakkene må ha isAssignable=true og isDelegable=true
 
 **Eksempel:** Et regnskapsbyrå som bruker et økonomisystem til å sende MVA-meldinger for sine kunder.
 

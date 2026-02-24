@@ -52,15 +52,6 @@ For detailed steps on how to create an ID-porten integration and utilizing the O
 
 System users are the new and preferred authentication method where an organization can create a "virtual user", delegate it service rights and associate it with a system - either self-owned or provided by a third-party. This is the successor of the "enterprise user (virksomhetsbruker)" in Altinn 2, and allows for a more secure and user friendly onboarding process for customers and end-users.
 
-The following general steps must be performed in order to access the end-user API as a system user:
-
-1. Log into Altinn, and choose to represent the organization in which you wish to create the system user.
-2. Navigate to profile settings, and the section "System Users"
-3. Create a new system user, and associate it either with a vendor supplied system, or opt to create your own Maskinporten integration
-4. Grant service rights to the system user
-5. Create a JWT grant identifying the system user and the `digdir:dialogporten` scope, as well as any additional scopes required for accessing content data (ie. `altinn:correspondence.read`), sign it and send it to the Maskinporten token end-point in order to get a access token.
-6. Perform requests to the [end-user API](/en/dialogporten/reference/openapi/) using the access token in a `Authorization: Bearer <token>` header.
-
 For detailed steps on how to create and utilize a system user, see the link below.
 
 **Read more**
@@ -75,11 +66,11 @@ Service owner systems must use Maskinporten-issued tokens, optionally exchanged 
 
 There are several scopes defining access to various parts of the service owner API:
 
-| Scope                                                | Grants access to                                                                                                                                                                                   |
-| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `digdir:dialogporten.serviceprovider`                | All service owner APIs, except the search/list API                                                                                                                                                 |
-| `digdir:dialogporten.serviceprovider.search`         | All service owner APIs, including the search/list API                                                                                                                                              |
-| `digdir:dialogporten.serviceprovider.correspondence` | Create and update dialogs referring a service resource of type `CorrespondenceService` in [Altinn Resource Registry](/en/authorization/what-do-you-get/resourceregistry/) (internal use only) |
+| Scope                                                | Grants access to                                                                                                                                                                                    |
+| ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `digdir:dialogporten.serviceprovider`                | All service owner APIs, except the search/list API                                                                                                                                                  |
+| `digdir:dialogporten.serviceprovider.search`         | All service owner APIs, including the search/list API                                                                                                                                               |
+| `digdir:dialogporten.serviceprovider.correspondence` | Create and update dialogs referring a service resource of type `CorrespondenceService` in [Altinn Resource Registry](/en/authorization/what-do-you-get/resourceadministration/) (internal use only) |
 
 Using these scopes requires the organization in the `consumer` claim of the to be registered as a service owner ("org") in Altinn. Failing that will cause any requests to fail.
 
@@ -104,4 +95,4 @@ The serviceprovider-scopes are delegable via Altinn API delegation. Service owne
 
 **Read more**
 
-- {{<link "../../../authorization/guides/end-user/create-apischeme-resource-admin/" title>}}
+[Creating and publishing resources in Altinn Studio](/en/authorization/guides/resource-owner/api-scheme/)

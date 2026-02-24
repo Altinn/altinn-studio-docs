@@ -65,3 +65,5 @@ If not, we recommend the following standard notification text:
 
 #### Upcoming functionality
 Altinn is considering a solution where a separate message (Correspondence) is sent as a reminder to those with the role or access package "Mail/Archive". This message will contain the same information as a notification – that the organization has an unopened confidential message. The reminder will be sent to the organization’s inbox after 7 days if the confidential message has not been opened.
+
+Think this functionality would be useful? Let us know — send us an email: [servicedesk@altinn.no](mailto:servicedesk@altinn.no)

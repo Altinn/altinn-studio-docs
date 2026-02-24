@@ -1,12 +1,12 @@
 ---
-title: Context Handler
-linktitle: Context Handler
-description: The responsibility to the Context Handler is to enrich a decision request sent from a PEP so it can be evaluated by PDP.
-tags: [architecture, security, authorization, xacml, needstranslation]
+title: Konteksthåndterer
+linktitle: Konteksthåndterer
+description: Konteksthåndterer har ansvar for å berike en beslutningsforespørsel sendt fra en PEP slik at PDP kan evaluere den.
+tags: [architecture, security, authorization, xacml]
 weight: 1
 ---
 
-As an example, a decision request could contain only userId and instanceId together with the action requested.
+Som eksempel kan en beslutningsforespørsel bare inneholde userId og instanceId sammen med ønsket handling.
 
 ```xml {linenos=false,hl_lines=[5,10,15]}
 <?xml version="1.0" encoding="utf-8"?>
@@ -30,8 +30,7 @@ As an example, a decision request could contain only userId and instanceId toget
 </Request>
 ```
 
-The enriched decision request contains all the needed attributes for subject and resource so PDP can identify the correct policy and evauluate the request based on it.
-
+Den berikede beslutningsforespørselen inneholder alle nødvendige attributter for subjekt og ressurs slik at PDP kan identifisere riktig policy og evaluere forespørselen basert på denne.
 
 ```xml {linenos=false,hl_lines=[3,12,29]}
 <?xml version="1.0" encoding="utf-8"?>
@@ -71,12 +70,12 @@ The enriched decision request contains all the needed attributes for subject and
 </Request>
 ```
 
-### Uses Policy Information Point
+### Bruker Policy Information Point
 
-Context handler uses instance data from storage and role data for the subject.
+Konteksthåndterer bruker instansdata fra lagring og roledata for subjektet.
 
-The authorization component request this information from PIP for roles and PIP for resources.
+Autorisasjonskomponenten henter denne informasjonen fra PIP for roller og PIP for ressurser.
 
-### Implementation details
+### Implementasjonsdetaljer
 
-See [construction components for context handler](/nb/authorization/reference/architecture/accesscontrol/#context-handler) for implementation details for the context handler.
+Se [komponentarkitektur for konteksthåndterer](/nb/authorization/reference/architecture/accesscontrol/#context-handler) for implementasjonsdetaljer.

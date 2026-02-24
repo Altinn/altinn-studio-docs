@@ -1,27 +1,27 @@
 ---
 title: Access Token
 linktitle: Access Token
-description: Altinn uses an additional access token when we need to authenticate the application or call a component in the Altinn Platform.
+description: Altinn bruker et ekstra access token når vi må autentisere applikasjoner eller kalle andre komponenter i Altinn-plattformen.
 tags: [architecture, security, needstranslation]
 toc: false
 ---
 
-## AccessToken Client
+## AccessToken klient
 
-.Net applications use AccessToken clients needing to call protected APIs in the Altinn Platform infrastructure.
+.NET-applikasjoner bruker AccessToken-klienten når de skal kalle beskyttede API-er i Altinn-plattformen.
 
-The AccessToken Client has an [Access Token generator](https://github.com/Altinn/altinn-accesstoken/blob/main/src/Altinn.Common.AccessTokenClient/Services/AccessTokenGenerator.cs)  
-that generates a JWT based on a unique certificate [made available](https://github.com/Altinn/altinn-accesstoken/blob/main/src/Altinn.Common.AccessTokenClient/Services/SigningCredentialsResolver.cs) in the Kubernetes clusters.
+AccessToken-klienten har en [token-generator](https://github.com/Altinn/altinn-accesstoken/blob/main/src/Altinn.Common.AccessTokenClient/Services/AccessTokenGenerator.cs)  
+som genererer et JWT basert på et unikt sertifikat [tilgjengeliggjort](https://github.com/Altinn/altinn-accesstoken/blob/main/src/Altinn.Common.AccessTokenClient/Services/SigningCredentialsResolver.cs) i Kubernetes-klyngene.
 
-### Example usage
+### Eksempler på bruk
 
-- [App template calling register](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Infrastructure/Clients/Register/RegisterClient.cs).
-- [App template calling Altinn Events](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Infrastructure/Clients/Events/EventsClient.cs).
-- [Altinn Events function calling Altinn Events](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/Clients/EventsClient.cs).
+- [App-mal som kaller register](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Infrastructure/Clients/Register/RegisterClient.cs)
+- [App-mal som kaller Altinn Events](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Infrastructure/Clients/Events/EventsClient.cs)
+- [Altinn Events-funksjon som kaller Altinn Events](https://github.com/Altinn/altinn-events/blob/main/src/Events.Functions/Clients/EventsClient.cs)
 
-### Configuration
+### Konfigurasjon
 
-To use the Access Token client, you need to add the following to program.cs
+For å bruke AccessToken-klienten må du legge til følgende i `Program.cs`:
 
 ```c#
     // The Access Token service
@@ -34,17 +34,17 @@ To use the Access Token client, you need to add the following to program.cs
 
 ## AccessToken
 
-Platform components use AccessToken to protect API from external usage.
+Plattformkomponentene bruker AccessToken for å beskytte API mot uautorisert bruk.
 
-It uses an [AltinnTokenValidator](https://github.com/Altinn/altinn-accesstoken/blob/main/src/Altinn.Common.AccessToken/Services/AccessTokenValidator.cs) to verify the presence of a bearer token in a special header.
+De benytter en [AltinnTokenValidator](https://github.com/Altinn/altinn-accesstoken/blob/main/src/Altinn.Common.AccessToken/Services/AccessTokenValidator.cs) for å verifisere at en spesialheader inneholder et bearer-token.
 
-The certificate to validate the token is retrieved from Keyvault using the [SigningKeyResolver](https://github.com/Altinn/altinn-accesstoken/blob/main/src/Altinn.Common.AccessToken/Services/SigningKeysResolver.cs)
+Sertifikatet som brukes til validering hentes fra KeyVault via [SigningKeyResolver](https://github.com/Altinn/altinn-accesstoken/blob/main/src/Altinn.Common.AccessToken/Services/SigningKeysResolver.cs).
 
-Each end platform cluster and apps cluster has its unique certificate.
+Hver plattformklynge og app-klynge har sitt eget sertifikat.
 
-### Configuration AccessToken
+### Konfigurasjon av AccessToken
 
-To use the Access Token, you need to add the following to program.cs
+Legg til følgende i `Program.cs` for å ta i bruk AccessToken:
 
 ```c#
     // The handler to validate token
@@ -61,7 +61,7 @@ To use the Access Token, you need to add the following to program.cs
 
 [Example from register](https://github.com/Altinn/altinn-register/blob/main/src/Program.cs)
 
-The API developer can configure the policy for each endpoint or controller.
+API-utvikleren kan konfigurere policyen for hvert endepunkt eller controller.
 
 ```c#
     [Authorize]
@@ -70,4 +70,4 @@ The API developer can configure the policy for each endpoint or controller.
     public class PartiesController : Controller
 ```
 
-Example from [Register](https://github.com/Altinn/altinn-register/blob/main/src/Controllers/PartiesController.cs)
+Eksempel fra [Register](https://github.com/Altinn/altinn-register/blob/main/src/Controllers/PartiesController.cs)

@@ -1,9 +1,9 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.4",
   "info": {
     "title": "Altinn App Api",
-    "description": "App API description for both enduser and serviceowner users, as well as open metadata information<br><br>All operations* described within this document require authentication and authorization. Read more at <a href=\"https://docs.altinn.studio/authentication/guides\">https://docs.altinn.studio/authentication/guides</a><br><br><strong>All GET operations* and POST operations may return or contain, respectively, personal identifiable information (national identity numbers and names).</strong><br><br>For more information about this product, see <a href=\"https://docs.altinn.studio/api/apps\">https://docs.altinn.studio/api/apps</a><br><br><em>* Except the metadata APIs\n",
-    "version": "v1"
+    "description": "App API description for both end users and service owners, as well as open metadata information<br><br>All operations* described within this document require authentication and authorization. Read more at <a href=\"https://docs.altinn.studio/authentication/guides\">https://docs.altinn.studio/authentication/guides</a><br><br><strong>All GET operations* and POST operations may return or contain, respectively, personally identifiable information (PII; national identity numbers and names).</strong><br><br>For more information about this product, see <a href=\"https://docs.altinn.studio/api/apps\">https://docs.altinn.studio/api/apps</a><br><br><em>* Except the metadata APIs</em>\n",
+    "version": ""
   },
   "paths": {
     "/{org}/{app}/instances/{instanceOwnerPartyId}/{instanceGuid}/actions": {
@@ -106,39 +106,103 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/UserActionResponse"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/UserActionResponse"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "$ref": "#/components/schemas/UserActionResponse"
                 }
               }
             }
           },
-          "409": {
-            "description": "Conflict"
-          },
-          "500": {
-            "description": "Internal Server Error"
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserActionResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserActionResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserActionResponse"
+                }
+              }
+            }
           },
           "401": {
-            "description": "Unauthorized"
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserActionResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserActionResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserActionResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserActionResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserActionResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserActionResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserActionResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserActionResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserActionResponse"
+                }
+              }
+            }
           }
         }
       }
@@ -224,7 +288,7 @@
         "tags": [
           "ApplicationMetadata"
         ],
-        "summary": "Get the application metadata https://altinncdn.no/schemas/json/application/application-metadata.schema.v1.json\n            \nIf org and app does not match, this returns a 409 Conflict response",
+        "summary": "Get the application metadata \"https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/application/application-metadata.schema.v1.json\"\n            \nIf org and app does not match, this returns a 409 Conflict response",
         "parameters": [
           {
             "name": "org",
@@ -274,6 +338,16 @@
                 }
               }
             }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -308,29 +382,49 @@
           "200": {
             "description": "OK",
             "content": {
+              "text/xml": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
               "text/plain": {
                 "schema": {
                   "type": "string"
                 }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
               },
               "application/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               },
               "application/xml": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               },
               "text/xml": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -368,29 +462,49 @@
           "200": {
             "description": "OK",
             "content": {
+              "text/xml": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
               "text/plain": {
                 "schema": {
                   "type": "string"
                 }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
               },
               "application/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               },
               "application/xml": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               },
               "text/xml": {
                 "schema": {
-                  "type": "string"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -424,7 +538,33 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -456,6 +596,9 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
           }
         }
       }
@@ -525,7 +668,37 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Party"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Party"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Party"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Party"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Party"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
           }
         }
       }
@@ -1810,6 +1983,120 @@
             }
           }
         }
+      },
+      "put": {
+        "tags": [
+          "DataTags"
+        ],
+        "summary": "Sets a set of tags on a data element.",
+        "parameters": [
+          {
+            "name": "org",
+            "in": "path",
+            "description": "The short name for the application owner.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "app",
+            "in": "path",
+            "description": "The name of the application.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the owner of the instance.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "dataGuid",
+            "in": "path",
+            "description": "The id of the data element.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "ignoredValidators",
+            "in": "query",
+            "description": "comma separated string of validators to ignore. If missing we don't run validation.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "description": "The currently active user language.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The request body.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SetTagsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SetTagsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/{org}/{app}/instances/{instanceOwnerPartyId}/{instanceGuid}/data/{dataGuid}/tags/{tag}": {
@@ -1938,6 +2225,16 @@
           "200": {
             "description": "OK"
           },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "425": {
             "description": "Too Early"
           },
@@ -2017,7 +2314,34 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {}
+              },
+              "application/json": {
+                "schema": {}
+              },
+              "text/json": {
+                "schema": {}
+              },
+              "application/xml": {
+                "schema": {}
+              },
+              "text/xml": {
+                "schema": {}
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "404": {
             "description": "Not Found",
@@ -2045,6 +2369,16 @@
               "text/xml": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
                 }
               }
             }
@@ -2219,32 +2553,22 @@
           }
         ],
         "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "400": {
             "description": "Bad Request",
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/xml": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "type": "string"
                 }
               }
             }
@@ -3195,6 +3519,16 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         },
         "deprecated": true
@@ -3237,7 +3571,79 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Party"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Party"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Party"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Party"
+                  }
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Party"
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -3279,7 +3685,34 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstantiationValidationResult"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstantiationValidationResult"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstantiationValidationResult"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         },
         "deprecated": true
@@ -3320,7 +3753,34 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -3614,7 +4074,44 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {}
+              },
+              "application/json": {
+                "schema": {}
+              },
+              "text/json": {
+                "schema": {}
+              },
+              "application/xml": {
+                "schema": {}
+              },
+              "text/xml": {
+                "schema": {}
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -4402,7 +4899,44 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserProfile"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserProfile"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserProfile"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserProfile"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserProfile"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -4539,7 +5073,14 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -4549,11 +5090,13 @@
         "tags": [
           "Resource"
         ],
-        "summary": "Get the form layout\n<param name=\"org\">Unique identifier of the organisation responsible for the app.</param><param name=\"app\">Application identifier which is unique within an organisation.</param><returns>A collection of FormLayout objects in JSON format.</returns>",
+        "summary": "Get the form layout",
+        "description": "This endpoint assumes a single layout set and does not work for apps on version 8.0 and above.",
         "parameters": [
           {
             "name": "org",
             "in": "path",
+            "description": "Unique identifier of the organisation responsible for the app.",
             "required": true,
             "schema": {
               "type": "string"
@@ -4562,6 +5105,7 @@
           {
             "name": "app",
             "in": "path",
+            "description": "Application identifier which is unique within an organisation.",
             "required": true,
             "schema": {
               "type": "string"
@@ -4569,10 +5113,18 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "OK"
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
-        }
+        },
+        "deprecated": true
       }
     },
     "/{org}/{app}/api/layouts/{id}": {
@@ -4612,7 +5164,14 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -4645,7 +5204,14 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -4687,7 +5253,14 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -4720,7 +5293,14 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         }
       }
@@ -4759,7 +5339,17 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/javascript": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
           }
         }
       }
@@ -4801,7 +5391,18 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
           }
         }
       }
@@ -4834,7 +5435,17 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
           }
         }
       }
@@ -4876,7 +5487,398 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{org}/{app}/instances/{instanceOwnerPartyId}/{instanceGuid}/signing": {
+      "get": {
+        "tags": [
+          "Signing"
+        ],
+        "summary": "Get updated signing state for the current signing task.",
+        "parameters": [
+          {
+            "name": "org",
+            "in": "path",
+            "description": "unique identifier of the organization responsible for the app",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "app",
+            "in": "path",
+            "description": "application identifier which is unique within an organization",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "unique id of the party that this the owner of the instance",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "unique id to identify the instance",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "description": "The currently used language by the user (or null if not available)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SigningStateResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SigningStateResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SigningStateResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/SigningStateResponse"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/SigningStateResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{org}/{app}/instances/{instanceOwnerPartyId}/{instanceGuid}/signing/organizations": {
+      "get": {
+        "tags": [
+          "Signing"
+        ],
+        "summary": "Get the organizations that the user can sign on behalf of, if any. Determined by the user having a key role at the organization.",
+        "parameters": [
+          {
+            "name": "org",
+            "in": "path",
+            "description": "unique identifier of the organization responsible for the app",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "app",
+            "in": "path",
+            "description": "application identifier which is unique within an organization",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "unique id of the party that this the owner of the instance",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "unique id to identify the instance",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "description": "The currently used language by the user (or null if not available)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SigningAuthorizedOrganizationsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SigningAuthorizedOrganizationsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SigningAuthorizedOrganizationsResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/SigningAuthorizedOrganizationsResponse"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/SigningAuthorizedOrganizationsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{org}/{app}/instances/{instanceOwnerPartyId}/{instanceGuid}/signing/data-elements": {
+      "get": {
+        "tags": [
+          "Signing"
+        ],
+        "summary": "Get the data elements being signed in the current signature task.",
+        "parameters": [
+          {
+            "name": "org",
+            "in": "path",
+            "description": "unique identifier of the organization responsible for the app",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "app",
+            "in": "path",
+            "description": "application identifier which is unique within an organization",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "unique id of the party that this the owner of the instance",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "unique id to identify the instance",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "description": "The currently used language by the user (or null if not available)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/SigningDataElementsResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SigningDataElementsResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SigningDataElementsResponse"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/SigningDataElementsResponse"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/SigningDataElementsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -4928,6 +5930,15 @@
             "description": "Prefilled fields from query parameters",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "includeRowId",
+            "in": "query",
+            "description": "Whether to initialize or remove AltinnRowId fields in the model",
+            "schema": {
+              "type": "boolean",
+              "default": false
             }
           },
           {
@@ -5043,6 +6054,15 @@
             }
           },
           {
+            "name": "includeRowId",
+            "in": "query",
+            "description": "Whether to initialize or remove AltinnRowId fields in the model",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
             "name": "language",
             "in": "query",
             "description": "The language selected by the user.",
@@ -5098,6 +6118,15 @@
             "description": "The data type id",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "includeRowId",
+            "in": "query",
+            "description": "Whether to initialize or remove AltinnRowId fields in the model",
+            "schema": {
+              "type": "boolean",
+              "default": false
             }
           },
           {
@@ -5170,6 +6199,15 @@
             "description": "The data type id",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "includeRowId",
+            "in": "query",
+            "description": "Whether to initialize or remove AltinnRowId fields in the model",
+            "schema": {
+              "type": "boolean",
+              "default": false
             }
           },
           {
@@ -5343,6 +6381,16 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           }
         },
         "deprecated": true
@@ -5413,6 +6461,19 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
       }
@@ -5641,27 +6702,146 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationIssueWithSource"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ValidationIssueWithSource"
+                  }
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationIssueWithSource"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ValidationIssueWithSource"
+                  }
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationIssueWithSource"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ValidationIssueWithSource"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               },
               "application/xml": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationIssueWithSource"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               },
               "text/xml": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationIssueWithSource"
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -5674,7 +6854,7 @@
         "tags": [
           "Validate"
         ],
-        "summary": "Validate an app instance. This will validate a single data element",
+        "summary": "Validate a single data element (deprecated).\nUse `/{org}/{app}/instances/{instanceOwnerPartyId}/{instanceGuid}/validate` with filters as needed.",
         "parameters": [
           {
             "name": "org",
@@ -5735,7 +6915,63 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ValidationIssueWithSource"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ValidationIssueWithSource"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ValidationIssueWithSource"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         },
         "deprecated": true
@@ -5803,6 +7039,40 @@
         },
         "additionalProperties": false
       },
+      "ApiScopes": {
+        "type": "object",
+        "properties": {
+          "read": {
+            "type": "string",
+            "nullable": true
+          },
+          "write": {
+            "type": "string",
+            "nullable": true
+          },
+          "errorMessageTextResourceKey": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiScopesConfiguration": {
+        "type": "object",
+        "properties": {
+          "users": {
+            "$ref": "#/components/schemas/ApiScopes"
+          },
+          "serviceOwners": {
+            "$ref": "#/components/schemas/ApiScopes"
+          },
+          "errorMessageTextResourceKey": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "AppProcessElementInfo": {
         "type": "object",
         "properties": {
@@ -5859,6 +7129,10 @@
           },
           "write": {
             "type": "boolean"
+          },
+          "elementType": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -5905,6 +7179,10 @@
             "nullable": true
           },
           "elementId": {
+            "type": "string",
+            "nullable": true
+          },
+          "elementType": {
             "type": "string",
             "nullable": true
           }
@@ -6022,6 +7300,11 @@
           "autoDeleteOnProcessEnd": {
             "type": "boolean"
           },
+          "preventInstanceDeletionForDays": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
           "presentationFields": {
             "type": "array",
             "items": {
@@ -6047,6 +7330,9 @@
           },
           "copyInstanceSettings": {
             "$ref": "#/components/schemas/CopyInstanceSettings"
+          },
+          "apiScopes": {
+            "$ref": "#/components/schemas/ApiScopesConfiguration"
           },
           "storageAccountNumber": {
             "type": "integer",
@@ -6083,6 +7369,33 @@
           }
         },
         "additionalProperties": {}
+      },
+      "AuthorizedOrganizationDetails": {
+        "required": [
+          "orgName",
+          "orgNumber",
+          "partyId"
+        ],
+        "type": "object",
+        "properties": {
+          "orgNumber": {
+            "type": "string",
+            "description": "The organization number.",
+            "nullable": true
+          },
+          "orgName": {
+            "type": "string",
+            "description": "The name of the organization.",
+            "nullable": true
+          },
+          "partyId": {
+            "type": "integer",
+            "description": "Gets or inits the ID of the party",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents the details of an authorized organization."
       },
       "CalculationResult": {
         "type": "object",
@@ -6334,6 +7647,9 @@
               "type": "string"
             },
             "nullable": true
+          },
+          "includeAttachments": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -6702,6 +8018,22 @@
             "items": {
               "type": "string"
             },
+            "nullable": true,
+            "deprecated": true
+          },
+          "allowedContributors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "actionRequiredToRead": {
+            "type": "string",
+            "nullable": true
+          },
+          "actionRequiredToWrite": {
+            "type": "string",
             "nullable": true
           },
           "appLogic": {
@@ -7244,6 +8576,37 @@
         "additionalProperties": false,
         "description": "Specialized model for instansiation of instances"
       },
+      "InstantiationValidationResult": {
+        "type": "object",
+        "properties": {
+          "valid": {
+            "type": "boolean"
+          },
+          "customTextKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "customTextParameters": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "validParties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Party"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "InvoiceDetails": {
         "type": "object",
         "properties": {
@@ -7376,9 +8739,21 @@
         "properties": {
           "hideSettings": {
             "$ref": "#/components/schemas/HideSettings"
+          },
+          "syncAdapterSettings": {
+            "$ref": "#/components/schemas/SyncAdapterSettings"
           }
         },
         "additionalProperties": false
+      },
+      "NotificationStatus": {
+        "enum": [
+          "NotSent",
+          "Sent",
+          "Failed"
+        ],
+        "type": "string",
+        "description": "Represents the state of a notification."
       },
       "OnEntry": {
         "type": "object",
@@ -7494,6 +8869,125 @@
         },
         "additionalProperties": false,
         "description": "Contains details about an organisation"
+      },
+      "Organization": {
+        "type": "object",
+        "properties": {
+          "orgNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "unitType": {
+            "type": "string",
+            "nullable": true
+          },
+          "telephoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobileNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "faxNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "eMailAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "internetAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailingAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailingPostalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailingPostalCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "businessAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "businessPostalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "businessPostalCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "unitStatus": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Party": {
+        "type": "object",
+        "properties": {
+          "partyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "partyUuid": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "partyTypeName": {
+            "$ref": "#/components/schemas/PartyType"
+          },
+          "orgNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "ssn": {
+            "type": "string",
+            "nullable": true
+          },
+          "unitType": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "onlyHierarchyElementWithNoAccess": {
+            "type": "boolean"
+          },
+          "person": {
+            "$ref": "#/components/schemas/Person"
+          },
+          "organization": {
+            "$ref": "#/components/schemas/Organization"
+          },
+          "childParties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Party"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "PartyResponse": {
         "required": [
@@ -7830,6 +9324,85 @@
         ],
         "type": "string"
       },
+      "Person": {
+        "type": "object",
+        "properties": {
+          "ssn": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "middleName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "telephoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "mobileNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailingAddress": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailingPostalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "mailingPostalCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressMunicipalNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressMunicipalName": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressStreetName": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressHouseNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressHouseLetter": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressPostalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "addressCity": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateOfDeath": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "PersonDetails": {
         "required": [
           "lastName",
@@ -8001,6 +9574,11 @@
             "type": "string",
             "description": "Action performed",
             "nullable": true
+          },
+          "actionOnBehalfOf": {
+            "type": "string",
+            "description": "The organisation number of the party the user is acting on behalf of",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -8029,6 +9607,28 @@
           "endEvent": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProfileSettingPreference": {
+        "type": "object",
+        "properties": {
+          "languageType": {
+            "type": "string",
+            "nullable": true,
+            "writeOnly": true
+          },
+          "language": {
+            "type": "string",
+            "nullable": true
+          },
+          "preSelectedPartyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "doNotPromptForParty": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -8085,6 +9685,47 @@
         },
         "additionalProperties": false
       },
+      "SetTagsRequest": {
+        "required": [
+          "tags"
+        ],
+        "type": "object",
+        "properties": {
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "A list of tags to set on the data element represented as string values.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents the request body for setting a set of tags on a data element."
+      },
+      "SetTagsResponse": {
+        "type": "object",
+        "properties": {
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "A list of tags represented as string values.",
+            "nullable": true
+          },
+          "validationIssues": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationSourcePair"
+            },
+            "description": "List of validation issues that changed as a result of updating tags.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents the response from the set tags API endpoint providing a list of tags and current validation issues."
+      },
       "ShadowFields": {
         "type": "object",
         "properties": {
@@ -8098,6 +9739,98 @@
           }
         },
         "additionalProperties": false
+      },
+      "SigneeState": {
+        "required": [
+          "partyId"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the signee.",
+            "nullable": true
+          },
+          "organization": {
+            "type": "string",
+            "description": "The organization of the signee.",
+            "nullable": true
+          },
+          "delegationSuccessful": {
+            "type": "boolean",
+            "description": "Whether delegation of signing rights has been successful."
+          },
+          "notificationStatus": {
+            "$ref": "#/components/schemas/NotificationStatus"
+          },
+          "partyId": {
+            "type": "integer",
+            "description": "The party id of the signee.",
+            "format": "int32"
+          },
+          "signedTime": {
+            "type": "string",
+            "description": "The time the signee signed.",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Contains information about a signee and the current signing status."
+      },
+      "SigningAuthorizedOrganizationsResponse": {
+        "required": [
+          "organizations"
+        ],
+        "type": "object",
+        "properties": {
+          "organizations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AuthorizedOrganizationDetails"
+            },
+            "description": "The list of authorized organizations.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents the response from the API when fetching organizations the user is authorized to sign on behalf of."
+      },
+      "SigningDataElementsResponse": {
+        "required": [
+          "dataElements"
+        ],
+        "type": "object",
+        "properties": {
+          "dataElements": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DataElement"
+            },
+            "description": "The data elements that should be signed.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Response that contains the data elements that should be signed."
+      },
+      "SigningStateResponse": {
+        "required": [
+          "signeeStates"
+        ],
+        "type": "object",
+        "properties": {
+          "signeeStates": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SigneeState"
+            },
+            "description": "The signees for the current task.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Contains the result of a get signees request."
       },
       "SimpleInstance": {
         "type": "object",
@@ -8150,6 +9883,60 @@
         },
         "additionalProperties": false
       },
+      "SyncAdapterSettings": {
+        "type": "object",
+        "properties": {
+          "disableSync": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableCreate": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableDelete": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableAddActivities": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableAddTransmissions": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableSyncDueAt": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableSyncStatus": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableSyncContentTitle": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableSyncContentSummary": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableSyncAttachments": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableSyncApiActions": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableSyncGuiActions": {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "additionalProperties": false
+      },
       "TagsList": {
         "type": "object",
         "properties": {
@@ -8158,7 +9945,7 @@
             "items": {
               "type": "string"
             },
-            "description": "A list of tags represented as sting values.",
+            "description": "A list of tags represented as string values.",
             "nullable": true
           }
         },
@@ -8276,6 +10063,11 @@
             },
             "description": "Ignored validators that should not be evauated as part of this action",
             "nullable": true
+          },
+          "onBehalfOf": {
+            "type": "string",
+            "description": "The organisation number of the party the user is acting on behalf of",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -8346,6 +10138,66 @@
         "additionalProperties": false,
         "description": "Represents the response from an API endpoint providing a list of key-value properties."
       },
+      "UserProfile": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userUuid": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "userName": {
+            "type": "string",
+            "nullable": true
+          },
+          "externalIdentity": {
+            "type": "string",
+            "nullable": true
+          },
+          "isReserved": {
+            "type": "boolean"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "partyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "party": {
+            "$ref": "#/components/schemas/Party"
+          },
+          "userType": {
+            "$ref": "#/components/schemas/UserType"
+          },
+          "profileSettingPreference": {
+            "$ref": "#/components/schemas/ProfileSettingPreference"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserType": {
+        "enum": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
       "ValidationIssueSeverity": {
         "enum": [
           0,
@@ -8400,6 +10252,14 @@
           "customTextParams": {
             "type": "array",
             "items": {
+              "type": "string"
+            },
+            "nullable": true,
+            "deprecated": true
+          },
+          "customTextParameters": {
+            "type": "object",
+            "additionalProperties": {
               "type": "string"
             },
             "nullable": true

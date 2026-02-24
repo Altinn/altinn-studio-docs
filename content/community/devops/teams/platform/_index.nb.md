@@ -13,11 +13,6 @@ Applikasjonen Events og tilhørende funksjoner i Azure gir Altinn 3 en mekanisme
 
 [Repository](https://github.com/Altinn/altinn-events)
 
-### Pdf
-Applikasjonen Pdf kan benyttes til å generere PDF dokumenter av Altinn 3 skjema.
-
-[Repository](https://github.com/Altinn/altinn-pdf)
-
 ### Profile
 Applikasjonen Profile gir Altinn 3 tilgang til profilinformasjon på brukere i Altinn.
 

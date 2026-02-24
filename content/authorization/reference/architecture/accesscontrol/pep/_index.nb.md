@@ -1,53 +1,50 @@
 ---
 title: Policy Enforcement Point
 linktitle: PEP
-description: There are different types of Policy Enforcement Points in the Altinn 3 platform. 
+description: Altinn 3-plattformen tilbyr flere forskjellige policy enforcement point-løsninger.
 tags: [architecture, security, needstranslation]
 toc: false
 ---
 
-See below for details of how we have constructed the PEPs and how to configure them.
+Avsnittene under beskriver hvordan de innebygde PEP-ene er konstruert og hvordan du konfigurerer dem.
 
-## Standard PEPs
+## Standard PEP-er
 
-Developers should configure security when possible, which is one important principle we follow. 
-Therefore, we have developed some standard policy enforcement points that API developers can use on different API endpoints.
+Utviklere bør konfigurere sikkerhet deklarativt der det er mulig.  
+For å støtte dette prinsippet har vi utviklet flere standard policy enforcement point som API-utviklere kan knytte til endepunktene sine.
 
-The best way to solve Attribute-based authorization is by using
-[Policy-Based Authorization in ASP.NET Core.](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies)
+Den anbefalte måten å løse attributtbasert autorisasjon på i ASP.NET Core er å bruke [Policy-Based Authorization](https://docs.microsoft.com/en-us/aspnet/core/security/authorization/policies).
 
-We have created the standard PEPs in the ASP.Net Web application as 
-[Authorization Handlers](https://github.com/dotnet/aspnetcore/blob/main/src/Security/Authorization/Core/src/AuthorizationHandler.cs).
+De standard PEP-ene er implementert som [Authorization Handlers](https://github.com/dotnet/aspnetcore/blob/main/src/Security/Authorization/Core/src/AuthorizationHandler.cs) i ASP.NET-applikasjonen.
 
-This is published on Nuget as [Altinn.Common.PEP](https://www.nuget.org/packages/Altinn.Common.PEP)
+Pakkene er publisert på NuGet som [Altinn.Common.PEP](https://www.nuget.org/packages/Altinn.Common.PEP).
 
 ### Policy Enforcement - AppAccess
 
-The AppAccessHandler is the PEP for API endpoints that handle data related to an app created in Altinn Studio. This handler uses configuration
-on the API endpoint and API parameters to call the PDP to authorize access. 
+`AppAccessHandler` sikrer API-endepunkter som håndterer data for en Altinn Studio-app.  
+Konfigurasjon på endepunktet og oppgitte rute-/spørringsparametere brukes til å bygge forespørselen som sendes til PDP.
 
-See [AppAccessHandler](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/AppAccessHandler.cs) 
-and [AppAccessRequirement](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/AppAccessRequirement.cs) for implementation details.
+Se [AppAccessHandler](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/AppAccessHandler.cs)  
+og [AppAccessRequirement](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/AppAccessRequirement.cs) for implementasjonsdetaljer.
 
+I appen definerer utvikleren et sett `AppAccessRequirement` og knytter riktig krav til hver operasjon.
 
-In the App, the API developer defines a set of AppAccessRequirement, and for each operation, the developer maps the correct requirement.
+Eksempler på krav:
 
-Examples of requirements are:
+- **InstanceRead** – brukeren/systemet må ha rettighet til å lese en instans i gjeldende tilstand
+- **InstanceWrite** – brukeren/systemet må ha rettighet til å endre instansen eller dataene i gjeldende tilstand
+- **InstanceInstantiate** – brukeren/systemet må ha rettighet til å opprette en ny instans for appen
 
-- **InstanceRead** (User/system needs to be authorized to perform read action on the instance in its current state)
-- **InstanceWrite** (User/system needs to be authorized to perform write action on the instance and its data in its current state)
-- **InstanceInstantiate** (user/system needs to be authorized to Instantiate an instance for an app)
+PEP-et bygger en beslutningsforespørsel ([eksempel](https://github.com/Altinn/altinn-authorization/blob/main/test/IntegrationTests/Data/Xacml/3.0/AltinnApps/AltinnApps0007Request.json)) basert på routedata (f.eks. `instanceId`) og den autentiserte identiteten, og kaller deretter PDP.
 
-The PEP will create a decision request ([example](https://github.com/Altinn/altinn-authorization/blob/main/test/IntegrationTests/Data/Xacml/3.0/AltinnApps/AltinnApps0007Request.json)) and call the PDP
- based on route data (like instanceId) and the authenticated Identity.
+Responsen fra PDP ([eksempel](https://github.com/Altinn/altinn-authorization/blob/main/test/IntegrationTests/Data/Xacml/3.0/AltinnApps/AltinnApps0007Response.json)) avgjør om forespørselen godkjennes.  
+Avslag returneres som HTTP 403.
 
-Based on the response ([example](https://github.com/Altinn/altinn-authorization/blob/main/test/IntegrationTests/Data/Xacml/3.0/AltinnApps/AltinnApps0007Response.json)), the PEP will deny or approve the user. (Deny = http 403)
+PEP-et validerer også forpliktelser fra PDP, som for eksempel minimum autentiseringsnivå. Dersom forpliktelsen ikke oppfylles, blir forespørselen avslått med HTTP 403.
 
-The PEP validates any obligation from the PDP like minimum authentication level. If this is not valid, the request will be denied (HTTP 403).
+#### Konfigurasjon
 
-#### Configuration
-
-The application needs to have a startup configuration to enable the different standard PEPs.
+Legg til nødvendige policyer i oppstart for å aktivere de standard PEP-ene:
 
 ```c#
 services.AddAuthorization(options =>
@@ -60,9 +57,9 @@ services.AddAuthorization(options =>
 
 ```
 
-Example from [Storage Program.cs](https://github.com/Altinn/altinn-storage/blob/main/src/Storage/Program.cs)
+Eksempel fra [Storage Program.cs](https://github.com/Altinn/altinn-storage/blob/main/src/Storage/Program.cs)
 
-The API needs to have enabled PEP for a given API operation.
+Bruk policyen på hver API-operasjon som skal beskyttes:
 
 ```c#
 [Authorize(Policy = AuthzConstants.POLICY_INSTANCE_WRITE)]
@@ -71,23 +68,23 @@ public async Task<ActionResult<DataElement>> Delete(int instanceOwnerPartyId, Gu
 
 ```
 
-Example from [DataController](https://github.com/Altinn/altinn-storage/blob/main/src/Storage/Controllers/DataController.cs)
+Eksempel fra [DataController](https://github.com/Altinn/altinn-storage/blob/main/src/Storage/Controllers/DataController.cs)
 
 
 ### Policy Enforcement ScopeAccessHandler
 
-For scenarios where we require specific scopes to be authorized to call an API, we use the ScopeAccessHandler.
+Bruk `ScopeAccessHandler` når bestemte OAuth-scopes kreves for å kalle et API.
 
-It supports multiple scopes.
-
-
-See [ScopeAccessHandler](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/ScopeAccessHandler.cs) 
-and [ScopeAccessRequirement](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/ScopeAccessRequirement.cs) for implementation details.
+Den støtter flere scopes.
 
 
-#### Configuration
+Se [ScopeAccessHandler](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/ScopeAccessHandler.cs)  
+og [ScopeAccessRequirement](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/ScopeAccessRequirement.cs) for detaljer.
 
-The application needs to have a startup configuration to enable the different standard PEPs
+
+#### Konfigurasjon
+
+Registrer policy og handler ved oppstart:
 
 ```c#
     services.AddAuthorization(options =>
@@ -98,9 +95,9 @@ The application needs to have a startup configuration to enable the different st
     services.AddTransient<IAuthorizationHandler, ScopeAccessHandler>();
 ```
 
-Example from [program.cs](https://github.com/Altinn/altinn-events/blob/main/src/Events/Program.cs) in Events Component
+Eksempel fra [program.cs](https://github.com/Altinn/altinn-events/blob/main/src/Events/Program.cs) i Events-komponenten
 
-The API needs to have enabled PEP for a given API operation
+Bruk policyen på det aktuelle endepunktet:
 
 ```c#
 [Authorize(Policy = AuthorizationConstants.POLICY_SCOPE_EVENTS_PUBLISH)]
@@ -110,26 +107,26 @@ public async Task<ActionResult<string>> Post([FromBody] CloudEvent cloudEvent)
 
 ```
 
-Example from [EventsController](https://github.com/Altinn/altinn-events/blob/main/src/Events/Controllers/EventsController.cs) in Event Component
+Eksempel fra [EventsController](https://github.com/Altinn/altinn-events/blob/main/src/Events/Controllers/EventsController.cs) i Events-komponenten
 
 ### Policy enforcement ResourceAccess
 
-In Scenarios where we want to authorize API access based on the authorization policy for a given resource in Altinn Resource Registry, we use the ResourceAccessHandler.
+`ResourceAccessHandler` autoriserer forespørsler basert på policyen som er definert for en ressurs i Altinn Resource Registry.
 
 
-See [ResourceAccessHandler](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/ResourceAccessHandler.cs) 
-and [ResourceAccessRequirement](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/ResourceAccessRequirement.cs) for implementation details.
+Se [ResourceAccessHandler](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/ResourceAccessHandler.cs)  
+og [ResourceAccessRequirement](https://github.com/Altinn/altinn-authorization/blob/main/src/Altinn.Common.PEP/Altinn.Common.PEP/Authorization/ResourceAccessRequirement.cs) for implementasjonsdetaljer.
 
-TODO Example use
+TODO: legg til eksempel på bruk.
 
 ### Policy enforcement - ClaimsAccess
 
-For scenarios where we require a specific claim for the authenticated system/user, we use the ClaimsAccessHandler.
+`ClaimsAccessHandler` brukes når et bestemt claim må være til stede på den autentiserte identiteten.
 
 
-#### Configuration
+#### Konfigurasjon
 
-The application needs to have a startup configuration to enable the different standard PEPs.
+Registrer policyen i oppstart:
 
 ```c#
          services.AddAuthorization(options =>
@@ -141,15 +138,14 @@ The application needs to have a startup configuration to enable the different st
 
 
 
-## Custom PEP
+## Tilpasset PEP
 
-For some scenarios, it is impossible to authorize the request based on API parameters.
+I noen scenarier kan ikke nødvendig autorisasjonskontekst utledes direkte fra API-parametere.
 
-These scenarios require a custom PEP as part of API logic.
+Da må du implementere et egendefinert PEP som kjører i API-logikken.
 
-The example below retrieves a list of elements from the database. 
-
-Before the API returns the list, each element must be checked for authorization and only returned if the user calling API is authorized.
+Eksemplet under henter data fra databasen.  
+Før resultatet returneres må hvert element sjekkes for autorisasjon, og bare godkjente instanser returneres til klienten.
 
 ```c#
        [Authorize]
@@ -194,4 +190,4 @@ Before the API returns the list, each element must be checked for authorization 
         }
 ```
 
-Example from [MessageboxInstancesController](https://github.com/Altinn/altinn-storage/blob/main/src/Storage/Controllers/MessageboxInstancesController.cs)
+Eksempel fra [MessageboxInstancesController](https://github.com/Altinn/altinn-storage/blob/main/src/Storage/Controllers/MessageboxInstancesController.cs)

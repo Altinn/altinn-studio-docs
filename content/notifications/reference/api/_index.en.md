@@ -28,3 +28,12 @@ managing and reviewing notifications sent through Altinn.
 
 {{% insert "content/altinn-studio/v8/guides/shared/api/platform-access-token.md" %}}
 
+## Error Handling
+
+The Altinn Notifications API uses standard HTTP status codes and provides detailed error information through problem details responses.
+
+### Error Codes
+
+The API returns unique error codes in the format `NOT-XXXXX` for specific error conditions. These error codes help you identify and handle specific error scenarios programmatically.
+
+For a complete reference of all error codes, see the [Error Codes Reference](/en/notifications/reference/error-codes/).

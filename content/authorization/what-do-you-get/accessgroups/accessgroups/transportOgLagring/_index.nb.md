@@ -16,6 +16,8 @@ aliases:
 |[Lufttransport](#lufttransport)|
 |[Jernbanetransport](#jernbanetransport)|
 |[Lagring og andre tjenester tilknyttet transport](#lagring-og-andre-tjenester-tilknyttet-transport)|  
+|[Kjøretøy](#kjøretøy)|
+|[Trafikant](#trafikant)|
   
 
 ### Veitransport
@@ -42,13 +44,24 @@ Denne fullmakten gir tilgang til tjenester knyttet til jernbane, inkludert trikk
 Denne fullmakten gir tilgang til tjenester knyttet til lagring og hjelpetjenester i forbindelse med transport, samt post- og kurervirksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:lagring-og-andre-tjenester-tilknyttet-transport*
 
+### Kjøretøy
+Denne fullmakten giir tilgang til tjenester knyttet til kjøretøy og kjøretøykontroll. Dette inkluderer kjøp og salg av kjøretøy. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i hvilke tilganger denne fullmakten gir.  
+*urn:altinn:accesspackage:kjoretoy*
+
+### Trafikant
+Denne fullmakten giir tilgang til tjenester knyttet til førerkort og trafikantinformasjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i hvilke tilganger denne fullmakten gir.  
+*urn:altinn:accesspackage:trafikant*
+
+
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
 |**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
 |---|---|---|
-|Veitransport|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Transport i rør|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Sjøfart|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Lufttransport|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Jernbanetransport|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Lagring og andre tjenester tilknyttet transport|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder,Bostyrer|Ja|
+|Veitransport|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Transport i rør|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Sjøfart|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Lufttransport|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Jernbanetransport|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Lagring og andre tjenester tilknyttet transport|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder,Bostyrer|Ja|
+|Kjøretøy|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Trafikant|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder,Bostyrer|Ja|

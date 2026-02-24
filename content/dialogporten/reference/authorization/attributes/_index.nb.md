@@ -126,14 +126,14 @@ Dette kan styres av en policyregel som dette:
 Hvis forespørselen mislykkes, vil Dialogporten flagge GUI/API-handlingen eller overføringen med `isAuthorized: false` og fjerne de tilknyttede URL-ene. Dette gjør at sluttbrukersystemer kan indikere til brukeren at tilgang til den gitte handlingen er nektet.
 
 {{<notice warning>}}
-Mens Dialogporten indikerer at handlingen er uautorisert, og fjerner URL-ene, bør endepunktet fortsatt alltid utføre autentisering/autorisasjon på innkommende forespørsler og ikke stole på at Dialogporten bare skjuler tilgangen til endepunktene
+Selv om Dialogporten indikerer at handlingen er uautorisert, og fjerner URL-ene, bør endepunktet fortsatt alltid utføre autentisering/autorisasjon på innkommende forespørsler og ikke stole på at Dialogporten bare skjuler tilgangen til endepunktene
 {{</notice>}}
 
-## Bruke autorisasjonsattributter på overføringer
+## Bruke autorisasjonsattributter på forsendelser
 
-For overføringer er mekanismen den samme, men det er ingen eksplisitte handlinger knyttet til overføring. Derfor er enten `read` eller `transmissionread`-handlinger utledet og brukt i XACML-forespørslene.
+For forsendelser ("transmissions") er mekanismen den samme, men det er ingen eksplisitte handlinger knyttet til en forsendelse. Derfor er enten `read` eller `transmissionread`-handlinger utledet og brukt i XACML-forespørslene.
 
-Hvis et autorisasjonsattributt leveres som refererer til en separat ressurs/policy i Resource Registry (se nedenfor), vil `read` bli brukt som handlingen i autorisasjonssjekken. `read` brukes også hvis ingen autorisasjonsattributt er oppgitt i det hele tatt. Men hvis et autorisasjonsattributt som IKKE refererer til en separat ressurs/policy i Resource Registry leveres, vil `transmissionread` bli brukt som handlingen i autorisasjonssjekken.
+Hvis et autorisasjonsattributt er oppgitt som refererer til en separat ressurs/policy i Resource Registry (se nedenfor), vil `read` bli brukt som handlingen i autorisasjonssjekken. `read` brukes også hvis ingen autorisasjonsattributt er oppgitt i det hele tatt. Men hvis et autorisasjonsattributt som IKKE refererer til en separat ressurs/policy i Resource Registry leveres, vil `transmissionread` bli brukt som handlingen i autorisasjonssjekken.
 
 Årsaken til dette er at `read`-handlingen vanligvis er definert for hele ressursen, som vil inkludere alle underressurser på grunn av den matchende naturen til XACML-autorisasjon "permit"-regler brukt i Altinn Authorization (en XACML-regel definerer begrensninger, dvs. attributter som må være tilstede i forespørselen; en tom XACML-regel vil dermed matche - og returnere "permit" - enhver forespørsel). Så for å bruke autorisasjonsattributter som refererer til regler innenfor samme policy som skal definere separate tilgangskrav, er det nødvendig å bruke noe annet enn `read`, dvs. `transmissionread`.
 

@@ -1689,10 +1689,52 @@
           },
           "recipientOrganization": {
             "$ref": "#/components/schemas/RecipientOrganizationExt"
+          },
+          "recipientExternalIdentity": {
+            "$ref": "#/components/schemas/RecipientExternalIdentityExt"
           }
         },
         "additionalProperties": false,
         "description": "Defines a container for specifying the recipient of a notification order."
+      },
+      "RecipientExternalIdentityExt": {
+        "required": [
+          "channelSchema",
+          "externalIdentity"
+        ],
+        "type": "object",
+        "properties": {
+          "emailSettings": {
+            "$ref": "#/components/schemas/EmailSendingOptionsExt"
+          },
+          "smsSettings": {
+            "$ref": "#/components/schemas/SmsSendingOptionsExt"
+          },
+          "externalIdentity": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The external identity of the recipient in URN format."
+          },
+          "resourceId": {
+            "type": "string",
+            "description": "Gets or sets an optional resource identifier for authorization and auditing purposes.",
+            "nullable": true
+          },
+          "channelSchema": {
+            "enum": [
+              "Email",
+              "Sms",
+              "EmailPreferred",
+              "SmsPreferred",
+              "EmailAndSms"
+            ],
+            "type": "string",
+            "description": "The channel scheme for delivering the notification.",
+            "default": "Email"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a notification recipient identified by an external identity."
       },
       "NotificationReminderExt": {
         "required": [
