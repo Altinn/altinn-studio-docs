@@ -49,8 +49,6 @@ Også kalt en `digest`, denne verdien er resultatet fra SHA256 hash metoden. I e
 
 Verifisering av signaturen i etterkant går i prinsippet ut på å sammenligne oppgitt `sha256Hash` med en uavhengig SHA256 beregning av samme fil. Hvis verdiene er identiske betyr det at filen brukeren har signert ikke har endret seg, og at signaturen fremdeles er gyldig.
 
-Mer informasjon om Altinn sin implementering av denne utregningen finnes på [Github]
-
-https://github.com/Altinn/altinn-storage/blob/afa8f921231afc485c17b8f4226f6d8e2333b3dd/src/Storage/Services/DataService.cs#L57
+Mer informasjon om Altinn sin implementering av denne utregningen finnes på [Github](https://github.com/Altinn/altinn-storage/blob/afa8f921231afc485c17b8f4226f6d8e2333b3dd/src/Storage/Services/DataService.cs#L57)
 
 Kort oppsummert må du generere en SHA256 verdi av filen du vil sammenligne, deretter formattere denne verdien som en heksadesimal streng uten bindestreker og med kun små bokstaver. 
