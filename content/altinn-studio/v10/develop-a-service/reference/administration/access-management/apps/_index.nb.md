@@ -20,8 +20,8 @@ Tjenesteeiere kan bestille følgende tilganger for sine ressurser i miljøene TT
 Se
 [oversikt over roller og tilganger her](/nb/altinn-studio/v8/reference/access-management/apps/).
 
-For å få tilgang til disse rollene må autoriserte bestillere hos tjenesteeier bestille dette på
-[Selvbetjeningsportalen](https://www.altinndigital.no/oversikt).
+For å få tilgang til disse rollene må autoriserte bestillere hos tjenesteeier bestille dette på innlogget område på
+[Samarbeidsportalen](https://samarbeid.digdir.no/).
 Portalen beskriver også hvordan du oppretter en ny bruker hvis du ikke har dette fra før av.
 
 For å opprette en ny sak for å søke om tilgang:

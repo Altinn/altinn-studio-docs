@@ -260,6 +260,6 @@ weight: 100
 - Bestill tilgang til REST API (Digdir).  
   [Info](https://altinn.github.io/docs/api/rest/kom-i-gang/) | [Repo](https://altinn.studio/repos/digdir/be-om-api-nokkel) | [Kjørende tjeneste](https://digdir.apps.altinn.no/digdir/be-om-api-nokkel/)
 - Be om å bli tjenesteeier (Digdir).  
-  [Info](https://www.altinndigital.no/kom-i-gang/guide-kom-i-gang-med-altinn/) | [Repo](https://altinn.studio/repos/digdir/bli-tjenesteeier) | [Kjørende tjeneste](https://digdir.apps.altinn.no/digdir/bli-tjenesteeier/)
+  [Info](https://samarbeid.digdir.no/altinn/bli-tjenesteeier-i-altinn/2819) | [Repo](https://altinn.studio/repos/digdir/bli-tjenesteeier) | [Kjørende tjeneste](https://digdir.apps.altinn.no/digdir/bli-tjenesteeier/)
 - Godkjenning av bruksvilkår for skytjenester fra Altinn (Digdir).  
   [Info](https://altinn.github.io/docs/altinn-studio/) | [Repo](https://altinn.studio/repos/digdir/godkjenn-bruksvilkaar) | [Kjørende tjeneste](https://digdir.apps.altinn.no/digdir/godkjenn-bruksvilkaar/)
