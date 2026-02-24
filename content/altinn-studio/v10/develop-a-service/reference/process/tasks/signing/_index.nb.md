@@ -1,23 +1,24 @@
 ---
-draft: true
-title: Signerings task
-description: Definer signerings prosess tasks
-tags: [altinn-apps, process, bpmn, task, sign, signing]
+title: Signering
+linktitle: Signering
+description: Slik setter du opp en signeringsoppgave i prosessen
+tags: [altinn-apps, process, bpmn, task, sign, signing, needsReview, needsTranslation]
 toc: true
+weight: 10
 ---
 
 {{% panel theme="warning" %}}
-⚠️ Signing task krever versjon 8.0.0 eller nyere av app-libs
+⚠️ Signering krever versjon 8.0.0 eller nyere av app-libs
 {{% /panel %}}
 
 {{% insert "content/altinn-studio/v10/develop-a-service/process/signing/auth-requirements.nb.md" %}}
 
 En signeringsoppgave i prosessfilen krever litt mer arbeid enn en vanlig data-, bekreftelses- eller tilbakemeldingsoppgave.
 
-Denne siden veileder deg gjennom hva du trenger å konfigurere og hvordan det er koblet til andre deler av konfigurasjonen.
+Denne siden veileder deg gjennom hva du trenger å sette opp og hvordan det er koblet til andre deler av oppsettet.
 
-## Definere og konfigurere en signeringoppgave
-En signeringoppgave i sin enkleste form ser omtrent slik ut:
+## Slik setter du opp en signeringsoppgave
+En signeringsoppgave i sin enkleste form ser omtrent slik ut:
 
 ```xml
 <bpmn:task id="Task_2" name="Signering">
@@ -39,9 +40,9 @@ En signeringoppgave i sin enkleste form ser omtrent slik ut:
     </bpmn:extensionElements>
 </bpmn:task>
 ```
-### Gjøre signering tilgjengelig som handling
+### Gjør signering tilgjengelig som handling
 
-Som med bekreftelsesoppgaver må du definere de tilgjengelige handlingene. For å generere et signeringobjekt må brukeren kunne utføre handlingen "signer":
+Som med bekreftelsesoppgaver må du sette opp de tilgjengelige handlingene. For å opprette et signaturobjekt må brukeren kunne utføre handlingen "signer":
 
 ```xml
 <altinn:actions>
@@ -49,19 +50,19 @@ Som med bekreftelsesoppgaver må du definere de tilgjengelige handlingene. For �
 </altinn:actions>
 ```
 
-"Signer" kan være det eneste alternativet eller kombinert med andre handlinger som "bekreft" og/eller "avvis", avhengig av behovene til hver applikasjon.
+"Signer" kan være det eneste alternativet eller kombinert med andre handlinger som "bekreft" eller "avvis", avhengig av behovene til hver app.
 
-### Konfigurere hvilke dataelementer som skal signeres
+### Velg hvilke dataelementer som skal signeres
 
-Når en bruker utfører handlingen "sign", bruker systemet konfigurasjonen fra <altinn:signatureConfig> til å opprette et signeringobjekt.
+Når en bruker utfører handlingen "sign", bruker systemet oppsettet fra <altinn:signatureConfig> til å opprette et signaturobjekt.
 
-Som apputvikler definerer du hvilke dataelementer som skal være en del av signeringobjektet ved å definere en liste over datatyper. Dette kan være skjemadata, vedlegg eller PDF-er.
+Som apputvikler velger du hvilke dataelementer som skal være en del av signaturobjektet ved å sette opp en liste over datatyper. Dette kan være skjemadata, vedlegg eller PDF-er.
 
-Du definerer datatypene i filen App/config/applicationmetadata.json.
+Du setter opp datatypene i filen App/config/applicationmetadata.json.
 
-I eksemplet med signeringoppgaven ovenfor definerer den at alle dataelementer som er tilknyttet datatypen "Modell", skal være en del av signaturen.
+I eksemplet med signeringsoppgaven ovenfor ser du at alle dataelementer som er tilknyttet datatypen "Modell", skal være en del av signaturen.
 
-Hvis applikasjonen også har datatypen "attachments", der brukeren legger ved ekstra filer som du ønsker å være en del av signeringobjektet, bør <altinn:signatureConfig> se slik ut:
+Hvis appen også har datatypen "attachments", der brukeren legger ved ekstra filer som du ønsker å være en del av signaturobjektet, bør <altinn:signatureConfig> se slik ut:
 
 ```xml
 <altinn:signatureConfig>
@@ -73,11 +74,11 @@ Hvis applikasjonen også har datatypen "attachments", der brukeren legger ved ek
 </altinn:signatureConfig>
 ```
 
-### Konfigurere hvor signaturobjektet skal lagres
+### Velg hvor signaturobjektet skal lagres
 
-Et signaturobjekt krever også en datatype der du kan lagre det når systemet har generert det. Du definerer dette i `<altinn:signatureDataType>`, og må også definere det i `App/config/applicationmetadata.json`.
+Et signaturobjekt krever også en datatype der du kan lagre det når systemet har opprettet det. Du setter opp dette i `<altinn:signatureDataType>`, og må også sette det opp i `App/config/applicationmetadata.json`.
 
-Eksempel på en applicationmetadata.json-fil med en signaturdatatypen kalt "signatur":
+Eksempel på en applicationmetadata.json-fil med en signaturdatatype kalt "signatur":
 
 ```json
 {
@@ -141,15 +142,15 @@ Eksempel på en applicationmetadata.json-fil med en signaturdatatypen kalt "sign
 
 ### Design layout for signeringssteget
 
-Signeringssteget trenger en layout som definerer hva som skal vises til brukeren. Du gjør dette via en egen layoutset som du knytter til signering prosesssteget (`Task_2 i vårt eksempel`)
+Signeringssteget trenger en layout som bestemmer hva som skal vises til brukeren. Du gjør dette via et eget layoutsett som du knytter til signering-prosesssteget (`Task_2` i eksemplet vårt)
 
-Hvis du har en v3 applikasjon uten layoutset se [Sider](/nb/altinn-studio/v8/reference/ux/pages/#oppsett) for hvordan du setter dette opp.
+Hvis du har en v3-app uten layoutsett, se [Sider](/nb/altinn-studio/v8/reference/ux/pages/#oppsett) for hvordan du setter dette opp.
 
-Opprett en ny mappe i `App/ui/` med navnet som beskriver dette layoutsettet, f.eks. _signering_. I denne mappen oppretter du filen `Settings.json` og en mappe med navn `layouts`.
+Opprett en ny mappe i `App/ui/` med navnet som beskriver dette layoutsettet, for eksempel _signering_. I denne mappen oppretter du filen `Settings.json` og en mappe med navn `layouts`.
 
-I `layouts` mappen oppretter du filer som definerer hvordan sider i dette layoutsettet skal se ut. En signering layout må ha en [`ActionButton`](/nb/altinn-studio/v8/reference/ux/components/actionbutton/) med `"action": "sign"` som definerer at brukeren utfører action sign når brukeren trykker på den og flytter prosessen videre.
+I `layouts`-mappen oppretter du filer som bestemmer hvordan sider i dette layoutsettet skal se ut. En signering-layout må ha en [`ActionButton`](/nb/altinn-studio/v8/reference/ux/components/actionbutton/) med `"action": "sign"` som bestemmer at brukeren utfører action sign når brukeren trykker på den og flytter prosessen videre.
 
-Eksempel på en enkel layout med et read only tekst felt og en signeringsknapp kan se sånn her ut:
+Eksempel på en enkel layout med et read only-tekstfelt og en signeringsknapp kan se sånn her ut:
 
 ```json
 {
@@ -179,13 +180,13 @@ Eksempel på en enkel layout med et read only tekst felt og en signeringsknapp k
 }
 ```
 
-### Sett autorisasjons regel som gir bruker lov til å signere
+### Sett opp autorisasjonsregel som gir brukeren lov til å signere
 
-For at brukere skal få lov til å signere må du definere en regel i `App/config/authorization/policy.xml` som gir brukerne rettigheter til å signere på det nye prosesssteget.
+For at brukere skal få lov til å signere må du sette opp en regel i `App/config/authorization/policy.xml` som gir brukerne rettigheter til å signere på det nye prosesssteget.
 
-Regelen må definere at brukerene som skal kunne signere har rettighetene _read_, _write_ og _sign_ på steget der signering skal utføres.
+Regelen må si at brukerne som skal kunne signere har rettighetene _read_, _write_ og _sign_ på steget der signering skal utføres.
 
-Eksempel på en autorisasjonsregel som gir disse tilgangene for _DAGL_-rollen på prosess steg med id _Task_2_:
+Eksempel på en autorisasjonsregel som gir disse tilgangene for _DAGL_-rollen på prosesssteg med id _Task_2_:
 
 ```xml
 <xacml:Rule RuleId="urn:altinn:example:ruleid:7" Effect="Permit">
@@ -239,13 +240,13 @@ Eksempel på en autorisasjonsregel som gir disse tilgangene for _DAGL_-rollen p�
 </xacml:Rule>
 ```
 
-### Konfigurere unike signaturer
+### Sett opp unike signaturer
 
-Hvis en applikasjon har flere signeringstrinn, kan du sørge for at én person ikke kan signere begge trinnene selv om de har nødvendige roller.
+Hvis en app har flere signeringstrinn, kan du sørge for at én person ikke kan signere begge trinnene selv om de har nødvendige roller.
 
 For eksempel hvis to styremedlemmer skal signere, men samme person ikke kan utføre begge signeringstrinnene.
 
-For å konfigurere dette må du legge til det første signaturdataobjektet i listen `<altinn:uniqueFromSignaturesInDataTypes>` for signeringoppgave to:
+For å sette opp dette må du legge til det første signaturdataobjektet i listen `<altinn:uniqueFromSignaturesInDataTypes>` for signeringsoppgave to:
 
 ```xml
 <bpmn:task id="Task_2" name="Signing">
@@ -289,9 +290,9 @@ For å konfigurere dette må du legge til det første signaturdataobjektet i lis
 </bpmn:task>
 ```
 
-I eksempelet blir signeringobjektet for oppgave Task_2 lagret i datatypen "signature", og i "signature2" for oppgave Task_3.
+I eksempelet blir signaturobjektet for oppgave Task_2 lagret i datatypen "signature", og i "signature2" for oppgave Task_3.
 
-I tillegg har Task_3s `<altinn:signatureConfig>` definert at den skal være unik blant alle signaturobjekter som er lagret i datatypen "signatur".
+I tillegg har Task_3 sitt `<altinn:signatureConfig>` sagt at den skal være unik blant alle signaturobjekter som er lagret i datatypen "signatur".
 
 ```xml
 <altinn:uniqueFromSignaturesInDataTypes>
@@ -299,17 +300,17 @@ I tillegg har Task_3s `<altinn:signatureConfig>` definert at den skal være unik
 </altinn:uniqueFromSignaturesInDataTypes>
 ```
 
-### Gjøre det mulig for signerer å avslå å signere
+### Gjør det mulig for signerer å avslå å signere
 
-Hvis du vil at signerer skal kunne avslå å signere og for eksempel sende instansen tilbake til forrige steg, kan du legge til en `reject` action på dette prosesssteget.
+Hvis du vil at signerer skal kunne avslå å signere og for eksempel sende instansen tilbake til forrige steg, kan du legge til en `reject`-action på dette prosesssteget.
 
-Du legger denne til i autorisasjonsregelen og definerer en egen ActionButton som knyttes til action `reject`.
+Du legger denne til i autorisasjonsregelen og setter opp en egen ActionButton som knyttes til action `reject`.
 
-Se [Kontroller proess flyt](/nb/altinn-studio/v8/reference/process/flowcontrol/) for mer informasjon.
+Se [Slik styrer du prosessflyten](/nb/altinn-studio/v8/reference/process/flowcontrol/) for mer informasjon.
 
-### Lagring av signeringobjekt når brukeren signerer
+### Slik lagres signaturobjektet når brukeren signerer
 
-Når brukeren utfører signeringen, lagrer systemet et signeringobjekt som datatypen "signatur". Signeringobjektet ser omtrent slik ut:
+Når brukeren utfører signeringen, lagrer systemet et signaturobjekt som datatypen "signatur". Signaturobjektet ser omtrent slik ut:
 
 ```json
 {
@@ -333,16 +334,14 @@ Når brukeren utfører signeringen, lagrer systemet et signeringobjekt som datat
 
 Hvis flere dataelementer er signert, legger systemet dem til i listen `dataElementSignatures`.
 
-Feltet `sha256Hash` inneholder en heksadesimal-kodet SHA256 hash generert fra dataene som er lagret i Altinn på tidspunktet for signeringen.
+Feltet `sha256Hash` inneholder en heksadesimalkodert SHA256-hash opprettet fra dataene som er lagret i Altinn på tidspunktet for signeringen.
 Objektet `signeeInfo` inneholder informasjonen om hvem som utførte signeringen.
 
-### Verifisering av SHA256 hash
-Også kalt en `digest`, denne verdien er resultatet fra SHA256 hash metoden. I eksempelet over har metoden blitt kjørt på en fil som tilhører et spesifikt dataelement, det vil si filen som ble signert.
+### Slik verifiserer du SHA256-hash
+Også kalt en `digest`, denne verdien er resultatet fra SHA256-hashmetoden. I eksempelet over har metoden blitt kjørt på en fil som tilhører et spesifikt dataelement, det vil si filen som ble signert.
 
-Verifisering av signaturen i etterkant går i prinsippet ut på å sammenligne oppgitt `sha256Hash` med en uavhengig SHA256 beregning av samme fil. Hvis verdiene er identiske betyr det at filen brukeren har signert ikke har endret seg, og at signaturen fremdeles er gyldig.
+Å verifisere signaturen i etterkant går i prinsippet ut på å sammenligne oppgitt `sha256Hash` med en uavhengig SHA256-beregning av samme fil. Hvis verdiene er identiske betyr det at filen brukeren har signert ikke har endret seg, og at signaturen fremdeles er gyldig.
 
-Mer informasjon om Altinn sin implementering av denne utregningen finnes på [Github]
+Mer informasjon om Altinn sin bruk av denne utregningen finnes på [GitHub](https://github.com/Altinn/altinn-storage/blob/afa8f921231afc485c17b8f4226f6d8e2333b3dd/src/Storage/Services/DataService.cs#L57).
 
-https://github.com/Altinn/altinn-storage/blob/afa8f921231afc485c17b8f4226f6d8e2333b3dd/src/Storage/Services/DataService.cs#L57
-
-Kort oppsummert må du generere en SHA256 verdi av filen du vil sammenligne, deretter formattere denne verdien som en heksadesimal streng uten bindestreker og med kun små bokstaver. 
+Kort oppsummert må du opprette en SHA256-verdi av filen du vil sammenligne, deretter formatere denne verdien som en heksadesimal streng uten bindestreker og med kun små bokstaver.
