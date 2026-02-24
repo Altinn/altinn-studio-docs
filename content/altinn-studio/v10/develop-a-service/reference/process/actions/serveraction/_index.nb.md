@@ -21,7 +21,7 @@ De er nesten identiske med prosesshandlinger, den eneste forskjellen er at de ik
 
 En serverhandling er knyttet til én eller flere prosessoppgaver og trenger eksplisitte autorisasjonsregler for å gi sluttbrukere rettigheter til å utføre dem.
 
-## Slik oppretter og konfigurerer du serverhandling
+## Slik oppretter og konfigurerer du en serverhandling
 
 ### Slik konfigurerer du tilgjengelige serverhandlinger for en prosessoppgave
 
@@ -110,3 +110,43 @@ Eksempel på en tilgangspolicyregel som gir brukere med rollen `DAGL` tilgang ti
     </xacml:Rule>
 <!-- End of policy.xml definition omitted for brevity -->
 ```
+
+### Slik skriver du tilpasset kode og registrerer den som tjeneste
+
+For å skrive tilpasset logikk, opprett en ny klasse som implementerer `Altinn.App.Core.Models.UserAction.IUserAction`.
+
+Dette grensesnittet krever at du definerer en `Id` og en implementasjon av `public async Task<UserActionResult> HandleAction(UserActionContext context)`. Systemet bruker ID-en for å finne riktig C#-implementasjon av handlingen som er definert i prosessfilen.
+
+Et enkelt eksempel på serverhandlingen `myServerAction` som logger brukerens bruker-ID og instans-ID:
+
+```csharp
+using System.Threading.Tasks;
+using Altinn.App.Core.Features;
+using Altinn.App.Core.Models.UserAction;
+using Microsoft.Extensions.Logging;
+
+namespace Altinn.App.Actions;
+
+public class MyServerAction: IUserAction
+{
+    private readonly ILogger<MyServerAction> _logger;
+
+    public MyServerAction(ILogger<MyServerAction> logger)
+    {
+        _logger = logger;
+    }
+
+    public string Id => "myServerAction";
+
+    public async Task<UserActionResult> HandleAction(UserActionContext context)
+    {
+        await Task.CompletedTask;
+        _logger.LogInformation("UserId: {userId}, InstanceId: {instanceId}", context.UserId, context.Instance.Id);
+        return UserActionResult.SuccessResult();
+    }
+}
+```
+
+Hvis handlingen returnerer en `UserActionResult` med feltet "success" satt til true, blir handlingen utført. Ellers returnerer API-en en feil til brukeren.
+
+I motsetning til prosesshandlinger flytter serverhandlinger **ikke** prosessen til neste oppgave automatisk. Hvis du vil flytte prosessen videre, må du returnere `UserActionResult` med `NextAction` satt til et stegnavn eller bruke en separat prosesshandling.
