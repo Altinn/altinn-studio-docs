@@ -306,7 +306,7 @@ Hvis du vil at signerer skal kunne avslå å signere og for eksempel sende insta
 
 Du legger denne til i autorisasjonsregelen og setter opp en egen ActionButton som knyttes til handlingen `reject`.
 
-Se [Slik styrer du prosessflyten](/nb/altinn-studio/v10/develop-a-service/reference/process/flowcontrol/) for mer informasjon.
+Se [Slik styrer du prosessflyten](/nb/altinn-studio/v8/reference/process/flowcontrol/) for mer informasjon.
 
 ### Slik lagres signaturobjektet når brukeren signerer
 
