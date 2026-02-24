@@ -73,7 +73,7 @@ Type-attributtet som er definert for handlingen _custom_ (processAction) er stan
 
 ### Slik definerer du nødvendige autorisasjonspolicyer
 
-Du må gi brukere rettigheter til å utføre handlingene _custom_ og _demo_ når de forlater _Task1_.
+Du må gi brukere rettigheter til å utføre handlingene _custom_ og _demo_ når de forlater _Task_1_.
 
 Dette defineres i policy.xml:
 
