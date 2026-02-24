@@ -7,7 +7,7 @@ toc: true
 weight: 10
 ---
 
-Versjon 8 av appen introduserte "nuget-handlinger i oppgaver". Dette gjør det mulig for deg som utvikler å knytte ActionButtons i grensesnittet med UserActions i backenden.
+Versjon 8 av appen introduserte "NuGet-handlinger i oppgaver". Dette gjør det mulig for deg som utvikler å knytte `ActionButtons` i grensesnittet med `UserActions` i backenden.
 
 Du kan autorisere hver handling i en oppgave separat i policy-filen.
 
