@@ -7,7 +7,7 @@ toc: true
 weight: 10
 ---
 
-Versjon 8 av appen introduserte "nugets actions in tasks". Dette gjør det mulig for deg som utvikler å knytte ActionButtons i grensesnittet med UserActions i backenden.
+Versjon 8 av appen introduserte "nuget-handlinger i oppgaver". Dette gjør det mulig for deg som utvikler å knytte ActionButtons i grensesnittet med UserActions i backenden.
 
 Du kan autorisere hver handling i en oppgave separat i policy-filen.
 
@@ -47,7 +47,7 @@ xmlns:altinn="http://altinn.no/process">
     <bpmn:startEvent id="StartEvent">
       <bpmn:outgoing>Flow1</bpmn:outgoing>
     </bpmn:startEvent>
-    <bpmn:sequenceFlow id="Flow1" sourceRef="StartEvent" targetRef="Task1" />
+    <bpmn:sequenceFlow id="Flow1" sourceRef="StartEvent" targetRef="Task_1" />
     <bpmn:task id="Task_1" name="Utfylling">
       <bpmn:incoming>Flow1</bpmn:incoming>
       <bpmn:outgoing>Flow2</bpmn:outgoing>
@@ -61,7 +61,7 @@ xmlns:altinn="http://altinn.no/process">
         </altinn:taskExtension>
       </bpmn:extensionElements>
     </bpmn:task>
-    <bpmn:sequenceFlow id="Flow2" sourceRef="Task1" targetRef="EndEvent" />
+    <bpmn:sequenceFlow id="Flow2" sourceRef="Task_1" targetRef="EndEvent" />
     <bpmn:endEvent id="EndEvent">
       <bpmn:incoming>Flow2</bpmn:incoming>
     </bpmn:endEvent>
@@ -73,7 +73,7 @@ Type-attributtet som er definert for handlingen _custom_ (processAction) er stan
 
 ### Slik definerer du nødvendige autorisasjonspolicyer
 
-Du må gi brukere rettigheter til å utføre handlingene _custom_ og _demo_ når de forlater _Task1_.
+Du må gi brukere rettigheter til å utføre handlingene _custom_ og _demo_ når de forlater _Task_1_.
 
 Dette defineres i policy.xml:
 
