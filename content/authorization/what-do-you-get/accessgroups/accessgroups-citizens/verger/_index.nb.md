@@ -8,8 +8,7 @@ toc: true
 Vergemål oppnevnes av Statsforvalteren, og informasjon om verge, omfang og legitimasjoner lagres i Folkeregisteret. Altinn autorisasjon mottar informasjon om vergemål i overføringene fra FReg.
 For å gi verge fullmakt til å benytte en tjeneste eller ressurs, må tjenesteeier angi akuell(e) legitimasjon(er) i policy-filen til tjenesten.
 
-## Bank
-
+{{% expandlarge id="bank" header="Bank" %}}
 
 ### Representasjon dagligbank
 
@@ -19,15 +18,17 @@ Fullmakten omfatter oppgaver knyttet til å opprette kundeforhold, opprette/avsl
 
 Fullmakten gjelder søknad om etablering av banklån - dette krever statsforvalterens samtykke
 
-## Forsinkringsselskap
+{{% /expandlarge %}}
 
+{{% expandlarge id="forsikringsselskap" header="Forsikringsselskap" %}}
 
 ### Forvalte forsikringsavtaler
 
 Fullmakten omfatter oppgaver knyttet til å etablere/endre/avslutte forsikringsavtaler og representasjon ved forsikringsoppgjør
 
-## Helfo
+{{% /expandlarge %}}
 
+{{% expandlarge id="helfo" header="Helfo" %}}
 
 ### Refusjon for privatpersoner
 
@@ -37,8 +38,9 @@ Fullmakten gjelder bistand til å søke om stønad til helsetjenester etter folk
 
 Fullmakten gjelder bistand til å bytte fastlege, samt å kunne se tidligere og nåværende fastlege
 
-## Husbanken
+{{% /expandlarge %}}
 
+{{% expandlarge id="husbanken" header="Husbanken" %}}
 
 ### Bostøtte
 
@@ -48,14 +50,17 @@ Fullmakten gjelder søknad om og/eller eventuelt klage på vedtak om statlig bos
 
 Fullmakten gjelder søknad om og/eller eventuelt klage på vedtak om startlån hos Husbanken
 
-## Inkassoselskap
+{{% /expandlarge %}}
 
+{{% expandlarge id="inkassoselskap" header="Inkassoselskap" %}}
 
 ### Forhandle og inngå inkassoavtaler
 
 Fullmakten gjelder avtaleinngåelse og forhandling med ulike inkassoselskaper
 
-## Kartverket
+{{% /expandlarge %}}
+
+{{% expandlarge id="kartverket" header="Kartverket" %}}
 
 ### Salg av fast eiendom/borettslagsandel
 
@@ -85,8 +90,9 @@ Fullmakten gjelder sletting av rettigheter i fast eiendom - dette krever statsfo
 
 Fullmakten omfatter emnene pantsette eiendom, refinansiering - dette krever statsforvalterens samtykke
 
-## Kommune
+{{% /expandlarge %}}
 
+{{% expandlarge id="kommune" header="Kommune" %}}
 
 ### Bygg og eiendom
 
@@ -108,15 +114,17 @@ Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene bo
 
 Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene grunnskole, videregående skole, høyere utdanning, voksenopplæring og skolehverdag
 
-## Kredittvurderingsselskap
+{{% /expandlarge %}}
 
+{{% expandlarge id="kredittvurderingsselskap" header="Kredittvurderingsselskap" %}}
 
 ### Kredittsperre
 
 Fullmakten gjelder avtaleinngåelse om kredittsperre
 
-## Namsmannen
+{{% /expandlarge %}}
 
+{{% expandlarge id="namsmannen" header="Namsmannen" %}}
 
 ### Gjeldsordning
 
@@ -126,8 +134,9 @@ Fullmakten gjelder søknad om og/eller forvaltning av eksisterende gjeldsordning
 
 Fullmakten gjelder representasjon i saker om tvangsfullbyrdelse etter tvangsfullbyrdelsesloven, herunder eventuell behandling i forliksrådet av slike saker og oppfølging av saken hos innkrevingsmyndigheten.
 
-## NAV
+{{% /expandlarge %}}
 
+{{% expandlarge id="nav" header="NAV" %}}
 
 ### Arbeid
 
@@ -149,15 +158,17 @@ Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene al
 
 Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene gjeldsrådgivning, kvalifiseringsprogrammet, midlertidig botilbud, økonomisk rådgivning, forsvarlig livsopphold, midlertidig inntektssikring og økonomisk stønad. Gjelder innsyn/saksbehandling og utbetaling
 
-## Pasientreiser
+{{% /expandlarge %}}
 
+{{% expandlarge id="pasientreiser" header="Pasientreiser" %}}
 
 ### Refusjon av pasientreiser
 
 Fullmakten gjelder søknad om og/eller eventuell klage på vedtak om refusjon av reiseutgifter i forbindelse med behandlinger som dekkes av det offentlige
 
-## Skatteetaten
+{{% /expandlarge %}}
 
+{{% expandlarge id="skatteetaten" header="Skatteetaten" %}}
 
 ### Innkreving og tvangsfullbyrdelse
 
@@ -175,15 +186,17 @@ Fullmakten gjelder endring av bostedsadresse
 
 Fullmakten gjelder innsyn i skattedata, og representasjon overfor skattemyndighetene i saker om skatt og avgift, herunder levering av skattemelding og endring av skattekort
 
-## Statsforvalteren
+{{% /expandlarge %}}
 
+{{% expandlarge id="statsforvalteren" header="Statsforvalteren" %}}
 
 ### Søke om samtykke til disposisjon
 
 Fullmakten gjelder søknad om disposisjoner som krever statsforvalterens samtykke
 
-## Tingretten
+{{% /expandlarge %}}
 
+{{% expandlarge id="tingretten" header="Tingretten" %}}
 
 ### Begjære uskifte
 
@@ -197,8 +210,9 @@ Fullmakten omfatter tilfeller der vergen på vegne av vergehaveren overtar boet 
 
 Fullmakten gjelder skifte av uskiftebo jf. vgml. § 41 (3) og arvl. §§ 28 og 29 - dette krever statsforvalterens samtykke
 
-## Øvrige
+{{% /expandlarge %}}
 
+{{% expandlarge id="ovrige" header="Øvrige" %}}
 
 ### Kjøp/leie av varer og tjenester
 
@@ -219,3 +233,5 @@ Fullmakten gjelder salg av løsøre av større verdi (herunder bil), usedvanlig 
 ### Disponere inntekter til å dekke utgifter
 
 Fullmakten gir adgang til å bruke dine inntekter til å betale regninger, betjene gjeld, og dekke øvrige utgifter.
+
+{{% /expandlarge %}}
