@@ -50,7 +50,7 @@ Som med bekreftelsesoppgaver må du sette opp de tilgjengelige handlingene. For 
 </altinn:actions>
 ```
 
-Handlingen `sign` kan være det eneste alternativet eller kombinert med andre handlinger som "bekreft" eller "avvis", avhengig av behovene til hver app.
+Handlingen `sign` kan være det eneste alternativet eller kombinert med andre handlinger som `bekreft` eller `avvis`, avhengig av behovene til hver app.
 
 ### Velg hvilke dataelementer som skal signeres
 
@@ -142,13 +142,13 @@ Eksempel på en applicationmetadata.json-fil med en signaturdatatype kalt "signa
 
 ### Design layout for signeringssteget
 
-Signeringssteget trenger en layout som bestemmer hva som skal vises til brukeren. Du gjør dette via et eget layoutsett som du knytter til signering-prosesssteget (`Task_2` i eksemplet vårt).
+Signeringssteget trenger en layout som bestemmer hva som skal vises til brukeren. Du gjør dette via et eget layoutsett som du knytter til signeringsprosesssteget (`Task_2` i eksemplet vårt).
 
 Hvis du har en v3-app uten layoutsett, se [Sider](/nb/altinn-studio/v8/reference/ux/pages/#oppsett) for hvordan du setter dette opp.
 
 Opprett en ny mappe i `App/ui/` med navnet som beskriver dette layoutsettet, for eksempel _signering_. I denne mappen oppretter du filen `Settings.json` og en mappe med navn `layouts`.
 
-I `layouts`-mappen oppretter du filer som bestemmer hvordan sider i dette layoutsettet skal se ut. En signering-layout må ha en [`ActionButton`](/nb/altinn-studio/v8/reference/ux/components/actionbutton/) med `"action": "sign"` som bestemmer at brukeren utfører action sign når brukeren trykker på den og flytter prosessen videre.
+I `layouts`-mappen oppretter du filer som bestemmer hvordan sider i dette layoutsettet skal se ut. En signering-layout må ha en [`ActionButton`](/nb/altinn-studio/v8/reference/ux/components/actionbutton/) med `"action": "sign"` som bestemmer at brukeren utfører handlingen `sign` når brukeren trykker på den og flytter prosessen videre.
 
 Eksempel på en enkel layout med et read only-tekstfelt og en signeringsknapp kan se sånn her ut:
 
@@ -290,9 +290,9 @@ For å sette opp dette må du legge til det første signaturdataobjektet i liste
 </bpmn:task>
 ```
 
-I eksempelet blir signaturobjektet for oppgave Task_2 lagret i datatypen "signatur", og i "signatur2" for oppgave Task_3.
+I eksempelet blir signaturobjektet for oppgave `Task_2` lagret i datatypen `signatur`, og i `signatur2` for oppgave `Task_3`.
 
-I tillegg har Task_3 sitt `<altinn:signatureConfig>` sagt at den skal være unik blant alle signaturobjekter som er lagret i datatypen "signatur".
+I tillegg har `Task_3` sitt `<altinn:signatureConfig>` sagt at den skal være unik blant alle signaturobjekter som er lagret i datatypen `signatur`.
 
 ```xml
 <altinn:uniqueFromSignaturesInDataTypes>
@@ -300,9 +300,9 @@ I tillegg har Task_3 sitt `<altinn:signatureConfig>` sagt at den skal være unik
 </altinn:uniqueFromSignaturesInDataTypes>
 ```
 
-### Gjør det mulig for signerer å avslå å signere
+### Gjør det mulig for signereren å avslå å signere
 
-Hvis du vil at signerer skal kunne avslå å signere og for eksempel sende instansen tilbake til forrige steg, kan du legge til en `reject`-handling på dette prosesssteget.
+Hvis du vil at signereren skal kunne avslå å signere og for eksempel sende instansen tilbake til forrige steg, kan du legge til en `reject`-handling på dette prosesssteget.
 
 Du legger denne til i autorisasjonsregelen og setter opp en egen ActionButton som knyttes til handlingen `reject`.
 

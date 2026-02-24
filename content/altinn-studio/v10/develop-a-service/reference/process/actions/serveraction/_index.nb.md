@@ -115,7 +115,7 @@ Eksempel på en tilgangspolicyregel som gir brukere med rollen `DAGL` tilgang ti
 
 For å skrive tilpasset logikk, opprett en ny klasse som implementerer `Altinn.App.Core.Models.UserAction.IUserAction`.
 
-Dette grensesnittet krever at du definerer en `Id` og en utføring av `public async Task<UserActionResult> HandleAction(UserActionContext context)`. Systemet bruker ID-en for å finne riktig C#-utføring av handlingen som er definert i prosessfilen.
+Dette grensesnittet krever at du definerer en `Id` og en implementasjon av `public async Task<UserActionResult> HandleAction(UserActionContext context)`. Systemet bruker ID-en for å finne riktig C#-implementasjon av handlingen som er definert i prosessfilen.
 
 Et enkelt eksempel på serverhandlingen `myServerAction` som logger brukerens bruker-ID og instans-ID:
 
