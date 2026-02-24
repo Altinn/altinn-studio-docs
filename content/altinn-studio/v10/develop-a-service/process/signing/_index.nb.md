@@ -23,24 +23,6 @@ Du kan også velge lavere sikkerhetsnivå hvis du har behov for det.
 Altinn tilbyr kun autentisert signatur. Trenger du avansert signatur (med sertifikat), må du bruke eksterne produkter som 
 [eSignering fra Digdir](https://samarbeid.digdir.no/esignering/esignering/22).
 
-## Slik fungerer signering i Altinn
-
-### Hva signeres det på?
-
-Du velger hvilke dataelementer sluttbruker skal signere på. Du velger også hvilket sikkerhetsnivå (identifikasjonsnivå) 
-sluttbruker må bruke når de logger inn for å signere. Tjenesten din kan ha ett eller flere signeringssteg etter hverandre.
-
-### Hva lagres ifm en signering?
-
-Når en bruker signerer, oppretter Altinn et signaturobjekt. Signaturobjektet inneholder
-
-- hvilke dataelementer som ble signert
-- en hash-kode av dataene
-
-### Signaturen kan verifiseres i ettertid
-En hash-kode er en unik kode som beregnes ut fra innholdet i dataene. Hvis bare ett tegn i dataene endres, 
-blir hash-koden en annen. Dette gjør at du kan oppdage om noen har endret dataene etter at de ble signert.
-
 ## Rolle-/tilgangspakkebasert signering
 ### Hva gjør denne funksjonen?
 Med rolle- og tilgangspakkebasert signering kan personer signere fordi de har en bestemt rolle eller tilgangspakke. 
@@ -63,8 +45,30 @@ rolle/tilgangspakke.
 Dette er et scenario der brukeren som fyller ut skjemaet, også signerer det når skjemaet sendes inn. Brukeren signerer 
 og sender inn med ett knappetrykk.
 
+### Når bør jeg bruke dette?
+
 ## API-basert signering
+### Hva gjør denne funksjonen?
+Du kan bruke signeringsfunksjonaliteten via API-kall uten å bruke brukergrensesnittet i Altinn.
 
----
+### Når bør jeg bruke dette?
+API'ene til en Altinn-app kan brukes for å signere med alle typer signering beskrevet over.
 
-{{% insert "content/altinn-studio/v10/develop-a-service/process/signing/_setup.nb.md" %}}
+## Slik fungerer signering i Altinn
+
+### Hva signeres det på?
+
+Du velger hvilke dataelementer sluttbruker skal signere på. Du velger også hvilket sikkerhetsnivå (identifikasjonsnivå) 
+sluttbruker må bruke når de logger inn for å signere. Tjenesten din kan ha ett eller flere signeringssteg etter hverandre.
+
+### Hva lagres ifm en signering?
+
+Når en bruker signerer, oppretter Altinn et signaturobjekt. Signaturobjektet inneholder
+
+- hvilke dataelementer som ble signert
+- en hash-kode av dataene
+
+### Signaturen kan verifiseres i ettertid
+En hash-kode er en unik kode som beregnes ut fra innholdet i dataene. Hvis bare ett tegn i dataene endres, 
+blir hash-koden en annen. Dette gjør at du kan oppdage om noen har endret dataene etter at de ble signert.
+

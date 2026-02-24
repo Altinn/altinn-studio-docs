@@ -5,7 +5,8 @@ hidden: true
 tags: [needsReview, translate]
 ---
 
-Hvis du ønsker å bruke miljøspesifikke correspondence-ressurser kan du konfigurere dem ved å bruke følgende syntaks:
+Hvis du ønsker å bruke forskjellige meldingsressurser i forskjellige miljøer, kan du legge til en `env` attributt
+på oppsettet. Se eksempel under:
 
 ```xml
 <altinn:signatureConfig>

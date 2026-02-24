@@ -5,7 +5,7 @@ hidden: true
 tags: [needsReview, translate]
 ---
 
-#### Legg til et signeringssteg i app-prosessen
+### Legg til et signeringssteg i app-prosessen
 
 Du må legge til et signeringssteg i prosessen til appen. Prosessen er definert i `App/config/process/process.bpmn`.
 
@@ -65,7 +65,7 @@ Et signeringssteg kan se omtrent slik ut:
 </bpmn:task>
 ```
 
-#### Konfigurere miljøspesifikke meldingsressurser
+### Konfigurere miljøspesifikke meldingsressurser
 {{% insert "content/altinn-studio/v10/develop-a-service/process/signing/how-to/runtime-delegated-signing/backend-manual/add-process-task-environments.nb.md" %}}
 
 #### Legg til datatyper for å lagre signeringsdata

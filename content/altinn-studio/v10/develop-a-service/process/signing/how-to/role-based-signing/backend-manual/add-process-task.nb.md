@@ -47,7 +47,7 @@ Signering består av to brukerhandlinger (user actions). Dersom Altinn-brukergre
 </bpmn:task>
 ```
 
-Hvis du har valgt å sende signeringskvitteringer ved å spesifisere en correspondence-ressurs, [les om hvordan du konfigurerer miljøspesifikke correspondence-ressurser](/nb/altinn-studio/v10/develop-a-service/process/signing/how-to/runtime-delegated-signing/#konfigurere-milj%C3%B8-spesifikke-correspondence-ressurser).
+Hvis du har valgt å sende signeringskvitteringer ved å spesifisere en correspondence-ressurs, [les om hvordan du konfigurerer miljøspesifikke correspondence-ressurser](/nb/altinn-studio/v10/develop-a-service/process/signing/how-to/runtime-delegated-signing/#konfigurere-miljø-spesifikke-correspondence-ressurser).
 
 #### Legg til datatype for å lagre signeringsdata
 Denne datatypen legges til i `dataTypes` i `App/config/applicationmetadata.json`.
