@@ -12,11 +12,11 @@ For å gi verge fullmakt til å benytte en tjeneste eller ressurs, må tjenestee
 
 ### Representasjon dagligbank
 
-Fullmakten omfatter oppgaver knyttet til å opprette kundeforhold, opprette/avslutte konto, disposisjonsrett, etablere/endre betalingsavtaler og forvalte låneavtaler
+Omfatter oppgaver knyttet til å opprette kundeforhold, opprette/avslutte konto, disposisjonsrett, etablere/endre betalingsavtaler og forvalte låneavtaler
 
 ### Ta opp lån/kreditter
 
-Fullmakten gjelder søknad om etablering av banklån - dette krever statsforvalterens samtykke
+Gjelder søknad om etablering av banklån - dette krever statsforvalterens samtykke
 
 {{% /expandlarge %}}
 
@@ -24,7 +24,7 @@ Fullmakten gjelder søknad om etablering av banklån - dette krever statsforvalt
 
 ### Forvalte forsikringsavtaler
 
-Fullmakten omfatter oppgaver knyttet til å etablere/endre/avslutte forsikringsavtaler og representasjon ved forsikringsoppgjør
+Omfatter oppgaver knyttet til å etablere/endre/avslutte forsikringsavtaler og representasjon ved forsikringsoppgjør
 
 {{% /expandlarge %}}
 
@@ -32,11 +32,11 @@ Fullmakten omfatter oppgaver knyttet til å etablere/endre/avslutte forsikringsa
 
 ### Refusjon for privatpersoner
 
-Fullmakten gjelder bistand til å søke om stønad til helsetjenester etter folketrygdloven, herunder innsyn i og håndtering av egenandel-/frikortordningen og helsetjenester gitt i utlandet. Gjelder også når en tredjepart sender søknad på vegne av en person (eks. lege, arbeidsgiver, forsikringsselskap)
+Gjelder bistand til å søke om stønad til helsetjenester etter folketrygdloven, herunder innsyn i og håndtering av egenandel-/frikortordningen og helsetjenester gitt i utlandet. Gjelder også når en tredjepart sender søknad på vegne av en person (eks. lege, arbeidsgiver, forsikringsselskap)
 
 ### Fastlege
 
-Fullmakten gjelder bistand til å bytte fastlege, samt å kunne se tidligere og nåværende fastlege
+Gjelder bistand til å bytte fastlege, samt å kunne se tidligere og nåværende fastlege
 
 {{% /expandlarge %}}
 
@@ -44,11 +44,11 @@ Fullmakten gjelder bistand til å bytte fastlege, samt å kunne se tidligere og 
 
 ### Bostøtte
 
-Fullmakten gjelder søknad om og/eller eventuelt klage på vedtak om statlig bostøtte hos Husbanken
+Gjelder søknad om og/eller eventuelt klage på vedtak om statlig bostøtte hos Husbanken
 
 ### Startlån
 
-Fullmakten gjelder søknad om og/eller eventuelt klage på vedtak om startlån hos Husbanken
+Gjelder søknad om og/eller eventuelt klage på vedtak om startlån hos Husbanken
 
 {{% /expandlarge %}}
 
@@ -56,7 +56,7 @@ Fullmakten gjelder søknad om og/eller eventuelt klage på vedtak om startlån h
 
 ### Forhandle og inngå inkassoavtaler
 
-Fullmakten gjelder avtaleinngåelse og forhandling med ulike inkassoselskaper
+Gjelder avtaleinngåelse og forhandling med ulike inkassoselskaper
 
 {{% /expandlarge %}}
 
@@ -64,31 +64,31 @@ Fullmakten gjelder avtaleinngåelse og forhandling med ulike inkassoselskaper
 
 ### Salg av fast eiendom/borettslagsandel
 
-Fullmakten omfatter emnene tinglyse eierskifte, sletting av rettighet/servitutt/heftelse, sikringspant. Tjenesteområdet vil også gjelde for overføring av fast eiendom/borettslagsandel mellom ektefeller/samboere - dette krever statsforvalterens samtykke
+Omfatter emnene tinglyse eierskifte, sletting av rettighet/servitutt/heftelse, sikringspant. Tjenesteområdet vil også gjelde for overføring av fast eiendom/borettslagsandel mellom ektefeller/samboere - dette krever statsforvalterens samtykke
 
 ### Kjøp av eiendom
 
-Fullmakten omfatter emnene tinglyse eierskifte, pantsette eiendom, tinglyse avtaler (rettighet/servitutt/heftelse) og festekontrakt - dette krever statsforvalterens samtykke
+Omfatter emnene tinglyse eierskifte, pantsette eiendom, tinglyse avtaler (rettighet/servitutt/heftelse) og festekontrakt - dette krever statsforvalterens samtykke
 
 ### Arv - privat skifte og uskifte
 
-Fullmakten omfatter emnene hjemmelserklæring og skjøte videre - dette krever statsforvalterens samtykke
+Omfatter emnene hjemmelserklæring og skjøte videre - dette krever statsforvalterens samtykke
 
 ### Endring av eiendom
 
-Fullmakten omfatter emnene seksjonering, reseksjonering, fradelinger, sammenslåinger, registreringer av festegrunn, endringer av festenummer til bruksnummer, arealoverføring - dette krever statsforvalterens samtykke
+Omfatter emnene seksjonering, reseksjonering, fradelinger, sammenslåinger, registreringer av festegrunn, endringer av festenummer til bruksnummer, arealoverføring - dette krever statsforvalterens samtykke
 
 ### Avtaler og rettigheter
 
-Fullmakten omfatter emnene tinglyse avtaler (rettighet/servitutt/heftelse) og festekontrakt, tinglysning av prioritetsbestemmelser, nedkvitteringer, tinglysing på ny, transport av frivillige heftelser og tvangsforretninger, massetransport - dette krever statsforvalterens samtykke
+Omfatter emnene tinglyse avtaler (rettighet/servitutt/heftelse) og festekontrakt, tinglysning av prioritetsbestemmelser, nedkvitteringer, tinglysing på ny, transport av frivillige heftelser og tvangsforretninger, massetransport - dette krever statsforvalterens samtykke
 
 ### Sletting
 
-Fullmakten gjelder sletting av rettigheter i fast eiendom - dette krever statsforvalterens samtykke
+Gjelder sletting av rettigheter i fast eiendom - dette krever statsforvalterens samtykke
 
 ### Låneopptak
 
-Fullmakten omfatter emnene pantsette eiendom, refinansiering - dette krever statsforvalterens samtykke
+Omfatter emnene pantsette eiendom, refinansiering - dette krever statsforvalterens samtykke
 
 {{% /expandlarge %}}
 
@@ -96,23 +96,23 @@ Fullmakten omfatter emnene pantsette eiendom, refinansiering - dette krever stat
 
 ### Bygg og eiendom
 
-Fullmakten omfatter oppgaver som hører inn under områdene bygging, eiendom, kjøp og salg, leie og utleie, samt priser og gebyr for bygg og eiendom - dette krever statsforvalterens samtykke
+Omfatter oppgaver som hører inn under områdene bygging, eiendom, kjøp og salg, leie og utleie, samt priser og gebyr for bygg og eiendom - dette krever statsforvalterens samtykke
 
 ### Helse og omsorg
 
-Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene avlastning og støtte, helsetjenester, omsorgstjenester og velferdsstøtte
+Omfatter tilbud og støtteordninger som hører inn under områdene avlastning og støtte, helsetjenester, omsorgstjenester og velferdsstøtte
 
 ### Skatt og avgift
 
-Fullmakten omfatter oppgaver som hører inn under områdene arbeidsgiveravgift, kommunale avgifter, eiendomsskatt og skatteattest
+Omfatter oppgaver som hører inn under områdene arbeidsgiveravgift, kommunale avgifter, eiendomsskatt og skatteattest
 
 ### Sosiale tjenester
 
-Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene botilbud, kvalifisering til arbeid, økonomiske ytelser og rådgivning
+Omfatter tilbud og støtteordninger som hører inn under områdene botilbud, kvalifisering til arbeid, økonomiske ytelser og rådgivning
 
 ### Skole og utdanning
 
-Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene grunnskole, videregående skole, høyere utdanning, voksenopplæring og skolehverdag
+Omfatter tilbud og støtteordninger som hører inn under områdene grunnskole, videregående skole, høyere utdanning, voksenopplæring og skolehverdag
 
 {{% /expandlarge %}}
 
@@ -120,7 +120,7 @@ Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene gr
 
 ### Kredittsperre
 
-Fullmakten gjelder avtaleinngåelse om kredittsperre
+Gjelder avtaleinngåelse om kredittsperre
 
 {{% /expandlarge %}}
 
@@ -128,11 +128,11 @@ Fullmakten gjelder avtaleinngåelse om kredittsperre
 
 ### Gjeldsordning
 
-Fullmakten gjelder søknad om og/eller forvaltning av eksisterende gjeldsordninger
+Gjelder søknad om og/eller forvaltning av eksisterende gjeldsordninger
 
 ### Tvangsfullbyrdelse, herunder behandling i forliksrådet
 
-Fullmakten gjelder representasjon i saker om tvangsfullbyrdelse etter tvangsfullbyrdelsesloven, herunder eventuell behandling i forliksrådet av slike saker og oppfølging av saken hos innkrevingsmyndigheten.
+Gjelder representasjon i saker om tvangsfullbyrdelse etter tvangsfullbyrdelsesloven, herunder eventuell behandling i forliksrådet av slike saker og oppfølging av saken hos innkrevingsmyndigheten.
 
 {{% /expandlarge %}}
 
@@ -140,23 +140,23 @@ Fullmakten gjelder representasjon i saker om tvangsfullbyrdelse etter tvangsfull
 
 ### Arbeid
 
-Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene forsikring/sykepenger (selvstendig næringsdrivende og frilansere), sykepenger, tilleggsstønad og yrkesskade/menerstatning og arbeidsavklaringspenger. Gjelder innsyn/saksbehandling og utbetaling
+Omfatter tilbud og støtteordninger som hører inn under områdene forsikring/sykepenger (selvstendig næringsdrivende og frilansere), sykepenger, tilleggsstønad og yrkesskade/menerstatning og arbeidsavklaringspenger. Gjelder innsyn/saksbehandling og utbetaling
 
 ### Familie
 
-Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene barnebidrag, barnetrygd, enslig forsørger, foreldre- og svangerskapspenger, grunn- og hjelpestønad og kontantstøtte. Gjelder innsyn/saksbehandling og utbetaling
+Omfatter tilbud og støtteordninger som hører inn under områdene barnebidrag, barnetrygd, enslig forsørger, foreldre- og svangerskapspenger, grunn- og hjelpestønad og kontantstøtte. Gjelder innsyn/saksbehandling og utbetaling
 
 ### Hjelpemidler
 
-Fullmakten omfatter emnene hjelpemidler, helsetjenester, ortopediske hjelpemidler og bil
+Omfatter emnene hjelpemidler, helsetjenester, ortopediske hjelpemidler og bil
 
 ### Pensjon
 
-Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene alderspensjon, supplerende stønad, uførepensjon/-trygd, avtalefestet pensjon, ytelser for gjenlevende (alle typer pensjonsytelser). Gjelder innsyn/saksbehandling og utbetaling
+Omfatter tilbud og støtteordninger som hører inn under områdene alderspensjon, supplerende stønad, uførepensjon/-trygd, avtalefestet pensjon, ytelser for gjenlevende (alle typer pensjonsytelser). Gjelder innsyn/saksbehandling og utbetaling
 
 ### Sosiale tjenester
 
-Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene gjeldsrådgivning, kvalifiseringsprogrammet, midlertidig botilbud, økonomisk rådgivning, forsvarlig livsopphold, midlertidig inntektssikring og økonomisk stønad. Gjelder innsyn/saksbehandling og utbetaling
+Omfatter tilbud og støtteordninger som hører inn under områdene gjeldsrådgivning, kvalifiseringsprogrammet, midlertidig botilbud, økonomisk rådgivning, forsvarlig livsopphold, midlertidig inntektssikring og økonomisk stønad. Gjelder innsyn/saksbehandling og utbetaling
 
 {{% /expandlarge %}}
 
@@ -164,7 +164,7 @@ Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene gj
 
 ### Refusjon av pasientreiser
 
-Fullmakten gjelder søknad om og/eller eventuell klage på vedtak om refusjon av reiseutgifter i forbindelse med behandlinger som dekkes av det offentlige
+Søknad om og/eller eventuell klage på vedtak om refusjon av reiseutgifter i forbindelse med behandlinger som dekkes av det offentlige
 
 {{% /expandlarge %}}
 
@@ -172,19 +172,19 @@ Fullmakten gjelder søknad om og/eller eventuell klage på vedtak om refusjon av
 
 ### Innkreving og tvangsfullbyrdelse
 
-Fullmakten gjelder saker som innkrevingsmyndigheten i Skatteetaten behandler etter innkrevingsloven, fra og med varsel etter tvangsfullbyrdelsesloven §4-18 og §4-19.
+Gjelder saker som innkrevingsmyndigheten i Skatteetaten behandler etter innkrevingsloven, fra og med varsel etter tvangsfullbyrdelsesloven §4-18 og §4-19.
 
 ### Endre postadresse
 
-Fullmakten gjelder endring av postadresse for person med verge
+Gjelder endring av postadresse for person med verge
 
 ### Melde flytting
 
-Fullmakten gjelder endring av bostedsadresse
+Gjelder endring av bostedsadresse
 
 ### Skatt
 
-Fullmakten gjelder innsyn i skattedata, og representasjon overfor skattemyndighetene i saker om skatt og avgift, herunder levering av skattemelding og endring av skattekort
+Gjelder innsyn i skattedata, og representasjon overfor skattemyndighetene i saker om skatt og avgift, herunder levering av skattemelding og endring av skattekort
 
 {{% /expandlarge %}}
 
@@ -192,7 +192,7 @@ Fullmakten gjelder innsyn i skattedata, og representasjon overfor skattemyndighe
 
 ### Søke om samtykke til disposisjon
 
-Fullmakten gjelder søknad om disposisjoner som krever statsforvalterens samtykke
+Gjelder søknad om disposisjoner som krever statsforvalterens samtykke
 
 {{% /expandlarge %}}
 
@@ -200,15 +200,15 @@ Fullmakten gjelder søknad om disposisjoner som krever statsforvalterens samtykk
 
 ### Begjære uskifte
 
-Fullmakten gjelder melding om uskiftet bo jf. vgml. § 41 (3) og arvl. §§ 14 og 32 - dette krever statsforvalterens samtykke
+Gjelder melding om uskiftet bo jf. vgml. § 41 (3) og arvl. §§ 14 og 32 - dette krever statsforvalterens samtykke
 
 ### Privat skifte av dødsbo
 
-Fullmakten omfatter tilfeller der vergen på vegne av vergehaveren overtar boet til privat skifte og ivaretakelse av andre rettigheter som arving.
+Omfatter tilfeller der vergen på vegne av vergehaveren overtar boet til privat skifte og ivaretakelse av andre rettigheter som arving.
 
 ### Begjære skifte av uskiftebo
 
-Fullmakten gjelder skifte av uskiftebo jf. vgml. § 41 (3) og arvl. §§ 28 og 29 - dette krever statsforvalterens samtykke
+Gjelder skifte av uskiftebo jf. vgml. § 41 (3) og arvl. §§ 28 og 29 - dette krever statsforvalterens samtykke
 
 {{% /expandlarge %}}
 
@@ -216,22 +216,22 @@ Fullmakten gjelder skifte av uskiftebo jf. vgml. § 41 (3) og arvl. §§ 28 og 2
 
 ### Kjøp/leie av varer og tjenester
 
-Fullmakten gjelder i forbindelse med kjøp av varer og tjenester, omfatter også heving av avtaler, reklamasjon mm.
+Gjelder i forbindelse med kjøp av varer og tjenester, omfatter også heving av avtaler, reklamasjon mm.
 
 ### Inngåelse av husleiekontrakter
 
-Fullmakten gjelder i forbindelse med inngåelse av husleiekontrakter
+Gjelder i forbindelse med inngåelse av husleiekontrakter
 
 ### Avslutning av husleiekontrakter
 
-Fullmakten gjelder i forbindelse med avslutning av husleiekontrakter
+Gjelder i forbindelse med avslutning av husleiekontrakter
 
 ### Salg av løsøre av større verdi
 
-Fullmakten gjelder salg av løsøre av større verdi (herunder bil), usedvanlig karakter eller av spesiell interesse for deg eller din nærmeste familie - dette krever statsforvalterens samtykke
+Gjelder salg av løsøre av større verdi (herunder bil), usedvanlig karakter eller av spesiell interesse for deg eller din nærmeste familie - dette krever statsforvalterens samtykke
 
 ### Disponere inntekter til å dekke utgifter
 
-Fullmakten gir adgang til å bruke dine inntekter til å betale regninger, betjene gjeld, og dekke øvrige utgifter.
+Gir adgang til å bruke dine inntekter til å betale regninger, betjene gjeld, og dekke øvrige utgifter.
 
 {{% /expandlarge %}}
