@@ -19,14 +19,14 @@ Fullmakten omfatter oppgaver knyttet til å opprette kundeforhold, opprette/avsl
 
 Fullmakten gjelder søknad om etablering av banklån - dette krever statsforvalterens samtykke
 
-## Nivå 1: Forsinkringsselskap
+## Forsinkringsselskap
 
 
 ### Forvalte forsikringsavtaler
 
 Fullmakten omfatter oppgaver knyttet til å etablere/endre/avslutte forsikringsavtaler og representasjon ved forsikringsoppgjør
 
-## Nivå 1: Helfo
+## Helfo
 
 
 ### Refusjon for privatpersoner
@@ -37,7 +37,7 @@ Fullmakten gjelder bistand til å søke om stønad til helsetjenester etter folk
 
 Fullmakten gjelder bistand til å bytte fastlege, samt å kunne se tidligere og nåværende fastlege
 
-## Nivå 1: Husbanken
+## Husbanken
 
 
 ### Bostøtte
@@ -48,14 +48,14 @@ Fullmakten gjelder søknad om og/eller eventuelt klage på vedtak om statlig bos
 
 Fullmakten gjelder søknad om og/eller eventuelt klage på vedtak om startlån hos Husbanken
 
-## Nivå 1: Inkassoselskap
+## Inkassoselskap
 
 
 ### Forhandle og inngå inkassoavtaler
 
 Fullmakten gjelder avtaleinngåelse og forhandling med ulike inkassoselskaper
 
-## Nivå 1: Kartverket
+## Kartverket
 
 ### Salg av fast eiendom/borettslagsandel
 
@@ -85,7 +85,7 @@ Fullmakten gjelder sletting av rettigheter i fast eiendom - dette krever statsfo
 
 Fullmakten omfatter emnene pantsette eiendom, refinansiering - dette krever statsforvalterens samtykke
 
-## Nivå 1: Kommune
+## Kommune
 
 
 ### Bygg og eiendom
@@ -108,14 +108,14 @@ Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene bo
 
 Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene grunnskole, videregående skole, høyere utdanning, voksenopplæring og skolehverdag
 
-## Nivå 1: Kredittvurderingsselskap
+## Kredittvurderingsselskap
 
 
 ### Kredittsperre
 
 Fullmakten gjelder avtaleinngåelse om kredittsperre
 
-## Nivå 1: Namsmannen
+## Namsmannen
 
 
 ### Gjeldsordning
@@ -126,7 +126,7 @@ Fullmakten gjelder søknad om og/eller forvaltning av eksisterende gjeldsordning
 
 Fullmakten gjelder representasjon i saker om tvangsfullbyrdelse etter tvangsfullbyrdelsesloven, herunder eventuell behandling i forliksrådet av slike saker og oppfølging av saken hos innkrevingsmyndigheten.
 
-## Nivå 1: NAV
+## NAV
 
 
 ### Arbeid
@@ -149,14 +149,14 @@ Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene al
 
 Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene gjeldsrådgivning, kvalifiseringsprogrammet, midlertidig botilbud, økonomisk rådgivning, forsvarlig livsopphold, midlertidig inntektssikring og økonomisk stønad. Gjelder innsyn/saksbehandling og utbetaling
 
-## Nivå 1: Pasientreiser
+## Pasientreiser
 
 
 ### Refusjon av pasientreiser
 
 Fullmakten gjelder søknad om og/eller eventuell klage på vedtak om refusjon av reiseutgifter i forbindelse med behandlinger som dekkes av det offentlige
 
-## Nivå 1: Skatteetaten
+## Skatteetaten
 
 
 ### Innkreving og tvangsfullbyrdelse
@@ -175,14 +175,14 @@ Fullmakten gjelder endring av bostedsadresse
 
 Fullmakten gjelder innsyn i skattedata, og representasjon overfor skattemyndighetene i saker om skatt og avgift, herunder levering av skattemelding og endring av skattekort
 
-## Nivå 1: Statsforvalteren
+## Statsforvalteren
 
 
 ### Søke om samtykke til disposisjon
 
 Fullmakten gjelder søknad om disposisjoner som krever statsforvalterens samtykke
 
-## Nivå 1: Tingretten
+## Tingretten
 
 
 ### Begjære uskifte
@@ -197,7 +197,7 @@ Fullmakten omfatter tilfeller der vergen på vegne av vergehaveren overtar boet 
 
 Fullmakten gjelder skifte av uskiftebo jf. vgml. § 41 (3) og arvl. §§ 28 og 29 - dette krever statsforvalterens samtykke
 
-## Nivå 1: Øvrige
+## Øvrige
 
 
 ### Kjøp/leie av varer og tjenester
