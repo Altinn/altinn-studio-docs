@@ -142,7 +142,7 @@ Eksempel på en applicationmetadata.json-fil med en signaturdatatype kalt "signa
 
 ### Design layout for signeringssteget
 
-Signeringssteget trenger en layout som bestemmer hva som skal vises til brukeren. Du gjør dette via et eget layoutsett som du knytter til signeringsprosesssteget (`Task_2` i eksemplet vårt).
+Signeringssteget trenger en layout som bestemmer hva som skal vises til brukeren. Du gjør dette via et eget layoutsett som du knytter til prosesssteget Signering (`Task_2` i eksemplet vårt).
 
 Hvis du har en v3-app uten layoutsett, se [Sider](/nb/altinn-studio/v8/reference/ux/pages/#oppsett) for hvordan du setter dette opp.
 
