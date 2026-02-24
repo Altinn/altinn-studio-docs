@@ -1,0 +1,95 @@
+# robots.txt for Altinn Studio Documentation
+
+# Default rules for traditional search engines (Google, Bing, etc.)
+# These should only index HTML pages, not markdown
+User-agent: *
+Allow: /
+Disallow: /*.md$
+Disallow: /admin/
+Disallow: /swagger/
+Disallow: /*sitemap-markdown.xml
+
+# Sitemap for traditional search engines (HTML only)
+Sitemap: https://docs.altinn.studio/sitemap.xml
+
+# AI Crawlers - Explicit permissions for LLM bots
+# These crawlers are allowed to access markdown documentation
+
+# OpenAI GPTBot
+User-agent: GPTBot
+Allow: /
+Allow: /*.md$
+Sitemap: https://docs.altinn.studio/nb/sitemap-markdown.xml
+Sitemap: https://docs.altinn.studio/en/sitemap-markdown.xml
+
+# Anthropic ClaudeBot
+User-agent: ClaudeBot
+Allow: /
+Allow: /*.md$
+Sitemap: https://docs.altinn.studio/nb/sitemap-markdown.xml
+Sitemap: https://docs.altinn.studio/en/sitemap-markdown.xml
+
+# Google Gemini
+User-agent: Google-Extended
+Allow: /
+Allow: /*.md$
+Sitemap: https://docs.altinn.studio/nb/sitemap-markdown.xml
+Sitemap: https://docs.altinn.studio/en/sitemap-markdown.xml
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+Allow: /*.md$
+Sitemap: https://docs.altinn.studio/nb/sitemap-markdown.xml
+Sitemap: https://docs.altinn.studio/en/sitemap-markdown.xml
+
+# Common Crawl (used by many AI companies)
+User-agent: CCBot
+Allow: /
+Allow: /*.md$
+Sitemap: https://docs.altinn.studio/nb/sitemap-markdown.xml
+Sitemap: https://docs.altinn.studio/en/sitemap-markdown.xml
+
+# Cohere
+User-agent: cohere-ai
+Allow: /
+Allow: /*.md$
+Sitemap: https://docs.altinn.studio/nb/sitemap-markdown.xml
+Sitemap: https://docs.altinn.studio/en/sitemap-markdown.xml
+
+# Anthropic (alternative user-agent)
+User-agent: anthropic-ai
+Allow: /
+Allow: /*.md$
+Sitemap: https://docs.altinn.studio/nb/sitemap-markdown.xml
+Sitemap: https://docs.altinn.studio/en/sitemap-markdown.xml
+
+# Meta AI
+User-agent: FacebookBot
+Allow: /
+Allow: /*.md$
+Sitemap: https://docs.altinn.studio/nb/sitemap-markdown.xml
+Sitemap: https://docs.altinn.studio/en/sitemap-markdown.xml
+
+# Additional AI crawlers
+User-agent: Applebot-Extended
+Allow: /
+Allow: /*.md$
+Sitemap: https://docs.altinn.studio/nb/sitemap-markdown.xml
+Sitemap: https://docs.altinn.studio/en/sitemap-markdown.xml
+
+User-agent: Bytespider
+Allow: /
+Allow: /*.md$
+
+User-agent: ImagesiftBot
+Allow: /
+Allow: /*.md$
+
+User-agent: Omgilibot
+Allow: /
+Allow: /*.md$
+
+User-agent: Omgili
+Allow: /
+Allow: /*.md$
