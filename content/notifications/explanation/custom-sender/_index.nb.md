@@ -1,6 +1,6 @@
 ﻿---
 title: Egendefinerte avsendere for epost og SMS
-linktitle: Egendefinerte avsender
+linktitle: Egendefinerte avsendere
 description: "Fremgangsmåte for å benytte egendefinerte avsendere i Altinn Varsling."
 tags: [notifications, epost, domene, DNS, SMS, sender, avsender]
 weight: 40
