@@ -56,7 +56,7 @@ Du vil få tilsendt en **UUID** som må legges til i DNS-konfigurasjonen for dom
 | Record | Type  | Name                                    | Verdi                                                 |                                                                                                                     |
 |--------|-------|-----------------------------------------|-------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------| 
 |        | TXT   |                                         | ms-domain-verification=**UUID**                       | *UUID* er unik pr. miljø, så her må det typisk legges inn 2 records                                                 |
-| SPF    | TXT   |                                         | v=spf1 include:spf.protection.outlook.com -all        | Eksempel, den faktiske konfigurasjonen kan variere basert på eksisterene konfigurasjon for andre epost-leverandører |
+| SPF    | TXT   |                                         | v=spf1 include:spf.protection.outlook.com -all        | Eksempel, den faktiske konfigurasjonen kan variere basert på eksisterende konfigurasjon for andre epost-leverandører |
 | DKIM   | CNAME | selector1-azurecomm-prod-net._domainkey | selector1-azurecomm-prod-net._domainkey.azurecomm.net |                                                                                                                     |
 | DKIM2  | CNAME | selector2-azurecomm-prod-net._domainkey | selector2-azurecomm-prod-net._domainkey.azurecomm.net |                                                                                                                     |
 
