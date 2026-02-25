@@ -23,7 +23,7 @@ Se Bruno-testen [Fulfilling eForv. §8 - custom sender](https://github.com/Altin
 ### Viktige begrensninger og hensyn for SMS-avsendere
 
 * Avsender blir avkortet til maksimalt 11 tegn. For eksempel blir `sender` "*Digitaliseringsdirektoratet*" forkortet til "*Digitaliser*" i visningen på brukerens telefon.
-* Dersom avsendernavnet er (eller i fremtiden blir) beskyttet med tredjepartsprodukter som [SenderID](https://www.linkmobility.com/products/sms-sender-id), må du sørge for å godkjenne Altinn/Digitaliseringsdirektoratet som meldingsprodusent.  
+* Dersom avsendernavnet er (eller i fremtiden blir) beskyttet med tredjepartsprodukter som [SenderID](https://www.linkmobility.com/products/sms-sender-id), må du sørge for å godkjenne Altinn/Digitaliseringsdirektoratet som meldingsprodusent.
 
 ## Bruk av eget domene som epost-avsender for Altinn Varsling
 
