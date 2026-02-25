@@ -1,10 +1,8 @@
 ---
-draft: true
 title: Overvåke tjenester
 linktitle: Overvåke tjenester
 description: Følg med på tjenestens ytelse, feil og bruk med målinger, logger og sporing.
 weight: 70
-tags: [needsReview]
 ---
 
 {{% notice info %}}
@@ -17,7 +15,7 @@ Det betyr også at disse dokumentasjonssidene er under aktiv utbedring og kan v�
 
 {{% notice info %}}
 Konfigurasjon av egendefinerte regler og varsler er for øyeblikket ikke tilgjengelig for tjenesteeiere,
-men vi har som mål å støtte dette i løpet av høsten 2024.
+men vi jobber med å støtte dette.
 {{% /notice %}}
 
 Se [brukerveiledning for instrumentering og overvåking](/nb/altinn-studio/v8/guides/administration/monitor-and-instrument/) for å komme i gang i din app.

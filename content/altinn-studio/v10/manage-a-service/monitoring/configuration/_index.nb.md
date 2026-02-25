@@ -1,10 +1,8 @@
 ---
-draft: true
 title: Sette opp overvåking
 linktitle: Sette opp overvåking
 description: Slik setter du opp overvåking i Altinn-appen din.
 weight: 11
-tags: [needsReview]
 ---
 
 {{% notice info %}}
@@ -14,7 +12,7 @@ Det eksisterende Application Insights SDK-oppsettet er utgått, og vil bli fjern
 
 ## Aktivere OpenTelemetry
 
-Det nye oppsettet for overvåking og instrumentering kan aktiveres ved å sette `UseOpenTelemetry` til `true` i *appsettings.json* eller tilsvarende konfigurasjonsfil.
+Det nye oppsettet for overvåking og instrumentering aktiveres ved å sette `UseOpenTelemetry` til `true` i *appsettings.json* eller tilsvarende konfigurasjonsfil.
 
 {{< highlight json "linenos=false,hl_lines=3" >}}
 {
@@ -48,17 +46,17 @@ For informasjon om hvordan du legger inn egendefinert telemetri, se [Instrumente
 
 ## Konfigurere OpenTelemetry SDK
 
-I noen tilfeller kan du ha behov for å tilpasse hvordan OpenTelemetry fungerer. Dette er relevant dersom du:
+I noen tilfeller kan du ha behov for å tilpasse hvordan OpenTelemetry fungerer. Dette er relevant dersom du
 
-* Trenger egendefinert **berikelse** (enrichment) – å legge til ekstra informasjon i telemetrien
-* Trenger egendefinert **utvalgsmetode** (sampling) – å kontrollere hvor mye data som samles inn
-* Trenger å eksportere telemetri til en annen backend (for eksempel en egen overvåkingsløsning)
+* trenger egendefinert berikelse (enrichment) – å legge til ekstra informasjon i telemetrien
+* trenger egendefinert utvalgsmetode (sampling) – å kontrollere hvor mye data som samles inn
+* trenger å eksportere telemetri til en annen backend (for eksempel en egen overvåkingsløsning)
 
 ### Hva er berikelse (enrichment)?
 
 Berikelse betyr å legge til ekstra informasjon i telemetrien for å gjøre den mer nyttig.
 
-**Eksempel:** Du kan automatisk legge til miljønavn (test/produksjon) eller organisasjonsnummer på all telemetri som sendes ut.
+**Eksempel:** Du kan automatisk legge til miljønavnet (test/produksjon) eller organisasjonsnummer på all telemetri som sendes ut.
 
 ### Hva er utvalgsmetode (sampling)?
 
@@ -129,7 +127,7 @@ Vi anbefaler derfor å migrere når det er mulig, ved å følge instruksene over
 
 ### Migrere komponenter som setter i gang og behandler telemetri
 
-Hvis du har egendefinert kode som setter i gang telemetri (initializers) eller behandler telemetri underveis (processors), må disse migreres til OpenTelemetry-ekvivalenter.
+Hvis du har egendefinert kode som setter i gang telemetri (initializers) eller behandler telemetri underveis (processors), må du migrere disse til OpenTelemetry-ekvivalenter.
 
 | **Application Insights** | **OpenTelemetry** | **Hva det gjør** |
 | ------------------------ | ----------------- | ---------------- |
