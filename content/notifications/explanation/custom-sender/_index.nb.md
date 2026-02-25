@@ -63,5 +63,5 @@ Du vil få tilsendt en **UUID** som må legges til i DNS-konfigurasjonen for dom
 Vurder å sette opp [DMARC](https://en.wikipedia.org/wiki/DMARC). Hvis domenet allerede har en DMARC-policy, kontroller at denne er kompatibel med epost-utsendingen fra Altinn Varsling.
 
 {{% notice info %}}
-**Gi beskjed når DNS-postene er lagt inn. Digdir må fullføre en valideringsprosess før domenet er koblet sammen og klar til bruk.**
+**Gi beskjed når DNS-postene er lagt inn. Digdir må fullføre en valideringsprosess før domenet er koblet sammen og klart til bruk.**
 {{% /notice %}}
