@@ -6,7 +6,7 @@ tags: [notifications, epost, domene, DNS, SMS, sender, avsender]
 weight: 40
 ---
 {{% notice info %}}
-#### Det er ikke nødvendig å benytte egendefinerte avsendere for å sende varsler gjennom Altinn Varsling.
+**Det er ikke nødvendig å benytte egendefinerte avsendere for å sende varsler gjennom Altinn Varsling.**
 
 Dersom ingen annen konfigurasjon eksisterer er det følgende som gjelder:
 
@@ -31,12 +31,12 @@ Det er mulig å sende epost med egendefinert avsender ved å inkludere `senderEm
 
 Se Bruno-testen [Fulfilling eForv. §8 - custom sender](https://github.com/Altinn/altinn-notifications/blob/main/test/bruno/v2%20(future)/create-notifications/fulfilling-eforv-paragraf8-custom-sender.bru) for eksempler på bruk.
 
-Før det er mulig å bruke et eget domene som avsenderadresse i API-kall, må det gjennom flere steg i en registrerings- og verifiseringsprosess for domenet:
+Før det er mulig å bruke et eget domene som avsenderadresse i API-kall, må det gå gjennom flere steg i en registrerings- og verifiseringsprosess for domenet:
 
 | Steg | Handling                                                      | Utfører      |
 |------|---------------------------------------------------------------|--------------|
 | 1    | Send henvendelse om registrering av domene/avsender           | Tjenesteeier |
-| 2    | Registrering av domene og utstedelse av verifikasjons-nøkkler | Digdir       |
+| 2    | Registrering av domene og utstedelse av verifiseringsnøkler   | Digdir       |
 | 3    | Legg til DNS-poster (TXT, SPF, DKIM, DMARC)                   | Tjenesteeier |
 | 4    | Verifiser DNS-poster og koble domenet                         | Digdir       |
 | 5    | Bruk domenet i API-kall                                       | Tjenesteeier |
@@ -56,12 +56,12 @@ Du vil få tilsendt en **UUID** som må legges til i DNS-konfigurasjonen for dom
 | Record | Type  | Name                                    | Verdi                                                 |                                                                                                                     |
 |--------|-------|-----------------------------------------|-------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------| 
 |        | TXT   |                                         | ms-domain-verification=**UUID**                       | *UUID* er unik pr. miljø, så her må det typisk legges inn 2 records                                                 |
-| SPF    | TXT   |                                         | v=spf1 include:spf.protection.outlook.com -all        | Eksempel, den faktiske konfigurasjonen kan variere basert på eksisterene konfigurasjon for andre epost-leverandører |
+| SPF    | TXT   |                                         | v=spf1 include:spf.protection.outlook.com -all        | Eksempel, den faktiske konfigurasjonen kan variere basert på eksisterende konfigurasjon for andre epost-leverandører |
 | DKIM   | CNAME | selector1-azurecomm-prod-net._domainkey | selector1-azurecomm-prod-net._domainkey.azurecomm.net |                                                                                                                     |
 | DKIM2  | CNAME | selector2-azurecomm-prod-net._domainkey | selector2-azurecomm-prod-net._domainkey.azurecomm.net |                                                                                                                     |
 
 Vurder å sette opp [DMARC](https://en.wikipedia.org/wiki/DMARC). Hvis domenet allerede har en DMARC-policy, kontroller at denne er kompatibel med epost-utsendingen fra Altinn Varsling.
 
 {{% notice info %}}
-**Gi beskjed når DNS-postene er lagt inn. Digdir må fullføre en valideringsprosess før domenet er koblet sammen og klar til bruk.**
+**Gi beskjed når DNS-postene er lagt inn. Digdir må fullføre en valideringsprosess før domenet er koblet sammen og klart til bruk.**
 {{% /notice %}}
