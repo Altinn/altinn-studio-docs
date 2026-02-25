@@ -20,7 +20,7 @@ Det er mulig å sende SMS med egendefinert avsender ved å inkludere `sender`-fe
 
 Se Bruno-testen [Fulfilling eForv. §8 - custom sender](https://github.com/Altinn/altinn-notifications/blob/main/test/bruno/v2%20(future)/create-notifications/fulfilling-eforv-paragraf8-custom-sender.bru) for eksempler på bruk.
 
-### Viktige begrensninger og hensyn for SMS-avsendere:
+### Viktige begrensninger og hensyn for SMS-avsendere
 
 * Avsender blir avkortet til maksimalt 11 tegn. For eksempel blir `sender` "*Digitaliseringsdirektoratet*" forkortet til "*Digitaliser*" i visningen på brukerens telefon.
 * Dersom avsendernavnet er (eller i fremtiden blir) beskyttet med tredjepartsprodukter som [SenderID](https://www.linkmobility.com/products/sms-sender-id), må du sørge for å godkjenne Altinn/Digitaliseringsdirektoratet som meldingsprodusent.  
