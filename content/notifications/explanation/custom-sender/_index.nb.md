@@ -8,7 +8,7 @@ weight: 40
 {{% notice info %}}
 **Det er ikke nødvendig å benytte egendefinerte avsendere for å sende varsler gjennom Altinn Varsling.**
 
-Dersom ingen annen konfigurasjon eksisterer er det følgende som gjelder:
+Dersom ingen annen konfigurasjon eksisterer, er det følgende som gjelder:
 
 * Avsender på SMS: **Altinn** (**Altinn-test** for testmiljøet)
 * Avsender på epost: **noreply@altinn** (**noreply-tt02@altinn.no** for testmiljøet og **noreply@altinn.cloud** for ytelsestestmiljøet)
