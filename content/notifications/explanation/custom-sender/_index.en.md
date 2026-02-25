@@ -20,7 +20,7 @@ It is possible to send SMS with a custom sender by including the `sender` field 
 
 See the Bruno test [Fulfilling eForv. §8 - custom sender](https://github.com/Altinn/altinn-notifications/blob/main/test/bruno/v2%20(future)/create-notifications/fulfilling-eforv-paragraf8-custom-sender.bru) for usage examples.
 
-### Important limitations and considerations for SMS senders:
+### Important limitations and considerations for SMS senders
 
 * The sender name is truncated to a maximum of 11 characters. For example, a `sender` value of "*Digitaliseringsdirektoratet*" will be shortened to "*Digitaliser*" as displayed on the user's phone.
 * If the sender name is (or in the future becomes) protected by third-party products such as [SenderID](https://www.linkmobility.com/products/sms-sender-id), you must ensure that Altinn/Digitaliseringsdirektoratet is approved as a message producer.
