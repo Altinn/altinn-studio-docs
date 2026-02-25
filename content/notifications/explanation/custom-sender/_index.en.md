@@ -6,7 +6,7 @@ tags: [notifications, email, domain, DNS, SMS, sender]
 weight: 40
 ---
 {{% notice info %}}
-#### It is not necessary to use custom senders to send notifications through Altinn Notifications.
+**It is not necessary to use custom senders to send notifications through Altinn Notifications.**
 
 If no other configuration exists, the following defaults apply:
 
