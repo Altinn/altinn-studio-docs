@@ -6,7 +6,7 @@ tags: [notifications, epost, domene, DNS, SMS, sender, avsender]
 weight: 40
 ---
 {{% notice info %}}
-#### Det er ikke nødvendig å benytte egendefinerte avsendere for å sende varsler gjennom Altinn Varsling.
+**Det er ikke nødvendig å benytte egendefinerte avsendere for å sende varsler gjennom Altinn Varsling.**
 
 Dersom ingen annen konfigurasjon eksisterer er det følgende som gjelder:
 
