@@ -36,7 +36,7 @@ Før det er mulig å bruke et eget domene som avsenderadresse i API-kall, må de
 | Steg | Handling                                                      | Utfører      |
 |------|---------------------------------------------------------------|--------------|
 | 1    | Send henvendelse om registrering av domene/avsender           | Tjenesteeier |
-| 2    | Registrering av domene og utstedelse av verifikasjons-nøkkler | Digdir       |
+| 2    | Registrering av domene og utstedelse av verifiseringsnøkler   | Digdir       |
 | 3    | Legg til DNS-poster (TXT, SPF, DKIM, DMARC)                   | Tjenesteeier |
 | 4    | Verifiser DNS-poster og koble domenet                         | Digdir       |
 | 5    | Bruk domenet i API-kall                                       | Tjenesteeier |
