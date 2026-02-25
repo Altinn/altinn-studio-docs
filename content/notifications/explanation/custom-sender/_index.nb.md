@@ -31,7 +31,7 @@ Det er mulig å sende epost med egendefinert avsender ved å inkludere `senderEm
 
 Se Bruno-testen [Fulfilling eForv. §8 - custom sender](https://github.com/Altinn/altinn-notifications/blob/main/test/bruno/v2%20(future)/create-notifications/fulfilling-eforv-paragraf8-custom-sender.bru) for eksempler på bruk.
 
-Før det er mulig å bruke et eget domene som avsenderadresse i API-kall, må det gjennom flere steg i en registrerings- og verifiseringsprosess for domenet:
+Før det er mulig å bruke et eget domene som avsenderadresse i API-kall, må det gå gjennom flere steg i en registrerings- og verifiseringsprosess for domenet:
 
 | Steg | Handling                                                      | Utfører      |
 |------|---------------------------------------------------------------|--------------|
