@@ -1,9 +1,13 @@
 ---
 title: Motta data via API
-description: I denne veiledningen skal vi sette opp et enkelt mottak for å hente ut data via API.
+description: I denne veiledningen skal vi se på hvordan data kan hentes ut fra en Altinn-app for saksbehandling
 draft: true
 weight: 50
 ---
+
+Når du skal hente data sendt inn via en Altinn-app, er det primært 2 endepunkter som er interessante:
+- `instances`-  som gir deg tilgang til å hente ut instansdokumentene for en app. Disse dokumentene inneholder all metadata knyttet til hver enkelt innsending.
+- `data`- som gir deg tilgang til å hente ut faktiske datalementer.
 
 To alternative fremgangsmåter er beskrevet under:
 - Polle for å hente ut nye instanser siden sist
@@ -12,7 +16,7 @@ To alternative fremgangsmåter er beskrevet under:
 ## Forutsetninger
 - Du har satt opp en Altinn-app som kjører i testmiljø (TT02).
 - Du har fylt ut og sendt inn noe data i TT02 for tjenesten.
-- Du har en maskinportenklient for tjenesteeier, med scope `altinn:serviceowner/instances.read`
+- Du har en maskinportenklient med scope `altinn:serviceowner/instances.read`
 
 ## Polle for å hente ut instanser som er klare 
 Oversikt over instanser hentes ut fra Storage-komponenten i Altinn plattformen - det er her metadata om alle innsendte lagres.
