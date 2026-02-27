@@ -10,9 +10,44 @@ This page provides a comprehensive reference for all specific error codes return
 
 ## Error Code Format
 
-Altinn Notifications API uses unique error codes in the format `NOT-XXXXX` where `NOT` stands for Notifications and `XXXXX` is a five-digit number.
+Altinn Notifications API uses two types of error codes:
 
-These error codes are returned in the `code` field of the problem details response. The `code` field is an extension member as defined by [RFC 7807](https://tools.ietf.org/html/rfc7807) (Problem Details for HTTP APIs), providing machine-readable error identification.
+### Business Errors
+Format: `NOT-XXXXX` where `NOT` stands for Notifications and `XXXXX` is a five-digit number.
+
+These error codes are returned in the `code` field of the problem details response for business logic errors (e.g., missing contact information, resource not found).
+
+### Validation Errors
+Format: `NOT.VLD-XXXXX` where `VLD` indicates a validation error.
+
+Validation errors are returned when the request contains invalid data. The response contains:
+- A top-level `code` with value `STD-00000`
+- A `validationErrors` array with individual validation errors, each with its own `code`
+
+**Example validation error response:**
+```json
+{
+  "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
+  "title": "Bad Request",
+  "status": 400,
+  "detail": "One or more validation errors occurred.",
+  "code": "STD-00000",
+  "validationErrors": [
+    {
+      "code": "NOT.VLD-00001",
+      "detail": "IdempotencyId cannot be null or empty.",
+      "paths": ["IdempotencyId"]
+    },
+    {
+      "code": "NOT.VLD-00010",
+      "detail": "The requested send time value must have specified a time zone.",
+      "paths": ["RequestedSendTime"]
+    }
+  ]
+}
+```
+
+These error codes are defined using [RFC 7807](https://tools.ietf.org/html/rfc7807) (Problem Details for HTTP APIs), providing machine-readable error identification.
 
 ## Error Codes
 
@@ -113,6 +148,107 @@ This error is not expected during normal operation. It indicates that the client
 - Ensure you are querying the correct environment (test or production)
 - Verify that the authenticated organization has access to the shipment
 - Check that the shipment was successfully created before attempting to retrieve it
+
+---
+
+## Validation Error Codes
+
+The following table shows all validation error codes that can be returned by the API. These are returned in the `validationErrors` array in the response.
+
+### Basic Request Validation
+
+| Code | Description |
+|------|-------------|
+| `NOT.VLD-00001` | IdempotencyId cannot be null or empty |
+
+### Send Time Validation
+
+| Code | Description |
+|------|-------------|
+| `NOT.VLD-00010` | The requested send time value must have specified a time zone |
+| `NOT.VLD-00011` | Send time cannot be in the past |
+
+### Condition Endpoint Validation
+
+| Code | Description |
+|------|-------------|
+| `NOT.VLD-00020` | ConditionEndpoint must be a valid absolute URI or null |
+| `NOT.VLD-00021` | ConditionEndpoint must use http or https scheme |
+
+### Recipient Validation
+
+| Code | Description |
+|------|-------------|
+| `NOT.VLD-00030` | Must have exactly one recipient |
+| `NOT.VLD-00031` | Recipient specification cannot be null |
+| `NOT.VLD-00032` | One or more recipient is required |
+| `NOT.VLD-00033` | Invalid email address format |
+| `NOT.VLD-00034` | Invalid sender email address format |
+| `NOT.VLD-00035` | Mobile number can contain only '+' and numeric characters, and must adhere to E.164 standard |
+| `NOT.VLD-00036` | National identity number must be 11 digits |
+| `NOT.VLD-00037` | Organization number must be 9 digits |
+| `NOT.VLD-00038` | OrgNumber cannot be null or empty |
+| `NOT.VLD-00039` | ResourceId must have valid syntax |
+| `NOT.VLD-00040` | National identity number cannot be combined with other identifiers |
+| `NOT.VLD-00041` | Organization number cannot be combined with other identifiers |
+| `NOT.VLD-00042` | Recipient missing contact information for preferred channel |
+| `NOT.VLD-00043` | Recipient missing contact information for SMS channel |
+| `NOT.VLD-00044` | Recipient missing contact information for email channel |
+
+### Email Settings Validation
+
+| Code | Description |
+|------|-------------|
+| `NOT.VLD-00050` | Email sending options cannot be null |
+| `NOT.VLD-00051` | Email subject cannot be empty |
+| `NOT.VLD-00052` | Email body cannot be empty |
+| `NOT.VLD-00053` | Email content type must be either Plain or HTML |
+| `NOT.VLD-00054` | Email only supports send time policy "Anytime" |
+
+### SMS Settings Validation
+
+| Code | Description |
+|------|-------------|
+| `NOT.VLD-00060` | SMS body cannot be null or empty |
+| `NOT.VLD-00061` | SMS only supports send time policy "Daytime" and "Anytime" |
+
+### Reminder Validation
+
+| Code | Description |
+|------|-------------|
+| `NOT.VLD-00070` | Either DelayDays or RequestedSendTime must be defined, but not both |
+| `NOT.VLD-00071` | DelayDays must be at least 1 day |
+| `NOT.VLD-00072` | RequestedSendTime must be null when DelayDays is set |
+| `NOT.VLD-00073` | DelayDays must be null when RequestedSendTime is set |
+| `NOT.VLD-00074` | Reminder send time must have a time zone specified |
+| `NOT.VLD-00075` | Reminder send time cannot be in the past |
+
+### Channel Schema Validation
+
+| Code | Description |
+|------|-------------|
+| `NOT.VLD-00080` | Invalid channel schema value |
+| `NOT.VLD-00081` | EmailSettings must be set when ChannelSchema is EmailAndSms |
+| `NOT.VLD-00082` | SmsSettings must be set when ChannelSchema is EmailAndSms |
+| `NOT.VLD-00083` | EmailSettings must be set when ChannelSchema is SmsPreferred or EmailPreferred |
+| `NOT.VLD-00084` | SmsSettings must be set when ChannelSchema is SmsPreferred or EmailPreferred |
+| `NOT.VLD-00085` | SmsSettings must be set when ChannelSchema is Sms |
+| `NOT.VLD-00086` | EmailSettings must be set when ChannelSchema is Email |
+
+### Status Feed Validation
+
+| Code | Description |
+|------|-------------|
+| `NOT.VLD-00090` | Sequence number cannot be less than 0 |
+
+### Dialogporten Validation
+
+These validations only check that the GUID format is correct. No verification is performed against Dialogporten to check whether the dialog or transmission actually exists.
+
+| Code | Description |
+|------|-------------|
+| `NOT.VLD-00100` | DialogId must be a valid non-empty GUID |
+| `NOT.VLD-00101` | TransmissionId must be a valid non-empty GUID |
 
 ---
 
