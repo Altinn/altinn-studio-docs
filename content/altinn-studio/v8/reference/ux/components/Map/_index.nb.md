@@ -38,11 +38,11 @@ EKSEMPLER
 
 ### Anatomi
 
-<!-- 
+<!--
 
 Nummerert skjermbilde av komponenten
 1. Ta et skjermbilde av basis-versjonen av komponenten.
-2. Bruk PowerPoint-filen (components/numbered-callouts-anatomy.pptx) for å legge til nummerering på skjermbildet 
+2. Bruk PowerPoint-filen (components/numbered-callouts-anatomy.pptx) for å legge til nummerering på skjermbildet
 3. Grupper skjermbilde og nummerering, lagre som bilde og legg det til i dokumentasjonen.
 4. Legg til nummerert liste med beskrivelser, bruk anatomy-list shortcode (se eksempel for format).
 
@@ -53,11 +53,11 @@ Eksempel:
 {{% anatomy-list %}}
 1. **Bilde**: Foto, skjermbilde, illustrasjon, eller grafikk.
 2. **Alternativ tekst**: Brukes av skjermlesere og vises dersom bildet ikke er tilgjengelig.
-{{% /anatomy-list %}} 
+{{% /anatomy-list %}}
 
 -->
 
-<!-- 
+<!--
 Legg til seksjoner dersom de er relevante:
 
 ### Oppførsel
@@ -92,25 +92,43 @@ Legg til seksjoner dersom de er relevante:
 
 ## Egenskaper
 
-Følgende er en liste over tilgjengelige egenskaper for {{% title %}}. Listen er automatisk generert basert på komponentens JSON schema (se link).
-
 {{% notice warning %}}
 Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over egenskaper kan derfor være noe unøyaktig.
 {{% /notice %}}
 
-<!-- Shortkoden `component-props` genererer automatisk en liste over komponentegenskaper fra komponentens JSON schema.
-Komponentnavnet kan gis eksplisitt som argument (f.eks. `component-props "Grid"`).
-Hvis ingen argument gis, henter shortkoden komponentnavnet fra 'schemaname' i frontmatter.
-Hvis komponenten ikke har JSON schema, kommenter ut tekst og shortcode i denne delen og lag evt. tabell manuelt med de viktigste egenskapene (kolonner: Egenskap, Type, Beskrivelse).
- -->
-
-{{% component-props %}}
+| **Egenskap**                       | **Type**  | **Beskrivelse**                                                                                                                                                                                                                                                  |
+| ---------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `id`                               | string    | Unik ID-streng for komponenten. Kan ikke slutte med bindestrek eller tall.                                                                                                                                                                                       |
+| `dataModelBindings.simpleBinding`  | string    | Datamodellkobling til komponentens felt i datamodellen. Feltet må være av type string.                                                                                                                                                                           |
+| `textResourceBindings.title`       | string    | Tittelen/ledeteksten for komponenten.                                                                                                                                                                                                                            |
+| `textResourceBindings.description` | string    | Beskrivelsesfelt for komponenten (valgfritt).                                                                                                                                                                                                                    |
+| `textResourceBindings.help`        | string    | Hjelpefelt for komponenten (valgfritt).                                                                                                                                                                                                                          |
+| `textResourceBindings.shortName`   | string    | Navn på komponenten, som vil brukes for valideringsmeldinger. <i>basicTextResources.title</i> er standard.                                                                                                                                                       |
+| `textResourceBindings.tableTitle`  | string    | Teksten som vises i kolonnen for en repeterende gruppe for komponenten. <i>basicTextResources.title</i> er standard.                                                                                                                                             |
+| `required`                         | boolean   | Boolean eller uttrykk som indikerer om komponenten er påkrevd når en bruker fyller ut skjemaet. Standard er `false`.                                                                                                                                             |
+| `readOnly`                         | boolean   | Boolean eller uttrykk som indikerer om komponenten skal presenteres som kun lesbar. Standard er `false`.                                                                                                                                                         |
+| `grid`                             | object    | Innstillinger for komponentens rammer. Brukes for å kontrollere horisontal plassering.                                                                                                                                                                           |
+| `grid.innerGrid`                   | gridProps | Valgfri. Rammer for indre komponentkontekst, så som input felt dropdown. Brukes for å unngå at feltet fyller komponentens fulle bredde. <br>**Eksempel:** `{xs: 12}` <br>**Se:** [gridProps](/nb/altinn-studio/v8/reference/ux/components/commondefs/#gridProps) |
+| `grid.labelGrid`                   | gridProps | Valgfri. Rammer for komponentens tittel. Brukes i kombinasjon med innerGrid for å likestille bredden på titler på siden. <br>**Eksempel:** `{xs: 12}` <br>**Se:** [gridProps](/nb/altinn-studio/v8/reference/ux/components/commondefs/#gridProps)                |
+| `hidden`                           | boolean   | Boolean eller uttrykk som indikerer om komponenten skal være skjult. Standard er `false`.                                                                                                                                                                        |
+| `pageBreak`                        | object    | Angir om komponenten kan utløse sidebrytning i PDF.                                                                                                                                                                                                              |
+| `pageBreak.breakAfter`             | string    | Kun PDF: Verdien eller uttrykket indikerer om et sidebrytning skal legges til etter komponenten.<br>Kan være: `auto` (standard), `always` eller `avoid`.                                                                                                         |
+| `pageBreak.breakBefore`            | string    | Kun PDF: Verdien eller uttrykket indikerer om et sidebrytning skal legges til før komponenten.<br>Kan være: `auto` (standard), `always` eller `avoid`.                                                                                                           |
+| `renderAsSummary`                  | boolean   | Boolean eller uttrykk som indikerer om komponenten skal bli laget som en oppsummering. Standard er `false`.                                                                                                                                                      |
+| `centerLocation`                   | object    | Kartets midtpunkt.                                                                                                                                                                                                                                               |
+| `centerLocation.latitude`          | number    | Tall eller uttrykk som setter breddegraden for kartets midtpunkt.                                                                                                                                                                                                |
+| `centerLocation.longitude`         | number    | Tall eller uttrykk som setter lengdegraden for kartets midtpunkt.                                                                                                                                                                                                |
+| `layers`                           | array     | Liste med kartlag.                                                                                                                                                                                                                                               |
+| `layers.attribution`               | string    | Tekst som viser til hvor kartlaget hentes fra.                                                                                                                                                                                                                   |
+| `layers.subdomains`                | array     | Liste over underdomener. Brukes til å balansere belastningen på forskjellige "map tiling" servere. En tilfeldig server vil erstatte `{s}` i den definerte URL-en.                                                                                                |
+| `layers.url`                       | string    | URL-en til et "tile layer". `{z}/{x}/{y}` erstattes av tile koordinatene, `{s}` erstattes med et tilfeldig underdomene dersom det er angitt.                                                                                                                     |
+| `zoom`                             | number    | Tall som setter kartets standard zoom.                                                                                                                                                                                                                           |
 
 ## Konfigurering
 
 {{% notice warning %}}
 Vi oppdaterer for øyeblikket Altinn Studio med flere muligheter for innstillinger!
- Dokumentasjonen oppdateres fortløpende, men det kan være flere innstillinger tilgjengelig enn det som beskrives her og noen innstillinger kan være i betaversjon.
+Dokumentasjonen oppdateres fortløpende, men det kan være flere innstillinger tilgjengelig enn det som beskrives her og noen innstillinger kan være i betaversjon.
 {{% /notice %}}
 
 ### Legg til komponent
@@ -148,7 +166,7 @@ App/ui/layouts/{page}.json
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-<!-- 
+<!--
 Legg til seksjoner som beskriver konfigurasjonen av egenskaper som er spesifikke for komponenten.
 - Bruk nedenstående shortcode for Designer/Kode-faner for å vise innstillingene.
 - Inkluder skjermbilder og eksempler der det er hensiktsmessig.
