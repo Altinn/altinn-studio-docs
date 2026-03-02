@@ -16,7 +16,7 @@ For å sikre optimal opplevelse og kontroll har app-malen to forskjellige hendel
 - ProcessDataRead kjøres når data leses fra databasen
 
 {{%notice info%}}
-VIKTIG: Når en dataprosessering er kjørt som har oppdatert dataene på serveren, må frontend få beskjed om dette, slik at de oppdaterte dataene kan lastes inn. For å gjøre dette må `ProcessDataWrite`-metoden returnere `true` hvis noen av dataene har blitt oppdatert. Hvis dette ikke gjøres, vil de oppdaterte dataene ikke være synlige for brukeren før de eventuelt laster inn siden på nytt.
+VIKTIG: Hvis dataprosesseringen har oppdatert data på serveren, må du gi frontend beskjed slik at brukeren får se de oppdaterte dataene. Gjør dette ved å la `ProcessDataWrite`-metoden returnere `true` når data er oppdatert. Hvis du ikke gjør dette, ser ikke brukeren de oppdaterte dataene før de laster inn siden på nytt.
 {{% /notice%}}
 
 {{<content-version-selector classes="border-box">}}
