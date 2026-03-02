@@ -12,17 +12,10 @@ tags: [needsReview, needsTranslation]
 Tilgjengelig fra [v8.7.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.7.0)
 {{% /notice %}}
 
-## Introduksjon
-Beskyttede data er informasjon som krever ekstra tilgangskontroll, for eksempel personopplysninger eller konfidensiell/klassifisert informasjon.
-
-Les mer om konseptet
-[her](/nb/altinn-studio/v10/this-is-as/explanations/data-model/restricted-data/).
+Beskyttede data er informasjon som krever ekstra tilgangskontroll, for eksempel personopplysninger eller konfidensiell/klassifisert informasjon. Les mer om [konseptet beskyttede data](/nb/altinn-studio/v10/this-is-as/explanations/data-model/restricted-data/).
 
 ## Sett opp Maskinporten
-Du må sette opp Maskinporten for at appen skal kunne utføre handlinger på vegne av tjenesteeier.
-
-Finn en detaljert veiledning for oppsettet
-[her](/nb/altinn-studio/v10/develop-a-service/reference/integration/maskinporten/).
+Du må sette opp Maskinporten for at appen skal kunne utføre handlinger på vegne av tjenesteeier. Se [veiledning for oppsett av Maskinporten](/nb/altinn-studio/v10/develop-a-service/reference/integration/maskinporten/).
 
 ## Sett opp datatyper
 [Filen applicationmetadata.json](https://github.com/Altinn/altinn-studio/blob/main/src/App/app-template-dotnet/src/App/config/applicationmetadata.json)
