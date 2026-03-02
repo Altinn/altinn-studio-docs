@@ -10,7 +10,7 @@ Serveren kjører dataprosessering basert på inndata fra brukeren/skjemadata. Da
 
 Serveren kjører dataprosessering hver gang du lagrer data, og dermed hver gang en bruker har gjort en endring.
 
-For å sikre optimal opplevelse og kontroll har app-malen to forskjellige hendelser hvor du kan plassere logikk:
+For å sikre optimal opplevelse og kontroll har app-malen to forskjellige hendelser hvor du kan plassere logikk
 
 - ProcessDataWrite kjører når du lagrer data
 - ProcessDataRead kjører når appen leser data fra databasen
