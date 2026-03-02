@@ -45,9 +45,20 @@ Se flere detaljer i utviklerguidene
 
 ### IP for utgående trafikk
 {{% notice info %}}
-En statisk IP brukes når hendelser pushes for å la abonnenter hviteliste IP-adressen. Adressene er oppgitt i CIDR-notasjon. </br> </br>
-__TT02__: 20.100.24.41/32  </br> </br>
+En statisk IP brukes når hendelser pushes for å la abonnenter hviteliste IP-adressen. Adressene er oppgitt i CIDR-notasjon.
+
+**Viktig:** På grunn av infrastrukturendringer får Altinn Events nye IP-adresser for utgående trafikk fra [DATO]. 
+
+Hvis du bruker hvitelisting av IP-adresser, må du oppdatere brannmurreglene dine med de nye adressene nedenfor.
+
+#### Nye IP-adresser (gjelder fra [DATO])
+__TT02__: 20.100.48.118/31 og 20.100.48.120/31  
+__Produksjon__: 51.13.20.208/31 og 51.13.20.210/31
+
+#### Tidligere IP-adresser (fases ut [DATO])
+__TT02__: 20.100.24.41/32  
 __Produksjon__: 20.100.46.139/32
+
 {{% /notice %}}
 
 
