@@ -29,7 +29,7 @@ Vi deaktiverer auto-create fordi den [oppdaterte autorisasjonspolicyen](#sett-op
 {{% /notice %}}
 
 ## Sett opp autorisasjonspolicy
-Ta utgangspunkt i [standard policy.xml-fil](/nb/altinn-studio/v8/reference/configuration/authorization/), og endre regel #2 for å gi tjenesteeieren tilgang til de nye handlingene.
+Ta utgangspunkt i [standard policy.xml-fil](/nb/altinn-studio/v10/develop-a-service/reference/configuration/authorization/), og endre regel #2 for å gi tjenesteeieren tilgang til de nye handlingene.
 
 {{% insert "content/altinn-studio/v10/develop-a-service/data/restricted-data/shared/Policy.xml.md" %}}
 
