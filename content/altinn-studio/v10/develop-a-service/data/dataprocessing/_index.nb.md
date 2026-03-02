@@ -8,7 +8,7 @@ toc: true
 
 Dataprosessering kjøres på serveren, og er basert på inndata fra brukeren/skjemadata. Dataprosessering kan være rent matematiske beregninger, det kan også være å overføre verdier mellom felter, resultater av API-kall, osv.
 
-Dataprosessering kjøres hver gang data lagres, og dermed hver gang en bruker har gjort en endring.
+Dataprosessering kjøres hver gang du lagrer data, og dermed hver gang en bruker har gjort en endring.
 
 For å sikre optimal opplevelse og kontroll har applikasjonsmalen to forskjellige hendelser hvor logikk kan plasseres:
 
