@@ -10,7 +10,7 @@ Dataprosessering kjøres på serveren, og er basert på inndata fra brukeren/skj
 
 Dataprosessering kjøres hver gang du lagrer data, og dermed hver gang en bruker har gjort en endring.
 
-For å sikre optimal opplevelse og kontroll har appmalen to forskjellige hendelser hvor du kan plassere logikk:
+For å sikre optimal opplevelse og kontroll har app-malen to forskjellige hendelser hvor du kan plassere logikk:
 
 - ProcessDataWrite kjøres når data lagres
 - ProcessDataRead kjøres når data leses fra databasen
