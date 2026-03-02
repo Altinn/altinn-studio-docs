@@ -42,16 +42,18 @@ Do you need data from other sources? Go to [prefilling data using custom code](/
       "allowOverwrite": true,
       "ER": {},
       "DSF": {},
-      "UserProfile": {}
+      "UserProfile": {},
+      "DAN": {}
    }
    ```
 
 3. **Configure which data should be filled automatically**
 
-   The three groups in the code mirror the three available sources:  
+   The four groups in the code mirror the four available sources:  
    - `ER` - The Business Register  
    - `DSF` - The Population Register  
    - `UserProfile` - The user's Altinn profile  
+   - `DAN` - Datasets from data.altinn.no
 
    Choose which sources you want to use. If any (or all) of the sources should not be used, leave them empty.
 
@@ -101,3 +103,42 @@ This will fill the `User.Email` field with the email retrieved from the user's A
   "Email": "User.Email"
 }
 ```
+
+### Example: Retrieve from Data.altinn.no (DAN)
+This will fill the `Organization.OrgNo` field with the organization number from the UnitBasicInformation dataset from DAN.
+
+````json
+"DAN": {
+    "datasets": [
+      {
+        "name": "UnitBasicInformation",
+        "mappings": [
+          { "OrganizationNumber": "Organization.OrgNo" }
+        ]
+      }
+    ]
+  }
+````
+DAN is able to retrieve more than one dataset. If you want to use more than one dataset you can add it to the json like this.
+Datasets from DAN can be found at https://docs.data.altinn.no/datasett/
+
+````json
+"DAN": {
+    "datasets": [
+      {
+        "name": "UnitBasicInformation",
+        "mappings": [
+          { "OrganizationNumber": "Organization.OrgNo" }
+        ]
+      },
+      {
+         "name": "nameOfAnotherDataset",
+         "mappings":[
+            {"SSN": "Person.PersonNr"},
+            {"Email": "User.Email"}
+         ]
+      }
+    ]
+  }
+````
+
