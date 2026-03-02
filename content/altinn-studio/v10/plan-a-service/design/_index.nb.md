@@ -13,7 +13,7 @@ Tenk på brukerens reise gjennom skjemaet ditt og selve skjemaoppsettet, slik at
 - Unngå mellomliggende sider som kan skape usikkerhet eller få brukeren til å tro at de har kommet feil.
 - Gjør det klart at brukeren «kommer inn» i Altinn-tjenesten når de starter tjenesten.
   - Hvis tjenesten skal ligge i Altinn tjenestekatalog, må du huske på å lage en god og informativ "Om skjemaet"-side.
-  - Hvis tjenesten tar i bruk Arbeidsflate, må du passe på at meldingsteksten som dukker opp i innboksen samsvarer med innholdet i tjenesten din, slik at brukeren få en helhetlig opplevelse.
+  - Hvis tjenesten tar i bruk Arbeidsflate, må du passe på at meldingsteksten som dukker opp i innboksen samsvarer med innholdet i tjenesten din, slik at brukerne får en helhetlig opplevelse.
 
 {{% notice info %}}
 **Kommer:** Bildeksempel på Altinn innboks og Tjenesteeieres nettsted.
@@ -35,15 +35,15 @@ Tenk på brukerens reise gjennom skjemaet ditt og selve skjemaoppsettet, slik at
 
 ## 3. Strukturer skjemaet slik at det oppleves enkelt
 
-- Del opp skjema i flere korte sideinndelinger, fremfor én lang side. Begrens antall felt per side til 4–6 felt per side, hvis mulig, og plasser feltene i én kolonne. Noen ganger kan vi sidestille felter som et unntak. Det gjelder for eksempel hvis feltene er korte og det gir mening å plassere dem i en kontekst (for eksempel når du bruker Adresse-komponenten der postnummer og by er sidestilte felter). (kilde [gov.uk](https://designsystem.gov.scot/guidance/forms/form-structure) og [gov.scot](https://designsystem.gov.scot/guidance/forms/form-design))
+- Del opp skjema i flere korte sideinndelinger, fremfor én lang side. Begrens antall felt per side til 4–6 felt per side, hvis mulig, og plasser feltene i én kolonne. Noen ganger kan vi sidestille felter som et unntak. Det gjelder for eksempel hvis feltene er korte og det gir mening å plassere dem i en kontekst (for eksempel når du bruker Adresse-komponenten der postnummer og by er sidestilte felter). (kilde [designsystem.gov.scot](https://designsystem.gov.scot/guidance/forms/form-structure) og [designsystem.gov.scot](https://designsystem.gov.scot/guidance/forms/form-design))
 
 **Gjør slik:**
 
-{{< figure src="/images/design-good-service/do- oppsett.png" alt="Eksempel på god layout med feltene i én kolonne" >}}
+{{< figure src="/images/design-good-service/do-oppsett.png" alt="Eksempel på god layout med feltene i én kolonne" >}}
 
 **Ikke gjør slik:**
 
-{{< figure src="/images/design-good-service/dont- oppsett.png" alt="Eksempel på dårlig layout med feltene i to kolonner" caption="_Unngå å strukturere felter i kolonner ved siden av hverandre, hvis du kan._" >}}
+{{< figure src="/images/design-good-service/dont-oppsett.png" alt="Eksempel på dårlig layout med feltene i to kolonner" caption="_Unngå å strukturere felter i kolonner ved siden av hverandre, hvis du kan._" >}}
 
 - Still bare de spørsmålene du virkelig trenger. [Les mer om hvordan du lager gode spørsmål](../tone-of-voice/good-questions/).
 
@@ -57,11 +57,11 @@ Tenk på brukerens reise gjennom skjemaet ditt og selve skjemaoppsettet, slik at
 
 **Gjør slik:**
 
-{{< figure src="/images/design-good-service/Do -navigasjon.png" alt="Eksempel på god struktur med navigasjonsmeny" >}}
+{{< figure src="/images/design-good-service/do-navigasjon.png" alt="Eksempel på god struktur med navigasjonsmeny" >}}
 
 **Ikke gjør slik:**
 
-{{< figure src="/images/design-good-service/Dont -navigasjon.png" alt="Eksempel uten navigasjonsmeny" caption="_Gi punktene i navigasjonen gode navn, ikke bare Side 1, osv., slik at du lett kan se hva som er hvor._" >}}
+{{< figure src="/images/design-good-service/dont-navigasjon.png" alt="Eksempel uten navigasjonsmeny" caption="_Gi punktene i navigasjonen gode navn, ikke bare Side 1, osv., slik at du lett kan se hva som er hvor._" >}}
 
 ## 4. Bruk våre standardkomponenter
 
