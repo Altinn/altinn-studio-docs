@@ -2,7 +2,7 @@
 draft: true
 title: Kjøremiljø
 description: Kjøremiljøet for Altinn 3-applikasjoner for en tjenesteeier
-weight: 40
+
 ---
 
 Altinn 3-applikasjoner for en tjenesteeier kjører i Azure Kubernetes Service (AKS) fra Microsoft Azure. Dette er en såkalt Managed Service hvor Microsoft Azure tar seg av den underliggende driften av Kubernetes-clusteret.
