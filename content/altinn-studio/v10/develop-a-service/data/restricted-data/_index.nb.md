@@ -52,7 +52,7 @@ Som nevnt tidligere, må du manuelt opprette dataelementet når appen går inn i
 
 For å gjøre dette bruker du metoden `UpdateOrCreateData` fra [RestrictedDataHelper-tjenesten](#lag-en-hjelpetjeneste).
 
-Eksempelet under bruker denne logikken i `IProcessTaskStart`-grensesnittet, der du henter informasjon fra et fiktivt API og lagrer det i den beskyttede datamodellen. Denne informasjonen er ikke tilgjengelig for brukeren, men kan hentes senere av appen.
+Eksempelet under bruker denne logikken i `IProcessTaskStart`-grensesnittet, der du henter informasjon fra et fiktivt API og lagrer det i den beskyttede datamodellen. Denne informasjonen er ikke tilgjengelig for brukeren, men appen kan hente den senere.
 
 {{% insert "content/altinn-studio/v10/develop-a-service/data/restricted-data/shared/ProcessTaskStartHandler.cs.md" %}}
 
