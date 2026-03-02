@@ -44,7 +44,7 @@ Ta utgangspunkt i [standard policy.xml-fil](https://github.com/Altinn/altinn-stu
 {{% insert "content/altinn-studio/v10/develop-a-service/data/restricted-data/shared/Policy.xml.md" %}}
 
 ## Interaksjon med beskyttede data
-Siden `restrictedDataModel` ikke opprettes automatisk eller er knyttet til brukerens normale dataflyt, må du implementere all relevant logikk manuelt.
+Siden `restrictedDataModel` ikke opprettes automatisk eller er knyttet til brukerens normale dataflyt, må du skrive all relevant logikk manuelt.
 
 I denne delen oppretter vi en tjeneste som hjelper oss å samhandle med beskyttede data, før vi viser hvordan vi kan opprette, endre og lese beskyttede dataelementer i en vanlig prosessflyt.
 
@@ -62,7 +62,7 @@ Som nevnt tidligere, må du manuelt opprette dataelementet når appen går inn i
 
 For å gjøre dette bruker du metoden `UpdateOrCreateData` fra [RestrictedDataHelper-tjenesten](#lag-en-hjelpetjeneste).
 
-Eksempelet under implementerer denne logikken i `IProcessTaskStart`-interfacet, der vi henter informasjon fra et fiktivt API og lagrer det i den beskyttede datamodellen. Denne informasjonen vil ikke være tilgjengelig for brukeren, men kan hentes senere av appen.
+Eksempelet under bruker denne logikken i `IProcessTaskStart`-interfacet, der vi henter informasjon fra et fiktivt API og lagrer det i den beskyttede datamodellen. Denne informasjonen er ikke tilgjengelig for brukeren, men kan hentes senere av appen.
 
 {{% insert "content/altinn-studio/v10/develop-a-service/data/restricted-data/shared/ProcessTaskStartHandler.cs.md" %}}
 
