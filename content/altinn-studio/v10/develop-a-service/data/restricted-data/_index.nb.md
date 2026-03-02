@@ -35,7 +35,7 @@ I dette eksempelet setter vi opp en ny datatype der vi spesifiserer egenskapene 
 {{% insert "content/altinn-studio/v10/develop-a-service/data/restricted-data/shared/Applicationmetadata.json.md" %}}
 
 {{% notice warning %}}
-Vi deaktiverer auto-create fordi den [oppdaterte autorisasjonspolicyen](#sett-opp-autorisasjonspolicy) ikke gir lese- eller skrivetilgang til brukere. Forsøk på å opprette et dataelement av typen `restrictedDataModel` med en brukers autorisasjonstoken vil resultere i en 403-Forbidden-feil.
+Vi deaktiverer auto-create fordi den [oppdaterte autorisasjonspolicyen](#sett-opp-autorisasjonspolicy) ikke gir lese- eller skrivetilgang til brukere. Hvis du prøver å opprette et dataelement av typen `restrictedDataModel` med en brukers autorisasjonstoken, får du en 403-Forbidden-feil.
 {{% /notice %}}
 
 ## Sett opp autorisasjonspolicy
@@ -53,7 +53,7 @@ For å forenkle autorisasjon og interaksjon med den beskyttede datamodellen, kan
 
 {{% insert "content/altinn-studio/v10/develop-a-service/data/restricted-data/shared/RestrictedDataHelper.cs.md" %}}
 
-Denne tjensten kan registreres i `Program.cs` og brukes med [dependency injection](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection) der den behøves.
+Du kan registrere denne tjenesten i `Program.cs` og bruke den med [dependency injection](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection) der du trenger den.
 
 {{% insert "content/altinn-studio/v10/develop-a-service/data/restricted-data/shared/Program.cs.md" %}}
 
