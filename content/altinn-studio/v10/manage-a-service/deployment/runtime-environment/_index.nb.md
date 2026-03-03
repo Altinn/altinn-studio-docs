@@ -2,7 +2,7 @@
 draft: true
 title: Kjøremiljø
 description: Kjøremiljøet for Altinn 3-applikasjoner for en tjenesteeier
-weight: 40
+
 ---
 
 Altinn 3-applikasjoner for en tjenesteeier kjører i Azure Kubernetes Service (AKS) fra Microsoft Azure. Dette er en såkalt Managed Service hvor Microsoft Azure tar seg av den underliggende driften av Kubernetes-clusteret.
@@ -47,13 +47,13 @@ Som standard setter vi opp minimum 3 noder både i TT02 og produksjon. Clusteret
 [Fullscreen](kubernetes-scaling-concepts.drawio.svg)
 
 ### Applikasjoner
-En Altinn 3-app er den logiske applikasjonen som det bare finnes én av. For å sikre at en app hele tiden er oppe kjører vi som regel med 2 eller flere instanser av applikasjonen. Minne- og CPU-reservasjoner gjelder per instans.
+En Altinn 3-app er den logiske applikasjonen som det bare finnes én av. For å sikre at en app hele tiden er oppe kjører den som regel med 2 eller flere instanser. Minne- og CPU-reservasjoner gjelder per instans.
 
 ### Docker-containere
 En Docker-container inneholder i vårt tilfelle den kjørende koden for en Altinn 3-app. Det finnes også andre containere i clusteret som inneholder systemtekniske komponenter som må kjøre. For eksempel vil enhver Altinn 3-appcontainer få følge av en Linkerd-container som tar seg av kryptering/dekryptering av trafikk inn og ut av Altinn 3-applikasjonen.
 
 ### Pods
-En pod er den minste kjørbare enheten i et Kubernetes-cluster og er det vi allokerer ressurser til. En pod kan bestå av en eller flere containere. En Altinn 3-applikasjon består typisk av en app-container og en såkalt sidecar-container som kjører Linkerd. Linkerd er komponenten som tar seg av kryptering/dekryptering av kommunikasjon mellom pods i et cluster. Denne krever også minne- og CPU-ressurser.
+En pod er den minste kjørbare enheten i et Kubernetes-cluster og er det du allokerer ressurser til. En pod kan bestå av en eller flere containere. En Altinn 3-applikasjon består typisk av en app-container og en såkalt sidecar-container som kjører Linkerd. Linkerd er komponenten som tar seg av kryptering/dekryptering av kommunikasjon mellom pods i et cluster. Denne krever også minne- og CPU-ressurser.
 
 ### Publiseringskonfigurasjon (Deployments)
 
