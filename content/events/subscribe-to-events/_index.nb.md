@@ -47,15 +47,15 @@ Se flere detaljer i utviklerguidene
 {{% notice info %}}
 En statisk IP brukes når hendelser pushes for å la abonnenter hviteliste IP-adressen. Adressene er oppgitt i CIDR-notasjon.
 
-**Viktig:** På grunn av infrastrukturendringer får Altinn Events nye IP-adresser for utgående trafikk fra [DATO]. 
+**Viktig:** På grunn av infrastrukturendringer får Altinn Events nye IP-adresser for utgående trafikk. 
 
-Hvis du bruker hvitelisting av IP-adresser, må du oppdatere brannmurreglene dine med de nye adressene nedenfor.
+Hvis du bruker hvitelisting av IP-adresser, må du oppdatere brannmurreglene dine med de nye adressene nedenfor. **Både gamle og nye adresser må hvitelistes frem til det blir gitt beskjed om at de gamle kan fjernes.**
 
-#### Nye IP-adresser (gjelder fra [DATO])
+#### Nye IP-adresser
 __TT02__: 20.100.48.118/31 og 20.100.48.120/31  
 __Produksjon__: 51.13.20.208/31 og 51.13.20.210/31
 
-#### Tidligere IP-adresser (fases ut [DATO])
+#### Tidligere IP-adresser
 __TT02__: 20.100.24.41/32  
 __Produksjon__: 20.100.46.139/32
 
