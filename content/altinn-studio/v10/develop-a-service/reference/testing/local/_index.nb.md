@@ -1,8 +1,8 @@
 ---
 draft: true
-title: Test av app lokalt
+title: Slik tester du appen lokalt
 linktitle: Lokalt
-description: Testing av app lokalt på egen maskin
+description: Kjør og test appen på egen maskin med lokal testplattform
 tags: [needsReview, translate-to-english]
 
 aliases:
