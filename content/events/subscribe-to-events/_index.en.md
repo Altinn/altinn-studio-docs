@@ -45,9 +45,20 @@ See more details in the developer guides
 
 ### IP for outgoing traffic
 {{% notice info %}}
-A static IP is used when pushing events to allow subscribers to whitelist the IP address. The addresses are provided in CIDR notation. </br> </br>
-__TT02__: 20.100.24.41/32  </br> </br>
+A static IP is used when pushing events to allow subscribers to whitelist the IP address. The addresses are provided in CIDR notation.
+
+**Important:** Due to infrastructure changes, Altinn Events will have new IP addresses for outgoing traffic. 
+
+If you use IP address whitelisting, you must update your firewall rules with the new addresses listed below. **Both old and new addresses must be whitelisted until you are notified that the old addresses can be removed.**
+
+#### New IP addresses
+__TT02__: 20.100.48.118/31 and 20.100.48.120/31  
+__Production__: 51.13.20.208/31 and 51.13.20.210/31
+
+#### Previous IP addresses
+__TT02__: 20.100.24.41/32  
 __Production__: 20.100.46.139/32
+
 {{% /notice %}}
 
 
