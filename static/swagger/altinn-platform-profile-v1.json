@@ -4,6 +4,16 @@
     "title": "Altinn Profile",
     "version": "v1"
   },
+      "servers": [
+    {
+      "url": "https://platform.tt02.altinn.no/profile/api/v1",
+      "description": "TT02"
+    },
+    {
+      "url": "https://platform.altinn.no/profile/api/v1",
+      "description": "Production"
+    }
+  ],
   "paths": {
     "/users/current/verification/verified-addresses": {
       "get": {
@@ -2322,31 +2332,5 @@
         "description": "Represents a verified address response model that contains information about a verified address, including the address value, its type (email or phone), and its verification status."
       }
     }
-  },
-  "tags": [
-    {
-      "name": "AddressVerification"
-    },
-    {
-      "name": "Dashboard"
-    },
-    {
-      "name": "DashboardUserContactInformation"
-    },
-    {
-      "name": "Favorites"
-    },
-    {
-      "name": "NotificationsSettings"
-    },
-    {
-      "name": "Organizations"
-    },
-    {
-      "name": "PartyGroups"
-    },
-    {
-      "name": "Users"
-    }
-  ]
+  }
 }
