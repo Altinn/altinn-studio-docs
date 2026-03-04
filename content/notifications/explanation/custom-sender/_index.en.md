@@ -18,7 +18,7 @@ If no other configuration exists, the following defaults apply:
 
 It is possible to send SMS with a custom sender by including the `sender` field in the `smsSettings` object in the API call for ordering notifications.
 
-See the Bruno test [Fulfilling eForv. §8 - custom sender](https://github.com/Altinn/altinn-notifications/blob/main/test/bruno/v2%20(future)/create-notifications/fulfilling-eforv-paragraf8-custom-sender.bru) for usage examples.
+See the Bruno test [Fulfilling eForv. §8 - custom sender](https://github.com/Altinn/altinn-notifications/blob/main/components/api/test/bruno/v2%20(future)/create-notifications/fulfilling-eforv-paragraf8-custom-sender.bru) for usage examples.
 
 ### Important limitations and considerations for SMS senders
 
@@ -29,7 +29,7 @@ See the Bruno test [Fulfilling eForv. §8 - custom sender](https://github.com/Al
 
 It is possible to send email with a custom sender by including the `senderEmailAddress` field in the `emailSettings` object in the API call for ordering notifications.
 
-See the Bruno test [Fulfilling eForv. §8 - custom sender](https://github.com/Altinn/altinn-notifications/blob/main/test/bruno/v2%20(future)/create-notifications/fulfilling-eforv-paragraf8-custom-sender.bru) for usage examples.
+See the Bruno test [Fulfilling eForv. §8 - custom sender](https://github.com/Altinn/altinn-notifications/blob/main/components/api/test/bruno/v2%20(future)/create-notifications/fulfilling-eforv-paragraf8-custom-sender.bru) for usage examples.
 
 Before a custom domain can be used as the sender address in API calls, it must go through several steps in a domain registration and verification process:
 

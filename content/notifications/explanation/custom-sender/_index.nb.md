@@ -18,7 +18,7 @@ Dersom ingen annen konfigurasjon eksisterer, er det følgende som gjelder:
 
 Det er mulig å sende SMS med egendefinert avsender ved å inkludere `sender`-feltet i `smsSettings`-objektet i API-kallet for å bestille varsler.
 
-Se Bruno-testen [Fulfilling eForv. §8 - custom sender](https://github.com/Altinn/altinn-notifications/blob/main/test/bruno/v2%20(future)/create-notifications/fulfilling-eforv-paragraf8-custom-sender.bru) for eksempler på bruk.
+Se Bruno-testen [Fulfilling eForv. §8 - custom sender](https://github.com/Altinn/altinn-notifications/blob/main/components/api/test/bruno/v2%20(future)/create-notifications/fulfilling-eforv-paragraf8-custom-sender.bru) for eksempler på bruk.
 
 ### Viktige begrensninger og hensyn for SMS-avsendere
 
@@ -29,7 +29,7 @@ Se Bruno-testen [Fulfilling eForv. §8 - custom sender](https://github.com/Altin
 
 Det er mulig å sende epost med egendefinert avsender ved å inkludere `senderEmailAddress`-feltet i `emailSettings`-objektet i API-kallet for å bestille varsler.
 
-Se Bruno-testen [Fulfilling eForv. §8 - custom sender](https://github.com/Altinn/altinn-notifications/blob/main/test/bruno/v2%20(future)/create-notifications/fulfilling-eforv-paragraf8-custom-sender.bru) for eksempler på bruk.
+Se Bruno-testen [Fulfilling eForv. §8 - custom sender](https://github.com/Altinn/altinn-notifications/blob/main/components/api/test/bruno/v2%20(future)/create-notifications/fulfilling-eforv-paragraf8-custom-sender.bru) for eksempler på bruk.
 
 Før det er mulig å bruke et eget domene som avsenderadresse i API-kall, må det gå gjennom flere steg i en registrerings- og verifiseringsprosess for domenet:
 
