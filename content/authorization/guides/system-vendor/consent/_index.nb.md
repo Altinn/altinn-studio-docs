@@ -31,10 +31,10 @@ Databehandler->>+Altinn: POST /consentrequest med id
 Note over Databehandler,Altinn: body med id
 Altinn-->>-Databehandler: 201 + body
 Note over Altinn,Databehandler: body med id og redirectURL
-Databehandler-->>-Sluttbruker: redirect(redirectURL)
+Databehandler-->>-Sluttbruker: redirect(redirectURL&consentId=id)
 Sluttbruker->>+Altinn: Godkjenn samtykke (id)
-Altinn-->>-Sluttbruker: redirect(redirectURL?requestId=id)
-Sluttbruker->>+Databehandler: GET /redirectURL?requestId=id
+Altinn-->>-Sluttbruker: redirect(redirectURL?consentId=id&Status=OK)
+Sluttbruker->>+Databehandler: GET /redirectURL?consentId=id
 opt Valgfri verifisering
 Databehandler->>+Altinn: GET /consentrequest/consentRequestId
 Altinn-->>-Databehandler: status
@@ -51,7 +51,8 @@ Databehandler-->>-Sluttbruker: Ferdig
 {{< /mermaid >}}
 
 Ved bruk av samtykke følger man flyten over.
-Etter at brukeren har behandlet samtykkeforespørselen og blir omdirigert tilbake til datakonsumenten, kan man slå opp for å hente status, eller bare hente samtykketokenet og prøve dette mot tjenesten.
+I redirectURL kan man angi eventuell parameter man ønsker sluttbruker skal redirectes med. RedirectURL vil også inneholde status for samtykke (OK/Failed) og ErrorMessage dersom Failed.  
+Etter at brukeren har behandlet samtykkeforespørselen og blir omdirigert tilbake til datakonsumenten, kan man slå opp for å hente status, eller hente samtykketokenet og prøve dette mot tjenesten.
 Dersom brukeren ikke har godtatt samtykket, vil man få en feilmelding fra tjenesten man bruker samtykketokenet mot.
 
 ## Innhold

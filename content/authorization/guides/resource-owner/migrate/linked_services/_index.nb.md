@@ -78,14 +78,6 @@ I Altinn Studio kan du for tjenester som er **opprettet basert på en importert 
 - deaktiverer Altinn 2-tjenesten slik at delegeringer ikke endres underveis
 - kopierer delegeringene til den nye ressursen i Altinn 3
 
-Funksjonen er foreløpig skjult bak et feature flag i Altinn Studio.
-
-```javascript
-localStorage.setItem("featureFlags", '["resourceMigration"]');
-```
-
-Kjør kommandoen i nettleserens konsoll (utviklerverktøy).
-
 Når batchjobben startes, tar det omtrent ti minutter før den settes i gang. Den første handlingen er å deaktivere tjenesten i Altinn 2 før migreringen til Altinn 3 gjennomføres.
 
 Tjenesten må allerede være migrert til miljøet der du skal overføre delegeringer. Test gjerne prosessen i TT02 før den kjøres i produksjon.

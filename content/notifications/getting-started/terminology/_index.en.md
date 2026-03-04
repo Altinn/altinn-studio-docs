@@ -135,6 +135,8 @@ weight: 15
     }
     ```
 
+  For a complete overview of the possible values that can appear in the `status` field, see the reference for [status values for orders and notifications]({{< relref "/notifications/reference/notification-status" >}}).
+
 - #### Notification channel
 
   A _notification channel_ refers to the communication pathways used by Altinn to deliver notifications to end users. Common channels include email and SMS.

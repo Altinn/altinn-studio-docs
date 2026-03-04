@@ -10,18 +10,21 @@ weight: 5
 Det er bare Sluttbrukersystemleverandør (SBSL) som kan be om en endring av en Systembruker, dette fordi det er deres oppgave å vite hvilke tilganger som trengs for systemet, ihht hvordan de skal integrere seg mot en Tjeneste Eier sitt API. Men det er Sluttbruker selv som må godkjenne endringen, fordi det er Sluttbruker som “eier” SystemBrukeren. Dersom en organisasjon er både “leverandør” og sluttbruker, må de likevel igjennom prosessen med å opprette en endringsforespørsel, og deretter godkjenne den.
 
 ## Endepunkt for å hente en eksisterende SystemBruker for sitt eget system.
+
 - {{API_BASE_URL}}/authentication/api/v1/systemuser/vendor/byquery?system-id={system-id-string}&orgno={organisasjon nummer}&external-ref={bare dersom brukt ved opprettelse}
 
 ## Opprettelse av en Forespørsel om Endring 
 
-SBSL må sende inn en Change Request til vårt API på endepunkt. Der må det oppgis Id for SystemBrukeren som kan hentes på et eget endepunkt; samt en unik ny uuid for selve endringsforespørselen. 
+SBSL må sende inn en Change Request til vårt API på endepunkt. Der må det oppgis Id for SystemBrukeren som kan hentes på et eget endepunkt; samt en unik ny uuid for selve endringsforespørselen.
 
 For enten TT02 eller PROD:
+
 - https://platform.tt02.altinn.no/authentication/api/v1/systemuser/changerequest/vendor?correlation-id={uuid}&system-user-id={system-user-uuid}
-eller
+  eller
 - https://platform.altinn.no/authentication/api/v1/systemuser/changerequest/vendor?correlation-id={uuid}&system-user-id={system-user-uuid}
 
 Med Query Parameters: 
+
 - **correlation-id** required ,  SBSL generer et gyldig UUID selv, unik for hver POST change request , brukes i senere GET call.
 - **system-user-id** required. Den unike UUID id for SystemBruker
 
@@ -137,4 +140,4 @@ Det er ikke nødvendig å slette en Forespørsel, dersom SBSL ikke skal bruke de
 
 ## Endring av Systembruker for Klientforhold 
 
-Endring av Systembruker for Klientforhold er ikke mulig pt. De må slettes og opprettes på nytt. Det tilbys et Klientdelegerings API der SBSL selv kan hente ut hvilke tilganger som er gitt, spare dem i sitt eget system. Opprette en ny Systembruker med de nye ønskede tilganger; som godkjennes av Tjenestetilbyder; deretter kan en og en klient (i et API) tildeles på den nye Systembruker. Om det så gjenstår en differanse, der noen av de “gamle” klienter ikke kunne tildeles den nye Systembrukeren, så kan det skyldes at ikke alle de nye tilganger er delegert av disse klientene til fasilitatoren. Dette håndteres enklest av SBSL selv. Sannsynligheten for at det finnes minst en slik klient som ikke har de nye tilganger delegert i et stort system er stor; og vi kan derfor ikke tilby en change request der alt skal godkjennes i en enkelt operasjon.
+Endring av Systembruker for Klientforhold er ikke mulig pt. De må slettes og opprettes på nytt. Det tilbys et [Klientdelegerings API](/nb/authorization/guides/system-vendor/system-user/client-delegation/) der SBSL selv kan hente ut hvilke tilganger som er gitt, spare dem i sitt eget system. Opprette en ny Systembruker med de nye ønskede tilganger; som godkjennes av Tjenestetilbyder; deretter kan en og en klient (i et API) tildeles på den nye Systembruker. Om det så gjenstår en differanse, der noen av de “gamle” klienter ikke kunne tildeles den nye Systembrukeren, så kan det skyldes at ikke alle de nye tilganger er delegert av disse klientene til fasilitatoren. Dette håndteres enklest av SBSL selv. Sannsynligheten for at det finnes minst en slik klient som ikke har de nye tilganger delegert i et stort system er stor; og vi kan derfor ikke tilby en change request der alt skal godkjennes i en enkelt operasjon.

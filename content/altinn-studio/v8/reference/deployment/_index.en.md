@@ -28,7 +28,7 @@ Administrating access to teams in Altinn Studio is done by the owners of your or
 
 Altinn maintains [an overview of all services](https://www.altinn.no/skjemaoversikt/).
 In order for Altinn User Service to be able to help users with a service, information must be entered here. To ensure effective communication with Altinn user service and a seamless allocation of rights to the service, it is crucial to register the exact same name on both the "About form'-page and in the App.
-The order form is called _"Publiser informasjon om tjeneste på Altinn PROD og TT02"_, and can be found after login on [altinndigtal.no](https://altinndigital.no).
+The order form is called _"Publiser informasjon om tjeneste på Altinn PROD og TT02"_, and can be found after login on [Samarbeidsportalen](https://samarbeid.digdir.no/).
 
 
 **NB!** The form is currently optimized for Altinn II services. Therefore, do the following:

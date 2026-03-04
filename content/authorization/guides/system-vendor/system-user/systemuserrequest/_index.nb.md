@@ -98,8 +98,9 @@ Dette gjelder en systembruker for et system som skal handle på vegne av sluttbr
 
 1. **Initier forespørsel:** Send en HTTP POST-forespørsel til det spesifikke endepunktet for klientsystemer (`/agent/request`).
 
-      * **Test (TT02):** `POST https://platform.tt02.altinn.no/authentication/api/v1/systemuser/agent/request`
-      * **Produksjon:** `POST https://platform.altinn.no/authentication/api/v1/systemuser/agent/request`
+      * **Test (TT02):** `POST https://platform.tt02.altinn.no/authentication/api/v1/systemuser/request/vendor/agent/`
+      * **Production:** `POST https://platform.altinn.no/authentication/api/v1/systemuser/request/vendor/agent/`
+
 
 2. **Konfigurer Request Body:** Inkluder en JSON-body. ***Merk*** at `rights`-listen må være tom eller utelatt.
 

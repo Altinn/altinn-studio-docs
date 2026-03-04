@@ -1,0 +1,424 @@
+---
+title: Tilpasse visninger av steg
+linktitle: Tilpasse visninger
+description: Slik tilpasser du visninger i forskjellige steg av en prosess.
+toc: true
+tags: [needsReview]
+---
+
+En applikasjon har en prosess som brukeren følger. Avhengig av hvilken type steg brukeren er i, viser applikasjonen forskjellige ting. Denne siden forklarer hvordan du kan tilpasse visningen til de forskjellige stegene.
+
+## Data (tilsvarer utfyllingssteg i Altinn II)
+
+I denne oppgavetypen viser applikasjonen et skjema som kan fylles ut. Du kan redigere skjemaet i Altinn Studio Designer eller ved å endre `FormLayout.json` direkte.
+
+## Bekreftelse
+
+I denne oppgavetypen viser applikasjonen noen standardtekster, og brukeren kan velge å _bekrefte_ for å gå videre.
+
+Du kan overstyre tekstene ved å legge inn tekstnøkkel som hører til hver tekst i språkfilene for appen. [Les mer om hvordan du legger inn tekster i språkfilene](/nb/altinn-studio/v8/reference/ux/texts/). Se under for oversikt over de forskjellige tekstnøklene du kan overstyre.
+
+![Bekreftelsesvisningen](confirm-step.png "Tekster du kan endre/overstyre i bekreftelsesvisningen")
+
+### Overstyre tekster
+
+| Tekst nr. (se bilde over) | Tekstnøkkel         |
+| ------------------------- | ------------------- |
+| 1                         | confirm.title       |
+| 2                         | confirm.sender      |
+| 3                         | confirm.body        |
+| 4                         | confirm.answers     |
+| 5                         | confirm.attachments |
+| 6                         | confirm.button_text |
+
+Eksempel på overstyrte tekster i filen `resources.nb.json`:
+
+```json
+{
+  "id": "confirm.title",
+  "value": "Vennligst bekreft at du ønsker å sende inn"
+},
+{
+  "id": "confirm.body",
+  "value": "Du må kun trykke send inn om du er helt sikker på at du vil sende inn. <br/><br/>I det du trykker send inn kan du ikke gjøre endringer."
+},
+{
+  "id": "confirm.attachments",
+  "value": "Dokumenter med opplysninger"
+},
+{
+  "id": "confirm.button_text",
+  "value": "Lagre og fortsett"
+}
+```
+
+Merk at i eksempelet over har vi brukt html-taggen `<br/>` for å lage linjeskift.
+For lenke og utheving, [bruk markdown](/nb/altinn-studio/v8/reference/ux/texts#formatering-av-tekster).
+
+Dette resulterer i følgende visning:
+
+![Bekreftelsesvisningen](confirm-step-custom.png "Bekreftelsesvisningen med overstyrte tekster")
+
+### Egendefinert bekreftelse
+
+For bekreftelsessteget kan du som apputvikler definere et eget [layoutsett](/nb/altinn-studio/v8/reference/ux/pages/#oppsett) med tilhørende layoutfiler og andre konfigurasjonsfiler som hører til data-steget.
+
+Dette gjør det mulig å styre innholdet på bekreftelsessiden helt fritt, og du kan bruke komponentene du ellers har tilgjengelig i Altinn Studio.
+
+Siden bekreftelsessteget ikke er ment brukt når du skal skrive data, anbefaler vi å bruke statiske komponenter (header, paragraph) og sette komponenter utover dette som `readOnly`.
+
+Eksempel oppsett av `layout-sets.json` hvor `Task_1` er et datasteg og `Task_2` et bekreftelsesteg.
+
+```json
+{
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
+  "sets": [
+    {
+      "id": "simple",
+      "dataType": "simple",
+      "tasks": ["Task_1"]
+    },
+    {
+      "id": "custom-confirmation",
+      "dataType": "simple",
+      "tasks": ["Task_2"]
+    }
+  ]
+}
+```
+
+Legg merke til at konfigurasjonen for settet til `Task_2` referer til datatypen til `Task_1`.
+
+Eksempel `formLayout.json` som presenterer data som brukeren fylte ut i data-steget.
+
+```json
+{
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "paragraph",
+        "type": "Paragraph",
+        "textResourceBindings": {
+          "title": "paragraph"
+        }
+      },
+      {
+        "id": "name",
+        "type": "Input",
+        "textResourceBindings": {
+          "title": "name.label"
+        },
+        "dataModelBindings": {
+          "simpleBinding": "Felt1"
+        },
+        "required": true,
+        "readOnly": true
+      },
+      {
+        "id": "lastname",
+        "type": "Input",
+        "textResourceBindings": {
+          "title": "lastName.label"
+        },
+        "dataModelBindings": {
+          "simpleBinding": "Felt2"
+        },
+        "required": true,
+        "readOnly": true
+      }
+    ]
+  }
+}
+```
+
+Dette vil gi følgende app-struktur:
+
+```txt
+├───App
+│   ├───config
+│   ├───logic
+│   ├───models
+|   | ...
+│   ├───ui
+│   │   ├───custom-confirmation
+│   │   │   └───layouts
+|   |   |   └─── ...
+│   │   └───simple
+│   │       └───layouts
+|   |   |   └─── ...
+
+```
+
+Sluttresultatet i appen:
+
+![Egendefinert bekreftelsesvisning](custom_confirm_nb.png "Egendefinert bekreftelsesvisning")
+
+For et komplett oppsett av denne muligheten kan du se vår [eksempelapp](https://altinn.studio/repos/ttd/custom-view-confirm).
+
+## Tilbakemelding {#feedback}
+
+Dette er et prosesssteg hvor applikasjonseieren sjekker utfylte data for å generere en tilbakemelding før alle data kan arkiveres.
+
+Du kan overstyre tekstene på siden ved å legge inn tekstnøkler som hører til hver tekst i språkfilene for appen. [Les mer om hvordan du legger inn tekster i språkfilene](/nb/altinn-studio/v8/reference/ux/texts/). Se under for oversikt over de forskjellige tekstnøklene du kan overstyre.
+
+![Tilbakemeldingsvisningen](feedback-default.png "Tekster du kan endre/overstyre i tilbakemeldingsvisningen")
+
+### Overstyre tekster
+
+| Tekst nr. (se bilde over) | Tekstnøkkel    |
+| ------------------------- | -------------- |
+| 1                         | feedback.title |
+| 2                         | feedback.body  |
+
+Eksempel på overstyrte tekster i filen `resources.nb.json`:
+
+```json
+{
+  "id": "feedback.title",
+  "value": "Vent på at tjenesteeier sjekker data"
+},
+{
+  "id": "feedback.body",
+  "value": "Når tjenesteier har sjekket at alle data er godkjent vil du bli automatisk sendt videre til siste steg i prosessen."
+}
+```
+
+## Kvittering
+
+I denne oppgavetypen er prosessen ferdig og applikasjonen viser noen standardtekster.
+
+Du kan overstyre tekstene ved å legge inn tekstnøkkel som hører til hver tekst i språkfilene for appen. [Les mer om hvordan du legger inn tekster i språkfilene](/nb/altinn-studio/v8/reference/ux/texts/).
+
+Hvis den reelle mottakeren av skjemaet er en annen organisasjon enn organisasjonen som eier appen, bør kvitteringen tydeliggjøre dette i `Mottaker`-feltet. Du kan gjøre dette ved å sette tekstresursen `appReceiver` til navnet på den reelle mottakeren.
+
+### Overstyre tekster
+
+![Kvitteringsvisningen](receipt-step.png "Tekster du kan endre/overstyre i kvitteringsvisningen")
+
+| Tekst nr. (se bilde over) | Tekstnøkkel             |
+| ------------------------- | ----------------------- |
+| 1                         | receipt.receipt         |
+| 2                         | receipt.title           |
+| 3                         | receipt.subtitle        |
+| 4                         | receipt.body            |
+| 5                         | receipt.title_submitted |
+
+Eksempel på overstyrte tekster i filen `resources.nb.json`:
+
+```json
+{
+  "id": "receipt.receipt",
+  "value": "Søknad om flytting til Sogndal kommune"
+},
+{
+  "id": "receipt.title",
+  "value": "Takk, søknaden er sendt!"
+},
+{
+  "id": "receipt.subtitle",
+  "value": "Finn kopi av dine svar i Altinn Innboks"
+},
+{
+  "id": "receipt.body",
+  "value": "Saksbehandling av denne type søknader tar vanligvis opp til 4 uker. Du vil bli varslet når svaret er klart i din innboks."
+},
+{
+  "id": "receipt.title_submitted",
+  "value": "Last ned PDF med dine svar:"
+}
+```
+
+Merk at hvis du endrer verdien til tekstnøkkelen `receipt.subtitle`, vil lenken uansett peke til Altinn Innboks.
+
+Dette resulterer i følgende visning:
+
+![Kvitteringsvisningen](receipt-step-custom.png "Kvitteringsvisningen med overstyrte tekster")
+
+### Egendefinert kvittering
+
+En egendefinert kvittering kan lages på samme måte som alle andre skjemasider. Funksjonaliteten vil også innen kort tid bli tilgjengelig i Altinn Studio.
+
+For å lage en egendefinert kvittering lager du en ny sidegruppe (layoutsett). Denne sidegruppen fungerer helt likt som alle andre sidetyper. Innenfor sidegruppen kan du opprette en mappe `layouts` og her definere alle sider du ønsker skal inngå i kvitteringen (Ja, kvitteringen støtter flere sider!). Inne i sidegruppen må du også lage `Settings.json`, hvor du kan definere rekkefølgen på sidene i kvitteringen.
+
+For at appen skal forstå at denne sidegruppen skal brukes som kvittering, må du referere til navnet på sidegruppen i `layout-sets.json`. Legg til en ny sidegruppe med `id` som referer til navnet på sidegruppen din, og legg til nøkkelverdien `"CustomReceipt"` i `tasks`-arrayet til sidegruppen. I tillegg kan du spesifisere hvilken datamodell som skal være tilgjengelig i kvitteringen ved å legge til nøkkelen `dataType` med navnet på datamodellen du vil støtte.
+
+Her er et fullt eksempel hvor vi har en sidegruppe med navnet `custom-receipt` som skal brukes som kvittering:
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Mappestruktur">}}
+
+```
+|- App/
+  |- ui/
+    |- layout-sets.json
+    |- custom-receipt/
+      |- layouts/
+        |- side1.json
+        |- side2.json
+      |- Settings.json
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Kode">}}
+
+{{<code-title>}}
+App/ui/layout-sets.json
+{{</code-title>}}
+
+```json {hl_lines=[4,6]}
+{
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
+  "sets": [
+    {
+      "id": "custom-receipt",
+      "dataType": "fields",
+      "tasks": ["CustomReceipt"]
+    }
+  ]
+}
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Kode">}}
+
+{{<code-title>}}
+App/ui/custom-receipt/Settings.json
+{{</code-title>}}
+
+```json
+{
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+  "pages": {
+    "order": ["side1", "side2"]
+  }
+}
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+Eksempel på en egendefinert layoutfil for kvittering:
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Kode">}}
+
+{{<code-title>}}
+App/ui/custom-receipt/layouts/side1.json
+{{</code-title>}}
+
+```json
+{
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "ReceiptHeader",
+        "type": "Header",
+        "textResourceBindings": {
+          "title": "receipt.title"
+        },
+        "dataModelBindings": {},
+        "size": "h2"
+      },
+      {
+        "id": "fa796d12-49fc-457a-9d9a-d153998d55de",
+        "type": "Image",
+        "textResourceBindings": {
+          "title": "Bilde"
+        },
+        "dataModelBindings": {},
+        "image": {
+          "src": {
+            "nb": "https://docs.altinn.studio/altinn-studio/getting-started/app-dev-course/modul2/kommune-logo.png"
+          },
+          "width": "100%",
+          "align": "flex-start"
+        },
+        "grid": {
+          "xs": 2
+        }
+      },
+      {
+        "id": "ReceiptParagraph",
+        "type": "Paragraph",
+        "textResourceBindings": {
+          "title": "receipt.body"
+        },
+        "grid": {
+          "xs": 10
+        }
+      },
+      {
+        "id": "ReceiptInstanceInformation",
+        "type": "InstanceInformation",
+        "elements": {
+          "dateSent": false
+        }
+      },
+      {
+        "id": "ReceiptHeaderSubmitted",
+        "type": "Header",
+        "textResourceBindings": {
+          "title": "receipt.title_submitted"
+        },
+        "size": "h4"
+      },
+      {
+        "id": "ReceiptAttachmentList",
+        "type": "AttachmentList",
+        "dataTypeIds": ["ref-data-as-pdf"],
+        "includePDF": true
+      }
+    ]
+  }
+}
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+Sluttresultatet i appen:
+
+![Custom kvitteringsvisning](custom-receipt.png "Custom kvitteringsvisning")
+
+### Tilpasse tekster for enkel kvittering (Simple Receipt)
+
+Simple receipt er et konsept som er relevant for de applikasjonene som har aktivert `AutoDeleteOnProcessEnd: True` i `applicationmetadata.json`-filen. For mer informasjon om hva dette innebærer, [les her](../auto-delete/).
+
+Du kan også overstyre tekstene i denne kvitteringen ved å manuelt legge til hver definerte tekstnøkkel i appens tekstressursfil. [Les mer om hvordan du legger inn tekster i språkfilene](/nb/altinn-studio/v8/reference/ux/texts/). Følgende avsnitt viser en oversikt over hvilke tekster du kan tilpasse.
+
+![Enkel kvitteringsvisning](simple-receipt-step.png "Tekster som kan endres/overstyres i kvitteringsvisningen")
+
+| Tekst # (se bilde over) | Tekstnøkkel         |
+| ----------------------- | ------------------- |
+| 1                       | receipt.receipt     |
+| 2                       | receipt.title       |
+| 3                       | receipt.body_simple |
+
+Eksempel på overstyrte tekster i filen `resources.nb.json`:
+
+```json
+{
+    "id": "receipt.receipt",
+    "value": "Søknad om flytting til Sogndal kommune"
+},
+{
+    "id": "receipt.title",
+    "value": "Takk, søknaden er sendt!"
+},
+{
+    "id": "receipt.body_simple",
+    "value": "All data knyttet til denne innsendingen vil slettes etter tjenesteeieren har mottatt det."
+}
+```
+
+Dette resulterer i følgende visning:
+
+![Enkel kvitteringsvisning](simple-receipt-step-custom.png "Overstyrte tekster på enkel kvitteringsvisningen")
