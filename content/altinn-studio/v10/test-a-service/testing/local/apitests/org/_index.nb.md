@@ -1,26 +1,30 @@
 ---
 draft: true
-title: API-test som organisasjon
+title: Teste API som organisasjon
 linktitle: Organisasjon
-description: Når du kjører applikasjonene lokalt sammen med den lokale testplattformen kan du teste API-er som applikasjonen eksponerer.
+description: Slik tester du API-er som applikasjonen eksponerer når du kjører den lokalt sammen med den lokale testplattformen.
 toc: true
 tags: [needsReview, translate-to-english]
 ---
 
+{{%notice warning%}}
+**Må oppdateres:** Sjekk lenkene til local.altinn.cloud.
+{{% /notice%}}
+
 Appen har en rekke API-er som applikasjonseier/tjenesteeier kan bruke.
 Beskrivelsen du finner her er laget for [Postman](https://www.getpostman.com/) hvor vi har brukt testapplikasjonen [MVA testapp](https://dev.altinn.studio/repos/ttd/mva).
 
-Du kan laste ned Postman-prosjektet fra [her](https://raw.githubusercontent.com/Altinn/altinn-studio/master/src/test/Postman/collections/Altinn%20Studio%20App%20Local%20Testing.postman_collection.json) (høyreklikk og velg "save as").
+[Her finner du noen Postman-eksempler](https://github.com/Altinn/postman-examples).
 
-## Autentisere tjenesteeierorganisasjon
+## Autentisere en tjenesteeierorganisasjon
 
 I testmiljø og produksjon bruker systemet Maskinporten for å autentisere organisasjoner som eier apper.
 
 Testplattformen for lokal testing tilbyr et enkelt API for å autentisere organisasjonen som er ansvarlig.
 
-Du trenger bare å oppgi tjenesteeierkode (som f.eks brg, skd osv)
+Du trenger bare å oppgi tjenesteeierkode (som f.eks brg, skd osv).
 
-URL: http://local.altinn.cloud/Home/GetTestOrgToken/ttd (ttd må erstattes med organisasjonen du vil autentisere)
+[Hent testtoken for organisasjonen](http://local.altinn.cloud/Home/GetTestOrgToken/ttd) (erstatt `ttd` i URL-en med organisasjonen du vil autentisere).
 
 Responsen er et JWT-token som skal brukes som en Authorization-header.
 
@@ -28,9 +32,9 @@ Responsen er et JWT-token som skal brukes som en Authorization-header.
 
 ## Multipart-instansiering
 
-Applikasjonene støtter at du instansierer instanser til aktører. Personer eller organisasjoner.
+Applikasjonene støtter at du oppretter instanser for aktører (personer eller organisasjoner).
 
-URL: http://local.altinn.cloud/ttd/mva/instances
+[Opprett en instans](http://local.altinn.cloud/ttd/mva/instances) (erstatt `ttd/mva` i URL-en med din org og app).
 
 Metode: POST
 
@@ -41,7 +45,7 @@ Metode: POST
 
 ![headers](headers_multipart_instance.png "Headers for multipart-instansiering")
 
-**Eksempel Body:**
+**Eksempel body:**
 
 ```http {linenos=false,hl_lines=["1-3","11-13"]}
 --abcdefg

@@ -1,8 +1,8 @@
 ---
 draft: true
-title: Testbrukere lokalt
+title: Bruke testbrukere lokalt
 linktitle: Testbrukere
-description: Vi har definert et lite sett med testbrukere som er tilgjengelig for lokal test.
+description: Slik bruker du testbrukere til lokal test.
 toc: true
 tags: [needsReview, translate-to-english]
 ---
@@ -11,11 +11,11 @@ tags: [needsReview, translate-to-english]
 
 Disse kan du velge når du logger inn i lokal test.
 
-![testbrukere](userselection.png "Valg av testbrukere")
+![testbrukere](userselection.png "Velge testbrukere")
 
 ### Sophie Salt
 
-Sophie er en svært driftig dame som bor i Oslo. Hun har startet en kjede med treningssentre som heter DDG Fitness og til nå er det startet 3 underenheter i Oslo, Bergen og Trondheim.
+Sophie er en svært driftig dame som bor i Oslo. Hun har startet en kjede med treningssentre som heter DDG Fitness og til nå er det startet tre underenheter i Oslo, Bergen og Trondheim.
 Sophie har rollen DAGL og underrollene for DDG Fitness AS og underenhetene.
 
 I tillegg er hun ekspert på helse og har startet eget konsulentfirma for helsetjenester. Sophie har rollen LEDE + tilknyttede roller for EAS Health Consulting.
@@ -61,7 +61,7 @@ Gjentagende Forelder er revisor for selskapet DDG Fitness AS.
 ### Ola Nordmann
 
 Ola Nordmann er en privatperson som kun kan representere seg selv.
-Er bosatt på Stokmarknes.
+Han er bosatt på Stokmarknes.
 
 #### Avgivere
 
@@ -87,13 +87,15 @@ Du kan hente ut token ved hjelp av `/Home/GetTestSystemUserToken` i localtest el
 
 ### Instansdelegering
 
-Instansdelegering er støttet i siste versjon av localtest, men brukere/avgivere du instansdelegerer fra og til må ha en `partyUuid` assosiert med seg. Se eksempelfil under.
+Den siste versjonen av localtest støtter instansdelegering. Brukere og avgivere du delegerer fra og til må ha en `partyUuid` knyttet til seg. Se eksempelfil under.
 
-## Appspesifikke brukere
+## App-spesifikke brukere
 
 Hvis standardsettet med brukere ikke passer for å teste appen din lokalt, kan du sørge for at appen din svarer med et JSON-dokument på URL `/[org]/[appId]/testData.json`. Den enkleste måten er å legge filen på `App/wwwroot/testData.json`.
 
-Typiske endringer du kan være interessert i er å bruke andre organisasjonsnummer/fødselsnummer for at oppslag i API-er som appene er avhengige av skal virke, eller testing av autorisasjonsreglene med andre roller enn det standardbrukerne har.
+Du kan for eksempel:
+- Bruke andre organisasjonsnummer eller fødselsnummer, slik at oppslag i API-er som appen er avhengig av fungerer.
+- Teste autorisasjonsreglene med andre roller enn det standardbrukerne har.
 
 ### JSON-struktur
 
