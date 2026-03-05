@@ -66,4 +66,4 @@ Du trenger brukernavnet til brukeren som skal fjernes. Se beskrivelsen over for 
 2. Fjern brukeren fra teamene brukeren er medlem i for din organisasjon.
    - Typiske team er `devs` for skrivetilgang til tjenestene, `Deploy-<miljø>` for publiseringstilgang for tjenestene, og `Resources-Publish-<miljø>` for tilgang til å publisere ressurser.
    - Hvis organisasjonen din har satt opp en annen team-struktur, må du sjekke alle team brukeren kan være medlem av.
-3. Verifiser at brukeren ikke lenger tilhører organisasjonen din ved å gå til `https://altinn.studio/repos/{brukernavn}` og sjekke at organisasjonen din (med logo) ikke lenger vises under brukerens profilbilde på venstre side.
+3. Sjekk at brukeren ikke lenger tilhører organisasjonen din ved å gå til `https://altinn.studio/repos/{brukernavn}` og kontrollere at organisasjonen din (med logo) ikke lenger vises under brukerens profilbilde på venstre side.
