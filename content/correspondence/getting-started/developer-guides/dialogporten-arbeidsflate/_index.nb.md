@@ -87,6 +87,57 @@ Gyldige transmission-typer er:
 | Submission  | 7     |
 | Correction  | 8     |
 
+#### Sette dialogstatus og utvidet status
+Når du oppretter en transmission (altså når `DialogportenDialogId` er til stede), kan du valgfritt sette dialogstatus og/eller utvidet status på den opprinnelige dialogen ved å legge til eksterne referanser:
+
+- `DialogportenDialogStatus`
+  - Må være en gyldig Dialogporten-statusverdi
+  - Både enum-navn og numerisk verdi godtas
+  - Kun én slik referanse er tillatt
+- `DialogportenDialogExtendedStatus`
+  - Må være en ikke-tom streng
+  - Må være **25 tegn eller færre**
+  - Kun én slik referanse er tillatt
+
+Begge krever at `DialogportenDialogId` er til stede (transmission-flyt).
+
+Eksempel med enum-navn:
+
+```json
+{
+    "correspondence":{
+        ...,
+        "externalReferences":[
+            {
+                "referenceValue": "din-dialog-id",
+                "referenceType": "DialogportenDialogId"
+            },
+            {
+                "referenceValue": "Sent",
+                "referenceType": "DialogportenDialogStatus"
+            },
+            {
+                "referenceValue": "Needs review",
+                "referenceType": "DialogportenDialogExtendedStatus"
+            }
+        ]
+    }
+}
+```
+
+Gyldige dialogstatusverdier er:
+
+| Status            | Verdi |
+|-------------------|:-----:|
+| New               | 1     |
+| InProgress        | 2     |
+| Draft             | 3     |
+| Sent              | 4     |
+| RequiresAttention | 5     |
+| Completed         | 6     |
+| NotApplicable     | 7     |
+| Awaiting          | 8     |
+
 #### Transmission opprettet
 Når en transmission har blitt opprettet vil de eksterne referansene til den nyopprettede meldingen bestå av en referanse til dialogen som
 meldingen er relatert til, samt en referanse til en transmissionId som har blitt satt.

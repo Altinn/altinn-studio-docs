@@ -4,7 +4,7 @@
     "title": "Altinn Profile",
     "version": "v1"
   },
-    "servers": [
+  "servers": [
     {
       "url": "https://platform.tt02.altinn.no/profile/api/v1",
       "description": "TT02"
@@ -15,6 +15,108 @@
     }
   ],
   "paths": {
+    "/users/current/verification/verified-addresses": {
+      "get": {
+        "tags": [
+          "AddressVerification"
+        ],
+        "summary": "Get all verified addresses for the current user",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/VerifiedAddressResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/users/current/verification/verify": {
+      "post": {
+        "tags": [
+          "AddressVerification"
+        ],
+        "summary": "Verify an address for the current user by providing the verification code sent to the address.",
+        "description": "This endpoint is rate limited using a sliding window rate limiter to prevent abuse.\r\nRate limit: 10 requests per 1 minute window.\r\nWhen the limit is exceeded, a 429 Too Many Requests response is returned.\r\nFor more information about sliding window rate limiting, see:\r\nhttps://devblogs.microsoft.com/dotnet/announcing-rate-limiting-for-dotnet/#sliding-window-limit",
+        "requestBody": {
+          "description": "The code to verify, the address type, and the address value",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddressVerificationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "422": {
+            "description": "Unprocessable Content"
+          },
+          "429": {
+            "description": "Too Many Requests"
+          }
+        }
+      }
+    },
+    "/users/current/verification/resend": {
+      "post": {
+        "tags": [
+          "AddressVerification"
+        ],
+        "summary": "Resets the verification process for the current user and the given address, by regenerating a code with a renewed validity period and sending it to the address.",
+        "requestBody": {
+          "description": "The address type and value to resend code for",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddressCodeResendRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "422": {
+            "description": "Unprocessable Content"
+          },
+          "429": {
+            "description": "Too Many Requests"
+          }
+        }
+      }
+    },
     "/dashboard/organizations/{organizationNumber}/notificationaddresses": {
       "get": {
         "tags": [
@@ -537,7 +639,8 @@
                 "$ref": "#/components/schemas/NotificationSettingsRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -680,7 +783,8 @@
                 "$ref": "#/components/schemas/NotificationAddressRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -794,7 +898,8 @@
                 "$ref": "#/components/schemas/NotificationAddressRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -879,6 +984,145 @@
         }
       }
     },
+    "/users/current/party-groups/{groupId}": {
+      "get": {
+        "tags": [
+          "PartyGroups"
+        ],
+        "summary": "Retrieve a specific group for a user",
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "description": "The ID of the group to retrieve",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GroupResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "PartyGroups"
+        ],
+        "summary": "Update the name of an existing group",
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "description": "The ID of the group to update",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The group update request containing the new group name",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GroupRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GroupRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GroupRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The group name was successfully updated.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GroupResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid (e.g., missing or empty name)."
+          },
+          "404": {
+            "description": "The group does not exist or the user does not have access to it."
+          },
+          "422": {
+            "description": "The group exists but cannot be renamed because it is a favorite group. Favorite groups have a system-managed name and cannot be modified."
+          },
+          "401": {
+            "description": "The user is not authenticated."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "PartyGroups"
+        ],
+        "summary": "Delete a group",
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "description": "The ID of the group to delete",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The group was successfully deleted."
+          },
+          "400": {
+            "description": "The request is invalid (e.g., the groupId is not a valid integer)."
+          },
+          "404": {
+            "description": "The group does not exist or the user does not have access to it."
+          },
+          "422": {
+            "description": "The group exists but cannot be deleted because it is a favorite group. Favorite groups are system-managed and cannot be deleted by users."
+          },
+          "401": {
+            "description": "The user is not authenticated."
+          }
+        }
+      }
+    },
     "/users/current/party-groups": {
       "get": {
         "tags": [
@@ -901,6 +1145,154 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "PartyGroups"
+        ],
+        "summary": "Create a new group for the user",
+        "requestBody": {
+          "description": "The group creation request containing the group name",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GroupRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GroupRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GroupRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GroupResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/users/current/party-groups/{groupId}/associations/{partyUuid}": {
+      "put": {
+        "tags": [
+          "PartyGroups"
+        ],
+        "summary": "Add a party to a group",
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "description": "The ID of the group to add the party to",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "partyUuid",
+            "in": "path",
+            "description": "The UUID of the party to add",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The party was successfully added to the group. Returns the updated group. If the party is already in the group, the operation is idempotent and returns the current state.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GroupResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid (e.g., the groupId is not a valid integer, or the partyUuid is not a valid GUID)."
+          },
+          "404": {
+            "description": "The group does not exist or the user does not have access to it."
+          },
+          "401": {
+            "description": "The user is not authenticated."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "PartyGroups"
+        ],
+        "summary": "Remove a party from a group",
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "description": "The ID of the group to remove the party from",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "partyUuid",
+            "in": "path",
+            "description": "The UUID of the party to remove",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The party was successfully removed from the group. Returns the updated group.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GroupResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid (e.g., the groupId is not a valid integer, or the partyUuid is not a valid GUID)."
+          },
+          "404": {
+            "description": "The group does not exist, the user does not have access to it, or the party is not in the group."
+          },
+          "401": {
+            "description": "The user is not authenticated."
           }
         }
       }
@@ -1012,7 +1404,8 @@
                 "type": "string"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1041,10 +1434,11 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ProfileSettingPreference"
+                "$ref": "#/components/schemas/ProfileSettingPutRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1077,7 +1471,8 @@
                 "$ref": "#/components/schemas/ProfileSettingsPatchRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1102,6 +1497,62 @@
   },
   "components": {
     "schemas": {
+      "AddressCodeResendRequest": {
+        "required": [
+          "type",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "maxLength": 320,
+            "minLength": 5,
+            "type": "string",
+            "description": "Gets or sets the address to verify, either an email or a phone number."
+          },
+          "type": {
+            "$ref": "#/components/schemas/AddressType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a request to resend a verification code for a given address (email or phone number)"
+      },
+      "AddressType": {
+        "enum": [
+          0,
+          1
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "AddressVerificationRequest": {
+        "required": [
+          "type",
+          "value",
+          "verificationCode"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "maxLength": 320,
+            "minLength": 5,
+            "type": "string",
+            "description": "Gets or sets the address to verify, either an email or a phone number."
+          },
+          "type": {
+            "$ref": "#/components/schemas/AddressType"
+          },
+          "verificationCode": {
+            "maxLength": 6,
+            "minLength": 6,
+            "pattern": "^\\d{6}$",
+            "type": "string",
+            "description": "Gets or sets the verification code for the address."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a request to verify an address, such as an email or phone number, using a verification code."
+      },
       "DashboardNotificationAddressResponse": {
         "type": "object",
         "properties": {
@@ -1184,6 +1635,21 @@
         },
         "additionalProperties": false,
         "description": "Response model for user contact information registered for an organization in the Support Dashboard.\r\nRepresents a user's personal contact details they have registered for acting on behalf of an organization.\r\nThis also includes the organization number the user is acting on behalf of."
+      },
+      "GroupRequest": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The name of the group"
+          }
+        },
+        "additionalProperties": false,
+        "description": "GroupRequest to create or update a group of parties"
       },
       "GroupResponse": {
         "type": "object",
@@ -1307,6 +1773,11 @@
             },
             "description": "A list of resources that the user has registered to receive notifications for. The format is in URN. This is used to determine which resources the user can receive notifications for.",
             "nullable": true
+          },
+          "generateVerificationCode": {
+            "type": "boolean",
+            "description": "A feature flag to indicate whether a verification code should be generated and sent to the provided email address or phone number. This is used to verify that the user has access to the provided contact information before it is saved as a notification address. If set to true, a verification code will be generated and sent, and the user will need to verify the code before the notification address is considered valid.",
+            "nullable": true
           }
         },
         "additionalProperties": false,
@@ -1348,6 +1819,12 @@
           "needsConfirmation": {
             "type": "boolean",
             "description": "An indication of whether the notification address needs confirmation from a user"
+          },
+          "emailVerificationStatus": {
+            "$ref": "#/components/schemas/VerificationType"
+          },
+          "smsVerificationStatus": {
+            "$ref": "#/components/schemas/VerificationType"
           }
         },
         "additionalProperties": false,
@@ -1655,6 +2132,56 @@
         },
         "additionalProperties": false
       },
+      "ProfileSettingPutRequest": {
+        "required": [
+          "doNotPromptForParty",
+          "language",
+          "shouldShowDeletedEntities",
+          "shouldShowSubEntities",
+          "showClientUnits"
+        ],
+        "type": "object",
+        "properties": {
+          "languageType": {
+            "type": "string",
+            "nullable": true,
+            "writeOnly": true
+          },
+          "preSelectedPartyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "doNotPromptForParty": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether the users want\r\nto be asked for the party on every form submission."
+          },
+          "showClientUnits": {
+            "type": "boolean",
+            "description": "Indicates whether client units should be shown."
+          },
+          "shouldShowSubEntities": {
+            "type": "boolean",
+            "description": "Indicates whether sub-entities should be shown."
+          },
+          "shouldShowDeletedEntities": {
+            "type": "boolean",
+            "description": "Indicates whether deleted entities should be shown."
+          },
+          "language": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Gets or sets the user's language preference in Altinn."
+          },
+          "preselectedPartyUuid": {
+            "type": "string",
+            "description": "The UUID of the preselected party. Optional - will be set to null if not provided.",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a request to update profile settings.\r\nInherits preferences from Altinn.Profile.Models.ProfileSettingPreference."
+      },
       "ProfileSettingsPatchRequest": {
         "type": "object",
         "properties": {
@@ -1786,6 +2313,33 @@
           }
         },
         "additionalProperties": { }
+      },
+      "VerificationType": {
+        "enum": [
+          0,
+          1,
+          2
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "VerifiedAddressResponse": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The address that has been verified. This could be an email address or a phone number, depending on the type of address being verified."
+          },
+          "type": {
+            "$ref": "#/components/schemas/AddressType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a verified address response model that contains information about a verified address, including the address value and its type (email or phone)."
       }
     }
   }
