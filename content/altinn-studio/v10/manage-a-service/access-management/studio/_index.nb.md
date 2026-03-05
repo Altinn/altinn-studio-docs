@@ -46,7 +46,7 @@ Som administrator for organisasjonen kan du også styre hvem som har tilgang til
 
 For å holde oversikt anbefaler vi primært å sette opp team for tilgangsstyring.
 
-![Styre tilgang på repository](access-management-repository.png "Styre tilgang til et enkelt repository")
+![Styre tilgang på repositorium](access-management-repository.png "Styre tilgang til et enkelt repositorium")
 
 ## Fjerne en bruker fra et team
 
