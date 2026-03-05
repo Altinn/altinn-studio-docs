@@ -1,8 +1,7 @@
 ---
-draft: true
-title: Apps infrastrukturtilganger
+title: App-infrastrukturtilganger
 linktitle: Apps
-description: Hvordan bestille tilganger til app-logger og hemmeligheter.
+description: Slik bestiller du tilganger til app-logger og hemmeligheter.
 tags: [needsReview, needsTranslation]
 toc: true
 
@@ -17,25 +16,42 @@ Tjenesteeiere kan bestille følgende tilganger for sine ressurser i miljøene TT
 - Prod Developer
 - Prod Operations
 
-Se
-[oversikt over roller og tilganger her](/nb/altinn-studio/v8/reference/access-management/apps/).
+## Roller og tilganger
 
-For å få tilgang til disse rollene må autoriserte bestillere hos tjenesteeier bestille dette på innlogget område på
-[Samarbeidsportalen](https://samarbeid.digdir.no/).
-Portalen beskriver også hvordan du oppretter en ny bruker hvis du ikke har dette fra før av.
+### Test Developer
+
+Gir tilgang til å lese logger og hemmeligheter i TT02-miljøet.
+
+### Test Operations
+
+Gir tilgang til å administrere hemmeligheter i TT02-miljøet.
+
+### Prod Developer
+
+Gir tilgang til å lese logger og hemmeligheter i produksjonsmiljøet.
+
+### Prod Operations
+
+Gir tilgang til å administrere hemmeligheter i produksjonsmiljøet.
+
+## Bestille tilganger
+
+Autoriserte bestillere hos tjenesteeier må bestille tilgang til disse rollene på [Samarbeidsportalen](https://samarbeid.digdir.no/) (innlogget område).
+
+Portalen beskriver også hvordan du oppretter en ny bruker hvis du ikke har en fra før.
 
 For å opprette en ny sak for å søke om tilgang:
 
 1. Klikk først på fanen **Support** og så **Ny sak** i menyen til venstre.
-2. På første side av skjemaet, huk av for valgene **Bestilling** og **Tilganger**.
-3. Huk så av for **Altinn 3.0 - Apps** på andre side.
+2. På første side av skjemaet, velg **Bestilling** og **Tilganger**.
+3. Velg så **Altinn 3.0 - Apps** på andre side.
 4. Til slutt fyller du ut kontaktinformasjon for brukeren, samt hvilke roller hen skal ha tilgang til.
 {.floating-bullet-numbers}
 
 Når rollene har blitt tildelt, kan du få tilgang til logger eller hemmeligheter via
 [Microsoft Azure Portal](https://portal.azure.com).
 
-Innlogging gjøres med samme konto som til Selvbetjeningsportalen:
+Du logger inn med samme konto som du bruker til Selvbetjeningsportalen:
 
 - `brukernavn@ai-dev.no` (de fleste)
-- `brukernavn@ai-dev.brreg.no` (noen få benytter fortsatt denne)
+- `brukernavn@ai-dev.brreg.no` (noen få bruker fortsatt denne)

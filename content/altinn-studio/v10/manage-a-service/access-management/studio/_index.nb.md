@@ -33,7 +33,7 @@ Brukeren er nå lagt til i teamet.
 
 ![Legg til bruker i et team](./access-management-team.png "Legg til bruker i et team")
 
-## Tilgangsstyring for enkelt repository
+## Tilgangsstyring for et enkelt repositorium
 
 Som administrator for organisasjonen kan du også styre hvem som har tilgang til det enkelte repositoriet. Du kan gi tilgang til både hele team og til enkeltbrukere.
 
@@ -50,7 +50,7 @@ For å holde oversikt anbefaler vi primært å sette opp team for tilgangsstyrin
 
 ## Fjerne en bruker fra et team
 
-Du trenger brukernavnet til brukeren som skal fjernes.
+Du trenger brukernavnet til brukeren du vil fjerne.
 
 1. Gå til teamene for din organisasjon: `https://altinn.studio/repos/org/{org}/teams/` (erstatt `{org}` med din organisasjonskode).
 2. Velg teamet du skal fjerne brukeren fra ved å klikke på **View**.
@@ -60,10 +60,10 @@ Merk at en bruker selv kan forlate et team ved å gå til samme visning og klikk
 
 ## Fjerne en bruker fra organisasjonen
 
-Du trenger brukernavnet til brukeren som skal fjernes. Se beskrivelsen over for hvordan du fjerner en bruker fra enkeltteam.
+Du trenger brukernavnet til brukeren du vil fjerne. Se beskrivelsen over for hvordan du fjerner en bruker fra enkeltteam.
 
 1. Gå til teamene for din organisasjon: `https://altinn.studio/repos/org/{org}/teams/` (erstatt `{org}` med din organisasjonskode).
 2. Fjern brukeren fra teamene brukeren er medlem i for din organisasjon.
    - Typiske team er `devs` for skrivetilgang til tjenestene, `Deploy-<miljø>` for publiseringstilgang for tjenestene, og `Resources-Publish-<miljø>` for tilgang til å publisere ressurser.
    - Hvis organisasjonen din har satt opp en annen team-struktur, må du sjekke alle team brukeren kan være medlem av.
-3. Sjekk at brukeren ikke lenger tilhører organisasjonen din ved å gå til `https://altinn.studio/repos/{brukernavn}` og kontrollere at organisasjonen din (med logo) ikke lenger vises under brukerens profilbilde på venstre side.
+3. Sjekk at brukeren ikke lenger tilhører organisasjonen din ved å gå til `https://altinn.studio/repos/{brukernavn}` og kontroller at organisasjonen din (med logo) ikke lenger vises under brukerens profilbilde på venstre side.
