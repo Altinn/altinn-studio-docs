@@ -211,6 +211,12 @@ Andre kommandoer:
 - Tall under 12: Skriv med bokstaver i løpende tekst ("fire filer", "tre alternativer")
   - Unntak: Statistikk, tabeller, eller når tallet er spesielt viktig ("maks 10 filer tillatt")
 
+### Frontmatter
+
+- **description**: Skal starte med "Slik..." når det passer (samme som ingress)
+  - ❌ Feil: "Kjør og test appen på egen maskin"
+  - ✅ Riktig: "Slik kjører og tester du appen på egen maskin"
+
 ### Formatering
 
 - GUI-elementer: Bold (**Klikk på **Lagre****)
@@ -236,6 +242,16 @@ Andre kommandoer:
 **Artikkeloverskrifter** bruker alltid infinitiv (f.eks. "Lage en datamodell").
 
 **Beskrivende overskrifter** bruker "Slik..." (f.eks. "Slik lager og redigerer du datamodeller").
+
+### Unngå substantiveringer i overskrifter
+
+**VIKTIG:** Overskrifter skal ALDRI bruke substantiverte verb med "av":
+- ❌ Feil: "Testing av app-API-er lokalt", "Debugging av app", "Validering av data"
+- ✅ Riktig: "Teste app-API-er lokalt", "Feilsøke i appen", "Validere data"
+
+**VIKTIG:** Erstatt alltid engelske/tekniske termer med norske alternativer:
+- ❌ Feil: "Debugging av app"
+- ✅ Riktig: "Feilsøke i appen"
 
 ---
 
