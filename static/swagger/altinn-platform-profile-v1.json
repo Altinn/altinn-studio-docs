@@ -4,7 +4,7 @@
     "title": "Altinn Profile",
     "version": "v1"
   },
-      "servers": [
+        "servers": [
     {
       "url": "https://platform.tt02.altinn.no/profile/api/v1",
       "description": "TT02"
@@ -59,7 +59,8 @@
                 "$ref": "#/components/schemas/AddressVerificationRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "204": {
@@ -85,7 +86,7 @@
         "tags": [
           "AddressVerification"
         ],
-        "summary": "Resets the verification process for the current user and the given address, by regenerating a code with renewed validity period (15 mins) and sending it to the address.",
+        "summary": "Resets the verification process for the current user and the given address, by regenerating a code with a renewed validity period and sending it to the address.",
         "requestBody": {
           "description": "The address type and value to resend code for",
           "content": {
@@ -94,7 +95,8 @@
                 "$ref": "#/components/schemas/AddressCodeResendRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "204": {
@@ -637,7 +639,8 @@
                 "$ref": "#/components/schemas/NotificationSettingsRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -780,7 +783,8 @@
                 "$ref": "#/components/schemas/NotificationAddressRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -894,7 +898,8 @@
                 "$ref": "#/components/schemas/NotificationAddressRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1054,7 +1059,8 @@
                 "$ref": "#/components/schemas/GroupRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1168,7 +1174,8 @@
                 "$ref": "#/components/schemas/GroupRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "201": {
@@ -1397,7 +1404,8 @@
                 "type": "string"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1429,7 +1437,8 @@
                 "$ref": "#/components/schemas/ProfileSettingPutRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1462,7 +1471,8 @@
                 "$ref": "#/components/schemas/ProfileSettingsPatchRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -1496,7 +1506,7 @@
         "properties": {
           "value": {
             "maxLength": 320,
-            "minLength": 0,
+            "minLength": 5,
             "type": "string",
             "description": "Gets or sets the address to verify, either an email or a phone number."
           },
@@ -1525,7 +1535,7 @@
         "properties": {
           "value": {
             "maxLength": 320,
-            "minLength": 0,
+            "minLength": 5,
             "type": "string",
             "description": "Gets or sets the address to verify, either an email or a phone number."
           },
@@ -2320,16 +2330,16 @@
         "type": "object",
         "properties": {
           "value": {
+            "minLength": 1,
             "type": "string",
-            "description": "Gets or sets the address that has been verified. This could be an email address or a phone number, depending on the type of address being verified.",
-            "nullable": true
+            "description": "The address that has been verified. This could be an email address or a phone number, depending on the type of address being verified."
           },
           "type": {
             "$ref": "#/components/schemas/AddressType"
           }
         },
         "additionalProperties": false,
-        "description": "Represents a verified address response model that contains information about a verified address, including the address value, its type (email or phone), and its verification status."
+        "description": "Represents a verified address response model that contains information about a verified address, including the address value and its type (email or phone)."
       }
     }
   }
