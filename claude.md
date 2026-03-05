@@ -79,8 +79,27 @@ Andre kommandoer:
    git log --oneline -1
    ```
    Skal matche siste commit i master!
-   
+
    Hvis ikke - STOPP og start på nytt fra steg 1.
+
+6. **SJEKK OM FILER ER FLYTTET/DUPLIKATER:**
+
+   **KRITISK:** Før du begynner å jobbe med et emne, sjekk om det finnes flere versjoner av samme innhold:
+
+   ```bash
+   # Eksempel: Hvis du skal jobbe med testing-filer
+   find content/altinn-studio/v10 -name "*testing*" -type d
+   ```
+
+   **Hvis du finner duplikater:**
+   - Sammenlign filene med `diff` for å se hvilken som er nyest/språkvasket
+   - Sjekk dato på siste endring (`ls -la` eller `git log --follow filnavn`)
+   - Spør brukeren: "Jeg finner testing-filer både i `develop-a-service/reference/testing/` og `test-a-service/testing/`. Hvilken skal jeg bruke?"
+
+   **Hvorfor dette er viktig:** Produkteiere kan ha flyttet/omstrukturert filer mens språkvask pågår, og vi kan risikere å:
+   - Jobbe på feil/gammel plassering
+   - Miste språkvasket innhold
+   - Skape flere duplikater
 
 ### Under arbeidet
 
@@ -211,6 +230,12 @@ Andre kommandoer:
 - Tall under 12: Skriv med bokstaver i løpende tekst ("fire filer", "tre alternativer")
   - Unntak: Statistikk, tabeller, eller når tallet er spesielt viktig ("maks 10 filer tillatt")
 
+### Frontmatter
+
+- **description**: Skal ALLTID starte med "Slik..." (samme som ingress)
+  - ❌ Feil: "Kjør og test appen på egen maskin"
+  - ✅ Riktig: "Slik kjører og tester du appen på egen maskin"
+
 ### Formatering
 
 - GUI-elementer: Bold (**Klikk på **Lagre****)
@@ -236,6 +261,16 @@ Andre kommandoer:
 **Artikkeloverskrifter** bruker alltid infinitiv (f.eks. "Lage en datamodell").
 
 **Beskrivende overskrifter** bruker "Slik..." (f.eks. "Slik lager og redigerer du datamodeller").
+
+### Unngå substantiveringer i overskrifter
+
+**VIKTIG:** Overskrifter skal ALDRI bruke substantiverte verb med "av":
+- ❌ Feil: "Testing av app-API-er lokalt", "Debugging av app", "Validering av data"
+- ✅ Riktig: "Teste app-API-er lokalt", "Feilsøke i appen", "Kontrollere data"
+
+**VIKTIG:** Erstatt alltid engelske/tekniske termer med norske alternativer:
+- ❌ Feil: "Debugging av app"
+- ✅ Riktig: "Feilsøke i appen"
 
 ---
 

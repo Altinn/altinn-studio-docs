@@ -1,11 +1,9 @@
 ---
 draft: true
 title: Testing
-description: Referansedokumentasjon for testing av Altinn-tjenester.
-weight: 60
-tags: [needsReview, translate-to-english, migrate-from-v8]
----
+description: Slik tester du Altinn-tjenester lokalt og i testmiljø.
 
-Referansedokumentasjon for testing av Altinn-tjenester lokalt og i deployment.
+tags: [needsReview, translate-to-english]
+---
 
 {{<children />}}
