@@ -1,8 +1,8 @@
 ---
 draft: true
-title: Testing av app-API-er lokalt
+title: Teste app-API-er lokalt
 linktitle: API-tester
-description: Hvordan teste app-API-er lokalt.
+description: Slik tester du app-API-er lokalt.
 tags: [needsReview, translate-to-english]
 ---
 

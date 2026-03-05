@@ -232,7 +232,7 @@ Andre kommandoer:
 
 ### Frontmatter
 
-- **description**: Skal starte med "Slik..." når det passer (samme som ingress)
+- **description**: Skal ALLTID starte med "Slik..." (samme som ingress)
   - ❌ Feil: "Kjør og test appen på egen maskin"
   - ✅ Riktig: "Slik kjører og tester du appen på egen maskin"
 
@@ -266,7 +266,7 @@ Andre kommandoer:
 
 **VIKTIG:** Overskrifter skal ALDRI bruke substantiverte verb med "av":
 - ❌ Feil: "Testing av app-API-er lokalt", "Debugging av app", "Validering av data"
-- ✅ Riktig: "Teste app-API-er lokalt", "Feilsøke i appen", "Validere data"
+- ✅ Riktig: "Teste app-API-er lokalt", "Feilsøke i appen", "Kontrollere data"
 
 **VIKTIG:** Erstatt alltid engelske/tekniske termer med norske alternativer:
 - ❌ Feil: "Debugging av app"

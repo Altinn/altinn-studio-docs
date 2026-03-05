@@ -2,7 +2,7 @@
 draft: true
 title: Slik tester du appen lokalt
 linktitle: Lokalt
-description: Kjør og test appen på egen maskin med lokal testplattform
+description: Slik kjører og tester du appen på egen maskin med lokal testplattform
 tags: [needsReview, translate-to-english]
 
 aliases:
@@ -17,9 +17,9 @@ I testmiljøet bruker appen et sett med plattformtjenester for å kunne hente ut
 
 ## Kjøre appen lokalt
 
-1. Gå til app-repositoriet i Altinn Studio. Se [her](/nb/altinn-studio/v8/getting-started/navigation/repos/) for hvordan du kommer dit.
+1. Gå til app-repositoriet i Altinn Studio. [Les hvordan du navigerer til repositoriet](/nb/altinn-studio/v8/getting-started/navigation/repos/).
 2. Last ned alle filene i repositoriet:
-  - ved å bruke `git clone`-kommandoen [(les mer)](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository)
+  - ved å bruke `git clone`-kommandoen. [Les mer om git clone i Git-dokumentasjonen](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository).
   - ved å klikke på nedlastingsikonet (lastes ned som en zip-fil)
 
 Se [Altinn Studio på Github](https://github.com/Altinn/app-localtest/blob/master/README.md) for informasjon om hvordan du laster ned og kjører den lokale plattformen, og hvordan du kjører appen.

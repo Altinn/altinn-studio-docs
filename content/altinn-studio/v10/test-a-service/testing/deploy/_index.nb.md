@@ -49,7 +49,7 @@ Når du har bygget en app ferdig kan du distribuere den til testmiljø. Du gjør
 
 Systemet distribuerer valgt versjon til valgt miljø. Du kan distribuere ny versjon eller gå tilbake til en eldre versjon hvis du ønsker det.
 
-![Deploye app](deploy-app.gif?width?=700 "Deploye app")
+![Deploye app](deploy-app.gif?width=700 "Deploye app")
 
 ## Test appen i testmiljø
 

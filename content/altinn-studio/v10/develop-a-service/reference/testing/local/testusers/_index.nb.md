@@ -89,7 +89,7 @@ Du kan hente ut token ved hjelp av `/Home/GetTestSystemUserToken` i localtest el
 
 Instansdelegering er støttet i siste versjon av localtest, men brukere/avgivere du instansdelegerer fra og til må ha en `partyUuid` assosiert med seg. Se eksempelfil under.
 
-## Appspesifikke brukere
+## App-spesifikke brukere
 
 Hvis standardsettet med brukere ikke passer for å teste appen din lokalt, kan du sørge for at appen din svarer med et JSON-dokument på URL `/[org]/[appId]/testData.json`. Den enkleste måten er å legge filen på `App/wwwroot/testData.json`.
 
@@ -97,7 +97,7 @@ Typiske endringer du kan være interessert i er å bruke andre organisasjonsnumm
 
 ### JSON-struktur
 
-Det finnes et [JsonSchema](https://altinncdn.no/schemas/json/test-users/test-users.schema.v1.json) som hjelper deg å skrive en `testData.json`-fil i verktøy som VSCode. En full versjon av brukerne som ligger i TestData-mappen er tilgjengelig i [testData.json](testData.json)
+Det finnes et [JSON Schema](https://altinncdn.no/schemas/json/test-users/test-users.schema.v1.json) som hjelper deg å skrive en `testData.json`-fil i verktøy som VSCode. En full versjon av brukerne som ligger i TestData-mappen er tilgjengelig i [testData.json](testData.json)
 
 ```json
 {
@@ -133,7 +133,7 @@ Det finnes et [JsonSchema](https://altinncdn.no/schemas/json/test-users/test-use
           }
         ]
       },
-      "addressCity": "Stokarknes",
+      "addressCity": "Stokmarknes",
       "addressHouseLetter": null,
       "addressHouseNumber": "7",
       "addressMunicipalName": "Hadsel",

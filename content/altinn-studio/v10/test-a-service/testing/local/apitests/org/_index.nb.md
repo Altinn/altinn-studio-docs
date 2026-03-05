@@ -14,7 +14,7 @@ tags: [needsReview, translate-to-english]
 Appen har en rekke API-er som applikasjonseier/tjenesteeier kan bruke.
 Beskrivelsen du finner her er laget for [Postman](https://www.getpostman.com/) hvor vi har brukt testapplikasjonen [MVA testapp](https://dev.altinn.studio/repos/ttd/mva).
 
-[Her finner du noen Postman-eksempler](https://github.com/Altinn/postman-examples).
+[Postman-eksempler for Altinn](https://github.com/Altinn/postman-examples).
 
 ## Autentisere en tjenesteeierorganisasjon
 
