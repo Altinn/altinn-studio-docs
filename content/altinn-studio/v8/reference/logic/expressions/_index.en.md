@@ -295,21 +295,25 @@ These functions are available for use in expressions:
 
 ### Strings and numbers
 
-| Function Name                             | Parameters                                                          | Return Value       | Frontend | Backend |
-| ----------------------------------------- | ------------------------------------------------------------------- | ------------------ | -------- | ------- |
-| [`lowerCase`](#func-lowerCase-upperCase)  | [String](#strings)                                                  | [String](#strings) | ✅       | ✅      |
-| [`upperCase`](#func-lowerCase-upperCase)  | [String](#strings)                                                  | [String](#strings) | ✅       | ✅      |
-| [`lowerCaseFirst`](#func-lcFirst-ucFirst) | [String](#strings)                                                  | [String](#strings) | ✅       | ✅      |
-| [`upperCaseFirst`](#func-lcFirst-ucFirst) | [String](#strings)                                                  | [String](#strings) | ✅       | ✅      |
-| [`stringLength`](#func-stringLength)      | [String](#strings)                                                  | [Number](#numbers) | ✅       | ✅      |
-| [`stringIndexOf`](#func-stringIndexOf)    | [String](#strings), [String](#strings)                              | [Number](#numbers) | ✅       | ✅      |
-| [`stringSlice`](#func-stringSlice)        | [String](#strings), [Number](#numbers), optional [Number](#numbers) | [String](#strings) | ✅       | ✅      |
-| [`stringReplace`](#func-stringReplace)    | [String](#strings), [String](#strings), [String](#strings)          | [String](#strings) | ✅       | ✅      |
-| [`text`](#func-text)                      | [String](#strings)                                                  | [String](#strings) | ✅       | ❌      |
-| [`language`](#func-language)              | None                                                                | [String](#strings) | ✅       | ❌      |
-| [`displayValue`](#func-displayValue)      | [String](#strings)                                                  | [String](#strings) | ✅       | ❌      |
-| [`round`](#func-round)                    | [Number](#numbers), optional [Number](#numbers)                     | [String](#strings) | ✅       | ✅      |
-| [`formatDate`](#func-formatDate)          | [Date/time](#dates), optional [String](#strings)                    | [String](#strings) | ✅       | ✅      |
+| Function Name                             | Parameters                                                      | Return Value       | Frontend | Backend |
+|-------------------------------------------|-----------------------------------------------------------------| ------------------ |----------|---------|
+| [`lowerCase`](#func-lowerCase-upperCase)  | [String](#strings)                                              | [String](#strings) | ✅        | ✅       |
+| [`upperCase`](#func-lowerCase-upperCase)  | [String](#strings)                                              | [String](#strings) | ✅        | ✅       |
+| [`lowerCaseFirst`](#func-lcFirst-ucFirst) | [String](#strings)                                              | [String](#strings) | ✅        | ✅       |
+| [`upperCaseFirst`](#func-lcFirst-ucFirst) | [String](#strings)                                              | [String](#strings) | ✅        | ✅       |
+| [`stringLength`](#func-stringLength)      | [String](#strings)                                              | [Number](#numbers) | ✅        | ✅       |
+| [`stringIndexOf`](#func-stringIndexOf)    | [String](#strings), [String](#strings)                          | [Number](#numbers) | ✅        | ✅       |
+| [`stringSlice`](#func-stringSlice)        | [String](#strings), [Number](#numbers), optional [Number](#numbers) | [String](#strings) | ✅        | ✅       |
+| [`stringReplace`](#func-stringReplace)    | [String](#strings), [String](#strings), [String](#strings)      | [String](#strings) | ✅        | ✅       |
+| [`text`](#func-text)                      | [String](#strings)                                              | [String](#strings) | ✅        | ❌       |
+| [`language`](#func-language)              | None                                                            | [String](#strings) | ✅        | ❌       |
+| [`displayValue`](#func-displayValue)      | [String](#strings)                                              | [String](#strings) | ✅        | ❌       |
+| [`round`](#func-round)                    | [Number](#numbers), optional [Number](#numbers)                 | [String](#strings) | ✅        | ✅       |
+| [`formatDate`](#func-formatDate)          | [Date/time](#dates), optional [String](#strings)                | [String](#strings) | ✅        | ✅       |
+| [`plus`](#func-plus)                      | [Number](#numbers), [Number](#numbers)                          | [Number](#numbers) | ✅        | ✅       | 
+| [`minus`](#func-minus)                    | [Number](#numbers), [Number](#numbers)                          | [Number](#numbers) | ✅        | ✅       | 
+| [`multiply`](#func-multiply)              | [Number](#numbers), [Number](#numbers)                          | [Number](#numbers) | ✅        | ✅       | 
+| [`divide`](#func-divide)                  | [Number](#numbers), [Number](#numbers)                          | [Number](#numbers) | ✅        | ✅       | 
 
 ### Lookup, components and data
 
@@ -1076,6 +1080,46 @@ returns an error message.
 
 The expression above retrieves the text of the option (if used in filtering options). In other contexts, this expression
 returns an error message.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-plus" header="plus" %}}
+The `plus` function expects two numbers, either decimal or integer.
+
+Example:
+```json
+["plus", 22, 9.2]
+```
+Results in the number value `31.2`
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-minus" header="minus" %}}
+The `minus` function expects two numbers, either decimal or integer.
+
+Example:
+```json
+["minus", 22, 9.2]
+```
+Results in the number value `12.8`
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-multiply" header="multiply" %}}
+The `multiply` function expects two numbers, either decimals or integers.
+
+Example:
+```json
+["multiply", 22, 10]
+```
+Results in the number value `220`
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-divide" header="divide" %}}
+The `divide` function expects two numbers, either decimals or integers.
+
+Example:
+```json
+["divide", 22, 10]
+```
+Results in the number value `2.2`
 {{% /expandlarge %}}
 
 ## Data Types

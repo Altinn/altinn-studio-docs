@@ -290,21 +290,25 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 
 ### Strenger og tall
 
-| Funksjonsnavn                             | Parametre                                                     | Returverdi          | Frontend | Backend |
-| ----------------------------------------- | ------------------------------------------------------------- | ------------------- | -------- | ------- |
-| [`lowerCase`](#func-lowerCase-upperCase)  | [Streng](#strenger)                                           | [Streng](#strenger) | ✅       | ✅      |
-| [`upperCase`](#func-lowerCase-upperCase)  | [Streng](#strenger)                                           | [Streng](#strenger) | ✅       | ✅      |
-| [`lowerCaseFirst`](#func-lcFirst-ucFirst) | [Streng](#strenger)                                           | [Streng](#strenger) | ✅       | ✅      |
-| [`upperCaseFirst`](#func-lcFirst-ucFirst) | [Streng](#strenger)                                           | [Streng](#strenger) | ✅       | ✅      |
-| [`stringLength`](#func-stringLength)      | [Streng](#strenger)                                           | [Tall](#tall)       | ✅       | ✅      |
-| [`stringIndexOf`](#func-stringIndexOf)    | [Streng](#strenger), [Streng](#strenger)                      | [Tall](#tall)       | ✅       | ✅      |
-| [`stringSlice`](#func-stringSlice)        | [Streng](#strenger), [Tall](#tall), valgfritt [Tall](#tall)   | [Streng](#strenger) | ✅       | ✅      |
-| [`stringReplace`](#func-stringReplace)    | [Streng](#strenger), [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅       | ✅      |
-| [`text`](#func-text)                      | [Streng](#strenger)                                           | [Streng](#strenger) | ✅       | ❌      |
-| [`language`](#func-language)              | Ingenting                                                     | [Streng](#strenger) | ✅       | ❌      |
-| [`displayValue`](#func-displayValue)      | [Streng](#strenger)                                           | [Streng](#strenger) | ✅       | ❌      |
-| [`round`](#func-round)                    | [Tall](#tall), valgfritt [Tall](#tall)                        | [Streng](#strenger) | ✅       | ✅      |
-| [`formatDate`](#func-formatDate)          | [Dato/tid](#datoer), valgfri [Streng](#strenger)              | [Streng](#strenger) | ✅       | ✅      |
+| Funksjonsnavn                             | Parametre                                                 | Returverdi          | Frontend | Backend |
+|-------------------------------------------|-----------------------------------------------------------|---------------------|----------| ------- |
+| [`lowerCase`](#func-lowerCase-upperCase)  | [Streng](#strenger)                                       | [Streng](#strenger) | ✅        | ✅      |
+| [`upperCase`](#func-lowerCase-upperCase)  | [Streng](#strenger)                                       | [Streng](#strenger) | ✅        | ✅      |
+| [`lowerCaseFirst`](#func-lcFirst-ucFirst) | [Streng](#strenger)                                       | [Streng](#strenger) | ✅        | ✅      |
+| [`upperCaseFirst`](#func-lcFirst-ucFirst) | [Streng](#strenger)                                       | [Streng](#strenger) | ✅        | ✅      |
+| [`stringLength`](#func-stringLength)      | [Streng](#strenger)                                       | [Tall](#tall)       | ✅        | ✅      |
+| [`stringIndexOf`](#func-stringIndexOf)    | [Streng](#strenger), [Streng](#strenger)                  | [Tall](#tall)       | ✅        | ✅      |
+| [`stringSlice`](#func-stringSlice)        | [Streng](#strenger), [Tall](#tall), valgfritt [Tall](#tall) | [Streng](#strenger) | ✅        | ✅      |
+| [`stringReplace`](#func-stringReplace)    | [Streng](#strenger), [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅        | ✅      |
+| [`text`](#func-text)                      | [Streng](#strenger)                                       | [Streng](#strenger) | ✅        | ❌      |
+| [`language`](#func-language)              | Ingenting                                                 | [Streng](#strenger) | ✅        | ❌      |
+| [`displayValue`](#func-displayValue)      | [Streng](#strenger)                                       | [Streng](#strenger) | ✅        | ❌      |
+| [`round`](#func-round)                    | [Tall](#tall), valgfritt [Tall](#tall)                    | [Streng](#strenger) | ✅        | ✅      |
+| [`formatDate`](#func-formatDate)          | [Dato/tid](#datoer), valgfri [Streng](#strenger)          | [Streng](#strenger) | ✅        | ✅      |
+| [`plus`](#func-plus)                      | [Tall](#tall), [Tall](#tall)                              | [Tall](#tall)       | ✅        | ✅      |
+| [`minus`](#func-minus)                    | [Tall](#tall), [Tall](#tall)          | [Tall](#tall)       | ✅        | ✅      |
+| [`multiply`](#func-multiply)              | [Tall](#tall), [Tall](#tall)                | [Tall](#tall)       | ✅        | ✅      |
+| [`divide`](#func-divide)                  | [Tall](#tall), [Tall](#tall)                | [Tall](#tall)       | ✅        | ✅      |
 
 ### Oppslag, komponenter og data
 
@@ -1074,6 +1078,46 @@ gir dette uttrykket foreløpig en feilmelding.
 
 Uttrykket over henter ut teksten til svaralternativet (om brukt i filtrering av svaralternativer). I andre sammenhenger
 gir dette uttrykket en feilmelding.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-plus" header="plus" %}}
+Funksjonen `plus` forventer to tall, enten desimaltall eller heltall. 
+
+Eksempel:
+```json
+["plus", 22, 9.2]
+```
+Resulterer i tallverdien `31.2`.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-minus" header="minus" %}}
+Funksjonen `minus` forventer to tall, enten desimaltall eller heltall.
+
+Eksempel:
+```json
+["minus", 22, 9.2]
+```
+Resulterer i tallverdien `12.8`.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-multiply" header="multiply" %}}
+Funksjonen `multiply` forventer to tall, enten desimaltall eller heltall.
+
+Eksempel:
+```json
+["multiply", 22, 10]
+```
+Resulterer i tallverdien `220`.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-divide" header="divide" %}}
+Funksjonen `divide` forventer to tall, enten desimaltall eller heltall.
+
+Eksempel:
+```json
+["divide", 22, 10]
+```
+Resulterer i tallverdien `2.2`.
 {{% /expandlarge %}}
 
 ## Datatyper
