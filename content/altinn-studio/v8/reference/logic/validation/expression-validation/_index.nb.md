@@ -98,7 +98,7 @@ example2.validation.json
         "message": "en annen regel",
         "condition": [...]
       }
-    ],
+    ]
   },
   "definitions": {
     "tegn-ikke-tillatt": {
