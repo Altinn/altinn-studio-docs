@@ -1,4 +1,10 @@
-﻿Kalkulering av datafelt ved hjelp av uttrykk gjør det mulig 
+﻿---
+title: Kalkulering av datafelt ved hjelp av uttrykk
+description: Hvordan konfigurere kalkulering ved hjelp av dynamiske uttrykk
+toc: true
+---
+
+Kalkulering av datafelt ved hjelp av uttrykk gjør det mulig 
 å sette datamodellfelt med uttryksmotoren gjennom en json 
 schema spec.
 

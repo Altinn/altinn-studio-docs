@@ -1,3 +1,9 @@
+---
+title: Calculation of data fields using expressions
+description: How to configure calculation using dynamic expressions
+toc: true
+---
+
 Calculation of data fields using expressions makes it possible
 to set data model fields with the expression engine through a JSON
 schema spec.
