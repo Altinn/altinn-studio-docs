@@ -2,13 +2,13 @@
 draft: true
 title: Integrere Altinn-app med Maskinporten
 linktitle: Maskinporten
-description: Hvordan sette opp en integrasjon mellom en Altinn-app og Maskinporten.
+description: Slik setter du opp en integrasjon mellom en Altinn-app og Maskinporten.
 tags: [needsReview, needsTranslation]
 
 toc: true
 ---
 
-Denne veiledningen viser hvordan du setter opp en Altinn-app til å bruke den innebygde Maskinporten-klienten (`IMaskinportenClient`) for å utføre autoriserte forespørsler på vegne av eieren av appen, i stedet for den aktive brukeren.
+Slik setter du opp en Altinn-app til å bruke den innebygde Maskinporten-klienten (`IMaskinportenClient`) for å utføre autoriserte forespørsler på vegne av eieren av appen, i stedet for den aktive brukeren.
 
 For å sette dette opp må du:
 
@@ -28,7 +28,7 @@ I denne delen skal vi sette opp Maskinporten-klienten. En del av oppsettet inklu
 
 Når tilgang til å opprette hemmeligheter i Azure Key Vault er bekreftet, kan du fortsette med å opprette integrasjonen.
 
-{{% expandlarge id="guide-mp-int-samarbeid" header="Veiledning om hvordan du registrerer en ny Maskinporten-integrasjon i Samarbeidsportalen" %}}
+{{% expandlarge id="guide-mp-int-samarbeid" header="Slik registrerer du en ny Maskinporten-integrasjon i Samarbeidsportalen" %}}
 {{% insert "content/shared/maskinporten/maskinporten-client-create.nb.md" %}}
 {{% /expandlarge %}}
 
