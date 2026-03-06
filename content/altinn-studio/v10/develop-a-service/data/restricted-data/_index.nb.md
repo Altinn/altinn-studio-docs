@@ -20,7 +20,7 @@ Du må sette opp Maskinporten for at appen skal kunne utføre handlinger på veg
 ## Sett opp datatyper
 Filen `applicationmetadata.json` definerer alle [datatyper](/nb/api/models/app-metadata/#datatype) (kun på engelsk foreløpig) i en app. Her angir du hvilke [handlinger](/nb/altinn-studio/v10/develop-a-service/reference/configuration/authorization/#action-attributter) som kreves for den beskyttede datatypen.
 
-I dette eksempelet setter du opp en ny datatype der du spesifiserer egenskapene `actionRequiredToRead` og `actionRequiredToWrite`, og deaktiverer `autoCreate`. Du bruker identifikatoren `restrictedDataModel`, men navnet i seg selv er ikke viktig.
+I dette eksempelet setter du opp en ny datatype der du angir egenskapene `actionRequiredToRead` og `actionRequiredToWrite`, og deaktiverer `autoCreate`. Du bruker identifikatoren `restrictedDataModel`, men navnet i seg selv er ikke viktig.
 
 {{% insert "content/altinn-studio/v10/develop-a-service/data/restricted-data/shared/Applicationmetadata.json.md" %}}
 
@@ -39,7 +39,7 @@ Siden `restrictedDataModel` ikke opprettes automatisk eller er knyttet til bruke
 I denne delen oppretter du en tjeneste som hjelper deg å samhandle med beskyttede data, før du ser hvordan du kan opprette, endre og lese beskyttede dataelementer i en vanlig prosessflyt.
 
 ### Lag en hjelpetjeneste
-For å forenkle autorisasjon og interaksjon med den beskyttede datamodellen, kan du opprette en hjelpetjeneste som håndterer denne kompleksiteten.
+For å forenkle autorisasjon og samhandling med den beskyttede datamodellen, kan du opprette en hjelpetjeneste som håndterer denne kompleksiteten.
 
 {{% insert "content/altinn-studio/v10/develop-a-service/data/restricted-data/shared/RestrictedDataHelper.cs.md" %}}
 
