@@ -48,8 +48,8 @@ Nå kan du åpne ditt foretrukne utviklingsverktøy og komme i gang med utviklin
 
 ## Slik synkroniserer du endringer i lokalt utviklingsmiljø
 
-Du må laste opp (_pushe_) endringer som du gjør lokalt til repoet koden ble klonet fra.
-Hvis du gjør endringer i Altinn Studio Designer (og laster disse opp til repoet), må du hente dem ned (_pull_) for å oppdatere den lokale koden.
+Du må laste opp (*pushe*) endringer som du gjør lokalt til repoet koden ble klonet fra.
+Hvis du gjør endringer i Altinn Studio Designer (og laster disse opp til repoet), må du hente dem ned (*pull*) for å oppdatere den lokale koden.
 
 Du kan synkronisere endringer i det lokale utviklingsmiljøet på flere måter.
 Mange utviklingsverktøy har gode integrasjoner for nettopp dette, så sjekk gjerne om ditt verktøy har den typen støtte.
@@ -59,9 +59,9 @@ Under kan du lese mer om hvordan du synkroniserer endringer fra kommandolinjen.
 ### Laste opp endringer
 
 1. Gå til app-repoet ditt i en terminal.
-2. Legg til filene du ønsker å laste opp endringer for (_pushe_) med kommandoen `git add <sti til filen>`. Du kan kjøre kommandoen for enkeltfiler, flere filer samtidig eller en mappe.
-3. Lagre (_commit_) endringene med en fornuftig melding med kommandoen `git commit -m <commit-melding>`.
-4. Last opp (_push_) endringene til master med kommandoen `git push`.
+2. Legg til filene du ønsker å laste opp endringer for (*pushe*) med kommandoen `git add <sti til filen>`. Du kan kjøre kommandoen for enkeltfiler, flere filer samtidig eller en mappe.
+3. Lagre (*commit*) endringene med en fornuftig melding med kommandoen `git commit -m <commit-melding>`.
+4. Last opp (*push*) endringene til master med kommandoen `git push`.
 
 ### Laste ned endringer
 
