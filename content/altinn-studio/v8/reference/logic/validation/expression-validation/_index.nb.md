@@ -53,7 +53,7 @@ example.validation.json
           ]
         ]
       }
-    ],
+    ]
   },
   "definitions": {}
 }

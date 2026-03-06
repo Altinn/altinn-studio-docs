@@ -19,17 +19,17 @@ If your data model is called `skjema`, you will already have files like `skjema.
 You can copy the content below as a starting point:
 
 {{< code-title >}}
-template.validation.json
+template.calculation.json
 {{< /code-title >}}
 ```json
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/validation/validation.schema.v1.json",
-  "validations": {},
+  "calculations": {},
   "definitions": {}
 }
 ```
 
-### Define a validation rule
+### Define a calculation rule
 
 Below you can see an example of a calculation of the field `regnskap.sum` in the data model:
 
