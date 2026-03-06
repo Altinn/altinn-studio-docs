@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(xargs grep -l \"accessmanagement\")",
+      "Bash(sed 's/\"\"//g')",
+      "Bash(python3:*)"
+    ]
+  }
+}

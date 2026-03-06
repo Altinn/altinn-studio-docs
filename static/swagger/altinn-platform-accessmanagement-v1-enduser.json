@@ -1297,22 +1297,26 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "from",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "to",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -1419,22 +1423,18 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "from",
-            "in": "query",
-            "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "to",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -1548,22 +1548,28 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "from",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "to",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -1641,22 +1647,26 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "from",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "to",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -1747,22 +1757,18 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "from",
-            "in": "query",
-            "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "to",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -1871,22 +1877,28 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "from",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "to",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -1971,6 +1983,7 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -2081,22 +2094,28 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "from",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "to",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -2178,96 +2197,6 @@
             }
           }
         }
-      },
-      "delete": {
-        "tags": [
-          "Connections"
-        ],
-        "parameters": [
-          {
-            "name": "party",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "from",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "to",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "roleCode",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AltinnProblemDetails"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
       }
     },
     "/accessmanagement/api/v1/enduser/connections/resources": {
@@ -2279,22 +2208,26 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "from",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "to",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -2311,6 +2244,14 @@
             "schema": {
               "type": "integer",
               "format": "uint32"
+            }
+          },
+          {
+            "name": "resource",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "default": null
             }
           }
         ],
@@ -2388,22 +2329,28 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "from",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "to",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -2471,7 +2418,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/connections/resources/rules": {
+    "/accessmanagement/api/v1/enduser/connections/resources/rights": {
       "get": {
         "tags": [
           "Connections"
@@ -2480,22 +2427,28 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "from",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "to",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -2528,7 +2481,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ExternalResourceRuleDto"
+                  "$ref": "#/components/schemas/ExternalResourceRightDto"
                 }
               }
             }
@@ -2593,22 +2546,19 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "from",
-            "in": "query",
-            "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "to",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -2623,17 +2573,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/RuleKeyListDto"
+                "$ref": "#/components/schemas/RightKeyListDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/RuleKeyListDto"
+                "$ref": "#/components/schemas/RightKeyListDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/RuleKeyListDto"
+                "$ref": "#/components/schemas/RightKeyListDto"
               }
             }
           },
@@ -2713,22 +2663,19 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "from",
-            "in": "query",
-            "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "to",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -2743,17 +2690,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/RuleKeyListDto"
+                "$ref": "#/components/schemas/RightKeyListDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/RuleKeyListDto"
+                "$ref": "#/components/schemas/RightKeyListDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/RuleKeyListDto"
+                "$ref": "#/components/schemas/RightKeyListDto"
               }
             }
           },
@@ -2835,6 +2782,7 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -2852,17 +2800,7 @@
           "200": {
             "description": "OK",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceCheckDto"
-                }
-              },
               "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceCheckDto"
-                }
-              },
-              "text/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ResourceCheckDto"
                 }
@@ -3118,6 +3056,33 @@
           }
         }
       },
+      "AttributeDto": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "AttributeDto2": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "nullable": true
+      },
       "AuthorizedPartiesIncludeFilter": {
         "enum": [
           "false",
@@ -3281,13 +3246,6 @@
             "type": "string",
             "nullable": true
           },
-          "keyValues": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            },
-            "nullable": true
-          },
           "parent": {
             "$ref": "#/components/schemas/CompactEntityDto"
           },
@@ -3360,13 +3318,6 @@
             "type": "string",
             "nullable": true
           },
-          "keyValues": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            },
-            "nullable": true
-          },
           "parent": {
             "$ref": "#/components/schemas/CompactEntityDto"
           },
@@ -3436,13 +3387,6 @@
           },
           "variant": {
             "type": "string",
-            "nullable": true
-          },
-          "keyValues": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            },
             "nullable": true
           },
           "parent": {
@@ -3646,7 +3590,8 @@
           "AccessListValidationFail",
           "PackageAccess",
           "MissingPackageAccess",
-          "ResourceNotDelegable"
+          "ResourceNotDelegable",
+          "ResourceIsMaskinPortenSchema"
         ]
       },
       "DelegationDto": {
@@ -3678,20 +3623,20 @@
         }
       },
       "ErrorCode": { },
-      "ExternalResourceRuleDto": {
+      "ExternalResourceRightDto": {
         "type": "object",
         "properties": {
           "resource": {
             "$ref": "#/components/schemas/ResourceDto2"
           },
-          "directRules": {
+          "directRights": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RulePermission"
+              "$ref": "#/components/schemas/RightPermission"
             },
             "nullable": true
           },
-          "indirectRules": {
+          "indirectRights": {
             "type": "array",
             "items": { },
             "nullable": true
@@ -4073,17 +4018,17 @@
       "ResourceCheckDto": {
         "required": [
           "resource",
-          "rules"
+          "rights"
         ],
         "type": "object",
         "properties": {
           "resource": {
             "$ref": "#/components/schemas/ResourceDto2"
           },
-          "rules": {
+          "rights": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RuleCheckDto"
+              "$ref": "#/components/schemas/RightCheckDto"
             },
             "nullable": true
           }
@@ -4189,6 +4134,82 @@
         },
         "nullable": true
       },
+      "RightCheckDto": {
+        "required": [
+          "right",
+          "result"
+        ],
+        "type": "object",
+        "properties": {
+          "right": {
+            "$ref": "#/components/schemas/RightDto"
+          },
+          "result": {
+            "type": "boolean"
+          },
+          "reasonCodes": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DelegationCheckReasonCode"
+            },
+            "nullable": true
+          }
+        }
+      },
+      "RightDto": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "resource": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttributeDto"
+            },
+            "nullable": true
+          },
+          "action": {
+            "$ref": "#/components/schemas/AttributeDto2"
+          }
+        },
+        "nullable": true
+      },
+      "RightKeyListDto": {
+        "type": "object",
+        "properties": {
+          "directRightKeys": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        }
+      },
+      "RightPermission": {
+        "type": "object",
+        "properties": {
+          "right": {
+            "$ref": "#/components/schemas/RightDto"
+          },
+          "reason": {
+            "$ref": "#/components/schemas/AccessReason"
+          },
+          "permissions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PermissionDto"
+            },
+            "nullable": true
+          }
+        }
+      },
       "RoleAccessPackages": {
         "type": "object",
         "properties": {
@@ -4252,83 +4273,6 @@
         "properties": {
           "role": {
             "$ref": "#/components/schemas/RoleDto"
-          },
-          "permissions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PermissionDto"
-            },
-            "nullable": true
-          }
-        }
-      },
-      "RuleCheckDto": {
-        "required": [
-          "rule",
-          "result"
-        ],
-        "type": "object",
-        "properties": {
-          "rule": {
-            "$ref": "#/components/schemas/RuleDto"
-          },
-          "result": {
-            "type": "boolean"
-          },
-          "reasonCodes": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/DelegationCheckReasonCode"
-            },
-            "nullable": true
-          }
-        }
-      },
-      "RuleDto": {
-        "type": "object",
-        "properties": {
-          "key": {
-            "type": "string",
-            "nullable": true
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "resource": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "action": {
-            "type": "string",
-            "nullable": true
-          }
-        },
-        "nullable": true
-      },
-      "RuleKeyListDto": {
-        "type": "object",
-        "properties": {
-          "directRuleKeys": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "nullable": true
-          }
-        }
-      },
-      "RulePermission": {
-        "type": "object",
-        "properties": {
-          "rule": {
-            "$ref": "#/components/schemas/RuleDto"
-          },
-          "reason": {
-            "$ref": "#/components/schemas/AccessReason"
           },
           "permissions": {
             "type": "array",
