@@ -4,17 +4,13 @@
 
 Dette er en Hugo-basert dokumentasjonsside for Altinn-produkter som Altinn Studio, Altinn Authorization osv.
 
-### Utviklingskommandoer
+### Utviklingsserver
 
-**VIKTIG: Start Hugo fra brukerens terminal i starten av hver økt**
-- Bruker må åpne terminal og kjøre: `cd <repo-root> && hugo server -D`
-- La Hugo-serveren kjøre i terminalen
-- Åpne nettleser på: http://localhost:1313/
-
-Andre kommandoer:
-- **Start utviklingsserver**: `hugo server --navigateToChanged -D` (`-D` viser draft-innhold)
-- **Bygg nettstedet**: `hugo --minify`
-- **Ren bygging**: `rm -rf public && hugo --minify`
+**For brukeren**: Start Hugo-server i terminal ved øktstart:
+```bash
+cd <repo-root> && hugo server
+```
+Åpne nettleser på http://localhost:1313/
 
 ### Prosjektstruktur
 
@@ -36,113 +32,73 @@ Andre kommandoer:
 
 ## Arbeidsflyt
 
-**VIKTIG: Følg alltid denne arbeidsflyten:**
-
 ### Før du starter en oppgave
 
-**🚨 OBLIGATORISK: Spør ALLTID brukeren før du starter arbeid:**
+**For brukeren**: Be Claude hente fra master og lage ny branch ved øktstart.
 
-> "Skal jeg først oppdatere master og lage ny branch?"
+**For Claude**: Ved øktstart, hent oppdatert master og lag ny branch:
 
-**Vent på bekreftelse. Gjør DERETTER følgende:**
-
-1. **Start ALLTID fra oppdatert master:**
+1. **Hent og bytt til master:**
    ```bash
    git checkout master
    git pull origin master
    ```
-   ⚠️ **KRITISK**: Verifiser at du faktisk er på master!
 
-2. **Verifiser at du er på riktig branch:**
+2. **Verifiser at du er på master:**
    ```bash
    git branch --show-current
    ```
-   **Skal vise: `master`** (IKKE noen annen branch!)
-   
-   Hvis du ikke er på master, start på nytt fra steg 1.
+   Skal vise `master` - hvis ikke, start på nytt.
 
-3. **Sjekk om branchnavn finnes fra før:**
-   ```bash
-   git branch -a | grep branchnavn
-   ```
-   - Hvis den finnes lokalt: `git branch -D branchnavn`
-   - Hvis den finnes på remote: `git push origin --delete branchnavn`
-
-4. **Lag NY branch:**
+3. **Lag ny branch med beskrivende navn:**
    ```bash
    git checkout -b branchnavn
    ```
-   - Bruk beskrivende branchnavn (f.eks. `klarsprak-svaralternativer`, `fix/broken-links`)
+   Bruk format: `klarsprak-emnavn` eller `fix/beskrivelse`
 
-5. **DOBBELTSJEKK at ny branch er basert på master:**
+4. **Verifiser at branch er basert på oppdatert master:**
    ```bash
    git log --oneline -1
    ```
-   Skal matche siste commit i master!
 
-   Hvis ikke - STOPP og start på nytt fra steg 1.
+5. **Sjekk for duplikater/flyttede filer:**
 
-6. **SJEKK OM FILER ER FLYTTET/DUPLIKATER:**
-
-   **KRITISK:** Før du begynner å jobbe med et emne, sjekk om det finnes flere versjoner av samme innhold:
-
+   Før du jobber med et emne, søk etter liknende filer:
    ```bash
-   # Eksempel: Hvis du skal jobbe med testing-filer
-   find content/altinn-studio/v10 -name "*testing*" -type d
+   find content/altinn-studio/v10 -name "*emnord*" -type d
    ```
 
-   **Hvis du finner duplikater:**
-   - Sammenlign filene med `diff` for å se hvilken som er nyest/språkvasket
-   - Sjekk dato på siste endring (`ls -la` eller `git log --follow filnavn`)
-   - Spør brukeren: "Jeg finner testing-filer både i `develop-a-service/reference/testing/` og `test-a-service/testing/`. Hvilken skal jeg bruke?"
-
-   **Hvorfor dette er viktig:** Produkteiere kan ha flyttet/omstrukturert filer mens språkvask pågår, og vi kan risikere å:
-   - Jobbe på feil/gammel plassering
-   - Miste språkvasket innhold
-   - Skape flere duplikater
+   Hvis du finner flere versjoner:
+   - Sammenlign med `diff`
+   - Sjekk `git log --follow filnavn`
+   - Spør brukeren hvilken som skal brukes
 
 ### Under arbeidet
 
-1. **Test Hugo-bygget kontinuerlig:**
-   - Bruker starter Hugo i separat terminal: `hugo server -D`
-   - Sjekk at sider vises korrekt i nettleseren
-   - Sjekk lenker mens du vasker
+- Sjekk at sider vises korrekt i Hugo-serveren (http://localhost:1313/)
+- Test lenker underveis
+- **ALDRI commit genererte filer** (`public/`, `.html`-filer)
 
-2. **ALDRI commit genererte filer:**
-   - Ikke commit `public/`-mappen
-   - Ikke commit `.html`-filer i `content/`
-   - Sjekk `.gitignore` inneholder `/public/`
+### Før commit
 
-### Før hver commit
-
-1. **Sjekk hva som skal committes:**
-   ```bash
-   git status
-   git diff --name-only
-   ```
-   - Hvis du ser `.html` eller `public/`: `git reset` og rens opp
-   - Skal kun se `.md`-filer (og evt. bilder/kode)
-
-2. **Commit med klar melding:**
-   ```bash
-   git add -A
-   git commit -m "Beskrivende melding"
-   ```
+Verifiser kun `.md`-filer (og evt. bilder) committes:
+```bash
+git status
+git diff --name-only
+```
+Hvis `.html` eller `public/` vises: `git reset` og rens opp.
 
 ### Før PR
 
-1. **Verifiser antall endrede filer:**
+1. **Verifiser antall filer** (~20-50 for typisk språkvask):
    ```bash
    git diff --name-only master..branchnavn | wc -l
    ```
-   - Skal være ~20-50 filer for en typisk språkvask
-   - IKKE tusener av filer!
 
-2. **Test at Hugo bygger uten feil:**
+2. **Test Hugo-bygg** (sjekk for REF_NOT_FOUND-feil):
    ```bash
    hugo
    ```
-   - Sjekk at det ikke er REF_NOT_FOUND-feil
 
 3. **Push og lag PR:**
    ```bash
@@ -151,15 +107,7 @@ Andre kommandoer:
 
 ### Etter CodeRabbit-review
 
-- Rett småfeil med én gang (tar vanligvis bare 5-10 min)
-- De er ofte grammatikkfeil som er lette å fikse
-- Commit og push rettelsene
-
-### Draft-innhold
-
-- Mange artikler i v10 er merket med `draft: true` i frontmatter
-- `-D`-flagget i utviklingsserveren sørger for at draft-innhold vises under utvikling
-- Draft-innhold publiseres ikke i produksjonsbygg
+Rett småfeil (ofte grammatikk) raskt - tar vanligvis 5-10 min.
 
 ---
 
@@ -232,9 +180,9 @@ Andre kommandoer:
 
 ### Frontmatter
 
-- **description**: Skal ALLTID starte med "Slik..." (samme som ingress)
-  - ❌ Feil: "Kjør og test appen på egen maskin"
-  - ✅ Riktig: "Slik kjører og tester du appen på egen maskin"
+- **description**:
+  - Veiledninger/how-to: Start med "Slik..." (f.eks. "Slik kjører og tester du appen på egen maskin")
+  - Reference/konsepter: Beskrivende (f.eks. "Oversikt over tilgjengelige API-endepunkter")
 
 ### Formatering
 
@@ -341,79 +289,55 @@ Slik gjør du det:
 
 ---
 
-## Hugo Page Bundles
+## Hugo Page Bundles og bilder
 
-**KRITISK FORSTÅELSE for bilder:**
+Hugo har to typer:
+- **Branch bundle**: `_index.md` (kan ha undersider og bilder i samme mappe)
+- **Leaf bundle**: `index.md` (ingen undersider, men kan ha bilder)
 
-Hugo har to typer content-organisering:
-- **Branch bundle**: En mappe med `_index.md` (kan ha undersider)
-- **Leaf bundle**: En mappe med `index.md` (ingen undersider, men kan ha ressurser som bilder)
+**Viktig**: Filer som IKKE heter `_index.md` MÅ ligge i egen mappe som `index.md` for at bilder skal fungere.
 
-**Hvis filen heter noe annet enn `_index.md`, MÅ den ligge i sin egen mappe som `index.md` for at bilder skal fungere!**
+### Flytte bilder til riktig struktur
 
-### Prosedyre for å flytte bilder fra v8 til v10
+1. **Hvis filen heter `_index.nb.md`**: Bilder kan ligge i samme mappe
 
-1. **Sjekk filnavnet:**
-   - Hvis filen heter `_index.nb.md` → bilder kan ligge i samme mappe
-   - Hvis filen heter noe annet (f.eks. `vedlegg.nb.md`) → SE TRINN 2
-
-2. **Lag page bundle-struktur for ikke-_index filer:**
+2. **Hvis filen heter noe annet** (f.eks. `vedlegg.nb.md`):
    ```bash
-   # I stedet for:
+   # Fra:
    datamodell/
      vedlegg.nb.md
-     bilde1.png
+     bilde.png
 
-   # Må du ha:
+   # Til:
    datamodell/
      vedlegg/
-       index.nb.md    # (innholdet fra vedlegg.nb.md)
-       bilde1.png
+       index.nb.md
+       bilde.png
    ```
 
-3. **Flytt filer:**
-   ```bash
-   mkdir vedlegg
-   mv vedlegg.nb.md vedlegg/index.nb.md
-   mv bilde1.png vedlegg/
-   ```
+3. **Bildereferanser**: Bruk alltid `./` (f.eks. `![Alt tekst](./bilde.png "Tittel")`)
 
-4. **Oppdater bildereferanser:**
-   - Bruk `./` foran bildefilnavnet
-   - Format: `![Alt tekst](./filnavn.png "Tittel")`
-   - Ikke `../` eller bare `filnavn.png`
-
-5. **Test at bildene vises:**
-   - Hugo rebuilder automatisk når filer flyttes
-   - Sjekk i nettleseren (evt. hard refresh med Cmd+Shift+R)
-   - Sjekk nettleserkonsollen (F12) for eventuelle 404-feil
+4. **Test**: Sjekk i nettleser og konsoll (F12) for 404-feil
 
 ---
 
 ## Kvalitetssjekkliste
 
-### Alltid legg til needsReview-tag
+### Ved migrering v8 → v10
 
-Når du vasker/migrerer filer fra v8 til v10:
-- Legg ALLTID til `tags: [needsReview]` i frontmatter
-- Dette er kritisk for å holde oversikt over hva som er klart til gjennomgang
+- Legg til `tags: [needsReview]` i frontmatter
 
-### Alltid sjekk lenker og bilder
+### Alltid sjekk
 
-- **Sjekk alle lenker**: Kontroller at lenker fungerer og peker til riktig sted
-  - Interne lenker skal bruke relref-shortcode: `{{< relref "path/to/file" >}}`
-  - Eksterne lenker skal være komplette og fungerende
-  - Sjekk at lenketeksten er meningsfull og beskrivende
-- **Sjekk alle bilder**: Kontroller at bilder finnes og vises riktig
-  - Bildestier skal bruke `./` for bilder i samme page bundle
-  - Verifiser at page bundle-strukturen er korrekt
-  - Test at bildene faktisk vises i nettleseren
-  - Sjekk at alt-tekst er beskrivende
-- **Test lokalt**: Bruk Hugo Server for å verifisere før du committer
-
-### Struktur
-
-- Alfabetiser emnene i hver mappe
+- **Lenker**:
+  - Interne: `{{< relref "path/to/file" >}}`
+  - Beskrivende lenketekst
+- **Bilder**:
+  - Stier med `./`
+  - Riktig page bundle-struktur
+  - Beskrivende alt-tekst
+  - Test i nettleser
+- **Struktur**: Alfabetiser emner i mapper
 
 ---
 
