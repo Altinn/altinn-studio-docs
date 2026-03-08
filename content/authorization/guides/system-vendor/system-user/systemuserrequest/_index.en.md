@@ -33,6 +33,7 @@ This is the preferred method where you, as the SBSL, initiate the creation via A
     {
     "systemId": "991825827_smartcloud",
     "partyOrgNo": "314248295",
+    "integrationTitle": "SmartCloud Tax",
     "rights": [
       {
         "resource": [
@@ -103,6 +104,7 @@ This applies to a system user for a system that will act on behalf of the end-us
       {
     "systemId": "312605031_SuperRegnskap",
     "partyOrgNo": "310495670",
+    "integrationTitle": "SuperRegnskap Auditor",
     "accessPackages": [
       {
         "urn": "urn:altinn:accesspackage:ansvarlig-revisor"
