@@ -1078,7 +1078,7 @@ gir dette uttrykket en feilmelding.
 
 ## Datatyper
 
-Funksjoner i uttrykkene har en forventning om at argumentene som blir sendt inn har en spefikk type. Dersom et argument
+Funksjoner i uttrykkene har en forventning om at argumentene som blir sendt inn har en spesifikk type. Dersom et argument
 blir sendt inn har en annen type enn forventet, blir verdien forsøkt konvertert til riktig type. Som et eksempel
 forventer funksjonen `equals` to strenger, men om du sender inn den boolske verdien `true` som det ene eller andre
 argumentet fungerer det også fint, siden den boolske verdien `true` blir konvertert til strengen `"true"`.
