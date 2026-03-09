@@ -36,13 +36,15 @@ En typisk regel kan se slik ut:
 
 > **Daglig leder** i en virksomhet har lov til å **signere** skjemaet **MVA-rapport**.
 
-Reglene kan knytte tilgang til
+Tjenesteeier knytter reglene i policyen til
 
-- roller fra Enhetsregisteret (for eksempel daglig leder, styreleder)
-- tilgangspakker (grupper av relaterte tjenester)
-- enkeltbrukere som har fått delegert rettighet
+- roller fra eksterne registre, som roller fra Enhetsregisteret (for eksempel daglig leder, styreleder) og vergemålsroller fra Folkeregisteret. Det finnes også spesielle kilder som register for arvinger.
+- tilgangspakker definert av Altinn (grupper av relaterte tjenester)
+- Altinn-roller fra Altinn 2 (fases ut og vil ikke lenger gi tilgang fra 1. januar 2027)
 
-Tjenesteeier definerer disse reglene og er ansvarlig for at de er riktige. Altinn håndhever dem automatisk når noen prøver å bruke tjenesten.
+I tillegg kan en **tilgangsstyrer** i virksomheten delegere rettigheter til enkeltpersoner eller virksomheter. En slik delegering oppretter en egen delegeringspolicy som peker direkte til den aktuelle personen eller virksomheten – ikke til en rolle eller tilgangspakke.
+
+Det er den ansvarlige virksomheten – det vi kaller **tjenesteeier** – som definerer reglene i policyen og er ansvarlig for at de er riktige. Altinn håndhever dem automatisk når noen prøver å bruke tjenesten.
 
 ## Integrasjon med nasjonale registre
 
@@ -70,7 +72,9 @@ Noen roller i Enhetsregisteret gir særlig brede fullmakter og kalles **nøkkelr
 | DTPR | Deltaker med delt ansvar (når registrert på personnummer) |
 | DTSO | Deltaker med solidarisk ansvar (når registrert på personnummer) |
 
-Nøkkelroller gir automatisk tilgang til de fleste tjenester i Altinn uten at noen trenger å delegere manuelt. Andre roller, som regnskapsfører (REGN) og revisor (REVI), gir kun tilgang til et utvalg tjenester som er relevante for den rollen.
+Det spesielle med nøkkelroller er at personen automatisk arver rettighetene som virksomheten har fått. Hvis en virksomhet har fått delegert rettigheter fra mange aktører, får personen med nøkkelrolle tilgang til alle disse. For eksempel vil daglig leder i et stort regnskapsbyrå kunne ha mange tusen aktører å velge mellom når vedkommende logger inn i Altinn.
+
+I tillegg har flere av nøkkelrollene automatisk tilgang til de fleste [tilgangspakkene](/nb/authorization/what-do-you-get/accessgroups/accessgroups/) uten at noen trenger å delegere manuelt. Andre roller, som regnskapsfører (REGN) og revisor (REVI), gir kun tilgang til et utvalg tjenester som er relevante for den rollen.
 
 ### Arv av rettigheter
 
@@ -81,7 +85,7 @@ Når en virksomhet registrerer en annen virksomhet i en rolle i Enhetsregisteret
 Det er to viktige begrensninger:
 
 - **Kun ett ledd:** Altinn nøster fullmakter bare ett ledd. Hvis Trondheim AS igjen har Oslo AS som daglig leder, får Oslo AS sine representanter *ikke* fullmakter på vegne av Bergen AS.
-- **Underenheter arver fra hovedenhet:** Underenheter (avdelinger) har ingen egne roller i Enhetsregisteret. De arver i stedet rollene som er registrert på hovedenheten.
+- **Rettigheter gjelder også underenheter:** Underenheter (avdelinger) har ingen egne roller i Enhetsregisteret. En bruker eller virksomhet som har fått rettigheter til hovedenheten, får automatisk de samme rettighetene til underenhetene.
 
 For **enkeltpersonforetak** gjelder en særregel: regnskapsfører og revisor som er registrert for foretaket, får i tillegg utvalgte fullmakter på vegne av innehavers personnummer.
 

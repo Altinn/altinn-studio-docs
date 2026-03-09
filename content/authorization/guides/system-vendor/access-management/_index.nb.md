@@ -151,13 +151,19 @@ Henter alle tilkoblinger (relasjoner) for en gitt part. En tilkobling viser hvem
 
 | Parameter | Type | Obligatorisk | Beskrivelse |
 |---|---|---|---|
-| `party` | UUID | Ja | partyUuid for parten |
+| `party` | UUID | Ja | partyUuid for personen eller virksomheten du er tilgangstyrer for |
 | `from` | UUID | Nei | Filtrer på avsender |
 | `to` | UUID | Nei | Filtrer på mottaker |
 | `includeClientDelegations` | boolean | Nei (standard: true) | Inkluder klientdelegeringer |
 | `includeAgentConnections` | boolean | Nei (standard: true) | Inkluder agenttilkoblinger |
 
+`party` må være lik enten `to` eller `from`. Verdien angir hvilken part du styrer tilganger for. Kombinasjonen avgjør retningen på oppslaget:
+
+- **`party` = `to`**: Henter rettigheter som er gitt **til** denne parten (hvem har gitt parten tilgang?).
+- **`party` = `from`**: Henter rettigheter som er gitt **fra** denne parten (hvem har parten gitt tilgang til?).
+
 Paginering styres med `X-Page-Size` og `X-Page-Number` i headere.
+
 
 Eksempelrespons
 
