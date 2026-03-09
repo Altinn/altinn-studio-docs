@@ -38,6 +38,12 @@ Komponenter for datainnsamling.
 
 ---
 
+### Tidsvelger (`TimePicker`)
+
+[Detaljer om komponenten](./TimePicker)
+
+---
+
 ### Finn virksomhet (`OrganisationLookup`)
 
 `OrganisationLookup`-komponenten slår opp en organisasjon i Enhetsregisteret ved hjelp av organisasjonsnummer.
@@ -86,7 +92,7 @@ Komponenter for å vise tekst og informasjon.
 ### Informativ melding (`Panel`)
 
 `Panel` kan brukes til å vise viktig informasjon til brukeren i ulike varianter (info, success, warning). Komponenten
-dekker hele bredden til siden. 
+dekker hele bredden til siden.
 
 ![Panel](./Panel.png)
 
@@ -96,7 +102,7 @@ dekker hele bredden til siden.
 
 ### Varsel (`Alert`)
 
-`Alert` gir brukeren informasjon som det er ekstra viktig at de ser og forstår. Komponenten er designet for å fange 
+`Alert` gir brukeren informasjon som det er ekstra viktig at de ser og forstår. Komponenten er designet for å fange
 brukernes oppmerksomhet. Teksten i varselet skal være kort og tydelig.
 
 ![Alert](./Alert.png)
@@ -107,7 +113,7 @@ brukernes oppmerksomhet. Teksten i varselet skal være kort og tydelig.
 
 ### Delelinje (`Divider`)
 
-`Divider` brukes for å skape et visuelt skille mellom innhold. Det er en enkel horisontal linje som strekker seg over 
+`Divider` brukes for å skape et visuelt skille mellom innhold. Det er en enkel horisontal linje som strekker seg over
 tilgjengelig bredde.
 
 ![Divider](./Divider.png)
@@ -126,6 +132,12 @@ tilgjengelig bredde.
 
 ---
 
+### Tall (`Number`)
+
+[Detaljer om komponenten](./Number)
+
+---
+
 ### Dato (`Date`)
 
 `Date` er en komponent som viser formatert dato med eller uten ledetekst.
@@ -141,7 +153,7 @@ tilgjengelig bredde.
 Komponenter for valg fra forhåndsdefinerte alternativer.
 
 ### Avmerkingsbokser (`Checkboxes`)
-`Checkboxes` gir brukerne mulighet til å velge ett eller flere alternativer. Den kan også brukes i tilfeller der 
+`Checkboxes` gir brukerne mulighet til å velge ett eller flere alternativer. Den kan også brukes i tilfeller der
 brukeren skal bekrefte noe.
 
 ![Checkboxes](./Checkboxes.png)
@@ -151,7 +163,7 @@ brukeren skal bekrefte noe.
 ---
 
 ### Radioknapper (`RadioButtons`)
-`RadioButtons` er er ett eller fleer alternativ brukeren kan velge. Brukeren kan bytte mellom alternativene, men kan 
+`RadioButtons` er er ett eller fleer alternativ brukeren kan velge. Brukeren kan bytte mellom alternativene, men kan
 kun velge ett.
 
 ![RadioButtons](./RadioButtons.png)
@@ -203,6 +215,18 @@ Komponenter for å vise tilleggsinformasjon.
 
 ---
 
+### Lyd (`Audio`)
+
+[Detaljer om komponenten](./Audio)
+
+---
+
+### Video (`Video`)
+
+[Detaljer om komponenten](./Video)
+
+---
+
 ### Lenke (Link)
 `Link` er en lenke til annet innhold. Komponenten kan vises som en klassisk lenke, eller som en knapp.
 
@@ -251,8 +275,14 @@ Handlingsknapper og navigasjon.
 
 ---
 
+### Navigasjonslinje (`NavigationBar`)
+
+[Detaljer om komponenten](./NavigationBar)
+
+---
+
 ### Navigasjonsknapper (`NavigationButtons`)
-`NavigationButtons` brukes til å navigere frem/tilbake mellom sider. Denne komponenten legges automatisk til når du 
+`NavigationButtons` brukes til å navigere frem/tilbake mellom sider. Denne komponenten legges automatisk til når du
 legger til en ny side i Altinn Studio verktøyet.
 
 ![NavigationButtons](./NavigationButtons.png)
@@ -270,8 +300,14 @@ legger til en ny side i Altinn Studio verktøyet.
 
 ---
 
+### Forhåndsvis PDF (`PDFPreviewButton`)
+
+[Detaljer om komponenten](./PDFPreviewButton)
+
+---
+
 ### Start eksemplar (`InstantiationButton`)
-`InstantiationButton` brukes til å starte et eksemplar av en app ved bruk av 
+`InstantiationButton` brukes til å starte et eksemplar av en app ved bruk av
 [stateless-oppsettet.]({{<relref "/altinn-studio/v10/develop-a-service/process/stateless">}})
 
 ![InstantiationButton](./Button.png)
@@ -281,7 +317,7 @@ legger til en ny side i Altinn Studio verktøyet.
 ---
 
 ### Handlingsknapp (`ActionButton`)
-`ActionButton` starter en bestemt handling knyttet til den oppgaven i arbeidsflyten som brukerne er på. 
+`ActionButton` starter en bestemt handling knyttet til den oppgaven i arbeidsflyten som brukerne er på.
 Oppgaven kan for eksempel være signering, bekreftelse eller avvisning.
 
 ![ActionButton](./Button.png)
@@ -312,7 +348,7 @@ vedlegg skal vises, eller kun et utvalg.
 ---
 
 ### Vedlegg med merking (`FileUploadWithTag`)
-`FileUploadWithTag` lar brukeren laste opp vedlegg og merke vedlegg med forhåndsdefinerte tagger. Du kan styre hva slags 
+`FileUploadWithTag` lar brukeren laste opp vedlegg og merke vedlegg med forhåndsdefinerte tagger. Du kan styre hva slags
 filtyper som kan lastes opp.
 
 ![FileUploadWithTag](./FileUpload.png)
@@ -327,6 +363,44 @@ filtyper som kan lastes opp.
 ![ImageUpload](./ImageUpload.png)
 
 [Detaljer om komponenten](./ImageUpload)
+
+---
+
+## Betaling
+
+Komponenter for betalingsflyt.
+
+### Betaling (`Payment`)
+
+[Detaljer om komponenten](./Payment)
+
+---
+
+### Betalingsdetaljer (`PaymentDetails`)
+
+[Detaljer om komponenten](./PaymentDetails)
+
+---
+
+## Signering
+
+Komponenter for signeringsflyt.
+
+### Signatarliste (`SigneeList`)
+
+[Detaljer om komponenten](./SigneeList)
+
+---
+
+### Signeringshandlinger (`SigningActions`)
+
+[Detaljer om komponenten](./SigningActions)
+
+---
+
+### Signeringsdokumenter (`SigningDocumentList`)
+
+[Detaljer om komponenten](./SigningDocumentList)
 
 ---
 
@@ -375,7 +449,7 @@ Komponenter for å strukturere skjemaet.
 
 ### Liste (`List`)
 
-`List` brukes til å presentere innholdsrike data til bruker i tabellformat. Hver rad i tabellen er velgbar. Komponenten 
+`List` brukes til å presentere innholdsrike data til bruker i tabellformat. Hver rad i tabellen er velgbar. Komponenten
 støtter søk, sortering og paginering.
 
 ![List](./List.png)
@@ -390,8 +464,14 @@ støtter søk, sortering og paginering.
 
 ---
 
+### Enkel tabell (`SimpleTable`)
+
+[Detaljer om komponenten](./SimpleTable)
+
+---
+
 ### Cards (`Cards`)
-`Cards` brukes til å vise ulike typer innhold (andre komponenter), i en kort-basert layout. Den kan brukes til å vise 
+`Cards` brukes til å vise ulike typer innhold (andre komponenter), i en kort-basert layout. Den kan brukes til å vise
 informasjon, bilder, lydklipp, videoer, og skjemakomponenter.
 
 ![Cards](./Cards.png)
@@ -401,7 +481,7 @@ informasjon, bilder, lydklipp, videoer, og skjemakomponenter.
 ---
 
 ### Faner (`Tabs`)
-`Tabs` lar deg organisere og bytte mellom ulike innholdsseksjoner ved å klikke på overskriftene. Dette gir en 
+`Tabs` lar deg organisere og bytte mellom ulike innholdsseksjoner ved å klikke på overskriftene. Dette gir en
 plasseffektiv og ryddig måte å presentere informasjon på.
 
 ![Tabs](./Tabs.png)
