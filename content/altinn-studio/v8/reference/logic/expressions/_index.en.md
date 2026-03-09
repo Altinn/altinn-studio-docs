@@ -1089,7 +1089,8 @@ Example:
 ```json
 ["plus", 22, 9.2]
 ```
-Results in the number value `31.2`
+Results in the number value `31.2`. 
+If null is passed to the function, the function will return `null`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-minus" header="minus" %}}
@@ -1099,7 +1100,8 @@ Example:
 ```json
 ["minus", 22, 9.2]
 ```
-Results in the number value `12.8`
+Results in the number value `12.8`.
+If null is passed to the function, the function will return `null`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-multiply" header="multiply" %}}
@@ -1109,7 +1111,8 @@ Example:
 ```json
 ["multiply", 22, 10]
 ```
-Results in the number value `220`
+Results in the number value `220`.
+If null is passed to the function, the function will return `null`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-divide" header="divide" %}}
@@ -1119,7 +1122,8 @@ Example:
 ```json
 ["divide", 22, 10]
 ```
-Results in the number value `2.2`
+Results in the number value `2.2`.
+If null is passed to the function, the function will return `null`.
 {{% /expandlarge %}}
 
 ## Data Types

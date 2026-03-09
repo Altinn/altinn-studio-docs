@@ -1088,6 +1088,7 @@ Eksempel:
 ["plus", 22, 9.2]
 ```
 Resulterer i tallverdien `31.2`.
+Dersom null sendes inn som argument, vil funksjonen returnere `null`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-minus" header="minus" %}}
@@ -1098,6 +1099,7 @@ Eksempel:
 ["minus", 22, 9.2]
 ```
 Resulterer i tallverdien `12.8`.
+Dersom null sendes inn som argument, vil funksjonen returnere `null`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-multiply" header="multiply" %}}
@@ -1108,6 +1110,7 @@ Eksempel:
 ["multiply", 22, 10]
 ```
 Resulterer i tallverdien `220`.
+Dersom null sendes inn som argument, vil funksjonen returnere `null`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-divide" header="divide" %}}
@@ -1118,6 +1121,7 @@ Eksempel:
 ["divide", 22, 10]
 ```
 Resulterer i tallverdien `2.2`.
+Dersom null sendes inn som argument, vil funksjonen returnere `null`.
 {{% /expandlarge %}}
 
 ## Datatyper
