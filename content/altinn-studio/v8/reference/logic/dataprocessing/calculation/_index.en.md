@@ -23,9 +23,8 @@ template.calculation.json
 {{< /code-title >}}
 ```json
 {
-  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/validation/validation.schema.v1.json",
-  "calculations": {},
-  "definitions": {}
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/calculation/calculation.schema.v1.json",
+  "calculations": {}
 }
 ```
 
@@ -48,8 +47,7 @@ example.calculation.json
           ]
       }
     ]
-  },
-  "definitions": {}
+  }
 }
 ```
 

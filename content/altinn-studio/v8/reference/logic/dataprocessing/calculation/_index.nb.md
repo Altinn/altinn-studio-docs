@@ -24,12 +24,11 @@ template.calculation.json
 ```json
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/calculation/calculation.schema.v1.json",
-  "calculations": {},
-  "definitions": {}
+  "calculations": {}
 }
 ```
 
-### Definere en validerings-regel
+### Definere en kalkuleringsregel
 
 Nedenfor kan du se et eksempel på en kalkulering av feltet `regnskap.sum` i datamodellen:
 
@@ -48,8 +47,7 @@ example.calculation.json
           ]
       }
     ]
-  },
-  "definitions": {}
+  }
 }
 ```
 
@@ -58,32 +56,3 @@ Reglene for feltene i datamodellen settes i `calculations`-objektet, hvor datamo
 I motsetning til validering ved hjelp av uttrykk, støtter ikke kalkuleringer ved hjelp av uttrykk lister.
 
 En regel består av en **condition**, som er et dynamisk uttrykk som returnerer en hvilke som helst objekttype. Se [dynamiske uttrykk](/nb/altinn-studio/v8/reference/logic/expressions/) for mer informasjon.
-
-[//]: # (Hør med Squad om dette egentlig gir mening, klarer ikke helt å finne godt use case for dette)
-### Gjenbruk av regler
-
-Dersom den samme regelen skal brukes flere steder, går det an å lage den gjenbrukbar så du slipper å kopiere regelen. Det gjøres ved å definere regelen som skal gjenbrukes under `definitions`-objektet.
-Da må du gi regelen et navn, og det blir nøkkelen i objektet hvor verdien er regelen. Eksempel:
-
-{{< code-title >}}
-example2.calculation.json
-{{< /code-title >}}
-
-```json
-{
-  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/calculation/calculation.schema.v1.json",
-  "calculations": {
-    "prefered-language": ["application-language"]
-  },
-  "definitions": {
-    "application-language": {
-      "condition":  ["language",
-          ["datamodel", "regnskap.inntekter"], ["dataModel", "regnskap.utgifter"]
-        ]
-    }
-  }
-}
-```
-
-[//]: # (Hør med Squad end)
-
