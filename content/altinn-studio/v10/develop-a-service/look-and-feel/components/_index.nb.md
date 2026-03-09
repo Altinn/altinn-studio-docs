@@ -38,21 +38,23 @@ Komponenter for datainnsamling.
 
 ---
 
-### Finn virksomhet (OrganizationLookup)
+### Finn virksomhet (`OrganisationLookup`)
 
-`OrganizationLookup`-komponenten slår opp en organisasjon i Enhetsregisteret ved hjelp av organisasjonsnummer.
+`OrganisationLookup`-komponenten slår opp en organisasjon i Enhetsregisteret ved hjelp av organisasjonsnummer.
 
-[Detaljer om komponenten]()
+![OrganisationLookup](./OrganisationLookup.png)
+
+[Detaljer om komponenten](./OrganisationLookup)
 
 ---
 
----
-
-### Finn person (PersonLookup)
+### Finn person (`PersonLookup`)
 
 `PersonLookup`-komponenten søker i det nasjonale folkeregisteret basert på fødselsnummer og etternavn.
 
-[Detaljer om komponenten]()
+![PersonLookup](./PersonLookup.png)
+
+[Detaljer om komponenten](./PersonLookup)
 
 ---
 
@@ -116,7 +118,9 @@ tilgjengelig bredde.
 
 ### Tekst (`Text`)
 
-`Text`-komponenten viser tekst med eller uten ledetekst.
+`Text`-komponenten viser tekst med eller uten ledetekst. Tekstverdien som vises kan f.eks. settes dynamisk via uttrykk.
+
+![Text](./Text.png)
 
 [Detaljer om komponenten](./Text)
 
@@ -125,6 +129,8 @@ tilgjengelig bredde.
 ### Dato (`Date`)
 
 `Date` er en komponent som viser formatert dato med eller uten ledetekst.
+
+![Date](./Date.png)
 
 [Detaljer om komponenten](./Date)
 
@@ -198,6 +204,9 @@ Komponenter for å vise tilleggsinformasjon.
 ---
 
 ### Lenke (Link)
+`Link` er en lenke til annet innhold. Komponenten kan vises som en klassisk lenke, eller som en knapp.
+
+![Link](./Link.png)
 
 [Detaljer om komponenten](./Link)
 
@@ -327,43 +336,77 @@ Komponenter for å strukturere skjemaet.
 
 ### Gruppe (Group)
 
-[Detaljer om komponenten]()
+`Group` brukes til å gruppere komponenter visuelt eller logisk.
+
+[Detaljer om komponenten](./Group)
 
 ---
 
-### Rutenett (Grid)
+### Rutenett (`Grid`)
+`Grid` brukes til å visuelt oppstille komponenter i en tabellvisning.
 
-[Detaljer om komponenten]()
+![Grid](./Grid.png)
 
----
-
-### Trekkspilliste (Accordion)
-
-[Detaljer om komponenten]()
+[Detaljer om komponenten](./Grid)
 
 ---
 
-### Nestet trekkspilliste (AccordionGroup)
+### Trekkspilliste (`Accordion`)
 
-[Detaljer om komponenten]()
+`Accordion` er en sammenleggbar komponent som lar brukeren vise eller skjule innhold.
 
----
+![Accordion](./Accordion.png)
 
-### Knappegruppe (ButtonGroup)
-
-[Detaljer om komponenten]()
+[Detaljer om komponenten](./Accordion)
 
 ---
 
-### Liste (List)
+### Nestet trekkspilliste (`AccordionGroup`)
 
-[Detaljer om komponenten]()
+[Detaljer om komponenten](./AccordionGroup)
 
 ---
 
-### Repeterende gruppe (Group)
+### Knappegruppe (`ButtonGroup`)
 
-[Detaljer om komponenten]()
+[Detaljer om komponenten](./ButtonGroup)
+
+---
+
+### Liste (`List`)
+
+`List` brukes til å presentere innholdsrike data til bruker i tabellformat. Hver rad i tabellen er velgbar. Komponenten 
+støtter søk, sortering og paginering.
+
+![List](./List.png)
+
+[Detaljer om komponenten](./List)
+
+---
+
+### Repeterende gruppe (`RepeatingGroup`)
+
+[Detaljer om komponenten](./RepeatingGroup)
+
+---
+
+### Cards (`Cards`)
+`Cards` brukes til å vise ulike typer innhold (andre komponenter), i en kort-basert layout. Den kan brukes til å vise 
+informasjon, bilder, lydklipp, videoer, og skjemakomponenter.
+
+![Cards](./Cards.png)
+
+[Detaljer om komponenten](./Cards)
+
+---
+
+### Faner (`Tabs`)
+`Tabs` lar deg organisere og bytte mellom ulike innholdsseksjoner ved å klikke på overskriftene. Dette gir en 
+plasseffektiv og ryddig måte å presentere informasjon på.
+
+![Tabs](./Tabs.png)
+
+[Detaljer om komponenten](./Tabs.png)
 
 ---
 
@@ -371,15 +414,19 @@ Komponenter for å strukturere skjemaet.
 
 Spesialiserte komponenter for avanserte bruksområder.
 
-### Adresse (Address)
+### Adresse (`Address`)
 
-[Detaljer om komponenten]()
+![Address](./Address.png)
+
+[Detaljer om komponenten](./Address)
 
 ---
 
-### Stedfeste i kart (Map)
+### Stedfeste i kart (`Map`)
 
-[Detaljer om komponenten]()
+![Map](./Map.png)
+
+[Detaljer om komponenten](./Map)
 
 ---
 
@@ -389,7 +436,7 @@ Spesialiserte komponenter for avanserte bruksområder.
 
 ---
 
-### Tabell for underskjema (List)
+### Tabell for underskjema (`Subform`)
 
 [Detaljer om komponenten]()
 
