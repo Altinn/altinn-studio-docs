@@ -150,7 +150,7 @@ Dette gir en sømløs opplevelse for sluttbrukerne, og reduserer administrativ b
 
 - [Tilgangsstyrings-API – guide for sluttbrukersystemer](/nb/authorization/guides/system-vendor/access-management/) – hvordan du integrerer delegering og tilgangsadministrasjon i egne systemer
 - [Access Management API – EndUser (OpenAPI)](/nb/api/accessmanagement/enduser/) – API-referanse for å lese og administrere fullmakter på vegne av innloggede brukere
-- [Access Management API – ResourceOwner (OpenAPI)](/nb/api/accessmanagement/resourceownerOpenAPI/) – API-referanse for tjenesteeiere som administrerer tilganger på ressursnivå
+- [Access Management API – ResourceOwner (OpenAPI)](/nb/api/accessmanagement/resourceowneropenapi/) – API-referanse for tjenesteeiere som administrerer tilganger på ressursnivå
 - [Authorization API (OpenAPI)](/nb/api/authorization/) – API-referanse for tilgangskontroll og autorisasjonsoppslag
 
 ## Tilgangskontroll
@@ -161,7 +161,7 @@ Når en bruker eller et system prøver å utføre en handling i en tjeneste, sje
 
 Tjenester som er bygget på Altinn-plattformen får tilgangskontroll automatisk. Det holder å definere reglene som gjelder – plattformen håndhever dem ved hvert forsøk på å bruke tjenesten. Du trenger ikke skrive egen kode for selve tilgangskontrollen. Dette gjelder for:
 
-- **Altinn-apper** bygget i Altinn Studio – se [hvordan du definerer tilgangsregler for en app](/nb/altinn-studio/v10/develop-a-service/configuration/authorization/)
+- **Altinn-apper** bygget i Altinn Studio
 - **Altinn Melding** (Correspondence) – se [tilgangsstyring for meldinger](/nb/correspondence/explanation/access-management/)
 - **Altinn Formidling** (Broker) – se [ressurs og tilgangsregler for formidlingstjenester](/nb/broker/getting-started/service-owner/)
 
