@@ -527,36 +527,116 @@ Eksempelrespons
 
 ```json
 {
-  "links": {
-    "next": null
-  },
   "data": [
     {
       "provider": {
-        "id": "4a06214d-b261-4695-b33a-0771a995b503",
-        "name": "SMART REGNSKAPSBYRÅ AS",
+        "id": "3e1a0c01-dcaa-47f6-b76b-820d380bd639",
+        "name": "LEGITIM RASK TIGER AS",
         "type": "Organisasjon",
-        "variant": "AS"
+        "variant": "AS",
+        "parent": null,
+        "children": null,
+        "partyid": 51690650,
+        "userId": null,
+        "username": null,
+        "organizationIdentifier": "313818713",
+        "personIdentifier": null,
+        "dateOfBirth": null,
+        "dateOfDeath": null,
+        "isDeleted": false,
+        "deletedAt": null
       },
       "clients": [
         {
           "client": {
-            "id": "006cdf09-e874-4fcc-8502-5342b871e2ac",
-            "name": "ENKEL SKJØR TIGER AS",
+            "id": "ee08d709-db94-4e3e-9791-d1cfd5fe7310",
+            "name": "ULASTELIG SOLID TIGER AS",
             "type": "Organisasjon",
-            "variant": "AS"
+            "variant": "AS",
+            "parent": null,
+            "children": null,
+            "partyid": 51745556,
+            "userId": null,
+            "username": null,
+            "organizationIdentifier": "313572773",
+            "personIdentifier": null,
+            "dateOfBirth": null,
+            "dateOfDeath": null,
+            "isDeleted": false,
+            "deletedAt": null
           },
           "access": [
             {
               "role": {
                 "id": "42cae370-2dc1-4fdc-9c67-c2f4b0f0f829",
                 "code": "rettighetshaver",
-                "urn": "urn:altinn:role:rettighetshaver"
+                "urn": "urn:altinn:role:rettighetshaver",
+                "legacyurn ": null,
+                "children": null
               },
               "packages": [
                 {
-                  "id": "a5f7f72a-9b89-445d-85bb-06f678a3d4d1",
-                  "urn": "urn:altinn:accesspackage:regnskapsforer-uten-signeringsrettighet"
+                  "id": "9d2ec6e9-5148-4f47-9ae4-4536f6c9c1cb",
+                  "urn": "urn:altinn:accesspackage:fiske",
+                  "areaId": "fc93d25e-80bc-469a-aa43-a6cee80eb3e2"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "provider": {
+        "id": "b1e5dc9e-9151-46c9-948f-21c2cc1dc7bd",
+        "name": "PASSIV MUSKULØS MINK ANS",
+        "type": "Organisasjon",
+        "variant": "ANS",
+        "parent": null,
+        "children": null,
+        "partyid": 51707476,
+        "userId": null,
+        "username": null,
+        "organizationIdentifier": "311818031",
+        "personIdentifier": null,
+        "dateOfBirth": null,
+        "dateOfDeath": null,
+        "isDeleted": false,
+        "deletedAt": null
+      },
+      "clients": [
+        {
+          "client": {
+            "id": "ee08d709-db94-4e3e-9791-d1cfd5fe7310",
+            "name": "ULASTELIG SOLID TIGER AS",
+            "type": "Organisasjon",
+            "variant": "AS",
+            "parent": null,
+            "children": null,
+            "partyid": 51745556,
+            "userId": null,
+            "username": null,
+            "organizationIdentifier": "313572773",
+            "personIdentifier": null,
+            "dateOfBirth": null,
+            "dateOfDeath": null,
+            "isDeleted": false,
+            "deletedAt": null
+          },
+          "access": [
+            {
+              "role": {
+                "id": "42cae370-2dc1-4fdc-9c67-c2f4b0f0f829",
+                "code": "rettighetshaver",
+                "urn": "urn:altinn:role:rettighetshaver",
+                "legacyurn ": null,
+                "children": null
+              },
+              "packages": [
+                {
+                  "id": "9d2ec6e9-5148-4f47-9ae4-4536f6c9c1cb",
+                  "urn": "urn:altinn:accesspackage:fiske",
+                  "areaId": "fc93d25e-80bc-469a-aa43-a6cee80eb3e2"
                 }
               ]
             }
@@ -564,7 +644,10 @@ Eksempelrespons
         }
       ]
     }
-  ]
+  ],
+  "links": {
+    "next": null
+  }
 }
 ```
 
