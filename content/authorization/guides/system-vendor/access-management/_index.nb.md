@@ -43,19 +43,26 @@ ID-porten-tokenet må deretter [veksles til et Altinn-token](../../../../api/).
 
 Systemet må be om de scopene som trengs for funksjonaliteten det skal bruke.
 
-**Autoriserte parter:**
+**Altinn tilgangsstyring**
 
-- `altinn:accessmanagement/authorizedparties` — hente parter brukeren er autorisert for
+| Scope | Valgfri/påkrevd | Beskrivelse |
+|---|---|---|
+| `altinn:accessmanagement/authorizedparties` | Les hvilke aktører (personer og virksomheter) den innloggede brukeren kan representere i Altinn |
+| `altinn:accessmanagement/enduser:connections:fromothers.read` | Se mottatte tilganger for deg og andre du evt. er tilgangsstyrer for |
+| `altinn:accessmanagement/enduser:connections:fromothers.write` | Slett mottatte tilganger gitt til deg eller andre aktører du er tilgangsstyrer for |
+| `altinn:accessmanagement/enduser:connections:toothers.read` | Se tilganger gitt til andre, fra deg eller andre aktører du er tilgangsstyrer for |
+| `altinn:accessmanagement/enduser:connections:toothers.write` | Opprett, oppdater og slett tilganger gitt til andre fra deg eller andre aktører du er tilgangsstyrer for |
 
-**Tilkoblinger — se tilganger gitt fra andre:**
+**Altinn klientdelegering**
 
-- `altinn:accmgmt/enduser:connections:from-others.read` — lese tilkoblinger fra andre
-- `altinn:accmgmt/enduser:connections:from-others.write` — endre tilkoblinger fra andre
+| Scope | Valgfri/påkrevd | Beskrivelse |
+|---|---|---|
+| `altinn:clientdelegations/myclients.read` | Se hvilke organisasjoner som har gitt deg tilgang til sine klienter, hvilke klienter du har mottatt klientdelegerte tilganger til, og hvilke tilganger du har mottatt for hver klient |
+| `altinn:clientdelegations/myclients.write` | Slett mottatte klientdelegerte tilganger for en gitt klient, og slett ditt forhold til organisasjoner som har gitt deg tilgang til sine klienter (inkl. alle klienttilganger) |
 
-**Tilkoblinger — administrere tilganger gitt til andre:**
-
-- `altinn:accmgmt/enduser:connections:to-others.read` — lese tilkoblinger til andre
-- `altinn:accmgmt/enduser:connections:to-others.write` — endre tilkoblinger til andre
+{{% notice info %}}
+På [digitalportal.azurewebsites.net](https://digitalportal.azurewebsites.net/) finner du en testapplikasjon som viser bruk av API-et.
+{{% /notice %}}
 
 ### Autentisering med systembruker
 
@@ -151,13 +158,19 @@ Henter alle tilkoblinger (relasjoner) for en gitt part. En tilkobling viser hvem
 
 | Parameter | Type | Obligatorisk | Beskrivelse |
 |---|---|---|---|
-| `party` | UUID | Ja | partyUuid for parten |
+| `party` | UUID | Ja | partyUuid for personen eller virksomheten du er tilgangstyrer for |
 | `from` | UUID | Nei | Filtrer på avsender |
 | `to` | UUID | Nei | Filtrer på mottaker |
 | `includeClientDelegations` | boolean | Nei (standard: true) | Inkluder klientdelegeringer |
 | `includeAgentConnections` | boolean | Nei (standard: true) | Inkluder agenttilkoblinger |
 
+`party` må være lik enten `to` eller `from`. Verdien angir hvilken part du styrer tilganger for. Kombinasjonen avgjør retningen på oppslaget:
+
+- **`party` = `to`**: Henter rettigheter som er gitt **til** denne parten (hvem har gitt parten tilgang?).
+- **`party` = `from`**: Henter rettigheter som er gitt **fra** denne parten (hvem har parten gitt tilgang til?).
+
 Paginering styres med `X-Page-Size` og `X-Page-Number` i headere.
+
 
 Eksempelrespons
 
@@ -521,36 +534,116 @@ Eksempelrespons
 
 ```json
 {
-  "links": {
-    "next": null
-  },
   "data": [
     {
       "provider": {
-        "id": "4a06214d-b261-4695-b33a-0771a995b503",
-        "name": "SMART REGNSKAPSBYRÅ AS",
+        "id": "3e1a0c01-dcaa-47f6-b76b-820d380bd639",
+        "name": "LEGITIM RASK TIGER AS",
         "type": "Organisasjon",
-        "variant": "AS"
+        "variant": "AS",
+        "parent": null,
+        "children": null,
+        "partyid": 51690650,
+        "userId": null,
+        "username": null,
+        "organizationIdentifier": "313818713",
+        "personIdentifier": null,
+        "dateOfBirth": null,
+        "dateOfDeath": null,
+        "isDeleted": false,
+        "deletedAt": null
       },
       "clients": [
         {
           "client": {
-            "id": "006cdf09-e874-4fcc-8502-5342b871e2ac",
-            "name": "ENKEL SKJØR TIGER AS",
+            "id": "ee08d709-db94-4e3e-9791-d1cfd5fe7310",
+            "name": "ULASTELIG SOLID TIGER AS",
             "type": "Organisasjon",
-            "variant": "AS"
+            "variant": "AS",
+            "parent": null,
+            "children": null,
+            "partyid": 51745556,
+            "userId": null,
+            "username": null,
+            "organizationIdentifier": "313572773",
+            "personIdentifier": null,
+            "dateOfBirth": null,
+            "dateOfDeath": null,
+            "isDeleted": false,
+            "deletedAt": null
           },
           "access": [
             {
               "role": {
                 "id": "42cae370-2dc1-4fdc-9c67-c2f4b0f0f829",
                 "code": "rettighetshaver",
-                "urn": "urn:altinn:role:rettighetshaver"
+                "urn": "urn:altinn:role:rettighetshaver",
+                "legacyurn ": null,
+                "children": null
               },
               "packages": [
                 {
-                  "id": "a5f7f72a-9b89-445d-85bb-06f678a3d4d1",
-                  "urn": "urn:altinn:accesspackage:regnskapsforer-uten-signeringsrettighet"
+                  "id": "9d2ec6e9-5148-4f47-9ae4-4536f6c9c1cb",
+                  "urn": "urn:altinn:accesspackage:fiske",
+                  "areaId": "fc93d25e-80bc-469a-aa43-a6cee80eb3e2"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "provider": {
+        "id": "b1e5dc9e-9151-46c9-948f-21c2cc1dc7bd",
+        "name": "PASSIV MUSKULØS MINK ANS",
+        "type": "Organisasjon",
+        "variant": "ANS",
+        "parent": null,
+        "children": null,
+        "partyid": 51707476,
+        "userId": null,
+        "username": null,
+        "organizationIdentifier": "311818031",
+        "personIdentifier": null,
+        "dateOfBirth": null,
+        "dateOfDeath": null,
+        "isDeleted": false,
+        "deletedAt": null
+      },
+      "clients": [
+        {
+          "client": {
+            "id": "ee08d709-db94-4e3e-9791-d1cfd5fe7310",
+            "name": "ULASTELIG SOLID TIGER AS",
+            "type": "Organisasjon",
+            "variant": "AS",
+            "parent": null,
+            "children": null,
+            "partyid": 51745556,
+            "userId": null,
+            "username": null,
+            "organizationIdentifier": "313572773",
+            "personIdentifier": null,
+            "dateOfBirth": null,
+            "dateOfDeath": null,
+            "isDeleted": false,
+            "deletedAt": null
+          },
+          "access": [
+            {
+              "role": {
+                "id": "42cae370-2dc1-4fdc-9c67-c2f4b0f0f829",
+                "code": "rettighetshaver",
+                "urn": "urn:altinn:role:rettighetshaver",
+                "legacyurn ": null,
+                "children": null
+              },
+              "packages": [
+                {
+                  "id": "9d2ec6e9-5148-4f47-9ae4-4536f6c9c1cb",
+                  "urn": "urn:altinn:accesspackage:fiske",
+                  "areaId": "fc93d25e-80bc-469a-aa43-a6cee80eb3e2"
                 }
               ]
             }
@@ -558,7 +651,10 @@ Eksempelrespons
         }
       ]
     }
-  ]
+  ],
+  "links": {
+    "next": null
+  }
 }
 ```
 
