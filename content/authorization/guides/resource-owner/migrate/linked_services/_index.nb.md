@@ -55,7 +55,7 @@ For at migreringen skal fungere, må policyen fortsatt inneholde reglene som fin
 
 #### Publisering
 
-Når ressursen er komplett, kan den publiseres til testmiljø eller produksjon.
+Når ressursen er komplett, kan den publiseres til testmiljø eller produksjon. For å kunne publisere må [ressursadministrasjonsteam](https://docs.altinn.studio/nb/authorization/getting-started/resourceadministration/) for publisering være opprettet.
 
 #### Endring av API-integrasjon
 
