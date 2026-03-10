@@ -4,7 +4,7 @@ description: Hvordan ta i bruk eksperimentelle pakker for varsling ved instansie
 weight: 50
 ---
 
-Vi har nå lagt til støtte for å sende varsler til instanseier når en instans opprettes. Her er en oversikt over funksjonaliteten og hvordan du kan prøve den ut.
+Dette dokumentet beskriver sending av varsler til instanseier når en instans opprettes. Her er en oversikt over funksjonaliteten og hvordan du kan prøve den ut.
 
 ## Eksperimentelle pakker
 
