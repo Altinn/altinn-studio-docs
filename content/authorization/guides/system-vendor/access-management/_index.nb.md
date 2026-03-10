@@ -60,6 +60,10 @@ Systemet må be om de scopene som trengs for funksjonaliteten det skal bruke.
 | `altinn:clientdelegations/myclients.read` | Se hvilke organisasjoner som har gitt deg tilgang til sine klienter, hvilke klienter du har mottatt klientdelegerte tilganger til, og hvilke tilganger du har mottatt for hver klient |
 | `altinn:clientdelegations/myclients.write` | Slett mottatte klientdelegerte tilganger for en gitt klient, og slett ditt forhold til organisasjoner som har gitt deg tilgang til sine klienter (inkl. alle klienttilganger) |
 
+{{% notice info %}}
+På [digitalportal.azurewebsites.net](https://digitalportal.azurewebsites.net/) finner du en testapplikasjon som viser bruk av API-et.
+{{% /notice %}}
+
 ### Autentisering med systembruker
 
 API-et kan også brukes med en [systembruker](../system-user/).
