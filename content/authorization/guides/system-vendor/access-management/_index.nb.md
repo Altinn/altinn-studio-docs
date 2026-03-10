@@ -43,19 +43,22 @@ ID-porten-tokenet må deretter [veksles til et Altinn-token](../../../../api/).
 
 Systemet må be om de scopene som trengs for funksjonaliteten det skal bruke.
 
-**Autoriserte parter:**
+**Altinn tilgangsstyring**
 
-- `altinn:accessmanagement/authorizedparties` — hente parter brukeren er autorisert for
+| Scope | Valgfri/påkrevd | Beskrivelse |
+|---|---|---|
+| `altinn:accessmanagement/authorizedparties` | Les hvilke aktører (personer og virksomheter) den innloggede brukeren kan representere i Altinn |
+| `altinn:accessmanagement/enduser:connections:fromothers.read` | Se mottatte tilganger for deg og andre du evt. er tilgangsstyrer for |
+| `altinn:accessmanagement/enduser:connections:fromothers.write` | Slett mottatte tilganger gitt til deg eller andre aktører du er tilgangsstyrer for |
+| `altinn:accessmanagement/enduser:connections:toothers.read` | Se tilganger gitt til andre, fra deg eller andre aktører du er tilgangsstyrer for |
+| `altinn:accessmanagement/enduser:connections:toothers.write` | Opprett, oppdater og slett tilganger gitt til andre fra deg eller andre aktører du er tilgangsstyrer for |
 
-**Tilkoblinger — se tilganger gitt fra andre:**
+**Altinn klientdelegering**
 
-- `altinn:accmgmt/enduser:connections:from-others.read` — lese tilkoblinger fra andre
-- `altinn:accmgmt/enduser:connections:from-others.write` — endre tilkoblinger fra andre
-
-**Tilkoblinger — administrere tilganger gitt til andre:**
-
-- `altinn:accmgmt/enduser:connections:to-others.read` — lese tilkoblinger til andre
-- `altinn:accmgmt/enduser:connections:to-others.write` — endre tilkoblinger til andre
+| Scope | Valgfri/påkrevd | Beskrivelse |
+|---|---|---|
+| `altinn:clientdelegations/myclients.read` | Se hvilke organisasjoner som har gitt deg tilgang til sine klienter, hvilke klienter du har mottatt klientdelegerte tilganger til, og hvilke tilganger du har mottatt for hver klient |
+| `altinn:clientdelegations/myclients.write` | Slett mottatte klientdelegerte tilganger for en gitt klient, og slett ditt forhold til organisasjoner som har gitt deg tilgang til sine klienter (inkl. alle klienttilganger) |
 
 ### Autentisering med systembruker
 
