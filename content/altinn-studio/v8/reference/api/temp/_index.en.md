@@ -4,7 +4,7 @@ description: How to use experimental packages for notifications on instantiation
 weight: 50
 ---
 
-We have added support for sending notifications to the instance owner when an instance is created. Here is an overview of the functionality and how you can try it out.
+This document describes sending notification(s) to the instance owner when an instance is created. Here is an overview of the functionality and how you can try it out.
 
 ## Experimental packages
 
