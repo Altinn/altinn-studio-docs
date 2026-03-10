@@ -177,6 +177,18 @@ Transmissions may contain an additional level content and attachments that repre
 
 As with dialog level content, transmissions might contain a title, summary and a content reference (front channel embed). Service owners might use front channel embeds to track whether or not a particular transmission has been opened, which again can eg. trigger a `transmissionOpened` activity being added.
 
+### Navigational actions on transmissions
+
+To offer contextual links directly on a transmission, Dialogporten supports navigational actions — permanent, GET-only links that never change server state and are safe to prefetch.
+
+Navigational actions have the following properties:
+
+- `title` — a multilingual title displayed to the end user
+- `url` — the URL to navigate to; must always be a GET endpoint over HTTPS
+- `expiresAt` (optional) — when the timestamp is reached, Dialogporten rewrites the URL to `urn:dialogporten:expired`, and end-user systems should hide or disable the action
+
+If the transmission has an `authorizationAttribute` that renders the end user unauthorised, the URL is rewritten to `urn:dialogporten:unauthorized`.
+
 {{<notyetwritten>}}
 
 **Read more**
