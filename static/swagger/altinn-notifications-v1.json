@@ -855,6 +855,11 @@
             "description": "Gets or sets the ID of the resource that the notification is related to.",
             "nullable": true
           },
+          "resourceAction": {
+            "type": "string",
+            "description": "Gets or sets the action to authorize against the resource.",
+            "nullable": true
+          },
           "subject": {
             "minLength": 1,
             "type": "string",
@@ -1486,6 +1491,11 @@
             "description": "Gets or sets the id of the resource that the notification is related to",
             "nullable": true
           },
+          "resourceAction": {
+            "type": "string",
+            "description": "Gets or sets the action to authorize against the resource",
+            "nullable": true
+          },
           "conditionEndpoint": {
             "type": "string",
             "description": "Gets or sets the condition endpoint used to check the send condition",
@@ -1570,6 +1580,11 @@
           "resourceId": {
             "type": "string",
             "description": "Gets or sets the ID of the resource that the notification is related to.",
+            "nullable": true
+          },
+          "resourceAction": {
+            "type": "string",
+            "description": "Gets or sets the action to authorize against the resource.",
             "nullable": true
           },
           "notificationChannel": {
@@ -1659,6 +1674,11 @@
             "description": "Gets or sets the id of the resource that the notification is related to",
             "nullable": true
           },
+          "resourceAction": {
+            "type": "string",
+            "description": "Gets or sets the action to authorize against the resource",
+            "nullable": true
+          },
           "conditionEndpoint": {
             "type": "string",
             "description": "Gets or sets the condition endpoint used to check the send condition",
@@ -1696,45 +1716,6 @@
         },
         "additionalProperties": false,
         "description": "Defines a container for specifying the recipient of a notification order."
-      },
-      "RecipientExternalIdentityExt": {
-        "required": [
-          "channelSchema",
-          "externalIdentity"
-        ],
-        "type": "object",
-        "properties": {
-          "emailSettings": {
-            "$ref": "#/components/schemas/EmailSendingOptionsExt"
-          },
-          "smsSettings": {
-            "$ref": "#/components/schemas/SmsSendingOptionsExt"
-          },
-          "externalIdentity": {
-            "minLength": 1,
-            "type": "string",
-            "description": "The external identity of the recipient in URN format."
-          },
-          "resourceId": {
-            "type": "string",
-            "description": "Gets or sets an optional resource identifier for authorization and auditing purposes.",
-            "nullable": true
-          },
-          "channelSchema": {
-            "enum": [
-              "Email",
-              "Sms",
-              "EmailPreferred",
-              "SmsPreferred",
-              "EmailAndSms"
-            ],
-            "type": "string",
-            "description": "The channel scheme for delivering the notification.",
-            "default": "Email"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Represents a notification recipient identified by an external identity."
       },
       "NotificationReminderExt": {
         "required": [
@@ -1866,6 +1847,50 @@
         "additionalProperties": false,
         "description": "Class representing a notification recipient."
       },
+      "RecipientExternalIdentityExt": {
+        "required": [
+          "channelSchema",
+          "externalIdentity"
+        ],
+        "type": "object",
+        "properties": {
+          "emailSettings": {
+            "$ref": "#/components/schemas/EmailSendingOptionsExt"
+          },
+          "smsSettings": {
+            "$ref": "#/components/schemas/SmsSendingOptionsExt"
+          },
+          "resourceId": {
+            "type": "string",
+            "description": "Gets or sets an optional resource identifier for authorization and auditing purposes.",
+            "nullable": true
+          },
+          "resourceAction": {
+            "type": "string",
+            "description": "Gets or sets the action to authorize against the resource. Defaults to \"read\" when not specified.",
+            "nullable": true
+          },
+          "externalIdentity": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The external identity of the recipient in URN format."
+          },
+          "channelSchema": {
+            "enum": [
+              "Email",
+              "Sms",
+              "EmailPreferred",
+              "SmsPreferred",
+              "EmailAndSms"
+            ],
+            "type": "string",
+            "description": "The channel scheme for delivering the notification.",
+            "default": "Email"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a notification recipient identified by an external identity."
+      },
       "RecipientLookupResultExt": {
         "type": "object",
         "properties": {
@@ -1911,15 +1936,20 @@
           "smsSettings": {
             "$ref": "#/components/schemas/SmsSendingOptionsExt"
           },
-          "orgNumber": {
-            "minLength": 1,
-            "type": "string",
-            "description": "Gets or sets the organization number that identifies the recipient."
-          },
           "resourceId": {
             "type": "string",
             "description": "Gets or sets an optional resource identifier for authorization and auditing purposes.",
             "nullable": true
+          },
+          "resourceAction": {
+            "type": "string",
+            "description": "Gets or sets the action to authorize against the resource. Defaults to \"read\" when not specified.",
+            "nullable": true
+          },
+          "orgNumber": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Gets or sets the organization number that identifies the recipient."
           },
           "channelSchema": {
             "enum": [
@@ -1949,15 +1979,20 @@
           "smsSettings": {
             "$ref": "#/components/schemas/SmsSendingOptionsExt"
           },
-          "nationalIdentityNumber": {
-            "minLength": 1,
-            "type": "string",
-            "description": "Gets or sets the national identity number of the recipient."
-          },
           "resourceId": {
             "type": "string",
             "description": "Gets or sets an optional resource identifier for authorization and auditing purposes.",
             "nullable": true
+          },
+          "resourceAction": {
+            "type": "string",
+            "description": "Gets or sets the action to authorize against the resource. Defaults to \"read\" when not specified.",
+            "nullable": true
+          },
+          "nationalIdentityNumber": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Gets or sets the national identity number of the recipient."
           },
           "channelSchema": {
             "enum": [
@@ -2081,6 +2116,11 @@
           "resourceId": {
             "type": "string",
             "description": "Gets or sets the ID of the resource that the notification is related to.",
+            "nullable": true
+          },
+          "resourceAction": {
+            "type": "string",
+            "description": "Gets or sets the action to authorize against the resource.",
             "nullable": true
           },
           "senderNumber": {
