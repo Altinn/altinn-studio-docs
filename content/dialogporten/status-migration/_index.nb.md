@@ -63,9 +63,12 @@ Nye app-instanser opprettet i Altinn 3 er tilgjengelig i Dialogporten umiddelbar
 Foreløpig migrert tilbake til 1. januar 2024. Eldre arkiverte skjema vil bli migrert senere.
 
 ### ✔ A2 Arkiverte skjema - Live
-Nye app-instanser opprettet i Altinn 2 migreres i puljer hvert 5. minutt.
+Nylig arkiverte app-instanser opprettet i Altinn 2 migreres i puljer hvert 5. minutt.
+Skjema som er under utfylling blir ikke migrert før de er arkivert.
 
 ## Endringslogg
+11.03.2026: Tydeliggjort at skjema som fortsatt er under utfylling i Altinn 2 ikke migreres før de er arkivert.
+
 24.02.2026: Migrering av 2024 fullført.
 
 20.12.2025:
