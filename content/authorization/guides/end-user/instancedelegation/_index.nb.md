@@ -6,22 +6,25 @@ toc: false
 hidden: true
 ---
 
-Funksjonen er tilgjengelig fra meldings- eller skjemaelementet i innboksen. Du kan delegere tilgang hvis du
-- har tilgang til elementet via tilgangspakke, rolle eller tjenestedelegering
+Funksjonen er tilgjengelig fra meldings- eller skjemaelementet i Altinn-innboksen. Du kan delegere tilgang hvis du
+- har tilgang til elementet via en tilgangspakke, en rolle eller tjenestedelegering
 - har fått delegert tilgangspakken «Tilgangsstyring for enkeltmelding og skjema»
 
 ![Skjermbilde av tilgangspakken](./instansdelegering2.png)
 
-For deg som har brukt instansdelegering i Altinn 2, er dette en innstramming i hvem som kan gi tilgang videre. Slik sikrer vi at bare autoriserte personer kan delegere tilgang, og ikke alle som har tilgang til meldinger og skjemaer i innboksen.
+For deg som har brukt tilsvarende funksjon i den gamle innboksen, er dette en innstramming i hvem som kan gi tilgang videre. Slik sikrer vi at bare autoriserte personer kan delegere tilgang, og ikke alle som har tilgang til meldinger og skjemaer i innboksen.
 
-Slik instansdelegerer du tilgang:
-- identifiser mottakeren med fødselsnummer og etternavn, eller med Altinn-brukernavn og etternavn
-- velg hvilke handlinger i tjenesten (lese, skrive) mottakeren skal ha tilgang til
+Når du klikker på knappen «Gi tilgang», kommer du til en ny side. 
+
+På denne siden må du
+- velge hvilke handlinger i tjenesten (lese, skrive) mottakeren skal ha tilgang til
+- identifisere mottakeren med fødselsnummer og etternavn, eller med Altinn-brukernavn og etternavn
 
 ![Skjermbilde som viser valg av tilganger før identifiserende informasjon fylles inn](./instansdelegering3.png)
 
-Når du har delegert tilgang, finner mottakeren dialogen i Dialogporten. Hvis det er første gang mottakeren får tilgang til elementer for den aktuelle aktøren, vil aktøren også vises for første gang i aktørlisten til mottakeren.
+Når du har delegert tilgang, finner mottakeren dialogen i Altinn-innboksen. 
 
+Hvis det er første gang mottakeren får tilgang til elementer for den aktuelle aktøren, vil aktøren også vises for første gang i aktørlisten til mottakeren.
 
 
 ## Delegere tilgangspakken for postfordeling
