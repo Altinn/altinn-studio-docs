@@ -21,9 +21,9 @@ Før du setter opp eFormidling må du konfigurere:
 
 ### Maskinporten-integrasjon
 
-For å aktivere eFormidling i appen din, må du [sette opp integrasjon mellom appen og Maskinporten](/nb/altinn-studio/v8/guides/integration/maskinporten/).
+For å aktivere eFormidling i appen din, må du [sette opp integrasjon mellom appen og Maskinporten](/nb/altinn-studio/v10/develop-a-service/reference/integration/maskinporten/).
 
-* **Merk:** Appen inkluderer automatisk den innebygde `IMaskinportenClient`. Hvis du trenger tilpasset konfigurasjon, kan du bruke:
+* **Merk:** Appen inkluderer automatisk den innebygde `IMaskinportenClient`. Hvis du trenger egendefinert konfigurasjon, kan du bruke:
 
   {{< code-title >}}
     App/Program.cs
@@ -195,12 +195,12 @@ I `appsettings.json`, aktiver eFormidling i `"AppSettings"`-seksjonen og legg ti
 Hvis du ikke vil teste eFormidling-integrasjonen lokalt, kan du legge til en `"AppSettings"`-seksjon i `appsettings.Development.json` og sette `"EnableEFormidling"` til `false`.
 
 ### Generere meldingsmetadata {#eFormidling-oppsett-eFormidlingMetadata}
-Du er ansvarlig for å opprette meldingen som sendes gjennom eFormidling.
+Du er ansvarlig for å lage meldingen som sendes gjennom eFormidling.
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Kode/Syntaks">}}
 
-For å opprette meldingen, trenger du en klasse som implementerer `IEFormidlingMetadata`-grensesnittet og oppretter meldingen din i `GenerateEFormidlingMetadata`-metoden. Husk å registrere klassen din i [`Program.cs`](#eFormidling-oppsett-program).
+For å lage meldingen, trenger du en klasse som implementerer `IEFormidlingMetadata`-grensesnittet og lager meldingen din i `GenerateEFormidlingMetadata`-metoden. Husk å registrere klassen din i [`Program.cs`](#eFormidling-oppsett-program).
 
 Du må erstatte `YourMessageType` og `yourMessage` med meldingstypen din.
 
@@ -362,7 +362,7 @@ public class EFormidlingMetadata : IEFormidlingMetadata
 
 ### Sette meldingsmottaker dynamisk {#eFormidling-oppsett-eFormidlingReceivers}
 
-Hvis du må sette meldingsmottakeren dynamisk, må du opprette en klasse som implementerer `IEFormidlingReceivers`-grensesnittet og registrere den i [`Program.cs`](#eFormidling-oppsett-program).
+Hvis du må sette meldingsmottakeren dynamisk, må du lage en klasse som implementerer `IEFormidlingReceivers`-grensesnittet og registrere den i [`Program.cs`](#eFormidling-oppsett-program).
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Kode/Syntaks">}}
@@ -414,7 +414,7 @@ En måte å sikre unike filnavn på er gjennom [filvalidering](/nb/altinn-studio
 ## Testing
 Test eFormidling-integrasjonen i appen din grundig.
 Sikkerhetstiltak og mekanismer for nye forsøk er på plass for å sikre at en melding når mottakeren når feil skyldes svake nettverksforbindelser.
-Imidlertid vil ugyldige meldinger (inkludert manglende vedlegg eller feil i `"arkivmelding"`) føre til at meldingen feiler uten advarsel til sluttbrukeren eller appeieren.
+Ugyldige meldinger (inkludert manglende vedlegg eller feil i `"arkivmelding"`) vil imidlertid føre til at meldingen feiler uten advarsel til sluttbrukeren eller tjenesteeieren.
 
 ### Lokal testing
 {{%notice warning%}}

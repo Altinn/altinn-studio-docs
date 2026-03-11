@@ -25,6 +25,7 @@ Dette er den foretrukne metoden hvor du som SBSL initierer opprettelsen via API.
   * Du må kjenne organisasjonsnummeret (`partyOrgNo`) til sluttbrukerkunden.
   * Du må ha definert hvilke tilgangspakker (`accessPackages`) eller enkeltrettigheter (`rights`) systembrukeren trenger.
   * (Valgfritt) Hvis `redirectUrl` skal benyttes, må denne URL-en være forhåndsregistrert på systemet ditt.
+  * (Valgfritt) Hvis du ønsker et spesifikt navn på systembrukeren som opprettes, kan `integrationTitle` settes. Hvis `integrationTitle` ikke er satt, vil systembrukeren få samme navn som systemet.
 
 1.  **Initier forespørsel:** Send en HTTP POST-forespørsel til API-endepunktet.
 
@@ -37,6 +38,7 @@ Dette er den foretrukne metoden hvor du som SBSL initierer opprettelsen via API.
     {
     "systemId": "991825827_smartcloud",
     "partyOrgNo": "314248295",
+    "integrationTitle": "SmartCloud for Skatt",
     "rights": [
       {
         "resource": [
@@ -108,6 +110,7 @@ Dette gjelder en systembruker for et system som skal handle på vegne av sluttbr
       {
     "systemId": "312605031_SuperRegnskap",
     "partyOrgNo": "310495670",
+    "integrationTitle": "SuperRegnskap for revisortilganger",
     "accessPackages": [
       {
         "urn": "urn:altinn:accesspackage:ansvarlig-revisor"
