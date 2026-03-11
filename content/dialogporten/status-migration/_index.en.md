@@ -67,7 +67,7 @@ Newly archived app instances created in Altinn 2 are migrated in batches every 5
 Forms that are still being filled out are not migrated until they are archived.
 
 ## Changelog
-11.03.2026: Made more clear that forms still being filled out in Altinn 2 are not migrated until they are archived.
+11.03.2026: Clarified that forms still being filled out in Altinn 2 are not migrated until they are archived.
 
 24.02.2026: Migration of 2024 completed.
 

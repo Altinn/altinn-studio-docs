@@ -67,7 +67,7 @@ Nylig arkiverte app-instanser opprettet i Altinn 2 migreres i puljer hvert 5. mi
 Skjema som er under utfylling blir ikke migrert før de er arkivert.
 
 ## Endringslogg
-11.03.2026: Gjort mer tydelig at skjema som fortsatt er under utfylling i Altinn 2 ikke migreres før de er arkivert.
+11.03.2026: Tydeliggjort at skjema som fortsatt er under utfylling i Altinn 2 ikke migreres før de er arkivert.
 
 24.02.2026: Migrering av 2024 fullført.
 
