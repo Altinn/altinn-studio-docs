@@ -7,7 +7,7 @@ weight: 50
 Dette dokumentet beskriver sending av varsler til instanseier når en instans opprettes. Her er en oversikt over funksjonaliteten og hvordan du kan prøve den ut.
 
 {{% notice warning %}}
-Varsel ved instansiering er pdd. kun tilgjenglig i eksperimentelle pakker. Det vil si at pakkene er ment for testing.
+Varsel ved instansiering er kun tilgjengelig i eksperimentelle pakker. Det vil si at pakkene er ment for testing.
 {{% /notice %}}
 
 ## Eksperimentelle pakker
