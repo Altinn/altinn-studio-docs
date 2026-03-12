@@ -97,7 +97,7 @@ Utelat denne egenskapen eller sett den til `null` hvis du vil abonnere på alle 
 {{% /notice %}}
 
 {{% notice info %}}
-**Tips:** Når du spør mot events-APIet, returneres kun 2 resultater som standard. Hvis ressursen din deles med andre tjenester (f.eks. Dialogporten), kan disse hendelsene vises først slik at appens hendelser ikke er synlige. Bruk et spesifikt `typeFilter` for å få pålitelige resultater, for eksempel:
+__Tips:__ Når du spør mot events-APIet, returneres kun 2 resultater som standard. Hvis ressursen din deles med andre tjenester (f.eks. Dialogporten), kan disse hendelsene vises først slik at appens hendelser ikke er synlige. Bruk et spesifikt `typeFilter` for å få pålitelige resultater, for eksempel:
 
 `&type=app.instance.process.completed&size=10`
 {{% /notice %}}

@@ -98,7 +98,7 @@ Setting `typeFilter` to an empty string (`""`) instead of omitting it or using `
 {{% /notice %}}
 
 {{% notice info %}}
-**Tip:** When querying events, the API returns only 2 results by default. If your resource is shared with other services (e.g. Dialogporten), those events may appear first and your app's events may not be visible. Use a specific `typeFilter` to get reliable results, for example:
+__Tip:__ When querying events, the API returns only 2 results by default. If your resource is shared with other services (e.g. Dialogporten), those events may appear first and your app's events may not be visible. Use a specific `typeFilter` to get reliable results, for example:
 
 `&type=app.instance.process.completed&size=10`
 {{% /notice %}}
