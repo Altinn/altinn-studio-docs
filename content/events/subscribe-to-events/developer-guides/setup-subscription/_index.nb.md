@@ -81,7 +81,7 @@ Når du abonnerer på en app-hendelse er formatet for kildefilter `https://digdi
 - filter for cloud event-subjektet
 
 {{% notice warning %}}
-Utelat denne egenskapen eller sett den til `null` for å abonnere på alle subjekter. Å sette den til en tom streng (`""`) vil føre til at det ikke leverers hendelser.
+Utelat denne egenskapen eller sett den til `null` for å abonnere på alle subjekter. Å sette den til en tom streng (`""`) vil føre til at det ikke leveres hendelser.
 {{% /notice %}}
 
 #### alternativeSubjectFilter
