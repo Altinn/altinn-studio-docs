@@ -1,7 +1,7 @@
 ---
-title: Styre tilgang til enkeltmeldinger og skjemaer
+title: Styre tilgang til enkeltmeldinger, skjemaer og dialoger
 linktitle: Instansdelegering
-description: Slik delegerer du tilgang til enkeltmeldinger og skjemaer fra Altinn-innboksen.
+description: Slik delegerer du tilgang til enkeltmeldinger, skjemaer og dialoger fra Altinn-innboksen.
 toc: false
 hidden: true
 ---
