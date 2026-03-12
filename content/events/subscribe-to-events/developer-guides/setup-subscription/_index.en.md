@@ -81,13 +81,27 @@ When subscribing to an app event format for source filter is `https://digdir.app
 #### subjectFilter
 - filter for the cloud event's subject
 
+{{% notice warning %}}
+Omit this property or set it to `null` to subscribe to all subjects. Setting it to an empty string (`""`) will cause the subscription to silently fail to deliver events.
+{{% /notice %}}
+
 #### alternativeSubjectFilter
 - filter for the cloud event's alternative subject
 
 #### typeFilter
 - filter for the cloud event type
 
-Omit this property if you want to subscribe to all events types for the given source and/or resource
+Omit this property or set it to `null` if you want to subscribe to all event types for the given source and/or resource.
+
+{{% notice warning %}}
+Setting `typeFilter` to an empty string (`""`) instead of omitting it or using `null` will cause the subscription to silently fail to match events. This is a common source of errors that is difficult to debug, as no validation error is returned.
+{{% /notice %}}
+
+{{% notice info %}}
+**Tip:** When querying events, the API returns only 2 results by default. If your resource is shared with other services (e.g. Dialogporten), those events may appear first and your app's events may not be visible. Use a specific `typeFilter` to get reliable results, for example:
+
+`&type=app.instance.process.completed&size=10`
+{{% /notice %}}
 
 ## Response
 
