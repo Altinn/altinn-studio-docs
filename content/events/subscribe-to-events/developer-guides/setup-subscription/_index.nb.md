@@ -81,7 +81,7 @@ Når du abonnerer på en app-hendelse er formatet for kildefilter `https://digdi
 - filter for cloud event-subjektet
 
 {{% notice warning %}}
-Utelat denne egenskapen eller sett den til `null` for å abonnere på alle subjekter. Å sette den til en tom streng (`""`) vil føre til at abonnementet stille svikter med å levere hendelser.
+Utelat denne egenskapen eller sett den til `null` for å abonnere på alle subjekter. Å sette den til en tom streng (`""`) vil føre til at det ikke leverers hendelser.
 {{% /notice %}}
 
 #### alternativeSubjectFilter
@@ -93,7 +93,7 @@ Utelat denne egenskapen eller sett den til `null` for å abonnere på alle subje
 Utelat denne egenskapen eller sett den til `null` hvis du vil abonnere på alle hendelsestyper for den gitte kilden og/eller ressursen.
 
 {{% notice warning %}}
-Å sette `typeFilter` til en tom streng (`""`) i stedet for å utelate den eller bruke `null` vil føre til at abonnementet stille svikter med å matche hendelser. Dette er en vanlig feilkilde som er vanskelig å feilsøke, siden det ikke returneres noen valideringsfeil.
+Å sette `typeFilter` til en tom streng (`""`) i stedet for å utelate den eller bruke `null` vil føre til at abonnementet feiler med å matche hendelser.
 {{% /notice %}}
 
 {{% notice info %}}
