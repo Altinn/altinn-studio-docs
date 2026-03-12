@@ -6,9 +6,13 @@ weight: 50
 
 Dette dokumentet beskriver sending av varsler til instanseier når en instans opprettes. Her er en oversikt over funksjonaliteten og hvordan du kan prøve den ut.
 
+{{% notice warning %}}
+Varsel ved instansiering er pdd. kun tilgjenglig i eksperimentelle pakker. Det vil si at pakkene er ment for testing.
+{{% /notice %}}
+
 ## Eksperimentelle pakker
 
-Nuget-pakkene er Altinn.App.Api.Experimental og Altinn.App.Core.Experimental, versjon 8.11.0-pr.4620.instantiation-notification-api-approach.1c43a2d4.
+NuGet-pakkene er Altinn.App.Api.Experimental og Altinn.App.Core.Experimental, versjon 8.11.0-pr.4620.instantiation-notification-api-approach.1c43a2d4.
 
 ## Hva er nytt?
 
@@ -101,12 +105,12 @@ For test av SMS i et testmiljø må nummeret hvitelistes. Ta kontakt dersom dett
 
 ```json
 {
-  "instanceOwner": {
-    "personNumber": "54928201018"
-  },
-  "notification": {
-    "notificationChannel": 0
-  }
+  "instanceOwner": {
+    "personNumber": "54928201018"
+  },
+  "notification": {
+    "notificationChannel": 0
+  }
 }
 ```
 
@@ -114,32 +118,32 @@ Eksempel med egendefinerte tekster:
 
 ```json
 {
-  "instanceOwner": {
-    "personNumber": "54928201018"
-  },
-  "notification": {
-    "notificationChannel": 4,
-    "customSms": {
-      "senderName": "MinOrg",
-      "text": {
-        "nb": "$appName$ er klar for $instanceOwnerName$",
-        "nn": "$appName$ er klar for $instanceOwnerName$",
-        "en": "$appName$ is ready for $instanceOwnerName$"
-      }
-    },
-    "customEmail": {
-      "subject": {
-        "nb": "$appName$ - ny instans opprettet",
-        "nn": "$appName$ - ny instans oppretta",
-        "en": "$appName$ - new instance created"
-      },
-      "body": {
-        "nb": "Hei $instanceOwnerName$, en ny instans av $appName$ er opprettet for deg.",
-        "nn": "Hei $instanceOwnerName$, ei ny instans av $appName$ er oppretta for deg.",
-        "en": "Hello $instanceOwnerName$, a new instance of $appName$ has been created for you."
-      }
-    }
-  }
+  "instanceOwner": {
+    "personNumber": "54928201018"
+  },
+  "notification": {
+    "notificationChannel": 4,
+    "customSms": {
+      "senderName": "MinOrg",
+      "text": {
+        "nb": "$appName$ er klar for $instanceOwnerName$",
+        "nn": "$appName$ er klar for $instanceOwnerName$",
+        "en": "$appName$ is ready for $instanceOwnerName$"
+      }
+    },
+    "customEmail": {
+      "subject": {
+        "nb": "$appName$ - ny instans opprettet",
+        "nn": "$appName$ - ny instans oppretta",
+        "en": "$appName$ - new instance created"
+      },
+      "body": {
+        "nb": "Hei $instanceOwnerName$, en ny instans av $appName$ er opprettet for deg.",
+        "nn": "Hei $instanceOwnerName$, ei ny instans av $appName$ er oppretta for deg.",
+        "en": "Hello $instanceOwnerName$, a new instance of $appName$ has been created for you."
+      }
+    }
+  }
 }
 ```
 

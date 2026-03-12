@@ -6,6 +6,10 @@ weight: 50
 
 This document describes sending notification(s) to the instance owner when an instance is created. Here is an overview of the functionality and how you can try it out.
 
+{{% notice warning %}}
+Notification on instantiation is published in experimental packages. These packages are meant for testing.
+{{% /notice %}}
+
 ## Experimental packages
 
 The NuGet packages are `Altinn.App.Api.Experimental` and `Altinn.App.Core.Experimental`, version `8.11.0-pr.4620.instantiation-notification-api-approach.1c43a2d4`.
