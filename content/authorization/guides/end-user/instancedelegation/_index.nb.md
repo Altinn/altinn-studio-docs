@@ -1,14 +1,14 @@
 ---
-title: Styre tilgang til enkeltmeldinger og skjemaer
+title: Styre tilgang til enkeltmeldinger, skjemaer og dialoger
 linktitle: Instansdelegering
-description: Slik delegerer du tilgang til enkeltmeldinger og skjemaer fra Altinn-innboksen.
+description: Slik delegerer du tilgang til enkeltmeldinger, skjemaer og dialoger fra Altinn-innboksen.
 toc: false
 hidden: true
 ---
 
 Funksjonen er tilgjengelig fra meldings- eller skjemaelementet i Altinn-innboksen. For å delegere tilgang må du
 - ha tilgang til elementet via en tilgangspakke, en rolle eller en tjenestedelegering
-- ha fått delegert tilgangspakken «Tilgangsstyring for enkeltmelding, skjema og dialoger»
+- ha fått delegert tilgangspakken «Tilgangsstyrer for enkeltmelding, skjema og dialoger»
 
 ![Skjermbilde av tilgangspakken](./instansdelegering2.png)
 
@@ -27,15 +27,15 @@ Når du har delegert tilgang, finner mottakeren meldingen eller skjemaet i Altin
 Hvis mottakeren ikke har hatt tilgang til elementer for den aktuelle aktøren tidligere, vil aktøren også dukke opp i aktørlisten for første gang.
 
 
-## Delegere tilgangspakken for tilgangsstyring
+## Delegere tilgangspakken for Tilgangsstyrer for enkeltmelding, skjema og dialoger
 
-Tilgangspakken «Tilgangsstyring for enkeltmelding, skjema og dialoger» delegerer du i Altinn på samme måte som andre pakker.
+Tilgangspakken «Tilgangsstyrer for enkeltmelding, skjema og dialoger» delegerer du i Altinn på samme måte som andre pakker.
 
-![Skjermbilde av delegering av tilgangspakken for tilgangsstyring](./instansdelegering.png)
+![Skjermbilde av delegering av tilgangspakker](./instansdelegering.png)
 
 
 ## Brukere uten nødvendig tilgangspakke
 
-Brukere som ikke har tilgangspakken «Tilgangsstyring for enkeltmelding, skjema og dialoger», får en melding om at de mangler rettighetene som kreves for å delegere videre.
+Brukere som ikke har tilgangspakken «Tilgangsstyrer for enkeltmelding, skjema og dialoger», får en melding om at de mangler rettighetene som kreves for å delegere videre.
 
 ![Skjermbilde som viser melding om manglende rettigheter](./instansdelegering4.png)
