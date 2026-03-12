@@ -148,8 +148,6 @@ Example with custom texts:
 
 ## Self identified users
 
-Requires the user to exists in the environment and that the request is doen using an org token.
-
 ```json
 {
   "instanceOwner": {

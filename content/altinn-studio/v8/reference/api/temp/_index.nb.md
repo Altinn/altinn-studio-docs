@@ -149,8 +149,6 @@ Eksempel med egendefinerte tekster:
 
 ## Selvidentifisert bruker
 
-Krever at brukerene eksisterer og at requesten gjøres med et org token.
-
 ```json
 {
   "instanceOwner": {
