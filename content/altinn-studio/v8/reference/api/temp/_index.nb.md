@@ -12,7 +12,7 @@ Varsel ved instansiering er kun tilgjengelig i eksperimentelle pakker. Det vil s
 
 ## Eksperimentelle pakker
 
-NuGet-pakkene er Altinn.App.Api.Experimental og Altinn.App.Core.Experimental, versjon 8.11.0-pr.4620.instantiation-notification-api-approach.1c43a2d4.
+NuGet-pakkene er `Altinn.App.Api.Experimental` og `Altinn.App.Core.Experimental`, versjon `8.11.0-pr.4732.instantiation-notif-callback.0a231569`.
 
 ## Hva er nytt?
 
@@ -143,6 +143,30 @@ Eksempel med egendefinerte tekster:
         "en": "Hello $instanceOwnerName$, a new instance of $appName$ has been created for you."
       }
     }
+  }
+}
+```
+
+## Selvidentifisert bruker
+
+```json
+{
+  "instanceOwner": {
+    "externalIdentifier": "urn:altinn:person:legacy-selfidentified:jensjensen"
+  },
+  "notification": {
+    "notificationChannel": 0
+  }
+}
+```
+
+```json
+{
+  "instanceOwner": {
+    "username": "epost:jens.jensen@digdir.no"
+  },
+  "notification": {
+    "notificationChannel": 0
   }
 }
 ```

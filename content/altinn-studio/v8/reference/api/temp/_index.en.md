@@ -12,7 +12,7 @@ Notification on instantiation is published in experimental packages. These packa
 
 ## Experimental packages
 
-The NuGet packages are `Altinn.App.Api.Experimental` and `Altinn.App.Core.Experimental`, version `8.11.0-pr.4620.instantiation-notification-api-approach.1c43a2d4`.
+The NuGet packages are `Altinn.App.Api.Experimental` and `Altinn.App.Core.Experimental`, version `8.11.0-pr.4732.instantiation-notif-callback.0a231569`.
 
 ## What's new?
 
@@ -142,6 +142,30 @@ Example with custom texts:
         "en": "Hello $instanceOwnerName$, a new instance of $appName$ has been created for you."
       }
     }
+  }
+}
+```
+
+## Self identified users
+
+```json
+{
+  "instanceOwner": {
+    "externalIdentifier": "urn:altinn:person:legacy-selfidentified:jensjensen"
+  },
+  "notification": {
+    "notificationChannel": 0
+  }
+}
+```
+
+```json
+{
+  "instanceOwner": {
+    "username": "epost:jens.jensen@digdir.no"
+  },
+  "notification": {
+    "notificationChannel": 0
   }
 }
 ```
