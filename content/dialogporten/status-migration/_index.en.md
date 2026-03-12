@@ -63,9 +63,12 @@ New app instances created in Altinn 3 are available in Dialogporten immediately.
 Migrated back to 1st of January 2024. Older archived forms will be migrated later.
 
 ### ✔ A2 Archived forms - Live
-New app instances created in Altinn 2 are migrated in batches every 5 minutes.
+Newly archived app instances created in Altinn 2 are migrated in batches every 5 minutes.
+Forms that are still being filled out are not migrated until they are archived.
 
 ## Changelog
+11.03.2026: Clarified that forms still being filled out in Altinn 2 are not migrated until they are archived.
+
 24.02.2026: Migration of 2024 completed.
 
 20.12.2025:

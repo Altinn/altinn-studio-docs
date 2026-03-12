@@ -56,7 +56,7 @@
         "security": [
           {
             "oauth2": [
-              "PlatformComponentOnly"
+              "InternalOrPlatform"
             ]
           }
         ]
@@ -1742,6 +1742,15 @@
               "type": "boolean",
               "default": true
             }
+          },
+          {
+            "name": "includeMigratedApps",
+            "in": "query",
+            "description": "Include migrated apps from A1/A2",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
           }
         ],
         "responses": {
@@ -1795,6 +1804,15 @@
             "required": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "versionId",
+            "in": "query",
+            "description": "The version identifier to retrieve",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -2243,6 +2261,13 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "Reference",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -2325,6 +2350,52 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/OrgList"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/resourceregistry/api/v2/resource/{id}/policy/rights": {
+      "get": {
+        "tags": [
+          "ResourceV2"
+        ],
+        "summary": "Returns a list of rights for a resource in V2 version with new model. A right is a combination of resource and action.\r\nResponse is grouped by right.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "includeServiceOwnerRights",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          },
+          {
+            "name": "includeAppRights",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceDecomposedDto"
                 }
               }
             }
@@ -2666,6 +2737,23 @@
       "AggregateVersionIVersionedEntityCondition": {
         "type": "object",
         "additionalProperties": false
+      },
+      "AttributeMatchDTO": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "description": "Value",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "This model represents a pair of attribute type and value, which can be used for matching in XACML policies, such as resources, users, parties, or actions. It is a simplified version of the internal AttributeMatchV3 model, designed for external communication and data transfer purposes."
       },
       "AttributeMatchV2": {
         "required": [
@@ -3378,7 +3466,8 @@
           "MaskinportenScope",
           "ServiceCode",
           "ServiceEditionCode",
-          "ApplicationId"
+          "ApplicationId",
+          "ServiceEditionVersion"
         ],
         "type": "string"
       },
@@ -3389,6 +3478,24 @@
         ],
         "type": "integer",
         "format": "int32"
+      },
+      "ResourceDecomposedDto": {
+        "required": [
+          "rights"
+        ],
+        "type": "object",
+        "properties": {
+          "rights": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RightDecomposedDto"
+            },
+            "description": "Actions for which access is being checked on the resource.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Decompose model for a resource"
       },
       "ResourceIdentifier": {
         "type": "object",
@@ -3448,6 +3555,47 @@
         ],
         "type": "integer",
         "format": "int32"
+      },
+      "RightDecomposedDto": {
+        "required": [
+          "right"
+        ],
+        "type": "object",
+        "properties": {
+          "right": {
+            "$ref": "#/components/schemas/RightDto"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Dto for response of Resource decomposed"
+      },
+      "RightDto": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "description": "Unique key for action",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the action to present in frontend",
+            "nullable": true
+          },
+          "resource": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttributeMatchDTO"
+            },
+            "description": "Concatenated key for subresources from policy rule",
+            "nullable": true
+          },
+          "action": {
+            "$ref": "#/components/schemas/AttributeMatchDTO"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a data transfer object that defines a right, including its key, display name, associated\r\nresources, and action identifier."
       },
       "ServiceResource": {
         "required": [
@@ -3594,6 +3742,10 @@
           },
           "isOneTimeConsent": {
             "type": "boolean"
+          },
+          "versionId": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
