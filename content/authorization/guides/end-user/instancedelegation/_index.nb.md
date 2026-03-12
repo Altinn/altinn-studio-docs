@@ -27,11 +27,11 @@ Når du har delegert tilgang, finner mottakeren meldingen eller skjemaet i Altin
 Hvis mottakeren ikke har hatt tilgang til elementer for den aktuelle aktøren tidligere, vil aktøren også dukke opp i aktørlisten for første gang.
 
 
-## Delegere tilgangspakken for tilgangsstyring
+## Delegere tilgangspakken for Tilgangsstyrer for enkeltmelding, skjema og dialoger
 
 Tilgangspakken «Tilgangsstyrer for enkeltmelding, skjema og dialoger» delegerer du i Altinn på samme måte som andre pakker.
 
-![Skjermbilde av delegering av tilgangspakken for tilgangsstyring](./instansdelegering.png)
+![Skjermbilde av delegering av tilgangspakker](./instansdelegering.png)
 
 
 ## Brukere uten nødvendig tilgangspakke
