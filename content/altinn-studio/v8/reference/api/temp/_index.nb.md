@@ -20,34 +20,7 @@ Det er lagt til et nytt felt, `notification`, i request-bodyen til POST /instanc
 
 ## Slik fungerer det
 
-### Kanalvalg (`notificationChannel`)
-
-Merk at `notificationChannel` er en integer-enum, ikke en streng. Gyldige verdier er:
-
-| Verdi | Kanal | Beskrivelse |
-|---|---|---|
-| `0` | Email | Kun e-post |
-| `1` | Sms | Kun SMS |
-| `2` | EmailPreferred | E-post først, SMS som fallback hvis mottaker mangler e-postadresse |
-| `3` | SmsPreferred | SMS først, e-post som fallback hvis mottaker mangler telefonnummer |
-| `4` | EmailAndSms | Både e-post og SMS sendes samtidig (standard) |
-
-### Språk
-
-- For privatpersoner hentes språket automatisk fra profilen deres i Altinn.
-- For organisasjoner brukes språket oppgitt i instansieringsforespørselen (`language`-feltet i `notification`-objektet), med norsk bokmål som fallback.
-
-### Standardtekster
-
-Hvis du ikke oppgir egendefinerte tekster, brukes standardtekster.
-
-Eksempel på mottatt e-post med standardtekst:
-
-*Emne:* Nytt skjema opprettet i Altinn
-
-*Brødtekst:* Testdepartementet har opprettet et nytt skjema (varsel-instansiering-ttd) for ASTROLOG NÆR med fødselsnummer 54928201018 - åpne innboksen i Altinn for å se skjemaet.
-
-## Felter i `notification`-objektet
+### Felter i `notification`-objektet
 
 **`InstansiationNotification`**
 
@@ -79,6 +52,33 @@ Eksempel på mottatt e-post med standardtekst:
 | `nb` | string | Ja | Tekst på norsk bokmål. |
 | `nn` | string | Ja | Tekst på norsk nynorsk. |
 | `en` | string | Ja | Tekst på engelsk. |
+
+### Kanalvalg (`notificationChannel`)
+
+Merk at `notificationChannel` er en integer-enum, ikke en streng. Gyldige verdier er:
+
+| Verdi | Kanal | Beskrivelse |
+|---|---|---|
+| `0` | Email | Kun e-post |
+| `1` | Sms | Kun SMS |
+| `2` | EmailPreferred | E-post først, SMS som fallback hvis mottaker mangler e-postadresse |
+| `3` | SmsPreferred | SMS først, e-post som fallback hvis mottaker mangler telefonnummer |
+| `4` | EmailAndSms | Både e-post og SMS sendes samtidig (standard) |
+
+### Språk
+
+- For privatpersoner hentes språket automatisk fra profilen deres i Altinn.
+- For organisasjoner brukes språket oppgitt i instansieringsforespørselen (`language`-feltet i `notification`-objektet), med norsk bokmål som fallback.
+
+### Standardtekster
+
+Hvis du ikke oppgir egendefinerte tekster, brukes standardtekster.
+
+Eksempel på mottatt e-post med standardtekst:
+
+*Emne:* Nytt skjema opprettet i Altinn
+
+*Brødtekst:* Testdepartementet har opprettet et nytt skjema (varsel-instansiering-ttd) for ASTROLOG NÆR med fødselsnummer 54928201018 - åpne innboksen i Altinn for å se skjemaet.
 
 ## Egendefinerte tekster og tokens
 

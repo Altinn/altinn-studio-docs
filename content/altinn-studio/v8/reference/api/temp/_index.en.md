@@ -20,33 +20,7 @@ A new field, `notification`, has been added to the request body of `POST /instan
 
 ## How it works
 
-### Channel selection (`notificationChannel`)
-
-Note that `notificationChannel` is an integer enum, not a string. Valid values are:
-
-| Value | Channel | Description |
-|---|---|---|
-| `0` | Email | Email only |
-| `1` | Sms | SMS only |
-| `2` | EmailPreferred | Email first, SMS as fallback if the recipient has no email address |
-| `3` | SmsPreferred | SMS first, email as fallback if the recipient has no phone number |
-| `4` | EmailAndSms | Both email and SMS are sent simultaneously (default) |
-
-### Language
-
-- For individuals, the language is automatically retrieved from their Altinn profile.
-- For organizations, the language specified in the instantiation request (`language` field in the `notification` object) is used, with Norwegian Bokmål as fallback.
-
-**Default texts**
-If you do not provide custom texts, default texts will be used.
-
-Example of a received email with default text:
-
-*Subject:* New form created in Altinn
-
-*Body:* The Norwegian Test Department has created a new form (notification-instantiation-ttd) for ASTROLOG NÆR with social security number 54928201018 - open your Altinn inbox to view the form.
-
-## Fields in the `notification` object
+### Fields in the `notification` object
 
 **`InstansiationNotification`**
 
@@ -78,6 +52,32 @@ Example of a received email with default text:
 | `nb` | string | Yes | Text in Norwegian Bokmål. |
 | `nn` | string | Yes | Text in Norwegian Nynorsk. |
 | `en` | string | Yes | Text in English. |
+
+### Channel selection (`notificationChannel`)
+
+Note that `notificationChannel` is an integer enum, not a string. Valid values are:
+
+| Value | Channel | Description |
+|---|---|---|
+| `0` | Email | Email only |
+| `1` | Sms | SMS only |
+| `2` | EmailPreferred | Email first, SMS as fallback if the recipient has no email address |
+| `3` | SmsPreferred | SMS first, email as fallback if the recipient has no phone number |
+| `4` | EmailAndSms | Both email and SMS are sent simultaneously (default) |
+
+### Language
+
+- For individuals, the language is automatically retrieved from their Altinn profile.
+- For organizations, the language specified in the instantiation request (`language` field in the `notification` object) is used, with Norwegian Bokmål as fallback.
+
+**Default texts**
+If you do not provide custom texts, default texts will be used.
+
+Example of a received email with default text:
+
+*Subject:* New form created in Altinn
+
+*Body:* The Norwegian Test Department has created a new form (notification-instantiation-ttd) for ASTROLOG NÆR with social security number 54928201018 - open your Altinn inbox to view the form.
 
 ## Custom texts and tokens
 
