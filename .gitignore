@@ -28,3 +28,4 @@ hugo
 hyperlink*
 .claude/settings.local.json
 apikey.secret
+scripts/components/.schema-cache
