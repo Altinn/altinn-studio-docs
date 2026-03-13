@@ -32,7 +32,7 @@ draft: true
 
 | Property | Description | Allowed Values |
 |----------|-------------|----------------|
-| `page` | Which pages should be validated when the next button is clicked. Required. | `"current"`, `"currentAndPrevious"`, `"all"` |
+| `page` | Which pages should be validated when the back button is clicked. Required. | `"current"`, `"currentAndPrevious"`, `"all"` |
 | `show` | List of validation types to show Required. |  |
 
 ## Common properties

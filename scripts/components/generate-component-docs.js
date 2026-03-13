@@ -268,7 +268,13 @@ async function extractEnumValues(schema, resolver, baseUrl) {
 /** Escape pipe characters in markdown table cells. */
 function mdEscape(str) {
   if (!str) return '';
-  return str.replace(/\|/g, '\\|').replace(/\n/g, ' ');
+  return str
+    .replace(/<i\s*\/>/gi, '</i>') // known malformed tag in schema descriptions that breaks markdown parsing, fix it on the way through
+    .replace(/<(?!\/?(?:br|i)\b)[^>]+>/gi, (tag) =>
+      tag.replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    )
+   .replace(/\|/g, '\\|')
+   .replace(/\n/g, ' ');
 }
 
 // ---------------------------------------------------------------------------
