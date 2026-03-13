@@ -5,229 +5,196 @@ description: Under arbeid - komponentoversikt basert på Altinn Studio GUI
 tags: [needsReview, translate-to-english, under-construction]
 ---
 
-{{< notice warning >}}
-Denne siden er under arbeid. Komponentoversikten vil bli oppdatert basert på de 42 komponentene som er tilgjengelige i Altinn Studio GUI.
-{{< /notice >}}
-
 ## Skjema
 
 Komponenter for datainnsamling.
 
-### Lite tekstfelt (Input)
+### Lite tekstfelt (`Input`)
+`Input` gir brukere muligheten til å skrive fritekst eller tall.
 
-_Innhold kommer._
+![Input](./Input.png)
 
----
-
-### Stort tekstfelt (TextArea)
-
-_Innhold kommer._
+[Detaljer om komponenten](./Input)
 
 ---
 
-### Dato (Date)
+### Stort tekstfelt (`TextArea`)
 
-`Date`-komponenten lar brukeren legge til strukturert formatert dato med eller uten ledetekst.
+`TextArea` brukes når brukeren skal kunne skrive inn tekst som går over flere linjer.
 
-#### Utseende
+![TextArea](./TextArea.png)
 
-1. **Horisontal**: Dato med ledetekst strukturert horisontalt
-2. **Vertikal**: Dato med ledetekst strukturert vertikalt
-
-#### Egenskaper
-
-| **Egenskap**                 | **Type** | **Beskrivelse**                                                                                                                            |
-|------------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| `id`                         | string   | Unik Id streng for komponenten.                                                                                                             |
-| `value`                      | string   | Datoen du vil vise frem. Må være en ISO6801 string.                                                                                        |
-| `textResourceBindings.title` | string   | Ledeteksten til datoen du vil vise.                                                                                                         |
-| `format`                     | string   | En formateringsstreng basert på [Unicode Teknisk standard](https://www.unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table).   |
-| `direction`                  | string   | Setter den strukturerte retningen for ledetekst og verdi. <br/><br/>**Enum:** [horizontal, vertical] . <br/> <br/>**Default:** horizontal. |
+[Detaljer om komponenten](./TextArea.md)
 
 ---
 
-### Finn virksomhet (OrganizationLookup)
+### Datovelger (`Datepicker`)
 
-`OrganizationLookup`-komponenten slår opp en organisasjon i Enhetsregisteret ved hjelp av organisasjonsnummer.
+`Date`-komponenten lar brukeren legge til strukturert formatert dato.
 
-#### Bruk
+![Datepicker](./Datepicker.png)
 
-Komponenten tar et organisasjonsnummer som inndata, verifiserer at organisasjonen eksisterer, og lagrer organisasjonsnummeret og organisasjonsnavnet ved hjelp av en datamodellbinding.
-
-#### Utseende
-
-Komponenten består av:
-
-1. **Overskrift** – Hovedtittel
-2. **Hjelpetekst** – Klikk for hjelpe-popup
-3. **Vis beskrivelse** – Beskrivelse av komponenten
-4. **Organisasjonsnummerfelt** – Inndatafelt for organisasjonsnummer
-5. **Hent opplysninger** – Hent opplysninger basert på inndata
-
-#### Egenskaper
-
-| **Egenskap**                                   | **Type** | **Beskrivelse**                                                                                                      |
-| ---------------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------- |
-| `id`                                           | string   | Komponent-ID-en. Må være unik innenfor alle oppsett/sider i et oppsett-sett. Kan ikke slutte med <bindestrek><tall>. |
-| `type`                                         | string   | "OrganisationLookup"                                                                                                 |
-| `dataModelBindings.organisation_lookup_orgnr`  | string   | Hvor i datamodellen resultatet (orgnr) skal lagres                                                                  |
-| `dataModelBindings.organisation_lookup_name`   | string   | Hvor i datamodellen resultatet (navn) skal lagres                                                                   |
-| `textResourceBindings.title`                   | string   | Ledetekst (valgfritt)                                                                                               |
-| `textResourceBindings.description`             | string   | Beskrivelse (valgfritt)                                                                                             |
-| `textResourceBindings.help`                    | string   | Hjelpetekst (valgfritt)                                                                                             |
+[Detaljer om komponenten](./Datepicker.md)
 
 ---
 
-### Finn person (PersonLookup)
+### Tidsvelger (`TimePicker`)
+
+[Detaljer om komponenten](./TimePicker)
+
+---
+
+### Finn virksomhet (`OrganisationLookup`)
+
+`OrganisationLookup`-komponenten slår opp en organisasjon i Enhetsregisteret ved hjelp av organisasjonsnummer.
+
+![OrganisationLookup](./OrganisationLookup.png)
+
+[Detaljer om komponenten](./OrganisationLookup)
+
+---
+
+### Finn person (`PersonLookup`)
 
 `PersonLookup`-komponenten søker i det nasjonale folkeregisteret basert på fødselsnummer og etternavn.
 
-#### Bruk
+![PersonLookup](./PersonLookup.png)
 
-Komponenten søker i det nasjonale folkeregisteret basert på brukerens oppgitte input for fødselsnummer og etternavn, og lagrer resultatet ved hjelp av en datamodellbinding.
+[Detaljer om komponenten](./PersonLookup)
 
-#### Utseende
+---
 
-Komponenten består av:
-
-1. **Overskrift** – Hovedtittel
-2. **Hjelpetekst** – Klikk for hjelpe-popup
-3. **Vis beskrivelse** – Beskrivelse av komponenten
-4. **Personnummerfelt** – Inndatafelt for fødselsnummer
-5. **Etternavn** – Inndatafelt for etternavn
-6. **Hent opplysninger** – Hent opplysninger basert på inndata
-
-#### Egenskaper
-
-| **Egenskap**                           | **Type** | **Beskrivelse**                                                                                                      |
-| -------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------- |
-| `id`                                   | string   | Komponent-ID-en. Må være unik innenfor alle oppsett/sider i et oppsett-sett. Kan ikke slutte med <bindestrek><tall>. |
-| `type`                                 | string   | "PersonLookup"                                                                                                       |
-| `dataModelBindings.person_lookup_ssn`  | string   | Hvor i datamodellen resultatet (fnr) skal lagres                                                                     |
-| `dataModelBindings.person_lookup_name` | string   | Hvor i datamodellen resultatet (navn) skal lagres                                                                    |
-| `textResourceBindings.title`           | string   | Ledetekst (valgfritt)                                                                                                |
-| `textResourceBindings.description`     | string   | Beskrivelse (valgfritt)                                                                                              |
-| `textResourceBindings.help`            | string   | Hjelpetekst (valgfritt)                                                                                              |
 
 ## Tekst
 
 Komponenter for å vise tekst og informasjon.
 
-### Tittel (Header)
+### Tittel (`Header`)
 
-_Innhold kommer._
+`Header` brukes til å strukturere innhold og skape hierarki på siden.
 
----
+![Header](./Header.png)
 
-### Avsnitt (Paragraph)
-
-_Innhold kommer._
+[Detaljer om komponenten](./Header)
 
 ---
 
-### Informativ melding (Panel)
+### Avsnitt (`Paragraph`)
 
-`Panel`-komponenten viser viktig informasjon til brukeren.
+`Paragraph` brukes til løpende tekst og benyttes typisk i artikler, komponenter, hjelpetekster og lignende.
 
-#### Bruk
+![Paragraph](./Paragraph.png)
 
-Panelkomponenten kan brukes til å vise viktig informasjon til brukeren i ulike varianter (info, success, warning).
-
-#### Utseende
-
-De forskjellige variantene av Panel-komponenten:
-
-<iframe style="border: 0px solid rgba(0, 0, 0, 0.1);" width="100%" height="350" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1-45612&viewport=328%2C-2644%2C0.41&scaling=contain&content-scaling=responsive&starting-point-node-id=1%3A45612&show-proto-sidebar=0&embed-host=share" allowfullscreen></iframe>
-<iframe style="border: 0px solid rgba(0, 0, 0, 0.1);" width="100%" height="350" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1-45613&viewport=328%2C-2644%2C0.41&scaling=contain&content-scaling=responsive&starting-point-node-id=1%3A45613&show-proto-sidebar=0&embed-host=share" allowfullscreen></iframe>
-<iframe style="border: 0px solid rgba(0, 0, 0, 0.1);" width="100%" height="350" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1-45614&viewport=328%2C-2644%2C0.41&scaling=contain&content-scaling=responsive&starting-point-node-id=1%3A45614&show-proto-sidebar=0&embed-host=share" allowfullscreen></iframe>
-
-#### Egenskaper
-
-| **Egenskap** | **Type** | **Beskrivelse** |
-|--------------|----------|-----------------|
-| `id` | string | Unik ID for komponenten |
-| `type` | string | "Panel" |
-| `textResourceBindings.title` | string | Tittel på panelet |
-| `textResourceBindings.body` | string | Innholdet i panelet |
-| `variant` | string | Variant av panelet. **Enum:** `"info" \| "success" \| "warning"` |
-| `showIcon` | boolean | Viser eller skjuler ikon. Standard: true |
+[Detaljer om komponenten](./Paragraph)
 
 ---
 
-### Varsel (Alert)
+### Informativ melding (`Panel`)
 
-`Alert`-komponenten viser meldinger til brukerne med ulike alvorlighetsgrader.
+`Panel` kan brukes til å vise viktig informasjon til brukeren i ulike varianter (info, success, warning). Komponenten
+dekker hele bredden til siden.
 
-#### Bruk
+![Panel](./Panel.png)
 
-Bruk varsler når du vil vise viktig informasjon til brukerne.
-
-#### Utseende
-
-<iframe style="border: 0px solid rgba(0, 0, 0, 0.1);" width="100%" height="300" src="https://embed.figma.com/proto/ycDW0BPrMDW3SKZ56de4hY/https%3A%2F%2Fdocs.altinn.studio?page-id=0%3A1&node-id=1-4276&viewport=854%2C1675%2C0.89&scaling=contain&content-scaling=responsive&starting-point-node-id=1%3A4276&show-proto-sidebar=0&embed-host=share&hide-ui=true" allowfullscreen></iframe>
-
-Komponenten består av:
-
-1. **Overskrift** – En kort beskrivende tittel
-2. **Ikon** – Et grafisk symbol som viser hvor alvorlig varselet er
-3. **Tekstinnhold** – En melding som forteller hva varselet dreier seg om
-
-#### Egenskaper
-
-| **Egenskap** | **Type** | **Beskrivelse** |
-|--------------|----------|-----------------|
-| `id` | string | Unik ID for komponenten |
-| `type` | string | "Alert" |
-| `textResourceBindings.title` | string | Overskriften til varselet |
-| `textResourceBindings.body` | string | Innholdet i varselet |
-| `severity` | string | Alvorlighetsgraden til varselet. **Enum:** `"success" \| "info" \| "danger" \| "warning"` |
+[Detaljer om komponenten](./Panel)
 
 ---
 
-### Delelinje (Divider)
+### Varsel (`Alert`)
 
-_Innhold kommer._
+`Alert` gir brukeren informasjon som det er ekstra viktig at de ser og forstår. Komponenten er designet for å fange
+brukernes oppmerksomhet. Teksten i varselet skal være kort og tydelig.
+
+![Alert](./Alert.png)
+
+[Detaljer om komponenten](./Alert)
 
 ---
 
-### Tekst (Text)
+### Delelinje (`Divider`)
 
-`Text`-komponenten viser tekst med eller uten ledetekst.
+`Divider` brukes for å skape et visuelt skille mellom innhold. Det er en enkel horisontal linje som strekker seg over
+tilgjengelig bredde.
 
-#### Bruk
+![Divider](./Divider.png)
 
-Tekstkomponenten lar brukeren legge til strukturert tekst med og uten ledetekst.
+[Detaljer om komponenten](./Divider)
 
-#### Utseende
+---
 
-1. **Horisontal**: En tekst med ledetekst strukturert horisontalt
-2. **Vertikal**: En tekst med ledetekst strukturert vertikalt
+### Tekst (`Text`)
 
-_Visuelle eksempler må legges inn._
+`Text`-komponenten viser tekst med eller uten ledetekst. Tekstverdien som vises kan f.eks. settes dynamisk via uttrykk.
 
-#### Egenskaper
+![Text](./Text.png)
 
-| **Egenskap** | **Type** | **Beskrivelse** |
-|--------------|----------|-----------------|
-| `id` | string | Unik ID streng for komponenten |
-| `type` | string | "Text" |
-| `value` | string | Teksten du vil vise |
-| `textResourceBindings.title` | string | Ledeteksten for teksten du vil vise |
-| `direction` | string | Setter strukturell retning på ledetekst og verdi. **Enum:** `"horizontal" \| "vertical"` |
+[Detaljer om komponenten](./Text)
+
+---
+
+### Tall (`Number`)
+
+[Detaljer om komponenten](./Number)
+
+---
+
+### Dato (`Date`)
+
+`Date` er en komponent som viser formatert dato med eller uten ledetekst.
+
+![Date](./Date.png)
+
+[Detaljer om komponenten](./Date)
+
+---
 
 ## Flervalg
 
 Komponenter for valg fra forhåndsdefinerte alternativer.
 
-### Avmerkingsbokser (Checkboxes)
+### Avmerkingsbokser (`Checkboxes`)
+`Checkboxes` gir brukerne mulighet til å velge ett eller flere alternativer. Den kan også brukes i tilfeller der
+brukeren skal bekrefte noe.
 
-### Radioknapper (RadioButtons)
+![Checkboxes](./Checkboxes.png)
 
-### Nedtrekksliste (Dropdown)
+[Detaljer om komponenten](./Checkboxes)
 
-### Nedtrekksliste med flere valg (MultipleSelect)
+---
+
+### Radioknapper (`RadioButtons`)
+`RadioButtons` er er ett eller fleer alternativ brukeren kan velge. Brukeren kan bytte mellom alternativene, men kan
+kun velge ett.
+
+![RadioButtons](./RadioButtons.png)
+
+[Detaljer om komponenten](./RadioButtons)
+
+---
+
+### Nedtrekksliste (`Dropdown`)
+`Dropdown` lar brukeren velge ett alternativ fra en liste.
+
+![Dropdown](./Dropdown.png)
+
+[Detaljer om komponenten](./Dropdown)
+
+---
+
+### Nedtrekksliste med flere valg (`MultipleSelect`)
+`MultipleSelect` lar brukeren velge flere alternativer fra en liste.
+
+![MultipleSelect](./Dropdown.png)
+
+[Detaljer om komponenten](./MultipleSelect)
+
+---
 
 ### Likert-skala (Likert)
+
+[Detaljer om komponenten]()
+
+---
 
 ## Informasjon
 
@@ -235,41 +202,207 @@ Komponenter for å vise tilleggsinformasjon.
 
 ### Informasjon om eksemplaret (InstanceInformation)
 
-### Bilde (Image)
+[Detaljer om komponenten](./InstanceInformation)
+
+---
+
+### Bilde (`Image`)
+`Image` viser et bilde som er lastet opp til appen eller lastet inn fra en URL.
+
+![Image](./Image.png)
+
+[Detaljer om komponenten](./Image)
+
+---
+
+### Lyd (`Audio`)
+
+[Detaljer om komponenten](./Audio)
+
+---
+
+### Video (`Video`)
+
+[Detaljer om komponenten](./Video)
+
+---
 
 ### Lenke (Link)
+`Link` er en lenke til annet innhold. Komponenten kan vises som en klassisk lenke, eller som en knapp.
+
+![Link](./Link.png)
+
+[Detaljer om komponenten](./Link)
+
+---
 
 ### IFrame (IFrame)
 
-### Oppsummering (Summary)
+[Detaljer om komponenten](./IFrame)
+
+---
+
+### Oppsummering (`Summary2`)
+`Summary2` lar deg vise en oppsummering av enten en komponent, side eller layoutSet, enten i nåværende eller tidligere oppgaver.
+
+Den kan tilpasses for å dekke dine behov, og brukes også for å generere PDF.
+
+![Summary2](./Summary2.png)
+
+[Detaljer om komponenten](./Summary)
+
+---
 
 ## Knapper
 
 Handlingsknapper og navigasjon.
 
-### Send inn (Button)
+### Send inn (`Button`)
+`Button` brukes til å sende inn data, og flytte brukeren videre i prosessen.
 
-### Egendefinert knapp (CustomButton)
+![Button](./Button.png)
 
-### Navigasjonsknapp (NavigationButtons)
+[Detaljer om komponenten](./Button)
 
-### Utskrift (PrintButton)
+---
 
-### Start eksemplar (InstantiationButton)
+### Egendefinert knapp (`CustomButton`)
+`CustomButton` brukes til å trigge egendefinerte handlinger på serveren.
 
-### Handlingsknapp (ActionButton)
+![CustomButton](./Button.png)
+
+[Detaljer om komponenten](./CustomButton)
+
+---
+
+### Navigasjonslinje (`NavigationBar`)
+
+[Detaljer om komponenten](./NavigationBar)
+
+---
+
+### Navigasjonsknapper (`NavigationButtons`)
+`NavigationButtons` brukes til å navigere frem/tilbake mellom sider. Denne komponenten legges automatisk til når du
+legger til en ny side i Altinn Studio verktøyet.
+
+![NavigationButtons](./NavigationButtons.png)
+
+[Detaljer om komponenten](./NavigationButtons)
+
+---
+
+### Utskrift (`PrintButton`)
+`PrintButton` brukes til å trigge utskriftsvisning av skjema.
+
+![PrintButton](./PrintButton.png)
+
+[Detaljer om komponenten](./PrintButton)
+
+---
+
+### Forhåndsvis PDF (`PDFPreviewButton`)
+
+[Detaljer om komponenten](./PDFPreviewButton)
+
+---
+
+### Start eksemplar (`InstantiationButton`)
+`InstantiationButton` brukes til å starte et eksemplar av en app ved bruk av
+[stateless-oppsettet.]({{<relref "/altinn-studio/v10/develop-a-service/process/stateless">}})
+
+![InstantiationButton](./Button.png)
+
+[Detaljer om komponenten](./InstantiationButton)
+
+---
+
+### Handlingsknapp (`ActionButton`)
+`ActionButton` starter en bestemt handling knyttet til den oppgaven i arbeidsflyten som brukerne er på.
+Oppgaven kan for eksempel være signering, bekreftelse eller avvisning.
+
+![ActionButton](./Button.png)
+
+[Detaljer om komponenten](./ActionButton)
+
+---
 
 ## Vedlegg
 
 Komponenter for filopplasting.
 
-### Liste over vedlegg (AttachmentList)
+### Liste over vedlegg (`AttachmentList`)
+`AttachmentList` viser en liste over vedlegg som er lastet opp i skjemaet, for den oppgaven de jobber på. Velg om alle
+vedlegg skal vises, eller kun et utvalg.
 
-### Vedlegg (FileUpload)
+[Detaljer om komponenten](./AttachmentList)
 
-### Vedlegg med merking (FileUploadWithTag)
+---
 
-### Bildeopplaster (FileUpload)
+### Vedlegg (`FileUpload`)
+`FileUpload` lar brukeren laste opp vedlegg. Du kan styre hva slags filtyper som kan lastes opp.
+
+![FileUpload](./FileUpload.png)
+
+[Detaljer om komponenten](./FileUpload)
+
+---
+
+### Vedlegg med merking (`FileUploadWithTag`)
+`FileUploadWithTag` lar brukeren laste opp vedlegg og merke vedlegg med forhåndsdefinerte tagger. Du kan styre hva slags
+filtyper som kan lastes opp.
+
+![FileUploadWithTag](./FileUpload.png)
+
+[Detaljer om komponenten](./FileUploadWithTag)
+
+---
+
+### Bildeopplaster (`ImageUpload`)
+`ImageUpload` lar brukeren laste opp og ev. beskjære bilder.
+
+![ImageUpload](./ImageUpload.png)
+
+[Detaljer om komponenten](./ImageUpload)
+
+---
+
+## Betaling
+
+Komponenter for betalingsflyt.
+
+### Betaling (`Payment`)
+
+[Detaljer om komponenten](./Payment)
+
+---
+
+### Betalingsdetaljer (`PaymentDetails`)
+
+[Detaljer om komponenten](./PaymentDetails)
+
+---
+
+## Signering
+
+Komponenter for signeringsflyt.
+
+### Signatarliste (`SigneeList`)
+
+[Detaljer om komponenten](./SigneeList)
+
+---
+
+### Signeringshandlinger (`SigningActions`)
+
+[Detaljer om komponenten](./SigningActions)
+
+---
+
+### Signeringsdokumenter (`SigningDocumentList`)
+
+[Detaljer om komponenten](./SigningDocumentList)
+
+---
 
 ## Gruppering
 
@@ -277,30 +410,114 @@ Komponenter for å strukturere skjemaet.
 
 ### Gruppe (Group)
 
-### Rutenett (Grid)
+`Group` brukes til å gruppere komponenter visuelt eller logisk.
 
-### Trekkspilliste (Accordion)
+[Detaljer om komponenten](./Group)
 
-### Nestet trekkspilliste (AccordionGroup)
+---
 
-### Knappegruppe (ButtonGroup)
+### Rutenett (`Grid`)
+`Grid` brukes til å visuelt oppstille komponenter i en tabellvisning.
 
-### Liste (List)
+![Grid](./Grid.png)
 
-### Repeterende gruppe (Group)
+[Detaljer om komponenten](./Grid)
+
+---
+
+### Trekkspilliste (`Accordion`)
+
+`Accordion` er en sammenleggbar komponent som lar brukeren vise eller skjule innhold.
+
+![Accordion](./Accordion.png)
+
+[Detaljer om komponenten](./Accordion)
+
+---
+
+### Nestet trekkspilliste (`AccordionGroup`)
+
+[Detaljer om komponenten](./AccordionGroup)
+
+---
+
+### Knappegruppe (`ButtonGroup`)
+
+[Detaljer om komponenten](./ButtonGroup)
+
+---
+
+### Liste (`List`)
+
+`List` brukes til å presentere innholdsrike data til bruker i tabellformat. Hver rad i tabellen er velgbar. Komponenten
+støtter søk, sortering og paginering.
+
+![List](./List.png)
+
+[Detaljer om komponenten](./List)
+
+---
+
+### Repeterende gruppe (`RepeatingGroup`)
+
+[Detaljer om komponenten](./RepeatingGroup)
+
+---
+
+### Enkel tabell (`SimpleTable`)
+
+[Detaljer om komponenten](./SimpleTable)
+
+---
+
+### Cards (`Cards`)
+`Cards` brukes til å vise ulike typer innhold (andre komponenter), i en kort-basert layout. Den kan brukes til å vise
+informasjon, bilder, lydklipp, videoer, og skjemakomponenter.
+
+![Cards](./Cards.png)
+
+[Detaljer om komponenten](./Cards)
+
+---
+
+### Faner (`Tabs`)
+`Tabs` lar deg organisere og bytte mellom ulike innholdsseksjoner ved å klikke på overskriftene. Dette gir en
+plasseffektiv og ryddig måte å presentere informasjon på.
+
+![Tabs](./Tabs.png)
+
+[Detaljer om komponenten](./Tabs.png)
+
+---
 
 ## Avansert
 
 Spesialiserte komponenter for avanserte bruksområder.
 
-### Adresse (Address)
+### Adresse (`Address`)
 
-### Stedfeste i kart (Map)
+![Address](./Address.png)
+
+[Detaljer om komponenten](./Address)
+
+---
+
+### Stedfeste i kart (`Map`)
+
+![Map](./Map.png)
+
+[Detaljer om komponenten](./Map)
+
+---
 
 ### Egendefinert (Custom)
 
-### Tabell for underskjema (List)
+[Detaljer om komponenten]()
 
-## Midlertidig referanse
+---
 
-Inntil komponentoversikten er ferdig, kan du se [komponentene i v8-referansen](/nb/altinn-studio/v8/reference/ux/components/) for dokumentasjon. Merk at ikke alle komponenter fra v8 er tilgjengelige i dagens versjon av Altinn Studio.
+### Tabell for underskjema (`Subform`)
+
+[Detaljer om komponenten]()
+
+---
