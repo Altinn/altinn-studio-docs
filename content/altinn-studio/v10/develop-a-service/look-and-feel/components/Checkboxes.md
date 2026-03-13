@@ -7,7 +7,7 @@ draft: true
 
 | Property | Description | Allowed Values |
 |----------|-------------|----------------|
-| `readOnly` | Boolean value or expression indicating if the component should be read only/disabled. Defaults to false. <br /> <i>Please note that even with read-only fields in components, it may currently be possible to update the field by modifying the request sent to the API or through a direct API call.<i/> |  |
+| `readOnly` | Boolean value or expression indicating if the component should be read only/disabled. Defaults to false. <br /> <i>Please note that even with read-only fields in components, it may currently be possible to update the field by modifying the request sent to the API or through a direct API call.</i> |  |
 | `required` | Boolean value or expression indicating if the component should be required. Defaults to false. |  |
 | `showValidations` | List of validation types to show |  |
 | `renderAsSummary` | Boolean value indicating if the component should be rendered as a summary. Defaults to false. |  |
@@ -89,7 +89,7 @@ draft: true
 
 | Property | Description | Allowed Values |
 |----------|-------------|----------------|
-| `id` | The component ID. Must be unique within all layouts/pages in a layout-set. Cannot end with <dash><number>. Required. |  |
+| `id` | The component ID. Must be unique within all layouts/pages in a layout-set. Cannot end with &lt;dash&gt;&lt;number&gt;. Required. |  |
 | `hidden` | Boolean value or expression indicating if the component should be hidden. Defaults to false. |  |
 | `grid` | Settings for the components grid. Used for controlling horizontal alignment |  |
 | `grid.xs` |  | `"auto"`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `11`, `12` |

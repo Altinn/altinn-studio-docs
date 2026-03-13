@@ -32,14 +32,14 @@ draft: true
 
 | Property | Description | Allowed Values |
 |----------|-------------|----------------|
-| `page` | Which pages should be validated when the back button is clicked. Required. | `"current"`, `"currentAndPrevious"`, `"all"` |
+| `page` | Which pages should be validated when the next button is clicked. Required. | `"current"`, `"currentAndPrevious"`, `"all"` |
 | `show` | List of validation types to show Required. |  |
 
 ## Common properties
 
 | Property | Description | Allowed Values |
 |----------|-------------|----------------|
-| `id` | The component ID. Must be unique within all layouts/pages in a layout-set. Cannot end with <dash><number>. Required. |  |
+| `id` | The component ID. Must be unique within all layouts/pages in a layout-set. Cannot end with &lt;dash&gt;&lt;number&gt;. Required. |  |
 | `hidden` | Boolean value or expression indicating if the component should be hidden. Defaults to false. |  |
 | `grid` | Settings for the components grid. Used for controlling horizontal alignment |  |
 | `grid.xs` |  | `"auto"`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `11`, `12` |

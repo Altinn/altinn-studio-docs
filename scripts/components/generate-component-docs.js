@@ -147,7 +147,7 @@ class Resolver {
       const merged = await this.mergeAllOf(node.allOf, baseUrl, visited);
       const rest = { ...node };
       delete rest.allOf;
-      return this.resolve({ ...merged, ...rest }, baseUrl, visited);
+      return this.resolve(mergeSchemas(merged, rest), baseUrl, visited);
     }
 
     return node;

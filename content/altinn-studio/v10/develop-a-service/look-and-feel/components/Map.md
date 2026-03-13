@@ -7,7 +7,7 @@ draft: true
 
 | Property | Description | Allowed Values |
 |----------|-------------|----------------|
-| `readOnly` | Boolean value or expression indicating if the component should be read only/disabled. Defaults to false. <br /> <i>Please note that even with read-only fields in components, it may currently be possible to update the field by modifying the request sent to the API or through a direct API call.<i/> |  |
+| `readOnly` | Boolean value or expression indicating if the component should be read only/disabled. Defaults to false. <br /> <i>Please note that even with read-only fields in components, it may currently be possible to update the field by modifying the request sent to the API or through a direct API call.</i> |  |
 | `required` | Boolean value or expression indicating if the component should be required. Defaults to false. |  |
 | `showValidations` | List of validation types to show |  |
 | `renderAsSummary` | Boolean value indicating if the component should be rendered as a summary. Defaults to false. |  |
@@ -21,6 +21,7 @@ draft: true
 | `centerLocation` | Center location of the map See [Center location](#center-location-centerlocation). |  |
 | `zoom` |  |  |
 | `geometryType` |  | `"GeoJSON"`, `"WKT"` |
+| `toolbar` | Sets which geometries the user is allowed to draw See [Toolbar](#toolbar-toolbar). |  |
 
 ## Label settings (`labelSettings`)
 
@@ -57,19 +58,32 @@ draft: true
 | `geometryData` |  |  |
 | `geometryData.dataType` | The name of the datamodel type to reference Required. |  |
 | `geometryData.field` | The path to the property using dot-notation Required. |  |
+| `geometryIsEditable` |  |  |
+| `geometryIsEditable.dataType` | The name of the datamodel type to reference Required. |  |
+| `geometryIsEditable.field` | The path to the property using dot-notation Required. |  |
 
 ## Center location (`centerLocation`)
 
 | Property | Description | Allowed Values |
 |----------|-------------|----------------|
-| `latitude` | Required. |  |
-| `longitude` | Required. |  |
+| `latitude` | Any expression returning a number Required. |  |
+| `longitude` | Any expression returning a number Required. |  |
+
+## Toolbar (`toolbar`)
+
+| Property | Description | Allowed Values |
+|----------|-------------|----------------|
+| `polyline` | Expression or boolean allowing the user to draw lines on the map |  |
+| `polygon` | Expression or boolean allowing the user to draw a polygon on the map |  |
+| `rectangle` | Expression or boolean allowing the user to draw a rectangle on the map |  |
+| `circle` | Expression or boolean allowing the user to draw a circle on the map |  |
+| `marker` | Expression or boolean allowing the user to place multiple markers on the map |  |
 
 ## Common properties
 
 | Property | Description | Allowed Values |
 |----------|-------------|----------------|
-| `id` | The component ID. Must be unique within all layouts/pages in a layout-set. Cannot end with <dash><number>. Required. |  |
+| `id` | The component ID. Must be unique within all layouts/pages in a layout-set. Cannot end with &lt;dash&gt;&lt;number&gt;. Required. |  |
 | `hidden` | Boolean value or expression indicating if the component should be hidden. Defaults to false. |  |
 | `grid` | Settings for the components grid. Used for controlling horizontal alignment |  |
 | `grid.xs` |  | `"auto"`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `11`, `12` |
