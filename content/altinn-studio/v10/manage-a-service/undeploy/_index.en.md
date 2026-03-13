@@ -1,25 +1,48 @@
 ---
-draft: true
-title: Unpublishing an app
+title: Unpublishing apps
 linktitle: Unpublishing
-description: Explains how to unpublish apps in Altinn Studio.
+description: Explains what unpublishing is and what happens when you unpublish an app.
 toc: true
 weight: 70
 ---
 
-## Unpublishing an app in Altinn Studio
+## Unpublishing Apps in Altinn Studio
 
-This guide will take you through the steps to unpublish an app in Altinn Studio. Follow the steps carefully to ensure the process is completed correctly.
+When you unpublish apps in Altinn Studio, you make the apps unavailable to users by removing them from an environment. This can be useful when an app is outdated and is no longer to be used. In this article, we will explain what happens when you unpublish, what you should consider before and after the process, and what alternatives you may wish to consider.
 
-### How to unpublish an app:
+### What happens when you unpublish an app?
 
-1. Go to the dashboard in Altinn Studio and select the app you want to unpublish.
-2. Click **Publiser** in the top menu.
-3. In the list of available environments and versions of apps, find the environment and the app you want to unpublish.
-4. Click the three dots to the right of the environment name and select **Avpubliser appen**.
-5. You will receive a message explaining what happens during the unpublishing process. Ensure that you understand the consequences.
-6. Click the button **Avpubliser appen**.
-7. A new message will appear asking you to confirm that you are sure you want to unpublish.
-8. Type the app's name to confirm.
-9. Click **Avpubliser**. The unpublishing process will begin, and you will see that it is in progress in the list of versions in the environment.
-10. When the app has been unpublished, you will see it in the list of versions in the environment. The list item will also indicate if any errors occurred during the unpublishing process.
+Once the app is unpublished, it becomes unavailable to users, both in the user interface and via API endpoints.
+
+- **API endpoints become unavailable:**  
+  When an app is unpublished, its API endpoints will no longer function. This means that external systems and users trying to communicate with the app via the API will experience errors.
+
+- **Active instances:**  
+  Users who still have active instances of an unpublished app will no longer be able to access their instance. When they try to open the instance from their inbox, they will encounter an error page.
+
+### Important considerations before you unpublish
+
+Before you proceed with unpublishing, you should consider how you will handle active instances and their data:
+
+1. **Handling active instances:**  
+   If there are instances that are still in use (for example, in the user's inbox), you must consider what will happen to these. If you want to remove the instances, you can do so via the app’s APIs before unpublishing.
+
+2. **Handling data after unpublishing:**  
+   Once the app is unpublished, you can still retrieve data, but you will need to use the Storage API after unpublishing. This is because the app’s own APIs will no longer be available.
+{.floating-bullet-numbers}
+
+### What can you do to make an app unavailable, instead of unpublishing?
+
+If you do not wish to unpublish the app, you can make it unavailable in several other ways:
+
+- **Switch to an earlier version:**  
+  If the current version of the app has issues, you can choose to roll back to an earlier version that works better.
+
+- **Deactivate the app in the code:**  
+  You can remove access to the app in the code, making it unavailable in that way. This allows you to avoid completely unpublishing the app.
+
+- **Change access settings:**  
+  You can adjust the access settings so that users cannot start new instances of the application.
+
+- **Implement validation before you unpublish:**  
+  By adding validation in the code, you can decide when users should have access to the app. This can be useful if you want to give users a transition period before the app becomes completely unavailable in the environment.

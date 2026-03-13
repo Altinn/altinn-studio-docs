@@ -8,10 +8,9 @@ toc: false
 ### Forutsetninger
 
 1. Datakonsumenten må ha en registrert Maskinporten-klient.
-2. Datakonsumenten må ha fått delegert samtykke-scope fra Digdir. (altinn:consentrequests.write & altinn:consentrequests.read) 
+2. Datakonsumenten må ha fått delegert samtykke-scope fra Digdir. (altinn:consentrequests.write & altinn:consentrequests.read)
 3. De nødvendige scopene må legges til i Maskinporten-klienten.
 4. Tilgang til å be om samtykke for relevante ressurs(er) må være gitt.
-
 
 ### API Endpoint
 
@@ -32,41 +31,46 @@ toc: false
       "resource": [
         {
           "type": "urn:altinn:resource",
-          "value": "standard-samtykke-for-dele-data"
-        }
+          "value": "standard-samtykke-for-dele-data",
+        },
       ],
       "metaData": {
-        "inntektsaar": "2023"
-      }
+        "inntektsaar": "2023",
+      },
     },
     {
       "action": ["consent"],
       "resource": [
         {
           "type": "urn:altinn:resource",
-          "value": "standard-samtykke-for-dele-data"
-        }
+          "value": "standard-samtykke-for-dele-data",
+        },
       ],
       "metaData": {
-        "inntektsaar": "2024"
-      }
-    }
+        "inntektsaar": "2024",
+      },
+    },
   ],
-  "redirectUrl": "https://bankenmin.no/huslaan/?consentId=77ed8698-e619-4066-9eb4-5c1eb3f165a1"
+  "redirectUrl": "https://bankenmin.no/huslaan/?consentId=77ed8698-e619-4066-9eb4-5c1eb3f165a1",
+  "portalViewMode": "hide"
 }
 ```
 
 #### Redirect URL
 
-Som del av samtykkeforespørselen spesifiserer konsumenten hvilken URL brukeren skal returneres til etter at samtykkebehandlingen er fullført. 
+Som del av samtykkeforespørselen spesifiserer konsumenten hvilken URL brukeren skal returneres til etter at samtykkebehandlingen er fullført.
 
 Dersom det er behov for å motta en identifikator tilbake i responsen, kan denne legges til som en query-parameter i redirect URL-en med ønsket parameternavn. For eksempel kan `authorizationCode` brukes, som var terminologien fra Altinn 2.
+I eksemplet under er consentId=77ed8698-e619-4066-9eb4-5c1eb3f165a1 angitt slik. I tillegg til dette vil Status (OK/Failed) og ErrorMessage ved Feiled legges til redriectURL
 
 **Eksempel på redirect URL med parameter:**
 
 ```
-https://bankenmin.no/huslaan/?consentId=77ed8698-e619-4066-9eb4-5c1eb3f165a1
+https://bankenmin.no/huslaan/?consentId=77ed8698-e619-4066-9eb4-5c1eb3f165a1&Status=OK
 ```
+
+#### PortalViewMode
+Dersom samtykket ikke er del av en synkron flyt (der brukeren forventes å ta stilling til samtykket med en gang), kan man i samtykkeforespørselen sette PortalViewMode til "show". Etter forespørselen er sendt, vil brukeren som skal gi samtykke se samtykkeforespørselen i Altinn-portalen under tilgangsstyring, og kan gi sitt samtykke der.
 
 ### Svar (eksempel)
 
@@ -84,25 +88,25 @@ https://bankenmin.no/huslaan/?consentId=77ed8698-e619-4066-9eb4-5c1eb3f165a1
       "resource": [
         {
           "type": "urn:altinn:resource",
-          "value": "standard-samtykke-for-dele-data"
-        }
+          "value": "standard-samtykke-for-dele-data",
+        },
       ],
       "metaData": {
-        "inntektsaar": "2023"
-      }
+        "inntektsaar": "2023",
+      },
     },
     {
       "action": ["consent"],
       "resource": [
         {
           "type": "urn:altinn:resource",
-          "value": "standard-samtykke-for-dele-data"
-        }
+          "value": "standard-samtykke-for-dele-data",
+        },
       ],
       "metaData": {
-        "inntektsaar": "2024"
-      }
-    }
+        "inntektsaar": "2024",
+      },
+    },
   ],
   "requestMessage": null,
   "consented": null,
@@ -113,20 +117,18 @@ https://bankenmin.no/huslaan/?consentId=77ed8698-e619-4066-9eb4-5c1eb3f165a1
       "created": "2025-07-18T06:18:26.65293+00:00",
       "performedBy": "urn:altinn:organization:identifier-no:991825827",
       "eventType": "Created",
-      "consentRequestID": "77ed8698-e619-4066-9eb4-5c1eb3f165a1"
-    }
+      "consentRequestID": "77ed8698-e619-4066-9eb4-5c1eb3f165a1",
+    },
   ],
-  "viewUri": "https://am.ui.tt02.altinn.no/accessmanagement/ui/consent/request?id=77ed8698-e619-4066-9eb4-5c1eb3f165a1"
+  "viewUri": "https://am.ui.tt02.altinn.no/accessmanagement/ui/consent/request?id=77ed8698-e619-4066-9eb4-5c1eb3f165a1",
 }
 ```
 
-
 ### Konkret eksempel innteksopplysninger og skattegrunnlag
 
-Skattetaten har detaljert eksempel på bruk av samtykke for skattegrunnlag og inntektsgrunnlag.  Disse eksemplene finner du [her](https://skatteetaten.github.io/api-dokumentasjon/om/samtykke)
+Skattetaten har detaljert eksempel på bruk av samtykke for skattegrunnlag og inntektsgrunnlag. Disse eksemplene finner du [her](https://skatteetaten.github.io/api-dokumentasjon/om/samtykke)
 
-Nedenfor viser vi en sammensatt forespørsel av de mest vanlige tjenstene for lånesøknader. 
-
+Nedenfor viser vi en sammensatt forespørsel av de mest vanlige tjenstene for lånesøknader.
 
 ```jsonc
 {
@@ -136,36 +138,32 @@ Nedenfor viser vi en sammensatt forespørsel av de mest vanlige tjenstene for l�
   "validTo": "2026-07-18T06:18:12.2597103+00:00",
   "consentRights": [
     {
-      "action": [
-        "consent"
-      ],
+      "action": ["consent"],
       "resource": [
         {
           "type": "urn:altinn:resource",
-          "value": "ske-samtykke-sbl-inntekt"
-        }
+          "value": "ske-samtykke-sbl-inntekt",
+        },
       ],
       "metadata": {
         "fraogmed": "2024-01",
-        "tilogmed": "2024-12"
-      }
+        "tilogmed": "2024-12",
+      },
     },
     {
-      "action": [
-        "consent"
-      ],
+      "action": ["consent"],
       "resource": [
         {
           "type": "urn:altinn:resource",
-          "value": "ske-samtykke-sbl-summert-skattegrunnlag"
-        }
+          "value": "ske-samtykke-sbl-summert-skattegrunnlag",
+        },
       ],
       "metadata": {
-        "inntektsaar": "2024"
-      }
-    }
+        "inntektsaar": "2024",
+      },
+    },
   ],
-  "redirectUrl": "https://smartbankdemo.azurewebsites.net/private/loanapplication/consentresult?requestId=f70542a8-d97a-40a8-9ef7-221603ffd5e6&environment=tt02"
+  "redirectUrl": "https://smartbankdemo.azurewebsites.net/private/loanapplication/consentresult?requestId=f70542a8-d97a-40a8-9ef7-221603ffd5e6&environment=tt02",
 }
 ```
 
@@ -179,9 +177,7 @@ Nedenfor viser vi en sammensatt forespørsel av de mest vanlige tjenstene for l�
   "validTo": "2027-02-03T10:13:27.897002+00:00",
   "consentRights": [
     {
-      "action": [
-        "consent"
-      ],
+      "action": ["consent"],
       "resource": [
         {
           "type": "urn:altinn:resource",
@@ -194,9 +190,7 @@ Nedenfor viser vi en sammensatt forespørsel av de mest vanlige tjenstene for l�
       }
     },
     {
-      "action": [
-        "consent"
-      ],
+      "action": ["consent"],
       "resource": [
         {
           "type": "urn:altinn:resource",
@@ -224,17 +218,11 @@ Nedenfor viser vi en sammensatt forespørsel av de mest vanlige tjenstene for l�
 }
 ```
 
-
 Skjermbildet nedenfor viser hvordan samtykkeforespørsel for disse ressursene presenteres til sluttbruker.
-
 
 ![Request "Forespørsel vist til bruker basert på forespørsel" ](request.jpg)
 
-
-
-
 Nedenfor viser hvordan responsen ser ut hvis man henter ut status på forespørsel etter samtykke er gitt
-
 
 ```json
 {
@@ -246,9 +234,7 @@ Nedenfor viser hvordan responsen ser ut hvis man henter ut status på forespørs
   "validTo": "2027-02-03T10:13:27.897002+00:00",
   "consentRights": [
     {
-      "action": [
-        "consent"
-      ],
+      "action": ["consent"],
       "resource": [
         {
           "type": "urn:altinn:resource",
@@ -261,9 +247,7 @@ Nedenfor viser hvordan responsen ser ut hvis man henter ut status på forespørs
       }
     },
     {
-      "action": [
-        "consent"
-      ],
+      "action": ["consent"],
       "resource": [
         {
           "type": "urn:altinn:resource",
@@ -321,9 +305,7 @@ Nedenfor vises dekodet token for dette samtykket.
         "validTo": "2027-02-03T10:13:27.897002+00:00",
         "consentRights": [
           {
-            "action": [
-              "consent"
-            ],
+            "action": ["consent"],
             "resource": [
               {
                 "type": "urn:altinn:resource",
@@ -336,9 +318,7 @@ Nedenfor vises dekodet token for dette samtykket.
             }
           },
           {
-            "action": [
-              "consent"
-            ],
+            "action": ["consent"],
             "resource": [
               {
                 "type": "urn:altinn:resource",
@@ -367,8 +347,5 @@ Nedenfor vises dekodet token for dette samtykket.
   }
 }
 ```
-
-
-
 
 Dette kan testes i [Smartbank testapplikasjon i TT02](https://smartbankdemo.azurewebsites.net/private/loanapplication)

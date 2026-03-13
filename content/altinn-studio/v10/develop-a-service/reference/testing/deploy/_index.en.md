@@ -4,7 +4,7 @@ title: Test app in test environment
 linktitle: In test environment
 description: Description of how test in test environment can be performed.
 toc: true
-weight: 200
+
 aliases:
 - /altinn-studio/v8/reference/testing/deploy/
 tags: [translate-to-english]

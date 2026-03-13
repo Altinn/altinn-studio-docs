@@ -7,12 +7,115 @@ toc: false
 
 Altinn tilbyr nå et klientadministrasjons-API for å håndtere klienter og brukere for tjenestetilbydere.
 
+## OpenAPI 
+
+- [EndUser](../../../../api/accessmanagement/enduser/)
+- [Metadata](../../../../api/accessmanagement/metadata/)
+
 ## Forutsetninger for bruk
+
+Det er to måter du kan autentisere deg mot disse API-ene. Forutsetningene er forskjellige avhengig av hvilken måte du velger.
+
+### Autentisering med ID-porten
+
+Ved bruk av ID-porten kan personen som er klientadministrator i en virksomhet logge inn i et system som benytter seg av API-et.
 
 - Man er delegert scopet `altinn:clientdelegations.write`.
 - Man har satt opp en ID-porten-klient i applikasjonen som ber om dette scopet.
 - Man logger inn som klientadministrator for tjenestetilbyderen.
+- Systemet veksler inn ID-porten-token til et Altinn-token.
 
+Når dette er gjennomført, har man et token for en person som har rett til å kalle API-et som er beskrevet i denne veiledningen.
+
+### Autentisering med systembruker 
+
+Det er også mulig å benytte en [systembruker](../system-user/) som klientadministrator i virksomheten.
+
+Dette krever følgende:
+
+#### 1. Tilgang til scope for klientdelegerings-API-et
+
+Via Altinn brukerstøtte må man få tilgang til følgende scopes:
+
+- `altinn:clientdelegations.write` for selve klientdelegerings-API-et.
+- `altinn:authentication/systemregister.write` for å kunne opprette et system i systemregisteret.
+- `altinn:authentication/systemuser.request.read` for å kunne sjekke status på forespørsler.
+- `altinn:authentication/systemuser.request.write` for å kunne sende forespørsler.
+
+#### 2. Sette opp Maskinporten-klient
+
+I [selvbetjeningsløsningen for Maskinporten](https://sjolvbetjening.samarbeid.digdir.no/login) må man sette opp én eller flere klienter med nødvendig scope.
+Det kan være lurt å bruke én klient til administrasjon av systemregisteret (de tre siste scopene) og én egen klient for selve klientadministrasjonen.
+
+#### 3. Definere system for klientadministrasjon
+
+I Altinn Systemregister må man [definere et system](../system-user/systemregistration/) med tilgangspakken `urn:altinn:accesspackage:klientadministrator`.
+
+Eksempel på hvordan et slikt system ser ut for virksomheten 991825827:
+
+**Example JSON payload**
+
+Eksempelet nedenfor viser hvordan man registrerer systemet. `clientId` er integrasjons-ID-en til Maskinporten-klienten som har fått scopet `urn:altinn:accesspackage:klientadministrator`.
+Ved å registrere denne klienten på systemet vil denne klienten kunne hente ut systembrukertoken for klientadministrasjon.
+
+```json
+    {
+      "id": "991825827_clientadministrator",
+      "vendor": {
+        "authority": "iso6523-actorid-upis",
+        "ID": "0192:991825827"
+      },
+      "name": {
+        "nb": "Smart Client Admin",
+        "en": "Smart Client Admin",
+        "nn": "Smart Client Admin"
+      },
+      "description": {
+        "nb": "System for å håndtere klienter og agenter i vår virksomhet",
+        "en": "System for å håndtere klienter og agenter i vår virksomhet",
+        "nn": "System for å håndtere klienter og agenter i vår virksomhet"
+      },
+      "accessPackages": [
+        {
+          "urn": "urn:altinn:accesspackage:klientadministrator"
+        }
+      ],
+      "clientId": ["32ef65ac-6e62-498d-880f-76c85c2052ae"],
+      "allowedredirecturls": ["https://myclientadmin.no/receipt"],
+      "isVisible": true
+    }
+```
+
+
+#### 4. Opprette systembrukerforespørsel
+
+Man har [sendt forespørsel om opprettelse av systembruker](../system-user/systemuserrequest/) til egen virksomhet, der tilgangspakken `urn:altinn:accesspackage:klientadministrator` er satt som krav.
+
+Eksempel:
+
+```json
+    {
+    "systemId": "991825827_smartcloud",
+    "partyOrgNo": "991825827",
+    "accessPackages": [
+      {
+        "urn": "urn:altinn:accesspackage:klientadministrator"
+      }
+    ],
+    "redirectUrl": "https://myclientadmin.no/receipt"
+    }
+```
+
+#### 5. Godkjenne forespørsel
+
+En bruker i egen virksomhet som både har **tilgangspakken for tilgangsstyring** og **tilgangspakken for klientadministrator** kan [godkjenne forespørselen](../../end-user/system-user/accept-request/).
+
+#### 6. Konfigurere system
+
+Man må sette opp systemet med registrert klient-ID som [henter ut systembruker-token](../system-user/usetoken/) fra Maskinporten.
+Systembrukertoken fra Maskinporten må deretter [veksles til Altinn-token](../../../../api/).
+
+Når dette er gjennomført, har man et token for en systembruker som har rett til å kalle API-et som er beskrevet i denne veiledningen.
 
 ## Hva er en tjenestetilbyder?
 
@@ -25,10 +128,11 @@ I denne sammenhengen er en tjenestetilbyder en virksomhet som:
 
 ## Hva er en klient?
 
-- Virksomhet som har registrert din virksomhet i Enhetsregisteret som regnskapsfører.
-- Virksomhet som har registrert din virksomhet i Enhetsregisteret som revisor.
-- Virksomhet som har registrert din virksomhet i Enhetsregisteret som forretningsfører.
-- Virksomhet som i Altinn har delegert tilgangspakker til din virksomhet.
+- Virksomhet som har registrert tjenestetilbyder i Enhetsregisteret som regnskapsfører.
+- Virksomhet som har registrert tjenestetilbyder i Enhetsregisteret som revisor.
+- Virksomhet (BRL eller ESEK) som har registrert tjenestetilbyder i Enhetsregisteret som forretningsfører.
+- Virksomhet som i Altinn har delegert tilgangspakker til tjenestetilbyder.
+- Innbygger som i Altinn har delegert tilgangspakke til tjenestetilbyder.
 
 ![Klientadmin](clientadmin.drawio.svg)
 
@@ -69,11 +173,14 @@ Når du er registrert som forretningsfører for en virksomhet som enten er boret
 
 Alle personer med fødselsnummer/D-nummer i Altinn kan tildeles klientrettigheter.
 
+Før man kan delegere klientrettigheter (tilgangspakker) til en person, må det være definert et agentforhold mellom personen og tjenestetilbyderen.
+Dette gjøres via eget API. Sletting av agentforholdet vil samtidig fjerne alle klientrettigheter som tjenestetilbyderen har gitt til agenten.
+
 ## Beskrivelse av API
 
 API-et lar deg:
 
-- Legge til nye brukere i virksomheten
+- Legge til nye brukere i virksomheten.
 - Gi brukere klientrettigheter for en klient ved å videredelegere tilgangspakker.
 - Liste brukere med rettigheter for en klient.
 
@@ -88,8 +195,8 @@ ID-porten-tokenet må veksles inn til et Altinn-token.
 
 ### Identifikatorer 
 
-I dagens versjon av API-et benyttes Altinns `partyUuid`-identifikatorer. 
-Dette er UUID-er; hver person eller virksomhet i Altinn har en unik UUID. 
+I dagens versjon av API-et benyttes Altinns `partyUuid`-identifikatorer.
+Dette er UUID-er; hver person eller virksomhet i Altinn har en unik UUID.
 
 #### Hvordan finner man disse?
 
@@ -157,16 +264,16 @@ Eksempelrespons
 
 ### API: Legge til agent
 
-Dette lar deg legge til en agent for tjenestetilbyderen. Oppgi personnummer og etternavn.
+Dette lar deg legge til en agent for tjenestetilbyderen. Oppgi fødselsnummer (fnr) eller brukernavn, samt etternavn.
 
 - **Test**: `POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}`
 - **Production**: `POST https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}`
 
-Eksempel request body
+Eksempel forespørsel (body)
 
 ```json
 {
-  "personidentifier": "01038712345", // fnr or username
+  "personidentifier": "01038712345", // fødselsnummer (fnr) eller brukernavn
   "lastName": "Salt"
 }
 ```
@@ -189,10 +296,10 @@ Eksempelrespons
 
 Dette API-et fjerner agentrollen gitt til en bruker fra tjenestetilbyderen.
 
-Klientdelegeringer gitt for klienter vil forsvinne i samme operasjon.
+Klientdelegeringer gitt for klienter vil forsvinne i samme operasjon avhengig om cascade = false eller true. Default er true
 
-- **Test**: `DELETE https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}&to={{to}}`
-- **Production**: `DELETE https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}&to={{to}}`
+- **Test**: `DELETE https://platform.tt02.altinn.no{{baseUrl}}/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}&to={{to}}&cascade=false`
+- **Production**: `DELETE https://platform.altinn.no{{baseUrl}}/accessmanagement/api/v1/enduser/clientdelegations/agents?party={{party}}&to={{to}}&cascade=false`
 
 
 {{party}} er partyUuid for tjenestetilbyderen.
@@ -327,13 +434,19 @@ Eksempelrespons
 ```
 
 
+{{% notice warning %}}
+Klient-API inkluderer også virksomheter som har gitt tilgang på andre måter enn det som er nevnt som klienter. Disse vil det ikke være noen delegerbare klientforhold på. Dette gjelder f.eks:
+
+- BEDR-relasjon – underenheter som i Enhetsregisteret har BEDR-knytning til aktuell party.
+{{% /notice %}}
+
 ### API: Delegere klientrettigheter til agent
 
 Dette API-et gjør det mulig å videredelegere tilgangspakker som tjenestetilbyderen har for klienter.
 
 
-- **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&from={{fromOrg}}&to={{to}}`
-- **Production**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&from={{fromOrg}}&to={{to}}`
+- **Test**: `POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&from={{fromOrg}}&to={{to}}`
+- **Production**: `POST https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&from={{fromOrg}}&to={{to}}`
 
 {{party}} er partyUuid for tjenestetilbyderen.
 {{fromOrg}} er partyUuid for klienten.
@@ -369,6 +482,43 @@ Eksempelrespons
   }
 ]
 ```
+
+### API: Slette klientrettigheter til agent
+
+Dette API-et lar deg fjerne en eller flere tilgangspakker som er klientdelegert til en agent for en klient.
+
+- **Test**: `DELETE https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&from={{from}}&to={{to}}`
+- **Production**: `DELETE https://platform.altinn.no/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages?party={{party}}&from={{from}}&to={{to}}`
+
+```json
+{
+  "values": [
+   {
+     "role": "rettighetshaver",
+     "packages" : [
+       "urn:altinn:accesspackage:innbygger-samliv"
+     ]
+   }
+  ]
+}
+```
+
+Eksempelrespons
+
+```json
+[
+  {
+    "roleId": "42cae370-2dc1-4fdc-9c67-c2f4b0f0f829",
+    "packageId": "7778f33d-83b7-4089-93fc-4fbacbf28600",
+    "viaId": "03b14d35-4b8c-44cd-9c71-dc740d8585c2",
+    "fromId": "a4c0369b-2261-4123-ac03-e0028a64d265",
+    "toId": "01f7a70d-2619-4c50-8ff4-efd7ae6c8960",
+    "changed": true
+  }
+]
+```
+
+Hvis man prøver å slette en pakke som allerede er slettet eller ikke finnes, vil `changed` i responsen være false.
 
 
 ### API: Liste agenter som har rettigheter for klient
@@ -502,4 +652,12 @@ Eksempelrespons
   ]
 }
 ```
+
+### Klientadministrasjon for agenter
+
+Via API-et er det også mulig for en agent å se sine klienter og hvilke virksomheter som har delegert klientrettigheter til seg.
+
+Man kan også slette slike forhold via API-et.
+
+Dette krever et eget scope for den påloggede brukeren.
 

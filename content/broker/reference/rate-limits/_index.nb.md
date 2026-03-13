@@ -31,11 +31,11 @@ Hastighetsbegrensning av API-forespørsler gjelder per Maskinporten-integrasjon.
 
 - `GET /broker/api/v1/filetransfer/{fileTransferId}/details`
   - Beskrivelse: Få mer detaljert informasjon om filopplastingen for revisjons- og feilsøkingsformål
-  - Hastighetsbegrensning: 10 kall per minutt
+  - Hastighetsbegrensning: 30 kall per minutt
 
 - `GET /broker/api/v1/filetransfer`
   - Beskrivelse: Søk etter filer som kan nås av innringeren i henhold til spesifiserte filtre
-  - Hastighetsbegrensning: 10 kall per minutt
+  - Hastighetsbegrensning: 30 kall per minutt
 
 - `GET /broker/api/v1/filetransfer/{fileTransferId}/download`
   - Beskrivelse: Last ned filen
