@@ -26,7 +26,7 @@ Det er lagt til et nytt felt, `notification`, i request-bodyen til POST /instanc
 
 | Felt | Type | Påkrevd | Beskrivelse |
 |---|---|---|---|
-| `notificationChannel` | int (enum) | Nei | Kanal for utsending. Standard: `4` (EmailAndSms). Se tabell over for gyldige verdier. |
+| `notificationChannel` | int (enum) | Nei | Kanal for utsending. Standard: `4` (EmailAndSms). Se tabell under for gyldige verdier. |
 | `language` | string | Nei | Språkkode (`nb`, `nn`, `en`). Brukes kun for organisasjoner – privatpersoner bruker profilspråk. |
 | `customSms` | objekt | Nei | Egendefinert SMS-tekst og avsendernavn. Hvis ikke satt, brukes standardtekst. |
 | `customEmail` | objekt | Nei | Egendefinert e-postemne og brødtekst. Hvis ikke satt, brukes standardtekst. |
