@@ -21,9 +21,9 @@ Du kan studere responsen ved å kalle API-et fra nettleseren: [https://restcount
 
 Vi ønsker å berike skjemaet med detaljer om et land som sluttbrukeren har fylt inn.
 
-## Opprettelse av API-modeller
+## Opprette API-modeller
 
-Hvis API-et som skal konsumeres er dokumentert med Swagger eller OpenAPI, kan du enkelt generere C#-klasser basert på datamodellen.
+Hvis API-et du skal bruke er dokumentert med Swagger eller OpenAPI, kan du enkelt generere C#-klasser basert på datamodellen.
 Dette kan du gjøre manuelt eller ved hjelp av verktøy som tilbyr slik generering.
 
 I dette eksempelet er responsobjektet stort og inneholder langt mer data enn den vi er interessert i.
@@ -65,8 +65,8 @@ Her er et lite utsnitt av responsobjektet for Norge.
 ]
 ```
 
-I applikasjonen ønsker vi kun å ta med oss dataen fra de markerte linjene, altså hovedstad og region.
-Vi lager et minimalistisk responsobjekt som kun inneholder de feltene vi er interessert i.
+I appen ønsker vi kun å ta med oss dataene fra de markerte linjene, altså hovedstad og region.
+Vi lager et enkelt responsobjekt som kun inneholder de feltene vi er interessert i.
 
 I mappen _App/models_ oppretter du filen `Country.cs`.
 
@@ -89,12 +89,12 @@ namespace Altinn.App.models
 I dette eksempelet krever ikke API-et et komplekst request-objekt, og dermed kan vi nøye oss med den ene modellen.
 Skulle det være behov for et request-objekt, kan du opprette dette på samme måte.
 
-## Oppsett av grensesnitt for klienten
+## Sette opp grensesnitt for klienten
 
-Det er anbefalt å definere et grensesnitt for klienten som skal kalle API-et.
-Det gjør at vi kan bruke styrkene til .NET med dependency injection og effektiv håndtering av HTTP-klienter.
+Du bør definere et grensesnitt for klienten som skal kalle API-et.
+Det gjør at du kan bruke styrkene til .NET med dependency injection og håndtere HTTP-klienter effektivt.
 
-I applikasjonsrepoet oppretter du mappen _App/clients_,
+I app-repoet oppretter du mappen _App/clients_,
 og i den nye mappen oppretter du filen `ICountryClient.cs`.
 
 Grensesnittet består av én metode `GetCountry` som tar inn en streng og returnerer et _Country_-objekt.
@@ -123,12 +123,12 @@ namespace Altinn.App.client
 Returobjektet er omkranset av `Task<...>`. Dette er lagt inn for å vise til at kallet som skal gjøres
 vil være asynkront.
 
-## Implementere klient
+## Implementere klienten
 
 Klienten inneholder koden som gjør kallet mot API-et og omformer resultatet til `Country`-modellen
 som funksjonene forventer i retur når de kaller klienten.
 
-Den fulle implementasjonen av _Country_-klienten er vist nedenfor.
+Her ser du hele _Country_-klienten.
 
 ```C#
 using System;
@@ -202,13 +202,13 @@ using Altinn.App.models;
 using Microsoft.Extensions.Logging;
 ```
 
-Videre definerer vi klassen og hvilket grensesnitt den arver fra.
+Deretter definerer vi klassen og hvilket grensesnitt den arver fra.
 
 ```cs
 public class CountryClient : ICountryClient
 ```
 
-Videre er tre private objekter __client_, __logger og __serializerOptions_.
+I klassen er det tre private objekter __client_, __logger og __serializerOptions_.
 
 ```cs
 private readonly HttpClient _client;
@@ -221,7 +221,7 @@ Understrek foran navnet er kun en navnekonvensjon og har ingen effekt.
 - __logger_ får en logger i konstruktøren slik at du kan logge feilmeldinger og annet i klassen
 - __serializerOptions_ opprettes og konfigureres i konstruktøren for å kunne deserialisere responsen fra API-et
 
-Videre i klassen definerer vi konstruktøren.
+Neste steg er å definere konstruktøren.
 
 ```cs
 public CountryClient(HttpClient client, ILogger<ICountryClient> logger)
@@ -238,11 +238,11 @@ public CountryClient(HttpClient client, ILogger<ICountryClient> logger)
 ```
 
 Objekter som kommer som input i konstruktøren får sine verdier, og andre objekter opprettes.
-Skulle du ha behov for å bruke en av de andre tjenestene som er registrert i applikasjonen, er det bare å
+Skulle du ha behov for å bruke en av de andre tjenestene som er registrert i appen, er det bare å
 sende den inn i konstruktøren og opprette et privat objekt for å kunne ta det i bruk i klassen, slik vi har gjort
 med __logger_ eller __client_.
 
-Videre i klassen finner du implementasjonen av metoden `GetCountry`.
+Lenger ned i klassen finner du implementasjonen av metoden `GetCountry`.
 
 ```cs
 public async Task<Country> GetCountry(string country)
@@ -269,9 +269,9 @@ public async Task<Country> GetCountry(string country)
 Her sjekker vi om statuskoden på API-kallet er en suksess-kode, før vi deserialiserer og returnerer objektet.
 Hvis det ikke er en suksess-statuskode, logger vi en feil og returnerer null.
 
-## Registrere klienten i applikasjonen
+## Registrere klienten i appen
 
-Når grensesnitt og klient er implementert, kan du registrere den i _App/Program.cs_ (.NET&nbsp;6) eller i _App/Startup.cs_ (.NET&nbsp;5) for bruk i applikasjonen.
+Når grensesnitt og klient er implementert, kan du registrere den i _App/Program.cs_ (.NET&nbsp;6) eller i _App/Startup.cs_ (.NET&nbsp;5) for bruk i appen.
 
 I `Program.cs`-klassen legger vi til kodelinjen nedenfor.
 I tillegg må du legge til `using Altinn.App.client;` og `using Altinn.App.AppLogic.DataProcessing;` øverst i filen.
@@ -285,7 +285,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 }
 ```
 
-## Bruke klient i applikasjonslogikk
+## Bruke klient i app-logikk
 
 For å berike skjemadata må vi koble klienten til logikken i _App/logic/DataProcessingHandler.cs_ i metoden _ProcessDataWrite_.
 
@@ -298,7 +298,7 @@ public DataProcessingHandler()
 }
 ```
 
-Videre kan vi opprette et privat objekt for klienten, injecte den i konstruktøren og tilordne den til det private objektet.
+Nå kan vi opprette et privat objekt for klienten, injecte den i konstruktøren og tilordne den til det private objektet.
 Resultatet blir seende slik ut:
 
 ```cs
@@ -350,7 +350,7 @@ public async Task<bool> ProcessDataWrite(Instance instance, Guid? dataId, object
 }
 ```
 
-Prøver du å bygge applikasjonen nå, vil du få en feil.
+Prøver du å bygge appen nå, vil du få en feil.
 DataProcessingHandler opprettes i App.cs, så alle dependencies må også inn i denne filen
 og deretter sendes videre i konstruktøren til DataProcessingHandler.
 
@@ -403,7 +403,7 @@ En ulempe med eksempelet slik det står nå, er at for hver gang skjemaet lagres
 mot endepunktet for å hente ut data.
 
 Det er rimelig å anta at et lands hovedstad og hvilken region
-det tilhører ikke vil endre seg hyppig. Har vi hentet informasjon om Norge, kan vi lagre denne lokalt i applikasjonen
+det tilhører ikke vil endre seg hyppig. Har vi hentet informasjon om Norge, kan vi lagre denne lokalt i appen
 i en tidsperiode, så vi slipper å gjøre kallet igjen.
 
 Kodeendringene beskrives ikke steg for steg, men er vist i sin helhet nedenfor.
