@@ -54,17 +54,17 @@ Du kan kopiere regelen fra [regelbiblioteket]({{< relref "/altinn-studio/v10/dev
 
 ### Steg 2: Identifiser hvilke instanser som ikke er fullført ved hjelp av spørring mot storage
 
-Storage eksponerer et sett med queryparametere som du kan bruke for å hente ut et sett med instanser.
+Storage eksponerer et sett med query-parametere som du kan bruke for å hente ut et sett med instanser.
 I eksempelet nedenfor får du ut alle instanser som er instansiert av en gitt applikasjon 30. september 2020 eller tidligere,
 og som enda står i utfyllingssteget.
 
-Her kan du prøve deg fram for å finne de rette queryparameterene for akkurat tjenesten din:
+Her kan du prøve deg fram for å finne de rette query-parameterene for akkurat tjenesten din:
 
 `HTTP GET https://platform.altinn.no/storage/api/v1/instances?appId={org}/{app}&created=lte:2020-09-30&process.currentTask=Task_1`
 
 ### Steg 3: Slett instans via endepunkt eksponert i applikasjonen
 
-Når du har identifisert instansene som skal slettes, er det bare å sende et kall
-til applikasjonen for å få slettet disse. Da må du oppgi ID-en på instansene (instanceOwner.partyId/instanceGuid).
+Når du har funnet instansene som skal slettes, sender du et kall
+til applikasjonen for å slette dem. Da må du oppgi ID-en på instansene (instanceOwner.partyId/instanceGuid).
 
 `HTTP DELETE https://ttd.apps.altinn.no/ttd/apps-test/instances/{instanceOwner.partyId}/{instanceGuid}`
