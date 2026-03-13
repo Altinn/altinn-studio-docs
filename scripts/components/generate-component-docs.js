@@ -273,8 +273,9 @@ function mdEscape(str) {
     .replace(/<(?!\/?(?:br|i)\b)[^>]+>/gi, (tag) =>
       tag.replace(/</g, '&lt;').replace(/>/g, '&gt;')
     )
-   .replace(/\|/g, '\\|')
-   .replace(/\n/g, ' ');
+    .replace(/\\/g, '\\\\')
+    .replace(/\|/g, '\\|')
+    .replace(/\n/g, ' ');
 }
 
 // ---------------------------------------------------------------------------
