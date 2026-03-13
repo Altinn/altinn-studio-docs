@@ -1,6 +1,6 @@
 ---
 title: Autentisering
-description: Konfigurasjon av autentisering for API-er i apper
+description: Autentiseringsmetoder for API-er
 weight: 800
 toc: true
 tags: [needsReview]
@@ -17,37 +17,37 @@ API-kall autoriseres ved hjelp av følgende informasjon:
 Altinn Autorisasjon støtter ulike typer brukere. Dette er viktig å vite om når du utvikler egendefinert funksjonalitet i en app.
 
 - **Brukere**
-  - Kan være logget inn via Altinn-portalen eller gjennom en ekstern ID-porten-sesjon
-  - Disse har bruker-ID, part-ID og brukerprofil. Autentiseringsnivå er alltid større enn 0
-  - Brukere kan representere andre parter gjennom partsvalg
-  - ID-porten-token må være vekslet inn til Altinn-token via Altinn Autorisasjon
+  - Brukere kan være logget inn via Altinn-portalen eller gjennom en ekstern ID-porten-sesjon.
+  - Disse har bruker-ID, part-ID og brukerprofil. Autentiseringsnivå er alltid større enn 0.
+  - Brukere kan representere andre parter gjennom partsvalg.
+  - ID-porten-token må være vekslet inn til Altinn-token via Altinn Autorisasjon.
 - **Organisasjon**
-  - Klienter autentisert via Maskinporten
-  - Gjelder organisasjoner som har avtale med, og tilgang til, Maskinporten
-  - Maskinporten-token må være vekslet inn til Altinn-token
-  - Kan ikke brukes til stort i en Altinn-app, da de ikke er en gyldig avgiver (en organisasjon kan ikke sende inn på vegne av seg selv)
+  - Klienter autentisert via Maskinporten.
+  - Gjelder organisasjoner som har avtale med, og tilgang til, Maskinporten.
+  - Maskinporten-token må være vekslet inn til Altinn-token.
+  - Kan ikke brukes til mye i en Altinn-app, da de ikke er en gyldig avgiver (en organisasjon kan ikke sende inn på vegne av seg selv).
 - **Tjenesteeier**
-  - Klienter autentisert via Maskinporten
-  - Gjelder organisasjoner som er registrert som tjenesteeier i Altinn (og eier av appen som kjører), som også har bedt om et tjenesteeier-scope ved autentisering i Maskinporten (`altinn:serviceowner`)
-  - Maskinporten-token må være vekslet inn til Altinn-token
-  - Tjenesteeier er ikke en gyldig avgiver, men avhengig av XACML-policy kan tjenesteeiere starte nye instanser og endre data i eksisterende instanser
+  - Klienter autentisert via Maskinporten.
+  - Gjelder organisasjoner som er registrert som tjenesteeier i Altinn (og eier av appen som kjører), som også har bedt om et tjenesteeier-scope ved autentisering i Maskinporten (`altinn:serviceowner`).
+  - Maskinporten-token må være vekslet inn til Altinn-token.
+  - Tjenesteeier er ikke en gyldig avgiver, men avhengig av XACML-policy kan tjenesteeiere starte nye instanser og endre data i eksisterende instanser.
 - **Systembruker**
-  - Klienter autentisert via Maskinporten
-  - En systembruker eies av en organisasjon som er kunde/bruker hos et leverandørsystem. Systembrukeren eies av kunden, mens systemet eies av leverandøren
-  - Leverandøren har Maskinporten-klienten og autentiserer seg. Konseptet lar systemet impersonere systembrukeren (inkludert rettigheter systembrukeren har fått delegert fra kunden)
-  - Appens API aksepterer bare Maskinporten-tokens som har blitt innvekslet til Altinn-token (i fremtiden vil vi støtte Maskinporten-tokens direkte)
+  - Klienter autentisert via Maskinporten.
+  - En systembruker eies av en organisasjon som er kunde/bruker hos et leverandørsystem. Systembrukeren eies av kunden, mens systemet eies av leverandøren.
+  - Leverandøren har Maskinporten-klienten og autentiserer seg. Konseptet lar systemet opptre på vegne av systembrukeren (inkludert rettigheter systembrukeren har fått delegert fra kunden).
+  - Appens API aksepterer bare Maskinporten-tokens som har blitt innvekslet til Altinn-token (i fremtiden vil vi støtte Maskinporten-tokens direkte).
 
 {{% notice warning %}}
 Virksomhetsbrukere fra Altinn 2 er bare delvis støttet i Altinn 3. Autentisering og autorisasjon vil fungere, men det kan være
 mangler i andre deler av plattformen. Virksomhetsbrukere klassifiseres som `Organisasjon` fra listen over.
 Det finnes ingen innebygd sperrefunksjon for disse brukerne. Hvis du ønsker å blokkere forespørsler fra virksomhetsbrukere i appen,
-må du gjøre dette manuelt, for eksempel ved hjelp av ASP.NET Core middleware.
+må du gjøre dette manuelt, for eksempel ved hjelp av ASP.NET Core-mellomvare.
 {{% /notice %}}
 
 ## Informasjon i appen
 
-`Altinn.App.Core`-biblioteket har abstraksjoner for å hente ut informasjon om innlogget bruker.
-Som standard er det ingen begrensninger på hvilke brukertyper en app tar imot, men du kan begrense dette selv i et middleware eller en validator.
+`Altinn.App.Core`-biblioteket har grensesnitt for å hente ut informasjon om innlogget bruker.
+Som standard er det ingen begrensninger på hvilke brukertyper en app tar imot, men du kan begrense dette selv i en mellomvare eller en validator.
 Før `v8.6` av app-bibliotekene var det vanlig å f.eks. hente bruker-ID direkte fra `HttpContext`,
 men dette kan gi uventet resultat hvis innkommende forespørsel er autentisert med f.eks. systembruker.
 
@@ -82,17 +82,17 @@ Det finnes ingen innebygd konfigurasjon for å begrense tilgang basert på auten
 
 {{% notice info %}}
 `IAuthenticationContext.Current` bruker informasjon om innlogget bruker fra ASP.NET Core sin authentication stack.
-Det vil si at ASP.NET Core auth middleware må ha kjørt for at du skal få riktig informasjon.
-Middleware for auth legges til i `UseAltinnAppCommonConfiguration`. Så hvis du skal bruke `IAuthenticationContext.Current`
-i et ASP.NET Core middleware, må denne legges til **etter** at `UseAltinnAppCommonConfiguration` har blitt kalt.
+Det vil si at ASP.NET Core-mellomvaren for autentisering må ha kjørt for at du skal få riktig informasjon.
+Mellomvaren for autentisering legges til i `UseAltinnAppCommonConfiguration`. Så hvis du skal bruke `IAuthenticationContext.Current`
+i en ASP.NET Core-mellomvare, må denne legges til **etter** at `UseAltinnAppCommonConfiguration` har blitt kalt.
 Alle grensesnitt som implementeres i en app, slik som `IInstantiationValidator` i eksempelet under, kjører på et tidspunkt
 hvor autentiseringsinformasjonen er tilgjengelig, så der er det trygt.
 {{% /notice %}}
 
 ### ✅ Altinn-portalbrukere
 
-Her er et eksempel på en implementasjon av `IInstantiationValidator` som bare tillater
-instansiering av brukere innlogget via Altinn-portalen:
+Her er et eksempel på hvordan du implementerer `IInstantiationValidator` for å bare tillate
+instansiering for brukere som er innlogget via Altinn-portalen:
 
 ```csharp
 using System.Threading.Tasks;
@@ -136,7 +136,7 @@ internal sealed class ValidateInstantiation(IAuthenticationContext authenticatio
 }
 ```
 
-Den samme autoriseringen kan gjøres globalt ved hjelp av ASP.NET Core middleware:
+Du kan gjøre den samme autoriseringen globalt ved hjelp av ASP.NET Core-mellomvare:
 
 {{% notice info %}}
 Merk at denne varianten også blokkerer uautentiserte forespørsler.

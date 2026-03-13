@@ -12,10 +12,10 @@ En instansiert applikasjon vil ha et tilhørende instansobjekt. Dette objektet i
 ## Substatus
 
 Som appeier kan du sette en substatus på instansen. Dette er for å kunne gi sluttbrukeren ytterligere informasjon om hvilken tilstand instansen befinner seg i.
-Substatus vises både i meldingsboksen i Altinn og på kvitteringssiden.
+Substatus viser seg både i meldingsboksen i Altinn og på kvitteringssiden.
 
 Substatus er et enkelt objekt som inneholder `label` og `description`. Disse feltene kan enten inneholde ren tekst, eller en tekstnøkkel som referer til applikasjonstekstene. Merk at variabler i tekst ikke støttes for disse tekstene.
-I meldingsboksen vises `label` i sin helhet hvis den har en lengde på inntil 25 tegn. Hvis `label` består av mer enn 25 tegn, vises bare de 22 første tegnene, og "..." legges på til slutt.
+I meldingsboksen viser `label` seg i sin helhet hvis den har en lengde på inntil 25 tegn. Hvis `label` består av mer enn 25 tegn, viser den bare de 22 første tegnene, og "..." legges på til slutt.
 
 Eksempel på et substatus-objekt:
 ```json
@@ -25,7 +25,7 @@ Eksempel på et substatus-objekt:
 }
 ```
 
-Under ser du eksempel på hvordan substatus ser ut i meldingsboksen og i kvitteringen, når substatusen settes opp slik:
+Under ser du eksempel på hvordan substatus ser ut i meldingsboksen og i kvitteringen, når du setter opp substatusen slik:
 ```json
 {
     "label": "Godkjent",
@@ -49,12 +49,12 @@ For å oppnå dette, er det tre steg som må tas:
 ### Steg 1: Konfigurer applikasjonen
 
 Som standard har ikke tjenesteeier lov til å slette instanser knyttet til en applikasjon.
-For å få lov til dette, må det legges til en ny regel i `policy.xml` som finnes i `App/config/authorization`.
-Regelen kan kopieres fra [regelbiblioteket]({{< relref "/altinn-studio/v10/develop-a-service/reference/configuration/authorization/rules#org-kan-slette-en-instans-av-orgapp-uavhengig-av-hvor-den-er-i-prosessen" >}}).
+For å få lov til dette, må du legge til en ny regel i `policy.xml` som finnes i `App/config/authorization`.
+Du kan kopiere regelen fra [regelbiblioteket]({{< relref "/altinn-studio/v10/develop-a-service/reference/configuration/authorization/rules#org-kan-slette-en-instans-av-orgapp-uavhengig-av-hvor-den-er-i-prosessen" >}}).
 
 ### Steg 2: Identifiser hvilke instanser som ikke er fullført ved hjelp av spørring mot storage
 
-Storage eksponerer et sett med queryparametere som kan brukes for å hente ut et sett med instanser.
+Storage eksponerer et sett med queryparametere som du kan bruke for å hente ut et sett med instanser.
 I eksempelet nedenfor får du ut alle instanser som er instansiert av en gitt applikasjon 30. september 2020 eller tidligere,
 og som enda står i utfyllingssteget.
 

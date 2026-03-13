@@ -8,13 +8,12 @@ tags: [needsReview]
 
 ASP.NET Core har gode muligheter til å konsumere API-er.
 
-Dette kan være nyttig hvis du ønsker å eksponere organisasjonens
-egne API-er via en app, eller har behov for data fra eksterne API-er i appen.
+Dette er nyttig hvis du vil eksponere organisasjonens egne API-er via en app, eller trenger data fra eksterne API-er i appen.
 
-På denne siden går vi gjennom et eksempel der et eksternt, åpent API brukes til å berike skjemadata.
-[Eksempelappen kan sees i sin helhet i Altinn Studio](https://altinn.studio/repos/ttd/consume-api-example).
+På denne siden går vi gjennom et eksempel der vi bruker et eksternt, åpent API til å berike skjemadata.
+[Du kan se eksempelappen i sin helhet i Altinn Studio](https://altinn.studio/repos/ttd/consume-api-example).
 
-API-et som brukes er [RestCountries v3](https://restcountries.com/#api-endpoints-v3), og det er
+Vi bruker [RestCountries v3](https://restcountries.com/#api-endpoints-v3), og det er
 endepunktet `https://restcountries.com/v3.1/name/{country}` vi er interessert i.
 Dette returnerer et sett med detaljer om landet som er oppgitt.
 
@@ -25,7 +24,7 @@ Vi ønsker å berike skjemaet med detaljer om et land som sluttbrukeren har fylt
 ## Opprettelse av API-modeller
 
 Hvis API-et som skal konsumeres er dokumentert med Swagger eller OpenAPI, kan du enkelt generere C#-klasser basert på datamodellen.
-Dette kan gjøres manuelt eller ved hjelp av verktøy som tilbyr slik generering.
+Dette kan du gjøre manuelt eller ved hjelp av verktøy som tilbyr slik generering.
 
 I dette eksempelet er responsobjektet stort og inneholder langt mer data enn den vi er interessert i.
 
@@ -69,7 +68,7 @@ Her er et lite utsnitt av responsobjektet for Norge.
 I applikasjonen ønsker vi kun å ta med oss dataen fra de markerte linjene, altså hovedstad og region.
 Vi lager et minimalistisk responsobjekt som kun inneholder de feltene vi er interessert i.
 
-I mappen _App/models_ opprettes filen `Country.cs`.
+I mappen _App/models_ oppretter du filen `Country.cs`.
 
 ```C#
 using System.Collections.Generic;
@@ -88,15 +87,15 @@ namespace Altinn.App.models
 `Capital` er en liste med strenger, da et land kan ha flere hovedsteder.
 
 I dette eksempelet krever ikke API-et et komplekst request-objekt, og dermed kan vi nøye oss med den ene modellen.
-Skulle det være behov for et request-objekt, kan dette opprettes på samme måte.
+Skulle det være behov for et request-objekt, kan du opprette dette på samme måte.
 
 ## Oppsett av grensesnitt for klienten
 
 Det er anbefalt å definere et grensesnitt for klienten som skal kalle API-et.
 Det gjør at vi kan bruke styrkene til .NET med dependency injection og effektiv håndtering av HTTP-klienter.
 
-I applikasjonsrepoet opprettes mappen _App/clients_,
-og i den nye mappen opprettes filen `ICountryClient.cs`.
+I applikasjonsrepoet oppretter du mappen _App/clients_,
+og i den nye mappen oppretter du filen `ICountryClient.cs`.
 
 Grensesnittet består av én metode `GetCountry` som tar inn en streng og returnerer et _Country_-objekt.
 
@@ -126,8 +125,8 @@ vil være asynkront.
 
 ## Implementere klient
 
-Det er klienten som inneholder koden som gjør kallet mot API-et og omformer resultatet til `Country`-modellen
-som forventes i retur av funksjonene som kaller klienten.
+Klienten inneholder koden som gjør kallet mot API-et og omformer resultatet til `Country`-modellen
+som funksjonene forventer i retur når de kaller klienten.
 
 Den fulle implementasjonen av _Country_-klienten er vist nedenfor.
 
@@ -218,11 +217,11 @@ private readonly JsonSerializerOptions _serializerOptions;
 ```
 
 Understrek foran navnet er kun en navnekonvensjon og har ingen effekt.
-- __client_ vil i konstruktøren populeres med en HTTP-klient
-- __logger_ vil i konstruktøren populeres med en logger slik at du kan logge feilmeldinger og annet i klassen
-- __serializerOptions_ vil i konstruktøren instansieres og konfigureres for å kunne deserialisere responsen fra API-et
+- __client_ får en HTTP-klient i konstruktøren
+- __logger_ får en logger i konstruktøren slik at du kan logge feilmeldinger og annet i klassen
+- __serializerOptions_ opprettes og konfigureres i konstruktøren for å kunne deserialisere responsen fra API-et
 
-Videre i klassen defineres konstruktøren.
+Videre i klassen definerer vi konstruktøren.
 
 ```cs
 public CountryClient(HttpClient client, ILogger<ICountryClient> logger)
@@ -238,7 +237,7 @@ public CountryClient(HttpClient client, ILogger<ICountryClient> logger)
 }
 ```
 
-Objekter populeres hvis de kommer som input i konstruktøren, og andre objekter instansieres.
+Objekter som kommer som input i konstruktøren får sine verdier, og andre objekter opprettes.
 Skulle du ha behov for å bruke en av de andre tjenestene som er registrert i applikasjonen, er det bare å
 sende den inn i konstruktøren og opprette et privat objekt for å kunne ta det i bruk i klassen, slik vi har gjort
 med __logger_ eller __client_.
@@ -272,10 +271,10 @@ Hvis det ikke er en suksess-statuskode, logger vi en feil og returnerer null.
 
 ## Registrere klienten i applikasjonen
 
-Når grensesnitt og klient er implementert, kan den registreres i _App/Program.cs_ (.NET&nbsp;6) eller i _App/Startup.cs_ (.NET&nbsp;5) for bruk i applikasjonen.
+Når grensesnitt og klient er implementert, kan du registrere den i _App/Program.cs_ (.NET&nbsp;6) eller i _App/Startup.cs_ (.NET&nbsp;5) for bruk i applikasjonen.
 
 I `Program.cs`-klassen legger vi til kodelinjen nedenfor.
-I tillegg må `using Altinn.App.client;` og `using Altinn.App.AppLogic.DataProcessing;` legges til øverst i filen.
+I tillegg må du legge til `using Altinn.App.client;` og `using Altinn.App.AppLogic.DataProcessing;` øverst i filen.
 
 ```C#
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
@@ -290,8 +289,8 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 For å berike skjemadata må vi koble klienten til logikken i _App/logic/DataProcessingHandler.cs_ i metoden _ProcessDataWrite_.
 
-Først må klienten tilgjengeliggjøres ved å _injecte_ den inn i konstruktøren til klassen.
-DataProcessingHandler har ingen konstruktør i utgangspunktet, så den må opprettes i klassen.
+Først må du gjøre klienten tilgjengelig ved å _injecte_ den inn i konstruktøren til klassen.
+DataProcessingHandler har ingen konstruktør i utgangspunktet, så du må opprette den i klassen.
 
 ```cs
 public DataProcessingHandler()
@@ -299,7 +298,7 @@ public DataProcessingHandler()
 }
 ```
 
-Videre kan vi opprette et privat objekt for klienten, injecte den i konstruktøren og assigne den til det private objektet.
+Videre kan vi opprette et privat objekt for klienten, injecte den i konstruktøren og tilordne den til det private objektet.
 Resultatet blir seende slik ut:
 
 ```cs
@@ -310,7 +309,7 @@ public DataProcessingHandler(ICountryClient countryClient)
     _countryClient = countryClient;
 }
 ```
-I tillegg må `using Altinn.App.client;` også legges til i denne filen.
+I tillegg må du også legge til `using Altinn.App.client;` i denne filen.
 
 __countryClient_ er nå tilgjengelig i DataProcessingHandler, og vi er klare til å implementere logikken i ProcessDataWrite.
 
@@ -352,10 +351,10 @@ public async Task<bool> ProcessDataWrite(Instance instance, Guid? dataId, object
 ```
 
 Prøver du å bygge applikasjonen nå, vil du få en feil.
-DataProcessingHandler instansieres i App.cs, så alle dependencies må også inn i denne filen
+DataProcessingHandler opprettes i App.cs, så alle dependencies må også inn i denne filen
 og deretter sendes videre i konstruktøren til DataProcessingHandler.
 
-I filen _App/logic/App.cs_ gjøres følgende endringer:
+I filen _App/logic/App.cs_ gjør du følgende endringer:
 
 - Legg til en referanse til navneområdet til klienten øverst i filen.
   ```cs
@@ -400,7 +399,7 @@ I filen _App/logic/App.cs_ gjøres følgende endringer:
 
 ## Caching av responsdata
 
-En ulempe med eksempelet slik det står nå, er at for hver gang skjemaet lagres, vil det gjøres et kall
+En ulempe med eksempelet slik det står nå, er at for hver gang skjemaet lagres, gjør vi et kall
 mot endepunktet for å hente ut data.
 
 Det er rimelig å anta at et lands hovedstad og hvilken region

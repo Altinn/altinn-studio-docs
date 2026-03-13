@@ -11,10 +11,10 @@ Dette gir høy fleksibilitet til å endre og modifisere applikasjonene.
 
 ## Legge til en API-kontroller
 
-For å kunne eksponere et nytt API i en applikasjon, må det legges til én eller flere API-kontrollere.
+For å eksponere et nytt API i en applikasjon, må du legge til én eller flere API-kontrollere.
 
-Nedenfor vises et eksempel fra en API-kontroller som er lagt til i en gitt app.
-Her settes det opp hvilken sti API-et skal lytte på, og logikken knyttet til dette.
+Nedenfor ser du et eksempel fra en API-kontroller som er lagt til i en gitt app.
+Her setter du opp hvilken sti API-et skal lytte på, og logikken knyttet til dette.
 
 ```C# {linenos=false,hl_lines=[8,11]}
 using System;
@@ -38,6 +38,6 @@ namespace Altinn.App.Api.Controllers
 
 ![Test av API i nettleser](./apiresponse1.png "API-respons")
 
-Koden kan sees i [dette repositoriet](https://altinn.studio/repos/ttd/mva/src/branch/master/App/controllers/CustomApiController.cs).
+Du kan se koden i [dette repositoriet](https://altinn.studio/repos/ttd/mva/src/branch/master/App/controllers/CustomApiController.cs).
 
 I dokumentasjonen til ASP.NET kan du lese flere detaljer om [mulighetene for å eksponere API-er](https://docs.microsoft.com/en-us/aspnet/core/web-api/).
