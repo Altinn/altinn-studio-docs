@@ -91,6 +91,8 @@ Mer informasjon om action-attributter finner du [her](/nb/altinn-studio/v8/refer
 #### Tilgangsstyring for appen
 For at appen skal kunne delegere rettigheter til de som skal signere så må appen få rettigheter til å delegere `read` og `sign`.
 
+Hvis du bruker `AdditionalActionsToDelegate` i `ISigneeProvider` for å delegere flere handlinger (for eksempel `reject`), må appen også ha rettigheter til å delegere disse handlingene. Legg til de aktuelle handlingene i policy-regelen som vist nedenfor.
+
 Nedenfor finner du et eksempel på en slik policy. For at denne koden skal fungere i din egen app, må du gjøre følgende:
 - Bytt ut `ttd` med riktig org.
 - Bytt ut `app_ttd_signering-brukerstyrt` med tilsvarende `app_{org}_{appnavn}`.
