@@ -16,7 +16,7 @@ The NuGet packages are `Altinn.App.Api.Experimental` and `Altinn.App.Core.Experi
 
 ## What's new?
 
-A new field, `notification`, has been added to the request body of `POST /instances/create` and `POST /instances` (multipart). This field allows you to specify which channel the notification should be sent on, and optionally provide custom texts.
+A new field, `notification`, has been added to the request body of `POST /instances/create` and `POST /instances` (multipart). This field allows you to specify which channel the notification should be sent on, and optionally provide custom texts, a scheduled send time, and reminders.
 
 ## How it works
 
@@ -28,8 +28,11 @@ A new field, `notification`, has been added to the request body of `POST /instan
 |---|---|---|---|
 | `notificationChannel` | int (enum) | No | Channel for sending. Default: `4` (EmailAndSms). See table below for valid values. |
 | `language` | string | No | Language code (`nb`, `nn`, `en`). Only used for organizations – individuals use their profile language. |
+| `requestedSendTime` | string (datetime) | No | Earliest time for sending (ISO 8601, UTC). If not set, the notification is sent as soon as possible. |
+| `allowSendingAfterWorkHours` | bool | No | Allows sending outside of working hours. Default: `false` (daytime only). |
 | `customSms` | object | No | Custom SMS text and sender name. If not set, default text is used. |
 | `customEmail` | object | No | Custom email subject and body. If not set, default text is used. |
+| `reminders` | list | No | List of reminders that can be sent after the initial notification. |
 
 **`customSms`**
 
@@ -53,6 +56,21 @@ A new field, `notification`, has been added to the request body of `POST /instan
 | `nn` | string | Yes | Text in Norwegian Nynorsk. |
 | `en` | string | Yes | Text in English. |
 
+**`reminders` (list of reminder objects)**
+
+Each object in the `reminders` list may contain the following fields:
+
+| Field | Type | Required | Description |
+|---|---|---|---|
+| `requestedSendTime` | string (datetime) | No | Earliest time for sending the reminder (ISO 8601, UTC). |
+| `sendAfterDays` | int | No | Number of days after the initial notification before the reminder is sent. Cannot be combined with `requestedSendTime`. |
+| `customSms` | object | No | Overrides the SMS text from the initial notification for this reminder. |
+| `customEmail` | object | No | Overrides the email text from the initial notification for this reminder. |
+
+If neither `requestedSendTime` nor `sendAfterDays` is set, the reminder is sent as soon as possible after the initial notification has been processed.
+
+If no custom texts are provided on the reminder, the texts from the initial notification are inherited.
+
 ### Channel selection (`notificationChannel`)
 
 Note that `notificationChannel` is an integer enum, not a string. Valid values are:
@@ -70,7 +88,41 @@ Note that `notificationChannel` is an integer enum, not a string. Valid values a
 - For individuals, the language is automatically retrieved from their Altinn profile.
 - For organizations, the language specified in the instantiation request (`language` field in the `notification` object) is used, with Norwegian Bokmål as fallback.
 
-**Default texts**
+### Send time
+
+By default, notifications are only sent during working hours. To allow sending at any time of day, set `allowSendingAfterWorkHours` to `true`. This applies to both email and SMS.
+
+### Scheduled send time
+
+If `requestedSendTime` is set, the notification will not be sent before that time. In addition, Altinn Notifications will call back to the app just before sending to confirm that the notification is still relevant. The app can then reject the send if the state has changed — for example if the instance has already been submitted.
+
+If `requestedSendTime` is not set, the notification is sent as soon as possible (typically within a few minutes).
+
+### Custom cancellation logic
+
+When `requestedSendTime` is set, Altinn Notifications will call back to the app before each notification and reminder is sent. By default, the notification is only sent if the process has not yet ended — that is, the instance is still active and awaiting a response from the user.
+
+You can override this behaviour by implementing the `ICancelInstantiationNotification` interface and registering it in the DI container:
+
+```csharp
+public class MyNotificationCancellation : ICancelInstantiationNotification
+{
+    public bool ShouldSend(Instance instance)
+    {
+        // Only send the notification if the instance is not archived
+        return instance.Status?.IsArchived is not true;
+    }
+}
+```
+
+Register the implementation in `Program.cs`:
+
+```csharp
+services.AddTransient<ICancelInstantiationNotification, MyNotificationCancellation>();
+```
+
+### Default texts
+
 If you do not provide custom texts, default texts will be used.
 
 Example of a received email with default text:
@@ -79,7 +131,7 @@ Example of a received email with default text:
 
 *Body:* The Norwegian Test Department has created a new form (notification-instantiation-ttd) for ASTROLOG NÆR with social security number 54928201018 - open your Altinn inbox to view the form.
 
-## Custom texts and tokens
+### Custom texts and tokens
 
 Custom texts support the following tokens, which are replaced dynamically:
 
@@ -92,7 +144,7 @@ Custom texts support the following tokens, which are replaced dynamically:
 | `$socialSecurityNumber$` | The social security number of the instance owner, if the instance owner is an individual |
 | `$dueDate$` | The due date of the instance, if set (format: dd-MM-yyyy) |
 
-## How are recipient addresses determined?
+### How are recipient addresses determined?
 
 Altinn Notifications handles this based on Altinn Profile for individuals and the registry for organizations.
 
@@ -100,7 +152,9 @@ In test environments, contact details can be updated for testing at https://tt02
 
 For SMS testing in a test environment, the phone number must be whitelisted. Please get in touch if this is needed.
 
-## Simple example of instance creation with notification
+## Examples
+
+### Simple example of instance creation with notification
 
 ```json
 {
@@ -113,7 +167,7 @@ For SMS testing in a test environment, the phone number must be whitelisted. Ple
 }
 ```
 
-Example with custom texts:
+### Example with custom texts
 
 ```json
 {
@@ -146,7 +200,56 @@ Example with custom texts:
 }
 ```
 
-## Self identified users
+### Example with scheduled send time and sending outside working hours
+
+```json
+{
+  "instanceOwner": {
+    "personNumber": "54928201018"
+  },
+  "notification": {
+    "notificationChannel": 0,
+    "requestedSendTime": "2025-12-01T09:00:00Z",
+    "allowSendingAfterWorkHours": true
+  }
+}
+```
+
+### Example with reminders
+
+```json
+{
+  "instanceOwner": {
+    "personNumber": "54928201018"
+  },
+  "notification": {
+    "notificationChannel": 0,
+    "requestedSendTime": "2025-12-01T09:00:00Z",
+    "reminders": [
+      {
+        "sendAfterDays": 7
+      },
+      {
+        "sendAfterDays": 14,
+        "customEmail": {
+          "subject": {
+            "nb": "Påminnelse: $appName$ venter på deg",
+            "nn": "Påminning: $appName$ ventar på deg",
+            "en": "Reminder: $appName$ is waiting for you"
+          },
+          "body": {
+            "nb": "Hei $instanceOwnerName$, vi minner om at $appName$ fortsatt venter på svar.",
+            "nn": "Hei $instanceOwnerName$, vi minner om at $appName$ framleis ventar på svar.",
+            "en": "Hello $instanceOwnerName$, we would like to remind you that $appName$ is still awaiting your response."
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+### Self-identified users
 
 ```json
 {
@@ -169,7 +272,3 @@ Example with custom texts:
   }
 }
 ```
-
-## Note
-
-This is the first preview. Support for scheduled send time, reminders, and custom cancellation logic will be added in later releases.
