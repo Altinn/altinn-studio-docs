@@ -62,7 +62,7 @@ Her kan du prøve deg fram for å finne de rette query-parameterene for akkurat 
 
 `HTTP GET https://platform.altinn.no/storage/api/v1/instances?appId={org}/{app}&created=lte:2020-09-30&process.currentTask=Task_1`
 
-### Steg 3: Slett instans via endepunkt eksponert i applikasjonen
+### Steg 3: Slett instanser via endepunkt eksponert i applikasjonen
 
 Når du har funnet instansene som skal slettes, sender du et kall
 til applikasjonen for å slette dem. Da må du oppgi ID-en på instansene (instanceOwner.partyId/instanceGuid).
