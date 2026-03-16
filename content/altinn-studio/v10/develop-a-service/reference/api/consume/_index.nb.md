@@ -279,122 +279,78 @@ I tillegg må du legge til `using Altinn.App.clients;` og `using Altinn.App.AppL
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
     services.AddHttpClient<ICountryClient, CountryClient>();
-    services.AddTransient<IDataProcessor, DataProcessor>();
+    services.AddTransient<IDataProcessor, CountryDataProcessor>();
     // Register your apps custom service implementations here.
 }
 ```
 
 ## Bruke klient i app-logikk
 
-For å berike skjemadata kobler du klienten til logikken i _App/logic/DataProcessingHandler.cs_ i metoden _ProcessDataWrite_.
+For å berike skjemadata lager du en klasse som implementerer `IDataProcessor`-grensesnittet.
 
-Først gjør du klienten tilgjengelig ved å sende den inn (inject) i konstruktøren til klassen.
-DataProcessingHandler har ingen konstruktør i utgangspunktet, så du må opprette den i klassen.
-
-```cs
-public DataProcessingHandler()
-{
-}
-```
-
-Nå kan du opprette et privat objekt for klienten, sende den inn i konstruktøren og tilordne den til det private objektet.
-Resultatet blir seende slik ut:
+Opprett filen _App/logic/DataProcessing/CountryDataProcessor.cs_:
 
 ```cs
-private readonly ICountryClient _countryClient;
+using System;
+using System.Threading.Tasks;
+using Altinn.App.clients;
+using Altinn.App.models;
+using Altinn.Platform.Storage.Interface.Models;
 
-public DataProcessingHandler(ICountryClient countryClient)
+namespace Altinn.App.AppLogic.DataProcessing
 {
-    _countryClient = countryClient;
+    public class CountryDataProcessor : IDataProcessor
+    {
+        private readonly ICountryClient _countryClient;
+
+        public CountryDataProcessor(ICountryClient countryClient)
+        {
+            _countryClient = countryClient;
+        }
+
+        public async Task<bool> ProcessDataWrite(Instance instance, Guid? dataId, object data)
+        {
+            if (data.GetType() == typeof(skjema))
+            {
+                skjema skjema = (skjema)data;
+                if (!string.IsNullOrEmpty(skjema.land))
+                {
+                    Country country = await _countryClient.GetCountry(skjema.land.Trim());
+
+                    if (country != null)
+                    {
+                        skjema.hovedstad = string.Join(",", country.Capital);
+                        skjema.region = country.Region;
+                    }
+                    else
+                    {
+                        skjema.hovedstad = skjema.region = string.Empty;
+                    }
+
+                    return true;
+                }
+                else
+                {
+                    skjema.hovedstad = string.Empty;
+                    skjema.region = string.Empty;
+                }
+            }
+            return await Task.FromResult(false);
+        }
+
+        public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object data)
+        {
+            return await Task.FromResult(false);
+        }
+    }
 }
 ```
-I tillegg må du også legge til `using Altinn.App.clients;` i denne filen.
-
-__countryClient_ er nå tilgjengelig i DataProcessingHandler, og du er klar til å implementere logikken i ProcessDataWrite.
 
 {{%notice warning%}}
-
 **MERK**: Stateless apps kaller ikke på ProcessDataWrite. Bruk ProcessDataRead for stateless apps.
 {{%/notice%}}
 
-```cs
-public async Task<bool> ProcessDataWrite(Instance instance, Guid? dataId, object data)
-{
-    if (data.GetType() == typeof(skjema))
-    {
-        skjema skjema = (skjema)data;
-        if (!string.IsNullOrEmpty(skjema.land))
-        {
-            Country country = await _countryClient.GetCountry(skjema.land.Trim());
-
-            if (country != null)
-            {
-                skjema.hovedstad = string.Join(",", country.Capital);
-                skjema.region = country.Region;
-            }
-            else
-            {
-                skjema.hovedstad = skjema.region = string.Empty;
-            }
-
-            return true;
-        }
-        else
-        {
-            skjema.hovedstad = string.Empty;
-            skjema.region = string.Empty;
-        }
-    }
-    return await Task.FromResult(false);
-}
-```
-
-Hvis du prøver å bygge appen nå, får du en feil.
-DataProcessingHandler opprettes i App.cs, så alle avhengigheter må også inn i denne filen
-og deretter sendes videre i konstruktøren til DataProcessingHandler.
-
-I filen _App/logic/App.cs_ gjør du følgende endringer:
-
-- Legg til en referanse til navneområdet til klienten øverst i filen.
-  ```cs
-  using Altinn.App.clients;
-  ```
-- Send inn `ICountryClient` nederst i App.cs-konstruktøren.
-
-    Dette er gjort på linje 14.
-    ```cs {linenos=inline,hl_lines=[14]}
-    public App(
-        IAppResources appResourcesService,
-        ILogger<App> logger,
-        IData dataService,
-        IProcess processService,
-        IPDF pdfService,
-        IProfile profileService,
-        IRegister registerService,
-        IPrefill prefillService,
-        IInstance instanceService,
-        IOptions<GeneralSettings> settings,
-        IText textService,
-        IHttpContextAccessor httpContextAccessor,
-        ICountryClient countryClient) : base(
-            appResourcesService,
-            logger,
-            dataService,
-            processService,
-            pdfService,
-            prefillService,
-            instanceService,
-            registerService,
-            settings,
-            profileService,
-            textService,
-            httpContextAccessor)
-    ```
-
-- Legg til countryClient i konstruktøren til DataProcessingHandler.
-    ```cs
-    _dataProcessingHandler = new DataProcessingHandler(countryClient);
-    ```
+Merk at `ICountryClient` sendes inn i konstruktøren til `CountryDataProcessor`. Dette fungerer fordi begge er registrert i dependency injection-systemet i Program.cs.
 
 ## Mellomlagre responsdata
 
