@@ -106,7 +106,7 @@ using System.Threading.Tasks;
 
 using Altinn.App.models;
 
-namespace Altinn.App.client
+namespace Altinn.App.clientss
 {
     public interface ICountryClient
     {
@@ -141,7 +141,7 @@ using Altinn.App.models;
 
 using Microsoft.Extensions.Logging;
 
-namespace Altinn.App.client
+namespace Altinn.App.clients
 {
     public class CountryClient : ICountryClient
     {
@@ -273,7 +273,7 @@ Hvis det ikke er en suksess-statuskode, logger du en feil og returnerer null.
 Når grensesnitt og klient er implementert, kan du registrere den i _App/Program.cs_ (.NET&nbsp;6) eller i _App/Startup.cs_ (.NET&nbsp;5) for bruk i appen.
 
 I `Program.cs`-klassen legger du til kodelinjen nedenfor.
-I tillegg må du legge til `using Altinn.App.client;` og `using Altinn.App.AppLogic.DataProcessing;` øverst i filen.
+I tillegg må du legge til `using Altinn.App.clients;` og `using Altinn.App.AppLogic.DataProcessing;` øverst i filen.
 
 ```C#
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
@@ -308,7 +308,7 @@ public DataProcessingHandler(ICountryClient countryClient)
     _countryClient = countryClient;
 }
 ```
-I tillegg må du også legge til `using Altinn.App.client;` i denne filen.
+I tillegg må du også legge til `using Altinn.App.clients;` i denne filen.
 
 __countryClient_ er nå tilgjengelig i DataProcessingHandler, og du er klar til å implementere logikken i ProcessDataWrite.
 
@@ -357,7 +357,7 @@ I filen _App/logic/App.cs_ gjør du følgende endringer:
 
 - Legg til en referanse til navneområdet til klienten øverst i filen.
   ```cs
-  using Altinn.App.client;
+  using Altinn.App.clients;
   ```
 - Send inn `ICountryClient` nederst i App.cs-konstruktøren.
 
@@ -419,7 +419,7 @@ using System.Net.Http;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Altinn.App.client
+namespace Altinn.App.clients
 {
     public class CountryClient : ICountryClient
     {
