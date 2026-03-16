@@ -6,8 +6,8 @@ toc: false
 tags: [needsReview]
 ---
 
-Applikasjonene som utvikles i Altinn Studio baserer seg i dag på [ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core) for back-end.
-Dette gir høy fleksibilitet til å endre og modifisere applikasjonene.
+Applikasjonene som utvikles i Altinn Studio baserer seg i dag på [ASP.NET Core](https://learn.microsoft.com/en-us/aspnet/core/introduction-to-aspnet-core) for back-end.
+Dette gir høy fleksibilitet til å endre applikasjonene.
 
 ## Legge til en API-kontroller
 
@@ -40,4 +40,4 @@ namespace Altinn.App.Api.Controllers
 
 Du kan se koden i [dette repositoriet](https://altinn.studio/repos/ttd/mva/src/branch/master/App/controllers/CustomApiController.cs).
 
-I dokumentasjonen til ASP.NET kan du lese flere detaljer om [mulighetene for å eksponere API-er](https://docs.microsoft.com/en-us/aspnet/core/web-api/).
+I dokumentasjonen til ASP.NET kan du lese flere detaljer om [mulighetene for å eksponere API-er](https://learn.microsoft.com/en-us/aspnet/core/web-api/).

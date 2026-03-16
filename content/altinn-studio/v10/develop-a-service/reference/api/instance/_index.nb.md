@@ -14,7 +14,7 @@ En instansiert applikasjon vil ha et tilhørende instansobjekt. Dette objektet i
 Som appeier kan du sette en substatus på instansen for å gi sluttbrukeren ytterligere informasjon om hvilken tilstand instansen befinner seg i.
 Substatus viser seg både i meldingsboksen i Altinn og på kvitteringssiden.
 
-Substatus er et enkelt objekt som inneholder `label` og `description`. Disse feltene kan enten inneholde ren tekst, eller en tekstnøkkel som referer til applikasjonstekstene. Merk at variabler i tekst ikke støttes for disse tekstene.
+Substatus er et enkelt objekt som inneholder `label` og `description`. Disse feltene kan enten inneholde ren tekst, eller en tekstnøkkel som refererer til applikasjonstekstene. Merk at variabler i tekst ikke støttes for disse tekstene.
 I meldingsboksen viser `label` seg i sin helhet hvis den har en lengde på inntil 25 tegn. Hvis `label` består av mer enn 25 tegn, viser den bare de 22 første tegnene, og "..." legges på til slutt.
 
 Eksempel på et substatus-objekt:
@@ -39,12 +39,12 @@ Under ser du eksempel på hvordan substatus ser ut i meldingsboksen og i kvitter
 
 ## Slette utkast automatisk
 
-Som applikasjonseier kan du i noen tilfeller ønske å slette sluttbrukerens utkast av en tjeneste hvis det har gått en viss tid siden instansiering.
+Som applikasjonseier kan du i noen tilfeller ønske å slette sluttbrukerens utkast til en tjeneste hvis det har gått en viss tid siden instansiering.
 For å oppnå dette, må du gjøre tre ting:
 
 1. Konfigurer applikasjonen slik at tjenesteeier har lov til å slette instanser.
 2. Identifiser hvilke instanser som ikke er fullført ved hjelp av spørring mot storage.
-3. Slett instans via endepunkt eksponert i applikasjonen.
+3. Slett instanser via endepunkt eksponert i applikasjonen.
 
 ### Steg 1: Konfigurer applikasjonen
 

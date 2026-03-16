@@ -145,9 +145,9 @@ namespace Altinn.App.client
 {
     public class CountryClient : ICountryClient
     {
-        HttpClient _client;
-        ILogger<ICountryClient> _logger;
-        JsonSerializerOptions _serializerOptions;
+        private readonly HttpClient _client;
+        private readonly ILogger<ICountryClient> _logger;
+        private readonly JsonSerializerOptions _serializerOptions;
 
         public CountryClient(HttpClient client, ILogger<ICountryClient> logger)
         {
@@ -207,7 +207,7 @@ Deretter defineres klassen og hvilket grensesnitt den arver fra.
 public class CountryClient : ICountryClient
 ```
 
-I klassen er det tre private objekter __client_, __logger og __serializerOptions_.
+I klassen er det tre private objekter `_client`, `_logger` og `_serializerOptions`.
 
 ```cs
 private readonly HttpClient _client;
@@ -216,9 +216,9 @@ private readonly JsonSerializerOptions _serializerOptions;
 ```
 
 Understrek foran navnet er kun en navnekonvensjon og har ingen effekt.
-- __client_ får en HTTP-klient i konstruktøren
-- __logger_ får en logger i konstruktøren slik at du kan logge feilmeldinger og annet i klassen
-- __serializerOptions_ opprettes og konfigureres i konstruktøren for å kunne deserialisere responsen fra API-et
+- `_client` får en HTTP-klient i konstruktøren
+- `_logger` får en logger i konstruktøren slik at du kan logge feilmeldinger og annet i klassen
+- `_serializerOptions` opprettes og konfigureres i konstruktøren for å kunne deserialisere responsen fra API-et
 
 Neste steg er å definere konstruktøren.
 
@@ -239,7 +239,7 @@ public CountryClient(HttpClient client, ILogger<ICountryClient> logger)
 Objekter som kommer inn i konstruktøren får sine verdier, og andre objekter opprettes.
 Skulle du ha behov for å bruke en av de andre tjenestene som er registrert i appen, sender du den
 inn i konstruktøren og oppretter et privat objekt for å kunne ta det i bruk i klassen, slik som gjort
-med __logger_ eller __client_.
+med `_logger` eller `_client`.
 
 Lenger ned i klassen finner du metoden `GetCountry`.
 
