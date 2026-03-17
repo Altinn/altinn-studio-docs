@@ -79,16 +79,11 @@ Her finner du de viktigste tingene du selv må følge opp. UU-tilsynet har full 
 
 ## Nyttige verktøy og veiledninger
 
-- Om WCAG-kravene:
-  https://www.uutilsynet.no/wcag-standarden/wcag-sortert-etter-prinsipp/713/
-- Lag tilgjengelighetserklæring:
-  https://uustatus.no/
-- Testverktøy for struktur:
-  https://wave.webaim.org/
-- Skjermleser for Windows (gratis):
-  https://www.nvaccess.org/
-- Skjermleser for Mac:
-  https://support.apple.com/no-no/guide/voiceover/welcome/mac
+- [WCAG-kravene sortert etter prinsipp](https://www.uutilsynet.no/wcag-standarden/wcag-sortert-etter-prinsipp/713/) hos UU-tilsynet
+- [Lag tilgjengelighetserklæring](https://uustatus.no/) på uustatus.no
+- [Wave](https://wave.webaim.org/) – testverktøy for struktur
+- [NVDA](https://www.nvaccess.org/) – gratis skjermleser for Windows
+- [VoiceOver](https://support.apple.com/no-no/guide/voiceover/welcome/mac) – skjermleser for Mac
 
 ---
 
