@@ -3,7 +3,7 @@ draft: false
 title: Lag gode spørsmål
 description: Når vi stiller gode spørsmål, er det lettere for brukerne å svare med riktige opplysninger og forstå hvorfor de må gi dem.
 weight: 1
-tags: [needsReview, translate-to-english]
+tags: [needsReview]
 ---
 
 Når du stiller gode spørsmål, er det lettere for brukerne å svare med riktige opplysninger og forstå hvorfor de må gi dem. Hvis de trenger det, kan du legge til hjelpetekst og feilmeldinger, som hjelper dem på veien.

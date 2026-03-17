@@ -2,7 +2,7 @@
 draft: false
 title: Tekster i tjenesten
 weight: 5
-tags: [needsReview, translate-to-english]
+tags: [needsReview]
 ---
 
 De små tekstene i en tjeneste som oppfordrer brukerne til å gjøre noe, kalles mikrotekster. Det kan være ledetekster i skjema, knappetekster, hjelpetekster og feilmeldinger. Mikrotekster er viktige fordi de veileder brukerne godt og raskt gjennom tjenesten.

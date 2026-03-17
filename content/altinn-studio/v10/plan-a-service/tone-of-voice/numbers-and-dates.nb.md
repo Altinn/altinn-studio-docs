@@ -3,7 +3,7 @@ draft: false
 title: Tall og datoer
 description: Slik skriver du tall, telefonnummer, datoer og klokkeslett i tjenestene.
 weight: 4
-tags: [needsReview, translate-to-english]
+tags: [needsReview]
 ---
 
 Når du deler opp tall på riktig måte, blir det lettere for brukerne å lese og forstå dem. Det hjelper også brukerne å skille mellom ulike typer nummer.

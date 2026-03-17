@@ -3,7 +3,7 @@ draft: false
 title: Råd om tekster i tjenesten
 description: Her finner du råd om hvordan du skriver godt for brukerne i tjenestene du lager.
 weight: 9
-tags: [needsReview, translate-to-english]
+tags: [needsReview]
 ---
 
 I tillegg kan du gjerne bruke rådene fra
