@@ -10,8 +10,7 @@ Du kan trygt velge Altinn Studio når du oppretter eller videreutvikler digitale
 
 Hvis du har spørsmål eller ønsker å dele erfaringer, kan du enkelt ta kontakt med oss på Slack eller be om et møte. Vi vil gjerne hjelpe deg og forbedre oss basert på dine tilbakemeldinger.
 
-**Bli med på Slack-kanalen for universell utforming:**
-https://digdir-samarbeid.slack.com/archives/C04CZ3KND6Z
+[Bli med på Slack-kanalen for universell utforming](https://digdir-samarbeid.slack.com/archives/C04CZ3KND6Z).
 
 ## Tips for god tilgjengelighet i Altinn-tjenester
 
