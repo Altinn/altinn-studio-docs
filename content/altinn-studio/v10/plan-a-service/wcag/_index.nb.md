@@ -63,7 +63,7 @@ https://digdir-samarbeid.slack.com/archives/C04CZ3KND6Z
 
 7. **Mer testing**
    - Følg minstekravene: Se full oversikt hos UU-tilsynet.
-   - Publiser tilgjengelighetserklæring på https://uustatus.no/
+   - [Publiser tilgjengelighetserklæring](https://uustatus.no/) på uustatus.no.
 
 ## Vanlige spørsmål
 
