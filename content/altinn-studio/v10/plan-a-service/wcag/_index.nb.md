@@ -19,60 +19,59 @@ https://digdir-samarbeid.slack.com/archives/C04CZ3KND6Z
 
 ## Dette får du automatisk med Altinn
 
-- Mange tilgjengelighetskrav er allerede løst for deg.
-- Tjenesten virker på ulike skjermstørrelser.
-- Du får et godt utgangspunkt, men er selv ansvarlig for innhold, tekster og tilgjengelighetserklæring.
+- Mange tilgjengelighetskrav er allerede løste for deg
+- Tjenesten virker på ulike skjermstørrelser
+- Du får et godt utgangspunkt, men er selv ansvarlig for innhold, tekster og tilgjengelighetserklæring
 
 ## Slik gjør du tjenesten enda mer tilgjengelig
 
 1. **Tekst og språk**
-   - Bruk korte og enkle ord på titler og knapper.
-   - Unngå fagord og vanskelige uttrykk der det er mulig.
-   - Forklar tekniske ord, hvis de må brukes.
+   - Bruk korte og enkle ord på titler og knapper
+   - Unngå fagord og vanskelige uttrykk der det er mulig
+   - Forklar tekniske ord hvis du må bruke dem
 
 2. **Ledetekster og hjelpetekster**
-   - Alle felter må ha tydelig tekst som viser hva brukeren skal skrive.
-   - Ha hjelpetekst hvis noe kan være vanskelig å forstå.
+   - Alle felter må ha tydelig tekst som viser hva brukeren skal skrive
+   - Ha hjelpetekst hvis noe kan være vanskelig å forstå
 
 3. **Feilmeldinger**
-   - Feilmeldinger skal si hvilket felt feilen gjelder.
-   - Forklar hva som er feil og hvordan brukeren kan rette det.
+   - Feilmeldinger skal si hvilket felt feilen gjelder
+   - Forklar hva som er feil og hvordan brukeren kan rette det
    - Eksempler:
      - Feil: «Feil format»
      - Bedre: «Fødselsnummer må være 11 siffer»
      - Bedre: «E-post: Skriv e-post som brukernavn@domene.no»
 
 4. **Lenker og knapper**
-   - Bruk **knapp** for å sende inn eller lagre.
-   - Bruk **lenke** for å gå til en ny side eller få mer informasjon.
-   - Skriv alltid hva som skjer når du klikker.
+   - Bruk **knapp** for å sende inn eller lagre
+   - Bruk **lenke** for å gå til en ny side eller få mer informasjon
+   - Skriv alltid hva som skjer når du klikker
 
 5. **Tastatur og skjermleser**
-   - Hele tjenesten skal kunne brukes med tastatur (Tab, Enter).
-   - Sørg for at det er lett å se hvilket felt som er aktivt.
-   - Tekst og feilmeldinger skal leses sammen med feltet.
+   - Hele tjenesten skal kunne brukes med tastatur (Tab, Enter)
+   - Sørg for at det er lett å se hvilket felt som er aktivt
+   - Tekst og feilmeldinger skal leses sammen med feltet
 
 6. **Test selv**
-   - Prøv å fylle ut skjema uten mus (kun tastatur).
-   - Test med skjermleser (for eksempel NVDA eller VoiceOver).
-   - Sjekk at feilmeldinger er tydelige og forklarende.
+   - Prøv å fylle ut skjemaet uten mus (kun tastatur)
+   - Test med skjermleser (for eksempel NVDA eller VoiceOver)
+   - Sjekk at feilmeldinger er tydelige og forklarende
 
 7. **Mer testing**
-   - Følg minstekravene: Se full oversikt hos UU-tilsynet.
-   - Publiser tilgjengelighetserklæring på
-     https://uustatus.no/
+   - Følg minstekravene: Se full oversikt hos UU-tilsynet
+   - Publiser tilgjengelighetserklæring på https://uustatus.no/
 
 ## Vanlige spørsmål
 
 **Hvorfor har jeg feil i tjenesten min?**
-Ofte kan feil skyldes at det brukes en eldre versjon av løsningen. Oppdater til siste versjon og test på nytt.
+Ofte skyldes feil at du bruker en eldre versjon av løsningen. Oppdater til siste versjon og test på nytt.
 
 **Hvorfor står ikke alle krav i denne listen?**
 Her finner du de viktigste tingene du selv må følge opp. Full oversikt finnes hos UU-tilsynet.
 
 **Trenger du hjelp?**
-- Bruk testlab for universell utforming i Oslo.
-- Kontakt oss gjerne for gjennomgang eller spørsmål.
+- Bruk testlab for universell utforming i Oslo
+- Kontakt oss gjerne for gjennomgang eller spørsmål
 
 ## Nyttige ressurser
 
