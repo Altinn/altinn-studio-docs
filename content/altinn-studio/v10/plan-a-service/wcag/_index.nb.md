@@ -77,15 +77,17 @@ Her finner du de viktigste tingene du selv må følge opp. UU-tilsynet har full 
 - Bruk testlab for universell utforming i Oslo.
 - Kontakt oss gjerne hvis du vil ha hjelp til å gjennomgå en tjeneste du har laget.
 
-## Nyttige ressurser
+## Nyttige verktøy og veiledninger
 
 - Om WCAG-kravene:
   https://www.uutilsynet.no/wcag-standarden/wcag-sortert-etter-prinsipp/713/
 - Lag tilgjengelighetserklæring:
   https://uustatus.no/
-- Testverktøy:
-  https://wave.webaim.org/ (struktur),
-  https://www.nvaccess.org/ (skjermleser),
+- Testverktøy for struktur:
+  https://wave.webaim.org/
+- Skjermleser for Windows (gratis):
+  https://www.nvaccess.org/
+- Skjermleser for Mac:
   https://support.apple.com/no-no/guide/voiceover/welcome/mac
 
 ---
