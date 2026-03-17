@@ -71,7 +71,7 @@ https://digdir-samarbeid.slack.com/archives/C04CZ3KND6Z
 Ofte skyldes feil at du bruker en eldre versjon av løsningen. Oppdater til siste versjon og test på nytt.
 
 **Hvorfor står ikke alle krav i denne listen?**
-Her finner du de viktigste tingene du selv må følge opp. Full oversikt finnes hos UU-tilsynet.
+Her finner du de viktigste tingene du selv må følge opp. UU-tilsynet har full oversikt.
 
 **Trenger du hjelp?**
 - Bruk testlab for universell utforming i Oslo.
