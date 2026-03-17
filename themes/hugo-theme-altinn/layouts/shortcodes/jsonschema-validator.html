@@ -1,0 +1,88 @@
+
+{{ .Page.Store.Set "needsAjv" true }}
+{{ $id := .Get "id" | default (printf "v-%d" now.UnixNano) }}
+{{ $schemaUrl := .Get "schemaUrl" }}
+{{ $label := .Get "label" | default "JSON:" }}
+
+
+<div class="jsonschema-validator a-panel a-panel-border a-py-2 a-px-2" data-widget-id="{{ $id }}" data-schema-url="{{ $schemaUrl }}">
+  <div class="a-form-group">
+    <label class="a-form-label"><strong>{{ $label }}</strong></label>
+    <textarea class="jsv-json a-text-input a-textarea a-mb-2" rows="10"></textarea>
+  </div>
+
+  <div class="a-flex a-items-center a-gap-2 a-mb-2">
+    <button type="button" class="jsv-validate a-btn a-btn-action">Validate JSON</button>
+    <span class="jsv-status a-ml-2" aria-live="polite"></span>
+  </div>
+
+  <div class="jsv-results-title a-mb-1" style="display:none;"><strong>Validation error</strong></div>
+  <pre class="jsv-output a-bgGreyLight a-text a-p-2 a-radius a-mt-2 a-fontMono a-breakWords" style="display:none;"></pre>
+</div>
+
+<script>
+(function() {
+  const root = document.currentScript.previousElementSibling;
+  const schemaUrl = root.getAttribute("data-schema-url");
+  const jsonEl = root.querySelector(".jsv-json");
+  const btn = root.querySelector(".jsv-validate");
+  const status = root.querySelector(".jsv-status");
+  const output = root.querySelector(".jsv-output");
+  const resultsTitle = root.querySelector(".jsv-results-title");
+
+  function setResult(ok, details) {
+    status.textContent = ok ? "✅ Valid" : "❌ Invalid";
+    output.textContent = details || "";
+    const show = !!details;
+    output.style.display = show ? "block" : "none";
+    if (resultsTitle) resultsTitle.style.display = show ? "block" : "none";
+  }
+
+  async function init() {
+    const AjvCtor = window.Ajv || window.ajv7 || window.ajv2019;
+    if (!AjvCtor) {
+      setResult(false, "Ajv not loaded. Did you include the ajv partial in baseof.html?");
+      btn.disabled = true;
+      return;
+    }
+    if (!schemaUrl) {
+      setResult(false, "Missing schemaUrl param in shortcode.");
+      btn.disabled = true;
+      return;
+    }
+
+    let schema;
+    try {
+      const res = await fetch(schemaUrl, { cache: "no-store" });
+      if (!res.ok) throw new Error(`Failed to fetch schema (${res.status})`);
+      schema = await res.json();
+    } catch (e) {
+      setResult(false, "Schema load error: " + (e.message || String(e)));
+      btn.disabled = true;
+      return;
+    }
+
+    const ajv = new AjvCtor({ allErrors: true, strict: false });
+    const validate = ajv.compile(schema);
+
+    btn.addEventListener("click", () => {
+      try {
+        const json = JSON.parse(jsonEl.value || "null");
+        const valid = validate(json);
+        valid
+          ? setResult(true, null)
+          : setResult(false, JSON.stringify(validate.errors, null, 2));
+      } catch (e) {
+        setResult(false, "JSON parse/validate error: " + (e.message || String(e)));
+      }
+    });
+  }
+
+  // In case Ajv is deferred and not ready yet.
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();
+</script>
