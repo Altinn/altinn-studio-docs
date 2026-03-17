@@ -340,6 +340,22 @@ namespace Altinn.App.AppLogic.DataProcessing
 
         public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object data)
         {
+            if (data.GetType() == typeof(skjema))
+            {
+                skjema skjema = (skjema)data;
+                if (!string.IsNullOrEmpty(skjema.land))
+                {
+                    Country country = await _countryClient.GetCountry(skjema.land.Trim());
+
+                    if (country != null)
+                    {
+                        skjema.hovedstad = string.Join(",", country.Capital);
+                        skjema.region = country.Region;
+                    }
+
+                    return true;
+                }
+            }
             return await Task.FromResult(false);
         }
     }
