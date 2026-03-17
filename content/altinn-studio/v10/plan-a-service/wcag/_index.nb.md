@@ -19,7 +19,7 @@ https://digdir-samarbeid.slack.com/archives/C04CZ3KND6Z
 
 ## Dette får du automatisk med Altinn
 
-- Mange tilgjengelighetskrav er allerede løste for deg
+- Mange tilgjengelighetskrav er allerede løst for deg
 - Tjenesten virker på ulike skjermstørrelser
 - Du får et godt utgangspunkt, men er selv ansvarlig for innhold, tekster og tilgjengelighetserklæring
 
