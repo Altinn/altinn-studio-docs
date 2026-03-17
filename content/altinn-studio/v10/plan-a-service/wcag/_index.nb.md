@@ -37,7 +37,8 @@ https://digdir-samarbeid.slack.com/archives/C04CZ3KND6Z
 3. **Feilmeldinger**
    - Feilmeldinger skal si hvilket felt feilen gjelder.
    - Forklar hva som er feil og hvordan brukeren kan rette det.
-   - Eksempler:
+
+   Eksempler:
 
    ❌ «Feil format»
 
