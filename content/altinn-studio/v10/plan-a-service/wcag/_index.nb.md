@@ -93,5 +93,4 @@ Her finner du de viktigste tingene du selv må følge opp. UU-tilsynet har full 
 ---
 
 **Viktig:**
-Bruker du ikke Altinn sitt vanlige brukergrensesnitt, må du selv sørge for at alle kravene følges. Les mer her:
-https://www.uutilsynet.no/wcag-standarden/nettsteder/711
+Bruker du ikke Altinns vanlige brukergrensesnitt, må du selv sørge for at tjenesten følger alle kravene. Les mer om [krav til nettsteder på UU-tilsynets nettsider](https://www.uutilsynet.no/wcag-standarden/nettsteder/711).
