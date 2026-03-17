@@ -63,7 +63,10 @@ If not, we recommend the following standard notification text:
 `$recipientName$` `$recipientNumber$`  has received a confidential message: `messageTitle` from `$sendersName$`. To access the message, someone in `$recipientName$` must be granted access to `Navn på tjenesten` in Altinn. The message will not be visible before someone is granted access. Read more about confidential information on Altinn’s website.
 {{% /notice %}}
 
-#### Upcoming functionality
-Altinn is considering a solution where a separate message (Correspondence) is sent as a reminder to those with the role or access package "Mail/Archive". This message will contain the same information as a notification – that the organization has an unopened confidential message. The reminder will be sent to the organization’s inbox after 7 days if the confidential message has not been opened.
+### Reminders for unopened confidential correspondences
+If a confidential correspondence has not been opened within 7 days, a reminder will be sent to the organization.
+The reminder will be sent as a dialog in the recipient's inbox and will be visible to everyone with the role or access package "Regular mail to business", and it will contain a list of which confidential correspondences that have not been opened providing information about the sender, the date the message was published, and which service is required to gain access.
 
-Think this functionality would be useful? Let us know — send us an email: [servicedesk@altinn.no](mailto:servicedesk@altinn.no)
+In addition to creating an instance in the inbox, a notification will be sent by email to the organization's notification address as well as to individuals who have registered a notification address for the organization and who have access to the "Regular mail to business" access package.
+
+To avoid filling the organization's inbox with reminders about unopened confidential correspondence, the dialog will be deleted when all confidential messages older than 7 days have been opened.

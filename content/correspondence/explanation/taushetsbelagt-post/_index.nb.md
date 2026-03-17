@@ -65,7 +65,11 @@ Vi anbefaler sterkt at teksten i varselet tilpasses innholdet i forsendelsen hvi
 `$recipientName$` `$recipientNumber$` har mottatt en taushetsbelagt melding: `messageTitle` fra `$sendersName$`. For å få tilgang til meldingen, er det nødvendig at noen i navn på mottakervirksomhet har fått tildelt tilgang til meldingstypen `Navn på tjenesten` i Altinn. Selve meldingen vil være usynlig fram til tilgang er gitt. Les mer om taushetsbelagt post på Altinns nettsider.
 {{% /notice %}}
 
-#### Kommende funksjonalitet
-Altinn vurderer en løsning der det sendes en egen melding (Correspondence) som påminnelse til de som har rollen eller tilgangspakken «Post/arkiv». Meldingen skal inneholde samme informasjon som et varsel – at virksomheten har en uåpnet taushetsbelagt melding. Påminnelsen sendes til virksomhetens innboks etter 7 dager dersom den taushetsbelagte meldingen ikke er åpnet. 
 
-Vi hører gjerne fra dere! Si ifra dersom dette er en funksjon dere ønsker. Send oss gjerne en e-post: [servicedesk@altinn.no](mailto:servicedesk@altinn.no)
+### Purring på uåpnet taushetsbelagt post
+Dersom taushetsbelagt post ikke er blitt åpnet innen 7 dager vil det sendes ut en purring til virksomheten. 
+Purringen vil sendes ut i form av en dialog i mottakers innboks og vil være synlig for alle med rollen eller tilgangspakken "Ordinær post til virksomheten", og den vil inneholde en liste over hvilke instanser med taushetsbelagt post som ikke er åpnet ved hjelp av informasjon om avsender, dato meldingen ble publisert og hvilken tjeneste som kreves for å få tilgang. 
+
+I tillegg til at det opprettes en instans i innboksen vil det gå ut et varsel på e-post til virksomhetens varslingsadresse samt privatpersoner som har registrert varslingsadresse for virksomheten og som har tilgang til tilgangspakken "Ordinær post til virksomheten".
+
+For å unngå å fylle innboksen til virksomheter med purringer om uåpnet taushetsbelagt post blir dialogen slettet når alle taushetsbelagt meldinger som er eldre enn 7 dager er åpnet.
