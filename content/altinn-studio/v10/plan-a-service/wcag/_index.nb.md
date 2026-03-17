@@ -1,6 +1,6 @@
 ---
 title: Sikre tilgjengelighet i Altinn-tjenester
-description: En guide for tjenesteeiere – Altinn Studio gir deg støtte, og sammen sørger vi for tilgjengelige tjenester.
+description: Slik sikrer du tilgjengelighet i tjenesten din
 tags: [needsReview]
 ---
 
