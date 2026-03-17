@@ -1,173 +1,92 @@
 ---
-draft: true
-title: Tilgjengelighet
-description: God tilgjengelighet gjør at mennesker med funksjonsnedsettelser kan bruke digitale tjenester.  Med Altinn Studio får du mye gratis, men du har ansvar for innhold, testing og tilgjengelighetserklæring.
-weight: 10
-toc: true
-tags: [needsReview, translate-to-english]
+title: Sikre tilgjengelighet i Altinn-tjenester
+description: En guide for tjenesteeiere – Altinn Studio gir deg støtte, og sammen sørger vi for tilgjengelige tjenester.
+tags: [needsReview]
 ---
 
-{{< notice warning >}}
-**Under omarbeiding** - Innholdet i denne artikkelen skal omarbeides.
-{{< /notice >}}
+## Altinn Studio – en trygg og inkluderende plattform
 
-Forskrift om universell utforming av IKT-løsninger krever at tjenester i Altinn Studio følger [WCAG-standarden](https://www.uutilsynet.no/wcag-standarden/). Du må også lage og publisere en [tilgjengelighetserklæring](https://uustatus.no/). 
+Du kan trygt velge Altinn Studio når du oppretter eller videreutvikler digitale tjenester. Plattformen følger lovkravene til universell utforming og hjelper deg langt på vei med tekniske løsninger som fungerer for alle brukere – uansett funksjonsevne.
 
-## Hva får du med Altinn Studio? 
+Hvis du har spørsmål eller ønsker å dele erfaringer, kan du enkelt ta kontakt med oss på Slack eller be om et møte. Vi vil gjerne hjelpe deg og forbedre oss basert på dine tilbakemeldinger.
 
-Alle som har laget webløsninger vet at tilgjengelighet krever ekstra innsats. Med Altinn Studio får du: 
+**Bli med på Slack-kanalen for universell utforming:**
+https://digdir-samarbeid.slack.com/archives/C04CZ3KND6Z
 
-- **WCAG- og ELMER 3-standardene** – mange tekniske krav er automatisk oppfylt
-- **Responsivt design** – tjenesten fungerer på ulike skjermstørrelser
-- **Komponenter fra Felles Designsystem** – god brukeropplevelse er innebygd
+## Tips for god tilgjengelighet i Altinn-tjenester
 
-Mye av det tekniske er håndtert for deg.  **Men du har ansvar for innholdet du lager.**
+**Husk:** God tilgjengelighet gjør at alle, uansett funksjonsevne, kan bruke tjenesten din.
 
-## Enkel sjekkliste for saksbehandlere
+## Dette får du automatisk med Altinn
 
-Du har ansvar for at innholdet i tjenesten din er tilgjengelig.  Sjekk disse punktene:
+- Mange tilgjengelighetskrav er allerede løst for deg.
+- Tjenesten virker på ulike skjermstørrelser.
+- Du får et godt utgangspunkt, men er selv ansvarlig for innhold, tekster og tilgjengelighetserklæring.
 
-### 1. Overskrifter og struktur
+## Slik gjør du tjenesten enda mer tilgjengelig
 
-**Sjekk dette:**
-- Bruker du overskrifter (H1, H2, H3, H4) i riktig rekkefølge?
-- Hopper du over nivåer (f.eks. fra H2 til H4)?
-- Beskriver overskriftene innholdet godt?
+1. **Tekst og språk**
+   - Bruk korte og enkle ord på titler og knapper.
+   - Unngå fagord og vanskelige uttrykk der det er mulig.
+   - Forklar tekniske ord, hvis de må brukes.
 
-**Hvorfor:** Skjermlesere bruker overskrifter til å navigere.  God struktur gjør det lettere å finne frem.  
+2. **Ledetekster og hjelpetekster**
+   - Alle felter må ha tydelig tekst som viser hva brukeren skal skrive.
+   - Ha hjelpetekst hvis noe kan være vanskelig å forstå.
 
-**Verktøy:** [Wave](https://wave.webaim.org/) (Chrome-utvidelse) viser alle overskrifter og strukturfeil.
+3. **Feilmeldinger**
+   - Feilmeldinger skal si hvilket felt feilen gjelder.
+   - Forklar hva som er feil og hvordan brukeren kan rette det.
+   - Eksempler:
+     - Feil: «Feil format»
+     - Bedre: «Fødselsnummer må være 11 siffer»
+     - Bedre: «E-post: Skriv e-post som brukernavn@domene.no»
 
-### 2. Lenker og knapptekster
+4. **Lenker og knapper**
+   - Bruk **knapp** for å sende inn eller lagre.
+   - Bruk **lenke** for å gå til en ny side eller få mer informasjon.
+   - Skriv alltid hva som skjer når du klikker.
 
-**Sjekk dette:**
-- Er alle lenker og knapper forklarende?
-- Forstår du hva som skjer når du klikker? 
+5. **Tastatur og skjermleser**
+   - Hele tjenesten skal kunne brukes med tastatur (Tab, Enter).
+   - Sørg for at det er lett å se hvilket felt som er aktivt.
+   - Tekst og feilmeldinger skal leses sammen med feltet.
 
-Unngå tekster som «Klikk her» eller «Les mer». 
+6. **Test selv**
+   - Prøv å fylle ut skjema uten mus (kun tastatur).
+   - Test med skjermleser (for eksempel NVDA eller VoiceOver).
+   - Sjekk at feilmeldinger er tydelige og forklarende.
 
-**Hvorfor:** Skjermleserbrukere får ofte bare lenketeksten uten sammenheng. 
+7. **Mer testing**
+   - Følg minstekravene: Se full oversikt hos UU-tilsynet.
+   - Publiser tilgjengelighetserklæring på
+     https://uustatus.no/
 
-**Eksempel:**
-- ❌ «Klikk her for mer informasjon»
-- ✅ «Les mer om skattefradrag for pendlere»
+## Vanlige spørsmål
 
-### 3. Hjelpetekster og ledetekster
+**Hvorfor har jeg feil i tjenesten min?**
+Ofte kan feil skyldes at det brukes en eldre versjon av løsningen. Oppdater til siste versjon og test på nytt.
 
-**Sjekk dette:**
-- Har alle inputfelt tydelige ledetekster?
-- Trenger brukeren ekstra hjelpetekst? 
-- Er det klart hva som er obligatorisk?
+**Hvorfor står ikke alle krav i denne listen?**
+Her finner du de viktigste tingene du selv må følge opp. Full oversikt finnes hos UU-tilsynet.
 
-**Hvorfor:** God veiledning reduserer feil.  Tjenesten blir lettere å bruke.
+**Trenger du hjelp?**
+- Bruk testlab for universell utforming i Oslo.
+- Kontakt oss gjerne for gjennomgang eller spørsmål.
 
-### 4. Feilmeldinger
+## Nyttige ressurser
 
-**Sjekk dette:**
-- Har du lagt inn forståelige feilmeldinger for alle felt?
-- Forklarer feilmeldingen hva som er feil og hvordan det kan rettes?
-
-**Hvorfor:** Brukere må få klar beskjed om hva som er galt.
-
-**Eksempel:**
-- ❌ «Feil format»
-- ✅ «Fødselsnummer må være 11 siffer»
-
-Les mer om [gode feilmeldinger](/nb/altinn-studio/v8/guides/design/guidelines/components/error-message/).
-
-### 5. Knapp eller lenke? 
-
-**Sjekk dette:**
-- Bruker du knapper for handlinger?  (f.eks. «Send inn», «Lagre»)
-- Bruker du lenker for navigasjon? (f.eks.  «Gå til side 2», «Les mer»)
-
-**Hvorfor:** Skjermlesere og tastaturbrukere forventer ulik oppførsel fra knapper og lenker.
-
-### 6. Kontrast
-
-**Sjekk dette:**
-- Er kontrasten god mellom tekst og bakgrunn? 
-- Er viktige elementer tydelig synlige?  (knapper, ikoner)
-
-**Hvorfor:** Svak kontrast gjør det vanskelig å lese.  Spesielt for personer med synshemming.
-
-**Verktøy:** Bruk kontrastsjekken under: 
-
-{{% colorcontrast %}}
-
-### 7. Tastaturnavigasjon
-
-**Sjekk dette:**
-- Kan du bruke hele tjenesten med kun tastatur?  (Tab, Shift+Tab, Enter)
-- Kommer du til alle knapper, lenker og inputfelt? 
-- Ser du hvor du er?  (fokusmarkering)
-
-**Hvorfor:** Mange brukere navigerer uten mus. De må kunne bruke tjenesten med tastatur.
-
-**Slik tester du:** Legg bort musen.  Prøv å fylle ut hele skjemaet med kun tastatur.
-
-### 8. Test med skjermleser
-
-**Sjekk dette:**
-- Blir innholdet lest opp i riktig rekkefølge? 
-- Får du med deg alle overskrifter, ledetekster og feilmeldinger?
-- Forstår du hva som skjer når du navigerer?
-
-**Hvorfor:** Skjermleserbrukere får ikke med seg visuell informasjon. Alt må være tilgjengelig via lyd.
-
-**Verktøy:**
-- [VoiceOver](https://support.apple.com/no-no/guide/voiceover/welcome/mac) (Mac og iOS – innebygd)
-- [NVDA](https://www.nvaccess.org/) (Windows – gratis)
-- [Assistiv Labs](https://assistivlabs.com/) (tilgang til flere verktøy på nett)
-
-**Tips:** Begynn enkelt. Test én side eller ett felt om gangen. 
-
-## Mer omfattende testing
-
-Har du gjort de enkle sjekkene?  Da kan du gå dypere med en fullstendig WCAG-sjekk. 
-
-**Bruk UU-tilsynets guide:** [Minimumskrav for tilgjengelighet](https://www.uutilsynet.no/minimumskrav/)  
-Her finner du alle 35 suksesskriteriene du må oppfylle.  Med forklaringer og eksempler. 
-
-**Lag tilgjengelighetserklæring:** Når du har testet, dokumenter status og publiser en erklæring på [uustatus.no](https://uustatus.no/).  
-Bruk vår [Excel-guide](EXCEL_GUIDE_LINK_HER) til å kartlegge og dokumentere. 
-
-## Få hjelp og veiledning
-
-Du trenger ikke gjøre dette alene. Vi tilbyr: 
-
-- **Testlab for universell utforming på Økern i Oslo** – få praktisk hjelp til testing  
-  [Les mer og book tid](https://www.digdir.no/tjenester/testlab-universell-utforming/2517)
-
-- **Bistand fra teamet** – ta kontakt for gjennomgang og råd
-
-{{% panel theme="info" %}}
-**Viktig:**  
-Lager du tjenester i egen løsning uten Altinns brukergrensesnitt?  Da må du forholde deg til alle [WCAG-kravene](https://www.uutilsynet.no/wcag-standarden/nettsteder/711) selv.
-{{% /panel %}}
-
-## Ressurser og lenker
-
-### Veiledning og standarder
-- [WCAG-standarden hos UU-tilsynet](https://www.uutilsynet.no/wcag-standarden/)
-- [Minimumskravene hos UU-tilsynet](https://www.uutilsynet.no/minimumskrav/)
-- [ELMER 3 – Etablering og forvaltning av løsninger med brukergrensesnitt](https://brukskvalitet.brreg.no/elmer3/)
-- [Felles Designsystem](https://www.designsystemet.no/)
-
-### Testing og verktøy
-- [Wave verktøy](https://wave.webaim.org/) (Chrome-utvidelse for strukturtesting)
-- [NVDA skjermleser](https://www.nvaccess.org/) (Windows, gratis)
-- [VoiceOver brukerveiledning](https://support.apple.com/no-no/guide/voiceover/welcome/mac) (Mac/iOS)
-- [Assistiv Labs testing](https://assistivlabs.com/) (samlet tilgang på nett)
-
-### Tilgjengelighetserklæring
-- [Tilgjengelighetserklæring på uustatus.no](https://uustatus.no/)
-- [Excel-guide for tilgjengelighetserklæring](EXCEL_GUIDE_LINK_HER)
-
-### Få hjelp
-- [Testlab for universell utforming på Økern](https://www.digdir.no/tjenester/testlab-universell-utforming/2517)
-- Kontakt oss for bistand med tilgjengelighetstesting
+- Om WCAG-kravene:
+  https://www.uutilsynet.no/wcag-standarden/wcag-sortert-etter-prinsipp/713/
+- Lag tilgjengelighetserklæring:
+  https://uustatus.no/
+- Testverktøy:
+  https://wave.webaim.org/ (struktur),
+  https://www.nvaccess.org/ (skjermleser),
+  https://support.apple.com/no-no/guide/voiceover/welcome/mac
 
 ---
 
-Har du spørsmål om universell utforming?  Ønsker du bistand med tilgjengelighetstesting? Ta kontakt! 
+**Viktig:**
+Bruker du ikke Altinn sitt vanlige brukergrensesnitt, må du selv sørge for at alle kravene følges. Les mer her:
+https://www.uutilsynet.no/wcag-standarden/nettsteder/711
