@@ -75,7 +75,7 @@ Her finner du de viktigste tingene du selv må følge opp. UU-tilsynet har full 
 
 **Trenger du hjelp?**
 - Bruk testlab for universell utforming i Oslo.
-- Kontakt oss gjerne for gjennomgang eller spørsmål.
+- Kontakt oss gjerne hvis du vil ha hjelp til å gjennomgå en tjeneste du har laget.
 
 ## Nyttige ressurser
 
