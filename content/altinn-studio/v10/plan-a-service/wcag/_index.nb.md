@@ -38,9 +38,12 @@ https://digdir-samarbeid.slack.com/archives/C04CZ3KND6Z
    - Feilmeldinger skal si hvilket felt feilen gjelder.
    - Forklar hva som er feil og hvordan brukeren kan rette det.
    - Eksempler:
-     - ❌ «Feil format»
-     - ✅ «Fødselsnummer må være 11 siffer»
-     - ✅ «E-post: Skriv e-post som brukernavn@domene.no»
+
+   ❌ «Feil format»
+
+   ✅ «Fødselsnummer må være 11 siffer»
+
+   ✅ «E-post: Skriv e-post som brukernavn@domene.no»
 
 4. **Lenker og knapper**
    - Bruk **knapp** for å sende inn eller lagre.
