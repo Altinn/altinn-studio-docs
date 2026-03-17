@@ -11,6 +11,16 @@ aliases:
 
 Denne veiledningen forklarer hvordan du manuelt setter opp tilpassede maler i et Altinn Studio innholdsrepo.
 
+{{% notice warning %}}
+🚧 **Eksperimentell funksjonalitet - Feature flag påkrevd**
+
+Tilpassede maler er for øyeblikket i en utforskningsfase og krever et feature flag for tilgang. 
+For å aktivere denne funksjonen, legg til parameteren `?featureFlags=customTemplates` 
+på siden for å opprette ny app i Altinn Studio (f.eks. `https://altinn.studio/dashboard/app-dashboard/self/new?featureFlags=customTemplates`).
+
+Denne funksjonen er eksperimentell og kan endres betydelig eller fjernes i fremtidige versjoner.
+{{% /notice %}}
+
 ## Oversikt
 
 Tilpassede maler lar organisasjoner lage gjenbrukbare applikasjonsmaler.

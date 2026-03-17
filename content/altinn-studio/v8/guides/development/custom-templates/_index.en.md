@@ -11,6 +11,18 @@ aliases:
 
 This guide explains how to manually set up custom templates in an Altinn Studio content repository.
 
+{{% notice warning %}}
+🚧 **Experimental Feature - Feature Flag Required**
+
+Custom templates is currently in an exploration phase and requires a feature flag to access. 
+To enable this feature, add the query parameter `?featureFlags=customTemplates` when creating
+a new app in Altinn Studio (e.g., `https://altinn.studio/dashboard/app-dashboard/self/new?featureFlags=customTemplates`).
+
+This feature is experimental and may change significantly or be removed in future versions.
+{{% /notice %}}
+
+
+
 ## Overview
 
 Custom templates allow organizations to create reusable application templates. 
