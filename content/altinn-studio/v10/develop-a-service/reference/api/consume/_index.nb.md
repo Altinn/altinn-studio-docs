@@ -106,7 +106,7 @@ using System.Threading.Tasks;
 
 using Altinn.App.models;
 
-namespace Altinn.App.clientss
+namespace Altinn.App.clients
 {
     public interface ICountryClient
     {
