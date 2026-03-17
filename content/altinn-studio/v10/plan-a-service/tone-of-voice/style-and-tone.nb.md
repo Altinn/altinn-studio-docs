@@ -1,9 +1,9 @@
 ---
-draft: true
+draft: false
 title: Stil og tone
 description: Skriv personlig, varmt, vennlig og tydelig. Bruk ord som brukerne forstår.
 weight: 2
-tags: [needsReview, translate-to-english]
+tags: [needsReview]
 ---
 
 ## Slik skriver du personlig, varmt og vennlig
