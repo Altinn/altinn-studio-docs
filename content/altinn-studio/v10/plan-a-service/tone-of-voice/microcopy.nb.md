@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Tekster i tjenesten
 weight: 5
 tags: [needsReview, translate-to-english]

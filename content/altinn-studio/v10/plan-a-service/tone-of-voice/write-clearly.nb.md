@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Skriv lettfattelig
 description: Bruk disse triksene for å gjøre teksten din lettere å forstå.
 weight: 3
