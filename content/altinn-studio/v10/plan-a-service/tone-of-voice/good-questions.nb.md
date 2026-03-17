@@ -77,7 +77,7 @@ Hvis brukerne for eksempel er usikre på om de kan svare Ja eller Nei, så kan e
 
 **Eksempel fra Altinn-tjeneste:**
 
-<img src="/images/tone-of-voice/good-question-closed-yes-no.png" alt="Ja/Nei-spørsmål: Bor du på mer enn en adresse?" style="max-width: 600px; border: 1px solid #ddd; margin-top: 0.5rem; margin-bottom: 3rem;">
+<img src="./good-question-closed-yes-no.png" alt="Ja/Nei-spørsmål: Bor du på mer enn en adresse?" style="max-width: 600px; border: 1px solid #ddd; margin-top: 0.5rem; margin-bottom: 3rem;">
 
 Det blir også krøll hvis du formulerer ledetekster til alternativer på ulik måte, for eksempel hvis du blander lange og korte svar.
 Da kan du gjøre det mer leselig for brukerne ved å skille lange svaralternativ fra de korte med et «eller».
@@ -128,7 +128,7 @@ at de godtar at brukerne gir opplysninger på ulike måter.
 **Eksempel:**
 
 Felter for fødselsnummer eller telefonnummer bør godta at folk legger inn sifrene med mellomrom, uten mellomrom og med mellomrommene
-på feil plass. Koden på baksida skal fange opp og legge på riktig format.
+på feil plass. Koden på baksiden skal fange opp og legge på riktig format.
 
 Jobben til feilmeldingen er å fortelle brukerne hvordan de kommer videre, heller enn å fortelle dem hvilken feil som oppsto.
 Ofte trenger et felt ulike feilmeldinger for ulike situasjoner, for eksempel hvis feltet er tomt eller hvis formatet er feil.
