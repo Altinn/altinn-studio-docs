@@ -59,7 +59,7 @@ https://digdir-samarbeid.slack.com/archives/C04CZ3KND6Z
 6. **Test selv**
    - Prøv å fylle ut skjemaet uten mus (kun tastatur).
    - Test med skjermleser (for eksempel NVDA eller VoiceOver).
-   - Sjekk at feilmeldinger er tydelige og forklarende. Les mer om [hvordan du skriver gode feilmeldinger]({{< relref "tone-of-voice/error-messages.nb.md" >}}).
+   - Sjekk at feilmeldinger er tydelige og forklarende. Les mer om [hvordan du skriver gode feilmeldinger](/nb/altinn-studio/v10/plan-a-service/tone-of-voice/error-messages/).
 
 7. **Mer testing**
    - Følg minstekravene: Se full oversikt hos UU-tilsynet.
