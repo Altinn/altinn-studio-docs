@@ -52,7 +52,7 @@ https://digdir-samarbeid.slack.com/archives/C04CZ3KND6Z
    - Skriv alltid hva som skjer når du klikker.
 
 5. **Tastatur og skjermleser**
-   - Hele tjenesten skal kunne brukes med tastatur (Tab, Enter).
+   - Brukerne skal kunne bruke hele tjenesten med tastatur (Tab, Enter).
    - Sørg for at det er lett å se hvilket felt som er aktivt.
    - Tekst og feilmeldinger skal leses sammen med feltet.
 
