@@ -128,7 +128,7 @@ at de godtar at brukerne gir opplysninger på ulike måter.
 **Eksempel:**
 
 Felter for fødselsnummer eller telefonnummer bør godta at folk legger inn sifrene med mellomrom, uten mellomrom og med mellomrommene
-på feil plass. Koden på baksiden skal fange opp og legge på riktig format.
+på feil plass. Koden på baksida skal fange opp og legge på riktig format.
 
 Jobben til feilmeldingen er å fortelle brukerne hvordan de kommer videre, heller enn å fortelle dem hvilken feil som oppsto.
 Ofte trenger et felt ulike feilmeldinger for ulike situasjoner, for eksempel hvis feltet er tomt eller hvis formatet er feil.
