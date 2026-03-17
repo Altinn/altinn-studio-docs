@@ -1,5 +1,6 @@
 # Migreringslogg: v8 til v10
 
+
 Dette dokumentet holder oversikt over innhold som må migreres fra v8 til v10.
 
 ## Status-symboler
