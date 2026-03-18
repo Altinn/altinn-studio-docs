@@ -119,8 +119,6 @@ Registrer implementasjonen i `Program.cs`:
 services.AddTransient<ICancelInstantiationNotification, MyNotificationCancellation>();
 ```
 
-Hvis ingen implementasjon er registrert, sendes alltid varselet.
-
 ### Standardtekster
 
 Hvis du ikke oppgir egendefinerte tekster, brukes standardtekster.
