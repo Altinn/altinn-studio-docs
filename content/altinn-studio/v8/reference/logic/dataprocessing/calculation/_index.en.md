@@ -55,4 +55,4 @@ The rules for the fields in the data model are set in the `calculations` object,
 
 Unlike validation using expressions, calculations using expressions do not support lists.
 
-A rule consists of a **condition**, which is a dynamic expression that returns any primitive type or string. See [dynamic expressions](/altinn-studio/v8/reference/logic/expressions/) for more information.
+A rule consists of a **condition**, which is a dynamic expression that returns any number, boolean or string value. See [dynamic expressions](/altinn-studio/v8/reference/logic/expressions/) for more information.

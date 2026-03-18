@@ -55,4 +55,4 @@ Reglene for feltene i datamodellen settes i `calculations`-objektet, hvor datamo
 
 I motsetning til validering ved hjelp av uttrykk, støtter ikke kalkuleringer ved hjelp av uttrykk lister.
 
-En regel består av en **condition**, som er et dynamisk uttrykk som returnerer en hvilke som helst primitiv type eller tekst streng. Se [dynamiske uttrykk](/nb/altinn-studio/v8/reference/logic/expressions/) for mer informasjon.
+En regel består av en **condition**, som er et dynamisk uttrykk som returnerer en hvilke som nummer, boolean eller streng verdi. Se [dynamiske uttrykk](/nb/altinn-studio/v8/reference/logic/expressions/) for mer informasjon.
