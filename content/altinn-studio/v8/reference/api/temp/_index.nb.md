@@ -20,7 +20,7 @@ Det er lagt til et nytt felt, `notification`, i request-bodyen til `POST /instan
 
 ### Felter i notification-objektet
 
-#### InstansiationNotification
+#### InstantiationNotification
 
 | Felt | Type | Påkrevd | Beskrivelse |
 |---|---|---|---|

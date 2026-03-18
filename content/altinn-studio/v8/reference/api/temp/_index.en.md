@@ -22,7 +22,7 @@ A new field, `notification`, has been added to the request body of `POST /instan
 
 ### Fields in the `notification` object
 
-**`InstansiationNotification`**
+### InstantiationNotification
 
 | Field | Type | Required | Description |
 |---|---|---|---|
