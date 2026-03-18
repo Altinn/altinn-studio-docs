@@ -62,6 +62,10 @@ A new field, `notification`, has been added to the request body of `POST /instan
 
 **`reminders` (list of reminder objects)**
 
+{{% notice warning %}}
+Maskinporten is required for cancelling reminders
+{{% /notice %}}
+
 Each object in the `reminders` list may contain the following fields:
 
 | Field | Type | Required | Description |

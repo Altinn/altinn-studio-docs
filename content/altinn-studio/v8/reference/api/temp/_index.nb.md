@@ -14,7 +14,7 @@ Varsel ved instansiering er kun tilgjengelig i publiseringskandidat pakker. Det 
 
 NuGet-pakkene er `Altinn.App.Api` og `Altinn.App.Core`, versjon `8.11.0-rc.3`.
 
-{{% notice warning %}}
+{{% notice warning %}}s
 OBS! 8.11.0-rc.2 hadde en integrasjonsfeil, dette er rettet opp i 8.11.0-rc.3
 {{% /notice %}}
 

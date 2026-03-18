@@ -2,7 +2,7 @@
 title: Test i miljø og lokalt
 description: I denne veiledningen skal vi teste appen i testmiljø og lokalt på egen maskin.
 draft: true
-weight: 30
+weight: 20
 ---
  
  ## Forutsetninger

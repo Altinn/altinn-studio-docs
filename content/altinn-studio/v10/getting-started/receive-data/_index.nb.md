@@ -1,8 +1,8 @@
 ---
-title: Motta data via API
+title: Motta data
 description: I denne veiledningen skal vi se på hvordan data kan hentes ut fra en Altinn-app for saksbehandling
 draft: true
-weight: 50
+weight: 20
 ---
 
 Når du skal hente data sendt inn via en Altinn-app, er det primært 2 endepunkter som er interessante:
