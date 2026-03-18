@@ -1,4 +1,4 @@
-﻿---
+---
 title: Kalkulering av datafelt ved hjelp av uttrykk
 description: Hvordan konfigurere kalkulering ved hjelp av dynamiske uttrykk
 toc: true
