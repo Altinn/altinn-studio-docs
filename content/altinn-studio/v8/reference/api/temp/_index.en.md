@@ -1,18 +1,18 @@
 ---
 title: Notifications
-description: How to use experimental packages for notifications on instantiation
+description: How to use notifications on instantiation
 weight: 50
 ---
 
 This document describes sending notification(s) to the instance owner when an instance is created. Here is an overview of the functionality and how you can try it out.
 
 {{% notice warning %}}
-Notification on instantiation is published in experimental packages. These packages are meant for testing.
+Notification on instantiation is published in release candidate. The APIs are considered stable, but may still change before final release.
 {{% /notice %}}
 
-## Experimental packages
+## Release candidate packages
 
-The NuGet packages are `Altinn.App.Api.Experimental` and `Altinn.App.Core.Experimental`, version `8.11.0-pr.4732.instantiation-notif-callback.0a231569`.
+The NuGet packages are `Altinn.App.Api.Experimental` and `Altinn.App.Core.Experimental`, version `8.11.0-rc.1`.
 
 ## What's new?
 
