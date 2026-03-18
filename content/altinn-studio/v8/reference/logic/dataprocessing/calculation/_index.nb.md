@@ -5,13 +5,12 @@ toc: true
 ---
 
 Kalkulering av datafelt ved hjelp av uttrykk gjør det mulig 
-å sette datamodellfelt med uttryksmotoren gjennom en json 
-schema spec.
+å sette datamodellfelt med uttryksmotoren gjennom en JSON Schema-spesifikasjon.
 
 ## Hvordan konfigurere kalkulering med uttrykk
 
 {{% notice info %}}
-Kalkulering med uttrykk kan ikke konfigureres igjennom Altinn Studio Designer per nå.
+Kalkulering med uttrykk kan ikke konfigureres gjennom Altinn Studio Designer per nå.
 {{% /notice %}}
 
 Kalkulering med uttrykk defineres i en egen fil ved siden av datamodellen din, og bruker navnekonvensjonen `navn.calculation.json`.
@@ -51,8 +50,8 @@ example.calculation.json
 }
 ```
 
-Reglene for feltene i datamodellen settes i `calculations`-objektet, hvor datamodell-stien er nøkkelen, og verdien er en liste med regler.
+Reglene for feltene i datamodellen settes i `calculations`-objektet, hvor datamodell-stien er nøkkelen, og verdien er en regel.
 
 I motsetning til validering ved hjelp av uttrykk, støtter ikke kalkuleringer ved hjelp av uttrykk lister.
 
-En regel består av en **condition**, som er et dynamisk uttrykk som returnerer et hvilke som helst nummer, boolean eller streng verdi. Se [dynamiske uttrykk](/nb/altinn-studio/v8/reference/logic/expressions/) for mer informasjon.
+En regel består av en **expression**, som er et dynamisk uttrykk som returnerer et tall, en boolsk verdi eller en streng. Se [dynamiske uttrykk](/nb/altinn-studio/v8/reference/logic/expressions/) for mer informasjon.

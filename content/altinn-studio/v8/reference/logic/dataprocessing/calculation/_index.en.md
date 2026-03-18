@@ -51,8 +51,8 @@ example.calculation.json
 }
 ```
 
-The rules for the fields in the data model are set in the `calculations` object, where the data model path is the key and the value is a list of rules.
+The rules for the fields in the data model are set in the `calculations` object, where the data model path is the key and the value is a rule.
 
 Unlike validation using expressions, calculations using expressions do not support lists.
 
-A rule consists of a **condition**, which is a dynamic expression that returns any number, boolean or string value. See [dynamic expressions](/en/altinn-studio/v8/reference/logic/expressions/) for more information.
+A rule consists of a **expression**, which is a dynamic expression that returns any number, boolean or string value. See [dynamic expressions](/en/altinn-studio/v8/reference/logic/expressions/) for more information.
