@@ -12,7 +12,7 @@ Notification on instantiation is published in release candidate. The APIs are co
 
 ## Release candidate packages
 
-The NuGet packages are `Altinn.App.Api.Experimental` and `Altinn.App.Core.Experimental`, version `8.11.0-rc.1`.
+The NuGet packages are `Altinn.App.Api` and `Altinn.App.Core`, version `8.11.0-rc.2`.
 
 ## What's new?
 
