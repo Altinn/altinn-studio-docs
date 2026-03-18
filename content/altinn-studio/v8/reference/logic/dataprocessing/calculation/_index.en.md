@@ -8,13 +8,13 @@ Calculation of data fields using expressions makes it possible
 to set data model fields with the expression engine through a JSON
 schema spec.
 
-## How to configure calculation with expressions
+## How to configure calculations with expressions
 
 {{% notice info %}}
 Calculation with expressions cannot be configured through Altinn Studio Designer at present.
 {{% /notice %}}
 
-Calculation with expressions is defined in a separate file next to your data model, using the naming convention `name.calculation.json`.
+Calculations with expressions are defined in a separate file next to your data model, using the naming convention `name.calculation.json`.
 If your data model is called `skjema`, you will already have files like `skjema.cs` and `skjema.schema.json`, and the file you create should be in the same folder and called `skjema.calculation.json`.
 You can copy the content below as a starting point:
 
@@ -55,4 +55,4 @@ The rules for the fields in the data model are set in the `calculations` object,
 
 Unlike validation using expressions, calculations using expressions do not support lists.
 
-A rule consists of a **condition**, which is a dynamic expression that returns any number, boolean or string value. See [dynamic expressions](/altinn-studio/v8/reference/logic/expressions/) for more information.
+A rule consists of a **condition**, which is a dynamic expression that returns any number, boolean or string value. See [dynamic expressions](/en/altinn-studio/v8/reference/logic/expressions/) for more information.
