@@ -1,9 +1,9 @@
 ---
-draft: true
+draft: false
 title: Feilmeldinger i tjenesten
 description: Feilmeldinger skal hjelpe brukeren videre når noe går galt.
 weight: 6
-tags: [needsReview, translate-to-english]
+tags: [needsReview]
 ---
 
 Feilmeldinger vises når brukeren gjør noe som ikke fungerer, eller når systemet støter på et problem. En god feilmelding forklarer hva som er galt og hvordan brukeren kan løse problemet.
