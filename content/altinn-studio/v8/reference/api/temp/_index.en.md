@@ -12,7 +12,11 @@ Notification on instantiation is published in release candidate. The APIs are co
 
 ## Release candidate packages
 
-The NuGet packages are `Altinn.App.Api` and `Altinn.App.Core`, version `8.11.0-rc.2`.
+The NuGet packages are `Altinn.App.Api` and `Altinn.App.Core`, version `8.11.0-rc.3`.
+
+{{% notice warning %}}
+OBS! 8.11.0-rc.2 had an integration issue, this is resolved in 8.11.0-rc.3
+{{% /notice %}}
 
 ## What's new?
 
@@ -57,6 +61,10 @@ A new field, `notification`, has been added to the request body of `POST /instan
 | `en` | string | Yes | Text in English. |
 
 **`reminders` (list of reminder objects)**
+
+{{% notice warning %}}
+Maskinporten is required for cancelling reminders
+{{% /notice %}}
 
 Each object in the `reminders` list may contain the following fields:
 
@@ -142,7 +150,7 @@ Custom texts support the following tokens, which are replaced dynamically:
 | `$serviceOwnerName$` | The name of the service owner, as defined in the Altinn CDN |
 | `$orgNumber$` | The organization number of the instance owner, if the instance owner is an organization |
 | `$socialSecurityNumber$` | The social security number of the instance owner, if the instance owner is an individual |
-| `$dueDate$` | The due date of the instance, if set (format: dd-MM-yyyy) |
+| `$dueDate$` | The due date of the instance, if set (format: `dd-MM-yyyy HH:mm:ss`) |
 
 ### How are recipient addresses determined?
 
@@ -251,10 +259,12 @@ For SMS testing in a test environment, the phone number must be whitelisted. Ple
 
 ### Self-identified users
 
+#### ID-porten email user
+
 ```json
 {
   "instanceOwner": {
-    "externalIdentifier": "urn:altinn:person:legacy-selfidentified:jensjensen"
+    "externalIdentifier": "urn:altinn:person:idporten-email:jens.jensen@digdir.no"
   },
   "notification": {
     "notificationChannel": 0
@@ -262,10 +272,25 @@ For SMS testing in a test environment, the phone number must be whitelisted. Ple
 }
 ```
 
+OR
+
 ```json
 {
   "instanceOwner": {
     "username": "epost:jens.jensen@digdir.no"
+  },
+  "notification": {
+    "notificationChannel": 0
+  }
+}
+```
+
+#### Legacy username and password
+
+```json
+{
+  "instanceOwner": {
+    "externalIdentifier": "urn:altinn:person:legacy-selfidentified:jensjensen"
   },
   "notification": {
     "notificationChannel": 0

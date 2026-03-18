@@ -12,7 +12,11 @@ Varsel ved instansiering er kun tilgjengelig i publiseringskandidat pakker. Det 
 
 ## Eksperimentelle pakker
 
-NuGet-pakkene er `Altinn.App.Api` og `Altinn.App.Core`, versjon `8.11.0-rc.2`.
+NuGet-pakkene er `Altinn.App.Api` og `Altinn.App.Core`, versjon `8.11.0-rc.3`.
+
+{{% notice warning %}}s
+OBS! 8.11.0-rc.2 hadde en integrasjonsfeil, dette er rettet opp i 8.11.0-rc.3
+{{% /notice %}}
 
 ## Hva er nytt?
 
@@ -57,6 +61,10 @@ Det er lagt til et nytt felt, `notification`, i request-bodyen til `POST /instan
 | en | string | Ja | Tekst på engelsk. |
 
 #### reminders (liste av påminnelsesobjekter)
+
+{{% notice warning %}}
+Maskinporten kreves for å kunne kansellere påminnelser
+{{% /notice %}}
 
 Hvert objekt i `reminders`-listen kan inneholde følgende felter:
 
@@ -137,12 +145,12 @@ Egendefinerte tekster støtter følgende tokens som erstattes dynamisk:
 
 | Token | Beskrivelse |
 |---|---|
-| $appName$ | Appens navn fra app-metadata |
-| $instanceOwnerName$ | Navn på instanseier |
-| $serviceOwnerName$ | Navn på tjenesteeier fra Altinn CDN |
-| $orgNumber$ | Organisasjonsnummer (hvis instanseier er org) |
-| $socialSecurityNumber$ | Fødselsnummer (hvis instanseier er person) |
-| $dueDate$ | Frist for instansen (format: dd-MM-yyyy) |
+| `$appName$`| Appens navn fra app-metadata |
+| `$instanceOwnerName$` | Navn på instanseier |
+| `$serviceOwnerName$` | Navn på tjenesteeier fra Altinn CDN |
+| `$orgNumber$` | Organisasjonsnummer (hvis instanseier er org) |
+| `$socialSecurityNumber$` | Fødselsnummer (hvis instanseier er person) |
+| `$dueDate$` | Frist for instansen (format: `dd-MM-yyyy HH:mm:ss`) |
 
 ### Hvordan utledes mottakeradresse(r)?
 
@@ -251,6 +259,8 @@ For test av SMS i et testmiljø må nummeret hvitelistes. Ta kontakt dersom dett
 
 ### Selvidentifisert bruker
 
+#### Utfaset brukernavn og passord
+
 ```json
 {
   "instanceOwner": {
@@ -261,6 +271,21 @@ For test av SMS i et testmiljø må nummeret hvitelistes. Ta kontakt dersom dett
   }
 }
 ```
+
+#### ID-porten e-post
+
+```json
+{
+  "instanceOwner": {
+    "externalIdentifier": "urn:altinn:person:idporten-email:jens.jensen@digdir.no"
+  },
+  "notification": {
+    "notificationChannel": 0
+  }
+}
+```
+
+ELLER
 
 ```json
 {
