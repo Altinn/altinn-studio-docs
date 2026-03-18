@@ -62,6 +62,10 @@ Det er lagt til et nytt felt, `notification`, i request-bodyen til `POST /instan
 
 #### reminders (liste av påminnelsesobjekter)
 
+{{% notice warning %}}
+Maskinporten kreves for å kunne kansellere påminnelser
+{{% /notice %}}
+
 Hvert objekt i `reminders`-listen kan inneholde følgende felter:
 
 | Felt | Type | Påkrevd | Beskrivelse |
