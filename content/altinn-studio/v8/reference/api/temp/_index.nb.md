@@ -1,6 +1,8 @@
-# Varsling
-
-Hvordan ta i bruk eksperimentelle pakker for varsling ved instansiering
+---
+title: Varsling
+description: Hvordan ta i bruk eksperimentelle pakker for varsling ved instansiering
+weight: 50
+---
 
 Dette dokumentet beskriver sending av varsler til instanseier når en instans opprettes. Her er en oversikt over funksjonaliteten og hvordan du kan prøve den ut.
 
@@ -8,7 +10,7 @@ Varsel ved instansiering er kun tilgjengelig i eksperimentelle pakker. Det vil s
 
 ## Eksperimentelle pakker
 
-NuGet-pakkene er Altinn.App.Api.Experimental og Altinn.App.Core.Experimental, versjon 8.11.0-pr.4732.instantiation-notif-callback.0a231569.
+NuGet-pakkene er `Altinn.App.Api.Experimental` og `Altinn.App.Core.Experimental`, versjon `8.11.0-pr.4732.instantiation-notif-callback.0a231569`.
 
 ## Hva er nytt?
 
