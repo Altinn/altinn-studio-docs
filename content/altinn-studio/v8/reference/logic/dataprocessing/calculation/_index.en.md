@@ -41,7 +41,7 @@ example.calculation.json
   "calculations": {
     "regnskap.sum": [
       {
-        "condition":
+        "expression":
           ["minus",
             ["dataModel", "regnskap.inntekter"], ["dataModel", "regnskap.utgifter"]
           ]
