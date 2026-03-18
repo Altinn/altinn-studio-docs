@@ -12,7 +12,7 @@ Varsel ved instansiering er kun tilgjengelig i publiseringskandidat pakker. Det 
 
 ## Eksperimentelle pakker
 
-NuGet-pakkene er `Altinn.App.Api.Experimental` og `Altinn.App.Core.Experimental`, versjon `8.11.0-rc.1`.
+NuGet-pakkene er `Altinn.App.Api` og `Altinn.App.Core`, versjon `8.11.0-rc.2`.
 
 ## Hva er nytt?
 
