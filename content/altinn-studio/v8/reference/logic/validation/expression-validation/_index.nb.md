@@ -108,7 +108,7 @@ example2.validation.json
         "or",
         ["contains", ["lowercase", ["dataModel", ["argv", 0]]], "æ"],
         ["contains", ["lowercase", ["dataModel", ["argv", 0]]], "ø"],
-        ["contains", ["lowercase", ["dataModel", ["argv", 0]]], "å"],
+        ["contains", ["lowercase", ["dataModel", ["argv", 0]]], "å"]
       ]
     }
   }
