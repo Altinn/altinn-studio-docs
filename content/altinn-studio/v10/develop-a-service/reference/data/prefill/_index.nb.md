@@ -3,7 +3,7 @@ draft: true
 title: Forhåndsutfylling - referanse
 linktitle: Forhåndsutfylling
 description: Oversikt over tilgjengelige felter for forhåndsutfylling med konfigurasjonsfil
-tags: [needsReview, needsTranslation]
+tags: [needsReview]
 
 ---
 Les mer om [forhåndsutfylling](/nb/altinn-studio/v10/this-is-AS/explanations/prefill/), og se [veiledning for hvordan du setter det opp](/nb/altinn-studio/v10/develop-a-service/data/prefill/how-to/config/).

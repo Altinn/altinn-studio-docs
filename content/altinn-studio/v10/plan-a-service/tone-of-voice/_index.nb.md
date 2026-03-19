@@ -1,4 +1,5 @@
 ---
+draft: true
 draft: false
 title: Råd om tekster i tjenesten
 description: Her finner du råd om hvordan du skriver godt for brukerne i tjenestene du lager.

@@ -1,7 +1,7 @@
 ---
 draft: true
 hidden: true
-tags: [needsReview, needsTranslation]
+tags: [needsReview]
 ---
 
 ### Implementere IOrderDetailsCalculator-interfacet i C#
