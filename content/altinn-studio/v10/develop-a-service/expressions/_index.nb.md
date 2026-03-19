@@ -1,25 +1,25 @@
 ---
 title: Uttrykk
 linktitle: Uttrykk
-description: Introduksjon til uttrykksspråket i Altinn Studio og hvordan dette kan benyttes for å lage mer dynamiske skjema.
-tags: [expressions, dynamics]
+description: Introduksjon til uttrykksspråket i Altinn Studio og hvordan du kan bruke det til å lage mer dynamiske skjemaer.
+tags: [expressions, dynamics, needsReview]
 toc: true
 weight: 50
 ---
 
 ## Introduksjon
-Uttrykksspråket i Altinn Studio gjør det mulig å definere enkle regler for hvordan ulike deler av tjenesten skal oppføre seg uten å måtte programmere det med et tradisjonelt programmeringsspråk. Du kan gjerne sammenligne uttrykk med enkle makroer i Excel. Uttrykkene kan enten skrives for hånd eller de kan konfigureres via grensesnittet i Altinn Studio verktøyet. 
+Uttrykksspråket i Altinn Studio gjør det mulig å definere enkle regler for hvordan ulike deler av tjenesten skal oppføre seg, uten å måtte programmere det med et tradisjonelt programmeringsspråk. Du kan gjerne sammenligne uttrykk med enkle makroer i Excel. Uttrykkene kan enten skrives for hånd eller konfigureres via grensesnittet i Altinn Studio Designer.
 
-Uttrykk vil typisk brukes ifm. dynamikk og kan brukes til å:
-* vise og skjule 
-  * komponenter/skjemafelt
-  * deler av en komponent (rad i repeterende gruppe, verdi i kodeliste)
-  * en gruppe av komponenter
-  * hele sider
-* bygge opp dynamiske kodelister
-* kontrollere hvordan prosessen skal være f.eks. hoppe over et signeringsteg hvis reglene tilsier at det ikke er nødvendig
+Du bruker uttrykk typisk i forbindelse med dynamikk, blant annet til å:
+- vise og skjule
+  - komponenter/skjemafelt
+  - deler av en komponent (rad i repeterende gruppe, verdi i kodeliste)
+  - en gruppe av komponenter
+  - hele sider
+- bygge opp dynamiske kodelister
+- kontrollere hvordan prosessen skal være, for eksempel hoppe over et signeringsteg hvis reglene tilsier at det ikke er nødvendig
 
-Uansett hva du bruker uttrykk til så er språket det samme og du vil kjenne igjen funksjonene selv om du bruker de på forskjellige steder.
+Uansett hva du bruker uttrykk til, er språket det samme, og du vil kjenne igjen funksjonene selv om du bruker dem på forskjellige steder.
 
 ## Terminologi
 - **Uttrykk**: En enhet som består av et boolsk komponentfelt og det faktiske uttrykket som vil bli evaluert til å være
@@ -52,7 +52,7 @@ av verdiene sendes som inndata/argumenter til funksjonen. Inndata/argumentene ka
 
 I eksempelet over brukes funksjonen ```equals``` (første verdi i listen) og deretter blir strengene "foo" og "bar" sammenlignet. De er ulike, så resultatet av dette uttrykket blir en boolsk verdi; ```false```.
 
-Funksjonen ```equals```, forventer å få inn to strenger (tekstverdier) som inndata/argumenter. I eksemplet over er tekstverdiene faste og de samme hver gang. Det er mulig å benytte andre uttrykk som igjen returnerer en tekstverdi. Gjør man dette vil uttrykket bli tolket slik at de innerste funksjonene blir kjørt først, og de ytterste kjørt sist.
+Funksjonen ```equals``` forventer å få inn to strenger (tekstverdier) som inndata/argumenter. I eksemplet over er tekstverdiene faste og de samme hver gang. Det er mulig å bruke andre uttrykk som igjen returnerer en tekstverdi. Hvis du gjør dette, blir uttrykket tolket slik at de innerste funksjonene kjøres først, og de ytterste kjøres sist.
 
 ```json
 ["equals", ["component", "firstName"], "John"]
@@ -61,8 +61,7 @@ Funksjonen ```equals```, forventer å få inn to strenger (tekstverdier) som inn
 I dette eksempelet blir det innerste uttrykket/funksjonskallet `["component", "firstName"]` kjørt først. Hvis verdien til
 komponenten "firstName" er lik strengen "John", gir funksjonen resultatet den boolske verdien ```true```.
 
-Dersom man da bruker dette uttrykket for `hidden`-egenskapen til en komponent, vil komponenten bli skjult dersom man
-skriver inn "John" i "firstName"-komponenten et annet sted i applikasjonen:
+Hvis du bruker dette uttrykket for `hidden`-egenskapen til en komponent, blir komponenten skjult hvis du skriver inn "John" i "firstName"-komponenten et annet sted i applikasjonen:
 
 ```json
 {
@@ -73,8 +72,7 @@ skriver inn "John" i "firstName"-komponenten et annet sted i applikasjonen:
 }
 ```
 
-Det er ingen begrensninger rundt hvor store/dype uttrykkene kan være. Som en øvelse, se om du klarer å lese hva dette
-uttrykket gjør, og hvilke mulige verdier det kan returnere:
+Det er ingen begrensninger rundt hvor store eller komplekse uttrykkene kan være. Som en øvelse, se om du klarer å lese hva dette uttrykket gjør, og hvilke mulige verdier det kan returnere:
 
 ```json
 [
@@ -109,7 +107,7 @@ Og for en person som er 15 år (eller yngre, som f.eks. en 4-åring), returneres
 
 ## Bruksområder
 
-Dynamiske uttrykk er tilgjengelig for bruk i disse egenskapene, som definert i [layout-filer](/nb/altinn-studio/v8/reference/ux/pages/).
+Dynamiske uttrykk er tilgjengelig for bruk i disse egenskapene:
 
 | Komponenter                                                                                                     | Egenskap                      | Forventet verdi            | Frontend | Backend |
 | --------------------------------------------------------------------------------------------------------------- | ----------------------------- | -------------------------- | -------- | ------- |
@@ -117,34 +115,27 @@ Dynamiske uttrykk er tilgjengelig for bruk i disse egenskapene, som definert i [
 | Alle                                                                                                            | `hidden`                      | Boolsk | ✅       | ✅      |
 | Skjemakomponenter                                                                                               | `required`                    | Boolsk | ✅       | ✅      |
 | Skjemakomponenter                                                                                               | `readOnly`                    | Boolsk | ✅       | ❌      |
-| [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `hiddenRow`                   | Boolsk | ✅       | ❌      |
-| [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `edit.addButton`              | Boolsk | ✅       | ❌      |
-| [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `edit.saveButton`             | Boolsk | ✅       | ❌      |
-| [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `edit.deleteButton`           | Boolsk | ✅       | ❌      |
-| [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `edit.alertOnDelete`          | Boolsk | ✅       | ❌      |
-| [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `edit.saveAndNextButton`      | Boolsk | ✅       | ❌      |
-| [Kodelistebaserte komponenter](/nb/altinn-studio/v8/guides/development/options/sources/from-data-model/#støtte-for-uttrykk) | `source.label`                | Streng       | ✅       | ❌      |
-| [Kodelistebaserte komponenter](/nb/altinn-studio/v8/guides/development/options/sources/from-data-model/#støtte-for-uttrykk) | `source.description`          | Streng       | ✅       | ❌      |
-| [Kodelistebaserte komponenter](/nb/altinn-studio/v8/guides/development/options/sources/from-data-model/#støtte-for-uttrykk) | `source.helpText`             | Streng       | ✅       | ❌      |
-| [Kodelistebaserte komponenter](/nb/altinn-studio/v8/guides/development/options/sources/dynamic/#basert-på-uttrykk)          | `queryParameters.[*]`         | Streng       | ✅       | ❌      |
-| [Kodelistebaserte komponenter](/nb/altinn-studio/v8/guides/development/options/functionality/filtering/)                     | `optionFilter`                | Streng       | ✅       | ❌      |
+| [Repeterende grupper](/nb/altinn-studio/v10/develop-a-service/look-and-feel/components/repeatinggroup/)                                                       | `hiddenRow`                   | Boolsk | ✅       | ❌      |
+| [Repeterende grupper](/nb/altinn-studio/v10/develop-a-service/look-and-feel/components/repeatinggroup/)                                                       | `edit.addButton`              | Boolsk | ✅       | ❌      |
+| [Repeterende grupper](/nb/altinn-studio/v10/develop-a-service/look-and-feel/components/repeatinggroup/)                                                       | `edit.saveButton`             | Boolsk | ✅       | ❌      |
+| [Repeterende grupper](/nb/altinn-studio/v10/develop-a-service/look-and-feel/components/repeatinggroup/)                                                       | `edit.deleteButton`           | Boolsk | ✅       | ❌      |
+| [Repeterende grupper](/nb/altinn-studio/v10/develop-a-service/look-and-feel/components/repeatinggroup/)                                                       | `edit.alertOnDelete`          | Boolsk | ✅       | ❌      |
+| [Repeterende grupper](/nb/altinn-studio/v10/develop-a-service/look-and-feel/components/repeatinggroup/)                                                       | `edit.saveAndNextButton`      | Boolsk | ✅       | ❌      |
+| [Kodelistebaserte komponenter](/nb/altinn-studio/v10/develop-a-service/look-and-feel/options/sources/from-data-model/#støtte-for-uttrykk) | `source.label`                | Streng       | ✅       | ❌      |
+| [Kodelistebaserte komponenter](/nb/altinn-studio/v10/develop-a-service/look-and-feel/options/sources/from-data-model/#støtte-for-uttrykk) | `source.description`          | Streng       | ✅       | ❌      |
+| [Kodelistebaserte komponenter](/nb/altinn-studio/v10/develop-a-service/look-and-feel/options/sources/from-data-model/#støtte-for-uttrykk) | `source.helpText`             | Streng       | ✅       | ❌      |
+| [Kodelistebaserte komponenter](/nb/altinn-studio/v10/develop-a-service/look-and-feel/options/sources/dynamic/#basert-på-uttrykk)          | `queryParameters.[*]`         | Streng       | ✅       | ❌      |
+| [Kodelistebaserte komponenter](/nb/altinn-studio/v10/develop-a-service/look-and-feel/options/functionality/filtering/)                     | `optionFilter`                | Streng       | ✅       | ❌      |
 | Alle                                                                                                            | `textResourceBindings.[*]` \* | Streng       | ✅       | ❌      |
 
-\* = Hvilke verdier man kan overstyre med textResourceBindings varierer fra komponent til komponent, men vil fungere på
-alle steder der det brukes. TextResourceBindings for repeterende grupper finner
-du [mer informasjon om her](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating#textresourcebindings)
+\* = Hvilke verdier du kan overstyre med textResourceBindings, varierer fra komponent til komponent, men vil fungere på alle steder der det brukes. TextResourceBindings for repeterende grupper finner du [mer informasjon om her](/nb/altinn-studio/v10/develop-a-service/look-and-feel/components/repeatinggroup#text-resource-bindings-textresourcebindings)
 
 
 ## Testing, feilsøking og utvikling av uttrykk
 
-Når man skal skrive et uttrykk er det greit å vite noenlunde hva resultatet kommer til å bli, og om uttrykket er gyldig.
-Ugyldige uttrykk gir en advarsel i JavaScript-konsollet i nettleseren når siden lastes, så det kan være lurt å ha
-dette konsollet åpent når man utvikler en applikasjon og tester uttrykkene lokalt.
+Når du skal skrive et uttrykk, er det greit å vite noenlunde hva resultatet kommer til å bli, og om uttrykket er gyldig. Ugyldige uttrykk gir en advarsel i JavaScript-konsollen i nettleseren når siden lastes, så det kan være lurt å ha denne konsollen åpen når du utvikler en applikasjon og tester uttrykkene lokalt.
 
-Det er også mulig å teste ut kjøring av et uttrykk rett i utviklerverktøyene. Det gjøres ved å trykke `Ctrl + Shift + K`
-på PC eller `Cmd + Shift + K` på Mac, og navigere til fanen for uttrykk. Uttrykk vil kunne oppføre seg annerledes alt etter
-hvilken komponent de evalueres i nærheten av. Derfor kan man også velge en komponent som skal brukes som kontekst når
-uttrykket evalueres i utviklerverktøyene.
+Det er også mulig å teste kjøring av et uttrykk direkte i utviklerverktøyene. Det gjør du ved å trykke `Ctrl + Shift + K` på PC eller `Cmd + Shift + K` på Mac, og gå til fanen for uttrykk. Uttrykk vil kunne oppføre seg annerledes avhengig av hvilken komponent de evalueres i nærheten av. Derfor kan du også velge en komponent som skal brukes som kontekst når uttrykket evalueres i utviklerverktøyene.
 
 ## Eksempler
 {{% expandlarge id="rep-group-edit-button-text" header="Styre redigeringsknapp-tekst i repeterende gruppe" %}}
@@ -199,25 +190,18 @@ Uttrykk kan brukes til å vise/skjule hele sider. I eksempelet under vil hele si
 }
 ```
 
-Dersom siden man stod på blir skjult, vil applikasjonen automatisk gå videre til neste tilgjengelige side
-i [side-rekkefølgen](/nb/altinn-studio/v8/reference/ux/pages/navigation/). Om alle de neste sidene er skjult, vises den første mulige
-siden i rekkefølgen istedenfor.
+Hvis siden du står på blir skjult, vil applikasjonen automatisk gå videre til neste tilgjengelige side i siderekkefølgen. Hvis alle de neste sidene er skjult, vises den første mulige siden i rekkefølgen i stedet.
 {{% /expandlarge %}}
 
 {{% expandlarge id="rep-group-expandable" header="ID-er og evaluering i repeterende grupper" %}}
 
-**NB:** Dette eksemplet er kun relevant når du skal prøve et uttrykk i utviklerverktøyene som er avhengig av en kjent posisjon i en
-repeterende gruppe. Dette kan endres i fremtiden, og slike endringer vil ikke påvirke uttrykk som man har definert i en
-applikasjon. Der hentes konteksten ut fra hvor uttrykket er definert i layout-filen.
+**NB:** Dette eksemplet er kun relevant når du skal prøve et uttrykk i utviklerverktøyene som er avhengig av en kjent posisjon i en repeterende gruppe. Dette kan endres i fremtiden, og slike endringer vil ikke påvirke uttrykk som du har definert i en applikasjon. Der hentes konteksten ut fra hvor uttrykket er definert i layout-filen.
 
-Se for deg en repeterende gruppe for personer med to felt; `navn` og `alder`.
-Gitt dette uttrykket:
+Se for deg en repeterende gruppe for personer med to felt: `navn` og `alder`. Gitt dette uttrykket:
 
 `["component", "alder"]`
 
-Hva vil alderen være? Det vil kunne variere etter hvilken gruppe som evaluerer
-uttrykket. Har man to grupper/rader vil både `navn`- og `alder`-komponentene finnes to ganger hver. Disse vil få
-ID-ene `navn-0` og `alder-0` (for den første raden) og `navn-1` og `alder-1` (for den andre raden).
+Hva vil alderen være? Det vil kunne variere etter hvilken gruppe som evaluerer uttrykket. Hvis du har to grupper/rader, vil både `navn`- og `alder`-komponentene finnes to ganger hver. Disse vil få ID-ene `navn-0` og `alder-0` (for den første raden) og `navn-1` og `alder-1` (for den andre raden).
 
 Tenk deg at følgende data er fylt inn i en repeterende gruppe:
 
@@ -235,18 +219,15 @@ Gitt følgende uttrykk:
 
 Og med disse forutsetningene:
 
-1. Man har ikke gitt noen kontekst (eventuelt, uttrykket plasseres på en komponent som ikke er i nærheten av
-   en `alder`-komponent)
-2. Man evaluerer uttrykket i kontekst av `navn-0`
-3. Man evaluerer uttrykket i kontekst av `navn-1`
+1. Du har ikke gitt noen kontekst (eventuelt, uttrykket plasseres på en komponent som ikke er i nærheten av en `alder`-komponent)
+2. Du evaluerer uttrykket i kontekst av `navn-0`
+3. Du evaluerer uttrykket i kontekst av `navn-1`
 
 Hva vil resultatet bli i de forskjellige eksemplene? Her er svarene:
 
-1. Denne vil finne "første og beste" `alder`-komponent, og finner dermed `alder-0`. Den returnerer
-   derfor _24_, Per sin alder.
+1. Denne vil finne "første og beste" `alder`-komponent, og finner dermed `alder-0`. Den returnerer derfor _24_, Per sin alder.
 2. Her prøver vi å lete i kontekst av `navn`-komponenten på første rad, og igjen finner vi _24_, Per sin alder.
-3. Siste eksempel har vi spesifisert andre rad i den repeterende gruppen ved å evaluere i kontekst av `navn-1`.
-   Her finner vi den nærmeste `alder`-komponenten `alder-1`, som er _36_, Kari sin alder.
+3. I siste eksempel har vi spesifisert andre rad i den repeterende gruppen ved å evaluere i kontekst av `navn-1`. Her finner vi den nærmeste `alder`-komponenten `alder-1`, som er _36_, Kari sin alder.
 
 {{% /expandlarge %}}
 
