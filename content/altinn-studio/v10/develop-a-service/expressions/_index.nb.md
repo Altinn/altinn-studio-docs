@@ -22,23 +22,14 @@ Du bruker uttrykk typisk i forbindelse med dynamikk, blant annet til å:
 Uansett hva du bruker uttrykk til, er språket det samme, og du vil kjenne igjen funksjonene selv om du bruker dem på forskjellige steder.
 
 ## Terminologi
-- **Uttrykk**: En enhet som består av et boolsk komponentfelt og det faktiske uttrykket som vil bli evaluert til å være
-  en
-  boolsk verdi når det beregnes i en kjørende app. Det enkleste uttrykket kan bestå av en enkelt underenhet,
-  mens et mer avansert uttrykk kan bestå av flere underuttrykk kombinert med en operator.
-- **Underuttrykk**: Et begrep som brukes for å omtale den mest elementære enheten i et uttrykk. Et underuttrykk består
-  av en funksjon og to verdier, der en verdi kan være et enkelt element eller et sammensatt element der den første delen
-  av elementet definerer en kilde hvor den etterfulgte verdien kan bli funnet.
+
+- **Uttrykk**: En enhet som består av et boolsk komponentfelt og det faktiske uttrykket som vil bli evaluert til å være en boolsk verdi når det beregnes i en kjørende app. Det enkleste uttrykket kan bestå av en enkelt underenhet, mens et mer avansert uttrykk kan bestå av flere underuttrykk kombinert med en operator.
+- **Underuttrykk**: Et begrep som brukes for å omtale den mest elementære enheten i et uttrykk. Et underuttrykk består av en funksjon og to verdier, der en verdi kan være et enkelt element eller et sammensatt element der den første delen av elementet definerer en kilde hvor den etterfulgte verdien kan bli funnet.
 - **Egenskap** eller **Felt**: Den boolske egenskapen eller feltet til komponenten som uttrykket skal kobles til.
 - **Funksjon**: Funksjonen som skal brukes til å sammenligne de to verdiene i underuttrykket.
 - **Datakilde**: Kilden for verdiene i underuttrykket. Kan også omtales som _typen_ til verdien.
-- **Verdi for datakilde**: Den faktiske verdien som skal brukes til å evaluere underuttrykket. Hvis verdien har
-  en
-  datakilde som er `applikasjonsinnstillinger`, `komponent`, `datamodell` eller `instanskontekst`, fungerer den som en
-  referanse til en verdi i stedet for en eksplisitt verdi.
-- **Operator**: Operatoren er bare relevant når det er mer enn ett underuttrykk, og den vil bli brukt til å
-  evaluere om _alle_ underuttrykkene skal gjelde (bruk **OG**) eller om det er nok at bare ett av underuttrykkene
-  gjelder (bruk **ELLER**).
+- **Verdi for datakilde**: Den faktiske verdien som skal brukes til å evaluere underuttrykket. Hvis verdien har en datakilde som er `applikasjonsinnstillinger`, `komponent`, `datamodell` eller `instanskontekst`, fungerer den som en referanse til en verdi i stedet for en eksplisitt verdi.
+- **Operator**: Operatoren er bare relevant når det er mer enn ett underuttrykk, og den vil bli brukt til å evaluere om _alle_ underuttrykkene skal gjelde (bruk **OG**) eller om det er nok at bare ett av underuttrykkene gjelder (bruk **ELLER**).
 
 ## Oppbygging og skrivemåte (syntaks)
 

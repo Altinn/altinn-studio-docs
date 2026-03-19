@@ -4,6 +4,7 @@ linktitle: Bygge uttrykk med Altinn Studio
 weight: 8
 description: Hvordan bygge uttrykk i Altinn Studio.
 hidden: false
+tags: [needsReview]
 ---
 
 Denne dokumentasjonen vil beskrive _hvordan_ du kan bygge uttrykk knyttet til komponentfelt ved hjelp av

@@ -2,7 +2,7 @@
 title: Datatyper
 linktitle: Datatyper
 description: Oversikt over datatyper som benyttes i uttrykk.
-tags: [dynamics,expressions]
+tags: [dynamics, expressions, needsReview]
 toc: true
 ---
 

@@ -2,7 +2,7 @@
 title: Funksjoner
 linktitle: Funksjoner
 description: Oversikt over dynamiske uttrykk definert i JSON
-tags: [dynamics]
+tags: [dynamics, needsReview]
 toc: true
 ---
 
