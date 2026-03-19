@@ -54,14 +54,14 @@ Din organisasjon bør opprette følgende team:
 
 Medlemmer av disse teamene kan administrere tilgangslister i sine respektive miljøer.
 
-Under [Guider](/nb/authorization/guides/resource-owner/accesslist/) kan du lese hvordan du definerer tilgangsliter som kan gjenbrukes på tvers av tjenster.
+Under [Guider](/nb/authorization/guides/resource-owner/accesslist/) kan du lese hvordan du definerer tilgangslister som kan gjenbrukes på tvers av tjenster.
 
 ![Groups](groups.png)
 
 {{< /stepcard >}}
 
 {{< stepcard step="7" title="Publisere" >}}
-Når all metadata, regler og ev tilgangslister er klare må ressursen publiseres
+Når all metadata, regler og ev tilgangslister er klare må ressursen publiseres.  
 Gjennomgang av publisering finnes under [Guider](/nb/authorization/guides/resource-owner/create-resource-resource-admin/)
 {{< /stepcard >}}
 
