@@ -12,7 +12,7 @@ weight: 10
 {{% expandlarge id="get-started-as-service-owner-in-altinn" header="1. Registrer deg som tjenesteeier hos Altinn" %}}
 
 For å sette opp en meldingstjeneste i Altinn Melding, må virksomheten din være registrert som en tjenesteeier hos Altinn. Se hvordan du går frem her:
-[Kom i gang med Altinn](https://www.altinndigital.no/kom-i-gang/guide-kom-i-gang-med-altinn/).
+[Kom i gang med Altinn](https://samarbeid.digdir.no/altinn/bli-tjenesteeier-i-altinn/2819/).
 
 Dette steget er kun nødvendig for nye virksomheter som ikke er etablert som en tjenesteeier i Altinn.
 {{% /expandlarge %}}
@@ -30,7 +30,7 @@ Se [Opprette bruker i Altinn Studio](https://docs.altinn.studio/nb/altinn-studio
 For å kunne sende meldinger via Altinn Melding, må meldingen være tilknyttet en ressurs. Ressurser registreres via Altinn Studio og brukes til å definere tilgangsregler og tilgangslister, dette sikrer at bare autoriserte brukere kan utføre bestemte handlinger.
 Man aktiverer ressursadministrasjonen ved å opprette et spesifikt repo (repository) og en ressursgruppe for organisasjonen din. (Har du allerede aktivert ressursadministrasjon kan du gå til steg 4.)
 
-Se [Ressursadministrasjon](https://docs.altinn.studio/nb/authorization/getting-started/resource-admin-studio/#opprett-ressursadministrasjonsarkivet-for-organisasjonen) for en detaljert veiledning.
+Se [Ressursadministrasjon](https://docs.altinn.studio/nb/authorization/getting-started/resourceadministration/) for en detaljert veiledning.
 {{% /expandlarge %}}
 
 {{% expandlarge id="registeraresourceinaltinnresourceregistry" header="4. Opprett en ressurs" %}}
@@ -130,7 +130,7 @@ Før produksjonssetting bør du verifisere at meldinger vises riktig for mottake
 
 1. Send en testmelding til en testmottaker via ønsket verktøy (Bruno, SDK eller din integrasjon).
 2. Verifiser i Arbeidsflate:
-   - Logg inn som testmottaker på [af.tt.altinn.no](https://af.tt.altinn.no/).
+   - Logg inn som testmottaker på [af.tt02.altinn.no](https://af.tt02.altinn.no/).
    - Sjekk at innholdet i testmeldingen er formatert som tiltenkt.
 3. Verifiser i Altinn 2-innboks:
    - Logg inn som testmottaker på [info.tt02.altinn.no](https://info.tt02.altinn.no/).

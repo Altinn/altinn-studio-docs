@@ -14,7 +14,7 @@ aliases:
 
 | Term| Description |
 |-----|------|
-| Access Package | An access package is a named and categorized “container” to which resource owners can add rights through policies. See an [overview of packages and categories](/nb/authorization/what-do-you-get/accessgroups/type-accessgroups/). | 
+| Access Package | An access package is a named and categorized “container” to which resource owners can add rights through policies. See an [overview of packages and categories](/nb/authorization/what-do-you-get/accessgroups/accessgroups/). | 
 | Altinn Role | A Altinn role is a relationship between organizations and organizations, organizations and persons, and persons and persons. The relationships exist because ER roles implicitly give them through or users have explicitly delegated them.  Altinn will discontinue Altinn Roles from the solution in 2026  |
 | Policy  |  A policy contains rules for accessing an app or a resource. The app developer or resource owner defines it. Altinn uses XACML as a policy format. Read more about the [policy format](/nb/altinn-studio/v8/reference/configuration/authorization/). |
 | Rule  | A rule defines different operations on resources / apps.   |

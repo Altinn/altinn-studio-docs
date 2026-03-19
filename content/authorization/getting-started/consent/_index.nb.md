@@ -70,7 +70,7 @@ Gjennom signering av [bruksvilkår for Maskinporten og ID-porten](https://samarb
      En Maskinporten-klient kan opprettes enten i Samarbeidsportalen eller ved bruk av API. Opprettelse av en Maskinporten-klient forutsetter oppkobling til Maskinporten. For mer informasjon, se [Maskinporten-klient](https://docs.altinn.studio/nb/correspondence/getting-started/developer-guides/maskinporten/).
     {{< /stepcard >}}
 
-{{< stepcard step="2" title="Datakonsumenten må ha fått delegert scope for samtykke fra Digdir" >}}
+{{< stepcard step="2" title="Datakonsumenten må ha fått delegert scope og API nøkkel for samtykke fra Digdir" >}}
 
 - Signer [bruksvilkår for Altinn sluttbrukersystemleverandører](https://samarbeid.digdir.no/altinn/bruksvilkar-sluttbrukersystemleverandorer-i-altinn/3002) for å få tilgang til test- og produksjonsmiljø.
 - Fyll ut [registreringsskjemaet for sluttbrukersystemleverandør](https://forms.office.com/Pages/ResponsePage.aspx?id=D1aOAK8I7EygVrNUR1A5kcdP2Xp78HZOttvolvmHfSJUOFFBMThaOTI1UlVEVU9VM0FaTVZLMzg0Vi4u) og kryss av for samtykke for å få tildelt nødvendige scopes:

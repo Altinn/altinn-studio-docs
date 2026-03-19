@@ -14,6 +14,7 @@ Fullmaktsområdene og tilgangspakkene for innbygger er basert på kategorisering
 
 |**Fullmaktsområder for innbyggere**|
 |---|
+|[Skatt, avgift, bank og forsikring](./skattavgiftbankforsikring)|
 |[Arbeidsliv, skole og utdanning](./arbeidslivskoleutdanning/)|
 |[Familie og fritid](./familiefritid/)|
 |[Helse og omsorg](./helseomsorg/)|

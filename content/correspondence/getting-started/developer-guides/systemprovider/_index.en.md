@@ -9,7 +9,7 @@ weight: 20
 
 {{<children />}}
 
-We recommend that system providers integrate with Dialogporten’s APIs to retrieve Altinn Correspondence. This way, they will also receive other types of letters (dialogs/transmissions) that are not sent via the Altinn Correspondence APIs. This applies, for example, to letters from the Norwegian Tax Administration (Skatteetaten), some letters from the Norwegian Labour and Welfare Administration (Nav), and other letters from senders/service owners. The Norwegian Tax Administration has already started sending dialogs. (These letters will not be received if you integrate only with the Correspondence APIs.)
+**We recommend that system providers integrate with Dialogporten’s APIs to retrieve Altinn Correspondence.** This way, they will also receive other types of letters (dialogs/transmissions) that are not sent via the Altinn Correspondence APIs. This applies, for example, to letters from the Norwegian Tax Administration (Skatteetaten), some letters from the Norwegian Labour and Welfare Administration (Nav), and other letters from senders/service owners. The Norwegian Tax Administration has already started sending dialogs. (These letters will not be received if you integrate only with the Correspondence APIs.)
 
 
 {{% expandlarge id="onboarding-process" header="Onboarding process" %}}
@@ -34,6 +34,16 @@ Please include all necessary scopes in your request. For example, beyond `altinn
 You can find the complete list of available scopes here: [Complete list of scopes](https://docs.altinn.studio/api/authentication/digdirscopes/)
 {{% /expandlarge %}}
 
+{{% expandlarge id="test-end-user-system" header="Test end-user system" %}}
+
+Only service owners have access to send correspondences using the Correspondence API.
+To test the end-user system, you can send a request to [servicedesk@altinn.no](mailto:servicedesk@altinn.no) and ask if they can send correspondences to a specific recipient in our test environment. 
+In the request you should specify which recipient the servicedesk should send test correspondences to, how many correspondences and any requirements for the message content.
+
+Correspondences sent to the test environment can be seen from [af.tt02.altinn.no](https://af.tt02.altinn.no/). 
+
+Test recipients can be retrieved from [Tenor test data](https://www.skatteetaten.no/en/testdata/).
+{{% /expandlarge %}}
 
 ### Contact:
 

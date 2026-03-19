@@ -5,7 +5,7 @@ toc: true
 weight: 600
 ---
 
-#### Helm Chart
+### Helm Chart
 
 Altinn applications are published to a Kubernetes cluster using a deployment Helm chart. A Helm chart contains the necessary resources to publish an app, including YAML configuration files.
 
@@ -15,7 +15,7 @@ Based on tests and experiences, we have set some default values in a central [He
 Starting from version [2.0.0](/en/community/changelog/deployment/v2/) of the 'deployment Helm chart,' autoscaling is available and enabled by default.
 {{% /notice %}}
 
-#### Custom settings
+### Custom settings
 
 Custom settings are configured in the `App/deployment/values.yaml` file by adding the desired property under
 the `deployment` section.
@@ -154,7 +154,7 @@ deployment:
 ...
 ```  
 
-#### `deployment.resources.requests`
+### `deployment.resources.requests`
 The `requests` property defines the resources reserved for each pod in the app and are used when the Kubernetes scheduler determines which node the pod should run on.
  Based on these settings, the maximum number of pods that can run on a node is calculated.
   The maximum number is limited by the setting allowing the fewest pods.
@@ -173,7 +173,7 @@ Given a cluster with nodes, each having 2 cores (2000 milliCores) and 4Gi memory
 The `requests` settings do not limit how much CPU or memory an application can use if there are available resources.
  However, a pod may be "evicted" from the node if there are few available resources and the pod uses more than specified in `requests`.
 
-#### `deployment.resources.limits`
+### `deployment.resources.limits`
 `limits` define how much of a resource a pod can use at most.
 
 If a pod tries to use more CPU than what is set as a limit, it will be throttled.

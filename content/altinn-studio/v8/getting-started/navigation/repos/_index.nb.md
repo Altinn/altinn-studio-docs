@@ -3,6 +3,7 @@ title: Repos
 description: Slik navigerer du i Altinn Studio Repos.
 toc: true
 weight: 200
+tags: [needsReview, needsPlain]
 ---
 
 Repos er verktøyet der appene er lagret som Git repositoryer, og kan bli funnet på https://altinn.studio/repos.

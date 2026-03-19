@@ -55,7 +55,7 @@ For at migreringen skal fungere, må policyen fortsatt inneholde reglene som fin
 
 #### Publisering
 
-Når ressursen er komplett, kan den publiseres til testmiljø eller produksjon.
+Når ressursen er komplett, kan den publiseres til testmiljø eller produksjon. For å kunne publisere må [ressursadministrasjonsteam](https://docs.altinn.studio/nb/authorization/getting-started/resourceadministration/) for publisering være opprettet.
 
 #### Endring av API-integrasjon
 
@@ -77,14 +77,6 @@ I Altinn Studio kan du for tjenester som er **opprettet basert på en importert 
 
 - deaktiverer Altinn 2-tjenesten slik at delegeringer ikke endres underveis
 - kopierer delegeringene til den nye ressursen i Altinn 3
-
-Funksjonen er foreløpig skjult bak et feature flag i Altinn Studio.
-
-```javascript
-localStorage.setItem("featureFlags", '["resourceMigration"]');
-```
-
-Kjør kommandoen i nettleserens konsoll (utviklerverktøy).
 
 Når batchjobben startes, tar det omtrent ti minutter før den settes i gang. Den første handlingen er å deaktivere tjenesten i Altinn 2 før migreringen til Altinn 3 gjennomføres.
 

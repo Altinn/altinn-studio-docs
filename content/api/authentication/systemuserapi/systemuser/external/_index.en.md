@@ -18,7 +18,7 @@ application/json
 
 ## Query Parameters
 
-#### systemid
+### systemid
 The unique identifier of the registered system
 
 ### Example Response

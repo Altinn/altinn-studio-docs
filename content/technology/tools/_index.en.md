@@ -1,7 +1,7 @@
 ---
 title: Tools and frameworks
 linktitle: Tools
-description: The open source tech used in Altinn Studio, Altinn Apps and Altinn Platform.
+description: The open source tech used in Altinn.
 tags: [tech]
 aliases:
 - /teknologi/altinnstudio/toolsandframeworks/

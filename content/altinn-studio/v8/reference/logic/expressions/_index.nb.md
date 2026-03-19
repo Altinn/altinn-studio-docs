@@ -67,6 +67,8 @@ til `7.2.0` eller nyere:
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
+Fra og med versjon 8.9.0 er det mulig å markere komponenter med egenskapen `"removeWhenHidden"` som er et uttrykk som evalueres sammen med `"hidden"` når vi fjerner skjulte data. Den kan være `true`, `false` eller `null` (eller et uttrykk som evaluerer til det). Foreløpig gir det bare mening å sette `"removeWhenHidden": false` (fordi true og null gir samme oppførsel), men i fremtiden kan det hende at vi vil fjerne data når den er `true` selv om det ikke er satt noen global `RemoveHiddenData` i appsettings.
+
 ### Oppbygging og syntaks
 
 Uttrykkene er bygget opp som et slags mini-programmeringsspråk, hvor alt er definert i JSON. Selve uttrykkene er alltid

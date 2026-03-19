@@ -11,8 +11,8 @@ weight: 10
 
 {{% expandlarge id="get-started-as-service-owner-in-altinn" header="1. Get started as service owner in Altinn" %}}
 
-To get started with Altinn Correspondence, your enterprise must be registered as a service owner in Altinn. For a step-by-step guide see:
-[Get started with Altinn guide (Norwegian language only)](https://www.altinndigital.no/kom-i-gang/guide-kom-i-gang-med-altinn/).
+To get started with Altinn Correspondence, your enterprise must be registered as a service owner in Altinn. For a guide see:
+[Get started with Altinn guide (Norwegian language only)](https://samarbeid.digdir.no/altinn/bli-tjenesteeier-i-altinn/2819).
 
 This step is only necessary for new enterprises that have not yet established themselves as service owners on the Altinn platform. As an existing service owner, you can proceed directly with the next steps to start using Altinn Correspondence.
 {{% /expandlarge %}}
@@ -29,7 +29,7 @@ See [Create a User in Altinn Studio](https://docs.altinn.studio/en/altinn-studio
 To send messages via Altinn Melding, the message must be linked to a resource. Resources are registered through Altinn Studio and are used to define access rules and access lists, ensuring that only authorized users can perform specific actions.
 You activate the resource management system by creating a specific repository and a resource group for your organization. (You can skip this step if you have activated the resource management system.)
 
-See [Resource Management](https://docs.altinn.studio/authorization/getting-started/resource-admin-studio/#create-the-resource-admin-repository-for-the-organization) for a detailed guide.
+See [Resource Management](https://docs.altinn.studio/en/authorization/getting-started/resourceadministration/) for a detailed guide.
 {{% /expandlarge %}}
 
 {{% expandlarge id="registeraresourceinaltinnresourceregistry" header="4. Create a Resource" %}}
@@ -130,7 +130,7 @@ Before going live, verify that correspondences render as intended for recipients
 
 1. Send a test correspondence to a test recipient using your preferred tool (Bruno, SDK, or your integration).
 2. Verify in Arbeidsflate:
-   - Log in with the test recipient in [af.tt.altinn.no](https://af.tt.altinn.no/).
+   - Log in with the test recipient in [af.tt02.altinn.no](https://af.tt02.altinn.no/).
    - Check that the test correspondence content is formatted as intended.
 3. Verify in Altinn 2 inbox:
    - Log in with the test recipient in [info.tt02.altinn.no](https://info.tt02.altinn.no/).

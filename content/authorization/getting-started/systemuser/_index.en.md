@@ -69,7 +69,7 @@ Registration is done via the [API](https://docs.altinn.studio/nb/api/authenticat
 
 Which access packages and/or individual services you need depends on the service you plan to consume – see the service documentation for details.
 
-> The current Altinn roles will be replaced by access packages. See [access packages](https://docs.altinn.studio/authorization/what-do-you-get/accessgroups/accessgroups/) for more information.
+> The current Altinn roles will be replaced by access packages. See [access packages](/en/authorization/what-do-you-get/accessgroups/) for more information.
 > {{< /stepcard >}}
 
 {{< stepcard step="4" title="Request access to the service owner's APIs" >}}

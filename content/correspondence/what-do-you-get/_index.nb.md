@@ -30,7 +30,7 @@ Du kan motta varsler om hendelser knyttet til sendte meldingstjenester, ved å s
 - Støtte for [numeriske tegnreferanser i HTML.](https://en.wikipedia.org/wiki/Numeric_character_reference)
 - Støtte for opptil 100 vedlegg per melding.
 - Støtte for mange filtyper: .doc, .xls, .docx, .xlsx, .ppt, .pps, .zip, .pdf, .html, .txt, .xml, .jpg, .gif, .bmp, .png, .csv og .json.
-- Støtte for vedlegg opptil 2 GB.
+- Støtte for vedlegg opptil 5 GB.
 
 ### Avansert støtte for lenking til innhold og vedlegg
 - Som alternativ til å sende meldingsinnhold og vedlegg direkte i meldingene,
