@@ -238,7 +238,7 @@ For test av SMS i et testmiljø må nummeret hvitelistes. Ta kontakt dersom dett
         "sendAfterDays": 7
       },
       {
-        "sendAfterDays": 14,
+        "requestedSendTime": "2025-12-15T12:30:00Z",
         "customEmail": {
           "subject": {
             "nb": "Påminnelse: $appName$ venter på deg",
