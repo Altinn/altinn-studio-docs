@@ -70,7 +70,7 @@ Each object in the `reminders` list may contain the following fields:
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `requestedSendTime` | string (datetime) | No | Earliest time for sending the reminder (ISO 8601, UTC). |
+| `requestedSendTime` | string (datetime) | No | Earliest time for sending the reminder (ISO 8601, UTC). Cannot be combined with `sendAfterDays` |
 | `sendAfterDays` | int | No | Number of days after the initial notification before the reminder is sent. Cannot be combined with `requestedSendTime`. |
 | `customSms` | object | No | Overrides the SMS text from the initial notification for this reminder. |
 | `customEmail` | object | No | Overrides the email text from the initial notification for this reminder. |
@@ -238,7 +238,7 @@ For SMS testing in a test environment, the phone number must be whitelisted. Ple
         "sendAfterDays": 7
       },
       {
-        "sendAfterDays": 14,
+        "requestedSendTime": "2025-12-15T12:30:00Z",
         "customEmail": {
           "subject": {
             "nb": "Påminnelse: $appName$ venter på deg",
