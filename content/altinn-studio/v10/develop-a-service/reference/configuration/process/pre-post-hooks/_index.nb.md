@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Definere egne prosess-hooks
 linktitle: Prosess-hooks
 description: Slik skriver du kode som skal kjøres før eller etter at en oppgave er startet eller avsluttet.

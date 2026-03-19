@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Uttrykk
 linktitle: Uttrykk
 description: Introduksjon til uttrykksspråket i Altinn Studio og hvordan dette kan benyttes for å lage mer dynamiske skjema.

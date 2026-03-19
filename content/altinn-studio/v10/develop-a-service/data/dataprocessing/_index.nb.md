@@ -2,7 +2,7 @@
 draft: true
 title: Dataprosessering
 description: Slik legger du til beregninger og annen dataprosessering
-tags: [needsReview, needsTranslation]
+tags: [needsReview]
 toc: true
 ---
 

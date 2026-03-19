@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Funksjoner
 linktitle: Funksjoner
 description: Oversikt over dynamiske uttrykk definert i JSON
@@ -80,7 +81,7 @@ Detaljerte beskrivelser og eksempler
 
 {{% expandlarge id="func-compare" header="compare" %}}
 {{% notice info %}}
-Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
+Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](/nb/altinn-studio/v10/manage-a-service/maintainance/dependencies)
 versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelig i versjon 4.17.0 og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
@@ -205,8 +206,7 @@ et mer lesbart resultat anbefales det å legge inn bindetegn hvor nødvendig:
 
 Uttrykket over gir teksten `Gratulerer med 18-årsdagen!` dersom verdien i alder-komponenten var `18`.
 
-I `concat`-funksjonen tolkes `null`-verdier som tomme strenger. boolske verdierskrives
-ut som strengene `"true"` og `"false"`.
+I `concat`-funksjonen tolkes `null`-verdier som tomme strenger. boolske verdier skrives ut som strengene `"true"` og `"false"`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-and" header="and / or" %}}
@@ -334,7 +334,7 @@ Dersom strengen er `null` vil `stringLength` returnere `0`.
 
 {{% expandlarge id="func-stringIndexOf" header="stringIndexOf" %}}
 {{% notice info %}}
-Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
+Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](/nb/altinn-studio/v10/manage-a-service/maintainance/dependencies)
 versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelig i versjon 4.17.0 og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
@@ -355,7 +355,7 @@ funksjonen returnere 4.
 
 {{% expandlarge id="func-stringSlice" header="stringSlice" %}}
 {{% notice info %}}
-Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
+Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](/nb/altinn-studio/v10/manage-a-service/maintainance/dependencies)
 versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelig i versjon 4.17.0 og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
@@ -378,7 +378,7 @@ navn er "John Doe", vil funksjonen returnere "Doe".
 
 {{% expandlarge id="func-stringReplace" header="stringReplace" %}}
 {{% notice info %}}
-Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
+Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](/nb/altinn-studio/v10/manage-a-service/maintainance/dependencies)
 versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelig i versjon 4.17.0 og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
@@ -468,7 +468,7 @@ gjøres uavhengig av om det ble brukt store eller små bokstaver i input-verdien
 
 {{% expandlarge id="func-lcFirst-ucFirst" header="lowerCaseFirst/upperCaseFirst" %}}
 {{% notice info %}}
-Disse funksjonene er kun tilgjengelige på backend med [nuget-pakker](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
+Disse funksjonene er kun tilgjengelige på backend med [nuget-pakker](/nb/altinn-studio/v10/manage-a-service/maintainance/dependencies)
 versjon 8.6.0-preview.3 eller nyere. I frontend er disse funksjonene tilgjengelig i versjon 4.17.0 og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
@@ -526,7 +526,7 @@ automatisk slette skjulte data `RemoveHiddenDataPreview`.
 Funksjonen `displayValue` gjør et oppslag på en komponent og returnerer en formattert tekststreng som representerer verdien i datamodellen.
 Dette er til forskjell fra [component](#func-component)-funksjonen som returnerer rå-verdien som ligger i datamodellen.
 Denne funksjonen egner seg best til visning av en komponent sin verdi for brukeren, og mindre til videre logikk basert på verdien som returneres.
-Dette er spesielt relevant for Input-felter med [tallformattering](/nb/altinn-studio/v8/reference/ux/styling/#formatering-av-tall), datofelter, radioknapper (og andre komponenter med kodelister), osv.
+Dette er spesielt relevant for Input-felter med tallformattering, datofelter, radioknapper (og andre komponenter med kodelister), osv.
 
 Eksempel:
 
@@ -551,20 +551,20 @@ argument:
 | `instanceOwnerPartyType` | Hva slags aktør eier instansen | `"org", "person", "selfIdentified" eller "unknown"` |
 | `appId`                  | Den aktive appen sin ID        | `org/app-name`                                      |
 
-Alle disse oppslagene vil gi verdien `null` om man jobber i en [tilstandsløs kontekst](/nb/altinn-studio/v8/reference/configuration/stateless/).
+Alle disse oppslagene vil gi verdien `null` om man jobber i en [tilstandsløs kontekst](/nb/altinn-studio/v10/develop-a-service/reference/configuration/stateless/).
 Om man gir andre nøkler enn de over, vil oppslaget resultere i en feilmelding. Denne oppførselen er unik blant
 oppslagsfunksjonene, og gjøres for å sikre at man ikke prøver å hente informasjon som finnes i instansen men som ikke
 (enda) er eksponert via en nøkkel her. [Gi oss en tilbakemelding](https://github.com/Altinn/app-frontend-react/issues/new?assignees=&labels=kind%2Ffeature-request%2Cstatus%2Ftriage&template=feature_request.yml) om du har ønsker om å hente ut
 instansdata som ikke er tilgjengelig i denne funksjonen.
 
-Oppslaget gjøres i samme datakilde som er tilgjengelig for [språk/tekster](/nb/altinn-studio/v8/reference/ux/texts#datakilder).
+Oppslaget gjøres i samme datakilde som er tilgjengelig for [språk/tekster](/nb/altinn-studio/v10/develop-a-service/look-and-feel/options/functionality/texts/).
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-frontendsettings" header="frontendSettings (oppslag)" %}}
 Dette oppslaget gjør det mulig å hente informasjon fra en datakilde som kan styres ulikt for hvert kjøretidsmiljø.
 
 Oppslaget gjøres i samme datakilde som er tilgjengelig for [språk/tekster, og oppsettet er beskrevet
-i detalj der](/nb/altinn-studio/v8/reference/ux/texts#datakilder).
+i detalj der](/nb/altinn-studio/v10/develop-a-service/look-and-feel/options/functionality/texts/).
 
 **Merk**: Datakilden heter `applicationSettings` når brukt i språk/tekster, men verdiene må alltid lagres under
 nøkkelen `FrontEndSettings` i `appsettings.{miljø}.json`). Av den grunn har funksjonen fått navnet `frontendSettings`
@@ -573,7 +573,7 @@ her, for å indikere at oppslag ikke kan gjøres i resten av `appsettings.{milj�
 
 {{% expandlarge id="func-countDataElements" header="countDataElements (oppslag)" %}}
 {{% notice info %}}
-Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
+Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](/nb/altinn-studio/v10/manage-a-service/maintainance/dependencies)
 versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelig i versjon 4.17.0 og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
@@ -583,7 +583,7 @@ må være en streng som er definert som en datatype i `applicationmetadata.json`
 elementer av den gitte datatypen i gjeldende instans.
 
 For eksempel, om du har en `FileUpload`-komponent som laster opp filer til datatypen `Attachment`, kan du bruke denne
-funksjonen til å telle antall vedlegg som er lastet opp. På samme måte kan du telle antall [underskjema-elementer](/nb/altinn-studio/v8/guides/development/subform/)
+funksjonen til å telle antall vedlegg som er lastet opp. På samme måte kan du telle antall [underskjema-elementer](/nb/altinn-studio/v10/develop-a-service/look-and-feel/subform/)
 ved å referere til datamodell-ID-en til underskjemaet.
 
 Eksempel:
@@ -597,7 +597,7 @@ Eksempel:
 {{% expandlarge id="func-datamodel" header="dataModel (oppslag)" %}}
 Denne oppslagsfunksjonen gjør det mulig å hente verdier direkte fra gjeldende datamodell. Første og eneste argument
 må peke et sted i datamodellen, og bruker det samme punktum-separerte formatet som brukt i `dataModelBindings`. Ved
-bruk inne i [repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/) trenger man _ikke_ bruke plassholdere for
+bruk inne i [repeterende grupper](/nb/altinn-studio/v10/develop-a-service/look-and-feel/components/repeatinggroup/) trenger man _ikke_ bruke plassholdere for
 indekser til gruppen - uttrykket finner selv den relative plasseringen i kontekst av en repeterende gruppe.
 
 Legg merke til at oppslag bare fungerer mot datatyper som allerede er støttet i uttrykkene. Dersom man
@@ -671,14 +671,14 @@ komponent basert på om en annen komponent er vist eller ikke. Dersom komponente
 side gir også oppslaget verdien `null` selv om datamodellen har en verdi tilknyttet komponenten.
 
 I likhet med [`dataModel`](#func-datamodel) vil oppslag mot en komponent-id forsøke å finne komponenten i nærheten av
-uttrykket i kontekst av [repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/). Det vil først søkes etter komponenten
+uttrykket i kontekst av [repeterende grupper](/nb/altinn-studio/v10/develop-a-service/look-and-feel/components/repeatinggroup/). Det vil først søkes etter komponenten
 i gjeldende rad, før det letes oppover i sidestrukturen.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-formatDate" header="formatDate" %}}
 
 {{% notice info %}}
-Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget)
+Denne funksjonen er kun tilgjengelig på backend med [nuget-pakker](/nb/altinn-studio/v10/manage-a-service/maintainance/dependencies)
 versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelig i versjon 4.0.0 og nyere, inkludert den siste
 rullerende versjonen av v4.
 {{% /notice %}}
@@ -793,7 +793,7 @@ Om kodeliste-verdien ikke finnes i kodelisten, vil funksjonen returnere `null`.
 
 {{% expandlarge id="func-argv" header="argv" %}}
 `argv`-funksjonen kan brukes for å hente ut argumenter som er sendt inn til uttrykket. Dette er foreløpig bare
-tilgjengelig for [validering vha. uttrykk](/nb/altinn-studio/v8/reference/logic/validation/expression-validation/).
+tilgjengelig for [validering vha. uttrykk](/nb/altinn-studio/v10/develop-a-service/data/validation/expression-validation/).
 
 Funksjonen tar 1 argument, som er indeksen til argumentet du ønsker å hente ut. Indeksen starter på 0.
 
@@ -807,8 +807,8 @@ Funksjonen tar 1 argument, som er indeksen til argumentet du ønsker å hente ut
 I likhet med `argv` er `value`-funksjonen også en metode for å hente ut argumenter som er sendt inn til uttrykket.
 Funksjonen kan brukes uten argumenter for å hente ut en verdi, eller med et argument for å hente ut andre
 typer verdier. Dette er foreløpig tilgjengelig for
-[filtrering av svaralternativer](/nb/altinn-studio/v8/guides/development/options/functionality/filtering/) og blir snart tilgjengelig
-som et alternativ til `argv` i [validering vha. uttrykk](/nb/altinn-studio/v8/reference/logic/validation/expression-validation/).
+[filtrering av svaralternativer](/nb/altinn-studio/v10/develop-a-service/look-and-feel/options/functionality/filtering/) og blir snart tilgjengelig
+som et alternativ til `argv` i [validering vha. uttrykk](/nb/altinn-studio/v10/develop-a-service/data/validation/expression-validation/).
 
 ```json
 ["value"]

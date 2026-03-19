@@ -1,4 +1,5 @@
 ---
+draft: true
 title: API
 description: Oversikt over API-er som apper i Altinn Studio kan eksponere og bruke
 weight: 50

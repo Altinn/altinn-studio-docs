@@ -4,7 +4,7 @@ title: Ordliste for tjenesteutvikling
 linktitle: Ordliste
 description: Forklaringer av tekniske ord og begreper som brukes i dokumentasjonen om tjenesteutvikling i Altinn Studio.
 
-tags: [needsReview, needsTranslation]
+tags: [needsReview]
 ---
 
 Denne siden inneholder forklaringer av tekniske ord og begreper som vi bruker i dokumentasjonen om tjenesteutvikling i Altinn Studio. Ordene er sortert alfabetisk.

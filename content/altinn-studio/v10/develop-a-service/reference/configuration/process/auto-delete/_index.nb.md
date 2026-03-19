@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Slette en tjeneste automatisk
 linktitle: Automatisk sletting
 description: Slik konfigurerer du automatisk sletting av en tjeneste når prosessen er slutt.
