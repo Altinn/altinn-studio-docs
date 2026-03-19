@@ -47,18 +47,17 @@ gang, følg denne veiledningen:
    fra etterpå, eller den kan være en type for en verdi. De tilgjengelige datakildene som vil gi deg et sett med
    gitte verdier er:
 
-    - Datamodell: Felt fra den nåværende valgte datamodellen
-    - Komponent: Alle komponent-IDer som er til stede på tvers av layouter
-    - Applikasjonsinnstillinger: Alle tilpassede konfigurasjonsverdier lagt til i `appsettings.json`
-    - Instanskontekst: En av de følgende verdiene som finnes på instansobjektet i Altinn-lagring; `instanceId`
-      , `InstanceOwnerPartyId` eller `appId`
+    - Datamodell: Felt fra den nåværende valgte datamodellen.
+    - Komponent: Alle komponent-IDer som er til stede på tvers av layouter.
+    - Applikasjonsinnstillinger: Alle tilpassede konfigurasjonsverdier lagt til i `appsettings.json`.
+    - Instanskontekst: En av de følgende verdiene som finnes på instansobjektet i Altinn-lagring: `instanceId`, `InstanceOwnerPartyId` eller `appId`.
 
    Mens de tilgjengelige datakildene som vil opptre som typer er:
 
-    - Streng: Lar deg tilordne en hvilken som helst tilpasset streng som verdien
-    - Tall: Lar deg tilordne et hvilket som helst tilpasset tall som verdien
-    - Boolsk: Lar deg tilordne verdien som `true` eller `false`
-    - Null: Tildeler automatisk verdien som `null`
+    - Streng: Lar deg tilordne en hvilken som helst tilpasset streng som verdien.
+    - Tall: Lar deg tilordne et hvilket som helst tilpasset tall som verdien.
+    - Boolsk: Lar deg tilordne verdien som `true` eller `false`.
+    - Null: Tildeler automatisk verdien som `null`.
 
    ![Velg en datakilde for den første delen av underuttrykket ditt](3-choose-data-source.png)
 
