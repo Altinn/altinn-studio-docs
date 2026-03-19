@@ -70,8 +70,8 @@ Hvert objekt i `reminders`-listen kan inneholde følgende felter:
 
 | Felt | Type | Påkrevd | Beskrivelse |
 |---|---|---|---|
-| requestedSendTime | string (datetime) | Nei | Tidligste tidspunkt for utsending av påminnelsen (ISO 8601, UTC). |
-| sendAfterDays | int | Nei | Antall dager etter hovedvarselet før påminnelsen sendes. Kan ikke kombineres med requestedSendTime. |
+| requestedSendTime | string (datetime) | Nei | Tidligste tidspunkt for utsending av påminnelsen (ISO 8601, UTC). Kan ikke kombineres med `sendAfterDays`. |
+| sendAfterDays | int | Nei | Antall dager etter hovedvarselet før påminnelsen sendes. Kan ikke kombineres med `requestedSendTime`. |
 | customSms | objekt | Nei | Overstyrer SMS-teksten fra hovedvarselet for denne påminnelsen. |
 | customEmail | objekt | Nei | Overstyrer e-postteksten fra hovedvarselet for denne påminnelsen. |
 

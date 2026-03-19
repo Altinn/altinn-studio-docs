@@ -70,7 +70,7 @@ Each object in the `reminders` list may contain the following fields:
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `requestedSendTime` | string (datetime) | No | Earliest time for sending the reminder (ISO 8601, UTC). |
+| `requestedSendTime` | string (datetime) | No | Earliest time for sending the reminder (ISO 8601, UTC). Cannot be combined with `sendAfterDays` |
 | `sendAfterDays` | int | No | Number of days after the initial notification before the reminder is sent. Cannot be combined with `requestedSendTime`. |
 | `customSms` | object | No | Overrides the SMS text from the initial notification for this reminder. |
 | `customEmail` | object | No | Overrides the email text from the initial notification for this reminder. |
