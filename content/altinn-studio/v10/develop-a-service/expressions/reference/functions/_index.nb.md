@@ -13,68 +13,68 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 
 ### Sammenligning av verdier
 
-| Funksjonsnavn                                | Parametre                                 | Returverdi                 | Frontend | Backend |
-| -------------------------------------------- | ----------------------------------------- | -------------------------- | -------- | ------- |
-| [`compare`](#func-compare)                   | [Se detaljert beskrivelse](#func-compare) | Boolsk | ✅       | ✅      |
-| [`equals`](#func-equals)                     | Streng, Streng  | Boolsk | ✅       | ✅      |
-| [`notEquals`](#func-equals)                  | Streng, Streng  | Boolsk | ✅       | ✅      |
-| [`not`](#func-not)                           | Boolsk                | Boolsk | ✅       | ✅      |
-| [`greaterThan`](#func-gt)                    | Tall, Tall              | Boolsk | ✅       | ✅      |
-| [`greaterThanEq`](#func-gt)                  | Tall, Tall              | Boolsk | ✅       | ✅      |
-| [`lessThan`](#func-gt)                       | Tall, Tall              | Boolsk | ✅       | ✅      |
-| [`lessThanEq`](#func-gt)                     | Tall, Tall              | Boolsk | ✅       | ✅      |
-| [`concat`](#func-concat)                     | Ingen eller flere strenger   | Streng        | ✅       | ✅      |
-| [`contains`](#func-contains-not-contains)    | Streng, Streng  | Boolsk | ✅       | ✅      |
-| [`notContains`](#func-contains-not-contains) | Streng, Streng  | Boolsk | ✅       | ✅      |
-| [`commaContains`](#func-commaContains)       | Streng, Streng  | Boolsk | ✅       | ✅      |
-| [`startsWith`](#func-starts-ends-with)       | Streng, Streng  | Boolsk | ✅       | ✅      |
-| [`endsWith`](#func-starts-ends-with)         | Streng, Streng  | Boolsk | ✅       | ✅      |
+| Funksjonsnavn                                | Parametre                                 | Returverdi | Frontend | Backend |
+| -------------------------------------------- | ----------------------------------------- | ---------- | -------- | ------- |
+| [`compare`](#func-compare)                   | [Se detaljert beskrivelse](#func-compare) | Boolsk     | ✅       | ✅      |
+| [`equals`](#func-equals)                     | Streng, Streng                            | Boolsk     | ✅       | ✅      |
+| [`notEquals`](#func-equals)                  | Streng, Streng                            | Boolsk     | ✅       | ✅      |
+| [`not`](#func-not)                           | Boolsk                                    | Boolsk     | ✅       | ✅      |
+| [`greaterThan`](#func-gt)                    | Tall, Tall                                | Boolsk     | ✅       | ✅      |
+| [`greaterThanEq`](#func-gt)                  | Tall, Tall                                | Boolsk     | ✅       | ✅      |
+| [`lessThan`](#func-gt)                       | Tall, Tall                                | Boolsk     | ✅       | ✅      |
+| [`lessThanEq`](#func-gt)                     | Tall, Tall                                | Boolsk     | ✅       | ✅      |
+| [`concat`](#func-concat)                     | Ingen eller flere strenger                | Streng     | ✅       | ✅      |
+| [`contains`](#func-contains-not-contains)    | Streng, Streng                            | Boolsk     | ✅       | ✅      |
+| [`notContains`](#func-contains-not-contains) | Streng, Streng                            | Boolsk     | ✅       | ✅      |
+| [`commaContains`](#func-commaContains)       | Streng, Streng                            | Boolsk     | ✅       | ✅      |
+| [`startsWith`](#func-starts-ends-with)       | Streng, Streng                            | Boolsk     | ✅       | ✅      |
+| [`endsWith`](#func-starts-ends-with)         | Streng, Streng                            | Boolsk     | ✅       | ✅      |
 
 ### Logikk
 
-| Funksjonsnavn      | Parametre                                          | Returverdi                           | Frontend | Backend |
-| ------------------ | -------------------------------------------------- | ------------------------------------ | -------- | ------- |
-| [`and`](#func-and) | En eller flere boolske verdier| Boolsk           | ✅       | ✅      |
-| [`or`](#func-and)  | En eller flere boolske verdier| Boolsk           | ✅       | ✅      |
-| [`if`](#func-if)   | [Se detaljert beskrivelse](#func-if)               | [Se detaljert beskrivelse](#func-if) | ✅       | ✅      |
+| Funksjonsnavn      | Parametre                                | Returverdi                           | Frontend | Backend |
+| ------------------ | ---------------------------------------- | ------------------------------------ | -------- | ------- |
+| [`and`](#func-and) | En eller flere boolske verdier           | Boolsk                               | ✅       | ✅      |
+| [`or`](#func-and)  | En eller flere boolske verdier           | Boolsk                               | ✅       | ✅      |
+| [`if`](#func-if)   | [Se detaljert beskrivelse](#func-if)     | [Se detaljert beskrivelse](#func-if) | ✅       | ✅      |
 
 ### Strenger og tall
 
-| Funksjonsnavn                             | Parametre                                                     | Returverdi          | Frontend | Backend |
-| ----------------------------------------- | ------------------------------------------------------------- | ------------------- | -------- | ------- |
-| [`lowerCase`](#func-lowerCase-upperCase)  | Streng                                           | Streng | ✅       | ✅      |
-| [`upperCase`](#func-lowerCase-upperCase)  | Streng                                           | Streng | ✅       | ✅      |
-| [`lowerCaseFirst`](#func-lcFirst-ucFirst) | Streng                                           | Streng | ✅       | ✅      |
-| [`upperCaseFirst`](#func-lcFirst-ucFirst) | Streng                                           | Streng | ✅       | ✅      |
-| [`stringLength`](#func-stringLength)      | Streng                                           | Tall       | ✅       | ✅      |
-| [`stringIndexOf`](#func-stringIndexOf)    | Streng, Streng                      | Tall       | ✅       | ✅      |
-| [`stringSlice`](#func-stringSlice)        | Streng, Tall, valgfritt Tall   | Streng | ✅       | ✅      |
-| [`stringReplace`](#func-stringReplace)    | Streng, Streng, Streng | Streng | ✅       | ✅      |
-| [`text`](#func-text)                      | Streng                                           | Streng | ✅       | ❌      |
-| [`language`](#func-language)              | Ingenting                                                     | Streng | ✅       | ❌      |
-| [`displayValue`](#func-displayValue)      | Streng                                           | Streng | ✅       | ❌      |
-| [`round`](#func-round)                    | Tall, valgfritt Tall                        | Streng | ✅       | ✅      |
-| [`formatDate`](#func-formatDate)          | Dato/tid, valgfri Streng              | Streng | ✅       | ✅      |
+| Funksjonsnavn                             | Parametre                        | Returverdi | Frontend | Backend |
+| ----------------------------------------- | -------------------------------- | ---------- | -------- | ------- |
+| [`lowerCase`](#func-lowerCase-upperCase)  | Streng                           | Streng     | ✅       | ✅      |
+| [`upperCase`](#func-lowerCase-upperCase)  | Streng                           | Streng     | ✅       | ✅      |
+| [`lowerCaseFirst`](#func-lcFirst-ucFirst) | Streng                           | Streng     | ✅       | ✅      |
+| [`upperCaseFirst`](#func-lcFirst-ucFirst) | Streng                           | Streng     | ✅       | ✅      |
+| [`stringLength`](#func-stringLength)      | Streng                           | Tall       | ✅       | ✅      |
+| [`stringIndexOf`](#func-stringIndexOf)    | Streng, Streng                   | Tall       | ✅       | ✅      |
+| [`stringSlice`](#func-stringSlice)        | Streng, Tall, valgfritt Tall     | Streng     | ✅       | ✅      |
+| [`stringReplace`](#func-stringReplace)    | Streng, Streng, Streng           | Streng     | ✅       | ✅      |
+| [`text`](#func-text)                      | Streng                           | Streng     | ✅       | ❌      |
+| [`language`](#func-language)              | Ingenting                        | Streng     | ✅       | ❌      |
+| [`displayValue`](#func-displayValue)      | Streng                           | Streng     | ✅       | ❌      |
+| [`round`](#func-round)                    | Tall, valgfritt Tall             | Streng     | ✅       | ✅      |
+| [`formatDate`](#func-formatDate)          | Dato/tid, valgfri Streng         | Streng     | ✅       | ✅      |
 
 ### Oppslag, komponenter og data
 
-| Funksjonsnavn                                  | Parametre                                | Returverdi          | Frontend | Backend |
-| ---------------------------------------------- | ---------------------------------------- | ------------------- | -------- | ------- |
-| [`instanceContext`](#func-instancecontext)     | Streng                      | Streng | ✅       | ✅      |
-| [`frontendSettings`](#func-frontendsettings)   | Streng                      | Streng | ✅       | ✅      |
-| [`countDataElements`](#func-countDataElements) | Streng                      | Tall       | ✅       | ✅      |
-| [`dataModel`](#func-datamodel)                 | Streng                      | Streng | ✅       | ✅      |
-| [`component`](#func-component)                 | Streng                      | Streng | ✅       | ✅      |
-| [`linkToPage`](#func-linkToPage)               | Streng, Streng | Streng | ✅       | ❌      |
-| [`linkToComponent`](#func-linkToComponent)     | Streng, Streng | Streng | ✅       | ❌      |
-| [`optionLabel`](#func-optionLabel)             | Streng, Streng | Streng | ✅       | ❌      |
+| Funksjonsnavn                                  | Parametre      | Returverdi | Frontend | Backend |
+| ---------------------------------------------- | -------------- | ---------- | -------- | ------- |
+| [`instanceContext`](#func-instancecontext)     | Streng         | Streng     | ✅       | ✅      |
+| [`frontendSettings`](#func-frontendsettings)   | Streng         | Streng     | ✅       | ✅      |
+| [`countDataElements`](#func-countDataElements) | Streng         | Tall       | ✅       | ✅      |
+| [`dataModel`](#func-datamodel)                 | Streng         | Streng     | ✅       | ✅      |
+| [`component`](#func-component)                 | Streng         | Streng     | ✅       | ✅      |
+| [`linkToPage`](#func-linkToPage)               | Streng, Streng | Streng     | ✅       | ❌      |
+| [`linkToComponent`](#func-linkToComponent)     | Streng, Streng | Streng     | ✅       | ❌      |
+| [`optionLabel`](#func-optionLabel)             | Streng, Streng | Streng     | ✅       | ❌      |
 
 ### Spesialfunksjoner
 
-| Funksjonsnavn          | Parametre                   | Returverdi          | Frontend | Backend |
-| ---------------------- | --------------------------- | ------------------- | -------- | ------- |
-| [`argv`](#func-argv)   | Tall               | Streng | ✅       | ✅      |
-| [`value`](#func-value) | valgfri Streng | Streng | ✅       | ❌      |
+| Funksjonsnavn          | Parametre      | Returverdi | Frontend | Backend |
+| ---------------------- | -------------- | ---------- | -------- | ------- |
+| [`argv`](#func-argv)   | Tall           | Streng     | ✅       | ✅      |
+| [`value`](#func-value) | valgfri Streng | Streng     | ✅       | ❌      |
 
 Detaljerte beskrivelser og eksempler
 
@@ -123,8 +123,7 @@ operatoren som brukes. For eksempel kan operatoren `equals` sammenligne strenger
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-equals" header="equals / notEquals" %}}
-Disse to funksjonene sammenligner to strenger for å sjekke om de er like (`equals`) eller ulike (`notEquals`). Om
-du sender inn andre verdier enn strenger, blir verdiene konvertert og sammenlignet som strenger.
+Disse to funksjonene sammenligner to strenger for å sjekke om de er like (`equals`) eller ulike (`notEquals`). Hvis du sender inn andre verdier enn strenger, konverteres verdiene og sammenlignes som strenger.
 
 Eksempler:
 
@@ -150,12 +149,9 @@ Se også tips og triks under [_Streng eller mindre streng sammenligning?_](/nb/a
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-not" header="not" %}}
-Denne funksjonen tar inn en boolsk verdi eller noe som kan konverteres til en boolsk verdi, og
-returnerer den motsatte boolske verdien. Sann blir til usann, usann blir til sann.
+Denne funksjonen tar inn en boolsk verdi eller noe som kan konverteres til en boolsk verdi, og returnerer den motsatte boolske verdien. Sann konverteres til usann, usann konverteres til sann.
 
-Funksjonen kan være nyttig om du ønsker å _snu_ et uttrykk. Istedenfor å tenke at du skal skrive et uttrykk som
-_skjuler_ en komponent gitt noen forutsetninger, kan du pakke uttrykket inn i `not` og skrive uttrykket ut fra
-hva som skal til for å _vise_ komponenten:
+Funksjonen kan være nyttig hvis du vil _snu_ et uttrykk. I stedet for å tenke at du skal skrive et uttrykk som _skjuler_ en komponent gitt noen forutsetninger, kan du pakke uttrykket inn i `not` og skrive uttrykket ut fra hva som skal til for å _vise_ komponenten:
 
 ```json
 {
@@ -171,8 +167,7 @@ hva som skal til for å _vise_ komponenten:
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-gt" header="greaterThan / greaterThanEq / lessThan / lessThanEq" %}}
-Disse 4 funksjonene forventer to tall inn, og sammenligner om _det første_ med _det andre_. Det vil si, for funksjonen
-`greaterThan` er uttrykket sant dersom det første tallet er _større enn_ det andre.
+Disse fire funksjonene forventer to tall inn, og sammenligner _det første_ med _det andre_. Det vil si, for funksjonen `greaterThan` er uttrykket sant hvis det første tallet er _større enn_ det andre.
 
 | Funksjon        | Beskrivelse                                                   | Symbol |
 | --------------- | ------------------------------------------------------------- | ------ |
@@ -181,8 +176,7 @@ Disse 4 funksjonene forventer to tall inn, og sammenligner om _det første_ med 
 | `lessThan`      | Er det første tallet _mindre enn_ det andre tallet?           | \<     |
 | `lessThanEq`    | Er det første tallet _mindre enn eller lik_ det andre tallet? | ≤      |
 
-Dersom noen av argumentene til disse funksjonene er ```null``` blir resultatet ```false``` (uavhengig av om det er det
-første eller andre argumentet).
+Hvis noen av argumentene til disse funksjonene er `null`, er resultatet `false` (uavhengig av om det er det første eller andre argumentet).
 
 Eksempel som sjekker om alder er over (eller lik) 18:
 
@@ -203,10 +197,9 @@ et mer lesbart resultat anbefales det å legge inn bindetegn hvor nødvendig:
 ["concat", "Gratulerer med ", ["component", "alder"], "-årsdagen!"]
 ```
 
-Uttrykket over gir teksten `Gratulerer med 18-årsdagen!` dersom verdien i alder-komponenten var `18`.
+Uttrykket over gir teksten `Gratulerer med 18-årsdagen!` hvis verdien i alder-komponenten var `18`.
 
-I `concat`-funksjonen tolkes `null`-verdier som tomme strenger. boolske verdierskrives
-ut som strengene `"true"` og `"false"`.
+I `concat`-funksjonen tolkes `null`-verdier som tomme strenger. Boolske verdier skrives ut som strengene `"true"` og `"false"`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-and" header="and / or" %}}
@@ -218,8 +211,7 @@ _minst en_ av verdiene var sanne (`true`).
 | `and`    | Er **alle** argumentene sanne? (`true`)         |
 | `or`     | Er **minst ett** av argumentene sanne? (`true`) |
 
-Gir man ```null```-verdier tolkes disse som usann (`false`). Eksempler på bruk finnes
-under [_Streng eller mindre streng sammenligning?_](/nb/altinn-studio/v10/develop-a-service/expressions/reference/datatypes/#streng-eller-mindre-streng-sammenligning)
+Hvis du bruker `null`-verdier, tolkes disse som usann (`false`). Eksempler på bruk finnes under [_Streng eller mindre streng sammenligning?_](/nb/altinn-studio/v10/develop-a-service/expressions/reference/datatypes/#streng-eller-mindre-streng-sammenligning)
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-if" header="if" %}}
@@ -233,16 +225,11 @@ boolsk uttrykk. Funksjonen kan kalles på to forskjellige måter; med 2 eller 4 
 | Tredje argument |                              | Strengen `"else"`            |
 | Fjerde argument |                              | Vilkårlig type |
 
-I **alternativ 1** vil returverdien til funksjonen bli verdien gitt som andre argument _dersom første argument er sant
-(`true`)_. Om ikke returneres verdien `null`.
+I **alternativ 1** blir returverdien til funksjonen verdien gitt som andre argument _hvis første argument er sant (`true`)_. Hvis ikke, returneres verdien `null`.
 
-I **alternativ 2** vil returverdien til funksjonen bli verdien gitt som andre argument _dersom første argument er sant
-(`true`)_. Om ikke returneres verdien gitt i fjerde argument. Man må _alltid_ gi strengen `"else"` som tredje argument
-om man vil kalle funksjonen med 4 argumenter. Det tredje argumentet er bare til for å gjøre uttrykket mer lesbart, og
-har ingen funksjon ellers.
+I **alternativ 2** blir returverdien til funksjonen verdien gitt som andre argument _hvis første argument er sant (`true`)_. Hvis ikke, returneres verdien gitt i fjerde argument. Du må _alltid_ bruke strengen `"else"` som tredje argument hvis du vil kalle funksjonen med fire argumenter. Det tredje argumentet er bare til for å gjøre uttrykket mer lesbart, og har ingen funksjon ellers.
 
-Om man ønsker flere betingelser og mulige returverdier kan man nøste flere kall til `if` inne i andre eller fjerde
-argument:
+Hvis du ønsker flere betingelser og mulige returverdier, kan du nøste flere kall til `if` inne i andre eller fjerde argument:
 
 ```json
 [
@@ -276,12 +263,9 @@ Eksempel:
 }
 ```
 
-Om gjeldende språk er ukjent, vil `nb` returneres, som er standardspråket for Altinn 3-apper. Dermed kan man være trygg
-på at denne funksjonen alltid returnerer et gyldig språk.
+Hvis gjeldende språk er ukjent, returneres `nb`, som er standardspråket for Altinn 3-apper. Dermed kan du være trygg på at denne funksjonen alltid returnerer et gyldig språk.
 
-**Bemerk:** Denne funksjonen er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
-brukt noen steder hvor uttrykk kjøres på backend, og om man har slått på funksjonaliteten for å
-automatisk slette skjulte data `RemoveHiddenDataPreview`.
+**Merk:** Denne funksjonen er ikke tilgjengelig i backend-kode ennå, og gir derfor en feilmelding hvis den blir brukt noen steder hvor uttrykk kjøres på backend, og hvis du har slått på funksjonaliteten for å automatisk slette skjulte data `RemoveHiddenDataPreview`.
 
 {{% /expandlarge %}}
 
@@ -299,10 +283,8 @@ på samme vis vil funksjonen `endsWith` sjekke om første streng slutter med den
 
 Noen detaljer som er verdt å nevne om disse funksjonene:
 
-- Alle funksjoner starter og slutter med en tom streng, så `startsWith` og `endsWith` vil alltid returnere `true`
-  dersom man bruker et uttrykk `["startsWith", "...", ""]`. Dette er viktig å passe på om man bruker verdien til
-  en komponent eller et oppslag i datamodellen som andre argument.
-- Ingen strenger starter eller slutter med en `null`-verdi. Bruker man et uttrykk som dette:
+- Alle funksjoner starter og slutter med en tom streng, så `startsWith` og `endsWith` returnerer alltid `true` hvis du bruker et uttrykk `["startsWith", "...", ""]`. Dette er viktig å passe på hvis du bruker verdien til en komponent eller et oppslag i datamodellen som andre argument.
+- Ingen strenger starter eller slutter med en `null`-verdi. Hvis du bruker et uttrykk som dette:
   ```json
   [
     "startsWith",
@@ -310,11 +292,7 @@ Noen detaljer som er verdt å nevne om disse funksjonene:
     ["dataModel", "My.Model.FirstName"]
   ]
   ```
-  vil alltid resultatet bli
-  `false` så lenge fornavnet ikke er gitt. Men som nevnt over, dersom fornavnet er satt til en tom streng (for eksempel
-  dersom brukeren har visket ut fornavnet sitt), vil uttrykket gi `true` dersom et fullt navn er satt. Dersom man vil
-  unngå noe av denne oppførselen kan man bruke `if`-funksjonen sammen med `equals` til å sjekke om noe er satt til
-  en tom streng.
+  blir alltid resultatet `false` så lenge fornavnet ikke er gitt. Men som nevnt over, hvis fornavnet er satt til en tom streng (for eksempel hvis brukeren har visket ut fornavnet sitt), gir uttrykket `true` hvis et fullt navn er satt. Hvis du vil unngå noe av denne oppførselen, kan du bruke `if`-funksjonen sammen med `equals` til å sjekke om noe er satt til en tom streng.
 - `["startsWith", null, null]` gir alltid `false`.
 
 {{% /expandlarge %}}
@@ -328,7 +306,7 @@ Eksempel:
 ["stringLength", ["dataModel", "My.Model.FirstName"]]
 ```
 
-Dersom strengen er `null` vil `stringLength` returnere `0`.
+Hvis strengen er `null`, returnerer `stringLength` `0`.
 
 {{% /expandlarge %}}
 
@@ -339,8 +317,7 @@ versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelig
 rullerende versjonen av v4.
 {{% /notice %}}
 
-Funksjonen `stringIndexOf` tar imot to argumenter: en streng og en delstreng. Den returnerer indeksen til første
-forekomst av delstrengen i strengen. Dersom delstrengen ikke finnes i strengen, vil funksjonen returnere `null`.
+Funksjonen `stringIndexOf` tar imot to argumenter: en streng og en delstreng. Den returnerer indeksen til første forekomst av delstrengen i strengen. Hvis delstrengen ikke finnes i strengen, returnerer funksjonen `null`.
 
 Eksempel:
 
@@ -348,8 +325,7 @@ Eksempel:
 ["stringIndexOf", ["dataModel", "My.Model.FullName"], " "]
 ```
 
-Dette eksempelet returnerer indeksen til det første mellomrommet i fullt navn. Om fullt navn er "John Doe", vil
-funksjonen returnere 4.
+Dette eksempelet returnerer indeksen til det første mellomrommet i fullt navn. Hvis fullt navn er "John Doe", returnerer funksjonen 4.
 
 {{% /expandlarge %}}
 
@@ -360,10 +336,7 @@ versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelig
 rullerende versjonen av v4.
 {{% /notice %}}
 
-Funksjonen `stringSlice` tar imot en streng som første argument (den originale strengen) og ett eller to tall som andre
-og tredje argument (startindeksen og valgfri lengde). Den returnerer en delstreng av den originale strengen som
-starter på indeksen gitt i andre argument. Om et tredje argument er gitt, vil delstrengen være av lengden gitt i
-tredje argument.
+Funksjonen `stringSlice` tar imot en streng som første argument (den originale strengen) og ett eller to tall som andre og tredje argument (startindeksen og valgfri lengde). Den returnerer en delstreng av den originale strengen som starter på indeksen gitt i andre argument. Hvis et tredje argument er gitt, har delstrengen lengden gitt i tredje argument.
 
 Eksempel:
 
@@ -371,8 +344,7 @@ Eksempel:
 ["stringSlice", ["dataModel", "My.Model.FullName"], 5, 3]
 ```
 
-Dette eksempelet returnerer en delstreng av fullt navn som starter på den 5. bokstaven og med en lengde på 3. Om fullt
-navn er "John Doe", vil funksjonen returnere "Doe".
+Dette eksempelet returnerer en delstreng av fullt navn som starter på den femte bokstaven og med en lengde på tre. Hvis fullt navn er "John Doe", returnerer funksjonen "Doe".
 
 {{% /expandlarge %}}
 
@@ -392,16 +364,12 @@ Eksempel:
 ["stringReplace", ["dataModel", "My.Model.FullName"], " ", "-"]
 ```
 
-Dette eksempelet erstatter alle mellomrom i fullt navn med bindestreker. Om fullt navn er "John Doe", vil funksjonen
-returnere "John-Doe".
+Dette eksempelet erstatter alle mellomrom i fullt navn med bindestreker. Hvis fullt navn er "John Doe", returnerer funksjonen "John-Doe".
 
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-contains-not-contains" header="contains / notContains" %}}
-Disse to funksjonene sjekker om streng A inkluderer eller ikke inkluderer streng B.
-Både `contains` og `notContains` skiller mellom store og små bokstaver.
-Det betyr at strengen "Hei" ikke inkluderer "hei". Ønsker du å sammenligne uavhengig av store og små bokstaver kan du
-bruke funksjonene [`lowerCase` eller `upperCase`](#func-lowerCase-upperCase) sammen med `contains` eller `notContains`.
+Disse to funksjonene sjekker om streng A inkluderer eller ikke inkluderer streng B. Både `contains` og `notContains` skiller mellom store og små bokstaver. Det betyr at strengen "Hei" ikke inkluderer "hei". Hvis du vil sammenligne uavhengig av store og små bokstaver, kan du bruke funksjonene [`lowerCase` eller `upperCase`](#func-lowerCase-upperCase) sammen med `contains` eller `notContains`.
 
 Eksempel:
 
@@ -423,13 +391,12 @@ Eksempel:
 }
 ```
 
-Ønsker du å sjekke om verdier finnes i en kommaseparert liste kan du bruke funksjonen [`commaContains`](#func-commaContains).
+Hvis du vil sjekke om verdier finnes i en kommaseparert liste, kan du bruke funksjonen [`commaContains`](#func-commaContains).
 
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-commaContains" header="commaContains" %}}
-Funksjonen commaContains tar imot to argumenter. Det første argumentet er en kommaseparert streng, og det andre
-argumentet er strengen du ønsker å sjekke om er blant de kommaseparerte verdiene i første argument.
+Funksjonen commaContains tar imot to argumenter. Det første argumentet er en kommaseparert streng, og det andre argumentet er strengen du vil sjekke om er blant de kommaseparerte verdiene i første argument.
 
 Eksempel:
 
@@ -442,23 +409,18 @@ Eksempel:
 }
 ```
 
-Legg merke til at eventuelle mellomrom før/etter komma, eller før/etter første verdi blir ignorert. Denne funksjonen
-er spesielt nyttig i tilfeller hvor man bruker en komponent som lagrer flere verdier i en kommaseparert streng, som
-`Checkboxes` og `MultipleSelect`.
+Legg merke til at eventuelle mellomrom før/etter komma, eller før/etter første verdi ignoreres. Denne funksjonen er spesielt nyttig i tilfeller hvor du bruker en komponent som lagrer flere verdier i en kommaseparert streng, som `Checkboxes` og `MultipleSelect`.
 
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-lowerCase-upperCase" header="lowerCase/upperCase" %}}
-Funksjonene `lowerCase` og `upperCase` tar imot en streng som input og returnerer en ny streng der alle tegnene er
-konvertert til henholdsvis små eller store bokstaver.
+Funksjonene `lowerCase` og `upperCase` tar imot en streng som input og returnerer en ny streng der alle tegnene er konvertert til henholdsvis små eller store bokstaver.
 
 ```json
 ["lowerCase", ["dataModel", "My.Model.LastName"]]
 ```
 
-Disse funksjonene gir deg en enkel måte å konvertere mellom små og store bokstaver i en streng.
-Et bruksområde kan være å kombinere en av disse funksjonene med andre sammenligningsfunksjoner slik at sammenligningene
-gjøres uavhengig av om det ble brukt store eller små bokstaver i input-verdien.
+Disse funksjonene gir deg en enkel måte å konvertere mellom små og store bokstaver i en streng. Et bruksområde kan være å kombinere en av disse funksjonene med andre sammenligningsfunksjoner slik at sammenligningene gjøres uavhengig av om store eller små bokstaver ble brukt i input-verdien.
 
 ```json
 ["equals", ["upperCase", ["dataModel", "My.Model.LastName"]], "SMITH"]
@@ -473,8 +435,7 @@ versjon 8.6.0-preview.3 eller nyere. I frontend er disse funksjonene tilgjengeli
 rullerende versjonen av v4.
 {{% /notice %}}
 
-Funksjonene `lowerCaseFirst` og `upperCaseFirst` tar en streng som input og returnerer en ny streng der den første
-bokstaven er konvertert til henholdsvis liten eller stor bokstav.
+Funksjonene `lowerCaseFirst` og `upperCaseFirst` tar en streng som input og returnerer en ny streng der den første bokstaven er konvertert til henholdsvis liten eller stor bokstav.
 
 ```json
 ["upperCaseFirst", ["dataModel", "My.Model.LastName"]]
@@ -499,9 +460,7 @@ Eksempel med avrunding til nærmeste heltall:
 ["round", "3.4999"]
 ```
 
-Returverdien fra denne funksjonen er en streng, slik at returverdien kan brukes for
-fremvisning (merk at desimalskilletegnet alltid er punktum). Selv om returverdien er en streng kan denne også brukes
-videre i uttrykk som forventer tall som inn-verdi.
+Returverdien fra denne funksjonen er en streng, slik at returverdien kan brukes for fremvisning (merk at desimalskilletegnet alltid er punktum). Selv om returverdien er en streng, kan denne også brukes videre i uttrykk som forventer tall som inn-verdi.
 
 {{% /expandlarge %}}
 
@@ -513,20 +472,14 @@ Eksempel:
 ["text", "min-nøkkel-id"]
 ```
 
-**Bemerk:** Husk å teste manuelt med tekstnøkler som inneholder variabler. Det er ikke sikkert disse vil fungere som
-forventet.
+**Merk:** Husk å teste manuelt med tekstnøkler som inneholder variabler. Det er ikke sikkert disse fungerer som forventet.
 
-**Bemerk:** Denne funksjonen er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
-brukt noen steder hvor uttrykk kjøres på backend, og om man har slått på funksjonaliteten for å
-automatisk slette skjulte data `RemoveHiddenDataPreview`.
+**Merk:** Denne funksjonen er ikke tilgjengelig i backend-kode ennå, og gir derfor en feilmelding hvis den blir brukt noen steder hvor uttrykk kjøres på backend, og hvis du har slått på funksjonaliteten for å automatisk slette skjulte data `RemoveHiddenDataPreview`.
 
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-displayValue" header="displayValue" %}}
-Funksjonen `displayValue` gjør et oppslag på en komponent og returnerer en formattert tekststreng som representerer verdien i datamodellen.
-Dette er til forskjell fra [component](#func-component)-funksjonen som returnerer rå-verdien som ligger i datamodellen.
-Denne funksjonen egner seg best til visning av en komponent sin verdi for brukeren, og mindre til videre logikk basert på verdien som returneres.
-Dette er spesielt relevant for Input-felter med [tallformattering](/nb/altinn-studio/v8/reference/ux/styling/#formatering-av-tall), datofelter, radioknapper (og andre komponenter med kodelister), osv.
+Funksjonen `displayValue` gjør et oppslag på en komponent og returnerer en formattert tekststreng som representerer verdien i datamodellen. Dette er til forskjell fra [component](#func-component)-funksjonen som returnerer råverdien som ligger i datamodellen. Denne funksjonen egner seg best til visning av en komponents verdi for brukeren, og mindre til videre logikk basert på verdien som returneres. Dette er spesielt relevant for Input-felter med [tallformattering](/nb/altinn-studio/v8/reference/ux/styling/#formatering-av-tall), datofelter, radioknapper og andre komponenter med kodelister.
 
 Eksempel:
 
@@ -534,9 +487,7 @@ Eksempel:
 ["displayValue", "component-id"]
 ```
 
-**Bemerk:** Denne funksjonen er ikke tilgjengelig i backend-kode enda, og vil derfor gi en feilmelding dersom den blir
-brukt noen steder hvor uttrykk kjøres på backend, og om man har slått på funksjonaliteten for å
-automatisk slette skjulte data `RemoveHiddenDataPreview`.
+**Merk:** Denne funksjonen er ikke tilgjengelig i backend-kode ennå, og gir derfor en feilmelding hvis den blir brukt noen steder hvor uttrykk kjøres på backend, og hvis du har slått på funksjonaliteten for å automatisk slette skjulte data `RemoveHiddenDataPreview`.
 
 {{% /expandlarge %}}
 
@@ -551,11 +502,7 @@ argument:
 | `instanceOwnerPartyType` | Hva slags aktør eier instansen | `"org", "person", "selfIdentified" eller "unknown"` |
 | `appId`                  | Den aktive appen sin ID        | `org/app-name`                                      |
 
-Alle disse oppslagene vil gi verdien `null` om man jobber i en [tilstandsløs kontekst](/nb/altinn-studio/v8/reference/configuration/stateless/).
-Om man gir andre nøkler enn de over, vil oppslaget resultere i en feilmelding. Denne oppførselen er unik blant
-oppslagsfunksjonene, og gjøres for å sikre at man ikke prøver å hente informasjon som finnes i instansen men som ikke
-(enda) er eksponert via en nøkkel her. [Gi oss en tilbakemelding](https://github.com/Altinn/app-frontend-react/issues/new?assignees=&labels=kind%2Ffeature-request%2Cstatus%2Ftriage&template=feature_request.yml) om du har ønsker om å hente ut
-instansdata som ikke er tilgjengelig i denne funksjonen.
+Alle disse oppslagene gir verdien `null` hvis du jobber i en [tilstandsløs kontekst](/nb/altinn-studio/v8/reference/configuration/stateless/). Hvis du bruker andre nøkler enn de over, resulterer oppslaget i en feilmelding. Denne oppførselen er unik blant oppslagsfunksjonene, og gjøres for å sikre at du ikke prøver å hente informasjon som finnes i instansen men som ikke (ennå) er eksponert via en nøkkel her. [Gi oss en tilbakemelding](https://github.com/Altinn/app-frontend-react/issues/new?assignees=&labels=kind%2Ffeature-request%2Cstatus%2Ftriage&template=feature_request.yml) hvis du har ønsker om å hente ut instansdata som ikke er tilgjengelig i denne funksjonen.
 
 Oppslaget gjøres i samme datakilde som er tilgjengelig for [språk/tekster](/nb/altinn-studio/v8/reference/ux/texts#datakilder).
 {{% /expandlarge %}}
@@ -566,9 +513,7 @@ Dette oppslaget gjør det mulig å hente informasjon fra en datakilde som kan st
 Oppslaget gjøres i samme datakilde som er tilgjengelig for [språk/tekster, og oppsettet er beskrevet
 i detalj der](/nb/altinn-studio/v8/reference/ux/texts#datakilder).
 
-**Merk**: Datakilden heter `applicationSettings` når brukt i språk/tekster, men verdiene må alltid lagres under
-nøkkelen `FrontEndSettings` i `appsettings.{miljø}.json`). Av den grunn har funksjonen fått navnet `frontendSettings`
-her, for å indikere at oppslag ikke kan gjøres i resten av `appsettings.{miljø}.json`.
+**Merk**: Datakilden heter `applicationSettings` når du bruker den i språk/tekster, men verdiene må alltid lagres under nøkkelen `FrontEndSettings` i `appsettings.{miljø}.json`). Av den grunn har funksjonen fått navnet `frontendSettings` her, for å indikere at oppslag ikke kan gjøres i resten av `appsettings.{miljø}.json`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-countDataElements" header="countDataElements (oppslag)" %}}
@@ -578,13 +523,9 @@ versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelig
 rullerende versjonen av v4.
 {{% /notice %}}
 
-Denne funksjonen gjør det mulig å telle antall elementer av en gitt datatype i gjeldende instans. Første argument
-må være en streng som er definert som en datatype i `applicationmetadata.json`. Funksjonen vil returnere antallet
-elementer av den gitte datatypen i gjeldende instans.
+Denne funksjonen gjør det mulig å telle antall elementer av en gitt datatype i gjeldende instans. Første argument må være en streng som er definert som en datatype i `applicationmetadata.json`. Funksjonen returnerer antallet elementer av den gitte datatypen i gjeldende instans.
 
-For eksempel, om du har en `FileUpload`-komponent som laster opp filer til datatypen `Attachment`, kan du bruke denne
-funksjonen til å telle antall vedlegg som er lastet opp. På samme måte kan du telle antall [underskjema-elementer](/nb/altinn-studio/v8/guides/development/subform/)
-ved å referere til datamodell-ID-en til underskjemaet.
+For eksempel, hvis du har en `FileUpload`-komponent som laster opp filer til datatypen `Attachment`, kan du bruke denne funksjonen til å telle antall vedlegg som er lastet opp. På samme måte kan du telle antall [underskjema-elementer](/nb/altinn-studio/v8/guides/development/subform/) ved å referere til datamodell-ID-en til underskjemaet.
 
 Eksempel:
 
@@ -595,14 +536,9 @@ Eksempel:
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-datamodel" header="dataModel (oppslag)" %}}
-Denne oppslagsfunksjonen gjør det mulig å hente verdier direkte fra gjeldende datamodell. Første og eneste argument
-må peke et sted i datamodellen, og bruker det samme punktum-separerte formatet som brukt i `dataModelBindings`. Ved
-bruk inne i [repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/) trenger man _ikke_ bruke plassholdere for
-indekser til gruppen - uttrykket finner selv den relative plasseringen i kontekst av en repeterende gruppe.
+Denne oppslagsfunksjonen gjør det mulig å hente verdier direkte fra gjeldende datamodell. Første og eneste argument må peke et sted i datamodellen, og bruker det samme punktum-separerte formatet som brukt i `dataModelBindings`. Ved bruk inne i [repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/) trenger du _ikke_ bruke plassholdere for indekser til gruppen - uttrykket finner selv den relative plasseringen i kontekst av en repeterende gruppe.
 
-Legg merke til at oppslag bare fungerer mot datatyper som allerede er støttet i uttrykkene. Dersom man
-slår opp et objekt eller en liste/array i datamodellen med `dataModel`-funksjonen får man alltid resultatet `null`.
-Denne funksjonaliteten kan endres, da det er planlagt støtte for objekter og lister i uttrykkene i fremtiden.
+Legg merke til at oppslag bare fungerer mot datatyper som allerede er støttet i uttrykkene. Hvis du slår opp et objekt eller en liste/array i datamodellen med `dataModel`-funksjonen, får du alltid resultatet `null`. Denne funksjonaliteten kan endres, da det er planlagt støtte for objekter og lister i uttrykkene i fremtiden.
 
 Eksempel på oppslag i repeterende gruppe:
 
@@ -651,28 +587,16 @@ Eksempel på oppslag i repeterende gruppe:
 
 Følgende kan observeres:
 
-1. Det første oppslaget (for å styre `hidden` på komponenten `ansatt-navn`) styres ut fra alderen til hver ansatt. Om
-   den ansatte er under 18 år skjules `ansatt-navn`. Legg merke til at samme sti i datamodellen blir brukt som
-   `simpleBinding` på `ansatt-alder`.
-2. Det andre oppslaget (for å styre `hidden` på komponenten `ansatt-alder`) bruker `[0]` på oppslaget i datamodellen.
-   Dette fungerer også, men oppførselen er kanskje uventet; her skjules alle alder-komponenter dersom navnet på den _første_
-   ansatte har navnet _Ola Nordmann_.
+1. Det første oppslaget (for å styre `hidden` på komponenten `ansatt-navn`) styres ut fra alderen til hver ansatt. Hvis den ansatte er under 18 år, skjules `ansatt-navn`. Legg merke til at samme sti i datamodellen brukes som `simpleBinding` på `ansatt-alder`.
+2. Det andre oppslaget (for å styre `hidden` på komponenten `ansatt-alder`) bruker `[0]` på oppslaget i datamodellen. Dette fungerer også, men oppførselen er kanskje uventet; her skjules alle alder-komponenter hvis den _første_ ansatte har navnet _Ola Nordmann_.
    {{% /expandlarge %}}
 
 {{% expandlarge id="func-component" header="component (oppslag)" %}}
-Oppslag direkte på komponent tilsvarer på mange måter et oppslag mot datamodell med [`dataModel`](#func-datamodel).
-Et uttrykk som slår opp verdien til en komponent kommer til å lete etter komponenten og returnere verdien lagret på
-komponenten sin `simpleBinding` i datamodellen. For øyeblikket støttes ingen andre verdier enn den lagret mot
-`simpleBinding` (om andre verdier ønskes må man gå direkte mot [`dataModel`](#func-datamodel)).
+Oppslag direkte på komponent tilsvarer på mange måter et oppslag mot datamodell med [`dataModel`](#func-datamodel). Et uttrykk som slår opp verdien til en komponent leter etter komponenten og returnerer verdien lagret på komponentens `simpleBinding` i datamodellen. For øyeblikket støttes ingen andre verdier enn den lagret mot `simpleBinding` (hvis andre verdier ønskes, må du gå direkte mot [`dataModel`](#func-datamodel)).
 
-Oppslag mot en komponent vil derimot returnere `null` dersom komponenten man slår opp verdien til er skjult (selv om
-komponenten ellers har tilknyttet data i datamodellen). Dette gjør det til en viss grad mulig å styre visning av en
-komponent basert på om en annen komponent er vist eller ikke. Dersom komponenten ble funnet på en helt annen (men skjult)
-side gir også oppslaget verdien `null` selv om datamodellen har en verdi tilknyttet komponenten.
+Oppslag mot en komponent returnerer derimot `null` hvis komponenten du slår opp verdien til er skjult (selv om komponenten ellers har tilknyttet data i datamodellen). Dette gjør det til en viss grad mulig å styre visning av en komponent basert på om en annen komponent er vist eller ikke. Hvis komponenten ble funnet på en helt annen (men skjult) side, gir også oppslaget verdien `null` selv om datamodellen har en verdi tilknyttet komponenten.
 
-I likhet med [`dataModel`](#func-datamodel) vil oppslag mot en komponent-id forsøke å finne komponenten i nærheten av
-uttrykket i kontekst av [repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/). Det vil først søkes etter komponenten
-i gjeldende rad, før det letes oppover i sidestrukturen.
+I likhet med [`dataModel`](#func-datamodel) vil oppslag mot en komponent-id forsøke å finne komponenten i nærheten av uttrykket i kontekst av [repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/). Det søkes først etter komponenten i gjeldende rad, før det letes oppover i sidestrukturen.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-formatDate" header="formatDate" %}}
@@ -724,12 +648,9 @@ Dette er de tokenene vi støtter:
 | Brøkdels sekund | `SS`     | 00, 01, ..., 99                      |
 | Brøkdels sekund | `SSS`    | 000, 001, ..., 999                   |
 
-Dersom man ikke gir et format som andre argument, vil funksjonen bruke et standardformat som varierer basert på
-gjeldende språk.
+Hvis du ikke gir et format som andre argument, bruker funksjonen et standardformat som varierer basert på gjeldende språk.
 
-Som med alle datoer og tidspunkt, vil de konverteres til lokal tidssone dersom datoen/tiden har spesifisert en annen
-tidssone. Dette betyr også at uttrykk som bruker `formatDate` kan gi forskjellige resultater på frontend og backend
-dersom tidssonen i nettleseren er forskjellig fra tidssonen på serveren.
+Som med alle datoer og tidspunkt, konverteres de til lokal tidssone hvis datoen/tiden har spesifisert en annen tidssone. Dette betyr også at uttrykk som bruker `formatDate` kan gi forskjellige resultater på frontend og backend hvis tidssonen i nettleseren er forskjellig fra tidssonen på serveren.
 
 Eksempel:
 
@@ -753,8 +674,8 @@ brukeren. Det andre argumentet er id-en til siden linken skal peke til.
 ["linkToPage", "Specify your name", "page1"]
 ```
 
-Resultatet vil bli `<a href="#/instance/<party-id>/<instance-id>/<TaskId>/page1">Oppgi navnet ditt</a>`
-Denne lenken vil ta brukeren til den spesifiserte siden når den blir klikket på.
+Resultatet blir `<a href="#/instance/<party-id>/<instance-id>/<TaskId>/page1">Oppgi navnet ditt</a>`
+Denne lenken tar brukeren til den spesifiserte siden når de klikker på den.
 
 {{% /expandlarge %}}
 
@@ -769,33 +690,29 @@ Det andre argumentet er id-en til komponenten lenken skal peke til.
 ["linkToComponent", "Specify your name", "inputMyName"]
 ```
 
-Resultatet vil bli `<a href="#/instance/<party-id>/<instance-id>/<TaskId>/<PageId>?focusNodeId=inputMyName">Oppgi navnet ditt</a>`
-Denne lenken vil ta brukeren til siden komponenten er på og fokusere på den spesifiserte komponenten, når brukeren klikker på lenken.
+Resultatet blir `<a href="#/instance/<party-id>/<instance-id>/<TaskId>/<PageId>?focusNodeId=inputMyName">Oppgi navnet ditt</a>`
+Denne lenken tar brukeren til siden komponenten er på og fokuserer på den spesifiserte komponenten når de klikker på lenken.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-optionLabel" header="optionLabel" %}}
-Denne funksjonen kan brukes til å hente ut ledeteksten/labelen til et svaralternativ i en kodeliste. Teksten vil automatisk
-bli oversatt til brukerens valgte språk (om ledeteksten er en tekstressurs), så det er ikke nødvendig å sende resultatet
-gjennom `text`-funksjonen.
+Denne funksjonen kan brukes til å hente ut ledeteksten/labelen til et svaralternativ i en kodeliste. Teksten blir automatisk oversatt til brukerens valgte språk (hvis ledeteksten er en tekstressurs), så det er ikke nødvendig å sende resultatet gjennom `text`-funksjonen.
 
-Funksjonen tar 2 argumenter. Det første argumentet er kodeliste-ID-en, og det andre argumentet er kodeliste-verdien
-som skal slås opp i kodelisten.
+Funksjonen tar to argumenter. Det første argumentet er kodeliste-ID-en, og det andre argumentet er kodeliste-verdien som skal slås opp i kodelisten.
 
 ```json
 ["optionLabel", "countries", "no"]
 ```
 
-Sørg for at kodeliste-ID-en er en ren streng, og ikke et uttrykk. Kodeverdien derimot, kan være et uttrykk, f.eks.
-oppslag fra en sti i datamodellen.
+Sørg for at kodeliste-ID-en er en ren streng, og ikke et uttrykk. Kodeverdien derimot, kan være et uttrykk, for eksempel oppslag fra en sti i datamodellen.
 
-Om kodeliste-verdien ikke finnes i kodelisten, vil funksjonen returnere `null`.
+Hvis kodeliste-verdien ikke finnes i kodelisten, returnerer funksjonen `null`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-argv" header="argv" %}}
 `argv`-funksjonen kan brukes for å hente ut argumenter som er sendt inn til uttrykket. Dette er foreløpig bare
 tilgjengelig for [validering vha. uttrykk](/nb/altinn-studio/v8/reference/logic/validation/expression-validation/).
 
-Funksjonen tar 1 argument, som er indeksen til argumentet du ønsker å hente ut. Indeksen starter på 0.
+Funksjonen tar ett argument, som er indeksen til argumentet du vil hente ut. Indeksen starter på 0.
 
 ```json
 ["argv", 0]
@@ -804,23 +721,17 @@ Funksjonen tar 1 argument, som er indeksen til argumentet du ønsker å hente ut
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-value" header="value" %}}
-I likhet med `argv` er `value`-funksjonen også en metode for å hente ut argumenter som er sendt inn til uttrykket.
-Funksjonen kan brukes uten argumenter for å hente ut en verdi, eller med et argument for å hente ut andre
-typer verdier. Dette er foreløpig tilgjengelig for
-[filtrering av svaralternativer](/nb/altinn-studio/v8/guides/development/options/functionality/filtering/) og blir snart tilgjengelig
-som et alternativ til `argv` i [validering vha. uttrykk](/nb/altinn-studio/v8/reference/logic/validation/expression-validation/).
+I likhet med `argv` er `value`-funksjonen også en metode for å hente ut argumenter som er sendt inn til uttrykket. Funksjonen kan brukes uten argumenter for å hente ut en verdi, eller med et argument for å hente ut andre typer verdier. Dette er foreløpig tilgjengelig for [filtrering av svaralternativer](/nb/altinn-studio/v8/guides/development/options/functionality/filtering/) og vil snart være tilgjengelig som et alternativ til `argv` i [validering vha. uttrykk](/nb/altinn-studio/v8/reference/logic/validation/expression-validation/).
 
 ```json
 ["value"]
 ```
 
-Dette uttrykket henter ut verdien til svaralternativet (om brukt i filtrering av svaralternativer). I andre sammenhenger
-gir dette uttrykket foreløpig en feilmelding.
+Dette uttrykket henter ut verdien til svaralternativet (hvis brukt i filtrering av svaralternativer). I andre sammenhenger gir dette uttrykket foreløpig en feilmelding.
 
 ```json
 ["value", "label"]
 ```
 
-Uttrykket over henter ut teksten til svaralternativet (om brukt i filtrering av svaralternativer). I andre sammenhenger
-gir dette uttrykket en feilmelding.
+Uttrykket over henter ut teksten til svaralternativet (hvis brukt i filtrering av svaralternativer). I andre sammenhenger gir dette uttrykket en feilmelding.
 {{% /expandlarge %}}
