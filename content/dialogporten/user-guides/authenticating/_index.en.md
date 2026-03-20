@@ -34,7 +34,7 @@ The following general steps must be performed in order to access the end-user AP
 
 1. Create a ID-porten integration (OAuth2 client)
 2. Provision the scope `digdir:dialogporten` on the client, as well as any additional scopes required to access content data (i.e. `altinn:correspondence.read` and `altinn:instances.read`)
-3. Redirect the user to the authorize-endpoint in ID-porten, where they authenticate themselves and consent to you integration getting access to call Dialogporten on your behalf
+3. Redirect the user to the authorize-endpoint in ID-porten, where they authenticate themselves and consent to your integration getting access to call Dialogporten on your behalf
 4. At your redirect endpoint, use the authorization code provided against the ID-porten token endpoint to get an access token
 5. Perform requests to the [end-user API](/en/dialogporten/reference/openapi/) using the access token in a `Authorization: Bearer <token>` header.
 
