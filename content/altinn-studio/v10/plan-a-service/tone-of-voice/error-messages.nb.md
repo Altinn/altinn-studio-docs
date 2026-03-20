@@ -1,5 +1,5 @@
 ---
-draft: false
+draft: true
 title: Feilmeldinger i tjenesten
 description: Feilmeldinger skal hjelpe brukeren videre når noe går galt.
 weight: 6

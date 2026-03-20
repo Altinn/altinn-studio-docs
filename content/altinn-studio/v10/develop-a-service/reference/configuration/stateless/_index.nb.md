@@ -3,7 +3,7 @@ draft: true
 title: Stateless app (innsynstjeneste)
 linktitle: Stateless
 description: Slik konfigurerer du en stateless app
-tags: [needsReview, needsTranslation]
+tags: [needsReview]
 toc: true
 
 ---

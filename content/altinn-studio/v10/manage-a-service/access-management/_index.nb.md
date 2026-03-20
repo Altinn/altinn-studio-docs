@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Tilgangsstyring
 description: Slik får du tilganger til Altinn Studio, hemmeligheter og app-logger.
 tags: [needsReview, translate-to-english]

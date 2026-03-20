@@ -1,7 +1,7 @@
 ---
 draft: true
 hidden: true
-tags: [needsReview, needsTranslation]
+tags: [needsReview]
 ---
 
 > Du må gjøre dette steget manuelt. Støtte for konfigurasjon i Altinn Studio kommer i løpet av høsten 2024.

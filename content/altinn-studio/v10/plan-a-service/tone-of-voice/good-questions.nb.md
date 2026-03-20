@@ -1,5 +1,5 @@
 ---
-draft: false
+draft: true
 title: Lag gode spørsmål
 description: Når vi stiller gode spørsmål, er det lettere for brukerne å svare med riktige opplysninger og forstå hvorfor de må gi dem.
 weight: 1

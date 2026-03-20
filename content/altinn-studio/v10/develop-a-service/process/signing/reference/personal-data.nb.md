@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Slik behandles personopplysninger ved signering
 linktitle: Personopplysninger
 tags: [needsReview]

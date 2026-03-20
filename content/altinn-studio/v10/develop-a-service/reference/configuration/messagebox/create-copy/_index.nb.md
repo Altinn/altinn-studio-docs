@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Lage ny kopi
 linktitle: Lag kopi
 description: Slik lar du brukere kopiere en tidligere instans.

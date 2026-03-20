@@ -3,7 +3,7 @@ draft: true
 title: Slik forhåndsutfyller du data med konfigurasjonsbasert oppsett
 linktitle: Konfigurasjonsbasert oppsett
 description: Følg denne guiden for å sette opp forhåndsutfylling gjennom standard konfigurasjonsbasert oppsett
-tags: [needsReview, needsTranslation]
+tags: [needsReview]
 toc: false
 ---
 
