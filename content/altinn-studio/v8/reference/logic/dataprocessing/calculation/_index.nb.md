@@ -38,14 +38,12 @@ example.calculation.json
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/calculation/calculation.schema.v1.json",
   "calculations": {
-    "regnskap.sum": [
-      {
-        "expression": 
-          ["minus", 
-            ["dataModel", "regnskap.inntekter"], ["dataModel", "regnskap.utgifter"]
-          ]
-      }
-    ]
+    "regnskap.sum": {
+      "expression":
+      ["minus",
+        ["dataModel", "regnskap.inntekter"], ["dataModel", "regnskap.utgifter"]
+      ]
+    }
   }
 }
 ```
