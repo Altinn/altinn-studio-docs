@@ -5,6 +5,7 @@ linktitle: Unpublishing
 description: Explains what unpublishing is and what happens when you unpublish an app.
 toc: true
 weight: 70
+tags: [needsReview]
 ---
 
 ## Unpublishing Apps in Altinn Studio
