@@ -14,4 +14,4 @@ Please find your error code in the list below and follow the link to a detailed 
 ## Common Error Codes
 
 *   [**`invalid_altinn_customer_configuration (MP-303)`**](errors/mp-303-error/)
-    *   This error indicates a configuration issue within Altinn's System Register for the specified system user.
+    *   This error indicates a configuration issue within Altinn's System Register/System user request for the specified system user.
