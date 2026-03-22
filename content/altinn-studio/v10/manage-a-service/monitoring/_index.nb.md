@@ -4,6 +4,7 @@ title: Overvåke tjenester
 linktitle: Overvåke tjenester
 description: Følg med på tjenestens ytelse, feil og bruk med målinger, logger og sporing.
 weight: 70
+tags: [needsReview]
 ---
 
 {{% notice info %}}
