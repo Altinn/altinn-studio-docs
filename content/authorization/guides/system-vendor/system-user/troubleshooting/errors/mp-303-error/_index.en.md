@@ -18,3 +18,9 @@ While a system can be registered without a `ClientId`, a system user that authen
 
 #### Solution: 
 Verify that the system registration in the System Register includes the correct `ClientId`. This `ClientId` must match the one from the Maskinporten client configuration used for the token request. If it is missing or mismatched, the vendor must update the system registration accordingly.
+
+### Cause 2: Missing `externalRef` for the System User
+Maskinporten token request does not include externalRef. This is an optional reference set by the vendor for the system user request. If not provided, it defaults to partyOrgNo. If specified, this value must be used in the token request to Maskinporten.
+
+#### Solution:
+Verify if the systemuser request was created with "externalRef" value. If yes, please include the value in the maskinportentoken request. Please refer this [maskinporten documentation] (https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker.html#foresp%C3%B8rsel)
