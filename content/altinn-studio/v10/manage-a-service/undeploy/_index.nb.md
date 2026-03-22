@@ -5,7 +5,7 @@ linktitle: Avpublisering
 description: Forklarer hva avpublisering er og hva som skjer når du avpubliserer en app.
 toc: true
 weight: 70
-tags: [needs-translation]
+tags: [needsReview]
 ---
 
 ## Avpublisere apper i Altinn Studio

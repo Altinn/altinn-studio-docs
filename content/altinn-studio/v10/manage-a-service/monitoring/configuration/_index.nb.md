@@ -4,6 +4,7 @@ title: Sette opp overvåking
 linktitle: Sette opp overvåking
 description: Slik setter du opp overvåking i Altinn-appen din.
 weight: 11
+tags: [needsReview]
 ---
 
 {{% notice info %}}
