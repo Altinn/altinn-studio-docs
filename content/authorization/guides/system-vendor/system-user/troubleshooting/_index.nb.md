@@ -13,4 +13,4 @@ Finn din spesifikke feilkode i listen nedenfor for å gå til en detaljert feils
 
 ## Vanlige Feilkoder
 
-*   [**`invalid_altinn_customer_configuration (MP-303)`**](errors/mp-303-error/_index.nb.md): Oppstår når det er et konfigurasjonsproblem i Altinns Systemregister for den angitte systembrukeren, ofte relatert til Maskinporten-autentisering.
+*   [**`invalid_altinn_customer_configuration (MP-303)`**](errors/mp-303-error/): Oppstår når det er et konfigurasjonsproblem i Altinns Systemregister for den angitte systembrukeren, ofte relatert til Maskinporten-autentisering.
