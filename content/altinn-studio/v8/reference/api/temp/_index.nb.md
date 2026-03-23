@@ -109,7 +109,7 @@ public class MyNotificationCancellation : ICancelInstantiationNotification
 {
     public bool ShouldSend(Instance instance)
     {
-        // Egendefinert logikk her, feks:
+        // Egendefinert logikk her, f.eks.:
         // Send kun varselet hvis instansen ikke er arkivert
         return instance.Status?.IsArchived is not true;
     }
