@@ -7,15 +7,7 @@ weight: 50
 This document describes sending notification(s) to the instance owner when an instance is created. Here is an overview of the functionality and how you can try it out.
 
 {{% notice warning %}}
-Notification on instantiation is published in release candidate. The APIs are considered stable, but may still change before final release.
-{{% /notice %}}
-
-## Release candidate packages
-
-The NuGet packages are `Altinn.App.Api` and `Altinn.App.Core`, version `8.11.0-rc.3`.
-
-{{% notice warning %}}
-OBS! 8.11.0-rc.2 had an integration issue, this is resolved in 8.11.0-rc.3
+This functionality is available from version `8.11.0` of `Altinn.App.Api` and `Altinn.App.Core`.
 {{% /notice %}}
 
 ## What's new?
@@ -32,7 +24,7 @@ A new field, `notification`, has been added to the request body of `POST /instan
 |---|---|---|---|
 | `notificationChannel` | int (enum) | No | Channel for sending. Default: `4` (EmailAndSms). See table below for valid values. |
 | `language` | string | No | Language code (`nb`, `nn`, `en`). Only used for organizations – individuals use their profile language. |
-| `requestedSendTime` | string (datetime) | No | Earliest time for sending (ISO 8601, UTC). If not set, the notification is sent as soon as possible. |
+| `requestedSendTime` | string (datetime) | No | Earliest time for sending (ISO 8601, UTC). If not set, the notification is sent as soon as possible. Maximum delay is 30 days. |
 | `allowSendingAfterWorkHours` | bool | No | Allows sending outside of working hours. Default: `false` (daytime only). |
 | `customSms` | object | No | Custom SMS text and sender name. If not set, default text is used. |
 | `customEmail` | object | No | Custom email subject and body. If not set, default text is used. |
@@ -70,8 +62,8 @@ Each object in the `reminders` list may contain the following fields:
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `requestedSendTime` | string (datetime) | No | Earliest time for sending the reminder (ISO 8601, UTC). Cannot be combined with `sendAfterDays` |
-| `sendAfterDays` | int | No | Number of days after the initial notification before the reminder is sent. Cannot be combined with `requestedSendTime`. |
+| `requestedSendTime` | string (datetime) | No | Earliest time for sending the reminder (ISO 8601, UTC). Cannot be combined with `sendAfterDays`. Maximum delay is 30 days. |
+| `sendAfterDays` | int | No | Number of days after the initial notification before the reminder is sent. Cannot be combined with `requestedSendTime`. Maximum delay is 30 days. |
 | `customSms` | object | No | Overrides the SMS text from the initial notification for this reminder. |
 | `customEmail` | object | No | Overrides the email text from the initial notification for this reminder. |
 
@@ -117,6 +109,7 @@ public class MyNotificationCancellation : ICancelInstantiationNotification
 {
     public bool ShouldSend(Instance instance)
     {
+        // Custom logic here, example:
         // Only send the notification if the instance is not archived
         return instance.Status?.IsArchived is not true;
     }

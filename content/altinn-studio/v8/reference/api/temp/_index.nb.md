@@ -7,15 +7,7 @@ weight: 50
 Dette dokumentet beskriver sending av varsler til instanseier når en instans opprettes. Her er en oversikt over funksjonaliteten og hvordan du kan prøve den ut.
 
 {{% notice warning %}}
-Varsel ved instansiering er kun tilgjengelig i publiseringskandidat pakker. Det vil si at APIene er antatt stabile, men kan endres før endelig publisering.
-{{% /notice %}}
-
-## Eksperimentelle pakker
-
-NuGet-pakkene er `Altinn.App.Api` og `Altinn.App.Core`, versjon `8.11.0-rc.3`.
-
-{{% notice warning %}}s
-OBS! 8.11.0-rc.2 hadde en integrasjonsfeil, dette er rettet opp i 8.11.0-rc.3
+Denne funksjonaliteten er tilgjengelig fra versjon `8.11.0` av `Altinn.App.Api` og `Altinn.App.Core`.
 {{% /notice %}}
 
 ## Hva er nytt?
@@ -32,7 +24,7 @@ Det er lagt til et nytt felt, `notification`, i request-bodyen til `POST /instan
 |---|---|---|---|
 | notificationChannel | int (enum) | Nei | Kanal for utsending. Standard: 4 (EmailAndSms). Se tabell under for gyldige verdier. |
 | language | string | Nei | Språkkode (nb, nn, en). Brukes kun for organisasjoner – privatpersoner bruker profilspråk. |
-| requestedSendTime | string (datetime) | Nei | Tidligste tidspunkt for utsending (ISO 8601, UTC). Hvis ikke satt, sendes varselet så snart som mulig. |
+| requestedSendTime | string (datetime) | Nei | Tidligste tidspunkt for utsending (ISO 8601, UTC). Hvis ikke satt, sendes varselet så snart som mulig. Maks utsettelse er 30 dager. |
 | allowSendingAfterWorkHours | bool | Nei | Tillater utsending utenom arbeidstid. Standard: false (kun dagtid). |
 | customSms | objekt | Nei | Egendefinert SMS-tekst og avsendernavn. Hvis ikke satt, brukes standardtekst. |
 | customEmail | objekt | Nei | Egendefinert e-postemne og brødtekst. Hvis ikke satt, brukes standardtekst. |
@@ -70,8 +62,8 @@ Hvert objekt i `reminders`-listen kan inneholde følgende felter:
 
 | Felt | Type | Påkrevd | Beskrivelse |
 |---|---|---|---|
-| requestedSendTime | string (datetime) | Nei | Tidligste tidspunkt for utsending av påminnelsen (ISO 8601, UTC). Kan ikke kombineres med `sendAfterDays`. |
-| sendAfterDays | int | Nei | Antall dager etter hovedvarselet før påminnelsen sendes. Kan ikke kombineres med `requestedSendTime`. |
+| requestedSendTime | string (datetime) | Nei | Tidligste tidspunkt for utsending av påminnelsen (ISO 8601, UTC). Kan ikke kombineres med `sendAfterDays`. Maks utsettelse er 30 dager. |
+| sendAfterDays | int | Nei | Antall dager etter hovedvarselet før påminnelsen sendes. Kan ikke kombineres med `requestedSendTime`. Maks utsettelse er 30 dager. |
 | customSms | objekt | Nei | Overstyrer SMS-teksten fra hovedvarselet for denne påminnelsen. |
 | customEmail | objekt | Nei | Overstyrer e-postteksten fra hovedvarselet for denne påminnelsen. |
 
@@ -117,6 +109,7 @@ public class MyNotificationCancellation : ICancelInstantiationNotification
 {
     public bool ShouldSend(Instance instance)
     {
+        // Egendefinert logikk her, feks:
         // Send kun varselet hvis instansen ikke er arkivert
         return instance.Status?.IsArchived is not true;
     }
