@@ -82,7 +82,7 @@ App/ui/layout-sets.json
 
 I eksempelet over referer layoutsettet `stateless` til datamodellen `Stateless-model`.
 
-Eksempel appstruktur for en app som er satt opp på denne måten:
+Eksempel app-struktur for en app som er satt opp på denne måten:
 
 ```text
 ├───App
@@ -120,7 +120,7 @@ OBS! Skjemakomponenter som påvirker prosess (knapp for innsending eller instans
 
 {{%/notice%}}
 
-For å tillate bruk av appen for brukere som ikke er innlogget, følger du stegene beskrevet over. _I tillegg_ må du angi at datatypen som er satt opp til å brukes for statelessvisningen, tillater anonym (ikke innlogget) bruk. Dette gjør du ved å endre det aktuelle `dataType`-elementet i `applicationMetadata.json`. Datatypens `appLogic`-objekt må få en ny innstilling: `"allowAnonymousOnStateless": true`. Se eksempel under:
+For å tillate bruk av appen for brukere som ikke er innlogget, følger du stegene beskrevet over. _I tillegg_ må du angi at datatypen som er satt opp til å brukes for stateless-visningen, tillater anonym (ikke innlogget) bruk. Dette gjør du ved å endre det aktuelle `dataType`-elementet i `applicationMetadata.json`. Datatypens `appLogic`-objekt må få en ny innstilling: `"allowAnonymousOnStateless": true`. Se eksempel under:
 
 
 {{< code-title >}}
@@ -170,7 +170,7 @@ Første gang frontend henter data (GET), skjer dette i to steg:
 1. [Forhåndsutfylling](/nb/altinn-studio/v10/develop-a-service/reference/data/prefill/)
 2. [Dataprosessering](/nb/altinn-studio/v10/develop-a-service/data/dataprocessing/)
 
-På påfølgende oppdateringer av samme skjemadata (POST) kjøres ikke prefill på nytt, men kalkuleringen trigges. Dette gjør det mulig å endre dataene basert på det brukeren skriver inn, selv i en stateless tilstand.
+På påfølgende oppdateringer av samme skjemadata (POST) kjøres ikke forhåndsutfyllingen på nytt, men kalkuleringen trigges. Dette gjør det mulig å endre dataene basert på det brukeren skriver inn, selv i en stateless tilstand.
 
 Eksempel på en kalkulering som fyller ut datamodellen nevnt i eksempelet over:
 
@@ -192,7 +192,7 @@ public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object 
 
 ## Autorisasjon med tredjepartsløsninger
 
-Tilgangsstyring for stateless apper kan løses med [standard appautorisasjon](/nb/altinn-studio/v10/develop-a-service/reference/configuration/authorization/), der du ved hjelp av Altinn-roller definerer hvem som har tilgang til å bruke tjenesten. Hvis du har behov for ytterligere sikring av tjenesten, kan du skrive logikk for autorisasjon av brukere med tredjepartsløsninger. Dette kan være API-er som er eksponert innenfor egen virksomhet, eller åpne API fra andre tilbydere.
+Tilgangsstyring for stateless apper kan løses med [standard app-autorisasjon](/nb/altinn-studio/v10/develop-a-service/reference/configuration/authorization/), der du ved hjelp av Altinn-roller definerer hvem som har tilgang til å bruke tjenesten. Hvis du har behov for ytterligere sikring av tjenesten, kan du skrive logikk for autorisasjon av brukere med tredjepartsløsninger. Dette kan være API-er som er eksponert innenfor egen virksomhet, eller åpne API fra andre tilbydere.
 
 Eksempelet nedenfor bruker Finanstilsynets API til å fastslå om virksomheten som en bruker representerer i Altinn, har tilstrekkelige lisenser til å bruke tjenesten.
 
@@ -277,7 +277,7 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
 
     Det er lagt inn en dynamikkregel i `RuleHandler.js` som sjekker om et felt i datamodellen har verdien `false`. [Les mer om hvordan du konfigurerer dynamikkregler](/nb/altinn-studio/v10/develop-a-service/look-and-feel/dynamics/).
 
-    I `RuleConfiguration.json` ser du hvordan regelen brukes. Hvis inputverdien fra datamodellen `userAuthorized` er false, vises errorBoks-komponenten, mens det motsatte skjer med søke- og resultatfeltene - disse skjules.
+    I `RuleConfiguration.json` ser du hvordan regelen brukes. Hvis input-verdien fra datamodellen `userAuthorized` er false, vises errorBoks-komponenten, mens det motsatte skjer med søke- og resultatfeltene - disse skjules.
 
     Standard oppførsel er det motsatte, altså at søk og resultat er synlig, mens error-feltet er skjult.
 
@@ -342,7 +342,7 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
 
     All behandling av data for stateless apper ligger i filen `App\logic\DataProcessing\DataProcessingHandler.cs`, og det er her autorisasjonslogikken skal plasseres.
 
-    Logikk for å slå opp data og autorisere brukeren ligger i metoden `ProcessDataRead`. Denne kalles hver gang en bruker åpner appen eller sender inn inputdata.
+    Logikk for å slå opp data og autorisere brukeren ligger i metoden `ProcessDataRead`. Denne kalles hver gang en bruker åpner appen eller sender inn input-data.
 
     ```cs
      public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object data)
@@ -437,15 +437,15 @@ Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre og vi
 
 {{%/notice%}}
 
-Fra en stateless app kan du bruke `InstantiationButton`-komponenten til å starte en instans. Foreløpig støtter vi kun å starte en instans innad i samme appen som statelessskjemaet vises i. Muligheten til å starte en instans i en annen app kommer senere.
+Fra en stateless app kan du bruke `InstantiationButton`-komponenten til å starte en instans. Foreløpig støtter vi kun å starte en instans innad i samme appen som stateless-skjemaet vises i. Muligheten til å starte en instans i en annen app kommer senere.
 
 Det er laget en eksempelapp som er satt opp som en innsynstjeneste hvor brukeren kan velge å starte en instans på den aktuelle appen. Denne kan brukes til inspirasjon for videre utvikling. [Se appen med kildekode](https://altinn.studio/repos/ttd/start-from-stateless).
 
-### Instansiere med prefill
+### Instansiere med forhåndsutfylling
 
 Et bruksområde for å starte en instans fra en stateless visning kan være at du først ønsker at appen skal oppføre seg som en innsynstjeneste der brukeren blir presentert for aktuelle data. Fra disse dataene kan brukeren velge å gå videre, og appen går da over til en vanlig innsendingstjeneste.
 
-For å få til en slik flyt må du først sette opp appen som en stateless app som beskrevet under [konfigurasjon](#konfigurasjon). Når dette er gjort, kan du utvide statelessvisningen til å inkludere `InstantiationButton`, som starter en ny instans når brukeren klikker på knappen. Standard oppførsel for denne knappen er å sende inn hele datamodellen som brukeren har brukt, som en del av instansieringen under feltet `prefill`. Hvis du ønsker å velge ut deler av datamodellen som er brukt i det statelesssteget, kan du også gjøre det ved å legge til `mapping` på `InstantiationButton`-komponenten. For eksempel:
+For å få til en slik flyt må du først sette opp appen som en stateless app som beskrevet under [konfigurasjon](#konfigurasjon). Når dette er gjort, kan du utvide stateless-visningen til å inkludere `InstantiationButton`, som starter en ny instans når brukeren klikker på knappen. Standard oppførsel for denne knappen er å sende inn hele datamodellen som brukeren har brukt, som en del av instansieringen under feltet `prefill`. Hvis du ønsker å velge ut deler av datamodellen som er brukt i det stateless-steget, kan du også gjøre det ved å legge til `mapping` på `InstantiationButton`-komponenten. For eksempel:
 
 ```json
  {
@@ -461,7 +461,7 @@ For å få til en slik flyt må du først sette opp appen som en stateless app s
   }
 ```
 
-Når brukeren velger å starte en instans, henter app-frontend ut feltene `some.source.field` og `some.other.field` fra datamodellen i det statelesssteget, og mapper disse mot feltene `name` og `id` som sendes med i instansieringskallet for appen. Eksempel på request som går mot backend, som du kan mappe over datamodellen du bruker i innsendingsdelen av appen:
+Når brukeren velger å starte en instans, henter app-frontend ut feltene `some.source.field` og `some.other.field` fra datamodellen i det stateless-steget, og mapper disse mot feltene `name` og `id` som sendes med i instansieringskallet for appen. Eksempel på request som går mot backend, som du kan mappe over datamodellen du bruker i innsendingsdelen av appen:
 
 ```json
 {
@@ -474,7 +474,7 @@ Når brukeren velger å starte en instans, henter app-frontend ut feltene `some.
 
 ```
 
-Denne prefill-verdien kan du bruke i metoden `DataCreation` i `InstantiationHandler.cs` for å mappe mot feltene du trenger som en del av innsendingsdelen av appen under instansieringen. Eksempel:
+Denne verdien kan du bruke i metoden `DataCreation` i `InstantiationHandler.cs` for å mappe mot feltene du trenger som en del av innsendingsdelen av appen under instansieringen. Eksempel:
 
 ```c#
 public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
@@ -499,7 +499,7 @@ public async Task DataCreation(Instance instance, object data, Dictionary<string
 
 #### Instansiere fra en repeterende gruppe
 
-Hvis du i det statelesssteget ønsker at brukeren for eksempel velger et element fra en repeterende gruppe og jobber videre på et gitt element, kan du sette opp `InstantiationButton`-komponenten som en del av den repeterende gruppen. Her kan du konfigurere instansieringsknappen til å mappe felter fra den gitte indeksen brukeren velger å starte en instans fra. Dette krever at du setter opp mapping-feltene med en indeks på den aktuelle gruppen. Eksempel:
+Hvis du i det stateless-steget ønsker at brukeren for eksempel velger et element fra en repeterende gruppe og jobber videre på et gitt element, kan du sette opp `InstantiationButton`-komponenten som en del av den repeterende gruppen. Her kan du konfigurere instansieringsknappen til å mappe felter fra den gitte indeksen brukeren velger å starte en instans fra. Dette krever at du setter opp mapping-feltene med en indeks på den aktuelle gruppen. Eksempel:
 
 ```json
  {
