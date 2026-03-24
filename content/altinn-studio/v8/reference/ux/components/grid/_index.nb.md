@@ -250,6 +250,40 @@ Når komponenter vises i en tabell, vil de ikke vise `title`- og `description`-t
 bør likevel settes på komponenten, da de vil bli brukt for tilgjengelighet og vil fortsatt bli vist når komponenten
 vises utenfor en Grid - som på [mindre skjermer](#mobilvisning) og i [et sammendrag](/nb/altinn-studio/v8/reference/ux/pages/summary/).
 
+### Kolonnespenn og skjuling av kolonner
+
+Grid støtter både kolonnespenn (`colSpan`) og skjuling av kolonner (`hidden`) per celle.
+
+- `colSpan` lar en celle dekke flere kolonner.
+- `hidden` skjuler en kolonne.
+- Verdier kan settes direkte på cellen eller via `gridColumnOptions`.
+
+Eksempel med `colSpan`:
+```json
+{
+  "header": true,
+  "cells": [
+    { "text": "Alle endringer", "gridColumnOptions": { "colSpan": 2 } },
+    { "text": "Disse endringene" }
+  ]
+}
+```
+
+Eksempel med `hidden`:
+```json
+{
+  "header": true,
+  "cells": [
+    { "text": "Kolonne A" },
+    { "text": "Kolonne B", "gridColumnOptions": { "hidden": true } },
+    { "text": "Kolonne C" }
+  ]
+}
+```
+`hidden` gjelder på kolonnenivå (header + tilhørende celler i radene under).
+
+Merk: Når du bruker `colSpan`, må celler som dekkes av spennet fjernes eller settes til `null`, ellers kan tabell-layout bli uforutsigbar.
+
 ### Bredder, tekst og justering
 
 Det finnes flere opsjoner på en celle for å konfigurere bredde, tekst plassering, og

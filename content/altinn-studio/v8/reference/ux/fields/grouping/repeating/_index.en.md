@@ -99,6 +99,57 @@ Below is a form with a repeating group that:
 | [tableColumns](table/#widths-alignment-and-overflow-for-columns) | No       | Object containing column options for specified headers. If not specified, all columns will use default display settings.       |
 | [stickyHeaders](table/#sticky-table-headers)                     | No       | If set to `true`, the table headers will be sticky.                                                                            |
 
+## rowsBefore/rowsAfter: colSpan and hidden columns
+
+`rowsBefore` and `rowsAfter` use the same grid row/cell structure as the Grid component.
+Cells in these rows support both `gridColumnOptions.colSpan` (column span) and `gridColumnOptions.hidden` (hide column).
+
+To hide a column in `rowsBefore`/`rowsAfter`, set `hidden` on the corresponding cell in a header row (`"header": true`).
+
+When using `colSpan`, cells covered by the span must be removed or set to `null`.
+
+```json
+"rowsBefore": [
+  {
+    "header": true,
+    "cells": [
+      {},
+      { "text": "Summary before", "gridColumnOptions": { "colSpan": 2 } },
+      { "text": "Hidden before", "gridColumnOptions": { "hidden": true } }
+    ]
+  },
+  {
+    "readOnly": true,
+    "cells": [
+      { "text": "SUM before" },
+      { "component": "sum-before-all" },
+      { "component": "sum-before-selected" },
+      { "component": "sum-before-hidden-col" }
+    ]
+  }
+],
+
+"rowsAfter": [
+  {
+    "header": true,
+    "cells": [
+      {},
+      { "text": "All changes", "gridColumnOptions": { "colSpan": 2 } },
+      { "text": "Hidden after", "gridColumnOptions": { "hidden": true } }
+    ]
+  },
+  {
+    "readOnly": true,
+    "cells": [
+      { "text": "SUM after" },
+      { "component": "sum-all" },
+      { "component": "sum-above-limit" },
+      { "component": "sum-hidden-col" }
+    ]
+  }
+]
+```
+
 ## textResourceBindings
 
 It is possible to add different keys in textResourceBindings to overrule default texts.

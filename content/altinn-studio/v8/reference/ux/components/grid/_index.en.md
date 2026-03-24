@@ -242,6 +242,39 @@ text resources should still be set on the component, as they will be used for ac
 be displayed when the component is displayed outside of a Grid - such as on [smaller screens](#mobile-support) and in
 [a Summary](/en/altinn-studio/v8/reference/ux/pages/summary/).
 
+### Column span and hidden columns
+
+Grid supports both column span (`colSpan`) and column-level hiding (`hidden`) per cell.
+
+- `colSpan` lets a cell span across multiple columns.
+- `hidden` hides a column.
+- Values can be set directly on the cell or via `gridColumnOptions`.
+
+Example with `colSpan`:
+```json
+{
+  "header": true,
+  "cells": [
+    { "text": "All changes", "gridColumnOptions": { "colSpan": 2 } },
+    { "text": "These changes" }
+  ]
+}
+```
+
+Example with `hidden`:
+```json
+{
+  "header": true,
+  "cells": [
+    { "text": "Column A" },
+    { "text": "Column B", "gridColumnOptions": { "hidden": true } },
+    { "text": "Column C" }
+  ]
+}
+```
+`hidden` applies at column level (header + corresponding cells in rows below).
+Note: When using `colSpan`, cells covered by the span should be removed or set to `null`, otherwise table layout may become unpredictable.
+
 ### Widths, text and alignment
 
 There ar multiple properties on a cell that can be used to control the width, text and alignment of a cell, and how

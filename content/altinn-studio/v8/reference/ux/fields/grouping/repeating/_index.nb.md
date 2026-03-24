@@ -99,6 +99,57 @@ Under vises et skjema med en repeterende gruppe som:
 | [tableColumns](table/#bredder-tekst-plassering-og-skjuling-av-overflødig-tekst) | Nei     | Objekt som inneholder egenskaper for kolonnene som vises i tabellen.                                                                                                |
 | [stickyHeaders](table/#sticky-tabell-headere)                                   | No      | Dersom satt til `true`, gjøres tabell headerene `sticky`.                                                                                                           |
 
+## rowsBefore/rowsAfter: kolonnespenn og skjuling av kolonner
+
+`rowsBefore` og `rowsAfter` bruker samme grid-rad/celle-struktur som Grid-komponenten.
+Celler i disse radene støtter både `gridColumnOptions.colSpan` (kolonnespenn) og `gridColumnOptions.hidden` (skjul kolonne).
+
+For å skjule en kolonne i `rowsBefore`/`rowsAfter`, sett `hidden` på tilsvarende celle i en header-rad (`"header": true`).
+
+Ved bruk av `colSpan` må celler som dekkes av spennet fjernes eller settes til `null`.
+
+```json
+"rowsBefore": [
+  {
+    "header": true,
+    "cells": [
+      {},
+      { "text": "Oppsummering før", "gridColumnOptions": { "colSpan": 2 } },
+      { "text": "Skjules før", "gridColumnOptions": { "hidden": true } }
+    ]
+  },
+  {
+    "readOnly": true,
+    "cells": [
+      { "text": "SUM før" },
+      { "component": "sum-before-all" },
+      { "component": "sum-before-selected" },
+      { "component": "sum-before-hidden-col" }
+    ]
+  }
+],
+
+"rowsAfter": [
+  {
+    "header": true,
+    "cells": [
+      {},
+      { "text": "Alle endringer", "gridColumnOptions": { "colSpan": 2 } },
+      { "text": "Skjules etter", "gridColumnOptions": { "hidden": true } }
+    ]
+  },
+  {
+    "readOnly": true,
+    "cells": [
+      { "text": "SUM etter" },
+      { "component": "sum-all" },
+      { "component": "sum-above-limit" },
+      { "component": "sum-hidden-col" }
+    ]
+  }
+]
+```
+
 ## textResourceBindings
 
 Det er mulig å legge til ulike nøkler i textResourceBindings for å overstyre standardtekster:
