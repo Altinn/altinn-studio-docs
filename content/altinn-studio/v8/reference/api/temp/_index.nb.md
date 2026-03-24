@@ -25,7 +25,7 @@ Det er lagt til et nytt felt, `notification`, i request-bodyen til `POST /instan
 | notificationChannel | int (enum) | Nei | Kanal for utsending. Standard: 4 (EmailAndSms). Se tabell under for gyldige verdier. |
 | language | string | Nei | Språkkode (nb, nn, en). Brukes kun for organisasjoner – privatpersoner bruker profilspråk. |
 | requestedSendTime | string (datetime) | Nei | Tidligste tidspunkt for utsending (ISO 8601, UTC). Hvis ikke satt, sendes varselet så snart som mulig. Maks utsettelse er 30 dager. |
-| allowSendingAfterWorkHours | bool | Nei | Tillater utsending utenom arbeidstid. Standard: false (kun dagtid). |
+| allowSendingAfterWorkHours | bool | Nei | Tillater utsending utenom arbeidstid. Standard: false (kun dagtid). Gjelder kun for SMS. E-post sendes uavhengig av tidspunkt. |
 | customSms | objekt | Nei | Egendefinert SMS-tekst og avsendernavn. Hvis ikke satt, brukes standardtekst. |
 | customEmail | objekt | Nei | Egendefinert e-postemne og brødtekst. Hvis ikke satt, brukes standardtekst. |
 | reminders | liste | Nei | Liste med påminnelser som kan sendes etter hovedvarselet. |
@@ -34,8 +34,10 @@ Det er lagt til et nytt felt, `notification`, i request-bodyen til `POST /instan
 
 | Felt | Type | Påkrevd | Beskrivelse |
 |---|---|---|---|
-| senderName | string | Ja | Avsendernavn som vises i SMS-en. |
+| senderName | string | Ja | Avsendernavn som vises i SMS-en. Maks 11 tegn. |
 | text | CustomText | Ja | Egendefinert SMS-tekst på nb, nn og en. |
+
+OBS! Dersom avsendernavnet `senderName` er (eller i fremtiden blir) beskyttet med tredjepartsprodukter som SenderID, må du sørge for å godkjenne Altinn/Digitaliseringsdirektoratet som meldingsprodusent.
 
 #### customEmail
 
