@@ -12,7 +12,7 @@ toc: true
 
 En stateless app, eller tilstandsløs app, skiller seg fra vanlige apper ved at den ikke lagrer noe data - hverken skjemadata eller metadata om instanser av appen. Appen havner heller ikke i innboksen til brukeren. En stateless app tilsvarer en innsynstjeneste i Altinn 2.
 
-Stateless apper passer godt som innsynstjenester der en bruker eller et system gjør et oppslag mot en ressurs, eller presenterer data fra en tredjepart basert på identiteten til brukeren. Du kan også konfigurere en stateless-app til å tillate anonyme brukere, det vil si brukere som ikke er pålogget.
+Stateless apper passer godt som innsynstjenester der en bruker eller et system gjør et oppslag mot en ressurs, eller presenterer data fra en tredjepart basert på identiteten til brukeren. Du kan også konfigurere en stateless app til å tillate anonyme brukere, det vil si brukere som ikke er pålogget.
 
 ## Konfigurasjon
 
@@ -340,7 +340,7 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
     ```
 5. **Legg til autorisasjonslogikk**
 
-    All behandling av data for stateless apper ligger i filen `App\logic\DataProcessing\DataProcessingHandler.cs`, og det er her autorisasjonslogikken skal plasseres.
+    All behandling av data for stateless apper ligger i filen `App/logic/DataProcessing/DataProcessingHandler.cs`, og det er her autorisasjonslogikken skal plasseres.
 
     Logikk for å slå opp data og autorisere brukeren ligger i metoden `ProcessDataRead`. Denne kalles hver gang en bruker åpner appen eller sender inn input-data.
 
@@ -390,7 +390,7 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
     }
     ```
 
-    For å vite hvem brukeren er, bruker vi identifikatoren `instance.InstanceOwner.PartyId`, som metoden mottar som parameter. Vi slår opp i Altinn sitt register for å hente ut party-objektet som representerer brukeren. Dette kan inneholde en organisasjon eller en person.
+    For å vite hvem brukeren er, bruker vi identifikatoren `instance.InstanceOwner.PartyId`, som metoden mottar som parameter. Vi slår opp i Altinns register for å hente ut party-objektet som representerer brukeren. Dette kan inneholde en organisasjon eller en person.
 
     ```cs
     Party party = await _register.GetParty(int.Parse(instance.InstanceOwner.PartyId))
