@@ -25,7 +25,7 @@ A new field, `notification`, has been added to the request body of `POST /instan
 | `notificationChannel` | int (enum) | No | Channel for sending. Default: `4` (EmailAndSms). See table below for valid values. |
 | `language` | string | No | Language code (`nb`, `nn`, `en`). Only used for organizations – individuals use their profile language. |
 | `requestedSendTime` | string (datetime) | No | Earliest time for sending (ISO 8601, UTC). If not set, the notification is sent as soon as possible. Maximum delay is 30 days. |
-| `allowSendingAfterWorkHours` | bool | No | Allows sending outside of working hours. Default: `false` (daytime only). Only affects SMS, email is sending regardless of time of day. |
+| `allowSendingAfterWorkHours` | bool | No | Allows sending outside of working hours. Default: `false` (daytime only). Only affects SMS, email is sent regardless of time of day. |
 | `customSms` | object | No | Custom SMS text and sender name. If not set, default text is used. |
 | `customEmail` | object | No | Custom email subject and body. If not set, default text is used. |
 | `reminders` | list | No | List of reminders that can be sent after the initial notification. |
