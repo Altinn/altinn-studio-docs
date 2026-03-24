@@ -2,7 +2,6 @@
 title: Lage gode tjenestebeskrivelser
 linktitle: Tjenestebeskrivelser
 description: Slik lager du gode tjenestebeskrivelser for appen din i Altinn Studio.
-draft: true
 ---
 
 Når du beskriver tjenesten din godt, kan de riktige brukerne
