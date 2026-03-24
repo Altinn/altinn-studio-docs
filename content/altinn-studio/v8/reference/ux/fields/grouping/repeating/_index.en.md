@@ -109,45 +109,29 @@ To hide a column in `rowsBefore`/`rowsAfter`, set `hidden` on the corresponding 
 When using `colSpan`, cells covered by the span must be removed or set to `null`.
 
 ```json
-"rowsBefore": [
-  {
-    "header": true,
-    "cells": [
-      {},
-      { "text": "Summary before", "gridColumnOptions": { "colSpan": 2 } },
-      { "text": "Hidden before", "gridColumnOptions": { "hidden": true } }
-    ]
-  },
-  {
-    "readOnly": true,
-    "cells": [
-      { "text": "SUM before" },
-      { "component": "sum-before-all" },
-      { "component": "sum-before-selected" },
-      { "component": "sum-before-hidden-col" }
-    ]
-  }
-],
+ "rowsBefore": [
+   {
+     "header": true,
+     "cells": [
+       {},
+       { "text": "Summary before", "gridColumnOptions": { "colSpan": 2 } },
+     null,
+       { "text": "Hidden before", "gridColumnOptions": { "hidden": true } }
+     ]
+   },
+ ],
 
-"rowsAfter": [
-  {
-    "header": true,
-    "cells": [
-      {},
-      { "text": "All changes", "gridColumnOptions": { "colSpan": 2 } },
-      { "text": "Hidden after", "gridColumnOptions": { "hidden": true } }
-    ]
-  },
-  {
-    "readOnly": true,
-    "cells": [
-      { "text": "SUM after" },
-      { "component": "sum-all" },
-      { "component": "sum-above-limit" },
-      { "component": "sum-hidden-col" }
-    ]
-  }
-]
+ "rowsAfter": [
+   {
+     "header": true,
+     "cells": [
+       {},
+       { "text": "All changes", "gridColumnOptions": { "colSpan": 2 } },
+      null,
+       { "text": "Hidden after", "gridColumnOptions": { "hidden": true } }
+     ]
+   },
+ ]
 ```
 
 ## textResourceBindings

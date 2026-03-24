@@ -252,11 +252,11 @@ vises utenfor en Grid - som på [mindre skjermer](#mobilvisning) og i [et sammen
 
 ### Kolonnespenn og skjuling av kolonner
 
-Grid støtter både kolonnespenn (`colSpan`) og skjuling av kolonner (`hidden`) per celle.
+Grid-komponenten støtter både kolonnespenn (`colSpan`) og skjuling av kolonner (`hidden`) for hver celle.
 
 - `colSpan` lar en celle dekke flere kolonner.
 - `hidden` skjuler en kolonne.
-- Verdier kan settes direkte på cellen eller via `gridColumnOptions`.
+- Du kan sette verdier direkte på cellen eller med `gridColumnOptions`.
 
 Eksempel med `colSpan`:
 ```json
@@ -264,7 +264,7 @@ Eksempel med `colSpan`:
   "header": true,
   "cells": [
     { "text": "Alle endringer", "gridColumnOptions": { "colSpan": 2 } },
-    { "text": "Disse endringene" }
+    null
   ]
 }
 ```
@@ -282,7 +282,7 @@ Eksempel med `hidden`:
 ```
 `hidden` gjelder på kolonnenivå (header + tilhørende celler i radene under).
 
-Merk: Når du bruker `colSpan`, må celler som dekkes av spennet fjernes eller settes til `null`, ellers kan tabell-layout bli uforutsigbar.
+Merk: Når du bruker `colSpan`, må du fjerne de cellene som kolonnespennet dekker eller sette dem til `null`, ellers kan tabell-layouten bli uforutsigbar.
 
 ### Bredder, tekst og justering
 

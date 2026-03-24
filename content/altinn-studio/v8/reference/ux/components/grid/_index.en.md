@@ -244,7 +244,7 @@ be displayed when the component is displayed outside of a Grid - such as on [sma
 
 ### Column span and hidden columns
 
-Grid supports both column span (`colSpan`) and column-level hiding (`hidden`) per cell.
+The Grid component supports both column span (`colSpan`) and column-level hiding (`hidden`) for each cell.
 
 - `colSpan` lets a cell span across multiple columns.
 - `hidden` hides a column.
@@ -256,7 +256,7 @@ Example with `colSpan`:
   "header": true,
   "cells": [
     { "text": "All changes", "gridColumnOptions": { "colSpan": 2 } },
-    { "text": "These changes" }
+    null
   ]
 }
 ```
@@ -272,12 +272,12 @@ Example with `hidden`:
   ]
 }
 ```
-`hidden` applies at column level (header + corresponding cells in rows below).
-Note: When using `colSpan`, cells covered by the span should be removed or set to `null`, otherwise table layout may become unpredictable.
+`hidden` applies to the column level (header + corresponding cells in rows below).
+Note: When you use  `colSpan`, cells covered by the span should be removed or set to `null`, otherwise the table layout may become unpredictable.
 
 ### Widths, text and alignment
 
-There ar multiple properties on a cell that can be used to control the width, text and alignment of a cell, and how
+There ar multiple properties in a cell that can be used to control the width, text and alignment of a cell, and how
 much text is displayed before it is truncated. These options are:
 
 - `width` - The width of the column. The value can contain a percentage, for example `"25%"`, or `"auto"` (default).
