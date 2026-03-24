@@ -37,6 +37,8 @@ A new field, `notification`, has been added to the request body of `POST /instan
 | `senderName` | string | Yes | Sender name displayed in the SMS. Max 11 characters. |
 | `text` | CustomText | Yes | Custom SMS text in nb, nn and en. |
 
+NOTE: if the sender name `senderName` is (or in the future will be) protected by third party product such as SenderID, you must allow Altinn/Digitaliseringsdirektoratet as message producer.
+
 **`customEmail`**
 
 | Field | Type | Required | Description |
