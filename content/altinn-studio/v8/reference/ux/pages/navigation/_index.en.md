@@ -224,13 +224,13 @@ Add texts in `resources.XX.json`, where `id` is the filename without the extensi
 
 ## Specifying validation on page change
 
-You can add code to check for validation errors when the user tries to go to the next page. Validation errors can, for example, mean that the user has forgotten to fill in a field or has filled it in with information in the wrong format. If there are errors, navigation is stopped.
+You can add code to check for validation errors when the user tries to navigate between pages. Validation errors can, for example, mean that the user has forgotten to fill in a field or has filled it in with information in the wrong format. If there are errors, navigation is stopped.
 
 You can configure this at three levels with different priorities: globally for the entire app, per layout set, and per page. In addition, NavigationButtons, CustomButton, and NavigationBar can be configured at component level.
 
-### The PageValidation configuration
+### The `validationOnNavigation` object
 
-All configuration levels use the same object with two properties:
+The `validationOnNavigation` property is used at global, layout set, and page level, and has two properties. Component level uses the same object structure, but via the `validateOnNext` and `validateOnPrevious` properties (NavigationButtons) or `validateOnForward` and `validateOnBackward` (NavigationBar).
 
 ```json
 {

@@ -224,13 +224,13 @@ Legg til tekster i `resources.XX.json`, der `id` er navnet på filen uten filutv
 
 ## Angi validering ved sidebytte
 
-Du kan legge inn kode for å sjekke om det er valideringsfeil når brukeren prøver å gå til neste side. _Valideringsfeil_ kan for eksempel bety at brukeren har glemt å fylle ut et felt eller har fylt det ut med informasjon med feil format. Hvis det er feil, stoppes navigeringen.
+Du kan legge inn kode for å sjekke om det er valideringsfeil når brukeren prøver å navigere mellom sider. _Valideringsfeil_ kan for eksempel bety at brukeren har glemt å fylle ut et felt eller har fylt det ut med informasjon med feil format. Hvis det er feil, stoppes navigeringen.
 
 Du kan konfigurere dette på tre nivåer med ulik prioritet: globalt for hele appen, per layoutsett og per side. I tillegg kan NavigationButtons, CustomButton og NavigationBar konfigureres på komponentnivå.
 
-### PageValidation-konfigurasjonen
+### `validationOnNavigation`-objektet
 
-Alle konfigurasjonsnivåer bruker samme objekt med to egenskaper:
+Egenskapen `validationOnNavigation` brukes på globalt nivå, per layoutsett og per side, og har to egenskaper. Komponentnivå bruker tilsvarende objekt, men via egenskapene `validateOnNext` og `validateOnPrevious` (NavigationButtons) eller `validateOnForward` og `validateOnBackward` (NavigationBar).
 
 ```json
 {
