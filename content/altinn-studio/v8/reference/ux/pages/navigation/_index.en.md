@@ -71,6 +71,7 @@ You can group pages and display them in a side menu as an alternative to traditi
       {
         "name": "group.form",
         "markWhenCompleted": true,
+        "expandedByDefault": true,
         "order": ["side1", "side2", "side3"]
       },
       {
@@ -88,6 +89,7 @@ You can group pages and display them in a side menu as an alternative to traditi
 | name              | Text resource that specifies the name of the page group. Must be included if the group contains more than one page. |
 | type              | Optional. Use "info" or "default".                                                                                  |
 | markWhenCompleted | Optional. Marks pages as completed when all validation errors are corrected and the user has seen the page.         |
+| expandedByDefault | Optional. Shows the pages in the group in the side navigation from the start. By default, the pages are hidden under the group name until the user opens the group. |
 | order             | Specifies which pages are included in the group.                                                                    |
 
 ## Showing process and tasks in the navigation menu

@@ -71,6 +71,7 @@ Du kan gruppere sider og vise dem i en sidemeny som alternativ til tradisjonell 
       {
         "name": "group.form",
         "markWhenCompleted": true,
+        "expandedByDefault": true,
         "order": ["side1", "side2", "side3"]
       },
       {
@@ -88,6 +89,7 @@ Du kan gruppere sider og vise dem i en sidemeny som alternativ til tradisjonell 
 | name              | Tekstressurs som angir navnet på sidegruppen. Må være med hvis gruppen inneholder mer enn én side.         |
 | type              | Valgfritt. Bruk "info" eller "default".                                                                    |
 | markWhenCompleted | Valgfritt. Markerer sider som ferdig utfylt når alle valideringsfeil er rettet og brukeren har sett siden. |
+| expandedByDefault | Valgfritt. Viser sidene i gruppen i sidenavigasjonen fra start. Standard er at sidene er skjult under gruppenavnet til brukeren åpner gruppen. |
 | order             | Angir hvilke sider som inngår i gruppen.                                                                   |
 
 ## Vise arbeidsflyt og oppgaver i navigasjonsmenyen
