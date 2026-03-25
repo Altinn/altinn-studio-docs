@@ -222,7 +222,7 @@ Add texts in `resources.XX.json`, where `id` is the filename without the extensi
 }
 ```
 
-## Specifying validation on navigation
+## Specifying validation on page change
 
 You can add code to check for validation errors when the user tries to go to the next page. Validation errors can, for example, mean that the user has forgotten to fill in a field or has filled it in with information in the wrong format. If there are errors, navigation is stopped.
 

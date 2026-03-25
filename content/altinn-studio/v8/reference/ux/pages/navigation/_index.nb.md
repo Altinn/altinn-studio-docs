@@ -222,7 +222,7 @@ Legg til tekster i `resources.XX.json`, der `id` er navnet på filen uten filutv
 }
 ```
 
-## Angi validering ved navigasjon
+## Angi validering ved sidebytte
 
 Du kan legge inn kode for å sjekke om det er valideringsfeil når brukeren prøver å gå til neste side. _Valideringsfeil_ kan for eksempel bety at brukeren har glemt å fylle ut et felt eller har fylt det ut med informasjon med feil format. Hvis det er feil, stoppes navigeringen.
 
