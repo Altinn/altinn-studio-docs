@@ -220,41 +220,138 @@ Add texts in `resources.XX.json`, where `id` is the filename without the extensi
 }
 ```
 
-## Specifying validation on page change
+## Specifying validation on navigation
 
-You can add code to check for validation errors when the user tries to go to the next page. Validation errors can, for example, mean that the user has forgotten to fill in a field or has filled it in with information in the wrong format. If there are errors, navigation is stopped with one of the validation codes in the section below.
+You can add code to check for validation errors when the user tries to go to the next page. Validation errors can, for example, mean that the user has forgotten to fill in a field or has filled it in with information in the wrong format. If there are errors, navigation is stopped.
 
-### App frontend version 4
+You can configure this at three levels with different priorities: globally for the entire app, per layout set, and per page. In addition, NavigationButtons, CustomButton, and NavigationBar can be configured at component level.
 
-The NavigationButtons component has the properties `validateOnNext` and `validateOnPrevious`:
+### The PageValidation configuration
+
+All configuration levels use the same object with two properties:
 
 ```json
 {
-  "id": "nav-buttons1",
-  "type": "NavigationButtons",
-  "textResourceBindings": {...},
-  "validateOnNext": {
-    "page": "current",
-    "show": ["All"]
+  "page": "current",
+  "show": ["Required", "Schema"]
+}
+```
+
+**page – which pages are checked:**
+
+| Value | Description |
+| ----- | ----------- |
+| `"current"` | Only the current page is checked. |
+| `"currentAndPrevious"` | The current page and all previously visited pages are checked. |
+| `"all"` | All pages in the layout set are checked. |
+
+**show – which validation types are displayed:**
+
+| Value | Description |
+| ----- | ----------- |
+| `"Required"` | Required fields that have not been filled in. |
+| `"Schema"` | JSON Schema errors on field values. |
+| `"Component"` | Component-specific validation (e.g. invalid format). |
+| `"Expression"` | Custom validation expressions. |
+| `"CustomBackend"` | Custom backend validations. |
+| `"All"` | All frontend validations. |
+| `"AllExceptRequired"` | All frontend validations except required fields. |
+
+### Configuration levels
+
+#### 1. Global level
+
+Applies to all layout sets in the app. Configure under `uiSettings` in `layout-sets.json`:
+
+**File location:** `App/ui/layout-sets.json`
+
+```json
+{
+  "uiSettings": {
+    "validationOnNavigation": {
+      "page": "current",
+      "show": ["Required"]
+    }
   }
 }
 ```
 
-**page can be:**
+#### 2. Per layout set
 
-- `current` - only this page
-- `all` - all pages
-- `currentAndPrevious` - this and previous pages
+Overrides the global level for one layout set. Configure under `pages` in `Settings.json`:
 
-**show contains which validation types are checked:**
+**File location:** `App/ui/*/Settings.json`
 
-- Schema
-- Component
-- Expression
-- CustomBackend
-- Required
-- AllExceptRequired
-- All
+```json
+{
+  "pages": {
+    "order": ["personal-info", "contact", "summary"],
+    "validationOnNavigation": {
+      "page": "current",
+      "show": ["Required"]
+    }
+  }
+}
+```
+
+#### 3. Per page
+
+Overrides the layout set setting for a single page. Configure directly on the `data` object in the layout file:
+
+**File location:** `App/ui/*/layouts/page1.json`
+
+```json
+{
+  "data": {
+    "layout": [...],
+    "validationOnNavigation": {
+      "page": "currentAndPrevious",
+      "show": ["All"]
+    }
+  }
+}
+```
+
+#### 4. Component level (NavigationButtons, CustomButton, NavigationBar)
+
+When none of the higher levels are configured, you can configure validation directly on the component. For NavigationButtons, use `validateOnNext` and `validateOnPrevious`:
+
+```json
+{
+  "id": "nav",
+  "type": "NavigationButtons",
+  "showBackButton": true,
+  "validateOnNext": {
+    "page": "current",
+    "show": ["Required", "Schema"]
+  }
+}
+```
+
+**Note:** If `validationOnNavigation` is set at page, layout set, or global level, the component-level configuration is overridden:
+
+- `validateOnNext` is replaced by the configuration from the higher level.
+- `validateOnPrevious` is disabled entirely.
+
+### Priority order
+
+Page → Layout set → Global → Component
+
+Page level has the highest priority and overrides everything else. Component-level configuration only applies when no higher levels are configured.
+
+### Blocking direct navigation in the side menu
+
+When the side menu is active and the user tries to jump directly to a page further ahead, navigation is blocked if any of the intermediate pages have `validationOnNavigation` configured and contain validation errors.
+
+**Example:** The user is on page 1 and tries to navigate directly to page 3. If page 2 has `validationOnNavigation` configured and contains validation errors, the button for page 3 is disabled until the errors are corrected.
+
+### What happens when there are validation errors?
+
+When the user tries to navigate and there are validation errors:
+
+- The errors are made visible on the page.
+- Navigation is blocked if there are errors on the current page or previous pages.
+- If errors are only on future pages (with `"all"`), navigation is not blocked, but the errors will be shown when the user navigates to those pages.
 
 ### Using NavigationBar with validation
 
