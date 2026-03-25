@@ -161,7 +161,7 @@ Det vil se omtrent slik ut
 
 Utover å sette bredde på `grid`, `innerGrid` og `labelGrid`, kan du også styre bredden på **valideringsmeldinger**  ved hjelp av `validationGrid`.
 
-Hvis `validationGrid` er fjernet, vil valideringsmeldinger bruke samme bredde som `innerGrid` (standard oppførsel).
+Hvis `validationGrid` mangler, vil valideringsmeldinger bruke samme bredde som `innerGrid` (standard oppførsel).
 
 Verdiene for `validationGrid` er de samme som for `innerGrid` (`xs`, `sm`, `md`, `lg`, `xl`).
 
