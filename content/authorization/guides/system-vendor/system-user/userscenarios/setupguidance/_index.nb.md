@@ -10,6 +10,8 @@ Veiledningen dekker hvor mange systembrukere du trenger, hvordan du fordeler til
 
 Bruk tabellen under for å finne scenarioet som passer situasjonen din, og følg de detaljerte anbefalingene lenger ned.
 
+Se også [wizard](https://systemuserwizard.azurewebsites.net/) som dekker noe av dette.
+
 ## Hurtigoversikt
 
 | Scenario | Antall systembrukere | Type systembruker | Tilgangspakker per bruker |

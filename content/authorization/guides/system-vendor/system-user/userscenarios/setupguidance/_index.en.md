@@ -11,6 +11,8 @@ The guidance covers how many system users you need, how to distribute access pac
 
 Use the table below to find the scenario that matches your situation, then follow the detailed recommendations further down.
 
+See also the [wizard](https://systemuserwizard.azurewebsites.net/) which covers some of this.
+
 ## Quick reference
 
 | Scenario | Number of system users | System user type | Access packages per user |
