@@ -1,6 +1,6 @@
 ---
 title: Input
-description: Inputfelt brukes når brukeren skal føre inn tekst eller tall. 
+description: Lite tekstfelt brukes når brukeren skal føre inn tekst eller tall. 
 weight: 30
 toc: true
 ---
@@ -8,14 +8,14 @@ toc: true
 ## Vanlig inputfelt
 
 ### Retningslinjer:
-- Et inputfelt skal alltid ha en tilhørende label med forklarende tekst.
+- Lite tekstfelt skal alltid ha en tilhørende label med forklarende tekst.
 - Ta en vurdering på om ekstra beskrivelser og hjelpetekster må kobles til input elementet.
-- To inputfelt kan plasseres ved siden av hverandre dersom de på et eller annet vis hører sammen. Se eksempel under.
+- To tekstfelt kan plasseres ved siden av hverandre dersom de på et eller annet vis hører sammen. Se eksempel under.
 - Deaktivert felt bør unngås. Dersom et felt ikke kan redigeres bør informasjonen heller presenteres i tekst. 
 
 ### Eksempel på bruk:
 
-<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://embed.figma.com/proto/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio-Komponenter?page-id=&node-id=8014-37377&node-type=frame&viewport=973%2C657%2C0.32&scaling=scale-down&content-scaling=fixed&starting-point-node-id=8014%3A37377&embed-host=share" allowfullscreen></iframe>
+<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://embed.figma.com/design/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio---Prototype-Kit?m=auto&node-id=12296-25230&embed-host=share" allowfullscreen></iframe>
 
 ---
 
@@ -66,8 +66,7 @@ inputfelt gjelder.
 
 ### Eksempel på bruk:
 
-<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://embed.figma.com/proto/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio-Komponenter?page-id=7669%3A77399&node-id=8158-45097&node-type=frame&viewport=895%2C-77%2C0.32&scaling=scale-down&content-scaling=fixed&starting-point-node-id=8014%3A37377&embed-host=share" allowfullscreen></iframe>
-
+<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://embed.figma.com/design/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio---Prototype-Kit?m=auto&node-id=12296-26585&embed-host=share
 ---
 
 ## Adresse
@@ -76,6 +75,6 @@ ut automatisk basert på postnr-input.
 
 ### Eksempel på bruk:
 
-<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://embed.figma.com/proto/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio-Komponenter?page-id=7669%3A77399&node-id=8134-44753&node-type=frame&viewport=1038%2C88%2C0.45&scaling=scale-down&content-scaling=fixed&starting-point-node-id=8014%3A37377&embed-host=share" allowfullscreen></iframe>
+<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://embed.figma.com/design/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio---Prototype-Kit?m=auto&node-id=12298-82778&embed-host=share" allowfullscreen></iframe>
 
 ---
