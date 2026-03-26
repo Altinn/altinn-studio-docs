@@ -20,7 +20,7 @@
         "tags": [
           "Decision"
         ],
-        "summary": "Decision Point endpoint to authorize Xacml Context Requests",
+        "summary": "Internal endpoint to authorize Xacml Context Requests",
         "requestBody": {
           "description": "A Generic model",
           "content": {
@@ -66,7 +66,7 @@
     "/authorize": {
       "post": {
         "tags": [
-          "Decision"
+          "Authorize"
         ],
         "summary": "External endpoint for autorization",
         "requestBody": {
