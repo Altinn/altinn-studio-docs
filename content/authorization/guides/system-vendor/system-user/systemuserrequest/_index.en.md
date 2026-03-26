@@ -22,6 +22,11 @@ This applies to a system user for your own system, where the system acts on beha
 
 This is the preferred method where you, as the SBSL, initiate the creation via API.
 
+  * You must know the organization number (`partyOrgNo`) of the end user customer.
+  * You must have defined which access packages (`accessPackages`) or individual rights (`rights`) the system user needs.
+  * (Optional) If `redirectUrl` is to be used, this URL must be pre-registered in your system.
+  * (Optional) If you want a specific name for the system user that is created, `integrationTitle` can be set. If `integrationTitle` is not set, the system user will have the same name as the system.
+
 1.  **Initiate request:** Send an HTTP POST request to the API endpoint.
 
      * **Test (TT02):** `https://platform.tt02.altinn.no/authentication/api/v1/systemuser/request/vendor`
@@ -33,6 +38,7 @@ This is the preferred method where you, as the SBSL, initiate the creation via A
     {
     "systemId": "991825827_smartcloud",
     "partyOrgNo": "314248295",
+    "integrationTitle": "SmartCloud Tax",
     "rights": [
       {
         "resource": [
@@ -103,6 +109,7 @@ This applies to a system user for a system that will act on behalf of the end-us
       {
     "systemId": "312605031_SuperRegnskap",
     "partyOrgNo": "310495670",
+    "integrationTitle": "SuperRegnskap Auditor",
     "accessPackages": [
       {
         "urn": "urn:altinn:accesspackage:ansvarlig-revisor"

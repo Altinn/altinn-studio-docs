@@ -36,6 +36,7 @@ Altinn Authorization supports different types of users, which is important to co
   - Clients authenticated via Maskinporten
   - A system user is owned by an organization that is a customer/user of a supplier system. The system user is owned by the customer, while the system is owned by the supplier
   - The supplier owns the Maskinporten client and authenticates. This allows the system to impersonate the system user (including rights the system user has been delegated from the customer)
+  - System user support in Altinn Studio apps requires `Altinn.App.Api` and `Altinn.App.Core` version `v8.6.0` or later
   - The apps API only accepts Maskinporten tokens that have been exchanged for an Altinn token (in the future, we will support Maskinporten tokens directly)
 
 {{% notice warning %}}
@@ -49,10 +50,10 @@ this must be done manually. This can, for example, be achieved using ASP.NET Cor
 
 The `Altinn.App.Core` library provides abstractions for retrieving information about the logged-in user.
 By default, there are no restrictions on which user types an app accepts, but you can enforce such restrictions yourself in middleware or a validator.
-Before version `v8.6` of the app libraries, it was common to, for example, retrieve the user ID directly from `HttpContext`,
+Before version `v8.6.0` of the app libraries, it was common to, for example, retrieve the user ID directly from `HttpContext`,
 but this could yield unexpected results if the incoming request was authenticated as a system user.
 
-From version `v8.6` of `Altinn.App.Core`, the `IAuthenticationContext` and `Authenticated` types are available:
+From version `v8.6.0` of `Altinn.App.Core`, the `IAuthenticationContext` and `Authenticated` types are available:
 
 ```csharp
 namespace Altinn.App.Core.Features.Auth;
@@ -177,6 +178,10 @@ app.Use(
 ### ✅ System users
 
 In this example, we only allow requests from system users:
+
+{{% notice info %}}
+This requires the app to use `Altinn.App.Api` and `Altinn.App.Core` version `v8.6.0` or later.
+{{% /notice %}}
 
 {{% notice info %}}
 Note that this approach will also block unauthenticated requests.

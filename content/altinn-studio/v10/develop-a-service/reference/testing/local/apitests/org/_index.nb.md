@@ -1,37 +1,36 @@
 ---
 draft: true
-title: API test org
-linktitle: Org
-description: Når du kjører applikasjonene lokalt sammen med den lokale testplattformen kan du teste API som applikasjon eksponerer.
+title: API-test som organisasjon
+linktitle: Organisasjon
+description: Når du kjører applikasjonene lokalt sammen med den lokale testplattformen kan du teste API-er som applikasjonen eksponerer.
 toc: true
+tags: [needsReview, translate-to-english]
 ---
 
-Appen har en rekke API som applikasjonseier/tjenesteeier kan bruke.
-Beskrivelsen du finner her er laget for [Postman](https://www.getpostman.com/) hvor vi har brukt testapplikasjonen
-[MVA testapp](https://dev.altinn.studio/repos/ttd/mva).
+Appen har en rekke API-er som applikasjonseier/tjenesteeier kan bruke.
+Beskrivelsen du finner her er laget for [Postman](https://www.getpostman.com/) hvor vi har brukt testapplikasjonen [MVA testapp](https://dev.altinn.studio/repos/ttd/mva).
 
-Du kan laste ned Postman-prosjektet fra
-[her](https://raw.githubusercontent.com/Altinn/altinn-studio/master/src/test/Postman/collections/Altinn%20Studio%20App%20Local%20Testing.postman_collection.json)
-(høyreklikk og velg "save as").
+Du kan laste ned Postman-prosjektet fra [her](https://raw.githubusercontent.com/Altinn/altinn-studio/master/src/test/Postman/collections/Altinn%20Studio%20App%20Local%20Testing.postman_collection.json) (høyreklikk og velg "save as").
 
-## Autentisering av tjenesteier org
-I testmiljø og produksjon bruker systemet maskinporten for å autentisere organisasjoner som eier apper.
+## Autentisere tjenesteeierorganisasjon
 
-Testplattformen for lokal testing tilbyr et enkelt api for å autentisere organisjonen som er ansvarlig.
+I testmiljø og produksjon bruker systemet Maskinporten for å autentisere organisasjoner som eier apper.
 
-Du trenger bare å oppgi tjenesteeier kode (som f.eks brg, skd osv)
+Testplattformen for lokal testing tilbyr et enkelt API for å autentisere organisasjonen som er ansvarlig.
 
-Url: http://local.altinn.cloud/Home/GetTestOrgToken/ttd   (ttd needs to be replaced with the org you want to authenticate)
+Du trenger bare å oppgi tjenesteeierkode (som f.eks brg, skd osv)
 
-The response is a JWT token that should be used as a Authorization header.
+URL: http://local.altinn.cloud/Home/GetTestOrgToken/ttd (ttd må erstattes med organisasjonen du vil autentisere)
+
+Responsen er et JWT-token som skal brukes som en Authorization-header.
 
 ![Login](login.png "Login request")
 
+## Multipart-instansiering
 
-## Multipart instansiering
-Applikasjonene støtter at du instansierer instanser til aktører. Personer eller organsiasjoner.
+Applikasjonene støtter at du instansierer instanser til aktører. Personer eller organisasjoner.
 
-Url: http://local.altinn.cloud/ttd/mva/instances
+URL: http://local.altinn.cloud/ttd/mva/instances
 
 Metode: POST
 
@@ -40,9 +39,7 @@ Metode: POST
 - Authorization: Bearer + jwttoken
 - Content-Type: multipart/form-data; boundary="abcdefg"
 
-
-![headers](headers_multipart_instance.png "Headers for multipart instansiering")
-
+![headers](headers_multipart_instance.png "Headers for multipart-instansiering")
 
 **Eksempel Body:**
 
@@ -77,9 +74,9 @@ Content-Disposition: form-data; name="RF0002"
 --abcdefg--
 ```
 
-### Example Response
+### Eksempelrespons
 
-The below response show how an instance was created for a given organization.
+Responsen nedenfor viser hvordan en instans ble opprettet for en gitt organisasjon.
 
 ```json {linenos=inline,hl_lines=[6,44]}
 {

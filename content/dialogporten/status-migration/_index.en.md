@@ -17,8 +17,8 @@ Live sync: All changes[^1] (forms, messages) show up in Dialogporten.
 
 | Source | Migrated back to |
 |----------|----------|
-| A2-Correspondence | 01.12.2024 |
-| A2 archived forms / A3-app instances | 01.01.2025 |
+| A2-Correspondence | 01.01.2024 |
+| A2 archived forms / A3-app instances | 01.01.2024 |
 
 ## Goals and plans
 
@@ -39,7 +39,7 @@ All changes done directly to Dialogporten's API is available immediately.
 Typically used where the service owner either has their own platform, or handle dialogs outside the default functionality of Altinn Correspondence or Altinn Studio/apps.
 
 ### ⚠ A2 Correspondence - Historic
-Currently migrated back to 1st of December 2024. Older correspondence will be migrated later.
+Currently migrated back to 1st of January 2024. Older correspondence will be migrated later.
 
 Manual process. Historic correspondence is migrated from Altinn 2 correspondence to Altinn 3 correspondence. The correspondences are then migrated to Dialogporten in a separate process.
 
@@ -54,18 +54,25 @@ See [correspondence data-migration](https://docs.altinn.studio/en/correspondence
 All new messages created in Altinn 3 correspondence are available in Dialogporten immediately. No migration needed.
 
 ### ⚠ A3 App instances - Historic
-Migrated back to 1st of January 2025. Older app instances will be migrated later.
+Migrated back to 1st of January 2024. Older app instances will be migrated later.
 
 ### ✔ A3 App instances - Live
 New app instances created in Altinn 3 are available in Dialogporten immediately. Changes are synced in real-time.
 
 ### ⚠ A2 Archived forms - Historic
-Migrated back to 1st of January 2025. Older archived forms will be migrated later.
+Migrated back to 1st of January 2024. Older archived forms will be migrated later.
 
 ### ✔ A2 Archived forms - Live
-New app instances created in Altinn 2 are migrated in batches every 5 minutes.
+Newly archived app instances created in Altinn 2 are migrated in batches every 5 minutes.
+Forms that are still being filled out are not migrated until they are archived.
 
 ## Changelog
+11.03.2026: Clarified that forms still being filled out in Altinn 2 are not migrated until they are archived.
+
+24.02.2026: Migration of 2024 completed.
+
+20.12.2025:
+- A2 archived form og A3 app-instances migrated back to 01.12.2024 (was 01.01.2025). 
 
 01.12.2025:
 - Problems with historic A2-correspondence have been resolved. Both missing messages and wrong dates have been corrected.

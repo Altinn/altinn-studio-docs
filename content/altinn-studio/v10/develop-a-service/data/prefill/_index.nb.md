@@ -3,7 +3,7 @@ draft: true
 title: Forhåndsutfylling
 linktitle: Forhåndsutfylling
 description: Forhåndsutfylle data i appen
-tags: [needsReview, needsTranslation]
+tags: [needsReview]
 
 aliases:
 - /nb/altinn-studio/guides/prefill/

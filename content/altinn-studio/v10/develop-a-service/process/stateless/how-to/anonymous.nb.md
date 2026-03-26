@@ -4,6 +4,7 @@ linktitle: Anonym tilgang
 description: Følg denne guiden for å konfigurere tilgang til appen uten innlogging.
 draft: true
 weight: 2
+tags: [needsReview]
 ---
 
 ## Før du starter
