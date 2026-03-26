@@ -5,24 +5,12 @@
     "version": "1.0.0"
   },
   "servers": [
-        {
-      "url": "https://platform.at22.altinn.cloud/accessmanagement/api/v1/",
-      "description": "AT22"
-    },
     {
-      "url": "https://platform.at23.altinn.cloud/accessmanagement/api/v1/",
-      "description": "AT23"
-    },
-    {
-      "url": "https://platform.at24.altinn.cloud/accessmanagement/api/v1/",
-      "description": "AT24"
-    },
-    {
-      "url": "https://platform.tt02.altinn.no/accessmanagement/api/v1/",
+      "url": "https://platform.tt02.altinn.no/",
       "description": "Integration Test"
     },
     {
-      "url": "https://platform.altinn.no/accessmanagement/api/v1/",
+      "url": "https://platform.altinn.no/",
       "description": "Production"
     }
   ],
@@ -88,6 +76,132 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/RequestStatus"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/accessmanagement/api/v1/serviceowner/delegationrequests/resource": {
+      "post": {
+        "tags": [
+          "Request"
+        ],
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "resource",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "nullable": true
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "nullable": true
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "nullable": true
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestDto"
                 }
               }
             }
@@ -278,10 +392,10 @@
             "nullable": true
           },
           "resource": {
-            "$ref": "#/components/schemas/RequestRefrenceDto"
+            "$ref": "#/components/schemas/RequestReferenceDto"
           },
           "package": {
-            "$ref": "#/components/schemas/RequestRefrenceDto"
+            "$ref": "#/components/schemas/RequestReferenceDto"
           }
         }
       },
@@ -361,10 +475,10 @@
             "format": "date-time"
           },
           "resource": {
-            "$ref": "#/components/schemas/RequestRefrenceDto"
+            "$ref": "#/components/schemas/RequestReferenceDto"
           },
           "package": {
-            "$ref": "#/components/schemas/RequestRefrenceDto"
+            "$ref": "#/components/schemas/RequestReferenceDto"
           },
           "links": {
             "$ref": "#/components/schemas/RequestLinks"
@@ -391,7 +505,7 @@
         },
         "nullable": true
       },
-      "RequestRefrenceDto": {
+      "RequestReferenceDto": {
         "type": "object",
         "properties": {
           "id": {
