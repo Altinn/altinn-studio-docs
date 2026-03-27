@@ -267,19 +267,6 @@ For SMS testing in a test environment, the phone number must be whitelisted. Ple
 }
 ```
 
-OR
-
-```json
-{
-  "instanceOwner": {
-    "username": "epost:jens.jensen@digdir.no"
-  },
-  "notification": {
-    "notificationChannel": 0
-  }
-}
-```
-
 #### Legacy username and password
 
 ```json
