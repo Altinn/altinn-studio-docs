@@ -254,19 +254,6 @@ For test av SMS i et testmiljø må nummeret hvitelistes. Ta kontakt dersom dett
 
 ### Selvidentifisert bruker
 
-#### Utfaset brukernavn og passord
-
-```json
-{
-  "instanceOwner": {
-    "externalIdentifier": "urn:altinn:person:legacy-selfidentified:jensjensen"
-  },
-  "notification": {
-    "notificationChannel": 0
-  }
-}
-```
-
 #### ID-porten e-post
 
 ```json
@@ -280,12 +267,12 @@ For test av SMS i et testmiljø må nummeret hvitelistes. Ta kontakt dersom dett
 }
 ```
 
-ELLER
+#### Utfaset brukernavn og passord
 
 ```json
 {
   "instanceOwner": {
-    "username": "epost:jens.jensen@digdir.no"
+    "externalIdentifier": "urn:altinn:person:legacy-selfidentified:jensjensen"
   },
   "notification": {
     "notificationChannel": 0
