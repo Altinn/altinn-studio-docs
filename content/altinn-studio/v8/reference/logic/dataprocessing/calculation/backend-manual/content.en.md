@@ -1,4 +1,4 @@
-﻿---
+---
 headless: true
 hidden: true
 ---
@@ -41,4 +41,4 @@ The rules for the fields in the data model are set in the `calculations` object,
 
 Unlike validation using expressions, calculations using expressions do not support lists.
 
-A rule consists of a **expression**, which is a dynamic expression that returns any number, boolean or string value. See [dynamic expressions](/en/altinn-studio/v8/reference/logic/expressions/) for more information.
+A rule consists of an **expression**, which is a dynamic expression that returns a number, boolean, or string value. See [dynamic expressions](/en/altinn-studio/v8/reference/logic/expressions/) for more information.
