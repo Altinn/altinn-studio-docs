@@ -21,7 +21,6 @@ If this is not done, the updated data won't be visible for the user until they r
 {{% /notice%}}
 
 {{<content-version-selector classes="border-box">}}
-{{% insert "content/altinn-studio/v8/reference/logic/dataprocessing/calculation/backend-manual/_index.nb.md" %}}
 {{<content-version-container version-label="v7">}}
 In version 7 the way to do custom code instantiation has changed. We now use an dependency injection based approach insted of overriding methods. If you previously used to place your custom code in the _ProcessDataWrite_ and ProcessDataWrite_ methods in the _DataProcessingHandler.cs_ class you will see that it's mostly the same.
 
