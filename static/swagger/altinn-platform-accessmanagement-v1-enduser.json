@@ -6,16 +6,16 @@
   },
   "servers": [
     {
-      "url": "https://platform.tt02.altinn.no/",
+      "url": "https://platform.tt02.altinn.no/accessmanagement/api/v1/",
       "description": "Integration Test"
     },
     {
-      "url": "https://platform.altinn.no/",
+      "url": "https://platform.altinn.no/accessmanagement/api/v1/",
       "description": "Production"
     }
   ],
   "paths": {
-    "/accessmanagement/api/v1/enduser/authorizedparties": {
+    "/enduser/authorizedparties": {
       "get": {
         "tags": [
           "AuthorizedParties"
@@ -143,7 +143,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/clientdelegations/my/clients": {
+    "/enduser/clientdelegations/my/clients": {
       "get": {
         "tags": [
           "Client Delegation"
@@ -351,7 +351,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/clientdelegations/my/clientproviders": {
+    "/enduser/clientdelegations/my/clientproviders": {
       "get": {
         "tags": [
           "Client Delegation"
@@ -491,7 +491,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/clientdelegations/clients": {
+    "/enduser/clientdelegations/clients": {
       "get": {
         "tags": [
           "Client Delegation"
@@ -597,7 +597,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/clientdelegations/agents": {
+    "/enduser/clientdelegations/agents": {
       "get": {
         "tags": [
           "Client Delegation"
@@ -886,7 +886,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages": {
+    "/enduser/clientdelegations/agents/accesspackages": {
       "get": {
         "tags": [
           "Client Delegation"
@@ -1213,7 +1213,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/clientdelegations/clients/accesspackages": {
+    "/enduser/clientdelegations/clients/accesspackages": {
       "get": {
         "tags": [
           "Client Delegation"
@@ -1302,7 +1302,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/connections": {
+    "/enduser/connections": {
       "get": {
         "tags": [
           "Connections"
@@ -1652,7 +1652,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/connections/accesspackages": {
+    "/enduser/connections/accesspackages": {
       "get": {
         "tags": [
           "Connections"
@@ -1988,7 +1988,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/connections/accesspackages/delegationcheck": {
+    "/enduser/connections/accesspackages/delegationcheck": {
       "get": {
         "tags": [
           "Connections"
@@ -2099,7 +2099,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/connections/roles": {
+    "/enduser/connections/roles": {
       "get": {
         "tags": [
           "Connections"
@@ -2213,7 +2213,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/connections/resources": {
+    "/enduser/connections/resources": {
       "get": {
         "tags": [
           "Connections"
@@ -2432,7 +2432,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/connections/resources/rights": {
+    "/enduser/connections/resources/rights": {
       "get": {
         "tags": [
           "Connections"
@@ -2790,7 +2790,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/connections/resources/delegationcheck": {
+    "/enduser/connections/resources/delegationcheck": {
       "get": {
         "tags": [
           "Connections"
@@ -2877,7 +2877,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/connections/resources/instances": {
+    "/enduser/connections/resources/instances": {
       "get": {
         "tags": [
           "Connections"
@@ -3113,7 +3113,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/connections/resources/instances/rights": {
+    "/enduser/connections/resources/instances/rights": {
       "get": {
         "tags": [
           "Connections"
@@ -3494,7 +3494,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/connections/resources/instances/delegationcheck": {
+    "/enduser/connections/resources/instances/delegationcheck": {
       "get": {
         "tags": [
           "Connections"
@@ -3590,7 +3590,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/connections/resources/instances/users": {
+    "/enduser/connections/resources/instances/users": {
       "get": {
         "tags": [
           "Connections"
@@ -3702,7 +3702,112 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/request/draft": {
+    "/enduser/request": {
+      "get": {
+        "tags": [
+          "Request"
+        ],
+        "parameters": [
+          {
+            "name": "party",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-Page-Size",
+            "in": "header",
+            "schema": {
+              "type": "integer",
+              "format": "uint32"
+            }
+          },
+          {
+            "name": "X-Page-Number",
+            "in": "header",
+            "schema": {
+              "type": "integer",
+              "format": "uint32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/enduser/request/draft": {
       "get": {
         "tags": [
           "Request"
@@ -3782,7 +3887,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/request/draft/confirm": {
+    "/enduser/request/draft/confirm": {
       "put": {
         "tags": [
           "Request"
@@ -3851,7 +3956,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/request/sent": {
+    "/enduser/request/sent": {
       "get": {
         "tags": [
           "Request"
@@ -3972,7 +4077,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/request/sent/count": {
+    "/enduser/request/sent/count": {
       "get": {
         "tags": [
           "Request"
@@ -4078,7 +4183,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/request/sent/withdraw": {
+    "/enduser/request/sent/withdraw": {
       "put": {
         "tags": [
           "Request"
@@ -4147,7 +4252,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/request/received": {
+    "/enduser/request/received": {
       "get": {
         "tags": [
           "Request"
@@ -4268,7 +4373,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/request/received/count": {
+    "/enduser/request/received/count": {
       "get": {
         "tags": [
           "Request"
@@ -4374,116 +4479,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/request/received/reject": {
-      "put": {
-        "tags": [
-          "Request"
-        ],
-        "parameters": [
-          {
-            "name": "party",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "id",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RequestDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AltinnProblemDetails"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Not Found",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/accessmanagement/api/v1/enduser/request/received/approve": {
+    "/enduser/request/received/approve": {
       "put": {
         "tags": [
           "Request"
@@ -4623,8 +4619,8 @@
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/request": {
-      "get": {
+    "/enduser/request/received/reject": {
+      "put": {
         "tags": [
           "Request"
         ],
@@ -4645,22 +4641,6 @@
             "schema": {
               "type": "string",
               "format": "uuid"
-            }
-          },
-          {
-            "name": "X-Page-Size",
-            "in": "header",
-            "schema": {
-              "type": "integer",
-              "format": "uint32"
-            }
-          },
-          {
-            "name": "X-Page-Number",
-            "in": "header",
-            "schema": {
-              "type": "integer",
-              "format": "uint32"
             }
           }
         ],
@@ -4724,11 +4704,31 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
     },
-    "/accessmanagement/api/v1/enduser/request/resource": {
+    "/enduser/request/resource": {
       "post": {
         "tags": [
           "Request"
