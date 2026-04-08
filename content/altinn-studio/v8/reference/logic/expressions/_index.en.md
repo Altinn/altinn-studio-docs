@@ -1121,7 +1121,7 @@ If `null` is passed to the function, it returns `null`.
 
 {{% expandlarge id="func-divide" header="divide" %}}
 The `divide` function returns the quotient of two numbers,
-where number is the dividend and the second one is the divisor.
+where the first number is the dividend and the second one is the divisor.
 
 Example:
 ```json
