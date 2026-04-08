@@ -41,8 +41,18 @@ public class ExampleServiceTask : IServiceTask
 
 ```
 
+Registrer implementasjonen din i `Program.cs` slik:
+
+```C#
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+    // Register your apps custom service implementations here.
+    services.AddTransient<IServiceTask, ExampleServiceTask>();
+}
+```
+
 ### Legg til en serviceTask-node i BPMN-prosessen. 
-Verdien i taskType må være like Type-property på C#-implementasjonen.
+Verdien i taskType må være lik Type-property på C#-implementasjonen.
 
 ```xml
 <bpmn:serviceTask id="ExampleServiceTask" name="Example service task">

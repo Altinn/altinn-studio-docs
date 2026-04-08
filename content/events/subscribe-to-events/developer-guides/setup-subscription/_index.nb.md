@@ -80,13 +80,27 @@ Når du abonnerer på en app-hendelse er formatet for kildefilter `https://digdi
 #### subjectFilter
 - filter for cloud event-subjektet
 
+{{% notice warning %}}
+Utelat denne egenskapen eller sett den til `null` for å abonnere på alle subjekter. Å sette den til en tom streng (`""`) vil føre til at det ikke leveres hendelser.
+{{% /notice %}}
+
 #### alternativeSubjectFilter
 - filter for cloud event-alternativsubjektet
 
 #### typeFilter
 - filter for cloud event-typen
 
-Utelat denne egenskapen hvis du vil abonnere på alle hendelsestyper for den gitte kilden og/eller ressursen
+Utelat denne egenskapen eller sett den til `null` hvis du vil abonnere på alle hendelsestyper for den gitte kilden og/eller ressursen.
+
+{{% notice warning %}}
+Å sette `typeFilter` til en tom streng (`""`) i stedet for å utelate den eller bruke `null` vil føre til at abonnementet feiler med å matche hendelser.
+{{% /notice %}}
+
+{{% notice info %}}
+__Tips:__ Når du spør mot events-APIet, returneres kun 2 resultater som standard. Hvis ressursen din deles med andre tjenester (f.eks. Dialogporten), kan disse hendelsene vises først slik at appens hendelser ikke er synlige. Bruk et spesifikt `typeFilter` for å få pålitelige resultater, for eksempel:
+
+`&type=app.instance.process.completed&size=10`
+{{% /notice %}}
 
 ## Respons
 

@@ -34,6 +34,6 @@ Du bør legge til ekstra tilgangskontroller hvis appen din
 - inneholder data som kun skal være lesbare
 
 ### Les mer
-- [Veiledning for å konfigurere beskyttede datatyper](/nb/altinn-studio/v10/develop-a-service/restricted-data/)
+- [Veiledning for å konfigurere beskyttede datatyper](/nb/altinn-studio/v10/develop-a-service/data/restricted-data/)
 - [Mer om applicationmetadata.json](/nb/api/models/app-metadata/#complete-example) (kun på engelsk foreløpig)
 - [Mer om autorisasjonspolicy og action-attributter](/nb/altinn-studio/v10/develop-a-service/reference/configuration/authorization/#action-attributter)

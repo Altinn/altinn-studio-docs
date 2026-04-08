@@ -33,7 +33,7 @@ ID-porten-autentisering bør brukes av sluttbrukersystemer som ønsker å få ti
 Følgende generelle trinn må utføres for å få tilgang til sluttbruker-API-et som en person:
 
 1. Opprett en ID-porten-integrasjon (OAuth2-klient)
-2. Provisiones scope `digdir:dialogporten` på klienten, samt eventuelle tilleggs scope som kreves for tilgang til innholdsdata (dvs. `altinn:correspondence.read`)
+2. Provisjoner scope `digdir:dialogporten` på klienten, samt eventuelle ekstra scope som kreves for tilgang til innholdsdata (dvs. `altinn:correspondence.read` og `altinn:instances.read`)
 3. Omdiriger brukeren til autorisasjonsendepunktet i ID-porten, hvor de autentiserer seg og samtykker til at integrasjonen din får tilgang til å kalle Dialogporten på dine vegne
 4. På omdirigeringsendepunktet ditt bruker du autorisasjonskoden som er gitt mot ID-porten token-endepunktet for å få et tilgangstoken
 5. Utfør forespørsler til [sluttbruker-API](/nb/dialogporten/reference/openapi/) ved hjelp av tilgangstokenet i en `Authorization: Bearer <token>` header.
@@ -52,7 +52,7 @@ For detaljerte trinn om hvordan du oppretter en ID-porten-integrasjon og bruker 
 
 Systembrukere er den nye og foretrukne autentiseringsmetoden der en organisasjon kan opprette en "virtuell bruker", delegere tjenesterettigheter til den og knytte den til et system - enten selveid eller levert av en tredjepart. Dette er etterfølgeren til "virksomhetsbruker" i Altinn 2, og gir en sikrere og mer brukervennlig onboarding-prosess for kunder og sluttbrukere.
 
-For detaljerte trinn om hvordan du oppretter og bruker en systembruker, se lenken nedenfor.
+For detaljerte trinn om hvordan du oppretter og bruker en systembruker, se lenken nedenfor. Se spesielt delen av guiden .
 
 **Les mer**
 

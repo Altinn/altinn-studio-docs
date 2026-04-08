@@ -1,30 +1,30 @@
 ---
 draft: true
 title: Dataprosessering
-description: Hvordan legge til kalkuleringer og annen dataprosessering?
-tags: [needsReview, needsTranslation]
+description: Slik legger du til beregninger og annen dataprosessering
+tags: [needsReview]
 toc: true
 ---
 
-Dataprosessering kjøres på serveren, og er basert på input fra brukeren/skjemadata. Dataprosessering kan være rent matematiske kalkuleringer, det kan også være å overføre verdier mellom felter, resultater av API-kall, osv.
+Serveren kjører dataprosessering basert på inndata fra brukeren/skjemadata. Dataprosessering kan være rent matematiske beregninger, overføring av verdier mellom felter, resultater av API-kall, osv.
 
-Dataprosessering kjøres hver gang data lagres, og dermed hver gang en bruker har gjort en endring.
+Serveren kjører dataprosessering hver gang du lagrer data, og dermed hver gang en bruker har gjort en endring.
 
-For å sikre optimal opplevelse og kontroll har applikasjonsmalen to forskjellige hendelser hvor logikk kan plasseres:
+For å sikre optimal opplevelse og kontroll har app-malen to forskjellige hendelser hvor du kan plassere logikk:
 
-- ProcessDataWrite kjøres når data lagres
-- ProcessDataRead kjøres når data leses fra databasen
+- **ProcessDataWrite:** Kjører når du lagrer data.
+- **ProcessDataRead:** Kjører når appen leser data fra databasen.
 
 {{%notice info%}}
-VIKTIG: Når en dataprosessering er kjørt som har oppdatert dataene på server, må frontend få beskjed om dette, slik at de oppdaterte dataene kan lastes inn. For å gjøre dette må `ProcessDataWrite`-metoden returnere `true` hvis noen av dataene har blitt oppdatert. Hvis dette ikke gjøres, vil de oppdaterte dataene ikke være synlig for brukeren før de eventuelt laster inn siden på nytt.
+VIKTIG: Hvis dataprosesseringen har oppdatert data på serveren, må du gi frontend beskjed slik at brukeren får se de oppdaterte dataene. Gjør dette ved å la `ProcessDataWrite`-metoden returnere `true` når data er oppdatert. Hvis du ikke gjør dette, ser ikke brukeren de oppdaterte dataene før de laster inn siden på nytt.
 {{% /notice%}}
 
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="v7">}}
-I versjon 7 har vi endret måten forhåndsutfylling med egendefinert kode gjøres på. Vi bruker nå _dependency injection_ i stedet for overstyring av metoder. Hvis du tidligere plasserte koden din i _ProcessDataRead_ og _ProcessDataWrite_-metodene i _DataProcessingHandler.cs_-klassen, vil du oppleve at det er mer eller mindre det samme som nå gjøres.
+I versjon 7 har vi endret måten du gjør forhåndsutfylling med egendefinert kode på. Vi bruker nå _dependency injection_ i stedet for overstyring av metoder. Hvis du tidligere plasserte koden i _ProcessDataRead_ og _ProcessDataWrite_-metodene i _DataProcessingHandler.cs_-klassen, vil du oppleve at det er mer eller mindre det samme som nå.
 
-1. Opprett en klasse som implementerer `IDataProcessor`-grensesnittet som ligger i `Altinn.App.Core.Features.DateProcessing`-navnerommet. Du kan navngi og plassere filene i den mappestrukturen du selv ønsker i prosjektet ditt. Men vi anbefaler at du bruker meningsfulle navnerom som i et hvilket som helst annet .Net-prosjekt. Eksempel på kode fra app som prosesserer og populerer forskjellige data under lagring:
+1. Opprett en klasse som implementerer `IDataProcessor`-grensesnittet som ligger i `Altinn.App.Core.Features.DateProcessing`-navneområdet. Du kan navngi og plassere filene i den mappestrukturen du selv ønsker i prosjektet. Men vi anbefaler at du bruker meningsfulle navneområder som i ethvert annet .Net-prosjekt. Eksempel på kode fra app som behandler og fyller ut forskjellige data under lagring:
     ```C#
     public async Task<bool> ProcessDataWrite(
         Instance instance, Guid? dataId, object data)
@@ -76,16 +76,16 @@ I versjon 7 har vi endret måten forhåndsutfylling med egendefinert kode gjøre
         return await Task.FromResult(edited);
     }
     ```
-2. Registrer din implementering i _Program.cs_-klassen
+2. Registrer implementeringen i _Program.cs_-klassen
     ```C#
     services.AddTransient<IDataProcessor, DataProcessor>();
     ```
-    Dette sørger for at din kode er kjent for appen, og at koden kjøres når den skal.
+    Dette sørger for at koden er kjent for appen, og at koden kjøres når den skal.
 {{</content-version-container>}}
 {{<content-version-container version-label="v4, v5, v6">}}
-Dataprosessering kodes i C#, i filen `DataProsessingHandler.cs`. Denne filen kan redigeres enklest ved å laste ned kildekoden til appen og redigere på egen maskin, for eksempel i Visual Studio Code. Datamodellen med skjemadata er tilgjengelig og kan redigeres/oppdateres etter ønske/behov.
+Du skriver dataprosessering i C#, i filen `DataProsessingHandler.cs`. Du redigerer denne filen enklest ved å laste ned kildekoden til appen og redigere på egen maskin, for eksempel i Visual Studio Code. Datamodellen med skjemadata er tilgjengelig, og du kan redigere/oppdatere den etter ønske/behov.
 
-Eksempel på kode fra app som prosesserer og populerer forskjellige data under lagring.
+Eksempel på kode fra app som behandler og fyller ut forskjellige data under lagring.
 
 ```C#
 public async Task<bool> ProcessDataWrite(

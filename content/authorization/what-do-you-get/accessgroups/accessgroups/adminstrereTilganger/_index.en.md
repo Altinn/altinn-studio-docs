@@ -14,6 +14,9 @@ Aliases:
 |[Access management](#access-management)|
 |[Main administrator](#main-administrator)|
 |[Maskinporten administrator](#maskinporten-administrator)|
+|[Access manager for indivdual messages, -forms and -dialogues](#access-manager-for-individual-messages--forms-and-dialogues)|
+    
+
 
 ### Client administrator
 This role allows the user to manage access on behalf of clients and customers.
@@ -31,6 +34,10 @@ This access package allows users to manage all access rights for the organizatio
 This access package allows the user to manage access to Maskinporten scopes.  
 *urn:altinn:accesspackage:maskinporten-administrator*
 
+### Access manager for individual messages, -forms and dialogues 
+Access management of individual messages, forms and dialogues.  
+*urn:altinn:accesspackage:tilgangsstyring-enkeltinstanser*
+
 ## Which Roles from the Entity Register Are Granted Access to the Package
 |**Access package**|**Entity register roles**|**Delegable**|
 |---|---|---|
@@ -38,3 +45,4 @@ This access package allows the user to manage access to Maskinporten scopes.
 |Access management|General Manager, Chair of the Board, Owner, Partner with Full Liability, Partner with Limited Liability, General Partner, Managing Shipowner, Bankruptcy Trustee, Contact Person for NUF|Yes|
 |Main administrator|General Manager, Chair of the Board, Owner, Partner with Full Liability, Partner with Limited Liability, General Partner, Managing Shipowner|Yes|
 |Maskinporten administrator|General Manager, Chair of the Board, Owner, Partner with Full Liability, Partner with Limited Liability, General Partner, Managing Shipowner, Bankruptcy Trustee, Contact Person for NUF|Yes|
+|Access manager for specific messages, forms, and dialogues| General Manager, Chair of the Board, Owner, Partner with Full Liability, Partner with Limited Liability, General Partner, Managing Shipowner, Bankruptcy Trustee, Contact Person for NUF|Yes|

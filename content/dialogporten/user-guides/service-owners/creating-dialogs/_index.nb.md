@@ -177,6 +177,18 @@ Forsendelser kan inneholde et ekstra nivå av innhold og vedlegg som representer
 
 Som med innhold på dialognivå, kan forsendelser inneholde en tittel, et sammendrag og en innholdsreferanse (front channel embed). Tjenesteeiere kan bruke front channel embeds til å spore om en bestemt forsendelse er åpnet eller ikke, noe som igjen kan f.eks. utløse en `transmissionOpened`-aktivitet som legges til.
 
+### Navigasjonshandlinger på forsendelser
+
+For å tilby kontekstuelle lenker direkte på forsendelsen støtter Dialogporten navigasjonshandlinger – permanente, GET-baserte lenker som aldri endrer serverstatus og er trygge å forhåndslaste.
+
+Navigasjonshandlinger har følgende egenskaper:
+
+- `title` – en flerspråklig tittel som vises til sluttbrukeren
+- `url` – URL-en det navigeres til; må alltid være et GET-endepunkt over HTTPS
+- `expiresAt` (valgfritt) – når tidsstempelet er nådd, skriver Dialogporten om URL-en til `urn:dialogporten:expired`, og sluttbrukersystemer bør skjule eller deaktivere handlingen
+
+Hvis forsendelsen har et `authorizationAttribute` som gjør sluttbrukeren uautorisert, skrives URL-en om til `urn:dialogporten:unauthorized`.
+
 {{<notyetwritten>}}
 
 **Les mer**

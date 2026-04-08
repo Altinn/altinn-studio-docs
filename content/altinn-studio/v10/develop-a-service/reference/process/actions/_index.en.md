@@ -3,7 +3,7 @@ draft: true
 title: Actions
 description:
 tags: [altinn-apps, process, bpmn, gateway, action, acitons]
-weight: 30
+
 toc: false
 ---
 

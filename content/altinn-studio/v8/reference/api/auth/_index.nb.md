@@ -36,6 +36,7 @@ Altinn Autorisasjon støtter forskjellige type brukere, som er viktig å tenke p
   - Klienter autentisert via Maskinporten
   - En systembruker eies av en organisasjon som er kunde/bruker hos et leverandørsystem. Systembrukeren eies av kunden, mens systemet eies av leverandøren
   - Det er leverandøren som har Maskinporten klienten og som autentiserer seg. Konseptet lar systemet impersonere systembrukeren (inkl. rettigheter systembrukeren har fått delegert fra kunden)
+  - Støtte for systembruker i Altinn Studio-apper krever `Altinn.App.Api` og `Altinn.App.Core` i `v8.6.0` eller nyere
   - Appens API aksepterer bare Maskinporten tokens som har blitt innvekslet til Altinn token (i fremtiden vil vi støtte Maskinporten tokens direkte)
 
 {{% notice warning %}}
@@ -49,10 +50,10 @@ må du gjøre dette manuelt, for eksempel ved hjelp av ASP.NET Core middleware.
 
 `Altinn.App.Core`-biblioteket har abstraksjoner for å hente ut informasjon om innlogget bruker.
 Som standard er det ingen begrensninger på hvilke brukertyper en app tar imot, men man kan begrense dette selv i et middleware eller en validator.
-Før `v8.6` av app bibliotekene var det vanlig å f. eks. hente bruker-ID direkte fra `HttpContext`,
+Før `v8.6.0` av app bibliotekene var det vanlig å f. eks. hente bruker-ID direkte fra `HttpContext`,
 men dette kan gi uventet resultat hvis innkommende request er autentisert med f. eks. systembruker.
 
-Fra `v8.6` av `Altinn.App.Core` finnes `IAuthenticationContext`- og `Authenticated`-typene:
+Fra `v8.6.0` av `Altinn.App.Core` finnes `IAuthenticationContext`- og `Authenticated`-typene:
 
 ```csharp
 namespace Altinn.App.Core.Features.Auth;
@@ -178,6 +179,10 @@ app.Use(
 ### ✅ Systembrukere
 
 I dette eksempelet tillater vi bare requests fra systembrukere:
+
+{{% notice info %}}
+Dette krever at appen bruker `Altinn.App.Api` og `Altinn.App.Core` i `v8.6.0` eller nyere.
+{{% /notice %}}
 
 {{% notice info %}}
 Merk at denne varianten også blokkerer uautentiserte requests.
