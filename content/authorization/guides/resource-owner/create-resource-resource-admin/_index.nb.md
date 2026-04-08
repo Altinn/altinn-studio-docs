@@ -112,6 +112,13 @@ Før publisering må du angi en ny versjons-ID og foreta endringer i ressurslage
 
 ![Create Resource](create_resource_14.png)
 
+### Rettighet til å publisere
+
+For å kunne publisere ressurser må du være medlem av riktig team i Gitea. Disse teamene settes opp i Gitea av administrator i organisasjonen din. Team for din organisasjon finnes på http://altinn.studio/repos/org/{orgcode}/teams. Følgende teams gir tilgang til å publisere ressurser:
+
+- Resources-Publish-PROD: Rett til å publisere til produksjon
+- Resources-Publish-TT02: Team med rettigheter til å publisere til TT02
+
 ## Bekrefte
 
 Når den er publisert, er ressursen tilgjengelig på søke-APIet i ressursregisteret.
