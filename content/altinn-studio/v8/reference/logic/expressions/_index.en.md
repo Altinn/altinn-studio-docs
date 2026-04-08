@@ -1083,47 +1083,55 @@ returns an error message.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-plus" header="plus" %}}
-The `plus` function expects two numbers, either decimal or integer.
+The `plus` function returns the sum of two numbers.
 
 Example:
 ```json
 ["plus", 22, 9.2]
 ```
-Results in the number value `31.2`. 
-If null is passed to the function, the function will return `null`.
+This example results in the number value `31.2`. 
+
+If `null` is passed to the function, it returns `null`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-minus" header="minus" %}}
-The `minus` function expects two numbers, either decimal or integer.
+The `minus` function returns the difference between two numbers,
+where the first number is the minuend and the second one is the subtrahend.
 
 Example:
 ```json
 ["minus", 22, 9.2]
 ```
-Results in the number value `12.8`.
-If null is passed to the function, the function will return `null`.
+This example results in the number value `12.8`.
+
+If `null` is passed to the function, it returns `null`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-multiply" header="multiply" %}}
-The `multiply` function expects two numbers, either decimals or integers.
+The `multiply` function returns the product of two numbers.
 
 Example:
 ```json
 ["multiply", 22, 10]
 ```
-Results in the number value `220`.
-If null is passed to the function, the function will return `null`.
+This example results in the number value `220`.
+
+If `null` is passed to the function, it returns `null`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-divide" header="divide" %}}
-The `divide` function expects two numbers, either decimals or integers.
+The `divide` function returns the quotient of two numbers,
+where number is the dividend and the second one is the divisor.
 
 Example:
 ```json
 ["divide", 22, 10]
 ```
-Results in the number value `2.2`.
-If null is passed to the function, the function will return `null`.
+This example results in the number value `2.2`.
+
+Be aware that the number 0 is not valid as divisor.
+
+If `null` is passed to the function, it returns `null`.
 {{% /expandlarge %}}
 
 ## Data Types

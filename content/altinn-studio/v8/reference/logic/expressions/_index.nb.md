@@ -1081,47 +1081,54 @@ gir dette uttrykket en feilmelding.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-plus" header="plus" %}}
-Funksjonen `plus` forventer to tall, enten desimaltall eller heltall. 
+Funksjonen `plus` returnerer summen av to tall. 
 
 Eksempel:
 ```json
 ["plus", 22, 9.2]
 ```
-Resulterer i tallverdien `31.2`.
-Dersom null sendes inn som argument, vil funksjonen returnere `null`.
+Dette eksemplet gir tallverdien `31.2`.
+
+Dersom `null` sendes inn som argument, returnerer funksjonen `null`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-minus" header="minus" %}}
-Funksjonen `minus` forventer to tall, enten desimaltall eller heltall.
+Funksjonen `minus` returnerer differansen mellom to tall,
+hvor det første tallet er minuenden og det andre er subtrahenden.
 
 Eksempel:
 ```json
 ["minus", 22, 9.2]
 ```
-Resulterer i tallverdien `12.8`.
-Dersom null sendes inn som argument, vil funksjonen returnere `null`.
+Dette eksemplet gir tallverdien `12.8`.
+
+Dersom `null` sendes inn som argument, returnerer funksjonen `null`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-multiply" header="multiply" %}}
-Funksjonen `multiply` forventer to tall, enten desimaltall eller heltall.
+Funksjonen `multiply` returnerer produktet av to tall.
 
 Eksempel:
 ```json
 ["multiply", 22, 10]
 ```
-Resulterer i tallverdien `220`.
-Dersom null sendes inn som argument, vil funksjonen returnere `null`.
+Dette eksemplet gir tallverdien `220`.
+
+Dersom `null` sendes inn som argument, returnerer funksjonen `null`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-divide" header="divide" %}}
-Funksjonen `divide` forventer to tall, enten desimaltall eller heltall.
+Funksjonen `divide` returnerer kvotienten av to tall, hvor det første tallet er dividenden og det andre er divisoren.
 
 Eksempel:
 ```json
 ["divide", 22, 10]
 ```
-Resulterer i tallverdien `2.2`.
-Dersom null sendes inn som argument, vil funksjonen returnere `null`.
+Dette eksemplet gir tallverdien `2.2`.
+
+Vær oppmerksom på at tallet 0 ikke er gyldig som divisor.
+
+Dersom `null` sendes inn som argument, returnerer funksjonen `null`.
 {{% /expandlarge %}}
 
 ## Datatyper
