@@ -4,7 +4,7 @@
     "title": "Altinn.AccessManagement.Api.ServiceOwner",
     "version": "1.0"
   },
-    "servers": [
+  "servers": [
     {
       "url": "https://platform.tt02.altinn.no/accessmanagement/api/v1",
       "description": "Integration Test"
@@ -396,7 +396,7 @@
             "$ref": "#/components/schemas/ErrorCode"
           }
         },
-        "additionalProperties": { }
+        "additionalProperties": {}
       },
       "CreateServiceOwnerRequest": {
         "type": "object",
@@ -483,7 +483,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": { }
+        "additionalProperties": {}
       },
       "RequestDto": {
         "type": "object",
@@ -564,10 +564,10 @@
     },
     "securitySchemes": {
       "oauth2": {
-        "type": "apiKey",
+        "type": "http",
         "description": "Standard Authorization header using the Bearer scheme. Example: \"bearer {token}\"",
-        "name": "Authorization",
-        "in": "header"
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
       }
     }
   }

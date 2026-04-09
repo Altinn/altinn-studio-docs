@@ -4,7 +4,7 @@
     "title": "Altinn.AccessManagement.Api.Metadata",
     "version": "1.0"
   },
-    "servers": [
+  "servers": [
     {
       "url": "https://platform.tt02.altinn.no/accessmanagement/api/v1",
       "description": "Integration Test"
@@ -1129,14 +1129,6 @@
           }
         },
         "additionalProperties": false
-      }
-    },
-    "securitySchemes": {
-      "oauth2": {
-        "type": "apiKey",
-        "description": "Standard Authorization header using the Bearer scheme. Example: \"bearer {token}\"",
-        "name": "Authorization",
-        "in": "header"
       }
     }
   }

@@ -1,8 +1,8 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.4",
   "info": {
-    "title": "Altinn.AccessManagement.Api.Enduser | v1",
-    "version": "1.0.0"
+    "title": "Altinn.AccessManagement.Api.Enduser",
+    "version": "1.0"
   },
   "servers": [
     {
@@ -7012,10 +7012,10 @@
     },
     "securitySchemes": {
       "oauth2": {
-        "type": "apiKey",
+        "type": "http",
         "description": "Standard Authorization header using the Bearer scheme. Example: \"bearer {token}\"",
-        "name": "Authorization",
-        "in": "header"
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
       }
     }
   }
