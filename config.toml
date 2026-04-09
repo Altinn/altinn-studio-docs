@@ -62,5 +62,12 @@ noSearch = false # default is false
 showVisitedLinks = false # default is false
 enableMermaid = true # enable Mermaid diagrams
 
+[outputFormats.LLMS]
+baseName = "llms"
+mediaType = "text/plain"
+isPlainText = true
+
 [outputs]
-home = ["HTML", "JSON"] # JSON generates index.json file used by search
+home = ["HTML", "JSON", "LLMS"]
+page = ["HTML", "MARKDOWN"]
+section = ["HTML", "MARKDOWN"]
