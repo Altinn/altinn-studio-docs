@@ -157,6 +157,35 @@ Det vil se omtrent slik ut
 
 ![labelGrid eksempel output](label-grid.png "labelGrid eksempel output")
 
+### validationGrid
+
+Utover å sette bredde på `grid`, `innerGrid` og `labelGrid`, kan du også styre bredden på **valideringsmeldinger**  ved hjelp av `validationGrid`.
+
+Hvis `validationGrid` mangler, vil valideringsmeldinger bruke samme bredde som `innerGrid` (standard oppførsel).
+
+Verdiene for `validationGrid` er de samme som for `innerGrid` (`xs`, `sm`, `md`, `lg`, `xl`).
+
+Eksempel (input er smalere, mens valideringsmeldinger er bredere på `md`):
+
+```json
+{
+  {
+    "id": "input-felt1",
+    "type": "Input",
+    "grid": {
+      "innerGrid": {
+        "md": 4
+      },
+      "validationGrid": {
+        "md": 8
+      }
+    }
+  }
+}
+```
+
+![validationGrid bredde eksempel](validation-grid.png "validationGrid bredde eksempel")
+
 ## To radioknappalternativer eller avkrysningsbokser under hverandre
 
 Som standard kommer radioknapper eller checkboxer som har kun to svaralternativer, på én linje. Dersom man ønsker at svarene skal ligge på hver sin linje slik:

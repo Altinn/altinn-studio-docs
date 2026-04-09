@@ -601,11 +601,6 @@
                     "description": "When the correspondence should become visible to the recipient.",
                     "format": "date-time"
                   },
-                  "Correspondence.AllowSystemDeleteAfter": {
-                    "type": "string",
-                    "description": "When Altinn can remove the correspondence from its database.",
-                    "format": "date-time"
-                  },
                   "Correspondence.DueDateTime": {
                     "type": "string",
                     "description": "When the recipient must reply to the correspondence",
@@ -691,11 +686,6 @@
                     "type": "string",
                     "description": "Senders Reference for this notification"
                   },
-                  "Correspondence.Notification.RequestedSendTime": {
-                    "type": "string",
-                    "description": "The date and time for when the notification should be sent.",
-                    "format": "date-time"
-                  },
                   "Correspondence.Notification.CustomRecipients": {
                     "type": "array",
                     "items": {
@@ -752,7 +742,7 @@
                     "items": {
                       "type": "string"
                     },
-                    "description": "List of recipients for the correspondence, either as organization(urn:altinn:organization:identifier-no:ORGNR) or national identity number(urn:altinn:person:identifier-no:SSN)"
+                     "description": "List of recipients for the correspondence: organization (urn:altinn:organization:identifier-no:ORGNR), national identity number (urn:altinn:person:identifier-no:SSN),\r\nself identified user (urn:altinn:person:idporten-email:EMAIL), or legacy selfidentified user (urn:altinn:person:legacy-selfidentified:USERNAME)."
                   },
                   "ExistingAttachments": {
                     "type": "array",
@@ -807,9 +797,6 @@
                 "Correspondence.RequestedPublishTime": {
                   "style": "form"
                 },
-                "Correspondence.AllowSystemDeleteAfter": {
-                  "style": "form"
-                },
                 "Correspondence.DueDateTime": {
                   "style": "form"
                 },
@@ -859,9 +846,6 @@
                   "style": "form"
                 },
                 "Correspondence.Notification.SendersReference": {
-                  "style": "form"
-                },
-                "Correspondence.Notification.RequestedSendTime": {
                   "style": "form"
                 },
                 "Correspondence.Notification.CustomRecipients": {
@@ -1629,12 +1613,6 @@
             "format": "date-time",
             "nullable": true
           },
-          "allowSystemDeleteAfter": {
-            "type": "string",
-            "description": "When Altinn can remove the correspondence from its database.",
-            "format": "date-time",
-            "nullable": true
-          },
           "dueDateTime": {
             "type": "string",
             "description": "When the recipient must reply to the correspondence",
@@ -1853,12 +1831,6 @@
             "format": "date-time",
             "nullable": true
           },
-          "allowSystemDeleteAfter": {
-            "type": "string",
-            "description": "When Altinn can remove the correspondence from its database.",
-            "format": "date-time",
-            "nullable": true
-          },
           "dueDateTime": {
             "type": "string",
             "description": "When the recipient must reply to the correspondence",
@@ -2023,12 +1995,6 @@
           "requestedPublishTime": {
             "type": "string",
             "description": "When the correspondence should become visible to the recipient.",
-            "format": "date-time",
-            "nullable": true
-          },
-          "allowSystemDeleteAfter": {
-            "type": "string",
-            "description": "When Altinn can remove the correspondence from its database.",
             "format": "date-time",
             "nullable": true
           },
@@ -2508,12 +2474,6 @@
             "description": "Senders Reference for this notification",
             "nullable": true
           },
-          "requestedSendTime": {
-            "type": "string",
-            "description": "The date and time for when the notification should be sent.",
-            "format": "date-time",
-            "nullable": true
-          },
           "customRecipients": {
             "type": "array",
             "items": {
@@ -2557,7 +2517,7 @@
             "items": {
               "type": "string"
             },
-            "description": "List of recipients for the correspondence, either as organization(urn:altinn:organization:identifier-no:ORGNR) or national identity number(urn:altinn:person:identifier-no:SSN)"
+            "description": "List of recipients for the correspondence: organization (urn:altinn:organization:identifier-no:ORGNR), national identity number (urn:altinn:person:identifier-no:SSN),\r\nself identified user (urn:altinn:person:idporten-email:EMAIL), or legacy selfidentified user (urn:altinn:person:legacy-selfidentified:USERNAME)."
           },
           "existingAttachments": {
             "type": "array",
@@ -2707,11 +2667,6 @@
             "type": "string",
             "description": "An optional senders reference of the notification",
             "nullable": true
-          },
-          "requestedSendTime": {
-            "type": "string",
-            "description": "The requested send time of the notification",
-            "format": "date-time"
           },
           "creator": {
             "type": "string",
@@ -2896,7 +2851,9 @@
           "DialogportenDialogId",
           "DialogportenProcessId",
           "DialogportenTransmissionId",
-          "DialogportenTransmissionType"
+          "DialogportenTransmissionType",
+          "DialogportenDialogStatus",
+          "DialogportenDialogExtendedStatus"
         ],
         "type": "string",
         "description": "Defines what kind of reference"
