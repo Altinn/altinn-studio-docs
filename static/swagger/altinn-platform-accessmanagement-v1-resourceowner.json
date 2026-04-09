@@ -7,11 +7,11 @@
     },
     "servers": [
         {
-            "url": "https://platform.tt02.altinn.no/accessmanagement/api/v1/",
+            "url": "https://platform.tt02.altinn.no/accessmanagement/api/v1",
             "description": "Integration Test"
         },
         {
-            "url": "https://platform.altinn.no/accessmanagement/api/v1/",
+            "url": "https://platform.altinn.no/accessmanagement/api/v1",
             "description": "Production"
         }
     ],
