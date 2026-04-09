@@ -1,8 +1,7 @@
 ---
-title: OpenAPI (swagger) for Access Management EndUser API
-linktitle: Resourceowner API
+title: OpenAPI (swagger) for Access Management Enduser API
+linktitle: Enduser API
 type: openapi
-hidden: true
 spec: "/swagger/altinn-platform-accessmanagement-v1-enduser.json"
 tags: [swagger, openapi]
 ---

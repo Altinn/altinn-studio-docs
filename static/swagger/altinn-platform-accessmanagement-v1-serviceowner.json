@@ -1,33 +1,21 @@
 {
-  "openapi": "3.0.0",
+  "openapi": "3.0.4",
   "info": {
-    "title": "Altinn.AccessManagement.Api.ServiceOwner | v1",
-    "version": "1.0.0"
+    "title": "Altinn.AccessManagement.Api.ServiceOwner",
+    "version": "1.0"
   },
   "servers": [
-        {
-      "url": "https://platform.at22.altinn.cloud/accessmanagement/api/v1/",
-      "description": "AT22"
-    },
     {
-      "url": "https://platform.at23.altinn.cloud/accessmanagement/api/v1/",
-      "description": "AT23"
-    },
-    {
-      "url": "https://platform.at24.altinn.cloud/accessmanagement/api/v1/",
-      "description": "AT24"
-    },
-    {
-      "url": "https://platform.tt02.altinn.no/accessmanagement/api/v1/",
+      "url": "https://platform.tt02.altinn.no/accessmanagement/api/v1",
       "description": "Integration Test"
     },
     {
-      "url": "https://platform.altinn.no/accessmanagement/api/v1/",
+      "url": "https://platform.altinn.no/accessmanagement/api/v1",
       "description": "Production"
     }
   ],
   "paths": {
-    "/accessmanagement/api/v1/serviceowner/delegationrequests/_meta/urns/party": {
+    "/serviceowner/delegationrequests/_meta/urns/party": {
       "get": {
         "tags": [
           "Request"
@@ -65,7 +53,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/serviceowner/delegationrequests/{id}/status": {
+    "/serviceowner/delegationrequests/{id}/status": {
       "get": {
         "tags": [
           "Request"
@@ -142,33 +130,74 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "altinn:serviceowner/delegationrequests.read"
+            ]
+          }
+        ]
       }
     },
-    "/accessmanagement/api/v1/serviceowner/delegationrequests": {
+    "/serviceowner/delegationrequests/resource": {
       "post": {
         "tags": [
           "Request"
+        ],
+        "parameters": [
+          {
+            "name": "from",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "resource",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateServiceOwnerRequest"
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateServiceOwnerRequest"
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CreateServiceOwnerRequest"
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "202": {
@@ -231,7 +260,109 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "altinn:serviceowner/delegationrequests.write"
+            ]
+          }
+        ]
+      }
+    },
+    "/serviceowner/delegationrequests": {
+      "post": {
+        "tags": [
+          "Request"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateServiceOwnerRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateServiceOwnerRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateServiceOwnerRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "altinn:serviceowner/delegationrequests.write"
+            ]
+          }
+        ]
       }
     }
   },
@@ -264,7 +395,8 @@
           "code": {
             "$ref": "#/components/schemas/ErrorCode"
           }
-        }
+        },
+        "additionalProperties": {}
       },
       "CreateServiceOwnerRequest": {
         "type": "object",
@@ -278,14 +410,24 @@
             "nullable": true
           },
           "resource": {
-            "$ref": "#/components/schemas/RequestRefrenceDto"
+            "$ref": "#/components/schemas/RequestReferenceDto"
           },
           "package": {
-            "$ref": "#/components/schemas/RequestRefrenceDto"
+            "$ref": "#/components/schemas/RequestReferenceDto"
           }
-        }
+        },
+        "additionalProperties": false
       },
-      "ErrorCode": { },
+      "ErrorCode": {
+        "type": "object",
+        "properties": {
+          "hasValue": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
       "PartyEntityDto": {
         "type": "object",
         "properties": {
@@ -314,7 +456,7 @@
             "nullable": true
           }
         },
-        "nullable": true
+        "additionalProperties": false
       },
       "ProblemDetails": {
         "type": "object",
@@ -340,7 +482,8 @@
             "type": "string",
             "nullable": true
           }
-        }
+        },
+        "additionalProperties": {}
       },
       "RequestDto": {
         "type": "object",
@@ -361,10 +504,10 @@
             "format": "date-time"
           },
           "resource": {
-            "$ref": "#/components/schemas/RequestRefrenceDto"
+            "$ref": "#/components/schemas/RequestReferenceDto"
           },
           "package": {
-            "$ref": "#/components/schemas/RequestRefrenceDto"
+            "$ref": "#/components/schemas/RequestReferenceDto"
           },
           "links": {
             "$ref": "#/components/schemas/RequestLinks"
@@ -375,7 +518,8 @@
           "to": {
             "$ref": "#/components/schemas/PartyEntityDto"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "RequestLinks": {
         "type": "object",
@@ -389,9 +533,9 @@
             "nullable": true
           }
         },
-        "nullable": true
+        "additionalProperties": false
       },
-      "RequestRefrenceDto": {
+      "RequestReferenceDto": {
         "type": "object",
         "properties": {
           "id": {
@@ -404,7 +548,7 @@
             "nullable": true
           }
         },
-        "nullable": true
+        "additionalProperties": false
       },
       "RequestStatus": {
         "enum": [
@@ -414,13 +558,17 @@
           "Approved",
           "Rejected",
           "Withdrawn"
-        ]
+        ],
+        "type": "string"
+      }
+    },
+    "securitySchemes": {
+      "oauth2": {
+        "type": "http",
+        "description": "Standard Authorization header using the Bearer scheme. Example: \"bearer {token}\"",
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
       }
     }
-  },
-  "tags": [
-    {
-      "name": "Request"
-    }
-  ]
+  }
 }
