@@ -6,7 +6,7 @@ weight: 5
 toc: true
 ---
 
-A separate guide for _client delegation_ as an end user is available here: [Client delegation](/authorization/guides/end-user/system-user/delegate-clients/)
+A separate guide for _client delegation_ as an end user is available here: [Client delegation](/en/authorization/guides/end-user/system-user/delegate-clients/)
 
 ## 1 Retrieve system users for client systems
 
@@ -239,4 +239,4 @@ See [the access management API](../../access-management/#api-retrieve-authorised
 
 ## Explore the API documentation
 
-For complete technical documentation, including detailed descriptions of parameters, responses and authentication, see Altinn's OpenAPI interface [here](/api/authentication/systemuserapi/clientdelegation/).
+For complete technical documentation, including detailed descriptions of parameters, responses and authentication, see Altinn's OpenAPI interface [here](/en/api/authentication/systemuserapi/clientdelegation/).

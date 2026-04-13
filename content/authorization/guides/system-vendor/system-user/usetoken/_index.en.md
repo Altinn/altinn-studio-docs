@@ -115,4 +115,4 @@ The service owner then uses the token against Altinn Authorization (PDP) to dete
 
 A system user token (exchanged for an Altinn token) can also be used to call the AuthorizedParties endpoint in the access management API. The endpoint returns the parties the system user is authorised for, so that the end user system can look up the correct `partyUuid` for subsequent calls.
 
-The Maskinporten token must include the scope `altinn:accessmanagement/authorizedparties`. See [the access management API](../../access-management/#api-hente-autoriserte-parter) for the full endpoint description.
+The Maskinporten token must include the scope `altinn:accessmanagement/authorizedparties`. See [the access management API](../../access-management/#api-retrieve-authorised-parties) for the full endpoint description.
