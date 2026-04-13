@@ -24,7 +24,7 @@ Maskinportentoken forespørselen mangler externalRef. Dette er en valgfri refera
 Verifiser om systembruker forespørselen var opprettet med "externalef". Hvis ja, inkluder den verdien i maskinportentoken forespørselen. Vennligst se på [dokumentasjon for maskinporten](https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker.html#foresp%C3%B8rsel)
 
 ### Problem 3: Feil `systemuser_org` for systembrukeren
-Organisasjonsnummeret som settes i `systemuser_org.ID` må være organisasjonsnummert til virksomheten som eier systembrukeren. Dersom systembrukeren er en agent-systembruker, skal man **ikke** bruke organisasjonsnummeret til en klient som er koblet til systembrukeren for å hente ut token.
+Organisasjonsnummeret som settes i `systemuser_org.ID` må være organisasjonsnummeret til virksomheten som eier systembrukeren. Dersom systembrukeren er en agent-systembruker, skal man **ikke** bruke organisasjonsnummeret til en klient som er koblet til systembrukeren for å hente ut token.
 
 #### Løsning:
-Verifiser om organisasjonsnummeret i `systemuser_org.ID` er satt til organisasjonsnummert til virksomheten som eier systembrukeren.
+Verifiser om organisasjonsnummeret i `systemuser_org.ID` er satt til organisasjonsnummeret til virksomheten som eier systembrukeren.
