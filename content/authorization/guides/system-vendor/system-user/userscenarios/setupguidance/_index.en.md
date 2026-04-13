@@ -23,6 +23,7 @@ See also the [wizard](https://systemuserwizard.azurewebsites.net/) which covers 
 | [D. Service provider with team-based access](#d-service-provider-with-team-based-access) | 1 per team/function | Client relationship | Packages matching each team |
 | [E. Locally installed or self-developed system](#e-locally-installed-or-self-developed-system) | 1 | Standard | All packages the organisation needs |
 | [F. Accounting clients with different service needs](#f-accounting-clients-with-different-service-needs) | 2 | Client relationship | Base package + extended package for selected clients |
+| [G. Complex organisation structure with sub-entities](#g-complex-organisation-structure-with-sub-entities) | 1 (or more for varying needs) | Client relationship | Packages delegated by each sub-entity |
 
 ---
 
@@ -307,6 +308,58 @@ Accounting firm
 
 ---
 
+## G. Complex organisation structure with sub-entities
+
+**Typical example:** Oslo municipality has several organisational sub-entities (e.g. the Education Department and Grünerløkka district) that are each registered as separate legal entities with their own organisation numbers. Each sub-entity in turn has operational units — schools, kindergartens, health centres and other places of business that perform the day-to-day work. The municipality wants to report centrally for the entire structure through one shared end-user system.
+
+### Starting point
+
+- The main entity (Oslo municipality) has several organisational sub-entities ("organisasjonsledd") registered in the Entity Register. Each sub-entity is an independent legal entity that owns its own rights in Altinn.
+- Under each sub-entity there are operational units ("underenheter", e.g. a specific school or health centre). An organisation or user that holds rights for a main entity automatically inherits the same access to its operational units.
+- The municipality wants to centralise reporting through a single system user instead of setting up one system user per sub-entity.
+
+### Recommended setup
+
+- **1 system user for client relationships** linked to the end-user system that the main entity uses centrally.
+- Each sub-entity **delegates the necessary access packages** to the main entity in Altinn.
+- The client administrator at the main entity links each sub-entity to the system user as a client.
+- Reporting for an operational unit works automatically as long as the sub-entity it belongs to has been added as a client.
+
+### How it works
+
+```text
+Oslo municipality (main entity)
+  └── System user for client relationships
+        ├── Access packages: delegated by each sub-entity
+        │
+        ├── Client: Education Department (sub-entity)
+        │     ├── Operational unit: Grünerløkka school
+        │     ├── Operational unit: Sagene school
+        │     └── Operational unit: Bjølsen kindergarten
+        │
+        └── Client: Grünerløkka district (sub-entity)
+              ├── Operational unit: Grünerløkka health centre
+              └── Operational unit: Sofienberg nursing home
+```
+
+### Why this setup?
+
+Even though the sub-entities are part of the same municipality, each sub-entity is an independent legal entity in the Entity Register and owns its own rights in Altinn. This means the main entity cannot automatically act on behalf of a sub-entity — the sub-entity must actively delegate the access packages to the main entity.
+
+Operational units (schools, health centres and similar) are an exception: an organisation or user that holds rights for a main entity automatically inherits the same access to its operational units. Once the sub-entity has been added as a client, the end-user system can therefore report for all operational units under the sub-entity without any additional setup.
+
+### Key considerations
+
+- **Delegation must be performed by each individual sub-entity.** Access packages do not follow automatically from the connection in the Entity Register. The main entity cannot delegate on behalf of its sub-entities.
+- If a sub-entity needs different access packages from the others (e.g. only the Education Department should report A-melding, whilst Grünerløkka district should report VAT), you can combine this setup with scenario C and create one system user per package combination.
+- When a new sub-entity is created, it must delegate access packages again, and the client administrator must link it to the system user.
+- New operational units require no additional action — they automatically inherit rights from the sub-entity they belong to.
+- The end-user system must implement access control so that only authorised employees can act on behalf of each sub-entity and each operational unit.
+
+![System user for a main entity with sub-entities and operational units as clients](./organisasjonsledd.drawio.svg "Complex organisation structure with sub-entities and operational units")
+
+---
+
 ## How many system users do I need?
 
 Use this decision tree to determine the right number:
@@ -325,6 +378,9 @@ Use this decision tree to determine the right number:
 
 5. **Does the service provider need to restrict access by team or department?**
    Yes → Consider **1 system user per team** in addition to per relationship type (scenario D).
+
+6. **Is the organisation a main entity with several sub-entities that should report centrally?**
+   Yes → **1 system user** where each sub-entity delegates access packages and is linked as a client (scenario G).
 
 ### When NOT to create additional system users
 
