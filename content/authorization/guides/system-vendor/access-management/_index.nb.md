@@ -70,6 +70,8 @@ API-et kan også brukes med en [systembruker](../system-user/).
 Systembrukertokenet hentes fra Maskinporten og må deretter [veksles til et Altinn-token](../../../../api/).
 Se [bruk av systembruker](../system-user/usetoken/) for detaljer om tokenveksling.
 
+Et systembrukertoken kan blant annet brukes til å kalle [AuthorizedParties-endepunktet](#api-hente-autoriserte-parter) for å finne hvilke parter systembrukeren er autorisert for. Maskinporten-tokenet må da inneholde scopet `altinn:accessmanagement/authorizedparties`.
+
 ### Krav til tilgangspakke
 
 For å bruke de fleste endepunktene i tilgangsstyrings-API-et må den innloggede brukeren eller systembrukeren ha en av følgende tilgangspakker for den aktuelle virksomheten:
@@ -87,10 +89,16 @@ Du finner `partyUuid` for aktuelle parter via Authorized Parties-endepunktet som
 
 ## API: Hente autoriserte parter
 
-Henter alle parter (virksomheter og personer) som den innloggede brukeren er autorisert for.
+Henter alle parter (virksomheter og personer) som den innloggede brukeren eller systembrukeren er autorisert for.
 
 - **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/authorizedparties`
 - **Produksjon**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/authorizedparties`
+
+{{% notice info %}}
+Endepunktet kan kalles både med et ID-porten-token (vekslet til Altinn-token) og med et systembrukertoken (vekslet til Altinn-token). I begge tilfeller må tokenet inneholde scopet `altinn:accessmanagement/authorizedparties`. Når kallet gjøres med et systembrukertoken, returneres parter som systembrukeren er autorisert for.
+{{% /notice %}}
+
+For en fullstendig beskrivelse av endepunktet, inkludert alle parametere og responsfelter, se [OpenAPI-dokumentasjonen for EndUser-API-et](../../../../api/accessmanagement/enduser/).
 
 #### Spørreparametere
 
