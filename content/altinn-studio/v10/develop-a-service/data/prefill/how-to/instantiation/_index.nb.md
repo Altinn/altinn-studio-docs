@@ -3,7 +3,7 @@ draft: true
 title: Forhåndsutfylle data med http post
 linktitle: Http post
 description: Slik konfigurerer du forhåndsutfylling for en app ved bruk av http post requests.
-tags: [needsReview, needsTranslation]
+tags: [needsReview]
 ---
 
 Du kan sende inn forhåndsutfylte data når du instansierer en app. Send dataene som en multipart i HTTP POST-requesten til appen. 

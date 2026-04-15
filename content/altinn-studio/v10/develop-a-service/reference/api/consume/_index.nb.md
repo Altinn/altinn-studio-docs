@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Konsumere API-er i en app
 linktitle: Konsumere
 description: Slik bruker appen API-er som er tilgjengelige via internett

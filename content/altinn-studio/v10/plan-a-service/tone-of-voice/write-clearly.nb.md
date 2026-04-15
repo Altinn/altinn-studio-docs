@@ -3,7 +3,7 @@ draft: true
 title: Skriv lettfattelig
 description: Bruk disse triksene for å gjøre teksten din lettere å forstå.
 weight: 3
-tags: [needsReview, translate-to-english]
+tags: [needsReview]
 ---
 
 ## Plasser verbet tidlig i setningen

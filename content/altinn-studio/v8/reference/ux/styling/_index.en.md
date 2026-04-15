@@ -159,6 +159,35 @@ This will look something like this:
 
 ![labelGrid example output](label-grid.png "labelGrid example output")
 
+### validationGrid
+
+In addition to setting `grid`, `innerGrid` and `labelGrid`, you can also control the width of **validation messages**  using `validationGrid`.
+
+If `validationGrid` is omitted, validation messages will use the same width as `innerGrid` (default behavior).
+
+The `validationGrid` values are the same as `innerGrid` (`xs`, `sm`, `md`, `lg`, `xl`).
+
+Example (input is narrower, validation messages are wider on `md`):
+
+```json
+{
+  {
+    "id": "input-felt1",
+    "type": "Input",
+    "grid": {
+      "innerGrid": {
+        "md": 4
+      },
+      "validationGrid": {
+        "md": 8
+      }
+    }
+  }
+}
+```
+
+![validationGrid width example output](validation-grid.png "validationGrid width example output")
+
 ## Two radiobuttons or checkboxes vertically aligned
 By default radiobuttons and checkboxes with only two options will be displayed on one line. If you would like them to be displayed below each other as this:
 

@@ -4,7 +4,7 @@ title: Utvidet filvalidering
 description: Slik utfører du utvidet filvalidering.
 toc: false
 
-tags: [needsReview, needsTranslation]
+tags: [needsReview]
 ---
 
 {{% notice info %}}

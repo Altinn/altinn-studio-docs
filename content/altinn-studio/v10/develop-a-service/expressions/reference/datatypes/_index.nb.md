@@ -1,17 +1,15 @@
 ---
+draft: true
 title: Datatyper
 linktitle: Datatyper
-description: Oversikt over datatyper som benyttes i uttrykk.
-tags: [dynamics,expressions]
+description: Oversikt over datatyper som brukes i uttrykk.
+tags: [dynamics, expressions, needsReview]
 toc: true
 ---
 
 ## Datatyper
 
-Funksjoner i uttrykkene forventer at argumentene som blir sendt inn har en spesifikk type. Dersom et argument
-blir sendt inn har en annen type enn forventet, blir verdien forsøkt konvertert til riktig type. Som et eksempel
-forventer funksjonen `equals` to strenger, men om du sender inn den boolske verdien `true` som det ene eller andre
-argumentet fungerer det også fint, siden den boolske verdien `true` blir konvertert til strengen `"true"`.
+Funksjoner i uttrykkene forventer at argumentene som sendes inn, har en spesifikk type. Hvis et argument har en annen type enn forventet, forsøkes verdien konvertert til riktig type. Som eksempel forventer funksjonen `equals` to strenger, men hvis du sender inn den boolske verdien `true` som det ene eller andre argumentet, fungerer det også fint, siden den boolske verdien `true` konverteres til strengen `"true"`.
 
 ```json
 ["equals", true, "true"]
@@ -22,9 +20,7 @@ Uttrykket over fungerer, og gir `true` som resultat (fordi `true` og `"true"` sa
 datatype og f.eks. sammenligne med en helt annen datatype. Les mer om hvilke datatyper som kan konverteres til hva
 under.
 
-Alle funksjoner som forventer en spesifikk datatype som argument vil også kunne fungere om man sender
-inn [`null`](#null), men noen steder vil en `null`-verdi gi en feilmelding - for eksempel om man prøver å slå opp i
-datamodellen med `["dataModel", null]`. I `concat`-funksjonen vil derimot en `null`-verdi bli tolket som en tom streng.
+Alle funksjoner som forventer en spesifikk datatype som argument, vil også kunne fungere hvis du sender inn [`null`](#null), men noen steder vil en `null`-verdi gi en feilmelding - for eksempel hvis du prøver å slå opp i datamodellen med `["dataModel", null]`. I `concat`-funksjonen vil derimot en `null`-verdi tolkes som en tom streng.
 
 ### Strenger
 
@@ -39,36 +35,32 @@ Noen strenger kan også konverteres til andre datatyper:
 | `true` eller `false` med små eller store bokstaver | [Boolsk](#boolske-verdier) | `true`, `True`, `FALSE`    |
 | `null` med små eller store bokstaver               | [Null](#null)              | `null`, `Null`, `NULL`     |
 
-Alle andre strenger enn de i tabellen over vil gi feilmelding om de blir forsøkt konvertert til andre typer.
+Alle andre strenger enn de i tabellen over vil gi feilmelding hvis de forsøkes konvertert til andre typer.
 
 ### Tall
 
-Tallverdier gjelder positive og negative heltall og desimaltall. Noen strenger blir også konvertert
-automatisk til en tallverdi, som vist i tabellen til strenger over. For at konvertering av en streng til et tall
-skal fungere, må strengen oppfylle følgende:
+Tallverdier gjelder positive og negative heltall og desimaltall. Noen strenger konverteres også automatisk til en tallverdi, som vist i tabellen til strenger over. For at konvertering av en streng til et tall skal fungere, må strengen oppfylle følgende:
 
-- Strengen inneholder bare et tall, ingen annen tekst foran/bak tallet
-- Negativt fortegn (`-`) kan brukes, men positivt fortegn (`+`) støttes ikke.
-- Desimaltall må representeres med punktum, ikke komma.
-- Tusenskilletegn eller annen tallformattering støttes ikke.
+- strengen inneholder bare et tall, ingen annen tekst foran eller bak tallet
+- negativt fortegn (`-`) kan brukes, men positivt fortegn (`+`) støttes ikke
+- desimaltall må representeres med punktum, ikke komma
+- tusenskilletegn eller annen tallformattering støttes ikke
 
-Alle andre strenger vil gi en feilmelding om de blir forsøkt konvertert til et tall. Forsøker man å konvertere en
-[boolsk verdi](#boolske-verdier) til et tall, gir det også en feilmelding.
+Alle andre strenger vil gi en feilmelding hvis de forsøkes konvertert til et tall. Hvis du forsøker å konvertere en [boolsk verdi](#boolske-verdier) til et tall, gir det også en feilmelding.
 
 Funksjoner som forventer å få inn et tall kan også få inn [`null`](#null). Se mer om hvilken effekt det har under
 beskrivelsen til hver funksjon.
 
 ### Boolske verdier
 
-Boolske verdier omfatter `true` (sann) og `false` (usann). Når man kaller en funksjon som forventer å få inn en boolsk
-verdi, kan man også sende inn enkelte andre typer, som blir konvertert til en boolsk verdi:
+Boolske verdier omfatter `true` (sann) og `false` (usann). Når du kaller en funksjon som forventer å få inn en boolsk verdi, kan du også sende inn enkelte andre typer, som konverteres til en boolsk verdi:
 
-- Tallene `1` og `0` fungerer som henholdsvis `true` og `false`
-- Strengene `"1"` og `"0"` fungerer likt som tallene (og blir henholdsvis `true` og `false`)
-- Strengene `"true"` og `"false"` konverteres også til en boolsk verdi
-- Verdien [`null`](#null) fungerer likt som `false`
+- tallene `1` og `0` fungerer som henholdsvis `true` og `false`
+- strengene `"1"` og `"0"` fungerer likt som tallene (og blir henholdsvis `true` og `false`)
+- strengene `"true"` og `"false"` konverteres også til en boolsk verdi
+- verdien [`null`](#null) fungerer likt som `false`
 
-Alle andre verdier gir en feilmelding om de blir sendt til en funksjon som forventer en boolsk verdi. Legg merke til
+Alle andre verdier gir en feilmelding hvis de sendes til en funksjon som forventer en boolsk verdi. Legg merke til
 at disse reglene er litt forskjellige fra reglene til [strenger](#strenger). Det er dermed forskjell på hvilke verdier
 som kan _tolkes_ som en boolsk verdi for en funksjon som forventer et boolsk argument - og hvilke verdier som er _like_
 en boolsk verdi. Funksjonen ```equals``` sammenligner verdier som strenger, og dermed vil tallet `1` og
@@ -90,12 +82,9 @@ Se også tips og triks under [_Streng eller mindre streng sammenligning?_](#stre
 
 ### Null
 
-De fleste steder hvor man forventer å få inn en [streng](#strenger), [tall](#tall) eller
-[boolske verdier](#boolske-verdier) skal også tåle en `null`-verdi. Null-verdier indikerer at en spesifikk verdi
-mangler, og det er forskjell på f.eks. en `null`-verdi, en tom [streng](#strenger) og [tallet](#tall) `0`.
+De fleste steder hvor du forventer å få inn en [streng](#strenger), [tall](#tall) eller [boolske verdier](#boolske-verdier), skal også tåle en `null`-verdi. Null-verdier indikerer at en spesifikk verdi mangler, og det er forskjell på for eksempel en `null`-verdi, en tom [streng](#strenger) og [tallet](#tall) `0`.
 
-Dersom man gjør et oppslag i en funksjon som `dataModel`, og verdien man leter etter ikke finnes/er satt, vil som regel
-`null` bli resultatet.
+Hvis du gjør et oppslag i en funksjon som `dataModel`, og verdien du leter etter ikke finnes eller er satt, vil `null` som regel bli resultatet.
 
 ### Datoer
 
@@ -108,8 +97,8 @@ Noen eksempler på gyldige datoformater:
 - `2023-10-30T14:54:00.000+02:00` (med tidssoneforskyvning)
 - `2023-10-30T14:54:00.000` (antatt å være i lokal tidssone)
 - `2023-10-30T14:54:00` (antatt å være i lokal tidssone, uten millisekunder)
-- `2023-10-30` (Bare dato, antatt å være midnatt i lokal tidssone)
-- `2023` (Bare år, antatt å være midnatt 1. januar i lokal tidssone)
+- `2023-10-30` (bare dato, antatt å være midnatt i lokal tidssone)
+- `2023` (bare år, antatt å være midnatt 1. januar i lokal tidssone)
 
 {{% notice info %}}
 Det er viktig å merke seg at datoer som inkluderer en tidssoneforskyvning (eller `Z` for UTC) blir konvertert til
@@ -124,16 +113,12 @@ Av denne grunn kan det være å foretrekke å spesifisere datoer og tider uten e
 
 ## Streng eller mindre streng sammenligning?
 
-Måten uttrykkene kjøres på gjør at de kan virke litt strenge (ved at f.eks. `0` og `null` er ulike verdier når man
-sammenligner med `equals`). Det er et designvalg gjort i Altinn av to grunner:
+Måten uttrykkene kjøres på, gjør at de kan virke litt strenge (ved at for eksempel `0` og `null` er ulike verdier når du sammenligner med `equals`). Det er et designvalg gjort i Altinn av to grunner:
 
-1. Strenge regler er tydelige regler. Uttrykkene vil heller gi en feilmelding om noe ikke er som forventet, enn å la deg
-   lure på hvorfor det ble slikt det ble.
-2. Hvis uttrykkene behandler mange ulike verdier som like, fratar vi deg muligheten til å skille mellom dem om du skulle
-   ønske det.
+1. Strenge regler er tydelige regler. Uttrykkene vil heller gi en feilmelding hvis noe ikke er som forventet, enn å la deg lure på hvorfor det ble som det ble.
+2. Hvis uttrykkene behandler mange ulike verdier som like, fratar vi deg muligheten til å skille mellom dem hvis du skulle ønske det.
 
-Om man ønsker mindre streng sammenligning, kan man f.eks. konstruere et uttrykk som bruker ```or```-funksjonen
-til å gjenkjenne flere forskjellige verdier:
+Hvis du ønsker mindre streng sammenligning, kan du for eksempel konstruere et uttrykk som bruker ```or```-funksjonen til å gjenkjenne flere forskjellige verdier:
 
 ```json
 [

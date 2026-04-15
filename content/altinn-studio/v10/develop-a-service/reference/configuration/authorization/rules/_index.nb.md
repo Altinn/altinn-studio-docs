@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Regelbibliotek
 linktitle: Regelbibliotek
 description: Her finner du eksempler på autorisasjonsregler du kan bruke i en app. Husk å bytte ut tags ([RULE_ID]) med en egen ID. [ORG] og [APP] kan stå som de er, siden de erstattes med informasjon fra applicationmetadata.json hvis du har oppdatert LocalTest etter januar 2023.

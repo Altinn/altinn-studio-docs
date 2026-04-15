@@ -3,6 +3,7 @@ title: Slik verifiserer du signaturen
 linktitle: Verifisere signatur
 description: Følg stegene i denne guiden for å verifisere mottatt signatur
 draft: true
+tags: [needsReview]
 ---
 
 

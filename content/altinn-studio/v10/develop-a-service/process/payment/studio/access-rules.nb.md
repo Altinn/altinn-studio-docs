@@ -1,7 +1,7 @@
 ---
 draft: true
 hidden: true
-tags: [needsReview, needsTranslation]
+tags: [needsReview]
 ---
 
 > Dette steget foregår i appens prosessverktøy. Naviger til appens arbeidsflate, og velg **Prosess** fra toppmenyen.

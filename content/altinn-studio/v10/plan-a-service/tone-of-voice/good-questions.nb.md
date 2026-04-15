@@ -3,7 +3,7 @@ draft: true
 title: Lag gode spørsmål
 description: Når vi stiller gode spørsmål, er det lettere for brukerne å svare med riktige opplysninger og forstå hvorfor de må gi dem.
 weight: 1
-tags: [needsReview, translate-to-english]
+tags: [needsReview]
 ---
 
 Når du stiller gode spørsmål, er det lettere for brukerne å svare med riktige opplysninger og forstå hvorfor de må gi dem. Hvis de trenger det, kan du legge til hjelpetekst og feilmeldinger, som hjelper dem på veien.
@@ -35,11 +35,11 @@ Så snart du har funnet ut hvilke spørsmål du må ha med, kan du begynne å te
   <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0;">
     <div>
       <p><strong>✅ Gjør dette</strong></p>
-      <img src="./good-question-closed-yes-no.png" alt="Eksempel på lukket spørsmål: Bor du på mer enn en adresse? med Ja/Nei-alternativer" style="max-width: 100%; border: 1px solid #ddd;">
+      <img src="/images/tone-of-voice/good-question-closed-yes-no.png" alt="Eksempel på lukket spørsmål: Bor du på mer enn en adresse? med Ja/Nei-alternativer" style="max-width: 100%; border: 1px solid #ddd;">
     </div>
     <div>
       <p><strong>❌ Ikke gjør dette</strong></p>
-      <img src="./bad-question-open-text.png" alt="Eksempel på åpent spørsmål: Fortell oss hvor du bor med tekstfelt" style="max-width: 100%; border: 1px solid #ddd;">
+      <img src="/images/tone-of-voice/bad-question-open-text.png" alt="Eksempel på åpent spørsmål: Fortell oss hvor du bor med tekstfelt" style="max-width: 100%; border: 1px solid #ddd;">
     </div>
   </div>
 - Still flere enkle spørsmål fremfor ett sammensatt. Det kan være enklere å svare på flere enkle spørsmål enn ett spørsmål
@@ -85,12 +85,12 @@ Da kan du gjøre det mer leselig for brukerne ved å skille lange svaralternativ
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0 3rem 0;">
   <div>
     <p><strong>✅ Gjør dette</strong></p>
-    <img src="./good-question-eller-separation.png" alt="Godt eksempel: Korte alternativer, deretter 'Eller' før langt alternativ" style="max-width: 100%; border: 1px solid #ddd;">
+    <img src="/images/tone-of-voice/good-question-eller-separation.png" alt="Godt eksempel: Korte alternativer, deretter 'Eller' før langt alternativ" style="max-width: 100%; border: 1px solid #ddd;">
     <p style="font-size: 0.9em; margin-top: 0.5rem;">Skiller korte og lange alternativer med «Eller»</p>
   </div>
   <div>
     <p><strong>❌ Ikke gjør dette</strong></p>
-    <img src="./bad-question-mixed-labels.png" alt="Dårlig eksempel: Blanding av korte og lange alternativer uten skilletegn" style="max-width: 100%; border: 1px solid #ddd;">
+    <img src="/images/tone-of-voice/bad-question-mixed-labels.png" alt="Dårlig eksempel: Blanding av korte og lange alternativer uten skilletegn" style="max-width: 100%; border: 1px solid #ddd;">
     <p style="font-size: 0.9em; margin-top: 0.5rem;">Blander korte og lange alternativer uten «Eller»</p>
   </div>
 </div>
@@ -128,7 +128,7 @@ at de godtar at brukerne gir opplysninger på ulike måter.
 **Eksempel:**
 
 Felter for fødselsnummer eller telefonnummer bør godta at folk legger inn sifrene med mellomrom, uten mellomrom og med mellomrommene
-på feil plass. Koden på baksida skal fange opp og legge på riktig format.
+på feil plass. Koden på baksiden skal fange opp og formatere riktig, også når mellomrom er plassert feil.
 
 Jobben til feilmeldingen er å fortelle brukerne hvordan de kommer videre, heller enn å fortelle dem hvilken feil som oppsto.
 Ofte trenger et felt ulike feilmeldinger for ulike situasjoner, for eksempel hvis feltet er tomt eller hvis formatet er feil.

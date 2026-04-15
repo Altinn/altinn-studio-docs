@@ -2,6 +2,7 @@
 title: Autorisasjon med tredjepartsløsninger
 description: Hentet fra stateless-docs
 draft: true
+tags: [needsReview]
 ---
 
 Tilgangsstyring for stateless apper kan løses med [standard app-autorisasjon](/nb/altinn-studio/v8/reference/configuration/authorization/), 
