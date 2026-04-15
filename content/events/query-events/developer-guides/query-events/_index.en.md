@@ -56,6 +56,12 @@ e.g. _urn:altinn:resource:app_ttd_apps-test_
 ### type
 - the event types to include, type: array[string]
 
+{{% notice warning %}}
+__Tip:__ This field is extra important when querying events published by apps. Use for
+example: `&type=app.instance.process.completed&size=10`. Leaving the field empty might 
+cause the query to return with fewer elements than requested because of authorization limits.
+{{% /notice %}}
+
 #### size
 - size of the result set, type: string
 
@@ -74,7 +80,7 @@ application/cloudevents+json
 - 400 Bad Request: Invalid set of query parameters
   Refer to problem details in response body for further information.
 - 401 Unauthorized: Indicates a missing, invalid or expired authorization header
-- 403 Forbidden: Indicating is missing required scope for subscribing to events
+- 403 Forbidden: Indicating missing required scope for subscribing to events
 
 ## Examples
 

@@ -9,27 +9,27 @@ weight: 20
 Abonnering på hendelser tilbyr en hendelsesorientert løsning hvor hendelsesmottakerne registrerer et endepunkt/webhook i sitt eget API.
 Alle hendelsesabonnenter vil motta data til sitt eget endepunkt, asynkront. Dette er den anbefalte tilnærmingen for å motta 
 hendelser fra Altinn Events.
-    
+
 Hvis mottakerens webhook ikke svarer, uansett grunn, tilbyr Altinn Events en mekanisme for gjentatte leveringsforsøk med opptil 12 forsøk. 
 Tekniske detaljer er listet nedenfor.
 
 
 ### Lage en abonnementsforespørsel
-Eksemplet nedenfor inneholder et abonnementsforespørselobjekt, som inneholder tre egenskaper. _Endpoint_ er den absolutte stien
-til webhook-en i mottakerens eget API, mens _SourceFilter_ og _SubjectFilter_ er filtre på henholdsvis kilde og subjekt.
+Eksemplet nedenfor inneholder et abonnementsforespørselobjekt, som inneholder tre egenskaper. _endPoint_ er den absolutte stien
+til webhook-en i mottakerens eget API, mens _sourceFilter_ og _subjectFilter_ er filtre på henholdsvis kilde og subjekt.
 
 ```json
 {
-    "EndPoint":"https://www.skatteetaten.no/hook",
-    "SourceFilter":"https://hunderpasseren.no/by/bronnoysund",
-    "SubjectFilter":"/hund/ascii"
+    "endPoint":"https://www.skatteetaten.no/hook",
+    "resourceFilter":"urn:altinn:resource:hunder-og-katter",
+    "subjectFilter":"/hund/ascii"
 }
 ```
 _Eksempel på abonnementsforespørselobjekt_
 
 ### Validering av en abonnents endepunkt
 Når et nytt abonnement har blitt registrert gjennom API-et, 
-sendes en valideringshendelse til endepunktet for å validere responsstatus.
+sendes en valideringshendelse til endepunktet for å validere at endepunktet svarer på forsendelser.
 
 ```json
 {
@@ -49,7 +49,8 @@ En statisk IP brukes når hendelser pushes for å la abonnenter hviteliste IP-ad
 
 **Viktig:** På grunn av infrastrukturendringer får Altinn Events nye IP-adresser for utgående trafikk. 
 
-Hvis du bruker hvitelisting av IP-adresser, må du oppdatere brannmurreglene dine med de nye adressene nedenfor. **Både gamle og nye adresser må hvitelistes frem til det blir gitt beskjed om at de gamle kan fjernes.**<br><br>
+Hvis du bruker hvitelisting av IP-adresser, må du oppdatere brannmurreglene dine med de nye adressene nedenfor.
+**Både gamle og nye adresser må hvitelistes frem til det blir gitt beskjed om at de gamle kan fjernes.**<br><br>
 
 #### Nye IP-adresser
 __TT02__: 20.100.48.118/31 og 20.100.48.120/31  

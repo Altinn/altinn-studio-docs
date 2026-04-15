@@ -12,19 +12,21 @@ toc: true
 POST /subscriptions
 
 {{% notice info %}}
-Eksempel brukstilfelle: Bruk dette endepunktet når du vil legge til et abonnement på din Altinn Studio-apps hendelser. Bruk filteregenskapene for å spesifisere hvilke hendelser du vil abonnere på. 
+Eksempel brukstilfelle: Bruk dette endepunktet når du vil legge til et abonnement på din Altinn Studio-apps hendelser.
+Bruk filteregenskapene for å spesifisere hvilke hendelser du vil abonnere på.
 {{% /notice %}}
 
-## Autentisering
+## Autentisering og autorisasjon
 
-Dette API-et krever autentisering.
+Dette API-et krever en identitet med tilgang til de forespurte dataene. Hendelser publisert av Altinn Studio Apps kan 
+aksesseres uten noen scopes, men hendelser fra andre kilder som Correspondence og Broker krever scopet 
+__altinn:events.subscribe__. Scopet er offentlig tilgjengelig og kan brukes av både ID-porten- og Maskinporten-klienter.
 
-Når du abonnerer på generiske hendelser kreves Maskinporten-scope __altinn:events.subscribe__.
-
-Hvis du abonnerer på hendelser som tjenesteeier kreves også Maskinporten-scope __altinn:serviceowner__. 
+Hvis du abonnerer på hendelser som tjenesteeier trenger du også scopet __altinn:serviceowner__. Dette gir deg tilgang 
+til data på hendelseskildenivå fremfor for spesifikke aktører. Dette gjør altså subjektfilteret valgfritt. 
+Scopet __altinn:serviceowner__ er kun tilgjengelig for registrerte tjenesteeiere som bruker en Maskinporten-klient.
 
 Se [Autentisering og autorisasjon](/nb/events/api/#autentisering-og-autorisasjon) for mer informasjon.
-
 
 ## Forespørsel {#request}
 
@@ -34,24 +36,25 @@ application/json
 ### Forespørselstekst
 
 {{% notice info %}}
-Listen over påkrevde egenskaper nedenfor viser hva som generelt kreves.
-Kravene varierer basert på hvem abonnenten er og hvilken type ressurs
-abonnementet retter seg mot. Bruk dokumentasjonen nedenfor som veiledning og se problemdetaljene
+Listen over påkrevde egenskaper nedenfor viser hva som generelt kreves. Kravene varierer basert på hvem abonnenten er
+og hvilken type ressurs abonnementet retter seg mot. Bruk dokumentasjonen nedenfor som veiledning og se problemdetaljene 
 hvis abonnementsforespørselen din ikke blir akseptert.
 {{% /notice %}}
 
 ### Påkrevde egenskaper for abonnementsforespørsel
 
 #### endPoint
-- webhook-URL for å motta HTTP POST-forespørsel fra Altinn Events
+
+Webhook-URL for å motta HTTP POST-forespørsel fra Altinn Events.
 
 {{% notice warning %}}
-HTTPS-endepunkter må bruke offentlig gyldige TLS-sertifikater. Selvsignerte sertifikater støttes ikke og vil føre til feil ved validering av abonnement.
+HTTPS-endepunkter må bruke offentlig gyldige TLS-sertifikater. Selvsignerte sertifikater støttes ikke og vil føre til 
+feil ved validering av abonnement.
 {{% /notice %}}
 
-Endepunktet bør svare med 200 OK når en hendelse mottas. 
-I tillegg bør det returnere 200 OK når det mottar vår tilpassede valideringshendelse:
-
+Endepunktet bør svare med en HTTP-responskode i 2xx-området hvis forespørselen ble behandlet vellykket. Alle andre 
+responser vil bli behandlet som mislykkede. API-et må akseptere valideringshendelsen (nedenfor) i tillegg til alle 
+normale hendelser.
 
 ```json
 {
@@ -63,44 +66,87 @@ I tillegg bør det returnere 200 OK når det mottar vår tilpassede valideringsh
 ```
 _Eksempel på valideringshendelse_
 
-### resourceFilter*
-- filter for hendelsesressursen
+#### resourceFilter
+Filter for hendelseskilden. Resource-feltet i en hendelse er en utvidelse av CloudEvent-spesifikasjonen som Altinn Events 
+bruker for å identifisere hendelseskilden i stedet for å bruke source-feltet direkte.
 
-Må være et eksakt treff med ressursen satt på de genererte hendelsene
-#### sourceFilter**
-- filter for cloud event-kilden
+Ressursfilterfeltet er påkrevd, men Altinn Events kan fylle det ut automatisk basert på source-verdien hvis det er en 
+gyldig URL til en Altinn Studio App. Dette gjøres for bakoverkompatibilitet med eldre klienter.
 
-Når du abonnerer på en app-hendelse er formatet for kildefilter `https://digdir.apps.altinn.no/digdir/demoapp`
+Verdien må være et eksakt treff med ressursen satt på de genererte hendelsene. F.eks: `urn:altinn:resource:app_digdir_demoapp`.
 
-\* påkrevd for abonnementer på generiske hendelser, valgfritt for app-hendelsesabonnementer
-\** kun påkrevd for app-abonnementer i tilfeller hvor intet ressursfilter er oppgitt 
+#### subjectFilter
+Filter for cloud event-subjektet. Altinn Events utfører en eksakt treff-sammenligning.
+
+Feltet er påkrevd med mindre du er tjenesteeier. Tjenesteeiere kan utelate feltet og abonnere på alle hendelser på 
+tvers av alle parter/subjekter.
+
+##### Mulige subjektfilterverdier for app-hendelser:
+- /party/{partyid} – Hvis party-ID-en for aktøren din er ukjent så kan man bruke alternativt subjektfilter i stedet.
+
+##### Mulige subjektfilterverdier for andre hendelseskilder:
+- urn:altinn:organization:identifier-no:{organisasjonsnummer}
+- urn:altinn:person:identifier-no:{fødselsnummer}
+
+{{% notice warning %}}
+Å sette verdien til en tom streng (`""`) vil føre til at abonnementet stille feiler med å levere hendelser.
+{{% /notice %}}
+
 
 ### Valgfrie egenskaper for abonnementsforespørsel
 
-#### subjectFilter
-- filter for cloud event-subjektet
+#### sourceFilter
+Filter for cloud event-kilden. Dette filteret kan brukes i stedet for ressursfilter for hendelser publisert av apper. 
+Feltet beholdes for bakoverkompatibilitet med eldre klienter.
 
-{{% notice warning %}}
-Utelat denne egenskapen eller sett den til `null` for å abonnere på alle subjekter. Å sette den til en tom streng (`""`) vil føre til at det ikke leveres hendelser.
-{{% /notice %}}
+Verdien må være en URL. For eksempel en link til digdir sin demoapp i produksjon: `https://digdir.apps.altinn.no/digdir/demoapp`.
 
 #### alternativeSubjectFilter
-- filter for cloud event-alternativsubjektet
-
-#### typeFilter
-- filter for cloud event-typen
-
-Utelat denne egenskapen eller sett den til `null` hvis du vil abonnere på alle hendelsestyper for den gitte kilden og/eller ressursen.
-
-{{% notice warning %}}
-Å sette `typeFilter` til en tom streng (`""`) i stedet for å utelate den eller bruke `null` vil føre til at abonnementet feiler med å matche hendelser.
-{{% /notice %}}
+Filter for cloud event-alternativsubjektet. Alternativt subjekt er en utvidelse av CloudEvent-spesifikasjonen som
+Altinn Events bruker for å gjøre subjektet i en hendelse menneskelig lesbart. Feltet brukes når subjektfeltet er fylt
+ut med en party-ID.
 
 {{% notice info %}}
-__Tips:__ Når du spør mot events-APIet, returneres kun 2 resultater som standard. Hvis ressursen din deles med andre tjenester (f.eks. Dialogporten), kan disse hendelsene vises først slik at appens hendelser ikke er synlige. Bruk et spesifikt `typeFilter` for å få pålitelige resultater, for eksempel:
-
-`&type=app.instance.process.completed&size=10`
+Altinn Events lagrer ikke verdien for alternativt subjektfilter, men bruker den til å generere en tilsvarende
+subjektfilterverdi. Dette er grunnen til at du ikke ser verdien hvis du henter eksisterende abonnementer.
 {{% /notice %}}
+
+##### Mulige alternativsubjektverdier for app-hendelser:
+- /org/{organisasjonsnummer}
+- /person/{fødselsnummer}
+
+
+#### typeFilter
+Filtrer hendelser ved hjelp av cloud event-typeverdien. Altinn Events utfører et eksakt treff-søk for abonnementer med 
+et typefilter. Det er ingen støtte for jokertegn eller arrays per nå. Du kan utelate dette feltet og filtrere for 
+hendelsene systemet ditt er interessert i på din side når hendelser postes til systemendepunktet ditt.
+
+##### Typiske app-hendelser:
+- app.instance.created
+- app.instance.process.movedTo.Task_2
+- app.instance.process.completed
+
+##### Eksempler fra andre kilder:
+- no.altinn.broker.published
+- no.altinn.correspondence.correspondencepublished
+- dialogporten.dialog.created.v1
+
+Altinn Events dikterer ikke hvilke typer hendelser ulike hendelseskilder bruker. Du må se på dokumentasjonen for hver 
+kilde for nøyaktig informasjon.
+
+{{% notice warning %}}
+Å sette `typeFilter` til en tom streng (`""`) vil føre til at abonnementet stille feiler med å matche hendelser. Dette
+ er en vanlig feilkilde som er vanskelig å feilsøke, siden ingen valideringsfeil returneres.
+{{% /notice %}}
+
+#### includeSubunits
+Lar hendelser der subjektet er en underenhet bli fanget opp av et abonnement på hovedenheten. Dette gjør det mulig 
+for en organisasjon med underenheter (hierarki av organisasjoner) å opprette ett enkelt abonnement som kan fange opp
+ alle hendelser med subjekter på tvers av organisasjonshierarkiet.
+
+Verdien vil kun ha effekt hvis subjektfilterverdien er den faktiske hovedenheten i organisasjonen.
+
+Standardverdi er: False.
 
 ## Respons
 
@@ -118,18 +164,16 @@ Du kan hente abonnementet ditt ved å bruke abonnements-ID-en for å sikre at ab
 
 ### Responskoder
 - 201 Created: Abonnementet har blitt registrert med suksess.
-
-
-
-- 401 Unauthorized: Indikerer en manglende, ugyldig eller utløpt autorisasjonsheader eller at forbrukeren ikke har tillatelse
+- 401 Unauthorized: Indikerer en manglende, ugyldig eller utløpt autorisasjonsheader, eller at forbrukeren ikke har tillatelse
   til å abonnere på hendelser fra denne ressursen basert på filterparametere
-- 403 Forbidden: Indikerer at nødvendig scope for å abonnere på hendelser mangler
+- 403 Forbidden: Indikerer manglende påkrevd scope eller autorisasjon. Sjekk brukerroller eller tilgangspakker mot
+  retningslinjene for hendelseskilden.
 
 ## Eksempler
 
 ### Forespørsel
 
-Merk at et Altinn Token bør inkluderes i autorisasjonsheaderen.
+Merk at et Altinn Token må inkluderes i autorisasjonsheaderen.
 
 ```bash
 curl \
@@ -154,7 +198,8 @@ curl \
     "consumer": "/org/digdir",
     "createdBy": "/org/digdir",
     "created": "2023-04-05T13:57:11.234994Z",
-    "validated": false
+    "validated": false,
+    "includeSubunits": false
 }
 ```
 
