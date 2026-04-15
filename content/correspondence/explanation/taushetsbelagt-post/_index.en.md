@@ -65,7 +65,7 @@ If not, we recommend the following standard notification text:
 
 ### Reminders for unopened confidential correspondences
 If a confidential correspondence has not been opened within 7 days, a reminder will be sent to the organization.
-The reminder will be sent as a dialog in the recipient's inbox and will be visible to everyone with the role or access package "Regular mail to business", and it will contain a list of which confidential correspondences that have not been opened providing information about the sender, the date the message was published, and which service is required to gain access.
+The reminder will be sent as a dialog in the recipient's inbox and will be visible to everyone with the role or access package "Regular mail to business". It contains a list of the confidential correspondences that have not been opened providing information about the sender, the date the message was published, and which service is required to gain access.
 
 In addition to creating an instance in the inbox, a notification will be sent by email to the organization's notification address as well as to individuals who have registered a notification address for the organization and who have access to the "Regular mail to business" access package.
 

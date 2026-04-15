@@ -68,8 +68,8 @@ Vi anbefaler sterkt at teksten i varselet tilpasses innholdet i forsendelsen hvi
 
 ### Purring på uåpnet taushetsbelagt post
 Dersom taushetsbelagt post ikke er blitt åpnet innen 7 dager vil det sendes ut en purring til virksomheten. 
-Purringen vil sendes ut i form av en dialog i mottakers innboks og vil være synlig for alle med rollen eller tilgangspakken "Ordinær post til virksomheten", og den vil inneholde en liste over hvilke instanser med taushetsbelagt post som ikke er åpnet ved hjelp av informasjon om avsender, dato meldingen ble publisert og hvilken tjeneste som kreves for å få tilgang. 
+Purringen vil sendes ut i form av en dialog i mottakerens innboks og vil være synlig for alle med rollen eller tilgangspakken "Ordinær post til virksomheten". Den vil inneholde en liste over hvilke instanser med taushetsbelagt post som ikke er åpnet med informasjon om avsender, dato meldingen ble publisert og hvilken tjeneste som kreves for å få tilgang. 
 
-I tillegg til at det opprettes en instans i innboksen vil det gå ut et varsel på e-post til virksomhetens varslingsadresse samt privatpersoner som har registrert varslingsadresse for virksomheten og som har tilgang til tilgangspakken "Ordinær post til virksomheten".
+I tillegg til at det opprettes en instans i innboksen vil det gå ut et varsel på e-post til virksomhetens varslingsadresse samt til privatpersoner som har registrert varslingsadresse for virksomheten og som har tilgang til tilgangspakken "Ordinær post til virksomheten".
 
-For å unngå å fylle innboksen til virksomheter med purringer om uåpnet taushetsbelagt post blir dialogen slettet når alle taushetsbelagt meldinger som er eldre enn 7 dager er åpnet.
+For å unngå å fylle innboksen til virksomheter med purringer om uåpnet taushetsbelagt post blir dialogen slettet når alle taushetsbelagte meldinger som er eldre enn 7 dager er åpnet.
