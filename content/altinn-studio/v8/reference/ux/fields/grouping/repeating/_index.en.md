@@ -102,36 +102,39 @@ Below is a form with a repeating group that:
 ## rowsBefore/rowsAfter: colSpan and hidden columns
 
 `rowsBefore` and `rowsAfter` use the same grid row/cell structure as the Grid component.
-Cells in these rows support both `gridColumnOptions.colSpan` (column span) and `gridColumnOptions.hidden` (hide column).
+- Cells in these rows support `colSpan` (via `gridColumnOptions.colSpan` or a top‑level `colSpan` on the cell).
+- Column hiding is configured with `columnOptions.hidden` on cells in a header row.
+- To hide a column in `rowsBefore/rowsAfter`, set `columnOptions.hidden` on the corresponding cell in a header row ("header": true).
 
-To hide a column in `rowsBefore`/`rowsAfter`, set `hidden` on the corresponding cell in a header row (`"header": true`).
+Note: _When using `colSpan`, cells covered by the span must be removed or set to `null`._
 
-When using `colSpan`, cells covered by the span must be removed or set to `null`.
+Note: _If you configure a cell so its `colSpan` covers one or more columns that are also hidden, the table still renders, but the layout may not match what you expect. In development, the app logs a short warning in the browser console that describes which cell spans how many columns and that it overlaps hidden column(s), and that this may cause unexpected layout. Avoid combining a `colSpan` with hidden columns if you need a predictable table._
 
+Example `rowsBefore/rowsAfter` without overlap between `colSpan` and `hidden`:
 ```json
- "rowsBefore": [
-   {
-     "header": true,
-     "cells": [
-       {},
-       { "text": "Summary before", "gridColumnOptions": { "colSpan": 2 } },
-     null,
-       { "text": "Hidden before", "gridColumnOptions": { "hidden": true } }
-     ]
-   },
- ],
-
- "rowsAfter": [
-   {
-     "header": true,
-     "cells": [
-       {},
-       { "text": "All changes", "gridColumnOptions": { "colSpan": 2 } },
+"rowsBefore": [
+  {
+    "header": true,
+    "cells": [
+      {},
+      { "text": "Summary before", "gridColumnOptions": { "colSpan": 2 } },
       null,
-       { "text": "Hidden after", "gridColumnOptions": { "hidden": true } }
-     ]
-   },
- ]
+      { "text": "Hidden before", "columnOptions": { "hidden": true } }
+    ]
+  }
+],
+
+"rowsAfter": [
+  {
+    "header": true,
+    "cells": [
+      {},
+      { "text": "All changes", "gridColumnOptions": { "colSpan": 2 } },
+      null,
+      { "text": "Hidden after", "columnOptions": { "hidden": true } }
+    ]
+  }
+]
 ```
 
 ## textResourceBindings

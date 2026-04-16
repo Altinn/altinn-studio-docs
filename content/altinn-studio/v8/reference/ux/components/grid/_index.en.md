@@ -242,13 +242,12 @@ text resources should still be set on the component, as they will be used for ac
 be displayed when the component is displayed outside of a Grid - such as on [smaller screens](#mobile-support) and in
 [a Summary](/en/altinn-studio/v8/reference/ux/pages/summary/).
 
-### Column span and hidden columns
+### Column spanning and column hiding
 
-The Grid component supports both column span (`colSpan`) and column-level hiding (`hidden`) for each cell.
+The Grid component supports both column spanning (`colSpan`) and column hiding (`hidden`).
 
-- `colSpan` lets a cell span across multiple columns.
-- `hidden` hides a column.
-- Values can be set directly on the cell or via `gridColumnOptions`.
+- `colSpan` lets a cell cover multiple columns. It can be configured either via `gridColumnOptions.colSpan` or a top‑level `colSpan` on the cell.
+- `hidden` hides an entire column. It applies at the column level (header + the corresponding cells in the rows below), and it can be configured only via `columnOptions.hidden`.
 
 Example with `colSpan`:
 ```json
@@ -267,13 +266,15 @@ Example with `hidden`:
   "header": true,
   "cells": [
     { "text": "Column A" },
-    { "text": "Column B", "gridColumnOptions": { "hidden": true } },
+    { "text": "Column B", "columnOptions": { "hidden": true } },
     { "text": "Column C" }
   ]
 }
 ```
-`hidden` applies to the column level (header + corresponding cells in rows below).
-Note: When you use  `colSpan`, cells covered by the span should be removed or set to `null`, otherwise the table layout may become unpredictable.
+
+Note: _When using `colSpan`, you must remove the cells covered by the column span or set them to `null`, otherwise the table layout may become unpredictable._
+
+Note: _If you configure a cell so its `colSpan` covers one or more columns that are also hidden, the table still renders, but the layout may not match what you expect. In development, the app logs a short warning in the browser console that describes which cell spans how many columns and that it overlaps hidden column(s), and that this may cause unexpected layout. Avoid combining a `colSpan` with hidden columns if you need a predictable table._
 
 ### Widths, text and alignment
 

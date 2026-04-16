@@ -252,11 +252,11 @@ vises utenfor en Grid - som på [mindre skjermer](#mobilvisning) og i [et sammen
 
 ### Kolonnespenn og skjuling av kolonner
 
-Grid-komponenten støtter både kolonnespenn (`colSpan`) og skjuling av kolonner (`hidden`) for hver celle.
+Grid-komponenten støtter både kolonnespenn (`colSpan`) og skjuling av kolonner (`hidden`).
 
-- `colSpan` lar en celle dekke flere kolonner.
-- `hidden` skjuler en kolonne.
-- Du kan sette verdier direkte på cellen eller med `gridColumnOptions`.
+- `colSpan` lar en celle dekke flere kolonner. Den kan konfigureres enten via `gridColumnOptions.colSpan` eller et toppnivå `colSpan` på cellen.
+- `hidden` skjuler en hel kolonne. Den gjelder på kolonnenivå (header + tilhørende celler i radene under), og den kan konfigureres kun via `columnOptions.hidden`.
+
 
 Eksempel med `colSpan`:
 ```json
@@ -275,14 +275,15 @@ Eksempel med `hidden`:
   "header": true,
   "cells": [
     { "text": "Kolonne A" },
-    { "text": "Kolonne B", "gridColumnOptions": { "hidden": true } },
+    { "text": "Kolonne B", "columnOptions": { "hidden": true } },
     { "text": "Kolonne C" }
   ]
 }
 ```
-`hidden` gjelder på kolonnenivå (header + tilhørende celler i radene under).
 
-Merk: Når du bruker `colSpan`, må du fjerne de cellene som kolonnespennet dekker eller sette dem til `null`, ellers kan tabell-layouten bli uforutsigbar.
+Merk: _Når du bruker `colSpan`, må du fjerne de cellene som kolonnespennet dekker eller sette dem til `null`, ellers kan tabell-layouten bli uforutsigbar._
+
+Merk : _Hvis du konfigurerer en celle slik at `colSpan` dekker én eller flere kolonner som også er skjulte, vil tabellen fortsatt rendres, men oppsettet stemmer kanskje ikke med det du forventer. Under utvikling logger appen en kort advarsel i nettleserkonsollen som beskriver hvilken celle som spenner over hvor mange kolonner og at den overlapper skjulte kolonne(r), og at dette kan føre til uventet oppsett. Unngå å kombinere en `colSpan` med skjulte kolonner hvis du trenger en forutsigbar tabell._
 
 ### Bredder, tekst og justering
 

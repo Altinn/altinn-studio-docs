@@ -99,39 +99,42 @@ Under vises et skjema med en repeterende gruppe som:
 | [tableColumns](table/#bredder-tekst-plassering-og-skjuling-av-overflødig-tekst) | Nei     | Objekt som inneholder egenskaper for kolonnene som vises i tabellen.                                                                                                |
 | [stickyHeaders](table/#sticky-tabell-headere)                                   | No      | Dersom satt til `true`, gjøres tabell headerene `sticky`.                                                                                                           |
 
-## rowsBefore/rowsAfter: kolonnespenn og skjuling av kolonner
-
+## rowsBefore/rowsAfter: colSpan og skjulte kolonner
 `rowsBefore` og `rowsAfter` bruker samme grid-rad/celle-struktur som Grid-komponenten.
-Celler i disse radene støtter både `gridColumnOptions.colSpan` (kolonnespenn) og `gridColumnOptions.hidden` (skjul kolonne).
 
-For å skjule en kolonne i `rowsBefore`/`rowsAfter`, sett `hidden` på tilsvarende celle i en header-rad (`"header": true`).
+Celler i disse radene støtter `colSpan` (via `gridColumnOptions.colSpan` eller et toppnivå `colSpan` på cellen).
+Skjuling av kolonner konfigureres med `columnOptions.hidden` på celler i en headerrad.
+For å skjule en kolonne i `rowsBefore`/`rowsAfter`, sett `columnOptions.hidden` på den tilsvarende cellen i en headerrad ("header": true).
 
-Hvis du bruker `colSpan`, må du fjerne cellene som kolonnespennet dekker, eller sette dem til `null`.
+Merk: _Når du bruker `colSpan`, må celler som dekkes av spennet fjernes eller settes til null._
 
+Merk: _Hvis du konfigurerer en celle slik at `colSpan` dekker én eller flere kolonner som også er skjulte, vil tabellen fortsatt rendres, men oppsettet stemmer kanskje ikke med det du forventer. Under utvikling logger appen en kort advarsel i nettleserkonsollen som beskriver hvilken celle som spenner over hvor mange kolonner og at den overlapper skjulte kolonne(r), og at dette kan føre til uventet oppsett. Unngå å kombinere `colSpan` med skjulte kolonner hvis du trenger en forutsigbar tabell._
+
+Eksempel `rowsBefore/rowsAfter` uten overlapp mellom `colSpan` og `hidden`:
 ```json
- "rowsBefore": [
-   {
-     "header": true,
-     "cells": [
-       {},
-       { "text": "Oppsummering før", "gridColumnOptions": { "colSpan": 2 } },
-     null,
-       { "text": "Skjules før", "gridColumnOptions": { "hidden": true } }
-     ]
-   },
- ],
-
- "rowsAfter": [
-   {
-     "header": true,
-     "cells": [
-       {},
-       { "text": "Alle endringer", "gridColumnOptions": { "colSpan": 2 } },
+"rowsBefore": [
+  {
+    "header": true,
+    "cells": [
+      {},
+      { "text": "Summary before", "gridColumnOptions": { "colSpan": 2 } },
       null,
-       { "text": "Skjules etter", "gridColumnOptions": { "hidden": true } }
-     ]
-   },
- ]
+      { "text": "Hidden before", "columnOptions": { "hidden": true } }
+    ]
+  }
+],
+
+"rowsAfter": [
+  {
+    "header": true,
+    "cells": [
+      {},
+      { "text": "All changes", "gridColumnOptions": { "colSpan": 2 } },
+      null,
+      { "text": "Hidden after", "columnOptions": { "hidden": true } }
+    ]
+  }
+]
 ```
 
 ## textResourceBindings
