@@ -15,41 +15,33 @@ See this [guide](/en/altinn-studio/v8/getting-started/create-user/)
 
 {{< /stepcard >}}
 
-{{< stepcard step="3" title="Create the resource administration repository for the organization" >}}
+{{< stepcard step="3" title="Add members to resource administration team" >}}
 
-To enable Resource Administration, your organization needs a specific repository named {org}-resources. This repository will act as a centralized place to manage your resources. For example: [skd-resources](https://altinn.studio/repos/skd/skd-resources).
+Add the users who should be able to publish resources as members in the following teams for your organization:
 
-You can create this repository from the organization page in the Gitea area of Altinn Studio.
+- **Resources**: Provides access to create and modify resources.
+- **Resources-Publish-PROD**: Provides access to publish resources to the production environment.
+- **Resources-Publish-TT02**: Provides access to publish resources to the TT02 test environment.
 
-![Repo](repocreation.png)
-
-{{< /stepcard >}}
-
-{{< stepcard step="4" title="Create resource administration teams" >}}
-
-- A resource group that can be assigned to `{org}-resources`
-- **Resources-Publish-PROD**: Permission to publish to production
-- **Resources-Publish-TT02**: Team with permission to publish to TT02
-
-Create these teams from the organization page in the Gitea area of Altinn Studio.
+Teams can be added from the organization page in the Gitea section of Altinn Studio.
 
 ![Teams](teamscreation_1.png)
 {{< /stepcard >}}
 
-{{< stepcard step="5" title="Create a resource" >}}
+{{< stepcard step="4" title="Create a resource" >}}
 A detailed guide for creating resources can be found under [Guides](/en/authorization/guides/resource-owner/create-resource-resource-admin/)
 {{< /stepcard >}}
 
-{{< stepcard step="6" title="Create access lists (optional)" >}}
+{{< stepcard step="5" title="Create access lists (optional)" >}}
 By default, anyone who has a role or an access list that meets the requirements for a service will have access to that service.
 If there is a need to restrict access to specific organizations, you can use access lists.
 This is the same functionality that in Altinn 2 was called the Service Rights Register (SRR).
 
 **Define teams for Access Lists**
 
-Your organization should create the following teams:
+Add the users who should be able to manage access lists as members in the following teams for your organization:
 
-- **AccessLists-TT02**: Manages access lists in the TT02 environment.
+- **AccessLists-TT02**: Manages access lists in the TT02 test environment.
 - **AccessLists-PROD**: Manages access lists in the production environment.
 
 Members of these teams can manage access lists in their respective environments.
@@ -60,7 +52,7 @@ Under [Guides](/en/authorization/guides/resource-owner/accesslist/) you can read
 
 {{< /stepcard >}}
 
-{{< stepcard step="7" title="Publish" >}}
+{{< stepcard step="6" title="Publish" >}}
 When all metadata, rules and any access lists are ready, the resource must be published.
 A review of the publishing process can be found under [Guides](/en/authorization/guides/resource-owner/create-resource-resource-admin/)
 {{< /stepcard >}}
