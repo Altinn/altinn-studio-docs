@@ -18,7 +18,7 @@ Livesynkronisering: Alle endringer[^1] (skjema, meldinger) vises i Dialogporten.
 | Kilde | Migrert tilbake til |
 |----------|----------|
 | A2-Melding | 01.01.2024 |
-| A2 arkiverte skjema / A3-app-instanser | 01.01.2024 |
+| A2 arkiverte skjema / A3-app-instanser | 01.01.2022 |
 
 ## Mål og planer
 
@@ -54,19 +54,21 @@ Se [migrering av meldingsdata](https://docs.altinn.studio/nb/correspondence/tran
 Alle nye meldinger opprettet i Altinn 3 Melding er tilgjengelig i Dialogporten umiddelbart. Ingen migrering nødvendig.
 
 ### ⚠ A3 App-instanser - Historisk
-Foreløpig migrert tilbake til 1. januar 2024. Eldre app-instanser vil bli migrert senere.
+Foreløpig migrert tilbake til 1. januar 2022. Eldre app-instanser vil bli migrert senere.
 
 ### ✔ A3 App-instanser - Live
 Nye app-instanser opprettet i Altinn 3 er tilgjengelig i Dialogporten umiddelbart. Endringer synkroniseres i sanntid.
 
 ### ⚠ A2 Arkiverte skjema - Historisk
-Foreløpig migrert tilbake til 1. januar 2024. Eldre arkiverte skjema vil bli migrert senere.
+Foreløpig migrert tilbake til 1. januar 2022. Eldre arkiverte skjema vil bli migrert senere.
 
 ### ✔ A2 Arkiverte skjema - Live
 Nylig arkiverte app-instanser opprettet i Altinn 2 migreres i puljer hvert 5. minutt.
 Skjema som er under utfylling blir ikke migrert før de er arkivert.
 
 ## Endringslogg
+16.04.2026: Migrering av arkiverte skjema for 2023 og 2022 fullført.
+
 11.03.2026: Tydeliggjort at skjema som fortsatt er under utfylling i Altinn 2 ikke migreres før de er arkivert.
 
 24.02.2026: Migrering av 2024 fullført.
