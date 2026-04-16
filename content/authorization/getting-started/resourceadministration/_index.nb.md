@@ -15,41 +15,33 @@ Se denne [veiledningen](/nb/altinn-studio/v8/getting-started/create-user/)
 
 {{< /stepcard >}}
 
-{{< stepcard step="3" title="Opprett ressursadministrasjonsarkivet for organisasjonen" >}}
+{{< stepcard step="3" title="Legg til medlemmer i ressursadministrasjonsteam" >}}
 
-For å aktivere ressursadministrasjon trenger organisasjonen din et spesifikt depot kalt {org}-resources. Dette depotet vil fungere som et sentralisert knutepunkt for å administrere ressursene dine. For eksempel [skd-resources](https://altinn.studio/repos/skd/skd-resources) .
+Legg til de brukere som skal kunne publisere ressurser som medlemmer i følgende team for din organisasjon:
 
-Du kan opprette dette depotet fra organisasjonssiden i Gitea-delen av Altinn Studio.
-
-![Repo](repocreation.png)
-
-{{< /stepcard >}}
-
-{{< stepcard step="4" title="Opprett ressursadministrasjonsteam" >}}
-
-- Ressursgruppe som kan tilordnes til {org}-resources
-- Resources-Publish-PROD: Rett til å publisere til produksjon
-- Resources-Publish-TT02: Team med rettigheter til å publisere til TT02
+- **Resources**: Gir tilgang til å opprette og endre ressurser.
+- **Resources-Publish-PROD**: Gir tilgang til å publisere ressurs til produksjonsmiljøet.
+- **Resources-Publish-TT02**: Gir tilgang til å publisere ressurs til testmiljøet TT02.
 
 Lag opprettes fra organisasjonssiden i Gitea-delen av Altinn Studio.
 
 ![Teams](teamscreation_1.png)
 {{< /stepcard >}}
 
-{{< stepcard step="5" title="Opprette ressurs" >}}
+{{< stepcard step="4" title="Opprette ressurs" >}}
 Detaljert guide for opprettelse av ressurser finnes under [Guider](/nb/authorization/guides/resource-owner/create-resource-resource-admin/)
 {{< /stepcard >}}
 
-{{< stepcard step="6" title="Opprette Tilgangslister (ikke påkrevd)" >}}
+{{< stepcard step="5" title="Opprette Tilgangslister (ikke påkrevd)" >}}
 I utgangspunktet får alle som har rolle eller tilgangsliste som tilfredstiller kravet til tjenesten, tilgang til tjenesten.
 Dersom det er behov for å begrense tilgangen til enkelte virksomheter kan man benytte tilgangslister.
 Dette er samme funsjonalitet som i Altinn 2 het Tjenesterettsregisteret (SRR)
 
 **Definere team for Tilgangsliste**
 
-Din organisasjon bør opprette følgende team:
+Legg til de brukere som skal kunne administrere tilgangslister som medlemmer i følgende team for din organisasjon:
 
-- **AccessLists-TT02**: Administrerer tilgangslister i TT02-miljøet.
+- **AccessLists-TT02**: Administrerer tilgangslister i testmiljøet TT02.
 - **AccessLists-PROD**: Administrerer tilgangslister i produksjonsmiljøet.
 
 Medlemmer av disse teamene kan administrere tilgangslister i sine respektive miljøer.
@@ -60,7 +52,7 @@ Under [Guider](/nb/authorization/guides/resource-owner/accesslist/) kan du lese 
 
 {{< /stepcard >}}
 
-{{< stepcard step="7" title="Publisere" >}}
+{{< stepcard step="6" title="Publisere" >}}
 Når all metadata, regler og ev tilgangslister er klare må ressursen publiseres
 Gjennomgang av publisering finnes under [Guider](/nb/authorization/guides/resource-owner/create-resource-resource-admin/)
 {{< /stepcard >}}
