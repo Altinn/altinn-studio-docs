@@ -15,8 +15,8 @@ Tekniske detaljer er listet nedenfor.
 
 
 ### Lage en abonnementsforespørsel
-Eksemplet nedenfor inneholder et abonnementsforespørselobjekt, som inneholder tre egenskaper. _endPoint_ er den absolutte stien
-til webhook-en i mottakerens eget API, mens _sourceFilter_ og _subjectFilter_ er filtre på henholdsvis kilde og subjekt.
+Eksemplet nedenfor inneholder et abonnementsforespørselobjekt, med tre egenskaper. _endPoint_ er den absolutte stien
+til webhook-en i mottakerens eget API, mens _resourceFilter_ og _subjectFilter_ er filtre på henholdsvis kilde og subjekt.
 
 ```json
 {
@@ -29,7 +29,7 @@ _Eksempel på abonnementsforespørselobjekt_
 
 ### Validering av en abonnents endepunkt
 Når et nytt abonnement har blitt registrert gjennom API-et, 
-sendes en valideringshendelse til endepunktet for å validere at endepunktet svarer på forsendelser.
+sendes en valideringshendelse til endepunktet for å validere at endepunktet svarer på forespørsler.
 
 ```json
 {

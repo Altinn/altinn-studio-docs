@@ -19,7 +19,7 @@ properties to specify what events you want to subscribe to.
 ## Authentication and authorization
 
 Using this API requires an identity with access to the requested data. Events published by Altinn Studio Apps can be
-accessed without any scopes, but events from other sources like Correspondence and Broker requires the __altinn:events.subscribe__
+accessed without any scopes, but events from other sources like Correspondence and Broker require the __altinn:events.subscribe__
 scope. The scope is publicly available and can be used by both ID-porten and Maskinporten clients.
 
 If you are subscribing to events as a service owner you also need to use the __altinn:serviceowner__ scope. This allows you to 
@@ -51,7 +51,7 @@ Webhook URL to receive HTTP POST request from Altinn Events.
 HTTPS endpoints must use publicly trusted TLS-certificates. Self-signed certificates are not supported and will cause subscription validation to fail.
 {{% /notice %}}
 
-The endpoint should respond with a http response code in the 2xx range if the request was processed successfully. All other 
+The endpoint should respond with a HTTP response code in the 2xx range if the request was processed successfully. All other 
 responses will be treated as failed. The API must accept the validation event (below) as well as all normal 
 events.
 
@@ -165,7 +165,7 @@ You may retrieve your subscription by using the subscription ID to ensure that y
 - 201 Created: The subscription has been successfully registered.
 - 401 Unauthorized: Indicates a missing, invalid or expired authorization header or that consumer is not allowed
   to subscribe to events from this resource based on filter parameters
-- 403 Forbidden: Indicating missing required scope or authorization. Check the user roles or access packages against
+- 403 Forbidden: Indicates missing required scope or authorisation. Check user roles or access packages against
   the event source policy.
 
 ## Examples
