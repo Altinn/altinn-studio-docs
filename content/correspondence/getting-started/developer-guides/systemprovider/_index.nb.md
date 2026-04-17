@@ -9,7 +9,19 @@ weight: 20
 
 {{<children />}}
 
-**Vi anbefaler systemleverandører å integrere seg mot Dialogportens APIer for å hente Altinn melding**. Da vil man også få andre type brev (dialoger/transmissions) som ikke sendes med Altinn Melding APIer. Dette gjelder for eksempel brev fra Skatteetaten, Nav og andre avsendere. Skatteetaten har allerede tatt i bruk dialoger. (Disse brevene når man ikke dersom man integrerer seg kun mot Meldings APIer.)
+**Anbefalt mønster: System-til-system-integrasjon for meldingshåndtering
+
+For virksomheter som håndterer større volum av meldinger eller meldinger med omfattende vedlegg, anbefales det å benytte system-til-system-integrasjon fremfor manuell oppfølging i Altinns brukergrensesnitt.
+Altinn er designet med dette som et grunnleggende mønster. Innboksen i GUI er primært egnet for manuell behandling i mindre skala, mens effektiv håndtering av større mengder meldinger forutsetter integrasjon.
+Ved å integrere sak-/arkivsystemet med Altinn via Dialogporten og tilhørende API-er kan virksomheten:
+
+- Automatisk oppdage og hente nye meldinger
+- Laste ned meldinger og alle vedlegg maskinelt
+- Journalføre og arkivere direkte i eget system
+- Redusere manuelle operasjoner og risiko for feil
+
+Dette muliggjør en arbeidsflyt der saksbehandling skjer i eget fagsystem, med Altinn som transport- og distribusjonskanal.
+Dette integrasjonsmønsteret er etablert praksis, og benyttes av virksomheter med behov for skalerbar, effektiv og robust meldingshåndtering.
 
 
 {{% expandlarge id="onboarding-process" header="Onboarding prosess" %}}
