@@ -9,8 +9,7 @@ weight: 20
 
 {{<children />}}
 
-**Anbefalt mønster: System-til-system-integrasjon for meldingshåndtering
-
+### Anbefalt mønster: system-til-system-integrasjon for meldingshåndtering
 For virksomheter som håndterer større volum av meldinger eller meldinger med omfattende vedlegg, anbefales det å benytte system-til-system-integrasjon fremfor manuell oppfølging i Altinns brukergrensesnitt.
 Altinn er designet med dette som et grunnleggende mønster. Innboksen i GUI er primært egnet for manuell behandling i mindre skala, mens effektiv håndtering av større mengder meldinger forutsetter integrasjon.
 Ved å integrere sak-/arkivsystemet med Altinn via Dialogporten og tilhørende API-er kan virksomheten:
