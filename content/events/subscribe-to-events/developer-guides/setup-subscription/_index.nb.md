@@ -144,7 +144,7 @@ Lar hendelser der subjektet er en underenhet bli fanget opp av et abonnement på
 for en organisasjon med underenheter (hierarki av organisasjoner) å opprette ett enkelt abonnement som kan fange opp
  alle hendelser med subjekter på tvers av organisasjonshierarkiet.
 
-Verdien vil kun ha effekt hvis subjektfilterverdien er den faktiske hovedenheten i organisasjonen.
+Verdien vil kun ha effekt hvis subjektfilterverdien (`subjectFilter`) er den faktiske hovedenheten i organisasjonen.
 
 Standardverdi er: False.
 

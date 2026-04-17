@@ -143,7 +143,7 @@ Allows events where the subject of the event is a subunit to be caught by a main
 possible for an organization with subunits (hierarchy of organizations) to create a single subscription that can catch 
 all events with subjects across the organizational hierarchy. 
 
-The value will have an effect only if the subject filter value is the actual main unit of the organization.
+The value will have an effect only if the `subjectFilter` value is the actual main unit of the organization.
 
 Default value is: False.
 
