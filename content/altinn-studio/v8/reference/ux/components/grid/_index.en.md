@@ -246,7 +246,7 @@ be displayed when the component is displayed outside of a Grid - such as on [sma
 
 The Grid component supports both column spanning (`colSpan`) and column hiding (`hidden`).
 
-- `colSpan` lets a cell cover multiple columns. It can be configured either via `gridColumnOptions.colSpan` or a top‑level `colSpan` on the cell.
+- `colSpan` lets a cell cover multiple columns. It can be configured via `gridColumnOptions.colSpan`.
 - `hidden` hides an entire column. It applies at the column level (header + the corresponding cells in the rows below), and it can be configured only via `columnOptions.hidden`.
 
 Example with `colSpan`:
