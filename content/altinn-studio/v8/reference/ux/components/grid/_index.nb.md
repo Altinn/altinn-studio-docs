@@ -250,6 +250,41 @@ Når komponenter vises i en tabell, vil de ikke vise `title`- og `description`-t
 bør likevel settes på komponenten, da de vil bli brukt for tilgjengelighet og vil fortsatt bli vist når komponenten
 vises utenfor en Grid - som på [mindre skjermer](#mobilvisning) og i [et sammendrag](/nb/altinn-studio/v8/reference/ux/pages/summary/).
 
+### Kolonnespenn og skjuling av kolonner
+
+Grid-komponenten støtter både kolonnespenn (`colSpan`) og skjuling av kolonner (`hidden`).
+
+- `colSpan` lar en celle dekke flere kolonner. Den kan konfigureres gjennom `gridColumnOptions.colSpan`.
+- `hidden` skjuler en hel kolonne. Den gjelder på kolonnenivå (header + tilhørende celler i radene under), og den kan konfigureres kun via `columnOptions.hidden`.
+
+
+Eksempel med `colSpan`:
+```json
+{
+  "header": true,
+  "cells": [
+    { "text": "Alle endringer", "gridColumnOptions": { "colSpan": 2 } },
+    null
+  ]
+}
+```
+
+Eksempel med `hidden`:
+```json
+{
+  "header": true,
+  "cells": [
+    { "text": "Kolonne A" },
+    { "text": "Kolonne B", "columnOptions": { "hidden": true } },
+    { "text": "Kolonne C" }
+  ]
+}
+```
+
+Merk: _Når du bruker `colSpan`, må du fjerne de cellene som kolonnespennet dekker eller sette dem til `null`, ellers kan tabell-layouten bli uforutsigbar._
+
+Merk : _Hvis du konfigurerer en celle slik at `colSpan` dekker én eller flere kolonner som også er skjulte, vil tabellen fortsatt rendres, men oppsettet stemmer kanskje ikke med det du forventer. Under utvikling logger appen en kort advarsel i nettleserkonsollen som beskriver hvilken celle som spenner over hvor mange kolonner og at den overlapper skjulte kolonne(r), og at dette kan føre til uventet oppsett. Unngå å kombinere en `colSpan` med skjulte kolonner hvis du trenger en forutsigbar tabell._
+
 ### Bredder, tekst og justering
 
 Det finnes flere opsjoner på en celle for å konfigurere bredde, tekst plassering, og
