@@ -87,6 +87,8 @@ More information about action attributes can be found [here](/en/altinn-studio/v
 #### Access control for the app
 In order for the service to be able to delegate access rights to the signees, the app itself needs to have the right to delegate the `read` and `sign` actions.
 
+If you use `AdditionalActionsToDelegate` in your `ISigneeProvider` to delegate additional actions (e.g. `reject`), the app must also have the right to delegate those actions. Add the relevant actions to the policy rule as shown below.
+
 Below is an example of a policy rule that accomplishes this. For the code to work in your own app, please follow these steps:
 - Replace `ttd` with the correct org.
 - Replace `app_ttd_signering-brukerstyrt` with your own org and app name inserted into this template: `app_{org}_{app-name}`.

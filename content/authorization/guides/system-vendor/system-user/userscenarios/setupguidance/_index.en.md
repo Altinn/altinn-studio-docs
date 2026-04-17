@@ -24,6 +24,7 @@ See also the [wizard](https://systemuserwizard.azurewebsites.net/) which covers 
 | [E. Locally installed or self-developed system](#e-locally-installed-or-self-developed-system) | 1 | Standard | All packages the organisation needs |
 | [F. Accounting clients with different service needs](#f-accounting-clients-with-different-service-needs) | 2 | Client relationship | Base package + extended package for selected clients |
 | [G. Complex organisation structure with sub-entities](#g-complex-organisation-structure-with-sub-entities) | 1 (or more for varying needs) | Client relationship | Packages delegated by each sub-entity |
+| [H. Combining own reporting with delegated client relationships](#h-combining-own-reporting-with-delegated-client-relationships) | 2 (later simplified to 1) | Standard + client relationship | Own packages on standard, delegated packages on client relationship |
 
 ---
 
@@ -360,6 +361,87 @@ Operational units (schools, health centres and similar) are an exception: an org
 
 ---
 
+## H. Combining own reporting with delegated client relationships
+
+**Typical example:** Oslo municipality wants to report sick leave both for the municipality itself (with its operational units) **and** for the municipality's sub-entities (e.g. the Education Department and Grünerløkka district, which in turn have their own operational units). Another example is a parent company that reports its own data and additionally on behalf of subsidiaries that have delegated access packages.
+
+### Starting point
+
+- The organisation wants to report its own data (as in scenario A) **and** report on behalf of other legal entities that have delegated access packages (as in scenario G).
+- A standard system user covers the organisation itself and its operational units, but cannot be used for delegated client relationships.
+- A system user for client relationships handles delegated access packages from other legal entities, but does not cover the organisation itself.
+- The two types of system users must therefore be combined today.
+
+### Recommended setup today
+
+You need **two system users** to cover both needs:
+
+- **System user 1 (standard)** — for the organisation's own reporting. The system user gets the access packages the organisation needs for itself and its operational units.
+- **System user 2 (client relationship)** — for reporting on behalf of sub-entities, subsidiaries, or other legal entities that have delegated access packages. The client administrator links each legal entity as a client.
+
+```text
+Oslo municipality
+  ├── System user 1 (standard) — Own reporting
+  │     ├── Access package: e.g. sykmelding
+  │     └── Covers: Oslo municipality + operational units (inherited automatically)
+  │
+  └── System user 2 (client relationship) — Sub-entities
+        ├── Access packages: delegated by each sub-entity
+        ├── Client: Education Department
+        │     └── Operational units: schools and kindergartens (inherit rights)
+        └── Client: Grünerløkka district
+              └── Operational units: health centres and nursing homes (inherit rights)
+```
+
+The end-user system must select the correct system user based on who is being reported for:
+
+- Reporting for the municipality itself or one of its operational units → System user 1.
+- Reporting for a sub-entity or one of its operational units → System user 2.
+
+### Additional relationship types
+
+If the organisation also has client relationships that come from the Entity Register — registered accountant, registered auditor, or property manager — you need **one additional system user per relationship type**. These relationships cannot be combined with the delegated client relationships on the same system user, because each relationship type represents a separate legal basis for acting on behalf of the client. See [scenario C](#c-service-provider-with-multiple-types-of-client-relationships) for a more detailed rationale.
+
+**Example:** A corporate group that reports its own data, has delegated client relationships from subsidiaries, and additionally acts as a registered accountant for some clients, needs three system users:
+
+```text
+The corporate group
+  ├── System user 1 (standard) — Own reporting
+  │     ├── Access package: e.g. sykmelding
+  │     └── Covers: the group + operational units
+  │
+  ├── System user 2 (client relationship) — Delegated relationships
+  │     ├── Access packages: delegated by each subsidiary
+  │     ├── Client: Subsidiary A
+  │     └── Client: Subsidiary B
+  │
+  └── System user 3 (client relationship) — Registered accountant
+        ├── Access package: regnskapsforer-med-signeringsrettighet
+        ├── Client: Customer X
+        └── Client: Customer Y
+```
+
+The number of system users grows by one per additional relationship type from the Entity Register (accountant, auditor, property manager). The simplification described below does not change this — Entity Register-based relationships always require their own system user.
+
+### Upcoming simplification
+
+Altinn will soon support **both needs on a single system user for client relationships**. Once the feature is in place, the organisation itself and its operational units can be covered together with the delegated client relationships — without a separate standard system user alongside.
+You can follow the work in
+[issue #1546 in altinn-authentication](https://github.com/Altinn/altinn-authentication/issues/1546).
+
+The simplification applies **only to client relationships that are delegated in Altinn**. Client relationships that come from the Entity Register — namely registered accountant, registered auditor, or property manager — are not included. For those you must still use a separate system user for the client relationship in addition to a standard system user for your own reporting.
+
+Until the feature is available, you should plan with two system users as described above. When the simplification arrives, you can either keep the existing setup or consolidate to a single system user for client relationships.
+
+### Key considerations
+
+- This setup combines scenario A (own reporting) and scenario G (delegated client relationships). Read these for the details of each part.
+- The end-user system must know which system user to use for which legal entity. Use `external ref` to select the correct token when reporting.
+- The same delegation requirement applies as in scenario G: each sub-entity (or subsidiary) must actively delegate the access packages to the main entity. Operational units inherit automatically.
+- If different sub-entities need different access packages, this setup can be combined with scenario C to create one system user for client relationships per package combination.
+
+---
+
 ## How many system users do I need?
 
 Use this decision tree to determine the right number:
@@ -381,6 +463,9 @@ Use this decision tree to determine the right number:
 
 6. **Is the organisation a main entity with several sub-entities that should report centrally?**
    Yes → **1 system user** where each sub-entity delegates access packages and is linked as a client (scenario G).
+
+7. **Does the organisation need to report both for itself (and its own operational units) and for sub-entities or other legal entities with delegated access packages?**
+   Yes → **2 system users**: one standard system user for own reporting and one system user for client relationships for the delegated entities (scenario H). Simplified to one system user once Altinn supports both needs on the same system user for client relationships.
 
 ### When NOT to create additional system users
 
