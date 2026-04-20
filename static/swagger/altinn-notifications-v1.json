@@ -121,7 +121,7 @@
           "Order"
         ],
         "summary": "Creates a new notification order with zero or more reminders",
-        "description": "The API will accept the request after some basic validation of the request.\nThe system will also attempt to verify that it will be possible to fulfill the order.",
+        "description": "The API will accept the request after some basic validation of the request.\r\nThe system will also attempt to verify that it will be possible to fulfill the order.",
         "requestBody": {
           "description": "The notification order request",
           "content": {
@@ -254,9 +254,6 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "An internal server error occurred while processing the notification order"
           }
         },
         "deprecated": true
@@ -324,9 +321,6 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "An internal server error occurred while processing the SMS notification order"
           }
         }
       }
@@ -393,9 +387,6 @@
                 }
               }
             }
-          },
-          "500": {
-            "description": "An internal server error occurred while processing the email notification order"
           }
         }
       }
@@ -582,7 +573,7 @@
     "/orders/{id}/cancel": {
       "put": {
         "tags": [
-          "Order"
+          "Deprecated"
         ],
         "summary": "Cancel a notification order.",
         "description": "Endpoint for stopping the sending of a registered notification order.",
@@ -621,7 +612,8 @@
           "409": {
             "description": "The order cannot be cancelled due to current processing status."
           }
-        }
+        },
+        "deprecated": true
       }
     },
     "/future/shipment/{id}": {
@@ -882,7 +874,7 @@
             "nullable": true
           }
         },
-        "additionalProperties": { }
+        "additionalProperties": {}
       },
       "DialogportenIdentifiersExt": {
         "type": "object",
@@ -1424,7 +1416,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "Represents the root tracking entity for a notification shipment that\ncan be sent to multiple recipients through various communication channels."
+        "description": "Represents the root tracking entity for a notification shipment that\r\ncan be sent to multiple recipients through various communication channels."
       },
       "NotificationOrderChainReceiptExt": {
         "required": [
@@ -1498,7 +1490,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "Represents a contract between API clients and the server, defining the structure of notification order\nrequests with reminders that can be submitted to the system.\nInherits the scheduling options from Altinn.Notifications.Models.NotificationOrderBaseExt."
+        "description": "Represents a contract between API clients and the server, defining the structure of notification order\r\nrequests with reminders that can be submitted to the system.\r\nInherits the scheduling options from Altinn.Notifications.Models.NotificationOrderBaseExt."
       },
       "NotificationOrderChainResponseExt": {
         "required": [
@@ -1959,8 +1951,9 @@
           },
           "resourceId": {
             "type": "string",
-            "description": "Gets or sets an optional resource identifier for authorization and auditing purposes.",
-            "nullable": true
+            "description": "An optional URN-formatted resource identifier for authorization and auditing purposes. Prefix 'urn:altinn:resource' is required.",
+            "nullable": true,
+            "example": "urn:altinn:resource:org_example_app"
           },
           "resourceAction": {
             "type": "string",
@@ -2035,8 +2028,9 @@
           },
           "resourceId": {
             "type": "string",
-            "description": "Gets or sets an optional resource identifier for authorization and auditing purposes.",
-            "nullable": true
+            "description": "An optional URN-formatted resource identifier for authorization and auditing purposes. Prefix 'urn:altinn:resource' is required.",
+            "nullable": true,
+            "example": "urn:altinn:resource:org_example_app"
           },
           "resourceAction": {
             "type": "string",
@@ -2078,8 +2072,9 @@
           },
           "resourceId": {
             "type": "string",
-            "description": "Gets or sets an optional resource identifier for authorization and auditing purposes.",
-            "nullable": true
+            "description": "An optional URN-formatted resource identifier for authorization and auditing purposes. Prefix 'urn:altinn:resource' is required.",
+            "nullable": true,
+            "example": "urn:altinn:resource:org_example_app"
           },
           "resourceAction": {
             "type": "string",
