@@ -22,3 +22,15 @@ SmartCloud is a reference implementation showing how a system vendor can use the
 Illustrates how a system vendor can register and update a system in the system register.
 
 [Read more](./systemadmin/)
+
+## Service Catalogue
+
+Shows how to build a searchable overview of public services in Altinn using the Resource Registry and Access Management Metadata APIs.
+
+[Read more](./servicecatalogue/)
+
+## Digital Portal
+
+Shows how a service owner can integrate with Altinn's service owner API using ID-porten login and scope-based access control.
+
+[Read more](./digitalportal/)
