@@ -16,16 +16,17 @@ Example use case: Use this endpoint when you want to add a subscription to your 
 properties to specify what events you want to subscribe to. 
 {{% /notice %}}
 
-## Authentication
+## Authentication and authorization
 
-This API requires authentication.
+Using this API requires an identity with access to the requested data. Events published by Altinn Studio Apps can be
+accessed without any scopes, but events from other sources like Correspondence and Broker require the __altinn:events.subscribe__
+scope. The scope is publicly available and can be used by both ID-porten and Maskinporten clients.
 
-When subscribing to generic events the Maskinporten scope __altinn:events.subscribe__ is required.
-
-If you are subscribing to events as a service owner the Maskinporten scope __altinn:serviceowner__ is also requried. 
+If you are subscribing to events as a service owner you also need to use the __altinn:serviceowner__ scope. This allows you to 
+access data on a event source (service) level rather than for specific parties, making the subject filter property optional. 
+The __altinn:serviceowner__ scope is available only for registered service owners using a Maskinporten client.
 
 See [Authentication and Authorization](/en/events/api/#authentication--authorization) for more information.
-
 
 ## Request
 
@@ -35,24 +36,24 @@ application/json
 ### Request body
 
 {{% notice info %}}
-The list of required properties below shows what is generally required.
-Requirements vary based on who the subscriber is and what type of resource
-the subscription is targeting. Please use documentation below as guidance and refer to the problems details
-if your subscription request is not being accepted.
+The list of required properties below shows what is generally required. Requirements vary based on who the subscriber
+is and what type of resource the subscription is targeting. Please use documentation below as guidance and refer to the
+problem details if your subscription request is not being accepted.
 {{% /notice %}}
 
 ### Required subscription request properties
 
 #### endPoint
-- webhook URL to receive HTTP POST request from Altinn Events
+
+Webhook URL to receive HTTP POST request from Altinn Events.
 
 {{% notice warning %}}
 HTTPS endpoints must use publicly trusted TLS-certificates. Self-signed certificates are not supported and will cause subscription validation to fail.
 {{% /notice %}}
 
-Endpoint should respond with 200 OK when an event is received. 
-Additionally, it should return 200 OK when receiving our custom validation event:
-
+The endpoint should respond with a HTTP response code in the 2xx range if the request was processed successfully. All other 
+responses will be treated as failed. The API must accept the validation event (below) as well as all normal 
+events.
 
 ```json
 {
@@ -64,44 +65,87 @@ Additionally, it should return 200 OK when receiving our custom validation event
 ```
 _Example of validation event_
 
-### resourceFilter*
-- filter for the event resource
+#### resourceFilter
+Filter for the event source. The event resource field is an extension to the CloudEvent specification that Altinn Events is using
+to identify the event source instead of using the source field directly. 
 
-Must be an exact match to the resource set on the generated events
-#### sourceFilter**
-- filter for the cloud event source
+The resource filter field is required, but Altinn Events is able to populate it automatically based on a source filter value 
+with a valid url pointing to an Altinn Studio App. This is done for backwards compatibility with older clients.
 
-When subscribing to an app event format for source filter is `https://digdir.apps.altinn.no/digdir/demoapp`
+Must be an exact match to the resource set on the generated events. E.g: `urn:altinn:resource:app_digdir_demoapp`.
 
-\* required for subscriptions on generic events, optional for app event subscriptions
-\** only required for app subscriptions in the case where no resource filter is provided 
+#### subjectFilter
+Filter for the cloud event's subject. Altinn Events will perform an exact match comparison. 
+
+The field is required unless you're a Service owner. Service owners can ignore the field and subscribe to all events across
+all parties/subjects. 
+
+##### Special subject filter value for app events:
+- /party/{partyid} - If the party id of your party is unknown, use alternative subject filter instead.
+
+##### Possible subject filter values for other event sources:
+- urn:altinn:organization:identifier-no:{organization number}
+- urn:altinn:person:identifier-no:{national identity number}
+
+{{% notice warning %}}
+Setting the value to an empty string (`""`) will cause the subscription to silently fail to deliver events.
+{{% /notice %}}
+
 
 ### Optional subscription request properties
 
-#### subjectFilter
-- filter for the cloud event's subject
+### sourceFilter
+Filter for the cloud event source. This filter can be used instead of resource filter for events published by apps. This field
+is kept for backwards compatibility with older clients.
 
-{{% notice warning %}}
-Omit this property or set it to `null` to subscribe to all subjects. Setting it to an empty string (`""`) will cause the subscription to silently fail to deliver events.
-{{% /notice %}}
+The format for source filter is: `https://digdir.apps.altinn.no/digdir/demoapp`.
 
 #### alternativeSubjectFilter
-- filter for the cloud event's alternative subject
-
-#### typeFilter
-- filter for the cloud event type
-
-Omit this property or set it to `null` if you want to subscribe to all event types for the given source and/or resource.
-
-{{% notice warning %}}
-Setting `typeFilter` to an empty string (`""`) instead of omitting it or using `null` will cause the subscription to silently fail to match events. This is a common source of errors that is difficult to debug, as no validation error is returned.
-{{% /notice %}}
+Filter for the cloud event's alternative subject. Alternative subject is an extension to the CloudEvent specification that
+Altinn Events use for the purpose of making the subject of an event human readable. The field is used when the subject
+field is populated with a party id.
 
 {{% notice info %}}
-__Tip:__ When querying events, the API returns only 2 results by default. If your resource is shared with other services (e.g. Dialogporten), those events may appear first and your app's events may not be visible. Use a specific `typeFilter` to get reliable results, for example:
-
-`&type=app.instance.process.completed&size=10`
+Altinn Events doesn't keep the alternative subject filter value, but use it to generate a matching subject filter value. This is
+why you don't see the value if you request existing subscriptions.
 {{% /notice %}}
+
+##### Possible subject filter values for app events:
+- /org/{organization number}
+- /person/{national identity number}
+
+
+#### typeFilter
+Filter events using the cloud event type value. Altinn Events will perform an exact match search for subscriptions with
+a type filter. There are no wildcard or array support as of now. You can leave this field empty and filter for the events
+your system is interested in on your side when events are being posted to your system endpoint.
+
+##### Typical app events:
+- app.instance.created
+- app.instance.process.movedTo.Task_2
+- app.instance.process.completed
+
+##### Examples from other sources:
+- no.altinn.broker.published
+- no.altinn.correspondence.correspondencepublished
+- dialogporten.dialog.created.v1
+
+Altinn Events doesn't dictate what type of events different event sources is using. You'll need to look at the documentation
+for each source for accurate information.
+
+{{% notice warning %}}
+Setting `typeFilter` to an empty string (`""`) will cause the subscription to silently fail to match events. This is a common
+source of errors that is difficult to debug, as no validation error is returned.
+{{% /notice %}}
+
+#### includeSubunits
+Allows events where the subject of the event is a subunit to be caught by a main unit subscription. This makes it
+possible for an organization with subunits (hierarchy of organizations) to create a single subscription that can catch 
+all events with subjects across the organizational hierarchy. 
+
+The value will have an effect only if the `subjectFilter` value is the actual main unit of the organization.
+
+Default value is: False.
 
 ## Response
 
@@ -109,9 +153,9 @@ A successful subscription registration should result in a 201 created response w
 [subscription](https://raw.githubusercontent.com/Altinn/altinn-events/main/src/Events/Models/Subscription.cs)
 serialized as a JSON string in the response body.
 
-The 201 response code does indicate whether or not the subscription has been validated.
+The 201 response code does not indicate whether or not the subscription has been validated.
 Altinn will only start pushing events to a subscription endpoint once the subscription endpoint has been validated.
-You may retrieve your subscription by using the subscription ID to ensure that you subscription has been validated ok.
+You may retrieve your subscription by using the subscription ID to ensure that your subscription has been validated ok.
 
 
 ### Content-Type
@@ -119,12 +163,10 @@ You may retrieve your subscription by using the subscription ID to ensure that y
 
 ### Response codes
 - 201 Created: The subscription has been successfully registered.
-
-
-
 - 401 Unauthorized: Indicates a missing, invalid or expired authorization header or that consumer is not allowed
   to subscribe to events from this resource based on filter parameters
-- 403 Forbidden: Indicating is missing required scope for subscribing to events
+- 403 Forbidden: Indicates missing required scope or authorisation. Check user roles or access packages against
+  the event source policy.
 
 ## Examples
 
@@ -155,7 +197,8 @@ curl \
     "consumer": "/org/digdir",
     "createdBy": "/org/digdir",
     "created": "2023-04-05T13:57:11.234994Z",
-    "validated": false
+    "validated": false,
+    "includeSubunits": false
 }
 ```
 

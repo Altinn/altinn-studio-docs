@@ -2,15 +2,16 @@
 title: Lesetilgang til API-et
 linktitle: API-tilgang
 weight: 10
-description: Lesetilgang til Altinns API-er kreves for de som ønsker å få tilgang til hendelser
+description: Tilgang til hendelser API som konsument av hendelser.
 ---
 
-## Hendelser fra Altinn Studio apper 
-Lese- og abonnenttilgang til hendelser fra apper krever tilgang til hendelseskilden.
-Tilgang administreres derfor gjennom appens policy. Det er ingen restriksjoner på bruken av API-et.
+## Henting og abonnering på hendelser
+Når man skal hente (søke etter) hendelser eller registrere et hendelsesabonnement kreves det at klienten 
+har inkludert scopet: **altinn:events.subscribe**.
 
-## Hendelser fra andre hendelseskilder - ikke apper
-Bruk av API-et krever scopet: **altinn:events.subscribe**
-Dette scopet er tilgjengelig for alle klienter definert i Maskinporten eller ID-porten
+Dette scopet er tilgjengelig for alle klienter definert i Maskinporten eller ID-porten.
 
-Tilgang til de faktiske hendelsene beskrives gjennom tilgangspolicyen for hendelseskilden
+{{% notice info %}}
+Teknisk sett er det et unntak for hendelser produsert av en Altinn studio App. Vi anbefaler likevel at alle klienter
+med ønske om å konsumere hendelser benytter nevnte scope. Scope vil kunne bli et krav uavhengig av hendelseskilde.
+{{% /notice %}}
