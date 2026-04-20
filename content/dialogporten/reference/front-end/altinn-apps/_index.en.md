@@ -14,22 +14,23 @@ These settings, along with other, can be defined in the file  `App/config/applic
 Set any of the properties below under `syncAdapterSettings` to `true` to override the
 automatic synchronization:
 
-| Setting                                   | Description                                                       |
-|-------------------------------------------|-------------------------------------------------------------------|
-| `disableSync`                             | Disable all dialog synchronization. Overrides all other settings. |
-| `disableCreate`                           | Disable creation of dialogs when app instances are created.       |
-| `disableDelete`                           | Disable deletion of dialogs when app instances are deleted.       |
-| `disableAddActivities`                    | Disable adding activities.                                        |
-| `disableAddTransmissions`                 | Disable adding transmissions.                                     |
-| `disableSyncDueAt`                        | Disable synchronizing the due at date.                            |
-| `disableSyncStatus`                       | Disable synchronizing the status.                                 |
-| `disableSyncContentTitle`                 | Disable synchronizing the title.                                  |
-| `disableSyncContentSummary`               | Disable synchronizing the summary.                                |
-| `disableSyncContentAdditionalInformation` | Disable synchronizing the additional information.                 |
-| `disableSyncContentExtendedStatus`        | Disable synchronizing the extented status.                        |
-| `disableSyncAttachments`                  | Disable synchronizing dialog attachments (only recognized IDs).   |
-| `disableSyncApiActions`                   | Disable synchronizing API actions (only recognized IDs).          |
-| `disableSyncGuiActions`                   | Disable synchronizing GUI actions (only recognized IDs).          |
+| Setting                                   | Description                                                                        |
+|-------------------------------------------|------------------------------------------------------------------------------------|
+| `disableSync`                             | Disable all dialog synchronization. Overrides all other settings.                  |
+| `disableCreate`                           | Disable creation of dialogs when app instances are created.                        |
+| `disableDelete`                           | Disable deletion of dialogs when app instances are deleted.                        |
+| `disableAddActivities`                    | Disable adding activities.                                                         |
+| `disableAddTransmissions`                 | Disable adding transmissions.                                                      |
+| `disableSyncDueAt`                        | Disable synchronizing the due at date.                                             |
+| `disableSyncStatus`                       | Disable synchronizing the status.                                                  |
+| `disableSyncContentTitle`                 | Disable synchronizing the title.                                                   |
+| `disableSyncContentSummary`               | Disable synchronizing the summary.                                                 |
+| `disableSyncContentAdditionalInformation` | Disable synchronizing the additional information.                                  |
+| `disableSyncContentExtendedStatus`        | Disable synchronizing the extented status.                                         |
+| `disableSyncAttachments`                  | Disable synchronizing dialog attachments (only recognized IDs).                    |
+| `disableSyncApiActions`                   | Disable synchronizing API actions (only recognized IDs).                           |
+| `disableSyncGuiActions`                   | Disable synchronizing GUI actions (only recognized IDs).                           |
+| `disableMarkCompletedWhenConfirmed`       | Disable setting dialog status to completed when app instance is ArchivedConfirmed. |
 
 ### Example
 
@@ -52,9 +53,12 @@ This shows the default syncAdapterSettings. Set any to `true` to override. Chang
         "disableSyncStatus": false,
         "disableSyncContentTitle": false,
         "disableSyncContentSummary": false,
+        "disableSyncContentAdditionalInformation": false,
+        "disableSyncContentExtendedStatus": false,
         "disableSyncAttachments": false,
         "disableSyncApiActions": false,
-        "disableSyncGuiActions": false
+        "disableSyncGuiActions": false,
+        "disableMarkCompletedWhenConfirmed": false
     }
   }
 }
