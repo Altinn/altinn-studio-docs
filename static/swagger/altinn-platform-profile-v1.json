@@ -1230,7 +1230,7 @@
     "/users/current/notificationsettings/parties/{partyUuid}": {
       "get": {
         "tags": [
-          "ProfessionalNotiticationSettings"
+          "ProfessionalNotificationSettings"
         ],
         "summary": "Get the notification addresses the current user has registered for a party",
         "parameters": [
@@ -1269,7 +1269,7 @@
       },
       "put": {
         "tags": [
-          "ProfessionalNotiticationSettings"
+          "ProfessionalNotificationSettings"
         ],
         "summary": "Add or update the notification addresses the current user has registered for a party",
         "parameters": [
@@ -1312,7 +1312,7 @@
       },
       "patch": {
         "tags": [
-          "ProfessionalNotiticationSettings"
+          "ProfessionalNotificationSettings"
         ],
         "summary": "Add or update the notification addresses the current user has registered for a party. This endpoint allows partial updates, meaning that the user can choose to update only the email address,\r\nonly the phone number, or only the resource include list without affecting the other fields.",
         "description": "Note that addresses are required to be verified. If the user attempts to add or update an address that has not been verified, the operation will be rejected with a 422 Unprocessable Entity response, and the notification address will not be added or updated.",
@@ -1359,7 +1359,7 @@
       },
       "delete": {
         "tags": [
-          "ProfessionalNotiticationSettings"
+          "ProfessionalNotificationSettings"
         ],
         "summary": "Delete the notification addresses the current user has registered for a party",
         "parameters": [
@@ -1397,7 +1397,7 @@
     "/users/current/notificationsettings/parties": {
       "get": {
         "tags": [
-          "ProfessionalNotiticationSettings"
+          "ProfessionalNotificationSettings"
         ],
         "summary": "Get the notification addresses the current user has registered for all parties",
         "responses": {
