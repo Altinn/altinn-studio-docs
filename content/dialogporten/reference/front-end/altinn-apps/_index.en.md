@@ -26,7 +26,7 @@ automatic synchronization:
 | `disableSyncContentTitle`                 | Disable synchronizing the title.                                                   |
 | `disableSyncContentSummary`               | Disable synchronizing the summary.                                                 |
 | `disableSyncContentAdditionalInformation` | Disable synchronizing the additional information.                                  |
-| `disableSyncContentExtendedStatus`        | Disable synchronizing the extented status.                                         |
+| `disableSyncContentExtendedStatus`        | Disable synchronizing the extended status.                                         |
 | `disableSyncAttachments`                  | Disable synchronizing dialog attachments (only recognized IDs).                    |
 | `disableSyncApiActions`                   | Disable synchronizing API actions (only recognized IDs).                           |
 | `disableSyncGuiActions`                   | Disable synchronizing GUI actions (only recognized IDs).                           |
