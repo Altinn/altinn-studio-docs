@@ -1947,3 +1947,40 @@ div.footnotes-entry > span {
 #dialogporten-swagger-selector-help {
     display: none;
 }
+
+
+
+#body-inner dl,
+  .a-text dl {
+      margin: 24px 0 32px;
+  }
+
+  #body-inner dt,
+  .a-text dt {
+      margin: 0;
+      font-family: 'DIN-bold';
+  }
+
+  #body-inner dd,
+  .a-text dd {
+      margin: 8px 0 0 0;
+      padding: 0 0 0 16px;
+      border-left: 4px solid #ccc;
+  }
+
+  #body-inner dd + dt,
+  .a-text dd + dt {
+      margin-top: 24px;
+  }
+
+  #body-inner dd > :last-child,
+  .a-text dd > :last-child {
+      margin-bottom: 0;
+  }
+
+  @media (max-width: 767px) {
+      #body-inner dd,
+      .a-text dd {
+          padding-left: 12px;
+      }
+  }

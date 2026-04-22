@@ -86,7 +86,7 @@ For information on how to use these, see the [creating dialogs user guide](/en/d
 | ---------------------- | ----------------:|
 | Field name             | `extendedStatus` |
 | Required               |               No |
-| Max length             |               20 |
+| Max length             |               25 |
 | Allowed formats        |     `text/plain` |
 | Used in list?          |              Yes |
 | Used in transmissions? |               No |

@@ -14,7 +14,7 @@ Sett-loggen fylles ut automatisk av Dialogporten, og kan ikke endres av verken t
 
 Sett-loggoppføringer registreres per bruker per endring. Dette betyr at for en bestemt revisjon av dialogen, registreres kun den første tilgangen for en gitt bruker. Hvis dialogen oppdateres av tjenesteeier, vil en ny oppføring for samme bruker opprettes når/hvis dialogen deretter åpnes.
 
-GUI-er vil normalt bruke sett-loggoppføringene som er gjort etter den siste oppdateringen. En fullstendig sett-logg er imidlertid også tilgjengelig, noe som gjør det mulig å korrelere (den uforanderlige) aktivitetsloggen/transmisjonsoppføringene med sett-loggoppføringer.
+GUI-er vil normalt bruke sett-loggoppføringene som er gjort etter den siste oppdateringen. En fullstendig sett-logg er imidlertid også tilgjengelig, noe som gjør det mulig å korrelere (den uforanderlige) aktivitetsloggen/forsendelsesoppføringene med sett-loggoppføringer.
 
 ## Forhold til hendelser
 

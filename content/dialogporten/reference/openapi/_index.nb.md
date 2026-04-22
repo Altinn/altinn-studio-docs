@@ -6,11 +6,11 @@ weight: 10
 
 API-spesifikasjonen for Dialogporten er tilgjengelig på følgende adresser:
 
-| Miljø       | URL                                                                                                  |
-| ----------- | ---------------------------------------------------------------------------------------------------- |
-| Test        | https://altinn-dev-api.azure-api.net/dialogporten/swagger/index.html                                 |
-| Staging     | https://platform.tt02.altinn.no/dialogporten/swagger/index.html                                      |
-| Production  | https://platform.altinn.no/dialogporten/swagger/index.html                                           |
+| Miljø      | URL                                                                   |
+| ---------- | --------------------------------------------------------------------- |
+| Test       | https://platform.at23.altinn.cloud/dialogporten/swagger/index.html    |
+| Staging    | https://platform.tt02.altinn.no/dialogporten/swagger/index.html       |
+| Production | https://platform.altinn.no/dialogporten/swagger/index.html            |
 
 
 **Les mer**

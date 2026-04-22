@@ -8,7 +8,7 @@ Dialogporten støtter et skrivebeskyttet GraphQL API for sluttbrukere. Endepunkt
 
 | Environment | URL                                                                                |
 | ----------- | ---------------------------------------------------------------------------------- |
-| Test        | `https://altinn-dev-api.azure-api.net/dialogporten/graphql`                        |
+| Test        | `https://platform.at23.altinn.cloud/dialogporten/graphql`                        |
 | Staging     | `https://platform.tt02.altinn.no/dialogporten/graphql`                             |
 | Production  | `https://platform.altinn.no/dialogporten/graphql`                                  |
 

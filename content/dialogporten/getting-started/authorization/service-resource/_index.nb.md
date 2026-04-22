@@ -14,9 +14,9 @@ For eksempel kan en handling som heter "Gå til signering" referere til en _hand
 
 ## Avansert bruk
 
-XACML tilbyr stor fleksibilitet i hvor grov eller finkornet tilgangskontrollen skal være, og dialoger kan inneholde handlinger og transmisjoner som kan matches av forskjellige regler definert i policyen til tjenesteressursen. Transmisjoner og handlinger kan til og med referere til forskjellige tjenesteressurser, noe som gir tjenesteeier flere muligheter i hvordan de forskjellige delene av en dialog skal styres. Dette er aktivert gjennom bruk av [autorisasjonsattributter](/nb/dialogporten/getting-started/authorization/attributes/)
+XACML tilbyr stor fleksibilitet i hvor grov eller finkornet tilgangskontrollen skal være, og dialoger kan inneholde handlinger og forsendelser som kan matches av forskjellige regler definert i policyen til tjenesteressursen. Forsendelser og handlinger kan til og med referere til forskjellige tjenesteressurser, noe som gir tjenesteeier flere muligheter i hvordan de forskjellige delene av en dialog skal styres. Dette er aktivert gjennom bruk av [autorisasjonsattributter](/nb/dialogporten/getting-started/authorization/attributes/)
 
-Merk imidlertid at vedleggene i en transmisjon og handlinger alltid refererer til et endepunkt som driftes av tjenesteleverandøren. Dermed skal autorisasjonsbeslutningene tatt i Altinn Authorization for handlinger og transmisjoner betraktes som veiledende. Endepunktene selv _må_ også håndheve de samme autorisasjonspolicyene. Dette kan gjøres enten ved å be om Altinn Authorization (på samme måte som Dialogporten), eller bruke [dialogtokens](/nb/dialogporten/getting-started/authorization/dialog-tokens/) som inneholder den samme autorisasjonsbeslutningen.
+Merk imidlertid at vedleggene i en forsendelse og handlinger alltid refererer til et endepunkt som driftes av tjenesteleverandøren. Dermed skal autorisasjonsbeslutningene tatt i Altinn Authorization for handlinger og forsendelser betraktes som veiledende. Endepunktene selv _må_ også håndheve de samme autorisasjonspolicyene. Dette kan gjøres enten ved å be om Altinn Authorization (på samme måte som Dialogporten), eller bruke [dialogtokens](/nb/dialogporten/getting-started/authorization/dialog-tokens/) som inneholder den samme autorisasjonsbeslutningen.
 
 **Les mer**
 

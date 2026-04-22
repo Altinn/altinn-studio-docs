@@ -31,7 +31,7 @@ Note that the data structure that is returned in searches differ from the one re
   - `urn:altinn:resource:<identifier>`
 
 {{<notice warning>}}
-Note the end-user search API requires that at least one [`serviceResource`](/en/dialogporten/getting-started/authorization/service-resource/) or [`party`](/en/dialogporten/getting-started/authorization/parties/) parameter is supplied. Up to 20 distinct values for each of these two types may be supplied.
+Note the end-user search API requires that at least one [`serviceResource`](/en/dialogporten/getting-started/authorization/service-resource/) or [`party`](/en/dialogporten/getting-started/authorization/parties/) parameter is supplied.
 {{</notice>}}
 
 ### Returned information

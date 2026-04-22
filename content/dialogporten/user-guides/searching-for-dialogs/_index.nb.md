@@ -31,7 +31,7 @@ Merk at datastrukturen som returneres i søk er forskjellig fra den som returner
   - `urn:altinn:resource:<identifier>`
 
 {{<notice warning>}}
-Vær oppmerksom på at sluttbruker-søke-APIet krever at minst én [`serviceResource`](/nb/dialogporten/getting-started/authorization/service-resource/) eller [`party`](/nb/dialogporten/getting-started/authorization/parties/) parameter er oppgitt. Opptil 20 distinkte verdier for hver av disse to typene kan leveres.
+Vær oppmerksom på at sluttbruker-søke-APIet krever at minst én [`serviceResource`](/nb/dialogporten/getting-started/authorization/service-resource/) eller [`party`](/nb/dialogporten/getting-started/authorization/parties/) parameter er oppgitt. 
 {{</notice>}}
 
 ### Returnert informasjon
