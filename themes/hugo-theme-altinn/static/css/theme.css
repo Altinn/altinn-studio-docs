@@ -1914,6 +1914,19 @@ div.footnotes-entry > span {
 .swagger-operation-display-container details, .swagger-operation-display-container h4 {
     font-size: 80%;
 }
+
+.swagger-operation-request-body {
+    margin-top: 1.5rem;
+}
+
+.swagger-operation-request-body h5 {
+    margin-top: 1rem;
+}
+
+.swagger-operation-request-body-meta,
+.swagger-operation-request-body-description {
+    font-size: 80%;
+}
     
 #dialogporten-swagger-selector-container { 
     position: absolute;

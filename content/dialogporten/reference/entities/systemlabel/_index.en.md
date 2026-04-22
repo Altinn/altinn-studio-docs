@@ -75,25 +75,6 @@ The implementation records `set` and `remove` actions for non-default system lab
 
 If you need current end-user context state without retrieving the full dialog search result, the service-owner API exposes:
 
-- `GET /api/v1/serviceowner/dialogs/endusercontext`
-
-This endpoint is paginated and returns:
-
-- `dialogId`
-- `endUserContextRevision`
-- `systemLabels`
-
-The implemented filters are:
-
-- `party`
-- `label`
-- `contentUpdatedAfter`
-
 {{<swaggerdisplayoperation "get" "/api/v1/serviceowner/dialogs/endusercontext">}}
-
-{{<swaggerdisplayentity "V1ServiceOwnerEndUserContextCommandsBulkSetSystemLabels_BulkSetSystemLabel">}}
-
-{{<swaggerdisplayentity "V1ServiceOwnerEndUserContextCommandsSetSystemLabel_SetDialogSystemLabelRequest">}}
-
 
 {{<children />}}

@@ -1,3 +1,8 @@
+{{ if not (.Page.Scratch.Get "swaggerdisplayoperation-marked-loaded") }}
+<script src="/revealjs/plugin/markdown/marked.js"></script>
+{{ .Page.Scratch.Set "swaggerdisplayoperation-marked-loaded" true }}
+{{ end }}
+
 <script>
     (function() {
         {{ $o := .Get 1 }}
@@ -33,7 +38,7 @@
 
                 let displayName = swaggerOperation.toUpperCase() + " " + swaggerPath;
 
-                $container.html(generateHtmlDefinitionList(swaggerOperationId, displayName, operation));
+                $container.html(generateHtmlDefinitionList(spec, swaggerOperationId, displayName, operation));
                 
             });
         }
@@ -47,7 +52,75 @@
             return ret;
         } 
 
-        function generateHtmlDefinitionList(operationId, displayName, operation, indentLevel = 0, parentName = '') {
+        function renderSwaggerMarkdown(markdown) {
+            if (!markdown) {
+                return "";
+            }
+
+            if (typeof marked === "function") {
+                return marked(markdown, {
+                    gfm: true,
+                    breaks: true,
+                    headerPrefix: ""
+                });
+            }
+
+            return markdown.replaceAll("\n", "<br>");
+        }
+
+        function getRequestBodyHtml(spec, operationId, operation) {
+            const requestBody = window.swaggerResolveRef(spec, operation.requestBody);
+            if (!requestBody || !requestBody.content) {
+                return '';
+            }
+
+            const description = requestBody.description
+                ? `<div class="swagger-operation-request-body-description">${window.swaggerLinkifyDescription(requestBody.description)}</div>`
+                : '';
+
+            let contentHtml = '';
+            for (const [contentType, mediaType] of Object.entries(requestBody.content)) {
+                const schema = mediaType ? mediaType.schema : null;
+                if (!schema) {
+                    continue;
+                }
+
+                const schemaName = requestBody["x-name"]
+                    || window.swaggerGetRefName(schema)
+                    || `request_body_${contentType.replaceAll(/[^a-zA-Z0-9]+/g, "_")}`;
+
+                const definitionHtml = window.swaggerGenerateSchemaDefinitionList(
+                    spec,
+                    `${operationId}_${schemaName}`,
+                    schema,
+                    {
+                        showTitle: false,
+                        wrapperClass: 'swagger-operation-request-body-schema',
+                        columnHeader: 'Property'
+                    }
+                );
+
+                contentHtml += `
+                    <div class="swagger-operation-request-body-content">
+                        ${definitionHtml}
+                    </div>
+                `;
+            }
+
+            if (!contentHtml) {
+                return '';
+            }
+
+            return `
+                <div class="swagger-operation-request-body">
+                    <h4>Request body</h4>
+                    ${description}
+                    ${contentHtml}
+                </div>
+            `;
+        }
+
+        function generateHtmlDefinitionList(spec, operationId, displayName, operation, indentLevel = 0, parentName = '') {
             let html = '';
 
             let indentClass = '';
@@ -131,7 +204,7 @@
                 }
                 html += '</dl>';
             } else if (operation.type === 'array' && operation.items) {
-                html += generateHtmlDefinitionList(operationId, displayName, operation.items, indentLevel);
+                html += generateHtmlDefinitionList(spec, operationId, displayName, operation.items, indentLevel);
             }
 
             var parameterHtml = "";
@@ -145,7 +218,7 @@
                 `;
             }
             else {
-                parameterHtml = "<em>This operation does not have any parameters</em>";
+                parameterHtml = "";
             }
 
             var descriptionHtml = "";
@@ -153,10 +226,12 @@
                 descriptionHtml = `
                 <details>
                     <summary>Show/hide description</summary>
-                    ${operation.description.replaceAll("\n", "<br>")}
+                    ${renderSwaggerMarkdown(operation.description)}
                 </details>
                 `;
             }
+
+            const requestBodyHtml = getRequestBodyHtml(spec, operationId, operation);
 
             if (indentLevel == 0) {
                 html = `
@@ -165,6 +240,7 @@
                         <h4>${operation.summary}</h4>
                         ${descriptionHtml}
                         ${parameterHtml}
+                        ${requestBodyHtml}
                     </div>
                     `;
             }
