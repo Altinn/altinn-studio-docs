@@ -11,11 +11,11 @@ weight: 20
 
 This guide shows how to search for dialogs in Dialogporten. The end-user API supports both REST and GraphQL. The service-owner API supports REST search with additional filters that are useful when managing dialogs and end-user context.
 
-Note that the data structure that is returned in searches differ from the one returned on the [details endpoint](/en/dialogporten/user-guides/getting-dialog-details/); more information about the dialog and what access the authorized user has to various parts of it is only available in the details view.
+Note that the data structure returned in searches differs from the one returned on the [details endpoint](/en/dialogporten/user-guides/getting-dialog-details/); more information about the dialog and what access the authorized user has to various parts of it is only available in the details view.
 
 ## Basic steps (REST, end-user)
 
-1. [Authenticate as a end-user](/en/dialogporten/user-guides/authenticating#usage-for-end-user-systems)
+1. [Authenticate as an end-user](/en/dialogporten/user-guides/authenticating#usage-for-end-user-systems)
 2. [Find the parties](/en/dialogporten/user-guides/authorized-parties/) that the authenticated end-user is authorized to represent
 3. Perform a GET request to `/api/v1/enduser/dialogs`, supplying query parameters according to the table below:
 
@@ -25,7 +25,7 @@ Note that the data structure that is returned in searches differ from the one re
 - When supporting multiple values for the same parameter, these values are OR-ed, ie. if supplying two `status` parameters, dialogs having either of those values will be returned.
 - `org` parameters must be service owner codes as defined in the global [altinn-orgs.json](https://altinncdn.no/orgs/altinn-orgs.json), eg. `digdir` or `skd`.
 - `party` parameters must have one of the following formats
-  - `urn:altinn:person:identifier-no:<11 digit national identity numner>`
+  - `urn:altinn:person:identifier-no:<11 digit national identity number>`
   - `urn:altinn:organization:identifier-no:<9 digit CCR number>`
 - `serviceResource` parameters must refer to a resource in the [Resource Registry](/en/authorization/what-do-you-get/resourceadministration/) and use the following format:
   - `urn:altinn:resource:<identifier>`
@@ -66,7 +66,7 @@ These are example values that might be supplied in the `OrderBy` query parameter
 - `dueat_asc`
 - `contentupdatedat_desc`
 
-The current ordering can be found in the [collection model](/en/dialogporten/reference/entities/dialog/#search), next to the `continuationToken` and `hasNextPage` fields. The ordering is also embedded into `continuationToken`, so when paginating, supplying the continuation token alone is sufficient to preserve ordering.
+The current ordering can be found in the [collection model](/en/dialogporten/reference/entities/dialog/#search), next to the `continuationToken` and `hasNextPage` fields. In REST, the ordering is also embedded into `continuationToken`, so supplying the continuation token alone is sufficient to preserve ordering.
 
 ## Basic steps (REST, service owner)
 
@@ -106,7 +106,7 @@ query SearchDialogs($party: [String!]) {
     input: {
       party: $party
       limit: 20
-      orderBy: [{ createdAt: DESC }]
+      orderBy: [{ contentUpdatedAt: DESC }]
     }
   ) {
     items {

@@ -1,6 +1,6 @@
 ---
 title: 'GraphQL'
-description: 'GraphQL queries Dialogporten supports'
+description: 'GraphQL operations Dialogporten supports'
 weight: 11
 ---
 

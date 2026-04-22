@@ -59,5 +59,5 @@ public sealed class DialogService(IServiceOwnerApi dialogportenApi)
 The registration also adds `IDialogTokenValidator`, and a background service that refreshes the public keys needed to validate dialog token signatures.
 
 {{<notice info>}}
-An SDK for the end-user API is currently in development.
+An SDK for the end-user API is currently under active development.
 {{</notice>}}

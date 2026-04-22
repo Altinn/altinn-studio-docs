@@ -129,7 +129,7 @@ The implemented labels are:
 
 `Sent` is added automatically when the dialog contains a transmission of type `Submission` or `Correction`. It cannot be added or removed manually.
 
-Common for these two system labels is that any change made to the dialog by the service owner will reset them to `Default`. Ie. if a user decides to place a dialog in the bin, and the service owner subsequently updates it with more information, the dialog will again be visible in the ordinary views as if the `Bin` label was never assigned.
+Common for `Bin` and `Archive` is that any change made to the dialog by the service owner will reset them to `Default`. Ie. if a user decides to place a dialog in the bin, and the service owner subsequently updates it with more information, the dialog will again be visible in the ordinary views as if the `Bin` label was never assigned.
 
 ### Label log
 
