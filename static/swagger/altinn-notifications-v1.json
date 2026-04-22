@@ -1952,7 +1952,7 @@
           "resourceId": {
             "pattern": "^urn:altinn:resource:.+$",
             "type": "string",
-            "description": "An optional URN-formatted resource identifier for authorization and auditing purposes. Prefix 'urn:altinn:resource' is required.",
+            "description": "An optional URN-formatted resource identifier for authorization and auditing purposes. Prefix 'urn:altinn:resource:' is required.",
             "nullable": true,
             "example": "urn:altinn:resource:org_example_app"
           },
@@ -2030,7 +2030,7 @@
           "resourceId": {
             "pattern": "^urn:altinn:resource:.+$",
             "type": "string",
-            "description": "An optional URN-formatted resource identifier for authorization and auditing purposes. Prefix 'urn:altinn:resource' is required.",
+            "description": "An optional URN-formatted resource identifier for authorization and auditing purposes. Prefix 'urn:altinn:resource:' is required.",
             "nullable": true,
             "example": "urn:altinn:resource:org_example_app"
           },
@@ -2075,7 +2075,7 @@
           "resourceId": {
             "pattern": "^urn:altinn:resource:.+$",
             "type": "string",
-            "description": "An optional URN-formatted resource identifier for authorization and auditing purposes. Prefix 'urn:altinn:resource' is required.",
+            "description": "An optional URN-formatted resource identifier for authorization and auditing purposes. Prefix 'urn:altinn:resource:' is required.",
             "nullable": true,
             "example": "urn:altinn:resource:org_example_app"
           },
