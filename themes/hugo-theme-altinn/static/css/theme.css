@@ -1825,9 +1825,25 @@ div.footnotes-entry > span {
     white-space: pre-wrap;
 }
 
+.sed-nested-schema {
+    margin-top: 0.75rem;
+}
+
+.sed-nested-schema summary {
+    cursor: pointer;
+    font-family: "DIN-bold";
+    color: #1769aa;
+}
+
+.sed-nested-schema > .swagger-entity-display,
+.sed-nested-schema > .swagger-entity-display-container,
+.sed-nested-schema > .swagger-operation-request-body-schema {
+    margin-top: 0.5rem;
+}
+
 .sed-indent {
-    margin-left: 3rem;
-    width: calc(100% - 3rem);
+    margin-left: 1rem;
+    width: calc(100% - 1rem);
 }
 .sed-loader { text-align: center }
 .sed-loader span { display: block; font-size: small }

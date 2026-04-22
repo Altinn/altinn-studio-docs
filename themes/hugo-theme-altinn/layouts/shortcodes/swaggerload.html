@@ -124,15 +124,11 @@ window.swaggerGenerateSchemaDefinitionList = function(spec, entityname, entity, 
             const type = propertySchema.type || "unknown";
 
             const anchor = "" + entityname + (parentName ? "_" + parentName : "") + "_" + propertyName;
+            let nestedHtml = "";
             html += `<dt>
                         <span class="sed-prop"><a href="#${anchor}" id="${anchor}">${propertyName}</a>${nullable}</span>
                         <span class="sed-type" title="${typeDesc}">${typeDesc}</span>
                     </dt>`;
-            html += `<dd>
-                        <span class="sed-desc">${description}</span>
-                        ${example}
-                        ${enumNames}
-                    </dd>`;
 
             const itemSchema = type === "array" && propertySchema.items
                 ? window.swaggerNormalizeSchema(spec, propertySchema.items)
@@ -140,7 +136,8 @@ window.swaggerGenerateSchemaDefinitionList = function(spec, entityname, entity, 
 
             if (type === "object" || (type === "array" && itemSchema && itemSchema.type === "object")) {
                 const nestedSchema = type === "object" ? propertySchema : itemSchema;
-                html += window.swaggerGenerateSchemaDefinitionList(
+                const nestedSummary = type === "array" ? "Show item properties" : "Show nested properties";
+                nestedHtml = window.swaggerGenerateSchemaDefinitionList(
                     spec,
                     entityname,
                     nestedSchema,
@@ -148,7 +145,20 @@ window.swaggerGenerateSchemaDefinitionList = function(spec, entityname, entity, 
                     indentLevel + 1,
                     (parentName ? parentName + "_" : "") + propertyName
                 );
+                nestedHtml = `
+                    <details class="sed-nested-schema">
+                        <summary>${nestedSummary}</summary>
+                        ${nestedHtml}
+                    </details>
+                `;
             }
+
+            html += `<dd>
+                        <span class="sed-desc">${description}</span>
+                        ${example}
+                        ${enumNames}
+                        ${nestedHtml}
+                    </dd>`;
         }
         html += "</dl>";
     } else if (normalizedEntity && normalizedEntity.type === "array" && normalizedEntity.items) {
