@@ -94,6 +94,23 @@ This is the content type for [front channel embeds](/en/dialogporten/getting-sta
 
 As Dialogporten does not contain any content data, free text search is inherently limited to content fields. Not all relevant search terms is suitable for title/summary fields, so instead the service owner can supply an array of search tags that also will be considered when using free text search. The search tags are not visible on any end-user APIs.
 
+## Setting service owner labels
+
+Service owners can set internal labels on a dialog through `serviceOwnerContext.serviceOwnerLabels`.
+
+These labels:
+
+- are not visible in end-user APIs
+- must be unique case-insensitively
+- must be between 3 and 255 characters long
+- are limited to 20 labels per dialog
+
+Service owner labels can also be managed later through the dedicated service-owner-context label endpoints and used as filters in service-owner search.
+
+**Read more**
+
+- {{<link "../../../reference/entities/serviceownerlabel">}}
+
 ## Setting a status
 
 Dialogporten supports several generic dialog statuses, that indicate various typical states of the process the dialog represents. These statuses should be used by end-user systems to organize and prioritize the dialog list. The statuses are:
@@ -103,7 +120,7 @@ Dialogporten supports several generic dialog statuses, that indicate various typ
 | `NotApplicable`     | The dialogue does not have any meaningful status. Typically used for simple messages that do not require any interaction. This is the default.                                                          |
 | `Draft`             | Used to indicate user-initiated dialogs not yet sent and that may be cancelled at any point.                                                                                                            |
 | `InProgress`        | Indicates that the dialog is started, is being worked on by the party and/or service owner. In a serial process, this might indicate that, for example, a form filling is ongoing on a pre-filled form. |
-| `Awaiting`          | Sent by the party to the service owner and is awaiting a response. In a serial process, this is used after a submission is made.                                                                        |
+| `Awaiting`          | Awaiting action by the service owner. In this state, the party representative has no further tasks and the responsibility lies with the service owner.                                                  |
 | `RequiresAttention` | Used to indicate that the dialogue is in progress/under work, but is in a state where the user must do something - for example, correct an error, or other conditions that hinder further processing.   |
 | `Completed`         | The dialogue was completed. This typically means that the dialogue has reached and end-state where no further updates will be made.                                                                     |
 
@@ -189,7 +206,20 @@ Navigational actions have the following properties:
 
 If the transmission has an `authorizationAttribute` that renders the end user unauthorised, the URL is rewritten to `urn:dialogporten:unauthorized`.
 
-{{<notyetwritten>}}
+When defining navigational actions, the current implementation requires:
+
+- a non-empty localized `title`
+- an HTTPS `url`
+- an optional `expiresAt` in the future
+
+These actions are attached to a transmission, not to the dialog root, and are intended for contextual navigation from that transmission. They are navigation targets only; if you need to trigger state changes, use dialog actions instead.
+
+The end-user APIs return the navigational URL with the following behavior:
+
+- If the user is not authorized to access the transmission, the URL is rewritten to `urn:dialogporten:unauthorized`
+- If the action has expired, the URL is rewritten to `urn:dialogporten:expired`
+
+The service-owner APIs return the configured values, which makes them suitable for diagnostics and administration.
 
 **Read more**
 
@@ -201,7 +231,36 @@ If the transmission has an `authorizationAttribute` that renders the end user un
 
 When creating a dialog, the service owner system should consider the state of the service instance that the dialog reflects and how "far along" in the process the user has progressed. A typical starting point is to add a `DialogCreated` activity.
 
-{{<notyetwritten>}}
+Activities are immutable log entries. They complement the transmission list instead of replacing it:
+
+- transmissions describe the actual communication units in a dialog
+- activities describe state changes or notable events related to the dialog
+
+Each activity can optionally refer to a transmission through `transmissionId`. This is useful when the event you want to log is about a specific transmission, for example when a transmission has been opened.
+
+The implemented activity types are:
+
+- `DialogCreated`
+- `DialogClosed`
+- `Information`
+- `TransmissionOpened`
+- `PaymentMade`
+- `SignatureProvided`
+- `DialogOpened`
+- `DialogDeleted`
+- `DialogRestored`
+- `SentToSigning`
+- `SentToFormFill`
+- `SentToSendIn`
+- `SentToPayment`
+- `FormSubmitted`
+- `FormSaved`
+- `CorrespondenceOpened`
+- `CorrespondenceConfirmed`
+
+Use `Information` when you need a human-readable activity description that is not itself a transmission. The `description` field is only used for this activity type.
+
+For events that are already represented by a transmission, keep using transmissions as the primary history. Add an activity when you need to capture an additional event around that transmission or dialog state, such as opened, submitted, confirmed, signed, or paid.
 
 **Read more**
 

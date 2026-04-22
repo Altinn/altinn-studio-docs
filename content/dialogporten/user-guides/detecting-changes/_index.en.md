@@ -56,10 +56,10 @@ Before you can set up a GraphQL subscription, you must fetch the dialog details 
    }
    ```
 
-   Ensure to include the `Digdir-Dialog-Token` in the HTTP headers for the request:
+   Ensure to include the dialog token in the `Authorization` header for the request:
    
    ```http
-   "Digdir-Dialog-Token": "your-dialog-token-here"
+   "Authorization": "Bearer your-dialog-token-here"
    ```
 
 3. **Handle Incoming Events**  

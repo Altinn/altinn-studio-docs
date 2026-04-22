@@ -33,6 +33,40 @@ Also note that deleted organizations will also be included. For full details, se
 
 ## Basic steps (GraphQL)
 
-{{<notyetwritten>}}
+The same functionality is available in GraphQL through `getParties`.
+
+Example:
+
+```graphql
+query {
+  getParties {
+    party
+    partyUuid
+    partyId
+    name
+    partyType
+    isDeleted
+    hasKeyRole
+    isCurrentEndUser
+    isMainAdministrator
+    isAccessManager
+    hasOnlyAccessToSubParties
+    subParties {
+      party
+      partyUuid
+      partyId
+      name
+      partyType
+      isDeleted
+      hasKeyRole
+      isCurrentEndUser
+      isMainAdministrator
+      isAccessManager
+    }
+  }
+}
+```
+
+The `party` field in the response is the party URN you use in [dialog searches](/en/dialogporten/user-guides/searching-for-dialogs/). The remaining fields describe the party and the authenticated user's relation to it, including whether the party is the current end user and whether the user has key administrative roles.
 
 {{<children />}}
