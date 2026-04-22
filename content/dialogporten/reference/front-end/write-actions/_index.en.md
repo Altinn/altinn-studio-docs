@@ -15,6 +15,7 @@ End-user system (EUS)
 
 Content provider system (CPS)
 : The content provider system is the system that responds to the endpoints (URLs) that the FCE refers to. This is usually the service provider platform (such as Altinn 3).
+{.dpdl}
 
 ## Making requests
 Write actions MUST be implemented in the EUS with a HTTP client that sends the [dialog token]({{<relref "../../authorization/dialog-tokens">}}) as a authorization header. A `Origin` header MAY be supplied in accordance with the CORS protocol. The HTTP method to be used is in the `httpMethod` property of the GUI action. The request body should be empty.
