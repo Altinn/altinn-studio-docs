@@ -24,6 +24,10 @@ the vendor's system and the app. There are mainly two ways to create this integr
   - For more information, see [Altinn Authorization user guide for system users](/en/authorization/guides/system-vendor/)
   - Suitable for systems with a higher degree of automation (and less need for contact/connection to the end-user), and for submissions on behalf of organizations.
 
+{{% notice warning %}}
+System user support towards an Altinn Studio app requires `Altinn.App.Api` and `Altinn.App.Core` version `v8.6.0` or later.
+{{% /notice %}}
+
 ## Integration using ID-porten
 
 When integrating from an end-user system based on an ID-porten client, there is always direct contact with the end-user.
@@ -198,7 +202,7 @@ This guide is intended as an Altinn Studio app-specific example of the same conc
 #### 1. Service owner creates app
 
 A developer at Brønnøysundregisteret creates an app in Altinn Studio and names it `aarsregnskap`.
-To support system user-based integration with SBS, no special support is required in the app, so it is developed as usual,
+To support system user-based integration with SBS, no special support is required in the app beyond using `Altinn.App.Api` and `Altinn.App.Core` version `v8.6.0` or later, so it is otherwise developed as usual,
 including an XACML policy that allows DAGL to fill in the form and sign.
 
 #### 2. Fiken creates a Maskinporten client

@@ -22,7 +22,7 @@ optional fields have no marking.
 
 ![Required default](required.png "Default required field (marked with *).")
 
-Default behaviour can be overwritten by changing the settings of the field. This is done in the
+Default behaviour for optional fields can be overwritten by changing the settings of the field. This is done in the
 `labelSettings` property of a component in the form layout.
 
 ```json

@@ -16,6 +16,6 @@ filopplaster i hvert steg. Spesifiser i innledningen på hver side hva som skal 
 
 ### Eksempel på bruk:
 
-<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://embed.figma.com/proto/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio-Komponenter?page-id=7653%3A60542&node-id=8014-26201&node-type=frame&viewport=104%2C714%2C0.35&scaling=scale-down&content-scaling=fixed&embed-host=share" allowfullscreen></iframe>
+<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://embed.figma.com/design/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio---Prototype-Kit?m=auto&node-id=12298-66563&embed-host=share" allowfullscreen></iframe>
 
 ---

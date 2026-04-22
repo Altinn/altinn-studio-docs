@@ -7,15 +7,7 @@ weight: 50
 This document describes sending notification(s) to the instance owner when an instance is created. Here is an overview of the functionality and how you can try it out.
 
 {{% notice warning %}}
-Notification on instantiation is published in release candidate. The APIs are considered stable, but may still change before final release.
-{{% /notice %}}
-
-## Release candidate packages
-
-The NuGet packages are `Altinn.App.Api` and `Altinn.App.Core`, version `8.11.0-rc.3`.
-
-{{% notice warning %}}
-OBS! 8.11.0-rc.2 had an integration issue, this is resolved in 8.11.0-rc.3
+This functionality is available from version `8.11.0` of `Altinn.App.Api` and `Altinn.App.Core`.
 {{% /notice %}}
 
 ## What's new?
@@ -32,8 +24,8 @@ A new field, `notification`, has been added to the request body of `POST /instan
 |---|---|---|---|
 | `notificationChannel` | int (enum) | No | Channel for sending. Default: `4` (EmailAndSms). See table below for valid values. |
 | `language` | string | No | Language code (`nb`, `nn`, `en`). Only used for organizations – individuals use their profile language. |
-| `requestedSendTime` | string (datetime) | No | Earliest time for sending (ISO 8601, UTC). If not set, the notification is sent as soon as possible. |
-| `allowSendingAfterWorkHours` | bool | No | Allows sending outside of working hours. Default: `false` (daytime only). |
+| `requestedSendTime` | string (datetime) | No | Earliest time for sending (ISO 8601, UTC). If not set, the notification is sent as soon as possible. Maximum delay is 30 days. |
+| `allowSendingAfterWorkHours` | bool | No | Allows sending outside of working hours. Default: `false` (daytime only). Only affects SMS, email is sent regardless of time of day. |
 | `customSms` | object | No | Custom SMS text and sender name. If not set, default text is used. |
 | `customEmail` | object | No | Custom email subject and body. If not set, default text is used. |
 | `reminders` | list | No | List of reminders that can be sent after the initial notification. |
@@ -42,8 +34,10 @@ A new field, `notification`, has been added to the request body of `POST /instan
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `senderName` | string | Yes | Sender name displayed in the SMS. |
+| `senderName` | string | Yes | Sender name displayed in the SMS. Max 11 characters. |
 | `text` | CustomText | Yes | Custom SMS text in nb, nn and en. |
+
+NOTE: If the sender name `senderName` is (or in the future will be) protected by a third party product such as SenderID, you must allow Altinn/Digitaliseringsdirektoratet as message producer.
 
 **`customEmail`**
 
@@ -70,8 +64,8 @@ Each object in the `reminders` list may contain the following fields:
 
 | Field | Type | Required | Description |
 |---|---|---|---|
-| `requestedSendTime` | string (datetime) | No | Earliest time for sending the reminder (ISO 8601, UTC). Cannot be combined with `sendAfterDays` |
-| `sendAfterDays` | int | No | Number of days after the initial notification before the reminder is sent. Cannot be combined with `requestedSendTime`. |
+| `requestedSendTime` | string (datetime) | No | Earliest time for sending the reminder (ISO 8601, UTC). Cannot be combined with `sendAfterDays`. Maximum delay is 30 days. |
+| `sendAfterDays` | int | No | Number of days after the initial notification before the reminder is sent. Cannot be combined with `requestedSendTime`. Maximum delay is 30 days. |
 | `customSms` | object | No | Overrides the SMS text from the initial notification for this reminder. |
 | `customEmail` | object | No | Overrides the email text from the initial notification for this reminder. |
 
@@ -117,6 +111,7 @@ public class MyNotificationCancellation : ICancelInstantiationNotification
 {
     public bool ShouldSend(Instance instance)
     {
+        // Custom logic here, example:
         // Only send the notification if the instance is not archived
         return instance.Status?.IsArchived is not true;
     }
@@ -162,7 +157,15 @@ For SMS testing in a test environment, the phone number must be whitelisted. Ple
 
 ## Examples
 
+Each example below is shown for both endpoints:
+
+- **`POST /{org}/{app}/instances/create`** — simplified endpoint. The entire body is a single JSON object.
+- **`POST /{org}/{app}/instances`** — multipart endpoint. The `notification` must be sent as a separate multipart part with `name="notification"` and `Content-Type: application/json`. Sending `notification` as a field inside the instance template part will be silently ignored.
+
 ### Simple example of instance creation with notification
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="/instances/create">}}
 
 ```json
 {
@@ -175,7 +178,39 @@ For SMS testing in a test environment, the phone number must be whitelisted. Ple
 }
 ```
 
+{{</content-version-container>}}
+{{<content-version-container version-label="/instances (multipart)">}}
+
+```http
+POST /ttd/my-app/instances HTTP/1.1
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="instance"
+Content-Type: application/json
+
+{
+  "instanceOwner": {
+    "personNumber": "54928201018"
+  }
+}
+--boundary
+Content-Disposition: form-data; name="notification"
+Content-Type: application/json
+
+{
+  "notificationChannel": 0
+}
+--boundary--
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
 ### Example with custom texts
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="/instances/create">}}
 
 ```json
 {
@@ -208,7 +243,59 @@ For SMS testing in a test environment, the phone number must be whitelisted. Ple
 }
 ```
 
+{{</content-version-container>}}
+{{<content-version-container version-label="/instances (multipart)">}}
+
+```http
+POST /ttd/my-app/instances HTTP/1.1
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="instance"
+Content-Type: application/json
+
+{
+  "instanceOwner": {
+    "personNumber": "54928201018"
+  }
+}
+--boundary
+Content-Disposition: form-data; name="notification"
+Content-Type: application/json
+
+{
+  "notificationChannel": 4,
+  "customSms": {
+    "senderName": "MyOrg",
+    "text": {
+      "nb": "$appName$ er klar for $instanceOwnerName$",
+      "nn": "$appName$ er klar for $instanceOwnerName$",
+      "en": "$appName$ is ready for $instanceOwnerName$"
+    }
+  },
+  "customEmail": {
+    "subject": {
+      "nb": "$appName$ - ny instans opprettet",
+      "nn": "$appName$ - ny instans oppretta",
+      "en": "$appName$ - new instance created"
+    },
+    "body": {
+      "nb": "Hei $instanceOwnerName$, en ny instans av $appName$ er opprettet for deg.",
+      "nn": "Hei $instanceOwnerName$, ei ny instans av $appName$ er oppretta for deg.",
+      "en": "Hello $instanceOwnerName$, a new instance of $appName$ has been created for you."
+    }
+  }
+}
+--boundary--
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
 ### Example with scheduled send time and sending outside working hours
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="/instances/create">}}
 
 ```json
 {
@@ -223,7 +310,41 @@ For SMS testing in a test environment, the phone number must be whitelisted. Ple
 }
 ```
 
+{{</content-version-container>}}
+{{<content-version-container version-label="/instances (multipart)">}}
+
+```http
+POST /ttd/my-app/instances HTTP/1.1
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="instance"
+Content-Type: application/json
+
+{
+  "instanceOwner": {
+    "personNumber": "54928201018"
+  }
+}
+--boundary
+Content-Disposition: form-data; name="notification"
+Content-Type: application/json
+
+{
+  "notificationChannel": 0,
+  "requestedSendTime": "2025-12-01T09:00:00Z",
+  "allowSendingAfterWorkHours": true
+}
+--boundary--
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
 ### Example with reminders
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="/instances/create">}}
 
 ```json
 {
@@ -257,9 +378,62 @@ For SMS testing in a test environment, the phone number must be whitelisted. Ple
 }
 ```
 
+{{</content-version-container>}}
+{{<content-version-container version-label="/instances (multipart)">}}
+
+```http
+POST /ttd/my-app/instances HTTP/1.1
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="instance"
+Content-Type: application/json
+
+{
+  "instanceOwner": {
+    "personNumber": "54928201018"
+  }
+}
+--boundary
+Content-Disposition: form-data; name="notification"
+Content-Type: application/json
+
+{
+  "notificationChannel": 0,
+  "requestedSendTime": "2025-12-01T09:00:00Z",
+  "reminders": [
+    {
+      "sendAfterDays": 7
+    },
+    {
+      "requestedSendTime": "2025-12-15T12:30:00Z",
+      "customEmail": {
+        "subject": {
+          "nb": "Påminnelse: $appName$ venter på deg",
+          "nn": "Påminning: $appName$ ventar på deg",
+          "en": "Reminder: $appName$ is waiting for you"
+        },
+        "body": {
+          "nb": "Hei $instanceOwnerName$, vi minner om at $appName$ fortsatt venter på svar.",
+          "nn": "Hei $instanceOwnerName$, vi minner om at $appName$ framleis ventar på svar.",
+          "en": "Hello $instanceOwnerName$, we would like to remind you that $appName$ is still awaiting your response."
+        }
+      }
+    }
+  ]
+}
+--boundary--
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
 ### Self-identified users
 
 #### ID-porten email user
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="/instances/create">}}
 
 ```json
 {
@@ -272,20 +446,39 @@ For SMS testing in a test environment, the phone number must be whitelisted. Ple
 }
 ```
 
-OR
+{{</content-version-container>}}
+{{<content-version-container version-label="/instances (multipart)">}}
 
-```json
+```http
+POST /ttd/my-app/instances HTTP/1.1
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="instance"
+Content-Type: application/json
+
 {
   "instanceOwner": {
-    "username": "epost:jens.jensen@digdir.no"
-  },
-  "notification": {
-    "notificationChannel": 0
+    "externalIdentifier": "urn:altinn:person:idporten-email:jens.jensen@digdir.no"
   }
 }
+--boundary
+Content-Disposition: form-data; name="notification"
+Content-Type: application/json
+
+{
+  "notificationChannel": 0
+}
+--boundary--
 ```
 
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
 #### Legacy username and password
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="/instances/create">}}
 
 ```json
 {
@@ -297,3 +490,32 @@ OR
   }
 }
 ```
+
+{{</content-version-container>}}
+{{<content-version-container version-label="/instances (multipart)">}}
+
+```http
+POST /ttd/my-app/instances HTTP/1.1
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="instance"
+Content-Type: application/json
+
+{
+  "instanceOwner": {
+    "externalIdentifier": "urn:altinn:person:legacy-selfidentified:jensjensen"
+  }
+}
+--boundary
+Content-Disposition: form-data; name="notification"
+Content-Type: application/json
+
+{
+  "notificationChannel": 0
+}
+--boundary--
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}

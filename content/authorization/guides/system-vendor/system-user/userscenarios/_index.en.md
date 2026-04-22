@@ -11,6 +11,8 @@ aliases:
   ]
 ---
 
+See also [Setup guidance for system users](setupguidance/) for practical recommendations on how many system users you need, how to distribute access packages, and how to handle access control.
+
 ## Terms
 
 Below are key terms used in the user scenarios.

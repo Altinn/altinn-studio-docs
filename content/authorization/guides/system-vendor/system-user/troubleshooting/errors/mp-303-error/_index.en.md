@@ -24,3 +24,9 @@ Maskinporten token request does not include externalRef. This is an optional ref
 
 #### Solution:
 Verify whether the system user request was created with an `externalRef` value. If yes, include the value in the Maskinporten token request. Please refer to the [Maskinporten documentation](https://docs.digdir.no/docs/Maskinporten/maskinporten_func_systembruker.html#foresp%C3%B8rsel).
+
+### Problem 3: Incorrect systemuser_org for the system user
+The organization number set in `systemuser_org.ID` must be the organization number of the business that owns the system user. If the system user is an agent system user, you should **not** use the organization number of a client that is connected to the system user to retrieve a token.
+
+#### Solution:
+Verify that the organization number in `systemuser_org.ID` is set to the organization number of the business that owns the system user.
