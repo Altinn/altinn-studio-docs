@@ -1950,6 +1950,7 @@
             "$ref": "#/components/schemas/SmsSendingOptionsExt"
           },
           "resourceId": {
+            "pattern": "^urn:altinn:resource:.+$",
             "type": "string",
             "description": "An optional URN-formatted resource identifier for authorization and auditing purposes. Prefix 'urn:altinn:resource' is required.",
             "nullable": true,
@@ -2027,6 +2028,7 @@
             "$ref": "#/components/schemas/SmsSendingOptionsExt"
           },
           "resourceId": {
+            "pattern": "^urn:altinn:resource:.+$",
             "type": "string",
             "description": "An optional URN-formatted resource identifier for authorization and auditing purposes. Prefix 'urn:altinn:resource' is required.",
             "nullable": true,
@@ -2071,6 +2073,7 @@
             "$ref": "#/components/schemas/SmsSendingOptionsExt"
           },
           "resourceId": {
+            "pattern": "^urn:altinn:resource:.+$",
             "type": "string",
             "description": "An optional URN-formatted resource identifier for authorization and auditing purposes. Prefix 'urn:altinn:resource' is required.",
             "nullable": true,
