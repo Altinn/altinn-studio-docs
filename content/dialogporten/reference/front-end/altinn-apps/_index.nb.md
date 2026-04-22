@@ -14,22 +14,23 @@ Disse innstillingene, sammen med andre, kan defineres i filen `App/config/applic
 Sett hvilken som helst av egenskapene nedenfor under `syncAdapterSettings` til `true` for å overstyre den
 automatiske synkroniseringen:
 
-| Setting                                   | Beskrivelse                                                              |
-|-------------------------------------------|--------------------------------------------------------------------------|
-| `disableSync`                             | Deaktiver all dialogsynkronisering. Overstyrer alle andre innstillinger. |
-| `disableCreate`                           | Deaktiver opprettelse av dialoger når applikasjonsinstanser opprettes.   |
-| `disableDelete`                           | Deaktiver sletting av dialoger når applikasjonsinstanser slettes.        |
-| `disableAddActivities`                    | Deaktiver å legge til aktiviteter.                                       |
-| `disableAddTransmissions`                 | Deaktiver å legge til forsendelser.                                      |
-| `disableSyncDueAt`                        | Deaktiver synkronisering av forfallsdato.                                |
-| `disableSyncStatus`                       | Deaktiver synkronisering av status.                                      |
-| `disableSyncContentTitle`                 | Deaktiver synkronisering av tittel.                                      |
-| `disableSyncContentSummary`               | Deaktiver synkronisering av sammendrag.                                  |
-| `disableSyncContentAdditionalInformation` | Deaktiver synkronisering av tilleggsinformasjon.                         |
-| `disableSyncContentExtendedStatus`        | Deaktiver synkronisering av utvidet status.                              |
-| `disableSyncAttachments`                  | Deaktiver synkronisering av dialogvedlegg (kun gjenkjente ID-er).        |
-| `disableSyncApiActions`                   | Deaktiver synkronisering av API-handlinger (kun gjenkjente ID-er).       |
-| `disableSyncGuiActions`                   | Deaktiver synkronisering av GUI-handlinger (kun gjenkjente ID-er).       |
+| Setting                                   | Beskrivelse                                                                          |
+|-------------------------------------------|--------------------------------------------------------------------------------------|
+| `disableSync`                             | Deaktiver all dialogsynkronisering. Overstyrer alle andre innstillinger.             |
+| `disableCreate`                           | Deaktiver opprettelse av dialoger når applikasjonsinstanser opprettes.               |
+| `disableDelete`                           | Deaktiver sletting av dialoger når applikasjonsinstanser slettes.                    |
+| `disableAddActivities`                    | Deaktiver å legge til aktiviteter.                                                   |
+| `disableAddTransmissions`                 | Deaktiver å legge til forsendelser.                                                  |
+| `disableSyncDueAt`                        | Deaktiver synkronisering av forfallsdato.                                            |
+| `disableSyncStatus`                       | Deaktiver synkronisering av status.                                                  |
+| `disableSyncContentTitle`                 | Deaktiver synkronisering av tittel.                                                  |
+| `disableSyncContentSummary`               | Deaktiver synkronisering av sammendrag.                                              |
+| `disableSyncContentAdditionalInformation` | Deaktiver synkronisering av tilleggsinformasjon.                                     |
+| `disableSyncContentExtendedStatus`        | Deaktiver synkronisering av utvidet status.                                          |
+| `disableSyncAttachments`                  | Deaktiver synkronisering av dialogvedlegg (kun gjenkjente ID-er).                    |
+| `disableSyncApiActions`                   | Deaktiver synkronisering av API-handlinger (kun gjenkjente ID-er).                   |
+| `disableSyncGuiActions`                   | Deaktiver synkronisering av GUI-handlinger (kun gjenkjente ID-er).                   |
+| `disableMarkCompletedWhenConfirmed`       | Deaktiver å sette dialogstatus til Completed når app-instansen er ArchivedConfirmed. |
 
 ### Eksempel
 
@@ -52,9 +53,12 @@ Dette viser standard syncAdapterSettings. Sett hvilken som helst til `true` for 
         "disableSyncStatus": false,
         "disableSyncContentTitle": false,
         "disableSyncContentSummary": false,
+        "disableSyncContentAdditionalInformation": false,
+        "disableSyncContentExtendedStatus": false,
         "disableSyncAttachments": false,
         "disableSyncApiActions": false,
-        "disableSyncGuiActions": false
+        "disableSyncGuiActions": false,
+        "disableMarkCompletedWhenConfirmed": false
     }
   }
 }
