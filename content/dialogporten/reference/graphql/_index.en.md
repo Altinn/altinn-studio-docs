@@ -23,7 +23,7 @@ The current GraphQL implementation exposes:
 
 - `getDialogById` for fetching a single dialog
 - `searchDialogs` for searching dialogs
-- `getDialogLookup` for resolving a dialog from an instance reference
+- `dialogLookup` for resolving a dialog from an instance reference
 - `getParties` for listing authorized parties
 - `dialogEvents` for subscriptions on a specific dialog
 - `setSystemLabel` and `bulkSetSystemLabels` for updating end-user system labels
@@ -42,13 +42,47 @@ The current GraphQL implementation exposes:
 
 If `continuationToken` is supplied in the request, `orderBy` must also be supplied.
 
-### `getDialogLookup`
+### `dialogLookup`
 
-`getDialogLookup` accepts `instanceRef`. The implementation supports:
+`dialogLookup` accepts `instanceRef`. It can be used to translate between a dialog ID and the canonical identifier the dialog represents. The implementation supports:
 
 - `urn:altinn:instance-id:{partyId}/{uuid}`
 - `urn:altinn:correspondence-id:{uuid}`
 - `urn:altinn:dialog-id:{uuid}`
+
+Dialogs that represent an Altinn app instance or a single Altinn Correspondence use that underlying identifier as their canonical identifier. Dialogs without such an underlying entity use the dialog ID itself.
+
+The field returns a payload with:
+
+- optional `lookup`
+- `errors`
+
+The current typed errors are:
+
+- `DialogLookupNotFound`
+- `DialogLookupForbidden`
+- `DialogLookupValidationError`
+
+The `lookup` object contains:
+
+- `dialogId`
+- `instanceRef`
+- `party`
+- `title`
+- `serviceResource`
+- `serviceOwner`
+- `authorizationEvidence`
+
+If lookup starts with `urn:altinn:dialog-id:{uuid}`, the returned `instanceRef` can differ from the input. The returned value is the canonical identifier Dialogporten associates with that dialog. The current implementation prefers app instance references, then correspondence references, then dialog references.
+
+`authorizationEvidence` explains why the current end user can access the dialog. It reports the current authentication level and whether access comes through:
+
+- a role
+- an access package
+- resource delegation
+- instance delegation
+
+`title` can resolve to the dialog's non-sensitive title when the user's current authentication level is below the service resource's minimum authentication level.
 
 ### `dialogEvents`
 
