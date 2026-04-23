@@ -119,8 +119,16 @@ window.swaggerGenerateSchemaDefinitionList = function(spec, entityname, entity, 
             const description = window.swaggerLinkifyDescription(propertySchema.description);
             const isRequired = Array.isArray(normalizedEntity.required)
                 && normalizedEntity.required.includes(propertyName);
-            const nullableLabel = propertySchema.nullable ? " (nullable)" : "";
-            const optionalLabel = isRequired ? "" : " (optional)";
+            const statusLabels = [];
+            if (isRequired) {
+                statusLabels.push("Required");
+            }
+            if (propertySchema.nullable) {
+                statusLabels.push("Nullable");
+            }
+            const statusBadge = statusLabels.length > 0
+                ? `<span class="sed-status-badge">${statusLabels.join(", ")}</span>`
+                : "";
             const example = propertySchema.example ? `<span class="sed-ex-header">Example</span><code class="sed-ex">${propertySchema.example}</code>` : "";
             const enumNames = propertySchema.enum ? `<span class="sed-enum-header">Valid values</span><code class="sed-enum">${propertySchema.enum.join(", ")}</code>` : "";
             const typeDesc = window.swaggerGetTypeDescription(spec, rawPropertySchema);
@@ -129,7 +137,8 @@ window.swaggerGenerateSchemaDefinitionList = function(spec, entityname, entity, 
             const anchor = "" + entityname + (parentName ? "_" + parentName : "") + "_" + propertyName;
             let nestedHtml = "";
             html += `<dt>
-                        <span class="sed-prop"><a href="#${anchor}" id="${anchor}">${propertyName}</a>${nullableLabel}${optionalLabel}</span>
+                        ${statusBadge}
+                        <span class="sed-prop"><a href="#${anchor}" id="${anchor}">${propertyName}</a></span>
                         <span class="sed-type" title="${typeDesc}">${typeDesc}</span>
                     </dt>`;
 

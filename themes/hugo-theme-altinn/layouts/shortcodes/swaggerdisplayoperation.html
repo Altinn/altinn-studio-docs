@@ -135,13 +135,23 @@
                     const parameterName = parameter.name;
                     const description = parameter.description ? parameter.description.replaceAll(/\n\s*?\n/g, "<br><br>") : '(undescribed)';
                     const type = parameter.schema.type || 'unknown';
-                    const nullable = parameter.schema.nullable ? ' (optional)' : '';
+                    const statusLabels = [];
+                    if (parameter.required) {
+                        statusLabels.push('Required');
+                    }
+                    if (parameter.schema.nullable) {
+                        statusLabels.push('Nullable');
+                    }
+                    const statusBadge = statusLabels.length > 0
+                        ? `<span class="sed-status-badge">${statusLabels.join(', ')}</span>`
+                        : '';
                     const example = parameter.schema.example ? `<span class="sed-ex-header">Example</span><code class="sed-ex">${parameter.schema.example}</code>` : '';
                     const validFormat = parameter.schema.format ? `<span class="sed-enum-header">Accepted format:</span>${getValidFormatExample(parameter.schema.format)}` : '';
 
                     const anchor = "" + operationId + (parentName ? "_" + parentName : "") + "_" + parameterName;
                     html += `<dt>
-                                <span class="sed-prop"><a href="#${anchor}" id="${anchor}">${parameterName}</a>${nullable}</span>
+                                ${statusBadge}
+                                <span class="sed-prop"><a href="#${anchor}" id="${anchor}">${parameterName}</a></span>
                             </dt>`;
                     html += `<dd>
                                 <span class="sed-desc">${description}</span>
@@ -172,7 +182,16 @@
                     }
                     
                     const type = parameterSchema.type || 'unknown';
-                    const nullable = parameterSchema.nullable ? ' (optional)' : '';
+                    const statusLabels = [];
+                    if (parameter.required) {
+                        statusLabels.push('Required');
+                    }
+                    if (parameterSchema.nullable) {
+                        statusLabels.push('Nullable');
+                    }
+                    const statusBadge = statusLabels.length > 0
+                        ? `<span class="sed-status-badge">${statusLabels.join(', ')}</span>`
+                        : '';
                     const example = parameterSchema.example ? `<span class="sed-ex-header">Example</span><code class="sed-ex">${parameterSchema.example}</code>` : '';
                     const enumNames = parameterSchema.items && parameterSchema.items.enum ? `<span class="sed-enum-header">Valid values</span><code class="sed-enum">${parameterSchema.items.enum.join(', ')}</code>` : '';
                     const validFormat = parameterSchema.format ? `<span class="sed-enum-header">Accepted format:</span>${getValidFormatExample(parameterSchema.format)}` : '';
@@ -191,7 +210,8 @@
 
                     const anchor = "" + operationId + (parentName ? "_" + parentName : "") + "_" + parameterName;
                     html += `<dt>
-                                <span class="sed-prop"><a href="#${anchor}" id="${anchor}">${parameterName}</a>${nullable}</span>
+                                ${statusBadge}
+                                <span class="sed-prop"><a href="#${anchor}" id="${anchor}">${parameterName}</a></span>
                             </dt>`;
                     html += `<dd>
                                 <span class="sed-desc">${description}</span>
