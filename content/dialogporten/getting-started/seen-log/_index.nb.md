@@ -1,12 +1,12 @@
 ---
 title: 'Sett-logg'
-description: 'Lær om hvordan Dialogporten automatisk fyller ut en sett-logg'
+description: 'Lær hvordan Dialogporten automatisk fyller ut en sett-logg'
 weight: 70
 ---
 
 ## Introduksjon
 
-Sett-loggen inneholder tidsstemplet informasjon om hvem som har "sett" en dialog ved en bestemt revisjon. "Sett" i denne sammenhengen betyr har forespurt en bestemt dialog-ID fra API-et. Bruk av søke/liste-API-et fører ikke til at sett-loggen fylles ut.
+Sett-loggen inneholder tidsstemplet informasjon om hvem som har "sett" en dialog ved en bestemt revisjon. "Sett" i denne sammenhengen betyr at en bestemt dialog-ID er blitt forespurt fra API-et. Bruk av søke- eller liste-API-et fører ikke til at sett-loggen fylles ut.
 
 ## Bruk
 
@@ -18,11 +18,11 @@ GUI-er vil normalt bruke sett-loggoppføringene som er gjort etter den siste opp
 
 ## Forhold til hendelser
 
-Hver gang en sett-loggoppføring opprettes, produseres en hendelse og gjøres tilgjengelig for alle autoriserte hendelseskonsumenter. Se den tekniske referansen for mer informasjon om hendelsestype og informasjon som er gjort tilgjengelig i hendelsens brødtekst.
+Hver gang en sett-loggoppføring opprettes, produseres en hendelse og gjøres tilgjengelig for alle autoriserte hendelseskonsumenter. Se den tekniske referansen for mer informasjon om hendelsestypen og informasjonen som gjøres tilgjengelig i hendelsens brødtekst.
 
 **Les mer**
 
 * [Lær om aktivitetsloggen]({{<ref "../activity-log">}})
-* [Teknisk referanse for sett-logg entiteten](<{{<ref "../../reference/entities/seen">}}>)
+* [Teknisk referanse for sett-logg-entiteten](<{{<ref "../../reference/entities/seen">}}>)
 
 {{<children />}}

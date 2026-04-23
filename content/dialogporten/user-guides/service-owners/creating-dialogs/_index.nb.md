@@ -155,7 +155,7 @@ For mange dialoger vil én GUI-handling med en tittel som "Start skjemautfylling
 
 #### Skrivehandlinger
 
-Hvis `httpMethod` som oppgis for en GUI-handling er noe annet enn `GET`, regnes den som en [skrivehandling](/nb/dialogporten/getting-started/write-actions/), og det nettleserbaserte sluttbrukersystemet må bruke [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) eller lignende for å konstruere forespørselen ved hjelp av nettleserens skripting. Siden dette gjør GET-basert videresendt SSO med ID-porten umulig, vil sluttbrukersystemet inkludere [dialogtokenet](/nb/dialogporten/getting-started/authorization/dialog-tokens/) som en `Authorization`-header, slik at tjenesteeieren kan initiere en sesjon. Tjenesteeiersystemet på URL-en må også fullt ut støtte [CORS-protokollen](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
+Hvis `httpMethod` som oppgis for en GUI-handling er noe annet enn `GET`, regnes den som en [skrivehandling](/nb/dialogporten/getting-started/write-actions/), og det nettleserbaserte sluttbrukersystemet må bruke [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) eller lignende for å konstruere forespørselen ved hjelp av nettleserens skripting. Siden dette gjør GET-basert videresendt SSO med ID-porten umulig, vil sluttbrukersystemet inkludere [dialogtokenet](/nb/dialogporten/getting-started/authorization/dialogtoken/) som en `Authorization`-header, slik at tjenesteeieren kan initiere en sesjon. Tjenesteeiersystemet på URL-en må også fullt ut støtte [CORS-protokollen](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
 
 #### Slettehandlinger
 

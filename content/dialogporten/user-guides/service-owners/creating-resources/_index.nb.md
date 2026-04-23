@@ -6,11 +6,11 @@ weight: 10
 
 ## Introduksjon
 
-Alle dialoger i Dialogporten må referere til en "ressurs", som er entiteten som definerer "typen" dialog (melding, skjemtjeneste osv.), tjenesteeier, autorisasjonspolicyer blant annet.
+Alle dialoger i Dialogporten må referere til en "ressurs", som er entiteten som definerer "typen" dialog, f.eks. melding eller skjematjeneste, tjenesteeieren og autorisasjonspolicyene, blant annet.
 
 ## Grunnleggende trinn
 
-Ressurser administreres via Altinn Studio Designer, eller via API.
+Ressurser administreres via Altinn Studio Designer eller via API.
 
 Se veiledningen {{<link "../../../../authorization/guides/resource-owner/create-resource-resource-admin/" title>}} for mer informasjon.
 

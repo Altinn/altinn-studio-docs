@@ -14,7 +14,7 @@ API-spesifikasjonen for Dialogporten er tilgjengelig på følgende adresser:
 
 
 **Les mer**
-* [Technical information about Dialogporten V1 schemas](https://github.com/digdir/dialogporten/tree/main/docs/schema/V1)
+* [Teknisk informasjon om Dialogporten V1-skjemaer](https://github.com/digdir/dialogporten/tree/main/docs/schema/V1)
 * {{<link "../../user-guides/authenticating">}}
 
 {{<children />}}

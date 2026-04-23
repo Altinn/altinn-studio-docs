@@ -7,7 +7,7 @@ toc: true
 
 ## Introduksjon
 
-Dialogoppslag lar deg oversette mellom en dialog-ID og identifikatoren til entiteten dialogen representerer, uten først å søke i hele dialoglisten.
+Referanseoppslag lar deg oversette mellom en dialog-ID og identifikatoren til entiteten dialogen representerer, uten først å søke i hele dialoglisten.
 
 Noen dialoger representerer en underliggende Altinn app-instans eller en enkelt Altinn Melding. For disse dialogene lar oppslag deg gå begge veier:
 

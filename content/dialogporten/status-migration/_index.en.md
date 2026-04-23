@@ -1,6 +1,6 @@
 ---
 title: 'Status Migration'
-description: 'Status migration of data to Dialogporten'
+description: 'Status of data migration to Dialogporten'
 weight: 70
 cascade:
   params:
@@ -28,13 +28,13 @@ Phase 1: By the end of 2025, all historic 2025-data will be migrated to Dialogpo
 Phase 2: Older data will be migrated by Q2 2026, starting with the newest data first.
 
 ## Details
-Dialogs in Dialogporten come from three sources: directly via Dialogporten's API, from Correspondence (messages), or app instances (e.g. filled forms).
+Dialogs in Dialogporten come from three sources: directly via Dialogporten's API, from Correspondence (messages), or from app instances (e.g. filled forms).
 For the two latter, we separate between data created in Altinn 2 and data created in Altinn 3, and between live-sync of changes and migration of historic data.
 
-For each of the different data sources below, a brief status update, explanation of the source and any other relevant details.
+For each of the different data sources below, we provide a brief status update, an explanation of the source, and other relevant details.
 
 ### ✔ Dialog services
-All changes done directly to Dialogporten's API is available immediately.
+All changes made directly through Dialogporten's API are available immediately.
 
 Typically used where the service owner either has their own platform, or handle dialogs outside the default functionality of Altinn Correspondence or Altinn Studio/apps.
 

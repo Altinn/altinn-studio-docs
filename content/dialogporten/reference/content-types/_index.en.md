@@ -6,7 +6,7 @@ weight: 50
 
 ## Introduction 
 
-Under are the attributes for the various types of content that can be set within a dialog or transmissions within it.  
+Below are the attributes for the various types of content that can be set within a dialog or in transmissions within it.
 
 ## Content types
 

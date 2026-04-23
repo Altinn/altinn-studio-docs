@@ -1,5 +1,5 @@
 ---
-title: 'Dialogoppslag'
+title: 'Referanseoppslag'
 description: 'Referanseinformasjon om endepunktene for dialogoppslag'
 weight: 12
 toc: true
@@ -10,7 +10,7 @@ toc: true
 
 ## Introduksjon
 
-Dialogoppslag løser opp dialogmetadata fra en støttet `instanceRef` og lar klienter oversette mellom en dialog-ID og den kanoniske identifikatoren dialogen representerer.
+Regeranseoppslag løser opp dialogmetadata fra en støttet `instanceRef` og lar klienter oversette mellom en dialog-ID og den kanoniske identifikatoren dialogen representerer.
 
 Noen dialoger representerer en underliggende Altinn app-instans eller en enkelt Altinn Melding. For disse dialogene er den kanoniske identifikatoren den underliggende app-instansreferansen eller meldingsreferansen. For dialoger uten en slik underliggende entitet er dialog-ID-en selv den kanoniske identifikatoren.
 
