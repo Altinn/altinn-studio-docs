@@ -48,12 +48,12 @@ Søke-API-et er paginert ved hjelp av fortsettelsestoken, se parameteren `limit`
 
 Sortering kan utføres på følgende kolonner:
 
+- ContentUpdatedAt
 - CreatedAt
 - UpdatedAt
-- ContentUpdatedAt
 - DueAt
 
-`contentupdatedat` er den anbefalte kolonnen når du sorterer dialoger for innboks-lignende visninger.
+`contentupdatedat` er den anbefalte kolonnen når du sorterer dialoger for innboks-lignende visninger og for best ytelse.
 
 Hvis ingen eksplisitt sortering oppgis, er standardrekkefølgen `contentupdatedat_desc`.
 
@@ -61,10 +61,10 @@ Hvis ingen eksplisitt sortering oppgis, er standardrekkefølgen `contentupdateda
 
 Dette er eksempelverdier som kan oppgis i query-parameteren `OrderBy`.
 
+- `contentupdatedat_desc`
 - `createdat`
 - `createdat_asc`
 - `dueat_asc`
-- `contentupdatedat_desc`
 
 Gjeldende sortering finner du i [samlingsmodellen](/nb/dialogporten/reference/entities/dialog/#søk), ved siden av feltene `continuationToken` og `hasNextPage`. I REST er sorteringen også bygget inn i `continuationToken`, så det er tilstrekkelig å oppgi fortsettelsestokenet alene for å bevare sorteringen.
 
@@ -80,9 +80,6 @@ Søkeendepunktet for tjenesteeier støtter de samme grunnleggende dialogfiltrene
 - `serviceOwnerLabels`, der alle oppgitte etiketter må matche
 - `serviceOwnerLabels` med `*`-suffiks for prefikssøk, for eksempel `finance*`
 - `visibleAfter` og `visibleBefore`
-- `excludeApiOnly`
-- `isContentSeen`
-- `process`
 
 {{<notice info>}}
 Fritekstsøk i tjenesteeierendepunktet krever `endUserId`. Hvis `endUserId` er oppgitt, må minst én av `serviceResource` eller `party` også være oppgitt.

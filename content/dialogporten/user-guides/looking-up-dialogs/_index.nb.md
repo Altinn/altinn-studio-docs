@@ -32,13 +32,21 @@ Den nåværende implementasjonen aksepterer disse `instanceRef`-formatene:
 - `urn:altinn:correspondence-id:{uuid}`
 - `urn:altinn:dialog-id:{uuid}`
 
-## Hvorfor dette er viktig
+## Bruksområder
 
-Et viktig bruksområde er instansdelegering.
+### Instansdelegering
 
 I denne sammenhengen betyr "instansdelegering" delegering til én spesifikk app-instans, melding eller dialog. Autorisasjonssystemet bruker den kanoniske identifikatoren for den entiteten. For dialoger som representerer en app-instans eller en melding betyr det den underliggende app-instansreferansen eller meldingsreferansen. For dialoger uten en underliggende entitet er dialog-ID-en selv den kanoniske identifikatoren.
 
 Dialogporten har ansvaret for å holde rede på denne koblingen. Hvis systemet ditt bare kjenner den ene siden av relasjonen, gir dialogoppslag deg identifikatoren du trenger for den andre siden.
+
+### Hvorfor har jeg tilgang
+
+Sluttbruker-API-et for oppslag inkluderer `authorizationEvidence` slik at et sluttbrukersystem kan forklare hvorfor den nåværende brukeren har lov til å se dialogen. Dette er nyttig i brukergrensesnitt som skal svare på spørsmål som "hvorfor har jeg tilgang til denne dialogen?".
+
+Evidensen identifiserer tilgangsveien Dialogporten brukte for oppslaget. De boolske feltene viser om tilgangen kom gjennom en rolle, en tilgangspakke, ressursdelegering eller instansdelegering (kan være flere). Listen `evidence` inneholder den konkrete grant-typen og subject bak disse flaggene. For tilgang via rolle eller tilgangspakke er subject identifikatoren til rollen eller tilgangspakken. For ressursdelegering er subject tjenesteressursen. For instansdelegering er subject den kanoniske instansreferansen som returneres av oppslaget.
+
+Svaret inkluderer også `currentAuthenticationLevel`. Sammen med `serviceResource.minimumAuthenticationLevel` kan dette hjelpe et sluttbrukersystem med å forklare om det nåværende autentiseringsnivået er tilstrekkelig for den vanlige tittelen som returneres av oppslaget.
 
 ## Slå opp en dialog som sluttbruker med REST
 
@@ -158,7 +166,7 @@ Den nåværende implementasjonen inkluderer også slettede dialoger i oppslagsre
 Den returnerte `instanceRef` er den kanoniske identifikatoren, noe som betyr at hvis du slår opp en dialog med `urn:altinn:dialog-id:{uuid}`, kan svaret returnere en annen `instanceRef`.
 {{% /notice %}}
 
-Dette er forventet. Den returnerte verdien er den kanoniske identifikatoren Dialogporten knytter til den dialogen:
+Den returnerte verdien er den kanoniske identifikatoren Dialogporten knytter til den dialogen:
 
 - app-instansreferanse for dialoger som representerer en Altinn app-instans
 - meldingsreferanse for dialoger som representerer en enkelt Altinn Melding

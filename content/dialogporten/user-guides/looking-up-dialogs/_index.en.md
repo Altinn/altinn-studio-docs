@@ -32,13 +32,21 @@ The current implementation accepts these `instanceRef` formats:
 - `urn:altinn:correspondence-id:{uuid}`
 - `urn:altinn:dialog-id:{uuid}`
 
-## Why this matters
+## Use cases
 
-One important use case is instance delegation.
+### Instance delegation
 
 In this context, "instance delegation" means delegation to one specific app instance, correspondence, or dialog. The authorization system uses the canonical identifier for that entity. For dialogs that represent an app instance or a correspondence, that means the underlying app-instance reference or correspondence reference. For dialogs without an underlying entity, the dialog ID itself is the canonical identifier.
 
 Dialogporten is responsible for keeping track of this mapping. If your system only knows one side of the relationship, dialog lookup gives you the identifier you need for the other side.
+
+### Why do I have access
+
+The end-user lookup API includes `authorizationEvidence` so an end-user system can explain why the current user is allowed to see the dialog. This is useful in user interfaces that need to answer questions such as "why can I access this dialog?".
+
+The evidence identifies the access path Dialogporten used for the lookup. The boolean fields show whether access came through a role, an access package, resource delegation, or instance delegation. Multiple access paths may be present. The `evidence` list contains the concrete grant type and subject behind those flags. For role and access-package access, the subject is the role or access-package identifier. For resource delegation, the subject is the service resource. For instance delegation, the subject is the canonical instance reference returned by the lookup.
+
+The response also includes `currentAuthenticationLevel`. Together with `serviceResource.minimumAuthenticationLevel`, this can help an end-user system explain whether the current authentication level is sufficient for the ordinary title returned by the lookup.
 
 ## Looking up a dialog as an end user with REST
 
@@ -159,7 +167,7 @@ The returned `instanceRef` is the canonical identifier, meaning if you look up a
 the response can return a different `instanceRef`.
 {{% /notice %}}
 
-This is expected. The returned value is the canonical identifier Dialogporten associates with that dialog:
+The returned value is the canonical identifier Dialogporten associates with that dialog:
 
 - app instance reference for dialogs representing an Altinn app instance
 - correspondence reference for dialogs representing a single Altinn Correspondence

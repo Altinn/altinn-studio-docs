@@ -48,12 +48,12 @@ The search API is paginated using continuation tokens, see the `limit`-parameter
 
 Ordering can be performed on the following columns:
 
+- ContentUpdatedAt
 - CreatedAt
 - UpdatedAt
-- ContentUpdatedAt
 - DueAt
 
-`contentupdatedat` is the recommended column when ordering dialogs for inbox-style views.
+`contentupdatedat` is the recommended column when ordering dialogs for inbox-style views and for best performance.
 
 If no explicit ordering is supplied, the default order is `contentupdatedat_desc`.
 
@@ -61,10 +61,10 @@ If no explicit ordering is supplied, the default order is `contentupdatedat_desc
 
 These are example values that might be supplied in the `OrderBy` query parameter.
 
+- `contentupdatedat_desc`
 - `createdat`
 - `createdat_asc`
 - `dueat_asc`
-- `contentupdatedat_desc`
 
 The current ordering can be found in the [collection model](/en/dialogporten/reference/entities/dialog/#search), next to the `continuationToken` and `hasNextPage` fields. In REST, the ordering is also embedded into `continuationToken`, so supplying the continuation token alone is sufficient to preserve ordering.
 
@@ -80,9 +80,6 @@ The service-owner search endpoint supports the same core dialog filters as the e
 - `serviceOwnerLabels`, where all supplied labels must match
 - `serviceOwnerLabels` with `*` suffix for prefix matching, for example `finance*`
 - `visibleAfter` and `visibleBefore`
-- `excludeApiOnly`
-- `isContentSeen`
-- `process`
 
 {{<notice info>}}
 Free-text search in the service-owner endpoint requires `endUserId`. If `endUserId` is supplied, at least one of `serviceResource` or `party` must also be supplied.
