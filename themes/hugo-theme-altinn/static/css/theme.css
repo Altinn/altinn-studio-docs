@@ -1984,31 +1984,31 @@ div.footnotes-entry > span {
 }
 
 .dpdl dt,
-.dpdl .a-text dt {
+.a-text .dpdl dt {
     margin: 0;
     font-family: 'DIN-bold';
 }
 
 .dpdl dd,
-.dpdl .a-text dd {
+.a-text .dpdl dd {
     margin: 8px 0 0 0;
     padding: 0 0 0 16px;
     border-left: 4px solid #ccc;
 }
 
 .dpdl dd + dt,
-.dpdl .a-text dd + dt {
+.a-text .dpdl dd + dt {
     margin-top: 24px;
 }
 
 .dpdl dd > :last-child,
-.dpdl.a-text dd > :last-child {
+.a-text .dpdl dd > :last-child {
     margin-bottom: 0;
 }
 
 @media (max-width: 767px) {
     .dpdl dd,
-    .dpdl .a-text dd {
+    .a-text .dpdl dd {
         padding-left: 12px;
     }
 }

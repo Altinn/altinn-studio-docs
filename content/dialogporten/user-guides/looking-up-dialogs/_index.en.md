@@ -50,9 +50,9 @@ The response also includes `currentAuthenticationLevel`. Together with `serviceR
 
 ## Looking up a dialog as an end user with REST
 
-1. [Authenticate as an end user]({{< relref "/dialogporten/user-guides/authenticating/" >}}#usage-for-end-user-systems)
+1. [Authenticate as an end user]({{< relref "/dialogporten/user-guides/authenticating" >}}#usage-for-end-user-systems)
 2. Send a GET request to `/api/v1/enduser/dialoglookup`, supplying `instanceRef` as a query parameter
-3. Inspect the returned metadata and, if needed, continue to the [dialog details guide]({{< relref "/dialogporten/user-guides/getting-dialog-details//" >}})
+3. Inspect the returned metadata and, if needed, continue to the [dialog details guide]({{< relref "/dialogporten/user-guides/getting-dialog-details" >}})
 
 Example:
 
@@ -141,7 +141,7 @@ GraphQL returns lookup failures in the payload instead of through HTTP status co
 
 ## Looking up a dialog as a service owner with REST
 
-1. [Authenticate as a service owner]({{< relref "/dialogporten/user-guides/authenticating/" >}}#usage-for-service-owner-systems)
+1. [Authenticate as a service owner]({{< relref "/dialogporten/user-guides/authenticating" >}}#usage-for-service-owner-systems)
 2. Send a GET request to `/api/v1/serviceowner/dialoglookup`, supplying `instanceRef` as a query parameter
 3. Use the returned dialog metadata to continue with service-owner operations
 

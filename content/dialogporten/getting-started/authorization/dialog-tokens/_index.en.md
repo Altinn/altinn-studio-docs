@@ -27,12 +27,12 @@ TT->>SBS: Return response
 
 ## Front channel embeds and write actions
 
-The dialog token also enables [front channel embeds]({{< relref "/dialogporten/getting-started/authorization/dialog-tokens/../../front-channel-embeds//" >}}) and [write actions]({{< relref "/dialogporten/getting-started/authorization/dialog-tokens/../../write-actions//" >}}), which are point-to-point interactions between the end user's device or system and the service provider systems, avoiding the need for intermediaries to handle data transfers.
+The dialog token also enables [front channel embeds]({{< relref "/dialogporten/getting-started/front-channel-embeds" >}}) and [write actions]({{< relref "/dialogporten/getting-started/write-actions" >}}), which are point-to-point interactions between the end user's device or system and the service provider systems, avoiding the need for intermediaries to handle data transfers.
 
 ## Security and trust
 Dialogporten issues bearer tokens as JWTs (JSON Web Tokens) signed using state-of-the-art cryptography standards. The public key material used to verify tokens issued by Dialogporten is published at a standard HTTPS location, allowing for automatic configuration using most well-established cryptography application libraries.
 
 **Read more**
-* [Technical reference for dialog tokens]({{< relref "/dialogporten/getting-started/authorization/dialog-tokens/../../../reference/authorization/dialog-tokens//" >}})
+* [Technical reference for dialog tokens]({{< relref "/dialogporten/reference/authorization/dialog-tokens" >}})
 
 {{<children />}}
