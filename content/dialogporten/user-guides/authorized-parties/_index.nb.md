@@ -7,18 +7,18 @@ toc: true
 
 ## Introduksjon
 
-Denne veiledningen viser hvordan du bruker Dialogportens proxy-API mot Altinn Access Management for å hente listen over [autoriserte parter](../../getting-started/authorization/parties/#autoriserte-parter) som den autentiserte brukeren har tilgang til.
+Denne veiledningen viser hvordan du bruker Dialogportens proxy-API mot Altinn Access Management for å hente listen over [autoriserte parter]({{< relref "../../getting-started/authorization/parties/" >}}#autoriserte-parter) som den autentiserte brukeren har tilgang til.
 
 ## Grunnleggende steg (REST)
 
-1. [Autentiser som sluttbruker](../authenticating/#bruk-for-sluttbrukersystemer)
+1. [Autentiser som sluttbruker]({{< relref "../authenticating/" >}}#bruk-for-sluttbrukersystemer)
 2. Utfør en GET-forespørsel mot `/api/v1/enduser/parties`
 
 ### Returnert informasjon
 
 Den returnerte datastrukturen består av alle partene sluttbrukeren kan representere, noe som som et minimum vil inkludere dem selv. Dette inkluderer:
 * Navnet på parten, fullt navn for personer eller organisasjonsnavn
-* Identifikatoren for parten, som kan brukes når du [søker etter dialoger](../searching-for-dialogs/)
+* Identifikatoren for parten, som kan brukes når du [søker etter dialoger]({{< relref "../searching-for-dialogs/" >}})
 * Om parten er den nåværende brukeren
 * Om brukeren har spesielle roller for parten
 
@@ -66,6 +66,6 @@ query {
 }
 ```
 
-Feltet `party` i svaret er parti-URN-en du bruker i [dialogsøk](../searching-for-dialogs/). De øvrige feltene beskriver parten og forholdet den autentiserte brukeren har til den, inkludert om parten er den nåværende sluttbrukeren og om brukeren har viktige administrative roller.
+Feltet `party` i svaret er parti-URN-en du bruker i [dialogsøk]({{< relref "../searching-for-dialogs/" >}}). De øvrige feltene beskriver parten og forholdet den autentiserte brukeren har til den, inkludert om parten er den nåværende sluttbrukeren og om brukeren har viktige administrative roller.
 
 {{<children />}}

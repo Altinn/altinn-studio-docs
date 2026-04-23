@@ -6,17 +6,17 @@ weight: 20
 
 ## Introduction
 
-See [getting started with dialog tokens](/en/dialogporten/reference/authorization/dialog-tokens/../../../getting-started/authorization/dialog-tokens/) for a functional overview of dialog tokens and what they can be used for.
+See [getting started with dialog tokens]({{< relref "/dialogporten/reference/authorization/dialog-tokens/../../../getting-started/authorization/dialog-tokens//" >}}) for a functional overview of dialog tokens and what they can be used for.
 
 Dialog tokens allows for unproxied frontend requests to endpoints requiring authentication and authorization, without having to rely on ID-porten SSO and redirects.
 
 ## Usage for end-user systems (OAuth clients)
 
-Dialog tokens are embedded within the [single-dialog response model](/en/dialogporten/reference/authorization/dialog-tokens/../../entities/dialog/) (see `dialogToken`), and are self-contained, signed JWTs containing claims from the authenticated user and the dialog itself, including which actions and authorization attributes the user is authorized for.
+Dialog tokens are embedded within the [single-dialog response model]({{< relref "/dialogporten/reference/authorization/dialog-tokens/../../entities/dialog//" >}}) (see `dialogToken`), and are self-contained, signed JWTs containing claims from the authenticated user and the dialog itself, including which actions and authorization attributes the user is authorized for.
 
 Dialog tokens should be transferred as-is as bearer tokens in an `Authorization` HTTP header. The contents of the dialog token should normally not be inspected by clients, i.e., the token should be treated as an opaque string.
 
-The altinn.no portal uses dialog tokens on all URLs associated with [write actions](/en/dialogporten/reference/authorization/dialog-tokens/../../front-end/write-actions/) and [front channel embeds](/en/dialogporten/reference/authorization/dialog-tokens/../../front-end/write-actions/). Other end-user systems might also use dialog tokens for API actions, subject to service-specific protocols defined by the respective service owner.
+The altinn.no portal uses dialog tokens on all URLs associated with [write actions]({{< relref "/dialogporten/reference/authorization/dialog-tokens/../../front-end/write-actions//" >}}) and [front channel embeds]({{< relref "/dialogporten/reference/authorization/dialog-tokens/../../front-end/write-actions//" >}}). Other end-user systems might also use dialog tokens for API actions, subject to service-specific protocols defined by the respective service owner.
 
 ### Dialog token lifetime
 
@@ -72,7 +72,7 @@ Dialog tokens use an [Edwards-Curve Digital Signature Algorithm (EdDSA)](https:/
 
 ### Well-known endpoints
 
-Dialogporten provides [OAuth 2.0 Authorization Server Metadata (RFC8414)](https://datatracker.ietf.org/doc/html/rfc8414) allowing for runtime key discovery, rotation and token validation. Consult the [OpenAPI specification](/en/dialogporten/reference/authorization/dialog-tokens/../../openapi/) (tag "Metadata") for the well-known URLs for the given environment.
+Dialogporten provides [OAuth 2.0 Authorization Server Metadata (RFC8414)](https://datatracker.ietf.org/doc/html/rfc8414) allowing for runtime key discovery, rotation and token validation. Consult the [OpenAPI specification]({{< relref "/dialogporten/reference/authorization/dialog-tokens/../../openapi//" >}}) (tag "Metadata") for the well-known URLs for the given environment.
 
 ### Key sets and rotations
 The JSON Web Key sets published on the well-known endpoints will always contain at least two JWKs. All endpoints that accept and verify dialog tokens issued by Dialogporten should allow tokens signed by any of the keys present in the key set for the given environment.

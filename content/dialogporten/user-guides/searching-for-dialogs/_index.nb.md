@@ -11,12 +11,12 @@ weight: 20
 
 Denne veiledningen viser hvordan du søker etter dialoger i Dialogporten. Sluttbruker-API-et støtter både REST og GraphQL. Tjenesteeier-API-et støtter REST-søk med ekstra filtre som er nyttige når du administrerer dialoger og sluttbrukerkontekst.
 
-Merk at datastrukturen som returneres i søk er forskjellig fra den som returneres fra [detaljendepunktet](../getting-dialog-details/); mer informasjon om dialogen og hvilken tilgang den autoriserte brukeren har til ulike deler av den er bare tilgjengelig i detaljvisningen.
+Merk at datastrukturen som returneres i søk er forskjellig fra den som returneres fra [detaljendepunktet]({{< relref "../getting-dialog-details/" >}}); mer informasjon om dialogen og hvilken tilgang den autoriserte brukeren har til ulike deler av den er bare tilgjengelig i detaljvisningen.
 
 ## Grunnleggende steg (REST, sluttbruker)
 
-1. [Autentiser som sluttbruker](../authenticating/#bruk-for-sluttbrukersystemer)
-2. [Finn partene](../authorized-parties/) som den autentiserte sluttbrukeren er autorisert til å representere
+1. [Autentiser som sluttbruker]({{< relref "../authenticating/" >}}#bruk-for-sluttbrukersystemer)
+2. [Finn partene]({{< relref "../authorized-parties/" >}}) som den autentiserte sluttbrukeren er autorisert til å representere
 3. Utfør en GET-forespørsel til `/api/v1/enduser/dialogs`, og oppgi query-parametere i henhold til tabellen nedenfor:
 
 {{<swaggerdisplayoperation "get" "/api/v1/enduser/dialogs">}}
@@ -27,16 +27,16 @@ Merk at datastrukturen som returneres i søk er forskjellig fra den som returner
 - `party`-parametere må ha ett av følgende formater
   - `urn:altinn:person:identifier-no:<11 siffer fødselsnummer>`
   - `urn:altinn:organization:identifier-no:<9 siffer organisasjonsnummer>`
-- `serviceResource`-parametere må referere til en ressurs i [Resource Registry](../../authorization/what-do-you-get/resourceadministration/) og bruke følgende format:
+- `serviceResource`-parametere må referere til en ressurs i [Resource Registry]({{< relref "../../../authorization/what-do-you-get/resourceadministration/" >}}) og bruke følgende format:
   - `urn:altinn:resource:<identifier>`
 
 {{<notice warning>}}
-Merk at søke-API-et for sluttbruker krever at minst én [`serviceResource`](../../getting-started/authorization/service-resource/) eller [`party`](../../getting-started/authorization/parties/) er oppgitt.
+Merk at søke-API-et for sluttbruker krever at minst én [`serviceResource`]({{< relref "../../getting-started/authorization/service-resource/" >}}) eller [`party`]({{< relref "../../getting-started/authorization/parties/" >}}) er oppgitt.
 {{</notice>}}
 
 ### Returnert informasjon
 
-Dette vil returnere en [samling av dialoger](../../reference/entities/dialog/#søk), som inneholder et delsett av informasjonen som returneres fra [endepunktet for dialogdetaljer](../../reference/entities/dialog/). Avhengig av søkeparametere og tilgangen til den autentiserte brukeren kan denne listen være tom.
+Dette vil returnere en [samling av dialoger]({{< relref "../../reference/entities/dialog/" >}}#søk), som inneholder et delsett av informasjonen som returneres fra [endepunktet for dialogdetaljer]({{< relref "../../reference/entities/dialog/" >}}). Avhengig av søkeparametere og tilgangen til den autentiserte brukeren kan denne listen være tom.
 
 Hvis ugyldige søkeparametere oppgis, returnerer API-et `400 Bad Request` og et svar som forklarer hvilke feil som ble funnet. Dette svaret følger standardformatet [ProblemDetails](https://datatracker.ietf.org/doc/html/rfc7807).
 
@@ -66,11 +66,11 @@ Dette er eksempelverdier som kan oppgis i query-parameteren `OrderBy`.
 - `createdat_asc`
 - `dueat_asc`
 
-Gjeldende sortering finner du i [samlingsmodellen](../../reference/entities/dialog/#søk), ved siden av feltene `continuationToken` og `hasNextPage`. I REST er sorteringen også bygget inn i `continuationToken`, så det er tilstrekkelig å oppgi fortsettelsestokenet alene for å bevare sorteringen.
+Gjeldende sortering finner du i [samlingsmodellen]({{< relref "../../reference/entities/dialog/" >}}#søk), ved siden av feltene `continuationToken` og `hasNextPage`. I REST er sorteringen også bygget inn i `continuationToken`, så det er tilstrekkelig å oppgi fortsettelsestokenet alene for å bevare sorteringen.
 
 ## Grunnleggende steg (REST, tjenesteeier)
 
-1. [Autentiser som tjenesteeier](../authenticating/#bruk-for-tjenesteeiersystemer)
+1. [Autentiser som tjenesteeier]({{< relref "../authenticating/" >}}#bruk-for-tjenesteeiersystemer)
 2. Utfør en GET-forespørsel til `/api/v1/serviceowner/dialogs`, og oppgi query-parametere i henhold til tabellen nedenfor:
 
 {{<swaggerdisplayoperation "get" "/api/v1/serviceowner/dialogs">}}
@@ -85,13 +85,13 @@ Søkeendepunktet for tjenesteeier støtter de samme grunnleggende dialogfiltrene
 Fritekstsøk i tjenesteeierendepunktet krever `endUserId`. Hvis `endUserId` er oppgitt, må minst én av `serviceResource` eller `party` også være oppgitt.
 {{</notice>}}
 
-Hvis du trenger å hente revisjoner og systemetiketter for sluttbrukerkontekst uten hele dialogsøkeresultatet, se [referansen for systemetiketter](../../reference/entities/systemlabel/), som dokumenterer det dedikerte endepunktet `/api/v1/serviceowner/dialogs/endusercontext`.
+Hvis du trenger å hente revisjoner og systemetiketter for sluttbrukerkontekst uten hele dialogsøkeresultatet, se [referansen for systemetiketter]({{< relref "../../reference/entities/systemlabel/" >}}), som dokumenterer det dedikerte endepunktet `/api/v1/serviceowner/dialogs/endusercontext`.
 
 ## Grunnleggende steg (GraphQL, sluttbruker)
 
 GraphQL eksponerer søkeoperasjonen for sluttbruker som `searchDialogs`. En typisk flyt er:
 
-1. [Autentiser som sluttbruker](../authenticating/#bruk-for-sluttbrukersystemer)
+1. [Autentiser som sluttbruker]({{< relref "../authenticating/" >}}#bruk-for-sluttbrukersystemer)
 2. Bruk `getParties` for å finne parti-URN-ene du kan søke på
 3. Kall `searchDialogs`
 
