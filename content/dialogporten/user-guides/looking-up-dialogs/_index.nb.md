@@ -50,9 +50,9 @@ Svaret inkluderer også `currentAuthenticationLevel`. Sammen med `serviceResourc
 
 ## Slå opp en dialog som sluttbruker med REST
 
-1. [Autentiser som sluttbruker](/nb/dialogporten/user-guides/authenticating#usage-for-end-user-systems)
+1. [Autentiser som sluttbruker](../authenticating/#bruk-for-sluttbrukersystemer)
 2. Send en GET-forespørsel til `/api/v1/enduser/dialoglookup`, og oppgi `instanceRef` som query-parameter
-3. Inspiser metadataene som returneres, og gå eventuelt videre til [veiledningen for dialogdetaljer](/nb/dialogporten/user-guides/getting-dialog-details/)
+3. Inspiser metadataene som returneres, og gå eventuelt videre til [veiledningen for dialogdetaljer](../getting-dialog-details/)
 
 Eksempel:
 
@@ -141,7 +141,7 @@ GraphQL returnerer oppslagsfeil i payloaden i stedet for gjennom HTTP-statuskode
 
 ## Slå opp en dialog som tjenesteeier med REST
 
-1. [Autentiser som tjenesteeier](/nb/dialogporten/user-guides/authenticating#usage-for-service-owner-systems)
+1. [Autentiser som tjenesteeier](../authenticating/#bruk-for-tjenesteeiersystemer)
 2. Send en GET-forespørsel til `/api/v1/serviceowner/dialoglookup`, og oppgi `instanceRef` som query-parameter
 3. Bruk metadataene som returneres til å fortsette med operasjoner som tjenesteeier
 
