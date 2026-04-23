@@ -30,7 +30,7 @@ automatic synchronization:
 | `disableSyncAttachments`                  | Disable synchronizing dialog attachments (only recognized IDs).                    |
 | `disableSyncApiActions`                   | Disable synchronizing API actions (only recognized IDs).                           |
 | `disableSyncGuiActions`                   | Disable synchronizing GUI actions (only recognized IDs).                           |
-| `disableMarkCompletedWhenConfirmed`       | Disable setting dialog status to completed when app instance is ArchivedConfirmed. |
+| `disableMarkCompletedWhenConfirmed`        | Disable setting dialog status to completed when app instance is ArchivedConfirmed.  |
 
 ### Example
 

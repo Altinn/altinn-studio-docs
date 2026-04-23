@@ -1,6 +1,6 @@
 ---
 title: 'Dialog'
-description: 'Referanseinformasjon om dialogens aggregatrotelement'
+description: 'Referanseinformasjon om dialogaggregatroten'
 weight: 10
 toc: true
 ---
@@ -12,13 +12,13 @@ toc: true
 
 ### Detaljer
 
-Dette er entiteten som returneres i sluttbruker-API-et når man henter detaljer for en enkelt dialog
+Dette er entiteten som returneres i sluttbruker-API-et når man henter detaljer for én dialog.
 
 {{<swaggerdisplayentity "V1EndUserDialogsQueriesGet_Dialog">}}
 
 ### Søk
 
-Dette er entiteten som returneres i sluttbruker-API-et når man søker etter dialoger
+Dette er entiteten som returneres i sluttbruker-API-et når man søker etter dialoger.
 
 {{<swaggerdisplayentity "V1EndUserDialogsQueriesSearch_Dialog">}}
 
@@ -26,37 +26,37 @@ Dette er entiteten som returneres i sluttbruker-API-et når man søker etter dia
 
 ### Detaljer
 
-Dette er entiteten som returneres i tjenesteeier-API-et når man henter detaljer for en enkelt dialog
+Dette er entiteten som returneres i tjenesteeier-API-et når man henter detaljer for én dialog.
 
 {{<swaggerdisplayentity "V1ServiceOwnerDialogsQueriesGet_Dialog">}}
 
 ### Søk
 
-Dette er entiteten som returneres i tjenesteeier-API-et når man søker etter dialoger
+Dette er entiteten som returneres i tjenesteeier-API-et når man søker etter dialoger.
 
 {{<swaggerdisplayentity "V1ServiceOwnerDialogsQueriesSearch_Dialog">}}
 
 ### Opprett (POST)
 
-Dette er entiteten som forventes som input i tjenesteeier-API-et når man oppretter en ny dialog
+Dette er entiteten som forventes som input i tjenesteeier-API-et når man oppretter en ny dialog.
 
-{{<swaggerdisplayentity "V1ServiceOwnerDialogsCommandsCreate_Dialog">}}
+{{<swaggerdisplayoperation "post" "/api/v1/serviceowner/dialogs">}}
 
 ### Oppdater (PUT)
 
-Dette er entiteten som forventes som input i tjenesteeier-API-et når man oppdaterer en ny dialog
+Dette er entiteten som forventes som input i tjenesteeier-API-et når man oppdaterer en dialog.
 
-{{<swaggerdisplayentity "V1ServiceOwnerDialogsCommandsUpdate_Dialog">}}
+{{<swaggerdisplayoperation "put" "/api/v1/serviceowner/dialogs/{dialogId}">}}
 
 ### Oppdater (PATCH)
 
 Dialogporten støtter [RFC 6902](https://datatracker.ietf.org/doc/html/rfc6902/) JSON Patch. Et patch-dokument må konstrueres basert på PUT-entiteten beskrevet ovenfor.
 
-Merk at listen over forsendelser og aktiviteter er immutable; så replace/remove-operasjoner aksepteres ikke på disse egenskapene.
+Merk at listene over forsendelser og aktiviteter er uforanderlige, så `replace`- og `remove`-operasjoner aksepteres ikke på disse egenskapene.
 
 ### Eksempel
 
-Dette setter statusen, oppdaterer dialogsammendraget, fjerner alle GUI-handlinger (knapper) og legger til et vedlegg
+Dette setter status, oppdaterer dialogsammendraget, fjerner alle GUI-handlinger (knapper) og legger til et vedlegg.
 
 ```json
 [
@@ -98,7 +98,7 @@ Dette setter statusen, oppdaterer dialogsammendraget, fjerner alle GUI-handlinge
 ```
 
 {{<notice info>}}
-Merk at lokaliseringer (ie. /content/summary) inneholder en array av languageCode og oversatte tekstpar. For å ha konsistent indeksering, er lokaliseringene sortert leksikografisk etter `languageCode`. Dette betyr at når man har f.eks. oversettelser for norsk nynorsk (`nn`), norsk bokmål (`nb`) og engelsk (`en`), vil rekkefølgen alltid være `en`, `nb`, `nn`, som betyr at indeks 1 alltid vil peke til `nb` uavhengig av rekkefølgen lokaliseringen ble lagt til i.
+Merk at lokaliseringer, dvs. `/content/summary`, inneholder en liste med par av `languageCode` og oversatt tekst. For å ha konsistent indeksering sorteres lokaliseringene leksikografisk etter `languageCode`. Det betyr at dersom man har oversettelser for norsk nynorsk (`nn`), norsk bokmål (`nb`) og engelsk (`en`), vil rekkefølgen alltid være `en`, `nb`, `nn`, noe som betyr at indeks 1 alltid vil peke på `nb`, uavhengig av rekkefølgen lokaliseringen ble lagt til i.
 {{</notice>}}
 
 **Se også**
