@@ -21,25 +21,7 @@ En aktivitet inneholder:
 - `performedBy`
 - `description`, som bare er satt for `Information`
 
-De implementerte aktivitetstypene er:
-
-- `DialogCreated`
-- `DialogClosed`
-- `Information`
-- `TransmissionOpened`
-- `PaymentMade`
-- `SignatureProvided`
-- `DialogOpened`
-- `DialogDeleted`
-- `DialogRestored`
-- `SentToSigning`
-- `SentToFormFill`
-- `SentToSendIn`
-- `SentToPayment`
-- `FormSubmitted`
-- `FormSaved`
-- `CorrespondenceOpened`
-- `CorrespondenceConfirmed`
+Se schemaet nedenfor for den autoritative listen over aktivitetstyper.
 
 Aktiviteter kompletterer forsendelser. En forsendelse registrerer selve kommunikasjonsenheten, mens en aktivitet registrerer at noe skjedde med dialogen eller forsendelsen.
 

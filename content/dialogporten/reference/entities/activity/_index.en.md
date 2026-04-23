@@ -1,6 +1,6 @@
 ---
 title: 'Activity'
-description: 'Refererence information about the dialog activity entity'
+description: 'Reference information about the dialog activity entity'
 weight: 30
 ---
 
@@ -21,25 +21,7 @@ An activity contains:
 - `performedBy`
 - `description`, which is only populated for `Information`
 
-The implemented activity types are:
-
-- `DialogCreated`
-- `DialogClosed`
-- `Information`
-- `TransmissionOpened`
-- `PaymentMade`
-- `SignatureProvided`
-- `DialogOpened`
-- `DialogDeleted`
-- `DialogRestored`
-- `SentToSigning`
-- `SentToFormFill`
-- `SentToSendIn`
-- `SentToPayment`
-- `FormSubmitted`
-- `FormSaved`
-- `CorrespondenceOpened`
-- `CorrespondenceConfirmed`
+See the schema below for the authoritative list of activity types.
 
 Activities complement transmissions. A transmission records the communication unit itself, while an activity records that something happened to the dialog or transmission.
 
