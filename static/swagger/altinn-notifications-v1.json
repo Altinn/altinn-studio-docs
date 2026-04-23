@@ -195,7 +195,7 @@
     "/future/orders/instant": {
       "post": {
         "tags": [
-          "Instant Orders"
+          "Deprecated"
         ],
         "summary": "Creates and sends an instant SMS notification to a single recipient (deprecated - use /sms endpoint instead).",
         "requestBody": {
