@@ -1479,8 +1479,8 @@ ul.a-text.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list)
     padding: 0;
     text-align: center;
     width: 32px;
-    display: inline-block;
     height: 32px;
+    float: left;
 }
 
 /* cardImage */ 
