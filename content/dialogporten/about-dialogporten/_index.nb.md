@@ -23,14 +23,14 @@ Faktisk innhold, som brødtekster, skjemaer, skjemadata som er fylt ut av bruker
 
 ## Hvordan fungerer dette?
 
-Dialogporten er "kun-les"{{<footnote "Det er to unntak; [dialogetiketter](/nb/dialogporten/getting-started/dialogs/#dialogetiketter), som brukere kan tildele for å holde dialogene organisert, og [sett logg](/nb/dialogporten/getting-started/seen-log) som holder styr på brukerens tilgang til dialoger." >}} for sluttbrukere. De digitale tjenesteplattformene (f.eks. Altinn), som vi refererer til som "tjenesteleverandører", utfører skrivingen til dialogen på vegne av en tjenesteeier (den offentlige aktøren). Dette betyr at selv om brukerne kan se statusen og metadataene til sine dialoger gjennom Dialogporten, administreres og registreres alle oppdateringer eller handlinger av selve tjenesteplattformen - vanligvis synkront med at brukeren samhandler med den relevante tjenesten, f.eks. fyller ut eller sender inn et skjema. Dette sikrer at dataene forblir konsistente og sikre på tvers av alle involverte systemer.
+Dialogporten er skrivebeskyttet{{<footnote "Det er to unntak: [dialogetiketter](/nb/dialogporten/getting-started/dialogs/#dialogetiketter), som brukere kan tildele for å holde dialogene organisert, og [sett-loggen](/nb/dialogporten/getting-started/seen-log), som holder styr på brukertilgang til dialoger." >}} for sluttbrukere. De digitale tjenesteplattformene (f.eks. Altinn), som vi refererer til som "tjenesteleverandører", utfører skriving til dialogen på vegne av en tjenesteeier (den offentlige aktøren). Dette betyr at selv om brukerne kan se statusen og metadataene til dialogene sine gjennom Dialogporten, blir alle oppdateringer eller handlinger håndtert og registrert av selve tjenesteplattformen, vanligvis synkront med at brukeren samhandler med den relevante tjenesten, f.eks. ved å fylle ut eller sende inn et skjema. Dette sikrer at dataene forblir konsistente og sikre på tvers av alle involverte systemer.
 {{<displayFootnotes>}}
 
 ## Hvordan bruker app-utviklere i Altinn Dialogporten?
 
-Altinn-plattformen vil automatisk gjøre alle [app-instanser](/nb/api/models/instance/) og [Altinn-meldinger](/nb/correspondence/) tilgjengelige i Dialogporten, eksponere relevant informasjon og handlinger, og vil oppdatere representasjonen etterhvert som app-instansen/Altinn-meldingen blir oppdatert.
+Altinn-plattformen vil automatisk gjøre alle [app-instanser](/nb/api/models/instance/) og [Altinn-meldinger](/nb/correspondence/) tilgjengelige i Dialogporten, eksponere relevant informasjon og handlinger, og oppdatere representasjonen etter hvert som app-instansen eller Altinn-meldingen blir oppdatert.
 
-For ytterligere kontroll benytter [app template](/nb/app-template) en [Dialogporten API-klient](/nb/dialogporten/user-guides/service-owners/api-client/) som gjør det mulig for appen å ta full kontroll over hvordan appen er representert i Dialogporten, og dermed portaler som Altinn-innboksen ("arbeidsflate").
+For ytterligere kontroll benytter [app template](/nb/app-template) en [Dialogporten API-klient](/nb/dialogporten/user-guides/service-owners/api-client/) som gjør det mulig for appen å ta full kontroll over hvordan den er representert i Dialogporten, og dermed i portaler som Altinn-innboksen ("arbeidsflate").
 
 {{% notice warning %}}
 App template-integrasjonen er under utvikling. Foreløpig må app-utviklere bruke [Dialogporten API-klientens NuGet-pakke](https://www.nuget.org/packages/Altinn.ApiClients.Dialogporten) direkte.
@@ -38,14 +38,14 @@ App template-integrasjonen er under utvikling. Foreløpig må app-utviklere bruk
 
 ## Hvor finner brukeren dialogene?
 
-Brukere kan få tilgang til sine dialoger ved å logge inn på altinn.no og navigere til sin "arbeidsflate", som er det felles Dialogporten-grensesnittet (tidligere kalt "innboks"). Dette benytter Dialogporten sluttbruker-APIer for å søke etter og vise dialoger og visualiserer dialogene, og gir brukerne et intuitivt grensesnitt for å administrere sine interaksjoner. I tillegg kan andre sluttbrukersystemer bruke de samme APIene for å skape skreddersydde brukeropplevelser, noe som gir fleksibel integrasjon med ulike tjenesteleverandørplattformer.
+Brukere kan få tilgang til sine dialoger ved å logge inn på altinn.no og navigere til sin "arbeidsflate", som er det felles Dialogporten-grensesnittet, tidligere kalt "innboks". Dette bruker Dialogporten sluttbruker-APIer til å søke etter og vise dialoger, og gir brukerne et intuitivt grensesnitt for å administrere interaksjonene sine. I tillegg kan andre sluttbrukersystemer bruke de samme APIene til å skape skreddersydde brukeropplevelser, noe som gir fleksibel integrasjon med ulike tjenesteleverandørplattformer.
 
 {{<notice info>}}
-Neste generasjon av Altinn-innboksen GUI er under utvikling og er foreløpig kun tilgjengelig i Altinns testmiljø TT02. Følg utviklingen av "Arbeidsflate" i [roadmap](https://github.com/orgs/digdir/projects/8/views/28)
+Neste generasjon av Altinn-innboksen GUI er under utvikling og er foreløpig ikke tilgjengelig. Følg utviklingen av "Arbeidsflate" i [roadmap](https://github.com/orgs/digdir/projects/8/views/28).
 {{</notice>}}
 
 ## Neste steg
 
-Les mer om hva Dialogporten har å tilby av funksjonalitet og funksjoner på høyt nivå
+Les mer om hva Dialogporten har å tilby av funksjonalitet og egenskaper på høyt nivå.
 
 - {{<link "../what-do-you-get">}}

@@ -1,32 +1,35 @@
 ---
-title: 'Dialog Tokens'
-description: 'Referanseinformasjon om dialog tokens'
+title: 'Dialogtoken'
+description: 'Referanseinformasjon om dialogtoken'
+slug: 'dialogtoken'
+aliases:
+  - /nb/dialogporten/reference/authorization/dialog-tokens/
 weight: 20
 ---
 
 ## Introduksjon
 
-Se [komme i gang med dialog tokens](/nb/dialogporten/reference/authorization/dialog-tokens/../../../getting-started/authorization/dialog-tokens/) for en funksjonell oversikt over dialog tokens og hva de kan brukes til.
+Se [komme i gang med dialogtoken]({{< relref "../../../getting-started/authorization/dialog-tokens/" >}}) for en funksjonell oversikt over dialogtoken og hva de kan brukes til.
 
-Dialog tokens muliggjør u-proxyede frontend-forespørsler til endepunkter som krever autentisering og autorisasjon, uten å måtte stole på ID-porten SSO og redirects.
+Dialogtoken muliggjør frontend-forespørsler uten proxy til endepunkter som krever autentisering og autorisasjon, uten å måtte stole på ID-porten SSO og redirects.
 
 ## Bruk for sluttbruker-systemer (OAuth-klienter)
 
-Dialog tokens er innebygd i [single dialog response model](/nb/dialogporten/reference/authorization/dialog-tokens/../../entities/dialog/) (se `dialogToken`), og er en selvstendig, signert JWT som inneholder claims fra den autentiserte brukeren og selve dialogen, inkludert hvilke handlinger og autorisasjonsattributter brukeren er autorisert for.
+Dialogtoken er innebygd i [single dialog response model]({{< relref "../../entities/dialog/" >}}) (se `dialogToken`), og er selvstendige, signerte JWT-er som inneholder claims fra den autentiserte brukeren og selve dialogen, inkludert hvilke handlinger og autorisasjonsattributter brukeren er autorisert for.
 
-Dialog tokens skal overføres som de er som en bearer token i et `Authorization` HTTP-hode. Innholdet i dialog token bør normalt ikke vurderes av klientene, dvs. at tokenet skal behandles som en ugjennomsiktig streng.
+Dialogtoken skal overføres som de er som bearer tokens i et `Authorization` HTTP-hode. Innholdet i dialogtokenet bør normalt ikke vurderes av klientene, dvs. at det skal behandles som en ugjennomsiktig streng.
 
-Altinn.no-portalen vil bruke dialog tokens på alle URLer knyttet til [skrivehandlinger](/nb/dialogporten/reference/authorization/dialog-tokens/../../front-end/write-actions/) og [front channel embeds](/nb/dialogporten/reference/authorization/dialog-tokens/../../front-end/write-actions/). Andre sluttbruker-systemer kan også bruke dialog token for API-handlinger, underlagt tjenestespesifikke protokoller definert av den respektive tjenesteeier.
+Altinn.no-portalen bruker dialogtoken på alle URL-er knyttet til [skrivehandlinger]({{< relref "../../front-end/write-actions/" >}}) og [front channel embeds]({{< relref "../../front-end/write-actions/" >}}). Andre sluttbrukersystemer kan også bruke dialogtoken for API-handlinger, underlagt tjenestespesifikke protokoller definert av den respektive tjenesteeieren.
 
-### Dialog token levetid
+### Dialogtokenets levetid
 
-Et ferskt dialog token utstedes for hver henting av dialog-aggregatet. Levetiden (`exp` claim) er **10 minutter**, så sluttbruker-systemer bør hente dialogen på nytt for å sikre at endepunktene aksepterer tokenet, og at det samsvarer med gjeldende autorisasjonsdata.
+Et ferskt dialogtoken utstedes for hver henting av dialogaggregatet. Levetiden (`exp` claim) er **10 minutter**, så sluttbrukersystemer bør hente dialogen på nytt for å sikre at endepunktene aksepterer tokenet, og at det samsvarer med gjeldende autorisasjonsdata.
 
-## Motta og verifisere dialog tokens (OAuth ressurs-servere)
+## Motta og verifisere dialogtoken (OAuth ressurs-servere)
 
-Ressurs-serveren vil ved hjelp av dialog tokens være i stand til fullt ut å autentisere og autorisere forespørsler som ellers er uautentiserte (dvs. uten cookies eller annen tilstand). Dialog tokens skal overføres som en bearer token ved hjelp av et `Authorization` HTTP-hode.
+Ved hjelp av dialogtoken vil ressursserveren kunne autentisere og autorisere forespørsler fullt ut som ellers er uautentiserte, dvs. uten cookies eller annen tilstand. Dialogtoken skal overføres som bearer tokens ved hjelp av et `Authorization` HTTP-hode.
 
-Merk at for klienter som er nettleserbaserte, inkludert Altinn.no-portalen, må ressurs-serveren også implementere [CORS-protokollen](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) for å håndtere forespørsler.
+Merk at ressursserveren også må implementere [CORS-protokollen](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) for å håndtere forespørsler fra nettleserbaserte klienter, inkludert Altinn.no-portalen.
 
 ### Liste over Dialogporten-spesifikke claims
 
@@ -68,19 +71,19 @@ Merk at for klienter som er nettleserbaserte, inkludert Altinn.no-portalen, må 
 ```
 ### Token signature cipher
 
-Dialog tokens benytter en [Edwards-Curve Digital Signature Algorithm (EdDSA)](https://datatracker.ietf.org/doc/html/rfc8032) ved hjelp av Ed25519-kurven for å signere dialog tokens, noe som gjør det mulig for konsumenter å verifisere at tokenet er utstedt av Dialogporten og stole på informasjonen i claimene. Se også [RFC 8037](https://datatracker.ietf.org/doc/html/rfc8037) for informasjon om bruk av EdDSA i JOSE-kontekster.
+Dialogtoken bruker en [Edwards-Curve Digital Signature Algorithm (EdDSA)](https://datatracker.ietf.org/doc/html/rfc8032) med Ed25519-kurven for å signere dialogtoken, noe som gjør det mulig for konsumenter å verifisere at tokenet er utstedt av Dialogporten og stole på informasjonen i claimene. Se også [RFC 8037](https://datatracker.ietf.org/doc/html/rfc8037) for informasjon om bruk av EdDSA i JOSE-kontekster.
 
 ### Well-known endpoints
 
-Dialogporten tilbyr [OAuth 2.0 Authorization Server Metadata (RFC8414)](https://datatracker.ietf.org/doc/html/rfc8414) som muliggjør runtime nøkkeloppdagelse, rotasjon og tokenvalidering. Se [OpenAPI spesifikasjonen](/nb/dialogporten/reference/authorization/dialog-tokens/../../openapi/) (tag "Metadata") for de well-known URLene for det gitte miljøet.
+Dialogporten tilbyr [OAuth 2.0 Authorization Server Metadata (RFC8414)](https://datatracker.ietf.org/doc/html/rfc8414), som muliggjør nøkkeloppdagelse, rotasjon og tokenvalidering ved kjøretid. Se [OpenAPI-spesifikasjonen]({{< relref "../../openapi/" >}}) (tag "Metadata") for well-known-URL-ene for det aktuelle miljøet.
 
-### Key sets and rotations
-The JSON Web Key sets published on the well-known-endpoints will always contain at least two JWKs. All endpoints that accepts and verifies dialog tokens issued by Dialogporten, should allow tokens signed by any of the keys present in the key set for the given environment. 
+### Nøkkelsett og rotasjon
+JSON Web Key-settene som publiseres på well-known-endepunktene vil alltid inneholde minst to JWK-er. Alle endepunkter som aksepterer og verifiserer dialogtoken utstedt av Dialogporten, bør tillate token signert med hvilken som helst av nøklene som finnes i nøkkelsettet for det aktuelle miljøet.
 
-The key set should be cached and refreshed with a frequency no more than 24 hours. Dialogporten may at any point introduce new keys into the key set, but will not sign any dialog tokens until the key has been published and available at the well-known endpoint for at least 48 hours. This will allow for consumers to refresh their caches and verify the signature of any token issued by Dialogporten.
+Nøkkelsettet bør caches og oppdateres med en frekvens på ikke mer enn 24 timer. Dialogporten kan når som helst introdusere nye nøkler i nøkkelsettet, men vil ikke signere dialogtoken før nøkkelen har vært publisert og tilgjengelig på well-known-endepunktet i minst 48 timer. Dette gir konsumenter tid til å oppdatere cache og verifisere signaturen til alle token utstedt av Dialogporten.
 
-### Token validation recommendations
-Please consult [RFC 8725](https://datatracker.ietf.org/doc/html/rfc8725) and the aforementioned RFCs for information about best practices for JWS signature validation.
+### Anbefalinger for tokenvalidering
+Se [RFC 8725](https://datatracker.ietf.org/doc/html/rfc8725) og RFC-ene nevnt ovenfor for informasjon om beste praksis for validering av JWS-signaturer.
 
 
 {{<children />}}

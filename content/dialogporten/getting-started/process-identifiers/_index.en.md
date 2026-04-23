@@ -8,11 +8,24 @@ weight: 60
 
 Some types of processes consist of several distinct subprocesses/dialogs that cannot easily or appropriately be expressed one and the same dialog, e.g., when there are different dialogs that must be carried out with different service providers and which do not necessarily have to take place sequentially.
 
-All dialogs can refer to a process identifier, which links them together. A process identifier is a rich attribute on the dialog that allows GUI implementations to group/link dialogs that logically belong together. A process identifier contains information about the type of process and the instance ID of this process. It can also refer to a preceding process.
+Dialogs can optionally contain two process-related fields:
+
+- `process`, which identifies the business process the dialog belongs to
+- `precedingProcess`, which identifies a business process that logically came before the one referenced by `process`
+
+Both fields are plain URI/URN strings. `precedingProcess` cannot be set unless `process` is also set.
 
 ## Usage scenarios
 
-{{<notyetwritten>}}
+Typical uses for these fields are:
+
+- Group several dialogs that belong to the same overall case or process, even when the dialogs are handled by different services or service owners
+- Link a dialog to an earlier process when a new dialog starts as a consequence of a previous one
+- Filter dialogs by `process` in both end-user and service-owner search APIs
+- Correlate dialogs in Altinn Events, where `process` and `precedingProcess` are included in the event payload when present on the dialog
+
+{{<notice info>}}
+Arbeidsflate currently does not utilize the `process` / `precedingProcess` functionality, but this may change in the future.
+{{</notice>}}
 
 {{<children />}}
-

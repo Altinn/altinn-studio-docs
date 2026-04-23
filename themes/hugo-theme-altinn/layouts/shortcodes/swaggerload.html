@@ -1,5 +1,200 @@
 <script src="/js/swagger-client-3.37.1.browser.min.js"></script>
 <script>
+window.swaggerResolveRef = function(spec, schemaOrRef) {
+    if (!schemaOrRef || typeof schemaOrRef !== "object") {
+        return schemaOrRef;
+    }
+
+    const ref = schemaOrRef.$ref || schemaOrRef.$$ref;
+    if (!ref || !ref.startsWith("#/")) {
+        return schemaOrRef;
+    }
+
+    const path = ref.substring(2).split("/");
+    let resolved = spec;
+    for (const segment of path) {
+        if (typeof resolved !== "object" || resolved === null || !(segment in resolved)) {
+            return schemaOrRef;
+        }
+        resolved = resolved[segment];
+    }
+
+    if (typeof resolved !== "object" || resolved === null) {
+        return schemaOrRef;
+    }
+
+    const merged = { ...resolved, ...schemaOrRef };
+    delete merged.$ref;
+    delete merged.$$ref;
+
+    return merged;
+};
+
+window.swaggerNormalizeSchema = function(spec, schema) {
+    if (!schema || typeof schema !== "object") {
+        return schema;
+    }
+
+    let normalized = window.swaggerResolveRef(spec, schema);
+
+    if (normalized.oneOf && normalized.oneOf.length > 0) {
+        const nullable = normalized.nullable;
+        normalized = window.swaggerResolveRef(spec, normalized.oneOf[0]);
+        if (nullable !== undefined) {
+            normalized = { ...normalized, nullable };
+        }
+    }
+
+    return normalized;
+};
+
+window.swaggerGetRefName = function(schemaOrRef) {
+    if (!schemaOrRef || typeof schemaOrRef !== "object") {
+        return null;
+    }
+
+    const ref = schemaOrRef.$ref || schemaOrRef.$$ref;
+    return ref ? ref.split("/").pop() : null;
+};
+
+window.swaggerLinkifyDescription = function(description) {
+    if (!description) {
+        return "(undescribed)";
+    }
+
+    return description
+        .replaceAll(/\n\s*?\n/g, "<br><br>")
+        .replace(/https:\/\/[^\s]+/g, (url) => {
+            const urlObj = new URL(url);
+            const host = urlObj.origin;
+            const path = urlObj.pathname + urlObj.hash;
+
+            let displayText = `${host}/...${path}`;
+            if (displayText.length > 50) {
+                displayText = `${host}/...${path.slice(-20)}`;
+            }
+
+            return `<a href="${url}">${displayText}</a>`;
+        });
+};
+
+window.swaggerGetTypeDescription = function(spec, schema) {
+    const normalizedSchema = window.swaggerNormalizeSchema(spec, schema) || {};
+    const type = normalizedSchema.type || "unknown";
+
+    if (type === "array") {
+        const itemSchema = window.swaggerNormalizeSchema(spec, normalizedSchema.items) || {};
+        const childType = window.swaggerGetRefName(normalizedSchema.items)
+            || itemSchema.title
+            || itemSchema.type
+            || "unknown";
+
+        return `List of ${childType}${itemSchema.format ? ` (${itemSchema.format})` : ""}`;
+    }
+
+    if (type === "object") {
+        const objectName = window.swaggerGetRefName(schema)
+            || normalizedSchema.title
+            || (normalizedSchema.properties ? "object" : "unknown");
+
+        return normalizedSchema.format ? `${objectName} (${normalizedSchema.format})` : objectName;
+    }
+
+    return normalizedSchema.format ? `${type} (${normalizedSchema.format})` : type;
+};
+
+window.swaggerGenerateSchemaDefinitionList = function(spec, entityname, entity, options = {}, indentLevel = 0, parentName = "") {
+    const normalizedEntity = window.swaggerNormalizeSchema(spec, entity);
+    let html = "";
+
+    let indentClass = "";
+    if (indentLevel > 0) {
+        indentClass = ` sed-indent sed-indent-${indentLevel}`;
+    }
+
+    if (normalizedEntity && normalizedEntity.type === "object" && normalizedEntity.properties) {
+        html += `<dl class="swagger-entity-display${indentClass}">`;
+        for (const [propertyName, rawPropertySchema] of Object.entries(normalizedEntity.properties)) {
+            const propertySchema = window.swaggerNormalizeSchema(spec, rawPropertySchema);
+            const description = window.swaggerLinkifyDescription(propertySchema.description);
+            const isRequired = Array.isArray(normalizedEntity.required)
+                && normalizedEntity.required.includes(propertyName);
+            const statusLabels = [];
+            if (isRequired) {
+                statusLabels.push("Required");
+            }
+            if (propertySchema.nullable) {
+                statusLabels.push("Nullable");
+            }
+            const statusBadge = statusLabels.length > 0
+                ? `<span class="sed-status-badge">${statusLabels.join(", ")}</span>`
+                : "";
+            const example = propertySchema.example ? `<span class="sed-ex-header">Example</span><code class="sed-ex">${propertySchema.example}</code>` : "";
+            const enumNames = propertySchema.enum ? `<span class="sed-enum-header">Valid values</span><code class="sed-enum">${propertySchema.enum.join(", ")}</code>` : "";
+            const typeDesc = window.swaggerGetTypeDescription(spec, rawPropertySchema);
+            const type = propertySchema.type || "unknown";
+
+            const anchor = "" + entityname + (parentName ? "_" + parentName : "") + "_" + propertyName;
+            let nestedHtml = "";
+            html += `<dt>
+                        ${statusBadge}
+                        <span class="sed-prop"><a href="#${anchor}" id="${anchor}">${propertyName}</a></span>
+                        <span class="sed-type" title="${typeDesc}">${typeDesc}</span>
+                    </dt>`;
+
+            const itemSchema = type === "array" && propertySchema.items
+                ? window.swaggerNormalizeSchema(spec, propertySchema.items)
+                : null;
+
+            if (type === "object" || (type === "array" && itemSchema && itemSchema.type === "object")) {
+                const nestedSchema = type === "object" ? propertySchema : itemSchema;
+                const nestedSummary = type === "array" ? "Show item properties" : "Show nested properties";
+                nestedHtml = window.swaggerGenerateSchemaDefinitionList(
+                    spec,
+                    entityname,
+                    nestedSchema,
+                    options,
+                    indentLevel + 1,
+                    (parentName ? parentName + "_" : "") + propertyName
+                );
+                nestedHtml = `
+                    <details class="sed-nested-schema">
+                        <summary>${nestedSummary}</summary>
+                        ${nestedHtml}
+                    </details>
+                `;
+            }
+
+            html += `<dd>
+                        <span class="sed-desc">${description}</span>
+                        ${example}
+                        ${enumNames}
+                        ${nestedHtml}
+                    </dd>`;
+        }
+        html += "</dl>";
+    } else if (normalizedEntity && normalizedEntity.type === "array" && normalizedEntity.items) {
+        html += window.swaggerGenerateSchemaDefinitionList(spec, entityname, normalizedEntity.items, options, indentLevel, parentName);
+    }
+
+    if (indentLevel === 0) {
+        const wrapperClass = options.wrapperClass || "swagger-entity-display-container";
+        const headingLevel = options.headingLevel || "h3";
+        const columnHeader = options.columnHeader || "Property";
+        const titleHtml = options.showTitle === false ? "" : `<${headingLevel}>${entityname}</${headingLevel}>`;
+
+        html = `
+            <div class="${wrapperClass}">
+                ${titleHtml}
+                <dl class="swagger-entity-display sed-head"><dt>${columnHeader}</dt><dd>Description</dd></dl>
+                ${html}
+            </div>
+            `;
+    }
+
+    return html;
+};
+
 window.swaggerLoad = function(swaggerUri) {
     const $containers = $(".swagger-entity-display-container");
     $containers.html('<div class="sed-loader"><div class="sed-ellipsis"><div></div><div></div><div></div><div></div></div><span>Loading entity definition ...</div>');
