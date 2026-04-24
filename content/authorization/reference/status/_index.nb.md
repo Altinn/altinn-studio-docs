@@ -13,4 +13,7 @@ Klikk på knappen i hjørnet av diagrammet for å åpne det i fullskjerm.
 
 {{< fullscreen-svg src="finaltask.drawio.svg" alt="Status og planlagte oppgaver for Altinn Authorization" >}}
 
-For detaljert oversikt over pågående og planlagte oppgaver, se [Priority board – Team tilgangsstyring](https://github.com/orgs/Altinn/projects/75/views/27).
+For detaljert oversikt over pågående og planlagte oppgaver, se:
+
+- [Priority board – Team tilgangsstyring](https://github.com/orgs/Altinn/projects/75/views/27)
+- [Backlog board – Team tilgangsstyring og kontroll](https://github.com/orgs/Altinn/projects/50/views/27)
