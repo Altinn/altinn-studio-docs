@@ -102,7 +102,7 @@ Under vises et skjema med en repeterende gruppe som:
 ## rowsBefore/rowsAfter: colSpan og skjulte kolonner
 `rowsBefore` og `rowsAfter` bruker samme grid-rad/celle-struktur som Grid-komponenten.
 
-- Celler i disse radene støtter `colSpan` gjennom `gridColumnOptions.colSpan`.
+- Celler i disse radene støtter `colSpan` gjennom `cellStyle.colSpan`.
 - Skjuling av kolonner konfigureres med `columnOptions.hidden` på celler i en headerrad.
 - For å skjule en kolonne i `rowsBefore`/`rowsAfter`, sett `columnOptions.hidden` på den tilsvarende cellen i en headerrad ("header": true).
 
@@ -117,7 +117,7 @@ Eksempel `rowsBefore/rowsAfter` uten overlapp mellom `colSpan` og `hidden`:
     "header": true,
     "cells": [
       {},
-      { "text": "Summary before", "gridColumnOptions": { "colSpan": 2 } },
+      { "text": "Summary before", "cellStyle": { "colSpan": 2 } },
       null,
       { "text": "Hidden before", "columnOptions": { "hidden": true } }
     ]
@@ -129,7 +129,7 @@ Eksempel `rowsBefore/rowsAfter` uten overlapp mellom `colSpan` og `hidden`:
     "header": true,
     "cells": [
       {},
-      { "text": "All changes", "gridColumnOptions": { "colSpan": 2 } },
+      { "text": "All changes", "cellStyle": { "colSpan": 2 } },
       null,
       { "text": "Hidden after", "columnOptions": { "hidden": true } }
     ]

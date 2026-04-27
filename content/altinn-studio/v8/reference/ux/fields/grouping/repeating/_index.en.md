@@ -102,7 +102,7 @@ Below is a form with a repeating group that:
 ## rowsBefore/rowsAfter: colSpan and hidden columns
 
 `rowsBefore` and `rowsAfter` use the same grid row/cell structure as the Grid component.
-- Cells in these rows support `colSpan` via `gridColumnOptions.colSpan`.
+- Cells in these rows support `colSpan` via `cellStyle.colSpan`.
 - Column hiding is configured with `columnOptions.hidden` on cells in a header row.
 - To hide a column in `rowsBefore/rowsAfter`, set `columnOptions.hidden` on the corresponding cell in a header row ("header": true).
 
@@ -117,7 +117,7 @@ Example `rowsBefore/rowsAfter` without overlap between `colSpan` and `hidden`:
     "header": true,
     "cells": [
       {},
-      { "text": "Summary before", "gridColumnOptions": { "colSpan": 2 } },
+      { "text": "Summary before", "cellStyle": { "colSpan": 2 } },
       null,
       { "text": "Hidden before", "columnOptions": { "hidden": true } }
     ]
@@ -129,7 +129,7 @@ Example `rowsBefore/rowsAfter` without overlap between `colSpan` and `hidden`:
     "header": true,
     "cells": [
       {},
-      { "text": "All changes", "gridColumnOptions": { "colSpan": 2 } },
+      { "text": "All changes", "cellStyle": { "colSpan": 2 } },
       null,
       { "text": "Hidden after", "columnOptions": { "hidden": true } }
     ]

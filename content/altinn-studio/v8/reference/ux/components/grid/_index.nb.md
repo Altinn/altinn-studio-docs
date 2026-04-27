@@ -254,7 +254,7 @@ vises utenfor en Grid - som på [mindre skjermer](#mobilvisning) og i [et sammen
 
 Grid-komponenten støtter både kolonnespenn (`colSpan`) og skjuling av kolonner (`hidden`).
 
-- `colSpan` lar en celle dekke flere kolonner. Den kan konfigureres gjennom `gridColumnOptions.colSpan`.
+- `colSpan` lar en celle dekke flere kolonner. Den kan konfigureres gjennom `cellStyle.colSpan`.
 - `hidden` skjuler en hel kolonne. Den gjelder på kolonnenivå (header + tilhørende celler i radene under), og den kan konfigureres kun via `columnOptions.hidden`.
 
 
@@ -263,7 +263,7 @@ Eksempel med `colSpan`:
 {
   "header": true,
   "cells": [
-    { "text": "Alle endringer", "gridColumnOptions": { "colSpan": 2 } },
+    { "text": "Alle endringer", "cellStyle": { "colSpan": 2 } },
     null
   ]
 }
