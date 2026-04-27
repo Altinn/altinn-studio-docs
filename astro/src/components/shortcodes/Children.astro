@@ -1,0 +1,130 @@
+---
+import { getCollection } from "astro:content";
+
+interface Props {
+  page?: string;
+  depth?: number | string;
+  sort?: string;
+  style?: string;
+  description?: boolean | string;
+  showhidden?: boolean | string;
+}
+
+const {
+  page,
+  depth: depthIn = 1,
+  sort = "Weight",
+  style = "li",
+  description = false,
+  showhidden = false,
+} = Astro.props;
+
+const depth = typeof depthIn === "string" ? parseInt(depthIn, 10) : depthIn;
+const showHiddenBool = showhidden === true || showhidden === "true";
+const showDescBool = description === true || description === "true";
+
+// Finn nåværende side fra Astro.url for å bestemme parent
+const pathname = Astro.url.pathname;
+const langMatch = pathname.match(/^\/([a-z]{2})\//);
+const lang = langMatch?.[1] ?? "nb";
+
+// Bestem hvilken side vi skal liste barn av
+let parentPath = "";
+if (page) {
+  // Eksplisitt page kan være absolut "/altinn-studio/v10/foo" eller relativ
+  parentPath = page.replace(/^\/+|\/+$/g, "");
+} else {
+  // Default: nåværende side
+  parentPath = pathname.replace(/^\/[a-z]{2}\//, "").replace(/\/+$/g, "");
+}
+
+const all = await getCollection("docs");
+
+// Filtrer til samme språk og prefix
+const target = `${lang}/${parentPath}`;
+const targetWithSlash = target.endsWith("/") ? target : target + "/";
+
+interface Item {
+  url: string;
+  title: string;
+  description?: string;
+  weight: number;
+  hidden: boolean;
+  segments: number;
+}
+
+const items: Item[] = [];
+for (const e of all) {
+  const id = e.id;
+  if (!id.startsWith(targetWithSlash) && id !== target) continue;
+  if (id === target || id === `${target}/index`) continue;
+  const rest = id.slice(targetWithSlash.length);
+  const segs = rest.split("/").filter(Boolean);
+  // depth=1: bare direkte barn
+  if (segs.length > depth) continue;
+  if (segs.length < 1) continue;
+  if (rest.endsWith("/index")) continue;
+  // Indeks-filer for direkte underseksjon teller som barnet
+  if (e.data.hidden && !showHiddenBool) continue;
+  let url = `/${e.id}/`.replace(/\/index\/$/, "/");
+  url = url.startsWith("/") ? url : `/${url}`;
+  items.push({
+    url,
+    title: e.data.linktitle ?? e.data.title ?? rest,
+    description: e.data.description,
+    weight: typeof e.data.weight === "number" ? e.data.weight : 9999,
+    hidden: !!e.data.hidden,
+    segments: segs.length,
+  });
+}
+
+// Sortering
+function cmp(a: Item, b: Item): number {
+  if (sort === "Weight") {
+    if (a.weight !== b.weight) return a.weight - b.weight;
+    return a.title.localeCompare(b.title);
+  }
+  if (sort === "Name") return a.title.localeCompare(b.title);
+  if (sort === "NameReverse") return b.title.localeCompare(a.title);
+  return 0;
+}
+items.sort(cmp);
+
+const Tag = style.startsWith("h") ? style : "ul";
+const ItemTag = style.startsWith("h") ? style : "li";
+const isHeading = style.startsWith("h");
+---
+
+{isHeading ? (
+  <div class="children-headings">
+    {items.map((it) => (
+      <div>
+        <a href={it.url}>{it.title}</a>
+        {showDescBool && it.description && <p>{it.description}</p>}
+      </div>
+    ))}
+  </div>
+) : (
+  <ul class="children children-li">
+    {items.map((it) => (
+      <li>
+        <a href={it.url}>{it.title}</a>
+        {showDescBool && it.description && <p>{it.description}</p>}
+      </li>
+    ))}
+  </ul>
+)}
+
+<style>
+  .children {
+    margin: 1rem 0;
+  }
+  .children li {
+    margin: 0.4rem 0;
+  }
+  .children li p {
+    margin: 0.15rem 0 0 0;
+    color: var(--c-muted);
+    font-size: 0.9rem;
+  }
+</style>

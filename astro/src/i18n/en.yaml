@@ -1,0 +1,185 @@
+- id: jump-to-main-content
+  translation: Jump to the main content
+- id: jump-to-main-menu
+  translation: Jump to the main menu
+- id: jump-to-search
+  translation: Jump to search
+- id: inbox
+  translation: inbox
+- id: all-forms
+  translation: all forms
+- id: profile
+  translation: profile
+- id: language
+  translation: Language
+- id: login
+  translation: Log in
+- id: login-my-profile
+  translation: Login/My profile
+- id: search
+  translation: Search
+- id: searching-for
+  translation: What are you looking for?
+- id: all-langs
+  translation: Search in all available languages
+- id: to-the-frontpage
+  translation: To the frontpage
+- id: show-hide-menu
+  translation: Show/hide menu
+- id: design
+  translation: Plan and design your app
+- id: technology
+  translation: technology
+- id: content
+  translation: content
+- id: product
+  translation: Product
+- id: product_studio
+  translation: Altinn Studio
+- id: product_authorization
+  translation: Authorization
+- id: product_broker
+  translation: Broker
+- id: product_correspondence
+  translation: Correspondence
+- id: product_dialogporten
+  translation: Dialogporten
+- id: product_events
+  translation: Events
+- id: product_notifications
+  translation: Notifications
+- id: diataxis
+  translation: Type
+- id: diataxis_explanation
+  translation: Explanation
+- id: diataxis_how-to-guides
+  translation: How-to guides
+- id: diataxis_reference
+  translation: Reference
+- id: diataxis_tutorials
+  translation: Tutorials
+- id: altinn-your-dialogue
+  translation: Altinn - your digital government dialogue.
+- id: here-you-find
+  translation: Here you'll find forms, messages and relevant information.
+- id: and-see-your-inbox
+  translation: and see your inbox
+- id: learn-about-studio
+  translation: Your guide to a new generation of Altinn
+- id: jumbotron
+  translation: Everything you need to know to create applications with Altinn
+    Studio and start using other Altinn 3 functionality.
+- id: how-we-design
+  translation: How we design
+- id: how-we-design-description
+  translation: Here you can find design principles, visual profile, brand and personality.
+- id: design-principles
+  translation: Design principles
+- id: designsystem
+  translation: Design system
+- id: figma-getting-started
+  translation: Getting started with Figma
+- id: how-we-develop
+  translation: How we develop
+- id: how-we-develop-description
+  translation: Discover our technical solutions, the architecture and how we do development.
+- id: architecture-and-infrastructure
+  translation: Architecture and infrastructure
+- id: front-end-designsystem
+  translation: Front-end design system
+- id: create-your-first-app
+  translation: Create apps
+- id: create-your-first-app-description
+  translation: Create simple or advanced containerized applications with React and
+    .NET Core.
+- id: getting-started-with-altinn-studio
+  translation: Get started with Altinn Studio
+- id: guidelines
+  translation: Guidelines
+- id: app-development
+  translation: App development guides
+- id: testing
+  translation: Testing
+- id: api-title
+  translation: Altinn 3 API
+- id: api-description
+  translation: Description of the Altinn 3 APIs for end users and application owners.
+- id: application
+  translation: Application APIs
+- id: storage
+  translation: Storage APIs
+- id: events
+  translation: Events APIs
+- id: scenarios
+  translation: Scenarios
+- id: altinn-is-open-source
+  translation: Altinn is open source
+- id: altinn-is-open-source-description
+  translation: Code, backlogs and documentation, everything we do is open source on GitHub.
+- id: about-altinn
+  translation: About Altinn
+- id: contributing
+  translation: Contributing
+- id: github-code-and-backlog
+  translation: GitHub (code and backlog)
+- id: the-new-architecture
+  translation: Technology
+- id: the-new-architecture-description
+  translation: Both Altinn itself, and your apps, are now running as micro
+    services in Kubernetes.
+- id: architecture
+  translation: Architecture
+- id: solutions
+  translation: Solutions
+- id: terms
+  translation: Terms
+- id: tools
+  translation: Tools and frameworks
+- id: how-we-write
+  translation: How we write
+- id: how-we-write-description
+  translation: Tips and guidance important for finding and understanding the
+    content you write.
+- id: write-for-altinn-no
+  translation: Writing guides for altinn.no
+- id: write-for-altinndigital-no
+  translation: Writing guides for altinndigital.no
+- id: uu
+  translation: Universal design
+- id: caseblock-title
+  translation: Building Altinn together
+- id: caseblock-description
+  translation: Collaborate, share and learn. Everything we do is open source on
+    GitHub, and we highly value your comments and contributions!
+- id: caseblock-link
+  translation: Community
+- id: version
+  translation: Version
+- id: select-version
+  translation: Select version
+- id: nav-instructions
+  translation: Use the arrow keys to navigate between versions and Enter to select
+- id: what-can-we-help-you-with
+  translation: What can we help you with?
+- id: news
+  translation: News
+- id: latest-news
+  translation: Latest news
+- id: show-all-news
+  translation: Show all news
+- id: feeling-stuck
+  translation: Feeling stuck?
+- id: help-and-contact
+  translation: hjelp and contact
+- id: privacy-and-cookies
+  translation: Privacy and cookies
+- id: search-for-content
+  translation: Search for content
+- id: service-announcements
+  translation: Service announcements
+- id: start-and-run-business
+  translation: start and run business
+- id: to-the-top
+  translation: To the top
+- id: write-us
+  translation: Write us

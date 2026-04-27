@@ -1,0 +1,51 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Jumbotron from "@components/frontpage/Jumbotron.astro";
+import FeaturedBlock from "@components/frontpage/FeaturedBlock.astro";
+import { site } from "@lib/site";
+import { t } from "@lib/i18n";
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang: string;
+  jumbotron?: any;
+}
+
+const { title, description, lang, jumbotron } = Astro.props;
+---
+
+<BaseLayout title={title} description={description} lang={lang} isHome>
+  {jumbotron && <Jumbotron data={jumbotron} lang={lang} />}
+  <div class="container homepage">
+    <div class="featured-blocks">
+      <FeaturedBlock
+        href={`/${lang}/altinn-studio/`}
+        title={t("apps", lang) || "Altinn Studio"}
+        description={t("apps-desc", lang) || "Lag og forvalt digitale tjenester."}
+        icon="apps"
+      />
+      <FeaturedBlock
+        href={`/${lang}/api/`}
+        title="API"
+        description={t("api-desc", lang) || "API-er for integrasjon."}
+        icon="api"
+      />
+      <FeaturedBlock
+        href={`/${lang}/technology/`}
+        title={t("architecture", lang) || "Arkitektur"}
+        description={t("architecture-desc", lang) || "Plattformens arkitektur og komponenter."}
+        icon="architecture"
+      />
+      <FeaturedBlock
+        href={`/${lang}/community/`}
+        title={t("community", lang) || "Fellesskap"}
+        description={t("community-desc", lang) || "Bidra og delta."}
+        icon="community"
+      />
+    </div>
+    <div class="home-content">
+      <slot />
+    </div>
+  </div>
+</BaseLayout>

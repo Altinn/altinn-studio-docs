@@ -1,0 +1,29 @@
+---
+interface Props {
+  name: string;
+}
+const { name } = Astro.props;
+---
+
+<div class="swagger-entity-display-container" data-entity-name={name}>
+  <div class="sed-loader">Venter på Swagger-spec…</div>
+</div>
+
+<script>
+  import("@/client/swagger/swagger-loader.ts").then(() => {
+    if (window.addSwaggerOnloadHandler && window.swaggerUtils) {
+      document.querySelectorAll<HTMLElement>(".swagger-entity-display-container").forEach((el) => {
+        const name = el.dataset.entityName;
+        if (!name) return;
+        window.addSwaggerOnloadHandler!((spec: any) => {
+          const def = spec.definitions?.[name] ?? spec.components?.schemas?.[name];
+          if (!def) {
+            el.innerHTML = `<div class="notice notice-warning">Entitet "${name}" ikke funnet</div>`;
+            return;
+          }
+          el.innerHTML = window.swaggerUtils.generateSchemaDefinitionList(spec, name, def);
+        });
+      });
+    }
+  });
+</script>

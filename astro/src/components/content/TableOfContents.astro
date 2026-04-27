@@ -1,0 +1,121 @@
+---
+import { t } from "@lib/i18n";
+
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  headings: Heading[];
+  lang: string;
+}
+const { headings, lang } = Astro.props;
+const filtered = headings.filter((h) => h.depth >= 2 && h.depth <= 5);
+---
+
+{filtered.length > 0 && (
+  <div class="toc-container">
+    <span class="toc-header">{t("on-this-page", lang) || "På denne siden"}</span>
+    <ul class="toc">
+      {filtered.map((h) => (
+        <li class:list={[`toc-depth-${h.depth}`]}>
+          <a href={`#${h.slug}`}>{h.text}</a>
+        </li>
+      ))}
+    </ul>
+  </div>
+)}
+
+<script>
+  // Scroll-spy: marker aktivt heading basert på scroll-posisjon
+  function init() {
+    const tocLinks = document.querySelectorAll(".toc a") as NodeListOf<HTMLAnchorElement>;
+    if (tocLinks.length === 0) return;
+    const headings: HTMLElement[] = [];
+    tocLinks.forEach((link) => {
+      const id = decodeURIComponent(link.hash.slice(1));
+      const el = document.getElementById(id);
+      if (el) headings.push(el);
+    });
+
+    let active: HTMLElement | null = null;
+    function update() {
+      let current: HTMLElement | null = null;
+      for (const h of headings) {
+        if (h.getBoundingClientRect().top <= 180) current = h;
+      }
+      if (current === active) return;
+      active = current;
+      tocLinks.forEach((l) => l.classList.remove("active"));
+      if (current) {
+        tocLinks.forEach((l) => {
+          if (decodeURIComponent(l.hash.slice(1)) === current!.id) {
+            l.classList.add("active");
+          }
+        });
+      }
+    }
+    update();
+    let ticking = false;
+    window.addEventListener("scroll", () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          update();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  }
+  if (document.readyState !== "loading") init();
+  else document.addEventListener("DOMContentLoaded", init);
+</script>
+
+<style>
+  .toc-container {
+    position: sticky;
+    top: 1rem;
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+  }
+  .toc-header {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--c-muted);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+  }
+  .toc {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-left: 2px solid var(--c-border);
+  }
+  .toc li {
+    padding: 0.15rem 0;
+  }
+  .toc a {
+    color: var(--c-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    display: block;
+    padding-left: 0.75rem;
+    margin-left: -2px;
+    border-left: 2px solid transparent;
+  }
+  .toc a:hover {
+    color: var(--c-altinn-blue);
+  }
+  .toc a.active {
+    color: var(--c-altinn-blue);
+    border-left-color: var(--c-altinn-blue);
+    font-weight: 600;
+  }
+  .toc-depth-3 a { padding-left: 1.5rem; }
+  .toc-depth-4 a { padding-left: 2.25rem; }
+  .toc-depth-5 a { padding-left: 3rem; }
+</style>

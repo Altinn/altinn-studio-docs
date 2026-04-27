@@ -1,0 +1,34 @@
+---
+interface Props {
+  name: string;
+}
+const { name } = Astro.props;
+// Forenklet: bruker Font Awesome-klassenavn (CSS leveres senere via egne SVG-er).
+// I MVP rendres som tekst-emoji-fallback for de mest vanlige.
+const fallback: Record<string, string> = {
+  "fa-home": "🏠",
+  "fa-bars": "☰",
+  "fa-cog": "⚙",
+  "fa-check": "✓",
+  "fa-times": "✕",
+  "fa-info": "ℹ",
+  "fa-warning": "⚠",
+  "fa-exclamation-triangle": "⚠",
+  "fa-question-circle": "?",
+  "fa-arrow-right": "→",
+  "fa-arrow-left": "←",
+  "fa-external-link": "↗",
+  "fa-file": "📄",
+  "fa-folder": "📁",
+};
+const icon = fallback[name] ?? null;
+---
+
+<span class={`icon ${name}`} aria-hidden="true">{icon ?? ""}</span>
+
+<style>
+  .icon {
+    display: inline-block;
+    margin: 0 0.15em;
+  }
+</style>

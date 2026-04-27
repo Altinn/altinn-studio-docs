@@ -1,0 +1,33 @@
+---
+interface Props {
+  data: any;
+  lang: string;
+}
+const { data } = Astro.props;
+const title = data?.title ?? "Altinn dokumentasjon";
+const description = data?.description ?? "";
+---
+
+<section class="jumbotron">
+  <div class="container">
+    <h1>{title}</h1>
+    {description && <p class="lead">{description}</p>}
+  </div>
+</section>
+
+<style>
+  .jumbotron {
+    background: linear-gradient(135deg, var(--c-altinn-blue), var(--c-altinn-blue-dark));
+    color: white;
+    padding: 4rem 0;
+  }
+  .jumbotron h1 {
+    margin: 0 0 0.5rem 0;
+    font-size: 2.5rem;
+  }
+  .lead {
+    margin: 0;
+    font-size: 1.15rem;
+    max-width: 60ch;
+  }
+</style>

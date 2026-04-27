@@ -1,0 +1,14 @@
+---
+interface Props {
+  uri?: string;
+}
+const { uri } = Astro.props;
+---
+
+<div data-swagger-load-uri={uri ?? ""} hidden></div>
+
+<script>
+  // Trigger client-loader. Importer dynamisk for å unngå blocking.
+  import("@/client/swagger/swagger-loader.ts");
+  import("@/client/swagger/swagger-display-operation.ts");
+</script>

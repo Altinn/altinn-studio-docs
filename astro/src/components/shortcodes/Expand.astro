@@ -1,0 +1,40 @@
+---
+interface Props {
+  title?: string;
+  size?: "small" | "large" | "default";
+  bold?: boolean;
+}
+const { title = "Vis mer", size = "default", bold = false } = Astro.props;
+---
+
+<details class:list={["expand", `expand-${size}`, { bold }]}>
+  <summary>{title}</summary>
+  <div class="expand-body">
+    <slot />
+  </div>
+</details>
+
+<style>
+  .expand {
+    margin: 1rem 0;
+    border: 1px solid var(--c-border);
+    border-radius: 4px;
+    background: var(--c-bg-soft);
+  }
+  .expand summary {
+    cursor: pointer;
+    padding: 0.6rem 0.9rem;
+    user-select: none;
+    color: var(--c-altinn-blue);
+  }
+  .expand.bold summary {
+    font-weight: 600;
+  }
+  .expand-small summary { font-size: 0.85rem; }
+  .expand-large summary { font-size: 1.15rem; }
+  .expand-body {
+    padding: 0.5rem 0.9rem 0.9rem;
+    background: white;
+    border-top: 1px solid var(--c-border);
+  }
+</style>

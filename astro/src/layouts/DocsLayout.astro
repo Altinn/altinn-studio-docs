@@ -1,0 +1,86 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Sidebar from "@components/sidebar/Sidebar.astro";
+import Breadcrumbs from "@components/content/Breadcrumbs.astro";
+import TableOfContents from "@components/content/TableOfContents.astro";
+import EditOnGitHub from "@components/content/EditOnGitHub.astro";
+import { site } from "@lib/site";
+import { t } from "@lib/i18n";
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang: string;
+  slug: string;
+  headings: Array<{ depth: number; slug: string; text: string }>;
+  origPath?: string;
+  lastModified?: Date | string;
+  needsMermaid?: boolean;
+  hasSwagger?: boolean;
+  titleSup?: string;
+  subTitle?: string;
+}
+
+const {
+  title,
+  description,
+  lang,
+  slug,
+  headings,
+  origPath,
+  lastModified,
+  needsMermaid = false,
+  hasSwagger = false,
+  titleSup,
+  subTitle,
+} = Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  lang={lang}
+  pageTitle={title}
+  needsMermaid={needsMermaid}
+>
+  <div class="container">
+    <div class="docs-grid">
+      <aside class="docs-sidebar">
+        <Sidebar lang={lang} pathname={Astro.url.pathname} />
+      </aside>
+      <main class="docs-main">
+        <div class="docs-topbar">
+          <Breadcrumbs lang={lang} pathname={Astro.url.pathname} title={title} />
+          {lastModified && (
+            <div class="last-modified">
+              {t("Last-Modified", lang)}{" "}
+              {new Date(lastModified).toLocaleDateString(lang === "nb" ? "nb-NO" : "en-GB", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })}
+            </div>
+          )}
+        </div>
+        <article class="docs-content" data-pagefind-body>
+          <h1>
+            {title}
+            {titleSup && <sup>{titleSup}</sup>}
+            {subTitle && <span class="subtitle">{subTitle}</span>}
+          </h1>
+          {description && <p class="lead">{description}</p>}
+          <slot />
+          {origPath && <EditOnGitHub origPath={origPath} editURL={site.editURL} lang={lang} />}
+        </article>
+      </main>
+      <aside class="docs-toc">
+        <TableOfContents headings={headings} lang={lang} />
+      </aside>
+    </div>
+  </div>
+  {hasSwagger && (
+    <script>
+      import("@/client/swagger/swagger-loader.ts");
+    </script>
+  )}
+</BaseLayout>

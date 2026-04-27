@@ -1,0 +1,74 @@
+---
+interface Props {
+  classes?: string;
+}
+const { classes = "" } = Astro.props;
+---
+
+<div class={`content-version-selector ${classes}`}>
+  <ul class="content-version-tabs" role="tablist"></ul>
+  <div class="content-version-bodies">
+    <slot />
+  </div>
+</div>
+
+<script>
+  // Bygg fanene fra alle .content-version-container i seksjonen
+  document.querySelectorAll(".content-version-selector").forEach((sel) => {
+    const containers = sel.querySelectorAll(".content-version-container");
+    const tabsUl = sel.querySelector(".content-version-tabs");
+    if (!tabsUl) return;
+    containers.forEach((c, i) => {
+      const label = c.getAttribute("data-version-label") || `Versjon ${i + 1}`;
+      const li = document.createElement("li");
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.textContent = label;
+      btn.setAttribute("role", "tab");
+      btn.setAttribute("aria-selected", i === 0 ? "true" : "false");
+      btn.addEventListener("click", () => {
+        tabsUl.querySelectorAll("button").forEach((b) => b.setAttribute("aria-selected", "false"));
+        btn.setAttribute("aria-selected", "true");
+        containers.forEach((cc, j) => {
+          (cc as HTMLElement).hidden = j !== i;
+        });
+      });
+      li.appendChild(btn);
+      tabsUl.appendChild(li);
+      (c as HTMLElement).hidden = i !== 0;
+    });
+  });
+</script>
+
+<style>
+  .content-version-selector {
+    margin: 1rem 0;
+  }
+  .content-version-tabs {
+    list-style: none;
+    margin: 0 0 1rem 0;
+    padding: 0;
+    display: flex;
+    gap: 0.25rem;
+    border-bottom: 2px solid var(--c-border);
+  }
+  .content-version-tabs li {
+    margin: 0;
+  }
+  .content-version-tabs button {
+    background: transparent;
+    border: 0;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--c-muted);
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+  }
+  .content-version-tabs button[aria-selected="true"] {
+    color: var(--c-altinn-blue);
+    border-bottom-color: var(--c-altinn-blue);
+    font-weight: 600;
+  }
+</style>

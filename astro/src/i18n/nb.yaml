@@ -1,0 +1,188 @@
+- id: jump-to-main-content
+  translation: Hopp til hovedinnholdet
+- id: jump-to-main-menu
+  translation: Hopp til hovedmeny
+- id: jump-to-search
+  translation: Hopp til søk
+- id: inbox
+  translation: innboks
+- id: all-forms
+  translation: alle skjema
+- id: profile
+  translation: profil
+- id: language
+  translation: Language
+- id: login
+  translation: Logg inn
+- id: login-my-profile
+  translation: Logg inn/Min profil
+- id: search
+  translation: Søk
+- id: searching-for
+  translation: Hva leter du etter?
+- id: all-langs
+  translation: Søk i alle tilgjengelige språk
+- id: to-the-frontpage
+  translation: Til forsiden
+- id: show-hide-menu
+  translation: Vis/skjul meny
+- id: design
+  translation: Design og planlegging
+- id: technology
+  translation: teknologi
+- id: content
+  translation: innhold
+- id: product
+  translation: Produkt
+- id: product_studio
+  translation: Altinn Studio
+- id: product_authorization
+  translation: Autorisasjon
+- id: product_broker
+  translation: Formidling
+- id: product_correspondence
+  translation: Melding
+- id: product_dialogporten
+  translation: Dialogporten
+- id: product_events
+  translation: Events
+- id: product_notifications
+  translation: Varsling
+- id: diataxis
+  translation: Type
+- id: diataxis_explanation
+  translation: Forklaring
+- id: diataxis_how-to-guides
+  translation: Guider
+- id: diataxis_reference
+  translation: Referanse
+- id: diataxis_tutorials
+  translation: Veiledninger
+- id: altinn-your-dialogue
+  translation: Altinn - din digitale dialog med det offentlige.
+- id: here-you-find
+  translation: Her finner du skjema, meldinger og relevant informasjon.
+- id: and-see-your-inbox
+  translation: og sjekk din innboks
+- id: learn-about-studio
+  translation: Din guide til en ny generasjon Altinn
+- id: jumbotron
+  translation: Veiledningen og ressursene du trenger for å lage applikasjoner i
+    Altinn Studio og ta i bruk annen funksjonalitet i Altinn 3.
+- id: how-we-design
+  translation: Slik designer vi
+- id: how-we-design-description
+  translation: Her finner du våre designprinsipper, visuelle profil, merkevare og
+    personlighet.
+- id: design-principles
+  translation: Designprinsipper
+- id: designsystem
+  translation: Designsystem
+- id: figma-getting-started
+  translation: Kom i gang med Figma
+- id: how-we-develop
+  translation: Slik utvikler vi
+- id: how-we-develop-description
+  translation: Finn ut mer om våre tekniske løsninger, arkitekturen bak, og
+    hvordan vi utvikler.
+- id: architecture-and-infrastructure
+  translation: Arkitektur og infrastruktur
+- id: front-end-designsystem
+  translation: Front-end designsystem
+- id: create-your-first-app
+  translation: Lage apper
+- id: create-your-first-app-description
+  translation: Lag enkle eller avanserte tjenester (apper) basert på React and .NET Core.
+- id: getting-started-with-altinn-studio
+  translation: Kom i gang med Altinn Studio
+- id: guidelines
+  translation: Retningslinjer
+- id: app-development
+  translation: Veiledninger
+- id: testing
+  translation: Testing
+- id: api-title
+  translation: Altinn 3 API
+- id: api-description
+  translation: Beskrivelse av Altinn API for sluttbrukere og applikasjonseiere.
+- id: application
+  translation: Applikasjon API
+- id: storage
+  translation: Storage API
+- id: events
+  translation: Events API
+- id: scenarios
+  translation: Scenarier
+- id: altinn-is-open-source
+  translation: Altinn er åpen kildekode
+- id: altinn-is-open-source-description
+  translation: Kode, backlog og dokumentasjon, alt vi lager deles som åpen
+    kildekode på GitHub.
+- id: about-altinn
+  translation: Om Altinn
+- id: contributing
+  translation: Bidra sammen med oss
+- id: github-code-and-backlog
+  translation: GitHub (kode og backlog)
+- id: the-new-architecture
+  translation: Teknologi
+- id: the-new-architecture-description
+  translation: Både Altinn, og appene som du utvikler, kjører nå som containere i
+    Kubernetes.
+- id: architecture
+  translation: Arkitektur
+- id: solutions
+  translation: Løsninger
+- id: terms
+  translation: Definisjoner
+- id: tools
+  translation: Verktøy og rammeverk
+- id: how-we-write
+  translation: Slik skriver vi
+- id: how-we-write-description
+  translation: Tips og råd som er viktige for at flest mulig skal kunne finne og
+    forstå teksten din.
+- id: write-for-altinn-no
+  translation: Skriveråd for altinn.no
+- id: write-for-altinndigital-no
+  translation: Skriveråd for altinndigital.no
+- id: uu
+  translation: Universell utforming
+- id: caseblock-title
+  translation: Vi bygger Altinn sammen
+- id: caseblock-description
+  translation: Samarbeid, del og lær av andre etater. Alt vi gjør er åpen
+    kildekode på GitHub, og vi setter stor pris på dine tilbakemeldinger og
+    bidrag!
+- id: caseblock-link
+  translation: Community
+- id: version
+  translation: Versjon
+- id: select-version
+  translation: Velg versjon
+- id: nav-instructions
+  translation: Bruk piltastene for å navigere mellom versjoner og Enter for å velge
+- id: what-can-we-help-you-with
+  translation: Hva kan vi hjelpe deg med?
+- id: news
+  translation: Nyheter
+- id: latest-news
+  translation: Siste nytt
+- id: show-all-news
+  translation: Vis alle nyheter
+- id: feeling-stuck
+  translation: Står du fast?
+- id: help-and-contact
+  translation: hjelp og kontakt
+- id: privacy-and-cookies
+  translation: Personvern og cookies
+- id: search-for-content
+  translation: Søk etter innhold
+- id: service-announcements
+  translation: Driftsmeldinger
+- id: start-and-run-business
+  translation: starte og drive bedrift
+- id: to-the-top
+  translation: Til toppen
+- id: write-us
+  translation: Skriv til oss

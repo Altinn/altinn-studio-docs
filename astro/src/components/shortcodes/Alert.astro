@@ -1,0 +1,8 @@
+---
+import Notice from "./Notice.astro";
+interface Props {
+  type?: string;
+}
+const { type = "warning" } = Astro.props;
+---
+<Notice type={type}><slot /></Notice>

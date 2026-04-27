@@ -1,0 +1,29 @@
+---
+interface Props {
+  type?: string;
+  id?: string;
+}
+const { type = "info", id } = Astro.props;
+---
+
+<aside class={`notice notice-${type}`} id={id} role="note">
+  <slot />
+</aside>
+
+<style>
+  .notice {
+    margin: 1rem 0;
+    padding: 0.75rem 1rem;
+    border-left: 4px solid;
+    border-radius: 4px;
+    background: var(--c-info-bg);
+    border-color: var(--c-info);
+  }
+  .notice :global(p:last-child) {
+    margin-bottom: 0;
+  }
+  .notice-info { background: var(--c-info-bg); border-color: var(--c-info); }
+  .notice-warning { background: var(--c-warning-bg); border-color: var(--c-warning); }
+  .notice-tip { background: var(--c-tip-bg); border-color: var(--c-tip); }
+  .notice-note { background: var(--c-note-bg); border-color: var(--c-note); }
+</style>

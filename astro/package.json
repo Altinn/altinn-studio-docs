@@ -1,0 +1,34 @@
+{
+  "name": "altinn-docs-astro",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "compose": "node scripts/compose-content.mjs && node scripts/transform-shortcodes.mjs && node scripts/build-nav-index.mjs",
+    "lint:links": "node scripts/lint-links.mjs",
+    "predev": "npm run compose",
+    "dev": "astro dev --port 4321",
+    "prebuild": "npm run compose && npm run lint:links",
+    "build": "astro build",
+    "postbuild": "node scripts/postbuild-pagefind.mjs",
+    "preview": "astro preview --port 4321",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.0.0",
+    "@astrojs/sitemap": "^3.2.0",
+    "astro": "^5.0.0",
+    "marked": "^15.0.0",
+    "mermaid": "^11.4.0",
+    "swagger-client": "^3.37.1",
+    "yaml": "^2.6.0",
+    "gray-matter": "^4.0.3",
+    "fast-glob": "^3.3.2",
+    "fs-extra": "^11.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.0",
+    "pagefind": "^1.1.1",
+    "typescript": "^5.6.0"
+  }
+}

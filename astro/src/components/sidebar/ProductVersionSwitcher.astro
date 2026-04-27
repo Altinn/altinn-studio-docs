@@ -1,0 +1,62 @@
+---
+import { t } from "@lib/i18n";
+
+interface Props {
+  product: string;
+  currentVersion: string | null;
+  versions: string[];
+  lang: string;
+}
+
+const { product, currentVersion, versions, lang } = Astro.props;
+---
+
+<div class="version-switcher" role="group" aria-label={t("version", lang)}>
+  <label for="version-select" class="version-label">
+    {t("version", lang) || "Versjon"}
+  </label>
+  <select id="version-select" class="version-select" data-product={product} data-lang={lang}>
+    {versions.map((v) => (
+      <option value={v} selected={v === currentVersion}>
+        {v}
+      </option>
+    ))}
+  </select>
+</div>
+
+<script>
+  const sel = document.getElementById("version-select") as HTMLSelectElement | null;
+  if (sel) {
+    sel.addEventListener("change", () => {
+      const lang = sel.dataset.lang ?? "nb";
+      const product = sel.dataset.product ?? "";
+      window.location.href = `/${lang}/${product}/${sel.value}/`;
+    });
+  }
+</script>
+
+<style>
+  .version-switcher {
+    background: var(--c-bg-soft);
+    padding: 0.6rem 0.75rem;
+    border-bottom: 1px solid var(--c-border);
+    margin-bottom: 0.5rem;
+  }
+  .version-label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--c-muted);
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.05em;
+  }
+  .version-select {
+    width: 100%;
+    padding: 0.4rem 0.6rem;
+    border: 1px solid var(--c-border);
+    border-radius: 3px;
+    background: white;
+    cursor: pointer;
+  }
+</style>

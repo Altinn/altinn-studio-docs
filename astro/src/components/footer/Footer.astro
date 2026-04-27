@@ -1,0 +1,25 @@
+---
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="footer-text">© Altinn — {new Date().getFullYear()}</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: 4rem;
+    padding: 2rem 0;
+    background: var(--c-bg-soft);
+    color: var(--c-muted);
+    font-size: 0.85rem;
+  }
+  .footer-text {
+    margin: 0;
+  }
+</style>

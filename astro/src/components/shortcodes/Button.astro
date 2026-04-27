@@ -1,0 +1,30 @@
+---
+interface Props {
+  href?: string;
+}
+const { href } = Astro.props;
+const Tag = href ? "a" : "button";
+---
+
+<Tag class="sc-button" href={href}>
+  <slot />
+</Tag>
+
+<style>
+  .sc-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--c-altinn-blue);
+    color: white;
+    border: 0;
+    border-radius: 4px;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 0.95rem;
+    cursor: pointer;
+  }
+  .sc-button:hover {
+    background: var(--c-altinn-blue-dark);
+    color: white;
+  }
+</style>

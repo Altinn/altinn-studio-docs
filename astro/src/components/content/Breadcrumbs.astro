@@ -1,0 +1,57 @@
+---
+import { site } from "@lib/site";
+
+interface Props {
+  lang: string;
+  pathname: string;
+  title?: string;
+}
+const { lang, pathname, title } = Astro.props;
+
+const segs = pathname.replace(/^\/|\/$/g, "").split("/").filter(Boolean);
+// segs = [lang, ...]
+const parts: { label: string; href: string }[] = [];
+let acc = `/${segs[0] ?? lang}/`;
+for (let i = 1; i < segs.length; i++) {
+  acc += segs[i] + "/";
+  parts.push({ label: decodeURIComponent(segs[i]).replace(/-/g, " "), href: acc });
+}
+---
+
+<nav class="breadcrumbs" aria-label="breadcrumbs" data-pagefind-meta="🍞">
+  <a href={`/${lang}/`}>Altinn docs</a>
+  {parts.slice(0, -1).map((p) => (
+    <>
+      <span class="sep">/</span>
+      <a href={p.href}>{p.label}</a>
+    </>
+  ))}
+  {title && parts.length > 0 && (
+    <>
+      <span class="sep">/</span>
+      <span class="current">{title}</span>
+    </>
+  )}
+</nav>
+
+<style>
+  .breadcrumbs {
+    font-size: 0.85rem;
+    color: var(--c-muted);
+    margin-bottom: 1rem;
+  }
+  .breadcrumbs a {
+    color: var(--c-altinn-blue);
+    text-decoration: none;
+  }
+  .breadcrumbs a:hover {
+    text-decoration: underline;
+  }
+  .sep {
+    margin: 0 0.4rem;
+    color: var(--c-border);
+  }
+  .current {
+    color: var(--c-text);
+  }
+</style>

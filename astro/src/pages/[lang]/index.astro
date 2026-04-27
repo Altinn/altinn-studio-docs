@@ -1,0 +1,33 @@
+---
+import { getCollection, render } from "astro:content";
+import HomeLayout from "@layouts/HomeLayout.astro";
+import { site } from "@lib/site";
+
+export async function getStaticPaths() {
+  return site.languages.map((lang) => ({ params: { lang } }));
+}
+
+const { lang } = Astro.params;
+const all = await getCollection("docs");
+// Forsiden = src/content/docs/<lang>/index.{md,mdx}
+const home = all.find((e) => e.id === `${lang}/index` || e.id === `${lang}`);
+
+let Content: any = null;
+let headings: any[] = [];
+let data: any = {};
+if (home) {
+  const rendered = await render(home);
+  Content = rendered.Content;
+  headings = rendered.headings;
+  data = home.data;
+}
+---
+
+<HomeLayout
+  title={data.title ?? site.title[lang!]}
+  description={data.description}
+  lang={lang!}
+  jumbotron={data.jumbotron}
+>
+  {Content && <Content />}
+</HomeLayout>

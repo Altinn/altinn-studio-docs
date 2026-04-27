@@ -1,0 +1,11 @@
+---
+interface Props {
+  method: string;
+  path: string;
+}
+const { method, path } = Astro.props;
+---
+
+<div class="swagger-operation-display-container-outer" data-method={method} data-path={path}>
+  <div class="sed-loader">Venter på Swagger-spec…</div>
+</div>

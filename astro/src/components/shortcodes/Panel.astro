@@ -1,0 +1,30 @@
+---
+interface Props {
+  title?: string;
+  type?: string;
+}
+const { title, type = "default" } = Astro.props;
+---
+
+<div class={`panel panel-${type}`}>
+  {title && <div class="panel-heading">{title}</div>}
+  <div class="panel-body"><slot /></div>
+</div>
+
+<style>
+  .panel {
+    margin: 1rem 0;
+    border: 1px solid var(--c-border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .panel-heading {
+    background: var(--c-bg-soft);
+    padding: 0.5rem 0.9rem;
+    font-weight: 600;
+    border-bottom: 1px solid var(--c-border);
+  }
+  .panel-body {
+    padding: 0.75rem 0.9rem;
+  }
+</style>

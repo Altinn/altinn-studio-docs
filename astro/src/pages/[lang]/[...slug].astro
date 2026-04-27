@@ -1,0 +1,58 @@
+---
+import { getCollection, render } from "astro:content";
+import DocsLayout from "@layouts/DocsLayout.astro";
+import { site } from "@lib/site";
+
+export async function getStaticPaths() {
+  const all = await getCollection("docs");
+  const out: any[] = [];
+  for (const entry of all) {
+    // entry.id er stien relativt til src/content/docs/, uten ekstension
+    // f.eks. "nb/altinn-studio/v10/index" eller "nb/altinn-studio/v10/app"
+    const id = entry.id;
+    const firstSlash = id.indexOf("/");
+    if (firstSlash < 0) continue;
+    const lang = id.slice(0, firstSlash);
+    let rest = id.slice(firstSlash + 1);
+    if (!site.languages.includes(lang)) continue;
+    if (rest === "" || rest === "index") continue; // håndteres av [lang]/index.astro
+    if (rest.endsWith("/index")) rest = rest.slice(0, -"/index".length);
+    // Hopp over hidden, men ta med drafts (matcher tidligere oppførsel og
+    // gjør det mulig å forhåndsvise upublisert innhold lokalt). Sett
+    // ASTRO_SKIP_DRAFTS=1 for å filtrere dem ut.
+    if (entry.data.hidden === true) continue;
+    if (process.env.ASTRO_SKIP_DRAFTS === "1" && entry.data.draft === true) continue;
+    out.push({
+      params: { lang, slug: rest },
+      props: { entry },
+    });
+  }
+  return out;
+}
+
+const { entry } = Astro.props;
+const { lang } = Astro.params;
+const { Content, headings } = await render(entry);
+const data = entry.data;
+const slug = entry.id;
+
+// Sjekk om innholdet inneholder Mermaid eller Swagger for lazy-loading
+const body = entry.body ?? "";
+const needsMermaid = /<Mermaid\b/.test(body) || /class="mermaid"/.test(body);
+const hasSwagger = /<Swagger(Load|DisplayOperation|DisplayEntity)\b/.test(body) || /<DialogportenSwaggerSelector\b/.test(body);
+---
+
+<DocsLayout
+  title={data.title}
+  description={data.description}
+  lang={lang!}
+  slug={slug}
+  headings={headings}
+  origPath={data._origPath}
+  needsMermaid={needsMermaid}
+  hasSwagger={hasSwagger}
+  titleSup={data.titleSup}
+  subTitle={data.SubTitle}
+>
+  <Content />
+</DocsLayout>

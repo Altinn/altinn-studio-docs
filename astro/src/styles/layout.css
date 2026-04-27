@@ -1,0 +1,88 @@
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding: 0 2rem;
+  }
+}
+
+/* Forside */
+.homepage {
+  padding: 2rem 1rem;
+}
+
+.featured-blocks {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.home-content {
+  margin-top: 3rem;
+  max-width: var(--content-max);
+}
+
+/* Docs-grid */
+.docs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+@media (min-width: 1024px) {
+  .docs-grid {
+    grid-template-columns: var(--sidebar-w) minmax(0, 1fr) var(--toc-w);
+  }
+}
+
+.docs-sidebar {
+  font-size: 0.9rem;
+}
+
+.docs-main {
+  min-width: 0;
+}
+
+.docs-content {
+  max-width: var(--content-max);
+}
+
+.docs-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.last-modified {
+  font-size: 0.8rem;
+  color: var(--c-muted);
+}
+
+@media (max-width: 1023px) {
+  .docs-toc {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .docs-sidebar {
+    display: none;
+  }
+}
+
+.subtitle {
+  display: block;
+  font-size: 60%;
+  font-weight: 400;
+  color: var(--c-muted);
+  margin-top: 0.5rem;
+}

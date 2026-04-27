@@ -1,0 +1,63 @@
+---
+import SectionTree from "./SectionTree.astro";
+import ProductVersionSwitcher from "./ProductVersionSwitcher.astro";
+import { getCurrentProduct } from "@lib/product-version";
+import { loadProductNav } from "@lib/nav-tree";
+import { site } from "@lib/site";
+
+interface Props {
+  lang: string;
+  pathname: string;
+}
+
+const { lang, pathname } = Astro.props;
+const { product, version } = getCurrentProduct(pathname, site.languages);
+
+let tree = null;
+let versions: string[] = [];
+let productData = null;
+
+if (product) {
+  productData = loadProductNav(lang, product);
+  if (productData) {
+    versions = productData.versions ?? [];
+    if (version && productData.versionTrees && productData.versionTrees[version]) {
+      tree = productData.versionTrees[version];
+    } else {
+      tree = productData.tree;
+    }
+  }
+}
+---
+
+<nav id="sidebar" aria-label="Innholdsmeny">
+  <div class="sidebar-inner">
+    {versions.length > 0 && product && (
+      <ProductVersionSwitcher
+        product={product}
+        currentVersion={version}
+        versions={versions}
+        lang={lang}
+      />
+    )}
+    <ul class="docs-menu">
+      {tree && tree.children && tree.children.map((child: any) => (
+        <SectionTree node={child} pathname={pathname} />
+      ))}
+    </ul>
+  </div>
+</nav>
+
+<style>
+  #sidebar {
+    position: sticky;
+    top: 1rem;
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+  }
+  .docs-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+</style>

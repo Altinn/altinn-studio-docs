@@ -1,0 +1,79 @@
+# Multi-repo komponeringskonfigurasjon for altinn-docs-astro.
+#
+# Hver "source" peker på en innholdskilde (et repo, eller en lokal sti).
+# Hver source har en eller flere "snapshots" som mountes til en URL-prefiks.
+# I MVP er det kun én local source (dette repoet selv).
+# Git-baserte sources (tag/branch) er designet for, men implementeres i fase 2.
+
+site:
+  baseURL: https://docs.altinn.studio/
+  defaultLang: nb
+  languages: [nb, en]
+  title:
+    nb: Altinn docs
+    en: Altinn docs
+  editURL: https://github.com/altinn/altinn-studio-docs/blob/master/content/
+
+linting:
+  # Hvordan håndtere cross-source-lenker uten versjonspinne:
+  #   off   — ikke sjekk
+  #   warn  — logg, men eksitkode 0
+  #   error — logg og eksitkode 1
+  crossSourceLinks: warn
+  allowFloatingCrossSourceLinks: false
+
+sources:
+  # MVP: peker mot dette repoet selv. Eksisterende mappebasert versjonering
+  # (v8, v10 under altinn-studio) bevares som-er — vi mounter hele content
+  # direkte. versionsFromFolders gir nav-tree-builderen beskjed om at
+  # undermapper med navn på formen "vN..." er versjoner under det produktet.
+  - name: altinn-docs-monorepo
+    type: local
+    path: ../              # relativt til astro/-mappa
+    contentDir: content
+    staticDir: static
+    i18nDir: i18n
+    mount: /
+    snapshots:
+      - id: current
+        ref: working-tree
+        label: current
+        active: true
+        versionsFromFolders: true
+
+# --- EKSEMPLER FOR SENERE FASER (kun designdokumentasjon) ---
+# Når altinn-studio splittes til eget repo med tag-basert versjonering:
+#
+#   - name: altinn-studio
+#     type: git
+#     repo: https://github.com/altinn/altinn-studio-docs-altinn-studio.git
+#     contentDir: docs
+#     staticDir: static
+#     i18nDir: i18n
+#     mount: /altinn-studio
+#     snapshots:
+#       - id: v10
+#         ref: tags/v10.5.0
+#         label: "v10"
+#         active: true
+#       - id: v8
+#         ref: tags/v8.7.0
+#         label: "v8"
+#         active: true
+#       - id: next
+#         ref: heads/main
+#         label: "next"
+#         active: false       # bygges, men markeres som unreleased
+#
+# Branch-basert (når det passer bedre enn tags):
+#
+#   - name: dialogporten
+#     type: git
+#     repo: https://github.com/digdir/dialogporten-docs.git
+#     contentDir: content
+#     mount: /dialogporten
+#     snapshots:
+#       - id: stable
+#         ref: heads/release/v1
+#         label: stable
+#         active: true

@@ -1,0 +1,44 @@
+:root {
+  /* Altinn-palett (designsystemet) */
+  --c-altinn-blue: #022f51;
+  --c-altinn-blue-dark: #001833;
+  --c-altinn-blue-light: #1eaef7;
+  --c-altinn-orange: #f7a83a;
+
+  /* Tekst */
+  --c-text: #111111;
+  --c-muted: #6a6a6a;
+  --c-link: #0062ba;
+  --c-link-hover: #1eaef7;
+
+  /* Bakgrunn og kanter */
+  --c-bg: #ffffff;
+  --c-bg-soft: #f5f7f9;
+  --c-bg-code: #1e1e1e;
+  --c-border: #d8d8d8;
+
+  /* Notiser */
+  --c-info: #1eaef7;
+  --c-info-bg: #e6f5fe;
+  --c-warning: #f7a83a;
+  --c-warning-bg: #fff4e0;
+  --c-tip: #5cb85c;
+  --c-tip-bg: #e9f6e9;
+  --c-note: #6a6a6a;
+  --c-note-bg: #f0f0f0;
+
+  /* Typografi */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+
+  /* Spacing og layout */
+  --content-max: 80ch;
+  --sidebar-w: 280px;
+  --toc-w: 220px;
+  --header-h: 56px;
+  --gap: 1.5rem;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+}

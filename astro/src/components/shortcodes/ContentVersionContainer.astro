@@ -1,0 +1,16 @@
+---
+interface Props {
+  versionLabel?: string;
+}
+const { versionLabel } = Astro.props;
+---
+
+<div class="content-version-container" data-version-label={versionLabel ?? ""}>
+  <slot />
+</div>
+
+<style>
+  .content-version-container {
+    margin: 0;
+  }
+</style>

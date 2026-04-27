@@ -1,0 +1,115 @@
+---
+import { t } from "@lib/i18n";
+
+interface Props {
+  lang: string;
+}
+const { lang } = Astro.props;
+---
+
+<div class="search-box">
+  <input
+    type="search"
+    id="search-input"
+    placeholder={t("search", lang)}
+    aria-label={t("search", lang)}
+  />
+  <div id="search-results" class="search-results" hidden></div>
+</div>
+
+<script>
+  // Pagefind blir lastet inn lazy fra dist/pagefind/pagefind.js etter build.
+  // I dev-modus er det ingen index ennå, så søkeboksen er stum.
+  // Vi bygger URL-en dynamisk slik at Vite ikke prøver å resolve den compile-time.
+  async function init() {
+    const input = document.getElementById("search-input") as HTMLInputElement | null;
+    const results = document.getElementById("search-results");
+    if (!input || !results) return;
+
+    let pagefind: any = null;
+    try {
+      const pagefindUrl = `${window.location.origin}/pagefind/pagefind.js`;
+      // Sjekk først at filen finnes — i dev returnerer dette en HTML-side, og
+      // import() vil gi en SyntaxError.
+      const head = await fetch(pagefindUrl, { method: "HEAD" });
+      if (!head.ok) throw new Error("pagefind not built");
+      pagefind = await import(/* @vite-ignore */ pagefindUrl);
+      await pagefind.init();
+    } catch {
+      // Ikke build ennå — gjør input read-only med hint
+      input.placeholder = "Søk er tilgjengelig etter build";
+      input.disabled = true;
+      return;
+    }
+
+    let timer: number | undefined;
+    input.addEventListener("input", () => {
+      clearTimeout(timer);
+      timer = window.setTimeout(async () => {
+        const q = input.value.trim();
+        if (!q) {
+          results.hidden = true;
+          results.innerHTML = "";
+          return;
+        }
+        const { results: hits } = await pagefind.search(q);
+        const top = await Promise.all(hits.slice(0, 8).map((h: any) => h.data()));
+        results.innerHTML = top
+          .map(
+            (d: any) =>
+              `<a href="${d.url}" class="search-hit"><strong>${d.meta.title ?? d.url}</strong><span>${d.excerpt}</span></a>`,
+          )
+          .join("");
+        results.hidden = false;
+      }, 150);
+    });
+  }
+  init();
+</script>
+
+<style>
+  .search-box {
+    position: relative;
+  }
+  #search-input {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    padding: 0.4rem 0.75rem;
+    border-radius: 3px;
+    min-width: 200px;
+  }
+  #search-input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .search-results {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    color: var(--c-text);
+    min-width: 320px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    z-index: 100;
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+  :global(.search-hit) {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    color: var(--c-text);
+    text-decoration: none;
+    border-bottom: 1px solid var(--c-border);
+  }
+  :global(.search-hit:hover) {
+    background: var(--c-bg-soft);
+  }
+  :global(.search-hit strong) {
+    display: block;
+  }
+  :global(.search-hit span) {
+    font-size: 0.85rem;
+    color: var(--c-muted);
+  }
+</style>

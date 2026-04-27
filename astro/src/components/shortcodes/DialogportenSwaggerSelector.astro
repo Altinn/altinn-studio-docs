@@ -1,0 +1,49 @@
+---
+---
+
+<div id="dialogporten-swagger-selector-container">
+  <span>Select environment:</span>
+  <select id="dialogporten-swagger-selector">
+    <option value="https://altinn-prod-api.azure-api.net/dialogporten/swagger/v1/swagger.json">Production</option>
+    <option class="js-default" value="https://altinn-tt02-api.azure-api.net/dialogporten/swagger/v1/swagger.json">Staging (TT02)</option>
+    <option value="https://platform.at23.altinn.cloud/dialogporten/swagger/v1/swagger.json">Dev</option>
+    <option value="https://localhost:7214/swagger/v1/swagger.json">Local dev</option>
+  </select>
+</div>
+
+<script>
+  import("@/client/swagger/swagger-loader.ts").then(() => {
+    const sel = document.getElementById("dialogporten-swagger-selector") as HTMLSelectElement | null;
+    if (!sel) return;
+    const key = "selectedSwagger";
+    let current = window.localStorage.getItem(key);
+    if (!current) {
+      const def = sel.querySelector(".js-default") as HTMLOptionElement | null;
+      current = def?.value ?? sel.value;
+      window.localStorage.setItem(key, current!);
+    }
+    sel.value = current!;
+    if (current) window.swaggerLoad?.(current);
+    sel.addEventListener("change", () => {
+      window.localStorage.setItem(key, sel.value);
+      window.swaggerLoad?.(sel.value);
+    });
+  });
+</script>
+
+<style>
+  #dialogporten-swagger-selector-container {
+    margin: 1rem 0;
+    padding: 0.75rem;
+    background: var(--c-bg-soft);
+    border-radius: 4px;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  #dialogporten-swagger-selector {
+    padding: 0.4rem 0.6rem;
+    border: 1px solid var(--c-border);
+    border-radius: 3px;
+  }
+</style>

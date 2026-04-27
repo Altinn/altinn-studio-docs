@@ -1,0 +1,41 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  description: string;
+  icon?: string;
+}
+const { href, title, description, icon } = Astro.props;
+---
+
+<a class="featured-block" href={href}>
+  <h2>{title}</h2>
+  <p>{description}</p>
+</a>
+
+<style>
+  .featured-block {
+    display: block;
+    padding: 1.5rem;
+    background: white;
+    border: 1px solid var(--c-border);
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--c-text);
+    transition: box-shadow 0.15s, transform 0.15s;
+  }
+  .featured-block:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+  }
+  .featured-block h2 {
+    margin: 0 0 0.5rem 0;
+    color: var(--c-altinn-blue);
+    font-size: 1.25rem;
+  }
+  .featured-block p {
+    margin: 0;
+    color: var(--c-muted);
+    font-size: 0.95rem;
+  }
+</style>

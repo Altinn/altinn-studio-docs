@@ -1,0 +1,33 @@
+---
+import { t } from "@lib/i18n";
+
+interface Props {
+  origPath: string;
+  editURL: string;
+  lang: string;
+}
+const { origPath, editURL, lang } = Astro.props;
+const url = `${editURL.replace(/\/$/, "")}/${origPath}`;
+---
+
+<div class="edit-on-github">
+  <a href={url} target="_blank" rel="noopener">
+    {lang === "nb" ? "Rediger denne siden" : "Edit this page"}
+  </a>
+</div>
+
+<style>
+  .edit-on-github {
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--c-border);
+    font-size: 0.85rem;
+  }
+  .edit-on-github a {
+    color: var(--c-altinn-blue);
+    text-decoration: none;
+  }
+  .edit-on-github a:hover {
+    text-decoration: underline;
+  }
+</style>

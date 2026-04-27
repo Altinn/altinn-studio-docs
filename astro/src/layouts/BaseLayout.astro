@@ -1,0 +1,45 @@
+---
+import "@styles/tokens.css";
+import "@styles/global.css";
+import "@styles/layout.css";
+import Topbar from "@components/topbar/Topbar.astro";
+import Footer from "@components/footer/Footer.astro";
+import { site } from "@lib/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang: string;
+  pageTitle?: string;
+  needsMermaid?: boolean;
+  isHome?: boolean;
+}
+
+const { title, description, lang, pageTitle, needsMermaid = false, isHome = false } = Astro.props;
+const siteTitle = site.title[lang] ?? site.title[site.defaultLang];
+const fullTitle = isHome ? siteTitle : `${pageTitle ?? title ?? siteTitle} – Altinn`;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    {description && <meta name="description" content={description} />}
+    <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon" />
+  </head>
+  <body class="a-page" data-url={Astro.url.pathname}>
+    <Topbar lang={lang} />
+    <slot />
+    <Footer lang={lang} />
+    {needsMermaid && (
+      <script>
+        import("mermaid").then(({ default: mermaid }) => {
+          mermaid.initialize({ startOnLoad: true });
+          mermaid.run({ querySelector: ".mermaid" });
+        });
+      </script>
+    )}
+  </body>
+</html>

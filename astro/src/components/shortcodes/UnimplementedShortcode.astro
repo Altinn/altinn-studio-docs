@@ -1,0 +1,59 @@
+---
+interface Props {
+  name: string;
+  args?: string;
+}
+const { name, args } = Astro.props;
+let parsedArgs: any = null;
+try { parsedArgs = args ? JSON.parse(args) : null; } catch {}
+---
+
+<div class="unimplemented-shortcode" role="note">
+  <div class="header">
+    <span class="badge">Shortcode ikke implementert</span>
+    <code class="name">{name}</code>
+  </div>
+  {parsedArgs && (parsedArgs.positional?.length || Object.keys(parsedArgs.named ?? {}).length) && (
+    <div class="args">
+      <code>{JSON.stringify(parsedArgs)}</code>
+    </div>
+  )}
+  <div class="body"><slot /></div>
+</div>
+
+<style>
+  .unimplemented-shortcode {
+    margin: 1rem 0;
+    padding: 0.75rem 1rem;
+    background: #fff8dc;
+    border: 1px dashed #c8a73a;
+    border-radius: 4px;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+  }
+  .badge {
+    background: #c8a73a;
+    color: white;
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .name {
+    font-family: var(--font-mono);
+    color: #6a4f00;
+    font-weight: 600;
+  }
+  .args code {
+    font-size: 0.8rem;
+    color: var(--c-muted);
+  }
+  .body :global(p:last-child) {
+    margin-bottom: 0;
+  }
+</style>
