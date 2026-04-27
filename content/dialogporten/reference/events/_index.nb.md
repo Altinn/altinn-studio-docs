@@ -6,7 +6,7 @@ weight: 50
 
 ## Introduksjon
 
-Dette inneholder referanseinformasjon og eksempler på hendelser produsert av Dialogporten ved hjelp av Altinn Events.
+Denne siden inneholder referanseinformasjon og eksempler på hendelser produsert av Dialogporten ved hjelp av Altinn Events.
 
 For en funksjonell oversikt, se [komme i gang med hendelser](/nb/dialogporten/reference/events/../../getting-started/events/).
 
@@ -59,7 +59,7 @@ Som med alle Altinn Events, danner [Cloud Events](https://cloudevents.io/) forma
     // See tables above for possible types
     "type": "dialogporten.dialog.created.v1",
     
-    // Timestamp for when the event occured in Dialogporten
+    // Timestamp for when the event occurred in Dialogporten
     "time": "2025-02-19T08:00:06.4014168Z",
     
     // urn:altinn:resource:{serviceResource}
@@ -95,7 +95,7 @@ Som med alle Altinn Events, danner [Cloud Events](https://cloudevents.io/) forma
     // See tables above for possible types
     "type": "dialogporten.dialog.activity.signature-provided.v1",
     
-    // Timestamp for when the event occured in Dialogporten
+    // Timestamp for when the event occurred in Dialogporten
     "time": "2025-02-20T13:04:02.6518542Z",
     
     // urn:altinn:resource:{serviceResource}
@@ -108,7 +108,7 @@ Som med alle Altinn Events, danner [Cloud Events](https://cloudevents.io/) forma
     "subject": "urn:altinn:organization:identifier-no::991825827",
 
     // URL to activity in Dialogporten
-    "source": "https://platform.altinn.no/dialogporten.no/api/v1/enduser/dialogs/f4e6df3c-7434-44c3-875e-8dca1cdf0b20/activities/21241c7e-819f-462b-b8a4-d5d32352311a",
+    "source": "https://platform.altinn.no/dialogporten/api/v1/enduser/dialogs/f4e6df3c-7434-44c3-875e-8dca1cdf0b20/activities/21241c7e-819f-462b-b8a4-d5d32352311a",
     
     // These are additional fields, if present. Only the activityId entry is always present for events
     // within the dialogporten.dialog.activity-namespace of events. All other fields are optional.

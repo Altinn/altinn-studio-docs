@@ -9,25 +9,25 @@ weight: 20
 This guide shows how you can use the service owner API to create dialogs for your digital service instances and/or messages.
 
 {{<notice info>}}
-When using Altinn Studio, dialogs will be automatically created for you. An app may opt-out of this, see [the integrating Altinn Apps guide](/en/dialogporten/user-guides/service-owners/integrating-altinn-apps/) for more information.
+When using Altinn Studio, dialogs will be automatically created for you. An app may opt-out of this, see [the integrating Altinn Apps guide]({{< relref "/dialogporten/user-guides/service-owners/integrating-altinn-apps" >}}) for more information.
 {{</notice>}}
 
 ## Basic steps
 
-1. Authenticate as a [service owner](/en/dialogporten/user-guides/authenticating/#usage-for-service-owner-systems)
-2. Perform a POST request supplying the [create dialog DTO](/en/dialogporten/reference/entities/dialog#create-post)
+1. Authenticate as a [service owner]({{< relref "/dialogporten/user-guides/authenticating" >}}#usage-for-service-owner-systems)
+2. Perform a POST request supplying the [create dialog DTO]({{< relref "/dialogporten/reference/entities/dialog" >}}#create-post)
 
 ## Selecting a service resource
 
-The service resource supplied can be any resource in the [Altinn Resource Registry](/en/authorization/what-do-you-get/resourceadministration/) with a `hasCompententAuthority` property matching the authenticated organization number.
+The service resource supplied can be any resource in the [Altinn Resource Registry]({{< relref "/authorization/what-do-you-get/resourceadministration" >}}) with a `hasCompententAuthority` property matching the authenticated organization number.
 
 {{<notice info>}}
 Adding support for additional constraints (ie. extra scope requirements) to service resources is tracked in [this issue](https://github.com/Altinn/dialogporten/issues/40).
 {{</notice>}}
 
-Resource with type `CorrespondenceService` can not be referred, as these are reserved for use with [Altinn Correspondence](/en/correspondence/).
+Resource with type `CorrespondenceService` can not be referred, as these are reserved for use with [Altinn Correspondence]({{< relref "/correspondence" >}}).
 
-As with [search](/en/dialogporten/user-guides/searching-for-dialogs/), the `serviceResource` dield refer to a resource in the Resource Registry and use the format `urn:altinn:resource:<identifier>`.
+As with [search]({{< relref "/dialogporten/user-guides/searching-for-dialogs" >}}), the `serviceResource` dield refer to a resource in the Resource Registry and use the format `urn:altinn:resource:<identifier>`.
 
 ## Dates
 
@@ -41,7 +41,7 @@ By default, both these will be set to the current timestamp when creating a dial
 
 There a two optional dates that may be set on a dialog that controls visibility for end-users.
 
-- `expiresAt` defines a future timestamp that when reached, renders the dialog inaccessible in the end-user API. End-user-systems should make an effort to warn users that the content is about to be inaccessible. Inaccessible dialogs are still visible in the service owner APIs, except when [impersonating a user](/en/dialogporten/user-guides/service-owners/impersonating-users/), and the `expiresAt` field may at any point be set to `null` or a future value which will render it visible for the end-user again (and a `dialogporten.dialog.updated` event will be emitted).
+- `expiresAt` defines a future timestamp that when reached, renders the dialog inaccessible in the end-user API. End-user-systems should make an effort to warn users that the content is about to be inaccessible. Inaccessible dialogs are still visible in the service owner APIs, except when [impersonating a user]({{< relref "/dialogporten/user-guides/service-owners/impersonating-users" >}}), and the `expiresAt` field may at any point be set to `null` or a future value which will render it visible for the end-user again (and a `dialogporten.dialog.updated` event will be emitted).
 
 {{<notice warning>}}
 Inaccessible dialogs will at this time _not_ be sanized from the database, but this may change in the future where Dialogporten remove long since expired dialogs for privacy and system efficiency reasons.
@@ -59,7 +59,7 @@ The ´dueAt´ timestamp is a hint to end-user systems to indicate to the users t
 
 ## Setting content
 
-Dialogporten supports several content-fields used for different purposes. These can be set on both dialog and transmissions. For techical information about field names, allowed formats etc. see the [content-type reference](/en/dialogporten/reference/content-types/).
+Dialogporten supports several content-fields used for different purposes. These can be set on both dialog and transmissions. For techical information about field names, allowed formats etc. see the [content-type reference]({{< relref "/dialogporten/reference/content-types" >}}).
 
 ### Title
 
@@ -83,7 +83,7 @@ Usually, end-user systems utilize the `org` field to indicate to the end-user wh
 
 ### Content reference
 
-This is the content type for [front channel embeds](/en/dialogporten/getting-started/front-channel-embeds/), and can be set on both dialogs and transmissions within dialogs.
+This is the content type for [front channel embeds]({{< relref "/dialogporten/getting-started/front-channel-embeds" >}}), and can be set on both dialogs and transmissions within dialogs.
 
 **Read more**
 
@@ -94,6 +94,23 @@ This is the content type for [front channel embeds](/en/dialogporten/getting-sta
 
 As Dialogporten does not contain any content data, free text search is inherently limited to content fields. Not all relevant search terms is suitable for title/summary fields, so instead the service owner can supply an array of search tags that also will be considered when using free text search. The search tags are not visible on any end-user APIs.
 
+## Setting service owner labels
+
+Service owners can set internal labels on a dialog through `serviceOwnerContext.serviceOwnerLabels`.
+
+These labels:
+
+- are not visible in end-user APIs
+- must be unique case-insensitively
+- must be between 3 and 255 characters long
+- are limited to 20 labels per dialog
+
+Service owner labels can also be managed later through the dedicated service-owner-context label endpoints and used as filters in service-owner search.
+
+**Read more**
+
+- {{<link "../../../reference/entities/serviceownerlabel">}}
+
 ## Setting a status
 
 Dialogporten supports several generic dialog statuses, that indicate various typical states of the process the dialog represents. These statuses should be used by end-user systems to organize and prioritize the dialog list. The statuses are:
@@ -103,7 +120,7 @@ Dialogporten supports several generic dialog statuses, that indicate various typ
 | `NotApplicable`     | The dialogue does not have any meaningful status. Typically used for simple messages that do not require any interaction. This is the default.                                                          |
 | `Draft`             | Used to indicate user-initiated dialogs not yet sent and that may be cancelled at any point.                                                                                                            |
 | `InProgress`        | Indicates that the dialog is started, is being worked on by the party and/or service owner. In a serial process, this might indicate that, for example, a form filling is ongoing on a pre-filled form. |
-| `Awaiting`          | Sent by the party to the service owner and is awaiting a response. In a serial process, this is used after a submission is made.                                                                        |
+| `Awaiting`          | Awaiting action by the service owner. In this state, the party representative has no further tasks and the responsibility lies with the service owner.                                                  |
 | `RequiresAttention` | Used to indicate that the dialogue is in progress/under work, but is in a state where the user must do something - for example, correct an error, or other conditions that hinder further processing.   |
 | `Completed`         | The dialogue was completed. This typically means that the dialogue has reached and end-state where no further updates will be made.                                                                     |
 
@@ -126,11 +143,11 @@ Actions are not mandatory, but most dialogs should indicate how the user is expe
 
 ### Authorizing actions
 
-Actions have themselves an `action` property that corresponds to a [XACML action](/en/authorization/reference/xacml/#action) defined in the referred service resource's [policy](/en/authorization/reference/xacml/#xacml-policy). Dialogporten will check if the authenticated user is allowed to perform the specified action on the referred service resource for the dialog's party, and if not, will flag the action as `isAuthorized: false` and remove the supplied URL. End-user systems should indicate to the end-user that the action exists, but that access is missing - and if possible, provide information on how to request access (which is out of scope for Dialogporten).
+Actions have themselves an `action` property that corresponds to a [XACML action]({{< relref "/authorization/reference/xacml" >}}#action) defined in the referred service resource's [policy]({{< relref "/authorization/reference/xacml" >}}#xacml-policy). Dialogporten will check if the authenticated user is allowed to perform the specified action on the referred service resource for the dialog's party, and if not, will flag the action as `isAuthorized: false` and remove the supplied URL. End-user systems should indicate to the end-user that the action exists, but that access is missing - and if possible, provide information on how to request access (which is out of scope for Dialogporten).
 
 {{<notice warning>}}While Dialogporten will check authorization for the action and remove the URL if the check fails, the service owner system MUST perform its own authorization based on the same policy{{</notice>}}
 
-For added control, an [authorization attribute](/en/dialogporten/getting-started/authorization/attributes/) can be supplied, which allows service owners to refer to specific rules within the policy or other service resources (which the service owner controls) entirely.
+For added control, an [authorization attribute]({{< relref "/dialogporten/getting-started/authorization/attributes" >}}) can be supplied, which allows service owners to refer to specific rules within the policy or other service resources (which the service owner controls) entirely.
 
 ### Defining GUI actions
 
@@ -138,7 +155,7 @@ For many dialogs, a single GUI action with a title with something like "Start fo
 
 #### Write actions
 
-If the `httpMethod` supplied for a GUI action is any other than `GET`, it is considered a [write action](/en/dialogporten/getting-started/write-actions/), and the browser based end-user system must use [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) or similar to construct the request using the browsers scripting capabilities. As this makes GET-based redirected SSO with ID-porten impossible, in order for the service owner to be able to initiate a session, the end-user system will include the [dialog token](/en/dialogporten/getting-started/authorization/dialog-tokens/) as a Authorization-header. The service owner system at the URL will also have to fully support the [CORS-protocol](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
+If the `httpMethod` supplied for a GUI action is any other than `GET`, it is considered a [write action]({{< relref "/dialogporten/getting-started/write-actions" >}}), and the browser based end-user system must use [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) or similar to construct the request using the browsers scripting capabilities. As this makes GET-based redirected SSO with ID-porten impossible, in order for the service owner to be able to initiate a session, the end-user system will include the [dialog token]({{< relref "/dialogporten/getting-started/authorization/dialog-tokens" >}}) as a Authorization-header. The service owner system at the URL will also have to fully support the [CORS-protocol](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS).
 
 #### Delete actions
 
@@ -152,7 +169,7 @@ Note that Dialogporten will not consider the validity or semantics of API action
 
 **Read more**
 
-- [Learn more about actions in dialogs](/en/dialogporten/getting-started/dialogs#actions)
+- [Learn more about actions in dialogs]({{< relref "/dialogporten/getting-started/dialogs" >}}#actions)
 - {{<link "../../../reference/entities/action">}}
 - {{<link "../../../getting-started/write-actions">}}
 - {{<link "../../../getting-started/authorization/dialog-tokens">}}
@@ -165,7 +182,7 @@ Attachments can be defined on both the dialog and on individual transmissions.
 
 **Read more**
 
-- [Learn more about attachments in dialogs](/en/dialogporten/getting-started/dialogs#attachments)
+- [Learn more about attachments in dialogs]({{< relref "/dialogporten/getting-started/dialogs" >}}#attachments)
 
 ## Defining transmissions
 
@@ -189,11 +206,24 @@ Navigational actions have the following properties:
 
 If the transmission has an `authorizationAttribute` that renders the end user unauthorised, the URL is rewritten to `urn:dialogporten:unauthorized`.
 
-{{<notyetwritten>}}
+When defining navigational actions, the current implementation requires:
+
+- a non-empty localized `title`
+- an HTTPS `url`
+- an optional `expiresAt` in the future
+
+These actions are attached to a transmission, not to the dialog root, and are intended for contextual navigation from that transmission. They are navigation targets only; if you need to trigger state changes, use dialog actions instead.
+
+The end-user APIs return the navigational URL with the following behavior:
+
+- If the user is not authorized to access the transmission, the URL is rewritten to `urn:dialogporten:unauthorized`
+- If the action has expired, the URL is rewritten to `urn:dialogporten:expired`
+
+The service-owner APIs return the configured values, which makes them suitable for diagnostics and administration.
 
 **Read more**
 
-- [Learn more about transmissions in dialogs](/en/dialogporten/getting-started/dialogs#transmissions)
+- [Learn more about transmissions in dialogs]({{< relref "/dialogporten/getting-started/dialogs" >}}#transmissions)
 - {{<link "../../../reference/entities/transmission">}}
 - {{<link "../../../reference/content-types">}}
 
@@ -201,7 +231,36 @@ If the transmission has an `authorizationAttribute` that renders the end user un
 
 When creating a dialog, the service owner system should consider the state of the service instance that the dialog reflects and how "far along" in the process the user has progressed. A typical starting point is to add a `DialogCreated` activity.
 
-{{<notyetwritten>}}
+Activities are immutable log entries. They complement the transmission list instead of replacing it:
+
+- transmissions describe the actual communication units in a dialog
+- activities describe state changes or notable events related to the dialog
+
+Each activity can optionally refer to a transmission through `transmissionId`. This is useful when the event you want to log is about a specific transmission, for example when a transmission has been opened.
+
+The implemented activity types are:
+
+- `DialogCreated`
+- `DialogClosed`
+- `Information`
+- `TransmissionOpened`
+- `PaymentMade`
+- `SignatureProvided`
+- `DialogOpened`
+- `DialogDeleted`
+- `DialogRestored`
+- `SentToSigning`
+- `SentToFormFill`
+- `SentToSendIn`
+- `SentToPayment`
+- `FormSubmitted`
+- `FormSaved`
+- `CorrespondenceOpened`
+- `CorrespondenceConfirmed`
+
+Use `Information` when you need a human-readable activity description that is not itself a transmission. The `description` field is only used for this activity type.
+
+For events that are already represented by a transmission, keep using transmissions as the primary history. Add an activity when you need to capture an additional event around that transmission or dialog state, such as opened, submitted, confirmed, signed, or paid.
 
 **Read more**
 
@@ -218,7 +277,7 @@ Dialogporten offers two optional mechanisms to ensure that both dialogs and tran
 The first option is a simple mechanism which for most service owner systems might be sufficient, while the other can more easily used to implement arbitrary business rules (eg. any given dialog should be associated with only one tuple of reporting party, reporting service and year/month).
 
 {{<notice info>}}
-For information on how to use HTTP-based concurrency control via `ETag` / `If-Match`-headers, see the guide for [updating dialogs](/en/dialogporten/user-guides/service-owners/creating-dialogs/../updating-dialogs/).
+For information on how to use HTTP-based concurrency control via `ETag` / `If-Match`-headers, see the guide for [updating dialogs]({{< relref "/dialogporten/user-guides/service-owners/updating-dialogs" >}}).
 {{</notice>}}
 
 ## Silent dialog creation

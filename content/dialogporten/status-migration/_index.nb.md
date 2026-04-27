@@ -1,6 +1,6 @@
 ---
 title: 'Status migrering'
-description: 'Status migrering av data til Dialogporten'
+description: 'Status for migrering av data til Dialogporten'
 weight: 70
 cascade:
   params:
@@ -22,18 +22,19 @@ Livesynkronisering: Alle endringer[^1] (skjema, meldinger) vises i Dialogporten.
 
 ## Mål og planer
 
-Fase 1: Innen utgangen av 2025 vil alle data tilbake til 1. desember 2024 være migrert til Dialogporten.
+Fase 1: Innen utgangen av 2025 vil alle historiske data for 2025 være migrert til Dialogporten.
+25/11: Vi vil som en del av dette migrere data tilbake til og med desember 2024.
 
 Fase 2: Eldre data vil bli migrert ferdig i løpet av andre kvartal 2026. Vi starter med nyeste data og jobber bakover.
 
 ## Detaljer
-Dialoger i Dialogporten kommer fra tre kilder: direkte via Dialogportens API, fra Melding (correspondence), eller app-instanser (f.eks. utfylte skjema).
+Dialoger i Dialogporten kommer fra tre kilder: direkte via Dialogportens API, fra Melding (correspondence), eller fra app-instanser (f.eks. utfylte skjema).
 For de to sistnevnte skiller vi mellom data opprettet i Altinn 2 og data opprettet i Altinn 3, og mellom livesynkronisering av endringer og migrering av historiske data.
 
-Nedenfor, for hver av de ulike datakildene, er en kort statusoppdatering, forklaring av kilden og andre relevante detaljer.
+Nedenfor finner du for hver av de ulike datakildene en kort statusoppdatering, en forklaring av kilden og andre relevante detaljer.
 
 ### ✔ Dialogtjenester
-Alle endringer gjort direkte mot Dialogportens API er tilgjengelig umiddelbart.
+Alle endringer gjort direkte gjennom Dialogportens API er tilgjengelige umiddelbart.
 
 Brukes typisk der tjenesteeier enten har egen plattform, eller håndterer dialoger utenfor standardfunksjonaliteten til Altinn Melding eller Altinn Studio/apper.
 

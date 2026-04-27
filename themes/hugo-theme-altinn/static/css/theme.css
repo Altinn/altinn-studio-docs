@@ -1479,8 +1479,8 @@ ul.a-text.a-bullet-list:not(.connected-bullets):not(.no-decoration):not(.a-list)
     padding: 0;
     text-align: center;
     width: 32px;
-    display: inline-block;
     height: 32px;
+    float: left;
 }
 
 /* cardImage */ 
@@ -1768,14 +1768,30 @@ div.footnotes-entry > span {
 
 .swagger-entity-display dt {
     font-weight: bold;
-    padding: .3rem;
+    padding: .45rem .5rem .35rem;
     background-color: #e9e9e9;
     box-shadow: inset 0 0 0 .5px #ccc;
     display: inline-block;
     flex-basis: 35%;
+    position: relative;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.sed-status-badge {
+    position: absolute;
+    top: 0.35rem;
+    right: 0.5rem;
+    font-size: 0.6em;
+    text-transform: uppercase;
+    color: #666;
+    line-height: 1.2;
+}
+
+.sed-prop {
+    display: block;
+    padding-right: 9rem;
 }
 
 .swagger-entity-display dd {
@@ -1825,9 +1841,25 @@ div.footnotes-entry > span {
     white-space: pre-wrap;
 }
 
+.sed-nested-schema {
+    margin-top: 0.75rem;
+}
+
+.sed-nested-schema summary {
+    cursor: pointer;
+    font-family: "DIN-bold";
+    color: #1769aa;
+}
+
+.sed-nested-schema > .swagger-entity-display,
+.sed-nested-schema > .swagger-entity-display-container,
+.sed-nested-schema > .swagger-operation-request-body-schema {
+    margin-top: 0.5rem;
+}
+
 .sed-indent {
-    margin-left: 3rem;
-    width: calc(100% - 3rem);
+    margin-left: 1rem;
+    width: calc(100% - 1rem);
 }
 .sed-loader { text-align: center }
 .sed-loader span { display: block; font-size: small }
@@ -1906,12 +1938,28 @@ div.footnotes-entry > span {
         overflow: hidden;
         text-overflow: ellipsis;
     }
+    .sed-prop {
+        padding-right: 7.5rem;
+    }
     .sed-head {
         display: none
     }
 }
 
 .swagger-operation-display-container details, .swagger-operation-display-container h4 {
+    font-size: 80%;
+}
+
+.swagger-operation-request-body {
+    margin-top: 1.5rem;
+}
+
+.swagger-operation-request-body h5 {
+    margin-top: 1rem;
+}
+
+.swagger-operation-request-body-meta,
+.swagger-operation-request-body-description {
     font-size: 80%;
 }
     
@@ -1947,4 +1995,39 @@ div.footnotes-entry > span {
 
 #dialogporten-swagger-selector-help {
     display: none;
+}
+
+.dpdl,
+.a-text .dpdl {
+    margin: 24px 0 32px;
+}
+
+.dpdl dt,
+.a-text .dpdl dt {
+    margin: 0;
+    font-family: 'DIN-bold';
+}
+
+.dpdl dd,
+.a-text .dpdl dd {
+    margin: 8px 0 0 0;
+    padding: 0 0 0 16px;
+    border-left: 4px solid #ccc;
+}
+
+.dpdl dd + dt,
+.a-text .dpdl dd + dt {
+    margin-top: 24px;
+}
+
+.dpdl dd > :last-child,
+.a-text .dpdl dd > :last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+    .dpdl dd,
+    .a-text .dpdl dd {
+        padding-left: 12px;
+    }
 }
