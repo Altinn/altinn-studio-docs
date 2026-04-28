@@ -1,0 +1,64 @@
+---
+interface Props {
+  title?: string;
+  content?: string;
+  githubUrl?: string;
+  timeline?: string;
+}
+const { title, content, githubUrl, timeline } = Astro.props;
+---
+
+<div class="news-card">
+  <h4 class="news-card-title">{title}</h4>
+  <p class="news-card-content">{content}</p>
+  <div class="news-card-footer">
+    {githubUrl && <a href={githubUrl} class="news-card-github">Github</a>}
+    {timeline && <span class="news-card-timeline">{timeline}</span>}
+  </div>
+</div>
+
+<style>
+  .news-card {
+    border: 2px solid var(--c-altinn-blue);
+    border-radius: 5px;
+    height: 250px;
+    width: 300px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+  .news-card-title {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  .news-card-content {
+    flex: 1;
+    margin: 0 0 1rem 0;
+    overflow-y: auto;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    scrollbar-color: grey transparent;
+  }
+  .news-card-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .news-card-github {
+    color: var(--c-link);
+    text-decoration: none;
+  }
+  .news-card-github:hover {
+    text-decoration: underline;
+  }
+  .news-card-timeline {
+    background: #cff0ff;
+    border-radius: 5px;
+    padding: 0.15rem 0.75rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+</style>

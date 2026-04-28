@@ -83,6 +83,9 @@ const KNOWN_SHORTCODES = {
   "content-version-container": { component: "ContentVersionContainer", form: "wrap", args: ["version-label"], propRename: { "version-label": "versionLabel" } },
   "content-version-selector": { component: "ContentVersionSelector", form: "wrap", args: ["classes"] },
 
+  // Nyhetskort
+  "news-card": { component: "NewsCard", form: "self", args: [] },
+
   // Swagger
   swaggerload: { component: "SwaggerLoad", form: "self", args: ["uri"] },
   swaggerdisplayoperation: { component: "SwaggerDisplayOperation", form: "self", args: ["method", "path"] },
@@ -111,6 +114,7 @@ const COMPONENT_PATHS = {
   Panel: "@components/shortcodes/Panel.astro",
   ContentVersionContainer: "@components/shortcodes/ContentVersionContainer.astro",
   ContentVersionSelector: "@components/shortcodes/ContentVersionSelector.astro",
+  NewsCard: "@components/shortcodes/NewsCard.astro",
   SwaggerLoad: "@components/shortcodes/SwaggerLoad.astro",
   SwaggerDisplayOperation: "@components/shortcodes/SwaggerDisplayOperation.astro",
   SwaggerDisplayEntity: "@components/shortcodes/SwaggerDisplayEntity.astro",
