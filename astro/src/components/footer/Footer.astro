@@ -1,25 +1,56 @@
 ---
+import { t } from "@lib/i18n";
+
 interface Props {
   lang: string;
 }
 const { lang } = Astro.props;
+
+const links = [
+  { href: "https://www.altinn.no/om-altinn/", label: t("about-altinn", lang, "Om Altinn") },
+  { href: "https://github.com/Altinn/altinn-studio/issues", label: "Backlog" },
+  { href: "https://digdir-samarbeid.slack.com", label: "Slack" },
+  { href: "https://github.com/Altinn", label: "GitHub" },
+];
 ---
 
 <footer class="site-footer">
   <div class="container">
-    <p class="footer-text">© Altinn — {new Date().getFullYear()}</p>
+    <ul class="footer-links">
+      {links.map((l) => (
+        <li>
+          <a href={l.href}>{l.label}</a>
+        </li>
+      ))}
+    </ul>
   </div>
 </footer>
 
-<style>
+<style is:global>
   .site-footer {
-    margin-top: 4rem;
-    padding: 2rem 0;
-    background: var(--c-bg-soft);
-    color: var(--c-muted);
-    font-size: 0.85rem;
+    background: var(--c-altinn-blue);
+    color: white;
+    padding: 1.5rem 0;
+    margin-top: 0;
   }
-  .footer-text {
+  .footer-links {
+    list-style: none;
     margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    justify-content: center;
+  }
+  .footer-links li {
+    margin: 0;
+  }
+  .footer-links a {
+    color: white;
+    text-decoration: underline;
+    font-size: 1rem;
+  }
+  .footer-links a:hover {
+    color: var(--c-altinn-blue-light);
   }
 </style>

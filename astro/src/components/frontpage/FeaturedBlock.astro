@@ -1,41 +1,95 @@
 ---
+interface LinkItem {
+  href: string;
+  label: string;
+}
 interface Props {
   href: string;
   title: string;
   description: string;
-  icon?: string;
+  image: string;
+  imageBg?: string;
+  links: LinkItem[];
 }
-const { href, title, description, icon } = Astro.props;
+const { href, title, description, image, imageBg, links } = Astro.props;
 ---
 
-<a class="featured-block" href={href}>
-  <h2>{title}</h2>
-  <p>{description}</p>
-</a>
+<div class="featured-block">
+  <a href={href} class="featured-link">
+    <h2>{title}</h2>
+    <p class="block-desc">{description}</p>
+    <div class="block-illustration" style={imageBg ? `background-color: ${imageBg};` : undefined}>
+      <img src={image} alt="" />
+    </div>
+  </a>
+  <ul class="block-list">
+    {links.map((l) => (
+      <li>
+        <a href={l.href}>{l.label}</a>
+      </li>
+    ))}
+  </ul>
+</div>
 
-<style>
+<style is:global>
   .featured-block {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .featured-link {
     display: block;
-    padding: 1.5rem;
-    background: white;
-    border: 1px solid var(--c-border);
-    border-radius: 6px;
     text-decoration: none;
     color: var(--c-text);
-    transition: box-shadow 0.15s, transform 0.15s;
   }
-  .featured-block:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transform: translateY(-2px);
+  .featured-link:hover h2 {
+    text-decoration: underline;
   }
   .featured-block h2 {
+    font-size: 1.5rem;
+    color: var(--c-text);
     margin: 0 0 0.5rem 0;
-    color: var(--c-altinn-blue);
-    font-size: 1.25rem;
   }
-  .featured-block p {
-    margin: 0;
-    color: var(--c-muted);
+  .block-desc {
+    color: var(--c-text);
+    margin: 0 auto 1.25rem auto;
+    max-width: 28ch;
     font-size: 0.95rem;
+  }
+  .block-illustration {
+    margin: 0 auto 1.5rem auto;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  .block-illustration img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .block-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    border-top: 1px solid var(--c-border);
+  }
+  .block-list li {
+    border-bottom: 1px dotted var(--c-border);
+    margin: 0;
+  }
+  .block-list a {
+    display: block;
+    padding: 0.6rem 0.5rem;
+    color: var(--c-link);
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+  .block-list a:hover {
+    background: var(--c-bg-soft);
   }
 </style>

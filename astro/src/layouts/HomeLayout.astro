@@ -2,7 +2,7 @@
 import BaseLayout from "./BaseLayout.astro";
 import Jumbotron from "@components/frontpage/Jumbotron.astro";
 import FeaturedBlock from "@components/frontpage/FeaturedBlock.astro";
-import { site } from "@lib/site";
+import CommunityBlock from "@components/frontpage/CommunityBlock.astro";
 import { t } from "@lib/i18n";
 
 interface Props {
@@ -13,39 +13,72 @@ interface Props {
 }
 
 const { title, description, lang, jumbotron } = Astro.props;
+
+// Tre featured blocks (port av layouts/partials/blocks/{apps,api,architecture}.html)
+const blocks = [
+  {
+    href: `/${lang}/altinn-studio/`,
+    title: t("create-your-first-app", lang, "Lage apper"),
+    description: t("create-your-first-app-description", lang, "Lag enkle eller avanserte tjenester (apper) basert på React og .NET Core."),
+    image: "/images/forsideillustrasjon_skrive.svg",
+    links: [
+      { href: `/${lang}/altinn-studio/v8/getting-started/`, label: t("getting-started-with-altinn-studio", lang, "Kom i gang med Altinn Studio") },
+      { href: `/${lang}/altinn-studio/v8/guides/design/`, label: t("design", lang, "Design og planlegging") },
+      { href: `/${lang}/altinn-studio/v8/guides/design/guidelines/`, label: t("guidelines", lang, "Retningslinjer") },
+      { href: `/${lang}/altinn-studio/v8/guides/`, label: t("app-development", lang, "Veiledninger") },
+    ],
+  },
+  {
+    href: `/${lang}/api/`,
+    title: t("api-title", lang, "Altinn 3 API"),
+    description: t("api-description", lang, "Beskrivelse av Altinn API for sluttbrukere og applikasjonseiere."),
+    image: "/images/api.svg",
+    links: [
+      { href: `/${lang}/api/apps/`, label: t("application", lang, "Applikasjon") },
+      { href: `/${lang}/api/storage/`, label: t("storage", lang, "Lagring") },
+      { href: `/${lang}/events/api/`, label: t("events", lang, "Hendelser") },
+      { href: `/${lang}/api/scenarios/`, label: t("scenarios", lang, "Scenarier") },
+    ],
+  },
+  {
+    href: `/${lang}/technology/`,
+    title: t("the-new-architecture", lang, "Teknologi"),
+    description: t("the-new-architecture-description", lang, "Både Altinn, og appene som du utvikler, kjører nå som containere i Kubernetes."),
+    image: "/images/forsideillustrasjon_utvikling.svg",
+    imageBg: "#022F51",
+    links: [
+      { href: `/${lang}/technology/architecture/`, label: t("architecture", lang, "Arkitektur") },
+      { href: `/${lang}/technology/solutions/`, label: t("solutions", lang, "Løsninger") },
+      { href: `/${lang}/technology/terms/`, label: t("terms", lang, "Termer") },
+      { href: `/${lang}/technology/tools/`, label: t("tools", lang, "Verktøy") },
+    ],
+  },
+];
 ---
 
 <BaseLayout title={title} description={description} lang={lang} isHome>
-  {jumbotron && <Jumbotron data={jumbotron} lang={lang} />}
+  {jumbotron && <Jumbotron lang={lang} />}
   <div class="container homepage">
     <div class="featured-blocks">
-      <FeaturedBlock
-        href={`/${lang}/altinn-studio/`}
-        title={t("apps", lang) || "Altinn Studio"}
-        description={t("apps-desc", lang) || "Lag og forvalt digitale tjenester."}
-        icon="apps"
-      />
-      <FeaturedBlock
-        href={`/${lang}/api/`}
-        title="API"
-        description={t("api-desc", lang) || "API-er for integrasjon."}
-        icon="api"
-      />
-      <FeaturedBlock
-        href={`/${lang}/technology/`}
-        title={t("architecture", lang) || "Arkitektur"}
-        description={t("architecture-desc", lang) || "Plattformens arkitektur og komponenter."}
-        icon="architecture"
-      />
-      <FeaturedBlock
-        href={`/${lang}/community/`}
-        title={t("community", lang) || "Fellesskap"}
-        description={t("community-desc", lang) || "Bidra og delta."}
-        icon="community"
-      />
+      {blocks.map((b) => <FeaturedBlock {...b} />)}
     </div>
+    <CommunityBlock lang={lang} />
     <div class="home-content">
       <slot />
     </div>
   </div>
 </BaseLayout>
+
+<style>
+  .featured-blocks {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 3rem 0;
+  }
+  @media (min-width: 768px) {
+    .featured-blocks {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>
