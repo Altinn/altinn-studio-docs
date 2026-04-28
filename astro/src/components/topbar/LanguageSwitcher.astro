@@ -29,7 +29,9 @@ const langNames: Record<string, string> = {
     aria-label={t("Language", lang, "Språk")}
   >
     <img src={`/images/${lang}.svg`} alt={langNames[lang] ?? lang} class="lang-flag" />
-    <span class="caret" aria-hidden="true">▾</span>
+    <svg class="caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true">
+      <path d="M0 0l5 6 5-6z" fill="currentColor" />
+    </svg>
   </button>
   <div id="lang-menu" class="lang-menu" hidden>
     {site.languages.map((l) => (
@@ -92,7 +94,8 @@ const langNames: Record<string, string> = {
     object-fit: cover;
   }
   .caret {
-    font-size: 0.7em;
+    margin-left: 0.15rem;
+    flex-shrink: 0;
   }
   .lang-menu {
     position: absolute;

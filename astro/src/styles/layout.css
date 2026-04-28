@@ -1,14 +1,26 @@
+/* Container med Hugo/Bootstrap-stilte breakpoints
+ *  < 576px: full bredde
+ *  ≥ 576px: 540px
+ *  ≥ 768px: 720px
+ *  ≥ 992px: 960px
+ *  ≥ 1200px: 1140px
+ *  ≥ 1400px: 1320px
+ *  ≥ 1600px: 1540px
+ *  ≥ 1920px: 1800px
+ */
 .container {
-  max-width: 1280px;
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 1rem;
 }
-
-@media (min-width: 768px) {
-  .container {
-    padding: 0 2rem;
-  }
-}
+@media (min-width: 576px) { .container { max-width: var(--container-sm); } }
+@media (min-width: 768px) { .container { max-width: var(--container-md); padding: 0 1.5rem; } }
+@media (min-width: 992px) { .container { max-width: var(--container-lg); } }
+@media (min-width: 1200px) { .container { max-width: var(--container-xl); } }
+@media (min-width: 1400px) { .container { max-width: var(--container-xxl); } }
+@media (min-width: 1600px) { .container { max-width: var(--container-xxxl); } }
+@media (min-width: 1920px) { .container { max-width: var(--container-max); } }
 
 /* Forside */
 .homepage {
@@ -61,11 +73,20 @@
 }
 
 .docs-content {
-  max-width: var(--content-max);
   background: white;
-  padding: 2rem 2.5rem;
+  padding: 1.5rem;
   border-radius: 4px;
   box-shadow: var(--shadow-sm);
+}
+@media (min-width: 768px) {
+  .docs-content {
+    padding: 2.25rem 3rem;
+  }
+}
+@media (min-width: 992px) {
+  .docs-content {
+    padding: 2.25rem 3.75rem;
+  }
 }
 
 .docs-topbar {

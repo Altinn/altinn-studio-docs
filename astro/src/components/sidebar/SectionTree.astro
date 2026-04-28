@@ -23,7 +23,7 @@ const hasChildren = node.children && node.children.length > 0;
       {node.post && <span set:html={node.post} />}
       {node.titleSup && <sup>{node.titleSup}</sup>}
       {hasChildren && !isRoot && (
-        <span class="caret" aria-hidden="true">{isOpen ? "▾" : "▸"}</span>
+        <span class="sidebar-caret" aria-hidden="true">{isOpen ? "▾" : "▸"}</span>
       )}
     </a>
     {hasChildren && isOpen && (
@@ -80,7 +80,7 @@ const hasChildren = node.children && node.children.length > 0;
     margin: 0;
     border-left: 1px solid var(--c-border);
   }
-  .caret {
+  .sidebar-caret {
     margin-left: auto;
     color: var(--c-muted);
   }

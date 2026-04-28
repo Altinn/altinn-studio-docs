@@ -1,0 +1,30 @@
+/* Altinn-fonter (DIN-familie). Brukt av Hugo-temaet for overskrifter
+ * og sterke tekst-elementer. Body-teksten holder seg på Helvetica Neue.
+ */
+
+@font-face {
+  font-family: "DIN-reg";
+  font-display: swap;
+  src: url("/fonts/d-din-webfont.woff2") format("woff2"),
+       url("/fonts/d-din-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DIN-medium";
+  font-display: swap;
+  src: url("/fonts/d-din-webfont.woff2") format("woff2"),
+       url("/fonts/d-din-webfont.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DIN-bold";
+  font-display: swap;
+  src: url("/fonts/d-din-bold-webfont.woff2") format("woff2"),
+       url("/fonts/d-din-bold-webfont.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}

@@ -26,7 +26,9 @@ const products = [
     aria-controls="product-menu"
   >
     <span>{t("product", lang, "produkt")}</span>
-    <span class="caret" aria-hidden="true">▾</span>
+    <svg class="caret" width="10" height="6" viewBox="0 0 10 6" aria-hidden="true">
+      <path d="M0 0l5 6 5-6z" fill="currentColor" />
+    </svg>
   </button>
   <div id="product-menu" class="product-menu" hidden>
     {products.map((p) => (
@@ -84,13 +86,15 @@ const products = [
     align-items: center;
     gap: 0.3rem;
     border-bottom: 2px solid transparent;
+    text-transform: lowercase;
   }
   .product-toggle:hover,
   .product-toggle[aria-expanded="true"] {
     border-bottom-color: var(--c-altinn-blue-light);
   }
   .caret {
-    font-size: 0.7em;
+    margin-left: 0.15rem;
+    flex-shrink: 0;
   }
   .product-menu {
     position: absolute;

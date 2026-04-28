@@ -27,16 +27,27 @@
   --c-note: #6a6a6a;
   --c-note-bg: #f0f0f0;
 
-  /* Typografi */
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  /* Typografi (matcher Altinn designsystem) */
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-heading: "DIN-bold", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-heading-medium: "DIN-medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-heading-reg: "DIN-reg", "Helvetica Neue", Helvetica, Arial, sans-serif;
   --font-mono: "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 
   /* Spacing og layout */
-  --content-max: 80ch;
   --sidebar-w: 280px;
   --toc-w: 220px;
   --header-h: 56px;
   --gap: 1.5rem;
+
+  /* Container-bredder (matcher Hugo/Bootstrap-konvensjon brukt av Altinn) */
+  --container-sm: 540px;
+  --container-md: 720px;
+  --container-lg: 960px;
+  --container-xl: 1140px;
+  --container-xxl: 1320px;
+  --container-xxxl: 1540px;
+  --container-max: 1800px;
 
   /* Shadows */
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);

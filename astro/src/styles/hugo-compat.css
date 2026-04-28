@@ -66,13 +66,18 @@
 }
 
 .docs-content .a-h3 {
-  font-size: 1.3rem;
-  font-weight: 600;
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: bold;
   margin: 0 0 0.5rem 0;
   color: var(--c-text);
+  line-height: 1.35;
+}
+@media (min-width: 992px) {
+  .docs-content .a-h3 { font-size: 1.25rem; }
 }
 
-.docs-content .a-fontBold { font-weight: 700; }
+.docs-content .a-fontBold { font-family: var(--font-heading); font-weight: bold; }
 .docs-content .a-fontSizeXL { font-size: 1.5rem; }
 .docs-content .a-fontSizeS { font-size: 0.9rem; }
 
