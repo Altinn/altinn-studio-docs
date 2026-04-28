@@ -17,15 +17,24 @@
  *      e. Inject import av brukte komponenter øverst.
  *      f. Skriv som .mdx (slett .md-versjonen).
  */
-import { readFileSync, writeFileSync, rmSync } from "node:fs";
+import { readFileSync, writeFileSync, rmSync, existsSync } from "node:fs";
 import { dirname, resolve, relative, join, basename, extname, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
 import fg from "fast-glob";
+import { parse as parseYaml } from "yaml";
 
 const here = dirname(fileURLToPath(import.meta.url));
 const astroRoot = resolve(here, "..");
 const docsRoot = resolve(astroRoot, "src/content/docs");
+
+// Last sources.config.yaml for å finne kilderepoenes innholds-rot.
+// "insert"-shortcoden refererer til content-filer relativt til kilderepoens
+// rot (f.eks. "content/notifications/shared/...").
+const _cfg = parseYaml(readFileSync(resolve(astroRoot, "sources.config.yaml"), "utf8"));
+const _sourceRoots = _cfg.sources
+  .filter((s) => s.type === "local")
+  .map((s) => resolve(astroRoot, s.path));
 
 function log(msg) {
   process.stdout.write(`[shortcodes] ${msg}\n`);
@@ -232,6 +241,49 @@ function buildPropString(positional, named, spec) {
 }
 
 /**
+ * Hugo "insert"-shortcoden trekker innholdet fra en annen markdown-fil inn på
+ * stedet, fjerner frontmatter, og erstatter {0}, {1}, ... med argumentene.
+ * Bruk: {{% insert "content/path/file.nb.md" arg0 arg1 ... %}}
+ */
+function processInserts(s, currentLang) {
+  const re = /\{\{[<%]\s*insert\s+([^%>]*?)\s*[>%]\}\}/g;
+  // Iterér med begrensning for å unngå uendelig løkke ved sirkulære inserts
+  for (let pass = 0; pass < 5; pass++) {
+    let changed = false;
+    s = s.replace(re, (_match, argsStr) => {
+      const { positional } = parseArgs(argsStr);
+      if (positional.length === 0) return "";
+      const filePath = positional[0];
+      // Resolve mot første source-rot som har filen
+      let resolved = null;
+      for (const root of _sourceRoots) {
+        const p = resolve(root, filePath);
+        if (existsSync(p)) {
+          resolved = p;
+          break;
+        }
+      }
+      if (!resolved) {
+        return `<UnimplementedShortcode name="insert" args={${JSON.stringify(JSON.stringify({ positional, named: {} }))}} />`;
+      }
+      let content = readFileSync(resolved, "utf8");
+      // Fjern frontmatter — alt mellom første og andre "---" på egen linje
+      const fmMatch = content.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
+      if (fmMatch) content = fmMatch[2];
+      // Erstatt {0}, {1}, ... med påfølgende argumenter
+      for (let i = 1; i < positional.length; i++) {
+        content = content.replaceAll(`{${i - 1}}`, positional[i]);
+      }
+      changed = true;
+      // Wrap i blank linje slik at det fortsatt er gyldig markdown
+      return `\n\n${content}\n\n`;
+    });
+    if (!changed) break;
+  }
+  return s;
+}
+
+/**
  * Normaliser raw HTML for MDX:
  *   - Void-elementer uten / (img, br, hr, input, ...) → self-closing.
  *   - Mismatched/raw < som ikke er HTML, escapes ikke (lar de feile på enkeltsider).
@@ -256,6 +308,9 @@ function convertHtmlComments(s) {
 /** Hovedtransform: bytt block-shortcodes og self-closing til MDX. */
 function transformShortcodes(body, currentLang, currentSlug, slugMap, usedComponents) {
   let s = body;
+
+  // -1. Insert-shortcode: trekker innhold fra annen fil inn på stedet
+  s = processInserts(s, currentLang);
 
   // 0. Normaliser void HTML-tags og HTML-kommentarer for MDX
   s = convertHtmlComments(s);
