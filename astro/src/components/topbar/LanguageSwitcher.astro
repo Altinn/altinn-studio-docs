@@ -6,37 +6,124 @@ interface Props {
   lang: string;
 }
 const { lang } = Astro.props;
-const otherLangs = site.languages.filter((l) => l !== lang);
 const path = Astro.url.pathname;
 
 function swapLang(p: string, from: string, to: string) {
-  // /nb/foo/ → /en/foo/
   return p.replace(new RegExp(`^/${from}(/|$)`), `/${to}$1`);
 }
+
+const langNames: Record<string, string> = {
+  nb: "Bokmål",
+  en: "English",
+  nn: "Nynorsk",
+};
 ---
 
-<div class="language-switcher" aria-label={t("Language", lang)}>
-  {otherLangs.map((l) => (
-    <a href={swapLang(path, lang, l)} hreflang={l} class="lang-link">
-      {l.toUpperCase()}
-    </a>
-  ))}
+<div class="language-switcher">
+  <button
+    type="button"
+    class="lang-toggle"
+    aria-haspopup="true"
+    aria-expanded="false"
+    aria-controls="lang-menu"
+    aria-label={t("Language", lang, "Språk")}
+  >
+    <img src={`/images/${lang}.svg`} alt={langNames[lang] ?? lang} class="lang-flag" />
+    <span class="caret" aria-hidden="true">▾</span>
+  </button>
+  <div id="lang-menu" class="lang-menu" hidden>
+    {site.languages.map((l) => (
+      <a href={swapLang(path, lang, l)} hreflang={l} class:list={["lang-item", { active: l === lang }]}>
+        <img src={`/images/${l}.svg`} alt="" class="lang-flag-small" />
+        <span>{langNames[l] ?? l}{l === lang ? " ✓" : ""}</span>
+      </a>
+    ))}
+  </div>
 </div>
+
+<script>
+  const root = document.querySelector(".language-switcher") as HTMLElement | null;
+  if (root) {
+    const btn = root.querySelector(".lang-toggle") as HTMLButtonElement;
+    const menu = root.querySelector(".lang-menu") as HTMLElement;
+    function close() {
+      menu.hidden = true;
+      btn.setAttribute("aria-expanded", "false");
+    }
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const open = !menu.hidden;
+      if (open) close();
+      else {
+        menu.hidden = false;
+        btn.setAttribute("aria-expanded", "true");
+      }
+    });
+    document.addEventListener("click", (e) => {
+      if (!root.contains(e.target as Node)) close();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") close();
+    });
+  }
+</script>
 
 <style>
   .language-switcher {
-    display: flex;
-    gap: 0.5rem;
+    position: relative;
   }
-  .lang-link {
+  .lang-toggle {
+    background: transparent;
+    border: 0;
     color: white;
-    text-decoration: none;
-    padding: 0.25rem 0.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    padding: 0.3rem 0.5rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
     border-radius: 3px;
-    font-size: 0.85rem;
   }
-  .lang-link:hover {
-    background: rgba(255, 255, 255, 0.15);
+  .lang-toggle:hover {
+    background: rgba(255, 255, 255, 0.12);
+  }
+  .lang-flag {
+    width: 1.4rem;
+    height: 1rem;
+    object-fit: cover;
+  }
+  .caret {
+    font-size: 0.7em;
+  }
+  .lang-menu {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 0.5rem);
+    background: white;
+    color: var(--c-text);
+    min-width: 180px;
+    border-radius: 4px;
+    box-shadow: var(--shadow-md);
+    z-index: 100;
+    padding: 0.5rem 0;
+  }
+  .lang-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    color: var(--c-text);
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+  .lang-item:hover {
+    background: var(--c-bg-soft);
+  }
+  .lang-item.active {
+    font-weight: 600;
+  }
+  .lang-flag-small {
+    width: 1.25rem;
+    height: 0.9rem;
+    object-fit: cover;
   }
 </style>

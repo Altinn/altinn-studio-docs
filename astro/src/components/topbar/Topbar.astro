@@ -1,6 +1,7 @@
 ---
 import LanguageSwitcher from "./LanguageSwitcher.astro";
 import SearchBox from "./SearchBox.astro";
+import ProductSwitcher from "./ProductSwitcher.astro";
 import { t } from "@lib/i18n";
 
 interface Props {
@@ -16,8 +17,13 @@ const { lang } = Astro.props;
   <div class="container">
     <div class="topbar-row">
       <a href={`/${lang}/`} class="logo-link" aria-label={t("to-the-frontpage", lang)}>
-        <img src="/images/adocs-logo-white.svg" alt="Altinn" class="topbar-logo" />
+        <img src="/images/altinn-new-logo-white.svg" alt="Altinn" class="topbar-logo" />
       </a>
+      <nav class="topbar-nav" aria-label="Hovednavigasjon">
+        <ProductSwitcher lang={lang} />
+        <a class="nav-link" href={`/${lang}/api/`}>api</a>
+        <a class="nav-link" href={`/${lang}/community/`}>community</a>
+      </nav>
       <div class="topbar-actions">
         <SearchBox lang={lang} />
         <LanguageSwitcher lang={lang} />
@@ -26,25 +32,51 @@ const { lang } = Astro.props;
   </div>
 </header>
 
-<style>
+<style is:global>
   .a-header {
     background: var(--c-altinn-blue);
     color: white;
-    padding: 0.75rem 0;
+    padding: 0.65rem 0;
   }
-  .topbar-row {
+  .a-header .topbar-row {
     display: flex;
     align-items: center;
+    gap: 2rem;
+    flex-wrap: nowrap;
+  }
+  .a-header .logo-link {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+  }
+  .a-header .topbar-logo {
+    height: 40px;
+  }
+  .a-header .topbar-nav {
+    display: flex;
     gap: 1.5rem;
-    justify-content: space-between;
-  }
-  .topbar-logo {
-    height: 32px;
-  }
-  .topbar-actions {
-    display: flex;
-    gap: 1rem;
+    flex: 1;
     align-items: center;
+    min-width: 0;
+  }
+  .a-header .topbar-actions {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-left: auto;
+  }
+  .a-header .topbar-nav .nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 0.4rem 0.2rem;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+  }
+  .a-header .topbar-nav .nav-link:hover,
+  .a-header .topbar-nav .nav-link[aria-current="page"] {
+    border-bottom-color: var(--c-altinn-blue-light);
+    text-decoration: none;
   }
   .a-jumpnav {
     position: absolute;
@@ -52,5 +84,10 @@ const { lang } = Astro.props;
   }
   .sr-only-focusable:focus {
     position: static;
+  }
+  @media (max-width: 767px) {
+    .a-header .topbar-nav {
+      display: none;
+    }
   }
 </style>
