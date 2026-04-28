@@ -5,10 +5,11 @@ interface Props {
   product: string;
   currentVersion: string | null;
   versions: string[];
+  versionLabels?: Record<string, string>;
   lang: string;
 }
 
-const { product, currentVersion, versions, lang } = Astro.props;
+const { product, currentVersion, versions, versionLabels = {}, lang } = Astro.props;
 ---
 
 <div class="version-switcher" role="group" aria-label={t("version", lang)}>
@@ -18,7 +19,7 @@ const { product, currentVersion, versions, lang } = Astro.props;
   <select id="version-select" class="version-select" data-product={product} data-lang={lang}>
     {versions.map((v) => (
       <option value={v} selected={v === currentVersion}>
-        {v}
+        {versionLabels[v] ?? v}
       </option>
     ))}
   </select>

@@ -1,0 +1,190 @@
+/* hugo-compat.css
+ *
+ * Hugo-content bruker Bootstrap-grid og Altinn designsystem-klasser direkte
+ * i markdown via raw HTML. Vi importerer ikke Bootstrap, men reproduserer
+ * de mest brukte klassene her slik at content rendres med kolonner og
+ * sirkel-illustrasjoner som forventet.
+ */
+
+/* --- Bootstrap-grid (forenklet) --- */
+.docs-content .row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -0.75rem;
+}
+.docs-content [class*="col-"] {
+  padding: 0 0.75rem;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .docs-content .col-md-6 { width: 50%; }
+  .docs-content .col-md-4 { width: 33.3333%; }
+  .docs-content .col-md-8 { width: 66.6667%; }
+  .docs-content .col-md-12 { width: 100%; }
+  .docs-content .col-md-5 { width: 41.6667%; }
+  .docs-content .col-md-7 { width: 58.3333%; }
+}
+@media (min-width: 992px) {
+  .docs-content .col-lg-6 { width: 50%; }
+  .docs-content .col-lg-4 { width: 33.3333%; }
+  .docs-content .col-lg-8 { width: 66.6667%; }
+  .docs-content .col-lg-3 { width: 25%; }
+  .docs-content .col-lg-12 { width: 100%; }
+}
+
+/* Spacing utilities */
+.docs-content .mb-1 { margin-bottom: 0.25rem; }
+.docs-content .mb-2 { margin-bottom: 0.5rem; }
+.docs-content .mb-3 { margin-bottom: 1rem; }
+.docs-content .mb-4 { margin-bottom: 1.5rem; }
+.docs-content .mb-5 { margin-bottom: 3rem; }
+.docs-content .mt-1 { margin-top: 0.25rem; }
+.docs-content .mt-2 { margin-top: 0.5rem; }
+.docs-content .mt-3 { margin-top: 1rem; }
+.docs-content .mt-4 { margin-top: 1.5rem; }
+.docs-content .mt-5 { margin-top: 3rem; }
+.docs-content .mx-auto { margin-left: auto; margin-right: auto; }
+.docs-content .px-0 { padding-left: 0; padding-right: 0; }
+.docs-content .py-3 { padding-top: 1rem; padding-bottom: 1rem; }
+.docs-content .pt-2 { padding-top: 0.5rem; }
+.docs-content .pt-3 { padding-top: 1rem; }
+.docs-content .pb-3 { padding-bottom: 1rem; }
+
+/* Text utilities */
+.docs-content .text-center { text-align: center; }
+.docs-content .text-left { text-align: left; }
+.docs-content .d-flex { display: flex; }
+.docs-content .d-block { display: block; }
+.docs-content .d-none { display: none; }
+@media (min-width: 768px) {
+  .docs-content .d-md-block { display: block; }
+}
+
+/* --- Altinn designsystem-shim --- */
+.docs-content .adocs-featuredBlocks {
+  margin: 1rem 0 2rem 0;
+}
+
+.docs-content .a-h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: var(--c-text);
+}
+
+.docs-content .a-fontBold { font-weight: 700; }
+.docs-content .a-fontSizeXL { font-size: 1.5rem; }
+.docs-content .a-fontSizeS { font-size: 0.9rem; }
+
+.docs-content .a-js-truncate-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin: 0 0 1rem 0;
+  color: var(--c-text);
+}
+
+/* Sirkulær illustrasjon med mørkeblå bakgrunn */
+.docs-content .a-illustration-icon {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 1.5rem auto;
+  background: var(--c-altinn-blue);
+  border-radius: 50%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.docs-content .a-illustration-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.docs-content .a-illustration-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Lister i bokser */
+.docs-content .a-list-container {
+  margin: 1rem 0;
+}
+.docs-content .a-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--c-border);
+}
+.docs-content .a-list li {
+  margin: 0;
+}
+.docs-content .a-dotted {
+  border-bottom: 1px dotted var(--c-border);
+}
+.docs-content .a-clickable {
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.docs-content .a-clickable:hover {
+  background: var(--c-bg-soft);
+}
+.docs-content .a-list-rowLink {
+  display: block;
+  padding: 0.6rem 0.75rem;
+  color: var(--c-link);
+  text-decoration: none;
+}
+.docs-content .a-list-rowLink:hover {
+  text-decoration: underline;
+}
+.docs-content .a-list-rowLink p {
+  margin: 0;
+}
+
+/* Knapper */
+.docs-content .a-btn {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  background: var(--c-altinn-blue);
+  color: white;
+  text-decoration: none;
+  border: 0;
+  border-radius: 0;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.docs-content .a-btn:hover {
+  background: var(--c-altinn-blue-dark);
+  color: white;
+  text-decoration: none;
+}
+.docs-content .a-btn-border {
+  background: transparent;
+  color: var(--c-altinn-blue);
+  border: 2px solid var(--c-altinn-blue);
+}
+.docs-content .a-btn-border:hover {
+  background: var(--c-altinn-blue);
+  color: white;
+}
+
+/* Spesielt: caseblock på undersider */
+.docs-content .adocs-caseblock {
+  background: var(--c-bg-soft);
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+/* Sentrer-tekst i div */
+.docs-content div[style*="text-align: center"] {
+  text-align: center;
+}
+
+/* Bakgrunnsfarge-utility */
+.docs-content .a-bgGreyLight { background: var(--c-bg-soft); }
+.docs-content .a-bgWhite { background: white; }

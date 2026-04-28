@@ -73,6 +73,7 @@ async function main() {
       const parsed = matter(raw);
       // Hopp over hidden alltid; drafts kun når ASTRO_SKIP_DRAFTS=1
       if (parsed.data.hidden === true) continue;
+      if (parsed.data.headless === true) continue;
       if (process.env.ASTRO_SKIP_DRAFTS === "1" && parsed.data.draft === true) continue;
       // urlSegments = stien uten .md/.mdx, uten trailing /index
       let segs = posix.replace(/\.(md|mdx)$/, "").split("/");
@@ -102,12 +103,20 @@ async function main() {
       const meta = [...snapshotMeta.values()][0]; // MVP: én snapshot
       const versionsFromFolders = meta?.versionsFromFolders ?? false;
       const versions = new Set();
+      const versionLabels = {}; // f.eks. { v8: "Gjeldende (V8)" }
 
       if (versionsFromFolders) {
         for (const n of productNodes) {
           if (n.urlSegments.length >= 2 && isVersion(n.urlSegments[1])) {
             versions.add(n.urlSegments[1]);
           }
+        }
+        // For hver versjon, bruk breadcrumbText fra rotnodens frontmatter som label
+        for (const v of versions) {
+          const versionRoot = productNodes.find(
+            (n) => n.urlSegments.length === 2 && n.urlSegments[1] === v && n.isIndex,
+          );
+          versionLabels[v] = versionRoot?.frontmatter?.breadcrumbText ?? v;
         }
       }
 
@@ -168,6 +177,7 @@ async function main() {
         title: root?.title ?? product,
         tree: root,
         versions: versionsFromFolders ? [...versions].sort().reverse() : [],
+        versionLabels,
         versionTrees,
       };
 

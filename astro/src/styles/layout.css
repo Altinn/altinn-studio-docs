@@ -28,11 +28,15 @@
 }
 
 /* Docs-grid */
+.docs-page {
+  background: var(--c-bg-soft);
+  min-height: calc(100vh - 200px);
+  padding: 1.5rem 0 2rem 0;
+}
 .docs-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2rem;
-  padding: 1rem 0;
 }
 
 @media (min-width: 1024px) {
@@ -45,12 +49,23 @@
   font-size: 0.9rem;
 }
 
+.docs-sidebar #sidebar {
+  background: white;
+  border: 1px solid var(--c-border);
+  border-radius: 4px;
+  padding: 0.75rem 0.5rem;
+}
+
 .docs-main {
   min-width: 0;
 }
 
 .docs-content {
   max-width: var(--content-max);
+  background: white;
+  padding: 2rem 2.5rem;
+  border-radius: 4px;
+  box-shadow: var(--shadow-sm);
 }
 
 .docs-topbar {

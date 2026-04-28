@@ -4,27 +4,25 @@ import type { NavNode } from "@lib/nav-tree";
 interface Props {
   node: NavNode;
   pathname: string;
+  isRoot?: boolean;
 }
 
-const { node, pathname } = Astro.props;
-if (node.hidden) {
-  // ikke render
-}
+const { node, pathname, isRoot = false } = Astro.props;
 
 const isActive = pathname === node.url;
 const isAncestor = pathname.startsWith(node.url) && pathname !== node.url;
-const isOpen = node.alwaysopen || isActive || isAncestor;
+const isOpen = isRoot || node.alwaysopen || isActive || isAncestor;
 const hasChildren = node.children && node.children.length > 0;
 ---
 
 {!node.hidden && (
-  <li class:list={["dd-item", { parent: hasChildren, active: isActive }]}>
+  <li class:list={["dd-item", { parent: hasChildren, active: isActive, root: isRoot }]}>
     <a href={node.url} class:list={[{ active: isActive, ancestor: isAncestor }]}>
       {node.pre && <span set:html={node.pre} />}
       <span class="link-title">{node.linktitle}</span>
       {node.post && <span set:html={node.post} />}
       {node.titleSup && <sup>{node.titleSup}</sup>}
-      {hasChildren && (
+      {hasChildren && !isRoot && (
         <span class="caret" aria-hidden="true">{isOpen ? "▾" : "▸"}</span>
       )}
     </a>
@@ -36,9 +34,25 @@ const hasChildren = node.children && node.children.length > 0;
   </li>
 )}
 
-<style>
+<style is:global>
   .dd-item {
     list-style: none;
+  }
+  .dd-item.root > a {
+    font-weight: 700;
+    border-bottom: 1px solid var(--c-border);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .dd-item.root > a.active,
+  .dd-item.root > a.ancestor {
+    background: transparent;
+    color: var(--c-text);
+    text-decoration: underline;
+  }
+  .dd-item.root > ul {
+    padding-left: 0;
+    border-left: 0;
   }
   .dd-item a {
     display: flex;

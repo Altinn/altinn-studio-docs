@@ -32,6 +32,10 @@ const astroRoot = resolve(here, "..");
 const configPath = resolve(astroRoot, "sources.config.yaml");
 const docsOut = resolve(astroRoot, "src/content/docs");
 const i18nOut = resolve(astroRoot, "src/i18n");
+// Public-mounting: assets kopieres også hit slik at HTML-tags som
+// <img src="./bilde.png"> på en side /nb/foo/ kan løse mot
+// public/nb/foo/bilde.png.
+const publicOut = resolve(astroRoot, "public");
 
 function log(msg) {
   process.stdout.write(`[compose] ${msg}\n`);
@@ -164,6 +168,19 @@ async function processSource(src, defaultLang, languages) {
         ensureDir(dirname(targetPath));
         copyFileSync(full, targetPath);
         assetsCopied++;
+
+        // Også kopier til public/<lang>/<sti>/<fil> slik at relative paths i
+        // raw HTML kan løses av nettleseren.
+        const mountSegment = src.mount.replace(/^\/|\/$/g, "");
+        const publicTarget = resolve(
+          publicOut,
+          lang,
+          mountSegment,
+          dirRel === "." ? "" : dirRel,
+          fname,
+        );
+        ensureDir(dirname(publicTarget));
+        copyFileSync(full, publicTarget);
       }
     }
 

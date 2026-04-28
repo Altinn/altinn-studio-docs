@@ -17,10 +17,13 @@ let tree = null;
 let versions: string[] = [];
 let productData = null;
 
+let versionLabels: Record<string, string> = {};
+
 if (product) {
   productData = loadProductNav(lang, product);
   if (productData) {
     versions = productData.versions ?? [];
+    versionLabels = (productData as any).versionLabels ?? {};
     if (version && productData.versionTrees && productData.versionTrees[version]) {
       tree = productData.versionTrees[version];
     } else {
@@ -37,13 +40,14 @@ if (product) {
         product={product}
         currentVersion={version}
         versions={versions}
+        versionLabels={versionLabels}
         lang={lang}
       />
     )}
     <ul class="docs-menu">
-      {tree && tree.children && tree.children.map((child: any) => (
-        <SectionTree node={child} pathname={pathname} />
-      ))}
+      {tree && (
+        <SectionTree node={tree} pathname={pathname} isRoot />
+      )}
     </ul>
   </div>
 </nav>

@@ -17,10 +17,10 @@ export async function getStaticPaths() {
     if (!site.languages.includes(lang)) continue;
     if (rest === "" || rest === "index") continue; // håndteres av [lang]/index.astro
     if (rest.endsWith("/index")) rest = rest.slice(0, -"/index".length);
-    // Hopp over hidden, men ta med drafts (matcher tidligere oppførsel og
-    // gjør det mulig å forhåndsvise upublisert innhold lokalt). Sett
-    // ASTRO_SKIP_DRAFTS=1 for å filtrere dem ut.
+    // Hopp over hidden og headless. Headless-pages er fragmenter Hugo
+    // bruker for å gruppere assets/data uten egen URL.
     if (entry.data.hidden === true) continue;
+    if (entry.data.headless === true) continue;
     if (process.env.ASTRO_SKIP_DRAFTS === "1" && entry.data.draft === true) continue;
     out.push({
       params: { lang, slug: rest },
