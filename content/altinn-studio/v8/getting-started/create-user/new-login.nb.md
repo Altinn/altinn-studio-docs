@@ -23,7 +23,7 @@ Om du allerede har en bruker i Altinn Studio som er koblet til Ansattporten vil 
 Den brukeren du allerede har vil logges inn.
 {{% /notice %}}
 
-### Logge inn med eksisterende bruker - **FØRSTE GANG**
+### Logge inn med eksisterende bruker - FØRSTE GANG
 Følg disse stegene om du ikke har logget inn med ny løsning før. Er du HELT sikker på at du allerede har koblet opp din konto,
 og brukt BankID eller MinID til innlogging, kan du følge stegene beskrevet i [neste avsnitt](./#logge-inn-med-eksisterende-bruker).
 1. Naviger til https://altinn.studio og klikk på "Logg inn".
