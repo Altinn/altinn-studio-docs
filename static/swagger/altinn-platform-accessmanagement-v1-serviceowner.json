@@ -963,9 +963,6 @@
         "type": "string",
         "oneOf": [
           {
-            "$ref": "#/components/schemas/ServiceOwnerConnectionPartyUrn.PartyUuid"
-          },
-          {
             "$ref": "#/components/schemas/ServiceOwnerConnectionPartyUrn.OrganizationId"
           },
           {
@@ -974,7 +971,7 @@
         ],
         "additionalProperties": false,
         "format": "urn",
-        "example": "urn:altinn:party:uuid:049d6f78-f087-41c3-a4ec-c98f5451e387"
+        "example": "urn:altinn:person:identifier-no:02013299997"
       },
       "ServiceOwnerConnectionPartyUrn.OrganizationId": {
         "pattern": "^urn:altinn:organization:identifier-no:.+$",
@@ -982,13 +979,6 @@
         "additionalProperties": false,
         "format": "urn",
         "example": "urn:altinn:organization:identifier-no:937884117"
-      },
-      "ServiceOwnerConnectionPartyUrn.PartyUuid": {
-        "pattern": "^urn:(?:altinn:party:uuid)|(?:altinn:person:uuid)|(?:altinn:organization:uuid)|(?:altinn:systemuser:uuid):.+$",
-        "type": "string",
-        "additionalProperties": false,
-        "format": "urn",
-        "example": "urn:altinn:party:uuid:049d6f78-f087-41c3-a4ec-c98f5451e387"
       },
       "ServiceOwnerConnectionPartyUrn.PersonId": {
         "pattern": "^urn:altinn:person:identifier-no:.+$",
