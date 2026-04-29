@@ -1,0 +1,35 @@
+---
+interface Props {
+  spec: string;
+}
+const { spec } = Astro.props;
+---
+
+<link rel="stylesheet" type="text/css" href="/swagger-ui/swagger-ui.css" />
+
+<div id="swagger-ui" class="openapi-host" data-spec={spec}></div>
+
+<script src="/swagger-ui/swagger-ui-bundle.js" is:inline></script>
+<script src="/swagger-ui/swagger-ui-standalone-preset.js" is:inline></script>
+<script is:inline>
+  window.addEventListener("DOMContentLoaded", function () {
+    var host = document.getElementById("swagger-ui");
+    if (!host || !window.SwaggerUIBundle) return;
+    var url = host.getAttribute("data-spec") || "";
+    window.SwaggerUIBundle({
+      url: url,
+      dom_id: "#swagger-ui",
+      deepLinking: true,
+      docExpansion: "none",
+      presets: [window.SwaggerUIBundle.presets.apis],
+      plugins: [window.SwaggerUIBundle.plugins.DownloadUrl],
+    });
+  });
+</script>
+
+<style is:global>
+  #swagger-ui a { border-bottom: 0 !important; }
+  #swagger-ui div.wrapper { padding: 0; }
+  #swagger-ui div.wrapper section { padding: 0; }
+  #swagger-ui .info { margin-bottom: 0; }
+</style>

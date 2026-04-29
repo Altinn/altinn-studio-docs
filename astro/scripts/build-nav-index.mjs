@@ -75,8 +75,10 @@ async function main() {
       if (parsed.data.hidden === true) continue;
       if (parsed.data.headless === true) continue;
       if (process.env.ASTRO_SKIP_DRAFTS === "1" && parsed.data.draft === true) continue;
-      // urlSegments = stien uten .md/.mdx, uten trailing /index
-      let segs = posix.replace(/\.(md|mdx)$/, "").split("/");
+      // urlSegments = stien uten .md/.mdx, uten trailing /index.
+      // Astros content layer lowercaser ider på disk, så URL-er må også
+      // være lowercase for å matche getStaticPaths.
+      let segs = posix.replace(/\.(md|mdx)$/, "").toLowerCase().split("/");
       const isIndex = segs[segs.length - 1] === "index";
       if (isIndex) segs = segs.slice(0, -1);
       const url = `/${lang}/${segs.join("/")}${segs.length ? "/" : ""}`;

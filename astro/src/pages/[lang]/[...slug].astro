@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import DocsLayout from "@layouts/DocsLayout.astro";
+import OpenApiViewer from "@components/OpenApiViewer.astro";
 import { site } from "@lib/site";
 
 export async function getStaticPaths() {
@@ -8,7 +9,8 @@ export async function getStaticPaths() {
   const out: any[] = [];
   for (const entry of all) {
     // entry.id er stien relativt til src/content/docs/, uten ekstension
-    // f.eks. "nb/altinn-studio/v10/index" eller "nb/altinn-studio/v10/app"
+    // f.eks. "nb/altinn-studio/v10/index" eller "nb/altinn-studio/v10/app".
+    // Astros content layer lowercaser ider, så vi gjør ingen ekstra normalisering.
     const id = entry.id;
     const firstSlash = id.indexOf("/");
     if (firstSlash < 0) continue;
@@ -40,6 +42,7 @@ const slug = entry.id;
 const body = entry.body ?? "";
 const needsMermaid = /<Mermaid\b/.test(body) || /class="mermaid"/.test(body);
 const hasSwagger = /<Swagger(Load|DisplayOperation|DisplayEntity)\b/.test(body) || /<DialogportenSwaggerSelector\b/.test(body);
+const isOpenApi = data.type === "openapi" && typeof data.spec === "string";
 ---
 
 <DocsLayout
@@ -55,4 +58,5 @@ const hasSwagger = /<Swagger(Load|DisplayOperation|DisplayEntity)\b/.test(body) 
   subTitle={data.SubTitle}
 >
   <Content />
+  {isOpenApi && <OpenApiViewer spec={data.spec} />}
 </DocsLayout>

@@ -87,12 +87,53 @@ function toPosix(p) {
   return p.split(sep).join("/");
 }
 
+// Speil swagger-ui-dist sine css/js-filer til public/swagger-ui/ slik at
+// /swagger-ui/swagger-ui.css og .../swagger-ui-bundle.js er tilgjengelige
+// uten at vi går via Vite/MDX.
+function mirrorSwaggerUiDist() {
+  const src = resolve(astroRoot, "node_modules/swagger-ui-dist");
+  if (!existsSync(src)) return;
+  const dest = resolve(publicOut, "swagger-ui");
+  ensureDir(dest);
+  const files = [
+    "swagger-ui.css",
+    "swagger-ui-bundle.js",
+    "swagger-ui-standalone-preset.js",
+    "favicon-16x16.png",
+    "favicon-32x32.png",
+  ];
+  for (const f of files) {
+    const from = resolve(src, f);
+    if (existsSync(from)) copyFileSync(from, resolve(dest, f));
+  }
+  log(`  mirrored ${files.length} swagger-ui-dist files to public/swagger-ui/`);
+}
+
 async function processSource(src, defaultLang, languages) {
-  const { contentRoot, i18nRoot } = resolveLocalSource(src);
+  const { contentRoot, staticRoot, i18nRoot } = resolveLocalSource(src);
   if (!existsSync(contentRoot)) {
     throw new Error(`source '${src.name}': contentRoot not found: ${contentRoot}`);
   }
   log(`source '${src.name}' contentRoot=${contentRoot}`);
+
+  // Kopier utvalgte statiske ressurser fra source/static/ til astro/public/.
+  // Vi kopierer bare definerte underkataloger så vi ikke overskriver hånd-
+  // kuraterte assets i public/ (fonts, images, css...). Foreløpig bare swagger/.
+  if (staticRoot && existsSync(staticRoot)) {
+    const dirsToMirror = ["swagger"];
+    for (const sub of dirsToMirror) {
+      const srcDir = resolve(staticRoot, sub);
+      if (!existsSync(srcDir)) continue;
+      const files = await fg(["**/*"], { cwd: srcDir, onlyFiles: true });
+      for (const f of files) {
+        const from = resolve(srcDir, f);
+        const to = resolve(publicOut, sub, f);
+        ensureDir(dirname(to));
+        copyFileSync(from, to);
+      }
+      log(`  mirrored ${files.length} static files from ${sub}/`);
+    }
+  }
 
   // Hver source har én eller flere snapshots. For "local" mounter vi det
   // samme contentRoot for alle aktive snapshots, men markerer hvilken
@@ -230,6 +271,8 @@ async function main() {
   log("cleaning previous output");
   clean(docsOut);
   clean(i18nOut);
+
+  mirrorSwaggerUiDist();
 
   for (const src of cfg.sources) {
     await processSource(src, defaultLang, languages);

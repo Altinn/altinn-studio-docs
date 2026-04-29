@@ -128,9 +128,11 @@ async function buildSlugMap() {
   const map = new Map(); // key: posix path uten extension/lang → "/lang/url/"
   for (const rel of files) {
     const posix = toPosix(rel);
-    // posix er f.eks. "nb/altinn-studio/v10/index.md" eller "nb/altinn-studio/v10/app.md"
+    // posix er f.eks. "nb/altinn-studio/v10/index.md" eller "nb/altinn-studio/v10/app.md".
+    // Astros content layer lowercaser ider, så slugMap-er må også være lowercase
+    // for at lookup mot brukerens relref-target (uansett case) skal matche routen.
     const lang = posix.split("/")[0];
-    const rest = posix.slice(lang.length + 1).replace(/\.md$/, "");
+    const rest = posix.slice(lang.length + 1).replace(/\.md$/, "").toLowerCase();
     // index → mappens URL
     let urlPath = rest === "index" ? "" : rest.endsWith("/index") ? rest.slice(0, -"/index".length) : rest;
     const url = `/${lang}/${urlPath}${urlPath ? "/" : ""}`;
@@ -160,6 +162,9 @@ function resolveRelref(target, currentLang, currentSlug, slugMap) {
     t = t.slice(0, hashIdx);
   }
   t = t.replace(/\.md$/, "").replace(/\/_index$/, "");
+  // SlugMap lagrer alt i lowercase (matcher Astros content-layer-id-er),
+  // så lookup gjøres også på lowercase. URL returnert blir lowercase.
+  t = t.toLowerCase();
 
   // Absolut sti
   if (t.startsWith("/")) {
@@ -170,7 +175,7 @@ function resolveRelref(target, currentLang, currentSlug, slugMap) {
   }
 
   // Relativ — fall tilbake til best effort: bli med currentSlug-mappa
-  const baseDir = currentSlug.split("/").slice(0, -1).join("/");
+  const baseDir = currentSlug.split("/").slice(0, -1).join("/").toLowerCase();
   const combined = baseDir ? `${baseDir}/${t}` : t;
   // Normaliser ../ og ./
   const parts = [];
