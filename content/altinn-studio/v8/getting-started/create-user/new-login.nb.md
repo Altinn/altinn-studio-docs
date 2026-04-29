@@ -55,6 +55,10 @@ koblet din konto til Ansattporten, med innlogging med BankID eller MinID.
 
 ## Spørsmål og svar
 
+### Jeg vet ikke hvilken guide jeg bør følge
+Gå til https://altinn.studio og klikk på "Logg inn". Svar på spørsmålene i veilederen og følg instruksjonene der.
+Er du fortsatt usikker følger du stegene i [avsnitt for første gangs innlogging](/#logge-inn-med-eksisterende-bruker---første-gang).
+
 ### Jeg husker ikke passordet mitt, hva gjør jeg?
 Gå til [den gamle innloggingssiden](https://altinn.studio/repos/user/login) og klikk på "Forgot password?". 
 Legg inn epostadressen tilknyttet kontoen din og følg instruksjonene i eposten for å resette passordet ditt.
