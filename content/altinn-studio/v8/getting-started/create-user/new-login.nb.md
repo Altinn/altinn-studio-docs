@@ -40,7 +40,7 @@ og brukt BankID eller MinID til innlogging, kan du følge stegene beskrevet i [n
 
 ### Logge inn med eksisterende bruker
 {{% notice warning %}}
-**VIKTIG:** Er det første gang du logger inn med ny løsning? Følg stegene i [avsnittet over](/#logge-inn-med-eksisterende-bruker---første-gang) for 
+**VIKTIG:** Er det første gang du logger inn med ny løsning? Følg stegene i [avsnittet over](#logge-inn-med-eksisterende-bruker---første-gang) for 
 å sikre at du får overført din eksisterende konto.
 {{% /notice %}}
 
@@ -57,19 +57,19 @@ koblet din konto til Ansattporten, med innlogging med BankID eller MinID.
 
 ### Jeg vet ikke hvilken guide jeg bør følge
 Gå til [Altinn Studio](https://altinn.studio) og klikk på "Logg inn". Svar på spørsmålene i veilederen og følg instruksjonene der.
-Er du fortsatt usikker følger du stegene i [avsnitt for første gangs innlogging](/#logge-inn-med-eksisterende-bruker---første-gang).
+Er du fortsatt usikker følger du stegene i [avsnitt for første gangs innlogging](#logge-inn-med-eksisterende-bruker---første-gang).
 
 ### Jeg husker ikke passordet mitt, hva gjør jeg?
 Gå til [den gamle innloggingssiden](https://altinn.studio/repos/user/login) og klikk på "Forgot password?". 
 Legg inn epostadressen tilknyttet kontoen din og følg instruksjonene i eposten for å resette passordet ditt.
 
 ### Jeg husker ikke om jeg har brukt Ansattporten med BankID/MinID, hva gjør jeg?
-Anta at du ikke har koblet opp kontoen din, og følg stegene i [avsnitt for første gangs innlogging](/#logge-inn-med-eksisterende-bruker---første-gang).
+Anta at du ikke har koblet opp kontoen din, og følg stegene i [avsnitt for første gangs innlogging](#logge-inn-med-eksisterende-bruker---første-gang).
 
 ### Jeg bruker Ansattporten med EntraID, vil det fungere i ny løsning?
 Det korte svaret er NEI. 
 
-Følg stegene i [avsnitt for første gangs innlogging](/#logge-inn-med-eksisterende-bruker---første-gang)
+Følg stegene i [avsnitt for første gangs innlogging](#logge-inn-med-eksisterende-bruker---første-gang)
 og bruk BankID eller MinID. Har du ikke logget inn med BankID eller MinID tidligere må du legge inn brukernavn/passord for å 
 koble opp kontoen før du kan gå videre til innlogging i ny løsning.
 
