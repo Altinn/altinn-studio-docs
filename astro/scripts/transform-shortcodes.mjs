@@ -310,6 +310,19 @@ function convertHtmlComments(s) {
 }
 
 /**
+ * Hugo/Pandoc-attributter `{.class}` og `{#anchor}` brytes av MDX som JSX-
+ * uttrykk og feiler. Strip standalone-linjer og trailing-attributter på
+ * overskrifter. Vi mister CSS-class og eksplisitt anker, men siden rendrer.
+ */
+function stripMarkdownAttrs(s) {
+  // Standalone-linjer: bare `{.foo}` eller `{#foo}` (eventuelt flere klasser).
+  s = s.replace(/^[ \t]*\{[#.][^\n}]+\}[ \t]*$/gm, "");
+  // Trailing på overskrifter: `## Title {#anchor}` → `## Title`
+  s = s.replace(/^(\s{0,3}#{1,6}\s+.+?)\s+\{[#.][^\n}]+\}\s*$/gm, "$1");
+  return s;
+}
+
+/**
  * Escape stray `<` som MDX ellers ville tolket som start på JSX-tag.
  * Bruksområde: prosa som "<1 minutt", "<= 5", "x < y". Hopper over kode
  * (fenced, inline). Bevarer ekte tags `<a>`, `</a>`, `<!`, `<>`.
@@ -346,6 +359,7 @@ function transformShortcodes(body, currentLang, currentSlug, slugMap, usedCompon
   // 0. Normaliser void HTML-tags og HTML-kommentarer for MDX
   s = convertHtmlComments(s);
   s = normalizeVoidTags(s);
+  s = stripMarkdownAttrs(s);
 
   // 1. Inline {{< relref "X" >}} → resolved URL (også {{< ref "X" >}})
   s = s.replace(/\{\{[<%]\s*(?:relref|ref)\s+([^>%]+?)\s*[>%]\}\}/g, (_m, target) => {
