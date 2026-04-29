@@ -13,26 +13,26 @@ Under følger oppskrifter for hvordan ta i bruk den nye innloggingsløsningen.
 ### Opprette ny bruker
 Følg disse stegene om du ikke har noen bruker i Altinn Studio.
 
-1. Naviger til https://altinn.studio og klikk på "Logg inn".
+1. Naviger til [Altinn Studio](https://altinn.studio) og klikk på "Logg inn".
 2. Velg "Nei" på spørsmål om du allerede har en bruker.
 3. Logg inn med BankID eller MinID for å identifisere deg.
 4. Bruker opprettes automatisk, og du kan nå bruke Altinn Studio.
 
 {{% notice info %}}
-Om du allerede har en bruker i Altinn Studio som er koblet til Ansattporten vil det ikke opprettes noen ny bruker.
+Hvis du allerede har en bruker i Altinn Studio som er koblet til Ansattporten vil det ikke opprettes noen ny bruker.
 Den brukeren du allerede har vil logges inn.
 {{% /notice %}}
 
 ### Logge inn med eksisterende bruker - FØRSTE GANG
 Følg disse stegene om du ikke har logget inn med ny løsning før. Er du HELT sikker på at du allerede har koblet opp din konto,
 og brukt BankID eller MinID til innlogging, kan du følge stegene beskrevet i [neste avsnitt](./#logge-inn-med-eksisterende-bruker).
-1. Naviger til https://altinn.studio og klikk på "Logg inn".
+1. Naviger til [Altinn Studio](https://altinn.studio) og klikk på "Logg inn".
 2. Velg "Ja" på spørsmål om du allerede har en bruker.
 3. Velg "Nei" på spørsmålet om du allerede har koblet din bruker til Ansattporten.
-4. Følg lenken til gammel innlogging, og logg inn med Ansattporten. Bruk **BankID** eller **MinID**.
+4. Følg lenken til gammel innlogging, og logg inn via Ansattporten. Bruk **BankID** eller **MinID**.
 5. Koble innloggingen til kontoen din. Fyll ut brukernavn/passord. Husker du ikke ditt passord kan du klikke på lenken for å sette nytt passord, eller ta kontakt med [Servicedesk](mailto:servicedesk@altinn.no).
     > Blir du logget inn direkte og kommer ikke til skjema for å koble opp kontoen? Da er kontoen allerede koblet opp og du kan gå videre til neste steg 👍
-6. Gå tilbake til https://altinn.studio og klikk på "Logg inn".
+6. Gå tilbake til [Altinn Studio](https://altinn.studio) og klikk på "Logg inn".
 7. Velg "Ja" på spørsmål om du allerede har bruker, og "Ja" på spørsmål om du har koblet kontoen din til Ansattporten.
 8. Huk av for "Ikke vis denne veiledningen neste gang" for å slippe å gå gjennom veiledningen ved neste innlogging.
 9. Logg inn via Ansattporten. Du har allerede en sesjon i Ansattporten og logges inn direkte. 
@@ -47,7 +47,7 @@ og brukt BankID eller MinID til innlogging, kan du følge stegene beskrevet i [n
 Disse stegene gjelder for deg som allerede har logget inn med ny løsning, eller deg som er helt sikker på at du allerede har
 koblet din konto til Ansattporten, med innlogging med BankID eller MinID.
 
-1. Naviger til https://altinn.studio og klikk på "Logg inn".
+1. Naviger til [Altinn Studio](https://altinn.studio) og klikk på "Logg inn".
 2. Velg "Ja" på spørsmål om du allerede har bruker, og "Ja" på spørsmål om du har koblet kontoen din til Ansattporten.
 3. Huk av for "Ikke vis denne veiledningen neste gang" for å slippe å gå gjennom veiledningen ved neste innlogging.
 4. Logg inn via Ansattporten. Du har allerede en sesjon i Ansattporten og logges inn direkte. 
@@ -56,7 +56,7 @@ koblet din konto til Ansattporten, med innlogging med BankID eller MinID.
 ## Spørsmål og svar
 
 ### Jeg vet ikke hvilken guide jeg bør følge
-Gå til https://altinn.studio og klikk på "Logg inn". Svar på spørsmålene i veilederen og følg instruksjonene der.
+Gå til [Altinn Studio](https://altinn.studio) og klikk på "Logg inn". Svar på spørsmålene i veilederen og følg instruksjonene der.
 Er du fortsatt usikker følger du stegene i [avsnitt for første gangs innlogging](/#logge-inn-med-eksisterende-bruker---første-gang).
 
 ### Jeg husker ikke passordet mitt, hva gjør jeg?
