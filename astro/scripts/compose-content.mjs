@@ -157,12 +157,16 @@ async function processSource(src, defaultLang, languages) {
       const split = splitLang(fname, languages);
       if (!split) continue;
       const lang = split.lang ?? defaultLang;
+      // dirRelLc = lowercased for å matche Astros content-layer-id-er som
+      // alltid er lowercase. Holder urler, asset-stier og IDer i synk på
+      // case-sensitive filsystemer (Linux CI/build).
       const dirRel = dirname(relPath);
+      const dirRelLc = toPosix(dirRel).toLowerCase();
 
       // _index.<lang>.md → index.md, ellers <stem>.md
       const newName = split.stem === "_index" ? "index.md" : `${split.stem}.md`;
-      const targetDir = resolve(docsOut, lang, src.mount.replace(/^\//, ""), dirRel);
-      const targetPath = resolve(targetDir, newName);
+      const targetDir = resolve(docsOut, lang, src.mount.replace(/^\//, ""), dirRelLc);
+      const targetPath = resolve(targetDir, newName.toLowerCase());
       ensureDir(targetDir);
 
       const raw = readFileSync(full, "utf8");
@@ -181,7 +185,7 @@ async function processSource(src, defaultLang, languages) {
       const out = matter.stringify(parsed.content, parsed.data);
       writeFileSync(targetPath, out, "utf8");
       copied++;
-      langDirsWithMd.set(`${lang}|${toPosix(dirRel)}`, targetDir);
+      langDirsWithMd.set(`${lang}|${dirRelLc}`, targetDir);
     }
 
     // Nå: kopier alle ikke-MD-filer (bilder, video, json osv) inn i hver
@@ -197,12 +201,12 @@ async function processSource(src, defaultLang, languages) {
     for (const relPath of allFiles) {
       const ext = extname(relPath).toLowerCase();
       if (!assetExts.has(ext)) continue;
-      const dirRel = toPosix(dirname(relPath));
+      const dirRelLc = toPosix(dirname(relPath)).toLowerCase();
       const fname = basename(relPath);
       const full = resolve(contentRoot, relPath);
 
       for (const lang of languages) {
-        const key = `${lang}|${dirRel}`;
+        const key = `${lang}|${dirRelLc}`;
         const targetDir = langDirsWithMd.get(key);
         if (!targetDir) continue;
         const targetPath = resolve(targetDir, fname);
@@ -211,13 +215,14 @@ async function processSource(src, defaultLang, languages) {
         assetsCopied++;
 
         // Også kopier til public/<lang>/<sti>/<fil> slik at relative paths i
-        // raw HTML kan løses av nettleseren.
+        // raw HTML kan løses av nettleseren. Stien lowercases for å matche
+        // URL-rewrites og Astros content-id-er.
         const mountSegment = src.mount.replace(/^\/|\/$/g, "");
         const publicTarget = resolve(
           publicOut,
           lang,
           mountSegment,
-          dirRel === "." ? "" : dirRel,
+          dirRelLc === "." ? "" : dirRelLc,
           fname,
         );
         ensureDir(dirname(publicTarget));

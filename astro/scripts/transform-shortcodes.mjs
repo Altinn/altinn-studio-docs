@@ -328,6 +328,62 @@ function stripMarkdownAttrs(s) {
 }
 
 /**
+ * Skriver om relative bildereferanser til absolutte URL-er som peker mot
+ * public/-speilet. Compose plasserer assets i public/<lang>/<dir>/<fil>, så
+ * `![](pic.svg)` på siden /nb/community/about/ blir til `/nb/community/about/pic.svg`.
+ *
+ * Hvorfor: Astros content-layer prøver å kalle imageMetadata() på relative
+ * referanser i markdown og feiler på enkelte SVG-er (drawio-eksporter med
+ * embedded mxfile, store dimensjoner, edge-cases). Absolutte stier
+ * unngår optimeringspipelinen helt og serveres direkte fra public/.
+ *
+ * Feil-modusen for ikke-index-sider er også løst: en sub.mdx på URL
+ * /nb/foo/bar/sub/ med `./pic.svg` ville ellers prøve /nb/foo/bar/sub/pic.svg
+ * som ikke finnes (filen ligger speilet til /nb/foo/bar/pic.svg).
+ */
+function rewriteRelativeImages(content, lang, fileDir) {
+  const prefix = `/${lang}${fileDir ? "/" + fileDir : ""}`;
+
+  function isRelativeAsset(path) {
+    if (!path) return false;
+    if (path.startsWith("/")) return false;
+    if (/^(https?|mailto|data|tel|ftp):/i.test(path)) return false;
+    if (path.startsWith("#")) return false;
+    return true;
+  }
+
+  function resolvePath(rel) {
+    let p = rel;
+    while (p.startsWith("./")) p = p.slice(2);
+    return `${prefix}/${p}`;
+  }
+
+  // Markdown: ![alt](path) eller ![alt](path "title")
+  content = content.replace(
+    /!\[([^\]]*)\]\(([^)\s]+)(\s+["'][^"']*["'])?\)/g,
+    (match, alt, url, title = "") => {
+      if (!isRelativeAsset(url)) return match;
+      return `![${alt}](${resolvePath(url)}${title})`;
+    },
+  );
+
+  // HTML: <img ... src="path" ...>
+  content = content.replace(
+    /<img\s+([^>]*?)>/gi,
+    (match, attrs) => {
+      const srcMatch = attrs.match(/\bsrc=(["'])([^"']+)\1/);
+      if (!srcMatch) return match;
+      const url = srcMatch[2];
+      if (!isRelativeAsset(url)) return match;
+      const newAttrs = attrs.replace(srcMatch[0], `src=${srcMatch[1]}${resolvePath(url)}${srcMatch[1]}`);
+      return `<img ${newAttrs}>`;
+    },
+  );
+
+  return content;
+}
+
+/**
  * Escape stray `<` som MDX ellers ville tolket som start på JSX-tag.
  * Bruksområde: prosa som "<1 minutt", "<= 5", "x < y". Hopper over kode
  * (fenced, inline). Bevarer ekte tags `<a>`, `</a>`, `<!`, `<>`.
@@ -355,7 +411,7 @@ function escapeStrayLessThans(s) {
 }
 
 /** Hovedtransform: bytt block-shortcodes og self-closing til MDX. */
-function transformShortcodes(body, currentLang, currentSlug, slugMap, usedComponents) {
+function transformShortcodes(body, currentLang, currentSlug, fileDir, slugMap, usedComponents) {
   let s = body;
 
   // -1. Insert-shortcode: trekker innhold fra annen fil inn på stedet
@@ -365,6 +421,7 @@ function transformShortcodes(body, currentLang, currentSlug, slugMap, usedCompon
   s = convertHtmlComments(s);
   s = normalizeVoidTags(s);
   s = stripMarkdownAttrs(s);
+  s = rewriteRelativeImages(s, currentLang, fileDir);
 
   // 1. Inline {{< relref "X" >}} → resolved URL (også {{< ref "X" >}})
   s = s.replace(/\{\{[<%]\s*(?:relref|ref)\s+([^>%]+?)\s*[>%]\}\}/g, (_m, target) => {
@@ -448,12 +505,18 @@ async function processFile(rel, slugMap) {
   const posix = toPosix(rel);
   const langStripped = posix.slice(lang.length + 1);
   const currentSlug = langStripped.replace(/\.md$/, "").replace(/\/index$/, "");
+  // fileDir er katalogen filen ligger i, relativt til lang-roten. Begge
+  // index.md og søsken-sider deler dir, slik at relative bilder treffer
+  // riktig speil i public/<lang>/<dir>/.
+  const dirSegments = langStripped.replace(/\.md$/, "").split("/").slice(0, -1);
+  const fileDir = dirSegments.join("/").toLowerCase();
 
   const used = new Set();
   const transformed = transformShortcodes(
     parsed.content,
     lang,
     currentSlug,
+    fileDir,
     slugMap,
     used,
   );
