@@ -309,6 +309,33 @@ function convertHtmlComments(s) {
   return s.replace(/<!--([\s\S]*?)-->/g, (_m, inner) => `{/*${inner}*/}`);
 }
 
+/**
+ * Escape stray `<` som MDX ellers ville tolket som start på JSX-tag.
+ * Bruksområde: prosa som "<1 minutt", "<= 5", "x < y". Hopper over kode
+ * (fenced, inline). Bevarer ekte tags `<a>`, `</a>`, `<!`, `<>`.
+ */
+function escapeStrayLessThans(s) {
+  // Splitt rundt kodeblokker (fenced) og inline-code så de ikke berøres.
+  const codeRegex = /(```[\s\S]*?```|~~~[\s\S]*?~~~|`[^`\n]+`)/g;
+  let lastEnd = 0;
+  const parts = [];
+  let m;
+  while ((m = codeRegex.exec(s)) !== null) {
+    parts.push({ text: s.substring(lastEnd, m.index), code: false });
+    parts.push({ text: m[0], code: true });
+    lastEnd = m.index + m[0].length;
+  }
+  parts.push({ text: s.substring(lastEnd), code: false });
+
+  return parts
+    .map((p) => {
+      if (p.code) return p.text;
+      // Tillatt etter `<`: bokstav, /, !, > (fragment). Alt annet → &lt;.
+      return p.text.replace(/<(?![a-zA-Z\/!>])/g, "&lt;");
+    })
+    .join("");
+}
+
 /** Hovedtransform: bytt block-shortcodes og self-closing til MDX. */
 function transformShortcodes(body, currentLang, currentSlug, slugMap, usedComponents) {
   let s = body;
@@ -349,6 +376,10 @@ function transformShortcodes(body, currentLang, currentSlug, slugMap, usedCompon
       return renderShortcode(name, argsStr, null, usedComponents, "self");
     },
   );
+
+  // 4. Etter alle shortcodes er resolved: escape gjenværende stray `<`
+  //    i prosa (f.eks. "<1 minutt") så MDX ikke tolker det som JSX-tag.
+  s = escapeStrayLessThans(s);
 
   return s;
 }
