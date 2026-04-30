@@ -52,6 +52,8 @@ Systemet må be om de scopene som trengs for funksjonaliteten det skal bruke.
 | `altinn:accessmanagement/enduser:connections:fromothers.write` | Slett mottatte tilganger gitt til deg eller andre aktører du er tilgangsstyrer for |
 | `altinn:accessmanagement/enduser:connections:toothers.read` | Se tilganger gitt til andre, fra deg eller andre aktører du er tilgangsstyrer for |
 | `altinn:accessmanagement/enduser:connections:toothers.write` | Opprett, oppdater og slett tilganger gitt til andre fra deg eller andre aktører du er tilgangsstyrer for |
+| `altinn:accessmanagement/enduser:requests.read` | Se sendte og mottatte forespørsler om tilgangspakker og ressurser for deg eller andre aktører du er tilgangsstyrer for |
+| `altinn:accessmanagement/enduser:requests.write` | Opprett, trekk, godkjenn og avvis forespørsler om tilgangspakker og ressurser for deg eller andre aktører du er tilgangsstyrer for |
 
 **Altinn klientdelegering**
 
@@ -515,6 +517,193 @@ Eksempelrespons
   ]
 }
 ```
+
+---
+
+## Be om tilgang fra en annen part
+
+Endepunktene nedenfor lar en innlogget bruker eller systembruker be om en tilgangspakke eller enkeltrettigheter på en ressurs fra en annen part. Dette er aktuelt når mottakeren ikke selv kan tildele seg tilgangen, men trenger å spørre eieren av parten.
+
+Flyten er:
+
+1. **Avsenderen** oppretter en forespørsel om en tilgangspakke eller en ressurs.
+2. **Mottakeren** ser forespørselen i listen over mottatte forespørsler og kan godkjenne eller avvise den.
+3. **Avsenderen** kan trekke en forespørsel som ennå ikke er behandlet.
+
+En forespørsel kan ha følgende status: `Pending` (avventer behandling), `Approved` (godkjent), `Rejected` (avvist) eller `Withdrawn` (trukket). I tillegg finnes statusen `Draft` for utkast som opprettes fra Altinn-portalen.
+
+Endepunktene krever scopene `altinn:accessmanagement/enduser:requests.read` (les) og `altinn:accessmanagement/enduser:requests.write` (skriv).
+
+### API: Be om en tilgangspakke
+
+Oppretter en forespørsel til en annen part om en tilgangspakke.
+
+- **Test**: `POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/request/package`
+- **Produksjon**: `POST https://platform.altinn.no/accessmanagement/api/v1/enduser/request/package`
+
+#### Spørreparametere
+
+| Parameter | Type | Obligatorisk | Beskrivelse |
+|---|---|---|---|
+| `party` | UUID | Ja | partyUuid for avsenderen (parten du opptrer på vegne av) |
+| `to` | UUID | Ja | partyUuid for mottakeren (parten du ber om tilgang fra) |
+| `package` | string | Ja | URN for tilgangspakken det bes om |
+
+Eksempelrespons
+
+```json
+{
+  "id": "019c2e70-c577-7b20-a11c-245fecd5e564",
+  "status": "Pending",
+  "type": "package",
+  "lastUpdated": "2026-04-30T10:15:00Z",
+  "package": {
+    "id": "4c859601-9b2b-4662-af39-846f4117ad7a",
+    "referenceId": "urn:altinn:accesspackage:skattegrunnlag"
+  },
+  "from": {
+    "id": "4a06214d-b261-4695-b33a-0771a995b503"
+  },
+  "to": {
+    "id": "01f7a70d-2619-4c50-8ff4-efd7ae6c8960"
+  }
+}
+```
+
+### API: Be om enkeltrettigheter på en ressurs
+
+Oppretter en forespørsel til en annen part om enkeltrettigheter på en ressurs.
+
+- **Test**: `POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/request/resource`
+- **Produksjon**: `POST https://platform.altinn.no/accessmanagement/api/v1/enduser/request/resource`
+
+#### Spørreparametere
+
+| Parameter | Type | Obligatorisk | Beskrivelse |
+|---|---|---|---|
+| `party` | UUID | Ja | partyUuid for avsenderen |
+| `to` | UUID | Ja | partyUuid for mottakeren |
+| `resource` | string | Ja | Ressurs-ID |
+
+
+### API: Bekrefte et utkast
+
+Bekrefter et forespørselsutkast slik at det går videre til mottakeren. Brukes typisk fra Altinn-portalen etter at avsenderen har gjennomgått utkastet opprettet av tjenesteeier.
+
+- **Test**: `PUT https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/request/draft/confirm`
+- **Produksjon**: `PUT https://platform.altinn.no/accessmanagement/api/v1/enduser/request/draft/confirm`
+
+#### Spørreparametere
+
+| Parameter | Type | Obligatorisk | Beskrivelse |
+|---|---|---|---|
+| `party` | UUID | Ja | partyUuid for avsenderen |
+| `id` | UUID | Ja | id for utkastet |
+
+### API: Hente en forespørsel
+
+Henter en enkelt forespørsel basert på id.
+
+- **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/request`
+- **Produksjon**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/request`
+
+#### Spørreparametere
+
+| Parameter | Type | Obligatorisk | Beskrivelse |
+|---|---|---|---|
+| `party` | UUID | Ja | partyUuid for parten du opptrer på vegne av |
+| `id` | UUID | Ja | id for forespørselen |
+
+### API: Hente sendte forespørsler
+
+Henter alle forespørsler som parten har sendt til andre.
+
+- **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/request/sent`
+- **Produksjon**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/request/sent`
+
+#### Spørreparametere
+
+| Parameter | Type | Obligatorisk | Beskrivelse |
+|---|---|---|---|
+| `party` | UUID | Ja | partyUuid for avsenderen |
+| `to` | UUID | Nei | Filtrer på mottaker |
+| `status` | array | Nei | Filtrer på status (`Draft`, `Pending`, `Approved`, `Rejected`, `Withdrawn`) |
+| `type` | string | Nei | Filtrer på type (`package` eller `resource`) |
+
+Paginering styres med `X-Page-Size` og `X-Page-Number` i headere.
+
+For å hente kun antall sendte forespørsler, bruk `GET /enduser/request/sent/count` med de samme filterparameterne.
+
+### API: Trekke en sendt forespørsel
+
+Trekker en forespørsel som ennå ikke er godkjent eller avvist.
+
+- **Test**: `PUT https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/request/sent/withdraw`
+- **Produksjon**: `PUT https://platform.altinn.no/accessmanagement/api/v1/enduser/request/sent/withdraw`
+
+#### Spørreparametere
+
+| Parameter | Type | Obligatorisk | Beskrivelse |
+|---|---|---|---|
+| `party` | UUID | Ja | partyUuid for avsenderen |
+| `id` | UUID | Ja | id for forespørselen |
+
+### API: Hente mottatte forespørsler
+
+Henter alle forespørsler som parten har fått fra andre.
+
+- **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/request/received`
+- **Produksjon**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/request/received`
+
+#### Spørreparametere
+
+| Parameter | Type | Obligatorisk | Beskrivelse |
+|---|---|---|---|
+| `party` | UUID | Ja | partyUuid for mottakeren |
+| `from` | UUID | Nei | Filtrer på avsender |
+| `status` | array | Nei | Filtrer på status (`Draft`, `Pending`, `Approved`, `Rejected`, `Withdrawn`) |
+| `type` | string | Nei | Filtrer på type (`package` eller `resource`) |
+
+Paginering styres med `X-Page-Size` og `X-Page-Number` i headere.
+
+For å hente kun antall mottatte forespørsler, bruk `GET /enduser/request/received/count` med de samme filterparameterne.
+
+### API: Godkjenne en mottatt forespørsel
+
+Godkjenner en mottatt forespørsel og oppretter den underliggende delegeringen.
+
+- **Test**: `PUT https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/request/received/approve`
+- **Produksjon**: `PUT https://platform.altinn.no/accessmanagement/api/v1/enduser/request/received/approve`
+
+#### Spørreparametere
+
+| Parameter | Type | Obligatorisk | Beskrivelse |
+|---|---|---|---|
+| `party` | UUID | Ja | partyUuid for mottakeren |
+| `id` | UUID | Ja | id for forespørselen |
+
+For ressursforespørsler kan body angi hvilke enkeltrettigheter som skal godkjennes. La body stå tom for å godkjenne alle rettighetene som er bedt om:
+
+```json
+[
+  "read",
+  "write"
+]
+```
+
+### API: Avvise en mottatt forespørsel
+
+Avviser en mottatt forespørsel.
+
+- **Test**: `PUT https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/request/received/reject`
+- **Produksjon**: `PUT https://platform.altinn.no/accessmanagement/api/v1/enduser/request/received/reject`
+
+#### Spørreparametere
+
+| Parameter | Type | Obligatorisk | Beskrivelse |
+|---|---|---|---|
+| `party` | UUID | Ja | partyUuid for mottakeren |
+| `id` | UUID | Ja | id for forespørselen |
 
 ---
 
