@@ -70,7 +70,7 @@ Forms that are still being filled out are not migrated until they are archived.
 
 ## Changelog
 
-30.04.2026: Correspondence migrated back to october 2022. Further migration ongoing. Forms are migrated back to and including 2019. We are quality-assuring the migration of forms before continuing.
+30.04.2026: Correspondence migrated back to October 2022. Further migration ongoing. Forms are migrated back to and including 2019. We are quality-assuring the migration of forms before continuing.
 
 16.04.2026: Migration of forms for 2023 and 2022 completed.
 
