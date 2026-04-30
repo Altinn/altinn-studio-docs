@@ -41,7 +41,7 @@ Alle endringer gjort direkte gjennom Dialogportens API er tilgjengelige umiddelb
 Brukes typisk der tjenesteeier enten har egen plattform, eller håndterer dialoger utenfor standardfunksjonaliteten til Altinn Melding eller Altinn Studio/apper.
 
 ### ⚠ A2 Melding - Historisk
-Foreløpig migrert tilbake til 1. januar 2024. Eldre meldinger vil bli migrert senere.
+Foreløpig migrert tilbake til 8. oktober 2022. Migrering av eldre meldinger pågår.
 
 Manuell prosess. Historiske meldinger migreres fra Altinn 2 Melding til Altinn 3 Melding. Meldingene migreres deretter til Dialogporten i en separat prosess.
 
@@ -57,13 +57,13 @@ Se [migrering av meldingsdata](https://docs.altinn.studio/nb/correspondence/tran
 Alle nye meldinger opprettet i Altinn 3 Melding er tilgjengelig i Dialogporten umiddelbart. Ingen migrering nødvendig.
 
 ### ⚠ A3 App-instanser - Historisk
-Foreløpig migrert tilbake til 1. januar 2022. Eldre app-instanser vil bli migrert senere.
+Foreløpig migrert tilbake til 1. januar 2019. Eldre app-instanser vil bli migrert senere.
 
 ### ✔ A3 App-instanser - Live
 Nye app-instanser opprettet i Altinn 3 er tilgjengelig i Dialogporten umiddelbart. Endringer synkroniseres i sanntid.
 
 ### ⚠ A2 Arkiverte skjema - Historisk
-Foreløpig migrert tilbake til 1. januar 2022. Eldre arkiverte skjema vil bli migrert senere.
+Foreløpig migrert tilbake til 1. januar 2019. Eldre arkiverte skjema vil bli migrert senere.
 
 ### ✔ A2 Arkiverte skjema - Live
 Nylig arkiverte app-instanser opprettet i Altinn 2 migreres i puljer hvert 5. minutt.
