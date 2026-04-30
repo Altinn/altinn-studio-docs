@@ -51,11 +51,8 @@ Hvis du ikke spesifiserer et *typeFilter*, vil du motta alle forskjellige typer 
 
 **For tjeneste-eier:**
 - `no.altinn.correspondence.attachmentinitialized`
-- `no.altinn.correspondence.attachmentuploadprocessing`
 - `no.altinn.correspondence.attachmentpublished`
 - `no.altinn.correspondence.attachmentuploadfailed`
-- `no.altinn.correspondence.attachmentpurged`
-- `no.altinn.correspondence.attachmentdownloaded`
 - `no.altinn.correspondence.attachmentexpired`
 
 - `no.altinn.correspondence.correspondenceinitialized`
@@ -64,9 +61,11 @@ Hvis du ikke spesifiserer et *typeFilter*, vil du motta alle forskjellige typer 
 - `no.altinn.correspondence.correspondencepublishfailed`
 - `no.altinn.correspondence.notificationcreated`
 - `no.altinn.correspondence.correspondencenotificationcreationfailed`
+- `no.altinn.correspondence.correspondencenotificationfailed`
 
 **For hver mottaker:**
 - `no.altinn.correspondence.correspondencepublished`
 - `no.altinn.correspondence.correspondencereceiverread`
 - `no.altinn.correspondence.correspondencereceiverconfirmed`
-- `no.altinn.correspondence.Correspondencereceiverreserved`
+- `no.altinn.correspondence.correspondencereceiverneverread`
+- `no.altinn.correspondence.correspondencereceiverneverconfirmed`
