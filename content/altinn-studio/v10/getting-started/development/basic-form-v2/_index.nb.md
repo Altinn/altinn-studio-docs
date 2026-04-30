@@ -142,14 +142,24 @@ Utforming er satt opp med tre kolonner:
 ![Utforming-siden](./Kurs-skjermbilder-Konsept-Utforming.jpg)
 
 #### Legg til komponenter på infosiden
-1. Åpne siden "Side1" ved å klikke på den.
-2. Klikk på "Legg til komponent".
-3. Klikk på "Vis alle".
-4. Søk etter "Bilde" og klikk på "Bilde"-komponenten under "Informasjon".
-5. Klikk på "Legg til" i høyrepanelet.
-6. Klikk på "Bilde"-komponenten på siden
-7. Under "Valg for bilde", klikk på "Lim inn en URL" og lim inn https://docs.altinn.studio/nb/altinn-studio/v8/getting-started/app-dev-course/resources/kommune-logo.png
+1. Åpne siden "Side1" ved å klikke på den og klikk på "Legg til komponent".
+2. Klikk på "Vis alle", søk etter "Bilde" og klikk på "Bilde"-komponenten under "Informasjon". Klikk på "Legg til" i 
+  høyrepanelet for å legge til bildekomponenten på siden.
+4. Under "Valg for bilde" i konfigurasjonskolonnen, klikk på "Lim inn en URL" og lim inn https://docs.altinn.studio/nb/altinn-studio/v8/getting-started/app-dev-course/resources/kommune-logo.png
+5. Legg til ny komponent på siden: "Avsnitt".
+6. Under "Ledetekst", legg inn en tekst. F.eks. "Vi har registrert at du har meldt flytting til Sogndal kommune - velkommen til oss!".
 
+---
+
+![Legg til bildekomponent](./Kurs-skjermbilder-Oppgave-infoside-bilde-leggtil.jpg)
+
+---
+
+![Legg til avsnitt](./Kurs-skjermbilder-Oppgave-infoside-avsnitt-leggtil.jpg)
+
+---
+
+![Infoside - resultat](./Kurs-skjermbilder-Oppgave-infoside-resultat.jpg)
 
 ### Datamodell
 Før du kan starte å lage skjema må du ta stilling til hvilke data du ønsker å samle inn. Dette gjør du ved hjelp av en 
