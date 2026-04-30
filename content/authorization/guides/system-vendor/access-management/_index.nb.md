@@ -585,18 +585,10 @@ Oppretter en forespørsel til en annen part om enkeltrettigheter på en ressurs.
 | `to` | UUID | Ja | partyUuid for mottakeren |
 | `resource` | string | Ja | Ressurs-ID |
 
-Eksempelforespørsel (body)
-
-```json
-[
-  "read",
-  "write"
-]
-```
 
 ### API: Bekrefte et utkast
 
-Bekrefter et forespørselsutkast slik at det går videre til mottakeren. Brukes typisk fra Altinn-portalen etter at avsenderen har gjennomgått utkastet.
+Bekrefter et forespørselsutkast slik at det går videre til mottakeren. Brukes typisk fra Altinn-portalen etter at avsenderen har gjennomgått utkastet opprettet av tjenesteeier.
 
 - **Test**: `PUT https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/request/draft/confirm`
 - **Produksjon**: `PUT https://platform.altinn.no/accessmanagement/api/v1/enduser/request/draft/confirm`

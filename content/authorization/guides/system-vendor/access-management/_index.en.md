@@ -585,18 +585,10 @@ Creates a request to another party for specific rights on a resource.
 | `to` | UUID | Yes | partyUuid for the recipient |
 | `resource` | string | Yes | Resource ID |
 
-Example request (body)
-
-```json
-[
-  "read",
-  "write"
-]
-```
 
 ### API: Confirm a draft
 
-Confirms a draft request so that it is sent to the recipient. Typically used from the Altinn portal after the sender has reviewed the draft.
+Confirms a draft request so that it is sent to the recipient. Typically used from the Altinn portal after the sender has reviewed the draft created by the service owner.
 
 - **Test**: `PUT https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/request/draft/confirm`
 - **Production**: `PUT https://platform.altinn.no/accessmanagement/api/v1/enduser/request/draft/confirm`
