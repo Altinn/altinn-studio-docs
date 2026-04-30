@@ -17,8 +17,10 @@ Live sync: All changes[^1] (forms, messages) show up in Dialogporten.
 
 | Source | Migrated back to |
 |----------|----------|
-| A2-Correspondence | 01.01.2024 |
-| A2 archived forms / A3-app instances | 01.01.2022 |
+| A2-Correspondence | 08.10.2022 |
+| A2 archived forms / A3-app instances | 01.01.2019[^2] |
+
+[^2]: We are quality-assuring the migration of forms before we continue migrating older data.
 
 ## Goals and plans
 
@@ -39,7 +41,7 @@ All changes made directly through Dialogporten's API are available immediately.
 Typically used where the service owner either has their own platform, or handle dialogs outside the default functionality of Altinn Correspondence or Altinn Studio/apps.
 
 ### ⚠ A2 Correspondence - Historic
-Currently migrated back to 1st of January 2024. Older correspondence will be migrated later.
+Currently migrated back to 8th of October 2022. Migration of older correspondence is ongoing.
 
 Manual process. Historic correspondence is migrated from Altinn 2 correspondence to Altinn 3 correspondence. The correspondences are then migrated to Dialogporten in a separate process.
 
@@ -60,13 +62,15 @@ Migrated back to 1st of January 2022. Older app instances will be migrated later
 New app instances created in Altinn 3 are available in Dialogporten immediately. Changes are synced in real-time.
 
 ### ⚠ A2 Archived forms - Historic
-Migrated back to 1st of January 2022. Older archived forms will be migrated later.
+Migrated back to 1st of January 2019. Older archived forms will be migrated later.
 
 ### ✔ A2 Archived forms - Live
 Newly archived app instances created in Altinn 2 are migrated in batches every 5 minutes.
 Forms that are still being filled out are not migrated until they are archived.
 
 ## Changelog
+
+30.04.2026: Correspondence migrated back to October 2022. Further migration ongoing. Forms are migrated back to and including 2019. We are quality-assuring the migration of forms before continuing.
 
 16.04.2026: Migration of forms for 2023 and 2022 completed.
 
