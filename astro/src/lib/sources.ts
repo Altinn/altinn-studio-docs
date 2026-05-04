@@ -16,6 +16,13 @@ export interface SnapshotConfig {
   versionsFromFolders?: boolean;
 }
 
+export interface ProductMenuEntry {
+  href: string;
+  labelKey?: string;
+  // string for samme tekst på alle språk; objekt {nb, en} for språkspesifikt.
+  fallback?: string | Record<string, string>;
+}
+
 export interface SourceConfig {
   name: string;
   type: "local" | "git";
@@ -26,6 +33,7 @@ export interface SourceConfig {
   i18nDir?: string;
   mount: string;
   include?: string[];
+  productMenu?: ProductMenuEntry[];
   snapshots: SnapshotConfig[];
 }
 
@@ -88,9 +96,9 @@ export function loadRootConfig(): RootConfig {
     if (!src.snapshots || src.snapshots.length === 0) {
       throw new Error(`source '${src.name}' missing snapshots`);
     }
-    if (src.type === "git") {
+    if (src.type !== "local" && src.type !== "git") {
       throw new Error(
-        `source '${src.name}': type=git is designed but not yet implemented. Use type=local for now.`,
+        `source '${src.name}': ukjent type=${src.type} (forventet 'local' eller 'git')`,
       );
     }
   }
@@ -105,6 +113,36 @@ export function loadRootConfig(): RootConfig {
 
 export function loadSiteConfig(): SiteConfig {
   return loadRootConfig().site;
+}
+
+export interface ResolvedProductMenuEntry {
+  href: string;
+  label: string;
+  labelKey?: string;
+}
+
+// Bygger den ordnede listen av produkter som skal vises i topbarens dropdown.
+// Hver source kan bidra med null eller flere entries via productMenu i config.
+// Rekkefølgen er kilde-rekkefølgen i config, så vi får forutsigbar visning.
+// `t` er i18n-oppslag; vi tar den som callback for å unngå sirkulær import.
+export function resolveProductMenu(
+  lang: string,
+  t: (key: string, lang: string, fallback?: string) => string,
+): ResolvedProductMenuEntry[] {
+  const cfg = loadRootConfig();
+  const out: ResolvedProductMenuEntry[] = [];
+  for (const src of cfg.sources) {
+    if (!src.productMenu) continue;
+    for (const entry of src.productMenu) {
+      const fb =
+        typeof entry.fallback === "string"
+          ? entry.fallback
+          : entry.fallback?.[lang] ?? entry.fallback?.[cfg.site.defaultLang];
+      const label = entry.labelKey ? t(entry.labelKey, lang, fb) : fb ?? entry.href;
+      out.push({ href: entry.href, label, labelKey: entry.labelKey });
+    }
+  }
+  return out;
 }
 
 export function resolveSnapshots(): ResolvedSnapshot[] {

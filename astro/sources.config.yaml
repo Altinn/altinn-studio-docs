@@ -35,6 +35,33 @@ sources:
     staticDir: static
     i18nDir: i18n
     mount: /
+    # Oppføringer fra denne kilden som vises i produkt-dropdownen i topbar.
+    # Hver entry kan ha labelKey (slås opp i i18n) og/eller fallback (string,
+    # eller {nb, en} hvis labelet bør variere per språk).
+    productMenu:
+      - href: /altinn-studio/v8/
+        labelKey: product_studio
+        fallback: Altinn Studio
+      - href: /authorization/
+        labelKey: product_authorization
+        fallback: Autorisasjon
+      - href: /dialogporten/
+        labelKey: product_dialogporten
+        fallback: Dialogporten
+      - href: /broker/
+        labelKey: product_broker
+        fallback: Broker
+      - href: /events/
+        labelKey: product_events
+        fallback: Events
+      - href: /correspondence/
+        labelKey: product_correspondence
+        fallback: Correspondence
+      - href: /notifications/
+        labelKey: product_notifications
+        fallback:
+          nb: Varsling
+          en: Notifications
     snapshots:
       - id: current
         ref: working-tree
@@ -52,6 +79,12 @@ sources:
     repo: https://github.com/Altinn/altinn-profile.git
     contentDir: doc/end_users
     mount: /altinn-profile
+    productMenu:
+      - href: /altinn-profile/
+        labelKey: product_profile
+        fallback:
+          nb: Profil
+          en: Profile
     snapshots:
       - id: feat-user-doc
         ref: heads/feat/user-doc

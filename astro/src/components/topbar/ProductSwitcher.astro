@@ -1,20 +1,15 @@
 ---
 import { t } from "@lib/i18n";
+import { resolveProductMenu } from "@lib/sources";
 
 interface Props {
   lang: string;
 }
 const { lang } = Astro.props;
 
-const products = [
-  { id: "altinn-studio/v8", labelKey: "product_studio", fallback: "Altinn Studio" },
-  { id: "authorization", labelKey: "product_authorization", fallback: "Autorisasjon" },
-  { id: "dialogporten", labelKey: "product_dialogporten", fallback: "Dialogporten" },
-  { id: "broker", labelKey: "product_broker", fallback: "Broker" },
-  { id: "events", labelKey: "product_events", fallback: "Events" },
-  { id: "correspondence", labelKey: "product_correspondence", fallback: "Correspondence" },
-  { id: "notifications", labelKey: "product_notifications", fallback: "Notifications" },
-];
+// Produktlisten leses fra sources.config.yaml — hver source kan deklarere én
+// eller flere oppføringer via productMenu, og rekkefølgen følger config.
+const products = resolveProductMenu(lang, t);
 ---
 
 <div class="product-switcher">
@@ -32,9 +27,7 @@ const products = [
   </button>
   <div id="product-menu" class="product-menu" hidden>
     {products.map((p) => (
-      <a class="product-item" href={`/${lang}/${p.id}/`}>
-        {t(p.labelKey, lang, p.fallback)}
-      </a>
+      <a class="product-item" href={`/${lang}${p.href}`}>{p.label}</a>
     ))}
   </div>
 </div>
