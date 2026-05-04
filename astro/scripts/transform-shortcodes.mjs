@@ -420,9 +420,60 @@ function escapeMdxHazards(s) {
     .join("");
 }
 
+/**
+ * Hugo tillater {{% / %}} som tom lukke-tag — den lukker den sist åpnede
+ * shortcoden. Astros regex-baserte transformering krever derimot navngitt
+ * lukke-tag for å pare med åpningen, så vi rewriter alle tomme `/`-closes til
+ * `/<name>` basert på en forward stack-skann.
+ */
+function rewriteNamelessCloses(s) {
+  const tokenRe = /\{\{[<%]\s*(\/?)([a-zA-Z][\w-]*)?\s*([^%>]*?)\s*[>%]\}\}/g;
+  const stack = [];
+  const edits = []; // {start, end, replacement}
+  let m;
+  while ((m = tokenRe.exec(s)) !== null) {
+    const slash = m[1];
+    const name = m[2];
+    const rest = m[3];
+    if (slash) {
+      if (!name) {
+        // Tom close — rewrite til navngitt basert på stack-toppen
+        const top = stack.pop();
+        if (top) {
+          // Bevar både `{{<` og `{{%` ved å kun erstatte navnet
+          const replacement = m[0].replace(/\/\s*([>%]\}\})/, `/${top} $1`);
+          edits.push({ start: m.index, end: m.index + m[0].length, replacement });
+        }
+      } else {
+        // Navngitt close — pop matchende navn (lat versjon: bare topp)
+        if (stack.length && stack[stack.length - 1] === name) stack.pop();
+      }
+    } else if (name) {
+      // Self-closing? Sjekk syntaktisk `/>` og kjent form="self"
+      const isExplicitSelf = /\/\s*[>%]\}\}$/.test(m[0]);
+      const spec = KNOWN_SHORTCODES[name.toLowerCase()];
+      const isKnownSelf = spec && spec.form === "self";
+      if (!isExplicitSelf && !isKnownSelf) {
+        stack.push(name);
+      }
+    }
+  }
+  if (edits.length === 0) return s;
+  // Påfør edits i revers slik at indekser holder
+  edits.sort((a, b) => b.start - a.start);
+  let out = s;
+  for (const e of edits) {
+    out = out.slice(0, e.start) + e.replacement + out.slice(e.end);
+  }
+  return out;
+}
+
 /** Hovedtransform: bytt block-shortcodes og self-closing til MDX. */
 function transformShortcodes(body, currentLang, currentSlug, fileDir, slugMap, usedComponents) {
   let s = body;
+
+  // -2. Hugo tillater tom-close `{{% / %}}` — gjør om til navngitt før resten
+  s = rewriteNamelessCloses(s);
 
   // -1. Insert-shortcode: trekker innhold fra annen fil inn på stedet
   s = processInserts(s, currentLang);
