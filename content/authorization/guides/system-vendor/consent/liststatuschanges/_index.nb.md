@@ -21,7 +21,7 @@ Dette endepunktet bruker kursormbasert paginering, så kall endepunktet uten en 
 
 ## Request/Response Eksempel
 **Første side**
-`GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/latestchanges`
+`GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/latestchanges?pageSize=50`
 Authorization: Bearer <maskinporten_token>
 
 ```jsonc

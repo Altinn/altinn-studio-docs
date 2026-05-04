@@ -21,7 +21,7 @@ This endpoint uses cursor-based pagination, so call the endpoint without a Conti
 
 ## Request/Response Example
 **First page**
-`GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/latestchanges`
+`GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/latestchanges?pageSize=50`
 Authorization: Bearer <maskinporten_token>
 
 ```jsonc
