@@ -4,7 +4,6 @@ import Sidebar from "@components/sidebar/Sidebar.astro";
 import Breadcrumbs from "@components/content/Breadcrumbs.astro";
 import TableOfContents from "@components/content/TableOfContents.astro";
 import EditOnGitHub from "@components/content/EditOnGitHub.astro";
-import { site } from "@lib/site";
 import { t } from "@lib/i18n";
 
 interface Props {
@@ -14,6 +13,7 @@ interface Props {
   slug: string;
   headings: Array<{ depth: number; slug: string; text: string }>;
   origPath?: string;
+  editURL?: string;
   lastModified?: Date | string;
   needsMermaid?: boolean;
   hasSwagger?: boolean;
@@ -28,6 +28,7 @@ const {
   slug,
   headings,
   origPath,
+  editURL,
   lastModified,
   needsMermaid = false,
   hasSwagger = false,
@@ -71,7 +72,7 @@ const {
           </h1>
           {description && <p class="lead">{description}</p>}
           <slot />
-          {origPath && <EditOnGitHub origPath={origPath} editURL={site.editURL} lang={lang} />}
+          {editURL && <EditOnGitHub url={editURL} lang={lang} />}
         </article>
       </main>
       <aside class="docs-toc">

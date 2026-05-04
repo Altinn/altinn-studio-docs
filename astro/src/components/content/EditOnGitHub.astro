@@ -2,12 +2,10 @@
 import { t } from "@lib/i18n";
 
 interface Props {
-  origPath: string;
-  editURL: string;
+  url: string;
   lang: string;
 }
-const { origPath, editURL, lang } = Astro.props;
-const url = `${editURL.replace(/\/$/, "")}/${origPath}`;
+const { url, lang } = Astro.props;
 ---
 
 <div class="edit-on-github">

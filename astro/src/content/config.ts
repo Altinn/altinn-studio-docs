@@ -36,6 +36,7 @@ const docs = defineCollection({
       _lang: z.string().optional(),
       _origPath: z.string().optional(),
       _mount: z.string().optional(),
+      _editURL: z.string().optional(),
     })
     .passthrough(),
 });

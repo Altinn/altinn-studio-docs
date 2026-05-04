@@ -111,6 +111,29 @@ function resolveSource(src, snap) {
   throw new Error(`source '${src.name}': ukjent type=${src.type}`);
 }
 
+// Bygger en "rediger på GitHub"-URL for én fil.
+// Kilder: src.repo (kloneadresse), src.contentDir, snap.ref / snap.editBranch,
+//         relPath (fil relativt til contentDir, original case beholdes).
+// Returnerer null hvis vi ikke har nok info — da skjules edit-lenken.
+function buildEditUrl(src, snap, relPath) {
+  if (!src.repo) return null;
+  // Strip .git suffix og evt. trailing slash så vi kan appende /blob/<ref>/...
+  const baseRepo = src.repo.replace(/\.git$/, "").replace(/\/$/, "");
+  // Branch-utledning:
+  //   "heads/feat/x" → branch "feat/x"
+  //   "tags/v1.0.0"  → tag "v1.0.0" (GitHub støtter /blob/<tag>/...)
+  //   "working-tree" eller alt annet → krever snap.editBranch (ellers null)
+  let ref;
+  if (snap.ref?.startsWith("heads/")) ref = snap.ref.slice(6);
+  else if (snap.ref?.startsWith("tags/")) ref = snap.ref.slice(5);
+  else ref = snap.editBranch ?? null;
+  if (!ref) return null;
+  const contentSeg = (src.contentDir ?? "").replace(/^\/|\/$/g, "");
+  const path = toPosix(relPath);
+  const segs = [baseRepo, "blob", ref, contentSeg, path].filter(Boolean);
+  return segs.join("/");
+}
+
 /** Splitter "foo.nb.md" → { stem: "foo", lang: "nb", ext: ".md" } */
 function splitLang(filename, languages) {
   const ext = extname(filename);
@@ -226,6 +249,8 @@ async function processSource(src, defaultLang, languages) {
       parsed.data._lang = lang;
       parsed.data._origPath = toPosix(relPath);
       parsed.data._mount = src.mount;
+      const editUrl = buildEditUrl(src, snap, relPath);
+      if (editUrl) parsed.data._editURL = editUrl;
 
       // Hugo "tags" kan være satt til streng eller liste — normaliser til liste
       if (parsed.data.tags && !Array.isArray(parsed.data.tags)) {

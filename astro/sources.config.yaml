@@ -30,6 +30,7 @@ sources:
   - name: altinn-docs-monorepo
     type: local
     path: ../              # relativt til astro/-mappa
+    repo: https://github.com/altinn/altinn-studio-docs   # for "rediger på github"-lenker
     contentDir: content
     staticDir: static
     i18nDir: i18n
@@ -40,6 +41,7 @@ sources:
         label: current
         active: true
         versionsFromFolders: true
+        editBranch: master   # working-tree har ingen ref vi kan bruke for edit-lenker
 
   # Eksternt repo for Altinn Profil (sluttbruker-dokumentasjon).
   # Foreløpig henter vi fra feat/user-doc-branchen til doc/end_users/ blir
