@@ -41,6 +41,21 @@ sources:
         active: true
         versionsFromFolders: true
 
+  # Eksternt repo for Altinn Profil (sluttbruker-dokumentasjon).
+  # Foreløpig henter vi fra feat/user-doc-branchen til doc/end_users/ blir
+  # merget til main. Mountes på /altinn-profile slik at landingssiden lander
+  # på /<lang>/altinn-profile/ — samme URL som aliasene i kildefilen.
+  - name: altinn-profile
+    type: git
+    repo: https://github.com/Altinn/altinn-profile.git
+    contentDir: doc/end_users
+    mount: /altinn-profile
+    snapshots:
+      - id: feat-user-doc
+        ref: heads/feat/user-doc
+        label: current
+        active: true
+
 # --- EKSEMPLER FOR SENERE FASER (kun designdokumentasjon) ---
 # Når altinn-studio splittes til eget repo med tag-basert versjonering:
 #

@@ -23,6 +23,7 @@
 import { readFileSync, writeFileSync, mkdirSync, statSync, existsSync, rmSync, copyFileSync, readdirSync } from "node:fs";
 import { dirname, resolve, relative, join, basename, extname, sep } from "node:path";
 import { fileURLToPath } from "node:url";
+import { execFileSync } from "node:child_process";
 import { parse as parseYaml, stringify as stringifyYaml } from "yaml";
 import matter from "gray-matter";
 import fg from "fast-glob";
@@ -49,9 +50,6 @@ function loadConfig() {
 }
 
 function resolveLocalSource(src) {
-  if (src.type !== "local") {
-    throw new Error(`source '${src.name}': type=${src.type} not implemented yet`);
-  }
   const sourceRoot = resolve(astroRoot, src.path);
   return {
     sourceRoot,
@@ -59,6 +57,58 @@ function resolveLocalSource(src) {
     staticRoot: src.staticDir ? resolve(sourceRoot, src.staticDir) : null,
     i18nRoot: src.i18nDir ? resolve(sourceRoot, src.i18nDir) : null,
   };
+}
+
+// Parser ref-strenger fra config: "tags/v10.5.0", "heads/main", "heads/feat/x".
+// Returnerer { kind: "tag" | "branch", name }. "working-tree" håndteres separat.
+function parseRef(ref) {
+  if (ref.startsWith("tags/")) return { kind: "tag", name: ref.slice(5) };
+  if (ref.startsWith("heads/")) return { kind: "branch", name: ref.slice(6) };
+  // Bare "main" eller "v1.0.0" — gjett branch som default.
+  return { kind: "branch", name: ref };
+}
+
+function git(args, opts = {}) {
+  return execFileSync("git", args, { stdio: "pipe", encoding: "utf8", ...opts });
+}
+
+// Klon eller oppdater en git-source til astro/.astro/sources/<name>/<snap>/.
+// MVP: shallow clone (depth 1) per snapshot. Senere kan vi cache én bare-clone
+// pr. repo og worktree pr. snapshot for å spare båndbredde.
+function resolveGitSource(src, snap) {
+  if (!src.repo) {
+    throw new Error(`source '${src.name}': type=git krever 'repo'`);
+  }
+  if (!snap.ref || snap.ref === "working-tree") {
+    throw new Error(`source '${src.name}' snapshot '${snap.id}': git-source krever 'ref' (tags/x eller heads/y)`);
+  }
+  const cacheRoot = resolve(astroRoot, ".astro/sources", src.name, snap.id);
+  const ref = parseRef(snap.ref);
+
+  if (!existsSync(resolve(cacheRoot, ".git"))) {
+    ensureDir(dirname(cacheRoot));
+    if (existsSync(cacheRoot)) rmSync(cacheRoot, { recursive: true, force: true });
+    log(`  cloning ${src.repo} ${ref.kind}/${ref.name} → ${cacheRoot}`);
+    git(["clone", "--depth", "1", "--branch", ref.name, src.repo, cacheRoot]);
+  } else {
+    log(`  fetching ${ref.kind}/${ref.name} in ${cacheRoot}`);
+    git(["fetch", "--depth", "1", "origin", ref.name], { cwd: cacheRoot });
+    git(["reset", "--hard", "FETCH_HEAD"], { cwd: cacheRoot });
+    git(["clean", "-fdx"], { cwd: cacheRoot });
+  }
+
+  return {
+    sourceRoot: cacheRoot,
+    contentRoot: resolve(cacheRoot, src.contentDir),
+    staticRoot: src.staticDir ? resolve(cacheRoot, src.staticDir) : null,
+    i18nRoot: src.i18nDir ? resolve(cacheRoot, src.i18nDir) : null,
+  };
+}
+
+function resolveSource(src, snap) {
+  if (src.type === "local") return resolveLocalSource(src);
+  if (src.type === "git") return resolveGitSource(src, snap);
+  throw new Error(`source '${src.name}': ukjent type=${src.type}`);
 }
 
 /** Splitter "foo.nb.md" → { stem: "foo", lang: "nb", ext: ".md" } */
@@ -110,36 +160,36 @@ function mirrorSwaggerUiDist() {
 }
 
 async function processSource(src, defaultLang, languages) {
-  const { contentRoot, staticRoot, i18nRoot } = resolveLocalSource(src);
-  if (!existsSync(contentRoot)) {
-    throw new Error(`source '${src.name}': contentRoot not found: ${contentRoot}`);
-  }
-  log(`source '${src.name}' contentRoot=${contentRoot}`);
-
-  // Kopier utvalgte statiske ressurser fra source/static/ til astro/public/.
-  // Vi kopierer bare definerte underkataloger så vi ikke overskriver hånd-
-  // kuraterte assets i public/ (fonts, images, css...). Foreløpig bare swagger/.
-  if (staticRoot && existsSync(staticRoot)) {
-    const dirsToMirror = ["swagger"];
-    for (const sub of dirsToMirror) {
-      const srcDir = resolve(staticRoot, sub);
-      if (!existsSync(srcDir)) continue;
-      const files = await fg(["**/*"], { cwd: srcDir, onlyFiles: true });
-      for (const f of files) {
-        const from = resolve(srcDir, f);
-        const to = resolve(publicOut, sub, f);
-        ensureDir(dirname(to));
-        copyFileSync(from, to);
-      }
-      log(`  mirrored ${files.length} static files from ${sub}/`);
-    }
-  }
-
-  // Hver source har én eller flere snapshots. For "local" mounter vi det
-  // samme contentRoot for alle aktive snapshots, men markerer hvilken
-  // snapshot innholdet kom fra i frontmatter.
+  // Hver source har én eller flere snapshots. For "local" peker alle snapshots
+  // mot samme working tree, mens "git" gir oss én sjekket-ut versjon pr.
+  // snapshot under .astro/sources/<name>/<snap>/. Vi resolver derfor inne i
+  // løkka, og kjører static- og i18n-merge per snapshot.
   for (const snap of src.snapshots) {
     if (!(snap.active ?? true)) continue;
+    const { contentRoot, staticRoot, i18nRoot } = resolveSource(src, snap);
+    if (!existsSync(contentRoot)) {
+      throw new Error(`source '${src.name}' snapshot '${snap.id}': contentRoot ikke funnet: ${contentRoot}`);
+    }
+    log(`source '${src.name}' snapshot '${snap.id}' contentRoot=${contentRoot}`);
+
+    // Kopier utvalgte statiske ressurser fra source/static/ til astro/public/.
+    // Vi kopierer bare definerte underkataloger så vi ikke overskriver hånd-
+    // kuraterte assets i public/ (fonts, images, css...). Foreløpig bare swagger/.
+    if (staticRoot && existsSync(staticRoot)) {
+      const dirsToMirror = ["swagger"];
+      for (const sub of dirsToMirror) {
+        const srcDir = resolve(staticRoot, sub);
+        if (!existsSync(srcDir)) continue;
+        const files = await fg(["**/*"], { cwd: srcDir, onlyFiles: true });
+        for (const f of files) {
+          const from = resolve(srcDir, f);
+          const to = resolve(publicOut, sub, f);
+          ensureDir(dirname(to));
+          copyFileSync(from, to);
+        }
+        log(`  mirrored ${files.length} static files from ${sub}/`);
+      }
+    }
 
     const mdFiles = await fg(["**/*.md"], { cwd: contentRoot, dot: false });
     log(`  snapshot '${snap.id}': ${mdFiles.length} markdown files`);
@@ -231,39 +281,39 @@ async function processSource(src, defaultLang, languages) {
     }
 
     log(`  snapshot '${snap.id}': wrote ${copied} md + ${assetsCopied} assets`);
-  }
 
-  // Slå sammen i18n YAML.
-  // Hugo bruker liste-format: [{id, translation}, ...]. Vi smelter sammen til
-  // én liste pr språk, der senere kilder kan overstyre id-er fra tidligere.
-  if (i18nRoot && existsSync(i18nRoot)) {
-    for (const lang of languages) {
-      const file = resolve(i18nRoot, `${lang}.yaml`);
-      if (!existsSync(file)) continue;
-      const out = resolve(i18nOut, `${lang}.yaml`);
-      ensureDir(dirname(out));
+    // Slå sammen i18n YAML pr. snapshot.
+    // Hugo bruker liste-format: [{id, translation}, ...]. Vi smelter sammen til
+    // én liste pr språk, der senere kilder kan overstyre id-er fra tidligere.
+    if (i18nRoot && existsSync(i18nRoot)) {
+      for (const lang of languages) {
+        const file = resolve(i18nRoot, `${lang}.yaml`);
+        if (!existsSync(file)) continue;
+        const out = resolve(i18nOut, `${lang}.yaml`);
+        ensureDir(dirname(out));
 
-      let mergedById = new Map();
-      if (existsSync(out)) {
-        const existing = parseYaml(readFileSync(out, "utf8")) ?? [];
-        for (const entry of Array.isArray(existing) ? existing : Object.values(existing)) {
-          if (entry && typeof entry === "object" && entry.id) {
-            mergedById.set(entry.id, entry);
+        let mergedById = new Map();
+        if (existsSync(out)) {
+          const existing = parseYaml(readFileSync(out, "utf8")) ?? [];
+          for (const entry of Array.isArray(existing) ? existing : Object.values(existing)) {
+            if (entry && typeof entry === "object" && entry.id) {
+              mergedById.set(entry.id, entry);
+            }
           }
         }
-      }
-      const incoming = parseYaml(readFileSync(file, "utf8")) ?? [];
-      const incomingArr = Array.isArray(incoming) ? incoming : Object.values(incoming);
-      for (const entry of incomingArr) {
-        if (!entry || typeof entry !== "object" || !entry.id) continue;
-        if (mergedById.has(entry.id)) {
-          process.stderr.write(
-            `[compose] i18n: key '${entry.id}' from source '${src.name}' overrides existing for lang=${lang}\n`,
-          );
+        const incoming = parseYaml(readFileSync(file, "utf8")) ?? [];
+        const incomingArr = Array.isArray(incoming) ? incoming : Object.values(incoming);
+        for (const entry of incomingArr) {
+          if (!entry || typeof entry !== "object" || !entry.id) continue;
+          if (mergedById.has(entry.id)) {
+            process.stderr.write(
+              `[compose] i18n: key '${entry.id}' from source '${src.name}' overrides existing for lang=${lang}\n`,
+            );
+          }
+          mergedById.set(entry.id, entry);
         }
-        mergedById.set(entry.id, entry);
+        writeFileSync(out, stringifyYaml([...mergedById.values()]), "utf8");
       }
-      writeFileSync(out, stringifyYaml([...mergedById.values()]), "utf8");
     }
   }
 }
