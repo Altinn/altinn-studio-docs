@@ -384,11 +384,14 @@ function rewriteRelativeImages(content, lang, fileDir) {
 }
 
 /**
- * Escape stray `<` som MDX ellers ville tolket som start på JSX-tag.
- * Bruksområde: prosa som "<1 minutt", "<= 5", "x < y". Hopper over kode
- * (fenced, inline). Bevarer ekte tags `<a>`, `</a>`, `<!`, `<>`.
+ * Escape stray `<` som MDX ellers ville tolket som start på JSX-tag, og
+ * literal-curlybraces i prosa som ellers tolkes som JSX-uttrykk og kaster
+ * ReferenceError ved render (f.eks. **{projectfolder}\bin** der Hugo-stilen
+ * `{name}` er ment som plassholder-tekst).
+ *
+ * Hopper over kode (fenced, inline). Bevarer ekte tags og JSX-attributter.
  */
-function escapeStrayLessThans(s) {
+function escapeMdxHazards(s) {
   // Splitt rundt kodeblokker (fenced) og inline-code så de ikke berøres.
   const codeRegex = /(```[\s\S]*?```|~~~[\s\S]*?~~~|`[^`\n]+`)/g;
   let lastEnd = 0;
@@ -404,8 +407,15 @@ function escapeStrayLessThans(s) {
   return parts
     .map((p) => {
       if (p.code) return p.text;
+      let text = p.text;
       // Tillatt etter `<`: bokstav, /, !, > (fragment). Alt annet → &lt;.
-      return p.text.replace(/<(?![a-zA-Z\/!>])/g, "&lt;");
+      text = text.replace(/<(?![a-zA-Z\/!>])/g, "&lt;");
+      // Escape `{word}` som plain prose (ikke etter `=`, `\` eller `<`,
+      // som ville være JSX-attribute-uttrykk eller allerede-escaped).
+      // Innholdet må være enkle ord/path-tegn — JSON og uttrykk slipper unna
+      // siden de inneholder andre tegn (", :, (, etc.).
+      text = text.replace(/(?<![\\=<])\{([a-zA-Z_][\w.\-/ ]*?)\}/g, "\\{$1\\}");
+      return text;
     })
     .join("");
 }
@@ -454,8 +464,8 @@ function transformShortcodes(body, currentLang, currentSlug, fileDir, slugMap, u
   );
 
   // 4. Etter alle shortcodes er resolved: escape gjenværende stray `<`
-  //    i prosa (f.eks. "<1 minutt") så MDX ikke tolker det som JSX-tag.
-  s = escapeStrayLessThans(s);
+  //    og literal `{word}`-prosa så MDX ikke tolker det som JSX.
+  s = escapeMdxHazards(s);
 
   return s;
 }
