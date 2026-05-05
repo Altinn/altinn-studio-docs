@@ -520,7 +520,7 @@ Eksempelrespons
 
 ---
 
-## Be om tilgang fra en annen part
+## Be om fullmakt fra en annen part
 
 Endepunktene nedenfor lar en innlogget bruker eller systembruker be om en tilgangspakke eller enkeltrettigheter på en ressurs fra en annen part. Dette er aktuelt når mottakeren ikke selv kan tildele seg tilgangen, men trenger å spørre eieren av parten.
 
