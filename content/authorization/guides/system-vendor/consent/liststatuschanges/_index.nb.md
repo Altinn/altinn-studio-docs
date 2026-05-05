@@ -14,20 +14,20 @@ toc: false
 ## API Endepunkt
 
 Returnerer en paginert liste over samtykkeforspørsler som nylig har hatt statusendringer for den autentiserte virksomheten.
-Resultatene sorteres etter siste statusendring, med nyeste først. Standardsidestørrelse er 100 hvis ikke annet er spesifisert.
+Resultatene sorteres etter siste statusendring, med nyeste først. 
 Dette endepunktet bruker kursormbasert paginering, så kall endepunktet uten en ContinuationToken for å hente den første siden.
 - **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/latestchanges`
 - **Produksjon**: `GET https://platform.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/latestchanges`
 
 ## Request/Response Eksempel
 **Første side**
-`GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/latestchanges?pageSize=50`
+`GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/latestchanges`
 Authorization: Bearer <maskinporten_token>
 
 ```jsonc
 {
   "links": {
-    "next": "https://<host>/accessmanagement/api/v1/enterprise/consentrequests/latestchanges?continuationToken=MjAyNS0wNS0wNFQxMDozMDowMCswMjowMHwzZmE4NWY2NC01NzE3LTQ1NjItYjNmYy0yYzk2M2Y2NmFmYTY%3D&pageSize=50"
+    "next": "https://<host>/accessmanagement/api/v1/enterprise/consentrequests/latestchanges?continuationToken=MjAyNS0wNS0wNFQxMDozMDowMCswMjowMHwzZmE4NWY2NC01NzE3LTQ1NjItYjNmYy0yYzk2M2Y2NmFmYTY%3D"
   },
   "data": [
     {
@@ -40,13 +40,13 @@ Authorization: Bearer <maskinporten_token>
 ```
 
 **Neste side**
-`GET /accessmanagement/api/v1/enterprise/consentrequests/latestchanges?continuationToken=MjAyNS0wNS0wNFQxMDozMDowMCswMjowMHwzZmE4NWY2NC01NzE3LTQ1NjItYjNmYy0yYzk2M2Y2NmFmYTY%3D&pageSize=50`
+`GET /accessmanagement/api/v1/enterprise/consentrequests/latestchanges?continuationToken=MjAyNS0wNS0wNFQxMDozMDowMCswMjowMHwzZmE4NWY2NC01NzE3LTQ1NjItYjNmYy0yYzk2M2Y2NmFmYTY%3D`
 Authorization: Bearer <maskinporten_token>
 
 ```jsonc
 {
   "links": {
-    "next": "https://<host>/accessmanagement/api/v1/enterprise/consentrequests/latestchanges?continuationToken=MjAyNS0wNS0wNFQxMDozMDowMCswMjowMHwzZmE4NWY2NC01NzE3LTQ1NjItYjNmYy0yYzk2M2Y2NmFmYTY%3D&pageSize=50"
+    "next": "https://<host>/accessmanagement/api/v1/enterprise/consentrequests/latestchanges?continuationToken=MjAyNS0wNS0wNFQxMDozMDowMCswMjowMHwzZmE4NWY2NC01NzE3LTQ1NjItYjNmYy0yYzk2M2Y2NmFmYTY%3D"
   },
   "data": [
     {
