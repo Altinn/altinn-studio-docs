@@ -14,7 +14,7 @@ toc: false
 ## API Endpoint
 
 Returns a paginated list of consent requests that have had recent status changes for the authenticated enterprise. 
-Results are ordered by the latest status change, newest first.
+Results are ordered by the latest status change, newest first. By default, the API returns up to 100 changes per request.
 This endpoint uses cursor-based pagination, so call the endpoint without a ContinuationToken to get the first page.
 - **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/latestchanges`
 - **Production**: `GET https://platform.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/latestchanges`
@@ -22,7 +22,8 @@ This endpoint uses cursor-based pagination, so call the endpoint without a Conti
 ## Request/Response Example
 **First page**
 `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/latestchanges`
-Authorization: Bearer <maskinporten_token>
+
+`Authorization: Bearer <maskinporten_token>`
 
 ```jsonc
 {
@@ -41,7 +42,8 @@ Authorization: Bearer <maskinporten_token>
 
 **Next Page**
 `GET /accessmanagement/api/v1/enterprise/consentrequests/latestchanges?continuationToken=MjAyNS0wNS0wNFQxMDozMDowMCswMjowMHwzZmE4NWY2NC01NzE3LTQ1NjItYjNmYy0yYzk2M2Y2NmFmYTY%3D`
-Authorization: Bearer <maskinporten_token>
+
+`Authorization: Bearer <maskinporten_token>`
 
 ```jsonc
 {
