@@ -49,23 +49,31 @@ You are required to set up the following filters:
 In addition you may wish to use filters for Type, so that you receive the event types you are interested in/can perform actions on.
 If you do not specify a Type Filter you will receive all the different types of events if you have access to them.
 
-**For service owner:**
-- `no.altinn.correspondence.attachmentinitialized`
-- `no.altinn.correspondence.attachmentpublished`
-- `no.altinn.correspondence.attachmentuploadfailed`
-- `no.altinn.correspondence.attachmentexpired`
+**For service owners:**
 
-- `no.altinn.correspondence.correspondenceinitialized`
-- `no.altinn.correspondence.correspondencepublished`
-- `no.altinn.correspondence.correspondencepurged`
-- `no.altinn.correspondence.correspondencepublishfailed`
-- `no.altinn.correspondence.notificationcreated`
-- `no.altinn.correspondence.correspondencenotificationcreationfailed`
-- `no.altinn.correspondence.correspondencenotificationfailed`
+| Event | When | Usage |
+|-------|------|-------|
+| `no.altinn.correspondence.attachmentinitialized` | Attachment has been created and is awaiting upload | Confirmation that attachment has been initialized |
+| `no.altinn.correspondence.attachmentpublished` | Attachment has passed malware scanning and is ready for use | Confirmation that attachment is available and can be used in new correspondences |
+| `no.altinn.correspondence.attachmentuploadfailed` | Attachment failed malware scanning | Notification that the attachment has been rejected |
+| `no.altinn.correspondence.attachmentexpired` | Attachment expiration time has passed, it is no longer available to the recipient and cannot be used in new correspondences | Confirmation that attachment has expired |
+| `no.altinn.correspondence.correspondenceinitialized` | Correspondence has been initialized | Confirmation that correspondence has been initialized |
+| `no.altinn.correspondence.correspondencepublished` | Correspondence has been published and is available to the recipient | Confirmation and notification that correspondence has been successfully published |
+| `no.altinn.correspondence.correspondencepurged` | Correspondence has either been purged by the recipient after publishing, or by the service owner before publishing | Notification that correspondence has been purged |
+| `no.altinn.correspondence.correspondencepublishfailed` | Correspondence publish failed | Notification that correspondence failed before publish and will not be made available to the recipient |
+| `no.altinn.correspondence.notificationcreated` | Notification order has been created in Altinn Notification | Confirmation that notification has been ordered |
+| `no.altinn.correspondence.correspondencenotificationcreationfailed` | Creation of notification order failed | Notification that the notification order was not successfully placed. Consider follow-up |
+| `no.altinn.correspondence.correspondencenotificationfailed` | One or more notification addresses failed (partial failure) | At least one address was successfully notified, but not all. Consider follow-up |
+| `no.altinn.correspondence.correspondencenotificationallfailed` | All notification addresses failed — recipient was not notified | Notification that the recipient was not successfully notified. Consider follow-up |
+| `no.altinn.correspondence.correspondencenotificationdelivered` | The initial notification has been confirmed delivered | Confirmation that recipient has been notified |
+| `no.altinn.correspondence.correspondencenotificationreminderdelivered` | The reminder notification has been confirmed delivered | Confirmation that reminder has been sent |
 
-**For every recipient:**
-- `no.altinn.correspondence.correspondencepublished`
-- `no.altinn.correspondence.correspondencereceiverread`
-- `no.altinn.correspondence.correspondencereceiverconfirmed`
-- `no.altinn.correspondence.correspondencereceiverneverread`
-- `no.altinn.correspondence.correspondencereceiverneverconfirmed`
+**For each recipient:**
+
+| Event | When | Usage |
+|-------|------|-------|
+| `no.altinn.correspondence.correspondencepublished` | Correspondence has been published and is available | Recipient can fetch the content |
+| `no.altinn.correspondence.correspondencereceiverread` | Recipient has read the correspondence | Track read status |
+| `no.altinn.correspondence.correspondencereceiverconfirmed` | Recipient has confirmed the correspondence | Track confirmation of correspondence |
+| `no.altinn.correspondence.correspondencereceiverneverread` | Due date passed without the recipient reading the correspondence | Trigger reminders or escalation flow |
+| `no.altinn.correspondence.correspondencereceiverneverconfirmed` | Due date passed without the recipient confirming the correspondence | Trigger reminders or escalation flow |

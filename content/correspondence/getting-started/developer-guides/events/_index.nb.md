@@ -50,22 +50,30 @@ I tillegg kan du ønske å bruke *typeFilter*, slik at du mottar hendelsestypene
 Hvis du ikke spesifiserer et *typeFilter*, vil du motta alle forskjellige typer hendelser, gitt at du har tilgang til dem.
 
 **For tjeneste-eier:**
-- `no.altinn.correspondence.attachmentinitialized`
-- `no.altinn.correspondence.attachmentpublished`
-- `no.altinn.correspondence.attachmentuploadfailed`
-- `no.altinn.correspondence.attachmentexpired`
 
-- `no.altinn.correspondence.correspondenceinitialized`
-- `no.altinn.correspondence.correspondencepublished`
-- `no.altinn.correspondence.correspondencepurged`
-- `no.altinn.correspondence.correspondencepublishfailed`
-- `no.altinn.correspondence.notificationcreated`
-- `no.altinn.correspondence.correspondencenotificationcreationfailed`
-- `no.altinn.correspondence.correspondencenotificationfailed`
+| Event | Når | Bruk |
+|-------|-----|------|
+| `no.altinn.correspondence.attachmentinitialized` | Vedlegg er opprettet og venter på opplasting | Spor opprettelse av vedlegg |
+| `no.altinn.correspondence.attachmentpublished` | Vedlegg har bestått malware-skanning og er klart til bruk | Bekreftelse på at vedlegg er tilgjengelig og kan sendes med nye meldinger |
+| `no.altinn.correspondence.attachmentuploadfailed` | Vedlegg feilet malware-skanning | Varsel på at vedlegget er avvist |
+| `no.altinn.correspondence.attachmentexpired` | Vedleggets utløpsdato er passert, er ikke lenger tilgjengelig for mottaker og kan ikke brukes i nye meldinger | Bekreftelse på at vedlegg har utløpt |
+| `no.altinn.correspondence.correspondenceinitialized` | Meldingen er opprettet | Bekreftelse på at melding er initialisert |
+| `no.altinn.correspondence.correspondencepublished` | Meldingen er publisert og tilgjengelig for mottaker | Bekreftelse og varsel på at melding er vellykket publisert |
+| `no.altinn.correspondence.correspondencepurged` | Meldingen er enten slettet av mottaker etter publisering eller av tjeneste-eier før publisering | Varsel på at melding er slettet |
+| `no.altinn.correspondence.correspondencepublishfailed` | Publisering feilet | Varsel på at melding feilet før publisering og vil ikke bli tilgjengelig for mottaker |
+| `no.altinn.correspondence.notificationcreated` | Varslingsordre er opprettet i Altinn Notification | Bekreftelse på at varsling er bestilt |
+| `no.altinn.correspondence.correspondencenotificationcreationfailed` | Opprettelse av varslingsordre feilet | Varsel på at varslingsordre ikke ble vellykket bestilt. Vurder oppfølging |
+| `no.altinn.correspondence.correspondencenotificationfailed` | En eller flere varselmottakere fikk ikke varslet (delvis feil) | Varsel til minst en varslingsaddresse hos meldingsmottaker ble ikke vellykket sendt, men minst en addresse har mottat varselet. Vurder oppfølging |
+| `no.altinn.correspondence.correspondencenotificationallfailed` | Alle varselmottakere for hovedordren feilet (fullstendig feil), ikke inkludert valgfri mottakere | Mottakeren ble ikke vellykket varslet. Vurder oppfølging |
+| `no.altinn.correspondence.correspondencenotificationdelivered` | Initialvarselet er blitt bekreftet levert | Bekreftelse på at mottaker er varslet |
+| `no.altinn.correspondence.correspondencenotificationreminderdelivered` | Påminnelsesvarselet er blitt bekreftet levert | Bekreftelse på at påminnelse er sendt |
 
 **For hver mottaker:**
-- `no.altinn.correspondence.correspondencepublished`
-- `no.altinn.correspondence.correspondencereceiverread`
-- `no.altinn.correspondence.correspondencereceiverconfirmed`
-- `no.altinn.correspondence.correspondencereceiverneverread`
-- `no.altinn.correspondence.correspondencereceiverneverconfirmed`
+
+| Event | Når | Bruk |
+|-------|-----|------|
+| `no.altinn.correspondence.correspondencepublished` | Meldingen er publisert og tilgjengelig | Mottaker kan hente innholdet |
+| `no.altinn.correspondence.correspondencereceiverread` | Mottaker har lest meldingen | Spor lesestatus |
+| `no.altinn.correspondence.correspondencereceiverconfirmed` | Mottaker har bekreftet meldingen | Spor bekreftelse av mottak |
+| `no.altinn.correspondence.correspondencereceiverneverread` | Fristdato passert uten at mottaker leste meldingen | Utløs purringer eller eskaleringsflyt |
+| `no.altinn.correspondence.correspondencereceiverneverconfirmed` | Fristdato passert uten at mottaker bekreftet meldingen | Utløs purringer eller eskaleringsflyt |
