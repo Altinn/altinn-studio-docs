@@ -14,67 +14,88 @@ aliases:
 Din Altinn Studio bruker er personlig for deg og kan knyttes til en eller flere organisasjoner for å samarbeide med 
 andre og få tilgang til eksisterende apper.
 
-### Lag en bruker med Ansattporten
-{.floating-bullet-numbers-sibling-ol}
+Følg disse stegene om du ikke har noen bruker i Altinn Studio.
 
-1. Gå til [altinn.studio](https://altinn.studio) og klikk på "Opprett ny  bruker".
-   ![Innlogging](./velkommen.png "Velkommen")
+1. Naviger til [Altinn Studio](https://altinn.studio) og klikk på "Logg inn".
+2. Velg "Nei" på spørsmål om du allerede har en bruker.
+3. Logg inn med BankID eller MinID for å identifisere deg.
+4. Bruker opprettes automatisk, og du kan nå bruke Altinn Studio.
 
-2. Registrer deg via Ansattporten
-   - *Registrering via kun epostadresse er ikke lenger støttet. Av sikkerhetsmessige årsaker er vi i gang med å fjerne 
-      alle muligheter for registrering utenom Ansattporten. Vi anbefaler derfor at du velger Ansattporten.*
-   
-   ![Registrer via Ansattporten](./register-user.png "Registrer via Ansattporten")
+{{% notice info %}}
+Hvis du allerede har en bruker i Altinn Studio som er koblet til Ansattporten vil det ikke opprettes noen ny bruker.
+Den brukeren du allerede har vil logges inn.
+{{% /notice %}}
 
-3. Logg inn gjennom Ansattporten.
-   - *Du kan bruke Ansattporten for innlogging/registrering om du kan logge inn med BankID, MinID eller EntraID. 
-      Det er ikke et krav om knytning til en virksomhet i offentlig sektor.*
+## Flytte eksisterende bruker til ny innlogging
+{{% notice warning %}}
+Det er innført en ny innloggingsløsning i Altinn Studio, der innlogging kun skjer via Ansattporten. 
+{{% /notice %}}
 
-   ![Ansattporten innlogging](./ansattporten.png "Ansattporten innlogging")
+### Logge inn med eksisterende bruker i ny løsning - FØRSTE GANG
+Følg disse stegene om du ikke har logget inn med ny løsning før. Er du HELT sikker på at du allerede har koblet opp din konto,
+og brukt BankID eller MinID til innlogging, kan du følge stegene beskrevet i [neste avsnitt](./#logge-inn-med-eksisterende-bruker-i-ny-løsning).
+1. Naviger til [Altinn Studio](https://altinn.studio) og klikk på "Logg inn".
+2. Velg "Ja" på spørsmål om du allerede har en bruker.
+3. Velg "Nei" på spørsmålet om du allerede har koblet din bruker til Ansattporten.
+4. Følg lenken til gammel innlogging, og logg inn via Ansattporten. Bruk **BankID** eller **MinID**.
+5. Koble innloggingen til kontoen din. Fyll ut brukernavn/passord. Husker du ikke ditt passord kan du klikke på lenken for å sette nytt passord, eller ta kontakt med [Servicedesk](mailto:servicedesk@altinn.no).
+    > Blir du logget inn direkte og kommer ikke til skjema for å koble opp kontoen? Da er kontoen allerede koblet opp og du kan gå videre til neste steg 👍
+6. Gå tilbake til [Altinn Studio](https://altinn.studio) og klikk på "Logg inn".
+7. Velg "Ja" på spørsmål om du allerede har bruker, og "Ja" på spørsmål om du har koblet kontoen din til Ansattporten.
+8. Huk av for "Ikke vis denne veiledningen neste gang" for å slippe å gå gjennom veiledningen ved neste innlogging.
+9. Logg inn via Ansattporten. Du har allerede en sesjon i Ansattporten og logges inn direkte. 
+10. Kontoen din er nå flyttet over på ny løsning. Du kan nå logge inn direkte neste gang.
 
+### Logge inn med eksisterende bruker i ny løsning
+{{% notice warning %}}
+**VIKTIG:** Er det første gang du logger inn med ny løsning? Følg stegene i [avsnittet over](#logge-inn-med-eksisterende-bruker-i-ny-løsning---første-gang) for 
+å sikre at du får overført din eksisterende konto.
+{{% /notice %}}
 
-4. Lag en Altinn Studio bruker ved å fylle ut brukernavn, epost, passord, en captcha og klikk på “Fullfør”.  
-   Brukeren i Altinn Studio vil bli koblet til din Ansattporten-bruker.
-   ![Registrer ditt brukernavn i Altinn Studio](./register-new-gitea-user.png "Registrer ditt brukernavn i Altinn Studio")
+Disse stegene gjelder for deg som allerede har logget inn med ny løsning, eller deg som er helt sikker på at du allerede har
+koblet din konto til Ansattporten, med innlogging med BankID eller MinID.
 
-5. Aktiver kontoen din ved å bekrefte epostadressen du registrerte med.
-   - *En epost er sendt til den epostadressen du oppga med en lenke. Kopier ut lenken og lim den inn i nettleservindu.*
+1. Naviger til [Altinn Studio](https://altinn.studio) og klikk på "Logg inn".
+2. Velg "Ja" på spørsmål om du allerede har bruker, og "Ja" på spørsmål om du har koblet kontoen din til Ansattporten.
+3. Huk av for "Ikke vis denne veiledningen neste gang" for å slippe å gå gjennom veiledningen ved neste innlogging.
+4. Logg inn via Ansattporten. Du har allerede en sesjon i Ansattporten og logges inn direkte. 
+5. Kontoen din er nå flyttet over på ny løsning. Du kan nå logge inn direkte neste gang.
 
-   {{% notice warning%}}
-   Hvis du får en feilmelding om at lenken er utløpt, prøv å logge inn på nytt (via Ansattporten). Kontoen skal være aktivert.
-   {{% /notice %}}
+## Spørsmål og svar knyttet til ny innloggingsløsning
 
-6. Gi Altinn Studio applikasjonen tilgang til din brukerkonto
-   ![Gi Altinn Studio applikasjonen tilgang til din brukerkonto](./authorize-application.png "Gi Altinn Studio applikasjonen tilgang til din brukerkonto")
+### Jeg vet ikke hvilken guide jeg bør følge
+Gå til [Altinn Studio](https://altinn.studio) og klikk på "Logg inn". Svar på spørsmålene i veilederen og følg instruksjonene der.
+Er du fortsatt usikker følger du stegene i [avsnitt for første gangs innlogging](#logge-inn-med-eksisterende-bruker-i-ny-løsning---første-gang).
 
-Etter at kontoen  er aktivert, trykk på logoen øverst til venstre på siden for å navigere til ditt tjeneste-dashboard.
-Du er nå klar til å lage din første tjeneste.
+### Jeg husker ikke passordet mitt, hva gjør jeg?
+Gå til [den gamle innloggingssiden](https://altinn.studio/repos/user/login) og klikk på "Forgot password?". 
+Legg inn epostadressen tilknyttet kontoen din og følg instruksjonene i eposten for å resette passordet ditt.
 
-![Tjeneste-dashboard ved første innlogging](./empty-dashboard.png?width=500 "Tjeneste-dashboard ved første innlogging")
+### Jeg husker ikke om jeg har brukt Ansattporten med BankID/MinID, hva gjør jeg?
+Anta at du ikke har koblet opp kontoen din, og følg stegene i [avsnitt for første gangs innlogging](#logge-inn-med-eksisterende-bruker-i-ny-løsning---første-gang).
 
-## Koble eksisterende bruker til Ansattporten
+### Jeg bruker Ansattporten med EntraID, vil det fungere i ny løsning?
+Det korte svaret er NEI. 
 
-Hvis du har registrert deg i Altinn Studio tidligere, via Github eller epostadresse, kan du koble din konto i Altinn Studio
-mot innlogging i Ansattporten ved å følge stegene under.
+Følg stegene i [avsnitt for første gangs innlogging](#logge-inn-med-eksisterende-bruker-i-ny-løsning---første-gang)
+og bruk BankID eller MinID. Har du ikke logget inn med BankID eller MinID tidligere må du legge inn brukernavn/passord for å 
+koble opp kontoen før du kan gå videre til innlogging i ny løsning.
 
-1. Gå til [altinn.studio](https://altinn.studio) og klikk på "Logg inn".
-   ![Innlogging](./velkommen.png "Velkommen")
+På sikt vil det være mulig å koble opp EntraID mot din bruker i den nye innloggingsløsningen, men det er ikke støttet ennå.
 
-2. Klikk på knappen "Logg inn med Ansattporten".
-   ![Logg inn med Ansattporten](./signin-with-ansattporten.png "Logg inn med Ansattporten")
+### Hjelp, jeg logget inn i Altinn Studio med Ansattporten og nå har jeg mistet alle tilganger til min organisasjon. Hva gjør jeg?
+Din gamle konto har da ikke blitt knyttet opp mot din Ansattporten-innlogging før du logget inn i ny løsning. Systemet 
+har tolket at det ikke finnes noen konto knyttet til din Ansattporten-innlogging og har lagd en ny konto. Den nye kontoen
+er ikke lagt inn med de samme tilgangene som den gamle kontoen.
 
-3. Logg inn gjennom Ansattporten.
-   - *Du kan bruke Ansattporten for innlogging/registrering om du kan logge inn med BankID, MinID eller EntraID. 
-      Det er foreløpig ikke et krav om knytning til en virksomhet i offentlig sektor.*
+Kontakt den som administrerer tilganger for din organisasjon i Altinn Studio for å bli lagt inn med riktige tilganger for den nye kontoen.
+Du kan kontakte [Servicedesk](mailto:servicedesk@altinn.no) for bistand med å f.eks. flytte repoer fra den gamle brukeren om du har 
+noe liggende som du ønsker å spare på. 
 
-   ![Ansattporten innlogging](./ansattporten.png "Ansattporten innlogging")
+OBS! Servicedesk utfører ikke tilgangsstyring på vegne av din organisasjon, det må gjøres av den som administrerer organisasjonen i Altinn Studio.
 
-4. Velg fanen "Koble til eksisterende konto" og logg inn med brukernavn/passord.
-   - *Har du glemt brukernavn/passord? Du kan resette disse selv ved å følge lenken på innloggingsskjemaet.*
-
-   ![Koble til eksisterende konto](./link-to-existing-account.png "Koble til eksisterende konto")
-
-Nå er kontoen din koblet mot Ansattporten, og du kan bruke Ansattporten til å logge deg inn i Altinn Studio.
+### Jeg vet ikke hva jeg skal gjøre, kan dere hjelpe meg?
+Kontakt [Servicedesk](mailto:servicedesk@altinn.no) og forklar problemet ditt, så skal vi hjelpe deg!
 
 ## Bli del av en organisasjon
 
