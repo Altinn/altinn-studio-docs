@@ -62,10 +62,10 @@ This endpoint uses cursor-based pagination, so call the endpoint without a Conti
 
 | Response Field | Description |
 |----------------|-------------|
-|links.Next|URL to fetch the next page. null if there are no more results.|
+|links.next|URL to fetch the next page. null if there are no more results.|
 |data[].consentRequestId|Unique identifier of the consent request.|
 |data[].eventType|the type of status event. Events: accepted, rejected, revoked, deleted, used. Event created/expired will not be listed as it is not a status change.|
-|data[].changedDate| the timestamp of when the status change occured|
+|data[].changedDate|the timestamp of when the status change occured.|
 
 
 ## Error Responses

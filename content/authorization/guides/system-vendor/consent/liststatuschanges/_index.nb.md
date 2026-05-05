@@ -15,7 +15,7 @@ toc: false
 
 Returnerer en paginert liste over samtykkeforspørsler som nylig har hatt statusendringer for den autentiserte virksomheten.
 Resultatene sorteres etter siste statusendring, med nyeste først. Som standard returnerer API-et opptil 100 endringer per forespørsel.
-Dette endepunktet bruker kursormbasert paginering, så kall endepunktet uten en ContinuationToken for å hente den første siden.
+Dette endepunktet bruker kursorbasert paginering, så kall endepunktet uten en ContinuationToken for å hente den første siden.
 - **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/latestchanges`
 - **Produksjon**: `GET https://platform.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/latestchanges`
 
@@ -62,10 +62,10 @@ Dette endepunktet bruker kursormbasert paginering, så kall endepunktet uten en 
 
 | Respons Felt | Beskrivelse |
 |----------------|-------------|
-|links.Next|URL for å hente neste side. null hvis det ikke finnes flere resultater.|
+|links.next|URL for å hente neste side. null hvis det ikke finnes flere resultater.|
 |data[].consentRequestId|Unik identifikator for samtykkeforspørselen.|
 |data[].eventType|Type statushendelse. Hendelser: accepted, rejected, revoked, deleted, used. Hendelsen ‘created/expired’ listes ikke, da dette ikke er en statusendring.|
-|data[].changedDate| Tidsstempel for når statusendringen skjedde.|
+|data[].changedDate|Tidsstempel for når statusendringen skjedde.|
 
 
 ## Error Responses
@@ -73,6 +73,6 @@ Dette endepunktet bruker kursormbasert paginering, så kall endepunktet uten en 
 | Statuskode | Beskrivelse |
 |------------|-------------|
 |401 Unauthorized|Manglende eller ugyldig autentiseringstoken.|
-|403 Forbidden|Den autentiserte parten har ikke tilgang|
+|403 Forbidden|Den autentiserte parten har ikke tilgang.|
 |400 Bad Request|Spørringsparametere er ugyldige. Se innholdet i ProblemDetails for detaljer.|
 |500 Internal Server Error|Uventet feil på serversiden.|
