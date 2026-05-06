@@ -325,7 +325,7 @@
             <path d="M 648.88 1090 L 641.88 1093.5 L 643.63 1090 L 641.88 1086.5 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <rect x="130" y="1060" width="120" height="60" fill="#fff2cc" stroke="#d6b656" pointer-events="all" style="fill: light-dark(rgb(255, 242, 204), rgb(40, 29, 0)); stroke: light-dark(rgb(214, 182, 86), rgb(109, 81, 0));"/>
+            <rect x="130" y="1060" width="120" height="60" fill="#d5e8d4" stroke="#82b366" pointer-events="all" style="fill: light-dark(rgb(213, 232, 212), rgb(31, 47, 30)); stroke: light-dark(rgb(130, 179, 102), rgb(68, 110, 44));"/>
         </g>
         <g>
             <g transform="translate(-0.5 -0.5)">
@@ -446,7 +446,7 @@
             <path d="M 1738.88 2400 L 1731.88 2403.5 L 1733.63 2400 L 1731.88 2396.5 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <rect x="1250" y="2470" width="120" height="60" fill="#f8cecc" stroke="#b85450" pointer-events="all" style="fill: light-dark(rgb(248, 206, 204), rgb(81, 45, 43)); stroke: light-dark(rgb(184, 84, 80), rgb(215, 129, 126));"/>
+            <rect x="1250" y="2470" width="120" height="60" fill="#fff2cc" stroke="#d6b656" pointer-events="all" style="fill: light-dark(rgb(255, 242, 204), rgb(40, 29, 0)); stroke: light-dark(rgb(214, 182, 86), rgb(109, 81, 0));"/>
         </g>
         <g>
             <g transform="translate(-0.5 -0.5)">
@@ -580,7 +580,7 @@
         </g>
         <a xlink:href="https://github.com/Altinn/altinn-authorization-tmp/issues/2891" target="_blank">
             <g>
-                <rect x="1250" y="2370" width="120" height="60" fill="#f8cecc" stroke="#b85450" pointer-events="all" style="fill: light-dark(rgb(248, 206, 204), rgb(81, 45, 43)); stroke: light-dark(rgb(184, 84, 80), rgb(215, 129, 126));"/>
+                <rect x="1250" y="2370" width="120" height="60" fill="#fff2cc" stroke="#d6b656" pointer-events="all" style="fill: light-dark(rgb(255, 242, 204), rgb(40, 29, 0)); stroke: light-dark(rgb(214, 182, 86), rgb(109, 81, 0));"/>
             </g>
             <g>
                 <g transform="translate(-0.5 -0.5)">
@@ -1381,7 +1381,7 @@
             </g>
         </g>
         <g>
-            <rect x="650" y="1060" width="120" height="60" fill="#f8cecc" stroke="#b85450" pointer-events="all" style="fill: light-dark(rgb(248, 206, 204), rgb(81, 45, 43)); stroke: light-dark(rgb(184, 84, 80), rgb(215, 129, 126));"/>
+            <rect x="650" y="1060" width="120" height="60" fill="#d5e8d4" stroke="#82b366" pointer-events="all" style="fill: light-dark(rgb(213, 232, 212), rgb(31, 47, 30)); stroke: light-dark(rgb(130, 179, 102), rgb(68, 110, 44));"/>
         </g>
         <g>
             <g transform="translate(-0.5 -0.5)">
@@ -1743,7 +1743,7 @@
         </g>
         <a xlink:href="https://github.com/Altinn/altinn-authorization-tmp/issues/2891" target="_blank">
             <g>
-                <rect x="1740" y="2370" width="120" height="60" fill="#f8cecc" stroke="#b85450" pointer-events="all" style="fill: light-dark(rgb(248, 206, 204), rgb(81, 45, 43)); stroke: light-dark(rgb(184, 84, 80), rgb(215, 129, 126));"/>
+                <rect x="1740" y="2370" width="120" height="60" fill="#fff2cc" stroke="#d6b656" pointer-events="all" style="fill: light-dark(rgb(255, 242, 204), rgb(40, 29, 0)); stroke: light-dark(rgb(214, 182, 86), rgb(109, 81, 0));"/>
             </g>
             <g>
                 <g transform="translate(-0.5 -0.5)">
@@ -1846,7 +1846,7 @@
             <path d="M 1738.88 2400 L 1731.88 2403.5 L 1733.63 2400 L 1731.88 2396.5 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <rect x="1250" y="2570" width="120" height="60" fill="#f8cecc" stroke="#b85450" pointer-events="all" style="fill: light-dark(rgb(248, 206, 204), rgb(81, 45, 43)); stroke: light-dark(rgb(184, 84, 80), rgb(215, 129, 126));"/>
+            <rect x="1250" y="2570" width="120" height="60" fill="#d5e8d4" stroke="#82b366" pointer-events="all" style="fill: light-dark(rgb(213, 232, 212), rgb(31, 47, 30)); stroke: light-dark(rgb(130, 179, 102), rgb(68, 110, 44));"/>
         </g>
         <g>
             <g transform="translate(-0.5 -0.5)">
@@ -2926,7 +2926,7 @@
         </g>
         <a xlink:href="https://github.com/Altinn/altinn-authorization-tmp/issues/2765" target="_blank">
             <g>
-                <rect x="570" y="4690" width="120" height="60" fill="#fff2cc" stroke="#d6b656" pointer-events="all" style="fill: light-dark(rgb(255, 242, 204), rgb(40, 29, 0)); stroke: light-dark(rgb(214, 182, 86), rgb(109, 81, 0));"/>
+                <rect x="570" y="4690" width="120" height="60" fill="#d5e8d4" stroke="#82b366" pointer-events="all" style="fill: light-dark(rgb(213, 232, 212), rgb(31, 47, 30)); stroke: light-dark(rgb(130, 179, 102), rgb(68, 110, 44));"/>
             </g>
             <g>
                 <g transform="translate(-0.5 -0.5)">
@@ -2980,7 +2980,7 @@
         </g>
         <a xlink:href="https://github.com/Altinn/altinn-authorization-tmp/issues/2766" target="_blank">
             <g>
-                <rect x="980" y="4690" width="120" height="60" fill="#f8cecc" stroke="#b85450" pointer-events="all" style="fill: light-dark(rgb(248, 206, 204), rgb(81, 45, 43)); stroke: light-dark(rgb(184, 84, 80), rgb(215, 129, 126));"/>
+                <rect x="980" y="4690" width="120" height="60" fill="#fff2cc" stroke="#d6b656" pointer-events="all" style="fill: light-dark(rgb(255, 242, 204), rgb(40, 29, 0)); stroke: light-dark(rgb(214, 182, 86), rgb(109, 81, 0));"/>
             </g>
             <g>
                 <g transform="translate(-0.5 -0.5)">
@@ -3146,7 +3146,7 @@
         </g>
         <a xlink:href="https://github.com/Altinn/altinn-authorization-tmp/issues/2738" target="_blank">
             <g>
-                <rect x="1770" y="5150" width="120" height="60" fill="#f8cecc" stroke="#b85450" pointer-events="all" style="fill: light-dark(rgb(248, 206, 204), rgb(81, 45, 43)); stroke: light-dark(rgb(184, 84, 80), rgb(215, 129, 126));"/>
+                <rect x="1770" y="5150" width="120" height="60" fill="#fff2cc" stroke="#d6b656" pointer-events="all" style="fill: light-dark(rgb(255, 242, 204), rgb(40, 29, 0)); stroke: light-dark(rgb(214, 182, 86), rgb(109, 81, 0));"/>
             </g>
             <g>
                 <g transform="translate(-0.5 -0.5)">
@@ -3254,7 +3254,7 @@
         </g>
         <a xlink:href="https://github.com/Altinn/altinn-authorization-tmp/issues/2755" target="_blank">
             <g>
-                <rect x="2075" y="5040" width="120" height="60" fill="#f8cecc" stroke="#b85450" pointer-events="all" style="fill: light-dark(rgb(248, 206, 204), rgb(81, 45, 43)); stroke: light-dark(rgb(184, 84, 80), rgb(215, 129, 126));"/>
+                <rect x="2075" y="5040" width="120" height="60" fill="#fff2cc" stroke="#d6b656" pointer-events="all" style="fill: light-dark(rgb(255, 242, 204), rgb(40, 29, 0)); stroke: light-dark(rgb(214, 182, 86), rgb(109, 81, 0));"/>
             </g>
             <g>
                 <g transform="translate(-0.5 -0.5)">
@@ -3281,7 +3281,7 @@
         </g>
         <a xlink:href="https://github.com/Altinn/altinn-authorization-tmp/issues/2756" target="_blank">
             <g>
-                <rect x="2075" y="5150" width="120" height="60" fill="#f8cecc" stroke="#b85450" pointer-events="all" style="fill: light-dark(rgb(248, 206, 204), rgb(81, 45, 43)); stroke: light-dark(rgb(184, 84, 80), rgb(215, 129, 126));"/>
+                <rect x="2075" y="5150" width="120" height="60" fill="#fff2cc" stroke="#d6b656" pointer-events="all" style="fill: light-dark(rgb(255, 242, 204), rgb(40, 29, 0)); stroke: light-dark(rgb(214, 182, 86), rgb(109, 81, 0));"/>
             </g>
             <g>
                 <g transform="translate(-0.5 -0.5)">
@@ -3308,7 +3308,7 @@
         </g>
         <a xlink:href="https://github.com/Altinn/altinn-authorization-tmp/issues/2757" target="_blank">
             <g>
-                <rect x="2075" y="5270" width="120" height="60" fill="#f8cecc" stroke="#b85450" pointer-events="all" style="fill: light-dark(rgb(248, 206, 204), rgb(81, 45, 43)); stroke: light-dark(rgb(184, 84, 80), rgb(215, 129, 126));"/>
+                <rect x="2075" y="5270" width="120" height="60" fill="#fff2cc" stroke="#d6b656" pointer-events="all" style="fill: light-dark(rgb(255, 242, 204), rgb(40, 29, 0)); stroke: light-dark(rgb(214, 182, 86), rgb(109, 81, 0));"/>
             </g>
             <g>
                 <g transform="translate(-0.5 -0.5)">
@@ -3385,7 +3385,7 @@
         </g>
         <a xlink:href="https://github.com/Altinn/altinn-authorization-tmp/issues/2852" target="_blank">
             <g>
-                <rect x="130" y="5720" width="120" height="60" fill="#fff2cc" stroke="#d6b656" pointer-events="all" style="fill: light-dark(rgb(255, 242, 204), rgb(40, 29, 0)); stroke: light-dark(rgb(214, 182, 86), rgb(109, 81, 0));"/>
+                <rect x="130" y="5720" width="120" height="60" fill="#d5e8d4" stroke="#82b366" pointer-events="all" style="fill: light-dark(rgb(213, 232, 212), rgb(31, 47, 30)); stroke: light-dark(rgb(130, 179, 102), rgb(68, 110, 44));"/>
             </g>
             <g>
                 <g transform="translate(-0.5 -0.5)">
@@ -3419,7 +3419,7 @@
             <path d="M 968.88 5950 L 961.88 5953.5 L 963.63 5950 L 961.88 5946.5 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <rect x="690" y="5720" width="120" height="60" fill="#fff2cc" stroke="#d6b656" pointer-events="all" style="fill: light-dark(rgb(255, 242, 204), rgb(40, 29, 0)); stroke: light-dark(rgb(214, 182, 86), rgb(109, 81, 0));"/>
+            <rect x="690" y="5720" width="120" height="60" fill="#d5e8d4" stroke="#82b366" pointer-events="all" style="fill: light-dark(rgb(213, 232, 212), rgb(31, 47, 30)); stroke: light-dark(rgb(130, 179, 102), rgb(68, 110, 44));"/>
         </g>
         <g>
             <g transform="translate(-0.5 -0.5)">
@@ -3444,7 +3444,7 @@
             <path d="M 1768.88 5750 L 1761.88 5753.5 L 1763.63 5750 L 1761.88 5746.5 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <rect x="970" y="5720" width="120" height="60" fill="#f8cecc" stroke="#b85450" pointer-events="all" style="fill: light-dark(rgb(248, 206, 204), rgb(81, 45, 43)); stroke: light-dark(rgb(184, 84, 80), rgb(215, 129, 126));"/>
+            <rect x="970" y="5720" width="120" height="60" fill="#d5e8d4" stroke="#82b366" pointer-events="all" style="fill: light-dark(rgb(213, 232, 212), rgb(31, 47, 30)); stroke: light-dark(rgb(130, 179, 102), rgb(68, 110, 44));"/>
         </g>
         <g>
             <g transform="translate(-0.5 -0.5)">
@@ -3465,7 +3465,7 @@
             </g>
         </g>
         <g>
-            <rect x="1770" y="5720" width="120" height="60" fill="#f8cecc" stroke="#b85450" pointer-events="all" style="fill: light-dark(rgb(248, 206, 204), rgb(81, 45, 43)); stroke: light-dark(rgb(184, 84, 80), rgb(215, 129, 126));"/>
+            <rect x="1770" y="5720" width="120" height="60" fill="#d5e8d4" stroke="#82b366" pointer-events="all" style="fill: light-dark(rgb(213, 232, 212), rgb(31, 47, 30)); stroke: light-dark(rgb(130, 179, 102), rgb(68, 110, 44));"/>
         </g>
         <g>
             <g transform="translate(-0.5 -0.5)">
@@ -3517,7 +3517,7 @@
             <path d="M 688.88 6110 L 681.88 6113.5 L 683.63 6110 L 681.88 6106.5 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <rect x="130" y="6080" width="120" height="60" fill="#fff2cc" stroke="#d6b656" pointer-events="all" style="fill: light-dark(rgb(255, 242, 204), rgb(40, 29, 0)); stroke: light-dark(rgb(214, 182, 86), rgb(109, 81, 0));"/>
+            <rect x="130" y="6080" width="120" height="60" fill="#d5e8d4" stroke="#82b366" pointer-events="all" style="fill: light-dark(rgb(213, 232, 212), rgb(31, 47, 30)); stroke: light-dark(rgb(130, 179, 102), rgb(68, 110, 44));"/>
         </g>
         <g>
             <g transform="translate(-0.5 -0.5)">
@@ -3570,7 +3570,7 @@
         </g>
         <a xlink:href="https://github.com/Altinn/altinn-authorization-tmp/issues/2920" target="_blank">
             <g>
-                <rect x="970" y="6080" width="120" height="60" fill="#fff2cc" stroke="#d6b656" pointer-events="all" style="fill: light-dark(rgb(255, 242, 204), rgb(40, 29, 0)); stroke: light-dark(rgb(214, 182, 86), rgb(109, 81, 0));"/>
+                <rect x="970" y="6080" width="120" height="60" fill="#d5e8d4" stroke="#82b366" pointer-events="all" style="fill: light-dark(rgb(213, 232, 212), rgb(31, 47, 30)); stroke: light-dark(rgb(130, 179, 102), rgb(68, 110, 44));"/>
             </g>
             <g>
                 <g transform="translate(-0.5 -0.5)">
@@ -3663,7 +3663,7 @@
             <path d="M 1768.88 6110 L 1761.88 6113.5 L 1763.63 6110 L 1761.88 6106.5 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <rect x="1285" y="6080" width="120" height="60" fill="#f8cecc" stroke="#b85450" pointer-events="all" style="fill: light-dark(rgb(248, 206, 204), rgb(81, 45, 43)); stroke: light-dark(rgb(184, 84, 80), rgb(215, 129, 126));"/>
+            <rect x="1285" y="6080" width="120" height="60" fill="#d5e8d4" stroke="#82b366" pointer-events="all" style="fill: light-dark(rgb(213, 232, 212), rgb(31, 47, 30)); stroke: light-dark(rgb(130, 179, 102), rgb(68, 110, 44));"/>
         </g>
         <g>
             <g transform="translate(-0.5 -0.5)">
@@ -3684,7 +3684,7 @@
             </g>
         </g>
         <g>
-            <rect x="1770" y="6080" width="120" height="60" fill="#f8cecc" stroke="#b85450" pointer-events="all" style="fill: light-dark(rgb(248, 206, 204), rgb(81, 45, 43)); stroke: light-dark(rgb(184, 84, 80), rgb(215, 129, 126));"/>
+            <rect x="1770" y="6080" width="120" height="60" fill="#d5e8d4" stroke="#82b366" pointer-events="all" style="fill: light-dark(rgb(213, 232, 212), rgb(31, 47, 30)); stroke: light-dark(rgb(130, 179, 102), rgb(68, 110, 44));"/>
         </g>
         <g>
             <g transform="translate(-0.5 -0.5)">
@@ -3944,7 +3944,7 @@
             <path d="M 2608.88 5850 L 2601.88 5853.5 L 2603.63 5850 L 2601.88 5846.5 Z" fill="#000000" stroke="#000000" stroke-miterlimit="10" pointer-events="all" style="fill: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); stroke: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));"/>
         </g>
         <g>
-            <rect x="1770" y="5820" width="120" height="60" fill="#f8cecc" stroke="#b85450" pointer-events="all" style="fill: light-dark(rgb(248, 206, 204), rgb(81, 45, 43)); stroke: light-dark(rgb(184, 84, 80), rgb(215, 129, 126));"/>
+            <rect x="1770" y="5820" width="120" height="60" fill="#fff2cc" stroke="#d6b656" pointer-events="all" style="fill: light-dark(rgb(255, 242, 204), rgb(40, 29, 0)); stroke: light-dark(rgb(214, 182, 86), rgb(109, 81, 0));"/>
         </g>
         <g>
             <g transform="translate(-0.5 -0.5)">
@@ -4020,7 +4020,7 @@
         </g>
         <a xlink:href="https://github.com/Altinn/altinn-authorization-tmp/issues/2886" target="_blank">
             <g>
-                <rect x="1130" y="5820" width="120" height="60" fill="#f8cecc" stroke="#b85450" pointer-events="all" style="fill: light-dark(rgb(248, 206, 204), rgb(81, 45, 43)); stroke: light-dark(rgb(184, 84, 80), rgb(215, 129, 126));"/>
+                <rect x="1130" y="5820" width="120" height="60" fill="#d5e8d4" stroke="#82b366" pointer-events="all" style="fill: light-dark(rgb(213, 232, 212), rgb(31, 47, 30)); stroke: light-dark(rgb(130, 179, 102), rgb(68, 110, 44));"/>
             </g>
             <g>
                 <g transform="translate(-0.5 -0.5)">
@@ -4049,7 +4049,7 @@
         </g>
         <a xlink:href="https://github.com/Altinn/altinn-authorization-tmp/issues/2924" target="_blank">
             <g>
-                <rect x="970" y="5920" width="120" height="60" fill="#f8cecc" stroke="#b85450" pointer-events="all" style="fill: light-dark(rgb(248, 206, 204), rgb(81, 45, 43)); stroke: light-dark(rgb(184, 84, 80), rgb(215, 129, 126));"/>
+                <rect x="970" y="5920" width="120" height="60" fill="#fff2cc" stroke="#d6b656" pointer-events="all" style="fill: light-dark(rgb(255, 242, 204), rgb(40, 29, 0)); stroke: light-dark(rgb(214, 182, 86), rgb(109, 81, 0));"/>
             </g>
             <g>
                 <g transform="translate(-0.5 -0.5)">
