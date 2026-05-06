@@ -62,8 +62,8 @@ Hvis du ikke spesifiserer et *typeFilter*, vil du motta alle forskjellige typer 
 | `no.altinn.correspondence.correspondencepurged` | Meldingen er enten slettet av mottaker etter publisering eller av tjeneste-eier før publisering | Varsel på at melding er slettet |
 | `no.altinn.correspondence.correspondencepublishfailed` | Publisering feilet | Varsel på at melding feilet før publisering og vil ikke bli tilgjengelig for mottaker |
 | `no.altinn.correspondence.notificationcreated` | Varslingsordre er opprettet i Altinn Notification | Bekreftelse på at varsling er bestilt |
-| `no.altinn.correspondence.correspondencenotificationcreationfailed` | Opprettelse av varslingsordre feilet | Varsel på at varslingsordre ikke ble vellykket bestilt. Vurder oppfølging |
-| `no.altinn.correspondence.correspondencenotificationfailed` | En eller flere varselmottakere fikk ikke varslet (delvis feil) | Varsel til minst en varslingsaddresse hos meldingsmottaker ble ikke vellykket sendt, men minst en addresse har mottat varselet. Vurder oppfølging |
+| `no.altinn.correspondence.correspondencenotificationcreationfailed` | Opprettelse av varslingsordre feilet, for eksempel fordi mottaker mangler kontakt informasjon | Varsel på at varslingsordre ikke ble vellykket bestilt. Vurder oppfølging |
+| `no.altinn.correspondence.correspondencenotificationfailed` | Utsendelse til en eller flere av varselmottakerne feilet (delvis feil) | Varsel til minst en varslingsaddresse hos meldingsmottaker ble ikke vellykket sendt, men minst en addresse har mottat varselet. Vurder oppfølging |
 | `no.altinn.correspondence.correspondencenotificationallfailed` | Alle varselmottakere for hovedordren feilet (fullstendig feil), ikke inkludert valgfri mottakere | Mottakeren ble ikke vellykket varslet. Vurder oppfølging |
 | `no.altinn.correspondence.correspondencenotificationdelivered` | Initialvarselet er blitt bekreftet levert | Bekreftelse på at mottaker er varslet |
 | `no.altinn.correspondence.correspondencenotificationreminderdelivered` | Påminnelsesvarselet er blitt bekreftet levert | Bekreftelse på at påminnelse er sendt |
