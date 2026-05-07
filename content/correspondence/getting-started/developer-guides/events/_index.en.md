@@ -32,19 +32,26 @@ All Events published by Altinn Correspondence follow the same pattern:
 
 This subscription is used to configure the endpoint where the events published by correspondence end up. [You can read more about how to setup an Events subscription in Altinn Events here](/en/events/subscribe-to-events/developer-guides/setup-subscription/).
 
-You are required to set up the following filters:
+**For service owners**, you are required to set up the following filter:
 
-- sourceFilter
-  - TT02: <https://platform.tt02.altinn.no/correspondence/api/v1/correspondence>
-  - PROD: <https://api.altinn.no/correspondence/api/v1/correspondence>
 - resourceFilter
   - "urn:altinn:resource:" + The Resource Id for the Correspondence Resource
-- alternativesubjectfilter
-  - "/organisation/(organisation number for your organisation) or /person/(SSN number)
 
-*Alternativesubjectfilter* is used to restrict the event to only the authorized sender or recipient for that particular event, this ensures security and reduces visibility.
+**For recipients**, you are required to set up the following filters:
 
-*Resourceinstance* will always be the same as the FileTransferId of the FileTransfer.
+- resourceFilter
+  - "urn:altinn:resource:" + The Resource Id for the Correspondence Resource
+- subjectFilter
+  - "urn:altinn:organization:identifier-no:{{recipient_orgnumber}}"
+
+*SubjectFilter* is used to restrict the event to only the authorized recipient for that particular event, this ensures security and reduces visibility.
+
+*Resourceinstance* will always be the same as the CorrespondenceId of the Correspondence.
+
+The *source* for events produced by Correspondence is:
+
+- TT02 (test): <https://platform.tt02.altinn.no/correspondence/api/v1/correspondence>
+- Production: <https://platform.altinn.no/correspondence/api/v1/correspondence>
 
 In addition you may wish to use filters for Type, so that you receive the event types you are interested in/can perform actions on.
 If you do not specify a Type Filter you will receive all the different types of events if you have access to them.
