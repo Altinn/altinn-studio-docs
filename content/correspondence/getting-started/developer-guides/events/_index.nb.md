@@ -32,19 +32,26 @@ Alle hendelser publisert av Altinn Melding følger det samme mønsteret:
 
 Dette abonnementet brukes til å konfigurere endepunktet der hendelsene som publiseres av Atlinn Melding skal leveres. [Du kan lese mer om hvordan du setter opp et hendelsesabonnement i Altinn Events her](/nb/events/subscribe-to-events/developer-guides/setup-subscription/).
 
-Du må sette opp følgende filtre:
+**For tjeneste-eier** må du sette opp følgende filter:
 
-- sourceFilter
-  - TT02: <https://platform.tt02.altinn.no/correspondence/api/v1/correspondence>
-  - PROD: <https://api.altinn.no/correspondence/api/v1/correspondence>
 - resourceFilter
   - "urn:altinn:resource:" + Ressurs-IDen for meldingstjenesten
-- alternativesubjectfilter
-  - "/organisation/(organisasjonsnummer for din organisasjon) eller "/person/(personnummer)
 
-*Alternativesubjectfilter* brukes til å begrense Event til bare den autoriserte avsenderen eller mottakeren for den spesifikke hendelsen, dette sikrer innholdet og reduserer synlighet.
+**For mottakere** må du sette opp følgende filtre:
+
+- resourceFilter
+  - "urn:altinn:resource:" + Ressurs-IDen for meldingstjenesten
+- subjectFilter
+  - "urn:altinn:organization:identifier-no:{{recipient_orgnumber}}"
+
+*SubjectFilter* brukes til å begrense hendelsen til bare den autoriserte mottakeren for den spesifikke hendelsen, dette sikrer innholdet og reduserer synlighet.
 
 *Resourceinstance* vil alltid være det samme som CorrespondenceId for Meldingen.
+
+*Source* for hendelser som produseres av Melding er:
+
+- TT02 (test): <https://platform.tt02.altinn.no/correspondence/api/v1/correspondence>
+- Produksjon: <https://platform.altinn.no/correspondence/api/v1/correspondence>
 
 I tillegg kan du ønske å bruke *typeFilter*, slik at du mottar hendelsestypene du er interessert i/kan utføre handlinger på.
 Hvis du ikke spesifiserer et *typeFilter*, vil du motta alle forskjellige typer hendelser, gitt at du har tilgang til dem.
