@@ -38,11 +38,11 @@ window.swaggerNormalizeSchema = function(spec, schema) {
     let normalized = window.swaggerResolveRef(spec, schema);
 
     if (normalized.oneOf && normalized.oneOf.length > 0) {
-        const nullable = normalized.nullable;
-        normalized = window.swaggerResolveRef(spec, normalized.oneOf[0]);
-        if (nullable !== undefined) {
-            normalized = { ...normalized, nullable };
-        }
+        const { oneOf, ...schemaMetadata } = normalized;
+        normalized = {
+            ...window.swaggerResolveRef(spec, oneOf[0]),
+            ...schemaMetadata
+        };
     }
 
     return normalized;
