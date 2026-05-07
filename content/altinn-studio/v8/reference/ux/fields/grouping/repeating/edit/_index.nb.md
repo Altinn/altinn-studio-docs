@@ -77,7 +77,7 @@ Eksempel:
 ```
 
 ## Layout for rediger og slett knapper
-En ny valgfri egenskap `buttonLayout`  i `edit`-konfigurasjonen til RepeatingGroup styrer hvordan handlingene `Rediger` og `Slett` plasseres i tabellvisning på skrivebord. Bruk `buttonLayout` : `"vertical"`  for å legge dem i én kolonne i stedet for standard horisontalt oppsett (to kolonner ved siden av hverandre). Dette sparer horisontal plass når tabellen har mange kolonner. Oppsett på mobil/nettbrett er uendret.
+En ny valgfri egenskap `buttonLayout`  i `edit`-konfigurasjonen til RepeatingGroup styrer hvordan handlingene `Rediger` og `Slett` plasseres i skrivebordsvisning av tabellen. Bruk `buttonLayout` : `"vertical"`  for å legge dem i én kolonne i stedet for standard horisontalt oppsett. Dette sparer horisontal plass når tabellen har mange kolonner. Oppsett på mobil/nettbrett er uendret.
 Standard er `"horizontal"`  hvis du utelater egenskapen.
 
 Du kan legge til `buttonLayout`  i `edit` delen av RepeatingGroup-konfigurasjonen i layout-JSON.
@@ -93,7 +93,7 @@ Eksempel:
 }
 ```
 
-Du kan også kombinere den med `compactButtons` for å skjule text på knapper, for eksempel:
+Du kan også kombinere den med `compactButtons` for å skjule tekst på knapper, for eksempel:
 
 ```json
 {

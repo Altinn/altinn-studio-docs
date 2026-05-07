@@ -78,7 +78,7 @@ Example:
 ```
 
 ## Layout for edit and delete buttons
-A new opt-in property `buttonLayout` in the RepeatingGroup component’s `edit` configuration controls how the`Edit` and `Delete` buttons are arranged in desktop table view. Use `buttonLayout`: `"vertical"` to place them in one column instead of the default horizontal layout. This saves horizontal space when the table has many columns. Mobile/tablet layout is unchanged.
+A new opt-in property `buttonLayout` in the RepeatingGroup component’s `edit` configuration controls how the `Edit` and `Delete` buttons are arranged in desktop table view. Use `buttonLayout`: `"vertical"` to place them in one column instead of the default horizontal layout. This saves horizontal space when the table has many columns. Mobile/tablet layout is unchanged.
 Default is `"horizontal"` if you omit the property.
 
 You can add `buttonLayout` to the `edit` property of your RepeatingGroup configuration in the layout JSON.
@@ -97,7 +97,6 @@ Example:
 You can also combine it with `compactButtons` to hide the text of the button, for example:
 
 ```json
-
 {
   ...
   "edit": {
