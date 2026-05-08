@@ -82,11 +82,6 @@ Example:
 Editing/filling out pages can be performed over multiple "pages"/displays. Requires more setup to work,
 [see the dedicated documentation for this feature](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/multipage/).
 
-## filter
-
-Allows you to filter out some rows, so that only a subset of the rows are displayed. This option is deprecated and
-will be removed in a future version. More information and a description of alternatives can be found [in the documentation dedicated to dynamics in repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/dynamics/).
-
 ## openByDefault
 
 Open the group in editing mode by default. The following values are allowed:
