@@ -99,6 +99,44 @@ Under vises et skjema med en repeterende gruppe som:
 | [tableColumns](table/#bredder-tekst-plassering-og-skjuling-av-overflødig-tekst) | Nei     | Objekt som inneholder egenskaper for kolonnene som vises i tabellen.                                                                                                |
 | [stickyHeaders](table/#sticky-tabell-headere)                                   | No      | Dersom satt til `true`, gjøres tabell headerene `sticky`.                                                                                                           |
 
+## rowsBefore/rowsAfter: colSpan og skjulte kolonner
+`rowsBefore` og `rowsAfter` bruker samme grid-rad/celle-struktur som Grid-komponenten.
+
+- Celler i disse radene støtter `colSpan` gjennom `cellStyle.colSpan`.
+- Skjuling av kolonner konfigureres med `columnOptions.hidden` på celler i en headerrad.
+- For å skjule en kolonne i `rowsBefore`/`rowsAfter`, sett `columnOptions.hidden` på den tilsvarende cellen i en headerrad ("header": true).
+
+Merk: _Når du bruker `colSpan`, må celler som dekkes av spennet fjernes eller settes til null._
+
+Merk: _Hvis du konfigurerer en celle slik at `colSpan` dekker én eller flere kolonner som også er skjulte, vil tabellen fortsatt rendres, men oppsettet stemmer kanskje ikke med det du forventer. Under utvikling logger appen en kort advarsel i nettleserkonsollen som beskriver hvilken celle som spenner over hvor mange kolonner og at den overlapper skjulte kolonne(r), og at dette kan føre til uventet oppsett. Unngå å kombinere `colSpan` med skjulte kolonner hvis du trenger en forutsigbar tabell._
+
+Eksempel `rowsBefore/rowsAfter` uten overlapp mellom `colSpan` og `hidden`:
+```json
+"rowsBefore": [
+  {
+    "header": true,
+    "cells": [
+      {},
+      { "text": "Summary before", "cellStyle": { "colSpan": 2 } },
+      null,
+      { "text": "Hidden before", "columnOptions": { "hidden": true } }
+    ]
+  }
+],
+
+"rowsAfter": [
+  {
+    "header": true,
+    "cells": [
+      {},
+      { "text": "All changes", "cellStyle": { "colSpan": 2 } },
+      null,
+      { "text": "Hidden after", "columnOptions": { "hidden": true } }
+    ]
+  }
+]
+```
+
 ## textResourceBindings
 
 Det er mulig å legge til ulike nøkler i textResourceBindings for å overstyre standardtekster:
