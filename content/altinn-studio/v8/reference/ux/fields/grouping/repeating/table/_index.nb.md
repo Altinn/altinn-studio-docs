@@ -33,6 +33,7 @@ Ved å bruke `tableColumns` er det mulig å konfigurere bredden, tekst plasserin
 - `textOverflow` - brukes for å kontrollere oppførsel når tekst innhold er for stort til å vises i en celle.
     - `lineWrap` - sett til `false` for å skru av skjuling av overflødig tekst. Standardverdi er `true`.
     - `maxHeight` - setter et maks antall tillatte linjer før tekst skjules med utellatelsestegn (...). `"maxHeight": 0` resulterer i å skru av skjuling av overflødig tekst.
+- `hidden` - sett til `true`, eller et uttrykk som evaluerer til `true`, for å skjule kolonnen. Standardverdi er `false`.
 - `editInTable` - settes til `true` for å tillate redigering av komponenten i tabellvisningen. Standardverdi er `false`. Se mer om dette i [seksjonen som beskriver denne funksjonaliteten](#).
 - `showInExpandedEdit` - settes til `false` for å skjule komponenten i redigeringsmodus. Standardverdi er `true`. Se mer om dette i [seksjonen som beskriver denne funksjonaliteten](#).
 
@@ -73,12 +74,39 @@ Eksempel:
 
 ![Eksempel for kolonne options](column-options-example.png "Eksempel for kolonne options")
 
+## Skjule kolonner
+
+Du kan skjule enkeltkolonner i tabellen ved å sette `tableColumns.<componentId>.hidden` til `true`.
+Du kan også bruke et uttrykk. Uttrykket evalueres for hver kolonne, og kolonnen skjules når uttrykket
+evaluerer til `true`.
+
+I motsetning til `hiddenRow` blir dette uttrykket ikke evaluert per rad i den repeterende gruppen. Det evalueres i
+konteksten til den repeterende gruppen/tabellen, og styrer om hele kolonnen vises i tabellen.
+
+Eksempel:
+
+```json
+{
+  ...
+  "tableHeaders": ["name", "ssn", "address"],
+  "tableColumns": {
+    "ssn": {
+      "hidden": ["equals", ["component", "isPerson"], false]
+    },
+    "address": {
+      "hidden": true
+    }
+  },
+  ...
+}
+```
+
 ## Sticky tabell headere
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="v4 (App Frontend)">}}
 
-Tabell-headerene kan gjøres "sticky" ved å sette `stickyHeaders`-egenskapen til true. Dette vil få hodene til å sitte fast
+Tabell-headerene kan gjøres "sticky" ved å sette `stickyHeader`-egenskapen til true. Dette vil få hodene til å sitte fast
 øverst på tabellen ved scrolling. Dette kan være nyttig for tabeller med mange rader, der headerene ikke lenger er
 synlige når man scroller nedover tabellen.
 

@@ -156,6 +156,7 @@ Dynamic expressions are currently available for use in these properties, as defi
 | Form components                                                                                            | `required`                    | [Boolean](#boolean-values) | ✅       | ✅      |
 | Form components                                                                                            | `readOnly`                    | [Boolean](#boolean-values) | ✅       | ❌      |
 | [Repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                     | `hiddenRow`                   | [Boolean](#boolean-values) | ✅       | ❌      |
+| [Repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                     | `tableColumns.[*].hidden`     | [Boolean](#boolean-values) | ✅       | ❌      |
 | [Repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                     | `edit.addButton`              | [Boolean](#boolean-values) | ✅       | ❌      |
 | [Repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                     | `edit.saveButton`             | [Boolean](#boolean-values) | ✅       | ❌      |
 | [Repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                     | `edit.deleteButton`           | [Boolean](#boolean-values) | ✅       | ❌      |

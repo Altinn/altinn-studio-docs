@@ -33,6 +33,7 @@ Using the `tableColumns` property makes it is possible to configure the width, t
 - `textOverflow` - is used to control behaviour when text content is too large for a table cell.
     - `lineWrap` - set to `false` in order to turn of linebreaking. Default is `true`.
     - `maxHeight` - sets number of lines before overflowing text is hidden with an ellipsis (...). `"maxHeight": 0` results in turning off linebreaking.
+- `hidden` - set to `true`, or an expression that evaluates to `true`, to hide the column. Default is `false`.
 - `editInTable` - set to `true` to enable editing of the component in the table view. Default is `false`. See more about this in the [section describing this functionality](#showing-components-directly-in-the-table).
 - `showInExpandedEdit` - set to `false` to hide the component in the expanded edit view. Default is `true`. See more about this in the [section describing this functionality](#showing-components-directly-in-the-table).
 
@@ -73,12 +74,39 @@ Example:
 
 ![Example for column options](column-options-example.png "Example for column options")
 
+## Hiding columns
+
+You can hide individual columns in the table by setting `tableColumns.<componentId>.hidden` to `true`.
+You can also use an expression. The expression is evaluated for each column, and the column is hidden when the
+expression evaluates to `true`.
+
+Unlike `hiddenRow`, this expression is not evaluated per row in the repeating group. It is evaluated in the context of
+the repeating group/table itself, and controls whether the entire column is shown in the table.
+
+Example:
+
+```json
+{
+  ...
+  "tableHeaders": ["name", "ssn", "address"],
+  "tableColumns": {
+    "ssn": {
+      "hidden": ["equals", ["component", "isPerson"], false]
+    },
+    "address": {
+      "hidden": true
+    }
+  },
+  ...
+}
+```
+
 ## Sticky table headers
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="v4 (App Frontend)">}}
 
-The table headers can be made sticky by setting the `stickyHeaders` property to `true`. This will make the headers stick
+The table headers can be made sticky by setting the `stickyHeader` property to `true`. This will make the headers stick
 to the top of the table when scrolling. This is useful for tables with a lot of rows, where the headers are not visible
 when scrolling down.
 

@@ -110,11 +110,6 @@ Du kan også kombinere den med `compactButtons` for å skjule tekst på knapper,
 Sier at redigering/utfylling av gruppe kan gjøres over flere "sider"/visninger. Krever mer oppsett for å fungere,
 [se egen dokumentasjon for dette](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/multipage/).
 
-## filter
-
-Lar deg filtrere bort enkelte rader, slik at kun et subsett av radene vises. Denne parameteren utgår og vil
-fjernes i en fremtidig versjon. Mer informasjon og beskrivelse av alternativer finnes [i dokumentasjonen dedikert til dynamikk i repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/dynamics/).
-
 ## openByDefault
 
 Sier at gruppen skal åpnes i redigeringsmodus til å begynne med. Følgende verdier godtas:
