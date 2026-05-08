@@ -76,6 +76,35 @@ Eksempel:
 }
 ```
 
+## Layout for knappene Endre og Slett
+En ny valgfri egenskap `buttonLayout`  i `edit`-konfigurasjonen til RepeatingGroup styrer hvordan handlingene `Endre` og `Slett` plasseres i skrivebordsvisning av tabellen. Bruk `buttonLayout` : `"vertical"`  for å legge dem i én kolonne i stedet for i standard horisontalt oppsett. Dette sparer horisontal plass når tabellen har mange kolonner. Oppsett på mobil/nettbrett er uendret.
+Standard er `"horizontal"`  hvis du utelater egenskapen.
+
+Du kan legge til `buttonLayout`  i `edit` delen av RepeatingGroup-konfigurasjonen i layout-JSON.
+
+Eksempel:
+
+```json
+{
+  ...
+  "edit": {
+    "buttonLayout": "vertical"
+  }
+}
+```
+
+Du kan også kombinere den med `compactButtons` for å skjule tekst på knapper, for eksempel:
+
+```json
+{
+  ...
+  "edit": {
+    "compactButtons": true,
+    "buttonLayout": "vertical"
+  }
+}
+```
+
 ## multiPage
 
 Sier at redigering/utfylling av gruppe kan gjøres over flere "sider"/visninger. Krever mer oppsett for å fungere,
