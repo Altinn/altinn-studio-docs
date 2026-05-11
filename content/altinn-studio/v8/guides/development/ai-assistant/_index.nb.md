@@ -11,6 +11,10 @@ KI-assistenten lar deg utvikle apper med naturlig språk. Den kan blant annet hj
 * Sette opp dynamisk visning av elementer
 * Finne og rette opp feil i appen
 
+## Tråder
+
+Tråder lar deg opprette nye samtaler uten kontekst fra gamle meldinger. Vi anbefaler å bruke én tråd per tema, og generelt lage nye tråder regelmessig. Tråder som ikke har vært rørt på 30 dager slettes automatisk.
+
 ## Modus
 
 Assistenten har to modus:
