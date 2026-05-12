@@ -97,6 +97,8 @@ Below is a form with a repeating group that:
 | [edit](edit)                                                     | No       | Options for how to display the group when editing a row.                                                                       |
 | tableHeaders                                                     | No       | List of components that are to be included as part of the table header fields. If not specified, all components are displayed. |
 | [tableColumns](table/#widths-alignment-and-overflow-for-columns) | No       | Object containing column options for specified headers. If not specified, all columns will use default display settings.       |
+| [rowsBefore](table/#static-rows-before-and-after-the-repeating-rows) | No   | Static Grid-style rows shown before the repeating rows in the table view.                                                      |
+| [rowsAfter](table/#static-rows-before-and-after-the-repeating-rows) | No    | Static Grid-style rows shown after the repeating rows in the table view.                                                       |
 | [stickyHeader](table/#sticky-table-headers)                      | No       | If set to `true`, the table headers will be sticky.                                                                            |
 
 ## textResourceBindings
@@ -199,6 +201,8 @@ Below is a form with a repeating group that:
 | [edit](edit)                                                     | No       | Options for how to display the group when editing a row.                                                                       |
 | tableHeaders                                                     | No       | List of components that are to be included as part of the table header fields. If not specified, all components are displayed. |
 | [tableColumns](table/#widths-alignment-and-overflow-for-columns) | No       | Object containing column options for specified headers. If not specified, all columns will use default display settings.       |
+| [rowsBefore](table/#static-rows-before-and-after-the-repeating-rows) | No   | Static Grid-style rows shown before the repeating rows in the table view.                                                      |
+| [rowsAfter](table/#static-rows-before-and-after-the-repeating-rows) | No    | Static Grid-style rows shown after the repeating rows in the table view.                                                       |
 
 ## textResourceBindings
 

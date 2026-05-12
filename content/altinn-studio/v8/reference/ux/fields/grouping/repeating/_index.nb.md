@@ -97,6 +97,8 @@ Under vises et skjema med en repeterende gruppe som:
 | [edit](edit)                                                                    | Nei     | Egenskaper og alternativer for redigerings-/utfyllingsvisningen for en repeterende gruppe.                                                                          |
 | tableHeaders                                                                    | Nei     | Liste over komponenter som skal utgjøre kolonner i tabellvisningen for den repeterende gruppen. Om ingen er spesifisert, blir alle komponenter fra `children` vist. |
 | [tableColumns](table/#bredder-tekst-plassering-og-skjuling-av-overflødig-tekst) | Nei     | Objekt som inneholder egenskaper for kolonnene som vises i tabellen.                                                                                                |
+| [rowsBefore](table/#statiske-rader-for-og-etter-de-repeterende-radene)         | Nei     | Statiske Grid-lignende rader som vises før de repeterende radene i tabellvisningen.                                                                                 |
+| [rowsAfter](table/#statiske-rader-for-og-etter-de-repeterende-radene)          | Nei     | Statiske Grid-lignende rader som vises etter de repeterende radene i tabellvisningen.                                                                               |
 | [stickyHeader](table/#sticky-tabell-headere)                                    | No      | Dersom satt til `true`, gjøres tabell headerene `sticky`.                                                                                                           |
 
 ## textResourceBindings
@@ -200,6 +202,8 @@ Under vises et skjema med en repeterende gruppe som:
 | [edit](edit)                                                                    | Nei     | Egenskaper og alternativer for redigerings-/utfyllingsvisningen for en repeterende gruppe.                                                                          |
 | tableHeaders                                                                    | Nei     | Liste over komponenter som skal utgjøre kolonner i tabellvisningen for den repeterende gruppen. Om ingen er spesifisert, blir alle komponenter fra `children` vist. |
 | [tableColumns](table/#bredder-tekst-plassering-og-skjuling-av-overflødig-tekst) | Nei     | Objekt som inneholder egenskaper for kolonnene som vises i tabellen.                                                                                                |
+| [rowsBefore](table/#statiske-rader-for-og-etter-de-repeterende-radene)         | Nei     | Statiske Grid-lignende rader som vises før de repeterende radene i tabellvisningen.                                                                                 |
+| [rowsAfter](table/#statiske-rader-for-og-etter-de-repeterende-radene)          | Nei     | Statiske Grid-lignende rader som vises etter de repeterende radene i tabellvisningen.                                                                               |
 
 ## textResourceBindings
 

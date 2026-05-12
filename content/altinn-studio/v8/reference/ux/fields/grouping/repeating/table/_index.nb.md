@@ -222,3 +222,74 @@ Konfigurasjonen for Group-komponenten i eksempelet over er som følger:
 
 {{</content-version-container>}}
 {{</content-version-selector>}}
+
+## Statiske rader før og etter de repeterende radene
+
+Bruk `rowsBefore` og `rowsAfter` når du trenger faste rader rundt de repeterende radene i tabellvisningen. Dette er
+nyttig for tabellspesifikt innhold som summer, forklarende rader eller en ekstra overskriftsrad.
+
+- `rowsBefore` vises før de repeterende radene.
+- `rowsAfter` vises etter de repeterende radene.
+
+Konfigurasjonen for rader og celler gjenbruker samme struktur som [Grid-komponenten](/nb/altinn-studio/v8/reference/ux/components/grid/).
+Se Grid-dokumentasjonen for detaljer om `header`, `readOnly`, `cells`, tekstceller, komponentceller, tomme celler,
+bredder, justering og tekstoverflyt.
+
+Ofte brukes `rowsAfter` til footer-lignende rader, for eksempel summer, totaler eller
+opplastingsoppsummeringer. Begge egenskapene kan inneholde komponenter i cellene, så lenge komponentene støttes i
+tabell-/gridvisning.
+
+De ekstra radene blir justert mot de samme kolonnene som resten av tabellen. Skjulte kolonner påvirker også disse
+radene, slik at de holder seg på linje med resten av tabellen.
+
+Eksempel:
+
+```json
+{
+  "id": "costs",
+  "type": "RepeatingGroup",
+  "children": ["category", "amount", "confirmed"],
+  "tableHeaders": ["category", "amount", "confirmed"],
+  "tableColumns": {
+    "category": {
+      "width": "50%"
+    },
+    "amount": {
+      "width": "30%",
+      "editInTable": true
+    },
+    "confirmed": {
+      "width": "20%",
+      "editInTable": true
+    }
+  },
+  "rowsAfter": [
+    {
+      "header": true,
+      "cells": [
+        {},
+        { "text": "summary-amount" },
+        { "text": "summary-status" }
+      ]
+    },
+    {
+      "readOnly": true,
+      "cells": [
+        { "text": "remaining-costs" },
+        { "component": "remainingAmount" },
+        { "component": "remainingConfirmed" }
+      ]
+    },
+    {
+      "readOnly": false,
+      "cells": [
+        { "text": "allocated-now" },
+        { "component": "allocationAmount" },
+        { "component": "allocationStatus" }
+      ]
+    }
+  ]
+}
+```
+
+![Eksempel på rowsAfter med oppsummerings- og handlingsrader](rowsAfter.png "Eksempel på rowsAfter med oppsummerings- og handlingsrader")
