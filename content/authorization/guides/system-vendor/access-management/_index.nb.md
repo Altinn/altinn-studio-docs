@@ -119,7 +119,7 @@ For en fullstendig beskrivelse av endepunktet, inkludert alle parametere og resp
 {{% notice tip %}}
 Hvis du ønsker å finne hvilke parter den påloggede brukeren har tilgangsstyringsrettigheter for, kan du bruke `anyOfResourceIds`-filteret med ressurs-ID-en for tilgangsstyring:
 
-`GET .../enduser/authorizedparties?anyOfResourceIds=urn:altinn:resource:accessmanagement/authorizedparties`
+`GET .../enduser/authorizedparties?anyOfResourceIds=altinn_access_management`
 
 Da returneres kun parter der brukeren har rettigheter til å styre tilganger.
 {{% /notice %}}
@@ -143,10 +143,10 @@ Eksempelrespons
         "isDeleted": false,
         "onlyHierarchyElementWithNoAccess": false,
         "authorizedAccessPackages": [
-          "urn:altinn:accesspackage:skattegrunnlag"
+          "tilgangsstyrer"
         ],
         "authorizedRoles": [
-          "urn:altinn:role:tilgangsstyrer"
+          "admai"
         ],
         "subunits": []
       }
@@ -285,6 +285,41 @@ Henter tilgangspakker som er delegert mellom to parter.
 
 Paginering styres med `X-Page-Size` og `X-Page-Number` i headere.
 
+## API: Kontrollere delegeringsmulighet for tilgangspakker
+
+Sjekker om den innloggede brukeren kan delegere en gitt tilgangspakke på vegne av parten.
+
+- **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/connections/accesspackages/delegationcheck`
+- **Produksjon**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/connections/accesspackages/delegationcheck`
+
+#### Spørreparametere
+
+| Parameter | Type | Obligatorisk | Beskrivelse |
+|---|---|---|---|
+| `party` | UUID | Ja | partyUuid for parten |
+| `packageIds` | array (UUID) | Nei | ID-er for tilgangspakkene |
+| `packages` | array (string) | Nei | URN-er for tilgangspakkene |
+
+Eksempelrespons
+
+```json
+{
+  "links": {
+    "next": null
+  },
+  "data": [
+    {
+      "package": {
+        "id": "4c859601-9b2b-4662-af39-846f4117ad7a",
+        "urn": "urn:altinn:accesspackage:skattegrunnlag"
+      },
+      "result": true,
+      "reasons": []
+    }
+  ]
+}
+```
+
 ## API: Delegere tilgangspakke
 
 Delegerer en tilgangspakke til en person.
@@ -336,41 +371,6 @@ Fjerner en delegert tilgangspakke fra en tilkobling.
 | `to` | UUID | Ja | partyUuid for mottakeren |
 | `packageId` | UUID | Nei | ID for tilgangspakken |
 | `package` | string | Nei | URN for tilgangspakken |
-
-## API: Kontrollere delegeringsmulighet for tilgangspakker
-
-Sjekker om den innloggede brukeren kan delegere en gitt tilgangspakke på vegne av parten.
-
-- **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/connections/accesspackages/delegationcheck`
-- **Produksjon**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/connections/accesspackages/delegationcheck`
-
-#### Spørreparametere
-
-| Parameter | Type | Obligatorisk | Beskrivelse |
-|---|---|---|---|
-| `party` | UUID | Ja | partyUuid for parten |
-| `packageIds` | array (UUID) | Nei | ID-er for tilgangspakkene |
-| `packages` | array (string) | Nei | URN-er for tilgangspakkene |
-
-Eksempelrespons
-
-```json
-{
-  "links": {
-    "next": null
-  },
-  "data": [
-    {
-      "package": {
-        "id": "4c859601-9b2b-4662-af39-846f4117ad7a",
-        "urn": "urn:altinn:accesspackage:skattegrunnlag"
-      },
-      "result": true,
-      "reasons": []
-    }
-  ]
-}
-```
 
 ---
 
@@ -443,41 +443,6 @@ Henter enkeltrettigheter (les, skriv, signer osv.) som er delegert for en spesif
 | `to` | UUID | Ja | partyUuid for mottakeren |
 | `resource` | string | Nei | Ressurs-ID |
 
-## API: Delegere enkeltrettigheter for en ressurs
-
-Delegerer enkeltrettigheter for en ressurs til en part.
-
-- **Test**: `POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/connections/resources/rights`
-- **Produksjon**: `POST https://platform.altinn.no/accessmanagement/api/v1/enduser/connections/resources/rights`
-
-#### Spørreparametere
-
-| Parameter | Type | Obligatorisk | Beskrivelse |
-|---|---|---|---|
-| `party` | UUID | Ja | partyUuid for parten |
-| `to` | UUID | Ja | partyUuid for mottakeren |
-| `resource` | string | Nei | Ressurs-ID |
-
-Eksempelforespørsel (body)
-
-```json
-{
-  "directRightKeys": [
-    "read",
-    "write"
-  ]
-}
-```
-
-## API: Oppdatere enkeltrettigheter for en ressurs
-
-Oppdaterer (erstatter) enkeltrettigheter for en ressurs.
-
-- **Test**: `PUT https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/connections/resources/rights`
-- **Produksjon**: `PUT https://platform.altinn.no/accessmanagement/api/v1/enduser/connections/resources/rights`
-
-Spørreparameterne og forespørselskroppen er de samme som for delegering (POST).
-
 ## API: Kontrollere delegeringsmulighet for ressurs
 
 Sjekker om den innloggede brukeren kan delegere rettigheter for en gitt ressurs.
@@ -497,26 +462,108 @@ Eksempelrespons
 ```json
 {
   "resource": {
-    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "name": "Skattemelding",
-    "refId": "skd-skattemelding"
+    "id": "0197f8e4-706b-7d9e-abfe-e3c2cfd47e7b",
+    "providerId": "5c6e075d-343d-8bcb-b08e-54a4bb7e223e",
+    "typeId": "0197f8a2-d692-767f-a20f-3b03abab447d",
+    "name": "Altinn Correspondence - Test",
+    "description": "Tilgang til Altinn Correspondence testressurs",
+    "refId": "altinn-correspondence-test-resource-1",
+    "provider": {
+      "id": "5c6e075d-343d-8bcb-b08e-54a4bb7e223e",
+      "name": "Testdepartementet",
+      "refId": "",
+      "logoUrl": "https://altinncdn.no/orgs/ttd/ttd.png",
+      "code": "ttd",
+      "typeId": "0195efb8-7c80-713e-ad96-a9896d12f444",
+      "type": {
+        "id": "0195efb8-7c80-713e-ad96-a9896d12f444",
+        "name": "Tjenesteeier"
+      }
+    },
+    "type": {
+      "id": "0197f8a2-d692-767f-a20f-3b03abab447d",
+      "name": "GenericAccessResource"
+    }
   },
   "rights": [
     {
       "right": {
-        "key": "read",
-        "name": "Les",
+        "key": "01c4d56721748f33073006ed6a565470cdaff046943520028a53dc020faf5238ab",
+        "name": "Read",
+        "resource": [
+          {
+            "type": "urn:altinn:resource",
+            "value": "altinn-correspondence-test-resource-1"
+          }
+        ],
         "action": {
           "type": "urn:oasis:names:tc:xacml:1.0:action:action-id",
           "value": "read"
         }
       },
       "result": true,
-      "reasonCodes": []
+      "reasonCodes": [
+        "RoleAccess"
+      ]
+    },
+    {
+      "right": {
+        "key": "01834da6192e4869120951e19c6c76f5721db2b4a0cdd77acae000a18014106de2",
+        "name": "Write",
+        "resource": [
+          {
+            "type": "urn:altinn:resource",
+            "value": "altinn-correspondence-test-resource-1"
+          }
+        ],
+        "action": {
+          "type": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+          "value": "write"
+        }
+      },
+      "result": true,
+      "reasonCodes": [
+        "RoleAccess"
+      ]
     }
   ]
 }
 ```
+
+## API: Delegere enkeltrettigheter for en ressurs
+
+Delegerer enkeltrettigheter for en ressurs til en part.
+
+- **Test**: `POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/connections/resources/rights`
+- **Produksjon**: `POST https://platform.altinn.no/accessmanagement/api/v1/enduser/connections/resources/rights`
+
+#### Spørreparametere
+
+| Parameter | Type | Obligatorisk | Beskrivelse |
+|---|---|---|---|
+| `party` | UUID | Ja | partyUuid for parten |
+| `to` | UUID | Ja | partyUuid for mottakeren |
+| `resource` | string | Nei | Ressurs-ID |
+
+Eksempelforespørsel (body)
+
+```json
+{
+  "DirectRightKeys": [
+    "01c4d56721748f33073006ed6a565470cdaff046943520028a53dc020faf5238ab",
+    "01834da6192e4869120951e19c6c76f5721db2b4a0cdd77acae000a18014106de2"
+  ]
+}
+```
+
+## API: Oppdatere enkeltrettigheter for en ressurs
+
+Oppdaterer (erstatter) enkeltrettigheter for en ressurs.
+
+- **Test**: `PUT https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/connections/resources/rights`
+- **Produksjon**: `PUT https://platform.altinn.no/accessmanagement/api/v1/enduser/connections/resources/rights`
+
+Spørreparameterne og forespørselskroppen er de samme som for delegering (POST).
 
 ---
 
