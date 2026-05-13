@@ -17,7 +17,7 @@ Livesynkronisering: Alle endringer[^1] (skjema, meldinger) vises i Dialogporten.
 
 | Kilde | Migrert tilbake til |
 |----------|----------|
-| A2-Melding | 08.10.2022 |
+| A2-Melding | 12.08.2020 |
 | A2 arkiverte skjema / A3-app-instanser | 01.01.2019[^2] |
 
 [^2]: Vi kvalitetssikrer migreringen av skjema før vi fortsetter å migrere eldre data.
@@ -41,7 +41,7 @@ Alle endringer gjort direkte gjennom Dialogportens API er tilgjengelige umiddelb
 Brukes typisk der tjenesteeier enten har egen plattform, eller håndterer dialoger utenfor standardfunksjonaliteten til Altinn Melding eller Altinn Studio/apper.
 
 ### ⚠ A2 Melding - Historisk
-Foreløpig migrert tilbake til 8. oktober 2022. Migrering av eldre meldinger pågår.
+Migrering historiske meldinger pågår. Se status på hvor langt bakover vi har kommet øverst på siden, og endringsloggen nederst på siden for detaljer.
 
 Manuell prosess. Historiske meldinger migreres fra Altinn 2 Melding til Altinn 3 Melding. Meldingene migreres deretter til Dialogporten i en separat prosess.
 
@@ -70,6 +70,8 @@ Nylig arkiverte app-instanser opprettet i Altinn 2 migreres i puljer hvert 5. mi
 Skjema som er under utfylling blir ikke migrert før de er arkivert.
 
 ## Endringslogg
+13.05.2026: Meldinger migrert tilbake til august 2020. Migrering av eldre meldinger pågår.
+
 30.04.2026: Meldinger migrert tilbake til oktober 2022. Videre migrering pågår. Skjema er migrert tilbake til og med 2019. Vi kvalitetssikrer migrering av skjema før vi fortsetter.
 
 16.04.2026: Migrering av arkiverte skjema for 2023 og 2022 fullført.
