@@ -311,9 +311,9 @@ These functions are available for use in expressions:
 | [`displayValue`](#func-displayValue)      | [String](#strings)                                              | [String](#strings) | ✅        | ❌       |
 | [`round`](#func-round)                    | [Number](#numbers), optional [Number](#numbers)                 | [String](#strings) | ✅        | ✅       |
 | [`formatDate`](#func-formatDate)          | [Date/time](#dates), optional [String](#strings)                | [String](#strings) | ✅        | ✅       |
-| [`plus`](#func-plus)                      | [Number](#numbers), [Number](#numbers)                          | [Number](#numbers) | ✅        | ✅       | 
+| [`plus`](#func-plus)                      | One or more [numbers](#numbers)                                 | [Number](#numbers) | ✅        | ✅       | 
 | [`minus`](#func-minus)                    | [Number](#numbers), [Number](#numbers)                          | [Number](#numbers) | ✅        | ✅       | 
-| [`multiply`](#func-multiply)              | [Number](#numbers), [Number](#numbers)                          | [Number](#numbers) | ✅        | ✅       | 
+| [`multiply`](#func-multiply)              | One or more [numbers](#numbers)                                 | [Number](#numbers) | ✅        | ✅       | 
 | [`divide`](#func-divide)                  | [Number](#numbers), [Number](#numbers)                          | [Number](#numbers) | ✅        | ✅       | 
 
 ### Lookup, components and data
@@ -1084,7 +1084,7 @@ returns an error message.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-plus" header="plus" %}}
-The `plus` function returns the sum of two numbers.
+The `plus` function returns the sum of the given numbers.
 
 Example:
 ```json
@@ -1109,7 +1109,7 @@ If `null` is passed to the function, it returns `null`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-multiply" header="multiply" %}}
-The `multiply` function returns the product of two numbers.
+The `multiply` function returns the product of the given numbers.
 
 Example:
 ```json

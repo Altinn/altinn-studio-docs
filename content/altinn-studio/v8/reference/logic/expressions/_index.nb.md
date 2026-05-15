@@ -306,9 +306,9 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`displayValue`](#func-displayValue)      | [Streng](#strenger)                                       | [Streng](#strenger) | ✅        | ❌      |
 | [`round`](#func-round)                    | [Tall](#tall), valgfritt [Tall](#tall)                    | [Streng](#strenger) | ✅        | ✅      |
 | [`formatDate`](#func-formatDate)          | [Dato/tid](#datoer), valgfri [Streng](#strenger)          | [Streng](#strenger) | ✅        | ✅      |
-| [`plus`](#func-plus)                      | [Tall](#tall), [Tall](#tall)                              | [Tall](#tall)       | ✅        | ✅      |
+| [`plus`](#func-plus)                      | Ett eller flere [tall](#tall)                             | [Tall](#tall)       | ✅        | ✅      |
 | [`minus`](#func-minus)                    | [Tall](#tall), [Tall](#tall)          | [Tall](#tall)       | ✅        | ✅      |
-| [`multiply`](#func-multiply)              | [Tall](#tall), [Tall](#tall)                | [Tall](#tall)       | ✅        | ✅      |
+| [`multiply`](#func-multiply)              | Ett eller flere [tall](#tall)                             | [Tall](#tall)       | ✅        | ✅      |
 | [`divide`](#func-divide)                  | [Tall](#tall), [Tall](#tall)                | [Tall](#tall)       | ✅        | ✅      |
 
 ### Oppslag, komponenter og data
@@ -1082,7 +1082,7 @@ gir dette uttrykket en feilmelding.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-plus" header="plus" %}}
-Funksjonen `plus` returnerer summen av to tall. 
+Funksjonen `plus` returnerer summen av de oppgitte tallene. 
 
 Eksempel:
 ```json
@@ -1107,7 +1107,7 @@ Dersom `null` sendes inn som argument, returnerer funksjonen `null`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-multiply" header="multiply" %}}
-Funksjonen `multiply` returnerer produktet av to tall.
+Funksjonen `multiply` returnerer produktet av de oppgitte tallene.
 
 Eksempel:
 ```json
