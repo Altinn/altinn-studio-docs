@@ -1090,7 +1090,7 @@ Eksempel:
 ```
 Dette eksemplet gir tallverdien `31.2`.
 
-Dersom `null` sendes inn som argument, returnerer funksjonen `null`.
+Dersom `null` sendes inn som argument, tolker funksjonen dette som `0`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-minus" header="minus" %}}
@@ -1103,7 +1103,7 @@ Eksempel:
 ```
 Dette eksemplet gir tallverdien `12.8`.
 
-Dersom `null` sendes inn som argument, returnerer funksjonen `null`.
+Dersom `null` sendes inn som argument, tolker funksjonen dette som `0`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-multiply" header="multiply" %}}
@@ -1115,7 +1115,7 @@ Eksempel:
 ```
 Dette eksemplet gir tallverdien `220`.
 
-Dersom `null` sendes inn som argument, returnerer funksjonen `null`.
+Dersom `0` sendes inn som argument, tolker funksjonen dette som `0`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-divide" header="divide" %}}
@@ -1129,7 +1129,7 @@ Dette eksemplet gir tallverdien `2.2`.
 
 Vær oppmerksom på at tallet 0 ikke er gyldig som divisor.
 
-Dersom `null` sendes inn som argument, returnerer funksjonen `null`.
+Dersom `null` sendes inn som argument, tolker funksjonen dette som `0`.
 {{% /expandlarge %}}
 
 ## Datatyper
