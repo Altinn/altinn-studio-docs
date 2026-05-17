@@ -183,6 +183,101 @@ App/ui/layouts/{page}.json
 
 -->
 
-## Examples
+<!-- ## Examples
 
-<!-- One or more examples of configuration (if relevant) -->
+One or more examples of configuration (if relevant) -->
+
+## Image Preview
+
+{{% notice warning %}}
+<b>Pre requirements:</b><br>
+A NuGet package or custom code that compresses and converts images to thumbnails. If using an external NuGet package, verify it meets your organization's licensing and security requirements.
+{{% /notice %}}
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="Anatomy">}}
+
+![Image display in the file upload component](image.png)
+
+{{</content-version-container>}}
+{{<content-version-container version-label="Preview">}}
+
+Users can preview a full-size version of an uploaded image by clicking on the image thumbnail in the file upload component.
+
+![Preview](image-3.png)
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
+### To display image previews in the file upload component, the following implementation is required:
+
+1. Create a dedicated dataType for thumbnails. Id must be `thumbnail`.
+  {{< code-title >}}
+  App/config/applicationmetadata.json
+  {{< /code-title >}}
+
+    ```json
+    {
+      "id": "thumbnail",
+      "taskId": "Task_1",
+      "allowedContentTypes": ["image/png", "image/jpeg", "image/jpg"],
+      "maxCount": 100,
+      "maxSize": 10,
+      "minCount": 0,
+      "enablePdfCreation": true,
+      "enableFileScan": false,
+      "validationErrorOnPendingFileScan": false,
+      "enabledFileAnalysers": [],
+      "enabledFileValidators": []
+    }
+    ```
+
+2. Create a class that implements the `IDataWriteProcessor` interface for thumbnail rendering and storage. You have access to all recently uploaded attachments through `BinaryDataChanges` in `DataElementChanges`.
+
+3. Create a new data element for the thumbnail:<br>
+    Call `AddBinaryDataElement()` from `IInstanceDataMutator` with:
+    - The `dataTypeId` dedicated for thumbnails.
+    - The mime-type (`contentType`)
+    - `filename`
+    - The generated thumbnail image (`ReadOnlyMemory<Byte>`).
+
+4. Link the original image and thumbnail image with metadata:
+    - Generate a unique identifier (GUID) as a link between the images
+    - Add metadata `thumbnailLink` to the original data element with the GUID as the value
+    - Add metadata `attachmentLink` to the data element for the thumbnail with the same GUID as the value
+
+    This ensures that the frontend knows which thumbnail belongs to which original image.
+
+Code example:
+
+```csharp
+public class DataWriteProcessor() : IDataWriteProcessor
+{
+    public async Task ProcessDataWrite(IInstanceDataMutator instanceDataMutator, string taskId, DataElementChanges changes, string language)
+    {
+        foreach (var binaryDataChange in changes.BinaryDataChanges)
+        {
+            if (!binaryDataChange.ContentType.StartsWith("image/") || binaryDataChange.Type != ChangeType.Created) continue;
+
+            var generatedThumbnail = await RenderThumbnail(instanceDataMutator.Instance, binaryDataChange.CurrentBinaryData);
+
+            var newElement = instanceDataMutator.AddBinaryDataElement(
+              "thumbnail",
+              binaryDataChange.ContentType,
+              binaryDataChange.FileName,
+              generatedThumbnail);
+
+            var guid = Guid.NewGuid().ToString();
+
+            newElement.AddMetadata("attachmentLink", guid);
+            binaryDataChange.AddMetadata("thumbnailLink", guid);
+        }
+        return;
+    }
+
+    private async Task<ReadOnlyMemory<byte>> RenderThumbnail(Instance instance, ReadOnlyMemory<byte> elementBinaryData)
+    {
+        //generate thumbnail from nuget package
+    }
+}
+```
