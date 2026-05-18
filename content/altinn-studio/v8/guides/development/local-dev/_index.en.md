@@ -13,6 +13,37 @@ During application development, you will need to work both in Altinn Studio and 
 
 ## How to clone the application to a local development environment
 
+`studioctl` is the recommended command-line tool for local development of Altinn Studio apps.
+It logs in to Altinn Studio, clones the app repository and configures Git authentication for you.
+
+Install `studioctl`:
+
+```bash
+curl -sSL https://altinn.studio/designer/api/v1/studioctl/install.sh | sh
+```
+
+On Windows, install from PowerShell:
+
+```powershell
+iwr https://altinn.studio/designer/api/v1/studioctl/install.ps1 -useb | iex
+```
+
+Log in and clone the app:
+
+```bash
+studioctl auth login
+studioctl app clone <org>/<app-name>
+cd <app-name>
+```
+
+For automation and CI, pass an existing Studio/Designer API key through standard input:
+
+```bash
+studioctl auth login --with-token < token.txt
+```
+
+{{% expandlarge id="legacy-clone-with-git" header="Old method: Clone manually with Git" %}}
+
 1. Find the application you want to work with locally in the [Dashboard](/en/altinn-studio/v8/getting-started/navigation/dashboard/) in Altinn Studio.
 2. Navigate to the repository by clicking the _Repository_ button.
     ![Repository button highlighted in an image](find-app-in-dashboard.png)
@@ -36,13 +67,15 @@ During application development, you will need to work both in Altinn Studio and 
     remote: Enumerating objects: 982, done.
     remote: Counting objects: 100% (982/982), done.
     remote: Compressing objects: 100% (950/950), done.
-    remote: Total 982 (delta 600), reused 0 (delta 0), pack-reused 0 
+    remote: Total 982 (delta 600), reused 0 (delta 0), pack-reused 0
     Receiving objects: 100% (982/982), 166.38 KiB | 1.51 MiB/s, done.
     Resolving deltas: 100% (600/600), done.
     ```
 
 A folder with the same name as the application has been created, and the contents of the application repository have been cloned into the folder.
- Now you can open your preferred development tool and start coding.
+Now you can open your preferred development tool and start coding.
+
+{{% /expandlarge %}}
 
 ## How to synchronize changes in the local development environment
 
@@ -92,25 +125,62 @@ If you're using Altinn Studio for development, changes need to be synchronized w
 
 ## Local testing
 
-When working locally, it can be useful to preview the changes you make. *LocalTest* is a program that spins up a local mock-up of the Altinn Platform. This allows you to test and verify local changes without having to synchronize with Altinn Studio.
+When working locally, it can be useful to preview the changes you make.
+`studioctl` starts the local test platform, runs the app and connects the app to local.altinn.cloud.
+You need a container runtime, such as Docker or Podman, and the .NET SDK to run the app as a local process.
+Run `studioctl doctor` to check that your machine has the required tools.
 
 {{% notice info %}}
 **NOTE**
 To run the app in LocalTest, the application must have an associated [data model](/en/altinn-studio/v8/reference/data/data-modeling/).
 {{% /notice %}}
 
-1. **Download and start LocalTest** by following the steps [described on GitHub](https://github.com/Altinn/app-localtest/blob/master/README.md) (includes starting the app, which is also explained below).
-2. **Run your application within LocalTest**: Open a new terminal window and navigate to the subfolder *App* in your application (`<app-name>/App`). Start the app with the command `dotnet run` and wait for confirmation in the terminal.
+1. **Start the local test platform**: Go to the app repository in a terminal and run `studioctl env up`.
+2. **Run your application within LocalTest**: Run `studioctl app run` from the app repository. The command detects the app directory and starts the app with the correct local settings.
 3. **Preview and test application**: Go to [http://local.altinn.cloud](http://local.altinn.cloud) and log in with a [test user](/en/altinn-studio/v8/reference/testing/local/testusers/).
+
+You can also open the browser when the test platform starts:
+
+```bash
+studioctl env up --open
+studioctl app run
+```
+
+Useful commands:
+
+| Command | Description |
+| ------- | ----------- |
+| `studioctl env status` | Shows local test platform status. |
+| `studioctl env logs` | Shows logs from the localtest containers. |
+| `studioctl app run --detach` | Runs the app in the background. |
+| `studioctl app logs` | Shows logs from an app running in the background. Use `--follow` for live logs. |
+| `studioctl app stop` | Stops apps started with `studioctl app run --detach`. |
+| `studioctl env down` | Stops the local test platform. |
+| `studioctl doctor` | Diagnoses missing tools and local environment issues. |
 
 ### Preview changes in real-time
 
 - For changes related to JSON files, simply reload the page.
 - For changes in prefilling, the application must be instantiated again (go to [http://local.altinn.cloud](http://local.altinn.cloud) and log back in).
-- For changes in CS files, the application must be stopped (`ctrl+C`) and restarted (`dotnet run`).
+- For changes in CS files, the application must be stopped (`ctrl+C`) and restarted (`studioctl app run`).
 
 To automatically update when there are changes in CS files, start the application with `dotnet watch`. This command will either start the application or reload it ([hot reload](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-watch#hot-reload)) when changes are made to the source code.
 
 ### Stopping the application and LocalTest
 
-To stop the application, press `ctrl+C` in the terminal window where you started it. To stop LocalTest, navigate to the `app-localtest` folder in the terminal and run the command `docker compose down`.
+To stop the application, press `ctrl+C` in the terminal window where you started it.
+Stop LocalTest with `studioctl env down`.
+
+{{% expandlarge id="legacy-app-localtest" header="Old method: Run app-localtest manually" %}}
+
+The old workflow uses the `app-localtest` repository directly.
+This method can still be useful when troubleshooting an old setup, but the recommended local workflow is `studioctl`.
+
+1. **Download and start LocalTest** by following the steps [described on GitHub](https://github.com/Altinn/app-localtest/blob/master/README.md) (includes starting the app, which is also explained below).
+2. **Run your application within LocalTest**: Open a new terminal window and navigate to the subfolder *App* in your application (`<app-name>/App`). Start the app with the command `dotnet run` and wait for confirmation in the terminal.
+3. **Preview and test application**: Go to [http://local.altinn.cloud](http://local.altinn.cloud) and log in with a [test user](/en/altinn-studio/v8/reference/testing/local/testusers/).
+
+To stop the application, press `ctrl+C` in the terminal window where you started it.
+To stop LocalTest, navigate to the `app-localtest` folder in the terminal and run the command `docker compose down`.
+
+{{% /expandlarge %}}
