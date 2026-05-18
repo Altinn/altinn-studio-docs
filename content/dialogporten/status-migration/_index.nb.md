@@ -57,13 +57,13 @@ Se [migrering av meldingsdata](https://docs.altinn.studio/nb/correspondence/tran
 Alle nye meldinger opprettet i Altinn 3 Melding er tilgjengelig i Dialogporten umiddelbart. Ingen migrering nødvendig.
 
 ### ⚠ A3 App-instanser - Historisk
-Foreløpig migrert tilbake til 1. januar 2019. Eldre app-instanser vil bli migrert senere.
+Foreløpig migrert tilbake til [dato angitt over](#historiske-data). Eldre app-instanser vil bli migrert senere.
 
 ### ✔ A3 App-instanser - Live
 Nye app-instanser opprettet i Altinn 3 er tilgjengelig i Dialogporten umiddelbart. Endringer synkroniseres i sanntid.
 
 ### ⚠ A2 Arkiverte skjema - Historisk
-Foreløpig migrert tilbake til 1. januar 2019. Eldre arkiverte skjema vil bli migrert senere.
+Foreløpig migrert tilbake til [dato angitt over](#historiske-data). Eldre arkiverte skjema vil bli migrert senere.
 
 ### ✔ A2 Arkiverte skjema - Live
 Nylig arkiverte app-instanser opprettet i Altinn 2 migreres i puljer hvert 5. minutt.
