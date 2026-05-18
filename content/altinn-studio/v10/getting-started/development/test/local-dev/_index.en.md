@@ -18,6 +18,12 @@ Here is an overview of how to get started with local development.
 `studioctl` is the recommended command-line tool for local development of Altinn Studio apps.
 It logs in to Altinn Studio, clones the app repository and configures Git authentication for you.
 
+### Supported platforms
+
+`studioctl` can be used on Windows, Linux and macOS.
+To run the local test platform, you need a container runtime.
+Use Docker, Podman or Colima.
+
 Install `studioctl`:
 
 ```bash

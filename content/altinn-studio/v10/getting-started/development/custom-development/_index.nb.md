@@ -28,6 +28,12 @@ Listen er ikke utfyllende - her kan du i praksis få til hva som helst!
 Du bruker det til å logge inn, klone appen, starte lokal testplattform og kjøre appen fra maskinen din.
 Verktøyet kan også brukes i CI når du vil klone og teste en app uten en interaktiv innlogging.
 
+### Støttede plattformer
+
+`studioctl` kan brukes på Windows, Linux og macOS.
+For å kjøre lokal testplattform trenger du en container runtime.
+Bruk Docker, Podman eller Colima.
+
 Installer `studioctl`:
 
 ```bash
