@@ -83,15 +83,15 @@ Now you can open your preferred development tool and start coding.
 
 {{% /expandlarge %}}
 
-## How to synchronize changes in the local development environment
+## How to synchronise changes in the local development environment
 
 Changes made locally need to be uploaded (pushed) to the repository from which the code was cloned.
  If changes are made in Altinn Studio Designer (and uploaded to the repository), these must be downloaded (pulled) to update the local code.
 
-Synchronizing changes made in the local development environment can be done in several ways.
+Synchronising changes made in the local development environment can be done in several ways.
  Many development tools have good integrations for this purpose, so check if your tool has that type of support.
 
-Below is a description of how you can synchronize changes from the command line.
+Below is a description of how you can synchronise changes from the command line.
 
 ### Uploading changes
 
@@ -107,9 +107,9 @@ Navigate to your application repository in a terminal and run the command `git p
 
 [Read more about `git pull` here](https://git-scm.com/docs/git-pull)
 
-## How to synchronize changes in Altinn Studio
+## How to synchronise changes in Altinn Studio
 
-If you're using Altinn Studio for development, changes need to be synchronized with the Altinn Repository.
+If you're using Altinn Studio for development, changes need to be synchronised with the Altinn Repository.
 
 ### Downloading changes
 1. Click on _Hent endringer_ (_Fetch changes_) on the 'Lage' page of the application in Altinn Studio.
@@ -133,7 +133,7 @@ If you're using Altinn Studio for development, changes need to be synchronized w
 
 When working locally, it can be useful to preview the changes you make.
 `studioctl` starts the local test platform, runs the app and connects the app to local.altinn.cloud.
-You need a container runtime, such as Docker or Podman, and the .NET SDK to run the app as a local process.
+You need a container runtime, such as Docker, Podman or Colima, and the .NET SDK to run the app as a local process.
 Run `studioctl doctor` to check that your machine has the required tools.
 
 {{% notice info %}}

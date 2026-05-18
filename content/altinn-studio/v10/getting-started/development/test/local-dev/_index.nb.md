@@ -140,7 +140,7 @@ I Altinn Studio må du synkronisere endringer på samme vis som ved lokale endri
 
 Du kan forhåndsvise endringene du gjør når du jobber lokalt.
 `studioctl` starter den lokale testplattformen, kjører appen og kobler appen til local.altinn.cloud.
-Du trenger en container runtime, for eksempel Docker eller Podman, og .NET SDK for å kjøre appen som en lokal prosess.
+Du trenger en container runtime, for eksempel Docker, Podman eller Colima, og .NET SDK for å kjøre appen som en lokal prosess.
 Kjør `studioctl doctor` hvis du vil sjekke at maskinen har det som trengs.
 
 {{% notice info %}}
