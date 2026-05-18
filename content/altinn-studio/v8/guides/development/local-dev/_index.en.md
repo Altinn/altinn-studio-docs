@@ -13,40 +13,13 @@ During application development, you will need to work both in Altinn Studio and 
 
 ## How to clone the application to a local development environment
 
-`studioctl` is the recommended command-line tool for local development of Altinn Studio apps.
-It logs in to Altinn Studio, clones the app repository and configures Git authentication for you.
+{{% insert "content/altinn-studio/shared/studioctl/local-development-intro.en.md" %}}
 
-### Supported platforms
+{{% notice warning %}}
+{{% insert "content/altinn-studio/shared/studioctl/preview-warning.en.md" %}}
+{{% /notice %}}
 
-`studioctl` can be used on Windows, Linux and macOS.
-To run the local test platform, you need a container runtime.
-Use Docker, Podman or Colima.
-
-Install `studioctl`:
-
-```bash
-curl -sSL https://altinn.studio/designer/api/v1/studioctl/install.sh | sh
-```
-
-On Windows, install from PowerShell:
-
-```powershell
-iwr https://altinn.studio/designer/api/v1/studioctl/install.ps1 -useb | iex
-```
-
-Log in and clone the app:
-
-```bash
-studioctl auth login
-studioctl app clone <org>/<app-name>
-cd <app-name>
-```
-
-For automation and CI, pass an existing Studio/Designer API key through standard input from an environment variable:
-
-```bash
-printf '%s' "$STUDIO_DESIGNER_API_KEY" | studioctl auth login --with-token
-```
+{{% insert "content/altinn-studio/shared/studioctl/install-clone.en.md" %}}
 
 {{% expandlarge id="legacy-clone-with-git" header="Old method: Clone manually with Git" %}}
 
@@ -83,15 +56,15 @@ Now you can open your preferred development tool and start coding.
 
 {{% /expandlarge %}}
 
-## How to synchronise changes in the local development environment
+## How to synchronize changes in the local development environment
 
 Changes made locally need to be uploaded (pushed) to the repository from which the code was cloned.
  If changes are made in Altinn Studio Designer (and uploaded to the repository), these must be downloaded (pulled) to update the local code.
 
-Synchronising changes made in the local development environment can be done in several ways.
+Synchronizing changes made in the local development environment can be done in several ways.
  Many development tools have good integrations for this purpose, so check if your tool has that type of support.
 
-Below is a description of how you can synchronise changes from the command line.
+Below is a description of how you can synchronize changes from the command line.
 
 ### Uploading changes
 
@@ -107,9 +80,9 @@ Navigate to your application repository in a terminal and run the command `git p
 
 [Read more about `git pull` here](https://git-scm.com/docs/git-pull)
 
-## How to synchronise changes in Altinn Studio
+## How to synchronize changes in Altinn Studio
 
-If you're using Altinn Studio for development, changes need to be synchronised with the Altinn Repository.
+If you're using Altinn Studio for development, changes need to be synchronized with the Altinn Repository.
 
 ### Downloading changes
 1. Click on _Hent endringer_ (_Fetch changes_) on the 'Lage' page of the application in Altinn Studio.
@@ -132,7 +105,7 @@ If you're using Altinn Studio for development, changes need to be synchronised w
 ## Local testing
 
 When working locally, it can be useful to preview the changes you make.
-`studioctl` starts the local test platform, runs the app and connects the app to local.altinn.cloud.
+`studioctl` starts the local test platform, runs the app and connects the app to local.altinn.cloud on port `8000`.
 You need a container runtime, such as Docker, Podman or Colima, and the .NET SDK to run the app as a local process.
 Run `studioctl doctor` to check that your machine has the required tools.
 
@@ -142,14 +115,14 @@ To run the app in LocalTest, the application must have an associated [data model
 {{% /notice %}}
 
 1. **Start the local test platform**: Go to the app repository in a terminal and run `studioctl env up`.
-2. **Run your application within LocalTest**: Run `studioctl app run` from the app repository. The command detects the app directory and starts the app with the correct local settings.
-3. **Preview and test application**: Go to [http://local.altinn.cloud](http://local.altinn.cloud) and log in with a [test user](/en/altinn-studio/v8/reference/testing/local/testusers/).
+2. **Run your application within LocalTest**: Run `studioctl run` from the app repository. The command detects the app directory and starts the app with the correct local settings.
+3. **Preview and test application**: Go to [http://local.altinn.cloud:8000](http://local.altinn.cloud:8000) and log in with a [test user](/en/altinn-studio/v8/reference/testing/local/testusers/).
 
 You can also open the browser when the test platform starts:
 
 ```bash
 studioctl env up --open
-studioctl app run
+studioctl run
 ```
 
 Useful commands:
@@ -158,17 +131,17 @@ Useful commands:
 | ------- | ----------- |
 | `studioctl env status` | Shows local test platform status. |
 | `studioctl env logs` | Shows logs from the LocalTest containers. |
-| `studioctl app run --detach` | Runs the app in the background. |
+| `studioctl run --detach` | Runs the app in the background. |
 | `studioctl app logs` | Shows logs from an app running in the background. Use `--follow` for live logs. |
-| `studioctl app stop` | Stops apps started with `studioctl app run --detach`. |
+| `studioctl stop` | Stops apps started with `studioctl run --detach`. |
 | `studioctl env down` | Stops the local test platform. |
 | `studioctl doctor` | Diagnoses missing tools and local environment issues. |
 
 ### Preview changes in real-time
 
 - For changes related to JSON files, simply reload the page.
-- For changes in prefilling, the application must be instantiated again (go to [http://local.altinn.cloud](http://local.altinn.cloud) and log back in).
-- For changes in C# files, the application must be stopped (`ctrl+C`) and restarted (`studioctl app run`).
+- For changes in prefilling, the application must be instantiated again (go to [http://local.altinn.cloud:8000](http://local.altinn.cloud:8000) and log back in).
+- For changes in C# files, the application must be stopped (`ctrl+C`) and restarted (`studioctl run`).
 
 To automatically update when there are changes in C# files, start the application with `dotnet watch`. This command will either start the application or reload it ([hot reload](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-watch#hot-reload)) when changes are made to the source code.
 
@@ -184,7 +157,7 @@ This method can still be useful when troubleshooting an old setup, but the recom
 
 1. **Download and start LocalTest** by following the steps [described on GitHub](https://github.com/Altinn/app-localtest/blob/master/README.md) (includes starting the app, which is also explained below).
 2. **Run your application within LocalTest**: Open a new terminal window and navigate to the subfolder *App* in your application (`<app-name>/App`). Start the app with the command `dotnet run` and wait for confirmation in the terminal.
-3. **Preview and test application**: Go to [http://local.altinn.cloud](http://local.altinn.cloud) and log in with a [test user](/en/altinn-studio/v8/reference/testing/local/testusers/).
+3. **Preview and test application**: Go to [http://local.altinn.cloud:8000](http://local.altinn.cloud:8000) and log in with a [test user](/en/altinn-studio/v8/reference/testing/local/testusers/).
 
 To stop the application, press `ctrl+C` in the terminal window where you started it.
 To stop LocalTest, navigate to the `app-localtest` folder in the terminal and run the command `docker compose down`.
