@@ -43,10 +43,10 @@ studioctl app clone <org>/<app-name>
 cd <app-name>
 ```
 
-For automatisering og CI kan du sende inn en eksisterende Studio/Designer API-nøkkel via standard input:
+For automatisering og CI kan du sende inn en eksisterende Studio/Designer API-nøkkel via standard input fra en miljøvariabel:
 
 ```bash
-studioctl auth login --with-token < token.txt
+printf '%s' "$STUDIO_DESIGNER_API_KEY" | studioctl auth login --with-token
 ```
 
 {{% expandlarge id="legacy-clone-with-git" header="Gammel metode: Klone manuelt med Git" %}}

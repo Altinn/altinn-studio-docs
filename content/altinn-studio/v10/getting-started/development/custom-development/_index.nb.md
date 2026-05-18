@@ -57,10 +57,10 @@ cd <app-name>
 Når appen er klonet kan du åpne repoet i ønsket utviklingsverktøy og gjøre endringer i C#-kode, konfigurasjon, datamodeller, layouts og andre filer.
 Husk å synkronisere endringer med Git når du bytter mellom Altinn Studio Designer og lokalt utviklingsmiljø.
 
-For automatisering og CI kan du sende inn en eksisterende Studio/Designer API-nøkkel via standard input:
+For automatisering og CI kan du sende inn en eksisterende Studio/Designer API-nøkkel via standard input fra en miljøvariabel:
 
 ```bash
-studioctl auth login --with-token < token.txt
+printf '%s' "$STUDIO_DESIGNER_API_KEY" | studioctl auth login --with-token
 ```
 
 ## Kjøre og teste appen lokalt

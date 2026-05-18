@@ -44,10 +44,10 @@ studioctl app clone <org>/<app-name>
 cd <app-name>
 ```
 
-For automation and CI, pass an existing Studio/Designer API key through standard input:
+For automation and CI, pass an existing Studio/Designer API key through standard input from an environment variable:
 
 ```bash
-studioctl auth login --with-token < token.txt
+printf '%s' "$STUDIO_DESIGNER_API_KEY" | studioctl auth login --with-token
 ```
 
 {{% expandlarge id="legacy-clone-with-git" header="Old method: Clone manually with Git" %}}
