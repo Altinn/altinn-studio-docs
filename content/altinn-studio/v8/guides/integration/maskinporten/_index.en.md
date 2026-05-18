@@ -11,72 +11,40 @@ aliases:
 
 This guide details how to set up an Altinn application to use the built-in Maskinporten authentication client (`IMaskinportenClient`) for making authorized requests on behalf of the app owner, as opposed to the active user.
 
+The recommended setup is to add the scopes the app needs in Altinn Studio. When the app is built and deployed, Altinn Studio provisions a Maskinporten client, stores the generated credentials in the app secret, and mounts the settings into the running app.
+
 In order to set this up, the following must be done:
 
-1. [Ensure organization has access to Azure Key Vault](#azure-key-vault-access).
-2. [Create a Maskinporten integration in the self service portal](#maskinporten-integration).
-3. [Store the authentication key for the integration in Azure Key Vault](#azure-key-vault-configuration).
-4. [Set up the application to use the Maskinporten client and retrieve secrets from Azure Key Vault](#application-setup).
+1. [Ensure that your user can administer Maskinporten clients for the organization](#access-to-maskinporten-scopes).
+2. [Add the required scopes in Altinn Studio](#add-scopes-in-altinn-studio).
+3. [Deploy the app so the Maskinporten client is provisioned](#deployment-and-credentials).
+4. [Use the built-in Maskinporten client in application code](#application-setup).
 
-## Azure Key Vault Access
-Before proceeding with this guide, make sure you have access to Azure Key Vault for your organization.
-This ensures that the keys created further on in the guide can be stored properly as secrets in Azure.
+## Access to Maskinporten scopes
 
-If access is missing, please refer to [Access to logs and secrets](/en/altinn-studio/v8/guides/administration/access-management/apps/).
+To add scopes in Altinn Studio you must log in on behalf of the service owner organization with Ansattporten.
 
-## Maskinporten Integration
+Your user must have organization/service owner permissions for the service owner in Sjolvbetjeningsportalen, including permission to administer clients. If you cannot see any scopes in Altinn Studio, contact the person who administers Maskinporten access for your organization or Altinn servicedesk.
 
-In this section we will set up the Maskinporten client. A part of setting up the client includes creating keys that
-should be stored in Azure Key Vault later on in the guide. If different people in the organization have access to
-different resources needed in this process, please cooperate and do the following steps on the same machine. This is
-recommended to avoid sending secrets between machines.
+## Add scopes in Altinn Studio
 
-When access to creating secrets in Azure Key Vault is confirmed, please proceed to create the integration.
-
-{{% expandlarge id="guide-mp-int-samarbeid" header="Guide on how to register a new Maskinporten integration in Samarbeidsportalen" %}}
-{{% insert "content/shared/maskinporten/maskinporten-client-create.en.md" %}}
-{{% /expandlarge %}}
-
-## Azure Key Vault Configuration
-
-When preparing the application to use secrets from Azure Key Vault, there are some steps that need to be done:
-
-1. Add the secrets retrieved during the Maskinporten client configuration to Azure Key Vault:
-   - The base64 encoded JWT public and private key pair
-   - The client ID for the integration
-
-   It is important that the name of these secrets in Azure Key Vault corresponds with the name of the section in the 
-   appsettings file in the application repository. E.g. if your appsettings section for the Maskinporten integration section looks like this:
-
-   {{< code-title >}}
-   App/appsettings.json
-   {{< /code-title >}}
-
-   ```json
-   {
-     "MaskinportenSettings": {
-       "Authority": "https://test.maskinporten.no/",
-       "ClientId": "",
-       "JwkBase64": ""
-     }
-   }
-   ```
-
-   The secrets in Azure Key Vault should have names like this:
-
-   ```
-   MaskinportenSettings--Authority
-   MaskinportenSettings--ClientId
-   MaskinportenSettings--JwkBase64
-   ```
-2. For the application to be able to read the secrets from Azure Key Vault, it needs to be configured to do so.
-   See the [secrets section](/en/altinn-studio/v8/reference/configuration/secrets/) to achieve this.
-3. Add the appsettings section example from above into the `appsettings.{env}.json` file.
+1. Open the app in Altinn Studio.
+2. Go to **Settings** and open the **Maskinporten** tab.
+3. Log in with Ansattporten when prompted.
+4. Select **Add**.
+5. Search for and select the scopes the app needs.
+6. Select **Complete** to save the scope list.
 {.floating-bullet-numbers}
 
-_Note: The secrets are read by the application on launch so
-if you make changes after the application is deployed, you
-will need to redeploy the application for them to come into effect._
+Scope changes take effect the next time the app is built and deployed.
+
+## Deployment and credentials
+
+When an app with Maskinporten scopes is deployed, Altinn Studio includes the selected scopes in the app build. The deploy pipeline creates a `MaskinportenClient` resource for the app, and the Maskinporten controller in the runtime cluster reconciles that resource against Maskinporten.
+
+The controller creates or updates the Maskinporten client, generates the client credentials, and writes the client ID and JWKS to the app secret. The credentials are mounted into the app deployment and loaded by the app as `MaskinportenSettings`.
+
+You do not need to manually create a Maskinporten client, generate a JWKS, or store `ClientId`/`JwkBase64` in Azure Key Vault for the standard app setup. The JWKS used by the generated client is rotated automatically.
 
 ## Application Setup
 
@@ -84,7 +52,9 @@ The application automatically includes the built-in `IMaskinportenClient` which 
 
 ### Configuration Paths
 
-The client will automatically look for a Maskinporten configuration at the default path _"MaskinportenSettings"_. If you wish to use a different path, perhaps because you are deploying multiple apps and you need each one to carry different credentials, you can configure this via the `ConfigureMaskinportenClient` method.
+The client automatically looks for a Maskinporten configuration at the default path _"MaskinportenSettings"_. With the Altinn Studio scope setup, this configuration is provided by the mounted runtime secret.
+
+If you need a different path for custom or legacy configuration, you can configure it via the `ConfigureMaskinportenClient` method.
 
 {{< code-title >}}
 App/Program.cs
@@ -140,6 +110,66 @@ public class Example(IMaskinportenClient maskinportenClient) : IProcessTaskEnd
 }
 {{< / highlight >}}
 
+## Legacy manual setup
+
+The following manual setup is only needed for legacy apps or special cases where Altinn Studio should not provision the Maskinporten client.
+
+{{% expandlarge id="legacy-manual-maskinporten-setup" header="Show manual setup with Samarbeidsportalen and Azure Key Vault" %}}
+
+### Azure Key Vault Access
+
+Before proceeding with the manual setup, make sure you have access to Azure Key Vault for your organization.
+This ensures that the keys created further on in the guide can be stored properly as secrets in Azure.
+
+If access is missing, please refer to [Access to logs and secrets](/en/altinn-studio/v8/guides/administration/access-management/apps/).
+
+### Maskinporten Integration
+
+When access to creating secrets in Azure Key Vault is confirmed, create the integration manually.
+
+{{% expandlarge id="guide-mp-int-samarbeid" header="Guide on how to register a new Maskinporten integration in Samarbeidsportalen" %}}
+{{% insert "content/shared/maskinporten/maskinporten-client-create.en.md" %}}
+{{% /expandlarge %}}
+
+### Azure Key Vault Configuration
+
+When preparing the application to use secrets from Azure Key Vault, there are some steps that need to be done:
+
+1. Add the secrets retrieved during the Maskinporten client configuration to Azure Key Vault:
+   - The base64 encoded JWT public and private key pair
+   - The client ID for the integration
+
+   It is important that the name of these secrets in Azure Key Vault corresponds with the name of the section in the
+   appsettings file in the application repository. E.g. if your appsettings section for the Maskinporten integration section looks like this:
+
+   {{< code-title >}}
+   App/appsettings.json
+   {{< /code-title >}}
+
+   ```json
+   {
+     "MaskinportenSettings": {
+       "Authority": "https://test.maskinporten.no/",
+       "ClientId": "",
+       "JwkBase64": ""
+     }
+   }
+   ```
+
+   The secrets in Azure Key Vault should have names like this:
+
+   ```
+   MaskinportenSettings--Authority
+   MaskinportenSettings--ClientId
+   MaskinportenSettings--JwkBase64
+   ```
+2. For the application to be able to read the secrets from Azure Key Vault, it needs to be configured to do so.
+   See the [secrets section](/en/altinn-studio/v8/reference/configuration/secrets/) to achieve this.
+3. Add the appsettings section example from above into the `appsettings.{env}.json` file.
+{.floating-bullet-numbers}
+
+_Note: The secrets are read by the application on launch so if you make changes after the application is deployed, you will need to redeploy the application for them to come into effect._
+
 ### Key Vault Configuration
 
 Lastly, we need to add the Azure Key Vault configuration provider to our host. This is done by adding the highlighted code _after_ the `ConfigureWebHostBuilder` method.
@@ -160,6 +190,8 @@ if (!builder.Environment.IsDevelopment())
 }
 {{< / highlight >}}
 
+{{% /expandlarge %}}
+
 ## Legacy Compatibility
 
 {{% expandlarge id="legacy-compatibility-expander" header="Show details" %}}
@@ -168,7 +200,7 @@ if (!builder.Environment.IsDevelopment())
 Certain legacy services require an implementation of `IMaskinportenTokenProvider` to retrieve access tokens. The `MaskinportenClient` will automatically register this service if it has not already been supplied elsewhere.
 
 ### Altinn.ApiClients.Maskinporten
-If you need to support existing usage of the [standalone Maskinporten client](https://github.com/Altinn/altinn-apiclient-maskinporten), while simultaneously wanting to use the built-in client for new features, it usually makes sense to leverage a single [Azure Key Vault configuration](#azure-key-vault-configuration).
+If you need to support existing usage of the [standalone Maskinporten client](https://github.com/Altinn/altinn-apiclient-maskinporten), while simultaneously wanting to use the built-in client for new features, it usually makes sense to leverage a single [legacy manual setup](#legacy-manual-setup).
 
 The example below illustrates how to map an `Altinn.ApiClients.Maskinporten.Config.MaskinportenSettings` object to the format required by the built-in client.
 

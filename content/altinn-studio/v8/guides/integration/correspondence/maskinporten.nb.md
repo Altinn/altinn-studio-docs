@@ -19,58 +19,48 @@ For å bruke [meldingstjenesten](/nb/correspondence/) behøver man en [Maskinpor
 - `altinn:correspondence.write`
 {.correspondence-custom-list}
 
-For å sette opp dette kan du følge de generelle stegene i [veiledningen for Maskinporten-integrasjons](/nb/altinn-studio/v8/guides/integration/maskinporten/) med noen modifikasjoner beskrevet nedenfor.
+For å sette opp dette legger du til scopene i Altinn Studio som beskrevet i [veiledningen for Maskinporten-integrasjon](/nb/altinn-studio/v8/guides/integration/maskinporten/). Når appen publiseres, oppretter Altinn Studio Maskinporten-klienten og monterer generert `MaskinportenSettings` i appen.
 
-- Meldingsklienten bruker en ny, intern klient for å kommunisere med Maskinporten. Derfor blir konfigurasjonsobjektet seende slik ut:
+Meldingsklienten finner og bruker automatisk den innebygde Maskinporten-klienten med standard konfigurasjonssti `MaskinportenSettings`.
 
-  {{< code-title >}}
-  App/appsettings.json
-  {{< /code-title >}}
+{{% expandlarge id="legacy-correspondence-maskinporten-config" header="Vis eldre egendefinert Maskinporten-konfigurasjon" %}}
 
-  ```json
-  "MaskinportenSettings": {
-    "Authority": "https://test.maskinporten.no/",
-    "ClientId": "the client id",
-    "JwkBase64": "base64 encoded jwk"
-  }
-  ```
+Hvis du trenger en annen konfigurasjonssti, kan du konfigurere den med hjelp av `ConfigureMaskinportenClient`:
 
-- Meldingsklienten finner og bruker automatisk Maskinporten-klienten, og forsøker å binde seg til standard konfigurasjonssti `MaskinportenSettings`.
-- Hvis du trenger en annen konfigurasjonssti, kan du konfigurere den med hjelp av `ConfigureMaskinportenClient`:
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
-  {{< code-title >}}
-  App/Program.cs
-  {{< /code-title >}}
+{{<highlight csharp "linenos=false,hl_lines=5">}}
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+  // ...
 
-  {{<highlight csharp "linenos=false,hl_lines=5">}}
-  void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+  services.ConfigureMaskinportenClient("DinUnikeMaskinportenSettingsSti");
+}
+{{</highlight>}}
+
+Hvis du trenger et tilpasset konfigurasjonsoppsett, kan du bruke en delegatmetode:
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
+{{<highlight csharp "linenos=false,hl_lines=5-10">}}
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+  // ...
+
+  services.ConfigureMaskinportenClient(config =>
   {
-    // ...
+    config.Authority = "https://[test.]maskinporten.no/";
+    config.ClientId = "klient-id";
+    config.JwkBase64 = "base64-kodet jwk";
+  });
+}
+{{</highlight>}}
 
-    services.ConfigureMaskinportenClient("DinUnikeMaskinportenSettingsSti");
-  }
-  {{</highlight>}}
-
-- Hvis du trenger et tilpasset konfigurasjonsoppsett, kan du bruke en delegatmetode:
-
-  {{< code-title >}}
-  App/Program.cs
-  {{< /code-title >}}
-
-  {{<highlight csharp "linenos=false,hl_lines=5-10">}}
-  void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
-  {
-    // ...
-
-    services.ConfigureMaskinportenClient(config =>
-    {
-      config.Authority = "https://[test.]maskinporten.no/";
-      config.ClientId = "klient-id";
-      config.JwkBase64 = "base64-kodet jwk";
-    });
-  }
-  {{</highlight>}}
-{.connected-bullets}
+{{% /expandlarge %}}
 
 ## Applikasjonskode
 

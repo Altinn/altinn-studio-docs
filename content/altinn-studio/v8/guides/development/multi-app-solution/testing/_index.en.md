@@ -14,18 +14,9 @@ aliases:
 
 When interacting with Maskinporten in an application there are a few things to keep in mind.
 
-First and foremost Samarbeidsportalen lets you maintain two different clients; one for test being `ver2`/`test` and
-another for
-production
-being `prod`. You should create both clients, but of course only use the test client for test, and prod client for
-production. Which client to use in which scenario, is decided by different configurations for
-the `appsettings.{env}.json` files. There are different access policies for creating these, so make sure you are aware
-of these limitations
-described
-at [Samarbeidsportalen](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web#innlogging-og-tilgang).
+Add the required Maskinporten scopes to the app in Altinn Studio before deploying it to a runtime environment. Altinn Studio will provision the Maskinporten client for the environment during deployment and mount the generated credentials into the app.
 
-Second, since integrating this client with an Altinn app relies on authorizing through public and private keys (JWT)
-stored as Azure secrets, you will need access to the Azure Key vault of the organization owning the applications.
+The user adding scopes in Altinn Studio must have access to administer Maskinporten clients for the service owner organization. See the [Maskinporten integration guide](/en/altinn-studio/v8/guides/integration/maskinporten/) for details.
 
 ## What can be done in Studio
 
@@ -37,18 +28,12 @@ preview tool.
 ## What can be done in app-localtest
 
 When running the application locally in app-localtest you can test all the logic in application A until
-the point where the instantiation request to application B is triggered. The reason for this is that the AppClient tries
-to access the
-Azure key vault in order to get the secrets needed for authorization to Maskinporten. But the secrets needed to be
-allowed to access Azure key vault is not available when running in localtest.
+the point where the instantiation request to application B is triggered. A local run does not provision the runtime Maskinporten client secret that is created during deployment.
 
-However, there is a way to go around this, for testing purposes. The secrets needed, `clientID` and `encodedJWT`, for
-authorizing requests to
-Maskinporten can be copied from your organisations Azure key vault and *temporarily* be pasted into the appsettings.json
-file.
+For local testing against real Maskinporten-protected APIs, use a temporary local configuration or user secrets as described in the legacy section of the [Maskinporten integration guide](/en/altinn-studio/v8/guides/integration/maskinporten/#legacy-manual-setup).
 
 {{% notice warning %}}
-If doing this modification be very careful that these secrets must not be shared by pushing them to gitea.
+If doing this modification be very careful that these secrets must not be shared by pushing them to Gitea.
 {{% /notice %}}
 
 After this modification the application is set up correctly with a client that can be
@@ -82,8 +67,7 @@ with the same tenor test user.
 
 ## What must be done in tt02
 
-Before actually deploying the applications to production the forms should have been tested fully in tt02 with actual
-usage of Azure key vault and correct variable for the envUrl. This means that both applications should be tested while
-running in tt02. It is still possible to test with a tenor test user as the receiver of the instance, but an alternative
+Before actually deploying the applications to production the forms should have been tested fully in tt02 with the deployed Maskinporten setup and correct variable for the envUrl. This means that both applications should be tested while
+running in tt02. It is still possible to test with a Tenor test user as the receiver of the instance, but an alternative
 is to ask for a test-organisation that can receive these forms. This can be done by sending a request to
 servicedesk@altinn.no.

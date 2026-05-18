@@ -23,7 +23,7 @@ Available from [v8.6.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8
 ### Maskinporten
 Maskinporten is required both for the [messaging service](#correspondence) and the interaction with [restricted data](/en/altinn-studio/v10/develop-a-service/data/restricted-data/).
 
-If you need help setting up a Maskinporten integration for your app, you can find all the information you need in [this guide](/en/altinn-studio/v10/develop-a-service/integrate-with-external-services/maskinporten/).
+If you need help setting up a Maskinporten integration for your app, you can find all the information you need in [this guide](/en/altinn-studio/v10/develop-a-service/integration/maskinporten/).
 
 ### Correspondence
 Runtime delegated signing depends on the messaging service ([Correspondence](/en/correspondence/)) in Altinn, which requires separate configuration.

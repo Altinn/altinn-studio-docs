@@ -11,68 +11,48 @@ aliases:
 
 Denne veiledningen viser hvordan du setter opp en Altinn-applikasjon til å bruke den innebygde Maskinporten-klienten (`IMaskinportenClient`) for å utføre autoriserte forespørsler på vegne av eieren av applikasjonen, i stedet for den aktive brukeren.
 
-For å sette dette opp, må følgende gjøres:
+Anbefalt oppsett er å legge til scopene applikasjonen trenger i Altinn Studio. Når applikasjonen bygges og publiseres, oppretter Altinn Studio en Maskinporten-klient, lagrer genererte klientdetaljer i applikasjonens secret og monterer innstillingene i applikasjonen.
 
-1. [Sørg for at organisasjonen har tilgang til Azure Key Vault](#tilgang-til-azure-key-vault).
-2. [Opprett en Maskinporten-integrasjon i selvbetjeningsportalen](#maskinporten-integrasjon).
-3. [Lagre autentiseringsnøkkelen for integrasjonen i Azure Key Vault](#konfigurasjon-av-azure-key-vault).
-4. [Sett opp applikasjonen til å bruke Maskinporten-klienten og hente hemmeligheter fra Azure Key Vault](#applikasjonsoppsett).
+For å sette dette opp må følgende gjøres:
 
-## Tilgang til Azure Key Vault
-Før du går videre med denne veiledningen, må du forsikre deg om at du har tilgang til Azure Key Vault for organisasjonen din. Dette sikrer at nøklene som opprettes senere i veiledningen kan lagres riktig som hemmeligheter i Azure.
+1. [Sørg for at brukeren din kan administrere Maskinporten-klienter for organisasjonen](#tilgang-til-maskinporten-scopes).
+2. [Legg til nødvendige scopes i Altinn Studio](#legg-til-scopes-i-altinn-studio).
+3. [Publiser applikasjonen slik at Maskinporten-klienten blir opprettet](#publisering-og-klientdetaljer).
+4. [Bruk den innebygde Maskinporten-klienten i applikasjonskoden](#applikasjonsoppsett).
 
-Hvis tilgang mangler, se [Tilgang til logger og hemmeligheter](/nb/altinn-studio/v8/guides/administration/access-management/apps/).
+## Tilgang til Maskinporten-scopes
 
-## Maskinporten-integrasjon
-I denne delen skal vi sette opp Maskinporten-klienten. En del av oppsettet inkluderer opprettelse av nøkler som senere skal lagres i Azure Key Vault. Hvis ulike personer i organisasjonen har tilgang til forskjellige ressurser som trengs i forbindelse med dette, anbefales det å samarbeide og utføre disse trinnene på samme maskin. På den måten unngår man å sende hemmeligheter mellom personer og maskiner.
+For å legge til scopes i Altinn Studio må du logge inn på vegne av tjenesteeierorganisasjonen med Ansattporten.
 
-Når tilgang til å opprette hemmeligheter i Azure Key Vault er bekreftet, kan du fortsette med å opprette integrasjonen.
+Brukeren din må ha organisasjons-/tjenesteeierrettigheter for tjenesteeieren i Sjølvbetjeningsportalen, inkludert rettighet til å administrere klienter. Hvis du ikke ser noen scopes i Altinn Studio, må du kontakte den som administrerer Maskinporten-tilganger for organisasjonen din, eller Altinn servicedesk.
 
-{{% expandlarge id="guide-mp-int-samarbeid" header="Veiledning om hvordan du registrerer en ny Maskinporten-integrasjon i Samarbeidsportalen" %}}
-{{% insert "content/shared/maskinporten/maskinporten-client-create.nb.md" %}}
-{{% /expandlarge %}}
+## Legg til scopes i Altinn Studio
 
-## Konfigurasjon av Azure Key Vault
-Når applikasjonen forberedes til å bruke hemmeligheter fra Azure Key Vault, må følgende trinn utføres:
-
-1. Legg til hemmelighetene som ble hentet under konfigurasjon av Maskinporten-klienten, i Azure Key Vault:
-    - Base64-kodet JWT offentlig og privat nøkkelpar
-    - Klient-ID for integrasjonen
-
-   Det er viktig at navnet på disse hemmelighetene i Azure Key Vault tilsvarer navnet på seksjonen i appsettings-filen i kodebasen til applikasjonen. F.eks. hvis din appsettings-seksjon for Maskinporten-integrasjonen ser slik ut:
-
-   {{< code-title >}}
-   App/appsettings.json
-   {{< /code-title >}}
-
-   ```json
-   {
-     "MaskinportenSettings": {
-       "Authority": "https://test.maskinporten.no/",
-       "ClientId": "",
-       "JwkBase64": ""
-     }
-   }
-   ```
-
-   Skal hemmelighetene i Azure Key Vault ha navn som dette:
-
-   ```
-   MaskinportenSettings--Authority
-   MaskinportenSettings--ClientId
-   MaskinportenSettings--JwkBase64
-   ```
-2. For at applikasjonen skal kunne lese hemmelighetene fra Azure Key Vault, må den konfigureres til å gjøre det. Se [secrets-seksjonen](/nb/altinn-studio/v8/reference/configuration/secrets/) for å oppnå dette.
-3. Legg til appsettings-eksempelet ovenfor i `appsettings.{env}.json`-filen.
+1. Åpne applikasjonen i Altinn Studio.
+2. Gå til **Innstillinger** og åpne fanen **Maskinporten**.
+3. Logg inn med Ansattporten når du blir bedt om det.
+4. Velg **Legg til**.
+5. Søk etter og velg scopene applikasjonen trenger.
+6. Velg **Fullfør** for å lagre listen med scopes.
 {.floating-bullet-numbers}
 
-_Merk: Hemmelighetene leses av applikasjonen ved oppstart, så hvis du gjør endringer etter at applikasjonen er publisert, må du publisere applikasjonen på nytt for at de skal tre i kraft._
+Endringer i scopes trer i kraft neste gang applikasjonen bygges og publiseres.
+
+## Publisering og klientdetaljer
+
+Når en applikasjon med Maskinporten-scopes publiseres, legger Altinn Studio valgte scopes inn i applikasjonsbygget. Deploy-pipelinen oppretter en `MaskinportenClient`-ressurs for applikasjonen, og Maskinporten-kontrolleren i runtime-clusteret avstemmer ressursen mot Maskinporten.
+
+Kontrolleren oppretter eller oppdaterer Maskinporten-klienten, genererer klientdetaljer og skriver klient-ID og JWKS til applikasjonens secret. Klientdetaljene monteres inn i applikasjonen og lastes av applikasjonen som `MaskinportenSettings`.
+
+Du trenger ikke å opprette Maskinporten-klient manuelt, generere JWKS eller lagre `ClientId`/`JwkBase64` i Azure Key Vault for standard oppsett av applikasjoner. JWKS-en som brukes av den genererte klienten roteres automatisk.
 
 ## Applikasjonsoppsett
 Applikasjonen inkluderer automatisk den innebygde `IMaskinportenClient` som kan brukes i tjenestene dine.
 
 ### Konfigurasjonsstier
-Klienten vil automatisk lete etter en Maskinporten-konfigurasjon på standardstien _"MaskinportenSettings"_. Hvis du ønsker å bruke en annen sti, kanskje fordi du administrerer flere apper og hver av dem trenger ulik autorisasjon, kan du konfigurere dette via `ConfigureMaskinportenClient`-metoden.
+Klienten leter automatisk etter Maskinporten-konfigurasjon på standardstien _"MaskinportenSettings"_. Med scope-oppsettet i Altinn Studio kommer denne konfigurasjonen fra runtime-secret som er montert i applikasjonen.
+
+Hvis du trenger en annen sti for egendefinert eller eldre konfigurasjon, kan du konfigurere dette via `ConfigureMaskinportenClient`-metoden.
 
 {{< code-title >}}
 App/Program.cs
@@ -126,6 +106,60 @@ public class Example(IMaskinportenClient maskinportenClient) : IProcessTaskEnd
 }
 {{< / highlight >}}
 
+## Eldre manuelt oppsett
+
+Det følgende manuelle oppsettet er bare nødvendig for eldre applikasjoner eller spesialtilfeller der Altinn Studio ikke skal opprette Maskinporten-klienten.
+
+{{% expandlarge id="legacy-manual-maskinporten-setup" header="Vis manuelt oppsett med Samarbeidsportalen og Azure Key Vault" %}}
+
+### Tilgang til Azure Key Vault
+Før du går videre med det manuelle oppsettet, må du forsikre deg om at du har tilgang til Azure Key Vault for organisasjonen din. Dette sikrer at nøklene som opprettes senere i veiledningen kan lagres riktig som hemmeligheter i Azure.
+
+Hvis tilgang mangler, se [Tilgang til logger og hemmeligheter](/nb/altinn-studio/v8/guides/administration/access-management/apps/).
+
+### Maskinporten-integrasjon
+Når tilgang til å opprette hemmeligheter i Azure Key Vault er bekreftet, kan du opprette integrasjonen manuelt.
+
+{{% expandlarge id="guide-mp-int-samarbeid" header="Veiledning om hvordan du registrerer en ny Maskinporten-integrasjon i Samarbeidsportalen" %}}
+{{% insert "content/shared/maskinporten/maskinporten-client-create.nb.md" %}}
+{{% /expandlarge %}}
+
+### Konfigurasjon av Azure Key Vault
+Når applikasjonen forberedes til å bruke hemmeligheter fra Azure Key Vault, må følgende trinn utføres:
+
+1. Legg til hemmelighetene som ble hentet under konfigurasjon av Maskinporten-klienten, i Azure Key Vault:
+    - Base64-kodet JWT offentlig og privat nøkkelpar
+    - Klient-ID for integrasjonen
+
+   Det er viktig at navnet på disse hemmelighetene i Azure Key Vault tilsvarer navnet på seksjonen i appsettings-filen i kodebasen til applikasjonen. F.eks. hvis din appsettings-seksjon for Maskinporten-integrasjonen ser slik ut:
+
+   {{< code-title >}}
+   App/appsettings.json
+   {{< /code-title >}}
+
+   ```json
+   {
+     "MaskinportenSettings": {
+       "Authority": "https://test.maskinporten.no/",
+       "ClientId": "",
+       "JwkBase64": ""
+     }
+   }
+   ```
+
+   Skal hemmelighetene i Azure Key Vault ha navn som dette:
+
+   ```
+   MaskinportenSettings--Authority
+   MaskinportenSettings--ClientId
+   MaskinportenSettings--JwkBase64
+   ```
+2. For at applikasjonen skal kunne lese hemmelighetene fra Azure Key Vault, må den konfigureres til å gjøre det. Se [secrets-seksjonen](/nb/altinn-studio/v8/reference/configuration/secrets/) for å oppnå dette.
+3. Legg til appsettings-eksempelet ovenfor i `appsettings.{env}.json`-filen.
+{.floating-bullet-numbers}
+
+_Merk: Hemmelighetene leses av applikasjonen ved oppstart, så hvis du gjør endringer etter at applikasjonen er publisert, må du publisere applikasjonen på nytt for at de skal tre i kraft._
+
 ### Key Vault-konfigurasjon
 
 Til slutt må vi legge til Azure Key Vault-konfigurasjonsleverandøren til vår host. Dette gjøres ved å legge til den markerte koden _etter_ `ConfigureWebHostBuilder`-metoden.
@@ -146,6 +180,8 @@ if (!builder.Environment.IsDevelopment())
 }
 {{< / highlight >}}
 
+{{% /expandlarge %}}
+
 ## Bakoverkompatibilitet
 
 {{% expandlarge id="bakoverkompatibilitet-expander" header="Vis detaljer" %}}
@@ -154,7 +190,7 @@ if (!builder.Environment.IsDevelopment())
 Visse eldre tjenester krever en implementering av `IMaskinportenTokenProvider` for å hente tokens. `MaskinportenClient` vil automatisk registrere denne tjenesten hvis den ikke allerede er registrert andre steder.
 
 ### Altinn.ApiClients.Maskinporten
-Hvis du trenger å støtte eksisterende bruk av den [frittstående Maskinporten-klienten](https://github.com/Altinn/altinn-apiclient-maskinporten), mens du samtidig vil bruke den innebygde klienten for nye funksjoner, gir det vanligvis mening å utnytte én enkelt [Azure Key Vault-konfigurasjon](#konfigurasjon-av-azure-key-vault).
+Hvis du trenger å støtte eksisterende bruk av den [frittstående Maskinporten-klienten](https://github.com/Altinn/altinn-apiclient-maskinporten), mens du samtidig vil bruke den innebygde klienten for nye funksjoner, gir det vanligvis mening å utnytte ett felles [eldre manuelt oppsett](#eldre-manuelt-oppsett).
 
 Eksempelet nedenfor illustrerer hvordan du kan omforme et `Altinn.ApiClients.Maskinporten.Config.MaskinportenSettings`-objekt til formatet som kreves av den innebygde klienten.
 
