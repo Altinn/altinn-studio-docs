@@ -151,7 +151,7 @@ Useful commands:
 | Command | Description |
 | ------- | ----------- |
 | `studioctl env status` | Shows local test platform status. |
-| `studioctl env logs` | Shows logs from the localtest containers. |
+| `studioctl env logs` | Shows logs from the LocalTest containers. |
 | `studioctl app run --detach` | Runs the app in the background. |
 | `studioctl app logs` | Shows logs from an app running in the background. Use `--follow` for live logs. |
 | `studioctl app stop` | Stops apps started with `studioctl app run --detach`. |
@@ -162,9 +162,9 @@ Useful commands:
 
 - For changes related to JSON files, simply reload the page.
 - For changes in prefilling, the application must be instantiated again (go to [http://local.altinn.cloud](http://local.altinn.cloud) and log back in).
-- For changes in CS files, the application must be stopped (`ctrl+C`) and restarted (`studioctl app run`).
+- For changes in C# files, the application must be stopped (`ctrl+C`) and restarted (`studioctl app run`).
 
-To automatically update when there are changes in CS files, start the application with `dotnet watch`. This command will either start the application or reload it ([hot reload](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-watch#hot-reload)) when changes are made to the source code.
+To automatically update when there are changes in C# files, start the application with `dotnet watch`. This command will either start the application or reload it ([hot reload](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-watch#hot-reload)) when changes are made to the source code.
 
 ### Stopping the application and LocalTest
 

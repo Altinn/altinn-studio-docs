@@ -78,7 +78,7 @@ Nyttige kommandoer:
 | -------- | ----------- |
 | `studioctl env up --open` | Starter lokal testplattform og åpner local.altinn.cloud. |
 | `studioctl env status` | Viser status for lokal testplattform. |
-| `studioctl env logs` | Viser logger fra localtest-containerne. |
+| `studioctl env logs` | Viser logger fra LocalTest-containerne. |
 | `studioctl app run --detach` | Kjører appen i bakgrunnen. |
 | `studioctl app logs` | Viser logger fra en app som kjører i bakgrunnen. Bruk `--follow` for løpende logg. |
 | `studioctl app stop` | Stopper apper som er startet med `studioctl app run --detach`. |

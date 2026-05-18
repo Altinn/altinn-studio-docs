@@ -15,7 +15,7 @@ Her er en oversikt over hvordan du kommer i gang med lokal utvikling.
 
 ## Slik kloner du appen til et lokalt utviklingsmiljø
 
-`studioctl` er anbefalt kommandolinjeverktøy for lokal utvikling av Altinn Studio-apper.
+`studioctl` er et anbefalt kommandolinjeverktøy for lokal utvikling av Altinn Studio-apper.
 Verktøyet logger inn mot Altinn Studio, kloner app-repoet og setter opp Git-autentisering for deg.
 
 Installer `studioctl`:
@@ -158,7 +158,7 @@ Nyttige kommandoer:
 | Kommando | Beskrivelse |
 | -------- | ----------- |
 | `studioctl env status` | Viser status for lokal testplattform. |
-| `studioctl env logs` | Viser logger fra localtest-containerne. |
+| `studioctl env logs` | Viser logger fra LocalTest-containerne. |
 | `studioctl app run --detach` | Kjører appen i bakgrunnen. |
 | `studioctl app logs` | Viser logger fra en app som kjører i bakgrunnen. Bruk `--follow` for løpende logg. |
 | `studioctl app stop` | Stopper apper som er startet med `studioctl app run --detach`. |
@@ -169,9 +169,9 @@ Nyttige kommandoer:
 
 - Hvis du endrer JSON-filer, holder det å laste inn siden på nytt.
 - Hvis du endrer forhåndsutfylling, må du starte en ny instans av appen (gå til [http://local.altinn.cloud](http://local.altinn.cloud) og logg inn igjen).
-- Hvis du endrer *cs*-filer, må du stoppe appen (`ctrl+C`) og starte den på nytt (`studioctl app run`).
+- Hvis du endrer C#-filer, må du stoppe appen (`ctrl+C`) og starte den på nytt (`studioctl app run`).
 
-Du kan oppdatere automatisk ved endring i *cs*-filer ved å starte appen med `dotnet watch`.
+Du kan oppdatere automatisk ved endring i C#-filer ved å starte appen med `dotnet watch`.
 Denne kommandoen vil enten starte appen eller laste den på nytt ([hot reload](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-watch#hot-reload)) ved endringer i kildekoden.
 
 ### Stoppe app og LocalTest
