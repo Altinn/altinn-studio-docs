@@ -60,8 +60,8 @@ applicationmetadata.json
 "copyInstanceSettings": {
     "enabled": true,
     "excludedDataFields": [
-      "group1.felt2",
-      "group23.felt21"
+        "group1.felt2",
+        "group23.felt21"
     ]
 }
 ```
