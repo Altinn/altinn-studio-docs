@@ -9,25 +9,6 @@ auto_resolve_threads: true
 reviews:
   profile: "chill"
   high_level_summary: true
-  path_instructions:
-    - path: '**/*.nb.md'
-      instructions: 'Check for Norwegian Bokmål (nb-NO) grammar and spelling with extra care. Pay special attention to specialized terminology and Norwegian-specific words.'
-    - path: "*.md"
-      instructions: "Check for links, markdown formatting, headings, grammar, and spelling."
-    - path: "content/**/*"
-      instructions: "Check for links, markdown formatting, headings, grammar, and spelling."
-    - path: "layouts/**/*"
-      instructions: "Check for links, markdown formatting, headings, grammar, and spelling."
-    - path: "static/**/*"
-      instructions: "Check for links, markdown formatting, headings, grammar, and spelling."
-    - path: "*.yaml"
-      instructions: "Check syntax."
-    - path: "*.yml"
-      instructions: "Check syntax."
-    - path: "*.toml"
-      instructions: "Check syntax."
-    - path: "*.json"
-      instructions: "Check syntax."
   tools:
     languagetool:
       enabled: true
