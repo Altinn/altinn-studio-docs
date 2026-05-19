@@ -1,3 +1,12 @@
+<!-- Maskinporten automation notice -->
+{{<notice info>}}
+**Maskinporten automation in Altinn Studio**
+
+- Apps using Altinn App v8.3 or newer can enable the default service owner scopes `altinn:serviceowner/instances.read` and `altinn:serviceowner/instances.write` from Altinn Studio. Use the button in the Maskinporten tab or add the scopes from the scopes view in app settings.
+- Apps using Altinn App v9 require these service owner scopes. Altinn Studio adds them automatically if they are missing.
+- The app must also authorise the service owner in [`App/config/authorization/policy.xml`](/en/altinn-studio/v8/reference/configuration/authorization/). Add a service owner authorisation rule for `[org]` with the actions the app client needs, for example `read` and `write`.
+{{</notice>}}
+
 The recommended setup is to add the scopes the app needs in Altinn Studio. When the app is built and deployed, the built-in Maskinporten client in the app can use the selected scopes.
 
 To set this up:
