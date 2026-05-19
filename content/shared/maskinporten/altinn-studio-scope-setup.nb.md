@@ -39,7 +39,9 @@ Du trenger ikke å opprette Maskinporten-klient manuelt, generere JWKS eller lag
 ### Konfigurasjonsstier
 Klienten leter automatisk etter Maskinporten-konfigurasjon på standardstien _"MaskinportenSettings"_. Med scope-oppsettet i Altinn Studio kommer denne konfigurasjonen fra runtime-secret som er montert i {0}.
 
-Hvis du trenger en annen sti for egendefinert eller eldre konfigurasjon, kan du konfigurere dette via `ConfigureMaskinportenClient`-metoden.
+Bruk standardstien når scopes er valgt i Altinn Studio. Maskinporten-kontrolleren skriver genererte klientdetaljer til standard konfigurasjonssti og fyller ikke ut egendefinerte konfigurasjonsseksjoner.
+
+Konfigurer bare en annen sti når du tilbyr Maskinporten-konfigurasjonen selv, for eksempel i et egendefinert eller eldre oppsett.
 
 {{< code-title >}}
 App/Program.cs

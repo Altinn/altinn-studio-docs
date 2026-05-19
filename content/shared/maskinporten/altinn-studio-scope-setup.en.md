@@ -41,7 +41,9 @@ The app automatically includes the built-in `IMaskinportenClient` which can be i
 
 The client automatically looks for a Maskinporten configuration at the default path _"MaskinportenSettings"_. With the Altinn Studio scope setup, this configuration is provided by the mounted runtime secret.
 
-If you need a different path for custom or legacy configuration, you can configure it via the `ConfigureMaskinportenClient` method.
+Use the default path when scopes are selected in Altinn Studio. The Maskinporten controller writes the generated credentials to the default configuration path and does not populate custom configuration sections.
+
+Only configure a different path when you provide the Maskinporten configuration yourself, for example in a custom or legacy setup.
 
 {{< code-title >}}
 App/Program.cs
