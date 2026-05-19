@@ -56,7 +56,7 @@ Når publiseringen er gjennomført finnes også ressursen i utlisting på ressur
 
 Ressursen er tilgjengelig på følgende url for PROD  https://platform.altinn.no/resourceregistry/api/v1/resource/{id}
 
-## Migrering of old Altinn 1 og Altinn 2 apps
+## Migration of old Altinn 1 and Altinn 2 apps
 
 To change delegation information for apps from Altinn 1 and Altinn 2, these can be imported to Altinn Studio resource administration. For these services to work as normal, it is important to change access from Altinn 2-roles to access packages. These services are displayed in the list on the resource dashboard and will have a resource ID starting with app_{serviceownercode}a1 or app{serviceownercode}_a2. To import these, click the import button to the right on the list item. They can then be published as normal resources.
 
