@@ -21,7 +21,7 @@ for Fiks Arkiv integrasjon i en app.
 Før du setter opp Fiks Arkiv-integrasjonen i appen din, må du ha følgende på plass:
 
 - **Fiks Protokoll** aktivert i Fiks forvaltningsportalen for din organisasjon
-- Tilgang i Samarbeidsportalen/sjolvbetjening til å administrere Maskinporten-klienter for organisasjonen din. Altinn Studio bruker denne autoriseringen når du logger inn med Ansattporten og legger Maskinporten-scopes til appen.
+- Tilgang i **Samarbeidsportalen** til å administrere Maskinporten-klienter for organisasjonen din. Altinn Studio bruker denne autoriseringen når du logger inn med Ansattporten og legger Maskinporten-scopes til appen.
 - Et **arkivsystem** som integrerer med Fiks Arkiv (f.eks. Public 360)
 
 ## Integrasjonsarkitektur og flyt

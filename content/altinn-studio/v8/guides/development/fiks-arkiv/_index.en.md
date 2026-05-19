@@ -20,7 +20,7 @@ In addition to the documentation below, we have created a
 Before setting up the Fiks Arkiv integration in your app you will need to have the following set up: 
 
 - **Fiks Protokoll** enabled in Fiks forvaltning portal for your organization
-- Samarbeidsportalen/sjolvbetjening access to administer Maskinporten clients for your organization. Altinn Studio uses this authorization when you log in with Ansattporten and add Maskinporten scopes to the app.
+- **Samarbeidsportalen** access to administer Maskinporten clients for your organization. Altinn Studio uses this authorization when you log in with Ansattporten and add Maskinporten scopes to the app.
 - An **archive system** that integrates with Fiks Arkiv (e.g., Public 360)
 
 ## Integration architecture and flow
