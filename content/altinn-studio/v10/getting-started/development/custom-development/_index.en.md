@@ -50,18 +50,7 @@ When the app is running, you can test it at [http://local.altinn.cloud:8000](htt
 Run `studioctl doctor` if something does not start as expected.
 The command checks tools such as the .NET SDK, container runtime and local configuration.
 
-Useful commands:
-
-| Command | Description |
-| ------- | ----------- |
-| `studioctl env up --open` | Starts the local test platform and opens local.altinn.cloud on port `8000`. |
-| `studioctl env status` | Shows local test platform status. |
-| `studioctl env logs` | Shows logs from the LocalTest containers. |
-| `studioctl run --detach` | Runs the app in the background. |
-| `studioctl app logs` | Shows logs from an app running in the background. Use `--follow` for live logs. |
-| `studioctl stop` | Stops apps started with `studioctl run --detach`. |
-| `studioctl env down` | Stops the local test platform. |
-| `studioctl doctor` | Diagnoses missing tools and local environment issues. |
+{{% insert "content/altinn-studio/shared/studioctl/useful-commands.en.md" %}}
 
 If you change JSON files, reloading the page is usually enough.
 If you change C# code, stop the app with `ctrl+C` and start it again with `studioctl run`.

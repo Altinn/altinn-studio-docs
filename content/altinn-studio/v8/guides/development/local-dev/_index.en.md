@@ -125,17 +125,7 @@ studioctl env up --open
 studioctl run
 ```
 
-Useful commands:
-
-| Command | Description |
-| ------- | ----------- |
-| `studioctl env status` | Shows local test platform status. |
-| `studioctl env logs` | Shows logs from the LocalTest containers. |
-| `studioctl run --detach` | Runs the app in the background. |
-| `studioctl app logs` | Shows logs from an app running in the background. Use `--follow` for live logs. |
-| `studioctl stop` | Stops apps started with `studioctl run --detach`. |
-| `studioctl env down` | Stops the local test platform. |
-| `studioctl doctor` | Diagnoses missing tools and local environment issues. |
+{{% insert "content/altinn-studio/shared/studioctl/useful-commands.en.md" %}}
 
 ### Preview changes in real-time
 
