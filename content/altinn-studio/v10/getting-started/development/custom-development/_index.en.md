@@ -1,7 +1,7 @@
 ---
-title: Customizations in custom code
+title: Customisations in custom code
 linktitle: Custom code
-description: Customize your app with custom code
+description: Customise your app with custom code
 draft: true
 weight: 40
 ---
@@ -34,7 +34,7 @@ This list is not exhaustive. In practice, you can implement whatever the app nee
 {{% insert "content/altinn-studio/shared/studioctl/install-clone.en.md" %}}
 
 When the app has been cloned, you can open the repository in your preferred development tool and change C# code, configuration, data models, layouts and other files.
-Remember to synchronize changes with Git when you switch between Altinn Studio Designer and your local development environment.
+Remember to synchronise changes with Git when you switch between Altinn Studio Designer and your local development environment.
 
 ## Run and test the app locally
 

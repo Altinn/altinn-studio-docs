@@ -58,15 +58,15 @@ Now you can open your preferred development tool and start coding.
 
 {{% /expandlarge %}}
 
-## Synchronize changes in the local development environment
+## Synchronise changes in the local development environment
 
 You must upload (push) changes you make locally to the repository from which the code was cloned.
 If you make changes in Altinn Studio Designer (and upload these to the repository), you must download them (pull) to update the local code.
 
-You can synchronize changes in the local development environment in several ways.
+You can synchronise changes in the local development environment in several ways.
 Many development tools have good integrations for this purpose, so check whether your tool has that type of support.
 
-Below we describe how you can synchronize changes from the command line.
+Below we describe how you can synchronise changes from the command line.
 
 ### Upload changes
 
@@ -81,9 +81,9 @@ Go to your application repository in a terminal and run the command `git pull`.
 
 [Read more about `git pull` here](https://git-scm.com/docs/git-pull)
 
-## Synchronize changes in Altinn Studio
+## Synchronise changes in Altinn Studio
 
-In Altinn Studio, you must synchronize changes in the same way as with local changes.
+In Altinn Studio, you must synchronise changes in the same way as with local changes.
 
 ### Download changes
 1. Click **Hent endringer** (Fetch changes) on the 'Lage' page of the application in Altinn Studio.

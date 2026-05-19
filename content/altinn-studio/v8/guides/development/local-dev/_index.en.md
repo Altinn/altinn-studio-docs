@@ -116,7 +116,7 @@ To run the app in LocalTest, the application must have an associated [data model
 
 1. **Start the local test platform**: Go to the app repository in a terminal and run `studioctl env up`.
 2. **Run your application within LocalTest**: Run `studioctl run` from the app repository. The command detects the app directory and starts the app with the correct local settings.
-3. **Preview and test application**: Go to [http://local.altinn.cloud:8000](http://local.altinn.cloud:8000) and log in with a [test user](/en/altinn-studio/v8/reference/testing/local/testusers/).
+3. **Preview and test the application**: Go to [http://local.altinn.cloud:8000](http://local.altinn.cloud:8000) and log in with a [test user](/en/altinn-studio/v8/reference/testing/local/testusers/).
 
 You can also open the browser when the test platform starts:
 
@@ -157,7 +157,7 @@ This method can still be useful when troubleshooting an old setup, but the recom
 
 1. **Download and start LocalTest** by following the steps [described on GitHub](https://github.com/Altinn/app-localtest/blob/master/README.md) (includes starting the app, which is also explained below).
 2. **Run your application within LocalTest**: Open a new terminal window and navigate to the subfolder *App* in your application (`<app-name>/App`). Start the app with the command `dotnet run` and wait for confirmation in the terminal.
-3. **Preview and test application**: Go to [http://local.altinn.cloud:8000](http://local.altinn.cloud:8000) and log in with a [test user](/en/altinn-studio/v8/reference/testing/local/testusers/).
+3. **Preview and test the application**: Go to [http://local.altinn.cloud:8000](http://local.altinn.cloud:8000) and log in with a [test user](/en/altinn-studio/v8/reference/testing/local/testusers/).
 
 To stop the application, press `ctrl+C` in the terminal window where you started it.
 To stop LocalTest, navigate to the `app-localtest` folder in the terminal and run the command `docker compose down`.
