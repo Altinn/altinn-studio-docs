@@ -59,7 +59,7 @@ Bruk verb, ikke substantiv laget av verb. De gjør teksten tung. Eksempel: ing +
 
 - Korte setninger i stedet for lange
 - Vanlige ord i stedet for moteord
-- Aktiv form i stedet for passiv ("vi bruker" ikke "det benyttes")
+- Aktiv form i stedet for passiv ("vi bruker" ikke "det benyttes"). Når systemet handler, bruk "appen", "tjenesten", "plattformen" eller "Studio" som subjekt: "Studio fjerner ukjente verdier" ikke "Ukjente verdier fjernes"
 - Konkret i stedet for abstrakt ("vi bygger nytt image" ikke "det kreves en tilpasning av image-artefaktet")
 - Kutt fyllord: "i bunn og grunn", "i stor grad", "på mange måter"
 - Skriv direkte: "CNPG fikser dette" ikke "CNPG har adressert denne problemstillingen"
@@ -72,6 +72,39 @@ Bruk verb, ikke substantiv laget av verb. De gjør teksten tung. Eksempel: ing +
 - Bare første ord og egennavn med stor bokstav i overskrifter (ikke amerikansk engelsk stil)
 - Overskrifter skal ikke bruke substantiverte verb: "Bygging av uttrykk" → "Bygge uttrykk", "Lagring av data" → "Lagre data"
 - Lenketekst: Beskriv hva lenken fører til, gjerne en hel setning. Unngå "les mer", "les mer her", "klikk her" og "her" alene
+
+## Listeregler
+
+**Sjekk alltid lister — inkonsekvent bruk av punktum og forbokstav er en vanlig feilkilde.**
+
+Les innledningen og første punkt høyt for å avgjøre type:
+
+### Type 1: Punktene fullfører setningen grammatisk
+
+- Ingen kolon etter innledningen
+- Liten forbokstav i hvert punkt
+- Ikke punktum på slutten
+
+```
+Du trenger en datamodell til å
+
+- samle inn data fra brukere
+- lagre data fra tjenesten
+```
+
+### Type 2: Punktene er selvstendige setninger
+
+- Kolon etter innledningen
+- Stor forbokstav i hvert punkt
+- Punktum på slutten av hvert punkt
+- Vær konsekvent gjennom hele listen — ikke bland med og uten punktum
+
+```
+Slik gjør du det:
+
+- Gi brukeren en tydelig inngang til tjenesten.
+- Unngå mellomliggende sider.
+```
 
 ## AI-markører
 
@@ -141,6 +174,8 @@ Noen engelske ord brukes mye oftere i KI-generert tekst enn i vanlig norsk. Vær
 - Dropp utropstegn i teknisk tekst
 - Kolon (:) i hver eneste overskrift og kulepunkt er et AI-tegn. Varier.
 - Skråstrek skrives uten mellomrom: `ledetekst/visningsverdi`, ikke `ledetekst / visningsverdi`
+- Parenteser: bruk bare til korte presiseringer på ett til to ord ("...dagen før i går (i forgårs)"). Lange parentetiske innhogg bør skrives om til en egen setning eller kuttes
+- I how-to-veiledninger: bruk "Slik [gjør du]..." fremfor "Hvordan [du gjør]..." i overskrifter og ingresser — "Hvordan" speiler engelsk "How to" og er mindre direkte på norsk
 
 ## Termer og språkvalg
 
