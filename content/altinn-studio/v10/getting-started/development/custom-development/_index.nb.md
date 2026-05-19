@@ -32,8 +32,8 @@ Listen er ikke utfyllende - her kan du i praksis få til hva som helst!
 
 {{% insert "content/altinn-studio/shared/studioctl/install-clone.nb.md" %}}
 
-Når appen er klonet kan du åpne repoet i ønsket utviklingsverktøy og gjøre endringer i C#-kode, konfigurasjon, datamodeller, layouts og andre filer.
-Husk å synkronisere endringer med Git når du bytter mellom Altinn Studio Designer og lokalt utviklingsmiljø.
+Når appen er klonet, kan du åpne repoet i ønsket utviklingsverktøy og gjøre endringer i C#-kode, konfigurasjon, datamodeller, layouts og andre filer.
+Husk å synkronisere endringer med Git når du bytter mellom Altinn Studio Designer og ditt lokale utviklingsmiljø.
 
 ## Kjøre og teste appen lokalt
 
@@ -62,7 +62,7 @@ Nyttige kommandoer:
 | `studioctl env down` | Stopper lokal testplattform. |
 | `studioctl doctor` | Diagnostiserer manglende verktøy og lokale miljøproblemer. |
 
-Hvis du endrer JSON-filer er det som regel nok å laste siden på nytt.
+Hvis du endrer JSON-filer, er det som regel nok å laste siden på nytt.
 Hvis du endrer C#-kode, stopp appen med `ctrl+C` og start den på nytt med `studioctl run`.
 
 <!-- ## Konsept: Dependency injection
