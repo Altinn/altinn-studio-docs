@@ -5,13 +5,45 @@ hidden: true
 
 Nyttige kommandoer:
 
-| Kommando | Beskrivelse |
-| -------- | ----------- |
-| `studioctl env up --open` | Starter lokal testplattform og åpner local.altinn.cloud på port `8000`. |
-| `studioctl env status` | Viser status for lokal testplattform. |
-| `studioctl env logs` | Viser logger fra LocalTest-containerne. |
-| `studioctl run --detach` | Kjører appen i bakgrunnen. |
-| `studioctl app logs` | Viser logger fra en app som kjører i bakgrunnen. Bruk `--follow` for løpende logg. |
-| `studioctl stop` | Stopper apper som er startet med `studioctl run --detach`. |
-| `studioctl env down` | Stopper lokal testplattform. |
-| `studioctl doctor` | Diagnostiserer manglende verktøy og lokale miljøproblemer. |
+<table>
+  <thead>
+    <tr>
+      <th>Kommando</th>
+      <th>Beskrivelse</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>studioctl env up --open</code></td>
+      <td>Starter lokal testplattform og åpner local.altinn.cloud på port <code>8000</code>.</td>
+    </tr>
+    <tr>
+      <td><code>studioctl env status</code></td>
+      <td>Viser status for lokal testplattform.</td>
+    </tr>
+    <tr>
+      <td><code>studioctl env logs</code></td>
+      <td>Viser logger fra LocalTest-containerne.</td>
+    </tr>
+    <tr>
+      <td><code>studioctl run --detach</code></td>
+      <td>Kjører appen i bakgrunnen.</td>
+    </tr>
+    <tr>
+      <td><code>studioctl app logs</code></td>
+      <td>Viser logger fra en app som kjører i bakgrunnen. Bruk <code>--follow</code> for løpende logg.</td>
+    </tr>
+    <tr>
+      <td><code>studioctl stop</code></td>
+      <td>Stopper apper som er startet med <code>studioctl run --detach</code>.</td>
+    </tr>
+    <tr>
+      <td><code>studioctl env down</code></td>
+      <td>Stopper lokal testplattform.</td>
+    </tr>
+    <tr>
+      <td><code>studioctl doctor</code></td>
+      <td>Diagnostiserer manglende verktøy og lokale miljøproblemer.</td>
+    </tr>
+  </tbody>
+</table>
