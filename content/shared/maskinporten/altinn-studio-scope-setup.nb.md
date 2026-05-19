@@ -5,7 +5,7 @@ For å sette dette opp må du:
 1. [Sørge for at brukeren din kan administrere Maskinporten-klienter for organisasjonen](#tilgang-til-maskinporten-scopes).
 2. [Legge til nødvendige scopes i Altinn Studio](#legg-til-scopes-i-altinn-studio).
 3. [Publisere {0} slik at Maskinporten-klienten blir opprettet](#publisering-og-klientdetaljer).
-4. [Bruke den innebygde Maskinporten-klienten i {1}](#{2}).
+4. [Bruke den innebygde Maskinporten-klienten i {1}](#maskinporten-application-setup).
 
 ## Tilgang til Maskinporten-scopes
 
@@ -33,7 +33,7 @@ Kontrolleren oppretter eller oppdaterer Maskinporten-klienten, genererer klientd
 
 Du trenger ikke å opprette Maskinporten-klient manuelt, generere JWKS eller lagre `ClientId`/`JwkBase64` i Azure Key Vault for standard oppsett av {5}. JWKS-en som brukes av den genererte klienten roteres automatisk.
 
-## {6}
+## {6} {#maskinporten-application-setup}
 {7} inkluderer automatisk den innebygde `IMaskinportenClient` som kan brukes i tjenestene dine.
 
 ### Konfigurasjonsstier
