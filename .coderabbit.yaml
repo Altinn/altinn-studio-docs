@@ -3,8 +3,6 @@
 
 language: en-GB
 tone_instructions: "Please check documentation in British English (en-GB) and Norwegian Bokmål (nb-NO)."
-early_access: false
-enable_free_tier: true
 reviews:
   profile: "chill"
   high_level_summary: true
