@@ -20,7 +20,7 @@ In addition to the documentation below, we have created a
 Before setting up the Fiks Arkiv integration in your app you will need to have the following set up: 
 
 - **Fiks Protokoll** enabled in Fiks forvaltning portal for your organisation
-- **Samarbeidsportalen** access to administer Maskinporten clients for your organisation. Altinn Studio uses this authorization when you log in with Ansattporten and add Maskinporten scopes to the app.
+- **Samarbeidsportalen** access to administer Maskinporten clients for your organisation. Altinn Studio uses this authorisation when you log in with Ansattporten and add Maskinporten scopes to the app.
 - An **archive system** that integrates with Fiks Arkiv (e.g., Public 360)
 
 ## Integration architecture and flow
@@ -61,7 +61,7 @@ It is therefore recommended to set up one account per unique Altinn app.
 
   Use your preferred tool to generate the certificate. A guide is available at the end of this section.
 
-- In Fiks Forvaltning, set up a new system under Fiks Protokoll for your organization.
+- In Fiks Forvaltning, set up a new system under Fiks Protokoll for your organisation.
   [KS Digital's system setup guide](https://developers.fiks.ks.no/tjenester/fiksprotokoll/veiledning_3_opprette_system/)
    
 
@@ -149,7 +149,7 @@ For legacy manual setup, the client identifier should be added as _ClientId_ and
 
 | **Setting Name**  | **Description**                                                                       |
 |-------------------|---------------------------------------------------------------------------------------|
-| **Authority**     | The Maskinporten authority/audience to use for authentication and authorization.      |
+| **Authority**     | The Maskinporten authority/audience to use for authentication and authorisation.      |
 | **ClientId**      | The client ID which has been registered with Maskinporten. Typically a uuid4 string.  |
 | **JwkBase64**     | The private key used to authenticate with Maskinporten, in Base64 encoded JWK format. |
 
@@ -605,7 +605,7 @@ Use **`Value`** when you know the text upfront; use **`DataModelBinding`** when 
 
 - Define the policy for the application  
   
-  Ensure that each task in the process flow has authorization rules linked to them specifying which entities are allowed 
+  Ensure that each task in the process flow has authorisation rules linked to them specifying which entities are allowed
 to complete which actions given a specific state. 
 
 ### Overriding standard behavior
@@ -659,7 +659,7 @@ These along with solutions are listed below, to be used at your convenience.
 
 ### Create a Fiks Arkiv account
 {.floating-bullet-numbers-sibling-ol}
-1. For your organization, set up a new system under Fiks Protokoll 
+1. For your organisation, set up a new system under Fiks Protokoll
 2. Create an account linked to this system
 
     The account should be configured with the following properties

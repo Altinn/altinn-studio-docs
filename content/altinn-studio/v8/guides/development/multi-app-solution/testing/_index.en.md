@@ -16,7 +16,7 @@ When interacting with Maskinporten in an application there are a few things to k
 
 Add the required Maskinporten scopes to the app in Altinn Studio before deploying it to a runtime environment. Altinn Studio will provision the Maskinporten client for the environment during deployment and mount the generated credentials into the app.
 
-The user adding scopes in Altinn Studio must have access to administer Maskinporten clients for the service owner organization. See the [Maskinporten integration guide](/en/altinn-studio/v8/guides/integration/maskinporten/) for details.
+The user adding scopes in Altinn Studio must have access to administer Maskinporten clients for the service owner organisation. See the [Maskinporten integration guide](/en/altinn-studio/v8/guides/integration/maskinporten/) for details.
 
 ## What can be done in Studio
 
@@ -57,7 +57,7 @@ string envUrl = $"https://{org}.apps.tt02";
 
 _NB: Do not change the HostName variable in appsettings.json since this is used for other critical purposes as well._
 
-Unless you are fine by injecting your organizations Altinn Innboks with testing instances of application B, you
+Unless you are fine with injecting your organisation's Altinn Innboks with testing instances of application B, you
 should adjust the receiver of the instance that is to be created in the instance template in application A. This is
 done by using `PersonNumber` instead of `OrganisationNumber` in the `InstanceOwner` part of the template object
 in `ProcessTaskEnd.End()` method. It is recommended to use a person number for a test user from Tenor test database.
