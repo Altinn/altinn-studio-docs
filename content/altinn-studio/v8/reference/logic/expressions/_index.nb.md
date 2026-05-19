@@ -330,6 +330,7 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | ---------------------- | --------------------------- | ------------------- | -------- | ------- |
 | [`argv`](#func-argv)   | [Tall](#tall)               | [Streng](#strenger) | ✅       | ✅      |
 | [`value`](#func-value) | valgfri [Streng](#strenger) | [Streng](#strenger) | ✅       | ❌      |
+| [`list`](#func-list)   | Ubegrenset antall verdier   | [Liste](#lister)    | ❌       | ❌      |
 
 Detaljerte beskrivelser og eksempler
 
@@ -1132,6 +1133,16 @@ Vær oppmerksom på at tallet 0 ikke er gyldig som divisor.
 Dersom `null` sendes inn som argument, tolker funksjonen dette som `0`.
 {{% /expandlarge %}}
 
+{{% expandlarge id="func-list" header="list" %}}
+Funksjonen `list` oppretter en liste av parametrene.
+
+Eksempel:
+```json
+["list", 1, 2, 3]
+```
+Dette eksemplet returnerer listen `[1, 2, 3]`. Parametrene kan ha hvilken som helst type.
+{{% /expandlarge %}}
+
 ## Datatyper
 
 Funksjoner i uttrykkene har en forventning om at argumentene som blir sendt inn har en spefikk type. Dersom et argument
@@ -1247,6 +1258,11 @@ Av denne grunn kan det være å foretrekke å spesifisere datoer og tider uten e
 ønsker at datoen/tiden skal vises på samme måte uavhengig av brukerens tidssone. På samme vis er det anbefalt å unngå
 å sammenligne datoer i forskjellige tidssoner.
 {{% /notice %}}
+
+### Lister
+
+Siden hele uttrykksspråket er bygget opp av lister, er det ikke mulig å spesifisere lister direkte. Derfor har vi en egen funksjon som lager en liste av parametrene, nemlig [`list`](#func-list).
+En liste kan bestå av et ubegrenset antall elementer. Elementene kan ha hvilken som helst type, men vær oppmerksom på at funksjoner som tar imot en liste som en parameter ofte stiller krav til hva slags type elementene har.
 
 ## Tips og triks
 

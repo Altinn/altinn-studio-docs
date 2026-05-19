@@ -335,6 +335,7 @@ These functions are available for use in expressions:
 | ---------------------- | --------------------------- | ------------------ | -------- | ------- |
 | [`argv`](#func-argv)   | [Number](#numbers)          | [String](#strings) | ✅       | ✅      |
 | [`value`](#func-value) | optional [String](#strings) | [String](#strings) | ✅       | ❌      |
+| [`list`](#func-list)   | Any number of values        | [List](#lists)     | ❌       | ❌      |
 
 Detailed descriptions and examples
 
@@ -1135,6 +1136,16 @@ Be aware that the number 0 is not valid as divisor.
 The function interprets `null` values as `0`.
 {{% /expandlarge %}}
 
+{{% expandlarge id="func-list" header="list" %}}
+The function `list` creates a list from its arguments.
+
+Example:
+```json
+["list", 1, 2, 3]
+```
+This example returns the list `[1, 2, 3]`. The arguments can have any type.
+{{% /expandlarge %}}
+
 ## Data Types
 
 Expressions in the functions expect that the arguments sent in have a specific type. If an argument sent in has a
@@ -1249,6 +1260,11 @@ For this reason, it may be preferable to specify dates and times without a timez
 date/time to be displayed the same way regardless of the user's timezone. Likewise, when comparing dates, it is
 recommended to only compare dates in the same timezone.
 {{% /notice %}}
+
+### Lists
+
+Since the entire expression language is made up of lists, it is not possible to define lists directly. Therefore, we provide [the `list` function](#func-list), which creates a list from its arguments.
+A list may consist of any number of items. The items may have any type, but be aware that functions with lists in their arguments often have certain requirements to the types of the items.
 
 ## Tips and Tricks
 
