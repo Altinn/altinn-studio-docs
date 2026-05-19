@@ -7,7 +7,7 @@ tags: [needsReview]
 toc: true
 ---
 
-This guide shows how to set up an Altinn app to use the built-in Maskinporten client (`IMaskinportenClient`) for authorized requests on behalf of the app owner, as opposed to the active user.
+This guide shows how to set up an Altinn app to use the built-in Maskinporten client (`IMaskinportenClient`) for authorised requests on behalf of the app owner, as opposed to the active user.
 
 {{% insert "content/shared/maskinporten/altinn-studio-scope-setup.en.md" %}}
 
@@ -19,7 +19,7 @@ The following manual setup is only needed for legacy apps or special cases where
 
 ### Azure Key Vault access
 
-Before proceeding with the manual setup, make sure you have access to Azure Key Vault for your organization. This ensures that the keys created further on in the guide can be stored properly as secrets in Azure.
+Before proceeding with the manual setup, make sure you have access to Azure Key Vault for your organisation. This ensures that the keys created further on in the guide can be stored properly as secrets in Azure.
 
 If access is missing, please refer to [Access to logs and secrets](/en/altinn-studio/v10/manage-a-service/access-management/apps/).
 

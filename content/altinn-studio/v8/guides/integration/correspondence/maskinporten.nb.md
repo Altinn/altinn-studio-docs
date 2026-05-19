@@ -51,11 +51,11 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 {
   // ...
 
-  services.ConfigureMaskinportenClient(config =>
+  services.ConfigureMaskinportenClient(maskinportenConfig =>
   {
-    config.Authority = "https://[test.]maskinporten.no/";
-    config.ClientId = "klient-id";
-    config.JwkBase64 = "base64-kodet jwk";
+    maskinportenConfig.Authority = "https://[test.]maskinporten.no/";
+    maskinportenConfig.ClientId = "klient-id";
+    maskinportenConfig.JwkBase64 = "base64-kodet jwk";
   });
 }
 {{</highlight>}}

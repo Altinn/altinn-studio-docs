@@ -71,7 +71,7 @@ When preparing the application to use secrets from Azure Key Vault, there are so
 3. Add the appsettings section example from above into the `appsettings.{env}.json` file.
 {.floating-bullet-numbers}
 
-_Note: The secrets are read by the application on launch so if you make changes after the application is deployed, you will need to redeploy the application for them to come into effect._
+_Note: The secrets are read by the application on launch, so if you make changes after the application is deployed, you will need to redeploy the application for them to come into effect._
 
 ### Key Vault Configuration
 

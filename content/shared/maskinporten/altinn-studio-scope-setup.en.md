@@ -2,16 +2,16 @@ The recommended setup is to add the scopes the app needs in Altinn Studio. When 
 
 To set this up:
 
-1. [Ensure that your user can administer Maskinporten clients for the organization](#access-to-maskinporten-scopes).
+1. [Ensure that your user can administer Maskinporten clients for the organisation](#access-to-maskinporten-scopes).
 2. [Add the required scopes in Altinn Studio](#add-scopes-in-altinn-studio).
 3. [Deploy the app so the Maskinporten client is provisioned](#deployment-and-credentials).
 4. [Use the built-in Maskinporten client in application code](#application-setup).
 
 ## Access to Maskinporten scopes
 
-To add scopes in Altinn Studio you must log in on behalf of the service owner organization with Ansattporten.
+To add scopes in Altinn Studio you must log in on behalf of the service owner organisation with Ansattporten.
 
-Your user must have organization/service owner permissions for the service owner in Sjolvbetjeningsportalen, including permission to administer clients. If you cannot see any scopes in Altinn Studio, contact the person who administers Maskinporten access for your organization or Altinn servicedesk.
+Your user must have organisation/service owner permissions for the service owner in Sjolvbetjeningsportalen, including permission to administer clients. If you cannot see any scopes in Altinn Studio, contact the person who administers Maskinporten access for your organisation or Altinn servicedesk.
 
 ## Add scopes in Altinn Studio
 
@@ -58,9 +58,9 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 }
 {{< / highlight >}}
 
-### Authorizing HTTP clients
+### Authorising HTTP clients
 
-Typed and named HTTP clients can be authorized with the available extension methods, as illustrated below.
+Typed and named HTTP clients can be authorised with the available extension methods, as illustrated below.
 
 {{< code-title >}}
 App/Program.cs

@@ -26,7 +26,7 @@ required prerequisites are met.
 2. The application that sends requests to another application must have the required Maskinporten scopes added in Altinn Studio:
    `altinn:serviceowner/instances.read` and
    `altinn:serviceowner/instances.write`.*
-3. The application must use the built-in Maskinporten client when requests must be authorized by the application owner.*
+3. The application must use the built-in Maskinporten client when requests must be authorised by the application owner.*
 
 If step 2 and 3 of the technical requirements are missing see
 section [Maskinporten-App Integration](/en/altinn-studio/v8/guides/integration/maskinporten/)

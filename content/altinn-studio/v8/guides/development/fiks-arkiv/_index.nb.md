@@ -145,7 +145,7 @@ Pakkeversjonen bør samsvare med versjonen av _Altinn.App.Core_ og _Altinn.App.A
 
 For standard oppsett i Altinn Studio monteres `MaskinportenSettings` automatisk i appen under publisering.
 
-For eldre manuelt oppsett legges klient-id og den base64-kodede offentlige og private nøkkelen til som _ClientId_ og _JwkBase64_ i _MaskinportenSettings_-seksjonen.
+For eldre manuelt oppsett legges klientidentifikatoren til som _ClientId_, og den base64-kodede JSON Web Key-en legges til som _JwkBase64_ i _MaskinportenSettings_-seksjonen.
 
 
 | **Innstillingsnavn**  | **Beskrivelse**                                                                       |

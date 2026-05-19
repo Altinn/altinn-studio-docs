@@ -19,8 +19,8 @@ In addition to the documentation below, we have created a
 
 Before setting up the Fiks Arkiv integration in your app you will need to have the following set up: 
 
-- **Fiks Protokoll** enabled in Fiks forvaltning portal for your organization
-- **Samarbeidsportalen** access to administer Maskinporten clients for your organization. Altinn Studio uses this authorization when you log in with Ansattporten and add Maskinporten scopes to the app.
+- **Fiks Protokoll** enabled in Fiks forvaltning portal for your organisation
+- **Samarbeidsportalen** access to administer Maskinporten clients for your organisation. Altinn Studio uses this authorization when you log in with Ansattporten and add Maskinporten scopes to the app.
 - An **archive system** that integrates with Fiks Arkiv (e.g., Public 360)
 
 ## Integration architecture and flow
@@ -144,7 +144,7 @@ The package version should match the version of the _Altinn.App.Core_ and _Altin
 
 For the standard Altinn Studio setup, `MaskinportenSettings` is mounted into the app automatically during deployment.
 
-For legacy manual setup, the client id and the base64-encoded public and private key should be added as _ClientId_ and _JwkBase64_ in the _MaskinportenSettings_ section.
+For legacy manual setup, the client identifier should be added as _ClientId_ and the base64-encoded JSON Web Key should be added as _JwkBase64_ in the _MaskinportenSettings_ section.
 
 
 | **Setting Name**  | **Description**                                                                       |

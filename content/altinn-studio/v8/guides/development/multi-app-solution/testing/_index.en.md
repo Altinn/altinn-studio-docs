@@ -33,11 +33,11 @@ the point where the instantiation request to application B is triggered. A local
 For local testing against real Maskinporten-protected APIs, use a temporary local configuration or user secrets as described in the legacy section of the [Maskinporten integration guide](/en/altinn-studio/v8/guides/integration/maskinporten/#legacy-manual-setup).
 
 {{% notice warning %}}
-If doing this modification be very careful that these secrets must not be shared by pushing them to Gitea.
+Do not commit or push any secrets to Gitea; keep secrets out of version control and store them securely.
 {{% /notice %}}
 
 After this modification the application is set up correctly with a client that can be
-authorized with Maskinporten when sending the instantiation request to application B. However, this request will not
+authorised with Maskinporten when sending the instantiation request to application B. However, this request will not
 be executed successfully due to application B is not
 running. App-localtest is limited to only handle one running application, but if application B is running in
 the environment, preferably in tt02 during test, you can change the request to point to this environment instead of
