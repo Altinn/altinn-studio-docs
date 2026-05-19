@@ -38,22 +38,7 @@ The app automatically includes the built-in `IMaskinportenClient` which can be i
 
 The client automatically looks for a Maskinporten configuration at the default path _"MaskinportenSettings"_. With the Altinn Studio scope setup, this configuration is available to the app after deployment.
 
-Use the default path when scopes are selected in Altinn Studio. Custom configuration sections are not populated by the Altinn Studio scope setup.
-
-Only configure a different path when you provide the Maskinporten configuration yourself, for example in a custom or legacy setup.
-
-{{< code-title >}}
-App/Program.cs
-{{< /code-title >}}
-
-{{< highlight csharp "linenos=false,hl_lines=5" >}}
-void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
-{
-  // ...
-
-  services.ConfigureMaskinportenClient("YourCustomMaskinportenSettingsPath");
-}
-{{< / highlight >}}
+Use the default path when scopes are selected in Altinn Studio. Custom configuration sections are not populated by the Altinn Studio scope setup, and should only be used with manual or legacy setup.
 
 ### Authorising HTTP clients
 

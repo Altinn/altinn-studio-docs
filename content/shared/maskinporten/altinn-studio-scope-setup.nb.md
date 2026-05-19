@@ -36,22 +36,7 @@ Appen inkluderer automatisk den innebygde `IMaskinportenClient` som kan brukes i
 ### Konfigurasjonsstier
 Klienten leter automatisk etter Maskinporten-konfigurasjon på standardstien _"MaskinportenSettings"_. Med scope-oppsettet i Altinn Studio er denne konfigurasjonen tilgjengelig for appen etter publisering.
 
-Bruk standardstien når scopes er valgt i Altinn Studio. Egendefinerte konfigurasjonsseksjoner fylles ikke ut av scope-oppsettet i Altinn Studio.
-
-Konfigurer bare en annen sti når du tilbyr Maskinporten-konfigurasjonen selv, for eksempel i et egendefinert eller eldre oppsett.
-
-{{< code-title >}}
-App/Program.cs
-{{< /code-title >}}
-
-{{< highlight csharp "linenos=false,hl_lines=5" >}}
-void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
-{
-  // ...
-
-  services.ConfigureMaskinportenClient("YourCustomMaskinportenSettingsPath");
-}
-{{< / highlight >}}
+Bruk standardstien når scopes er valgt i Altinn Studio. Egendefinerte konfigurasjonsseksjoner fylles ikke ut av scope-oppsettet i Altinn Studio, og bør bare brukes med manuelt eller eldre oppsett.
 
 ### Autorisere Http-klienter
 
