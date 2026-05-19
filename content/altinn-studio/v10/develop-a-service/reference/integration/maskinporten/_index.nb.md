@@ -10,7 +10,7 @@ toc: true
 
 Slik setter du opp en Altinn-app til å bruke den innebygde Maskinporten-klienten (`IMaskinportenClient`) for å utføre autoriserte forespørsler på vegne av eieren av appen, i stedet for den aktive brukeren.
 
-{{% insert "content/shared/maskinporten/altinn-studio-scope-setup.nb.md" "appen" "appkoden" "appoppsett" "appbygget" "appens" "apper" "Appoppsett" "Appen" %}}
+{{% insert "content/shared/maskinporten/altinn-studio-scope-setup.nb.md" %}}
 
 ## Eldre manuelt oppsett
 

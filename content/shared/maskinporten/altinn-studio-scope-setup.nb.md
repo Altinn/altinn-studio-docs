@@ -1,45 +1,42 @@
-Anbefalt oppsett er å legge til scopene {0} trenger i Altinn Studio. Når {0} bygges og publiseres, oppretter Altinn Studio en Maskinporten-klient, lagrer genererte klientdetaljer i {4} secret og monterer innstillingene i {0}.
+Anbefalt oppsett er å legge til scopene appen trenger i Altinn Studio. Når appen bygges og publiseres, kan den innebygde Maskinporten-klienten i appen bruke de valgte scopene.
 
 For å sette dette opp må du:
 
-1. [Sørge for at brukeren din kan administrere Maskinporten-klienter for organisasjonen](#tilgang-til-maskinporten-scopes).
+1. [Sørge for at brukeren din kan legge til Maskinporten-scopes for organisasjonen](#tilgang-til-maskinporten-scopes).
 2. [Legge til nødvendige scopes i Altinn Studio](#legg-til-scopes-i-altinn-studio).
-3. [Publisere {0} slik at Maskinporten-klienten blir opprettet](#publisering-og-klientdetaljer).
-4. [Bruke den innebygde Maskinporten-klienten i {1}](#maskinporten-application-setup).
+3. [Publisere appen slik at valgte scopes blir tilgjengelige for appen](#publisering-og-klientdetaljer).
+4. [Bruke den innebygde Maskinporten-klienten i appkoden](#maskinporten-application-setup).
 
 ## Tilgang til Maskinporten-scopes
 
-For å legge til scopes i Altinn Studio må du logge inn på vegne av tjenesteeierorganisasjonen med Ansattporten.
+Altinn Studio bruker den innloggede Ansattporten-tilgangen din til å finne Maskinporten-scopene du kan legge til for tjenesteeierorganisasjonen.
 
-Brukeren din må ha organisasjons-/tjenesteeierrettigheter for tjenesteeieren i Sjølvbetjeningsportalen, inkludert rettighet til å administrere klienter. Hvis du ikke ser noen scopes i Altinn Studio, må du kontakte den som administrerer Maskinporten-tilganger for organisasjonen din, eller Altinn servicedesk.
+Hvis du ikke ser noen scopes i Altinn Studio, kan brukeren din mangle tilgang til å administrere klienter for organisasjonen. Kontakt den som administrerer Maskinporten-tilganger for organisasjonen din, eller Altinn servicedesk.
 
 ## Legg til scopes i Altinn Studio
 
-1. Åpne {0} i Altinn Studio.
+1. Åpne appen i Altinn Studio.
 2. Gå til **Innstillinger** og åpne fanen **Maskinporten**.
-3. Logg inn med Ansattporten når du blir bedt om det.
-4. Velg **Legg til**.
-5. Søk etter og velg scopene {0} trenger.
-6. Velg **Fullfør** for å lagre listen med scopes.
+3. Velg **Legg til**.
+4. Søk etter og velg scopene appen trenger.
+5. Velg **Fullfør** for å lagre listen med scopes.
 {.floating-bullet-numbers}
 
-Endringer i scopes trer i kraft neste gang {0} bygges og publiseres.
+Endringer i scopes trer i kraft neste gang appen bygges og publiseres.
 
 ## Publisering og klientdetaljer
 
-Når {0} med Maskinporten-scopes publiseres, legger Altinn Studio valgte scopes inn i {3}. Deploy-pipelinen oppretter en `MaskinportenClient`-ressurs for {0}, og Maskinporten-kontrolleren i runtime-clusteret avstemmer ressursen mot Maskinporten.
+Når en app med Maskinporten-scopes publiseres, legger Altinn Studio valgte scopes inn i appbygget. Etter publisering kan appen bruke den innebygde Maskinporten-klienten med scopene som er valgt i Altinn Studio.
 
-Kontrolleren oppretter eller oppdaterer Maskinporten-klienten, genererer klientdetaljer og skriver klient-ID og JWKS til {4} secret. Klientdetaljene monteres inn i {0} og lastes av {0} som `MaskinportenSettings`.
+Du trenger ikke å håndtere klientdetaljer, JWKS-generering, rotasjon eller appkonfigurasjon selv for standard oppsett av apper.
 
-Du trenger ikke å opprette Maskinporten-klient manuelt, generere JWKS eller lagre `ClientId`/`JwkBase64` i Azure Key Vault for standard oppsett av {5}. JWKS-en som brukes av den genererte klienten roteres automatisk.
-
-## {6} {#maskinporten-application-setup}
-{7} inkluderer automatisk den innebygde `IMaskinportenClient` som kan brukes i tjenestene dine.
+## Appoppsett {#maskinporten-application-setup}
+Appen inkluderer automatisk den innebygde `IMaskinportenClient` som kan brukes i tjenestene dine.
 
 ### Konfigurasjonsstier
-Klienten leter automatisk etter Maskinporten-konfigurasjon på standardstien _"MaskinportenSettings"_. Med scope-oppsettet i Altinn Studio kommer denne konfigurasjonen fra runtime-secret som er montert i {0}.
+Klienten leter automatisk etter Maskinporten-konfigurasjon på standardstien _"MaskinportenSettings"_. Med scope-oppsettet i Altinn Studio er denne konfigurasjonen tilgjengelig for appen etter publisering.
 
-Bruk standardstien når scopes er valgt i Altinn Studio. Maskinporten-kontrolleren skriver genererte klientdetaljer til standard konfigurasjonssti og fyller ikke ut egendefinerte konfigurasjonsseksjoner.
+Bruk standardstien når scopes er valgt i Altinn Studio. Egendefinerte konfigurasjonsseksjoner fylles ikke ut av scope-oppsettet i Altinn Studio.
 
 Konfigurer bare en annen sti når du tilbyr Maskinporten-konfigurasjonen selv, for eksempel i et egendefinert eller eldre oppsett.
 
