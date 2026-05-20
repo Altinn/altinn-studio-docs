@@ -11,12 +11,12 @@ Denne veiledningen viser hvordan du legger Maskinporten-scopes til en app i Alti
 Før du starter må du være logget inn med Ansattporten på vegne av virksomheten som eier appen. Appen må også ha en tjenesteeierregel i `App/config/authorization/policy.xml` som gir `[org]` rettighetene `read` og `write`.
 
 {{% notice info %}}
-Hvis appen bare trenger standardscopene for tjenesteeier, `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write`, kan apper som bruker Altinn App v8.3 eller nyere bruke knappen **Legg til standard-scopes** når den vises. Apper som bruker Altinn App v9 får disse scopene automatisk hvis de mangler.
+Hvis appen bare trenger standardscopene for tjenesteeier, `altinn:serviceowner`, `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write`, kan apper som bruker Altinn App v8.3 eller nyere bruke knappen **Legg til standard-scopes** når den vises. Apper som bruker Altinn App v9 får disse scopene automatisk hvis de mangler.
 {{% /notice %}}
 
 ## Hvis du ikke har tilgang
 
-Hvis Studio viser meldingen **Du har ikke tilgang på vegne av virksomheten**, kan ikke Studio hente Maskinporten-scopes for virksomheten som eier appen med Ansattporten-tilgangen du allerede er logget inn med.
+Hvis Studio viser meldingen **Du har ikke tilgang på vegne av virksomheten**, kan ikke Studio hente tilgjengelige Maskinporten-scopes for virksomheten som eier appen med Ansattporten-tilgangen du allerede er logget inn med. Scopes som allerede er lagt til i appen vises fortsatt, men du kan ikke legge til eller fjerne scopes før tilgangen er på plass.
 
 ![Maskinporten-fanen viser melding om manglende tilgang på vegne av virksomheten](maskinporten-scopes-no-access.nb.png "Melding om manglende tilgang på vegne av virksomheten.")
 

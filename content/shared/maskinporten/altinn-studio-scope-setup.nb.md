@@ -2,8 +2,9 @@
 {{<notice info>}}
 **Maskinporten-automatisering i Altinn Studio**
 
-- Apper som bruker Altinn App v8.3 eller nyere kan aktivere standardscopene for tjenesteeier, `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write`, fra Altinn Studio. Bruk knappen i Maskinporten-fanen eller legg til scopene fra scope-visningen i appinnstillingene.
-- Apper som bruker Altinn App v9 krever disse tjenesteeier-scopene. Altinn Studio legger dem automatisk til hvis de mangler.
+- Apper som bruker Altinn App v8.3 eller nyere kan aktivere standardscopene for tjenesteeier, `altinn:serviceowner`, `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write`, fra Altinn Studio. Bruk knappen i Maskinporten-fanen eller legg til scopene fra scope-visningen i appinnstillingene.
+- `altinn:serviceowner` markerer at klienten er et tjenesteeiersystem, mens `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write` gir tilgang til å lese og skrive instanser som tjenesteeier.
+- Apper som bruker Altinn App v9 krever disse standardscopene. Altinn Studio legger dem automatisk til hvis de mangler.
 - Nye apper som opprettes i Altinn Studio får disse standardscopene for tjenesteeier automatisk.
 - Appen må også autorisere tjenesteeier i [`App/config/authorization/policy.xml`](/nb/altinn-studio/v8/reference/configuration/authorization/). Nye apper har denne regelen i appmalen. For eksisterende apper må du legge til eller oppdatere `[org]`-regelen slik at den gir `read` og `write`.
 {{</notice>}}

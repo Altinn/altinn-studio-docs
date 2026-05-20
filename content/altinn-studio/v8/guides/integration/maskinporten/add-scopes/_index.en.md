@@ -11,14 +11,14 @@ This guide shows how to add Maskinporten scopes to an app in Altinn Studio.
 Before you start, sign in with Ansattporten on behalf of the organisation that owns the app. The app must also have a service owner rule in `App/config/authorization/policy.xml` that grants `[org]` the `read` and `write` rights.
 
 {{% notice info %}}
-If the app only needs the default service owner scopes, `altinn:serviceowner/instances.read` and `altinn:serviceowner/instances.write`, apps using Altinn App v8.3 or newer can use the **Add default scopes** button when it is shown. Apps using Altinn App v9 get these scopes automatically if they are missing.
+If the app only needs the default service owner scopes, `altinn:serviceowner`, `altinn:serviceowner/instances.read` and `altinn:serviceowner/instances.write`, apps using Altinn App v8.3 or newer can use the **Add default scopes** button when it is shown. Apps using Altinn App v9 get these scopes automatically if they are missing.
 {{% /notice %}}
 
 The screenshots show the Norwegian Altinn Studio UI. The flow and placement are the same in English.
 
 ## If You Do Not Have Access
 
-If Studio shows **You do not have access on behalf of the organisation**, Studio cannot fetch Maskinporten scopes for the app owner organisation with the Ansattporten access you are already signed in with.
+If Studio shows **You do not have access on behalf of the organisation**, Studio cannot fetch available Maskinporten scopes for the app owner organisation with the Ansattporten access you are already signed in with. Scopes already added to the app are still shown, but you cannot add or remove scopes until the access is in place.
 
 ![The Maskinporten tab shows a message about missing access on behalf of the organisation](maskinporten-scopes-no-access.nb.png "Message about missing access on behalf of the organisation.")
 
