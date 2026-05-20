@@ -17,7 +17,7 @@ Live sync: All changes[^1] (forms, messages) show up in Dialogporten.
 
 | Source | Migrated back to |
 |----------|----------|
-| A2-Correspondence | 12.08.2020 |
+| A2-Correspondence | 23.09.2019 |
 | A2 archived forms / A3-app instances | 01.01.2019[^2] |
 
 [^2]: We are quality-assuring the migration of forms before we continue migrating older data.
@@ -56,19 +56,20 @@ See [correspondence data-migration](https://docs.altinn.studio/en/correspondence
 All new messages created in Altinn 3 correspondence are available in Dialogporten immediately. No migration needed.
 
 ### ⚠ A3 App instances - Historic
-Migrated back to 1st of January 2022. Older app instances will be migrated later.
+Migrated back to [date indicated above](#historic-data). Older app instances will be migrated later.
 
 ### ✔ A3 App instances - Live
 New app instances created in Altinn 3 are available in Dialogporten immediately. Changes are synced in real-time.
 
 ### ⚠ A2 Archived forms - Historic
-Migrated back to 1st of January 2019. Older archived forms will be migrated later.
+Migrated back to [date indicated above](#historic-data). Older archived forms will be migrated later.
 
 ### ✔ A2 Archived forms - Live
 Newly archived app instances created in Altinn 2 are migrated in batches every 5 minutes.
 Forms that are still being filled out are not migrated until they are archived.
 
 ## Changelog
+18.05.2026: Correspondence migrated back to September 2019. Corrected missing 2023 messages. Migration of older messages continues.
 
 13.05.2026: Correspondence migrated back to August 2020. Migration of older correspondence is ongoing.
 
