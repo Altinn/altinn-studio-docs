@@ -34,6 +34,10 @@ Dette abonnementet brukes til å konfigurere endepunktet der hendelsene som publ
 
 **For tjeneste-eier** må du sette opp følgende filter:
 
+
+- sourceFilter
+  - TT02: <https://platform.tt02.altinn.no/correspondence/api/v1/correspondence>
+  - PROD: <https://platform.altinn.no/correspondence/api/v1/correspondence>
 - resourceFilter
   - "urn:altinn:resource:" + Ressurs-IDen for meldingstjenesten
 
