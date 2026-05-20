@@ -12,6 +12,7 @@ the Altinn token in an incoming request can be forwarded to the {0} API.
 
 If you are using the API from an external system you will need to generate a Maskinporten or ID-Porten token
 and exchange this for an Altinn token before calling the {0} API.
+See [Exchange of JWT token]({{< relref "/api/scenarios/authentication" >}}#exchange-of-jwt-token) for a technical example of how to perform the exchange.
 
 Below are two guides on how to achieve this.
 

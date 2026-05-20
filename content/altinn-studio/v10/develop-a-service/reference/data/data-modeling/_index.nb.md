@@ -3,7 +3,7 @@ draft: true
 title: Datamodellering i Altinn Studio
 linktitle: Datamodellering
 description: Slik bruker du datamodelleringsverktøyet i Altinn Studio til å lage og redigere datamodeller
-weight: 1
+
 toc: true
 tags: [needsReview]
 aliases:
@@ -35,7 +35,7 @@ Datamodeller for organisasjoner ligger i Altinn Studio sin [repos-løsning](http
 Datamodellene ligger i `<org>-datamodels`-repoet, hvor `<org>` er organisasjonen du tilhører. For eksempel ligger datamodellene til organisasjonen Testdepartementet (ttd) under
 https://altinn.studio/repos/ttd/ttd-datamodels.
 
-Du finner lenken til dette repoet i [Altinn Studio Dashboard]({{< relref "/altinn-studio/v10/getting-started/navigation/dashboard" >}}). Velg **Rediger** (blått blyant-ikon) for å komme til Altinn Studio-verktøyet for datamodellering. Velg **Gitea** (grønt kopp-ikon) for å se filene direkte i repoet.
+Du finner lenken til dette repoet i Altinn Studio Dashboard. Velg **Rediger** (blått blyant-ikon) for å komme til Altinn Studio-verktøyet for datamodellering. Velg **Gitea** (grønt kopp-ikon) for å se filene direkte i repoet.
 
 ![Oversikt over datamodell-repo](./datamodels-dashboard.png "Oversikt over datamodell-repo")
 
@@ -72,7 +72,7 @@ Datamodelleringsverktøyet i Altinn Studio bruker datamodeller i JSON schema-for
 
 ### Åpne datamodelleringsverktøyet
 
-1. Logg inn i Altinn Studio. Hvis du ikke er i [Altinn Studio Dashboard]({{< relref "/altinn-studio/v10/getting-started/navigation/dashboard" >}}), klikk på logoen øverst i venstre hjørne eller gå til [altinn.studio/dashboard](https://altinn.studio/dashboard).
+1. Logg inn i Altinn Studio. Hvis du ikke er i Altinn Studio Dashboard, klikk på logoen øverst i venstre hjørne eller gå til [altinn.studio/dashboard](https://altinn.studio/dashboard).
 2. Velg **Rediger** (blått blyant-ikon) ved enten en app under «Mine applikasjoner», eller datamodellerings-repoet for organisasjonen din.
 3. Velg fanen **Datamodell** i toppmenyen.
 

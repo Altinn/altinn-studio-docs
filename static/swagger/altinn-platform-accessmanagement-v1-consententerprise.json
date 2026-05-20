@@ -6,7 +6,12 @@
   },
   "servers": [
     {
-      "url": "https://localhost:7211/"
+      "url": "https://platform.tt02.altinn.no/",
+      "description": "Integration Test"
+    },
+    {
+      "url": "https://platform.altinn.no/",
+      "description": "Production"
     }
   ],
   "paths": {

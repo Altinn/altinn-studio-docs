@@ -156,6 +156,7 @@ Dynamic expressions are currently available for use in these properties, as defi
 | Form components                                                                                            | `required`                    | [Boolean](#boolean-values) | ✅       | ✅      |
 | Form components                                                                                            | `readOnly`                    | [Boolean](#boolean-values) | ✅       | ❌      |
 | [Repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                     | `hiddenRow`                   | [Boolean](#boolean-values) | ✅       | ❌      |
+| [Repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                     | `tableColumns.[*].hidden`     | [Boolean](#boolean-values) | ✅       | ❌      |
 | [Repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                     | `edit.addButton`              | [Boolean](#boolean-values) | ✅       | ❌      |
 | [Repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                     | `edit.saveButton`             | [Boolean](#boolean-values) | ✅       | ❌      |
 | [Repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                     | `edit.deleteButton`           | [Boolean](#boolean-values) | ✅       | ❌      |
@@ -295,21 +296,25 @@ These functions are available for use in expressions:
 
 ### Strings and numbers
 
-| Function Name                             | Parameters                                                          | Return Value       | Frontend | Backend |
-| ----------------------------------------- | ------------------------------------------------------------------- | ------------------ | -------- | ------- |
-| [`lowerCase`](#func-lowerCase-upperCase)  | [String](#strings)                                                  | [String](#strings) | ✅       | ✅      |
-| [`upperCase`](#func-lowerCase-upperCase)  | [String](#strings)                                                  | [String](#strings) | ✅       | ✅      |
-| [`lowerCaseFirst`](#func-lcFirst-ucFirst) | [String](#strings)                                                  | [String](#strings) | ✅       | ✅      |
-| [`upperCaseFirst`](#func-lcFirst-ucFirst) | [String](#strings)                                                  | [String](#strings) | ✅       | ✅      |
-| [`stringLength`](#func-stringLength)      | [String](#strings)                                                  | [Number](#numbers) | ✅       | ✅      |
-| [`stringIndexOf`](#func-stringIndexOf)    | [String](#strings), [String](#strings)                              | [Number](#numbers) | ✅       | ✅      |
-| [`stringSlice`](#func-stringSlice)        | [String](#strings), [Number](#numbers), optional [Number](#numbers) | [String](#strings) | ✅       | ✅      |
-| [`stringReplace`](#func-stringReplace)    | [String](#strings), [String](#strings), [String](#strings)          | [String](#strings) | ✅       | ✅      |
-| [`text`](#func-text)                      | [String](#strings)                                                  | [String](#strings) | ✅       | ❌      |
-| [`language`](#func-language)              | None                                                                | [String](#strings) | ✅       | ❌      |
-| [`displayValue`](#func-displayValue)      | [String](#strings)                                                  | [String](#strings) | ✅       | ❌      |
-| [`round`](#func-round)                    | [Number](#numbers), optional [Number](#numbers)                     | [String](#strings) | ✅       | ✅      |
-| [`formatDate`](#func-formatDate)          | [Date/time](#dates), optional [String](#strings)                    | [String](#strings) | ✅       | ✅      |
+| Function Name                             | Parameters                                                      | Return Value       | Frontend | Backend |
+|-------------------------------------------|-----------------------------------------------------------------| ------------------ |----------|---------|
+| [`lowerCase`](#func-lowerCase-upperCase)  | [String](#strings)                                              | [String](#strings) | ✅        | ✅       |
+| [`upperCase`](#func-lowerCase-upperCase)  | [String](#strings)                                              | [String](#strings) | ✅        | ✅       |
+| [`lowerCaseFirst`](#func-lcFirst-ucFirst) | [String](#strings)                                              | [String](#strings) | ✅        | ✅       |
+| [`upperCaseFirst`](#func-lcFirst-ucFirst) | [String](#strings)                                              | [String](#strings) | ✅        | ✅       |
+| [`stringLength`](#func-stringLength)      | [String](#strings)                                              | [Number](#numbers) | ✅        | ✅       |
+| [`stringIndexOf`](#func-stringIndexOf)    | [String](#strings), [String](#strings)                          | [Number](#numbers) | ✅        | ✅       |
+| [`stringSlice`](#func-stringSlice)        | [String](#strings), [Number](#numbers), optional [Number](#numbers) | [String](#strings) | ✅        | ✅       |
+| [`stringReplace`](#func-stringReplace)    | [String](#strings), [String](#strings), [String](#strings)      | [String](#strings) | ✅        | ✅       |
+| [`text`](#func-text)                      | [String](#strings)                                              | [String](#strings) | ✅        | ❌       |
+| [`language`](#func-language)              | None                                                            | [String](#strings) | ✅        | ❌       |
+| [`displayValue`](#func-displayValue)      | [String](#strings)                                              | [String](#strings) | ✅        | ❌       |
+| [`round`](#func-round)                    | [Number](#numbers), optional [Number](#numbers)                 | [String](#strings) | ✅        | ✅       |
+| [`formatDate`](#func-formatDate)          | [Date/time](#dates), optional [String](#strings)                | [String](#strings) | ✅        | ✅       |
+| [`plus`](#func-plus)                      | [Number](#numbers), [Number](#numbers)                          | [Number](#numbers) | ✅        | ✅       | 
+| [`minus`](#func-minus)                    | [Number](#numbers), [Number](#numbers)                          | [Number](#numbers) | ✅        | ✅       | 
+| [`multiply`](#func-multiply)              | [Number](#numbers), [Number](#numbers)                          | [Number](#numbers) | ✅        | ✅       | 
+| [`divide`](#func-divide)                  | [Number](#numbers), [Number](#numbers)                          | [Number](#numbers) | ✅        | ✅       | 
 
 ### Lookup, components and data
 
@@ -1076,6 +1081,58 @@ returns an error message.
 
 The expression above retrieves the text of the option (if used in filtering options). In other contexts, this expression
 returns an error message.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-plus" header="plus" %}}
+The `plus` function returns the sum of two numbers.
+
+Example:
+```json
+["plus", 22, 9.2]
+```
+This example results in the number value `31.2`. 
+
+The function interprets `null` values as `0`.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-minus" header="minus" %}}
+The `minus` function returns the difference between two numbers,
+where the first number is the minuend and the second one is the subtrahend.
+
+Example:
+```json
+["minus", 22, 9.2]
+```
+This example results in the number value `12.8`.
+
+The function interprets `null` values as `0`.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-multiply" header="multiply" %}}
+The `multiply` function returns the product of two numbers.
+
+Example:
+```json
+["multiply", 22, 10]
+```
+This example results in the number value `220`.
+
+The function interprets `null` values as `0`.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-divide" header="divide" %}}
+The `divide` function returns the quotient of two numbers,
+where the first number is the dividend and the second one is the divisor.
+
+Example:
+```json
+["divide", 22, 10]
+```
+This example results in the number value `2.2`.
+
+Be aware that the number 0 is not valid as divisor.
+
+The function interprets `null` values as `0`.
 {{% /expandlarge %}}
 
 ## Data Types

@@ -8,194 +8,230 @@ toc: true
 Vergemål oppnevnes av Statsforvalteren, og informasjon om verge, omfang og legitimasjoner lagres i Folkeregisteret. Altinn autorisasjon mottar informasjon om vergemål i overføringene fra FReg.
 For å gi verge fullmakt til å benytte en tjeneste eller ressurs, må tjenesteeier angi akuell(e) legitimasjon(er) i policy-filen til tjenesten.
 
-## Nivå 1: Bank
+{{% expandlarge id="bank" header="Bank" %}}
 
-Tilgangspakken har følgende undergrupper:
+### Representasjon dagligbank
 
-- \*Representasjon dagligbank
-  - Fullmakten omfatter oppgaver knyttet til å opprette kundeforhold, opprette/avslutte konto, disposisjonsrett, etablere/endre betalingsavtaler og forvalte låneavtaler
-- \*Ta opp lån/kreditter
-  - Fullmakten gjelder søknad om etablering av banklån - dette krever statsforvalterens samtykke
+Omfatter oppgaver knyttet til å opprette kundeforhold, opprette/avslutte konto, disposisjonsrett, etablere/endre betalingsavtaler og forvalte låneavtaler
 
-## Nivå 1: Forsinkringsselskap
+### Ta opp lån/kreditter
 
-Tilgangspakken har følgende undergrupper:
+Gjelder søknad om etablering av banklån - dette krever statsforvalterens samtykke
 
-- \*Forvalte forsikringsavtaler
-  - Fullmakten omfatter oppgaver knyttet til å etablere/endre/avslutte forsikringsavtaler og representasjon ved forsikringsoppgjør
+{{% /expandlarge %}}
 
-## Nivå 1: Husbanken
+{{% expandlarge id="forsikringsselskap" header="Forsikringsselskap" %}}
 
-Tilgangspakken har følgende undergrupper:
+### Forvalte forsikringsavtaler
 
-- \*Bostøtte
-  - Fullmakten gjelder søknad om og/eller eventuelt klage på vedtak om statlig bostøtte hos Husbanken
-- \*Startlån
-  - Fullmakten gjelder søknad om og/eller eventuelt klage på vedtak om startlån hos Husbanken
+Omfatter oppgaver knyttet til å etablere/endre/avslutte forsikringsavtaler og representasjon ved forsikringsoppgjør
 
-## Nivå 1: Inkassoselskap
+{{% /expandlarge %}}
 
-Tilgangspakken har følgende undergrupper:
+{{% expandlarge id="helfo" header="Helfo" %}}
 
-- \*Forhandle og inngå inkassoavtaler
-  - Fullmakten gjelder avtaleinngåelse og forhandling med ulike inkassoselskaper
+### Refusjon for privatpersoner
 
-## Nivå 1: Kartverket
+Gjelder bistand til å søke om stønad til helsetjenester etter folketrygdloven, herunder innsyn i og håndtering av egenandel-/frikortordningen og helsetjenester gitt i utlandet. Gjelder også når en tredjepart sender søknad på vegne av en person (eks. lege, arbeidsgiver, forsikringsselskap)
 
-- \*Salg av fast eiendom/borettslagsandel
-  - Fullmakten omfatter emnene tinglyse eierskifte, sletting av rettighet/servitutt/heftelse, sikringspant. Tjenesteområdet vil også gjelde for overføring av fast eiendom/borettslagsandel mellom ektefeller/samboere - dette krever statsforvalterens samtykke
-- \*Kjøp av eiendom
-  - Fullmakten omfatter emnene tinglyse eierskifte, pantsette eiendom, tinglyse avtaler (rettighet/servitutt/heftelse) og festekontrakt - dette krever statsforvalterens samtykke
-- \*Arv - privat skifte og uskifte
-  - Fullmakten omfatter emnene hjemmelserklæring og skjøte videre - dette krever statsforvalterens samtykke
-- \*Endring av eiendom
-  - Fullmakten omfatter emnene seksjonering, reseksjonering, fradelinger, sammenslåinger, registreringer av festegrunn, endringer av festenummer til bruksnummer, arealoverføring - dette krever statsforvalterens samtykke
-- \*Avtaler og rettigheter
-  - Fullmakten omfatter emnene tinglyse avtaler (rettighet/servitutt/heftelse) og festekontrakt, tinglysning av prioritetsbestemmelser, nedkvitteringer, tinglysing på ny, transport av frivillige heftelser og tvangsforretninger, massetransport - dette krever statsforvalterens samtykke
-- \*Sletting
-  - Fullmakten gjelder sletting av rettigheter i fast eiendom - dette krever statsforvalterens samtykke
-- \*Låneopptak
-  - Fullmakten omfatter emnene pantsette eiendom, refinansiering - dette krever statsforvalterens samtykke
+### Fastlege
 
-## Nivå 1: Kredittvurderingsselskap
+Gjelder bistand til å bytte fastlege, samt å kunne se tidligere og nåværende fastlege
 
-Tilgangspakken har følgende undergrupper:
+{{% /expandlarge %}}
 
-- \*Kredittsperre
-  - Fullmakten gjelder avtaleinngåelse om kredittsperre
--
+{{% expandlarge id="husbanken" header="Husbanken" %}}
 
-## Nivå 1: Namsmannen
+### Bostøtte
 
-Tilgangspakken har følgende undergrupper:
+Gjelder søknad om og/eller eventuelt klage på vedtak om statlig bostøtte hos Husbanken
 
-- \*Gjeldsordning
-  - Fullmakten gjelder søknad om og/eller forvaltning av eksisterende gjeldsordninger
-- \*Tvangsfullbyrdelse
-  - Fullmakten gjelder representasjon i saker om tvangsfullbyrdelse etter tvangsfullbyrdelsesloven
+### Startlån
 
-## Nivå 1: Skatteetaten
+Gjelder søknad om og/eller eventuelt klage på vedtak om startlån hos Husbanken
 
-Tilgangspakken har følgende undergrupper:
+{{% /expandlarge %}}
 
-- \*Innkreving
-  - Fullmakten gjelder oppfølging og behandling av krav fra Skatteetaten, for eksempel restskatt
-- \*Endre postadresse
-  - Fullmakten gjelder endring av postadresse for person med verge
-- \*Melde flytting
-  - Fullmakten gjelder endring av bostedsadresse
-- \*Skatt
-  - Fullmakten gjelder innsyn i skattedata, og representasjon overfor skattemyndighetene i saker om skatt og avgift, herunder levering av skattemelding og endring av skattekort
+{{% expandlarge id="inkassoselskap" header="Inkassoselskap" %}}
 
-## Nivå 1: Statens Innkrevningssentral
+### Forhandle og inngå inkassoavtaler
 
-Tilgangspakken har følgende undergrupper:
+Gjelder avtaleinngåelse og forhandling med ulike inkassoselskaper
 
-- \*Gjeldsordning og betalingsavtaler
-  - Fullmakten gjelder søknad om og forvaltning av gjeldsordning og betalingsavtaler
+{{% /expandlarge %}}
 
-## Nivå 1: Statsforvalteren
+{{% expandlarge id="kartverket" header="Kartverket" %}}
 
-Tilgangspakken har følgende undergrupper:
+### Salg av fast eiendom/borettslagsandel
 
-- \*Søke om samtykke til disposisjon
-  - Fullmakten gjelder søknad om disposisjoner som krever statsforvalterens samtykke
+Omfatter emnene tinglyse eierskifte, sletting av rettighet/servitutt/heftelse, sikringspant. Tjenesteområdet vil også gjelde for overføring av fast eiendom/borettslagsandel mellom ektefeller/samboere - dette krever statsforvalterens samtykke
 
-## Nivå 1: Tingretten
+### Kjøp av eiendom
 
-Tilgangspakken har følgende undergrupper:
+Omfatter emnene tinglyse eierskifte, pantsette eiendom, tinglyse avtaler (rettighet/servitutt/heftelse) og festekontrakt - dette krever statsforvalterens samtykke
 
-- \*Begjære uskifte
-  - Fullmakten gjelder melding om uskiftet bo jf. vgml. § 41 (3) og arvl. §§ 14 og 32 - dette krever statsforvalterens samtykke
-- \*Privat skifte av dødsbo
-  - Fullmakten omfatter tilfeller der vergen på vegne av vergehaveren overtar boet til privat skifte og ivaretakelse av andre rettigheter som arving.
-- \*Begjære skifte av uskiftebo
-  - Fullmakten gjelder skifte av uskiftebo jf. vgml. § 41 (3) og arvl. §§ 28 og 29 - dette krever statsforvalterens samtykke
+### Arv - privat skifte og uskifte
 
-## Nivå 1: Annen kjøp og avtaleinngåelse
+Omfatter emnene hjemmelserklæring og skjøte videre - dette krever statsforvalterens samtykke
 
-Tilgangspakken har følgende undergrupper:
+### Endring av eiendom
 
-- \*Kjøp/leie av varer og tjenester
-  - Fullmakten gjelder i forbindelse med kjøp av varer og tjenester, omfatter også heving av avtaler, reklamasjon mm.
-- \*Inngåelse av husleiekontrakter
-  - Fullmakten gjelder i forbindelse med inngåelse av husleiekontrakter
-- \*Avslutning av husleiekontrakter
-  - Fullmakten gjelder i forbindelse med avslutning av husleiekontrakter
-- \*Salg av løsøre av større verdi
-  - Fullmakten gjelder salg av løsøre av større verdi (herunder bil), usedvanlig karakter eller av spesiell interesse for deg eller din nærmeste familie
-  - OBS: Usikker på om en slik fullmakt skal være mulig å gi utenfor en vergeordning
-- \*Disponere inntekter til å dekke utgifter
-  - Fullmakten gir adgang til å bruke dine inntekter til å betale regninger, betjene gjeld, og dekke øvrige utgifter.
+Omfatter emnene seksjonering, reseksjonering, fradelinger, sammenslåinger, registreringer av festegrunn, endringer av festenummer til bruksnummer, arealoverføring - dette krever statsforvalterens samtykke
 
-## Nivå 1: Kommune
+### Avtaler og rettigheter
 
-Tilgangspakken har følgende undergrupper:
+Omfatter emnene tinglyse avtaler (rettighet/servitutt/heftelse) og festekontrakt, tinglysning av prioritetsbestemmelser, nedkvitteringer, tinglysing på ny, transport av frivillige heftelser og tvangsforretninger, massetransport - dette krever statsforvalterens samtykke
 
-- \*Bygg og eiendom
-  - Fullmakten omfatter oppgaver som hører inn under områdene bygging, eiendom, kjøp og salg, leie og utleie, samt priser og gebyr for bygg og eiendom - dette krever statsforvalterens samtykke
-- \*Helse og omsorg
-  - Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene avlastning og støtte, helsetjenester, omsorgstjenester og velferdsstøtte
-- \*Skatt og avgift
-  - Fullmakten omfatter oppgaver som hører inn under områdene arbeidsgiveravgift, kommunale avgifter, eiendomsskatt og skatteattest
-- \*Sosiale tjenester
-  - Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene botilbud, kvalifisering til arbeid, økonomiske ytelser og rådgivning
-- \*Skole og utdanning
-  - Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene grunnskole, videregående skole, høyere utdanning, voksenopplæring og skolehverdag
+### Sletting
 
-## Nivå 1: NAV
+Gjelder sletting av rettigheter i fast eiendom - dette krever statsforvalterens samtykke
 
-Tilgangspakken har følgende undergrupper:
+### Låneopptak
 
-- \*Arbeid
-  - Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene forsikring/sykepenger (selvstendig næringsdrivende og frilansere), sykepenger, tilleggsstønad og yrkesskade/menerstatning og arbeidsavklaringspenger. Gjelder innsyn/saksbehandling og utbetaling
-- \*Familie
-  - Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene barnebidrag, barnetrygd, enslig forsørger, foreldre- og svangerskapspenger, grunn- og hjelpestønad og kontantstøtte. Gjelder innsyn/saksbehandling og utbetaling
-- \*Hjelpemidler
-  - Fullmakten omfatter emnene hjelpemidler, helsetjenester, ortopediske hjelpemidler og bil
-- \*Pensjon
-  - Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene alderspensjon, supplerende stønad, uførepensjon/-trygd, avtalefestet pensjon, ytelser for gjenlevende (alle typer pensjonsytelser). Gjelder innsyn/saksbehandling og utbetaling
-- \*Sosiale tjenester
-  - Fullmakten omfatter tilbud og støtteordninger som hører inn under områdene gjeldsrådgivning, kvalifiseringsprogrammet, midlertidig botilbud, økonomisk rådgivning, forsvarlig livsopphold, midlertidig inntektssikring og økonomisk stønad. Gjelder innsyn/saksbehandling og utbetaling
+Omfatter emnene pantsette eiendom, refinansiering - dette krever statsforvalterens samtykke
 
-## Nivå 1: Pasientreiser
+{{% /expandlarge %}}
 
-Tilgangspakken har følgende undergrupper:
+{{% expandlarge id="kommune" header="Kommune" %}}
 
-- \*Refusjon av pasientreiser
-  - Fullmakten gjelder søknad om og/eller eventuell klage på vedtak om refusjon av reiseutgifter i forbindelse med behandlinger som dekkes av det offentlige
+### Bygg og eiendom
 
-## Nivå 1: Helfo
+Omfatter oppgaver som hører inn under områdene bygging, eiendom, kjøp og salg, leie og utleie, samt priser og gebyr for bygg og eiendom - dette krever statsforvalterens samtykke
 
-Tilgangspakken har følgende undergrupper:
+### Helse og omsorg
 
-- \*Refusjon for privatpersoner
-  - Fullmakten gjelder bistand til å søke om stønad til helsetjenester etter folketrygdloven, herunder innsyn i og håndtering av egenandel-/frikortordningen og helsetjenester gitt i utlandet. Gjelder også når en tredjepart sender søknad på vegne av en person (eks. lege, arbeidsgiver, forsikringsselskap)
-- \*Fastlege
-  - Fullmakten gjelder bistand til å bytte fastlege, samt å kunne se tidligere og nåværende fastlege
+Omfatter tilbud og støtteordninger som hører inn under områdene avlastning og støtte, helsetjenester, omsorgstjenester og velferdsstøtte
 
-## Nivå 1: Pasientopplsyninger og -tjenester
+### Skatt og avgift
 
-Denne tilgangspakken er fortsatt under "kartlegging" og vil endres.
-Det er pr i dag ikke definert vergefullmakter for området som gjelder pasientopplysninger og -tjenester.
+Omfatter oppgaver som hører inn under områdene arbeidsgiveravgift, kommunale avgifter, eiendomsskatt og skatteattest
 
-Fullmaktene som finnes i dag innenfor pasientopplysnigner/pasienttjenester er veldig app/system/helseforetak spesifikke.
+### Sosiale tjenester
 
-Fra Altinn autorisasjon sitt perspektiv representerer nivå 3 (merket \*) i listen nedenfor spesifikke tjenester/ressurser heller enn tilgangspakker som andre tjenester knyttes til.
-Behovet hos kommuner for tilsvarende fullmakter innen pasientopplysnigner/pasienttjeneser er ikke kartlagt.
+Omfatter tilbud og støtteordninger som hører inn under områdene botilbud, kvalifisering til arbeid, økonomiske ytelser og rådgivning
 
-- HelseNorge (gjelder ikke Helse Midt)
-  - \*Innsyn i opplysninger registrert om deg
-  - \*Innsyn i pasientjournal
-  - \*Digitale helsetjenester
-- Helsami (gjelder Helse Midt)
-  - \*Standardtilgang til Helsami
-    - Fullmakten gir tilgang til å se kommende timeavtaler og helseopplysnigner samt sende meldinger og bestille timer. Fullmakten gir ikke tilgang til personlige notater, historikk eller tidligere timeavtaler
-  - \*Full tilgang til Helsami
-    - Fullmakten gir tilgang til å se det samme som deg selv og gir anledning til å kommunisere med helsetjenesten på dine vegne. Det gir også tilgang til å svare på spørreskjema samt se og endre dine notater.
-  - \*Lesetilgang til Helsami
-    - Fullmakten gir tilgang til å se dine helseopplysninger, men gir ikke fullmakt til å kommunisere på dine vegne
-  - \*Bare kommunisere
-    - Fullmakten gir tilgang til å se og administrere timer og til å sende meldinger på dine vegne.
-- Kommune (gjelder pasient og helseopplysninger hos kommuner)
-  - Ikke definert videre tilgangspakker på nivå 3
+### Skole og utdanning
+
+Omfatter tilbud og støtteordninger som hører inn under områdene grunnskole, videregående skole, høyere utdanning, voksenopplæring og skolehverdag
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="kredittvurderingsselskap" header="Kredittvurderingsselskap" %}}
+
+### Kredittsperre
+
+Gjelder avtaleinngåelse om kredittsperre
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="namsmannen" header="Namsmannen" %}}
+
+### Gjeldsordning
+
+Gjelder søknad om og/eller forvaltning av eksisterende gjeldsordninger
+
+### Tvangsfullbyrdelse, herunder behandling i forliksrådet
+
+Gjelder representasjon i saker om tvangsfullbyrdelse etter tvangsfullbyrdelsesloven, herunder eventuell behandling i forliksrådet av slike saker og oppfølging av saken hos innkrevingsmyndigheten.
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="nav" header="NAV" %}}
+
+### Arbeid
+
+Omfatter tilbud og støtteordninger som hører inn under områdene forsikring/sykepenger (selvstendig næringsdrivende og frilansere), sykepenger, tilleggsstønad og yrkesskade/menerstatning og arbeidsavklaringspenger. Gjelder innsyn/saksbehandling og utbetaling
+
+### Familie
+
+Omfatter tilbud og støtteordninger som hører inn under områdene barnebidrag, barnetrygd, enslig forsørger, foreldre- og svangerskapspenger, grunn- og hjelpestønad og kontantstøtte. Gjelder innsyn/saksbehandling og utbetaling
+
+### Hjelpemidler
+
+Omfatter emnene hjelpemidler, helsetjenester, ortopediske hjelpemidler og bil
+
+### Pensjon
+
+Omfatter tilbud og støtteordninger som hører inn under områdene alderspensjon, supplerende stønad, uførepensjon/-trygd, avtalefestet pensjon, ytelser for gjenlevende (alle typer pensjonsytelser). Gjelder innsyn/saksbehandling og utbetaling
+
+### Sosiale tjenester
+
+Omfatter tilbud og støtteordninger som hører inn under områdene gjeldsrådgivning, kvalifiseringsprogrammet, midlertidig botilbud, økonomisk rådgivning, forsvarlig livsopphold, midlertidig inntektssikring og økonomisk stønad. Gjelder innsyn/saksbehandling og utbetaling
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="pasientreiser" header="Pasientreiser" %}}
+
+### Refusjon av pasientreiser
+
+Søknad om og/eller eventuell klage på vedtak om refusjon av reiseutgifter i forbindelse med behandlinger som dekkes av det offentlige
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="skatteetaten" header="Skatteetaten" %}}
+
+### Innkreving og tvangsfullbyrdelse
+
+Gjelder saker som innkrevingsmyndigheten i Skatteetaten behandler etter innkrevingsloven, fra og med varsel etter tvangsfullbyrdelsesloven §4-18 og §4-19.
+
+### Endre postadresse
+
+Gjelder endring av postadresse for person med verge
+
+### Melde flytting
+
+Gjelder endring av bostedsadresse
+
+### Skatt
+
+Gjelder innsyn i skattedata, og representasjon overfor skattemyndighetene i saker om skatt og avgift, herunder levering av skattemelding og endring av skattekort
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="statsforvalteren" header="Statsforvalteren" %}}
+
+### Søke om samtykke til disposisjon
+
+Gjelder søknad om disposisjoner som krever statsforvalterens samtykke
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="tingretten" header="Tingretten" %}}
+
+### Begjære uskifte
+
+Gjelder melding om uskiftet bo jf. vgml. § 41 (3) og arvl. §§ 14 og 32 - dette krever statsforvalterens samtykke
+
+### Privat skifte av dødsbo
+
+Omfatter tilfeller der vergen på vegne av vergehaveren overtar boet til privat skifte og ivaretakelse av andre rettigheter som arving.
+
+### Begjære skifte av uskiftebo
+
+Gjelder skifte av uskiftebo jf. vgml. § 41 (3) og arvl. §§ 28 og 29 - dette krever statsforvalterens samtykke
+
+{{% /expandlarge %}}
+
+{{% expandlarge id="ovrige" header="Øvrige" %}}
+
+### Kjøp/leie av varer og tjenester
+
+Gjelder i forbindelse med kjøp av varer og tjenester, omfatter også heving av avtaler, reklamasjon mm.
+
+### Inngåelse av husleiekontrakter
+
+Gjelder i forbindelse med inngåelse av husleiekontrakter
+
+### Avslutning av husleiekontrakter
+
+Gjelder i forbindelse med avslutning av husleiekontrakter
+
+### Salg av løsøre av større verdi
+
+Gjelder salg av løsøre av større verdi (herunder bil), usedvanlig karakter eller av spesiell interesse for deg eller din nærmeste familie - dette krever statsforvalterens samtykke
+
+### Disponere inntekter til å dekke utgifter
+
+Gir adgang til å bruke dine inntekter til å betale regninger, betjene gjeld, og dekke øvrige utgifter.
+
+{{% /expandlarge %}}

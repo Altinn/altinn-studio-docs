@@ -2,7 +2,7 @@
 draft: true
 title: Practical tips for resource allocation
 description: 
-weight: 40
+
 tags: [translate-to-english]
 ---
 

@@ -1,0 +1,44 @@
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" | default "" -}}
+{{- $id := printf "fs-svg-%d" .Ordinal -}}
+<div class="fullscreen-svg" id="{{ $id }}" style="position:relative;border:1px solid #e0e0e0;border-radius:4px;background:#fff;">
+  <div style="position:absolute;top:0.5rem;right:0.5rem;z-index:2;display:flex;gap:0.4rem;">
+    <button type="button" data-action="zoom-in" style="padding:0.35rem 0.6rem;border:1px solid #0062ba;background:#fff;color:#0062ba;border-radius:3px;cursor:pointer;font-size:0.9rem;" aria-label="Zoom inn">+</button>
+    <button type="button" data-action="zoom-out" style="padding:0.35rem 0.6rem;border:1px solid #0062ba;background:#fff;color:#0062ba;border-radius:3px;cursor:pointer;font-size:0.9rem;" aria-label="Zoom ut">−</button>
+    <button type="button" data-action="reset" style="padding:0.35rem 0.7rem;border:1px solid #0062ba;background:#fff;color:#0062ba;border-radius:3px;cursor:pointer;font-size:0.85rem;">Tilbakestill</button>
+    <button type="button" data-action="fullscreen" style="padding:0.35rem 0.7rem;border:1px solid #0062ba;background:#fff;color:#0062ba;border-radius:3px;cursor:pointer;font-size:0.85rem;">Fullskjerm</button>
+    <a href="{{ $src }}" target="_blank" rel="noopener" style="padding:0.35rem 0.7rem;border:1px solid #0062ba;background:#fff;color:#0062ba;border-radius:3px;font-size:0.85rem;text-decoration:none;">Åpne i ny fane</a>
+  </div>
+  <object data="{{ $src }}" type="image/svg+xml" aria-label="{{ $alt }}" style="width:100%;height:600px;display:block;"></object>
+</div>
+<style>
+  #{{ $id }}:fullscreen { background:#fff; padding:0; }
+  #{{ $id }}:fullscreen object { height:100vh; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+<script>
+(function(){
+  var container = document.getElementById("{{ $id }}");
+  var obj = container.querySelector("object");
+  var panZoom;
+  function init(){
+    try {
+      var svg = obj.contentDocument && obj.contentDocument.querySelector("svg");
+      if (!svg) return;
+      panZoom = svgPanZoom(svg, { zoomEnabled:true, controlIconsEnabled:false, fit:true, center:true, minZoom:0.2, maxZoom:20, contain:false });
+    } catch(e){ console.warn("svg-pan-zoom init failed", e); }
+  }
+  obj.addEventListener("load", init);
+  container.querySelector('[data-action="zoom-in"]').addEventListener("click", function(){ panZoom && panZoom.zoomIn(); });
+  container.querySelector('[data-action="zoom-out"]').addEventListener("click", function(){ panZoom && panZoom.zoomOut(); });
+  container.querySelector('[data-action="reset"]').addEventListener("click", function(){ panZoom && panZoom.resetZoom(); panZoom && panZoom.center(); panZoom && panZoom.fit(); });
+  container.querySelector('[data-action="fullscreen"]').addEventListener("click", function(){
+    if (!document.fullscreenElement) {
+      (container.requestFullscreen || container.webkitRequestFullscreen || container.msRequestFullscreen).call(container);
+    } else {
+      document.exitFullscreen();
+    }
+    setTimeout(function(){ panZoom && panZoom.resize(); panZoom && panZoom.fit(); panZoom && panZoom.center(); }, 300);
+  });
+})();
+</script>

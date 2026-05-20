@@ -6,34 +6,34 @@ weight: 30
 
 ## Introduction
 
-This guide shows how a end-user system can access specific dialogs in Dialogporten using either REST or GraphQL APIs. 
+This guide shows how an end-user system can access specific dialogs in Dialogporten using either REST or GraphQL APIs.
 
-Note that the data structure that is returned when getting single dialogs differ from the one returned on the [search endpoint](/en/dialogporten/user-guides/getting-dialog-details/../searching-for-dialogs/); the dialog details view offer more information about the dialog and what the user may access. 
+Note that the data structure returned when getting single dialogs differs from the one returned by the [search endpoint]({{< relref "/dialogporten/user-guides/searching-for-dialogs" >}}); the dialog-details view offers more information about the dialog and what the user may access.
 
 ## Basic steps (REST)
 
-1. [Authenticate as a end-user](/en/dialogporten/user-guides/getting-dialog-details/../authenticating/)
-2. Find the dialog ID you want to access. To search for accessible dialogs, see the [search endpoint](/en/dialogporten/user-guides/getting-dialog-details/../searching-for-dialogs/). Dialog IDs can also be [discovered via events](/en/dialogporten/user-guides/getting-dialog-details/../detecting-changes/).
+1. [Authenticate as an end user]({{< relref "/dialogporten/user-guides/authenticating" >}})
+2. Find the dialog ID you want to access. To search for accessible dialogs, see the [search endpoint]({{< relref "/dialogporten/user-guides/searching-for-dialogs" >}}). Dialog IDs can also be [discovered via events]({{< relref "/dialogporten/user-guides/detecting-changes" >}}).
 3. Perform a GET request to `/api/v1/enduser/dialogs/{dialogId}`.
 
 ## Returned information
-The data structure returned consists of all the data available in the search endpoint, and additionally 
+The data structure returned consists of all the data available in the search endpoint, and additionally:
 * title, summary and additional info (text)
-* [front channel embeds](/en/dialogporten/user-guides/getting-dialog-details/../../getting-started/front-channel-embeds/) (ie. referenced content)
-* [actions](/en/dialogporten/user-guides/getting-dialog-details/../../getting-started/dialogs/#actions) that can be perfomed
-* [activity log](/en/dialogporten/user-guides/getting-dialog-details/../../getting-started/activity-log/)
-* [transmissions](/en/dialogporten/user-guides/getting-dialog-details/../../getting-started/dialogs/#transmissions)
+* [front channel embeds]({{< relref "/dialogporten/getting-started/front-channel-embeds" >}}) (ie. referenced content)
+* [actions]({{< relref "/dialogporten/getting-started/dialogs" >}}#actions) that can be performed
+* [activity log]({{< relref "/dialogporten/getting-started/activity-log" >}})
+* [transmissions]({{< relref "/dialogporten/getting-started/dialogs" >}}#transmissions)
 
-For full details, see the [dialog details entity](/en/dialogporten/user-guides/getting-dialog-details/../../reference/entities/dialog/).
+For full details, see the [dialog details entity]({{< relref "/dialogporten/reference/entities/dialog" >}}).
 
 ## Authorization
 
-Dialogporten will perform a authorization check against Altinn Authorization for the dialog and its components, checking whether or not the authenticated identity has access to 
+Dialogporten will perform an authorization check against Altinn Authorization for the dialog and its components, checking whether the authenticated identity has access to:
 
 * any or all of the defined actions
 * any or all of the defined transmissions
 
-These entities have a flag, `isAuthorized`, which is either `true` or `false`. If `false`, the URLs associated with the action or transmission is replaced with a special value, `urn:dialogporten:unauthorized`.
+These entities have a flag, `isAuthorized`, which is either `true` or `false`. If `false`, the URLs associated with the action or transmission are replaced with a special value, `urn:dialogporten:unauthorized`.
 
 ## Authentication level
 
@@ -105,12 +105,12 @@ This is an abbreviated and simplified model where some mandatory fields are omit
 }
 ```
 
-Note that the data structure contains actual content - it contains instead references to content via either front channel embeds or attachments, both of which refer to endpoints external to Dialogporten.
+Note that the data structure does not contain actual content; it instead contains references to content via either front channel embeds or attachments, both of which refer to endpoints external to Dialogporten.
 
-Additional requests will have to be performed in order to fetch these resources. The end user system should expect that all these endpoints require authentication and that the same authorization is enforced as on the dialog, action or attachment itself. Typically will the endpoints require that the same kind of token (ID-porten or Maskinporten with system user) is provided but with a separate scope. For Altinn-based services, please refer to the documentation for Altinn Correspondence and Altinn APps.
+Additional requests will have to be performed in order to fetch these resources. The end-user system should expect that all these endpoints require authentication and that the same authorization is enforced as for the dialog, action, or attachment itself. Typically, the endpoints require that the same kind of token, ID-porten or Maskinporten with a system user, is provided, but with a separate scope. For Altinn-based services, please refer to the documentation for Altinn Correspondence and Altinn Apps.
 
 **Read more**
-* [Reference information about the dialog details entity](/en/dialogporten/user-guides/getting-dialog-details/../../reference/entities/dialog/#details)
+* [Reference information about the dialog details entity]({{< relref "/dialogporten/reference/entities/dialog" >}}#details)
 
 ## Handling front channel embeds
 
@@ -120,7 +120,7 @@ There may be several front channel embeds (FCEs) in a dialog:
 
 The basic steps to handle front channel embeds are:
 
-1. Perform a GET request to the URL indicated, supplying the the [dialogtoken](/en/dialogporten/user-guides/getting-dialog-details/../../getting-started/authorization/dialog-tokens/) in a `Authorization: Bearer`-header
+1. Perform a GET request to the indicated URL, supplying the [dialog token]({{< relref "/dialogporten/getting-started/authorization/dialog-tokens" >}}) in an `Authorization: Bearer` header
 2. Based on the indicated media type, parse the response (usually markdown) and convert to the presentation format (usually HTML)
 3. Inject the converted data into the GUI
 

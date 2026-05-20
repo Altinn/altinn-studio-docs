@@ -23,7 +23,7 @@ med en *, valgfrie felter har ingen markering.
 ![Required default](required.png "Normal oppførsel for påkrevd felt (markert med *).")
 
 
-Normal oppførsel kan overstyres ved hjelp av innstillinger knyttet til feltbeskrivelsen. Dette gjøres via `labelSettings` 
+Normal oppførsel for valgfrie felt kan overstyres ved hjelp av innstillinger knyttet til feltbeskrivelsen. Dette gjøres via `labelSettings`
 på en komponent i form layout.
 
 ```json

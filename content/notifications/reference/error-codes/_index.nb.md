@@ -115,6 +115,41 @@ Denne feilen er ikke forventet under normal drift. Feilen indikerer at klienten 
 
 ---
 
+### NOT-00004: Plattformavhengighet utilgjengelig
+
+**HTTP-statuskode:** 503 Service Unavailable
+
+**Beskrivelse:** En nødvendig plattformavhengighet er for øyeblikket utilgjengelig på grunn av et midlertidig nettverkssvikt. Forespørselen kan ikke fullføres fordi en intern tjeneste som Altinn Notifications er avhengig av, ikke svarer.
+
+**Vanlige årsaker:**
+- Midlertidig nettverkssvikt mellom interne tjenester
+- En intern plattformtjeneste er nede for vedlikehold eller opplever problemer
+- Forbigående tilkoblingsproblemer i infrastrukturen
+
+**Berørte endepunkter:**
+- Alle API-endepunkter som er avhengige av interne plattformtjenester
+
+**Eksempelrespons:**
+```json
+{
+  "status": 503,
+  "code": "NOT-00004",
+  "detail": "A temporary network failure occurred"
+}
+```
+
+**Løsning:**
+- Vent noen øyeblikk og prøv forespørselen på nytt
+- Implementer retry-logikk med eksponentiell ventetid i klienten din
+- Bruk samme `idempotencyId` ved nye forsøk for å unngå dobbeltregistrering
+- Hvis problemet vedvarer over tid, kontakt Altinn support
+
+{{% notice info %}}
+Denne feilen er midlertidig. Plattformavhengigheten er normalt raskt tilgjengelig igjen, og forespørselen kan trygt gjentas.
+{{% /notice %}}
+
+---
+
 ## Generelle HTTP-statuskoder
 
 I tillegg til de spesifikke feilkodene ovenfor returnerer API-et også standard HTTP-statuskoder:
@@ -132,3 +167,4 @@ I tillegg til de spesifikke feilkodene ovenfor returnerer API-et også standard 
 - [Veiledning for umiddelbare varsler](/nb/notifications/guides/instant-notifications/)
 - [Altinn Notifications API-referanse](/nb/notifications/reference/api/)
 - [OpenAPI-spesifikasjon](/nb/notifications/reference/openapi/)
+- [Statusverdier for ordre og varsler](/nb/notifications/reference/notification-status)

@@ -9,7 +9,7 @@ toc: true
 {{% notice warning %}}
 Altinn Events muliggjør hendelsesdrevne integrasjonsmønstre, designet spesifikt for å ***unngå*** behovet for
 kontinuerlig forespørsel av ressurser, også kjent som 'polling'. <br/> <br/>
-For å tillate jevne og inkrementelle arkitekturmigrasjonener, tilbyr Events API også et HTTP API 
+For å tillate jevne og inkrementelle arkitekturmigrasjoner, tilbyr Events API også et HTTP API 
 for planlagte forespørsler av de samme hendelsesdataene du forhåpentligvis
 vil motta via webhooks i fremtiden.
 {{% /notice %}}
@@ -55,6 +55,12 @@ f.eks. _urn:altinn:resource:app_ttd_apps-test_
 
 ### type
 - hendelsestypene som skal inkluderes, type: array[string]
+
+{{% notice warning %}}
+__Tip:__ Dette feltet er ekstra viktig når man søker etter hendelser publisert av apper. Bruk for 
+eksempel: `&type=app.instance.process.completed&size=10`. Lar man feltet stå tomt risikerer man at søket
+returnerer færre elementer enn det man spurte etter på grunn av begrensninger i autorisasjon.
+{{% /notice %}}
 
 #### size
 - størrelse på resultatsettet, type: string

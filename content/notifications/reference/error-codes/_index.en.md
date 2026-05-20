@@ -116,6 +116,41 @@ This error is not expected during normal operation. It indicates that the client
 
 ---
 
+### NOT-00004: Platform dependency unavailable
+
+**HTTP Status Code:** 503 Service Unavailable
+
+**Description:** A required platform dependency is currently unavailable due to a temporary network failure. The request cannot be completed because an internal service that Altinn Notifications depends on is not responding.
+
+**Common Causes:**
+- Temporary network failure between internal services
+- An internal platform service is down for maintenance or experiencing issues
+- Transient connectivity problems in the infrastructure
+
+**Affected Endpoints:**
+- All API endpoints that depend on internal platform services
+
+**Example Response:**
+```json
+{
+  "status": 503,
+  "code": "NOT-00004",
+  "detail": "A temporary network failure occurred"
+}
+```
+
+**Resolution:**
+- Wait a moment and retry the request
+- Implement retry logic with exponential backoff in your client
+- Use the same `idempotencyId` when retrying to avoid duplicate registrations
+- If the problem persists over time, contact Altinn support
+
+{{% notice info %}}
+This error is temporary. The platform dependency is normally available again shortly, and the request can safely be retried.
+{{% /notice %}}
+
+---
+
 ## General HTTP Status Codes
 
 In addition to the specific error codes above, the API also returns standard HTTP status codes:
@@ -133,3 +168,4 @@ In addition to the specific error codes above, the API also returns standard HTT
 - [Instant Notifications Guide](/en/notifications/guides/instant-notifications/)
 - [Altinn Notifications API Reference](/en/notifications/reference/api/)
 - [OpenAPI Specification](/en/notifications/reference/openapi/)
+- [Status values for orders and notifications](/en/notifications/reference/notification-status/)

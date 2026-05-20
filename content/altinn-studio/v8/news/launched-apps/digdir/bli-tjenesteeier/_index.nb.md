@@ -6,6 +6,6 @@ tags: [app]
 
 TODO: Dokumentasjon, screenshots, etc
 
-- [Info](https://www.altinndigital.no/kom-i-gang/guide-kom-i-gang-med-altinn/)
+- [Info](https://samarbeid.digdir.no/altinn/bli-tjenesteeier-i-altinn/2819)
 - [Repo](https://altinn.studio/repos/digdir/bli-tjenesteeier)
 - [Kjørende tjeneste](https://digdir.apps.altinn.no/digdir/bli-tjenesteeier/)

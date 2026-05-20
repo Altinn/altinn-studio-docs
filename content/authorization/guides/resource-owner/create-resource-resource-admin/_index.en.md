@@ -110,6 +110,13 @@ Before publish you need to set a new version ID and commit changes to the resour
 
 ![Create Resource](create_resource_14.png)
 
+### Permission to publish
+
+To be able to publish resources, you must be a member of the correct team in Gitea. These teams are set up in Gitea by the administrator in your organization. Teams for your organization can be found at https://altinn.studio/repos/org/{orgcode}/teams. The following teams grant access to publish resources:
+
+- Resources-Publish-PROD: Right to publish to production
+- Resources-Publish-TT02: Team with rights to publish to TT02
+
 ## Verify
 
 When published the resource is avaiable on the search API in Resource Registry.

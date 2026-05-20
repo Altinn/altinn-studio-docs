@@ -39,7 +39,7 @@ Følgende målinger er innebygd i Altinn.App-bibliotekene og publiseres automati
 
 - **Teller (counter):** En måling som bare øker. Brukes til å telle hendelser, for eksempel antall opprettede instanser.
 
-  **Eksempel:** Hvis 5 instanser opprettes, går telleren fra 0 til 5. Den går aldri ned.
+  **Eksempel:** Hvis du oppretter 5 instanser, øker telleren fra 0 til 5. Den går aldri ned.
 
 - **Histogram (histogram):** Viser fordelingen av verdier over tid. Brukes til å måle varigheter og størrelser.
 

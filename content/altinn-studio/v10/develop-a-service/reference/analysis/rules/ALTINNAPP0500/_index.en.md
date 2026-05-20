@@ -3,7 +3,7 @@ draft: true
 title: "ALTINNAPP0500: farlig bruk av IHttpContextAccessor"
 tags: [needstranslation]
 description: "IHttpContextAccessor.HttpContext bør ikke brukes i konstruktører"
-weight: 50
+
 ---
 
 Denne diagnostikken påpeker at `IHttpContextAccessor.HttpContext` **ikke** bør brukes

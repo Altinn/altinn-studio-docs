@@ -40,13 +40,13 @@ This is the entity returned in the service owner API when searching for dialogs
 
 This is the entity expected as input in the service owner API when creating a new dialog 
 
-{{<swaggerdisplayentity "V1ServiceOwnerDialogsCommandsCreate_Dialog">}}
+{{<swaggerdisplayoperation "post" "/api/v1/serviceowner/dialogs">}}
 
 ### Update (PUT)
 
 This is the entity expected as input in the service owner API when updating a new dialog 
 
-{{<swaggerdisplayentity "V1ServiceOwnerDialogsCommandsUpdate_Dialog">}}
+{{<swaggerdisplayoperation "put" "/api/v1/serviceowner/dialogs/{dialogId}">}}
 
 ### Update (PATCH)
 
