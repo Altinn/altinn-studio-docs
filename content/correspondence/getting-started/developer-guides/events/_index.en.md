@@ -34,6 +34,9 @@ This subscription is used to configure the endpoint where the events published b
 
 **For service owners**, you are required to set up the following filter:
 
+- sourceFilter
+  - TT02: <https://platform.tt02.altinn.no/correspondence/api/v1/correspondence>
+  - PROD: <https://platform.altinn.no/correspondence/api/v1/correspondence>
 - resourceFilter
   - "urn:altinn:resource:" + The Resource Id for the Correspondence Resource
 
