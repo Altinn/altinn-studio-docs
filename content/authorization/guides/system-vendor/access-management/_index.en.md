@@ -52,6 +52,8 @@ The system must request the scopes that are needed for the functionality it is g
 | `altinn:accessmanagement/enduser:connections:fromothers.write` | Delete access received by you or other actors you are an access manager for |
 | `altinn:accessmanagement/enduser:connections:toothers.read` | View access given to others, from you or other actors you are an access manager for |
 | `altinn:accessmanagement/enduser:connections:toothers.write` | Create, update and delete access given to others from you or other actors you are an access manager for |
+| `altinn:accessmanagement/enduser:requests.read` | View sent and received requests for access packages and resources for you or other actors you are an access manager for |
+| `altinn:accessmanagement/enduser:requests.write` | Create, withdraw, approve and reject requests for access packages and resources for you or other actors you are an access manager for |
 
 **Altinn client delegation**
 
@@ -117,7 +119,7 @@ For a complete description of the endpoint, including all parameters and respons
 {{% notice tip %}}
 If you want to find which parties the logged in user has access management rights for, you can use the `anyOfResourceIds` filter with the resource ID for access management:
 
-`GET .../enduser/authorizedparties?anyOfResourceIds=urn:altinn:resource:accessmanagement/authorizedparties`
+`GET .../enduser/authorizedparties?anyOfResourceIds=altinn_access_management`
 
 This returns only parties where the user has rights to manage access.
 {{% /notice %}}
@@ -141,10 +143,10 @@ Example response
         "isDeleted": false,
         "onlyHierarchyElementWithNoAccess": false,
         "authorizedAccessPackages": [
-          "urn:altinn:accesspackage:skattegrunnlag"
+          "tilgangsstyrer"
         ],
         "authorizedRoles": [
-          "urn:altinn:role:tilgangsstyrer"
+          "admai"
         ],
         "subunits": []
       }
@@ -283,6 +285,41 @@ Retrieves access packages that have been delegated between two parties.
 
 Pagination is controlled with `X-Page-Size` and `X-Page-Number` headers.
 
+## API: Check delegation eligibility for access packages
+
+Checks whether the logged in user can delegate a given access package on behalf of the party.
+
+- **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/connections/accesspackages/delegationcheck`
+- **Production**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/connections/accesspackages/delegationcheck`
+
+#### Query parameters
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `party` | UUID | Yes | partyUuid for the party |
+| `packageIds` | array (UUID) | No | IDs of the access packages |
+| `packages` | array (string) | No | URNs of the access packages |
+
+Example response
+
+```json
+{
+  "links": {
+    "next": null
+  },
+  "data": [
+    {
+      "package": {
+        "id": "4c859601-9b2b-4662-af39-846f4117ad7a",
+        "urn": "urn:altinn:accesspackage:skattegrunnlag"
+      },
+      "result": true,
+      "reasons": []
+    }
+  ]
+}
+```
+
 ## API: Delegate access package
 
 Delegates an access package to a person.
@@ -334,41 +371,6 @@ Removes a delegated access package from a connection.
 | `to` | UUID | Yes | partyUuid for the receiver |
 | `packageId` | UUID | No | ID of the access package |
 | `package` | string | No | URN of the access package |
-
-## API: Check delegation eligibility for access packages
-
-Checks whether the logged in user can delegate a given access package on behalf of the party.
-
-- **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/connections/accesspackages/delegationcheck`
-- **Production**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/connections/accesspackages/delegationcheck`
-
-#### Query parameters
-
-| Parameter | Type | Required | Description |
-|---|---|---|---|
-| `party` | UUID | Yes | partyUuid for the party |
-| `packageIds` | array (UUID) | No | IDs of the access packages |
-| `packages` | array (string) | No | URNs of the access packages |
-
-Example response
-
-```json
-{
-  "links": {
-    "next": null
-  },
-  "data": [
-    {
-      "package": {
-        "id": "4c859601-9b2b-4662-af39-846f4117ad7a",
-        "urn": "urn:altinn:accesspackage:skattegrunnlag"
-      },
-      "result": true,
-      "reasons": []
-    }
-  ]
-}
-```
 
 ---
 
@@ -441,41 +443,6 @@ Retrieves individual rights (read, write, sign and so on) that have been delegat
 | `to` | UUID | Yes | partyUuid for the receiver |
 | `resource` | string | No | Resource ID |
 
-## API: Delegate individual rights for a resource
-
-Delegates individual rights for a resource to a party.
-
-- **Test**: `POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/connections/resources/rights`
-- **Production**: `POST https://platform.altinn.no/accessmanagement/api/v1/enduser/connections/resources/rights`
-
-#### Query parameters
-
-| Parameter | Type | Required | Description |
-|---|---|---|---|
-| `party` | UUID | Yes | partyUuid for the party |
-| `to` | UUID | Yes | partyUuid for the receiver |
-| `resource` | string | No | Resource ID |
-
-Example request (body)
-
-```json
-{
-  "directRightKeys": [
-    "read",
-    "write"
-  ]
-}
-```
-
-## API: Update individual rights for a resource
-
-Updates (replaces) individual rights for a resource.
-
-- **Test**: `PUT https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/connections/resources/rights`
-- **Production**: `PUT https://platform.altinn.no/accessmanagement/api/v1/enduser/connections/resources/rights`
-
-The query parameters and request body are the same as for delegation (POST).
-
 ## API: Check delegation eligibility for resource
 
 Checks whether the logged in user can delegate rights for a given resource.
@@ -495,26 +462,295 @@ Example response
 ```json
 {
   "resource": {
-    "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-    "name": "Skattemelding",
-    "refId": "skd-skattemelding"
+    "id": "0197f8e4-706b-7d9e-abfe-e3c2cfd47e7b",
+    "providerId": "5c6e075d-343d-8bcb-b08e-54a4bb7e223e",
+    "typeId": "0197f8a2-d692-767f-a20f-3b03abab447d",
+    "name": "Altinn Correspondence - Test",
+    "description": "Tilgang til Altinn Correspondence testressurs",
+    "refId": "altinn-correspondence-test-resource-1",
+    "provider": {
+      "id": "5c6e075d-343d-8bcb-b08e-54a4bb7e223e",
+      "name": "Testdepartementet",
+      "refId": "",
+      "logoUrl": "https://altinncdn.no/orgs/ttd/ttd.png",
+      "code": "ttd",
+      "typeId": "0195efb8-7c80-713e-ad96-a9896d12f444",
+      "type": {
+        "id": "0195efb8-7c80-713e-ad96-a9896d12f444",
+        "name": "Tjenesteeier"
+      }
+    },
+    "type": {
+      "id": "0197f8a2-d692-767f-a20f-3b03abab447d",
+      "name": "GenericAccessResource"
+    }
   },
   "rights": [
     {
       "right": {
-        "key": "read",
-        "name": "Les",
+        "key": "01c4d56721748f33073006ed6a565470cdaff046943520028a53dc020faf5238ab",
+        "name": "Read",
+        "resource": [
+          {
+            "type": "urn:altinn:resource",
+            "value": "altinn-correspondence-test-resource-1"
+          }
+        ],
         "action": {
           "type": "urn:oasis:names:tc:xacml:1.0:action:action-id",
           "value": "read"
         }
       },
       "result": true,
-      "reasonCodes": []
+      "reasonCodes": [
+        "RoleAccess"
+      ]
+    },
+    {
+      "right": {
+        "key": "01834da6192e4869120951e19c6c76f5721db2b4a0cdd77acae000a18014106de2",
+        "name": "Write",
+        "resource": [
+          {
+            "type": "urn:altinn:resource",
+            "value": "altinn-correspondence-test-resource-1"
+          }
+        ],
+        "action": {
+          "type": "urn:oasis:names:tc:xacml:1.0:action:action-id",
+          "value": "write"
+        }
+      },
+      "result": true,
+      "reasonCodes": [
+        "RoleAccess"
+      ]
     }
   ]
 }
 ```
+
+## API: Delegate individual rights for a resource
+
+Delegates individual rights for a resource to a party.
+
+- **Test**: `POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/connections/resources/rights`
+- **Production**: `POST https://platform.altinn.no/accessmanagement/api/v1/enduser/connections/resources/rights`
+
+#### Query parameters
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `party` | UUID | Yes | partyUuid for the party |
+| `to` | UUID | Yes | partyUuid for the receiver |
+| `resource` | string | No | Resource ID |
+
+Example request (body)
+
+```json
+{
+  "DirectRightKeys": [
+    "01c4d56721748f33073006ed6a565470cdaff046943520028a53dc020faf5238ab",
+    "01834da6192e4869120951e19c6c76f5721db2b4a0cdd77acae000a18014106de2"
+  ]
+}
+```
+
+## API: Update individual rights for a resource
+
+Updates (replaces) individual rights for a resource.
+
+- **Test**: `PUT https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/connections/resources/rights`
+- **Production**: `PUT https://platform.altinn.no/accessmanagement/api/v1/enduser/connections/resources/rights`
+
+The query parameters and request body are the same as for delegation (POST).
+
+---
+
+## Requesting access from another party
+
+The endpoints below let a logged in user or system user request an access package or rights on a resource from another party. This is useful when the recipient cannot grant the access to themselves and needs to ask the owner of the party.
+
+The flow is:
+
+1. **The sender** creates a request for an access package or a resource.
+2. **The recipient** sees the request in the list of received requests and can approve or reject it.
+3. **The sender** can withdraw a request that has not yet been processed.
+
+A request can have one of the following statuses: `Pending` (awaiting decision), `Approved`, `Rejected` or `Withdrawn`. The status `Draft` is also used for drafts created from the Altinn portal.
+
+The endpoints require the scopes `altinn:accessmanagement/enduser:requests.read` (read) and `altinn:accessmanagement/enduser:requests.write` (write).
+
+### API: Request an access package
+
+Creates a request to another party for an access package.
+
+- **Test**: `POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/request/package`
+- **Production**: `POST https://platform.altinn.no/accessmanagement/api/v1/enduser/request/package`
+
+#### Query parameters
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `party` | UUID | Yes | partyUuid for the sender (the party you act on behalf of) |
+| `to` | UUID | Yes | partyUuid for the recipient (the party you are requesting access from) |
+| `package` | string | Yes | URN for the requested access package |
+
+Example response
+
+```json
+{
+  "id": "019c2e70-c577-7b20-a11c-245fecd5e564",
+  "status": "Pending",
+  "type": "package",
+  "lastUpdated": "2026-04-30T10:15:00Z",
+  "package": {
+    "id": "4c859601-9b2b-4662-af39-846f4117ad7a",
+    "referenceId": "urn:altinn:accesspackage:skattegrunnlag"
+  },
+  "from": {
+    "id": "4a06214d-b261-4695-b33a-0771a995b503"
+  },
+  "to": {
+    "id": "01f7a70d-2619-4c50-8ff4-efd7ae6c8960"
+  }
+}
+```
+
+### API: Request rights on a resource
+
+Creates a request to another party for specific rights on a resource.
+
+- **Test**: `POST https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/request/resource`
+- **Production**: `POST https://platform.altinn.no/accessmanagement/api/v1/enduser/request/resource`
+
+#### Query parameters
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `party` | UUID | Yes | partyUuid for the sender |
+| `to` | UUID | Yes | partyUuid for the recipient |
+| `resource` | string | Yes | Resource ID |
+
+
+### API: Confirm a draft
+
+Confirms a draft request so that it is sent to the recipient. Typically used from the Altinn portal after the sender has reviewed the draft created by the service owner.
+
+- **Test**: `PUT https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/request/draft/confirm`
+- **Production**: `PUT https://platform.altinn.no/accessmanagement/api/v1/enduser/request/draft/confirm`
+
+#### Query parameters
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `party` | UUID | Yes | partyUuid for the sender |
+| `id` | UUID | Yes | id of the draft |
+
+### API: Retrieve a request
+
+Retrieves a single request by id.
+
+- **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/request`
+- **Production**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/request`
+
+#### Query parameters
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `party` | UUID | Yes | partyUuid for the party you act on behalf of |
+| `id` | UUID | Yes | id of the request |
+
+### API: Retrieve sent requests
+
+Retrieves all requests that the party has sent to others.
+
+- **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/request/sent`
+- **Production**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/request/sent`
+
+#### Query parameters
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `party` | UUID | Yes | partyUuid for the sender |
+| `to` | UUID | No | Filter by recipient |
+| `status` | array | No | Filter by status (`Draft`, `Pending`, `Approved`, `Rejected`, `Withdrawn`) |
+| `type` | string | No | Filter by type (`package` or `resource`) |
+
+Pagination is controlled with the `X-Page-Size` and `X-Page-Number` headers.
+
+To retrieve only the count of sent requests, use `GET /enduser/request/sent/count` with the same filter parameters.
+
+### API: Withdraw a sent request
+
+Withdraws a request that has not yet been approved or rejected.
+
+- **Test**: `PUT https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/request/sent/withdraw`
+- **Production**: `PUT https://platform.altinn.no/accessmanagement/api/v1/enduser/request/sent/withdraw`
+
+#### Query parameters
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `party` | UUID | Yes | partyUuid for the sender |
+| `id` | UUID | Yes | id of the request |
+
+### API: Retrieve received requests
+
+Retrieves all requests that the party has received from others.
+
+- **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/request/received`
+- **Production**: `GET https://platform.altinn.no/accessmanagement/api/v1/enduser/request/received`
+
+#### Query parameters
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `party` | UUID | Yes | partyUuid for the recipient |
+| `from` | UUID | No | Filter by sender |
+| `status` | array | No | Filter by status (`Draft`, `Pending`, `Approved`, `Rejected`, `Withdrawn`) |
+| `type` | string | No | Filter by type (`package` or `resource`) |
+
+Pagination is controlled with the `X-Page-Size` and `X-Page-Number` headers.
+
+To retrieve only the count of received requests, use `GET /enduser/request/received/count` with the same filter parameters.
+
+### API: Approve a received request
+
+Approves a received request and creates the underlying delegation.
+
+- **Test**: `PUT https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/request/received/approve`
+- **Production**: `PUT https://platform.altinn.no/accessmanagement/api/v1/enduser/request/received/approve`
+
+#### Query parameters
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `party` | UUID | Yes | partyUuid for the recipient |
+| `id` | UUID | Yes | id of the request |
+
+For resource requests, the body can specify which rights to approve. Leave the body empty to approve all the rights that were requested:
+
+```json
+[
+  "read",
+  "write"
+]
+```
+
+### API: Reject a received request
+
+Rejects a received request.
+
+- **Test**: `PUT https://platform.tt02.altinn.no/accessmanagement/api/v1/enduser/request/received/reject`
+- **Production**: `PUT https://platform.altinn.no/accessmanagement/api/v1/enduser/request/received/reject`
+
+#### Query parameters
+
+| Parameter | Type | Required | Description |
+|---|---|---|---|
+| `party` | UUID | Yes | partyUuid for the recipient |
+| `id` | UUID | Yes | id of the request |
 
 ---
 

@@ -71,3 +71,5 @@ The component is added to a page layout as such:
       },
 
 The attachment type of a document may be changed by adding one or more tags.
+
+From [v8.9.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.9.0), the rows in the table are sorted first according to the order of the data types in `dataTypesToSign` in process.bpmn, and then by the documents' creation dates.
