@@ -33,6 +33,7 @@ Ved å bruke `tableColumns` er det mulig å konfigurere bredden, tekst plasserin
 - `textOverflow` - brukes for å kontrollere oppførsel når tekst innhold er for stort til å vises i en celle.
     - `lineWrap` - sett til `false` for å skru av skjuling av overflødig tekst. Standardverdi er `true`.
     - `maxHeight` - setter et maks antall tillatte linjer før tekst skjules med utellatelsestegn (...). `"maxHeight": 0` resulterer i å skru av skjuling av overflødig tekst.
+- `hidden` - sett til `true`, eller et uttrykk som evaluerer til `true`, for å skjule kolonnen. Standardverdi er `false`.
 - `editInTable` - settes til `true` for å tillate redigering av komponenten i tabellvisningen. Standardverdi er `false`. Se mer om dette i [seksjonen som beskriver denne funksjonaliteten](#).
 - `showInExpandedEdit` - settes til `false` for å skjule komponenten i redigeringsmodus. Standardverdi er `true`. Se mer om dette i [seksjonen som beskriver denne funksjonaliteten](#).
 
@@ -73,12 +74,39 @@ Eksempel:
 
 ![Eksempel for kolonne options](column-options-example.png "Eksempel for kolonne options")
 
+## Skjule kolonner
+
+Du kan skjule enkeltkolonner i tabellen ved å sette `tableColumns.<componentId>.hidden` til `true`.
+Du kan også bruke et uttrykk. Uttrykket evalueres for hver kolonne, og kolonnen skjules når uttrykket
+evaluerer til `true`.
+
+I motsetning til `hiddenRow` blir dette uttrykket ikke evaluert per rad i den repeterende gruppen. Det evalueres i
+konteksten til den repeterende gruppen/tabellen, og styrer om hele kolonnen vises i tabellen.
+
+Eksempel:
+
+```json
+{
+  ...
+  "tableHeaders": ["name", "ssn", "address"],
+  "tableColumns": {
+    "ssn": {
+      "hidden": ["equals", ["component", "isPerson"], false]
+    },
+    "address": {
+      "hidden": true
+    }
+  },
+  ...
+}
+```
+
 ## Sticky tabell headere
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="v4 (App Frontend)">}}
 
-Tabell-headerene kan gjøres "sticky" ved å sette `stickyHeaders`-egenskapen til true. Dette vil få hodene til å sitte fast
+Tabell-headerene kan gjøres "sticky" ved å sette `stickyHeader`-egenskapen til true. Dette vil få hodene til å sitte fast
 øverst på tabellen ved scrolling. Dette kan være nyttig for tabeller med mange rader, der headerene ikke lenger er
 synlige når man scroller nedover tabellen.
 
@@ -194,3 +222,74 @@ Konfigurasjonen for Group-komponenten i eksempelet over er som følger:
 
 {{</content-version-container>}}
 {{</content-version-selector>}}
+
+## Statiske rader før og etter de repeterende radene
+
+Bruk `rowsBefore` og `rowsAfter` når du trenger faste rader rundt de repeterende radene i tabellvisningen. Dette er
+nyttig for tabellspesifikt innhold som summer, forklarende rader eller en ekstra overskriftsrad.
+
+- `rowsBefore` vises før de repeterende radene.
+- `rowsAfter` vises etter de repeterende radene.
+
+Konfigurasjonen for rader og celler gjenbruker samme struktur som [Grid-komponenten](/nb/altinn-studio/v8/reference/ux/components/grid/).
+Se Grid-dokumentasjonen for detaljer om `header`, `readOnly`, `cells`, tekstceller, komponentceller, tomme celler,
+bredder, justering og tekstoverflyt.
+
+Ofte brukes `rowsAfter` til footer-lignende rader, for eksempel summer, totaler eller
+opplastingsoppsummeringer. Begge egenskapene kan inneholde komponenter i cellene, så lenge komponentene støttes i
+tabell-/gridvisning.
+
+De ekstra radene blir justert mot de samme kolonnene som resten av tabellen. Skjulte kolonner påvirker også disse
+radene, slik at de holder seg på linje med resten av tabellen.
+
+Eksempel:
+
+```json
+{
+  "id": "costs",
+  "type": "RepeatingGroup",
+  "children": ["category", "amount", "confirmed"],
+  "tableHeaders": ["category", "amount", "confirmed"],
+  "tableColumns": {
+    "category": {
+      "width": "50%"
+    },
+    "amount": {
+      "width": "30%",
+      "editInTable": true
+    },
+    "confirmed": {
+      "width": "20%",
+      "editInTable": true
+    }
+  },
+  "rowsAfter": [
+    {
+      "header": true,
+      "cells": [
+        {},
+        { "text": "summary-amount" },
+        { "text": "summary-status" }
+      ]
+    },
+    {
+      "readOnly": true,
+      "cells": [
+        { "text": "remaining-costs" },
+        { "component": "remainingAmount" },
+        { "component": "remainingConfirmed" }
+      ]
+    },
+    {
+      "readOnly": false,
+      "cells": [
+        { "text": "allocated-now" },
+        { "component": "allocationAmount" },
+        { "component": "allocationStatus" }
+      ]
+    }
+  ]
+}
+```
+
+![Eksempel på rowsAfter med oppsummerings- og handlingsrader](rowsAfter.png "Eksempel på rowsAfter med oppsummerings- og handlingsrader")

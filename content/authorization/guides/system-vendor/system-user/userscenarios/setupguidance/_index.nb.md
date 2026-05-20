@@ -22,6 +22,8 @@ Se også [wizard](https://systemuserwizard.azurewebsites.net/) som dekker noe av
 | [D. Tjenesteyter med teambasert tilgang](#d-tjenesteyter-med-teambasert-tilgang) | 1 per team/funksjon | Klientforhold | Pakker som passer hvert team |
 | [E. Lokalt installert eller egenutviklet system](#e-lokalt-installert-eller-egenutviklet-system) | 1 | Standard | Alle pakkene virksomheten trenger |
 | [F. Regnskapskunder med ulike tjenestebehov](#f-regnskapskunder-med-ulike-tjenestebehov) | 2 | Klientforhold | Grunnpakke + utvidet pakke for utvalgte klienter |
+| [G. Kompleks virksomhetsstruktur med organisasjonsledd](#g-kompleks-virksomhetsstruktur-med-organisasjonsledd) | 1 (eller flere ved ulike behov) | Klientforhold | Pakker delegert av hvert organisasjonsledd |
+| [H. Kombinere egen rapportering med delegerte klientforhold](#h-kombinere-egen-rapportering-med-delegerte-klientforhold) | 2 (forenkles senere til 1) | Standard + klientforhold | Egne pakker på standard, delegerte pakker på klientforhold |
 
 ---
 
@@ -306,6 +308,139 @@ Regnskapsbyrå
 
 ---
 
+## G. Kompleks virksomhetsstruktur med organisasjonsledd
+
+**Typisk eksempel:** Oslo kommune har flere organisasjonsledd (f.eks. Utdanningsetaten og Bydel Grünerløkka) som er egne juridiske enheter med eget organisasjonsnummer. Hvert organisasjonsledd har igjen underenheter — skoler, barnehager, helsestasjoner og andre virksomheter som utfører den daglige driften. Kommunen vil rapportere sentralt for hele strukturen gjennom ett felles sluttbrukersystem.
+
+### Utgangspunkt
+
+- Hovedenheten (Oslo kommune) har flere organisasjonsledd registrert i Enhetsregisteret. Hvert organisasjonsledd er en selvstendig juridisk enhet som eier sine egne rettigheter i Altinn.
+- Under hvert organisasjonsledd ligger det underenheter (f.eks. en konkret skole eller helsestasjon). En virksomhet eller bruker som har rettighet for en hovedenhet arver automatisk samme tilganger til underhetene.
+- Kommunen vil sentralisere rapporteringen gjennom én systembruker i stedet for å sette opp én systembruker per organisasjonsledd.
+
+### Anbefalt oppsett
+
+- **1 systembruker for klientforhold** knyttet til sluttbrukersystemet som hovedenheten bruker sentralt.
+- Hvert organisasjonsledd **delegerer nødvendige tilgangspakker** til hovedenheten i Altinn.
+- Klientadministrator hos hovedenheten knytter hvert organisasjonsledd til systembrukeren som klient.
+- Rapportering for en underenhet fungerer automatisk så lenge organisasjonsleddet underenheten tilhører, er lagt til som klient. (systembrukeren får da samme tilgang for underenhetene til organisasjonsleddene som han har for organisasjonsleddet selv)
+
+### Slik fungerer det
+
+```text
+Oslo kommune (hovedenhet)
+  └── Systembruker for klientforhold
+        ├── Tilgangspakker: delegert av hvert organisasjonsledd
+        │
+        ├── Klient: Utdanningsetaten (organisasjonsledd)
+        │     ├── Underenhet: Grünerløkka skole
+        │     ├── Underenhet: Sagene skole
+        │     └── Underenhet: Bjølsen barnehage
+        │
+        └── Klient: Bydel Grünerløkka (organisasjonsledd)
+              ├── Underenhet: Helsestasjon Grünerløkka
+              └── Underenhet: Sykehjem Sofienberg
+```
+
+### Hvorfor dette oppsettet?
+
+Selv om organisasjonsleddene er en del av samme kommune, er hvert ledd en selvstendig juridisk enhet i Enhetsregisteret og eier sine egne rettigheter i Altinn. Det betyr at hovedenheten ikke automatisk kan handle på vegne av et organisasjonsledd — organisasjonsleddet må aktivt delegere tilgangspakkene til hovedenheten.
+
+Underenhetene (skoler, helsestasjoner og liknende) er et unntak:  De trenger ikke delegere egne rettigheter til kommunen siden systembrukeren arver rettighetene fra organisasjonsleddet. Når organisasjonsleddet er lagt til som klient, kan sluttbrukersystemet dermed rapportere for alle underenhetene under leddet uten ekstra oppsett.
+
+### Viktig å huske
+
+- **Delegering må gjøres av hvert enkelt organisasjonsledd.** Tilgangspakker følger ikke automatisk av tilknytningen i Enhetsregisteret. Hovedenheten kan ikke delegere på vegne av organisasjonsleddene.
+- Hvis et organisasjonsledd trenger andre tilgangspakker enn de andre (f.eks. bare Utdanningsetaten skal rapportere a-melding, mens Bydel Grünerløkka skal rapportere mva.), kan du kombinere dette oppsettet med scenario C og opprette én systembruker per pakkekombinasjon.
+- Når et nytt organisasjonsledd opprettes, må det delegere tilgangspakker på nytt, og klientadministratoren må knytte det til systembrukeren.
+- Nye underenheter krever ingen ekstra handling — de arver automatisk rettighetene fra organisasjonsleddet de tilhører.
+- Sluttbrukersystemet må ha tilgangskontroll slik at bare autoriserte ansatte kan handle på vegne av hvert organisasjonsledd og hver underenhet.
+
+![Systembruker for hovedenhet med organisasjonsledd og underenheter som klienter](./organisasjonsledd.drawio.svg "Kompleks virksomhetsstruktur med organisasjonsledd og underenheter")
+
+---
+
+## H. Kombinere egen rapportering med delegerte klientforhold
+
+**Typisk eksempel:** Oslo kommune vil rapportere sykmelding både for kommunen selv (med tilhørende underenheter) **og** for kommunens organisasjonsledd (f.eks. Utdanningsetaten og Bydel Grünerløkka, som igjen har egne underenheter). Et annet eksempel er et morselskap som rapporterer egne data og i tillegg for datterselskaper som har delegert tilgangspakker.
+
+### Utgangspunkt
+
+- Virksomheten vil rapportere egne data (som i scenario A) **og** rapportere på vegne av andre juridiske enheter som har delegert tilgangspakker (som i scenario G).
+- En standardsystembruker dekker virksomheten selv og tilhørende underenheter, men kan ikke brukes for delegerte klientforhold.
+- En systembruker for klientforhold håndterer delegerte tilgangspakker fra andre juridiske enheter, men dekker ikke virksomheten selv.
+- Derfor må de to typene systembrukere kombineres i dag.
+
+### Anbefalt oppsett i dag
+
+Du trenger **to systembrukere** for å dekke begge behovene:
+
+- **Systembruker 1 (standard)** — for virksomhetens egen rapportering. Systembrukeren får tilgangspakkene virksomheten trenger for seg selv og underenhetene sine.
+- **Systembruker 2 (klientforhold)** — for rapportering på vegne av organisasjonsledd, datterselskaper eller andre juridiske enheter som har delegert tilgangspakker. Klientadministratoren knytter hver juridisk enhet som klient.
+
+```text
+Oslo kommune
+  ├── Systembruker 1 (standard) — Egen rapportering
+  │     ├── Tilgangspakke: f.eks. sykmelding
+  │     └── Dekker: Oslo kommune + underenheter (arves automatisk)
+  │
+  └── Systembruker 2 (klientforhold) — Organisasjonsledd
+        ├── Tilgangspakker: delegert av hvert organisasjonsledd
+        ├── Klient: Utdanningsetaten
+        │     └── Underenheter: skoler og barnehager (arver rettighetene)
+        └── Klient: Bydel Grünerløkka
+              └── Underenheter: helsestasjoner og sykehjem (arver rettighetene)
+```
+
+Sluttbrukersystemet må velge riktig systembruker basert på hvem det skal rapporteres for:
+
+- Rapportering for kommunen selv eller en underenhet av kommunen → Systembruker 1.
+- Rapportering for et organisasjonsledd eller en underenhet av organisasjonsleddet → Systembruker 2.
+
+### Flere relasjonstyper i tillegg
+
+Hvis virksomheten i tillegg har klientforhold som kommer fra Enhetsregisteret — registrert regnskapsfører, ansvarlig revisor eller forretningsfører — trenger du **én ekstra systembruker per relasjonstype**. Disse relasjonene kan ikke kombineres med de delegerte klientforholdene på samme systembruker, fordi hver relasjonstype representerer et eget rettslig grunnlag for å handle på vegne av klienten. Se [scenario C](#c-tjenesteyter-med-flere-typer-klientforhold) for utfyllende begrunnelse.
+
+**Eksempel:** Et konsern som rapporterer egne data, har delegerte klientforhold fra datterselskaper og i tillegg fungerer som registrert regnskapsfører for noen kunder, trenger tre systembrukere:
+
+```text
+Konsernet
+  ├── Systembruker 1 (standard) — Egen rapportering
+  │     ├── Tilgangspakke: f.eks. sykmelding
+  │     └── Dekker: konsernet + underenheter
+  │
+  ├── Systembruker 2 (klientforhold) — Delegerte forhold
+  │     ├── Tilgangspakker: delegert av hvert datterselskap
+  │     ├── Klient: Datterselskap A
+  │     └── Klient: Datterselskap B
+  │
+  └── Systembruker 3 (klientforhold) — Registrert regnskapsfører
+        ├── Tilgangspakke: regnskapsforer-med-signeringsrettighet
+        ├── Klient: Kunde X
+        └── Klient: Kunde Y
+```
+
+Antallet systembrukere vokser med én per ekstra relasjonstype fra Enhetsregisteret (regnskapsfører, revisor, forretningsfører). Forenklingen som er beskrevet nedenfor endrer ikke dette — ER-baserte forhold krever alltid egen systembruker.
+
+### Kommende forenkling
+
+Altinn kommer snart til å støtte **begge behovene på én systembruker for klientforhold**. Når funksjonen er på plass, kan virksomheten selv og underenhetene dekkes sammen med de delegerte klientforholdene — uten en egen standardsystembruker ved siden av.
+Du kan følge arbeidet i
+[issue #1546 i altinn-authentication](https://github.com/Altinn/altinn-authentication/issues/1546).
+
+Forenklingen gjelder **kun klientforhold som er delegert i Altinn**. Klientforhold som kommer fra Enhetsregisteret — altså registrert regnskapsfører, ansvarlig revisor eller forretningsfører — er ikke omfattet. For disse må du fortsatt bruke en egen systembruker for klientforholdet i tillegg til en standardsystembruker for egen rapportering.
+
+Inntil funksjonen er tilgjengelig, bør du planlegge med to systembrukere slik det er beskrevet ovenfor. Når forenklingen kommer, kan du enten beholde oppsettet eller samle alt på én systembruker for klientforhold.
+
+### Viktig å huske
+
+- Dette oppsettet kombinerer scenario A (egen rapportering) og scenario G (delegerte klientforhold). Les også disse for detaljer om hver del.
+- Sluttbrukersystemet må vite hvilken systembruker som skal brukes for hvilken juridisk enhet. Bruk `external ref` for å velge riktig token ved rapportering.
+- Samme delegeringskrav gjelder som i scenario G: hvert organisasjonsledd (eller datterselskap) må aktivt delegere tilgangspakkene til hovedenheten. Underenhetene arver automatisk fra organisasjonsleddet.
+- Hvis ulike organisasjonsledd trenger ulike tilgangspakker, kan oppsettet kombineres med scenario C og få én systembruker for klientforhold per pakkekombinasjon.
+
+---
+
 ## Hvor mange systembrukere trenger jeg?
 
 Bruk dette beslutningstreet for å finne riktig antall:
@@ -324,6 +459,12 @@ Bruk dette beslutningstreet for å finne riktig antall:
 
 5. **Trenger tjenesteyteren å begrense tilgangen etter team eller avdeling?**
    Ja → Vurder **1 systembruker per team** i tillegg til per relasjonstype (scenario D).
+
+6. **Er virksomheten en hovedenhet med flere organisasjonsledd som skal rapportere sentralt?**
+   Ja → **1 systembruker** der hvert organisasjonsledd delegerer tilgangspakker og knyttes som klient (scenario G).
+
+7. **Skal virksomheten rapportere både for seg selv (og egne underenheter) og for organisasjonsledd eller andre juridiske enheter med delegerte tilgangspakker?**
+   Ja → **2 systembrukere**: én standardsystembruker for egen rapportering og én systembruker for klientforhold for de delegerte enhetene (scenario H). Forenkles til én systembruker når Altinn støtter begge behovene i samme systembruker for klientforhold.
 
 ### Når du IKKE bør opprette flere systembrukere
 

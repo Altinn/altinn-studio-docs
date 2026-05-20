@@ -45,7 +45,14 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/AltinnProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AltinnValidationProblemDetails"
+                    }
+                  ]
                 }
               }
             }
@@ -69,7 +76,7 @@
           "Attachment"
         ],
         "summary": "Upload attachment data to Altinn Correspondence blob storage",
-        "description": "One of the scopes: \r\n\r\n- altinn:correspondence.write \r\n\r\nSupports file sizes up to 5 GB \r\n",
+        "description": "One of the scopes: \r\n\r\n- altinn:correspondence.write \r\n\r\nSupports file sizes up to 50 GB \r\n",
         "parameters": [
           {
             "name": "attachmentId",
@@ -93,11 +100,18 @@
             }
           },
           "400": {
-            "description": "<ul>\r\n  <li>2003: Cannot upload attachment to a correspondence that has been created</li>\r\n  <li>2004: File must have content and has a max file size of 5GB</li>\r\n  <li>2005: File has already been or is being uploaded</li>\r\n  <li>2008: Checksum mismatch</li>\r\n  <li>2009: Could not get data location url</li>\r\n  <li>4002: Could not retrieve party uuid from lookup in Altinn Register</li>\r\n</ul>",
+            "description": "<ul>\r\n  <li>2003: Cannot upload attachment to a correspondence that has been created</li>\r\n  <li>2004: File must have content and has a max file size of 50GB</li>\r\n  <li>2005: File has already been or is being uploaded</li>\r\n  <li>2008: Checksum mismatch</li>\r\n  <li>2009: Could not get data location url</li>\r\n  <li>4002: Could not retrieve party uuid from lookup in Altinn Register</li>\r\n</ul>",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/AltinnProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AltinnValidationProblemDetails"
+                    }
+                  ]
                 }
               }
             }
@@ -114,6 +128,16 @@
           },
           "404": {
             "description": "2001: The requested attachment was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "2022: Upload request timed out due to data arriving too slowly",
             "content": {
               "application/json": {
                 "schema": {
@@ -212,7 +236,14 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/AltinnProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AltinnValidationProblemDetails"
+                    }
+                  ]
                 }
               }
             }
@@ -373,11 +404,18 @@
             }
           },
           "400": {
-            "description": "<ul>\r\n  <li>1002: Message title must be plain text</li>\r\n  <li>1003: Message body must be markdown</li>\r\n  <li>1004: Message summary must be plain text</li>\r\n  <li>1006: Recipients must be unique</li>\r\n  <li>1007: Existing attachment not found</li>\r\n  <li>1008: DueDateTime cannot be prior to today</li>\r\n  <li>1009: DueDateTime cannot be prior to RequestedPublishTime</li>\r\n  <li>1010: AllowSystemDelete cannot be prior to today</li>\r\n  <li>1011: AllowSystemDelete cannot be prior to RequestedPublishTime</li>\r\n  <li>1012: AllowSystemDelete cannot be prior to DueDateTime</li>\r\n  <li>1013: Sender cannot delete correspondence that has been published</li>\r\n  <li>1016: DueDateTime is required when confirmation is needed</li>\r\n  <li>1017: The sender of the correspondence must be equal the sender of existing attachments</li>\r\n  <li>1018: Attachment is not published</li>\r\n  <li>1019: The Content field must be provided for the correspondence</li>\r\n  <li>1020: Message title cannot be empty</li>\r\n  <li>1021: Message body cannot be empty</li>\r\n  <li>1022: Message body cannot exceed 30000 characters</li>\r\n  <li>1023: Invalid language chosen. Supported languages is Norsk bokmål (nb), Nynorsk (nn) and English (en)</li>\r\n  <li>1033: The idempotency key must be a valid non-empty GUID</li>\r\n  <li>1035: Reply options must be well-formed URIs and HTTPS with a max length of 255 characters</li>\r\n  <li>1036: ResourceId must match an existing resource in the resource registry</li>\r\n  <li>1037: Message title cannot exceed 255 characters</li>\r\n  <li>1038: A correspondence cannot contain more than 100 attachments in total</li>\r\n  <li>1039: Message sender must be plain text</li>\r\n  <li>1042: Message summary, if not null, must be between 0 and 255 characters long</li>\r\n  <li>1044: The following recipients lack required roles to read the correspondence: {recipients}</li>\r\n  <li>1045: Transmission correspondences only support one recipient</li>\r\n  <li>1046: The recipient of the correspondence must be equal to the party of the dialog of the transmission</li>\r\n  <li>1047: Idempotency key is not supported for requests with multiple recipients</li>\r\n  <li>1048: DialogId must be a valid non-empty GUID</li>\r\n  <li>1050: The service owner of a transmission can not differ from the service owner of the dialog</li>\r\n  <li>1052: Only one DialogportenTransmissionType external reference is allowed</li>\r\n  <li>1053: DialogportenTransmissionType external reference requires a DialogportenDialogId external reference</li>\r\n  <li>1054: Dialogporten dialog with the given id was not found</li>\r\n  <li>1055: Existing attachment is expiring within 6 hour(s) and cannot be attached to a new correspondence</li>\r\n  <li>3001: The requested notification template with the given language was not found</li>\r\n  <li>3002: Email body and subject must be provided when sending email notifications</li>\r\n  <li>3003: Reminder email body and subject must be provided when sending reminder email notifications</li>\r\n  <li>3004: SMS body must be provided when sending SMS notifications</li>\r\n  <li>3005: Reminder SMS body must be provided when sending reminder SMS notifications</li>\r\n  <li>3006: Email body, subject and SMS body must be provided when sending preferred notifications</li>\r\n  <li>3007: Reminder email body, subject and SMS body must be provided when sending reminder preferred notifications</li>\r\n  <li>3011: Invalid email provided for custom recipient</li>\r\n  <li>3012: Invalid mobile number provided. Mobile number can contain only '+' and numeric characters, and it must adhere to the E.164 standard</li>\r\n  <li>3015: Recipient overrides with email or mobile number are not allowed when using notification recipient name because of name lookup</li>\r\n  <li>3017: Custom recipient with multiple recipients is not allowed</li>\r\n  <li>3018: Custom recipient with multiple identifiers is not allowed</li>\r\n  <li>3019: Custom recipient without identifier is not allowed</li>\r\n  <li>3024: Email body, subject and SMS body must be provided when sending email and SMS notifications</li>\r\n  <li>3025: Reminder email body, subject and SMS body must be provided when sending reminder email and SMS notifications</li>\r\n  <li>4002: Could not retrieve party uuid from lookup in Altinn Register</li>\r\n  <li>4009: Resource type is not supported. Resource must be of type GenericAccessResource or CorrespondenceService</li>\r\n</ul>",
+            "description": "<ul>\r\n  <li>1002: Message title must be plain text</li>\r\n  <li>1003: Message body must be markdown</li>\r\n  <li>1004: Message summary must be plain text</li>\r\n  <li>1006: Recipients must be unique</li>\r\n  <li>1007: Existing attachment not found</li>\r\n  <li>1008: DueDateTime cannot be prior to today</li>\r\n  <li>1009: DueDateTime cannot be prior to RequestedPublishTime</li>\r\n  <li>1013: Sender cannot delete correspondence that has been published</li>\r\n  <li>1016: DueDateTime is required when confirmation is needed</li>\r\n  <li>1017: The sender of the correspondence must be equal the sender of existing attachments</li>\r\n  <li>1018: Attachment is not published</li>\r\n  <li>1019: The Content field must be provided for the correspondence</li>\r\n  <li>1020: Message title cannot be empty</li>\r\n  <li>1021: Message body cannot be empty</li>\r\n  <li>1022: Message body cannot exceed 30000 characters</li>\r\n  <li>1023: Invalid language chosen. Supported languages is Norsk bokmål (nb), Nynorsk (nn) and English (en)</li>\r\n  <li>1033: The idempotency key must be a valid non-empty GUID</li>\r\n  <li>1035: Reply options must be well-formed URIs and HTTPS with a max length of 255 characters</li>\r\n  <li>1036: ResourceId must match an existing resource in the resource registry</li>\r\n  <li>1037: Message title cannot exceed 255 characters</li>\r\n  <li>1038: A correspondence cannot contain more than 100 attachments in total</li>\r\n  <li>1039: Message sender must be plain text</li>\r\n  <li>1042: Message summary, if not null, must be between 0 and 255 characters long</li>\r\n  <li>1044: The following recipients lack required roles to read the correspondence: {recipients}</li>\r\n  <li>1045: Transmission correspondences only support one recipient</li>\r\n  <li>1046: The recipient of the correspondence must be equal to the party of the dialog of the transmission</li>\r\n  <li>1047: Idempotency key is not supported for requests with multiple recipients</li>\r\n  <li>1048: DialogId must be a valid non-empty GUID</li>\r\n  <li>1050: The service owner of a transmission can not differ from the service owner of the dialog</li>\r\n  <li>1052: Only one DialogportenTransmissionType external reference is allowed</li>\r\n  <li>1053: DialogportenTransmissionType external reference requires a DialogportenDialogId external reference</li>\r\n  <li>1054: Dialogporten dialog with the given id was not found</li>\r\n  <li>1055: Existing attachment is expiring within 6 hour(s) and cannot be attached to a new correspondence</li>\r\n  <li>3001: The requested notification template with the given language was not found</li>\r\n  <li>3002: Email body and subject must be provided when sending email notifications</li>\r\n  <li>3003: Reminder email body and subject must be provided when sending reminder email notifications</li>\r\n  <li>3004: SMS body must be provided when sending SMS notifications</li>\r\n  <li>3005: Reminder SMS body must be provided when sending reminder SMS notifications</li>\r\n  <li>3006: Email body, subject and SMS body must be provided when sending preferred notifications</li>\r\n  <li>3007: Reminder email body, subject and SMS body must be provided when sending reminder preferred notifications</li>\r\n  <li>3011: Invalid email provided for custom recipient</li>\r\n  <li>3012: Invalid mobile number provided. Mobile number can contain only '+' and numeric characters, and it must adhere to the E.164 standard</li>\r\n  <li>3015: Recipient overrides with email or mobile number are not allowed when using notification recipient name because of name lookup</li>\r\n  <li>3017: Custom recipient with multiple recipients is not allowed</li>\r\n  <li>3018: Custom recipient with multiple identifiers is not allowed</li>\r\n  <li>3019: Custom recipient without identifier is not allowed</li>\r\n  <li>3024: Email body, subject and SMS body must be provided when sending email and SMS notifications</li>\r\n  <li>3025: Reminder email body, subject and SMS body must be provided when sending reminder email and SMS notifications</li>\r\n  <li>4002: Could not retrieve party uuid from lookup in Altinn Register</li>\r\n  <li>4009: Resource type is not supported. Resource must be of type GenericAccessResource or CorrespondenceService</li>\r\n</ul>",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/AltinnProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AltinnValidationProblemDetails"
+                    }
+                  ]
                 }
               }
             }
@@ -511,7 +549,14 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/AltinnProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AltinnValidationProblemDetails"
+                    }
+                  ]
                 }
               }
             }
@@ -742,7 +787,7 @@
                     "items": {
                       "type": "string"
                     },
-                     "description": "List of recipients for the correspondence: organization (urn:altinn:organization:identifier-no:ORGNR), national identity number (urn:altinn:person:identifier-no:SSN),\r\nself identified user (urn:altinn:person:idporten-email:EMAIL), or legacy selfidentified user (urn:altinn:person:legacy-selfidentified:USERNAME)."
+                    "description": "List of recipients for the correspondence: organization (urn:altinn:organization:identifier-no:ORGNR), national identity number (urn:altinn:person:identifier-no:SSN),\r\nself identified user (urn:altinn:person:idporten-email:EMAIL), or legacy selfidentified user (urn:altinn:person:legacy-selfidentified:USERNAME)."
                   },
                   "ExistingAttachments": {
                     "type": "array",
@@ -909,11 +954,18 @@
             }
           },
           "400": {
-            "description": "<ul>\r\n  <li>1002: Message title must be plain text</li>\r\n  <li>1003: Message body must be markdown</li>\r\n  <li>1004: Message summary must be plain text</li>\r\n  <li>1005: Mismatch between uploaded files and attachment metadata</li>\r\n  <li>1006: Recipients must be unique</li>\r\n  <li>1007: Existing attachment not found</li>\r\n  <li>1008: DueDateTime cannot be prior to today</li>\r\n  <li>1009: DueDateTime cannot be prior to RequestedPublishTime</li>\r\n  <li>1010: AllowSystemDelete cannot be prior to today</li>\r\n  <li>1011: AllowSystemDelete cannot be prior to RequestedPublishTime</li>\r\n  <li>1012: AllowSystemDelete cannot be prior to DueDateTime</li>\r\n  <li>1013: Sender cannot delete correspondence that has been published</li>\r\n  <li>1016: DueDateTime is required when confirmation is needed</li>\r\n  <li>1017: The sender of the correspondence must be equal the sender of existing attachments</li>\r\n  <li>1018: Attachment is not published</li>\r\n  <li>1019: The Content field must be provided for the correspondence</li>\r\n  <li>1020: Message title cannot be empty</li>\r\n  <li>1021: Message body cannot be empty</li>\r\n  <li>1022: Message body cannot exceed 30000 characters</li>\r\n  <li>1023: Invalid language chosen. Supported languages is Norsk bokmål (nb), Nynorsk (nn) and English (en)</li>\r\n  <li>1033: The idempotency key must be a valid non-empty GUID</li>\r\n  <li>1035: Reply options must be well-formed URIs and HTTPS with a max length of 255 characters</li>\r\n  <li>1036: ResourceId must match an existing resource in the resource registry</li>\r\n  <li>1037: Message title cannot exceed 255 characters</li>\r\n  <li>1038: A correspondence cannot contain more than 100 attachments in total</li>\r\n  <li>1039: Message sender must be plain text</li>\r\n  <li>1042: Message summary, if not null, must be between 0 and 255 characters long</li>\r\n  <li>1044: The following recipients lack required roles to read the correspondence: {recipients}</li>\r\n  <li>1045: Transmission correspondences only support one recipient</li>\r\n  <li>1046: The recipient of the correspondence must be equal to the party of the dialog of the transmission</li>\r\n  <li>1047: Idempotency key is not supported for requests with multiple recipients</li>\r\n  <li>1048: DialogId must be a valid non-empty GUID</li>\r\n  <li>1050: The service owner of a transmission can not differ from the service owner of the dialog</li>\r\n  <li>1052: Only one DialogportenTransmissionType external reference is allowed</li>\r\n  <li>1053: DialogportenTransmissionType external reference requires a DialogportenDialogId external reference</li>\r\n  <li>1054: Dialogporten dialog with the given id was not found</li>\r\n  <li>1055: Existing attachment is expiring within 6 hour(s) and cannot be attached to a new correspondence</li>\r\n  <li>2001: The requested attachment was not found</li>\r\n  <li>2004: File must have content and has a max file size of 2GB</li>\r\n  <li>2008: Checksum mismatch</li>\r\n  <li>2009: Could not get data location url</li>\r\n  <li>2010: Filename is missing</li>\r\n  <li>2011: Filename is too long</li>\r\n  <li>2012: Filename contains invalid characters</li>\r\n  <li>2013: Filetype not allowed</li>\r\n  <li>2017: Attachment expirationTime must be at least 14 days from now (1 day in non-production environments)</li>\r\n  <li>3001: The requested notification template with the given language was not found</li>\r\n  <li>3002: Email body and subject must be provided when sending email notifications</li>\r\n  <li>3003: Reminder email body and subject must be provided when sending reminder email notifications</li>\r\n  <li>3004: SMS body must be provided when sending SMS notifications</li>\r\n  <li>3005: Reminder SMS body must be provided when sending reminder SMS notifications</li>\r\n  <li>3006: Email body, subject and SMS body must be provided when sending preferred notifications</li>\r\n  <li>3007: Reminder email body, subject and SMS body must be provided when sending reminder preferred notifications</li>\r\n  <li>3011: Invalid email provided for custom recipient</li>\r\n  <li>3012: Invalid mobile number provided. Mobile number can contain only '+' and numeric characters, and it must adhere to the E.164 standard</li>\r\n  <li>3015: Recipient overrides with email or mobile number are not allowed when using notification recipient name because of name lookup</li>\r\n  <li>3017: Custom recipient with multiple recipients is not allowed</li>\r\n  <li>3018: Custom recipient with multiple identifiers is not allowed</li>\r\n  <li>3019: Custom recipient without identifier is not allowed</li>\r\n  <li>3024: Email body, subject and SMS body must be provided when sending email and SMS notifications</li>\r\n  <li>3025: Reminder email body, subject and SMS body must be provided when sending reminder email and SMS notifications</li>\r\n  <li>4002: Could not retrieve party uuid from lookup in Altinn Register</li>\r\n  <li>4009: Resource type is not supported. Resource must be of type GenericAccessResource or CorrespondenceService</li>\r\n</ul>",
+            "description": "<ul>\r\n  <li>1002: Message title must be plain text</li>\r\n  <li>1003: Message body must be markdown</li>\r\n  <li>1004: Message summary must be plain text</li>\r\n  <li>1005: Mismatch between uploaded files and attachment metadata</li>\r\n  <li>1006: Recipients must be unique</li>\r\n  <li>1007: Existing attachment not found</li>\r\n  <li>1008: DueDateTime cannot be prior to today</li>\r\n  <li>1009: DueDateTime cannot be prior to RequestedPublishTime</li>\r\n  <li>1013: Sender cannot delete correspondence that has been published</li>\r\n  <li>1016: DueDateTime is required when confirmation is needed</li>\r\n  <li>1017: The sender of the correspondence must be equal the sender of existing attachments</li>\r\n  <li>1018: Attachment is not published</li>\r\n  <li>1019: The Content field must be provided for the correspondence</li>\r\n  <li>1020: Message title cannot be empty</li>\r\n  <li>1021: Message body cannot be empty</li>\r\n  <li>1022: Message body cannot exceed 30000 characters</li>\r\n  <li>1023: Invalid language chosen. Supported languages is Norsk bokmål (nb), Nynorsk (nn) and English (en)</li>\r\n  <li>1033: The idempotency key must be a valid non-empty GUID</li>\r\n  <li>1035: Reply options must be well-formed URIs and HTTPS with a max length of 255 characters</li>\r\n  <li>1036: ResourceId must match an existing resource in the resource registry</li>\r\n  <li>1037: Message title cannot exceed 255 characters</li>\r\n  <li>1038: A correspondence cannot contain more than 100 attachments in total</li>\r\n  <li>1039: Message sender must be plain text</li>\r\n  <li>1042: Message summary, if not null, must be between 0 and 255 characters long</li>\r\n  <li>1044: The following recipients lack required roles to read the correspondence: {recipients}</li>\r\n  <li>1045: Transmission correspondences only support one recipient</li>\r\n  <li>1046: The recipient of the correspondence must be equal to the party of the dialog of the transmission</li>\r\n  <li>1047: Idempotency key is not supported for requests with multiple recipients</li>\r\n  <li>1048: DialogId must be a valid non-empty GUID</li>\r\n  <li>1050: The service owner of a transmission can not differ from the service owner of the dialog</li>\r\n  <li>1052: Only one DialogportenTransmissionType external reference is allowed</li>\r\n  <li>1053: DialogportenTransmissionType external reference requires a DialogportenDialogId external reference</li>\r\n  <li>1054: Dialogporten dialog with the given id was not found</li>\r\n  <li>1055: Existing attachment is expiring within 6 hour(s) and cannot be attached to a new correspondence</li>\r\n  <li>2001: The requested attachment was not found</li>\r\n  <li>2004: File must have content and has a max file size of 2GB</li>\r\n  <li>2008: Checksum mismatch</li>\r\n  <li>2009: Could not get data location url</li>\r\n  <li>2010: Filename is missing</li>\r\n  <li>2011: Filename is too long</li>\r\n  <li>2012: Filename contains invalid characters</li>\r\n  <li>2013: Filetype not allowed</li>\r\n  <li>2017: Attachment expirationTime must be at least 14 days from now (1 day in non-production environments)</li>\r\n  <li>3001: The requested notification template with the given language was not found</li>\r\n  <li>3002: Email body and subject must be provided when sending email notifications</li>\r\n  <li>3003: Reminder email body and subject must be provided when sending reminder email notifications</li>\r\n  <li>3004: SMS body must be provided when sending SMS notifications</li>\r\n  <li>3005: Reminder SMS body must be provided when sending reminder SMS notifications</li>\r\n  <li>3006: Email body, subject and SMS body must be provided when sending preferred notifications</li>\r\n  <li>3007: Reminder email body, subject and SMS body must be provided when sending reminder preferred notifications</li>\r\n  <li>3011: Invalid email provided for custom recipient</li>\r\n  <li>3012: Invalid mobile number provided. Mobile number can contain only '+' and numeric characters, and it must adhere to the E.164 standard</li>\r\n  <li>3015: Recipient overrides with email or mobile number are not allowed when using notification recipient name because of name lookup</li>\r\n  <li>3017: Custom recipient with multiple recipients is not allowed</li>\r\n  <li>3018: Custom recipient with multiple identifiers is not allowed</li>\r\n  <li>3019: Custom recipient without identifier is not allowed</li>\r\n  <li>3024: Email body, subject and SMS body must be provided when sending email and SMS notifications</li>\r\n  <li>3025: Reminder email body, subject and SMS body must be provided when sending reminder email and SMS notifications</li>\r\n  <li>4002: Could not retrieve party uuid from lookup in Altinn Register</li>\r\n  <li>4009: Resource type is not supported. Resource must be of type GenericAccessResource or CorrespondenceService</li>\r\n</ul>",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/AltinnProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AltinnValidationProblemDetails"
+                    }
+                  ]
                 }
               }
             }
@@ -940,6 +992,16 @@
           },
           "404": {
             "description": "<ul>\r\n  <li>1029: Could not find partyId for the following recipients: {recipients}</li>\r\n  <li>3001: The requested notification template with the given language was not found</li>\r\n</ul>",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "408": {
+            "description": "<ul>\r\n  <li>2022: Upload request timed out due to data arriving too slowly</li>\r\n</ul>",
             "content": {
               "application/json": {
                 "schema": {
@@ -1001,7 +1063,14 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/AltinnProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AltinnValidationProblemDetails"
+                    }
+                  ]
                 }
               }
             }
@@ -1063,7 +1132,14 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/AltinnProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AltinnValidationProblemDetails"
+                    }
+                  ]
                 }
               }
             }
@@ -1151,7 +1227,14 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/AltinnProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AltinnValidationProblemDetails"
+                    }
+                  ]
                 }
               }
             }
@@ -1214,7 +1297,14 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/AltinnProblemDetails"
+                    },
+                    {
+                      "$ref": "#/components/schemas/AltinnValidationProblemDetails"
+                    }
+                  ]
                 }
               }
             }
@@ -1335,10 +1425,112 @@
             "nullable": true
           },
           "code": {
+            "type": "string"
+          },
+          "traceId": {
+            "type": "string",
+            "description": "OpenTelemetry trace ID for the request.",
+            "nullable": true
+          },
+          "errorCode": {
+            "type": "string",
+            "description": "Altinn error code (e.g. CORR-00001).",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AltinnValidationError": {
+        "type": "object",
+        "properties": {
+          "code": {
             "$ref": "#/components/schemas/ErrorCode"
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "paths": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           }
         },
         "additionalProperties": { }
+      },
+      "AltinnValidationProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "description": "Altinn error code (e.g. STD-00000).",
+            "nullable": true
+          },
+          "validationErrors": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "description": "Altinn validation error code (e.g. CORR.VLD-00000)."
+                },
+                "detail": {
+                  "type": "string",
+                  "description": "Human-readable description of the validation error."
+                },
+                "paths": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "JSON pointer paths to the fields that failed validation."
+                }
+              }
+            },
+            "description": "Structured validation errors per field.",
+            "nullable": true
+          },
+          "traceId": {
+            "type": "string",
+            "description": "OpenTelemetry trace ID for the request.",
+            "nullable": true
+          },
+          "errors": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "description": "Field-keyed validation error messages (legacy format).",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "AttachmentDataLocationTypeExt": {
         "enum": [
@@ -2839,9 +3031,19 @@
           "instance": {
             "type": "string",
             "nullable": true
+          },
+          "traceId": {
+            "type": "string",
+            "description": "OpenTelemetry trace ID for the request.",
+            "nullable": true
+          },
+          "errorCode": {
+            "type": "string",
+            "description": "Altinn error code (e.g. CORR-00001).",
+            "nullable": true
           }
         },
-        "additionalProperties": { }
+        "additionalProperties": false
       },
       "ReferenceTypeExt": {
         "enum": [
@@ -2851,9 +3053,7 @@
           "DialogportenDialogId",
           "DialogportenProcessId",
           "DialogportenTransmissionId",
-          "DialogportenTransmissionType",
-          "DialogportenDialogStatus",
-          "DialogportenDialogExtendedStatus"
+          "DialogportenTransmissionType"
         ],
         "type": "string",
         "description": "Defines what kind of reference"

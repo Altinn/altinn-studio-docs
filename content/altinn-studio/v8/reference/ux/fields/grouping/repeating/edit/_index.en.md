@@ -77,15 +77,39 @@ Example:
 }
 ```
 
+## Layout for edit and delete buttons
+A new opt-in property `buttonLayout` in the RepeatingGroup component’s `edit` configuration controls how the `Edit` and `Delete` buttons are arranged in desktop table view. Use `buttonLayout`: `"vertical"` to place them in one column instead of the default horizontal layout. This saves horizontal space when the table has many columns. Mobile/tablet layout is unchanged.
+Default is `"horizontal"` if you omit the property.
+
+You can add `buttonLayout` to the `edit` property of your RepeatingGroup configuration in the layout JSON.
+
+Example:
+
+```json
+{
+  ...
+  "edit": {
+    "buttonLayout": "vertical"
+  }
+}
+```
+
+You can also combine it with `compactButtons` to hide the text of the button, for example:
+
+```json
+{
+  ...
+  "edit": {
+    "compactButtons": true,
+    "buttonLayout": "vertical"
+  }
+}
+```
+
 ## multiPage
 
 Editing/filling out pages can be performed over multiple "pages"/displays. Requires more setup to work,
 [see the dedicated documentation for this feature](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/multipage/).
-
-## filter
-
-Allows you to filter out some rows, so that only a subset of the rows are displayed. This option is deprecated and
-will be removed in a future version. More information and a description of alternatives can be found [in the documentation dedicated to dynamics in repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/dynamics/).
 
 ## openByDefault
 

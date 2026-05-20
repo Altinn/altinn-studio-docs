@@ -6,7 +6,7 @@ weight: 50
 
 ## Introduction
 
-This contains reference information and examples of events produced by Dialogporten using Altinn Events. 
+This page contains reference information and examples of events produced by Dialogporten using Altinn Events.
 
 For a functional overview, see [getting started with events](/en/dialogporten/reference/events/../../getting-started/events/).
 
@@ -45,7 +45,7 @@ The above events are produced directly by Dialogporten. In addition, there are e
 
 ## Event format
 
-As with all Altinn Events, the [Cloud Events](https://cloudevents.io/) format forms the base of the events emitted by Dialogporten. Here is some examples of events:
+As with all Altinn Events, the [Cloud Events](https://cloudevents.io/) format forms the base of the events emitted by Dialogporten. Here are some examples of events:
 
 ### Example 1 - dialog created
 
@@ -59,7 +59,7 @@ As with all Altinn Events, the [Cloud Events](https://cloudevents.io/) format fo
     // See tables above for possible types
     "type": "dialogporten.dialog.created.v1",
     
-    // Timestamp for when the event occured in Dialogporten
+    // Timestamp for when the event occurred in Dialogporten
     "time": "2025-02-19T08:00:06.4014168Z",
     
     // urn:altinn:resource:{serviceResource}
@@ -95,7 +95,7 @@ As with all Altinn Events, the [Cloud Events](https://cloudevents.io/) format fo
     // See tables above for possible types
     "type": "dialogporten.dialog.activity.signature-provided.v1",
     
-    // Timestamp for when the event occured in Dialogporten
+    // Timestamp for when the event occurred in Dialogporten
     "time": "2025-02-20T13:04:02.6518542Z",
     
     // urn:altinn:resource:{serviceResource}
@@ -108,7 +108,7 @@ As with all Altinn Events, the [Cloud Events](https://cloudevents.io/) format fo
     "subject": "urn:altinn:organization:identifier-no::991825827",
 
     // URL to activity in Dialogporten
-    "source": "https://platform.altinn.no/dialogporten.no/api/v1/enduser/dialogs/f4e6df3c-7434-44c3-875e-8dca1cdf0b20/activities/21241c7e-819f-462b-b8a4-d5d32352311a",
+    "source": "https://platform.altinn.no/dialogporten/api/v1/enduser/dialogs/f4e6df3c-7434-44c3-875e-8dca1cdf0b20/activities/21241c7e-819f-462b-b8a4-d5d32352311a",
     
     // These are additional fields, if present. Only the activityId entry is always present for events
     // within the dialogporten.dialog.activity-namespace of events. All other fields are optional.

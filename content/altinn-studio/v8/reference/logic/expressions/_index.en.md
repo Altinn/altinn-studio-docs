@@ -156,6 +156,7 @@ Dynamic expressions are currently available for use in these properties, as defi
 | Form components                                                                                            | `required`                    | [Boolean](#boolean-values) | ✅       | ✅      |
 | Form components                                                                                            | `readOnly`                    | [Boolean](#boolean-values) | ✅       | ❌      |
 | [Repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                     | `hiddenRow`                   | [Boolean](#boolean-values) | ✅       | ❌      |
+| [Repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                     | `tableColumns.[*].hidden`     | [Boolean](#boolean-values) | ✅       | ❌      |
 | [Repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                     | `edit.addButton`              | [Boolean](#boolean-values) | ✅       | ❌      |
 | [Repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                     | `edit.saveButton`             | [Boolean](#boolean-values) | ✅       | ❌      |
 | [Repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                     | `edit.deleteButton`           | [Boolean](#boolean-values) | ✅       | ❌      |
@@ -1091,7 +1092,7 @@ Example:
 ```
 This example results in the number value `31.2`. 
 
-If `null` is passed to the function, it returns `null`.
+The function interprets `null` values as `0`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-minus" header="minus" %}}
@@ -1104,7 +1105,7 @@ Example:
 ```
 This example results in the number value `12.8`.
 
-If `null` is passed to the function, it returns `null`.
+The function interprets `null` values as `0`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-multiply" header="multiply" %}}
@@ -1116,7 +1117,7 @@ Example:
 ```
 This example results in the number value `220`.
 
-If `null` is passed to the function, it returns `null`.
+The function interprets `null` values as `0`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-divide" header="divide" %}}
@@ -1131,7 +1132,7 @@ This example results in the number value `2.2`.
 
 Be aware that the number 0 is not valid as divisor.
 
-If `null` is passed to the function, it returns `null`.
+The function interprets `null` values as `0`.
 {{% /expandlarge %}}
 
 ## Data Types

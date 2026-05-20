@@ -157,7 +157,15 @@ For test av SMS i et testmiljø må nummeret hvitelistes. Ta kontakt dersom dett
 
 ## Eksempler
 
+Hvert eksempel nedenfor vises for begge endepunktene:
+
+- **`POST /{org}/{app}/instances/create`** — forenklet endepunkt. Hele bodyen er ett JSON-objekt.
+- **`POST /{org}/{app}/instances`** — multipart-endepunkt. `notification` må sendes som en egen multipart-part med `name="notification"` og `Content-Type: application/json`. Hvis `notification` sendes som et felt inni instance-template-parten, blir det stille ignorert.
+
 ### Enkelt eksempel på en instansopprettelse med varsel
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="/instances/create">}}
 
 ```json
 {
@@ -170,7 +178,39 @@ For test av SMS i et testmiljø må nummeret hvitelistes. Ta kontakt dersom dett
 }
 ```
 
+{{</content-version-container>}}
+{{<content-version-container version-label="/instances (multipart)">}}
+
+```http
+POST /ttd/min-app/instances HTTP/1.1
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="instance"
+Content-Type: application/json
+
+{
+  "instanceOwner": {
+    "personNumber": "54928201018"
+  }
+}
+--boundary
+Content-Disposition: form-data; name="notification"
+Content-Type: application/json
+
+{
+  "notificationChannel": 0
+}
+--boundary--
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
 ### Eksempel med egendefinerte tekster
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="/instances/create">}}
 
 ```json
 {
@@ -203,7 +243,59 @@ For test av SMS i et testmiljø må nummeret hvitelistes. Ta kontakt dersom dett
 }
 ```
 
+{{</content-version-container>}}
+{{<content-version-container version-label="/instances (multipart)">}}
+
+```http
+POST /ttd/min-app/instances HTTP/1.1
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="instance"
+Content-Type: application/json
+
+{
+  "instanceOwner": {
+    "personNumber": "54928201018"
+  }
+}
+--boundary
+Content-Disposition: form-data; name="notification"
+Content-Type: application/json
+
+{
+  "notificationChannel": 4,
+  "customSms": {
+    "senderName": "MinOrg",
+    "text": {
+      "nb": "$appName$ er klar for $instanceOwnerName$",
+      "nn": "$appName$ er klar for $instanceOwnerName$",
+      "en": "$appName$ is ready for $instanceOwnerName$"
+    }
+  },
+  "customEmail": {
+    "subject": {
+      "nb": "$appName$ - ny instans opprettet",
+      "nn": "$appName$ - ny instans oppretta",
+      "en": "$appName$ - new instance created"
+    },
+    "body": {
+      "nb": "Hei $instanceOwnerName$, en ny instans av $appName$ er opprettet for deg.",
+      "nn": "Hei $instanceOwnerName$, ei ny instans av $appName$ er oppretta for deg.",
+      "en": "Hello $instanceOwnerName$, a new instance of $appName$ has been created for you."
+    }
+  }
+}
+--boundary--
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
 ### Eksempel med planlagt sendetid og utsending utenom arbeidstid
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="/instances/create">}}
 
 ```json
 {
@@ -218,7 +310,41 @@ For test av SMS i et testmiljø må nummeret hvitelistes. Ta kontakt dersom dett
 }
 ```
 
+{{</content-version-container>}}
+{{<content-version-container version-label="/instances (multipart)">}}
+
+```http
+POST /ttd/min-app/instances HTTP/1.1
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="instance"
+Content-Type: application/json
+
+{
+  "instanceOwner": {
+    "personNumber": "54928201018"
+  }
+}
+--boundary
+Content-Disposition: form-data; name="notification"
+Content-Type: application/json
+
+{
+  "notificationChannel": 0,
+  "requestedSendTime": "2025-12-01T09:00:00Z",
+  "allowSendingAfterWorkHours": true
+}
+--boundary--
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
 ### Eksempel med påminnelser
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="/instances/create">}}
 
 ```json
 {
@@ -252,9 +378,62 @@ For test av SMS i et testmiljø må nummeret hvitelistes. Ta kontakt dersom dett
 }
 ```
 
+{{</content-version-container>}}
+{{<content-version-container version-label="/instances (multipart)">}}
+
+```http
+POST /ttd/min-app/instances HTTP/1.1
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="instance"
+Content-Type: application/json
+
+{
+  "instanceOwner": {
+    "personNumber": "54928201018"
+  }
+}
+--boundary
+Content-Disposition: form-data; name="notification"
+Content-Type: application/json
+
+{
+  "notificationChannel": 0,
+  "requestedSendTime": "2025-12-01T09:00:00Z",
+  "reminders": [
+    {
+      "sendAfterDays": 7
+    },
+    {
+      "requestedSendTime": "2025-12-15T12:30:00Z",
+      "customEmail": {
+        "subject": {
+          "nb": "Påminnelse: $appName$ venter på deg",
+          "nn": "Påminning: $appName$ ventar på deg",
+          "en": "Reminder: $appName$ is waiting for you"
+        },
+        "body": {
+          "nb": "Hei $instanceOwnerName$, vi minner om at $appName$ fortsatt venter på svar.",
+          "nn": "Hei $instanceOwnerName$, vi minner om at $appName$ framleis ventar på svar.",
+          "en": "Hello $instanceOwnerName$, we would like to remind you that $appName$ is still awaiting your response."
+        }
+      }
+    }
+  ]
+}
+--boundary--
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
 ### Selvidentifisert bruker
 
 #### ID-porten e-post
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="/instances/create">}}
 
 ```json
 {
@@ -267,7 +446,39 @@ For test av SMS i et testmiljø må nummeret hvitelistes. Ta kontakt dersom dett
 }
 ```
 
+{{</content-version-container>}}
+{{<content-version-container version-label="/instances (multipart)">}}
+
+```http
+POST /ttd/min-app/instances HTTP/1.1
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="instance"
+Content-Type: application/json
+
+{
+  "instanceOwner": {
+    "externalIdentifier": "urn:altinn:person:idporten-email:jens.jensen@digdir.no"
+  }
+}
+--boundary
+Content-Disposition: form-data; name="notification"
+Content-Type: application/json
+
+{
+  "notificationChannel": 0
+}
+--boundary--
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}
+
 #### Utfaset brukernavn og passord
+
+{{<content-version-selector classes="border-box">}}
+{{<content-version-container version-label="/instances/create">}}
 
 ```json
 {
@@ -279,3 +490,32 @@ For test av SMS i et testmiljø må nummeret hvitelistes. Ta kontakt dersom dett
   }
 }
 ```
+
+{{</content-version-container>}}
+{{<content-version-container version-label="/instances (multipart)">}}
+
+```http
+POST /ttd/min-app/instances HTTP/1.1
+Content-Type: multipart/form-data; boundary=boundary
+
+--boundary
+Content-Disposition: form-data; name="instance"
+Content-Type: application/json
+
+{
+  "instanceOwner": {
+    "externalIdentifier": "urn:altinn:person:legacy-selfidentified:jensjensen"
+  }
+}
+--boundary
+Content-Disposition: form-data; name="notification"
+Content-Type: application/json
+
+{
+  "notificationChannel": 0
+}
+--boundary--
+```
+
+{{</content-version-container>}}
+{{</content-version-selector>}}

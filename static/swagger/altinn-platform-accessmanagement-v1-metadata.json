@@ -1,16 +1,21 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.4",
   "info": {
-    "title": "Altinn.AccessManagement.Api.Metadata | v1",
-    "version": "1.0.0"
+    "title": "Altinn.AccessManagement.Api.Metadata",
+    "version": "1.0"
   },
   "servers": [
     {
-      "url": "https://localhost:5119/"
+      "url": "https://platform.tt02.altinn.no/accessmanagement/api/v1",
+      "description": "Integration Test"
+    },
+    {
+      "url": "https://platform.altinn.no/accessmanagement/api/v1",
+      "description": "Production"
     }
   ],
   "paths": {
-    "/accessmanagement/api/v1/meta/info/accesspackages/search": {
+    "/meta/info/accesspackages/search": {
       "get": {
         "tags": [
           "Packages"
@@ -30,8 +35,7 @@
               "type": "array",
               "items": {
                 "type": "string"
-              },
-              "default": null
+              }
             }
           },
           {
@@ -46,8 +50,7 @@
             "name": "typeName",
             "in": "query",
             "schema": {
-              "type": "string",
-              "default": null
+              "type": "string"
             }
           }
         ],
@@ -59,7 +62,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/SearchObjectOfPackageDto"
+                    "$ref": "#/components/schemas/PackageDtoSearchObject"
                   }
                 }
               },
@@ -67,7 +70,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/SearchObjectOfPackageDto"
+                    "$ref": "#/components/schemas/PackageDtoSearchObject"
                   }
                 }
               },
@@ -75,7 +78,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/SearchObjectOfPackageDto"
+                    "$ref": "#/components/schemas/PackageDtoSearchObject"
                   }
                 }
               }
@@ -84,7 +87,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/meta/info/accesspackages/export": {
+    "/meta/info/accesspackages/export": {
       "get": {
         "tags": [
           "Packages"
@@ -95,17 +98,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/AreaGroupDto2"
+                  "$ref": "#/components/schemas/AreaGroupDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AreaGroupDto2"
+                  "$ref": "#/components/schemas/AreaGroupDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AreaGroupDto2"
+                  "$ref": "#/components/schemas/AreaGroupDto"
                 }
               }
             }
@@ -113,7 +116,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/meta/info/accesspackages/group": {
+    "/meta/info/accesspackages/group": {
       "get": {
         "tags": [
           "Packages"
@@ -124,17 +127,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/AreaGroupDto2"
+                  "$ref": "#/components/schemas/AreaGroupDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AreaGroupDto2"
+                  "$ref": "#/components/schemas/AreaGroupDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AreaGroupDto2"
+                  "$ref": "#/components/schemas/AreaGroupDto"
                 }
               }
             }
@@ -142,47 +145,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/meta/info/accesspackages/group/{id}": {
-      "get": {
-        "tags": [
-          "Packages"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/AreaGroupDto2"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AreaGroupDto2"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AreaGroupDto2"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/accessmanagement/api/v1/meta/info/accesspackages/group/{id}/areas": {
+    "/meta/info/accesspackages/group/{id}": {
       "get": {
         "tags": [
           "Packages"
@@ -204,17 +167,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/AreaDto2"
+                  "$ref": "#/components/schemas/AreaGroupDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AreaDto2"
+                  "$ref": "#/components/schemas/AreaGroupDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AreaDto2"
+                  "$ref": "#/components/schemas/AreaGroupDto"
                 }
               }
             }
@@ -222,7 +185,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/meta/info/accesspackages/area/{id}": {
+    "/meta/info/accesspackages/group/{id}/areas": {
       "get": {
         "tags": [
           "Packages"
@@ -244,17 +207,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/AreaDto2"
+                  "$ref": "#/components/schemas/AreaDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AreaDto2"
+                  "$ref": "#/components/schemas/AreaDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AreaDto2"
+                  "$ref": "#/components/schemas/AreaDto"
                 }
               }
             }
@@ -262,7 +225,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/meta/info/accesspackages/area/{id}/packages": {
+    "/meta/info/accesspackages/area/{id}": {
       "get": {
         "tags": [
           "Packages"
@@ -284,17 +247,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/PackageDto2"
+                  "$ref": "#/components/schemas/AreaDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PackageDto2"
+                  "$ref": "#/components/schemas/AreaDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PackageDto2"
+                  "$ref": "#/components/schemas/AreaDto"
                 }
               }
             }
@@ -302,7 +265,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/meta/info/accesspackages/package/{id}": {
+    "/meta/info/accesspackages/area/{id}/packages": {
       "get": {
         "tags": [
           "Packages"
@@ -324,17 +287,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/PackageDto2"
+                  "$ref": "#/components/schemas/PackageDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PackageDto2"
+                  "$ref": "#/components/schemas/PackageDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PackageDto2"
+                  "$ref": "#/components/schemas/PackageDto"
                 }
               }
             }
@@ -342,7 +305,47 @@
         }
       }
     },
-    "/accessmanagement/api/v1/meta/info/accesspackages/package/urn/{urnValue}": {
+    "/meta/info/accesspackages/package/{id}": {
+      "get": {
+        "tags": [
+          "Packages"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/PackageDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PackageDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PackageDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/meta/info/accesspackages/package/urn/{urnValue}": {
       "get": {
         "tags": [
           "Packages"
@@ -363,17 +366,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/PackageDto2"
+                  "$ref": "#/components/schemas/PackageDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PackageDto2"
+                  "$ref": "#/components/schemas/PackageDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PackageDto2"
+                  "$ref": "#/components/schemas/PackageDto"
                 }
               }
             }
@@ -381,7 +384,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/meta/info/accesspackages/package/{id}/resources": {
+    "/meta/info/accesspackages/package/{id}/resources": {
       "get": {
         "tags": [
           "Packages"
@@ -421,7 +424,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/meta/info/roles": {
+    "/meta/info/roles": {
       "get": {
         "tags": [
           "Roles"
@@ -459,7 +462,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/meta/info/roles/{id}": {
+    "/meta/info/roles/{id}": {
       "get": {
         "tags": [
           "Roles"
@@ -499,7 +502,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/meta/info/roles/packages": {
+    "/meta/info/roles/packages": {
       "get": {
         "tags": [
           "Roles"
@@ -536,17 +539,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/PackageDto2"
+                  "$ref": "#/components/schemas/PackageDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PackageDto2"
+                  "$ref": "#/components/schemas/PackageDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PackageDto2"
+                  "$ref": "#/components/schemas/PackageDto"
                 }
               }
             }
@@ -554,7 +557,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/meta/info/roles/resources": {
+    "/meta/info/roles/resources": {
       "get": {
         "tags": [
           "Roles"
@@ -609,7 +612,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/meta/info/roles/{id}/packages": {
+    "/meta/info/roles/{id}/packages": {
       "get": {
         "tags": [
           "Roles"
@@ -647,17 +650,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/PackageDto2"
+                  "$ref": "#/components/schemas/PackageDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PackageDto2"
+                  "$ref": "#/components/schemas/PackageDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PackageDto2"
+                  "$ref": "#/components/schemas/PackageDto"
                 }
               }
             }
@@ -665,7 +668,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/meta/info/roles/{id}/resources": {
+    "/meta/info/roles/{id}/resources": {
       "get": {
         "tags": [
           "Roles"
@@ -721,7 +724,7 @@
         }
       }
     },
-    "/accessmanagement/api/v1/meta/types/organization/subtypes": {
+    "/meta/types/organization/subtypes": {
       "get": {
         "tags": [
           "Types"
@@ -788,7 +791,7 @@
           "packages": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/PackageDto2"
+              "$ref": "#/components/schemas/PackageDto"
             },
             "nullable": true
           },
@@ -796,42 +799,7 @@
             "$ref": "#/components/schemas/AreaGroupDto"
           }
         },
-        "nullable": true
-      },
-      "AreaDto2": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "urn": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "iconUrl": {
-            "type": "string",
-            "nullable": true
-          },
-          "packages": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PackageDto2"
-            },
-            "nullable": true
-          },
-          "group": {
-            "nullable": true
-          }
-        }
+        "additionalProperties": false
       },
       "AreaGroupDto": {
         "type": "object",
@@ -859,44 +827,12 @@
           "areas": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/AreaDto2"
+              "$ref": "#/components/schemas/AreaDto"
             },
             "nullable": true
           }
         },
-        "nullable": true
-      },
-      "AreaGroupDto2": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "urn": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "areas": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AreaDto2"
-            },
-            "nullable": true
-          }
-        }
+        "additionalProperties": false
       },
       "PackageDto": {
         "type": "object",
@@ -930,50 +866,6 @@
             "$ref": "#/components/schemas/AreaDto"
           },
           "type": {
-            "nullable": true
-          },
-          "resources": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ResourceDto"
-            },
-            "nullable": true
-          }
-        },
-        "nullable": true
-      },
-      "PackageDto2": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "urn": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "isDelegable": {
-            "type": "boolean"
-          },
-          "isAssignable": {
-            "type": "boolean"
-          },
-          "isResourcePolicyAvailable": {
-            "type": "boolean"
-          },
-          "area": {
-            "nullable": true
-          },
-          "type": {
             "$ref": "#/components/schemas/TypeDto"
           },
           "resources": {
@@ -983,7 +875,28 @@
             },
             "nullable": true
           }
-        }
+        },
+        "additionalProperties": false
+      },
+      "PackageDtoSearchObject": {
+        "type": "object",
+        "properties": {
+          "object": {
+            "$ref": "#/components/schemas/PackageDto"
+          },
+          "score": {
+            "type": "number",
+            "format": "double"
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SearchField"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "ProviderDto": {
         "type": "object",
@@ -1016,7 +929,7 @@
             "$ref": "#/components/schemas/ProviderTypeDto"
           }
         },
-        "nullable": true
+        "additionalProperties": false
       },
       "ProviderTypeDto": {
         "type": "object",
@@ -1030,7 +943,7 @@
             "nullable": true
           }
         },
-        "nullable": true
+        "additionalProperties": false
       },
       "ResourceDto": {
         "type": "object",
@@ -1065,7 +978,8 @@
           "type": {
             "$ref": "#/components/schemas/ResourceTypeDto"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "ResourceTypeDto": {
         "type": "object",
@@ -1079,7 +993,7 @@
             "nullable": true
           }
         },
-        "nullable": true
+        "additionalProperties": false
       },
       "RoleDto": {
         "type": "object",
@@ -1121,7 +1035,8 @@
           "provider": {
             "$ref": "#/components/schemas/ProviderDto"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "SearchField": {
         "type": "object",
@@ -1145,26 +1060,8 @@
             },
             "nullable": true
           }
-        }
-      },
-      "SearchObjectOfPackageDto": {
-        "type": "object",
-        "properties": {
-          "object": {
-            "$ref": "#/components/schemas/PackageDto"
-          },
-          "score": {
-            "type": "number",
-            "format": "double"
-          },
-          "fields": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/SearchField"
-            },
-            "nullable": true
-          }
-        }
+        },
+        "additionalProperties": false
       },
       "SearchWord": {
         "type": "object",
@@ -1184,7 +1081,8 @@
             "type": "number",
             "format": "double"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "SubTypeDto": {
         "type": "object",
@@ -1208,7 +1106,8 @@
           "type": {
             "$ref": "#/components/schemas/TypeDto"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "TypeDto": {
         "type": "object",
@@ -1229,19 +1128,8 @@
             "$ref": "#/components/schemas/ProviderDto"
           }
         },
-        "nullable": true
+        "additionalProperties": false
       }
     }
-  },
-  "tags": [
-    {
-      "name": "Packages"
-    },
-    {
-      "name": "Roles"
-    },
-    {
-      "name": "Types"
-    }
-  ]
+  }
 }
