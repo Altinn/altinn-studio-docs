@@ -17,18 +17,16 @@ The following roles can be requested assigned to a user by the service owner:
 
 [See an overview of the different roles here](/en/altinn-studio/v8/reference/access-management/apps/).
 
-To be assigned a role you must first have a registered user belonging to the same service owner as the application whose runtime environment you wish to access.
-Requests are submitted using our [self-service portal](https://www.altinndigital.no/oversikt).
-There are also instructions for registering a new user for the first time.
+To be assigned these roles, authorised requesters at the service owner must order this through [Samarbeidsportalen](https://samarbeid.digdir.no/).
+The portal also describes how to create a new user if you don't already have one.
 
-To create a ticket requesting a new role for you user click the tab _"Support"_ then choose the option _"Ny sak"_ from the left-hand side menu.
-* On the first page of the form select the options: _"Bestilling"_ and _"Tilganger"_.
-* Select the option _"Altinn 3.0 - Apps"_ on the second page.
-* Finally, specify the desired roles along with the contact information of the user who the roles should be granted to.
+To create a new case to request access, first click _Saker_ in the left menu, then _Ny sak_.
+<br />
+Then follow the guidance in the form (Altinn -> Bestille -> Tilganger -> Altinn 3.0 Apps -> Gå til skjema).
 
 When the user has been assigned the requested roles logs and/or secrets can be accessed through [Microsoft Azure Portal](https://portal.azure.com).
 
-For login you use the same account as for the self-service portal:
+For login you use the same account as for the portal:
 
 - `username@ai-dev.no` (most people)
 - `username@ai-dev.brreg.no` (a few still uses this)

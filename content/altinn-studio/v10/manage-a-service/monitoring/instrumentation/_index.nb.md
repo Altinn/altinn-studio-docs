@@ -23,7 +23,7 @@ Instrumentering handler om å legge til ekstra kontekst og informasjon til telem
 Instrumentering gjennom OpenTelemetry kan ta tre former:
 
 ### 1. Sporingsdata (traces)
-Sporing viser hele reisen til en forespørsel gjennom systemet ditt, fra start til slutt.
+Sporingen viser hele reisen til en forespørsel gjennom systemet ditt, fra start til slutt.
 
 **Eksempel:** Når en bruker sender inn et skjema, kan du se alle stegene: motta forespørsel → validere data → lagre til database → kalle eksternt API → returnere svar.
 
@@ -57,14 +57,14 @@ Alternativt kan et mellomlag-API som tilgjengeliggjøres av OpenTelemetry sin SD
 ### Hva består distribuert sporing av?
 
 Distribuert sporing består av:
-* **Spor (trace):** En samling av steg (spans), identifisert med en spor-ID (trace ID)
-* **Steg (span):** En arbeidsenhet (unit of work) med start- og sluttidspunkt, identifisert med en steg-ID (span ID) og en kobling til overordnet steg (parent span)
+* **Spor (trace):** En samling av steg (spans), identifisert med en spor-ID (trace ID).
+* **Steg (span):** En arbeidsenhet (unit of work) med start- og sluttidspunkt, identifisert med en steg-ID (span ID) og en kobling til overordnet steg (parent span).
 
-**Forklaring:** Tenk på en trace som en sti gjennom systemet ditt, og hver span som et steg på denne stien. Hvert steg har en start- og sluttid, og en kobling til steget før.
+**Forklaring:** Tenk på et spor som en sti gjennom systemet ditt, og hvert steg som et punkt på denne stien. Hvert steg har en start- og sluttid, og en kobling til steget før.
 
-Vi kan tenke på en trace som et tre av spans. Dette gjør at vi kan visualisere og analysere arbeidsenheter i en kontekst og
-i relasjon til andre spans i samme trace. Vi kan bruke trace omtrent som en logger for feilsøking og analyser,
-men den tilbyr en mer omfattende kontekst – noe som er spesielt nyttig i en distribuert setting. Altinn 3 er en mikrotjenestebasert plattform,
+Vi kan tenke på et spor som et tre av steg. Dette gjør at vi kan visualisere og analysere arbeidsenheter i en kontekst og
+i relasjon til andre steg i samme spor. Vi kan bruke spor omtrent som logger for feilsøking og analyser,
+men de tilbyr en mer omfattende kontekst – noe som er spesielt nyttig i en distribuert setting. Altinn 3 er en mikrotjenestebasert plattform,
 noe som gjør at distribuert sporing er å anbefale og bør være hovedverktøyet for feilsøking og observasjon for apper.
 
 ### Eksempel: Instrumentere et API-kall
@@ -96,12 +96,12 @@ internal sealed class BringClient(
 }
 {{< / highlight >}}
 
-I kodeeksempelet over oppretter vi et span rundt hele HTTP-operasjonen, og vi legger til postkoden som ekstra kontekst.
+I kodeeksempelet over oppretter vi et steg rundt hele HTTP-operasjonen, og vi legger til postkoden som ekstra kontekst.
 Vi vet da at om API-kallet skulle feile, så kan vi verifisere om postkoden var noe vi forventet.
 
-**Forklaring:** `SetTag` legger til ekstra informasjon (metadata) til spanet, som du kan bruke til å filtrere og søke i telemetrien senere.
+**Forklaring:** `SetTag` legger til ekstra informasjon (metadata) til steget, som du kan bruke til å filtrere og søke i telemetrien senere.
 
-Husk at den automatiserte instrumenteringen vil legge inn et span under vårt, som gir oss HTTP-spesifikk kontekst – statuskode, URL
+Husk at den automatiserte instrumenteringen vil legge inn et steg under vårt, som gir oss HTTP-spesifikk kontekst – statuskode, URL
 og annen informasjon som definert i OpenTelemetry semantiske konvensjoner.
 Fordi vi instrumenterte koden og analyserte mulige feilkilder, så oppdaterer vi koden og gjør den mer robust:
 
@@ -224,7 +224,7 @@ Les .NET- og OpenTelemetry-dokumentasjon i *Ressurser*-seksjonen under for forsk
 
 ### Hvorfor bruke målinger?
 
-Målinger er mest nyttige for grov aggregering av tidsserier, for å gi en høynivåinnsikt i
+Målingene er mest nyttige for grov aggregering av tidsserier, for å gi en høynivåinnsikt i
 tilstanden til én eller flere applikasjoner. Tidsserier kan visualiseres og gi et inntrykk og en referanse for hva som kan forventes.
 I fremtiden vil det bli mulig å lage alarmer basert på disse målingene.
 
@@ -235,7 +235,7 @@ I fremtiden vil det bli mulig å lage alarmer basert på disse målingene.
 Vi fortsetter med *BringClient*-eksempelet. Nå legger vi inn caching av API-svar for bedre ytelse,
 og instrumenterer slik at vi får målinger for hvor ofte cachen blir benyttet. Når vi legger inn målinger må vi tenke på:
 
-* Instrumenter (for eksempel *Counter<T>*) bør ikke opprettes ofte, så vi registrerer tjenesten som en *Singleton*
+* Instrumentene (for eksempel `Counter<T>`) bør ikke opprettes ofte, så vi registrerer tjenesten som en *Singleton*
 * Vi bruker *Telemetry.Metrics.CreateName* for å standardisere metrikknavn
 * Vi bruker en minnecache og har attributes/tags for sporing
 
@@ -278,7 +278,7 @@ internal sealed class BringClient(
         if (postalCode is < 1000 or > 9999)
             throw new ArgumentOutOfRangeException(nameof(postalCode), "Must be a valid postal code");
 
-        KeyValuePair<string, object?> tag; // Dette vil la oss kalkulere treffraten
+        KeyValuePair<string, object?> tag; // Dette vil la oss beregne treffraten
         if (_cache.TryGetValue(key, out PostalCodeLookupResult? result))
         {
             if (result is null)

@@ -3,7 +3,7 @@ draft: true
 title: Process tasks
 description: Defining process tasks
 tags: [altinn-apps, process, bpmn, task]
-weight: 10
+
 ---
 
 ## Task types

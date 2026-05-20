@@ -3,7 +3,7 @@ draft: true
 title: Flowcontrol
 description: Controlling process flow
 tags: [altinn-apps, process, bpmn, gateway]
-weight: 20
+
 toc: true
 ---
 

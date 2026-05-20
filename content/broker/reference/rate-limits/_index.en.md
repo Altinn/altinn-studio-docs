@@ -31,11 +31,11 @@ Rate limit applies per Maskinporten integration. Contact us for more capacity.
 
 - `GET /broker/api/v1/filetransfer/{fileTransferId}/details`
   - Description: Get more detailed information about the file upload for auditing and troubleshooting purposes
-  - Rate limit: 10 calls per minute
+  - Rate limit: 30 calls per minute
 
 - `GET /broker/api/v1/filetransfer`
   - Description: Search files that can be accessed by the caller according to specified filters
-  - Rate limit: 10 calls per minute
+  - Rate limit: 30 calls per minute
 
 - `GET /broker/api/v1/filetransfer/{fileTransferId}/download`
   - Description: Downloads the file
