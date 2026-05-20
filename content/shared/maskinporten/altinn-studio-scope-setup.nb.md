@@ -13,7 +13,7 @@ Anbefalt oppsett er å legge til scopene appen trenger i Altinn Studio. Når app
 For å sette dette opp må du:
 
 1. [Sørge for at brukeren din kan legge til Maskinporten-scopes for organisasjonen](#tilgang-til-maskinporten-scopes).
-2. [Legge til nødvendige scopes i Altinn Studio](#legg-til-scopes-i-altinn-studio).
+2. [Legge til nødvendige scopes i Altinn Studio](/nb/altinn-studio/v8/guides/integration/maskinporten/add-scopes/).
 3. [Publisere appen slik at valgte scopes blir tilgjengelige for appen](#publisering-og-klientdetaljer).
 4. [Bruke den innebygde Maskinporten-klienten i appkoden](#maskinporten-application-setup).
 
@@ -25,12 +25,7 @@ Hvis du ikke ser noen scopes i Altinn Studio, kan brukeren din mangle tilgang ti
 
 ## Legg til scopes i Altinn Studio
 
-1. Åpne appen i Altinn Studio.
-2. Gå til **Innstillinger** og åpne fanen **Maskinporten**.
-3. Velg **Legg til**.
-4. Søk etter og velg scopene appen trenger.
-5. Velg **Fullfør** for å lagre listen med scopes.
-{.floating-bullet-numbers}
+Se [steg-for-steg-veiledningen for å legge til Maskinporten-scopes i en app](/nb/altinn-studio/v8/guides/integration/maskinporten/add-scopes/) for skjermbilder av flyten i Altinn Studio.
 
 Endringer i scopes trer i kraft neste gang appen bygges og publiseres.
 

@@ -13,7 +13,7 @@ The recommended setup is to add the scopes the app needs in Altinn Studio. When 
 To set this up:
 
 1. [Ensure that your user can add Maskinporten scopes for the organisation](#access-to-maskinporten-scopes).
-2. [Add the required scopes in Altinn Studio](#add-scopes-in-altinn-studio).
+2. [Add the required scopes in Altinn Studio](/en/altinn-studio/v8/guides/integration/maskinporten/add-scopes/).
 3. [Deploy the app so the selected scopes become available to the app](#deployment-and-credentials).
 4. [Use the built-in Maskinporten client in application code](#application-setup).
 
@@ -25,12 +25,7 @@ If you cannot see any scopes in Altinn Studio, your user may not have access to 
 
 ## Add scopes in Altinn Studio
 
-1. Open the app in Altinn Studio.
-2. Go to **Settings** and open the **Maskinporten** tab.
-3. Select **Add**.
-4. Search for and select the scopes the app needs.
-5. Select **Complete** to save the scope list.
-{.floating-bullet-numbers}
+See the [step-by-step guide for adding Maskinporten scopes to an app](/en/altinn-studio/v8/guides/integration/maskinporten/add-scopes/) for screenshots of the flow in Altinn Studio.
 
 Scope changes take effect the next time the app is built and deployed.
 
