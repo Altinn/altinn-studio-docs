@@ -93,7 +93,7 @@ Finnes kun når flere resultater er tilgjengelige. Bruk URL-en som den er for å
 ### Hendelsestyper
 | Verdi | Beskrivelse |
 |-------|-------------|
-| accepted | Samtykkeforespørselen ble akseptert av samtykkepartens. |
+| accepted | Samtykkeforespørselen ble akseptert av samtykkeparten. |
 | rejected | Samtykket ble avvist. |
 | revoked | Samtykket ble trukket tilbake. |
 | deleted | Samtykkeforespørselen ble slettet. |

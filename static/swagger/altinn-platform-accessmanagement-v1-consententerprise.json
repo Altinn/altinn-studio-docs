@@ -140,7 +140,7 @@
         "tags": [
           "Consent"
         ],
-        "operationId": "consentrequests/events",
+        "operationId": "enterprisegetconsentrequestevents",
         "parameters": [
           {
             "name": "continuationToken",
@@ -469,6 +469,29 @@
         ],
         "nullable": true
       },
+      "AMCoreModels.ConsentStatusChangeDto": {
+        "required": [
+          "changedDate",
+          "consentRequestId",
+          "eventType"
+        ],
+        "type": "object",
+        "properties": {
+          "consentRequestId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "eventType": {
+            "type": "string",
+            "nullable": true
+          },
+          "changedDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
       "ConsentStatusChangeDtoPaginatedResult": {
         "type": "object",
         "properties": {
@@ -485,6 +508,16 @@
         },
         "additionalProperties": false
       },
+      "PaginatedResultLinks": {
+        "type": "object",
+        "properties": {
+          "next": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },      
       "ProblemDetails": {
         "type": "object",
         "properties": {
