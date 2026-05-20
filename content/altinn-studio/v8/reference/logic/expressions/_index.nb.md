@@ -1115,7 +1115,7 @@ Eksempel:
 ```
 Dette eksemplet gir tallverdien `220`.
 
-Dersom `0` sendes inn som argument, tolker funksjonen dette som `0`.
+Dersom `null` sendes inn som argument, tolker funksjonen dette som `0`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-divide" header="divide" %}}
