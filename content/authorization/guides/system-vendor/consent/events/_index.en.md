@@ -84,7 +84,7 @@ Note: createdAfter must be strictly less than createdBefore if both are provided
 |----------------|------|-------------|
 | data[].consentRequestId | Guid | The ID of the consent request this event belongs to. |
 | data[].eventType | string | the type of status event. Events: accepted, rejected, revoked, deleted, used. |
-| data[].changedDate | Datetimeoffset | the timestamp of when the status change occured.|
+| data[].changedDate | Datetimeoffset | the timestamp of when the status change occurred.|
 | links.next | | URL to fetch the next page. |
 
 ### Next
@@ -96,7 +96,7 @@ Present only when more results are available. Re-issue the URL as-is to get the 
 | accepted | The consent request was accepted by the consenting party. |
 | rejected | The consent was rejected. |
 | revoked | The consent was revoked. |
-| Deleted | The consent request was deleted |
+| deleted | The consent request was deleted |
 | used | The consent was used/consumed. |
 
 ## Error Responses

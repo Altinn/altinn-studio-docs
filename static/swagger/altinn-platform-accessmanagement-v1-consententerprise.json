@@ -134,6 +134,102 @@
           }
         }
       }
+    },
+    "/accessmanagement/api/v1/enterprise/consentrequests/events": {
+      "get": {
+        "tags": [
+          "Consent"
+        ],
+        "operationId": "consentrequests/events",
+        "parameters": [
+          {
+            "name": "continuationToken",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "createdAfter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "createdBefore",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "eventType",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "consentRequestId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConsentStatusChangeDtoPaginatedResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "CONSENTREQUEST_READ"
+            ]
+          }
+        ]
+      }
     }
   },
   "components": {
@@ -372,6 +468,22 @@
           null
         ],
         "nullable": true
+      },
+      "ConsentStatusChangeDtoPaginatedResult": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AMCoreModels.ConsentStatusChangeDto"
+            },
+            "nullable": true
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginatedResultLinks"
+          }
+        },
+        "additionalProperties": false
       },
       "ProblemDetails": {
         "type": "object",

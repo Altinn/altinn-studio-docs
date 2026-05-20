@@ -16,8 +16,8 @@ toc: false
 Returnerer en paginert liste over samtykkehendelser for den autentiserte virksomheten.
 Resultatene er sortert etter eventid, eldste først. Som standard returnerer API-et opptil 100 endringer per forespørsel.
 Dette endepunktet bruker kursor-basert paginering, så kall endepunktet uten en ContinuationToken for å hente den første siden.
-- **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/latestchanges`
-- **Produksjon**: `GET https://platform.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/latestchanges`
+- **Test**: `GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/events`
+- **Produksjon**: `GET https://platform.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/events`
 
 ## Spørringsparametere
 | Parameter | Type | Påkrevd | Beskrivelse |
@@ -39,14 +39,14 @@ Merk: createdAfter må være strengt mindre enn createdBefore hvis begge er oppg
 
 ## Request/Response Eksempel
 **Første side**
-`GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/latestchanges`
+`GET https://platform.tt02.altinn.no/accessmanagement/api/v1/enterprise/consentrequests/events`
 
 `Authorization: Bearer <maskinporten_token>`
 
 ```jsonc
 {
   "links": {
-    "next": "https://<host>/accessmanagement/api/v1/enterprise/consentrequests/latestchanges?continuationToken=MjAyNS0wNS0wNFQxMDozMDowMCswMjowMHwzZmE4NWY2NC01NzE3LTQ1NjItYjNmYy0yYzk2M2Y2NmFmYTY%3D"
+    "next": "https://<host>/accessmanagement/api/v1/enterprise/consentrequests/events?continuationToken=MjAyNS0wNS0wNFQxMDozMDowMCswMjowMHwzZmE4NWY2NC01NzE3LTQ1NjItYjNmYy0yYzk2M2Y2NmFmYTY%3D"
   },
   "data": [
     {
@@ -59,14 +59,14 @@ Merk: createdAfter må være strengt mindre enn createdBefore hvis begge er oppg
 ```
 
 **Neste side**
-`GET /accessmanagement/api/v1/enterprise/consentrequests/latestchanges?continuationToken=MjAyNS0wNS0wNFQxMDozMDowMCswMjowMHwzZmE4NWY2NC01NzE3LTQ1NjItYjNmYy0yYzk2M2Y2NmFmYTY%3D`
+`GET /accessmanagement/api/v1/enterprise/consentrequests/events?continuationToken=MjAyNS0wNS0wNFQxMDozMDowMCswMjowMHwzZmE4NWY2NC01NzE3LTQ1NjItYjNmYy0yYzk2M2Y2NmFmYTY%3D`
 
 `Authorization: Bearer <maskinporten_token>`
 
 ```jsonc
 {
   "links": {
-    "next": "https://<host>/accessmanagement/api/v1/enterprise/consentrequests/latestchanges?continuationToken=MjAyNS0wNS0wNFQxMDozMDowMCswMjowMHwzZmE4NWY2NC01NzE3LTQ1NjItYjNmYy0yYzk2M2Y2NmFmYTY%3D"
+    "next": "https://<host>/accessmanagement/api/v1/enterprise/consentrequests/events?continuationToken=MjAyNS0wNS0wNFQxMDozMDowMCswMjowMHwzZmE4NWY2NC01NzE3LTQ1NjItYjNmYy0yYzk2M2Y2NmFmYTY%3D"
   },
   "data": [
     {
@@ -96,7 +96,7 @@ Finnes kun når flere resultater er tilgjengelige. Bruk URL-en som den er for å
 | accepted | Samtykkeforespørselen ble akseptert av samtykkepartens. |
 | rejected | Samtykket ble avvist. |
 | revoked | Samtykket ble trukket tilbake. |
-| Deleted | Samtykkeforespørselen ble slettet. |
+| deleted | Samtykkeforespørselen ble slettet. |
 | used | Samtykket ble brukt/konsumert. |
 
 ## Error Responses
