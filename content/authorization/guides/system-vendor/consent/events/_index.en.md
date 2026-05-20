@@ -103,7 +103,7 @@ Present only when more results are available. Re-issue the URL as-is to get the 
 
 | StatusCode | Description |
 |------------|-------------|
-|401 Unauthorized|Missing or invalid authentication token.|
-|403 Forbidden|Authenticated party is not authorized.|
-|400 Bad Request|Invalid query parameters. See the ProblemDetails body for details.|
-|500 Internal Server Error|Unexpected server-side error.|
+| 401 Unauthorized | Missing or invalid authentication token. |
+| 403 Forbidden | Authenticated party is not authorized. |
+| 400 Bad Request | Invalid query parameters. See the ProblemDetails body for details. |
+| 500 Internal Server Error | Unexpected server-side error. |
