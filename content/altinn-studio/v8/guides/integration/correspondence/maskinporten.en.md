@@ -19,59 +19,48 @@ In order to use the [correspondence service](/en/correspondence/), a [Maskinport
 - `altinn:correspondence.write`
 {.correspondence-custom-list}
 
-To set this up, follow the general steps outlined in the [Maskinporten integration guide](/en/altinn-studio/v8/guides/integration/maskinporten/), with a couple of modifications described below.
+To set this up, add these scopes in Altinn Studio as described in the [Maskinporten integration guide](/en/altinn-studio/v8/guides/integration/maskinporten/). When the app is deployed, Altinn Studio provisions the Maskinporten client and mounts the generated `MaskinportenSettings` into the app.
 
-- The correspondence client uses a new, internal, client to communicate with Maskinporten. Because of this, the configuration object now looks like this:
+The correspondence client automatically finds and uses the built-in Maskinporten client with the default `MaskinportenSettings` configuration path.
 
-  {{< code-title >}}
-  App/appsettings.json
-  {{< /code-title >}}
+{{% expandlarge id="legacy-correspondence-maskinporten-config" header="Show legacy custom Maskinporten configuration" %}}
 
-  ```json
-  "MaskinportenSettings": {
-    "Authority": "https://test.maskinporten.no/",
-    "ClientId": "the client id",
-    "JwkBase64": "base64 encoded jwk"
-  }
-  ```
+If you require a different configuration path, you can configure it with the `ConfigureMaskinportenClient` extension method:
 
-- The correspondence client will automatically find and use the Maskinporten client, and attempt to bind to the default
-  `MaskinportenSettings` configuration path.
-- If you require a different configuration path, you can configure it with the `ConfigureMaskinportenClient` extension method:
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
-  {{< code-title >}}
-  App/Program.cs
-  {{< /code-title >}}
+{{<highlight csharp "linenos=false,hl_lines=5">}}
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+  // ...
 
-  {{<highlight csharp "linenos=false,hl_lines=5">}}
-  void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+  services.ConfigureMaskinportenClient("UniqueMaskinportenSettingsPath");
+}
+{{</highlight>}}
+
+If you require a custom configuration flow, you can make use of the available configuration delegate:
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
+{{<highlight csharp "linenos=false,hl_lines=5-10">}}
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+  // ...
+
+  services.ConfigureMaskinportenClient(config =>
   {
-    // ...
+    config.Authority = "https://[test.]maskinporten.no/";
+    config.ClientId = "the client id";
+    config.JwkBase64 = "base64 encoded jwk";
+  });
+}
+{{</highlight>}}
 
-    services.ConfigureMaskinportenClient("UniqueMaskinportenSettingsPath");
-  }
-  {{</highlight>}}
-
-- If you require a custom configuration flow, you can make use of the available configuration delegate:
-
-  {{< code-title >}}
-  App/Program.cs
-  {{< /code-title >}}
-
-  {{<highlight csharp "linenos=false,hl_lines=5-10">}}
-  void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
-  {
-    // ...
-
-    services.ConfigureMaskinportenClient(config =>
-    {
-      config.Authority = "https://[test.]maskinporten.no/";
-      config.ClientId = "the client id";
-      config.JwkBase64 = "base64 encoded jwk";
-    });
-  }
-  {{</highlight>}}
-{.connected-bullets}
+{{% /expandlarge %}}
 
 ## Application code
 

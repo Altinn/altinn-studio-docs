@@ -19,7 +19,7 @@ You can read more about the concept [here](/en/altinn-studio/v8/concepts/data-mo
 ## Configuring Maskinporten
 You must configure Maskinporten to allow the app to perform actions on behalf of the service owner.
 
-You can find a detailed guide on that setup [here](/en/altinn-studio/v8/guides/integration/maskinporten/).
+You can find a detailed guide on that setup in the [Maskinporten integration guide](/en/altinn-studio/v10/develop-a-service/integration/maskinporten/).
 
 ## Configuring the data types
 The [applicationmetadata.json](https://github.com/Altinn/altinn-studio/blob/main/src/App/app-template-dotnet/src/App/config/applicationmetadata.json) file defines all [data types](/en/api/models/app-metadata/#datatype) in an application. Here, you specify which [actions](/en/altinn-studio/v8/reference/configuration/authorization/#action-attributes) are required for your restricted data type.

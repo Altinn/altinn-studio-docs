@@ -15,6 +15,16 @@ Here is an overview of how to get started with local development.
 
 ## Clone the application to a local development environment
 
+{{% insert "content/altinn-studio/shared/studioctl/local-development-intro.en.md" %}}
+
+{{% notice warning %}}
+{{% insert "content/altinn-studio/shared/studioctl/preview-warning.en.md" %}}
+{{% /notice %}}
+
+{{% insert "content/altinn-studio/shared/studioctl/install-clone.en.md" %}}
+
+{{% expandlarge id="legacy-clone-with-git" header="Old method: Clone manually with Git" %}}
+
 1. Find the application you want to work with locally in the [Dashboard](/en/altinn-studio/v8/getting-started/navigation/dashboard/) in Altinn Studio
 2. Open the repository. Click the **Repository** button
     ![Repository button highlighted in an image](find-app-in-dashboard.png)
@@ -45,6 +55,8 @@ Here is an overview of how to get started with local development.
 
 The system creates a folder with the same name as the application and clones the contents of the application repository into the folder.
 Now you can open your preferred development tool and start coding.
+
+{{% /expandlarge %}}
 
 ## Synchronise changes in the local development environment
 
@@ -89,7 +101,7 @@ In Altinn Studio, you must synchronise changes in the same way as with local cha
 2. Enter a descriptive message for the change(s) and click **Valider endringer** (Validate changes).
     ![Commit message](commit-message.png)
     *Replace this image.*
-3. Wait a moment whilst the system validates the changes. If a conflict occurs, click **Løs konflikt** (Resolve conflict) and follow the instructions.
+3. Wait a moment while the system validates the changes. If a conflict occurs, click **Løs konflikt** (Resolve conflict) and follow the instructions.
 4. Click **Lagre** (Save) to upload the changes to the repository (master).
     ![Save validated changes](changes-validated.png)
     *Replace this image.*
@@ -99,29 +111,22 @@ In Altinn Studio, you must synchronise changes in the same way as with local cha
 
 ## Local testing
 
-You can preview the changes you make when working locally.
-*LocalTest* is a programme that spins up a local mock-up of the Altinn Platform.
-It allows you to test and verify local changes without having to synchronise with Altinn Studio.
-
-{{% notice info %}}
-**NOTE**
-To run the app in LocalTest, the application must have an associated [data model](/en/altinn-studio/v8/reference/data/data-modeling/).
-{{% /notice %}}
-
-1. **Download and start LocalTest** by following the steps [we describe on GitHub](https://github.com/Altinn/app-localtest/blob/master/README.md) (includes starting the app, which we also explain below).
-2. **Run your application within LocalTest**: Open a new terminal window and go to the subfolder *App* in your application (`<app-name>/App`). Start the app with the command `dotnet run` and wait for confirmation in the terminal.
-3. **Preview and test application**: Go to [http://local.altinn.cloud](http://local.altinn.cloud) and log in with a [test user](/en/altinn-studio/v8/reference/testing/local/testusers/).
+{{% insert "content/altinn-studio/shared/studioctl/local-test-workflow.en.md" "/en/altinn-studio/v10/develop-a-service/reference/data/data-modeling/" "/en/altinn-studio/v10/test-a-service/testing/local/testusers/" %}}
+{{% insert "content/altinn-studio/shared/studioctl/useful-commands.en.md" %}}
 
 ### Preview changes in real-time
 
 - If you change JSON files, simply reload the page.
-- If you change prefilling, you must start a new instance of the application (go to [http://local.altinn.cloud](http://local.altinn.cloud) and log in again).
-- If you change CS files, you must stop the application (`ctrl+C`) and start it again (`dotnet run`).
+- If you change prefilling, you must start a new instance of the application (go to [http://local.altinn.cloud:8000](http://local.altinn.cloud:8000) and log in again).
+- If you change C# files, you must stop the application (`ctrl+C`) and start it again (`studioctl run`).
 
-You can update automatically when changing CS files by starting the application with `dotnet watch`.
+You can update automatically when changing C# files by starting the application with `dotnet watch`.
 This command will either start the application or reload it ([hot reload](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-watch#hot-reload)) when changes are made to the source code.
 
-### Stop the application and LocalTest
+{{% insert "content/altinn-studio/shared/studioctl/stop-local-test.en.md" %}}
 
-Stop the application by pressing `ctrl+C` in the terminal window where you started it.
-Stop LocalTest by going to the `app-localtest` folder in the terminal and running the command `docker compose down`.
+{{% expandlarge id="legacy-app-localtest" header="Old method: Run app-localtest manually" %}}
+
+{{% insert "content/altinn-studio/shared/studioctl/legacy-app-localtest.en.md" "/en/altinn-studio/v10/test-a-service/testing/local/testusers/" %}}
+
+{{% /expandlarge %}}
