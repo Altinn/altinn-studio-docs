@@ -70,7 +70,7 @@ Nylig arkiverte app-instanser opprettet i Altinn 2 migreres i puljer hvert 5. mi
 Skjema som er under utfylling blir ikke migrert før de er arkivert.
 
 ## Endringslogg
-21.05.2026: Meldinger migrert tilbake til med oktober 2018. Staret migrering av eldre (2018 og tidligere) arkiverte skjema.
+21.05.2026: Meldinger migrert tilbake til med oktober 2018. Startet migrering av eldre (2018 og tidligere) arkiverte skjema.
 
 18.05.2026: Meldinger migrert tilbake til september 2019. Korrigert 2023-meldinger som manglet. Migrering av eldre meldinger fortsetter.
 
