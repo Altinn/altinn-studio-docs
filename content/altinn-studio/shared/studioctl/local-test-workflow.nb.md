@@ -12,7 +12,7 @@ Kjør `studioctl doctor` for å sjekke at maskinen din har verktøyene som treng
 For å kunne kjøre appen i LocalTest må applikasjonen ha en tilknyttet <a href="{0}">datamodell</a>.</div>
 
 <div class="notices warning"><strong>ADVARSEL</strong>
-Hvis du har en eksisterende Docker Compose-stack fra <code>app-localtest</code>, må den stoppes og fjernes helt før du kjører <code>studioctl env up</code>. Gå til <code>app-localtest</code>-mappen og kjør <code>docker compose down</code>, eller bruk tilsvarende kommando for din container runtime.</div>
+Hvis du har en eksisterende <code>app-localtest</code>-stack, må den stoppes og fjernes helt før du kjører <code>studioctl env up</code>. Bruk kommandoen som passer til din container runtime, for eksempel <code>docker compose down -v</code> eller tilsvarende for Podman.</div>
 
 1. **Start lokal testplattform**: Gå til app-repoet i terminalen og kjør `studioctl env up`.
 2. **Kjør applikasjonen i LocalTest**: Kjør `studioctl run` fra app-repoet. Kommandoen finner appmappen automatisk og starter appen med riktige lokale innstillinger.

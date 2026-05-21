@@ -12,7 +12,7 @@ Run `studioctl doctor` to check that your machine has the required tools.
 To run the app in LocalTest, the application must have an associated <a href="{0}">data model</a>.</div>
 
 <div class="notices warning"><strong>WARNING</strong>
-If you have an existing <code>app-localtest</code> Docker Compose stack, stop and remove it completely before running <code>studioctl env up</code>. Go to the <code>app-localtest</code> folder and run <code>docker compose down</code>, or use the equivalent command for your container runtime.</div>
+If you have an existing <code>app-localtest</code> stack, stop and remove it completely before running <code>studioctl env up</code>. Use the command that matches your container runtime, such as <code>docker compose down -v</code> or the Podman equivalent.</div>
 
 1. **Start the local test platform**: Go to the app repository in a terminal and run `studioctl env up`.
 2. **Run your application within LocalTest**: Run `studioctl run` from the app repository. The command detects the app directory and starts the app with the correct local settings.
