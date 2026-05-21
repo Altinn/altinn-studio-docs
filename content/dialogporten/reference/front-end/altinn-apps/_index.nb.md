@@ -1,20 +1,19 @@
 ---
-title: 'Altinn Apps integrasjon'
-description: 'Referanseinformasjon for Altinn Apps integrasjon'
+title: 'Integrasjon med Altinn Apps'
+description: 'Referanseinformasjon for integrasjon med Altinn Apps'
 weight: 50
 toc: true
 ---
 
 ## Applikasjonsmetadata
 
-Disse innstillingene, sammen med andre, kan defineres i filen `App/config/applicationmetadata.json`
+Disse innstillingene, sammen med andre, kan defineres i filen `App/config/applicationmetadata.json`.
 
-### Synkroniseringsadapterinnstillinger
+### Innstillinger for sync-adapter
 
-Sett hvilken som helst av egenskapene nedenfor under `syncAdapterSettings` til `true` for å overstyre den
-automatiske synkroniseringen:
+Sett en av egenskapene nedenfor under `syncAdapterSettings` til `true` for å overstyre den automatiske synkroniseringen:
 
-| Setting                                   | Beskrivelse                                                                          |
+| Innstilling                               | Beskrivelse                                                                          |
 |-------------------------------------------|--------------------------------------------------------------------------------------|
 | `disableSync`                             | Deaktiver all dialogsynkronisering. Overstyrer alle andre innstillinger.             |
 | `disableCreate`                           | Deaktiver opprettelse av dialoger når applikasjonsinstanser opprettes.               |
