@@ -86,7 +86,7 @@ For informasjon om hvordan du bruker disse, se [brukerhåndboken for å opprette
 | ---------------------- | ----------------:|
 | Feltnavn             | `extendedStatus` |
 | Påkrevd               |               Nei |
-| Maks lengde             |               20 |
+| Maks lengde             |               25 |
 | Tillatte formater        |     `text/plain` |
 | Brukes i liste?          |              Ja |
 | Brukes i sendinger? |               Nei |
