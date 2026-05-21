@@ -134,15 +134,20 @@ Dette gjelder en systembruker for et system som skal handle på vegne av sluttbr
 
 ## 3\. Verifisering og Status
 
-### Verifisere Opprettelse
+### Verifisere opprettelse
 
-Etter at en sluttbruker har godkjent en forespørsel (status `Accepted`), kan du som SBSL verifisere at systembrukeren eksisterer.
+Etter at en sluttbruker har godkjent en forespørsel (status `Accepted`), kan du som SBSL verifisere at systembrukeren eksisterer med `byquery`-endepunktet.
 
-1.  Send en HTTP GET-forespørsel til:
-    `{{API_BASE_URL}}/authentication/api/v1/systemuser/vendor/byquery?system-id={systemId}&orgno={kundensOrgno}`
-    *(Erstatt `{API_BASE_URL}`, `{systemId}` og `{kundensOrgno}`)*
+Kallet krever scopet `altinn:authentication/systemuser.request.write` i Maskinporten-tokenet.
 
-2.  En vellykket respons returnerer JSON med detaljer om systembrukeren, inkludert systembruker `id` og `userType`.
+- **Test (TT02):** `GET https://platform.tt02.altinn.no/authentication/api/v1/systemuser/vendor/byquery?system-id={systemId}&orgno={kundensOrgno}`
+- **Produksjon:** `GET https://platform.altinn.no/authentication/api/v1/systemuser/vendor/byquery?system-id={systemId}&orgno={kundensOrgno}`
+
+Dersom du satte en ekstern referanse ved opprettelse, kan du også oppgi parameteren `external-ref` for å presisere oppslaget.
+
+En vellykket respons returnerer JSON med detaljer om systembrukeren, inkludert `id` og `userType`.
+
+Se [Hente systembruker via spørring](../byquery/) for full dokumentasjon av endepunktet, inkludert alle parametere og felter i responsen.
 
 ### Status på Forespørsler
 
