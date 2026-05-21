@@ -18,9 +18,9 @@ The screenshots show the Norwegian Altinn Studio UI. The flow and placement are 
 
 ## Steps
 
-1. Open the app in Altinn Studio. Go to **Settings**, open the **Maskinporten** tab, and select **Add**.
+1. Open the app in Altinn Studio. Go to **Settings**, and open the **Maskinporten** tab. If the **Add default scopes** button is shown, you can use it to add the default scopes. Select **Add** to add other scopes manually.
 
-   ![The Maskinporten tab in app settings with the Add button](maskinporten-scopes-overview.nb.png "The Maskinporten tab in app settings.")
+   ![The Maskinporten tab in app settings with the Add default scopes and Add buttons](maskinporten-scopes-overview.nb.png "The Maskinporten tab in app settings.")
 
 2. In the **Add new scope** dialog, you can search for scopes that the organisation has access to.
 

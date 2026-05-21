@@ -16,9 +16,9 @@ Hvis appen bare trenger standardscopene for tjenesteeier, `altinn:serviceowner`,
 
 ## Steg
 
-1. Åpne appen i Altinn Studio. Gå til **Innstillinger**, åpne fanen **Maskinporten**, og velg **Legg til**.
+1. Åpne appen i Altinn Studio. Gå til **Innstillinger**, og åpne fanen **Maskinporten**. Hvis knappen **Legg til standard-scopes** vises, kan du bruke den til å legge til standardscopene. Velg **Legg til** for å legge til andre scopes manuelt.
 
-   ![Maskinporten-fanen i appinnstillingene med knappen Legg til](maskinporten-scopes-overview.nb.png "Maskinporten-fanen i appinnstillingene.")
+   ![Maskinporten-fanen i appinnstillingene med knappene Legg til standard-scopes og Legg til](maskinporten-scopes-overview.nb.png "Maskinporten-fanen i appinnstillingene.")
 
 2. I dialogen **Legg til nytt scope** kan du søke etter scopes som virksomheten har tilgang til.
 
