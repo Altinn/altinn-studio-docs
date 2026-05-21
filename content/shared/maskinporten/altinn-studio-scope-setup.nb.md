@@ -9,11 +9,9 @@
 - Appen må også autorisere tjenesteeier i [`App/config/authorization/policy.xml`](/nb/altinn-studio/v8/reference/configuration/authorization/). Nye apper har denne regelen i appmalen. For eksisterende apper må du legge til eller oppdatere `[org]`-regelen slik at den gir `read` og `write`.
 {{</notice>}}
 
-Anbefalt oppsett er å legge til scopene appen trenger i Altinn Studio. Når appen bygges og publiseres, kan den innebygde Maskinporten-klienten i appen bruke de valgte scopene.
-
 For å sette dette opp må du:
 
-1. [Sørge for at brukeren din kan legge til Maskinporten-scopes for organisasjonen](#tilgang-til-maskinporten-scopes).
+1. [Kontrollere at brukeren din har tilgang til Maskinporten-scopes](#tilgang-til-maskinporten-scopes).
 2. [Legge til nødvendige scopes i Altinn Studio](/nb/altinn-studio/v8/guides/integration/maskinporten/add-scopes/).
 3. [Publisere appen slik at valgte scopes blir tilgjengelige for appen](#publisering-og-klientdetaljer).
 4. [Bruke den innebygde Maskinporten-klienten i appkoden](#maskinporten-application-setup).
@@ -22,7 +20,7 @@ For å sette dette opp må du:
 
 Altinn Studio bruker den innloggede Ansattporten-tilgangen din til å finne Maskinporten-scopene du kan legge til for tjenesteeierorganisasjonen.
 
-Hvis du ikke ser noen scopes i Altinn Studio, kan brukeren din mangle tilgang til å administrere klienter for organisasjonen. Kontakt den som administrerer Maskinporten-tilganger for organisasjonen din, eller Altinn servicedesk.
+Hvis du ikke ser noen scopes i Altinn Studio, kan brukeren din mangle tilgang til å administrere klienter for organisasjonen. Se [hva du gjør hvis du ikke har tilgang](/nb/altinn-studio/v8/guides/integration/maskinporten/add-scopes/#hvis-du-ikke-har-tilgang), kontakt den som administrerer Maskinporten-tilganger for organisasjonen din, eller kontakt Altinn servicedesk.
 
 ## Legg til scopes i Altinn Studio
 
@@ -36,30 +34,7 @@ Når en app med Maskinporten-scopes publiseres, legger Altinn Studio valgte scop
 
 Du trenger ikke å håndtere klientdetaljer, JWKS-generering, rotasjon eller appkonfigurasjon selv for standard oppsett av apper.
 
-## Migrer fra manuelt håndterte klientdetaljer
-
-Noen eksisterende apper bruker en Maskinporten-klient som er opprettet manuelt i Samarbeidsportalen, og leser klientdetaljene fra tjenesteeierens Azure Key Vault. Dette oppsettet bruker ofte appspesifikke prefikser på hemmeligheter fordi Key Vault er delt mellom flere apper, for eksempel `myapp--MaskinportenSettings--ClientId`, og appkoden kan binde den innebygde klienten til en egendefinert konfigurasjonssti som `myapp:MaskinportenSettings`.
-
-For å flytte en slik app til klientdetaljer håndtert av Altinn Studio:
-
-1. Kontroller hvilke scopes den eksisterende Maskinporten-klienten er konfigurert med i Samarbeidsportalen, og hvilke scopes appen ber om i kode.
-2. Legg de samme scopene til appen i Altinn Studio. Hvis appen bare trenger tjenesteeiertilgang til Altinn-instanser, bruker du standardscopene for tjenesteeier.
-3. Bygg og publiser appen til TT02. Den publiserte appen får klientdetaljer for valgte scopes på standardstien `MaskinportenSettings`.
-4. Oppdater appkode som eksplisitt binder Maskinporten-konfigurasjon til en egendefinert sti. Fjern det egendefinerte `ConfigureMaskinportenClient("...")`-kallet, eller endre det til å bruke `MaskinportenSettings`, slik at appen bruker konfigurasjonen fra Altinn Studio.
-5. Verifiser appen i TT02. Test at den kan hente Maskinporten-token, og at kall som krever innvekslede Altinn-token fortsatt fungerer hvis appen bruker `UseMaskinportenAltinnAuthorization` eller `GetAltinnExchangedToken`.
-6. Gjenta publisering og verifisering i produksjon.
-7. Når produksjon er verifisert, kan gamle appspesifikke Key Vault-hemmeligheter og egendefinert Key Vault-konfigurasjon fjernes hvis de ikke brukes lenger. Ikke slett den gamle Maskinporten-klienten før du har verifisert at ingen andre apper eller integrasjoner bruker den.
-{.floating-bullet-numbers}
-
-Behold Azure Key Vault-oppsett som appen bruker for andre hemmeligheter. Hvis Maskinporten-klientdetaljer var de eneste verdiene appen leste fra Azure Key Vault, kan Azure Key Vault-konfigurasjonsprovideren og tilhørende appinnstillinger fjernes etter at migreringen er verifisert.
-
-{{% notice warning %}}
-Hvis appen allerede bruker standardstien `MaskinportenSettings` og leser disse verdiene fra Azure Key Vault, vil appen midlertidig ha to konfigurasjonskilder for de samme nøklene etter at klientdetaljer håndtert av Studio er publisert: runtime secrets-filen som legges til av `ConfigureAppWebHost`, og Azure Key Vault.
-
-Konfigurasjonsprovidere som legges til senere overstyrer tidligere providere. Sørg for at Azure Key Vault-provideren registreres etter kallet til `ConfigureAppWebHost`, slik at de eksisterende Key Vault-verdiene har forrang frem til du bevisst fjerner dem. Når appen skal bruke klientdetaljene håndtert av Studio, fjerner eller gir du nytt navn til de gamle `MaskinportenSettings--...`-hemmelighetene i Key Vault, eller fjerner Azure Key Vault-oppsettet helt hvis appen ikke bruker det til noe annet, og publiserer appen på nytt.
-{{% /notice %}}
-
-## Appoppsett {#maskinporten-application-setup}
+## Bruk {#maskinporten-application-setup}
 Appen inkluderer automatisk den innebygde `IMaskinportenClient` som kan brukes i tjenestene dine.
 
 ### Konfigurasjonsstier
@@ -67,9 +42,9 @@ Klienten leter automatisk etter Maskinporten-konfigurasjon på standardstien _"M
 
 Bruk standardstien når scopes er valgt i Altinn Studio. Egendefinerte konfigurasjonsseksjoner fylles ikke ut av scope-oppsettet i Altinn Studio, og bør bare brukes med manuelt eller eldre oppsett.
 
-### Autorisere Http-klienter
+### Autoriser HTTP-klienter
 
-Typede og navngitte Http-klienter kan autoriseres med de tilgjengelige utvidelsesmetodene, som illustrert nedenfor.
+Typede og navngitte HTTP-klienter kan autoriseres med de tilgjengelige utvidelsesmetodene, som illustrert nedenfor.
 
 {{< code-title >}}
 App/Program.cs
