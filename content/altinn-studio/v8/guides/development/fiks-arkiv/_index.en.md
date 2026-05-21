@@ -19,8 +19,8 @@ In addition to the documentation below, we have created a
 
 Before setting up the Fiks Arkiv integration in your app you will need to have the following set up: 
 
-- **Fiks Protokoll** enabled in Fiks forvaltning portal for your organization
-- **Samarbeidsportalen** access to configure Maskinporten clients (national ID provider)
+- **Fiks Protokoll** enabled in Fiks forvaltning portal for your organisation
+- **Samarbeidsportalen** access to administer Maskinporten clients for your organisation. Altinn Studio uses this authorisation when you log in with Ansattporten and add Maskinporten scopes to the app.
 - An **archive system** that integrates with Fiks Arkiv (e.g., Public 360)
 
 ## Integration architecture and flow
@@ -33,22 +33,18 @@ Source of image: [KS Digital](https://github.com/ks-no/fiks-arkiv-specification)
 ## Configuration for sending messages from Altinn App 
 {.floating-bullet-numbers-sibling-ol}
 
-### Step 1: Create a Maskinporten client
+### Step 1: Add Maskinporten scopes in Altinn Studio
 
-- Set up a Maskinporten client with scopes: `ks:fiks`, `altinn:serviceowner/instances.read` and
-`altinn:serviceowner/instances.write`
-- Generate a **JWK key pair for Maskinporten authentication** and upload the public key to the newly generated Maskinporten client
--  Keep the following configuration values for the Altinn App setup
-   -  Client id for the generated Maskinporten client
-   -  Public and private key of the **Maskinporten JWK key pair** (base64 encoded)
-_This Maskinporten client will be used to authenticate requests from the Altinn App both towards Altinn Platform 
-and Fiks._
+Add these scopes to the app in Altinn Studio:
 
-A detailed guide on how to set up a Maskinporten client in Samarbeidsportalen is available below.
+- `ks:fiks`
+- `altinn:serviceowner/instances.read`
+- `altinn:serviceowner/instances.write`
+{.correspondence-custom-list}
 
-{{% expandlarge id="guide-mp-int-samarbeid" header="Guide on how to register a new Maskinporten integration in Samarbeidsportalen" %}}
-{{% insert "content/shared/maskinporten/maskinporten-client-create.en.md" %}}
-{{% /expandlarge %}}
+When the app is deployed, Altinn Studio provisions the Maskinporten client and mounts the generated `MaskinportenSettings` into the app. This client is used to authenticate requests from the Altinn app both towards Altinn Platform and Fiks.
+
+See the [Maskinporten integration guide](/en/altinn-studio/v8/guides/integration/maskinporten/) for how to add scopes in Altinn Studio.
 
 ### Step 2: Create a Fiks Arkiv account
 
@@ -65,7 +61,7 @@ It is therefore recommended to set up one account per unique Altinn app.
 
   Use your preferred tool to generate the certificate. A guide is available at the end of this section.
 
-- In Fiks Forvaltning, set up a new system under Fiks Protokoll for your organization.
+- In Fiks Forvaltning, set up a new system under Fiks Protokoll for your organisation.
   [KS Digital's system setup guide](https://developers.fiks.ks.no/tjenester/fiksprotokoll/veiledning_3_opprette_system/)
    
 
@@ -144,15 +140,16 @@ The package version should match the version of the _Altinn.App.Core_ and _Altin
     in to appsettings.json.
 
 
-{{% expandlarge id="guide-mp-config-vals" header="Overview of Maskinporten configuration" %}}
+{{% expandlarge id="guide-mp-config-vals" header="Legacy overview of manual Maskinporten configuration" %}}
 
-The client id for the Maskinporten client generated in step 1 and the base64-encoded public and private key
-should be added as _ClientId_ and _JwkBase64_ in the _MaskinportenSettings_ section. 
+For the standard Altinn Studio setup, `MaskinportenSettings` is mounted into the app automatically during deployment.
+
+For legacy manual setup, the client identifier should be added as _ClientId_ and the base64-encoded JSON Web Key should be added as _JwkBase64_ in the _MaskinportenSettings_ section.
 
 
 | **Setting Name**  | **Description**                                                                       |
 |-------------------|---------------------------------------------------------------------------------------|
-| **Authority**     | The Maskinporten authority/audience to use for authentication and authorization.      |
+| **Authority**     | The Maskinporten authority/audience to use for authentication and authorisation.      |
 | **ClientId**      | The client ID which has been registered with Maskinporten. Typically a uuid4 string.  |
 | **JwkBase64**     | The private key used to authenticate with Maskinporten, in Base64 encoded JWK format. |
 
@@ -608,7 +605,7 @@ Use **`Value`** when you know the text upfront; use **`DataModelBinding`** when 
 
 - Define the policy for the application  
   
-  Ensure that each task in the process flow has authorization rules linked to them specifying which entities are allowed 
+  Ensure that each task in the process flow has authorisation rules linked to them specifying which entities are allowed
 to complete which actions given a specific state. 
 
 ### Overriding standard behavior
@@ -662,7 +659,7 @@ These along with solutions are listed below, to be used at your convenience.
 
 ### Create a Fiks Arkiv account
 {.floating-bullet-numbers-sibling-ol}
-1. For your organization, set up a new system under Fiks Protokoll 
+1. For your organisation, set up a new system under Fiks Protokoll
 2. Create an account linked to this system
 
     The account should be configured with the following properties
@@ -695,4 +692,3 @@ as the encryption key.
 More on Fiks Arkiv:
 - <https://developers.fiks.ks.no/felles/integrasjoner/>
 - <https://github.com/ks-no/fiks-arkiv-specification/wiki>
-

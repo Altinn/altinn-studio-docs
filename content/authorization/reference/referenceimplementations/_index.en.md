@@ -1,7 +1,7 @@
 ---
-title: Altinn Authentication - Reference Implementations
+title: Altinn Authorization - Reference Implementations
 linktitle: Reference Implementations
-description: Find reference implementations using Altinn Authentication functionality.
+description: Find reference implementations using Altinn Authorization functionality.
 weight: 5
 ---
 

@@ -24,14 +24,13 @@ Consider the following before starting the technical implementation.
 ### Technical requirements
 
 - Your apps must use version 8 or newer of the Altinn NuGet packages.
-- The organisation must have an existing Maskinporten client with the correct Altinn-specific
-   scopes: `altinn:serviceowner/instances.read` and
-   `altinn:serviceowner/instances.write`*
-- You must have an integration between the app and the clients in Maskinporten. You must do this in the apps
-   that will send requests to another app, where the app owner must authorise the requests.*
+- The app that sends requests to another app must have the required Maskinporten scopes added in Altinn Studio:
+   `altinn:serviceowner/instances.read` and
+   `altinn:serviceowner/instances.write`.*
+- The app must use the built-in Maskinporten client when the app owner must authorise the requests.*
 
 If steps 2 and 3 are missing, see
-[Maskinporten-App Integration](/en/altinn-studio/v8/guides/integration/maskinporten/)
+[Maskinporten-App Integration](/en/altinn-studio/v10/develop-a-service/integration/maskinporten/)
 
 \* _If the end user of app A has the necessary roles to create app B on behalf of the intended
 recipient, you can skip these technical requirements._

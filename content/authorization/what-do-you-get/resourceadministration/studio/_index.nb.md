@@ -12,7 +12,7 @@ Hvis tjenesteeier har opprettet repo {org}-resources så vil dashboard for ressu
 
 Brukere som tilhører en team som har tilgang til repo kan gjøre endringer på ressurser.
 
-![Create](resourcedashboard_1.jpg)
+![Create](resourcedashboard_v2.png)
 
 Fra Dashboardet kan man opprette eller endre på ressurser. Ressursene kan gis et navn samt en id. 
 Denne id må kun bestå av tall eller små bokstaver a - z og må være globalt unikt.
@@ -55,3 +55,9 @@ Når publiseringen er gjennomført finnes også ressursen i utlisting på ressur
 - [Ressurliste PROD](https://platform.altinn.no/resourceregistry/api/v1/resource/search)
 
 Ressursen er tilgjengelig på følgende url for PROD  https://platform.altinn.no/resourceregistry/api/v1/resource/{id}
+
+## Migrering av gamle Altinn 1 og Altinn 2 apper
+
+For å endre delegeringsinformasjon på apper fra Altinn 1 og Altinn 2, kan disse importeres til Altinn Studio ressursadministrasjon. For at disse tjenestene skal kunne brukes som normalt, er det viktig å endre tilganger fra Altinn 2-roller til tilgangspakker. Disse tjenestene vises i listen på ressurs-dashboardet, og vil ha en ressurs-id som starter på app\_{tjenesteeierkode}\_a1 eller app\_{tjenesteeierkode}\_a2. For å importere disse, trykk på import-knappen til høyre på listeelementet. De kan så publiseres som normale ressurser.
+
+![Create](migratedapp.png)

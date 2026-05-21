@@ -91,6 +91,7 @@ draft: true
 | `saveAndNextButton` | Expression or boolean indicating whether to show the "Save and next" button when editing a repeating group row. This button will save the current row and open the next row for editing. |  |
 | `alwaysShowAddButton` | If set to true, the "Add" button will always be shown, even if the user is currently editing another row |  |
 | `compactButtons` | If true, edit and delete buttons in the table only show icons when the row is not in edit mode. Text will still be shown when the row is in edit mode. |  |
+| `buttonLayout` | Controls how `Edit` and `Delete` are laid out in desktop table view. `"horizontal"` (default) uses two columns side by side. `"vertical"` uses one column with Edit above Delete to save horizontal space. Does not apply to mobile/tablet layout. | `"horizontal"`, `"vertical"` |
 
 ## Pagination (`pagination`)
 

@@ -319,21 +319,7 @@ For å bruke eksterne API-er som krever Maskinporten-autentisering, trenger du e
 - Eventuelle andre scopes som kreves av det spesifikke API-et du integrerer mot
   {.correspondence-custom-list}
 
-For å sette opp dette kan du følge de generelle stegene i [veiledningen for Maskinporten-integrasjon](/nb/altinn-studio/v8/guides/integration/maskinporten/) med noen modifikasjoner beskrevet nedenfor.
-
-- Eksternt API-klienten trenger en Maskinporten-klient for å kommunisere med beskyttede API-er. Konfigurasjonsobjektet ser typisk slik ut:
-
-  {{< code-title >}}
-  App/appsettings.json
-  {{< /code-title >}}
-
-  ```json
-  "MaskinportenSettings": {
-      "Authority": "https://[test.]maskinporten.no/",
-      "ClientId": "din-klient-id",
-      "JwkBase64": "base64-kodet-jwk"
-  }
-  ```
+For å sette opp dette legger du til scopene i Altinn Studio som beskrevet i [veiledningen for Maskinporten-integrasjon](/nb/altinn-studio/v8/guides/integration/maskinporten/). Når appen publiseres, oppretter Altinn Studio Maskinporten-klienten og monterer generert `MaskinportenSettings` i appen.
 
 - Hvis du trenger en annen konfigurasjonssti, kan du konfigurere den med hjelp av `ConfigureMaskinportenClient`:
 
