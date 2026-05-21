@@ -11,6 +11,9 @@ Kjør `studioctl doctor` for å sjekke at maskinen din har verktøyene som treng
 <div class="notices info"><strong>MERK</strong>
 For å kunne kjøre appen i LocalTest må applikasjonen ha en tilknyttet <a href="{0}">datamodell</a>.</div>
 
+<div class="notices warning"><strong>ADVARSEL</strong>
+Hvis du har en eksisterende <code>app-localtest</code>-stack, må den stoppes og fjernes helt før du kjører <code>studioctl env up</code>. Bruk kommandoen som passer til din container runtime, for eksempel <code>docker compose down -v</code> eller tilsvarende for Podman.</div>
+
 1. **Start lokal testplattform**: Gå til app-repoet i terminalen og kjør `studioctl env up`.
 2. **Kjør applikasjonen i LocalTest**: Kjør `studioctl run` fra app-repoet. Kommandoen finner appmappen automatisk og starter appen med riktige lokale innstillinger.
 3. **Forhåndsvis og test applikasjonen**: Gå til [http://local.altinn.cloud:8000](http://local.altinn.cloud:8000) og logg inn med en [testbruker]({1}).
