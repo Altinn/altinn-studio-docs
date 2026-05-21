@@ -311,25 +311,18 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`multiply`](#func-multiply)              | Ett eller flere [tall](#tall)                             | [Tall](#tall)       | ✅        | ✅      |
 | [`divide`](#func-divide)                  | [Tall](#tall), [Tall](#tall)                | [Tall](#tall)       | ✅        | ✅      |
 
-### Lister og objekter
-
-| Funksjonsnavn            | Parametre                                                                  | Returverdi          | Frontend | Backend |
-|--------------------------|----------------------------------------------------------------------------|---------------------| -------- | ------- |
-| [`list`](#func-list)     | Ubegrenset antall verdier                                                  | [Liste](#lister)    | ❌       | ❌      |
-| [`object`](#func-object) | Et partall antall verdier, hvor oddetallsverdiene er [strenger](#strenger) | [Objekt](#objekter) | ❌       | ❌      |
-
 ### Oppslag, komponenter og data
 
-| Funksjonsnavn                                  | Parametre                                | Returverdi                                                      | Frontend | Backend |
-| ---------------------------------------------- | ---------------------------------------- |-----------------------------------------------------------------| -------- | ------- |
-| [`instanceContext`](#func-instancecontext)     | [Streng](#strenger)                      | [Streng](#strenger)                                             | ✅       | ✅      |
-| [`frontendSettings`](#func-frontendsettings)   | [Streng](#strenger)                      | [Streng](#strenger)                                             | ✅       | ✅      |
-| [`countDataElements`](#func-countDataElements) | [Streng](#strenger)                      | [Tall](#tall)                                                   | ✅       | ✅      |
-| [`dataModel`](#func-datamodel)                 | [Streng](#strenger)                      | [Streng](#strenger), [liste](#lister) eller [objekt](#objekter) | ✅       | ✅      |
-| [`component`](#func-component)                 | [Streng](#strenger)                      | [Streng](#strenger)                                             | ✅       | ✅      |
-| [`linkToPage`](#func-linkToPage)               | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger)                                             | ✅       | ❌      |
-| [`linkToComponent`](#func-linkToComponent)     | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger)                                             | ✅       | ❌      |
-| [`optionLabel`](#func-optionLabel)             | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger)                                             | ✅       | ❌      |
+| Funksjonsnavn                                  | Parametre                                | Returverdi          | Frontend | Backend |
+| ---------------------------------------------- | ---------------------------------------- | ------------------- | -------- | ------- |
+| [`instanceContext`](#func-instancecontext)     | [Streng](#strenger)                      | [Streng](#strenger) | ✅       | ✅      |
+| [`frontendSettings`](#func-frontendsettings)   | [Streng](#strenger)                      | [Streng](#strenger) | ✅       | ✅      |
+| [`countDataElements`](#func-countDataElements) | [Streng](#strenger)                      | [Tall](#tall)       | ✅       | ✅      |
+| [`dataModel`](#func-datamodel)                 | [Streng](#strenger)                      | [Streng](#strenger) | ✅       | ✅      |
+| [`component`](#func-component)                 | [Streng](#strenger)                      | [Streng](#strenger) | ✅       | ✅      |
+| [`linkToPage`](#func-linkToPage)               | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅       | ❌      |
+| [`linkToComponent`](#func-linkToComponent)     | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅       | ❌      |
+| [`optionLabel`](#func-optionLabel)             | [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅       | ❌      |
 
 ### Spesialfunksjoner
 
@@ -1139,41 +1132,6 @@ Vær oppmerksom på at tallet 0 ikke er gyldig som divisor.
 Dersom `null` sendes inn som argument, tolker funksjonen dette som `0`.
 {{% /expandlarge %}}
 
-{{% expandlarge id="func-list" header="list" %}}
-Funksjonen `list` oppretter en liste av parametrene.
-
-Eksempel:
-```json
-["list", 1, 2, 3]
-```
-Dette eksemplet returnerer listen `[1, 2, 3]`. Parametrene kan ha hvilken som helst type.
-{{% /expandlarge %}}
-
-{{% expandlarge id="func-object" header="object" %}}
-Funksjonen `object` oppretter et objekt av parametrene.
-Funksjonen må ha et partall antall parametre, hvor oddetallsparametrene blir til objektets nøkler mens partallsparametrene blir verdiene.
-
-Eksempel:
-```json
-[
-  "object",
-  "navn", "Oslo",
-  "antallInnbyggere", 724290,
-  "erHovedstad", true
-]
-```
-Dette eksemplet returnerer følgende objekt:
-```json
-{
-  "navn": "Oslo",
-  "antallInnbyggere": 724290,
-  "erHovedstad": true
-}
-```
-
-Nøklene må være [strenger](#strenger), mens verdiene kan ha hvilken som helst type.
-{{% /expandlarge %}}
-
 ## Datatyper
 
 Funksjoner i uttrykkene har en forventning om at argumentene som blir sendt inn har en spefikk type. Dersom et argument
@@ -1289,16 +1247,6 @@ Av denne grunn kan det være å foretrekke å spesifisere datoer og tider uten e
 ønsker at datoen/tiden skal vises på samme måte uavhengig av brukerens tidssone. På samme vis er det anbefalt å unngå
 å sammenligne datoer i forskjellige tidssoner.
 {{% /notice %}}
-
-### Lister
-
-Siden hele uttrykksspråket er bygget opp av lister, er det ikke mulig å spesifisere lister direkte. Derfor har vi en egen funksjon som lager en liste av parametrene, nemlig [`list`](#func-list).
-En liste kan bestå av et ubegrenset antall elementer. Elementene kan ha hvilken som helst type, men vær oppmerksom på at funksjoner som tar imot en liste som en parameter ofte stiller krav til hva slags type elementene har.
-
-### Objekter
-
-Uttrykksspråket har ikke noe støtte for JSONs objektsyntaks, men det er mulig å lage objekter ved hjelp av [funksjonen `object`](#func-object).
-Et objekt kan ha et ubegrenset antall par av nøkler og verdier. Nøklene må være [strenger](#strenger), mens verdiene kan være av hvilken som helst type.
 
 ## Tips og triks
 

@@ -316,25 +316,18 @@ These functions are available for use in expressions:
 | [`multiply`](#func-multiply)              | One or more [numbers](#numbers)                                 | [Number](#numbers) | ✅        | ✅       | 
 | [`divide`](#func-divide)                  | [Number](#numbers), [Number](#numbers)                          | [Number](#numbers) | ✅        | ✅       | 
 
-### Lists and objects
-
-| Function name            | Parameters                                                                      | Return value       | Frontend | Backend |
-|--------------------------|---------------------------------------------------------------------------------|--------------------| -------- | ------- |
-| [`list`](#func-list)     | Any number of values                                                            | [List](#lists)     | ❌       | ❌      |
-| [`object`](#func-object) | An even number of values, where the odd numbered values are [strings](#strings) | [Object](#objects) | ❌       | ❌      |
-
 ### Lookup, components and data
 
-| Function Name                                  | Parameters                             | Return Value                                             | Frontend | Backend |
-| ---------------------------------------------- | -------------------------------------- |----------------------------------------------------------| -------- | ------- |
-| [`instanceContext`](#func-instancecontext)     | [String](#strings)                     | [String](#strings)                                       | ✅       | ✅      |
-| [`frontendSettings`](#func-frontendsettings)   | [String](#strings)                     | [String](#strings)                                       | ✅       | ✅      |
-| [`countDataElements`](#func-countDataElements) | [String](#strings)                     | [Number](#numbers)                                       | ✅       | ✅      |
-| [`dataModel`](#func-datamodel)                 | [String](#strings)                     | [String](#strings), [list](#lists) or [object](#objects) | ✅       | ✅      |
-| [`component`](#func-component)                 | [String](#strings)                     | [String](#strings)                                       | ✅       | ✅      |
-| [`linkToPage`](#func-linkToPage)               | [String](#strings), [String](#strings) | [String](#strings)                                       | ✅       | ❌      |
-| [`linkToComponent`](#func-linkToComponent)     | [String](#strings), [String](#strings) | [String](#strings)                                       | ✅       | ❌      |
-| [`optionLabel`](#func-optionLabel)             | [String](#strings), [String](#strings) | [String](#strings)                                       | ✅       | ❌      |
+| Function Name                                  | Parameters                             | Return Value       | Frontend | Backend |
+| ---------------------------------------------- | -------------------------------------- | ------------------ | -------- | ------- |
+| [`instanceContext`](#func-instancecontext)     | [String](#strings)                     | [String](#strings) | ✅       | ✅      |
+| [`frontendSettings`](#func-frontendsettings)   | [String](#strings)                     | [String](#strings) | ✅       | ✅      |
+| [`countDataElements`](#func-countDataElements) | [String](#strings)                     | [Number](#numbers) | ✅       | ✅      |
+| [`dataModel`](#func-datamodel)                 | [String](#strings)                     | [String](#strings) | ✅       | ✅      |
+| [`component`](#func-component)                 | [String](#strings)                     | [String](#strings) | ✅       | ✅      |
+| [`linkToPage`](#func-linkToPage)               | [String](#strings), [String](#strings) | [String](#strings) | ✅       | ❌      |
+| [`linkToComponent`](#func-linkToComponent)     | [String](#strings), [String](#strings) | [String](#strings) | ✅       | ❌      |
+| [`optionLabel`](#func-optionLabel)             | [String](#strings), [String](#strings) | [String](#strings) | ✅       | ❌      |
 
 ### Special functions
 
@@ -1142,41 +1135,6 @@ Be aware that the number 0 is not valid as divisor.
 The function interprets `null` values as `0`.
 {{% /expandlarge %}}
 
-{{% expandlarge id="func-list" header="list" %}}
-The function `list` creates a list from its arguments.
-
-Example:
-```json
-["list", 1, 2, 3]
-```
-This example returns the list `[1, 2, 3]`. The arguments can have any type.
-{{% /expandlarge %}}
-
-{{% expandlarge id="func-object" header="object" %}}
-The `object` function creates an object from its arguments.
-The function must have an even number of arguments, where the odd arguments become the object's keys while the even arguments become the values.
-
-Example:
-```json
-[
-  "object",
-  "name", "Oslo",
-  "numberOfInhabitants", 724290,
-  "isCapital", true
-]
-```
-This example returns the following object:
-```json
-{
-  "name": "Oslo",
-  "numberOfInhabitants": 724290,
-  "isCapital": true
-}
-```
-
-The keys must be [strings](#strings), while the values can have any type.
-{{% /expandlarge %}}
-
 ## Data Types
 
 Expressions in the functions expect that the arguments sent in have a specific type. If an argument sent in has a
@@ -1291,16 +1249,6 @@ For this reason, it may be preferable to specify dates and times without a timez
 date/time to be displayed the same way regardless of the user's timezone. Likewise, when comparing dates, it is
 recommended to only compare dates in the same timezone.
 {{% /notice %}}
-
-### Lists
-
-Since the entire expression language is made up of lists, it is not possible to define lists directly. Therefore, we provide [the `list` function](#func-list), which creates a list from its arguments.
-A list may consist of any number of items. The items may have any type, but be aware that functions with lists in their arguments often have certain requirements to the types of the items.
-
-### Objects
-
-The expression language does not support JSON's object syntax, but it is possible to create an object with [the `object` function](#func-object).
-An object may have any number of key-value pairs. The keys must be [strings](#strings), mens verdiene kan være av hvilken som helst type.
 
 ## Tips and Tricks
 
