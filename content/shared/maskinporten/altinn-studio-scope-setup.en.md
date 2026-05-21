@@ -9,11 +9,11 @@
 - The app must also authorise the service owner in [`App/config/authorization/policy.xml`](/en/altinn-studio/v8/reference/configuration/authorization/). New apps include this rule in the app template. For existing apps, add or update the `[org]` rule so it grants `read` and `write`.
 {{</notice>}}
 
-The recommended setup is to add the scopes the app needs in Altinn Studio. When the app is built and deployed, the built-in Maskinporten client in the app can use the selected scopes.
+The recommended setup is to select the scopes the app needs in Altinn Studio and use the built-in Maskinporten client in application code. When the app is built and deployed, Altinn Studio adds the credentials to the app at the default `MaskinportenSettings` configuration path.
 
 To set this up:
 
-1. [Ensure that your user can add Maskinporten scopes for the organisation](#access-to-maskinporten-scopes).
+1. [Check that your user has access to Maskinporten scopes](#access-to-maskinporten-scopes).
 2. [Add the required scopes in Altinn Studio](/en/altinn-studio/v8/guides/integration/maskinporten/add-scopes/).
 3. [Deploy the app so the selected scopes become available to the app](#deployment-and-credentials).
 4. [Use the built-in Maskinporten client in application code](#application-setup).
@@ -22,7 +22,7 @@ To set this up:
 
 Altinn Studio uses your signed-in Ansattporten access to find the Maskinporten scopes you can add for the service owner organisation.
 
-If you cannot see any scopes in Altinn Studio, your user may not have access to administer clients for the organisation. Contact the person who administers Maskinporten access for your organisation or Altinn servicedesk.
+If you cannot see any scopes in Altinn Studio, your user may not have access to administer clients for the organisation. See [what to do if you do not have access](/en/altinn-studio/v8/guides/integration/maskinporten/add-scopes/#if-you-do-not-have-access), contact the person who administers Maskinporten access for your organisation, or contact Altinn servicedesk.
 
 ## Add scopes in Altinn Studio
 
@@ -54,12 +54,23 @@ To move such an app to Altinn Studio-managed credentials:
 Keep any Azure Key Vault setup that the app uses for other secrets. If Maskinporten credentials were the only values the app read from Azure Key Vault, the Azure Key Vault configuration provider and related app settings can be removed after the migration is verified.
 
 {{% notice warning %}}
-If the app already uses the default `MaskinportenSettings` configuration path and reads those values from Azure Key Vault, the app will temporarily have two configuration sources for the same keys after Studio-managed credentials are deployed: the runtime secrets file added by `ConfigureAppWebHost`, and Azure Key Vault.
+**If the app already uses `MaskinportenSettings` from Azure Key Vault**
 
-Configuration providers added later override earlier providers. Ensure that the Azure Key Vault provider is registered after the call to `ConfigureAppWebHost`, so the existing Key Vault values keep taking precedence until you intentionally remove them. When you want the app to use the Studio-managed credentials, remove or rename the old `MaskinportenSettings--...` Key Vault secrets, or remove the Azure Key Vault setup entirely if the app does not use it for anything else, and redeploy the app.
+After deployment, the app can temporarily have two configuration sources for the same keys:
+
+- the runtime secrets file registered by `ConfigureAppWebHost`
+- Azure Key Vault
+
+Configuration providers added later override earlier providers. Ensure that the Azure Key Vault provider is registered after the call to `ConfigureAppWebHost` while the app should still use the old Key Vault values.
+
+When the app should use the Altinn Studio-managed credentials:
+
+- remove or rename the old `MaskinportenSettings--...` Key Vault secrets
+- remove the Azure Key Vault setup entirely if the app does not use Azure Key Vault for anything else
+- redeploy the app
 {{% /notice %}}
 
-## Application Setup
+## Usage {#application-setup}
 
 The app automatically includes the built-in `IMaskinportenClient` which can be injected into your services.
 
