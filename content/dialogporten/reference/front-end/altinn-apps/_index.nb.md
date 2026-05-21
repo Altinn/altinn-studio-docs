@@ -31,6 +31,17 @@ automatiske synkroniseringen:
 | `disableSyncApiActions`                   | Deaktiver synkronisering av API-handlinger (kun gjenkjente ID-er).                   |
 | `disableSyncGuiActions`                   | Deaktiver synkronisering av GUI-handlinger (kun gjenkjente ID-er).                   |
 | `disableMarkCompletedWhenConfirmed`       | Deaktiver å sette dialogstatus til Completed når app-instansen er ArchivedConfirmed. |
+| `enableUserSuppliedDialogId`              | Bruk brukerlevert dialogId funnet i DataValues med nøkkel: dialog.id.                |
+
+#### Aktiver brukerlevert dialogId
+Som standard genererer adapteren en dialog-ID deterministisk fra instans-IDen og opprettelsestidspunktet av instansen. Aktivering av denne innstillingen bruker i stedet en dialog-ID levert av appen selv, funnet i DataValues-oppføring med nøkkel dialog.id.
+
+Krav til den leverte dialog-IDen:
+- Må være en gyldig UUIDv7
+- Tidsstempelet innebygd i UUIDen må være i fortiden
+- Må ikke allerede være i bruk av en annen app-instans
+
+**Kollisjonsdeteksjon:** Adapteren sjekker den gitte dialogen for eventuelle service owner labels med urn:altinn:integration:storage:{instanceId}. Hvis en label blir funnet som peker til en annen instans, avvises synkroniseringen
 
 ### Eksempel
 
@@ -58,7 +69,9 @@ Dette viser standard syncAdapterSettings. Sett hvilken som helst til `true` for 
         "disableSyncAttachments": false,
         "disableSyncApiActions": false,
         "disableSyncGuiActions": false,
-        "disableMarkCompletedWhenConfirmed": false
+        "disableMarkCompletedWhenConfirmed": false,
+        "enableUserSuppliedDialogId": false
+
     }
   }
 }
