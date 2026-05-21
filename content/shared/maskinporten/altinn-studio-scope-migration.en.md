@@ -10,9 +10,9 @@ To move such an app to Altinn Studio-managed credentials:
 
 1. Check which scopes the existing Maskinporten client is configured with in Samarbeidsportalen, and which scopes the app requests in code.
 2. Add the same scopes to the app in Altinn Studio. If the app only needs service owner access to Altinn instances, use the default service owner scopes.
-3. Build and deploy the app to TT02. The deployed app will receive credentials for the selected scopes at the default `MaskinportenSettings` configuration path.
-4. Update app code that explicitly binds Maskinporten configuration to a custom path. Remove the custom `ConfigureMaskinportenClient("...")` call, or change it to use `MaskinportenSettings`, so the app uses the configuration supplied by Altinn Studio.
-5. Verify the app in TT02. Test that it can retrieve a Maskinporten token, and that calls requiring exchanged Altinn tokens still work if the app uses `UseMaskinportenAltinnAuthorization` or `GetAltinnExchangedToken`.
+3. Update app code that explicitly binds Maskinporten configuration to a custom path. Remove the custom `ConfigureMaskinportenClient("...")` call, or change it to use `MaskinportenSettings`, so the app uses the configuration supplied by Altinn Studio.
+4. Build and deploy the app to TT02. The deployed app will receive credentials for the selected scopes at the default `MaskinportenSettings` configuration path.
+5. Verify the app in TT02. Test that it can retrieve a Maskinporten token, and that calls requiring exchanged Altinn tokens still work.
 6. Repeat the deployment and verification in production.
 7. After production is verified, remove the old app-specific Key Vault secrets and the custom Key Vault configuration if they are no longer used. Do not delete the old Maskinporten client before you have verified that no other app or integration uses it.
 {.floating-bullet-numbers}
@@ -27,7 +27,7 @@ After deployment, the app can temporarily have two configuration sources for the
 - the configuration Altinn Studio adds to the app during deployment
 - Azure Key Vault
 
-Configuration providers added later override earlier providers. Ensure that the Azure Key Vault provider is registered after the call to `ConfigureAppWebHost` while the app should still use the old Key Vault values.
+While the app should still use the old Key Vault values, Azure Key Vault must override the configuration from Altinn Studio. Ensure that the Azure Key Vault provider is registered after the call to `ConfigureAppWebHost`.
 
 When the app should use the Altinn Studio-managed credentials:
 

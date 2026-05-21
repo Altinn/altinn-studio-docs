@@ -10,9 +10,9 @@ For å flytte en slik app til klientdetaljer håndtert av Altinn Studio:
 
 1. Kontroller hvilke scopes den eksisterende Maskinporten-klienten er konfigurert med i Samarbeidsportalen, og hvilke scopes appen ber om i kode.
 2. Legg de samme scopene til appen i Altinn Studio. Hvis appen bare trenger tjenesteeiertilgang til Altinn-instanser, bruker du standardscopene for tjenesteeier.
-3. Bygg og publiser appen til TT02. Den publiserte appen får klientdetaljer for valgte scopes på standardstien `MaskinportenSettings`.
-4. Oppdater appkode som eksplisitt binder Maskinporten-konfigurasjon til en egendefinert sti. Fjern det egendefinerte `ConfigureMaskinportenClient("...")`-kallet, eller endre det til å bruke `MaskinportenSettings`, slik at appen bruker konfigurasjonen fra Altinn Studio.
-5. Verifiser appen i TT02. Test at den kan hente Maskinporten-token, og at kall som krever innvekslede Altinn-token fortsatt fungerer hvis appen bruker `UseMaskinportenAltinnAuthorization` eller `GetAltinnExchangedToken`.
+3. Oppdater appkode som eksplisitt binder Maskinporten-konfigurasjon til en egendefinert sti. Fjern det egendefinerte `ConfigureMaskinportenClient("...")`-kallet, eller endre det til å bruke `MaskinportenSettings`, slik at appen bruker konfigurasjonen fra Altinn Studio.
+4. Bygg og publiser appen til TT02. Den publiserte appen får klientdetaljer for valgte scopes på standardstien `MaskinportenSettings`.
+5. Verifiser appen i TT02. Test at den kan hente Maskinporten-token, og at kall som krever innvekslede Altinn-token fortsatt fungerer.
 6. Gjenta publisering og verifisering i produksjon.
 7. Når produksjon er verifisert, kan gamle appspesifikke Key Vault-hemmeligheter og egendefinert Key Vault-konfigurasjon fjernes hvis de ikke brukes lenger. Ikke slett den gamle Maskinporten-klienten før du har verifisert at ingen andre apper eller integrasjoner bruker den.
 {.floating-bullet-numbers}
@@ -27,7 +27,7 @@ Etter publisering kan appen midlertidig ha to konfigurasjonskilder for de samme 
 - konfigurasjonen Altinn Studio legger inn i appen ved publisering
 - Azure Key Vault
 
-Konfigurasjonsprovidere som legges til senere, overstyrer tidligere providere. Sørg for at Azure Key Vault-provideren registreres etter kallet til `ConfigureAppWebHost` mens appen fortsatt skal bruke de gamle Key Vault-verdiene.
+Mens appen fortsatt skal bruke de gamle Key Vault-verdiene, må Azure Key Vault overstyre konfigurasjonen fra Altinn Studio. Sørg for at Azure Key Vault-provideren registreres etter kallet til `ConfigureAppWebHost`.
 
 Når appen skal bruke klientdetaljene håndtert av Altinn Studio:
 

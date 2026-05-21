@@ -9,8 +9,6 @@
 - Appen må også autorisere tjenesteeier i [`App/config/authorization/policy.xml`](/nb/altinn-studio/v8/reference/configuration/authorization/). Nye apper har denne regelen i appmalen. For eksisterende apper må du legge til eller oppdatere `[org]`-regelen slik at den gir `read` og `write`.
 {{</notice>}}
 
-Anbefalt oppsett er å velge scopene appen trenger i Altinn Studio og bruke den innebygde Maskinporten-klienten i appkoden. Når appen bygges og publiseres, legger Altinn Studio klientdetaljene inn i appen på standardstien `MaskinportenSettings`.
-
 For å sette dette opp må du:
 
 1. [Kontrollere at brukeren din har tilgang til Maskinporten-scopes](#tilgang-til-maskinporten-scopes).

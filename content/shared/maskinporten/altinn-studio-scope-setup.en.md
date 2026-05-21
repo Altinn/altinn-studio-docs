@@ -9,8 +9,6 @@
 - The app must also authorise the service owner in [`App/config/authorization/policy.xml`](/en/altinn-studio/v8/reference/configuration/authorization/). New apps include this rule in the app template. For existing apps, add or update the `[org]` rule so it grants `read` and `write`.
 {{</notice>}}
 
-The recommended setup is to select the scopes the app needs in Altinn Studio and use the built-in Maskinporten client in application code. When the app is built and deployed, Altinn Studio adds the credentials to the app at the default `MaskinportenSettings` configuration path.
-
 To set this up:
 
 1. [Check that your user has access to Maskinporten scopes](#access-to-maskinporten-scopes).

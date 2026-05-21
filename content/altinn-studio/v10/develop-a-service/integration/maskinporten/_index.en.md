@@ -7,7 +7,7 @@ tags: [needsReview]
 toc: true
 ---
 
-This guide shows how to set up an Altinn app to use the built-in Maskinporten client (`IMaskinportenClient`) for authorised requests on behalf of the app owner, as opposed to the active user.
+This guide shows how to set up an Altinn app to make authorised requests with Maskinporten on behalf of the app owner, as opposed to the active user.
 
 {{% insert "content/shared/maskinporten/altinn-studio-scope-setup.en.md" %}}
 

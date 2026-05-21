@@ -9,7 +9,7 @@ aliases:
 - /altinn-studio/guides/integration/maskinporten-app-integration
 ---
 
-Denne veiledningen viser hvordan du setter opp en Altinn-applikasjon til å bruke den innebygde Maskinporten-klienten (`IMaskinportenClient`) for å utføre autoriserte forespørsler på vegne av eieren av applikasjonen, i stedet for den aktive brukeren.
+Denne veiledningen viser hvordan du setter opp en Altinn-app til å utføre autoriserte forespørsler med Maskinporten på vegne av eieren av appen, i stedet for den aktive brukeren.
 
 {{% insert "content/shared/maskinporten/altinn-studio-scope-setup.nb.md" %}}
 
