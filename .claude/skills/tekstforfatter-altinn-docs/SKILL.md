@@ -1,6 +1,5 @@
 ---
-name: forfatter-uten
-description: "Norsk tekstforfatter og redaktør: klarspråk, AI-markører, anglisismer, fagtermer, mikrotekst. Fungerer uten CLAUDE.md."
+description: "Norsk tekstforfatter og redaktør: klarspråk, AI-markører, anglisismer, fagtermer, mikrotekst."
 ---
 
 # Tekstredaktør
