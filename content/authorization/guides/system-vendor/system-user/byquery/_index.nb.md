@@ -7,6 +7,8 @@ weight: 3
 
 Endepunktet lar deg som sluttbrukersystemleverandør (SBSL) hente en eksisterende systembruker for eget system. Du kan slå opp systembrukeren ved å kombinere system-ID og organisasjonsnummer, og eventuelt en ekstern referanse.
 
+> **Merk:** Dette endepunktet brukes til å sjekke om en systembruker eksisterer og hente verdier som systembruker-ID. Det gir ikke tilgang til selve systembruker-tokenet. For å hente token og bruke systembrukeren i API-kall, se [Bruk av systembruker](../usetoken/).
+
 Du bruker dette endepunktet til å
 
 - verifisere at en systembruker er opprettet etter at sluttbrukeren har godkjent en forespørsel
