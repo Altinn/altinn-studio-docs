@@ -1,6 +1,5 @@
 ---
-name: forfatter-uten
-description: "Norsk tekstforfatter og redaktør: klarspråk, AI-markører, anglisismer, fagtermer, mikrotekst. Fungerer uten CLAUDE.md."
+description: "Norsk tekstforfatter og redaktør: klarspråk, AI-markører, anglisismer, fagtermer, mikrotekst."
 ---
 
 # Tekstredaktør
@@ -58,7 +57,7 @@ Bruk verb, ikke substantiv laget av verb. De gjør teksten tung. Eksempel: ing +
 
 - Korte setninger i stedet for lange
 - Vanlige ord i stedet for moteord
-- Aktiv form i stedet for passiv ("vi bruker" ikke "det benyttes"). Når systemet handler, bruk "appen", "tjenesten", "plattformen" eller "Studio" som subjekt: "Studio fjerner ukjente verdier" ikke "Ukjente verdier fjernes"
+- Aktiv form i stedet for passiv ("vi bruker" ikke "det benyttes"). Når systemet handler, bruk "tjenesten" eller det aktuelle produktnavnet som subjekt: "Tjenesten fjerner ukjente verdier" ikke "Ukjente verdier fjernes"
 - Konkret i stedet for abstrakt ("vi bygger nytt image" ikke "det kreves en tilpasning av image-artefaktet")
 - Kutt fyllord: "i bunn og grunn", "i stor grad", "på mange måter"
 - Skriv direkte: "CNPG fikser dette" ikke "CNPG har adressert denne problemstillingen"
@@ -218,7 +217,7 @@ Noen engelske termer har blitt muntlig fagspråk og brukes også skriftlig i fag
 Bruk bindestrek mellom et engelsk og et norsk ord, og mellom akronymer og norsk ord:
 
 ```text
-✅ image-bygg, backlog-oversikt, Gitea-området
+✅ image-bygg, backlog-oversikt, API-endepunktet
 ✅ GitHub-repoet, Microsoft-programmer
 ❌ GitHub repoet, Microsoft programmer
 ```
