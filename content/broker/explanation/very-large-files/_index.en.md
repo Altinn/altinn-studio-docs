@@ -7,7 +7,7 @@ toc: true
 weight: 10
 ---
 
-Broker is restricted to files up to 50GB by default. This is due to restriction with the virus scan. You can still send files larger than this if the resource has disabled virus scan. To mitigate potential legal rise we require resources that disable virus scan get pre-approved by us.
+Broker is restricted to files up to 50 GB by default. This is due to restriction with the virus scan. You can still send files larger than this if the resource has disabled virus scan. To mitigate potential legal risk we require resources that disable virus scan get pre-approved by us.
 
 The theoretical maximum size is 1.6TB, but we only regularly benchmark it to 100GB. We can make changes to accomodate larger files than 1.6TB if needed.
 
