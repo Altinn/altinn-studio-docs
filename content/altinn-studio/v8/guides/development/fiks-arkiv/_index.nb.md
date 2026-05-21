@@ -21,7 +21,7 @@ for Fiks Arkiv integrasjon i en app.
 Før du setter opp Fiks Arkiv-integrasjonen i appen din, må du ha følgende på plass:
 
 - **Fiks Protokoll** aktivert i Fiks forvaltningsportalen for din organisasjon
-- Tilgang til **Samarbeidsportalen** for å konfigurere Maskinporten-klienter
+- Tilgang i **Samarbeidsportalen** til å administrere Maskinporten-klienter for organisasjonen din. Altinn Studio bruker denne autoriseringen når du logger inn med Ansattporten og legger Maskinporten-scopes til appen.
 - Et **arkivsystem** som integrerer med Fiks Arkiv (f.eks. Public 360)
 
 ## Integrasjonsarkitektur og flyt
@@ -34,22 +34,18 @@ Kilde: [KS Digital](https://github.com/ks-no/fiks-arkiv-specification)
 ## Konfigurasjon for sending av meldinger fra Altinn App
 {.floating-bullet-numbers-sibling-ol}
 
-### Steg 1: Opprett en Maskinporten-klient
+### Steg 1: Legg til Maskinporten-scopes i Altinn Studio
 
-- Sett opp en Maskinporten-klient med følgende scopes: `ks:fiks`, `altinn:serviceowner/instances.read` og
-`altinn:serviceowner/instances.write`
-- Generer et **JWK-nøkkelpar for Maskinporten authentication** og last opp den offentlige nøkkelen til den nyopprettede Maskinporten-klienten
-- Ta vare på følgende konfigurasjonsverdier for Altinn App-oppsettet
-  - Klient-id for den genererte Maskinporten-klienten
-  - Offentlig og privat nøkkel for **Maskinporten JWK-nøkkelparet** (base64-enkodet)
-_Denne Maskinporten-klienten vil bli brukt til å autentisere forespørsler fra Altinn-appen både mot Altinn Platform 
-og Fiks._
+Legg til disse scopene på appen i Altinn Studio:
 
-En detaljert veiledning for hvordan du setter opp en Maskinporten-klient i Samarbeidsportalen er tilgjengelig nedenfor.
+- `ks:fiks`
+- `altinn:serviceowner/instances.read`
+- `altinn:serviceowner/instances.write`
+{.correspondence-custom-list}
 
-{{% expandlarge id="guide-mp-int-samarbeid" header="Veiledning for hvordan registrere en ny Maskinporten-integrasjon i Samarbeidsportalen" %}}
-{{% insert "content/shared/maskinporten/maskinporten-client-create.nb.md" %}}
-{{% /expandlarge %}}
+Når appen publiseres, oppretter Altinn Studio Maskinporten-klienten og monterer generert `MaskinportenSettings` i appen. Denne klienten brukes til å autentisere forespørsler fra Altinn-appen både mot Altinn Platform og Fiks.
+
+Se [veiledningen for Maskinporten-integrasjon](/nb/altinn-studio/v8/guides/integration/maskinporten/) for hvordan du legger til scopes i Altinn Studio.
 
 ### Steg 2: Opprett en Fiks Arkiv-konto
 
@@ -145,10 +141,11 @@ Pakkeversjonen bør samsvare med versjonen av _Altinn.App.Core_ og _Altinn.App.A
     inn i appsettings.json.
 
 
-{{% expandlarge id="guide-mp-config-vals" header="Oversikt over Maskinporten-konfigurasjon" %}}
+{{% expandlarge id="guide-mp-config-vals" header="Eldre oversikt over manuell Maskinporten-konfigurasjon" %}}
 
-Klient-id for Maskinporten-klienten generert i steg 1 og den base64-kodede offentlige og private nøkkelen
-bør legges til som _ClientId_ og _JwkBase64_ i _MaskinportenSettings_-seksjonen. 
+For standard oppsett i Altinn Studio monteres `MaskinportenSettings` automatisk i appen under publisering.
+
+For eldre manuelt oppsett legges klientidentifikatoren til som _ClientId_, og den base64-kodede JSON Web Key-en legges til som _JwkBase64_ i _MaskinportenSettings_-seksjonen.
 
 
 | **Innstillingsnavn**  | **Beskrivelse**                                                                       |
@@ -695,4 +692,3 @@ som krypteringsnøkkelen.
 Mer om Fiks Arkiv:
 - <https://developers.fiks.ks.no/felles/integrasjoner/>
 - <https://github.com/ks-no/fiks-arkiv-specification/wiki>
-
