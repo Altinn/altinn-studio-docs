@@ -17,6 +17,8 @@ This guide details how to set up an Altinn application to use the built-in Maski
 
 The following manual setup is only needed for legacy apps or special cases where Altinn Studio should not provision the Maskinporten client.
 
+{{% insert "content/shared/maskinporten/altinn-studio-scope-migration.en.md" %}}
+
 {{% expandlarge id="legacy-manual-maskinporten-setup" header="Show manual setup with Samarbeidsportalen and Azure Key Vault" %}}
 
 ### Azure Key Vault Access

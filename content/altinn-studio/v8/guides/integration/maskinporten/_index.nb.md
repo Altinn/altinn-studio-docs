@@ -17,6 +17,8 @@ Denne veiledningen viser hvordan du setter opp en Altinn-applikasjon til å bruk
 
 Det følgende manuelle oppsettet er bare nødvendig for eldre applikasjoner eller spesialtilfeller der Altinn Studio ikke skal opprette Maskinporten-klienten.
 
+{{% insert "content/shared/maskinporten/altinn-studio-scope-migration.nb.md" %}}
+
 {{% expandlarge id="legacy-manual-maskinporten-setup" header="Vis manuelt oppsett med Samarbeidsportalen og Azure Key Vault" %}}
 
 ### Tilgang til Azure Key Vault
