@@ -42,7 +42,7 @@ The `external-ref` parameter is useful if there are multiple system users for th
 
 ### Request
 
-```
+```http
 GET https://platform.tt02.altinn.no/authentication/api/v1/systemuser/vendor/byquery
   ?system-id=991825827_smartcloud
   &orgno=314248295
