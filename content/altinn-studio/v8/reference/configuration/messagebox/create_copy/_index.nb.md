@@ -72,6 +72,8 @@ Under kopiering av skjema vil logikken utføre metode kall mot **IInstantiationP
 
 ## Validering
 
+{{%notice warning%}}Validering krever versjon 8.13 eller nyere av app-lib{{% /notice%}}
+
 Validering er nyttig hvis tjenesteeier ønsker å begrense når brukere kan kopiere instanser, for eksempel basert på tidsfrister eller endringer i applikasjonen.
 
 `ICopyInstanceValidator` kan implementeres i applikasjonskoden for å legge til egendefinert validering som bare kjøres i tilfeller der man ønsker å kopiere fra instans. Interfacet tar inn en `IInstanceDataAccessor` basert på kildeinstansen som argument og returnerer en `InstantiationValidationResult`.

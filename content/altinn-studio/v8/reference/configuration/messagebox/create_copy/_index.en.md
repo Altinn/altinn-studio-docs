@@ -70,6 +70,8 @@ During the copying of an instance the logic will perform a method call to **IIns
 
 ## Validation
 
+{{%notice warning%}}Validation requires version 8.13 or newer of app-lib{{% /notice%}}
+
 Validation is useful if the service owner wishes to restrict when end users can copy instances, for example based on deadlines or changes to the application.
 
 `ICopyInstanceValidator` can be implemented in the application code to add custom validation that only runs when copying from an instance. The interface takes an `IInstanceDataAccessor` based on the source instance as an argument and returns an `InstantiationValidationResult`.
