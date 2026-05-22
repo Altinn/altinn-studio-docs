@@ -1,6 +1,6 @@
 ---
 title: Oversikt over de nyeste statusendringene knyttet til samtykke
-linktitle: Oversikt over de nyeste statusendringene knyttet til samtykke
+linktitle: Nyeste statusendringer
 weight: 10
 toc: false
 ---
