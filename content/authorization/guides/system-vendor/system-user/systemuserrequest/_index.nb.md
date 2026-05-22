@@ -136,7 +136,7 @@ Dette gjelder en systembruker for et system som skal handle på vegne av sluttbr
 
 ### Verifisere opprettelse
 
-Etter at en sluttbruker har godkjent en forespørsel (status `Accepted`), kan du som SBSL verifisere at systembrukeren eksisterer med `byquery`-endepunktet.
+Etter at en sluttbruker har godkjent en forespørsel (status `Accepted`), kan du som SBSL også bruke `byquery`-endepunktet som et supplement til eksisterende statusendepunkter for å sjekke at systembrukeren faktisk er opprettet.
 
 Kallet krever scopet `altinn:authentication/systemuser.request.write` i Maskinporten-tokenet.
 

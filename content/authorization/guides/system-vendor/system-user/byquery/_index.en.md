@@ -11,7 +11,7 @@ The endpoint lets you, as an end-user system vendor (SBSL), retrieve an existing
 
 You use this endpoint to
 
-- verify that a system user has been created after the end-user has approved a request
+- supplement existing status endpoints for system user requests by checking whether a system user has actually been created
 - retrieve the system user ID needed to create change requests
 - check details for an existing system user
 

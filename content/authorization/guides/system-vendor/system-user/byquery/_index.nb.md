@@ -11,7 +11,7 @@ Endepunktet lar deg som sluttbrukersystemleverandør (SBSL) hente en eksisterend
 
 Du bruker dette endepunktet til å
 
-- verifisere at en systembruker er opprettet etter at sluttbrukeren har godkjent en forespørsel
+- supplere eksisterende statusendepunkter for systembrukerforespørsler ved å sjekke om en systembruker faktisk er opprettet
 - hente systembruker-ID-en som trengs for å opprette endringsforespørsler
 - sjekke detaljer for en eksisterende systembruker
 

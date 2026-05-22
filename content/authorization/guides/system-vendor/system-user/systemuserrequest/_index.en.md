@@ -135,7 +135,7 @@ This applies to a system user for a system that will act on behalf of the end-us
 
 ### Verify creation
 
-After an end-user has approved a request (status `Accepted`), you as the SBSL can verify that the system user exists using the `byquery` endpoint.
+After an end-user has approved a request (status `Accepted`), you as the SBSL can also use the `byquery` endpoint as a supplement to existing status endpoints to check that the system user has actually been created.
 
 The call requires the scope `altinn:authentication/systemuser.request.write` in the Maskinporten token.
 
