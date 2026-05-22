@@ -9,9 +9,18 @@ weight: 5
 
 Det er bare Sluttbrukersystemleverandør (SBSL) som kan be om en endring av en Systembruker, dette fordi det er deres oppgave å vite hvilke tilganger som trengs for systemet, ihht hvordan de skal integrere seg mot en Tjeneste Eier sitt API. Men det er Sluttbruker selv som må godkjenne endringen, fordi det er Sluttbruker som “eier” SystemBrukeren. Dersom en organisasjon er både “leverandør” og sluttbruker, må de likevel igjennom prosessen med å opprette en endringsforespørsel, og deretter godkjenne den.
 
-## Endepunkt for å hente en eksisterende SystemBruker for sitt eget system.
+## Hente en eksisterende systembruker for eget system
 
-- {{API_BASE_URL}}/authentication/api/v1/systemuser/vendor/byquery?system-id={system-id-string}&orgno={organisasjon nummer}&external-ref={bare dersom brukt ved opprettelse}
+Du trenger systembruker-ID-en for å opprette en endringsforespørsel. Hent systembrukeren med `byquery`-endepunktet.
+
+Kallet krever scopet `altinn:authentication/systemuser.request.write` i Maskinporten-tokenet.
+
+- **Test (TT02):** `GET https://platform.tt02.altinn.no/authentication/api/v1/systemuser/vendor/byquery?system-id={system-id}&orgno={orgno}&external-ref={ekstern-ref}`
+- **Produksjon:** `GET https://platform.altinn.no/authentication/api/v1/systemuser/vendor/byquery?system-id={system-id}&orgno={orgno}&external-ref={ekstern-ref}`
+
+Parameteren `external-ref` er valgfri og brukes bare dersom den ble satt ved opprettelse.
+
+Se [Hente systembruker via spørring](../byquery/) for full dokumentasjon av endepunktet, inkludert alle parametere og felter i responsen.
 
 ## Opprettelse av en Forespørsel om Endring 
 

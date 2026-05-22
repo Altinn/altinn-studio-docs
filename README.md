@@ -19,6 +19,7 @@ There are two ways to edit and test your changes to the docs:
 3. Navigate to folder and run Hugo
    ```shell
    cd altinn-studio-docs
+  
    hugo server --navigateToChanged
    ```
 4. The documentation can now be opened in browser at http://localhost:1313/
