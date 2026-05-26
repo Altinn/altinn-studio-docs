@@ -164,7 +164,7 @@ public class CopyInstanceValidator(IAppMetadata appMetadata) : ICopyInstanceVali
                 .DataValues
                 .SingleOrDefault(x => x.Key == "appVersion");
             var application = await appMetadata.GetApplicationMetadata();
-            if (appVersionDateValue != null && appVersionDataValue.Value.Equals(application.VersionId) == false)
+            if (appVersionDataValue != null && appVersionDataValue.Value.Equals(application.VersionId) == false)
             {
                 return new InstantiationValidationResult
                 {
