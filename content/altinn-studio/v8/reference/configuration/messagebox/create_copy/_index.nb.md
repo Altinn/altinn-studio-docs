@@ -128,7 +128,7 @@ namespace Altinn.App.models;
 
 public class CopyInstanceValidator : ICopyInstanceValidator
 {
-    private static readonly DateTime CopiesNotAllowedAfter = new(2026, 6, 31);
+    private static readonly DateTime CopiesNotAllowedAfter = new(2026, 6, 30);
 
     public async Task<InstantiationValidationResult> Validate(IInstanceDataAccessor sourceInstanceDataAccessor)
     {
@@ -137,7 +137,7 @@ public class CopyInstanceValidator : ICopyInstanceValidator
             return new InstantiationValidationResult
             {
                 Valid = false,
-                Message = "ERROR: Not allowed to copy instances after 2026-06-31"
+                Message = "ERROR: Not allowed to copy instances after 2026-06-30"
             };
         }
 
@@ -166,7 +166,7 @@ public class CopyInstanceValidator(IAppMetadata appMetadata) : ICopyInstanceVali
                 .DataValues
                 .SingleOrDefault(x => x.Key == "appVersion");
             var application = await appMetadata.GetApplicationMetadata();
-            if (appVersionDataValue.Value.Equals(application.VersionId) == false)
+            if (appVersionDateValue != null && appVersionDataValue.Value.Equals(application.VersionId) == false)
             {
                 return new InstantiationValidationResult
                 {
