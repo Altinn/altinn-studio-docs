@@ -20,7 +20,7 @@ Livesynkronisering: Alle endringer[^1] (skjema, meldinger) vises i Dialogporten.
 | A2-Melding | 22.06.2017 |
 | A2 arkiverte skjema / A3-app-instanser | 01.01.2018[^2] |
 
-[^2]: Et par enkelt-skjema mangler i 2018 for øyeblikket. Under utbedring
+[^2]: Et par enkelt-skjema mangler i 2018 for øyeblikket. Under utbedring.
 
 ## Mål og planer
 
