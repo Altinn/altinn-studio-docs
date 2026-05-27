@@ -2,7 +2,7 @@
 draft: true
 title: Dataprosessering
 description: Kjør automatiske beregninger og oppdater data når brukeren lagrer.
-tags: [needsReview, needsTranslation]
+tags: [needsReview]
 toc: true
 ---
 

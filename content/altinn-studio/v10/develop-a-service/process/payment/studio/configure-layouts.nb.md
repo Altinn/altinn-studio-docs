@@ -1,7 +1,7 @@
 ---
 draft: true
 hidden: true
-tags: [needsReview, needsTranslation]
+tags: [needsReview]
 ---
 
 >Du gjør oppsettet i denne seksjonen fra **Utforming**-siden i appens arbeidsflate. Naviger dit ved å klikke på **Utforming** i toppmenyen fra appens arbeidsflate.

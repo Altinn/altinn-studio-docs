@@ -1,25 +1,26 @@
 ---
 draft: true
-title: Testbrukere lokalt
+title: Bruke testbrukere lokalt
 linktitle: Testbrukere
-description: Vi har definert et lite sett med testbrukere som er tilgjengelig for lokal test.
+description: Slik bruker du testbrukere til lokal test.
 toc: true
+tags: [needsReview, translate-to-english]
 ---
 
-## Standard brukere
+## Standardbrukere
 
-Disse kan man velge når man logger inn i lokal test.
+Disse kan du velge når du logger inn i lokal test.
 
-![testbrukere](userselection.png "Valg av testbrukere")
+![testbrukere](userselection.png "Velge testbrukere")
 
 ### Sophie Salt
 
-Sophie er en svært driftig dame som bor i Oslo. Hun har startet en kjede med treningsententer som heter DDG Fitness og til nå er det startet 3 underenheter i Oslo, Bergen og Trondheim.
-Sophie har rollen DAGL og dens underroller for DDG Fitness AS og dens underhenheter.
+Sophie er en svært driftig dame som bor i Oslo. Hun har startet en kjede med treningssentre som heter DDG Fitness og til nå er det startet tre underenheter i Oslo, Bergen og Trondheim.
+Sophie har rollen DAGL og underrollene for DDG Fitness AS og underenhetene.
 
-I tilegg er hun ekspert på helse og har startet eget konsulentfirma for helsetjenester. Sophie har rollen LEDE + knyttede roller for EAS Health Consulting.
+I tillegg er hun ekspert på helse og har startet eget konsulentfirma for helsetjenester. Sophie har rollen LEDE + tilknyttede roller for EAS Health Consulting.
 
-Hun er også styremedlem i borettslaget der hun bor. "Oslos Vakreste Borettslag".  Sophie har rollen MEDL + knyttede roller for "Oslos Vakreste Borettslag".
+Hun er også styremedlem i borettslaget der hun bor. "Oslos Vakreste Borettslag". Sophie har rollen MEDL + tilknyttede roller for "Oslos Vakreste Borettslag".
 
 #### Avgivere
 
@@ -60,7 +61,7 @@ Gjentagende Forelder er revisor for selskapet DDG Fitness AS.
 ### Ola Nordmann
 
 Ola Nordmann er en privatperson som kun kan representere seg selv.
-Er bosatt på Stokmarknes.
+Han er bosatt på Stokmarknes.
 
 #### Avgivere
 
@@ -68,39 +69,37 @@ Er bosatt på Stokmarknes.
 
 ### Andre brukere
 
-For å teste skjema relatert til barn og oppvekst (barnehage og skole) er det lagt til noen spesifikke brukere.
+For å teste skjemaer relatert til barn og oppvekst (barnehage og skole) er det lagt til noen spesifikke brukere.
+
 | Avgiver                          | Barn | Inntekt |
 | -------------------------------- | ---- | ------- |
 | 01899699552 Pengelens Partner    | 0    | Lav     |
 | 17858296439 Gjentagende Forelder | 3    | Middels |
 | 29917097109 Rik forelder         | 2    | Høy     |
 
-NB! Disse er fra Tenors testdatasett, men ligger der med andre navn.
+**Merk:** Disse er fra Tenors testdatasett, men ligger der med andre navn.
 
 ### Systemer og systembrukere
 
-Med nyere versjon av localtest kan man teste apper med systembrukere lokalt.
-Det er lagt ved en innebygget system og systembruker knyttet til 950474084 Oslos Vakreste Borettslag.
+Med nyere versjon av localtest kan du teste apper med systembrukere lokalt.
+Det er lagt ved et innebygget system og en systembruker knyttet til 950474084 Oslos Vakreste Borettslag.
 Du kan hente ut token ved hjelp av `/Home/GetTestSystemUserToken` i localtest eller besøke nettsiden `/Home/Tokens`.
 
 ### Instansdelegering
 
-Instansdelegering er støttet i siste versjon av localtest, men brukere/avgivere man instansdelegerer fra og til må
-ha en `partyUuid` assosiert med seg. Se eksempel-fil under.
+Den siste versjonen av localtest støtter instansdelegering. Brukere og avgivere du delegerer fra og til må ha en `partyUuid` knyttet til seg. Se eksempelfil under.
 
-## App spesifikke brukere
+## App-spesifikke brukere
 
-Om standard settet med brukere ikke passer for å teste din app lokalt, kan du legge sørge for at appen din svarer med et
-json dokument på url `/[org]/[appId]/testData.json`. Den enkleste måten er å legge fila på `App/wwwroot/testData.json`.
+Hvis standardsettet med brukere ikke passer for å teste appen din lokalt, kan du sørge for at appen din svarer med et JSON-dokument på URL `/[org]/[appId]/testData.json`. Den enkleste måten er å legge filen på `App/wwwroot/testData.json`.
 
-Typiske endringer du kan være interresert i er å bruke andre organisasjonsnummer/fødselsnummer for at oppslag i apier som
-appene er avhengig av skal virke, eller testing av autorisasjonsreglene med andre roller enn det standard brukerene har.
+Du kan for eksempel:
+- Bruke andre organisasjonsnummer eller fødselsnummer, slik at oppslag i API-er som appen er avhengig av fungerer.
+- Teste autorisasjonsreglene med andre roller enn det standardbrukerne har.
 
-### Json Struktur
+### JSON-struktur
 
-Det finnes et [JsonSchema](https://altinncdn.no/schemas/json/test-users/test-users.schema.v1.json) som hjelper deg å skrive
-en `testData.json` fil i verktøy som VSCode. En full versjon av brukerene som ligger i TestData mappa er tilgjengelig i
-[testData.json](testData.json)
+Det finnes et [JsonSchema](https://altinncdn.no/schemas/json/test-users/test-users.schema.v1.json) som hjelper deg å skrive en `testData.json`-fil i verktøy som VSCode. En full versjon av brukerne som ligger i TestData-mappen er tilgjengelig i [testData.json](testData.json)
 
 ```json
 {

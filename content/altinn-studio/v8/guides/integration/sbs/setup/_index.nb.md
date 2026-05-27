@@ -24,6 +24,10 @@ leverandørens system og appen. Det er i hovedsak 2 måter å lage denne integra
   - For mer informasjon, se [Altinn Autorisasjon brukerguide for systembrukere](/nb/authorization/guides/system-vendor/)
   - Egner seg godt for systemer der det er større grad av automasjon (og mindre behov for kontakt/kobling til sluttbruker), og det er snakk om innsendinger på vegne av organisasjoner.
 
+{{% notice warning %}}
+Systembruker mot Altinn Studio-app krever `Altinn.App.Api` og `Altinn.App.Core` `v8.6.0` eller nyere.
+{{% /notice %}}
+
 ## Integrasjon med ID-porten
 
 Ved integrasjon fra sluttbrukersystem basert på ID-porten klient har man alltid direkte kontakt med sluttbruker.
@@ -200,7 +204,7 @@ Denne guiden er ment som et Altinn Studio app-spesifikt eksempel på det samme k
 #### 1. Tjenesteeier lager app
 
 Utvikler hos Brønnøysundregisteret lager en app i Altinn Studio og kaller den `aarsregnskap`.
-For å støtte systembruker-basert integrasjon med SBS kreves ingen spesiell støtte i en app, så den utvikles som normalt,
+For å støtte systembruker-basert integrasjon med SBS kreves ingen spesiell støtte i en app utover at den bruker `Altinn.App.Api` og `Altinn.App.Core` `v8.6.0` eller nyere, så den utvikles ellers som normalt,
 bl. a. med en XACML policy som lar DAGL fylle inn skjema og signere.
 
 #### 2. Fiken lager Maskinporten-klient

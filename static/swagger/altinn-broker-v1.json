@@ -70,7 +70,14 @@
             }
           },
           "503": {
-            "description": "Storage provider is not ready yet. Please try again later"
+            "description": "Storage provider is not ready yet. Please try again later",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       },
@@ -79,7 +86,7 @@
           "FileTransfer"
         ],
         "summary": "Get files that can be accessed by the caller according to specified filters",
-        "description": "One of the scopes: \r\n\r\n- altinn:broker.read \r\n\r\n- altinn:broker.write \r\n\r\nResult is limited to 100 files. If your query returns more than 100 files, you will only receive the 100 last created.",
+        "description": "One of the scopes: \r\n\r\n- altinn:broker.read \r\n\r\n- altinn:broker.write \r\n\r\nDate filtering behavior: \r\n\r\n- If `status` is included, `from` and `to` filter on when the file transfer changed to that status. \r\n\r\n- If `status` is not included, `from` and `to` filter on file transfer `created` time. \r\n\r\nResult is limited to 100 files. If your query returns more than 100 files, only the 100 newest in the active timeline are returned.",
         "parameters": [
           {
             "name": "resourceId",
@@ -92,14 +99,14 @@
             "name": "status",
             "in": "query",
             "schema": {
-              "$ref": "#/components/schemas/FileTransferStatusExtNullable"
+              "$ref": "#/components/schemas/FileTransferStatusExt"
             }
           },
           {
             "name": "recipientStatus",
             "in": "query",
             "schema": {
-              "$ref": "#/components/schemas/RecipientFileTransferStatusExtNullable"
+              "$ref": "#/components/schemas/RecipientFileTransferStatusExt"
             }
           },
           {
@@ -251,7 +258,14 @@
             }
           },
           "503": {
-            "description": "Storage provider is not ready yet. Please try again later"
+            "description": "Storage provider is not ready yet. Please try again later",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -409,7 +423,14 @@
             }
           },
           "503": {
-            "description": "Storage provider is not ready yet. Please try again later"
+            "description": "Storage provider is not ready yet. Please try again later",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -551,7 +572,7 @@
           "400": {
             "description": "<ul>\r\n  <li>No file uploaded yet</li>\r\n  <li>Service owner needs to be configured to use the broker API</li>\r\n</ul>",
             "content": {
-              "application/octet-stream": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -561,7 +582,7 @@
           "401": {
             "description": "You must use a bearer token that represents a system user with access to the resource in the Resource Rights Registry",
             "content": {
-              "application/octet-stream": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -571,7 +592,7 @@
           "403": {
             "description": "<ul>\r\n  <li>The requested file transfer's file is not ready for download. See file transfer status</li>\r\n  <li>\"The resource needs to be registered as an Altinn 3 resource and it has to be associated with a service owner</li>\r\n</ul>",
             "content": {
-              "application/octet-stream": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -581,7 +602,7 @@
           "404": {
             "description": "The requested file transfer was not found",
             "content": {
-              "application/octet-stream": {
+              "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
                 }
@@ -610,8 +631,8 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "Returns the file"
+          "204": {
+            "description": "The download has been confirmed"
           },
           "400": {
             "description": "<ul>\r\n  <li>Cannot confirm before the files have been downloaded</li>\r\n  <li>No file uploaded yet</li>\r\n  <li>The requested file transfer's file is not ready for download. See file transfer status</li>\r\n</ul>",
@@ -696,7 +717,7 @@
             "description": "Resource configured successfully"
           },
           "400": {
-            "description": "<ul>\r\n  <li>Invalid grace period format. Should follow ISO8601 standard for duration. Example: 'PT2H' for 2 hours</li>\r\n  <li>Grace period cannot exceed 24 hours</li>\r\n  <li>Max file transfer size cannot be negative</li>\r\n  <li>Max file transfer size cannot be zero</li>\r\n  <li>Max file transfer size cannot be set higher than the 2GB in production unless the resource has been pre-approved for disabled virus scan. Contact us @ Slack</li>\r\n  <li>Max file transfer size cannot be set higher than 100GB in production because it has not yet been tested for it. Contact us @ Slack if you need it</li>\r\n  <li>Invalid file transfer time to live format. Should follow ISO8601 standard for duration. Example: 'P30D' for 30 days</li>\r\n  <li>Time to live cannot exceed 365 days</li>\r\n</ul>",
+            "description": "<ul>\r\n  <li>Invalid grace period format. Should follow ISO8601 standard for duration. Example: 'PT2H' for 2 hours</li>\r\n  <li>Grace period cannot exceed 24 hours</li>\r\n  <li>Max file transfer size cannot be negative</li>\r\n  <li>Max file transfer size cannot be zero</li>\r\n  <li>Max file transfer size cannot be set higher than 50GB in production unless the resource has been pre-approved for disabled virus scan. Contact us @ Slack</li>\r\n  <li>Max file transfer size cannot be set higher than 100GB in production because it has not yet been tested for it. Contact us @ Slack if you need it</li>\r\n  <li>Invalid file transfer time to live format. Should follow ISO8601 standard for duration. Example: 'P30D' for 30 days</li>\r\n  <li>Time to live cannot exceed 365 days</li>\r\n</ul>",
             "content": {
               "application/json": {
                 "schema": {
@@ -829,6 +850,85 @@
           },
           "404": {
             "description": "Service owner not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/broker/api/v1/statistics/monthly": {
+      "get": {
+        "tags": [
+          "ServiceOwnerStatistics"
+        ],
+        "summary": "Export broker statistics for one selected month as CSV for the calling service owner's resources.",
+        "description": "One of the scopes: \r\n\r\n- altinn:serviceowner \r\n\r\n\r\nThe CSV contains one row per unique sender and recipient combination for the selected year and month.",
+        "parameters": [
+          {
+            "name": "ResourceId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Year",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "Month",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Returns the statistics report as a CSV file download",
+            "content": {
+              "text/csv": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid year or month values",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "You must use a bearer token that represents a system user with the altinn:serviceowner scope",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "The resource needs to be registered as an Altinn 3 resource and it has to be associated with a service owner",
             "content": {
               "application/json": {
                 "schema": {
@@ -1019,6 +1119,12 @@
               }
             },
             "description": "Up to ten arbitrary key value pairs"
+          },
+          "published": {
+            "type": "string",
+            "description": "Date/Time for when the file transfer was published (ready for download).\r\nNull if not yet published.",
+            "format": "date-time",
+            "nullable": true
           }
         }
       },
@@ -1160,21 +1266,6 @@
         ],
         "type": "string"
       },
-      "FileTransferStatusExtNullable": {
-        "enum": [
-          "Initialized",
-          "UploadStarted",
-          "UploadProcessing",
-          "Published",
-          "Cancelled",
-          "AllConfirmedDownloaded",
-          "Purged",
-          "Failed",
-          null
-        ],
-        "type": "string",
-        "nullable": true
-      },
       "FileTransferUploadResponseExt": {
         "type": "object",
         "properties": {
@@ -1272,16 +1363,6 @@
         ],
         "type": "string"
       },
-      "RecipientFileTransferStatusExtNullable": {
-        "enum": [
-          "Initialized",
-          "DownloadStarted",
-          "DownloadConfirmed",
-          null
-        ],
-        "type": "string",
-        "nullable": true
-      },
       "ResourceExt": {
         "type": "object",
         "properties": {
@@ -1320,6 +1401,11 @@
             "type": "integer",
             "description": "The external service edition code used in Altinn 2 for the broker service",
             "format": "int32",
+            "nullable": true
+          },
+          "requiredParty": {
+            "type": "boolean",
+            "description": "If the resource requires the service owner party to be subject of the file transfer.",
             "nullable": true
           }
         },

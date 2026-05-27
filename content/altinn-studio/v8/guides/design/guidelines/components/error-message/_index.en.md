@@ -21,6 +21,6 @@ Read more about error messaging on [UU-tilsynet's web pages (nb)](https://www.uu
 
 ### Example of use:
 
-<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://embed.figma.com/proto/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio-Komponenter?page-id=7653%3A50248&node-id=8014-22322&node-type=frame&viewport=10%2C702%2C0.44&scaling=scale-down&content-scaling=fixed&starting-point-node-id=8014%3A22322&embed-host=share" allowfullscreen></iframe>
+<iframe style="border: 3px solid rgb(0 0 0 / 90%);border-radius: 9px;" width="100%" height="550" src="https://embed.figma.com/design/b2w3PuS5c0w8vVU3z8KOwp/Altinn-Studio---Prototype-Kit?m=auto&node-id=12298-54501&embed-host=share" allowfullscreen></iframe>
 
 ---

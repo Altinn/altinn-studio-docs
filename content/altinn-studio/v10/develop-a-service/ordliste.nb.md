@@ -4,7 +4,7 @@ title: Ordliste for tjenesteutvikling
 linktitle: Ordliste
 description: Forklaringer av tekniske ord og begreper som brukes i dokumentasjonen om tjenesteutvikling i Altinn Studio.
 
-tags: [needsReview, needsTranslation]
+tags: [needsReview]
 ---
 
 Denne siden inneholder forklaringer av tekniske ord og begreper som vi bruker i dokumentasjonen om tjenesteutvikling i Altinn Studio. Ordene er sortert alfabetisk.
@@ -70,7 +70,7 @@ Den delen av appen som brukeren ser og samhandler med i nettleseren.
 ### Hemmelighet
 Sensitiv konfigurasjonsinformasjon (som passord eller API-nøkler) som lagres sikkert i Azure Key Vault.
 
-**Eksempel:** Du må lagre Maskinporten-nøklene som hemmeligheter i Azure Key Vault.
+**Eksempel:** API-nøkler og andre sensitive konfigurasjonsverdier bør lagres som hemmeligheter i Azure Key Vault. For Maskinporten i Altinn-apper bruker du scope-oppsettet i Altinn Studio, med mindre du følger eldre manuelt oppsett.
 
 ## I
 

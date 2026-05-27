@@ -6,7 +6,12 @@
   },
   "servers": [
     {
-      "url": "https://localhost:7211/"
+      "url": "https://platform.tt02.altinn.no/",
+      "description": "Integration Test"
+    },
+    {
+      "url": "https://platform.altinn.no/",
+      "description": "Production"
     }
   ],
   "paths": {
@@ -128,6 +133,102 @@
             }
           }
         }
+      }
+    },
+    "/accessmanagement/api/v1/enterprise/consentrequests/events": {
+      "get": {
+        "tags": [
+          "Consent"
+        ],
+        "operationId": "enterprisegetconsentrequestevents",
+        "parameters": [
+          {
+            "name": "continuationToken",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "createdAfter",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "createdBefore",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "eventType",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "consentRequestId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConsentStatusChangeDtoPaginatedResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "CONSENTREQUEST_READ"
+            ]
+          }
+        ]
       }
     }
   },
@@ -368,6 +469,55 @@
         ],
         "nullable": true
       },
+      "AMCoreModels.ConsentStatusChangeDto": {
+        "required": [
+          "changedDate",
+          "consentRequestId",
+          "eventType"
+        ],
+        "type": "object",
+        "properties": {
+          "consentRequestId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "eventType": {
+            "type": "string",
+            "nullable": true
+          },
+          "changedDate": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ConsentStatusChangeDtoPaginatedResult": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AMCoreModels.ConsentStatusChangeDto"
+            },
+            "nullable": true
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginatedResultLinks"
+          }
+        },
+        "additionalProperties": false
+      },
+      "PaginatedResultLinks": {
+        "type": "object",
+        "properties": {
+          "next": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },      
       "ProblemDetails": {
         "type": "object",
         "properties": {

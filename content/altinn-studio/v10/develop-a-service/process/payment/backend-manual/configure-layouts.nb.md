@@ -1,7 +1,7 @@
 ---
 draft: true
 hidden: true
-tags: [needsReview, needsTranslation]
+tags: [needsReview]
 ---
 
 ### Legge til OrderDetails-komponenten i skjemaet ditt

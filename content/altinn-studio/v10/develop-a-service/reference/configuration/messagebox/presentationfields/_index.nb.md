@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Presentasjonsfelter
 linktitle: Presentasjonsfelter
 description: Slik konfigurerer du presentasjonsfelter for en app.

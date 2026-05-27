@@ -71,6 +71,7 @@ Du kan gruppere sider og vise dem i en sidemeny som alternativ til tradisjonell 
       {
         "name": "group.form",
         "markWhenCompleted": true,
+        "expandedByDefault": true,
         "order": ["side1", "side2", "side3"]
       },
       {
@@ -88,6 +89,7 @@ Du kan gruppere sider og vise dem i en sidemeny som alternativ til tradisjonell 
 | name              | Tekstressurs som angir navnet på sidegruppen. Må være med hvis gruppen inneholder mer enn én side.         |
 | type              | Valgfritt. Bruk "info" eller "default".                                                                    |
 | markWhenCompleted | Valgfritt. Markerer sider som ferdig utfylt når alle valideringsfeil er rettet og brukeren har sett siden. |
+| expandedByDefault | Valgfritt. Viser sidene i gruppen i sidenavigasjonen fra start. Standard er at sidene er skjult under gruppenavnet til brukeren åpner gruppen. |
 | order             | Angir hvilke sider som inngår i gruppen.                                                                   |
 
 ## Vise arbeidsflyt og oppgaver i navigasjonsmenyen
@@ -222,39 +224,136 @@ Legg til tekster i `resources.XX.json`, der `id` er navnet på filen uten filutv
 
 ## Angi validering ved sidebytte
 
-Du kan legge inn kode for å sjekke om det er valideringsfeil når brukeren prøver å gå til neste side. _Valideringsfeil_ kan for eksempel bety at brukeren har glemt å fylle ut et felt eller har fylt det ut med informasjon med feil format. Hvis det er feil, stoppes navigeringen med en av valideringskodene i avsnittet under.
+Du kan legge inn kode for å sjekke om det er valideringsfeil når brukeren prøver å navigere mellom sider. _Valideringsfeil_ kan for eksempel bety at brukeren har glemt å fylle ut et felt eller har fylt det ut med informasjon med feil format. Hvis det er feil, stoppes navigeringen.
 
-### App frontend versjon 4
+Du kan konfigurere dette på tre nivåer med ulik prioritet: globalt for hele appen, per layoutsett og per side. I tillegg kan NavigationButtons, CustomButton og NavigationBar konfigureres på komponentnivå.
 
-NavigationButtons-komponenten har egenskapene `validateOnNext` og `validateOnPrevious`:
+### `validationOnNavigation`-objektet
+
+Egenskapen `validationOnNavigation` brukes på globalt nivå, per layoutsett og per side, og har to egenskaper. Komponentnivå bruker tilsvarende objekt, men via egenskapene `validateOnNext` og `validateOnPrevious` (NavigationButtons) eller `validateOnForward` og `validateOnBackward` (NavigationBar).
 
 ```json
 {
-  "id": "nav-buttons1",
-  "type": "NavigationButtons",
-  "textResourceBindings": {...},
-  "validateOnNext": {
-    "page": "current",
-    "show": ["All"]
+  "page": "current",
+  "show": ["Required", "Schema"]
+}
+```
+
+**page – hvilke sider som sjekkes:**
+
+| Verdi | Beskrivelse |
+| ----- | ----------- |
+| `"current"` | Kun gjeldende side sjekkes. |
+| `"currentAndPrevious"` | Gjeldende side og alle tidligere besøkte sider sjekkes. |
+| `"all"` | Alle sider i layoutsettet sjekkes. |
+
+**show – hvilke valideringstyper som vises:**
+
+| Verdi | Beskrivelse |
+| ----- | ----------- |
+| `"Required"` | Påkrevde felter som ikke er fylt ut. |
+| `"Schema"` | JSON Schema-feil på feltverdier. |
+| `"Component"` | Komponentspesifikk validering (f.eks. ugyldig format). |
+| `"Expression"` | Egendefinerte valideringsuttrykk. |
+| `"CustomBackend"` | Egendefinerte backendvalideringer. |
+| `"All"` | Alle frontendvalideringer. |
+| `"AllExceptRequired"` | Alle frontendvalideringer unntatt påkrevde felter. |
+
+### Konfigurasjonsnivåer
+
+#### 1. Globalt nivå
+
+Gjelder for alle layoutsett i appen. Konfigurer under `uiSettings` i `layout-sets.json`:
+
+**Filplassering:** `App/ui/layout-sets.json`
+
+```json
+{
+  "uiSettings": {
+    "validationOnNavigation": {
+      "page": "current",
+      "show": ["Required"]
+    }
   }
 }
 ```
 
-**page kan være:**
+#### 2. Per layoutsett
 
-- `current` - bare denne siden
-- `all` - alle sider
-- `currentAndPrevious` - denne og tidligere sider
+Overstyrer det globale nivået for ett layoutsett. Konfigurer under `pages` i `Settings.json`:
 
-**show inneholder hvilke valideringstyper som blir sjekket:**
+**Filplassering:** `App/ui/*/Settings.json`
 
-- Schema
-- Component
-- Expression
-- CustomBackend
-- Required
-- AllExceptRequired
-- All
+```json
+{
+  "pages": {
+    "order": ["personalia", "kontakt", "oppsummering"],
+    "validationOnNavigation": {
+      "page": "current",
+      "show": ["Required"]
+    }
+  }
+}
+```
+
+#### 3. Per side
+
+Overstyrer innstillingen for layoutsettet for én enkelt side. Konfigurer direkte på `data`-objektet i layout-filen:
+
+**Filplassering:** `App/ui/*/layouts/side1.json`
+
+```json
+{
+  "data": {
+    "layout": [...],
+    "validationOnNavigation": {
+      "page": "currentAndPrevious",
+      "show": ["All"]
+    }
+  }
+}
+```
+
+#### 4. Komponentnivå (NavigationButtons, CustomButton, NavigationBar)
+
+Når ingen av de høyere nivåene er konfigurert, kan du konfigurere validering direkte på komponenten. For NavigationButtons bruker du `validateOnNext` og `validateOnPrevious`:
+
+```json
+{
+  "id": "nav",
+  "type": "NavigationButtons",
+  "showBackButton": true,
+  "validateOnNext": {
+    "page": "current",
+    "show": ["Required", "Schema"]
+  }
+}
+```
+
+**Merk:** Dersom `validationOnNavigation` er satt på side-, layoutsett- eller globalt nivå, overstyres komponentnivåkonfigurasjonen:
+
+- `validateOnNext` erstattes av konfigurasjonen fra det høyere nivået.
+- `validateOnPrevious` deaktiveres helt.
+
+### Prioritetsrekkefølge
+
+Side → Layoutsett → Globalt → Komponent
+
+Sidenivå har høyest prioritet og overstyrer alt annet. Komponentnivåkonfigurasjon gjelder kun når ingen høyere nivåer er konfigurert.
+
+### Blokkere direktenavigasjon i sidemenyen
+
+Når sidemenyen er aktiv og brukeren forsøker å hoppe direkte til en side lenger fremme i rekkefølgen, blokkeres navigasjonen dersom noen av de mellomliggende sidene har `validationOnNavigation` konfigurert og inneholder valideringsfeil.
+
+**Eksempel:** Brukeren er på side 1 og forsøker å navigere direkte til side 3. Hvis side 2 har `validationOnNavigation` konfigurert og inneholder valideringsfeil, deaktiveres knappen for side 3 til feilene er rettet.
+
+### Hva skjer når det er valideringsfeil?
+
+Når brukeren forsøker å navigere og det er valideringsfeil:
+
+- Feilene gjøres synlige på siden.
+- Navigasjonen blokkeres dersom det er feil på gjeldende side eller tidligere sider.
+- Dersom feilene kun er på fremtidige sider (ved `"all"`), blokkeres ikke navigasjonen, men feilene vises når brukeren navigerer til de aktuelle sidene.
 
 ### Bruke NavigationBar med validering
 

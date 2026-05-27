@@ -1,7 +1,7 @@
 ---
 draft: true
 hidden: true
-tags: [needsReview, needsTranslation]
+tags: [needsReview]
 ---
 
 > Her beskrives hvordan du setter opp en betalingsoppgave i prosessen. Dette involverer flere steg i flere konfigurasjonsfiler.

@@ -21,7 +21,7 @@ Before you set up eFormidling, you need to configure:
 
 ### Maskinporten integration
 
-To enable eFormidling in your app, you need to [set up integration between your app and Maskinporten](/en/altinn-studio/v8/guides/integration/maskinporten/).
+To enable eFormidling in your app, you need to [set up integration between your app and Maskinporten](/en/altinn-studio/v10/develop-a-service/integration/maskinporten/).
 
 * **Note:** The app automatically includes the built-in `IMaskinportenClient`. If you need custom configuration, you can use:
 

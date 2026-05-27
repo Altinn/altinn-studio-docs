@@ -9,7 +9,7 @@ weight: 20
 Subscribing to events offers an event-driven solution where the event recipients register an endpoint/webhook in their own API.
 All event subscribers will receive data to their own endpoint, asynchronously. This is the recommended approach for receiving 
 events from Altinn Events.
-    
+
 If the recipient's webhook is unresponsive, for whatever reason, Altinn Events offers a retry mechanism with up to 12 retries. 
 Technical details are listed below.
 
@@ -20,16 +20,16 @@ to the webhook in the recipients own API, while _SourceFilter_ and _SubjectFilte
 
 ```json
 {
-    "EndPoint":"https://www.skatteetaten.no/hook",
-    "SourceFilter":"https://hunderpasseren.no/by/bronnoysund",
-    "SubjectFilter":"/hund/ascii"
+    "endPoint":"https://www.skatteetaten.no/hook",
+    "resourceFilter":"urn:altinn:resource:hunder-og-katter",
+    "subjectFilter":"/hund/ascii"
 }
 ```
 _Example of subscription request object_
 
 ### Validating a subscriber's endpoint
 Once a new subscription has been registered through the API, 
-a validation event is sent to the endpoint to validate its response status.
+a validation event is sent to the endpoint to validate that the endpoint is responding to requests.
 
 ```json
 {
@@ -45,9 +45,21 @@ See more details in the developer guides
 
 ### IP for outgoing traffic
 {{% notice info %}}
-A static IP is used when pushing events to allow subscribers to whitelist the IP address. The addresses are provided in CIDR notation. </br> </br>
-__TT02__: 20.100.24.41/32  </br> </br>
+A static IP is used when pushing events to allow subscribers to whitelist the IP address. The addresses are provided in CIDR notation.<br><br>
+
+**Important:** Due to infrastructure changes, Altinn Events will have new IP addresses for outgoing traffic. 
+
+If you use IP address whitelisting, you must update your firewall rules with the new addresses listed below.
+**Both old and new addresses must be whitelisted until you are notified that the old addresses can be removed.**<br><br>
+
+#### New IP addresses
+__TT02__: 20.100.48.118/31 and 20.100.48.120/31  
+__Production__: 51.13.20.208/31 and 51.13.20.210/31<br><br>
+
+#### Previous IP addresses
+__TT02__: 20.100.24.41/32  
 __Production__: 20.100.46.139/32
+
 {{% /notice %}}
 
 

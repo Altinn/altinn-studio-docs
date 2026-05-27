@@ -1,16 +1,21 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.4",
   "info": {
-    "title": "Altinn.AccessManagement.Api.Enduser | v1",
-    "version": "1.0.0"
+    "title": "Altinn.AccessManagement.Api.Enduser",
+    "version": "1.0"
   },
   "servers": [
     {
-      "url": "https://localhost:5118/"
+      "url": "https://platform.tt02.altinn.no/accessmanagement/api/v1",
+      "description": "Integration Test"
+    },
+    {
+      "url": "https://platform.altinn.no/accessmanagement/api/v1",
+      "description": "Production"
     }
   ],
   "paths": {
-    "/accessmanagement/api/v1/enduser/authorizedparties": {
+    "/enduser/authorizedparties": {
       "get": {
         "tags": [
           "AuthorizedParties"
@@ -18,6 +23,7 @@
         "parameters": [
           {
             "name": "includeRoles",
+            "description": "Filter for whether 'authorizedRoles' is to be populated with access information for each authorized party. Note: Parties where the user has access through role access will still be included in the response. The filter will only exclude the detailed access information to be included in 'authorizedRoles'. Recommended: 'false', unless explicitly needed.\n",
             "in": "query",
             "schema": {
               "type": "boolean",
@@ -26,6 +32,7 @@
           },
           {
             "name": "includeAccessPackages",
+            "description": "Filter for whether 'authorizedAccessPackages' is to be populated with access information for each authorized party. Note: Parties where the user has access through delegated access packages will still be included in the response. The filter will only exclude the detailed access information to be included in 'authorizedAccessPackages'. Recommended: 'false', unless explicitly needed.\n",
             "in": "query",
             "schema": {
               "type": "boolean",
@@ -34,6 +41,7 @@
           },
           {
             "name": "includeResources",
+            "description": "Filter for whether 'authorizedResources' is to be populated with access information for each authorized party. Note: Parties where the user has access through delegated resource access will still be included in the response. The filter will only exclude the detailed access information to be included in 'authorizedResources'. Recommended: 'false', unless explicitly needed.\n",
             "in": "query",
             "schema": {
               "type": "boolean",
@@ -42,6 +50,7 @@
           },
           {
             "name": "includeInstances",
+            "description": "Filter for whether 'authorizedInstances' is to be populated with access information for each authorized party. Note: Parties where the user has access through delegated instance access will still be included in the response. The filter will only exclude the detailed access information to be included in 'authorizedInstances'. Recommended: 'false', unless explicitly needed.\n",
             "in": "query",
             "schema": {
               "type": "boolean",
@@ -50,6 +59,7 @@
           },
           {
             "name": "includePartiesViaKeyRoles",
+            "description": "Filter for whether parties where the user has access via their keyrole units, are to be included in the response. E.g. A general manager (dagligleder) of an organization will inherit all party accesses provided to their organization. Setting filter to 'true' will impact performance negatively, especially for users having many keyroles or keyrole(s) for big auditor or accountant firms. If set to 'auto', the user's selected preference in user profile will be used. Recommended: 'false', unless explicitly needed.\n",
             "in": "query",
             "schema": {
               "$ref": "#/components/schemas/AuthorizedPartiesIncludeFilter"
@@ -57,6 +67,7 @@
           },
           {
             "name": "includeSubParties",
+            "description": "Note: not yet implemented. Filter for whether party hierarchy (subunits), are to be included in the response. If set to 'auto', the user's selected preference in user profile will be used.\n",
             "in": "query",
             "schema": {
               "$ref": "#/components/schemas/AuthorizedPartiesIncludeFilter"
@@ -64,6 +75,7 @@
           },
           {
             "name": "includeInactiveParties",
+            "description": "Note: not yet implemented. Filter for whether inactive (isDeleted: true) parties, are to be included in the response. If set to 'auto', the user's selected preference in user profile will be used.\n",
             "in": "query",
             "schema": {
               "$ref": "#/components/schemas/AuthorizedPartiesIncludeFilter"
@@ -71,6 +83,7 @@
           },
           {
             "name": "partyFilter",
+            "description": "Filter for fetching a single or a subset of parties from the subject user's list of authorized parties. Recommended for use in all scenarios where checking for access on behalf of specific party/parties.\n",
             "in": "query",
             "schema": {
               "type": "array",
@@ -83,6 +96,7 @@
           },
           {
             "name": "anyOfResourceIds",
+            "description": "Filter for only returning authorized parties where the subject has access to any of the provided resource ids. This includes indirect access to resource through authorized roles or accesspackages, as well as where access exist for only individual resource instances. Invalid resource ids are ignored.\n",
             "in": "query",
             "schema": {
               "type": "array",
@@ -99,22 +113,16 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PaginatedResultOfListOfAuthorizedPartyDto"
+                  "$ref": "#/components/schemas/AuthorizedPartyDtoListPaginatedResult"
                 }
               }
             }
           },
           "401": {
-            "description": "Unauthorized",
-            "content": {
-              "application/json": { }
-            }
+            "description": "Unauthorized"
           },
           "403": {
-            "description": "Forbidden",
-            "content": {
-              "application/json": { }
-            }
+            "description": "Forbidden"
           },
           "500": {
             "description": "Internal Server Error",
@@ -126,10 +134,17 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "EnduserAuthorizedParty"
+            ]
+          }
+        ]
       }
     },
-    "/accessmanagement/api/v1/enduser/clientdelegations/my/clients": {
+    "/enduser/clientdelegations/my/clients": {
       "get": {
         "tags": [
           "Client Delegation"
@@ -149,17 +164,23 @@
           {
             "name": "X-Page-Size",
             "in": "header",
+            "description": "Page Size",
             "schema": {
               "type": "integer",
-              "format": "uint32"
+              "description": "Page Size",
+              "format": "[0, 100]",
+              "default": 100
             }
           },
           {
             "name": "X-Page-Number",
             "in": "header",
+            "description": "Page Number",
             "schema": {
               "type": "integer",
-              "format": "uint32"
+              "description": "Page Number",
+              "format": "[0, ∞)",
+              "default": 0
             }
           }
         ],
@@ -169,7 +190,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PaginatedResultOfMyClientDto"
+                  "$ref": "#/components/schemas/MyClientDtoPaginatedResult"
                 }
               }
             }
@@ -224,8 +245,295 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "altinn:clientdelegations/myclients.read"
+            ]
+          }
+        ]
       },
+      "delete": {
+        "tags": [
+          "Client Delegation"
+        ],
+        "parameters": [
+          {
+            "name": "provider",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "cascade",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DelegationBatchInputDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DelegationBatchInputDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DelegationBatchInputDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DelegationDto"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "altinn:clientdelegations/myclients.write"
+            ]
+          }
+        ]
+      }
+    },
+    "/enduser/clientdelegations/my/clientproviders": {
+      "get": {
+        "tags": [
+          "Client Delegation"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AgentDtoPaginatedResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "altinn:clientdelegations/myclients.read"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Client Delegation"
+        ],
+        "parameters": [
+          {
+            "name": "provider",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "altinn:clientdelegations/myclients.write"
+            ]
+          }
+        ]
+      }
+    },
+    "/enduser/clientdelegations/my/clients/accesspackages": {
       "delete": {
         "tags": [
           "Client Delegation"
@@ -334,150 +642,17 @@
               }
             }
           }
-        }
-      }
-    },
-    "/accessmanagement/api/v1/enduser/clientdelegations/my/clientproviders": {
-      "get": {
-        "tags": [
-          "Client Delegation"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PaginatedResultOfAgentDto"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AltinnProblemDetails"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Client Delegation"
-        ],
-        "parameters": [
+        },
+        "security": [
           {
-            "name": "provider",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
+            "oauth2": [
+              "altinn:clientdelegations/myclients.write"
+            ]
           }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AltinnProblemDetails"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
+        ]
       }
     },
-    "/accessmanagement/api/v1/enduser/clientdelegations/clients": {
+    "/enduser/clientdelegations/clients": {
       "get": {
         "tags": [
           "Client Delegation"
@@ -505,17 +680,23 @@
           {
             "name": "X-Page-Size",
             "in": "header",
+            "description": "Page Size",
             "schema": {
               "type": "integer",
-              "format": "uint32"
+              "description": "Page Size",
+              "format": "[0, 100]",
+              "default": 100
             }
           },
           {
             "name": "X-Page-Number",
             "in": "header",
+            "description": "Page Number",
             "schema": {
               "type": "integer",
-              "format": "uint32"
+              "description": "Page Number",
+              "format": "[0, ∞)",
+              "default": 0
             }
           }
         ],
@@ -525,7 +706,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PaginatedResultOfClientDto"
+                  "$ref": "#/components/schemas/ClientDtoPaginatedResult"
                 }
               }
             }
@@ -580,10 +761,18 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "altinn:clientdelegations.read",
+              "CLIENTDELEGATION_READ"
+            ]
+          }
+        ]
       }
     },
-    "/accessmanagement/api/v1/enduser/clientdelegations/agents": {
+    "/enduser/clientdelegations/agents": {
       "get": {
         "tags": [
           "Client Delegation"
@@ -601,17 +790,23 @@
           {
             "name": "X-Page-Size",
             "in": "header",
+            "description": "Page Size",
             "schema": {
               "type": "integer",
-              "format": "uint32"
+              "description": "Page Size",
+              "format": "[0, 100]",
+              "default": 100
             }
           },
           {
             "name": "X-Page-Number",
             "in": "header",
+            "description": "Page Number",
             "schema": {
               "type": "integer",
-              "format": "uint32"
+              "description": "Page Number",
+              "format": "[0, ∞)",
+              "default": 0
             }
           }
         ],
@@ -621,7 +816,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PaginatedResultOfAgentDto"
+                  "$ref": "#/components/schemas/AgentDtoPaginatedResult"
                 }
               }
             }
@@ -676,7 +871,15 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "altinn:clientdelegations.read",
+              "CLIENTDELEGATION_READ"
+            ]
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -781,7 +984,15 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "altinn:clientdelegations.write",
+              "CLIENTDELEGATION_WRITE"
+            ]
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -869,10 +1080,125 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "altinn:clientdelegations.write",
+              "CLIENTDELEGATION_WRITE"
+            ]
+          }
+        ]
       }
     },
-    "/accessmanagement/api/v1/enduser/clientdelegations/agents/accesspackages": {
+    "/enduser/clientdelegations/agents/clients": {
+      "delete": {
+        "tags": [
+          "Client Delegation"
+        ],
+        "parameters": [
+          {
+            "name": "party",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "cascade",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "altinn:clientdelegations.write",
+              "CLIENTDELEGATION_WRITE"
+            ]
+          }
+        ]
+      }
+    },
+    "/enduser/clientdelegations/agents/accesspackages": {
       "get": {
         "tags": [
           "Client Delegation"
@@ -903,7 +1229,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PaginatedResultOfClientDto"
+                  "$ref": "#/components/schemas/ClientDtoPaginatedResult"
                 }
               }
             }
@@ -958,7 +1284,15 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "altinn:clientdelegations.read",
+              "CLIENTDELEGATION_READ"
+            ]
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -1077,7 +1411,15 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "altinn:clientdelegations.write",
+              "CLIENTDELEGATION_WRITE"
+            ]
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -1196,10 +1538,18 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "altinn:clientdelegations.write",
+              "CLIENTDELEGATION_WRITE"
+            ]
+          }
+        ]
       }
     },
-    "/accessmanagement/api/v1/enduser/clientdelegations/clients/accesspackages": {
+    "/enduser/clientdelegations/clients/accesspackages": {
       "get": {
         "tags": [
           "Client Delegation"
@@ -1230,7 +1580,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PaginatedResultOfAgentDto"
+                  "$ref": "#/components/schemas/AgentDtoPaginatedResult"
                 }
               }
             }
@@ -1285,10 +1635,18 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "altinn:clientdelegations.read",
+              "CLIENTDELEGATION_READ"
+            ]
+          }
+        ]
       }
     },
-    "/accessmanagement/api/v1/enduser/connections": {
+    "/enduser/connections": {
       "get": {
         "tags": [
           "Connections"
@@ -1297,38 +1655,48 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "from",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "to",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "X-Page-Size",
             "in": "header",
+            "description": "Page Size",
             "schema": {
               "type": "integer",
-              "format": "uint32"
+              "description": "Page Size",
+              "format": "[0, 100]",
+              "default": 100
             }
           },
           {
             "name": "X-Page-Number",
             "in": "header",
+            "description": "Page Number",
             "schema": {
               "type": "integer",
-              "format": "uint32"
+              "description": "Page Number",
+              "format": "[0, ∞)",
+              "default": 0
             }
           },
           {
@@ -1354,7 +1722,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PaginatedResultOfConnectionDto"
+                  "$ref": "#/components/schemas/ConnectionDtoPaginatedResult"
                 }
               }
             }
@@ -1409,7 +1777,15 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_CONNECTIONS_CONDITIONAL_BIDRECTIONAL",
+              "AccessManagementEndUserRead"
+            ]
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -1419,22 +1795,18 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "from",
-            "in": "query",
-            "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "to",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -1538,7 +1910,15 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_CONNECTIONS_WRITE_TOOTHERS",
+              "AccessManagementEndUserWrite"
+            ]
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -1548,22 +1928,28 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "from",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "to",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -1629,10 +2015,18 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_CONNECTIONS_WRITE_BIDIRECTIONAL",
+              "AccessManagementEndUserWrite"
+            ]
+          }
+        ]
       }
     },
-    "/accessmanagement/api/v1/enduser/connections/accesspackages": {
+    "/enduser/connections/users": {
       "get": {
         "tags": [
           "Connections"
@@ -1641,38 +2035,32 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "from",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "to",
-            "in": "query",
-            "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "X-Page-Size",
             "in": "header",
+            "description": "Page Size",
             "schema": {
               "type": "integer",
-              "format": "uint32"
+              "description": "Page Size",
+              "format": "[0, 100]",
+              "default": 100
             }
           },
           {
             "name": "X-Page-Number",
             "in": "header",
+            "description": "Page Number",
             "schema": {
               "type": "integer",
-              "format": "uint32"
+              "description": "Page Number",
+              "format": "[0, ∞)",
+              "default": 0
             }
           }
         ],
@@ -1682,7 +2070,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PaginatedResultOfPackagePermissionDto"
+                  "$ref": "#/components/schemas/SimplifiedConnectionDtoPaginatedResult"
                 }
               }
             }
@@ -1737,7 +2125,141 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_CONNECTIONS_WRITE_TOOTHERS",
+              "InstanceDelegation"
+            ]
+          }
+        ]
+      }
+    },
+    "/enduser/connections/accesspackages": {
+      "get": {
+        "tags": [
+          "Connections"
+        ],
+        "parameters": [
+          {
+            "name": "party",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-Page-Size",
+            "in": "header",
+            "description": "Page Size",
+            "schema": {
+              "type": "integer",
+              "description": "Page Size",
+              "format": "[0, 100]",
+              "default": 100
+            }
+          },
+          {
+            "name": "X-Page-Number",
+            "in": "header",
+            "description": "Page Number",
+            "schema": {
+              "type": "integer",
+              "description": "Page Number",
+              "format": "[0, ∞)",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PackagePermissionDtoPaginatedResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_CONNECTIONS_CONDITIONAL_BIDRECTIONAL",
+              "AccessManagementEndUserRead"
+            ]
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -1747,22 +2269,18 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "from",
-            "in": "query",
-            "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "to",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -1861,7 +2379,15 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_CONNECTIONS_WRITE_TOOTHERS",
+              "AccessManagementEndUserWrite"
+            ]
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -1871,22 +2397,28 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "from",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "to",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -1959,10 +2491,18 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_CONNECTIONS_WRITE_BIDIRECTIONAL",
+              "AccessManagementEndUserWrite"
+            ]
+          }
+        ]
       }
     },
-    "/accessmanagement/api/v1/enduser/connections/accesspackages/delegationcheck": {
+    "/enduser/connections/accesspackages/delegationcheck": {
       "get": {
         "tags": [
           "Connections"
@@ -1971,6 +2511,7 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -2004,17 +2545,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/PaginatedResultOfAccessPackageDtoCheck"
+                  "$ref": "#/components/schemas/AccessPackageDtoCheckPaginatedResult"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PaginatedResultOfAccessPackageDtoCheck"
+                  "$ref": "#/components/schemas/AccessPackageDtoCheckPaginatedResult"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PaginatedResultOfAccessPackageDtoCheck"
+                  "$ref": "#/components/schemas/AccessPackageDtoCheckPaginatedResult"
                 }
               }
             }
@@ -2069,10 +2610,18 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_CONNECTIONS_WRITE_TOOTHERS",
+              "AccessManagementEndUserWrite"
+            ]
+          }
+        ]
       }
     },
-    "/accessmanagement/api/v1/enduser/connections/roles": {
+    "/enduser/connections/roles": {
       "get": {
         "tags": [
           "Connections"
@@ -2081,38 +2630,50 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "from",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "to",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "X-Page-Size",
             "in": "header",
+            "description": "Page Size",
             "schema": {
               "type": "integer",
-              "format": "uint32"
+              "description": "Page Size",
+              "format": "[0, 100]",
+              "default": 100
             }
           },
           {
             "name": "X-Page-Number",
             "in": "header",
+            "description": "Page Number",
             "schema": {
               "type": "integer",
-              "format": "uint32"
+              "description": "Page Number",
+              "format": "[0, ∞)",
+              "default": 0
             }
           }
         ],
@@ -2122,7 +2683,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/PaginatedResultOfRolePermissionDto"
+                  "$ref": "#/components/schemas/RolePermissionDtoPaginatedResult"
                 }
               }
             }
@@ -2177,100 +2738,18 @@
               }
             }
           }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Connections"
-        ],
-        "parameters": [
+        },
+        "security": [
           {
-            "name": "party",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "from",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "to",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "roleCode",
-            "in": "query",
-            "schema": {
-              "type": "string"
-            }
+            "oauth2": [
+              "POLICY_ENDUSER_CONNECTIONS_CONDITIONAL_BIDRECTIONAL",
+              "AccessManagementEndUserRead"
+            ]
           }
-        ],
-        "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "400": {
-            "description": "Bad Request",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/AltinnProblemDetails"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Forbidden",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          }
-        }
+        ]
       }
     },
-    "/accessmanagement/api/v1/enduser/connections/resources": {
+    "/enduser/connections/resources": {
       "get": {
         "tags": [
           "Connections"
@@ -2279,38 +2758,55 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "from",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "to",
             "in": "query",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "X-Page-Size",
             "in": "header",
+            "description": "Page Size",
             "schema": {
               "type": "integer",
-              "format": "uint32"
+              "description": "Page Size",
+              "format": "[0, 100]",
+              "default": 100
             }
           },
           {
             "name": "X-Page-Number",
             "in": "header",
+            "description": "Page Number",
             "schema": {
               "type": "integer",
-              "format": "uint32"
+              "description": "Page Number",
+              "format": "[0, ∞)",
+              "default": 0
+            }
+          },
+          {
+            "name": "resource",
+            "in": "query",
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -2378,7 +2874,15 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_CONNECTIONS_CONDITIONAL_BIDRECTIONAL",
+              "AccessManagementEndUserRead"
+            ]
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -2388,22 +2892,28 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "from",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "to",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -2468,10 +2978,18 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_CONNECTIONS_WRITE_BIDIRECTIONAL",
+              "AccessManagementEndUserWrite"
+            ]
+          }
+        ]
       }
     },
-    "/accessmanagement/api/v1/enduser/connections/resources/rules": {
+    "/enduser/connections/resources/rights": {
       "get": {
         "tags": [
           "Connections"
@@ -2480,27 +2998,34 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "from",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "to",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "resource",
             "in": "query",
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -2508,17 +3033,23 @@
           {
             "name": "X-Page-Size",
             "in": "header",
+            "description": "Page Size",
             "schema": {
               "type": "integer",
-              "format": "uint32"
+              "description": "Page Size",
+              "format": "[0, 100]",
+              "default": 100
             }
           },
           {
             "name": "X-Page-Number",
             "in": "header",
+            "description": "Page Number",
             "schema": {
               "type": "integer",
-              "format": "uint32"
+              "description": "Page Number",
+              "format": "[0, ∞)",
+              "default": 0
             }
           }
         ],
@@ -2528,7 +3059,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ExternalResourceRuleDto"
+                  "$ref": "#/components/schemas/ExternalResourceRightDto"
                 }
               }
             }
@@ -2583,7 +3114,15 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_CONNECTIONS_CONDITIONAL_BIDRECTIONAL",
+              "AccessManagementEndUserRead"
+            ]
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -2593,22 +3132,262 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "from",
-            "in": "query",
-            "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "to",
             "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "resource",
+            "in": "query",
+            "required": true,
             "schema": {
               "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RightKeyListDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RightKeyListDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RightKeyListDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_CONNECTIONS_WRITE_TOOTHERS",
+              "AccessManagementEndUserWrite"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Connections"
+        ],
+        "parameters": [
+          {
+            "name": "party",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "resource",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RightKeyListDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RightKeyListDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RightKeyListDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_CONNECTIONS_WRITE_TOOTHERS",
+              "AccessManagementEndUserWrite"
+            ]
+          }
+        ]
+      }
+    },
+    "/enduser/connections/resources/delegationcheck": {
+      "get": {
+        "tags": [
+          "Connections"
+        ],
+        "parameters": [
+          {
+            "name": "party",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
@@ -2619,21 +3398,531 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourceCheckDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_CONNECTIONS_WRITE_TOOTHERS",
+              "AccessManagementEndUserWrite"
+            ]
+          }
+        ]
+      }
+    },
+    "/enduser/connections/resources/instances": {
+      "get": {
+        "tags": [
+          "Connections"
+        ],
+        "parameters": [
+          {
+            "name": "party",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "X-Page-Size",
+            "in": "header",
+            "description": "Page Size",
+            "schema": {
+              "type": "integer",
+              "description": "Page Size",
+              "format": "[0, 100]",
+              "default": 100
+            }
+          },
+          {
+            "name": "X-Page-Number",
+            "in": "header",
+            "description": "Page Number",
+            "schema": {
+              "type": "integer",
+              "description": "Page Number",
+              "format": "[0, ∞)",
+              "default": 0
+            }
+          },
+          {
+            "name": "resource",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "instance",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/InstancePermissionDto"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_CONNECTIONS_CONDITIONAL_BIDRECTIONAL",
+              "AccessManagementEndUserRead"
+            ]
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Connections"
+        ],
+        "parameters": [
+          {
+            "name": "party",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "resource",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "instance",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_CONNECTIONS_WRITE_BIDIRECTIONAL",
+              "AccessManagementEndUserWrite"
+            ]
+          }
+        ]
+      }
+    },
+    "/enduser/connections/resources/instances/rights": {
+      "get": {
+        "tags": [
+          "Connections"
+        ],
+        "parameters": [
+          {
+            "name": "party",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "resource",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "instance",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Page-Size",
+            "in": "header",
+            "description": "Page Size",
+            "schema": {
+              "type": "integer",
+              "description": "Page Size",
+              "format": "[0, 100]",
+              "default": 100
+            }
+          },
+          {
+            "name": "X-Page-Number",
+            "in": "header",
+            "description": "Page Number",
+            "schema": {
+              "type": "integer",
+              "description": "Page Number",
+              "format": "[0, ∞)",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtInstanceRightDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_CONNECTIONS_CONDITIONAL_BIDRECTIONAL",
+              "AccessManagementEndUserRead"
+            ]
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Connections"
+        ],
+        "parameters": [
+          {
+            "name": "party",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "resource",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "instance",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/RuleKeyListDto"
+                "$ref": "#/components/schemas/InstanceRightsDelegationDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/RuleKeyListDto"
+                "$ref": "#/components/schemas/InstanceRightsDelegationDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/RuleKeyListDto"
+                "$ref": "#/components/schemas/InstanceRightsDelegationDto"
               }
             }
           },
@@ -2703,7 +3992,15 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_CONNECTIONS_WRITE_TOOTHERS",
+              "InstanceDelegation"
+            ]
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -2713,27 +4010,33 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
-            }
-          },
-          {
-            "name": "from",
-            "in": "query",
-            "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "to",
             "in": "query",
+            "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           },
           {
             "name": "resource",
             "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "instance",
+            "in": "query",
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -2743,21 +4046,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/RuleKeyListDto"
+                "$ref": "#/components/schemas/RightKeyListDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/RuleKeyListDto"
+                "$ref": "#/components/schemas/RightKeyListDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/RuleKeyListDto"
+                "$ref": "#/components/schemas/RightKeyListDto"
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -2823,10 +4125,18 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_CONNECTIONS_WRITE_TOOTHERS",
+              "AccessManagementEndUserWrite"
+            ]
+          }
+        ]
       }
     },
-    "/accessmanagement/api/v1/enduser/connections/resources/delegationcheck": {
+    "/enduser/connections/resources/instances/delegationcheck": {
       "get": {
         "tags": [
           "Connections"
@@ -2835,6 +4145,7 @@
           {
             "name": "party",
             "in": "query",
+            "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -2843,6 +4154,15 @@
           {
             "name": "resource",
             "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "instance",
+            "in": "query",
+            "required": true,
             "schema": {
               "type": "string"
             }
@@ -2852,19 +4172,9 @@
           "200": {
             "description": "OK",
             "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceCheckDto"
-                }
-              },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceCheckDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ResourceCheckDto"
+                  "$ref": "#/components/schemas/InstanceCheckDto"
                 }
               }
             }
@@ -2919,7 +4229,1489 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_CONNECTIONS_WRITE_TOOTHERS",
+              "InstanceDelegation"
+            ]
+          }
+        ]
+      }
+    },
+    "/enduser/connections/resources/instances/users": {
+      "get": {
+        "tags": [
+          "Connections"
+        ],
+        "parameters": [
+          {
+            "name": "party",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "resource",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "instance",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Page-Size",
+            "in": "header",
+            "description": "Page Size",
+            "schema": {
+              "type": "integer",
+              "description": "Page Size",
+              "format": "[0, 100]",
+              "default": 100
+            }
+          },
+          {
+            "name": "X-Page-Number",
+            "in": "header",
+            "description": "Page Number",
+            "schema": {
+              "type": "integer",
+              "description": "Page Number",
+              "format": "[0, ∞)",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SimplifiedPartyDtoPaginatedResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_CONNECTIONS_WRITE_TOOTHERS",
+              "InstanceDelegation"
+            ]
+          }
+        ]
+      }
+    },
+    "/enduser/request": {
+      "get": {
+        "tags": [
+          "Request"
+        ],
+        "parameters": [
+          {
+            "name": "party",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_REQUESTS_READ",
+              "AccessManagementEndUserRead"
+            ]
+          }
+        ]
+      }
+    },
+    "/enduser/request/draft": {
+      "get": {
+        "tags": [
+          "Request"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "altinn:portal/enduser"
+            ]
+          }
+        ]
+      }
+    },
+    "/enduser/request/draft/confirm": {
+      "put": {
+        "tags": [
+          "Request"
+        ],
+        "parameters": [
+          {
+            "name": "party",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_REQUESTS_WRITE",
+              "AccessManagementEndUserWrite"
+            ]
+          }
+        ]
+      }
+    },
+    "/enduser/request/sent": {
+      "get": {
+        "tags": [
+          "Request"
+        ],
+        "parameters": [
+          {
+            "name": "party",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/RequestStatus"
+              }
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Page-Size",
+            "in": "header",
+            "description": "Page Size",
+            "schema": {
+              "type": "integer",
+              "description": "Page Size",
+              "format": "[0, 100]",
+              "default": 100
+            }
+          },
+          {
+            "name": "X-Page-Number",
+            "in": "header",
+            "description": "Page Number",
+            "schema": {
+              "type": "integer",
+              "description": "Page Number",
+              "format": "[0, ∞)",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestDtoPaginatedResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_REQUESTS_READ",
+              "AccessManagementEndUserRead"
+            ]
+          }
+        ]
+      }
+    },
+    "/enduser/request/sent/count": {
+      "get": {
+        "tags": [
+          "Request"
+        ],
+        "parameters": [
+          {
+            "name": "party",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/RequestStatus"
+              }
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_REQUESTS_READ",
+              "AccessManagementEndUserRead"
+            ]
+          }
+        ]
+      }
+    },
+    "/enduser/request/sent/withdraw": {
+      "put": {
+        "tags": [
+          "Request"
+        ],
+        "parameters": [
+          {
+            "name": "party",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestDto"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_REQUESTS_WRITE",
+              "AccessManagementEndUserWrite"
+            ]
+          }
+        ]
+      }
+    },
+    "/enduser/request/received": {
+      "get": {
+        "tags": [
+          "Request"
+        ],
+        "parameters": [
+          {
+            "name": "party",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/RequestStatus"
+              }
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "X-Page-Size",
+            "in": "header",
+            "description": "Page Size",
+            "schema": {
+              "type": "integer",
+              "description": "Page Size",
+              "format": "[0, 100]",
+              "default": 100
+            }
+          },
+          {
+            "name": "X-Page-Number",
+            "in": "header",
+            "description": "Page Number",
+            "schema": {
+              "type": "integer",
+              "description": "Page Number",
+              "format": "[0, ∞)",
+              "default": 0
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestDtoPaginatedResult"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_REQUESTS_READ",
+              "AccessManagementEndUserRead"
+            ]
+          }
+        ]
+      }
+    },
+    "/enduser/request/received/count": {
+      "get": {
+        "tags": [
+          "Request"
+        ],
+        "parameters": [
+          {
+            "name": "party",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "from",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "status",
+            "in": "query",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/RequestStatus"
+              }
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int32"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_REQUESTS_READ",
+              "AccessManagementEndUserRead"
+            ]
+          }
+        ]
+      }
+    },
+    "/enduser/request/received/approve": {
+      "put": {
+        "tags": [
+          "Request"
+        ],
+        "parameters": [
+          {
+            "name": "party",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_REQUESTS_WRITE",
+              "AccessManagementEndUserWrite"
+            ]
+          }
+        ]
+      }
+    },
+    "/enduser/request/received/reject": {
+      "put": {
+        "tags": [
+          "Request"
+        ],
+        "parameters": [
+          {
+            "name": "party",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_REQUESTS_WRITE",
+              "AccessManagementEndUserWrite"
+            ]
+          }
+        ]
+      }
+    },
+    "/enduser/request/resource": {
+      "post": {
+        "tags": [
+          "Request"
+        ],
+        "parameters": [
+          {
+            "name": "party",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "resource",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_REQUESTS_WRITE",
+              "AccessManagementEndUserWrite"
+            ]
+          }
+        ]
+      }
+    },
+    "/enduser/request/package": {
+      "post": {
+        "tags": [
+          "Request"
+        ],
+        "parameters": [
+          {
+            "name": "party",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "package",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "POLICY_ENDUSER_REQUESTS_WRITE",
+              "AccessManagementEndUserWrite"
+            ]
+          }
+        ]
       }
     }
   },
@@ -2943,37 +5735,17 @@
             "type": "string",
             "format": "uuid"
           }
-        }
-      },
-      "AccessPackageDto2": {
-        "required": [
-          "urn"
-        ],
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "urn": {
-            "type": "string",
-            "nullable": true
-          },
-          "areaId": {
-            "type": "string",
-            "format": "uuid"
-          }
         },
-        "nullable": true
+        "additionalProperties": false
       },
-      "AccessPackageDtoCheck": {
+      "AccessPackageDto.AccessPackageDtoCheck": {
         "required": [
           "package"
         ],
         "type": "object",
         "properties": {
           "package": {
-            "$ref": "#/components/schemas/AccessPackageDto2"
+            "$ref": "#/components/schemas/AccessPackageDto"
           },
           "result": {
             "type": "boolean"
@@ -2981,30 +5753,117 @@
           "reasons": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Reason"
+              "$ref": "#/components/schemas/AccessPackageDto.AccessPackageDtoCheck.Reason"
             },
             "nullable": true
           }
-        }
+        },
+        "additionalProperties": false
+      },
+      "AccessPackageDto.AccessPackageDtoCheck.Reason": {
+        "required": [
+          "description"
+        ],
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "roleId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "roleUrn": {
+            "type": "string",
+            "nullable": true
+          },
+          "fromId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "fromName": {
+            "type": "string",
+            "nullable": true
+          },
+          "toId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "toName": {
+            "type": "string",
+            "nullable": true
+          },
+          "viaId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "viaName": {
+            "type": "string",
+            "nullable": true
+          },
+          "viaRoleId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "viaRoleUrn": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AccessPackageDtoCheckPaginatedResult": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AccessPackageDto.AccessPackageDtoCheck"
+            },
+            "nullable": true
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginatedResultLinks"
+          }
+        },
+        "additionalProperties": false
       },
       "AccessReason": {
         "type": "object",
         "properties": {
+          "flag": {
+            "$ref": "#/components/schemas/AccessReasonFlag"
+          },
           "items": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AccessReasonRecord"
             },
-            "nullable": true
+            "nullable": true,
+            "readOnly": true
           }
         },
-        "nullable": true
+        "additionalProperties": false
+      },
+      "AccessReasonFlag": {
+        "enum": [
+          0,
+          1,
+          2,
+          4,
+          8,
+          16
+        ],
+        "type": "integer",
+        "format": "int32"
       },
       "AccessReasonRecord": {
-        "required": [
-          "name",
-          "description"
-        ],
         "type": "object",
         "properties": {
           "name": {
@@ -3015,7 +5874,8 @@
             "type": "string",
             "nullable": true
           }
-        }
+        },
+        "additionalProperties": false
       },
       "AgentDto": {
         "type": "object",
@@ -3030,13 +5890,14 @@
           "access": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/AgentRoleAccessPackages"
+              "$ref": "#/components/schemas/AgentDto.AgentRoleAccessPackages"
             },
             "nullable": true
           }
-        }
+        },
+        "additionalProperties": false
       },
-      "AgentRoleAccessPackages": {
+      "AgentDto.AgentRoleAccessPackages": {
         "type": "object",
         "properties": {
           "role": {
@@ -3049,7 +5910,24 @@
             },
             "nullable": true
           }
-        }
+        },
+        "additionalProperties": false
+      },
+      "AgentDtoPaginatedResult": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AgentDto"
+            },
+            "nullable": true
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginatedResultLinks"
+          }
+        },
+        "additionalProperties": false
       },
       "AltinnProblemDetails": {
         "type": "object",
@@ -3078,7 +5956,8 @@
           "code": {
             "$ref": "#/components/schemas/ErrorCode"
           }
-        }
+        },
+        "additionalProperties": { }
       },
       "AssignmentDto": {
         "type": "object",
@@ -3099,7 +5978,8 @@
             "type": "string",
             "format": "uuid"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "AssignmentPackageDto": {
         "type": "object",
@@ -3116,7 +5996,22 @@
             "type": "string",
             "format": "uuid"
           }
-        }
+        },
+        "additionalProperties": false
+      },
+      "AttributeDto": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "AuthorizedPartiesIncludeFilter": {
         "enum": [
@@ -3124,7 +6019,7 @@
           "true",
           "auto"
         ],
-        "default": "auto"
+        "type": "string"
       },
       "AuthorizedPartyDto": {
         "type": "object",
@@ -3200,26 +6095,21 @@
           "authorizedInstances": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/AuthorizedResourceInstance"
+              "$ref": "#/components/schemas/AuthorizedPartyDto.AuthorizedResourceInstance"
             },
             "nullable": true
           },
           "subunits": {
             "type": "array",
-            "items": { },
+            "items": {
+              "$ref": "#/components/schemas/AuthorizedPartyDto"
+            },
             "nullable": true
           }
-        }
+        },
+        "additionalProperties": false
       },
-      "AuthorizedPartyTypeDto": {
-        "enum": [
-          "None",
-          "Person",
-          "Organization",
-          "SelfIdentified"
-        ]
-      },
-      "AuthorizedResourceInstance": {
+      "AuthorizedPartyDto.AuthorizedResourceInstance": {
         "type": "object",
         "properties": {
           "resourceId": {
@@ -3229,25 +6119,43 @@
           "instanceId": {
             "type": "string",
             "nullable": true
-          }
-        }
-      },
-      "ClientDto": {
-        "type": "object",
-        "properties": {
-          "client": {
-            "$ref": "#/components/schemas/CompactEntityDto3"
           },
-          "access": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RoleAccessPackages"
-            },
+          "instanceRef": {
+            "type": "string",
             "nullable": true
           }
-        }
+        },
+        "additionalProperties": false
       },
-      "ClientDto2": {
+      "AuthorizedPartyDtoListPaginatedResult": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AuthorizedPartyDto"
+              }
+            },
+            "nullable": true
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginatedResultLinks"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AuthorizedPartyTypeDto": {
+        "enum": [
+          "None",
+          "Person",
+          "Organization",
+          "SelfIdentified"
+        ],
+        "type": "string"
+      },
+      "ClientDto": {
         "type": "object",
         "properties": {
           "client": {
@@ -3256,11 +6164,44 @@
           "access": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RoleAccessPackages"
+              "$ref": "#/components/schemas/ClientDto.RoleAccessPackages"
             },
             "nullable": true
           }
-        }
+        },
+        "additionalProperties": false
+      },
+      "ClientDto.RoleAccessPackages": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "$ref": "#/components/schemas/CompactRoleDto"
+          },
+          "packages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CompactPackageDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ClientDtoPaginatedResult": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ClientDto"
+            },
+            "nullable": true
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginatedResultLinks"
+          }
+        },
+        "additionalProperties": false
       },
       "CompactEntityDto": {
         "type": "object",
@@ -3281,20 +6222,13 @@
             "type": "string",
             "nullable": true
           },
-          "keyValues": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            },
-            "nullable": true
-          },
           "parent": {
             "$ref": "#/components/schemas/CompactEntityDto"
           },
           "children": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CompactEntityDto2"
+              "$ref": "#/components/schemas/CompactEntityDto"
             },
             "nullable": true
           },
@@ -3339,164 +6273,7 @@
             "nullable": true
           }
         },
-        "nullable": true
-      },
-      "CompactEntityDto2": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "variant": {
-            "type": "string",
-            "nullable": true
-          },
-          "keyValues": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "parent": {
-            "$ref": "#/components/schemas/CompactEntityDto"
-          },
-          "children": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CompactEntityDto2"
-            },
-            "nullable": true
-          },
-          "partyid": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "userId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "username": {
-            "type": "string",
-            "nullable": true
-          },
-          "organizationIdentifier": {
-            "type": "string",
-            "nullable": true
-          },
-          "personIdentifier": {
-            "type": "string",
-            "nullable": true
-          },
-          "dateOfBirth": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "dateOfDeath": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "isDeleted": {
-            "type": "boolean"
-          },
-          "deletedAt": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          }
-        }
-      },
-      "CompactEntityDto3": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "variant": {
-            "type": "string",
-            "nullable": true
-          },
-          "keyValues": {
-            "type": "object",
-            "additionalProperties": {
-              "type": "string"
-            },
-            "nullable": true
-          },
-          "parent": {
-            "$ref": "#/components/schemas/CompactEntityDto"
-          },
-          "children": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CompactEntityDto2"
-            },
-            "nullable": true
-          },
-          "partyid": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "userId": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "username": {
-            "type": "string",
-            "nullable": true
-          },
-          "organizationIdentifier": {
-            "type": "string",
-            "nullable": true
-          },
-          "personIdentifier": {
-            "type": "string",
-            "nullable": true
-          },
-          "dateOfBirth": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "dateOfDeath": {
-            "type": "string",
-            "format": "date",
-            "nullable": true
-          },
-          "isDeleted": {
-            "type": "boolean"
-          },
-          "deletedAt": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          }
-        },
-        "nullable": true
+        "additionalProperties": false
       },
       "CompactPackageDto": {
         "type": "object",
@@ -3513,25 +6290,8 @@
             "type": "string",
             "format": "uuid"
           }
-        }
-      },
-      "CompactPackageDto2": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "urn": {
-            "type": "string",
-            "nullable": true
-          },
-          "areaId": {
-            "type": "string",
-            "format": "uuid"
-          }
         },
-        "nullable": true
+        "additionalProperties": false
       },
       "CompactRoleDto": {
         "type": "object",
@@ -3555,40 +6315,12 @@
           "children": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CompactRoleDto2"
+              "$ref": "#/components/schemas/CompactRoleDto"
             },
             "nullable": true
           }
         },
-        "nullable": true
-      },
-      "CompactRoleDto2": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "code": {
-            "type": "string",
-            "nullable": true
-          },
-          "urn": {
-            "type": "string",
-            "nullable": true
-          },
-          "legacyurn ": {
-            "type": "string",
-            "nullable": true
-          },
-          "children": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CompactRoleDto2"
-            },
-            "nullable": true
-          }
-        }
+        "additionalProperties": false
       },
       "ConnectionDto": {
         "type": "object",
@@ -3599,7 +6331,7 @@
           "roles": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CompactRoleDto2"
+              "$ref": "#/components/schemas/CompactRoleDto"
             },
             "nullable": true
           },
@@ -3619,10 +6351,29 @@
           },
           "connections": {
             "type": "array",
-            "items": { },
+            "items": {
+              "$ref": "#/components/schemas/ConnectionDto"
+            },
             "nullable": true
           }
-        }
+        },
+        "additionalProperties": false
+      },
+      "ConnectionDtoPaginatedResult": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConnectionDto"
+            },
+            "nullable": true
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginatedResultLinks"
+          }
+        },
+        "additionalProperties": false
       },
       "DelegationBatchInputDto": {
         "type": "object",
@@ -3630,11 +6381,29 @@
           "values": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Permission"
+              "$ref": "#/components/schemas/DelegationBatchInputDto.Permission"
             },
             "nullable": true
           }
-        }
+        },
+        "additionalProperties": false
+      },
+      "DelegationBatchInputDto.Permission": {
+        "type": "object",
+        "properties": {
+          "role": {
+            "type": "string",
+            "nullable": true
+          },
+          "packages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "DelegationCheckReasonCode": {
         "enum": [
@@ -3646,8 +6415,10 @@
           "AccessListValidationFail",
           "PackageAccess",
           "MissingPackageAccess",
-          "ResourceNotDelegable"
-        ]
+          "ResourceNotDelegable",
+          "ResourceIsMaskinPortenSchema"
+        ],
+        "type": "string"
       },
       "DelegationDto": {
         "type": "object",
@@ -3675,28 +6446,153 @@
           "changed": {
             "type": "boolean"
           }
-        }
+        },
+        "additionalProperties": false
       },
-      "ErrorCode": { },
-      "ExternalResourceRuleDto": {
+      "ErrorCode": {
+        "type": "object",
+        "properties": {
+          "hasValue": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ExtInstanceRightDto": {
         "type": "object",
         "properties": {
           "resource": {
-            "$ref": "#/components/schemas/ResourceDto2"
+            "$ref": "#/components/schemas/ResourceDto"
           },
-          "directRules": {
+          "instance": {
+            "$ref": "#/components/schemas/InstanceDto"
+          },
+          "directRights": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RulePermission"
+              "$ref": "#/components/schemas/RightPermission"
             },
             "nullable": true
           },
-          "indirectRules": {
+          "indirectRights": {
             "type": "array",
-            "items": { },
+            "items": {
+              "$ref": "#/components/schemas/RightPermission"
+            },
             "nullable": true
           }
-        }
+        },
+        "additionalProperties": false
+      },
+      "ExternalResourceRightDto": {
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/ResourceDto"
+          },
+          "directRights": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RightPermission"
+            },
+            "nullable": true
+          },
+          "indirectRights": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RightPermission"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InstanceCheckDto": {
+        "required": [
+          "instance",
+          "resource",
+          "rights"
+        ],
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/ResourceDto"
+          },
+          "instance": {
+            "$ref": "#/components/schemas/InstanceDto"
+          },
+          "rights": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RightCheckDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InstanceDto": {
+        "type": "object",
+        "properties": {
+          "refId": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "$ref": "#/components/schemas/InstanceTypeDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "InstancePermissionDto": {
+        "type": "object",
+        "properties": {
+          "resource": {
+            "$ref": "#/components/schemas/ResourceDto"
+          },
+          "instance": {
+            "$ref": "#/components/schemas/InstanceDto"
+          },
+          "permissions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PermissionDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InstanceRightsDelegationDto": {
+        "type": "object",
+        "properties": {
+          "to": {
+            "$ref": "#/components/schemas/PersonInputDto"
+          },
+          "directRightKeys": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "InstanceTypeDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "MyClientDto": {
         "type": "object",
@@ -3711,13 +6607,30 @@
             },
             "nullable": true
           }
-        }
+        },
+        "additionalProperties": false
+      },
+      "MyClientDtoPaginatedResult": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MyClientDto"
+            },
+            "nullable": true
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginatedResultLinks"
+          }
+        },
+        "additionalProperties": false
       },
       "PackagePermissionDto": {
         "type": "object",
         "properties": {
           "package": {
-            "$ref": "#/components/schemas/CompactPackageDto2"
+            "$ref": "#/components/schemas/CompactPackageDto"
           },
           "permissions": {
             "type": "array",
@@ -3726,182 +6639,64 @@
             },
             "nullable": true
           }
-        }
+        },
+        "additionalProperties": false
+      },
+      "PackagePermissionDtoPaginatedResult": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PackagePermissionDto"
+            },
+            "nullable": true
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginatedResultLinks"
+          }
+        },
+        "additionalProperties": false
       },
       "PaginatedResultLinks": {
-        "required": [
-          "next"
-        ],
         "type": "object",
         "properties": {
           "next": {
             "type": "string",
             "nullable": true
           }
-        }
+        },
+        "additionalProperties": false
       },
-      "PaginatedResultOfAccessPackageDtoCheck": {
-        "required": [
-          "links",
-          "data"
-        ],
+      "PartyEntityDto": {
         "type": "object",
         "properties": {
-          "links": {
-            "$ref": "#/components/schemas/PaginatedResultLinks"
+          "id": {
+            "type": "string",
+            "format": "uuid"
           },
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AccessPackageDtoCheck"
-            }
-          }
-        }
-      },
-      "PaginatedResultOfAgentDto": {
-        "required": [
-          "links",
-          "data"
-        ],
-        "type": "object",
-        "properties": {
-          "links": {
-            "$ref": "#/components/schemas/PaginatedResultLinks"
-          },
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AgentDto"
-            }
-          }
-        }
-      },
-      "PaginatedResultOfClientDto": {
-        "required": [
-          "links",
-          "data"
-        ],
-        "type": "object",
-        "properties": {
-          "links": {
-            "$ref": "#/components/schemas/PaginatedResultLinks"
-          },
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ClientDto2"
-            }
-          }
-        }
-      },
-      "PaginatedResultOfConnectionDto": {
-        "required": [
-          "links",
-          "data"
-        ],
-        "type": "object",
-        "properties": {
-          "links": {
-            "$ref": "#/components/schemas/PaginatedResultLinks"
-          },
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ConnectionDto"
-            }
-          }
-        }
-      },
-      "PaginatedResultOfListOfAuthorizedPartyDto": {
-        "required": [
-          "links",
-          "data"
-        ],
-        "type": "object",
-        "properties": {
-          "links": {
-            "$ref": "#/components/schemas/PaginatedResultLinks"
-          },
-          "data": {
-            "type": "array",
-            "items": {
-              "type": "array",
-              "items": {
-                "$ref": "#/components/schemas/AuthorizedPartyDto"
-              }
-            }
-          }
-        }
-      },
-      "PaginatedResultOfMyClientDto": {
-        "required": [
-          "links",
-          "data"
-        ],
-        "type": "object",
-        "properties": {
-          "links": {
-            "$ref": "#/components/schemas/PaginatedResultLinks"
-          },
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MyClientDto"
-            }
-          }
-        }
-      },
-      "PaginatedResultOfPackagePermissionDto": {
-        "required": [
-          "links",
-          "data"
-        ],
-        "type": "object",
-        "properties": {
-          "links": {
-            "$ref": "#/components/schemas/PaginatedResultLinks"
-          },
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PackagePermissionDto"
-            }
-          }
-        }
-      },
-      "PaginatedResultOfRolePermissionDto": {
-        "required": [
-          "links",
-          "data"
-        ],
-        "type": "object",
-        "properties": {
-          "links": {
-            "$ref": "#/components/schemas/PaginatedResultLinks"
-          },
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RolePermissionDto"
-            }
-          }
-        }
-      },
-      "Permission": {
-        "type": "object",
-        "properties": {
-          "role": {
+          "name": {
             "type": "string",
             "nullable": true
           },
-          "packages": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "variant": {
+            "type": "string",
+            "nullable": true
+          },
+          "organizationIdentifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "personIdentifier": {
+            "type": "string",
             "nullable": true
           }
-        }
+        },
+        "additionalProperties": false
       },
       "PermissionDto": {
         "type": "object",
@@ -3910,10 +6705,10 @@
             "$ref": "#/components/schemas/CompactEntityDto"
           },
           "to": {
-            "$ref": "#/components/schemas/CompactEntityDto3"
+            "$ref": "#/components/schemas/CompactEntityDto"
           },
           "via": {
-            "$ref": "#/components/schemas/CompactEntityDto3"
+            "$ref": "#/components/schemas/CompactEntityDto"
           },
           "role": {
             "$ref": "#/components/schemas/CompactRoleDto"
@@ -3924,9 +6719,28 @@
           "reason": {
             "$ref": "#/components/schemas/AccessReason"
           }
-        }
+        },
+        "additionalProperties": false
       },
       "PersonInput": {
+        "type": "object",
+        "properties": {
+          "personIdentifier": {
+            "type": "string",
+            "description": "Person identifier. Either 11-digit national identity number or username",
+            "format": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "description": "Lastname",
+            "format": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PersonInputDto": {
         "type": "object",
         "properties": {
           "personIdentifier": {
@@ -3938,7 +6752,7 @@
             "nullable": true
           }
         },
-        "nullable": true
+        "additionalProperties": false
       },
       "ProblemDetails": {
         "type": "object",
@@ -3964,7 +6778,8 @@
             "type": "string",
             "nullable": true
           }
-        }
+        },
+        "additionalProperties": { }
       },
       "ProviderDto": {
         "type": "object",
@@ -3997,7 +6812,7 @@
             "$ref": "#/components/schemas/ProviderTypeDto"
           }
         },
-        "nullable": true
+        "additionalProperties": false
       },
       "ProviderTypeDto": {
         "type": "object",
@@ -4011,83 +6826,119 @@
             "nullable": true
           }
         },
-        "nullable": true
+        "additionalProperties": false
       },
-      "Reason": {
-        "required": [
-          "description"
-        ],
+      "RequestDto": {
         "type": "object",
         "properties": {
-          "description": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "status": {
+            "$ref": "#/components/schemas/RequestStatus"
+          },
+          "type": {
             "type": "string",
             "nullable": true
           },
-          "roleId": {
+          "lastUpdated": {
             "type": "string",
-            "format": "uuid",
+            "format": "date-time"
+          },
+          "resource": {
+            "$ref": "#/components/schemas/RequestReferenceDto"
+          },
+          "package": {
+            "$ref": "#/components/schemas/RequestReferenceDto"
+          },
+          "links": {
+            "$ref": "#/components/schemas/RequestLinks"
+          },
+          "from": {
+            "$ref": "#/components/schemas/PartyEntityDto"
+          },
+          "to": {
+            "$ref": "#/components/schemas/PartyEntityDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RequestDtoPaginatedResult": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/RequestDto"
+            },
             "nullable": true
           },
-          "roleUrn": {
+          "links": {
+            "$ref": "#/components/schemas/PaginatedResultLinks"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RequestLinks": {
+        "type": "object",
+        "properties": {
+          "detailsLink": {
             "type": "string",
             "nullable": true
           },
-          "fromId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "fromName": {
-            "type": "string",
-            "nullable": true
-          },
-          "toId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "toName": {
-            "type": "string",
-            "nullable": true
-          },
-          "viaId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "viaName": {
-            "type": "string",
-            "nullable": true
-          },
-          "viaRoleId": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
-          },
-          "viaRoleUrn": {
+          "statusLink": {
             "type": "string",
             "nullable": true
           }
-        }
+        },
+        "additionalProperties": false
+      },
+      "RequestReferenceDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "referenceId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RequestStatus": {
+        "enum": [
+          "None",
+          "Draft",
+          "Pending",
+          "Approved",
+          "Rejected",
+          "Withdrawn"
+        ],
+        "type": "string"
       },
       "ResourceCheckDto": {
         "required": [
           "resource",
-          "rules"
+          "rights"
         ],
         "type": "object",
         "properties": {
           "resource": {
-            "$ref": "#/components/schemas/ResourceDto2"
+            "$ref": "#/components/schemas/ResourceDto"
           },
-          "rules": {
+          "rights": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/RuleCheckDto"
+              "$ref": "#/components/schemas/RightCheckDto"
             },
             "nullable": true
           }
-        }
+        },
+        "additionalProperties": false
       },
       "ResourceDto": {
         "type": "object",
@@ -4122,49 +6973,14 @@
           "type": {
             "$ref": "#/components/schemas/ResourceTypeDto"
           }
-        }
-      },
-      "ResourceDto2": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "providerId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "typeId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "description": {
-            "type": "string",
-            "nullable": true
-          },
-          "refId": {
-            "type": "string",
-            "nullable": true
-          },
-          "provider": {
-            "$ref": "#/components/schemas/ProviderDto"
-          },
-          "type": {
-            "$ref": "#/components/schemas/ResourceTypeDto"
-          }
         },
-        "nullable": true
+        "additionalProperties": false
       },
       "ResourcePermissionDto": {
         "type": "object",
         "properties": {
           "resource": {
-            "$ref": "#/components/schemas/ResourceDto2"
+            "$ref": "#/components/schemas/ResourceDto"
           },
           "permissions": {
             "type": "array",
@@ -4173,7 +6989,8 @@
             },
             "nullable": true
           }
-        }
+        },
+        "additionalProperties": false
       },
       "ResourceTypeDto": {
         "type": "object",
@@ -4187,22 +7004,86 @@
             "nullable": true
           }
         },
-        "nullable": true
+        "additionalProperties": false
       },
-      "RoleAccessPackages": {
+      "RightCheckDto": {
+        "required": [
+          "result",
+          "right"
+        ],
         "type": "object",
         "properties": {
-          "role": {
-            "$ref": "#/components/schemas/CompactRoleDto"
+          "right": {
+            "$ref": "#/components/schemas/RightDto"
           },
-          "packages": {
+          "result": {
+            "type": "boolean"
+          },
+          "reasonCodes": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/CompactPackageDto"
+              "$ref": "#/components/schemas/DelegationCheckReasonCode"
             },
             "nullable": true
           }
-        }
+        },
+        "additionalProperties": false
+      },
+      "RightDto": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "resource": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttributeDto"
+            },
+            "nullable": true
+          },
+          "action": {
+            "$ref": "#/components/schemas/AttributeDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RightKeyListDto": {
+        "type": "object",
+        "properties": {
+          "directRightKeys": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RightPermission": {
+        "type": "object",
+        "properties": {
+          "right": {
+            "$ref": "#/components/schemas/RightDto"
+          },
+          "reason": {
+            "$ref": "#/components/schemas/AccessReason"
+          },
+          "permissions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PermissionDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "RoleDto": {
         "type": "object",
@@ -4245,7 +7126,7 @@
             "$ref": "#/components/schemas/ProviderDto"
           }
         },
-        "nullable": true
+        "additionalProperties": false
       },
       "RolePermissionDto": {
         "type": "object",
@@ -4260,96 +7141,115 @@
             },
             "nullable": true
           }
-        }
+        },
+        "additionalProperties": false
       },
-      "RuleCheckDto": {
-        "required": [
-          "rule",
-          "result"
-        ],
+      "RolePermissionDtoPaginatedResult": {
         "type": "object",
         "properties": {
-          "rule": {
-            "$ref": "#/components/schemas/RuleDto"
-          },
-          "result": {
-            "type": "boolean"
-          },
-          "reasonCodes": {
+          "data": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/DelegationCheckReasonCode"
+              "$ref": "#/components/schemas/RolePermissionDto"
+            },
+            "nullable": true
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginatedResultLinks"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SimplifiedConnectionDto": {
+        "type": "object",
+        "properties": {
+          "party": {
+            "$ref": "#/components/schemas/SimplifiedPartyDto"
+          },
+          "connections": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SimplifiedConnectionDto"
             },
             "nullable": true
           }
-        }
+        },
+        "additionalProperties": false
       },
-      "RuleDto": {
+      "SimplifiedConnectionDtoPaginatedResult": {
         "type": "object",
         "properties": {
-          "key": {
-            "type": "string",
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SimplifiedConnectionDto"
+            },
             "nullable": true
+          },
+          "links": {
+            "$ref": "#/components/schemas/PaginatedResultLinks"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SimplifiedPartyDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
           },
           "name": {
             "type": "string",
             "nullable": true
           },
-          "resource": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
+          "type": {
+            "type": "string",
             "nullable": true
           },
-          "action": {
+          "variant": {
             "type": "string",
+            "nullable": true
+          },
+          "organizationIdentifier": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "deletedAt": {
+            "type": "string",
+            "format": "date-time",
             "nullable": true
           }
         },
-        "nullable": true
+        "additionalProperties": false
       },
-      "RuleKeyListDto": {
+      "SimplifiedPartyDtoPaginatedResult": {
         "type": "object",
         "properties": {
-          "directRuleKeys": {
+          "data": {
             "type": "array",
             "items": {
-              "type": "string"
+              "$ref": "#/components/schemas/SimplifiedPartyDto"
             },
             "nullable": true
-          }
-        }
-      },
-      "RulePermission": {
-        "type": "object",
-        "properties": {
-          "rule": {
-            "$ref": "#/components/schemas/RuleDto"
           },
-          "reason": {
-            "$ref": "#/components/schemas/AccessReason"
-          },
-          "permissions": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/PermissionDto"
-            },
-            "nullable": true
+          "links": {
+            "$ref": "#/components/schemas/PaginatedResultLinks"
           }
-        }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "oauth2": {
+        "type": "http",
+        "description": "Standard Authorization header using the Bearer scheme. Example: \"bearer {token}\"",
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
       }
     }
-  },
-  "tags": [
-    {
-      "name": "AuthorizedParties"
-    },
-    {
-      "name": "Client Delegation"
-    },
-    {
-      "name": "Connections"
-    }
-  ]
+  }
 }

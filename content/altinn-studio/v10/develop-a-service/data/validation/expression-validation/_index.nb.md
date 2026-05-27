@@ -3,7 +3,7 @@ draft: true
 title: Validering med uttrykk
 description: Slik konfigurerer du valideringer ved hjelp av dynamiske uttrykk.
 toc: true
-tags: [needsReview, needsTranslation]
+tags: [needsReview]
 ---
 
 Validering med uttrykk gir deg mulighet til å definere valideringsregler som er mer fleksible enn begrensninger i datamodellen, men enklere å utvikle enn valideringer i backend-kode.
