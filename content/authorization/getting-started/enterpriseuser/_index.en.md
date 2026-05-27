@@ -7,6 +7,13 @@ aliases:
   - /api/authentication/enterpriseusers/
 ---
 
+Translation:
+
+{{% notice warning%}}
+The enterprise user will not be carried over to Altinn 3 and will have its last day of operation on June 19, 2026.
+The enterprise user will be replaced by [System user](/en/authorization/what-do-you-get/systemuser/).
+{{% /notice %}}
+
 ## Overview
 
 Enterprise users enable the use of an enterprise certificate combined with a username and password.

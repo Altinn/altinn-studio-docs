@@ -67,6 +67,8 @@ til `7.2.0` eller nyere:
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
+Fra og med versjon 8.9.0 er det mulig å markere komponenter med egenskapen `"removeWhenHidden"` som er et uttrykk som evalueres sammen med `"hidden"` når vi fjerner skjulte data. Den kan være `true`, `false` eller `null` (eller et uttrykk som evaluerer til det). Foreløpig gir det bare mening å sette `"removeWhenHidden": false` (fordi true og null gir samme oppførsel), men i fremtiden kan det hende at vi vil fjerne data når den er `true` selv om det ikke er satt noen global `RemoveHiddenData` i appsettings.
+
 ### Oppbygging og syntaks
 
 Uttrykkene er bygget opp som et slags mini-programmeringsspråk, hvor alt er definert i JSON. Selve uttrykkene er alltid
@@ -148,6 +150,7 @@ Dynamiske uttrykk er foreløpig tilgjengelig for bruk i disse egenskapene, som d
 | Skjemakomponenter                                                                                               | `required`                    | [Boolsk](#boolske-verdier) | ✅       | ✅      |
 | Skjemakomponenter                                                                                               | `readOnly`                    | [Boolsk](#boolske-verdier) | ✅       | ❌      |
 | [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `hiddenRow`                   | [Boolsk](#boolske-verdier) | ✅       | ❌      |
+| [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `tableColumns.[*].hidden`     | [Boolsk](#boolske-verdier) | ✅       | ❌      |
 | [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `edit.addButton`              | [Boolsk](#boolske-verdier) | ✅       | ❌      |
 | [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `edit.saveButton`             | [Boolsk](#boolske-verdier) | ✅       | ❌      |
 | [Repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)                                                       | `edit.deleteButton`           | [Boolsk](#boolske-verdier) | ✅       | ❌      |
@@ -288,21 +291,25 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 
 ### Strenger og tall
 
-| Funksjonsnavn                             | Parametre                                                     | Returverdi          | Frontend | Backend |
-| ----------------------------------------- | ------------------------------------------------------------- | ------------------- | -------- | ------- |
-| [`lowerCase`](#func-lowerCase-upperCase)  | [Streng](#strenger)                                           | [Streng](#strenger) | ✅       | ✅      |
-| [`upperCase`](#func-lowerCase-upperCase)  | [Streng](#strenger)                                           | [Streng](#strenger) | ✅       | ✅      |
-| [`lowerCaseFirst`](#func-lcFirst-ucFirst) | [Streng](#strenger)                                           | [Streng](#strenger) | ✅       | ✅      |
-| [`upperCaseFirst`](#func-lcFirst-ucFirst) | [Streng](#strenger)                                           | [Streng](#strenger) | ✅       | ✅      |
-| [`stringLength`](#func-stringLength)      | [Streng](#strenger)                                           | [Tall](#tall)       | ✅       | ✅      |
-| [`stringIndexOf`](#func-stringIndexOf)    | [Streng](#strenger), [Streng](#strenger)                      | [Tall](#tall)       | ✅       | ✅      |
-| [`stringSlice`](#func-stringSlice)        | [Streng](#strenger), [Tall](#tall), valgfritt [Tall](#tall)   | [Streng](#strenger) | ✅       | ✅      |
-| [`stringReplace`](#func-stringReplace)    | [Streng](#strenger), [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅       | ✅      |
-| [`text`](#func-text)                      | [Streng](#strenger)                                           | [Streng](#strenger) | ✅       | ❌      |
-| [`language`](#func-language)              | Ingenting                                                     | [Streng](#strenger) | ✅       | ❌      |
-| [`displayValue`](#func-displayValue)      | [Streng](#strenger)                                           | [Streng](#strenger) | ✅       | ❌      |
-| [`round`](#func-round)                    | [Tall](#tall), valgfritt [Tall](#tall)                        | [Streng](#strenger) | ✅       | ✅      |
-| [`formatDate`](#func-formatDate)          | [Dato/tid](#datoer), valgfri [Streng](#strenger)              | [Streng](#strenger) | ✅       | ✅      |
+| Funksjonsnavn                             | Parametre                                                 | Returverdi          | Frontend | Backend |
+|-------------------------------------------|-----------------------------------------------------------|---------------------|----------| ------- |
+| [`lowerCase`](#func-lowerCase-upperCase)  | [Streng](#strenger)                                       | [Streng](#strenger) | ✅        | ✅      |
+| [`upperCase`](#func-lowerCase-upperCase)  | [Streng](#strenger)                                       | [Streng](#strenger) | ✅        | ✅      |
+| [`lowerCaseFirst`](#func-lcFirst-ucFirst) | [Streng](#strenger)                                       | [Streng](#strenger) | ✅        | ✅      |
+| [`upperCaseFirst`](#func-lcFirst-ucFirst) | [Streng](#strenger)                                       | [Streng](#strenger) | ✅        | ✅      |
+| [`stringLength`](#func-stringLength)      | [Streng](#strenger)                                       | [Tall](#tall)       | ✅        | ✅      |
+| [`stringIndexOf`](#func-stringIndexOf)    | [Streng](#strenger), [Streng](#strenger)                  | [Tall](#tall)       | ✅        | ✅      |
+| [`stringSlice`](#func-stringSlice)        | [Streng](#strenger), [Tall](#tall), valgfritt [Tall](#tall) | [Streng](#strenger) | ✅        | ✅      |
+| [`stringReplace`](#func-stringReplace)    | [Streng](#strenger), [Streng](#strenger), [Streng](#strenger) | [Streng](#strenger) | ✅        | ✅      |
+| [`text`](#func-text)                      | [Streng](#strenger)                                       | [Streng](#strenger) | ✅        | ❌      |
+| [`language`](#func-language)              | Ingenting                                                 | [Streng](#strenger) | ✅        | ❌      |
+| [`displayValue`](#func-displayValue)      | [Streng](#strenger)                                       | [Streng](#strenger) | ✅        | ❌      |
+| [`round`](#func-round)                    | [Tall](#tall), valgfritt [Tall](#tall)                    | [Streng](#strenger) | ✅        | ✅      |
+| [`formatDate`](#func-formatDate)          | [Dato/tid](#datoer), valgfri [Streng](#strenger)          | [Streng](#strenger) | ✅        | ✅      |
+| [`plus`](#func-plus)                      | Ett eller flere [tall](#tall)                             | [Tall](#tall)       | ✅        | ✅      |
+| [`minus`](#func-minus)                    | [Tall](#tall), [Tall](#tall)          | [Tall](#tall)       | ✅        | ✅      |
+| [`multiply`](#func-multiply)              | Ett eller flere [tall](#tall)                             | [Tall](#tall)       | ✅        | ✅      |
+| [`divide`](#func-divide)                  | [Tall](#tall), [Tall](#tall)                | [Tall](#tall)       | ✅        | ✅      |
 
 ### Oppslag, komponenter og data
 
@@ -1072,6 +1079,57 @@ gir dette uttrykket foreløpig en feilmelding.
 
 Uttrykket over henter ut teksten til svaralternativet (om brukt i filtrering av svaralternativer). I andre sammenhenger
 gir dette uttrykket en feilmelding.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-plus" header="plus" %}}
+Funksjonen `plus` returnerer summen av de oppgitte tallene. 
+
+Eksempel:
+```json
+["plus", 22, 9.2]
+```
+Dette eksemplet gir tallverdien `31.2`.
+
+Dersom `null` sendes inn som argument, tolker funksjonen dette som `0`.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-minus" header="minus" %}}
+Funksjonen `minus` returnerer differansen mellom to tall,
+hvor det første tallet er minuenden og det andre er subtrahenden.
+
+Eksempel:
+```json
+["minus", 22, 9.2]
+```
+Dette eksemplet gir tallverdien `12.8`.
+
+Dersom `null` sendes inn som argument, tolker funksjonen dette som `0`.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-multiply" header="multiply" %}}
+Funksjonen `multiply` returnerer produktet av de oppgitte tallene.
+
+Eksempel:
+```json
+["multiply", 22, 10]
+```
+Dette eksemplet gir tallverdien `220`.
+
+Dersom `null` sendes inn som argument, tolker funksjonen dette som `0`.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-divide" header="divide" %}}
+Funksjonen `divide` returnerer kvotienten av to tall, hvor det første tallet er dividenden og det andre er divisoren.
+
+Eksempel:
+```json
+["divide", 22, 10]
+```
+Dette eksemplet gir tallverdien `2.2`.
+
+Vær oppmerksom på at tallet 0 ikke er gyldig som divisor.
+
+Dersom `null` sendes inn som argument, tolker funksjonen dette som `0`.
 {{% /expandlarge %}}
 
 ## Datatyper

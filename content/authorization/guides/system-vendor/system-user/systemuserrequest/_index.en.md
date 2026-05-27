@@ -22,6 +22,11 @@ This applies to a system user for your own system, where the system acts on beha
 
 This is the preferred method where you, as the SBSL, initiate the creation via API.
 
+  * You must know the organization number (`partyOrgNo`) of the end user customer.
+  * You must have defined which access packages (`accessPackages`) or individual rights (`rights`) the system user needs.
+  * (Optional) If `redirectUrl` is to be used, this URL must be pre-registered in your system.
+  * (Optional) If you want a specific name for the system user that is created, `integrationTitle` can be set. If `integrationTitle` is not set, the system user will have the same name as the system.
+
 1.  **Initiate request:** Send an HTTP POST request to the API endpoint.
 
      * **Test (TT02):** `https://platform.tt02.altinn.no/authentication/api/v1/systemuser/request/vendor`
@@ -33,6 +38,7 @@ This is the preferred method where you, as the SBSL, initiate the creation via A
     {
     "systemId": "991825827_smartcloud",
     "partyOrgNo": "314248295",
+    "integrationTitle": "SmartCloud Tax",
     "rights": [
       {
         "resource": [
@@ -103,6 +109,7 @@ This applies to a system user for a system that will act on behalf of the end-us
       {
     "systemId": "312605031_SuperRegnskap",
     "partyOrgNo": "310495670",
+    "integrationTitle": "SuperRegnskap Auditor",
     "accessPackages": [
       {
         "urn": "urn:altinn:accesspackage:ansvarlig-revisor"
@@ -126,15 +133,20 @@ This applies to a system user for a system that will act on behalf of the end-us
 
 ## 3\. Verification and Status
 
-### Verify Creation
+### Verify creation
 
-After an end-user has approved a request (status `Accepted`), you as the SBSL can verify that the system user exists.
+After an end-user has approved a request (status `Accepted`), you as the SBSL can also use the `byquery` endpoint as a supplement to existing status endpoints to check that the system user has actually been created.
 
-1.  Send an HTTP GET request to:
-    `{{API_BASE_URL}}/authentication/api/v1/systemuser/vendor/byquery?system-id={systemId}&orgno={customerOrgno}`
-    *(Replace `{API_BASE_URL}`, `{systemId}` and `{customerOrgno}`)*
+The call requires the scope `altinn:authentication/systemuser.request.write` in the Maskinporten token.
 
-2.  A successful response returns JSON with details about the system user, including the system user `id` and `userType`.
+- **Test (TT02):** `GET https://platform.tt02.altinn.no/authentication/api/v1/systemuser/vendor/byquery?system-id={systemId}&orgno={customerOrgno}`
+- **Production:** `GET https://platform.altinn.no/authentication/api/v1/systemuser/vendor/byquery?system-id={systemId}&orgno={customerOrgno}`
+
+If you set an external reference when creating the system user, you can also provide the `external-ref` parameter to narrow the lookup.
+
+A successful response returns JSON with details about the system user, including `id` and `userType`.
+
+See [Query for a system user](../byquery/) for full documentation of the endpoint, including all parameters and response fields.
 
 ### Request Status
 

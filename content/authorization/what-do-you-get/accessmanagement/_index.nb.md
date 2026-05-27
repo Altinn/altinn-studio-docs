@@ -2,7 +2,7 @@
 title: Tilgangsstyring
 linktitle: Tilgangsstyring
 description: Tilgangsstyring (Access Management) gir funksjonalitet til sluttbrukere for å administrere grupper, roller og rettigheter
-tags: [architecture, security, authorization, xacml]
+weight: 5
 ---
 
 {{<notice warning>}}

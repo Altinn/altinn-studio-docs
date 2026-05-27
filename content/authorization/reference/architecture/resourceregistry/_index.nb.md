@@ -6,7 +6,7 @@ tags: [architecture, solution]
 toc: false
 ---
 
-Se også [løsningskomponenter](/nb/authorization/what-do-you-get/resourceregistry/) for funksjonell beskrivelse.
+Se også [løsningskomponenter](/nb/authorization/what-do-you-get/resourceadministration/) for funksjonell beskrivelse.
 
 ![Resource Registry](resourceregistry.drawio.svg "Construction Components Altinn Resource Registry")
 

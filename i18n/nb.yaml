@@ -48,7 +48,7 @@
 - id: product_dialogporten
   translation: Dialogporten
 - id: product_events
-  translation: Hendelser
+  translation: Events
 - id: product_notifications
   translation: Varsling
 

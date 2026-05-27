@@ -24,7 +24,7 @@ Denne delen beskriver hva tjenesteeier må gjøre for å tilgjengeliggjøre data
 
 {{< stepcard step="3" title="Opprett samtykkeressurs i ressursregisteret" >}}  
  Ressursregisteret inneholder beskrivelse av autorisasjonsressursen samt tilgangsregler for denne. Sørg for å informere de som skal bruke tjenesten om nødvendige tilgangspakker (og eventuelle enkeltrettigheter) som kreves for å ta den i bruk.
-Under [guider](/nb/authorization/guides/resource-owner/consent/#opprett-ny-samtykkeressurs) kan du lese mer om de forskjellige feltene som må fylles ut
+Under [guider](/nb/authorization/guides/resource-owner/consent/create-resource/#opprett-ny-samtykkeressurs) kan du lese mer om de forskjellige feltene som må fylles ut
 {{< /stepcard >}}
 
 {{< stepcard step="4" title="Tilgangslister" >}}  
@@ -34,7 +34,7 @@ Under [guider](/nb/authorization/guides/resource-owner/consent/#opprett-ny-samty
 
 Datakonumenter som ikke er ført opp på tilgangslisten vil ikke kunne opprette samtykkeforespørsel. Dette vil gjøre at flyten avsluttes før sluttbrukeren blir bedt om samtykke.
 
-Beskrivelse av tilgangslister og hvordan disse brukes finner du [her](/nb/authorization/guides/resource-owner/manage-accesslists-resource-admin/).
+Beskrivelse av tilgangslister og hvordan disse brukes finner du [her](/nb/authorization/guides/resource-owner/accesslist/manage-accesslists-resource-admin/).
 
 {{< /stepcard >}}
 
@@ -48,7 +48,7 @@ Beskrivelse av tilgangslister og hvordan disse brukes finner du [her](/nb/author
 
 {{< stepcard step="6" title="Valider samtykke" >}}
 Samtykketokenet er et tykt token som inneholder all informasjon du trenger for å validere samtykket. Dette betyr at all validering kan gjøres uten oppslag mot Altinn Autorisasjon.
-Beskrivelse av validering finnes [her](/nb/authorization/guides/resource-owner/consent/#validering-av-samtykker)
+Beskrivelse av validering finnes [her](/nb/authorization/guides/resource-owner/consent//validate-concent/)
 {{< /stepcard >}}
 
 ## Datakonsument/Sluttbrukersystem
@@ -70,7 +70,7 @@ Gjennom signering av [bruksvilkår for Maskinporten og ID-porten](https://samarb
      En Maskinporten-klient kan opprettes enten i Samarbeidsportalen eller ved bruk av API. Opprettelse av en Maskinporten-klient forutsetter oppkobling til Maskinporten. For mer informasjon, se [Maskinporten-klient](https://docs.altinn.studio/nb/correspondence/getting-started/developer-guides/maskinporten/).
     {{< /stepcard >}}
 
-{{< stepcard step="2" title="Datakonsumenten må ha fått delegert scope for samtykke fra Digdir" >}}
+{{< stepcard step="2" title="Datakonsumenten må ha fått delegert scope og API nøkkel for samtykke fra Digdir" >}}
 
 - Signer [bruksvilkår for Altinn sluttbrukersystemleverandører](https://samarbeid.digdir.no/altinn/bruksvilkar-sluttbrukersystemleverandorer-i-altinn/3002) for å få tilgang til test- og produksjonsmiljø.
 - Fyll ut [registreringsskjemaet for sluttbrukersystemleverandør](https://forms.office.com/Pages/ResponsePage.aspx?id=D1aOAK8I7EygVrNUR1A5kcdP2Xp78HZOttvolvmHfSJUOFFBMThaOTI1UlVEVU9VM0FaTVZLMzg0Vi4u) og kryss av for samtykke for å få tildelt nødvendige scopes:

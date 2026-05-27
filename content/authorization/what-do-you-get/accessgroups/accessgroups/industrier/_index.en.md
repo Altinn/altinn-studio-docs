@@ -77,14 +77,14 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbind
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
 |**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
 |---|---|---|
-|Næringsmidler, drikkevarer og tobakk|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Tekstiler, klær og lærvarer|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Trelast, trevarer og papirvarer|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Trykkerier og reproduksjon av innspilte opptak|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Oljeraffinering, kjemisk og farmasøytisk industri|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Gummi, plast og ikke-metallholdige mineralprodukter|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Metallvarer og mineraler|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Verft og andre transportmidler|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Møbler og annen industri|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Reparasjon og installasjon av maskiner og utstyr|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Bergverk|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Næringsmidler, drikkevarer og tobakk|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Tekstiler, klær og lærvarer|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Trelast, trevarer og papirvarer|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Trykkerier og reproduksjon av innspilte opptak|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Oljeraffinering, kjemisk og farmasøytisk industri|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Gummi, plast og ikke-metallholdige mineralprodukter|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Metallvarer og mineraler|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Verft og andre transportmidler|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Møbler og annen industri|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Reparasjon og installasjon av maskiner og utstyr|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Bergverk|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|

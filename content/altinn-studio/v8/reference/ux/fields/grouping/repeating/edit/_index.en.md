@@ -61,15 +61,55 @@ the group-element. The data is still saved.
 
 Determines whether the "Delete" button is displayed when a group element is in editing mode. The default behaviour if the parameter is not set is for the "Delete" button to be displayed.
 
+## show/hide text for edit and delete buttons
+A new opt-in property `compactButtons` in the RepeatingGroup component's edit configuration lets you display only icons in view mode for the Edit and Delete buttons, when you set `compactButtons:true`. Users will still see the full text labels when a row is in edit mode.
+
+You can add `compactButtons:true` to the edit property of your RepeatingGroup configuration in the layout JSON:
+
+Example:
+
+```json
+{
+  ...
+  "edit": {
+    "compactButtons": true
+  }
+}
+```
+
+## Layout for edit and delete buttons
+A new opt-in property `buttonLayout` in the RepeatingGroup component’s `edit` configuration controls how the `Edit` and `Delete` buttons are arranged in desktop table view. Use `buttonLayout`: `"vertical"` to place them in one column instead of the default horizontal layout. This saves horizontal space when the table has many columns. Mobile/tablet layout is unchanged.
+Default is `"horizontal"` if you omit the property.
+
+You can add `buttonLayout` to the `edit` property of your RepeatingGroup configuration in the layout JSON.
+
+Example:
+
+```json
+{
+  ...
+  "edit": {
+    "buttonLayout": "vertical"
+  }
+}
+```
+
+You can also combine it with `compactButtons` to hide the text of the button, for example:
+
+```json
+{
+  ...
+  "edit": {
+    "compactButtons": true,
+    "buttonLayout": "vertical"
+  }
+}
+```
+
 ## multiPage
 
 Editing/filling out pages can be performed over multiple "pages"/displays. Requires more setup to work,
 [see the dedicated documentation for this feature](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/multipage/).
-
-## filter
-
-Allows you to filter out some rows, so that only a subset of the rows are displayed. This option is deprecated and
-will be removed in a future version. More information and a description of alternatives can be found [in the documentation dedicated to dynamics in repeating groups](/en/altinn-studio/v8/reference/ux/fields/grouping/repeating/dynamics/).
 
 ## openByDefault
 

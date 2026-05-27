@@ -6,34 +6,34 @@ weight: 30
 
 ## Introduksjon
 
-Denne veiledningen viser hvordan et sluttbrukersystem kan få tilgang til spesifikke dialoger i Dialogporten ved hjelp av enten REST eller GraphQL APIer.
+Denne veiledningen viser hvordan et sluttbrukersystem kan få tilgang til spesifikke dialoger i Dialogporten ved hjelp av enten REST- eller GraphQL-APIer.
 
-Merk at datastrukturen som returneres når du henter enkeltdialoger, er forskjellig fra den som returneres på [søkeendepunktet](/nb/dialogporten/user-guides/getting-dialog-details/../searching-for-dialogs/); dialogdetaljvisningen gir mer informasjon om dialogen og hva brukeren har tilgang til.
+Merk at datastrukturen som returneres når du henter enkeltdialoger, er forskjellig fra den som returneres av [søkeendepunktet]({{< relref "../searching-for-dialogs/" >}}); dialogdetaljvisningen gir mer informasjon om dialogen og hva brukeren har tilgang til.
 
 ## Grunnleggende trinn (REST)
 
-1. [Autentiser som en sluttbruker](/nb/dialogporten/user-guides/getting-dialog-details/../authenticating/)
-2. Finn dialog-IDen du vil ha tilgang til. For å søke etter tilgjengelige dialoger, se [søkeendepunktet](/nb/dialogporten/user-guides/getting-dialog-details/../searching-for-dialogs/). Dialog-IDer kan også [oppdages via hendelser](/nb/dialogporten/user-guides/getting-dialog-details/../detecting-changes/).
+1. [Autentiser som sluttbruker]({{< relref "../authenticating/" >}})
+2. Finn dialog-IDen du vil ha tilgang til. For å søke etter tilgjengelige dialoger, se [søkeendepunktet]({{< relref "../searching-for-dialogs/" >}}). Dialog-IDer kan også [oppdages via hendelser]({{< relref "../detecting-changes/" >}}).
 3. Utfør en GET-forespørsel til `/api/v1/enduser/dialogs/{dialogId}`.
 
 ## Returnert informasjon
-Datastrukturen som returneres består av alle dataene som er tilgjengelige i søkeendepunktet, og i tillegg
+Datastrukturen som returneres består av alle dataene som er tilgjengelige i søkeendepunktet, og i tillegg:
 * tittel, sammendrag og tilleggsinformasjon (tekst)
-* [front channel embeds](/nb/dialogporten/user-guides/getting-dialog-details/../../getting-started/front-channel-embeds/) (dvs. referert innhold)
-* [handlinger](/nb/dialogporten/user-guides/getting-dialog-details/../../getting-started/dialogs/#handlinger) som kan utføres
-* [aktivitetslogg](/nb/dialogporten/user-guides/getting-dialog-details/../../getting-started/activity-log/)
-* [forsendelser](/nb/dialogporten/user-guides/getting-dialog-details/../../getting-started/dialogs/#forsendelser)
+* [front channel embeds]({{< relref "../../getting-started/front-channel-embeds/" >}}) (dvs. referert innhold)
+* [handlinger]({{< relref "../../getting-started/dialogs/" >}}#handlinger) som kan utføres
+* [aktivitetslogg]({{< relref "../../getting-started/activity-log/" >}})  
+* [forsendelser]({{< relref "../../getting-started/dialogs/" >}}#forsendelser)
 
-For fullstendige detaljer, se [dialogdetaljenheten](/nb/dialogporten/user-guides/getting-dialog-details/../../reference/entities/dialog/).
+For fullstendige detaljer, se [dialogdetaljenheten]({{< relref "../../reference/entities/dialog/" >}}).
 
 ## Autorisasjon
 
-Dialogporten vil utføre en autorisasjonssjekk mot Altinn Authorization for dialogen og dens komponenter, og sjekke om den autentiserte identiteten har tilgang til
+Dialogporten vil utføre en autorisasjonssjekk mot Altinn Authorization for dialogen og dens komponenter, og sjekke om den autentiserte identiteten har tilgang til:
 
 * noen eller alle av de definerte handlingene
 * noen eller alle av de definerte forsendelsene
 
-Disse enhetene har et flagg, `isAuthorized`, som enten er `true` eller `false`. Hvis `false`, erstattes URLene som er knyttet til handlingen eller overføringen med en spesiell verdi, `urn:dialogporten:unauthorized`.
+Disse enhetene har et flagg, `isAuthorized`, som enten er `true` eller `false`. Hvis `false`, erstattes URL-ene som er knyttet til handlingen eller forsendelsen med en spesiell verdi, `urn:dialogporten:unauthorized`.
 
 ## Autentiseringsnivå
 
@@ -105,22 +105,22 @@ Dette er en forkortet og forenklet modell der noen obligatoriske felt er utelatt
 }
 ```
 
-Merk at datastrukturen inneholder faktisk innhold - den inneholder i stedet referanser til innhold via enten front channel embeds eller vedlegg, som begge refererer til endepunkter eksternt til Dialogporten.
+Merk at datastrukturen ikke inneholder faktisk innhold; den inneholder i stedet referanser til innhold via enten front channel embeds eller vedlegg, som begge refererer til endepunkter utenfor Dialogporten.
 
-Ytterligere forespørsler må utføres for å hente disse ressursene. Sluttbrukersystemet bør forvente at alle disse endepunktene krever autentisering, og at den samme autorisasjonen håndheves som på selve dialogen, handlingen eller vedlegget. Vanligvis vil endepunktene kreve at den samme typen token (ID-porten eller Maskinporten med systembruker) leveres, men med et separat omfang. For Altinn-baserte tjenester, se dokumentasjonen for Altinn Correspondence og Altinn APps.
+Ytterligere forespørsler må utføres for å hente disse ressursene. Sluttbrukersystemet bør forvente at alle disse endepunktene krever autentisering, og at den samme autorisasjonen håndheves som for selve dialogen, handlingen eller vedlegget. Vanligvis vil endepunktene kreve at den samme typen token, ID-porten eller Maskinporten med systembruker, leveres, men med et separat scope. For Altinn-baserte tjenester, se dokumentasjonen for Altinn Correspondence og Altinn Apps.
 
 **Les mer**
-* [Referanseinformasjon om dialogdetaljenheten](/nb/dialogporten/user-guides/getting-dialog-details/../../reference/entities/dialog/#detaljer)
+* [Referanseinformasjon om dialogdetaljenheten]({{< relref "../../reference/entities/dialog/" >}}#detaljer)
 
 ## Håndtering av front channel embeds
 
 Det kan være flere front channel embeds (FCEer) i en dialog:
 * En (eller null) på et dialognivå
-* En (eller null) per transmission (det kan være flere transmissions)
+* En (eller null) per forsendelse (det kan være flere forsendelser)
 
 De grunnleggende trinnene for å håndtere front channel embeds er:
 
-1. Utfør en GET-forespørsel til den angitte URLen, og oppgi [dialogtokenet](/nb/dialogporten/user-guides/getting-dialog-details/../../getting-started/authorization/dialog-tokens/) i en `Authorization: Bearer`-header
+1. Utfør en GET-forespørsel til den angitte URL-en, og oppgi [dialogtokenet]({{< relref "../../getting-started/authorization/dialog-tokens/" >}}) i en `Authorization: Bearer`-header
 2. Basert på den angitte medietypen, analyser svaret (vanligvis markdown) og konverter til presentasjonsformatet (vanligvis HTML)
 3. Injiser de konverterte dataene i GUIen
 

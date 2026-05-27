@@ -11,7 +11,7 @@ weight: 40
 
 Vi har innført følgende grenseverdier for å balansere ressursbruken per part og unngå overbelastning av infrastrukturen. Bruk av hendelser/webhooks i løsningen din bør eliminere behovet for polling av mange av disse operasjonene.
 
-Hastighetsbegrensning av API-forespørsler gjelder per abonnementnøkkel (Ocp-Apim-Subscription-Key). Kontakt oss for mer kapasitet.
+Hastighetsbegrensning av API-forespørsler gjelder per Maskinporten-integrasjon. Kontakt oss for mer kapasitet.
 
 - `POST /broker/api/v1/filetransfer`
   - Beskrivelse: Initialiser en filoverføring
@@ -31,11 +31,11 @@ Hastighetsbegrensning av API-forespørsler gjelder per abonnementnøkkel (Ocp-Ap
 
 - `GET /broker/api/v1/filetransfer/{fileTransferId}/details`
   - Beskrivelse: Få mer detaljert informasjon om filopplastingen for revisjons- og feilsøkingsformål
-  - Hastighetsbegrensning: 10 kall per minutt
+  - Hastighetsbegrensning: 30 kall per minutt
 
 - `GET /broker/api/v1/filetransfer`
   - Beskrivelse: Søk etter filer som kan nås av innringeren i henhold til spesifiserte filtre
-  - Hastighetsbegrensning: 10 kall per minutt
+  - Hastighetsbegrensning: 30 kall per minutt
 
 - `GET /broker/api/v1/filetransfer/{fileTransferId}/download`
   - Beskrivelse: Last ned filen

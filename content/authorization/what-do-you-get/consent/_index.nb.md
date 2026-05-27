@@ -1,7 +1,7 @@
 ---
 title: Samtykke
 description: Samtykkefunksjonaliteten i Altinn er en teknisk løsning for deling av data fra tjenesteeier til datakonsument ved bruk av samtykke fra personen eller virksomheten som opplysningene gjelder
-tags: [platform, register]
+weight: 7
 ---
 
 ![Samtykke](samtykke_overordnet.png)

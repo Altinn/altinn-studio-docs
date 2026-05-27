@@ -11,6 +11,8 @@ aliases:
   ]
 ---
 
+See also [Setup guidance for system users](setupguidance/) for practical recommendations on how many system users you need, how to distribute access packages, and how to handle access control.
+
 ## Terms
 
 Below are key terms used in the user scenarios.
@@ -100,7 +102,7 @@ Example: VAT reporting
 3. Send report  
    The end-user system sends the VAT report via the API with a valid token.
 4. Validation and confirmation  
-   The API calls Altinn Authorization PDP to [check access](/en/authorization/guides/resource-owner/integrating-link-service/). The API returns confirmation.
+   The API calls Altinn Authorization PDP to [check access](/en/authorization/guides/resource-owner/generic-access-resource/integrating-link-service/). The API returns confirmation.
 
 Support: Developed as part of system user delivery 5.
 

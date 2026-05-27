@@ -42,7 +42,7 @@ application/json
 
 ## Query Parameters
 
-#### party
+### party
 
 The organization number of the system user owner
 
@@ -117,7 +117,7 @@ application/json
 
 ## Query Parameters
 
-#### agent
+### agent
 
 The unique identifier of the agent system user
 
@@ -176,7 +176,7 @@ application/json
 
 ## Query Parameters
 
-#### agent
+### agent
 
 The unique identifier of the agent system user
 
@@ -225,11 +225,11 @@ application/json
 
 ## Query Parameters
 
-#### agent
+### agent
 
 The unique identifier of the agent system user
 
-#### client
+### client
 
 The unique identifier of the client to be added to the system user
 
@@ -264,11 +264,11 @@ application/json
 
 ## Query Parameters
 
-#### agent
+### agent
 
 The unique identifier of the agent system user
 
-#### client
+### client
 
 The unique identifier of the client to be removed from the system user
 

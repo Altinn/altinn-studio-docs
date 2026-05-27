@@ -9,7 +9,7 @@ weight: 10
 For å motta hendelser i applikasjonen må du opprette et abonnement. Selv om du kan opprette et abonnement autentisert som innlogget bruker, vil de fleste scenarioer sannsynligvis være å autentisere som tjenesteeier for applikasjonen, og å opprette abonnementet som del av oppstartsprosessen til applikasjonen. Dette eksempelet dekker autentisering som tjenesteeier gjennom Maskinporten.
 
 {{% notice warning %}}
-Du bør først sørge for at du har en klientdefinisjon registrert i Maskinporten for applikasjonen din. Se [Autentisering med Maskinporten](/nb/authorization/getting-started/authentication/maskinporten/) for hvordan du registrerer en klient.<br><br>
+Du bør først legge til nødvendige Maskinporten-scopes for applikasjonen i Altinn Studio. Se [veiledningen for Maskinporten-integrasjon](/nb/altinn-studio/v8/guides/integration/maskinporten/) for detaljer om oppsettet.<br><br>
 
 For øyeblikket støtter ikke lokaltest-miljøet generering av innkommende hendelser for en app. For å gjøre dette må du bruke verktøy som Postman eller REST Client i VS Code for å sende en forespørsel til applikasjonens hendelsesendepunkt.
 {{% /notice %}}
@@ -18,15 +18,7 @@ For øyeblikket støtter ikke lokaltest-miljøet generering av innkommende hende
 ## Konfigurering av Maskinporten-integrasjon
 Applikasjonen bruker den innebygde `IMaskinportenClient` for å autentisere med Maskinporten og automatisk utveksle tokenet til et Altinn-token for kommunikasjon med Altinn Events.
 
-Du må konfigurere Maskinporten-innstillingene i din _appsettings.json_:
-
-```json
-  "MaskinportenSettings": {
-    "Authority": "https://test.maskinporten.no/",
-    "ClientId": "your-client-id",
-    "JwkBase64": "base64-encoded-jwk"
-  }
-```
+Når appen publiseres med Maskinporten-scopes fra Altinn Studio, monteres `MaskinportenSettings` automatisk i appen.
 
 Hvis du trenger å bruke en annen konfigurasjonsbane enn standard `MaskinportenSettings`, kan du konfigurere det i _Program.cs_:
 
@@ -63,7 +55,7 @@ Merk at retur-URL-en og hemmelighetskoden er del av abonnementdefinisjonen. Dett
 {{% /notice %}}
 
 ### Opprette abonnement
-Når du har klienten registrert med Maskinporten, konfigurasjonen satt opp, ClientDefinition på plass og webhook-hemmeligheten definert - er du klar til å legge til koden som kreves for å opprette et abonnement.
+Når du har lagt til nødvendige Maskinporten-scopes i Altinn Studio og definert webhook-hemmeligheten, er du klar til å legge til koden som kreves for å opprette et abonnement.
 
 Eksemplet nedenfor bruker `IHostedService` fra Microsoft som, i dette tilfellet, kjører én gang etter at tjenestene er registrert i containeren, men før applikasjonen konfigureres.
 

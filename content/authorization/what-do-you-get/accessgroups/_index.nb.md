@@ -1,17 +1,50 @@
 ---
-title: Tilgangspakker
-linktitle: Tilgangspakker
-description: Tilgangspakker er samlinger av fullmakter til tjenester og ressurser innen ulike områder.
-tags: [architecture, security, authorization, xacml]
+title: Tilgangspakker og roller
+linktitle: Tilgangspakker og roller
+description: Tilgangspakker samler tjenester og ressurser tematisk, basert på hva som ofte brukes eller løses sammen, slik at virksomheter kan gi nødvendige fullmakter til ansatte og systemer uten å måtte gi fullmakt til én og én tjeneste. I Altinn 3 erstatter tilgangspakker de tidligere Altinn-rollene i praksis.
+weight: 3
 ---
 
+## Tilgangspakker bygges av tjenesteeiere – ikke av Digdir
 
-For å styre tilgang til tjenester og ressurser, skal tilgangspakker benyttes. De fleste tilgangpakkene er forhåndstildelt et utvalg av roller fra Enhetsregisteret, og kan deles videre til andre som faktisk skal benytte tjenestene på vegne av virksomheten. Rollene fra Enhetsregisteret som får tilgangspakkene forhåndstildelt, er de rollene som har fullmakter til å opptre på vegne av virksomheten etter selskapslovgivningen.    
+Tilgangspakker i Altinn er ikke forhåndsdefinert av Digdir. De er et resultat av tjenesteeiernes egne valg om hvilke tjenester de mener hører hjemme innenfor et bestemt bransjeområde eller et funksjonelt tema – for eksempel lønn, regnskap, landbruk eller bygg og eiendom.
 
-Det finnes unntak på tilgangspakker som ingen har fått forhåndstildelt, for eksempel "Post til virksomheten med taushetsbelagt innhold". Tilgang til tjenester og ressurser som er knyttet til disse tilgangspakkene, må deles av Hovedadministrator i virksomheten, enten som enkeltrettigheter eller i tilgangspakken.
+Dette betyr at:
 
-Tilgangspakkene er inndelt i fullmaktsområder, og inndelingen er inspirert og delvis basert på <a href="https://www.ssb.no/klass/klassifikasjoner/6"> SSB's kategorisering av virksomheter</a>. 
+> Det er tjenesteeierne selv som avgjør hvilke tjenester som skal inngå i en tilgangspakke. Digdir definerer kun den tekniske strukturen. Innholdet bestemmes i fellesskap av tjenesteeierne.
 
-I hvert område finnes tilgangspakker som naturlig hører hjemme under det området. 
+![Tilgangspakke](tilgangspakke-flytdiagram.jpg "Sammenheng mellom regelbygging i Altinn Studio og tilgangsstyring i Altinn brukerflate")
 
-Fullmaktsområdene er ment som hjelp til å finne riktig tilgangspakke, både for tjenesteeier/ressurseier som konfigurerer tilgangsreglene for tjenesten/ressursen, og for sluttbruker som skal dele tilgang med andre.
+## Tilgangspakker er et felles økosystem
+
+Når flere tjenesteeiere legger tjenestene sine inn i samme tilgangspakke, bygger dere sammen et felles bransjeområde. Eksempel:
+
+* Tjenesteeier A legger inn tjenesten “Lønnsrapportering” i pakken “Lønn”
+* Tjenesteeier B legger inn tjenesten “Arbeidsgiveropplysninger” i pakken “Lønn”
+* Tjenesteeier C legger inn API-et “Lønns-API” i pakken Lønn
+
+Over tid blir tilgangspakken Lønn en samling av tjenester fra flere ulike etater, basert på tjenesteeiernes egne vurderinger av hvilke tjenester som hører hjemme i lønnsområdet.
+
+
+## Når en bruker får tilgang til en tilgangspakke, får de alt i pakken
+
+Hvis en virksomhet gir en ansatt tilgang til tilgangspakken “Lønn”, får vedkommende:
+
+* tjenesten din som du har lagt inn i lønnspakken
+* _og_ alle andre tjenester som andre tjenesteeiere har lagt inn i samme pakke
+
+
+Det betyr at:
+> Tilgangspakken er ikke en liste over dine tjenester – den er en samling tjenester som flere tjenesteeiere har vurdert som relevante for samme bransjeområde.
+
+
+## Forhåndstildelte og ikke-forhåndstildelte tilgangspakker
+
+Tilgangspakker skal brukes for å styre tilgang til tjenester og ressurser. De fleste har forhåndstildelte roller fra Enhetsregisteret som har fullmakt til å opptre på vegne av virksomheten og dermed kan dele tilgang videre. Noen pakker – særlig der innholdet er sensitivt – har ingen forhåndstildelte roller og må tildeles manuelt av virksomhetens hovedadministrator.
+
+
+## Fullmaktsområder
+
+Tilgangspakkene er inndelt i fullmaktsområder inspirert av SSBs kategorisering av virksomheter. Hvert område samler tilgangspakker som naturlig hører sammen, og gjør det enklere både for tjenesteeiere å plassere tjenester riktig og for virksomheter å delegere passende fullmakter.
+
+ <a href="https://www.ssb.no/klass/klassifikasjoner/6"> SSB's kategorisering av virksomheter</a>. 

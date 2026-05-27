@@ -9,7 +9,18 @@ weight: 20
 
 {{<children />}}
 
-Vi anbefaler systemleverandører å integrere seg mot Dialogportens APIer for å hente Altinn melding. Da vil man også få andre type brev (dialoger/transmissions) som ikke sendes med Altinn Melding APIer. Dette gjelder for eksempel brev fra Skatteetaten, Nav og andre avsendere. Skatteetaten har allerede tatt i bruk dialoger. (Disse brevene når man ikke dersom man integrerer seg kun mot Meldings APIer.)
+### Anbefalt mønster: system-til-system-integrasjon for meldingshåndtering
+For virksomheter som håndterer større volum av meldinger eller meldinger med omfattende vedlegg, anbefales det å benytte system-til-system-integrasjon fremfor manuell oppfølging i Altinns brukergrensesnitt.
+Altinn er designet med dette som et grunnleggende mønster. Innboksen i GUI er primært egnet for manuell behandling i mindre skala, mens effektiv håndtering av større mengder meldinger forutsetter integrasjon.
+Ved å integrere sak-/arkivsystemet med Altinn via Dialogporten og tilhørende API-er kan virksomheten:
+
+- Automatisk oppdage og hente nye meldinger
+- Laste ned meldinger og alle vedlegg maskinelt
+- Journalføre og arkivere direkte i eget system
+- Redusere manuelle operasjoner og risiko for feil
+
+Dette muliggjør en arbeidsflyt der saksbehandling skjer i eget fagsystem, med Altinn som transport- og distribusjonskanal.
+Dette integrasjonsmønsteret er etablert praksis, og benyttes av virksomheter med behov for skalerbar, effektiv og robust meldingshåndtering.
 
 
 {{% expandlarge id="onboarding-process" header="Onboarding prosess" %}}
@@ -29,6 +40,17 @@ Se hvilke tjenester du kan sette opp integrasjon mot [her](https://samarbeid.dig
 For å kunne autentisere og sikre at du kan utføre operasjoner via meldings-APIet, må Altinn gi deg tilgang på de scopes du trenger. Dette sikrer at kun autoriserte klienter kan sende og motta filer, og opprettholder dermed sikkerheten i tjenesten. 
 - Oversikt over aktuelle scopes finner du [her](https://samarbeid.digdir.no/altinn/scopeoversikt-produkt-og-funksjonsomrade/3017).
 - For å få tilgang til scopes, send en forespørsel til: [servicedesk@altinn.no](mailto:servicedesk@altinn.no). Forespørselen må inneholde de scopes du trenger for ditt system.
+{{% /expandlarge %}}
+
+{{% expandlarge id="test-end-user-system" header="Test sluttbrukersystem" %}}
+
+Bare tjenesteeiere har tilgang til å sende meldinger med Correspondence API-et.
+For å teste sluttbrukersystemet kan du sende en forespørsel til [servicedesk@altinn.no](mailto:servicedesk@altinn.no) og spørre om de kan sende meldinger til en bestemt mottaker i testmiljøet.
+I forespørselen bør du oppgi hvilken mottaker servicedesk skal sende testmeldinger til, hvor mange testmeldinger og eventuelle føringer til meldingsinnholdet.
+
+Meldinger sendt til testmiljøet kan leses på [af.tt02.altinn.no](https://af.tt02.altinn.no/).
+
+Testmottakere kan hentes hos [Tenor testdata](https://www.skatteetaten.no/testdata/).
 {{% /expandlarge %}}
 
 ### Kontakt oss:

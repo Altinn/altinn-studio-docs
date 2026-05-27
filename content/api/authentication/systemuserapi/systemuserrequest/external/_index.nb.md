@@ -26,7 +26,7 @@ For en detaljert beskrivelse av hver felt i requesten, vennligst se beskrivelsen
 
 ```
 {
-  "externalReference": "dev-test-create_01",
+  "externalRef": "dev-test-create_01",
   "systemId": "991825827_dhana_test_01",
   "partyOrgNo": "314112938",
   "rights": [

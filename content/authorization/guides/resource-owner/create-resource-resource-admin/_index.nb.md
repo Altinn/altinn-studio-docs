@@ -9,7 +9,7 @@ I Altinn Studio Resource admin kan du opprette ressurser som skal brukes som gru
 
 ## Forutsetninger
 
-Du må ha tilgang til ressursadministrasjon for organisasjonen din. Se [Kom i gang-veiledningen](/nb/authorization/getting-started/resource-admin-studio/)
+Du må ha tilgang til ressursadministrasjon for organisasjonen din. Se [Kom i gang-veiledningen](/nb/authorization/getting-started/resourceadministration/).
 
 ## Trinn 1 Opprett ressurs
 
@@ -100,7 +100,8 @@ Definer handlingen for regelen
 
 ### Emne
 
-Definer emnet for rollen. Du kan velge mellom ER-roller, Altinn-roller og tilgangspakker (todo)
+Definer emnet for rollen. Du kan velge mellom ER-roller, Altinn-roller og tilgangspakker.  
+Les mer om tilgangspakker og roller [her](/nb/authorization/what-do-you-get/accessgroups/).
 
 ![Create Resource](create_resource_13.png)
 
@@ -110,6 +111,13 @@ Når du er ferdig med å angi ressursinnstillingene og policyen kan du publisere
 Før publisering må du angi en ny versjons-ID og foreta endringer i ressurslageret.
 
 ![Create Resource](create_resource_14.png)
+
+### Rettighet til å publisere
+
+For å kunne publisere ressurser må du være medlem av riktig team i Gitea. Disse teamene settes opp i Gitea av administratoren i organisasjonen din. Team for din organisasjon finnes på https://altinn.studio/repos/org/{orgcode}/teams. Følgende team gir tilgang til å publisere ressurser:
+
+- Resources-Publish-PROD: Rett til å publisere til produksjon
+- Resources-Publish-TT02: Team med rettigheter til å publisere til TT02
 
 ## Bekrefte
 

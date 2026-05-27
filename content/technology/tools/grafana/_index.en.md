@@ -6,7 +6,7 @@ tags: [tech, monitoring]
 
 ![Grafana logo](grafana.png "Grafana logo")
 
-Grafana is an open platform for analytics and monitoring that we use when monitoring Altinn Studio.
+Grafana is an open platform for analytics and monitoring that we use when monitoring Altinn.
 
 ## Links
 

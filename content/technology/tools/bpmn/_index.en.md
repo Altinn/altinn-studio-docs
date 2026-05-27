@@ -46,4 +46,3 @@ https://www.omg.org/spec/BPMN/2.0/About-BPMN/
   * [Custom elements](https://github.com/bpmn-io/bpmn-js-examples/tree/master/custom-elements)
   * [Nyan](https://github.com/bpmn-io/bpmn-js-nyan)
 * bpmn-js has parameter sidebar [link](https://github.com/bpmn-io/bpmn-js-examples/tree/master/properties-panel-extension)
-

@@ -19,7 +19,7 @@ aliases:
 
 Checkboxes are often used in forms to gather input from the user, allowing them to select one or more options from a list.
 
-#### Use checkboxes when:
+### Use checkboxes when:
 * Users can select multiple options from a list.
 * An explicit choice needs to be made to use the settings (e.g., confirming that the user has read a document).
 

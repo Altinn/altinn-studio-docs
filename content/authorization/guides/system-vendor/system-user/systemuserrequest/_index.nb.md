@@ -25,6 +25,7 @@ Dette er den foretrukne metoden hvor du som SBSL initierer opprettelsen via API.
   * Du må kjenne organisasjonsnummeret (`partyOrgNo`) til sluttbrukerkunden.
   * Du må ha definert hvilke tilgangspakker (`accessPackages`) eller enkeltrettigheter (`rights`) systembrukeren trenger.
   * (Valgfritt) Hvis `redirectUrl` skal benyttes, må denne URL-en være forhåndsregistrert på systemet ditt.
+  * (Valgfritt) Hvis du ønsker et spesifikt navn på systembrukeren som opprettes, kan `integrationTitle` settes. Hvis `integrationTitle` ikke er satt, vil systembrukeren få samme navn som systemet.
 
 1.  **Initier forespørsel:** Send en HTTP POST-forespørsel til API-endepunktet.
 
@@ -37,6 +38,7 @@ Dette er den foretrukne metoden hvor du som SBSL initierer opprettelsen via API.
     {
     "systemId": "991825827_smartcloud",
     "partyOrgNo": "314248295",
+    "integrationTitle": "SmartCloud for Skatt",
     "rights": [
       {
         "resource": [
@@ -98,8 +100,9 @@ Dette gjelder en systembruker for et system som skal handle på vegne av sluttbr
 
 1. **Initier forespørsel:** Send en HTTP POST-forespørsel til det spesifikke endepunktet for klientsystemer (`/agent/request`).
 
-      * **Test (TT02):** `POST https://platform.tt02.altinn.no/authentication/api/v1/systemuser/agent/request`
-      * **Produksjon:** `POST https://platform.altinn.no/authentication/api/v1/systemuser/agent/request`
+      * **Test (TT02):** `POST https://platform.tt02.altinn.no/authentication/api/v1/systemuser/request/vendor/agent/`
+      * **Production:** `POST https://platform.altinn.no/authentication/api/v1/systemuser/request/vendor/agent/`
+
 
 2. **Konfigurer Request Body:** Inkluder en JSON-body. ***Merk*** at `rights`-listen må være tom eller utelatt.
 
@@ -107,6 +110,7 @@ Dette gjelder en systembruker for et system som skal handle på vegne av sluttbr
       {
     "systemId": "312605031_SuperRegnskap",
     "partyOrgNo": "310495670",
+    "integrationTitle": "SuperRegnskap for revisortilganger",
     "accessPackages": [
       {
         "urn": "urn:altinn:accesspackage:ansvarlig-revisor"
@@ -130,15 +134,20 @@ Dette gjelder en systembruker for et system som skal handle på vegne av sluttbr
 
 ## 3\. Verifisering og Status
 
-### Verifisere Opprettelse
+### Verifisere opprettelse
 
-Etter at en sluttbruker har godkjent en forespørsel (status `Accepted`), kan du som SBSL verifisere at systembrukeren eksisterer.
+Etter at en sluttbruker har godkjent en forespørsel (status `Accepted`), kan du som SBSL også bruke `byquery`-endepunktet som et supplement til eksisterende statusendepunkter for å sjekke at systembrukeren faktisk er opprettet.
 
-1.  Send en HTTP GET-forespørsel til:
-    `{{API_BASE_URL}}/authentication/api/v1/systemuser/vendor/byquery?system-id={systemId}&orgno={kundensOrgno}`
-    *(Erstatt `{API_BASE_URL}`, `{systemId}` og `{kundensOrgno}`)*
+Kallet krever scopet `altinn:authentication/systemuser.request.write` i Maskinporten-tokenet.
 
-2.  En vellykket respons returnerer JSON med detaljer om systembrukeren, inkludert systembruker `id` og `userType`.
+- **Test (TT02):** `GET https://platform.tt02.altinn.no/authentication/api/v1/systemuser/vendor/byquery?system-id={systemId}&orgno={kundensOrgno}`
+- **Produksjon:** `GET https://platform.altinn.no/authentication/api/v1/systemuser/vendor/byquery?system-id={systemId}&orgno={kundensOrgno}`
+
+Dersom du satte en ekstern referanse ved opprettelse, kan du også oppgi parameteren `external-ref` for å presisere oppslaget.
+
+En vellykket respons returnerer JSON med detaljer om systembrukeren, inkludert `id` og `userType`.
+
+Se [Hente systembruker via spørring](../byquery/) for full dokumentasjon av endepunktet, inkludert alle parametere og felter i responsen.
 
 ### Status på Forespørsler
 

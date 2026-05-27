@@ -9,16 +9,4 @@ cascade:
     diataxis: diataxis_tutorials
 ---
 
-## Ressursadministrasjon i Altinn Studio
-
-For å aktivere ressursadministrasjon i Altinn Studio må du og din organisasjon følge noen få trinn.
-
-[Les guide](./resource-admin-studio/)
-
-## Tilgangslister i Altinn Studio
-
-Som del av ressursadministrasjon kan man administrere tilgangslister.
-
-[Les guide](./accesslist-admin-studio/)
-
 {{<children />}}

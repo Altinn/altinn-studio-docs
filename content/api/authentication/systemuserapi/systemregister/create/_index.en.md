@@ -24,6 +24,8 @@ application/json
 
 For detailed description about each entity in the body, please refer the description [here](/en/api/authentication/systemuserapi/systemregister/model/)
 
+> **Important:** `clientId` must be a relevant client ID that is defined on the Maskinporten client of the system vendor or those who will retrieve the system user token. `clientId` is **required** for you to be able to create a System User that you can retrieve a system user token for.
+
 ```
 {
   "id": "",

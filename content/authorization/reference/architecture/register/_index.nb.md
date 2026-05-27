@@ -1,22 +1,121 @@
 ---
 title: Register
-description: Register-mikrotjenesten leverer registerinformasjon til apper.
-tags: [platform, register, needstranslation]
+description: Register komponenten tilbyr register
+tags: [platform, register]
 ---
 
-Registerkomponenten er en støttekomponent i Altinn Autorisasjon, og gjør registerinformasjon tilgjengelig for apper og andre komponenter som har behov for dette.
+- ER - Enhetsregisteret - Informasjon om organisasjoner i Norge og roller
+- DSF - Det Sentrale Folkeregisteret - Informasjon om innbyggere i Norge.
 
-## Architecture
+## ER - Enhetsregisteret
 
-Registerkomponenten er en .NET-applikasjon som eksponerer API. Foreløpig fungerer den som en proxy mot Altinn 2-registeret,
-men vi arbeider med å legge til lokal lagring for bedre ytelse og for å kunne fase ut Altinn 2 i 2026.
+ER-registeret kan brukes til å forhåndsutfylle informasjon, hente informasjon basert på brukerinput eller for å validere brukerinput.
 
-Planlagt design:
+I løpet av høsten 2025 vil registerkomponenten bli oppdatert for å få sin egen
 
-![Register design](registerdesign.drawio.svg)
+Registerkomponenten er en ASP.Net Core MVC-applikasjon som eksponerer REST-API til Altinn Apps.
 
-## Database design
+Løsningen er nå tilgjengelig på https://platform.altinn.cloud/register/api/v1 og alle ressurser er tilgjengelige gjennom endepunktene definert nedenfor.
 
-Databasedesign:
+Ressurs: Organisasjoner, Partier, Personer
 
-![Db design](dbdesignaltinn3.drawio.svg)
+## /organisasjoner
+
+Hent informasjon om en organisasjon:
+
+### Organisasjonstype
+
+| Attributt          | Type   | Beskrivelse                                    |
+| ------------------ | ------ | ---------------------------------------------- |
+| OrgNumber          | string | organisasjonsnummeret, ni sifre                |
+| Name               | string | organisasjonens registrerte navn               |
+| UnitType           | string |                                                |
+| TelephoneNumber    | string | telefonnummeret                                |
+| MobileNumber       | string | mobilnummeret                                  |
+| FaxNumber          | string | faksnummeret                                   |
+| EMailAddress       | string | e-postadressen                                 |
+| InternetAddress    | string | URL for et nettsted                            |
+| MailingAddress     | string | adresse for å sende post til organisasjonen    |
+| MailingPostalCode  | string | postnummer for å sende post til organisasjonen |
+| MailingPostalCity  | string | by for å sende post til organisasjonen         |
+| BusinessAddress    | string | adresse for den daglige virksomheten           |
+| BusinessPostalCode | string | postnummer for den daglige virksomheten        |
+| BusinessPostalCity | string | by for den daglige virksomheten                |
+
+### Operasjoner
+
+```http
+GET /organizations/{orgNr}
+```
+
+## /personer
+
+### Person type
+
+| Attributt              | Type   | Beskrivelse                |
+| ---------------------- | ------ | -------------------------- |
+| SSN                    | string | personnummer               |
+| Name                   | string | personens fulle navn       |
+| FirstName              | string | personens fornavn          |
+| MiddleName             | string | personens mellomnavn       |
+| LastName               | string | personens etternavn        |
+| TelephoneNumber        | string | telefonnummer              |
+| MobileNumber           | string | mobilnummer                |
+| MailingAddress         | string | postadresse                |
+| MailingPostalCode      | string | postnummer                 |
+| MailingPostalCity      | string | poststed                   |
+| AddressMunicipalNumber | string | kommunenumret for adressen |
+| AddressMunicipalName   | string | kommunenavn for adressen   |
+| AddressHouseNumber     | string | husnummer                  |
+| AddressHouseLetter     | string | bokstav i adressen         |
+| AddressPostalCode      | string | postnummer                 |
+| AddressCity            | string | by                         |
+
+### Operasjoner
+
+Hent informasjon om en person:
+Send en GET-forespørsel med personens personnummer i forespørselens innhold til
+
+```http
+GET /persons
+```
+
+## /partier
+
+### Parti type
+
+| Attributt                      | Type         | Beskrivelse                                                             |
+| ------------------------------ | ------------ | ----------------------------------------------------------------------- |
+| PartyId                        | int          | partiets ID                                                             |
+| PartyTypeName                  | PartyType    | typen partiet; organisasjon eller person                                |
+| OrgNumber                      | string       | organisasjonsnummer. Tom streng hvis partiet er person.                 |
+| SSN                            | string       | personnummer. Tom streng hvis partiet er organisasjon.                  |
+| UnitType                       | string       |                                                                         |
+| Name                           | string       | fullt navn på personen eller navn på organisasjonen                     |
+| IsDeleted                      | bool         | true hvis organisasjonen er slettet fra registeret                      |
+| OnlyHiearhyElementWithNoAccess | bool         | true hvis partiet er en foreldreenhet uten tilgang i gjeldende kontekst |
+| Person                         | Person       | personen partiet representerer                                          |
+| Organization                   | Organization | organisasjonen partiet representerer                                    |
+| ChildParties                   | List<Party>  | Liste over underenheter hvis partiet er en organisasjon                 |
+
+### Operasjoner
+
+Hent informasjon om et parti:
+
+```http
+GET /parties/{partyId}
+```
+
+Oppslag av parti-id basert på personnummer eller organisasjonsnummer:
+(Personnummer eller organisasjonsnummer skal inkluderes i strengformat i forespørselens innhold.)
+
+```http
+GET /parties/lookup
+```
+
+Oppslag av et parti basert på personnummer eller organisasjonsnummer:
+(Personnummer eller organisasjonsnummer skal inkluderes i strengformat i forespørselens innhold.)
+
+```http
+GET /parties/lookupObject
+```

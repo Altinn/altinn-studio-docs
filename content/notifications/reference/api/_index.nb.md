@@ -27,3 +27,13 @@ håndtere og gjennomgå varslinger sendt gjennom Altinn.
 ### Plattform Aksess-token
 
 {{% insert "content/altinn-studio/v8/guides/shared/api/platform-access-token.md" %}}
+
+## Feilhåndtering
+
+Altinn Varslinger API bruker standard HTTP-statuskoder og gir detaljert feilinformasjon gjennom en problemdetaljrespons.
+
+### Feilkoder
+
+API-et returnerer unike feilkoder i formatet `NOT-XXXXX` for spesifikke feilforhold. Disse feilkodene hjelper deg med å identifisere og håndtere spesifikke feilscenarier programmatisk.
+
+For en fullstendig referanse over alle feilkoder, se [Feilkodereferanse](/nb/notifications/reference/error-codes/).

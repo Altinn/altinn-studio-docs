@@ -13,3 +13,13 @@ if(host != "localhost")
     gtag('config', 'UA-114303148-1', { 'anonymize_ip': true });
 }
 </script>
+
+<script>
+if (window.location.hostname != "localhost") {
+    // Legg til Siteimprove-skriptet dynamisk
+    var script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://siteimproveanalytics.com/js/siteanalyze_6255470.js';
+    document.head.appendChild(script);
+}
+</script>

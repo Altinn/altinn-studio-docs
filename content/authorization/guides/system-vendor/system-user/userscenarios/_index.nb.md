@@ -10,6 +10,8 @@ aliases:
   ]
 ---
 
+Se også [Veiledning for oppsett av systembrukere](setupguidance/) for praktiske anbefalinger om hvor mange systembrukere du trenger, hvordan du fordeler tilgangspakker, og hvordan du håndterer tilgangskontroll.
+
 ## Begreper
 
 Nedenfor finner du sentrale begreper som brukes i brukerscenarioene.
@@ -99,7 +101,7 @@ Dette er spesielt viktig for større virksomheter, som regnskapsbyråer med mang
 3. **Send rapport**  
    Sluttbrukersystemet sender MVA-rapport via API med gyldig token.
 4. **Validering og bekreftelse**  
-   API kaller Altinn Autorisasjon PDP for å [sjekke tilgang](/nb/authorization/guides/resource-owner/integrating-link-service/). API returnerer bekreftelse.
+   API kaller Altinn Autorisasjon PDP for å [sjekke tilgang](/nb/authorization/guides/resource-owner/generic-access-resource/integrating-link-service/). API returnerer bekreftelse.
 
 **Støtte:** Utvikles som del av systembrukerleveranse 5.
 

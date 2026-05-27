@@ -8,7 +8,7 @@ cascade:
 ---
 
 {{<notice warning>}}
-This entire section is under construction, and several subsections are not yet written. Please check back later, and consider watching our [Github repository](https://github.com/altinn/altinn-studio-docs/) for the latest updates
+We are migrating old data from Altinn 2 and Altinn 3 to Dialogporten. See the [Status Migration](./status-migration/) page for the latest status.
 {{</notice>}}
 
 

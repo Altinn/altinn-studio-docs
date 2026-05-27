@@ -22,6 +22,16 @@ Available from [v8.6.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8
 ### Maskinporten
 Maskinporten is required both for the [messaging service](#correspondence) and the interaction with [restricted data](/en/altinn-studio/v8/guides/development/restricted-data/).
 
+For runtime delegated signing, your Maskinporten client must have access to the following scopes:
+
+- `altinn:correspondence.read`
+- `altinn:correspondence.write`
+- `altinn:serviceowner/instances.read`
+- `altinn:serviceowner/instances.write`
+
+The correspondence-scopes are used when the app sends correspondence messages to signees as a call to action.
+The serviceowner scopes are used for internal state and bookkeeping in the app.
+
 If you need help setting up a Maskinporten integration for your app, you can find all the information you need in [this guide](/en/altinn-studio/v8/guides/integration/maskinporten/).
 
 ### Correspondence

@@ -11,15 +11,20 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Post- og telekommunikasjon](#post--og-telekommunikasjon)|
+|[Posttjenester](#posttjenester)|
+|[Elektronisk kommunikasjon](#elektronisk-kommunikasjon)|
 |[Informasjon og kommunikasjon](#informasjon-og-kommunikasjon)|
 |[Finansiering og forsikring](#finansiering-og-forsikring)|
 |[Annen tjenestyting](#annen-tjenesteyting)|
 
 
-### Post- og telekommunikasjon
-Denne fullmakten gir tilgang til tjenester knyttet til post og telekommunikasjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:post-og-telekommunikasjon*
+### Posttjenester 
+Denne fullmakten gir tilgang til tjenester knyttet til posttjenester. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.     
+*urn:altinn:accesspackage:posttjenester*. 
+
+### Elektronisk kommunikasjon
+Denne fullmakten gir tilgang til tjenester knyttet til elektronisk kommunikasjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
+*urn:altinn:accesspackage:elektronisk-kommunikasjn*  
 
 ### Informasjon og kommunikasjon
 Denne fullmakten gir tilgang til tjenester knyttet til informasjon og kommunikasjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
@@ -36,7 +41,8 @@ Denne fullmakten gir tilgang til tjenester knyttet til annen tjenesteyting som f
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
 |**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
 |---|---|---|
-|Post- og telekommunikasjon|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Informasjon og kommunikasjon|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer, Kontaktperson NUF|Ja|
+|Posttjenester|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Elektronisk kommunikasjon|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+|Informasjon og kommunikasjon|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
 |Finansiering og forsikring|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder|Ja|
 |Annen tjenesteyting|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|

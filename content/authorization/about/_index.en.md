@@ -13,14 +13,12 @@ cascade:
 
 Altinn Authorization offers a collection of components and services that public entities, system providers, businesses, and citizens can use to achieve this.
 
-A common scenario is when a public entity wants to control who can have access to or modify data in a given service.
-The public entity that owns this service is the resource owner. The service can be one running on the Altinn platform or on the resource owner’s own platform.
+A typical use case is when a public entity needs to control who can read or change data in a service. The service can run on the Altinn platform or on the owner’s own platform.
 
-To use Altinn Authorization, the resource owner must register the service in the Resource Register. Here, information about the service is specified, and access rules/policies are set to control who can use the service.
+To use Altinn Authorization, the service owner registers the service in the **Resource Register**. There they describe the service and set access policies that state who can use it, on whose behalf, and with which operations.
 
-![Brukerscenario](om_autorisasjon.svg "Altinn Autoriasjon")
+![Brukerscenario](om_autorisasjon.png "Altinn Autorisasjon")
 
-Businesses and private individuals can, through the Altinn Authorization user interface, grant authorization so that others can act on their behalf or on behalf of their business.
-In the user interface, one can also see who holds such authorizations and, if necessary, revoke them.
+Businesses and private individuals can delegate rights through the Altinn Authorization user interface. They can see who has which rights on their behalf and revoke them when needed.
 
-To support scenarios where one works within a specialized system — for example, an accounting system — we also offer APIs so that system providers can offer authorization functionality through their systems.
+System providers can integrate the same delegation and access checks in their own solutions using our APIs. This allows users to stay in their business system (for example, an accounting system) while still relying on Altinn for secure authorization.

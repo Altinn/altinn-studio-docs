@@ -10,6 +10,7 @@ weight: 14
 ## Hva er taushetsbelagt post i Altinn?
 
 Taushetsbelagt post er en meldingstjeneste laget for å sende særlig sensitiv informasjon (for eksempel om enkeltpersoner knyttet til straffesaker eller barnevernssaker). 
+
 Kun de som skal saksbehandle slik sensitiv post, skal ha tilgang til å lese den. Derfor er tilgangsstyringen for taushetsbelagt post strengere enn til andre meldingstjenester. Merk at meldingen vil være usynlig i mottakerens innboks dersom ingen i virksomheten har fått tildelt tilgang via enkeltrettighet eller rolle/tilgangspakke.
 
 
@@ -30,11 +31,9 @@ Disse nøkkelrollene er:
 
 Merk at for taushetsbelagt post blir lesetilgang ikke automatisk tildelt nøkkelroller i virksomheten (for eksempel daglig leder). Årsaken er at kun ansatte med tjenstlig behov skal kunne lese sensitive meldinger fra for eksempel fastleger, barnevern eller politi.
 
-
-Merk at for taushetsbelagt post blir tilgang ikke automatisk tildelt nøkkelroller i virksomheten (for eksempel daglig leder). Årsaken er at kun ansatte med tjenstlig behov skal kunne lese sensitive meldinger fra for eksempel fastleger, barnevern eller politi.
-
 Alle nøkkelrollene er automatisk hovedadministrator i Altinn. Hovedadministrator kan delegere alle tilganger i Altinn, og må delegere tilgang til taushetsbelagt post for at noen skal kunne lese meldingen. 
-NB! Den som er hovedadministrator vil ikke kunne se eller lese taushetsbelagte meldinger, med mindre hen tildeler tilgang til seg selv.
+
+**NB!** Den som er hovedadministrator vil ikke kunne se eller lese taushetsbelagte meldinger, med mindre hen tildeler tilgang til seg selv.
 
 ### Tilgangsstyring
 
@@ -66,5 +65,11 @@ Vi anbefaler sterkt at teksten i varselet tilpasses innholdet i forsendelsen hvi
 `$recipientName$` `$recipientNumber$` har mottatt en taushetsbelagt melding: `messageTitle` fra `$sendersName$`. For å få tilgang til meldingen, er det nødvendig at noen i navn på mottakervirksomhet har fått tildelt tilgang til meldingstypen `Navn på tjenesten` i Altinn. Selve meldingen vil være usynlig fram til tilgang er gitt. Les mer om taushetsbelagt post på Altinns nettsider.
 {{% /notice %}}
 
-#### Kommende funksjonalitet
-Altinn vurderer en løsning der det sendes en egen melding (Correspondence) som påminnelse til de som har rollen eller tilgangspakken «Post/arkiv». Meldingen skal inneholde samme informasjon som et varsel – at virksomheten har en uåpnet taushetsbelagt melding. Påminnelsen sendes til virksomhetens innboks etter 7 dager dersom den taushetsbelagte meldingen ikke er åpnet.
+
+### Purring på uåpnet taushetsbelagt post
+Dersom taushetsbelagt post ikke er blitt åpnet innen 7 dager vil det sendes ut en purring til virksomheten. 
+Purringen vil sendes ut i form av en dialog i mottakerens innboks og vil være synlig for alle med rollen eller tilgangspakken "Ordinær post til virksomheten". Den vil inneholde en liste over hvilke instanser med taushetsbelagt post som ikke er åpnet med informasjon om avsender, dato meldingen ble publisert og hvilken tjeneste som kreves for å få tilgang. 
+
+I tillegg til at det opprettes en instans i innboksen vil det gå ut et varsel på e-post til virksomhetens varslingsadresse samt til privatpersoner som har registrert varslingsadresse for virksomheten og som har tilgang til tilgangspakken "Ordinær post til virksomheten".
+
+For å unngå å fylle innboksen til virksomheter med purringer om uåpnet taushetsbelagt post blir dialogen slettet når alle taushetsbelagte meldinger som er eldre enn 7 dager er åpnet.

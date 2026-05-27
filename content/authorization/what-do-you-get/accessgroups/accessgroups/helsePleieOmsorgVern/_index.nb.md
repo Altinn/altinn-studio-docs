@@ -50,10 +50,10 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til familievern. Denne
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
 |**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
 |---|---|---|
-|Kommuneoverlege|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja|
-|Helsetjenester med personopplysninger av særlig kategori|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja||
-|Helsetjenester|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja||
-|Pleie- og omsorgstjenester i institusjon|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja||
-|Sosiale omsorgstjenester uten botilbud, og flyktningemottak|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja||
-|Barnevern|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja||
-|Familievern|Daglig leder, Styret leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja||
+|Kommuneoverlege|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja|
+|Helsetjenester med personopplysninger av særlig kategori|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja||
+|Helsetjenester|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja||
+|Pleie- og omsorgstjenester i institusjon|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja||
+|Sosiale omsorgstjenester uten botilbud, og flyktningemottak|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja||
+|Barnevern|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja||
+|Familievern|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja||

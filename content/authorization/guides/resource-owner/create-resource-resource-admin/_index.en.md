@@ -7,7 +7,7 @@ toc: false
 
 ## Prerequisites
 
-You need to have access to resource administration for your organization. See [Getting started guide](/en/authorization/getting-started/resource-admin-studio/)
+You need to have access to resource administration for your organization. See [Getting started guide](/en/authorization/getting-started/resourceadministration/)
 
 ## Step 1 Create Resource
 
@@ -98,7 +98,8 @@ Define the action for the rule
 
 ### Subject
 
-Define the subject for the role. You can choose amongst ER roles, Altinn Roles, and Access Packages(todo)
+Define the subject for the role. You can choose amongst ER roles, Altinn Roles, and Access Packages
+Read more about access packages and roles [here](/en/authorization/what-do-you-get/accessgroups/).
 
 ![Create Resource](create_resource_13.png)
 
@@ -108,6 +109,13 @@ When you have finished setting the resource settings and policy you can publish.
 Before publish you need to set a new version ID and commit changes to the resource repository.
 
 ![Create Resource](create_resource_14.png)
+
+### Permission to publish
+
+To be able to publish resources, you must be a member of the correct team in Gitea. These teams are set up in Gitea by the administrator in your organization. Teams for your organization can be found at https://altinn.studio/repos/org/{orgcode}/teams. The following teams grant access to publish resources:
+
+- Resources-Publish-PROD: Right to publish to production
+- Resources-Publish-TT02: Team with rights to publish to TT02
 
 ## Verify
 

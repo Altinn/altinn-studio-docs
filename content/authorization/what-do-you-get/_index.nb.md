@@ -7,8 +7,6 @@ toc: false
 weight: 2
 ---
 
-Altinn Autorisasjon tilbyr komponenter og tjenester som kan benyttes av offentlige virksomheter, systemleverandører/sluttbrukersystemer, virksomheter og innbyggere for å utføre tilgangsstyring og tilgangskontroll i tjenester på og utenfor Altinn, samt fra egne sluttbrukersystemer.
-
 **Tjenesteeier** kan opprette ressurser i Ressursregisteret for tjenester med behov for tilgangsstyring. I Ressursregisteret kan det opprettes regler som sier hvem som kan benytte en tjeneste, til hva, og under hvilke forutsetninger. Dersom det er behov for at en tjeneste kun skal kunne brukes av et bestemt utvalg virksomheter, kan dette styres gjennom tilgangslister.
 Med autorisasjonstjenesten (PDP) kan ressurseier sikre tilgangskontroll på ressursen. Tilgangskontrollen støtter brukere fra både ID-porten og Maskinporten. 
 

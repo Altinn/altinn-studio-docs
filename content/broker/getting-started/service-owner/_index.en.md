@@ -18,7 +18,7 @@ Particularly Steps 4-6 will be performed through GUI instead of requiring direct
 ## 1. Get started as service owner in Altinn {#get-started-as-service-owner-in-altinn}
 
 To get started with Altinn Broker, your enterprise must be registered as a service owner in Altinn. For a step-by-step guide , see the
-[Get started with Altinn guide (Norwegian language only)](https://www.altinndigital.no/kom-i-gang/guide-kom-i-gang-med-altinn/).
+[Get started with Altinn guide (Norwegian language only)](https://samarbeid.digdir.no/altinn/bli-tjenesteeier-i-altinn/2819/).
 
 This step is only necessary for new enterprises that have not yet established themselves as service owners on the Altinn platform. As an existing service owner, you can proceed directly with the next steps to start using Altinn Broker.
 
@@ -28,7 +28,7 @@ Perform steps 1 and 2 of the [Common Get started steps](/en/broker/getting-start
 
 ## 3. Register a Resource in Altinn Resource Registry {#register-a-resource-in-altinn-resource-registry}
 
-All files sent using Broker is associated with a resource/service/"tjenesteressurs". See [Resource Registry](/en/authorization/what-do-you-get/resourceregistry/).
+All files sent using Broker is associated with a resource/service/"tjenesteressurs". See [Resource Administration](/en/authorization/what-do-you-get/resourceadministration/).
 Resources can be registered through Altinn Studio, and are used for access rules and access lists.
 Your policy must be configured in such a way that that they permit the actions:
 

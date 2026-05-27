@@ -2,8 +2,7 @@
 title: System User
 linktitle: System User
 description: System User is a new standard for access control in data exchange between end users (e.g., accountants), end user systems (e.g., accounting systems), and the public sector (e.g., the Tax Administration) that replaces today's enterprise user concept.
-tags: [architecture, solution]
-toc: false
+weight: 8
 ---
 
 A large portion of communication between the public sector and businesses occurs via APIs in Altinn and at other platform providers in the public sector. Much of this communication happens on behalf of the organization and does not need to be performed by a specific person.

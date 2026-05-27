@@ -2,16 +2,17 @@
 title: Reader access to the API
 linktitle: API access
 weight: 10
-description: Reader access to Altinns APIs is required for those who want to access events
+description: Access to the events API as a consumer of events.
 ---
 
-## Events from Altinn Studio apps 
-Read and subscriber access to events from apps, requires access to the event source.
-Access is therefore managed through the policy of the app. There are no restrictions on the use of the API.
+## Fetching and subscribing to events
+When fetching (searching for) events or registering an event subscription, the client must include the
+scope: **altinn:events.subscribe**.
 
-## Events from other event sources - not apps
-Using the API requires the scope: **altinn:events.subscribe**
-This scope is available for any clients defined in Maskinporten or ID-porten
+This scope is available for all clients defined in Maskinporten or ID-porten.
 
-Access to the actual events is described through the access policy for the event source
+{{% notice info %}}
+Technically there is an exception for events produced by an Altinn Studio App. We still recommend that all clients 
+wishing to consume events use the scope. The scope may become a requirement regardless of the event source.
+{{% /notice %}}
 

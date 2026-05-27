@@ -23,11 +23,10 @@ Før du starter på den tekniske implementeringen, må du sørge for at de nødv
 ### Tekniske forutsetninger
 
 1. Applikasjonene dine bruker versjon 8 eller nyere av Altinn-nugets.
-2. Organisasjonen har allerede en eksisterende Maskinporten-klient med riktige altinn-spesifikke
-   scopes; `altinn:serviceowner/instances.read` og
-   `altinn:serviceowner/instances.write`*
-3. En integrasjon mellom applikasjon(en) og klientene i Maskinporten. Dette må gjøres i applikasjonen(e)
-   som skal sende forespørsler til en annen applikasjon, hvor forespørslene må autoriseres av applikasjonenseier.*
+2. Applikasjonen som sender forespørsler til en annen applikasjon må ha nødvendige Maskinporten-scopes lagt til i Altinn Studio:
+   `altinn:serviceowner/instances.read` og
+   `altinn:serviceowner/instances.write`.*
+3. Applikasjonen må bruke den innebygde Maskinporten-klienten når forespørslene må autoriseres av applikasjonseier.*
 
 Hvis trinn 2 og 3 av de tekniske kravene mangler, se
 seksjonen [Maskinporten-App Integrering](/nb/altinn-studio/v8/guides/integration/maskinporten/)

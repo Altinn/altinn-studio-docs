@@ -14,6 +14,7 @@ To simplify the transition from Altinn 2 to the Altinn 3 version of the Correspo
 - Altinn 3 Correspondence largely has the same data model as Altinn 2 to enable mapping and migration.
   - The MessageSummary field has changed from supporting HTML formatting to supporting only plain text.
   - ReplyOptions have been simplified to only be URL + descriptive text, as this is flexible enough to cover the needs that the separate types in Altinn 2 offered.
+  - MessageBody must now be in Markdown and HTML is no longer supported.
 - Attachments are uploaded streamed and in a separate step before creating the Correspondence.
   - Attachments can be shared across multiple messages to reduce data usage when mass sending the same attachment to many parties.
 - The API facilitates mass sending of Correspondences using templates/keywords and recipient lists as well as the mentioned shared attachments.
@@ -25,5 +26,8 @@ To simplify the transition from Altinn 2 to the Altinn 3 version of the Correspo
 - The authorization model is somewhat simplified:
   - The right to be a sender can be set in the policy for the "Write" action and is no longer limited to only being the Service Owner.
   - All recipient rights are simplified from Altinn 2's granular "Read, Write, ArchiveRead, ArchiveDelete" to only "Read".
+- Archiving of Correspondences is not currently supported in the Altinn 3 implementation
+  - The closest you can get is using the [SystemLabel "archive"](/en/dialogporten/getting-started/dialogs/#system-labels) in Dialogporten/Arbeidsflate, which can be used to filter in searches and GUI.
+  - Migrated correspondences from Altinn 2 that become archived will get the "archive" system label set. In addition the correspondence will have logged the unique "Archived" status in StatusHistory; not used by Altinn 3 Correspondences.
 
 {{<children />}}

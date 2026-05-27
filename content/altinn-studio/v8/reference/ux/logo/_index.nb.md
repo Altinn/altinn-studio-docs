@@ -134,19 +134,19 @@ App/config/applicationmetadata.json
 
 ## Egenskaper
 
-#### source
+### source
 
 Spesifiserer fra hvor kilden til logen skal hentes. Har to gyldige verdier:
 - `"org"`: Logoen hentes fra `altinn-orgs.json`.
 - `"resource"`: Logoen hentes fra tekstressursfilene. Henter verdien med id `"appLogo.url"`
 
-#### displayAppOwnerNameInHeader
+### displayAppOwnerNameInHeader
 
 Spesifiserer om tjenesteeiers navn skal skrives ut ved siden av logoen. Henter navnet på tjenesteeier
 direkte fra `altinn-orgs.json` dersom `appOwner` ikke er definert i tekstressursfilene
 
 
-#### size 
+### size 
 
 {{%notice warning%}}
 
@@ -166,32 +166,32 @@ Størrelsen er som standard satt til `"small"` hvis den ikke er spesifisert.
 
 ## Designretningslinjer for app-eier logo
 
-#### Størrelse og skala:
+### Størrelse og skala:
 
 Logoet bør ha en passende størrelse og ha nok klart rom rundt seg for å unngå visuell uorden. En god huskeregel er å
 holde logoens bredde til maksimalt 32px.
 
-#### Justering:
+### Justering:
 
 Logoet vil bli justert til øvre venstre hjørne av skjemaet for å opprettholde konsistens og enkel gjenkjennelse.
 
-#### Kontrast og lesbarhet:
+### Kontrast og lesbarhet:
 
 Logoet bør ha tilstrekkelig kontrast mot bakgrunnen for å sikre at det er lesbart. Hvis logoen inkluderer tekst, bør
 teksten være lesbar og ikke for liten.
 
-#### Logovarianter:
+### Logovarianter:
 
 Hvis logoen din finnes i ulike varianter (for eksempel farge, svart-hvitt, monokrom), velg den som passer best til
 skjemaets design og bakgrunnsfarge.
 
-#### Testing og iterasjon:
+### Testing og iterasjon:
 
 Plasseringen av logoen bør testes på ulike enheter og skjermstørrelser for å sikre at den ser ut og fungerer som
 tiltenkt. Test den på mobilskjermer og nettbrett. Vurder å samle tilbakemeldinger fra brukere eller kolleger og gjøre
 iterasjoner på designet om nødvendig.
 
-#### Tilgjengelighet:
+### Tilgjengelighet:
 
 Logoens farger og plassering bør oppfylle tilgjengelighetsretningslinjer for å imøtekomme brukere med ulike visuelle
 behov. Alt-tekst på logoen er nødvendig for skjermleser. Alt-teksten på logoen bør gjenspeile valgt språk, f.eks. "

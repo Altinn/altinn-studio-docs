@@ -8,17 +8,19 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     name: Build and Check links
     steps:
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
         with:
           submodules: true
+          fetch-depth: 0
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@75d2e84710de30f6ff7268e08f310b60ef14033f # v3
+        uses: peaceiris/actions-hugo@2752ce1d29631191ea3f27c23495fa06139a5b78 # v3.2.1
         with:
-          hugo-version: '0.150.1'
+          hugo-version: '0.162.0'
+          extended: true 
 
       - name: Build
         run: hugo
@@ -27,6 +29,6 @@ jobs:
         run: npx -y pagefind --site "public"
 
       - name: Verify links
-        uses: untitaker/hyperlink@e66bb17cc9ae341677431edec3b893a0aa6ac747 # 0.1.44
+        uses: untitaker/hyperlink@fb5bb9c5011a3d143a54b4b30aedc30ec5bc0f89 # 0.2.0
         with:
           args: public/ --check-anchors --sources content/

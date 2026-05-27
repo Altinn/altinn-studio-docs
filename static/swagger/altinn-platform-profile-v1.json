@@ -15,6 +15,517 @@
     }
   ],
   "paths": {
+    "/users/current/verification/verified-addresses": {
+      "get": {
+        "tags": [
+          "AddressVerification"
+        ],
+        "summary": "Get all verified addresses for the current user",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/VerifiedAddressResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
+    "/users/current/verification/verify": {
+      "post": {
+        "tags": [
+          "AddressVerification"
+        ],
+        "summary": "Verify an address for the current user by providing the verification code sent to the address.",
+        "description": "This endpoint is rate limited using a sliding window rate limiter to prevent abuse.\r\nRate limit: 10 requests per 1 minute window.\r\nWhen the limit is exceeded, a 429 Too Many Requests response is returned.\r\nFor more information about sliding window rate limiting, see:\r\nhttps://devblogs.microsoft.com/dotnet/announcing-rate-limiting-for-dotnet/#sliding-window-limit",
+        "requestBody": {
+          "description": "The code to verify, the address type, and the address value",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddressVerificationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "422": {
+            "description": "Unprocessable Content"
+          },
+          "429": {
+            "description": "Too Many Requests"
+          }
+        }
+      }
+    },
+    "/users/current/verification/send": {
+      "post": {
+        "tags": [
+          "AddressVerification"
+        ],
+        "summary": "Starts the verification process for the current user and the given address, by generating a code with a validity period and sending it to the address.\r\nThis can also be used to resend a new code for an address that is already in the verification process, but not yet verified, by generating a new code and invalidating the previous one. \r\nHowever, if a code has already been sent and is still within its cooldown period, a new code will not be generated, and the existing code's cooldown will be returned in the response to inform the user when they can attempt to resend.",
+        "requestBody": {
+          "description": "The address type and value to send code for",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddressCodeSendRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Indicates that the verification code was successfully generated and sent"
+          },
+          "400": {
+            "description": "Indicates that the request was malformed, e.g. missing required properties or invalid address format"
+          },
+          "403": {
+            "description": "Indicates that the user is not authenticated"
+          },
+          "422": {
+            "description": "Indicates that the address is already verified for the user, and thus a code cannot be sent"
+          },
+          "429": {
+            "description": "Indicates that a code has already been sent for the address and is still within its cooldown period, thus a new code cannot be sent until the cooldown expires. The response includes information about when the user can attempt to resend."
+          },
+          "500": {
+            "description": "Indicates that an unexpected error occurred on the server while processing the request, such as being unable to send the verification code"
+          }
+        }
+      }
+    },
+    "/users/current/verification/resend": {
+      "post": {
+        "tags": [
+          "AddressVerification"
+        ],
+        "summary": "Resets the verification process for the current user and the given address, by regenerating a code with a renewed validity period and sending it to the address.",
+        "requestBody": {
+          "description": "The address type and value to resend code for",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddressCodeResendRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "422": {
+            "description": "Unprocessable Content"
+          },
+          "429": {
+            "description": "Too Many Requests"
+          }
+        }
+      }
+    },
+    "/dashboard/organizations/{organizationNumber}/notificationaddresses": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "summary": "Endpoint that can retrieve a list of all Notification Addresses for the given organization",
+        "parameters": [
+          {
+            "name": "organizationNumber",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DashboardNotificationAddressResponse"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/organizations/notificationaddresses/email/{emailAddress}": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "summary": "Endpoint that can retrieve a list of all Notification Addresses for the given email address",
+        "parameters": [
+          {
+            "name": "emailAddress",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DashboardNotificationAddressResponse"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/organizations/notificationaddresses/phonenumber/{phoneNumber}": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "summary": "Endpoint that can retrieve a list of all Notification Addresses for the given phone number",
+        "parameters": [
+          {
+            "name": "phoneNumber",
+            "in": "path",
+            "description": "The phone number to retrieve notification addresses for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "countrycode",
+            "in": "query",
+            "description": "The country code for the phone number (default: +47)",
+            "schema": {
+              "type": "string",
+              "default": "+47"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DashboardNotificationAddressResponse"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/organizations/{organizationNumber}/contactinformation": {
+      "get": {
+        "tags": [
+          "DashboardUserContactInformation"
+        ],
+        "summary": "Endpoint that can retrieve a list of all user contact information for the given organization.\r\nReturns the contact details that users have registered for acting on behalf of this organization.",
+        "parameters": [
+          {
+            "name": "organizationNumber",
+            "in": "path",
+            "description": "The organization number to retrieve contact information for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved user contact information. Returns an array of contacts (may be empty if organization exists but has no user contact info).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DashboardUserContactInformationResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters (model validation failed).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Caller does not have the required Dashboard Maskinporten scope (altinn:profile.support.admin).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Organization number not found in the registry.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/organizations/contactinformation/email/{emailAddress}": {
+      "get": {
+        "tags": [
+          "DashboardUserContactInformation"
+        ],
+        "summary": "Endpoint that can retrieve a list of all user contact information for the given email address.\r\nReturns the contact details that users have registered with the specified email address.",
+        "parameters": [
+          {
+            "name": "emailAddress",
+            "in": "path",
+            "description": "The email address to retrieve contact information for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved user contact information. Returns an array of contacts for the specified email address (empty array if no contacts found)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DashboardUserContactInformationResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters (model validation failed).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Caller does not have the required Dashboard Maskinporten scope (altinn:profile.support.admin).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/organizations/contactinformation/phonenumber/{phoneNumber}": {
+      "get": {
+        "tags": [
+          "DashboardUserContactInformation"
+        ],
+        "summary": "Endpoint that can retrieve a list of all user contact information for the given phone number.\r\nReturns the contact details that users have registered with the specified phone number.",
+        "parameters": [
+          {
+            "name": "phoneNumber",
+            "in": "path",
+            "description": "The phone number to retrieve contact information for",
+            "required": true,
+            "schema": {
+              "pattern": "^[0-9]{5,15}$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "countrycode",
+            "in": "query",
+            "description": "The country code for the phone number",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved user contact information. Returns an array of contacts for the specified phone number (empty array if no contacts found)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DashboardUserContactInformationResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters (model validation failed).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Caller does not have the required Dashboard Maskinporten scope (altinn:profile.support.admin).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/users/current/party-groups/favorites": {
       "get": {
         "tags": [
@@ -102,157 +613,6 @@
         }
       }
     },
-    "/users/current/notificationsettings/parties/{partyUuid}": {
-      "get": {
-        "tags": [
-          "NotificationsSettings"
-        ],
-        "summary": "Get the notification addresses the current user has registered for a party",
-        "parameters": [
-          {
-            "name": "partyUuid",
-            "in": "path",
-            "description": "The UUID of the party for which the notification address is being set",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotificationSettingsResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "NotificationsSettings"
-        ],
-        "summary": "Add or update the notification addresses the current user has registered for a party",
-        "parameters": [
-          {
-            "name": "partyUuid",
-            "in": "path",
-            "description": "The UUID of the party for which the notification address is being set",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "The request containing the notification address details",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NotificationSettingsRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "204": {
-            "description": "No Content"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "NotificationsSettings"
-        ],
-        "summary": "Delete the notification addresses the current user has registered for a party",
-        "parameters": [
-          {
-            "name": "partyUuid",
-            "in": "path",
-            "description": "The UUID of the party for which the notification address is being deleted",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotificationSettingsResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        }
-      }
-    },
-    "/users/current/notificationsettings/parties": {
-      "get": {
-        "tags": [
-          "NotificationsSettings"
-        ],
-        "summary": "Get the notification addresses the current user has registered for all parties",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/NotificationSettingsResponse"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        }
-      }
-    },
     "/organizations/{organizationNumber}/notificationaddresses/mandatory": {
       "get": {
         "tags": [
@@ -310,7 +670,8 @@
                 "$ref": "#/components/schemas/NotificationAddressRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -424,7 +785,8 @@
                 "$ref": "#/components/schemas/NotificationAddressRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -509,6 +871,145 @@
         }
       }
     },
+    "/users/current/party-groups/{groupId}": {
+      "get": {
+        "tags": [
+          "PartyGroups"
+        ],
+        "summary": "Retrieve a specific group for a user",
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "description": "The ID of the group to retrieve",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GroupResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "PartyGroups"
+        ],
+        "summary": "Update the name of an existing group",
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "description": "The ID of the group to update",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The group update request containing the new group name",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GroupRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GroupRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GroupRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "The group name was successfully updated.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GroupResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid (e.g., missing or empty name)."
+          },
+          "404": {
+            "description": "The group does not exist or the user does not have access to it."
+          },
+          "422": {
+            "description": "The group exists but cannot be renamed because it is a favorite group. Favorite groups have a system-managed name and cannot be modified."
+          },
+          "401": {
+            "description": "The user is not authenticated."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "PartyGroups"
+        ],
+        "summary": "Delete a group",
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "description": "The ID of the group to delete",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "The group was successfully deleted."
+          },
+          "400": {
+            "description": "The request is invalid (e.g., the groupId is not a valid integer)."
+          },
+          "404": {
+            "description": "The group does not exist or the user does not have access to it."
+          },
+          "422": {
+            "description": "The group exists but cannot be deleted because it is a favorite group. Favorite groups are system-managed and cannot be deleted by users."
+          },
+          "401": {
+            "description": "The user is not authenticated."
+          }
+        }
+      }
+    },
     "/users/current/party-groups": {
       "get": {
         "tags": [
@@ -531,6 +1032,396 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "PartyGroups"
+        ],
+        "summary": "Create a new group for the user",
+        "requestBody": {
+          "description": "The group creation request containing the group name",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GroupRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/GroupRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/GroupRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GroupResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/users/current/party-groups/{groupId}/associations/{partyUuid}": {
+      "put": {
+        "tags": [
+          "PartyGroups"
+        ],
+        "summary": "Add a party to a group",
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "description": "The ID of the group to add the party to",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "partyUuid",
+            "in": "path",
+            "description": "The UUID of the party to add",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The party was successfully added to the group. Returns the updated group. If the party is already in the group, the operation is idempotent and returns the current state.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GroupResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid (e.g., the groupId is not a valid integer, or the partyUuid is not a valid GUID)."
+          },
+          "404": {
+            "description": "The group does not exist or the user does not have access to it."
+          },
+          "401": {
+            "description": "The user is not authenticated."
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "PartyGroups"
+        ],
+        "summary": "Remove a party from a group",
+        "parameters": [
+          {
+            "name": "groupId",
+            "in": "path",
+            "description": "The ID of the group to remove the party from",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "partyUuid",
+            "in": "path",
+            "description": "The UUID of the party to remove",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The party was successfully removed from the group. Returns the updated group.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GroupResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The request is invalid (e.g., the groupId is not a valid integer, or the partyUuid is not a valid GUID)."
+          },
+          "404": {
+            "description": "The group does not exist, the user does not have access to it, or the party is not in the group."
+          },
+          "401": {
+            "description": "The user is not authenticated."
+          }
+        }
+      }
+    },
+    "/users/current/notificationsettings/private/phonenumber": {
+      "put": {
+        "tags": [
+          "PrivateNotificationsSettings"
+        ],
+        "summary": "Add or update the telephone number for a self-identified user. The phone number must be verified before it can be added as a notification address. \r\nIf the user already has a phone number registered, it will be replaced with the new one.",
+        "requestBody": {
+          "description": "The request containing the notification address details",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PrivateNotificationSettingsUpdateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrivateNotificationSettingsUpdateResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Unprocessable Content"
+          }
+        }
+      }
+    },
+    "/users/current/notificationsettings/parties/{partyUuid}": {
+      "get": {
+        "tags": [
+          "ProfessionalNotificationSettings"
+        ],
+        "summary": "Get the notification addresses the current user has registered for a party",
+        "parameters": [
+          {
+            "name": "partyUuid",
+            "in": "path",
+            "description": "The UUID of the party for which the notification address is being set",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationSettingsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ProfessionalNotificationSettings"
+        ],
+        "summary": "Add or update the notification addresses the current user has registered for a party",
+        "parameters": [
+          {
+            "name": "partyUuid",
+            "in": "path",
+            "description": "The UUID of the party for which the notification address is being set",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The request containing the notification address details",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NotificationSettingsRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "ProfessionalNotificationSettings"
+        ],
+        "summary": "Add or update the notification addresses the current user has registered for a party. This endpoint allows partial updates, meaning that the user can choose to update only the email address,\r\nonly the phone number, or only the resource include list without affecting the other fields.",
+        "description": "Note that addresses are required to be verified. If the user attempts to add or update an address that has not been verified, the operation will be rejected with a 422 Unprocessable Entity response, and the notification address will not be added or updated.",
+        "parameters": [
+          {
+            "name": "partyUuid",
+            "in": "path",
+            "description": "The UUID of the party for which the notification address is being set",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The request containing the notification address details",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NotificationSettingsPatchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "422": {
+            "description": "Unprocessable Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ProfessionalNotificationSettings"
+        ],
+        "summary": "Delete the notification addresses the current user has registered for a party",
+        "parameters": [
+          {
+            "name": "partyUuid",
+            "in": "path",
+            "description": "The UUID of the party for which the notification address is being deleted",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationSettingsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/users/current/notificationsettings/parties": {
+      "get": {
+        "tags": [
+          "ProfessionalNotificationSettings"
+        ],
+        "summary": "Get the notification addresses the current user has registered for all parties",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/NotificationSettingsResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       }
@@ -642,7 +1533,8 @@
                 "type": "string"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -671,10 +1563,11 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ProfileSettingPreference"
+                "$ref": "#/components/schemas/ProfileSettingPutRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -707,7 +1600,8 @@
                 "$ref": "#/components/schemas/ProfileSettingsPatchRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
@@ -732,6 +1626,179 @@
   },
   "components": {
     "schemas": {
+      "AddressCodeResendRequest": {
+        "required": [
+          "type",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "maxLength": 320,
+            "minLength": 5,
+            "type": "string",
+            "description": "Gets or sets the address to verify, either an email or a phone number."
+          },
+          "type": {
+            "$ref": "#/components/schemas/AddressType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a request to resend a verification code for a given address (email or phone number)"
+      },
+      "AddressCodeSendRequest": {
+        "required": [
+          "type",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "maxLength": 320,
+            "minLength": 5,
+            "type": "string",
+            "description": "Gets or sets the address to verify, either an email or a phone number."
+          },
+          "type": {
+            "$ref": "#/components/schemas/AddressType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a request to send a verification code for a given address (email or phone number)"
+      },
+      "AddressType": {
+        "enum": [
+          "Email",
+          "Sms"
+        ],
+        "type": "string"
+      },
+      "AddressVerificationRequest": {
+        "required": [
+          "type",
+          "value",
+          "verificationCode"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "maxLength": 320,
+            "minLength": 5,
+            "type": "string",
+            "description": "Gets or sets the address to verify, either an email or a phone number."
+          },
+          "type": {
+            "$ref": "#/components/schemas/AddressType"
+          },
+          "verificationCode": {
+            "maxLength": 6,
+            "minLength": 6,
+            "pattern": "^\\d{6}$",
+            "type": "string",
+            "description": "Gets or sets the verification code for the address."
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a request to verify an address, such as an email or phone number, using a verification code."
+      },
+      "DashboardNotificationAddressResponse": {
+        "type": "object",
+        "properties": {
+          "notificationAddressId": {
+            "type": "integer",
+            "description": "Altinn.Profile.Models.DashboardNotificationAddressResponse.NotificationAddressId",
+            "format": "int32"
+          },
+          "countryCode": {
+            "type": "string",
+            "description": "Country code for phone number",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "description": "Email address",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "description": "Phone number",
+            "nullable": true
+          },
+          "sourceOrgNumber": {
+            "type": "string",
+            "description": "Source organization number",
+            "nullable": true
+          },
+          "requestedOrgNumber": {
+            "type": "string",
+            "description": "Requested organization number",
+            "nullable": true
+          },
+          "lastChanged": {
+            "type": "string",
+            "description": "Last changed timestamp",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a notification address"
+      },
+      "DashboardUserContactInformationResponse": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "nationalIdentityNumber": {
+            "type": "string",
+            "description": "Gets or sets the national identity number (SSN/D-number) of the user.",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "description": "Gets or sets the full name of the user.",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "description": "Gets or sets the email address registered by the user for this organization.\r\nMay be null if no email address is set.",
+            "nullable": true
+          },
+          "phone": {
+            "type": "string",
+            "description": "Gets or sets the phone number registered by the user for this organization.\r\nMay be null if no phone number is set.",
+            "nullable": true
+          },
+          "organizationNumber": {
+            "type": "string",
+            "description": "Gets or sets the organization number the user is acting on behalf of.\r\nMay be null if no organization number is set.",
+            "nullable": true
+          },
+          "lastChanged": {
+            "type": "string",
+            "description": "Gets or sets the timestamp when this contact information was last changed.\r\nThis timestamp applies to both email and phone number as they are stored together.\r\nTimestamps are stored and returned in UTC.",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Response model for user contact information registered for an organization in the Support Dashboard.\r\nRepresents a user's personal contact details they have registered for acting on behalf of an organization.\r\nThis also includes the organization number the user is acting on behalf of."
+      },
+      "GroupRequest": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The name of the group"
+          }
+        },
+        "additionalProperties": false,
+        "description": "GroupRequest to create or update a group of parties"
+      },
       "GroupResponse": {
         "type": "object",
         "properties": {
@@ -784,19 +1851,22 @@
             "pattern": "(^\\+([0-9]{1,3}))",
             "type": "string",
             "description": "Country code for phone number",
-            "nullable": true
+            "nullable": true,
+            "example": "+47"
           },
           "email": {
             "pattern": "^((([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{}~])+(\\.([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{}~])+)*)@(((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9\\-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ]\\.)|[a-zA-Z0-9æøåÆØÅ]\\.){1,9})([a-zA-Z]{2,14})))$",
             "type": "string",
             "description": "Email address",
-            "nullable": true
+            "nullable": true,
+            "example": "user@example.com"
           },
           "phone": {
             "pattern": "(^[0-9]+$)",
             "type": "string",
             "description": "Phone number",
-            "nullable": true
+            "nullable": true,
+            "example": "98765432"
           }
         },
         "additionalProperties": false,
@@ -809,28 +1879,47 @@
             "pattern": "(^\\+([0-9]{1,3}))",
             "type": "string",
             "description": "Country code for phone number",
-            "nullable": true
+            "nullable": true,
+            "example": "+47"
           },
           "email": {
             "pattern": "^((([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{}~])+(\\.([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{}~])+)*)@(((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9\\-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ]\\.)|[a-zA-Z0-9æøåÆØÅ]\\.){1,9})([a-zA-Z]{2,14})))$",
             "type": "string",
             "description": "Email address",
-            "nullable": true
+            "nullable": true,
+            "example": "user@example.com"
           },
           "phone": {
             "pattern": "(^[0-9]+$)",
             "type": "string",
             "description": "Phone number",
-            "nullable": true
+            "nullable": true,
+            "example": "98765432"
           },
           "notificationAddressId": {
             "type": "integer",
-            "description": "Altinn.Profile.Models.NotificationAddressResponse.NotificationAddressId",
+            "description": "Altinn.Profile.Models.OrganizationNotificationAddresses.NotificationAddressResponse.NotificationAddressId",
             "format": "int32"
           }
         },
         "additionalProperties": false,
         "description": "Represents a notification address"
+      },
+      "NotificationSettingsPatchRequest": {
+        "type": "object",
+        "properties": {
+          "emailAddress": {
+            "$ref": "#/components/schemas/StringOptional"
+          },
+          "phoneNumber": {
+            "$ref": "#/components/schemas/StringOptional"
+          },
+          "resourceIncludeList": {
+            "$ref": "#/components/schemas/StringListOptional"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Data model for the professional notification address for an organization, also called personal notification address."
       },
       "NotificationSettingsRequest": {
         "type": "object",
@@ -839,13 +1928,15 @@
             "pattern": "^((\"[^\"]+\")|(([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{|}~])+(\\.([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9\\-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ]\\.)|[a-zA-Z0-9æøåÆØÅ]\\.){1,9})([a-zA-Z]{2,14}))|((\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})))$",
             "type": "string",
             "description": "The email address. May be null if no email address is set.",
-            "nullable": true
+            "nullable": true,
+            "example": "user@example.com"
           },
           "phoneNumber": {
             "pattern": "^(([0-9]{5})|([0-9]{8})|((00[0-9]{2})[0-9]+)|((\\+[0-9]{2})[0-9]+))$",
             "type": "string",
             "description": "The phone number. May be null if no phone number is set.",
-            "nullable": true
+            "nullable": true,
+            "example": "+4798765432"
           },
           "resourceIncludeList": {
             "type": "array",
@@ -866,13 +1957,15 @@
             "pattern": "^((\"[^\"]+\")|(([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{|}~])+(\\.([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9\\-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ]\\.)|[a-zA-Z0-9æøåÆØÅ]\\.){1,9})([a-zA-Z]{2,14}))|((\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})))$",
             "type": "string",
             "description": "The email address. May be null if no email address is set.",
-            "nullable": true
+            "nullable": true,
+            "example": "user@example.com"
           },
           "phoneNumber": {
             "pattern": "^(([0-9]{5})|([0-9]{8})|((00[0-9]{2})[0-9]+)|((\\+[0-9]{2})[0-9]+))$",
             "type": "string",
             "description": "The phone number. May be null if no phone number is set.",
-            "nullable": true
+            "nullable": true,
+            "example": "+4798765432"
           },
           "resourceIncludeList": {
             "type": "array",
@@ -891,6 +1984,16 @@
             "type": "string",
             "description": "Id of the party",
             "format": "uuid"
+          },
+          "needsConfirmation": {
+            "type": "boolean",
+            "description": "An indication of whether the notification address needs confirmation from a user"
+          },
+          "emailVerificationStatus": {
+            "$ref": "#/components/schemas/VerificationType"
+          },
+          "smsVerificationStatus": {
+            "$ref": "#/components/schemas/VerificationType"
           }
         },
         "additionalProperties": false,
@@ -1135,6 +2238,33 @@
         },
         "additionalProperties": false
       },
+      "PrivateNotificationSettingsUpdateRequest": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "pattern": "^(((\\+[0-9]{2})[0-9]+))$",
+            "type": "string",
+            "description": "The phone number. May be null if no phone number is set.",
+            "nullable": true,
+            "example": "+4798765432"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Data model for the private notification address for a self-identified user, used when updating the notification address."
+      },
+      "PrivateNotificationSettingsUpdateResponse": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "description": "The phone number. May be null if no phone number is set.",
+            "nullable": true,
+            "example": "+4798765432"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Response model for the private notification address for a self-identified user, used when updating the notification address."
+      },
       "ProblemDetails": {
         "type": "object",
         "properties": {
@@ -1198,6 +2328,56 @@
         },
         "additionalProperties": false
       },
+      "ProfileSettingPutRequest": {
+        "required": [
+          "doNotPromptForParty",
+          "language",
+          "shouldShowDeletedEntities",
+          "shouldShowSubEntities",
+          "showClientUnits"
+        ],
+        "type": "object",
+        "properties": {
+          "languageType": {
+            "type": "string",
+            "nullable": true,
+            "writeOnly": true
+          },
+          "preSelectedPartyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "doNotPromptForParty": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether the users want\r\nto be asked for the party on every form submission."
+          },
+          "showClientUnits": {
+            "type": "boolean",
+            "description": "Indicates whether client units should be shown."
+          },
+          "shouldShowSubEntities": {
+            "type": "boolean",
+            "description": "Indicates whether sub-entities should be shown."
+          },
+          "shouldShowDeletedEntities": {
+            "type": "boolean",
+            "description": "Indicates whether deleted entities should be shown."
+          },
+          "language": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Gets or sets the user's language preference in Altinn."
+          },
+          "preselectedPartyUuid": {
+            "type": "string",
+            "description": "The UUID of the preselected party. Optional - will be set to null if not provided.",
+            "format": "uuid",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a request to update profile settings.\r\nInherits preferences from Altinn.Profile.Models.ProfileSettingPreference."
+      },
       "ProfileSettingsPatchRequest": {
         "type": "object",
         "properties": {
@@ -1232,6 +2412,37 @@
         },
         "additionalProperties": false,
         "description": "Represents user-specific portal settings and preferences."
+      },
+      "StringListOptional": {
+        "type": "object",
+        "properties": {
+          "hasValue": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StringOptional": {
+        "type": "object",
+        "properties": {
+          "hasValue": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
       },
       "UserProfile": {
         "type": "object",
@@ -1329,6 +2540,32 @@
           }
         },
         "additionalProperties": { }
+      },
+      "VerificationType": {
+        "enum": [
+          "Legacy",
+          "Verified",
+          "Unverified"
+        ],
+        "type": "string"
+      },
+      "VerifiedAddressResponse": {
+        "required": [
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The address that has been verified. This could be an email address or a phone number, depending on the type of address being verified."
+          },
+          "type": {
+            "$ref": "#/components/schemas/AddressType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a verified address response model that contains information about a verified address, including the address value and its type (email or phone)."
       }
     }
   }

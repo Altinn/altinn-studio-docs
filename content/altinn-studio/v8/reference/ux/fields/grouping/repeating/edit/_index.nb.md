@@ -60,15 +60,55 @@ gruppe-elementet. Dataene lagres uansett.
 
 Bestemmer om "Slett"-knappen vises når et gruppeelement er i redigeringsmodus. Standard oppførsel om parameteren ikke er satt er at "Slett"-knapp vises.
 
+## Vis/skjul tekst for rediger og slett knapper
+Med den nye valgfrie egenskapen `compactButtons` i RepeatingGroup-komponentens redigeringskonfigurasjon kan du vise kun ikoner for knappene Rediger og Slett i visningsmodus, når du setter `compactButtons:true`, Brukerne vil fortsatt se hele knappeteksten når en rad er i redigeringsmodus.
+
+Du kan legge til `compactButtons:true` i edit-egenskapen til RepeatingGroup-konfigurasjonen i layout-JSON:
+
+Eksempel:
+
+```json
+{
+  ...
+  "edit": {
+    "compactButtons": true
+  }
+}
+```
+
+## Layout for knappene Endre og Slett
+En ny valgfri egenskap `buttonLayout`  i `edit`-konfigurasjonen til RepeatingGroup styrer hvordan handlingene `Endre` og `Slett` plasseres i skrivebordsvisning av tabellen. Bruk `buttonLayout` : `"vertical"`  for å legge dem i én kolonne i stedet for i standard horisontalt oppsett. Dette sparer horisontal plass når tabellen har mange kolonner. Oppsett på mobil/nettbrett er uendret.
+Standard er `"horizontal"`  hvis du utelater egenskapen.
+
+Du kan legge til `buttonLayout`  i `edit` delen av RepeatingGroup-konfigurasjonen i layout-JSON.
+
+Eksempel:
+
+```json
+{
+  ...
+  "edit": {
+    "buttonLayout": "vertical"
+  }
+}
+```
+
+Du kan også kombinere den med `compactButtons` for å skjule tekst på knapper, for eksempel:
+
+```json
+{
+  ...
+  "edit": {
+    "compactButtons": true,
+    "buttonLayout": "vertical"
+  }
+}
+```
+
 ## multiPage
 
 Sier at redigering/utfylling av gruppe kan gjøres over flere "sider"/visninger. Krever mer oppsett for å fungere,
 [se egen dokumentasjon for dette](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/multipage/).
-
-## filter
-
-Lar deg filtrere bort enkelte rader, slik at kun et subsett av radene vises. Denne parameteren utgår og vil
-fjernes i en fremtidig versjon. Mer informasjon og beskrivelse av alternativer finnes [i dokumentasjonen dedikert til dynamikk i repeterende grupper](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/dynamics/).
 
 ## openByDefault
 

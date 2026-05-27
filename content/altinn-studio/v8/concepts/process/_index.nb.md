@@ -1,0 +1,25 @@
+---
+title: Prosess
+linktitle: Prosess
+description: Altinn apps har en forretningsprosess som er definert i filen process.bpmn.
+tags: [prosess, oppgave, process, bpmn, tasks]
+weight: 50
+aliases:
+- /nb/altinn-studio/guides/process/
+---
+
+
+Det må defineres minimum én oppgave i denne prosessen, og nyopprettede apps kommer med en "data"-oppgave som standard.
+Det er en oppgave hvor man skal samle inn data, enten via skjema i appen eller via API-kall.
+
+Mer om prosessen i [referansedokumentasjonen](/nb/altinn-studio/v8/reference/process).
+
+## Prosessoppgave (task)
+Det er mulig å opprette sine egne prosessoppgaver, men det er sannsynlig at det kommer relativt store breaking changes på interfacet i neste major versjon (9.0).
+Prosessoppgavene som følger med som standard, implementerer interfacet `IProcessTask`, og i prinsippet kan man lage egne implementasjoner av dette.
+Det anbefales at man kontakter oss dersom dette anses som aktuelt.
+
+## Systemoppgave (service task)
+{{% insert "content/altinn-studio/v8/guides/development/service-tasks/intro.nb.md" %}}
+
+[Slik gjør du det](/nb/altinn-studio/v8/guides/development/service-tasks)

@@ -42,7 +42,7 @@ Du kan bruke dette bildet av Sogndals kommunevåpen i tjenesten:
 7. I egenskapene for komponenten, åpne **Innhold**.
 8. Under **Komponentbredde** slår du av valget **Bruk standardinnstilling** og setter bredden til 3.
 10. Gå til **Bildeinnstillinger**. I feltet **Kilde**, legger du inn lenken til bildet: 
-`https://docs.altinn.studio/nb/altinn-studio/getting-started/app-dev-course/resources/kommune-logo.png`. 
+`https://docs.altinn.studio/nb/altinn-studio/v8/getting-started/app-dev-course/resources/kommune-logo.png`. 
 Tips! Du kan også lagre bildet på PC-en din og laste det opp under **Tekst og valg for bilde**. 
 11. Gå til komponentoversikten og legg til komponenten **Tittel**. Under egenskapene for komponenten åpner du **Tekst** og klikker på **Ledetekst**.
 Legg til ledeteksten
