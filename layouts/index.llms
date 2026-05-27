@@ -1,14 +1,14 @@
 {{- $lang := .Language.Lang -}}
 {{- if eq $lang "nb" -}}
-# Altinn Studio Dokumentasjon
+# Altinn dokumentasjon
 
-> Dokumentasjon for Altinn Studio
+> Dokumentasjon for alle produktene i Altinn
 
 {{- else -}}
 
-# Altinn Studio Documentation
+# Altinn Documentation
 
-> Documentation for Altinn Studio
+> Documentation for all the Altinn products
 
 {{- end }}
 
@@ -50,16 +50,12 @@
 
 ## Valgfritt
 
-- [GitHub Repository](https://github.com/altinn/altinn-studio): Kildekode for Altinn Studio
 - [Dokumentasjonskilde](https://github.com/altinn/altinn-studio-docs): Kilde for denne dokumentasjonssiden
-- [Altinn Studio Nettside](https://altinn.studio): Hovedportal for Altinn Studio
 - [Engelsk dokumentasjon]({{ .Site.BaseURL }}en/llms.txt): Engelsk versjon av denne llms.txt
 {{- else }}
 
 ## Optional
 
-- [GitHub Repository](https://github.com/altinn/altinn-studio): Source code for Altinn Studio
 - [Documentation Source](https://github.com/altinn/altinn-studio-docs): Source for this documentation site
-- [Altinn Studio Website](https://altinn.studio): Main Altinn Studio portal
 - [Norwegian Documentation]({{ .Site.BaseURL }}nb/llms.txt): Norwegian version of this llms.txt
 {{- end }}
