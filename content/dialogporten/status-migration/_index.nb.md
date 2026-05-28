@@ -17,10 +17,8 @@ Livesynkronisering: Alle endringer[^1] (skjema, meldinger) vises i Dialogporten.
 
 | Kilde | Migrert tilbake til |
 |----------|----------|
-| A2-Melding | 22.06.2017 |
-| A2 arkiverte skjema / A3-app-instanser | 01.01.2018[^2] |
-
-[^2]: Et par enkelt-skjema mangler i 2018 for øyeblikket. Under utbedring.
+| A2-Melding | 06.12.2016 |
+| A2 arkiverte skjema / A3-app-instanser | 01.01.2017 |
 
 ## Mål og planer
 
@@ -28,6 +26,7 @@ Fase 1: Innen utgangen av 2025 vil alle historiske data for 2025 være migrert t
 25/11: Vi vil som en del av dette migrere data tilbake til og med desember 2024.
 
 Fase 2: Eldre data vil bli migrert ferdig i løpet av andre kvartal 2026. Vi starter med nyeste data og jobber bakover.
+Estimert ferdig i andre uke i juni.
 
 ## Detaljer
 Dialoger i Dialogporten kommer fra tre kilder: direkte via Dialogportens API, fra Melding (correspondence), eller fra app-instanser (f.eks. utfylte skjema).
@@ -70,6 +69,8 @@ Nylig arkiverte app-instanser opprettet i Altinn 2 migreres i puljer hvert 5. mi
 Skjema som er under utfylling blir ikke migrert før de er arkivert.
 
 ## Endringslogg
+28.06.2026: Meldinger migrert tilbake til 06.12.2016. Arkiverte skjema tilbake til 01.01.2017.
+
 26.05.2026: Meldinger migrert tilbake til 22.06.2017. Arkiverte skjema tilbake til 01.01.2018 med unntak av noen få 2018-skjema som mangler. Vi jobber med å migrere disse også.
 
 21.05.2026: Meldinger migrert tilbake til med oktober 2018. Startet migrering av eldre (2018 og tidligere) arkiverte skjema.
