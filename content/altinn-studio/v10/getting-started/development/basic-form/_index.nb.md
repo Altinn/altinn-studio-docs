@@ -3,6 +3,7 @@ title: Lag et enkelt skjema
 linktitle: Lag et enkelt skjema
 description: Du skal lage et enkelt skjema i Altinn Studio. Denne veiledningen tar antar ingen tidligere kjennskap til Altinn Studio. Oppgavene du skal gjennom vil hjelpe deg raskt komme i gang med å lage en tjeneste i Altinn Studio, og ta deg gjennom en del grunnleggende konsepter som er sentrale i Altinn Studio.
 weight: 1
+draft: true
 marp: true
 headingDivider: 4
 style: |
