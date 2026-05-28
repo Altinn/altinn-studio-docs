@@ -313,21 +313,7 @@ To use External APIs that require Maskinporten authentication, you need a Maskin
 - Any other scopes required by the specific API you are integrating with
   {.correspondence-custom-list}
 
-To set this up, you can follow the general steps in the [Maskinporten Integration Guide](/en/altinn-studio/v8/guides/integration/maskinporten/) with some modifications described below.
-
-- The External API client needs a Maskinporten client to communicate with protected APIs. The configuration object typically looks like this:
-
-  {{< code-title >}}
-  App/appsettings.json
-  {{< /code-title >}}
-
-  ```json
-  "MaskinportenSettings": {
-      "Authority": "https://[test.]maskinporten.no/",
-      "ClientId": "your-client-id",
-      "JwkBase64": "base64-encoded-jwk"
-  }
-  ```
+To set this up, add the scopes in Altinn Studio as described in the [Maskinporten Integration Guide](/en/altinn-studio/v8/guides/integration/maskinporten/). When the app is deployed, Altinn Studio provisions the Maskinporten client and mounts the generated `MaskinportenSettings` into the app.
 
 - If you need a different configuration path, you can configure it using `ConfigureMaskinportenClient`:
 

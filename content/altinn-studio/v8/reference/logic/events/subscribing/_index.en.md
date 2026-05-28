@@ -10,7 +10,7 @@ weight: 10
 In order to receive events in the application you need create a subscription. While you can create a subscription authenticated as a user, most scenarios will probably be to authenticate as the organization owning the application, and to create the subscription as part of the startup process of the application. This example covers authenticating as an organization through Maskinporten.
 
 {{% notice warning %}}
-You should first make sure you have a client definition registered in Maskinporten for your application. See [Authenticating with Maskinporten](/en/authorization/getting-started/authentication/maskinporten) on how register a client.<br><br>
+You should first add the required Maskinporten scopes for your application in Altinn Studio. See the [Maskinporten integration guide](/en/altinn-studio/v8/guides/integration/maskinporten/) for setup details.<br><br>
 
 Currently the localtest environment does not support generating inbound events for an app. In order to do this you need use tools like Postman or REST Client in VS Code to send a request to the application's event endpoint. 
 {{% /notice %}}
@@ -19,15 +19,7 @@ Currently the localtest environment does not support generating inbound events f
 ## Configuring Maskinporten integration
 The application uses the built-in `IMaskinportenClient` to authenticate with Maskinporten and automatically exchange the token to an Altinn token for communicating with Altinn Events.
 
-You need to configure the Maskinporten settings in your _appsettings.json_:
-
-```json
-  "MaskinportenSettings": {
-    "Authority": "https://test.maskinporten.no/",
-    "ClientId": "your-client-id",
-    "JwkBase64": "base64-encoded-jwk"
-  }
-```
+When the app is deployed with Maskinporten scopes from Altinn Studio, `MaskinportenSettings` is mounted into the app automatically.
 
 If you need to use a different configuration path than the default `MaskinportenSettings`, you can configure it in _Program.cs_:
 
@@ -64,7 +56,7 @@ Note that the return url and the secret code is part of the subscription definit
 {{% /notice %}}
 
 ### Create subscription
-Once you have your client registered with Maskinporten, your config setup, your ClientDefinition in place and your webhook secret defined - you are ready to add the code required to make a subscription.
+Once you have added the required Maskinporten scopes in Altinn Studio and defined the webhook secret, you are ready to add the code required to make a subscription.
 
 The example below is using the `IHostedService` from Microsoft which, in this case, run once after the services are registered in the container, but before the application is configured.
 

@@ -30,7 +30,18 @@ automatic synchronization:
 | `disableSyncAttachments`                  | Disable synchronizing dialog attachments (only recognized IDs).                    |
 | `disableSyncApiActions`                   | Disable synchronizing API actions (only recognized IDs).                           |
 | `disableSyncGuiActions`                   | Disable synchronizing GUI actions (only recognized IDs).                           |
-| `disableMarkCompletedWhenConfirmed`        | Disable setting dialog status to completed when app instance is ArchivedConfirmed.  |
+| `disableMarkCompletedWhenConfirmed`       | Disable setting dialog status to completed when app instance is ArchivedConfirmed. |
+| `enableUserSuppliedDialogId`              | Use user-supplied dialogId found in DataValues with key: dialog.id.                |
+
+#### Enable user-supplied dialogId
+By default, the adapter generates a dialog ID deterministically from the instance ID and creation timestamp of the instance. Enabling this setting instead uses a dialog ID supplied by the app itself, found in DataValues entry with key dialog.id.
+
+Requirements for the supplied dialog ID:
+- Must be a valid UUIDv7
+- The timestamp embedded in the UUID must be in the past
+- Must not already be in use by a different app instance
+
+**Collision detection:** The adapter checks the given dialog for any service owner labels with urn:altinn:integration:storage:{instanceId}. If a label is found pointing to a different instance, the sync is rejected
 
 ### Example
 
@@ -58,7 +69,8 @@ This shows the default syncAdapterSettings. Set any to `true` to override. Chang
         "disableSyncAttachments": false,
         "disableSyncApiActions": false,
         "disableSyncGuiActions": false,
-        "disableMarkCompletedWhenConfirmed": false
+        "disableMarkCompletedWhenConfirmed": false,
+        "enableUserSuppliedDialogId": false
     }
   }
 }
