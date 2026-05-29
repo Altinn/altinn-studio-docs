@@ -323,6 +323,93 @@
         ]
       }
     },
+    "/serviceowner/delegationrequests/{id}/withdraw": {
+      "put": {
+        "tags": [
+          "Request"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RequestStatus"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "altinn:serviceowner/delegationrequests.write"
+            ]
+          }
+        ]
+      }
+    },
     "/serviceowner/delegationrequests/resource": {
       "post": {
         "tags": [
@@ -838,6 +925,11 @@
             "type": "string",
             "format": "date-time"
           },
+          "lastUpdatedBy": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
           "resource": {
             "$ref": "#/components/schemas/RequestReferenceDto"
           },
@@ -851,6 +943,9 @@
             "$ref": "#/components/schemas/PartyEntityDto"
           },
           "to": {
+            "$ref": "#/components/schemas/PartyEntityDto"
+          },
+          "by": {
             "$ref": "#/components/schemas/PartyEntityDto"
           }
         },

@@ -1,0 +1,61 @@
+{{- $lang := .Language.Lang -}}
+{{- if eq $lang "nb" -}}
+# Altinn dokumentasjon
+
+> Dokumentasjon for alle produktene i Altinn
+
+{{- else -}}
+
+# Altinn Documentation
+
+> Documentation for all the Altinn products
+
+{{- end }}
+
+{{- if eq $lang "nb" }}
+
+## Hovedseksjoner
+
+{{ else }}
+
+## Main sections
+
+{{ end -}}
+{{- range .Site.Sections }}
+{{- if and (eq .Language.Lang $lang) (not (in .File.Path "_header")) }}
+{{- if eq $lang "nb" -}}
+- [{{ .Title }}]({{ .Permalink }}index.md): {{ with .Description }}{{ . }}{{ else }}{{ .Title }} dokumentasjon{{ end }}
+{{- else -}}
+- [{{ .Title }}]({{ .Permalink }}index.md): {{ with .Description }}{{ . }}{{ else }}{{ .Title }} documentation{{ end }}
+{{- end }}
+{{ end }}
+{{- end }}
+
+{{- if eq $lang "nb" }}
+
+## Sider
+
+{{ else }}
+
+## Pages
+
+{{ end -}}
+{{- range .Site.Pages }}
+{{- if and (eq .Language.Lang $lang) (not .Draft) (ne .Kind "home") (or (eq .Kind "section") (and .Parent (eq .Parent.Kind "section"))) -}}
+- [{{ .Title }}]({{ .Permalink }}index.md){{ with .Description }}: {{ . }}{{ end }}
+{{ end }}
+{{- end }}
+
+{{- if eq $lang "nb" }}
+
+## Valgfritt
+
+- [Dokumentasjonskilde](https://github.com/altinn/altinn-studio-docs): Kilde for denne dokumentasjonssiden
+- [Engelsk dokumentasjon]({{ .Site.BaseURL }}en/llms.txt): Engelsk versjon av denne llms.txt
+{{- else }}
+
+## Optional
+
+- [Documentation Source](https://github.com/altinn/altinn-studio-docs): Source for this documentation site
+- [Norwegian Documentation]({{ .Site.BaseURL }}nb/llms.txt): Norwegian version of this llms.txt
+{{- end }}
