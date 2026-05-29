@@ -16,12 +16,7 @@
     {{- $fileExtension := ".schema.v1.json" -}}
     {{- $URL := printf "%s%s%s" $baseURL $componentName $fileExtension -}}
 
-    {{- $jsonSchema := false -}}
-    {{- with resources.GetRemote $URL -}}
-        {{- if not .Err -}}
-            {{- $jsonSchema = .Content | transform.Unmarshal -}}
-        {{- end -}}
-    {{- end -}}
+    {{- $jsonSchema := resources.GetRemote $URL | transform.Unmarshal -}}
 
     {{- with $jsonSchema -}}
         {{- $componentProps := index $jsonSchema "properties" -}}
