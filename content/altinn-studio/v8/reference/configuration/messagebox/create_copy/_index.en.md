@@ -70,7 +70,7 @@ During the copying of an instance the logic will perform a method call to **IIns
 
 ## Validation
 
-{{%notice warning%}}Validation requires version 8.13 or newer of app-lib{{% /notice%}}
+{{%notice warning%}}Validation requires version 8.12.2 or newer of app-lib{{% /notice%}}
 
 Validation is useful if the service owner wishes to restrict when end users can copy instances, for example based on deadlines or changes to the application.
 
