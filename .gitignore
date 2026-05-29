@@ -24,6 +24,7 @@ content/**/swagger/
 .idea
 .hugo_build.lock
 hugo
+hugo.log
 *.swp
 hyperlink*
 .claude/settings.local.json
