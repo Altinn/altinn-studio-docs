@@ -1,7 +1,7 @@
 ---
 title: Lag et enkelt skjema
 linktitle: Lag et enkelt skjema
-description: Du skal lage et enkelt skjema i Altinn Studio. Denne veiledningen tar antar ingen tidligere kjennskap til Altinn Studio. Oppgavene du skal gjennom vil hjelpe deg raskt komme i gang med å lage en tjeneste i Altinn Studio, og ta deg gjennom en del grunnleggende konsepter som er sentrale i Altinn Studio.
+description: Du skal lage et enkelt skjema i Altinn Studio. Denne veiledningen antar ingen tidligere kjennskap til Altinn Studio. Oppgavene du skal gjennom vil hjelpe deg raskt komme i gang med å lage en tjeneste i Altinn Studio, og ta deg gjennom en del grunnleggende konsepter som er sentrale i Altinn Studio.
 weight: 1
 draft: true
 marp: true
@@ -16,11 +16,11 @@ footer: 'Altinn Studio - kom i gang'
 
 Veiledningen er delt opp i flere moduler:
 - [Oppsett](./#oppsett) hjelper deg med å sette opp alt du trenger for å komme i gang med veiledningen.
-- [Lage skjema](./#lage-skjema) vil vise gi deg den grunnleggende kunnskapen du trenger for å lage et enkelt skjema.
+- [Lage skjema](./#lage-skjema) vil gi deg den grunnleggende kunnskapen du trenger for å lage et enkelt skjema.
 - [Tilganger](./#tilganger) vil hjelpe deg å forstå hvordan du kan styre tilgang til tjenesten din.
 - [Publiser og test](./#publiser-og-test) vil vise deg hvordan du tilgjengeliggjør tjenesten og tester den i et testmiljø.
 
-### Hva skal vi lage?
+## Hva skal vi lage?
 
 Vi skal lage et enkelt skjema i Altinn Studio, der brukeren blir bedt om å fylle ut informasjon om seg selv og sende 
 det inn. Vi baserer oss på et fiktivt case for Sogndal kommune, der kommunen ønsker å samle inn nyttig informasjon om nye
@@ -237,7 +237,7 @@ Naviger til "Utforming" i toppmenyen, og velg "Form" på oversiktssiden.
 
 #### Legg til den første skjemakomponenten
 1. Påse at du er på siden "om-innflytter". Klikk på "+"-tegnet inne på siden.
-2. Velg "Kort
+2. Velg "Kort svar" fra komponentlisten.
 
 #### Legg til resten av skjemakomponentene
 

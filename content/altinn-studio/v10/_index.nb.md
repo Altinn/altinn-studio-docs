@@ -8,7 +8,7 @@ weight: 1
 cascade:
   params:
     product: product_studio
-    version: vNext
+    version: v10
 ---
 
 <div class="row adocs-featuredBlocks">
