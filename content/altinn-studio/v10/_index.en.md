@@ -3,7 +3,7 @@ title: Altinn Studio V10
 description: Altinn Studio - Your tool to develop digital services for citizens and businesses
 weight: 1
 draft: true
-cascade: 
+cascade:
   params:
     product: product_studio
     version: v10
@@ -23,7 +23,7 @@ cascade:
         <div class="a-list-container mb-2 mx-auto mx-lg-6">
             <ul class="a-list a-list-noIcon">
              <li class="a-dotted a-clickable a-list-hasRowLink">
-                    <a href="./this-is-as/get-to-know-as/about/" class="a-list-rowLink">
+                    <a href="this-is-as/get-to-know-as/about" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
                                 About Altinn Studio
@@ -32,7 +32,7 @@ cascade:
                     </a>
                 </li>
                 <li class="a-dotted a-clickable a-list-hasRowLink">
-                    <a href="what-do-you-get" class="a-list-rowLink">
+                    <a href="this-is-as/get-to-know-as/usecases" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
                                 What do you get?
@@ -41,10 +41,10 @@ cascade:
                     </a>
                 </li>
                 <li class="a-dotted a-clickable a-list-hasRowLink">
-                    <a href="news" class="a-list-rowLink">
+                    <a href="this-is-as/get-to-know-as/open-source" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
-                                News
+                                Open source and collaboration
                             </div>
                         </div>
                     </a>
@@ -66,7 +66,7 @@ cascade:
         <div class="a-list-container mb-2 mx-auto mx-lg-6">
             <ul class="a-list a-list-noIcon">
              <li class="a-dotted a-clickable a-list-hasRowLink">
-                    <a href="getting-started/create-user/" class="a-list-rowLink">
+                    <a href="getting-started/create-user" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
                                 Create a user in Altinn Studio
@@ -75,19 +75,19 @@ cascade:
                     </a>
                 </li>
                 <li class="a-dotted a-clickable a-list-hasRowLink">
-                    <a href="getting-started/app-dev-course/" class="a-list-rowLink">
+                    <a href="getting-started/development/basic-form" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
-                                Intro course
+                                Create a simple form
                             </div>
                         </div>
                     </a>
                 </li>
                 <li class="a-dotted a-clickable a-list-hasRowLink">
-                    <a href="guides/development/basic-form" class="a-list-rowLink">
+                    <a href="getting-started/receive-data" class="a-list-rowLink">
                         <div class="row">
                             <div class="col">
-                                User guide - simple form
+                                Retrieve data
                             </div>
                         </div>
                     </a>
