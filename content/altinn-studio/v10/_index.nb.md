@@ -4,7 +4,7 @@ linktitle: Altinn Studio
 breadcrumbText: Gjeldende (V8) - NY
 description: Altinn Studio - Ditt verktøy for utvikling av digitale tjenester til innbyggere og næringsliv
 weight: 1
-# draft: true
+draft: true
 cascade:
   params:
     product: product_studio
