@@ -44,4 +44,4 @@ Agenten analyserer spørsmål, henter Altinn-kontekst fra MCP-serveren, gjør en
 Model Context Protocol lar KI-agenter koble seg til og samhandle med eksterne tjenester.
 {{% /notice %}}
 
-MCP-serveren gir agenter kontekst om hvordan Altinn-apper bygges. Se [hvordan du kobler utviklingsverktøyet ditt til MCP-serveren](URL).
+MCP-serveren gir agenter kontekst om hvordan Altinn-apper bygges. (Legg inn lenke til oppsett av MCP for lokal utvikling her).
