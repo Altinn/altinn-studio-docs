@@ -116,3 +116,25 @@ Tjenesteeier bruker deretter tokenet mot Altinn Autorisasjon (PDP) for å avgjø
 Et systembrukertoken (vekslet til Altinn-token) kan også brukes til å kalle AuthorizedParties-endepunktet i tilgangsstyrings-API-et. Da returneres parter som systembrukeren er autorisert for, slik at fagsystemet kan finne riktig `partyUuid` for videre kall.
 
 Maskinporten-tokenet må inneholde scopet `altinn:accessmanagement/authorizedparties`. Se [tilgangsstyrings-API-et](../../access-management/#api-hente-autoriserte-parter) for fullstendig beskrivelse av endepunktet.
+
+## Be om token for en bestemt systembruker
+
+Leverandøren kan oppgi `externalRef` i forespørselen for å be om token for én bestemt systembruker.
+
+`externalRef` er den eksterne referansen leverandøren satte da systembrukeren ble opprettet. Ble en `externalRef` oppgitt i systembrukerforespørselen, brukes den til å peke ut riktig systembruker når leverandøren har flere systembrukere for samme kunde.
+
+```json
+{
+  "aud": "https://maskinporten.no",
+  "scope": "api-tilbyders scope",
+  "iss": "my_client_id",
+  "authorization_details": [ {
+    "type": "urn:altinn:systemuser",
+    "systemuser_org": {
+      "authority": "iso6523-actorid-upis",
+      "ID": "0192:999888777"
+    },
+    "externalRef": "systembruker #1"
+  } ]
+}
+```
