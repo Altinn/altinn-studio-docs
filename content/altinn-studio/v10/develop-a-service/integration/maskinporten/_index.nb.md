@@ -7,13 +7,15 @@ tags: [needsReview]
 toc: true
 ---
 
-Denne veiledningen viser hvordan du setter opp en Altinn-app til å bruke den innebygde Maskinporten-klienten (`IMaskinportenClient`) for å utføre autoriserte forespørsler på vegne av eieren av appen, i stedet for den aktive brukeren.
+Denne veiledningen viser hvordan du setter opp en Altinn-app til å utføre autoriserte forespørsler med Maskinporten på vegne av eieren av appen, i stedet for den aktive brukeren.
 
 {{% insert "content/shared/maskinporten/altinn-studio-scope-setup.nb.md" %}}
 
 ## Eldre manuelt oppsett
 
 Det følgende manuelle oppsettet er bare nødvendig for eldre apper eller spesialtilfeller der Altinn Studio ikke skal opprette Maskinporten-klienten.
+
+{{% insert "content/shared/maskinporten/altinn-studio-scope-migration.nb.md" %}}
 
 {{% expandlarge id="legacy-manual-maskinporten-setup" header="Vis manuelt oppsett med Samarbeidsportalen og Azure Key Vault" %}}
 

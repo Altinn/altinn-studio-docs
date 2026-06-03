@@ -17,10 +17,8 @@ Live sync: All changes[^1] (forms, messages) show up in Dialogporten.
 
 | Source | Migrated back to |
 |----------|----------|
-| A2-Correspondence | 23.09.2019 |
-| A2 archived forms / A3-app instances | 01.01.2019[^2] |
-
-[^2]: We are quality-assuring the migration of forms before we continue migrating older data.
+| A2-Correspondence | 13.04.2014 |
+| A2 archived forms / A3-app instances | 01.07.2015 |
 
 ## Goals and plans
 
@@ -28,6 +26,7 @@ Phase 1: By the end of 2025, all historic 2025-data will be migrated to Dialogpo
 25/11: We will migrate data back to and including December 2024 as part of this.
 
 Phase 2: Older data will be migrated by Q2 2026, starting with the newest data first.
+Estimated completion in the second week of June.
 
 ## Details
 Dialogs in Dialogporten come from three sources: directly via Dialogporten's API, from Correspondence (messages), or from app instances (e.g. filled forms).
@@ -69,6 +68,14 @@ Newly archived app instances created in Altinn 2 are migrated in batches every 5
 Forms that are still being filled out are not migrated until they are archived.
 
 ## Changelog
+02.06.2026: Correspondence migrated back to 13.04.2014. Archived forms back to 01.07.2015.
+
+28.05.2026: Correspondence migrated back to 06.12.2016. Archived forms back to 01.01.2017.
+
+26.05.2026: Correspondence migrated back to 22.06.2017. Archived forms back to 01.01.2018 with the exception of a few 2018-forms that are missing. We are working to migrate these as well.
+
+21.05.2026: Correspondence migrated back to October 2018. Started migration of older (2018 and earlier) archived forms.
+
 18.05.2026: Correspondence migrated back to September 2019. Corrected missing 2023 messages. Migration of older messages continues.
 
 13.05.2026: Correspondence migrated back to August 2020. Migration of older correspondence is ongoing.

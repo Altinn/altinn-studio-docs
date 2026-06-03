@@ -67,3 +67,113 @@ applicationmetadata.json
 ## Programing interface
 
 During the copying of an instance the logic will perform a method call to **IInstantiationProcessor.DataCreation**. This makes it possible to perform programmatic changes to the data as it is being copied. [Programmatic prefill](/en/altinn-studio/v8/guides/development/prefill/custom/).
+
+## Validation
+
+{{%notice warning%}}Validation requires version 8.12.2 or newer of app-lib{{% /notice%}}
+
+Validation is useful if the service owner wishes to restrict when end users can copy instances, for example based on deadlines or changes to the application.
+
+`ICopyInstanceValidator` can be implemented in the application code to add custom validation that only runs when copying from an instance. The interface takes an `IInstanceDataAccessor` based on the source instance as an argument and returns an `InstantiationValidationResult`.
+
+If the validation returns `Valid = false`, the end user will receive an error message and the copying will be cancelled.
+
+### Examples
+
+Instantiation of a copy not allowed if more than 10 days have passed since the submission deadline.
+
+```C# {hl_lines=[12]}
+using System;
+using System.Threading.Tasks;
+using Altinn.App.Core.Features;
+using Altinn.App.Core.Models.Validation;
+
+namespace Altinn.App.models;
+
+public class CopyInstanceValidator : ICopyInstanceValidator
+{
+    private const int NumberOfDaysAfterDueDate = 10;
+
+    public async Task<InstantiationValidationResult> Validate(IInstanceDataAccessor sourceInstanceDataAccessor)
+    {
+        if (sourceInstanceDataAccessor.Instance.DueBefore.HasValue)
+        {
+            var deadline = sourceInstanceDataAccessor.Instance.DueBefore.Value.AddDays(NumberOfDaysAfterDueDate);
+            if (DateTimeOffset.UtcNow > deadline)
+            {
+                return new InstantiationValidationResult
+                {
+                    Valid = false,
+                    Message = "ERROR: Too long since due date"
+                };
+            }
+        }
+
+        return null;
+    }
+}
+```
+
+Instantiation of a copy not allowed after a specified date.
+
+```C# {hl_lines=[12]}
+using System;
+using System.Threading.Tasks;
+using Altinn.App.Core.Features;
+using Altinn.App.Core.Models.Validation;
+
+namespace Altinn.App.models;
+
+public class CopyInstanceValidator : ICopyInstanceValidator
+{
+    private static readonly DateTime CopiesNotAllowedAfter = new(2026, 6, 30);
+
+    public async Task<InstantiationValidationResult> Validate(IInstanceDataAccessor sourceInstanceDataAccessor)
+    {
+        if (DateTime.UtcNow > CopiesNotAllowedAfter)
+        {
+            return new InstantiationValidationResult
+            {
+                Valid = false,
+                Message = "ERROR: Not allowed to copy instances after 2026-06-30"
+            };
+        }
+
+        return null;
+    }
+}
+```
+
+Instantiation of a copy not allowed if the application version has changed from the one used for the source instance.
+
+```C# {hl_lines=[12]}
+using System.Linq;
+using System.Threading.Tasks;
+using Altinn.App.Core.Features;
+using Altinn.App.Core.Internal.App;
+using Altinn.App.Core.Models.Validation;
+
+namespace Altinn.App.models;
+
+public class CopyInstanceValidator(IAppMetadata appMetadata) : ICopyInstanceValidator
+{
+    public async Task<InstantiationValidationResult> Validate(IInstanceDataAccessor sourceInstanceDataAccessor)
+    {
+            var appVersionDataValue = sourceInstanceDataAccessor
+                .Instance
+                .DataValues
+                .SingleOrDefault(x => x.Key == "appVersion");
+            var application = await appMetadata.GetApplicationMetadata();
+            if (appVersionDataValue != null && appVersionDataValue.Value.Equals(application.VersionId) == false)
+            {
+                return new InstantiationValidationResult
+                {
+                    Valid = false,
+                    Message = "ERROR: Application version differs from the version that the source instance was created with"
+                };
+            }
+
+            return null;
+    }
+}
+```

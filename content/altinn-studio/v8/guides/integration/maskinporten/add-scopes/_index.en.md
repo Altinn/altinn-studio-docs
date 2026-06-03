@@ -16,26 +16,11 @@ If the app only needs the default service owner scopes, `altinn:serviceowner`, `
 
 The screenshots show the Norwegian Altinn Studio UI. The flow and placement are the same in English.
 
-## If You Do Not Have Access
-
-If Studio shows **You do not have access on behalf of the organisation**, Studio cannot fetch available Maskinporten scopes for the app owner organisation with the Ansattporten access you are already signed in with. Scopes already added to the app are still shown, but you cannot add or remove scopes until the access is in place.
-
-![The Maskinporten tab shows a message about missing access on behalf of the organisation](maskinporten-scopes-no-access.nb.png "Message about missing access on behalf of the organisation.")
-
-To resolve it:
-
-1. Check that the app is owned by the correct organisation in Altinn Studio.
-2. Ask a director/manager in the organisation, or someone with the Altinn **Hovedadministrator** role, to give your user access to self-service for clients in ID-porten/Maskinporten in Altinn. If the organisation also administers API scopes itself, the user also needs access to self-service for APIs. See [Digdir's guide for access in test and production environments](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web.html#tilgang-i-test-og-produksjonsmilj%C3%B8).
-3. Alternatively, ask a user who already has this access to add the scopes to the app.
-4. Try again in Altinn Studio after the access has been granted.
-5. Contact Altinn servicedesk if the access should be correct but the message is still shown.
-{.floating-bullet-numbers}
-
 ## Steps
 
-1. Open the app in Altinn Studio. Go to **Settings**, open the **Maskinporten** tab, and select **Add**.
+1. Open the app in Altinn Studio. Go to **Settings**, and open the **Maskinporten** tab. If the **Add default scopes** button is shown, you can use it to add the default scopes. Select **Add** to add other scopes manually.
 
-   ![The Maskinporten tab in app settings with the Add button](maskinporten-scopes-overview.nb.png "The Maskinporten tab in app settings.")
+   ![The Maskinporten tab in app settings with the Add default scopes and Add buttons](maskinporten-scopes-overview.nb.png "The Maskinporten tab in app settings.")
 
 2. In the **Add new scope** dialog, you can search for scopes that the organisation has access to.
 
@@ -50,4 +35,19 @@ To resolve it:
    ![Selected Maskinporten scopes shown in app settings](maskinporten-scopes-selected.nb.png "Selected scopes shown in app settings.")
 
 5. Build and deploy the app again. Scope changes take effect the next time the app is built and deployed.
+{.floating-bullet-numbers}
+
+## If you do not have access
+
+If Studio shows **You do not have access on behalf of the organisation**, Studio cannot fetch available Maskinporten scopes for the app owner organisation with the Ansattporten access you are already signed in with. Scopes already added to the app are still shown, but you cannot add or remove scopes until the access is in place.
+
+![The Maskinporten tab shows a message about missing access on behalf of the organisation](maskinporten-scopes-no-access.nb.png "Message about missing access on behalf of the organisation.")
+
+To resolve it:
+
+1. Check that the app is owned by the correct organisation in Altinn Studio.
+2. Ask a director/manager in the organisation, or someone with the Altinn **Hovedadministrator** role, to give your user access to self-service for clients in ID-porten/Maskinporten in Altinn. If the organisation also administers API scopes itself, the user also needs access to self-service for APIs. See [Digdir's guide for access in test and production environments](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web.html#tilgang-i-test-og-produksjonsmilj%C3%B8).
+3. Alternatively, ask a user who already has this access to add the scopes to the app.
+4. Try again in Altinn Studio after the access has been granted.
+5. Contact Altinn servicedesk if the access should be correct but the message is still shown.
 {.floating-bullet-numbers}

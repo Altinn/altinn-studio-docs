@@ -1,7 +1,14 @@
 ---
-title: OpenAPI (swagger) for Correspondence
+title: OpenAPI
 linktitle: OpenAPI
-type: openapi
-spec: "/swagger/altinn-correspondence-v1.json"
-tags: [swagger, openapi]
+description: Lenker til OpenAPI-spesifikasjoner for Correspondence
 ---
+
+API-spesifikasjonen for Correspondence er tilgjengelig på følgende adresser:
+
+| Miljø | URL |
+| ----- | --- |
+| Staging | https://platform.tt02.altinn.no/correspondence/api/v1/swagger/index.html |
+| Production | https://platform.altinn.no/correspondence/api/v1/swagger/index.html |
+
+{{<children />}}

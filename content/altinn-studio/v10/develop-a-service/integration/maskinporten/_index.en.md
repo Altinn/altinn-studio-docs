@@ -7,13 +7,15 @@ tags: [needsReview]
 toc: true
 ---
 
-This guide shows how to set up an Altinn app to use the built-in Maskinporten client (`IMaskinportenClient`) for authorised requests on behalf of the app owner, as opposed to the active user.
+This guide shows how to set up an Altinn app to make authorised requests with Maskinporten on behalf of the app owner, as opposed to the active user.
 
 {{% insert "content/shared/maskinporten/altinn-studio-scope-setup.en.md" %}}
 
 ## Legacy manual setup
 
 The following manual setup is only needed for legacy apps or special cases where Altinn Studio should not provision the Maskinporten client.
+
+{{% insert "content/shared/maskinporten/altinn-studio-scope-migration.en.md" %}}
 
 {{% expandlarge id="legacy-manual-maskinporten-setup" header="Show manual setup with Samarbeidsportalen and Azure Key Vault" %}}
 
