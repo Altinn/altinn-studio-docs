@@ -57,18 +57,25 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`round`](#func-round)                    | Tall, valgfritt Tall             | Streng     | ✅       | ✅      |
 | [`formatDate`](#func-formatDate)          | Dato/tid, valgfri Streng         | Streng     | ✅       | ✅      |
 
+### Lister og objekter
+
+| Funksjonsnavn            | Parametre                                                     | Returverdi | Frontend | Backend |
+|--------------------------|---------------------------------------------------------------|------------|----------|---------|
+| [`list`](#func-list)     | Ubegrenset antall verdier                                     | Liste      | ✗        | ✗       |
+| [`object`](#func-object) | Et partall antall verdier, hvor oddetallsverdiene er strenger | Objekt     | ✗        | ✗       |
+
 ### Oppslag, komponenter og data
 
-| Funksjonsnavn                                  | Parametre      | Returverdi | Frontend | Backend |
-| ---------------------------------------------- | -------------- | ---------- | -------- | ------- |
-| [`instanceContext`](#func-instancecontext)     | Streng         | Streng     | ✅       | ✅      |
-| [`frontendSettings`](#func-frontendsettings)   | Streng         | Streng     | ✅       | ✅      |
-| [`countDataElements`](#func-countDataElements) | Streng         | Tall       | ✅       | ✅      |
-| [`dataModel`](#func-datamodel)                 | Streng         | Streng     | ✅       | ✅      |
-| [`component`](#func-component)                 | Streng         | Streng     | ✅       | ✅      |
-| [`linkToPage`](#func-linkToPage)               | Streng, Streng | Streng     | ✅       | ❌      |
-| [`linkToComponent`](#func-linkToComponent)     | Streng, Streng | Streng     | ✅       | ❌      |
-| [`optionLabel`](#func-optionLabel)             | Streng, Streng | Streng     | ✅       | ❌      |
+| Funksjonsnavn                                  | Parametre      | Returverdi                 | Frontend | Backend |
+|------------------------------------------------|----------------|----------------------------|----------|---------|
+| [`instanceContext`](#func-instancecontext)     | Streng         | Streng                     | ✅        | ✅       |
+| [`frontendSettings`](#func-frontendsettings)   | Streng         | Streng                     | ✅        | ✅       |
+| [`countDataElements`](#func-countDataElements) | Streng         | Tall                       | ✅        | ✅       |
+| [`dataModel`](#func-datamodel)                 | Streng         | Streng, liste eller objekt | ✅        | ✅       |
+| [`component`](#func-component)                 | Streng         | Streng, liste eller objekt | ✅        | ✅       |
+| [`linkToPage`](#func-linkToPage)               | Streng, Streng | Streng                     | ✅        | ❌       |
+| [`linkToComponent`](#func-linkToComponent)     | Streng, Streng | Streng                     | ✅        | ❌       |
+| [`optionLabel`](#func-optionLabel)             | Streng, Streng | Streng                     | ✅        | ❌       |
 
 ### Spesialfunksjoner
 
@@ -539,8 +546,6 @@ Eksempel:
 {{% expandlarge id="func-datamodel" header="dataModel (oppslag)" %}}
 Denne oppslagsfunksjonen gjør det mulig å hente verdier direkte fra gjeldende datamodell. Første og eneste argument må peke et sted i datamodellen, og bruker det samme punktum-separerte formatet som brukt i `dataModelBindings`. Ved bruk inne i [repeterende grupper](/nb/altinn-studio/v10/develop-a-service/look-and-feel/components/repeatinggroup/) trenger du _ikke_ bruke plassholdere for indekser til gruppen - uttrykket finner selv den relative plasseringen i kontekst av en repeterende gruppe.
 
-Legg merke til at oppslag bare fungerer mot datatyper som allerede er støttet i uttrykkene. Hvis du slår opp et objekt eller en liste/array i datamodellen med `dataModel`-funksjonen, får du alltid resultatet `null`. Denne funksjonaliteten kan endres, da det er planlagt støtte for objekter og lister i uttrykkene i fremtiden.
-
 Eksempel på oppslag i repeterende gruppe:
 
 ```json {linenos=false,hl_lines=[11,21,23,24,25,34,36,37,38]}
@@ -735,4 +740,39 @@ Dette uttrykket henter ut verdien til svaralternativet (hvis brukt i filtrering 
 ```
 
 Uttrykket over henter ut teksten til svaralternativet (hvis brukt i filtrering av svaralternativer). I andre sammenhenger gir dette uttrykket en feilmelding.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-list" header="list" %}}
+Funksjonen `list` oppretter en liste av parametrene.
+
+Eksempel:
+```json
+["list", 1, 2, 3]
+```
+Dette eksemplet returnerer listen `[1, 2, 3]`. Parametrene kan ha hvilken som helst type.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-object" header="object" %}}
+Funksjonen `object` oppretter et objekt av parametrene.
+Funksjonen må ha et partall antall parametre, hvor oddetallsparametrene blir til objektets nøkler mens partallsparametrene blir verdiene.
+
+Eksempel:
+```json
+[
+  "object",
+  "navn", "Oslo",
+  "antallInnbyggere", 724290,
+  "erHovedstad", true
+]
+```
+Dette eksemplet returnerer følgende objekt:
+```json
+{
+  "navn": "Oslo",
+  "antallInnbyggere": 724290,
+  "erHovedstad": true
+}
+```
+
+Nøklene må være [strenger](../datatypes/#strenger), mens verdiene kan ha hvilken som helst type.
 {{% /expandlarge %}}

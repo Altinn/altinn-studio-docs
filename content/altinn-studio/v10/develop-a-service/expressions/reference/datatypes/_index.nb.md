@@ -111,6 +111,16 @@ Av denne grunn kan det være å foretrekke å spesifisere datoer og tider uten e
 å sammenligne datoer i forskjellige tidssoner.
 {{% /notice %}}
 
+### Lister
+
+Siden hele uttrykksspråket er bygget opp av lister, er det ikke mulig å spesifisere lister direkte. Derfor har vi en egen funksjon som lager en liste av parametrene, nemlig [`list`](../functions/#func-list).
+En liste kan bestå av et ubegrenset antall elementer. Elementene kan ha hvilken som helst type, men vær oppmerksom på at funksjoner som tar imot en liste som en parameter ofte stiller krav til hva slags type elementene har.
+
+### Objekter
+
+Uttrykksspråket har ikke noe støtte for JSONs objektsyntaks, men det er mulig å lage objekter ved hjelp av [funksjonen `object`](../functions/#func-object).
+Et objekt kan ha et ubegrenset antall par av nøkler og verdier. Nøklene må være [strenger](#strenger), mens verdiene kan være av hvilken som helst type.
+
 ## Streng eller mindre streng sammenligning?
 
 Måten uttrykkene kjøres på, gjør at de kan virke litt strenge (ved at for eksempel `0` og `null` er ulike verdier når du sammenligner med `equals`). Det er et designvalg gjort i Altinn av to grunner:
