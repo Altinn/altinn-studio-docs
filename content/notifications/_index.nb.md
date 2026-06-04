@@ -100,5 +100,21 @@ Test-e-poster sendes som normalt. Vær oppmerksom på at i noen tilfeller identi
 
 **NB2**: Det er en forsinkelse på opptil 10 minutter før endringer i kontaktinformasjon for en person eller organisasjon trer i kraft i Varslinger.
 
+## SMS til utlandet
+På grunn av regulatoriske forhold kan SMS sendt til finske (+358), thailandske (+66) og spanske (+34) mobilnummer feile. Vi jobber med å håndtere dette bedre. I mellomtiden bør tjenesteeiere med målgrupper hjemhørende i disse landene foretrekke epost-kanalen og være ekstra oppmerksom på brukere som forventer SMS på sine utenlandske abonnement.
+
+Utfordringen gjelder kun abonnement fra lokale operatører. Norske nummer som roamer med operatørene (f.eks ved ferie/opphold i nevnte land) skal ikke være berørt.
+
+SMS-status vil som i dag være "SMS_Delivered" når meldingen er bekreftet levert, og "SMS_Failed*" (ulike varianter) når SMS ikke kan bekreftes levert, slik at dette kan plukkes opp av eksisterende prosesser på tjenesteeier-siden. Se også [statusverdier for ordre og varsler]({{< relref "/notifications/reference/notification-status#smsnotificationresulttype-sms-resultat" >}}).
+
+__Finland__: En SenderID som ikke er registrert blir endret til "tuntematon" (ukjent). Leveranse forøvrig skal gå som normalt. --> Vi jobber med å innregistrere alle kjente og legitime ID-er*
+
+__Spania__: En SenderID som ikke er registrert via lokal advokat kan/vil feile (p.t. planlagt innført fra 7. juni 2026).  --> Anbefalingen fra vår leverandør er å *ikke* starte prosess med nøkkelord, men benytte en numerisk avsender. Vi jobber med en praktisk løsning på dette.
+
+__Thailand__: En SenderID som ikke er registrert og/eller bruk av URL(er) i meldingsinnhold kan/vil feile. --> Vi jobber med å innregistrere alle kjente og legitime ID-er*
+
+*: Så langt det lar seg gjøre – prosessen kan kreve ytterligere juridisk oppfølging rundt eierskap/ansvar til nøkkelord og meldingsinnhold.
+
+
 ## Kildekode
 Kildekoden er på [Github](https://github.com/Altinn/altinn-notifications)

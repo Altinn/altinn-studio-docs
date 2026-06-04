@@ -775,7 +775,7 @@ Dette eksemplet returnerer følgende objekt:
 }
 ```
 
-Nøklene må være strenger, mens verdiene kan ha hvilken som helst type.
+Nøklene må være [strenger](../datatypes/#strenger), mens verdiene kan ha hvilken som helst type.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-jmespath" header="jmespath" %}}
