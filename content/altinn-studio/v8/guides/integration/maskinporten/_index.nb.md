@@ -58,7 +58,7 @@ App/appsettings.json
 
 Skal hemmelighetene i Azure Key Vault ha navn som dette:
 
-```
+```text
 MaskinportenSettings--Authority
 MaskinportenSettings--ClientId
 MaskinportenSettings--JwkBase64

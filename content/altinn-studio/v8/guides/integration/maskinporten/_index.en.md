@@ -63,7 +63,7 @@ App/appsettings.json
 
 The secrets in Azure Key Vault should have names like this:
 
-```
+```text
 MaskinportenSettings--Authority
 MaskinportenSettings--ClientId
 MaskinportenSettings--JwkBase64
