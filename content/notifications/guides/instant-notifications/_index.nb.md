@@ -83,8 +83,18 @@ Telefonnummeret må være i internasjonalt format med landskode. Norske numre st
 
 #### timeToLiveInSeconds (påkrevd)
 - **Type:** Integer
-- **Beskrivelse:** Levetid for meldingen i sekunder. Angir hvor lenge SMS-gatewayen skal forsøke å levere meldingen.
+- **Beskrivelse:** Levetid (TTL) for meldingen i sekunder. Angir hvor lenge Altinn og SMS-gatewayen skal forsøke å levere meldingen før den regnes som utløpt.
+- **Gyldig verdi:** Mellom 60 og 172 800 sekunder (48 timer).
+- **Anbefalt:** Velg en levetid som passer flyten din. Korte levetider passer synkrone flyter der koden uansett mister verdien raskt, for eksempel engangskoder (OTP). For OTP er 300 sekunder (5 minutter) et vanlig valg, og 60–600 sekunder dekker de fleste slike scenarioer. For meldinger der mottakeren kan ha telefonen avslått en stund, bør du velge en lengre levetid.
 - **Eksempel:** `300` (5 minutter)
+
+{{% notice info %}}
+`timeToLiveInSeconds` styrer hvor lenge Altinn og SMS‑gatewayen forsøker å **levere** meldingen. Det er ikke det samme som hvor lenge selve koden er gyldig i din egen løsning – den gyldigheten styrer du selv. Sett gjerne leveringstiden kortere enn eller lik gyldighetstiden til koden.
+{{% /notice %}}
+
+{{% notice info %}}
+Til forskjell fra umiddelbar SMS er levetiden ikke konfigurerbar for umiddelbar e‑post eller for vanlige varslinger (`/orders` og `/future/orders`). Disse har en fast levetid på 48 timer. Se [statusverdier for ordre og varsler]({{< relref "/notifications/reference/notification-status" >}}#time-to-live-ttl-og-utløp) for detaljer.
+{{% /notice %}}
 
 #### sender (valgfri)
 - **Type:** String
@@ -258,7 +268,7 @@ For å teste SMS-varsler i TT02:
 
 2. **Test med tillatt nummer**
    - Numre på tillattlisten mottar faktiske SMS-meldinger
-   - Numre som ikke er på listen går til simulator (vises som suksess i API)
+   - Numre som ikke står på listen, går til en simulator (og vises som vellykket i API-et)
 
 3. **Test e-post**
    - E-poster sendes normalt i TT02

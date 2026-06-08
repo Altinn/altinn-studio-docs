@@ -65,7 +65,7 @@ Order status describes how far a notification order has progressed in processing
 | Enum value            | API status string        | Description                                                                 | Type                         |
 |-----------------------|--------------------------|-----------------------------------------------------------------------------|------------------------------|
 | `Registered`          | `Order_Registered`       | The order has been created and stored, processing has not yet started.     | Temporary                    |
-| `Processing`          | `Order_Processing`       | The order is currently being processed (recipient lookup, send condition evaluation, etc.). | Temporary        |
+| `Processing`          | `Order_Processing`       | The order is currently being processed (Altinn looks up recipients, checks send conditions, etc.). | Temporary        |
 | `Processed`           | `Order_Processed`        | The order has been fully processed and handed off to the email and SMS channels. | Temporary              |
 | `Completed`           | `Order_Completed`        | The order has been fully processed, and all notifications have reached a final delivery status. | Final          |
 | `SendConditionNotMet` | `Order_SendConditionNotMet` | The send condition was not met, so no notifications were sent.        | Final                        |
@@ -88,7 +88,7 @@ Status for a single email notification to one recipient.
 |--------------------------------|-----------------------------------|--------------------------------------------------------------|-------------|
 | `New`                          | `Email_New`                       | The email has been created, but not yet sent further.        | Temporary   |
 | `Sending`                      | `Email_Sending`                   | The email is currently being sent.                           | Temporary   |
-| `Succeeded`                    | `Email_Succeeded`                 | The email has been accepted by the email provider, and before any delivery confirmation           | Temporary   |
+| `Succeeded`                    | `Email_Succeeded`                 | The email provider has accepted the email but has not yet confirmed that it was delivered.           | Temporary   |
 | `Delivered`                    | `Email_Delivered`                 | The provider has confirmed that the email was delivered.     | Final       |
 | `Failed`                       | `Email_Failed`                    | Failure without a more specific reason.                      | Final       |
 | `Failed_RecipientNotIdentified`| `Email_Failed_RecipientNotIdentified` | The recipient could not be identified.                | Final       |
@@ -120,21 +120,58 @@ Status for a single SMS to one recipient.
 | `Failed_Undelivered`           | `SMS_Failed_Undelivered`          | The message could not be delivered.                          | Final       |
 | `Failed_RecipientNotIdentified`| `SMS_Failed_RecipientNotIdentified` | The recipient could not be identified.                  | Final       |
 | `Failed_Rejected`              | `SMS_Failed_Rejected`             | Rejected by provider or operator.                            | Final       |
-| `Failed_TTL`                   | `SMS_Failed_TTL`                  | The message expired before delivery (time-to-live exceeded). | Final       |
+| `Failed_TTL`                   | `SMS_Failed_TTL`                  | The notification reached its time-to-live (TTL) in Altinn without a final delivery report arriving. See the explanation below. | Final       |
 
 ## Time-to-live (TTL) and expiry
 
-For both email and SMS, messages can expire before they are delivered:
+The time-to-live (TTL) determines how long Altinn keeps tracking a notification
+before it is considered expired. How long the lifetime is, and whether you can
+control it yourself, depends on which endpoint you use.
 
-- For SMS you can explicitly set a **time-to-live (TTL)** when ordering certain
-  types of notifications (for example instant notifications).
-- Email and SMS will also have an upper limit at the provider / gateway for how
-  long they attempt delivery.
+### Default lifetime of 48 hours
 
-When TTL or maximum lifetime is reached:
+Regular notifications (ordered through `/orders` and `/future/orders`) have a
+fixed lifetime of **48 hours** that service owners **cannot configure**. Altinn
+calculates the expiry time from the requested send time plus 48 hours for both
+email and SMS.
 
-- the result will typically be reported as `Failed_TTL`, `Failed_Expired`
-  or another terminal failure state
-- it does not make sense to retry the same notification without first
-  considering whether the content is still relevant for the recipient
+Instant notifications (the `/future/orders/instant/*` endpoints) are handled
+differently:
+
+- For instant SMS, the sender **must** set `timeToLiveInSeconds` in the request.
+  A valid value is between 60 and 172,800 seconds (48 hours). See the
+  [instant notifications guide]({{< relref "/notifications/guides/instant-notifications" >}})
+  for recommended values.
+- For instant email, the same fixed lifetime of 48 hours applies as for regular
+  notifications, and it cannot be configured.
+
+### Difference between `Failed_TTL` and `Failed_Expired`
+
+Both statuses mean that the message expired before it was delivered, but they
+arise in different places:
+
+- **`Failed_TTL`** is set by Altinn when the internal time-to-live (TTL) is
+  reached. This happens in two situations:
+  - the notification remained in a non-final state until the lifetime was
+    reached – for example due to repeated transient failures while attempting
+    delivery to the third party (Link Mobility for SMS), or
+  - the notification was accepted for sending, but no delivery report arrived
+    within the lifetime – for example because the recipient was out of coverage
+    or had the phone switched off, or because the delivery report arrived too
+    late from the provider.
+- **`Failed_Expired`** (SMS only) is set when the operator or gateway reports
+  back that the message's validity period expired at their end. In this case a
+  delivery report does arrive, but it states that the operator gave up.
+
+In short: `Failed_TTL` applies to expiry during Altinn's own tracking, whereas
+`Failed_Expired` applies to expiry reported by the operator or gateway.
+
+### When a notification expires
+
+When the lifetime is reached, this happens:
+
+- The result is reported as `Failed_TTL`, `Failed_Expired` or another final
+  failure state.
+- You should not resend the same notification without first considering whether
+  the content is still relevant for the recipient.
 
