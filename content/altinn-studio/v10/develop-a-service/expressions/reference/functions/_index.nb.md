@@ -61,9 +61,9 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 
 | Funksjonsnavn                | Parametre                                                     | Returverdi                                     | Frontend | Backend |
 |------------------------------|---------------------------------------------------------------|------------------------------------------------|----------|---------|
-| [`jmespath`](#func-jmespath) | Valgfri type, streng                                          | Liste, objekt, streng, tall, boolsk eller null | ✗        | ✗       |
-| [`list`](#func-list)         | Ubegrenset antall verdier                                     | Liste                                          | ✗        | ✗       |
-| [`object`](#func-object)     | Et partall antall verdier, hvor oddetallsverdiene er strenger | Objekt                                         | ✗        | ✗       |
+| [`jmespath`](#func-jmespath) | Vilkårlig type, streng                                        | Liste, objekt, streng, tall, boolsk eller null | ❌        | ❌       |
+| [`list`](#func-list)         | Ubegrenset antall verdier                                     | Liste                                          | ❌        | ❌       |
+| [`object`](#func-object)     | Et partall antall verdier, hvor oddetallsverdiene er strenger | Objekt                                         | ❌        | ❌       |
 
 ### Oppslag, komponenter og data
 
@@ -781,7 +781,7 @@ Nøklene må være [strenger](../datatypes/#strenger), mens verdiene kan ha hvil
 {{% expandlarge id="func-jmespath" header="jmespath" %}}
 Funksjonen `jmespath` kjører en [JMESPath](https://jmespath.org/)-formatert spørring på gitt data og returnerer resultatet.
 Den første parameteren er dataen spørringen skal behandle. Den kan ha en hvilken som helst verdi, men for de fleste praktiske formål er det hensiktsmessig at den er et objekt eller en liste med objekter.
-Den andre parameteren er spørringen, og den må være en streng. Se [den offisielle veiledningen](https://jmespath.org/tutorial.html) for dokumentasjon om hvordan spørringen må se ut.
+Den andre parameteren er spørringen, og den må være en streng. Se [den offisielle veiledningen](https://jmespath.org/tutorial.html) for dokumentasjon om hvordan du skriver spørringen.
 
 Her er et eksempel som lister opp navn på personer bosatt i Oslo:
 ```json
