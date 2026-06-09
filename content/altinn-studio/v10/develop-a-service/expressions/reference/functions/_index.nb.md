@@ -779,7 +779,7 @@ Nøklene må være [strenger](../datatypes/#strenger), mens verdiene kan ha hvil
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-jmespath" header="jmespath" %}}
-Funksjonen `jmespath` kjører en [Jmespath](https://jmespath.org/)-formatert spørring på gitt data og returnerer resultatet.
+Funksjonen `jmespath` kjører en [JMESPath](https://jmespath.org/)-formatert spørring på gitt data og returnerer resultatet.
 Den første parameteren er dataen spørringen skal behandle. Den kan ha en hvilken som helst verdi, men for de fleste praktiske formål er det hensiktsmessig at den er et objekt eller en liste med objekter.
 Den andre parameteren er spørringen, og den må være en streng. Se [den offisielle veiledningen](https://jmespath.org/tutorial.html) for dokumentasjon om hvordan spørringen må se ut.
 
