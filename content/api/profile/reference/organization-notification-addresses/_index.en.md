@@ -3,6 +3,9 @@ title: Organization notification addresses
 description: This API allows you to manage organizations' notification addresses
 weight: 30
 ---
+{{% notice info %}}
+This API resource is restricted by access rules and cannot be delegated using scopes. The access rules grant access to end users with the correct roles or access packages in their organization.
+{{% /notice %}}
 
 ## What are notification addresses for organizations?
 For organizations to be notified of new messages in Altinn, they must register at least one notification address. This must be a mobile number or an email address.
