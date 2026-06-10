@@ -4,7 +4,7 @@ description: This API allows you to manage organizations' notification addresses
 weight: 30
 ---
 {{% notice info %}}
-This API resource is restricted by access rules and cannot be delegated using scopes. The access rules grant access to end users with the correct roles or access packages in their organization.
+This API resource is restricted by access rules and cannot be delegated using scopes. The access rules grant access to end users with the correct roles or access packages in their organisation.
 {{% /notice %}}
 
 ## What are notification addresses for organizations?
