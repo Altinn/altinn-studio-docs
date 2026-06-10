@@ -65,7 +65,7 @@ Order status describes how far a notification order has progressed in processing
 | Enum value            | API status string        | Description                                                                 | Type                         |
 |-----------------------|--------------------------|-----------------------------------------------------------------------------|------------------------------|
 | `Registered`          | `Order_Registered`       | The order has been created and stored, processing has not yet started.     | Temporary                    |
-| `Processing`          | `Order_Processing`       | The order is currently being processed (Altinn looks up recipients, checks send conditions, etc.). | Temporary        |
+| `Processing`          | `Order_Processing`       | The order is currently being processed (recipient lookup, send condition evaluation, etc.). | Temporary        |
 | `Processed`           | `Order_Processed`        | The order has been fully processed and handed off to the email and SMS channels. | Temporary              |
 | `Completed`           | `Order_Completed`        | The order has been fully processed, and all notifications have reached a final delivery status. | Final          |
 | `SendConditionNotMet` | `Order_SendConditionNotMet` | The send condition was not met, so no notifications were sent.        | Final                        |
@@ -88,7 +88,7 @@ Status for a single email notification to one recipient.
 |--------------------------------|-----------------------------------|--------------------------------------------------------------|-------------|
 | `New`                          | `Email_New`                       | The email has been created, but not yet sent further.        | Temporary   |
 | `Sending`                      | `Email_Sending`                   | The email is currently being sent.                           | Temporary   |
-| `Succeeded`                    | `Email_Succeeded`                 | The email provider has accepted the email but has not yet confirmed that it was delivered.           | Temporary   |
+| `Succeeded`                    | `Email_Succeeded`                 | The email has been accepted by the email provider, and before any delivery confirmation           | Temporary   |
 | `Delivered`                    | `Email_Delivered`                 | The provider has confirmed that the email was delivered.     | Final       |
 | `Failed`                       | `Email_Failed`                    | Failure without a more specific reason.                      | Final       |
 | `Failed_RecipientNotIdentified`| `Email_Failed_RecipientNotIdentified` | The recipient could not be identified.                | Final       |
@@ -160,7 +160,7 @@ arise in different places:
     or had the phone switched off, or because the delivery report arrived too
     late from the provider.
 - **`Failed_Expired`** (SMS only) is set when the operator or gateway reports
-  back that the message's validity period expired at their end. In this case a
+  back that the message's validity period expired at their end. In this case, a
   delivery report does arrive, but it states that the operator gave up.
 
 In short: `Failed_TTL` applies to expiry during Altinn's own tracking, whereas
@@ -168,10 +168,10 @@ In short: `Failed_TTL` applies to expiry during Altinn's own tracking, whereas
 
 ### When a notification expires
 
-When the lifetime is reached, this happens:
+When the lifetime is reached:
 
-- The result is reported as `Failed_TTL`, `Failed_Expired` or another final
-  failure state.
-- You should not resend the same notification without first considering whether
-  the content is still relevant for the recipient.
+- the result is reported as `Failed_TTL`, `Failed_Expired` or another final
+  failure state
+- it does not make sense to retry the same notification without first
+  considering whether the content is still relevant for the recipient
 

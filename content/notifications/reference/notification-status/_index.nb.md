@@ -6,12 +6,11 @@ weight: 30
 toc: true
 ---
 
-Denne siden beskriver statusverdiene som Altinn Notifications bruker når den
-rapporterer hvor langt varslingsordrene har kommet, og hvordan e‑post og SMS ble
-levert.
+Denne siden beskriver statusverdiene som brukes når Altinn Notifications rapporterer
+fremdrift for varslingsordrer og leveringsresultat for e‑post og SMS.
 
 Disse verdiene vises i svarene fra status‑API‑ene (for eksempel
-`/future/shipment/{id}` og statusfeeden). De hjelper deg å
+`/future/shipment/{id}` og statusfeed). De hjelper deg å
 
 - overvåke utsendingene dine
 - finne årsaken når noe går galt
@@ -45,9 +44,9 @@ Eksempel på respons fra status‑API‑et:
 
 ## Slik leser du statusfeltene
 
-- **Ordrenivå**: `status` på toppnivå viser hvor langt hele ordren har kommet (`Order_*`‑verdier).
+- **Ordrenivå**: `status` på toppnivå viser fremdrift for hele ordren (`Order_*`‑verdier).
 - **Mottakernivå**: hvert element i `recipients` har et `status`‑felt som viser
-  resultatet for én kanal til én mottaker (`Email_*`‑ eller `SMS_*`‑verdier).
+  resultatet for én kanal til én mottaker (`Email_*` eller `SMS_*`‑verdier).
 
 Navnene i API‑responsen følger mønsteret:
 
@@ -65,7 +64,7 @@ Ordrestatus beskriver hvor langt en varslingsordre har kommet i behandlingen.
 | Enum-verdi           | API-statusstreng      | Beskrivelse                                                                 | Type              |
 |----------------------|----------------------|-----------------------------------------------------------------------------|-------------------|
 | `Registered`         | `Order_Registered`   | Ordren er opprettet og lagret, men behandlingen har ikke startet ennå.     | Midlertidig       |
-| `Processing`         | `Order_Processing`   | Ordren behandles nå (Altinn slår opp mottakere, sjekker sendebetingelser osv.).| Midlertidig       |
+| `Processing`         | `Order_Processing`   | Ordren behandles nå (mottakeroppslag, evaluering av sendebetingelser osv.).| Midlertidig       |
 | `Processed`          | `Order_Processed`    | Ordren er ferdig behandlet og er overlevert til e‑post- og SMS‑kanalene.   | Midlertidig       |
 | `Completed`          | `Order_Completed`    | Ordren er ferdig behandlet, og alle varsler har fått endelig leveringsstatus. | Endelig        |
 | `SendConditionNotMet`| `Order_SendConditionNotMet` | Sendebetingelsen var ikke oppfylt, derfor ble ingen varsler sendt. | Endelig           |
@@ -86,13 +85,13 @@ Status for ett enkelt e‑postvarsel til én mottaker.
 |--------------------------------|--------------------------------|--------------------------------------------------------------|-------------|
 | `New`                          | `Email_New`                    | E‑posten er opprettet, men ikke sendt videre ennå.          | Midlertidig |
 | `Sending`                      | `Email_Sending`                | E‑posten er i ferd med å bli sendt.                         | Midlertidig |
-| `Succeeded`                    | `Email_Succeeded`              | E‑postleverandøren har tatt imot e‑posten, men har ennå ikke bekreftet at den er levert.                | Midlertidig |
+| `Succeeded`                    | `Email_Succeeded`              | E‑posten er akseptert av e‑postleverandøren og ingen leveringsbekreftelse er mottatt.                | Midlertidig |
 | `Delivered`                    | `Email_Delivered`              | Leverandøren har bekreftet at e‑posten er levert.           | Endelig     |
 | `Failed`                       | `Email_Failed`                 | Feil uten mer spesifikk årsak.                              | Endelig     |
 | `Failed_RecipientNotIdentified`| `Email_Failed_RecipientNotIdentified` | Mottakeren kunne ikke identifiseres.               | Endelig     |
 | `Failed_InvalidFormat`         | `Email_Failed_InvalidFormat`          | Ugyldig e‑postadresseformat.                        | Endelig     |
 | `Failed_RecipientReserved`     | `Email_Failed_RecipientReserved`      | Mottakeren er reservert eller blokkert.             | Endelig     |
-| `Failed_SuppressedRecipient`   | `Email_Failed_SuppressedRecipient`    | Leverandøren har sperret mottakeren (suppressed).   | Endelig     |
+| `Failed_SuppressedRecipient`   | `Email_Failed_SuppressedRecipient`    | Mottakeren er undertrykt hos leverandøren.          | Endelig     |
 | `Failed_TransientError`        | `Email_Failed_TransientError`         | Midlertidig feil hos leverandøren. Dette varselet blir ikke forsøkt på nytt automatisk, men en ny varslingsordre kan lykkes.                  | Endelig     |
 | `Failed_Bounced`               | `Email_Failed_Bounced`                | E‑posten kom i retur (bounce).                      | Endelig     |
 | `Failed_FilteredSpam`          | `Email_Failed_FilteredSpam`           | Filtrert som spam av leverandøren.                  | Endelig     |
@@ -129,7 +128,7 @@ av hvilket endepunkt du bruker.
 ### Standard levetid på 48 timer
 
 Vanlige varslinger (bestilt via `/orders` og `/future/orders`) har en fast
-levetid på **48 timer** som tjenesteeiere **ikke kan endre**. Altinn
+levetid på **48 timer** som tjenesteeiere **ikke kan konfigurere**. Altinn
 beregner utløpstidspunktet ut fra ønsket sendetidspunkt pluss 48 timer for både
 e‑post og SMS.
 
@@ -141,7 +140,7 @@ annerledes:
   Se [veiledningen for umiddelbar varsling]({{< relref "/notifications/guides/instant-notifications" >}})
   for anbefalte verdier.
 - For umiddelbar e‑post gjelder den samme faste levetiden på 48 timer som for
-  vanlige varslinger, og den kan ikke endres.
+  vanlige varslinger, og den kan ikke konfigureres.
 
 ### Forskjellen mellom `Failed_TTL` og `Failed_Expired`
 
@@ -166,10 +165,10 @@ Kort sagt: `Failed_TTL` gjelder utløp i Altinns egen oppfølging, mens
 
 ### Når en varsling utløper
 
-Når levetiden er nådd, skjer dette:
+Når levetiden er nådd:
 
-- Resultatet blir rapportert som `Failed_TTL`, `Failed_Expired` eller en annen
-  endelig feilstatus.
-- Du bør ikke sende samme varsel på nytt uten at du først vurderer om innholdet
-  fortsatt er relevant for mottakeren.
+- resultatet blir rapportert som `Failed_TTL`, `Failed_Expired` eller en annen
+  endelig feilstatus
+- det er ikke hensiktsmessig å prøve samme varsel på nytt uten at du først
+  vurderer om innholdet fortsatt er relevant for mottakeren
 

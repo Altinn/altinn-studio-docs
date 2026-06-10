@@ -268,7 +268,7 @@ For å teste SMS-varsler i TT02:
 
 2. **Test med tillatt nummer**
    - Numre på tillattlisten mottar faktiske SMS-meldinger
-   - Numre som ikke står på listen, går til en simulator (og vises som vellykket i API-et)
+   - Numre som ikke er på listen går til simulator (vises som suksess i API)
 
 3. **Test e-post**
    - E-poster sendes normalt i TT02
