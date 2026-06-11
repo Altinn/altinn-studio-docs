@@ -67,9 +67,9 @@ Den programmatiske metoden du velger å sette opp er avhengig av hvilken versjon
 1. Opprett en klasse som implementerer `IPdfFormatter`-grensesnittet som ligger i `Altinn.App.Core.Features`-navnerommet.  
    Du kan navngi og plassere filene i den mappestrukturen du selv ønsker i prosjektet ditt. Men vi anbefaler at du benytter meningsfulle navnerom som i et hvilket som helst annet .Net-prosjekt.
 2. Registrer din implementering i _Program.cs_-klassen.
-   `C#
- services.AddTransient<IPdfFormatter, PdfFormatter>();
- `
+   ```C#
+    services.AddTransient<IPdfFormatter, PdfFormatter>();
+   ```
    Dette sørger for at din kode er kjent for applikasjonen og at koden blir kjørt når den skal.
    {{</content-version-container>}}
 

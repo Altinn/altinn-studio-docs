@@ -67,9 +67,9 @@ Depending on the version you are using, the programmatic method is set up differ
 1. Create a class that implements the `IPdfFormatter` interface found in the `Altinn.App.Core.Features.Pdf` namespace.  
    You can name and place the file in any folder you like within your project, but we suggest you use meaningful namespaces like in any other .Net project.
 2. Register you custom implementation in the _Program.cs_ class.
-   `C#
- services.AddTransient<IPdfFormatter, PdfFormatter>();
- `
+   ```C#
+    services.AddTransient<IPdfFormatter, PdfFormatter>();
+   ```
    This ensures your custom code is known to the application and that it will be executed.
    {{</content-version-container>}}
 
@@ -379,7 +379,7 @@ The footer will contain the following information:
 
 You can hide the app name in the header and footer of the generated PDF by setting `hideAppNameInPdf` in `uiSettings` in `layout-sets.json`.
 
-The property accepts `true`, `false`, or a boolean [dynamic expression](/altinn-studio/v8/reference/logic/expressions/). The expression must evaluate to `true` or `false` — string expressions are not supported.
+The property accepts `true`, `false`, or a boolean [dynamic expression](/en/altinn-studio/v8/reference/logic/expressions/). The expression must evaluate to `true` or `false` — string expressions are not supported.
 
 ```json {linenos=false,hl_lines=["3"]}
 {
@@ -389,7 +389,7 @@ The property accepts `true`, `false`, or a boolean [dynamic expression](/altinn-
 }
 ```
 
-See [dynamic expressions](/altinn-studio/v8/reference/logic/expressions/) for more information.
+See [dynamic expressions](/en/altinn-studio/v8/reference/logic/expressions/) for more information.
 
 ## Prototype PDF in Figma
 
