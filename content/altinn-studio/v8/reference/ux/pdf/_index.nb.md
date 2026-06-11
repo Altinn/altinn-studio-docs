@@ -18,11 +18,11 @@ Fra og med versjon 7.5 av nuget-pakkene (Altinn.App.Api og Altinn.App.Core) er d
   }
 ```
 
-Dette vil sørge for at den nye PDF-tjenesten kalles. Denne aksepterer en URL som peker tilbake til en automatisk generert side i appen. Siden bygges opp og danner grunnlaget for PDF-en. Grensesnittet `IPdfFormatter` som dokumentert nedenfor er fortsatt relevant hvis du trenger spesiallogikk for å skjule komponenter/sider fra PDF-en.
+Dette kaller den nye PDF-tjenesten. Den aksepterer en URL, som peker tilbake til en automatisk generert side i appen. Siden bygges opp og danner grunnlaget for PDF-en. Grensesnittet `IPdfFormatter`, som dokumentert under er fortsatt relevant hvis du trenger spesiallogikk for å skjule komponenter/sider fra PDF-en.
 
 ### Innstillinger
 
-Selv om standardinnstillingene for den nye tjenesten skal være nok for de fleste applikasjoner, kan de overstyres ved å legge til en PdfGeneratorSettings-seksjon i _appsettings.json_ (standardinnstillinger vises under).
+Selv om standardinnstillingene for den nye tjenesten skal være nok for de fleste apper, kan du overstyre dem ved å legge til en PdfGeneratorSettings-seksjon i _appsettings.json_ (se standardinnstillingene under).
 
 ```json
   "PdfGeneratorSettings": {
@@ -59,14 +59,14 @@ Dette kan konfigureres på to ulike måter:
 1. Ved å modifisere `Settings.json`-filen for layout-settet.
 2. Programmatisk ved å implementere det i kode. Dette åpner for dynamisk ekskludering basert på skjemadataen.
 
-Avhengig av hvilken versjon du kjører setter man opp den programmatiske metoden litt forskjellig, men logikken er helt lik. Oversikten under viser hvordan det settes opp for versjonen du kjører:
+Den programmatiske metoden du velger å sette opp er avhengig av hvilken versjon du kjører, men logikken er helt lik. Oversikten under viser hvordan du setter det opp for den versjonen du kjører:
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="v7">}}
 
 1. Opprett en klasse som implementerer `IPdfFormatter`-grensesnittet som ligger i `Altinn.App.Core.Features`-navnerommet.  
    Du kan navngi og plassere filene i den mappestrukturen du selv ønsker i prosjektet ditt. Men vi anbefaler at du benytter meningsfulle navnerom som i et hvilket som helst annet .Net-prosjekt.
-2. Registrér din implementering i _Program.cs_-klassen.
+2. Registrer din implementering i _Program.cs_-klassen.
    `C#
  services.AddTransient<IPdfFormatter, PdfFormatter>();
  `
@@ -374,9 +374,9 @@ Footeren vil inneholde følgende informasjon:
 
   ![PDF footer eksempel](pdf-footer-example.png)
 
-## Skjule appnavnet i PDF
+## Skjule app-navnet i PDF-en
 
-Du kan skjule appnavnet i toppteksten og bunnteksten i den genererte PDF-en ved å sette `hideAppNameInPdf` i `uiSettings` i `layout-sets.json`.
+Du kan skjule app-navnet i toppteksten og bunnteksten i den genererte PDF-en ved å sette `hideAppNameInPdf` i `uiSettings` i `layout-sets.json`.
 
 Egenskapen godtar `true`, `false`, eller et boolsk [dynamisk uttrykk](/nb/altinn-studio/v8/reference/logic/expressions/). Uttrykket må evaluere til `true` eller `false` — tekstuttrykk støttes ikke.
 
@@ -392,6 +392,6 @@ Se [dynamiske uttrykk](/nb/altinn-studio/v8/reference/logic/expressions/) for me
 
 ## Lag en PDF i Figma
 
-Hvis du vil teste og sette opp PDF-en din, kan du gjøre det her:  
+Hvis du vil teste hvordan du kan sette opp PDF-en din, kan du gjøre det her:  
 [Altinn Studio Komponenter](https://www.figma.com/community/file/1344307804742953785/altinn-studio-komponenter).  
 Merk at eksempelet ikke er identisk med den faktiske koden, men er tilpasset for å lage prototyper i Figma.

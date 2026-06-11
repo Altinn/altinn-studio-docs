@@ -375,7 +375,7 @@ The footer will contain the following information:
 
   ![PDF footer example](pdf-footer-example.png)
 
-## Hide app name in PDF
+## Hide the app name in PDF
 
 You can hide the app name in the header and footer of the generated PDF by setting `hideAppNameInPdf` in `uiSettings` in `layout-sets.json`.
 
