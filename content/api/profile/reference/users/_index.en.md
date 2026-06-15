@@ -12,6 +12,10 @@ Profile fetches updates from the Contact and Reservation Register every ten minu
 A logged-in user can change display settings in the Altinn workspace, for example the language and which parties should appear in the party list.
 The API supports both PUT (replaces the entire object) and PATCH (updates parts of the object).
 
+{{% notice info %}}
+This API resource is restricted by access rules and can only be used with a valid end-user token.
+{{% /notice %}}
+
 ### Response model
 ```json
 {

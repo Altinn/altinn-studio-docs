@@ -13,6 +13,10 @@ For å bruke API-et må man være en innlogget sluttbruker. Det er viktig at til
 
 I stien må man angi hvilken aktør man ønsker å administrere adresser for. Denne identifiseres med `partyUuid`. 
 
+{{% notice info %}}
+Denne API-ressursen er begrenset av tilgangsregler og kan kun benyttes med et gyldig sluttbruker-token. 
+{{% /notice %}}
+
 ## Modell
 
 ```json
