@@ -198,7 +198,7 @@ Du kan bruke komponenten [Oppsummering]({{< ref "altinn-studio/v8/reference/ux/c
 
 ![Skjermbilde av en oppsummeringskomponent i en PDF-oppsett-side](pdf-summary-component.png)
 
-### Manual configuration
+### Manuell konfigurasjon
 
 {{%notice warning%}}
 
