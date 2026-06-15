@@ -20,12 +20,18 @@ leverandørens system og appen. Det er i hovedsak 2 måter å lage denne integra
   - Leverandør lager system i systemregisteret til Altinn Autorisasjon (i systemdefinisjonen uttrykker man behov for tilgang til ressurser, f. eks. en app)
   - Kunde registrerer systembruker. Dermed blir rettighetene delegert.
   - Leverandør autentiserer med Maskinporten klient
-  - Ved integrasjon mot Altinn apper så vil systemet autentisere mot Maskinporten og så bruke dette tokenet ved innsending til Altinn
+  - Ved integrasjon mot Altinn apper så vil systemet autentisere mot Maskinporten og deretter veksle Maskinporten-tokenet inn til et Altinn-token før innsending til Altinn
   - For mer informasjon, se [Altinn Autorisasjon brukerguide for systembrukere](/nb/authorization/guides/system-vendor/)
   - Egner seg godt for systemer der det er større grad av automasjon (og mindre behov for kontakt/kobling til sluttbruker), og det er snakk om innsendinger på vegne av organisasjoner.
 
 {{% notice warning %}}
 Systembruker mot Altinn Studio-app krever `Altinn.App.Api` og `Altinn.App.Core` `v8.6.0` eller nyere.
+{{% /notice %}}
+
+{{% notice info %}}
+Maskinporten-token fra systembruker kan ikke brukes direkte mot Altinn-apper eller plattformtjenester som krever Altinn-token.
+Tokenet må først veksles inn til et Altinn-token via Altinn Authentication.
+Bruk Altinn-tokenet i `Authorization`-headeren mot app- og plattform-API-er.
 {{% /notice %}}
 
 ## Integrasjon med ID-porten
@@ -432,7 +438,8 @@ POST https://test.maskinporten.no/token
 }
 ```
 
-Når vi nå har systembruker token fra Maskinporten, må vi foreløpig veksle inn denne til et Altinn token for å bruke den mot en app.
+Når vi nå har systembruker-token fra Maskinporten, må vi veksle det inn til et Altinn-token før det brukes mot Altinn-apper og plattformtjenester som krever Altinn-token.
+Maskinporten-tokenet brukes som input til innvekslingen, mens Altinn-tokenet fra responsen brukes videre i `Authorization`-headeren.
 I fremtiden vil dette ikke være nødvendig, og denne dokumentasjonen vil oppdateres.
 
 ```http
@@ -448,7 +455,7 @@ Content-Type: text/plain; charset=utf-8
 
 #### 7. Fiken kan instansiere i appen
 
-Vi bruker `access_token` fra responsen i forrige steg til å lage en tom instans i `aarsregnskap`-appen.
+Vi bruker Altinn-tokenet fra responsen i forrige steg til å lage en tom instans i `aarsregnskap`-appen.
 
 ```http
 POST https://brg.apps.tt02.altinn.no/brg/aarsregnskap/instances/create
