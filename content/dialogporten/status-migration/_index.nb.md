@@ -20,7 +20,7 @@ All historiske data er migrert. Kvalitetskontroll pågår.
 | Kilde | Migrert tilbake til |
 |----------|----------|
 | A2-Melding | 17.06.2006 |
-| A2 arkiverte skjema / A3-app-instanser | 01.07.2015 |
+| A2 arkiverte skjema / A3-app-instanser | 28.11.2003 |
 
 ## Mål og planer
 
