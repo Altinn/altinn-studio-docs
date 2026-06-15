@@ -5,8 +5,11 @@ weight: 50
 ---
 
 {{%notice warning%}}
+
 ## Ny PDF-generering
+
 ### Aktivere ny PDF-generering
+
 Fra og med versjon 7.5 av nuget-pakkene (Altinn.App.Api og Altinn.App.Core) er det lansert en ny måte å generere PDF-er på. Denne nye måten kan skrus av og på ved å legge til følgende seksjon og innstilling i _appsettings.json_.
 
 ```json
@@ -15,10 +18,11 @@ Fra og med versjon 7.5 av nuget-pakkene (Altinn.App.Api og Altinn.App.Core) er d
   }
 ```
 
-Dette vil sørge for at den nye PDF-tjenesten kalles. Denne aksepterer en URL som peker tilbake til en automatisk generert side i appen. Siden bygges opp og danner grunnlaget for PDF-en. Grensesnittet `IPdfFormatter` som dokumentert nedenfor er fortsatt relevant hvis du trenger spesiallogikk for å skjule komponenter/sider fra PDF-en.
+Dette kaller den nye PDF-tjenesten. Den aksepterer en URL, som peker tilbake til en automatisk generert side i appen. Siden bygges opp og danner grunnlaget for PDF-en. Grensesnittet `IPdfFormatter`, som dokumentert under er fortsatt relevant hvis du trenger spesiallogikk for å skjule komponenter/sider fra PDF-en.
 
 ### Innstillinger
-Selv om standardinnstillingene for den nye tjenesten skal være nok for de fleste applikasjoner, kan de overstyres ved å legge til en PdfGeneratorSettings-seksjon i _appsettings.json_ (standardinnstillinger vises under).
+
+Selv om standardinnstillingene for den nye tjenesten skal være nok for de fleste apper, kan du overstyre dem ved å legge til en PdfGeneratorSettings-seksjon i _appsettings.json_ (se standardinnstillingene under).
 
 ```json
   "PdfGeneratorSettings": {
@@ -55,20 +59,19 @@ Dette kan konfigureres på to ulike måter:
 1. Ved å modifisere `Settings.json`-filen for layout-settet.
 2. Programmatisk ved å implementere det i kode. Dette åpner for dynamisk ekskludering basert på skjemadataen.
 
-Avhengig av hvilken versjon du kjører setter man opp den programmatiske metoden litt forskjellig, men logikken er helt lik. Oversikten under viser hvordan det settes opp for versjonen du kjører:
+Den programmatiske metoden du velger å sette opp er avhengig av hvilken versjon du kjører, men logikken er helt lik. Oversikten under viser hvordan du setter det opp for den versjonen du kjører:
 {{<content-version-selector classes="border-box">}}
-
 
 {{<content-version-container version-label="v7">}}
 
 1. Opprett en klasse som implementerer `IPdfFormatter`-grensesnittet som ligger i `Altinn.App.Core.Features`-navnerommet.  
-    Du kan navngi og plassere filene i den mappestrukturen du selv ønsker i prosjektet ditt. Men vi anbefaler at du benytter meningsfulle navnerom som i et hvilket som helst annet .Net-prosjekt.
-2. Registrér din implementering i _Program.cs_-klassen.
-    ```C#
+   Du kan navngi og plassere filene i den mappestrukturen du selv ønsker i prosjektet ditt. Men vi anbefaler at du benytter meningsfulle navnerom som i et hvilket som helst annet .Net-prosjekt.
+2. Registrer din implementering i _Program.cs_-klassen.
+   ```C#
     services.AddTransient<IPdfFormatter, PdfFormatter>();
-    ```
-    Dette sørger for at din kode er kjent for applikasjonen og at koden blir kjørt når den skal.
-{{</content-version-container>}}
+   ```
+   Dette sørger for at din kode er kjent for applikasjonen og at koden blir kjørt når den skal.
+   {{</content-version-container>}}
 
 {{<content-version-container version-label="v4, v5, v6">}}
 Endre `PdfHandler.cs`-filen under `App/logic/Print`-mappen.
@@ -84,11 +87,11 @@ Legg til en liste med sidenavn som skal eksluderes på `excludeFromPdf` under `p
 
 ```json {linenos=false,hl_lines=["5"]}
 {
-   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
-   "pages": {
-      "order": ["side1", "side2"],
-      "excludeFromPdf": ["side2"]
-   }
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+  "pages": {
+    "order": ["side1", "side2"],
+    "excludeFromPdf": ["side2"]
+  }
 }
 ```
 
@@ -104,6 +107,7 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
   return await Task.FromResult(layoutSettings);
 }
 ```
+
 <br>
 
 **NB**: Du trenger kun å velge én av disse metodene.
@@ -117,13 +121,13 @@ Legg til en liste over komponent-ID-er som skal ekskluderes på `excludeFromPdf`
 
 ```json {linenos=false,hl_lines=["7"]}
 {
-   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
-   "pages": {
-      "order": ["side1"]
-   },
-   "components": {
-      "excludeFromPdf": ["bilde-komponent-id"]
-   }
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+  "pages": {
+    "order": ["side1"]
+  },
+  "components": {
+    "excludeFromPdf": ["bilde-komponent-id"]
+  }
 }
 ```
 
@@ -139,6 +143,7 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
   return await Task.FromResult(layoutSettings);
 }
 ```
+
 <br>
 
 **NB**: Du trenger kun å velge én av disse metodene.
@@ -153,13 +158,13 @@ Formatet er: `komponentID-<rad-nummer>`.
 
 ```json {linenos=false,hl_lines=["7"]}
 {
-   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
-   "pages": {
-      "order": ["side1"]
-   },
-   "components": {
-      "excludeFromPdf": ["komponent-i-gruppe-1"]
-   }
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+  "pages": {
+    "order": ["side1"]
+  },
+  "components": {
+    "excludeFromPdf": ["komponent-i-gruppe-1"]
+  }
 }
 ```
 
@@ -175,6 +180,7 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
   return await Task.FromResult(layoutSettings);
 }
 ```
+
 <br>
 
 **NB**: Du trenger kun å velge én av disse metodene.
@@ -192,7 +198,8 @@ Du kan bruke komponenten [Oppsummering]({{< ref "altinn-studio/v8/reference/ux/c
 
 ![Skjermbilde av en oppsummeringskomponent i en PDF-oppsett-side](pdf-summary-component.png)
 
-### Manual configuration
+### Manuell konfigurasjon
+
 {{%notice warning%}}
 
 Denne metoden er kun tilgjengelig i versjon 7.5 og høyere.
@@ -202,13 +209,14 @@ Denne metoden er kun tilgjengelig i versjon 7.5 og høyere.
 Denne metoden lar deg spesifisere en helt egendefinert PDF ved å definere en layout-fil som bestemmer hva den skal inneholde.
 
 For å ta i bruk denne metoden må du opprette en ny layout-fil for PDF-en og sette `pdfLayoutName` i `Settings.json` til å peke til den filen:
+
 ```json {linenos=false,hl_lines=["5"]}
 {
-   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
-   "pages": {
-      "order": ["side1"],
-      "pdfLayoutName": "minPdfLayout"
-   }
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+  "pages": {
+    "order": ["side1"],
+    "pdfLayoutName": "minPdfLayout"
+  }
 }
 ```
 
@@ -258,23 +266,23 @@ Du kan spesifisere at en komponent skal starte på en ny side eller at et sidesk
 
 ```json {linenos=false,hl_lines=["12-15"]}
 {
-   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
-   "data": {
-      "layout": [
-         {
-            "id": "pdf-header",
-            "type": "Header",
-            "textResourceBindings": {
-               "title": "Dette er en ny seksjon"
-            },
-            "size": "L",
-            "pageBreak": {
-               "breakBefore": "always",
-               "breakAfter": "avoid"
-            }
-         }
-      ]
-   }
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "pdf-header",
+        "type": "Header",
+        "textResourceBindings": {
+          "title": "Dette er en ny seksjon"
+        },
+        "size": "L",
+        "pageBreak": {
+          "breakBefore": "always",
+          "breakAfter": "avoid"
+        }
+      }
+    ]
+  }
 }
 ```
 
@@ -287,19 +295,17 @@ Det er mulig å ekskludere enkeltkomponenter inne i en gruppe ved å bruke `excl
 
 ```json {linenos=false,hl_lines=["10"]}
 {
-   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
-   "data": {
-      "layout": [
-         {
-            "id": "pdf-group-summary",
-            "type": "Summary",
-            "componentRef": "en-gruppe-komponent",
-            "excludedChildren": [
-               "en-komponent-i-gruppen"
-            ]
-         }
-      ]
-   }
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "pdf-group-summary",
+        "type": "Summary",
+        "componentRef": "en-gruppe-komponent",
+        "excludedChildren": ["en-komponent-i-gruppen"]
+      }
+    ]
+  }
 }
 ```
 
@@ -366,8 +372,26 @@ Footeren vil inneholde følgende informasjon:
 - Altinn referanse-ID
 - Sidenummer
 
-   ![PDF footer eksempel](pdf-footer-example.png)
+  ![PDF footer eksempel](pdf-footer-example.png)
+
+## Skjule app-navnet i PDF-en
+
+Du kan skjule app-navnet i toppteksten og bunnteksten i den genererte PDF-en ved å sette `hideAppNameInPdf` i `uiSettings` i `layout-sets.json`.
+
+Egenskapen godtar `true`, `false`, eller et boolsk [dynamisk uttrykk](/nb/altinn-studio/v8/reference/logic/expressions/). Uttrykket må evaluere til `true` eller `false` — tekstuttrykk støttes ikke.
+
+```json {linenos=false,hl_lines=["3"]}
+{
+  "uiSettings": {
+    "hideAppNameInPdf": true
+  }
+}
+```
+
+Se [dynamiske uttrykk](/nb/altinn-studio/v8/reference/logic/expressions/) for mer informasjon.
+
 ## Lag en PDF i Figma
-Hvis du vil teste og sette opp PDF-en din, kan du gjøre det her:  
+
+Hvis du vil teste hvordan du kan sette opp PDF-en din, kan du gjøre det her:  
 [Altinn Studio Komponenter](https://www.figma.com/community/file/1344307804742953785/altinn-studio-komponenter).  
 Merk at eksempelet ikke er identisk med den faktiske koden, men er tilpasset for å lage prototyper i Figma.
