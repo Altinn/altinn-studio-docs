@@ -453,7 +453,7 @@ Content-Type: text/plain; charset=utf-8
 
 #### 7. Fiken can instantiate in the app
 
-We use the Altinn token from the response in the previous step to create an empty instance in the `aarsregnskap` app.
+We use the `access_token` from the response in the previous step, meaning the exchanged Altinn token, to create an empty instance in the `aarsregnskap` app.
 
 ```http
 POST https://brg.apps.tt02.altinn.no/brg/aarsregnskap/instances/create

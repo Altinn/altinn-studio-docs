@@ -455,7 +455,7 @@ Content-Type: text/plain; charset=utf-8
 
 #### 7. Fiken kan instansiere i appen
 
-Vi bruker Altinn-tokenet fra responsen i forrige steg til å lage en tom instans i `aarsregnskap`-appen.
+Vi bruker `access_token` fra responsen i forrige steg, altså det innvekslede Altinn-tokenet, til å lage en tom instans i `aarsregnskap`-appen.
 
 ```http
 POST https://brg.apps.tt02.altinn.no/brg/aarsregnskap/instances/create
