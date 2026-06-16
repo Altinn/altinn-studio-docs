@@ -59,10 +59,11 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 
 ### Lister og objekter
 
-| Funksjonsnavn            | Parametre                                                     | Returverdi | Frontend | Backend |
-|--------------------------|---------------------------------------------------------------|------------|----------|---------|
-| [`list`](#func-list)     | Ubegrenset antall verdier                                     | Liste      | ✗        | ✗       |
-| [`object`](#func-object) | Et partall antall verdier, hvor oddetallsverdiene er strenger | Objekt     | ✗        | ✗       |
+| Funksjonsnavn                | Parametre                                                     | Returverdi                                     | Frontend | Backend |
+|------------------------------|---------------------------------------------------------------|------------------------------------------------|----------|---------|
+| [`jmespath`](#func-jmespath) | Vilkårlig type, streng                                        | Liste, objekt, streng, tall, boolsk eller null | ❌        | ❌       |
+| [`list`](#func-list)         | Ubegrenset antall verdier                                     | Liste                                          | ❌        | ❌       |
+| [`object`](#func-object)     | Et partall antall verdier, hvor oddetallsverdiene er strenger | Objekt                                         | ❌        | ❌       |
 
 ### Oppslag, komponenter og data
 
@@ -775,4 +776,30 @@ Dette eksemplet returnerer følgende objekt:
 ```
 
 Nøklene må være [strenger](../datatypes/#strenger), mens verdiene kan ha hvilken som helst type.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-jmespath" header="jmespath" %}}
+Funksjonen `jmespath` kjører en [JMESPath](https://jmespath.org/)-formatert spørring på gitt data og returnerer resultatet.
+Den første parameteren er dataen spørringen skal behandle. Den kan ha en hvilken som helst verdi, men for de fleste praktiske formål er det hensiktsmessig at den er et objekt eller en liste med objekter.
+Den andre parameteren er spørringen, og den må være en streng. Se [den offisielle veiledningen](https://jmespath.org/tutorial.html) for dokumentasjon om hvordan du skriver spørringen.
+
+Her er et eksempel som lister opp navn på personer bosatt i Oslo:
+```json
+[
+  "jmespath",
+  [
+    "list",
+    ["object", "navn", "Ola", "bosted", "Oslo"],
+    ["object", "navn", "Kari", "bosted", "Oslo"],
+    ["object", "navn", "Knut", "bosted", "Brønnøysund"],
+    ["object", "navn", "Anne", "bosted", "Leikanger"]
+  ],
+  "[?bosted=='Oslo'].navn"
+]
+```
+Dette eksemplet returnerer følgende liste:
+```json
+["Ola", "Kari"]
+```
+I dette eksemplet har vi hardkodet dataen ved hjelp av funksjonene [`list`](#func-list) og [`object`](#func-object), men dette kan også være data som kommer fra funksjoner som [`dataModel`](#func-datamodel) og [`component`](#func-component).
 {{% /expandlarge %}}
