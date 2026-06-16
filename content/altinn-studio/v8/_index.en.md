@@ -1,7 +1,7 @@
 ---
 title: Altinn Studio
 linktitle: Altinn Studio
-breadcrumbText: Current (V8)
+breadcrumbText: V8 (current)
 description: Altinn Studio - Your tool for developing digital services for citizens and businesses
 aliases:
 - /en/altinn-studio/

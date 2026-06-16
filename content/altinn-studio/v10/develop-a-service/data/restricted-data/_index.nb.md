@@ -8,10 +8,6 @@ tags: [needsReview]
 
 {{% insert "content/altinn-studio/v10/develop-a-service/data/restricted-data/shared/style.css.md" %}}
 
-{{% notice info %}}
-Tilgjengelig fra [v8.7.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.7.0)
-{{% /notice %}}
-
 Beskyttede data er informasjon som krever ekstra tilgangskontroll, for eksempel personopplysninger eller konfidensiell/klassifisert informasjon. Les mer om [konseptet beskyttede data](/nb/altinn-studio/v10/this-is-as/explanations/data-model/restricted-data/).
 
 ## Sett opp Maskinporten
