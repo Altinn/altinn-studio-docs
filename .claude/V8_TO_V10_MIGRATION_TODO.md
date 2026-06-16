@@ -14,21 +14,21 @@ Dette dokumentet holder oversikt over innhold som må migreres fra v8 til v10.
 
 #### 🔴 Datamodellering
 **v8-sti:** `/nb/altinn-studio/v8/reference/data/data-modeling/`
-**Foreslått v10-sti:** `/nb/altinn-studio/v10/develop-a-service/reference/data/data-modeling/`
+**Foreslått v10-sti:** `/nb/altinn-studio/v9/develop-a-service/reference/data/data-modeling/`
 **Brukes av:**
 - Underskjema (subform)
 - Sannsynligvis mange andre steder
 
 #### 🔴 Pages/Settings.json (Layout-innstillinger)
 **v8-sti:** `/nb/altinn-studio/v8/reference/ux/pages/`
-**Foreslått v10-sti:** `/nb/altinn-studio/v10/develop-a-service/reference/ux/pages/` eller `/nb/altinn-studio/v10/develop-a-service/reference/configuration/pages/`
+**Foreslått v10-sti:** `/nb/altinn-studio/v9/develop-a-service/reference/ux/pages/` eller `/nb/altinn-studio/v9/develop-a-service/reference/configuration/pages/`
 **Brukes av:**
 - Underskjema (subform) - lenke til #innstillinger-delen
 - Sannsynligvis mange andre steder
 
 #### 🔴 CustomButton-komponent
 **v8-sti:** `/nb/altinn-studio/v8/reference/ux/components/custombutton/`
-**Foreslått v10-sti:** `/nb/altinn-studio/v10/develop-a-service/reference/ux/components/custombutton/`
+**Foreslått v10-sti:** `/nb/altinn-studio/v9/develop-a-service/reference/ux/components/custombutton/`
 **Brukes av:**
 - Underskjema (subform) - for closeSubform-handling
 - Sannsynligvis mange andre steder
@@ -41,8 +41,8 @@ Dette dokumentet holder oversikt over innhold som må migreres fra v8 til v10.
 - `/nb/altinn-studio/v8/guides/development/subform/studio/add-subform-column-studio.png`
 
 **Foreslått v10-sti:**
-- `/nb/altinn-studio/v10/develop-a-service/subform/studio/create-subform-studio.png`
-- `/nb/altinn-studio/v10/develop-a-service/subform/studio/add-subform-column-studio.png`
+- `/nb/altinn-studio/v9/develop-a-service/subform/studio/create-subform-studio.png`
+- `/nb/altinn-studio/v9/develop-a-service/subform/studio/add-subform-column-studio.png`
 
 **Status:** Bildene må kopieres til v10-strukturen
 
@@ -50,7 +50,7 @@ Dette dokumentet holder oversikt over innhold som må migreres fra v8 til v10.
 
 ### 🟢 API-referanse
 **v8-sti:** `/nb/altinn-studio/v8/reference/api/`
-**v10-sti:** `/nb/altinn-studio/v10/develop-a-service/reference/api/`
+**v10-sti:** `/nb/altinn-studio/v9/develop-a-service/reference/api/`
 **Status:** Migrert og språkvasket. Inkluderer:
 - API-oversikt (_index.nb.md)
 - Autentisering (auth/)
@@ -60,7 +60,7 @@ Dette dokumentet holder oversikt over innhold som må migreres fra v8 til v10.
 
 ### 🟢 Underskjema konfigurasjon
 **v8-sti:** `/nb/altinn-studio/v8/guides/development/subform/config-options/`
-**v10-sti:** `/nb/altinn-studio/v10/develop-a-service/subform/config-options/`
+**v10-sti:** `/nb/altinn-studio/v9/develop-a-service/subform/config-options/`
 **Status:** Allerede migrert og oppdatert i backend-manual/_index.nb.md
 
 ## Notater
@@ -86,5 +86,5 @@ Når du migrerer innhold:
 ## Søk etter v8-lenker
 For å finne alle v8-lenker i et emne:
 ```bash
-grep -r "/nb/altinn-studio/v8/" /path/to/v10/content/
+grep -r "/nb/altinn-studio/v8/" /path/to/v9/content/
 ```

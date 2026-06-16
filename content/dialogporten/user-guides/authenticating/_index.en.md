@@ -71,6 +71,7 @@ There are several scopes defining access to various parts of the service-owner A
 | `digdir:dialogporten.serviceprovider`                | All service owner APIs, except the search/list API                                                                                                                                                  |
 | `digdir:dialogporten.serviceprovider.search`         | All service owner APIs, including the search/list API                                                                                                                                               |
 | `digdir:dialogporten.serviceprovider.correspondence` | Create and update dialogs referring a service resource of type `CorrespondenceService` in [Altinn Resource Registry](/en/authorization/what-do-you-get/resourceadministration/) (internal use only) |
+| `digdir:dialogporten.serviceprovider.changetransmissions` | Make technical corrections to a transmission after it has been created (see [Technical corrections to transmissions](#technical-corrections-to-transmissions)) |
 
 Using these scopes requires the organization in the `consumer` claim to be registered as a service owner ("org") in Altinn. Failing that will cause requests to fail.
 
@@ -95,3 +96,9 @@ The service-provider scopes are delegable via Altinn API delegation. Service-own
 **Read more**
 
 [Creating and publishing resources in Altinn Studio](/en/authorization/guides/resource-owner/api-scheme/)
+
+### Technical corrections to transmissions
+
+The `digdir:dialogporten.serviceprovider.changetransmissions` scope must only be used for technical corrections to a transmission that has already been created, for example fixing typos in descriptive text or updating URLs that have changed because of infrastructure changes. It must not be used to make changes that are part of a business process.
+
+You can change all fields on the transmission except the transmission ID. The correction triggers no events (such as `transmissionUpdated`) and updates no timestamps, so that end users are not notified that anything has happened. For this reason, you must perform the correction with the `IsSilentUpdate=true` query parameter; without it, the request is rejected.

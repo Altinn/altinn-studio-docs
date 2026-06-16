@@ -5,8 +5,11 @@ weight: 50
 ---
 
 {{%notice warning%}}
+
 ## New PDF generation
+
 ### Enable feature
+
 As of version 7.5 of the nuget packages (Altinn.App.Api and Altinn.App.Core) a new way of generating PDFs launched as a preview. This feature can be toggled on/off by adding the following section and feature toggle in _appsettings.json_.
 
 ```json
@@ -18,6 +21,7 @@ As of version 7.5 of the nuget packages (Altinn.App.Api and Altinn.App.Core) a n
 This will call the new PDF service which accepts a URL pointing back to an automatic generated page in the app. The rendered page is then used as the foundation for the PDF. The `IPdfFormatter` as documented below is still relevant if you need custom logic for excluding components/pages from PDF.
 
 ### Settings
+
 While the default settings for the new service should be enough for most applications they can be overridden by adding a PdfGeneratorSettings section in _appsettings.json_ (default settings shown below).
 
 ```json
@@ -61,13 +65,13 @@ Depending on the version you are using, the programmatic method is set up differ
 {{<content-version-container version-label="v7">}}
 
 1. Create a class that implements the `IPdfFormatter` interface found in the `Altinn.App.Core.Features.Pdf` namespace.  
-    You can name and place the file in any folder you like within your project, but we suggest you use meaningful namespaces like in any other .Net project.
+   You can name and place the file in any folder you like within your project, but we suggest you use meaningful namespaces like in any other .Net project.
 2. Register you custom implementation in the _Program.cs_ class.
-    ```C#
+   ```C#
     services.AddTransient<IPdfFormatter, PdfFormatter>();
-    ```
-    This ensures your custom code is known to the application and that it will be executed.
-{{</content-version-container>}}
+   ```
+   This ensures your custom code is known to the application and that it will be executed.
+   {{</content-version-container>}}
 
 {{<content-version-container version-label="v4, v5, v6">}}
 Modify the `PdfHandler.cs` file under `App/logic/Print`.
@@ -83,11 +87,11 @@ Add a list of page names to exclude called `excludeFromPdf` under `pages`:
 
 ```json {linenos=false,hl_lines=["5"]}
 {
-   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
-   "pages": {
-      "order": ["page1", "page2"],
-      "excludeFromPdf": ["page2"]
-   }
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+  "pages": {
+    "order": ["page1", "page2"],
+    "excludeFromPdf": ["page2"]
+  }
 }
 ```
 
@@ -103,6 +107,7 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
   return await Task.FromResult(layoutSettings);
 }
 ```
+
 <br>
 
 **Note**: You only need to choose one of the above methods.
@@ -116,13 +121,13 @@ Add a list of component IDs to exclude called `excludeFromPdf` under `components
 
 ```json {linenos=false,hl_lines=["7"]}
 {
-   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
-   "pages": {
-      "order": ["page1"]
-   },
-   "components": {
-      "excludeFromPdf": ["image-component-id"]
-   }
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+  "pages": {
+    "order": ["page1"]
+  },
+  "components": {
+    "excludeFromPdf": ["image-component-id"]
+  }
 }
 ```
 
@@ -138,6 +143,7 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
   return await Task.FromResult(layoutSettings);
 }
 ```
+
 <br>
 
 **Note**: You only need to choose one of the above methods.
@@ -152,13 +158,13 @@ The required format is: `componentId-<groupIndex>`.
 
 ```json {linenos=false,hl_lines=["7"]}
 {
-   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
-   "pages": {
-      "order": ["page1"]
-   },
-   "components": {
-      "excludeFromPdf": ["ownerId-1"]
-   }
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+  "pages": {
+    "order": ["page1"]
+  },
+  "components": {
+    "excludeFromPdf": ["ownerId-1"]
+  }
 }
 ```
 
@@ -174,6 +180,7 @@ public async Task<LayoutSettings> FormatPdf(LayoutSettings layoutSettings, objec
   return await Task.FromResult(layoutSettings);
 }
 ```
+
 <br>
 
 **Note**: You only need to choose one of the above methods.
@@ -198,16 +205,18 @@ If you add a [Summary]({{< ref "altinn-studio/v8/reference/ux/components/summary
 ![Screenshot of a summary2 component in a PDF layout page](pdf-summary-component.png)
 
 ### Manual configuration
+
 This method lets you fully customize the generated PDF by using a layout file to specify what it should contain.
 
 To use this method you need to create a new layout file for the PDF and set `pdfLayoutName` in `Settings.json` to point to that file:
+
 ```json {linenos=false,hl_lines=["5"]}
 {
-   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
-   "pages": {
-      "order": ["page1"],
-      "pdfLayoutName": "myPdfLayout"
-   }
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+  "pages": {
+    "order": ["page1"],
+    "pdfLayoutName": "myPdfLayout"
+  }
 }
 ```
 
@@ -257,23 +266,23 @@ You can specify that a component should start on a new page or that a page break
 
 ```json {linenos=false,hl_lines=["12-15"]}
 {
-   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
-   "data": {
-      "layout": [
-         {
-            "id": "pdf-header",
-            "type": "Header",
-            "textResourceBindings": {
-               "title": "This is a new section"
-            },
-            "size": "L",
-            "pageBreak": {
-               "breakBefore": "always",
-               "breakAfter": "avoid"
-            }
-         }
-      ]
-   }
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "pdf-header",
+        "type": "Header",
+        "textResourceBindings": {
+          "title": "This is a new section"
+        },
+        "size": "L",
+        "pageBreak": {
+          "breakBefore": "always",
+          "breakAfter": "avoid"
+        }
+      }
+    ]
+  }
 }
 ```
 
@@ -286,19 +295,17 @@ It is possible to exclude child components from a group by using the `excludedCh
 
 ```json {linenos=false,hl_lines=["10"]}
 {
-   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
-   "data": {
-      "layout": [
-         {
-            "id": "pdf-group-summary",
-            "type": "Summary",
-            "componentRef": "some-group-component",
-            "excludedChildren": [
-               "some-child-component"
-            ]
-         }
-      ]
-   }
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "pdf-group-summary",
+        "type": "Summary",
+        "componentRef": "some-group-component",
+        "excludedChildren": ["some-child-component"]
+      }
+    ]
+  }
 }
 ```
 
@@ -366,11 +373,27 @@ The footer will contain the following information:
 - The Altinn reference ID
 - The page number
 
-   ![PDF footer example](pdf-footer-example.png)
+  ![PDF footer example](pdf-footer-example.png)
 
-## Prototype PDF in Figma 
+## Hide the app name in PDF
+
+You can hide the app name in the header and footer of the generated PDF by setting `hideAppNameInPdf` in `uiSettings` in `layout-sets.json`.
+
+The property accepts `true`, `false`, or a boolean [dynamic expression](/en/altinn-studio/v8/reference/logic/expressions/). The expression must evaluate to `true` or `false` — string expressions are not supported.
+
+```json {linenos=false,hl_lines=["3"]}
+{
+  "uiSettings": {
+    "hideAppNameInPdf": true
+  }
+}
+```
+
+See [dynamic expressions](/en/altinn-studio/v8/reference/logic/expressions/) for more information.
+
+## Prototype PDF in Figma
 
 If you want to test and set up your PDF, you can do it here:  
 [Altinn Studio Komponenter](https://www.figma.com/community/file/1344307804742953785/altinn-studio-komponenter).
- 
+
 Note that the example is not identical to the actual code but has been adapted to create prototypes in Figma.
