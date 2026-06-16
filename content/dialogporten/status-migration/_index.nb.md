@@ -15,10 +15,12 @@ Livesynkronisering: Alle endringer[^1] (skjema, meldinger) vises i Dialogporten.
 
 ### Historiske data
 
+All historiske data er migrert. Kvalitetskontroll pågår.
+
 | Kilde | Migrert tilbake til |
 |----------|----------|
-| A2-Melding | 13.04.2014 |
-| A2 arkiverte skjema / A3-app-instanser | 01.07.2015 |
+| A2-Melding | 17.06.2006 |
+| A2 arkiverte skjema / A3-app-instanser | 28.11.2003 |
 
 ## Mål og planer
 
@@ -69,6 +71,8 @@ Nylig arkiverte app-instanser opprettet i Altinn 2 migreres i puljer hvert 5. mi
 Skjema som er under utfylling blir ikke migrert før de er arkivert.
 
 ## Endringslogg
+16.06.2026: Meldinger ble ferdig migrert lørdag 6. juni. Eldste melding er 17.06.2006. Arkiverte skjema ble migrert ferdig fredag 12. juni. Eldste arkiverte skjema er fra 28.11.2023. Kvalitetssikring pågår.
+
 02.06.2026: Meldinger migrert tilbake til 13.04.2014. Arkiverte skjema tilbake til 01.07.2015.
 
 28.05.2026: Meldinger migrert tilbake til 06.12.2016. Arkiverte skjema tilbake til 01.01.2017.
