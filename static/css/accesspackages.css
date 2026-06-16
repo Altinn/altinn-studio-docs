@@ -1,0 +1,398 @@
+/* =============================================================
+   Tilgangspakker – delt stilark
+   Brukes av:
+     - layouts/shortcodes/accesspackages.html   (liste-sidene)
+     - layouts/authorization/.../tilgangspakke/single.html  (detaljsider)
+   Lastes inn via layouts/partials/custom-head.html
+   ============================================================= */
+
+/* ----- Liste-side: verktøylinje ----- */
+.ap-root {
+  font-family: inherit;
+  margin: 1.5rem 0;
+}
+.ap-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+.ap-search-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+  max-width: 480px;
+}
+.ap-search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  color: #6b7280;
+  pointer-events: none;
+}
+.ap-search-input {
+  width: 100%;
+  padding: 10px 16px 10px 40px;
+  font-size: 1rem;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  background: #fff;
+}
+.ap-search-input:focus {
+  border-color: #0062ba;
+  box-shadow: 0 0 0 3px rgba(0, 98, 186, 0.15);
+}
+.ap-result-count {
+  font-size: 0.875rem;
+  color: #6b7280;
+  white-space: nowrap;
+}
+.ap-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+.ap-expand-all {
+  font-size: 0.8rem;
+  color: #0062ba;
+  background: none;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 5px 10px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.ap-expand-all:hover {
+  background: #f0f6ff;
+  border-color: #0062ba;
+}
+
+/* ----- Liste-side: gruppeoverskrift ----- */
+.ap-group-heading {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #374151;
+  margin: 2rem 0 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+.ap-group:first-of-type .ap-group-heading {
+  margin-top: 0;
+}
+
+/* ----- Liste-side: område-accordion ----- */
+.ap-area {
+  margin-bottom: 0.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.ap-area-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 18px;
+  background: #f9fafb;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  transition: background 0.1s;
+}
+.ap-area-btn:hover {
+  background: #f3f4f6;
+}
+.ap-area-icon {
+  flex-shrink: 0;
+  opacity: 0.85;
+}
+.ap-area-name {
+  flex: 1;
+}
+.ap-area-count {
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #0062ba;
+  color: #fff;
+  border-radius: 12px;
+  padding: 2px 9px;
+  min-width: 24px;
+  text-align: center;
+}
+.ap-chevron {
+  width: 18px;
+  height: 18px;
+  color: #6b7280;
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.ap-area-btn[aria-expanded="false"] .ap-chevron {
+  transform: rotate(-90deg);
+}
+
+/* ----- Liste-side: pakke-grid ----- */
+.ap-packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 12px;
+  padding: 16px;
+  background: #fff;
+}
+.ap-area-btn[aria-expanded="false"] + .ap-packages-grid {
+  display: none;
+}
+
+/* ----- Liste-side: pakkekort ----- */
+.ap-pkg {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+  background: #fff;
+  transition: box-shadow 0.15s, border-color 0.15s;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ap-pkg:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+  border-color: #0062ba;
+  text-decoration: none;
+}
+.ap-pkg:focus-visible {
+  outline: 2px solid #0062ba;
+  outline-offset: 2px;
+}
+.ap-pkg-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+.ap-pkg-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #0062ba;
+  line-height: 1.3;
+}
+.ap-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.ap-badge-delegable {
+  background: #d1fae5;
+  color: #065f46;
+}
+.ap-pkg-desc {
+  font-size: 0.85rem;
+  color: #4b5563;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.5;
+}
+.ap-pkg-urn {
+  font-size: 0.75rem;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 3px 8px;
+  border-radius: 4px;
+  word-break: break-all;
+  display: block;
+  margin-top: auto;
+}
+.ap-no-results {
+  text-align: center;
+  color: #6b7280;
+  padding: 2rem;
+  font-style: italic;
+}
+.ap-area[hidden],
+.ap-group[hidden] {
+  display: none;
+}
+
+/* ----- Detaljside ----- */
+.pkgd {
+  max-width: 900px;
+  padding: 0 0 3rem;
+}
+.pkgd-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.875rem;
+  color: #0062ba;
+  text-decoration: none;
+  margin-bottom: 1.5rem;
+}
+.pkgd-back:hover { text-decoration: underline; }
+.pkgd-back svg { width: 16px; height: 16px; }
+.pkgd-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.pkgd-area-icon-wrap {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  background: #f0f6ff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pkgd-area-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+.pkgd-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111827;
+  margin: 0;
+  line-height: 1.2;
+}
+.pkgd-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+}
+.pkgd-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+.pkgd-tag svg { width: 13px; height: 13px; }
+.pkgd-tag-green { background: #d1fae5; color: #065f46; }
+.pkgd-tag-blue  { background: #dbeafe; color: #1e40af; }
+.pkgd-tag-gray  { background: #f3f4f6; color: #374151; }
+.pkgd-section {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e7eb;
+}
+.pkgd-section h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.pkgd-count {
+  background: #0062ba;
+  color: #fff;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+.pkgd-urn-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 1rem;
+  padding: 10px 14px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+}
+.pkgd-urn-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #6b7280;
+  flex-shrink: 0;
+}
+.pkgd-urn {
+  font-size: 0.85rem;
+  color: #374151;
+  word-break: break-all;
+  background: none;
+  border: none;
+  padding: 0;
+}
+.pkgd-resources {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+.pkgd-resource {
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 14px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: box-shadow 0.15s;
+}
+.pkgd-resource:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.pkgd-resource-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.pkgd-resource-logo {
+  flex-shrink: 0;
+  border-radius: 4px;
+  object-fit: contain;
+  background: #f9fafb;
+  padding: 2px;
+}
+.pkgd-resource-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #111827;
+  line-height: 1.3;
+}
+.pkgd-resource-desc {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.pkgd-resource-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+.pkgd-resource-provider {
+  font-size: 0.75rem;
+  color: #6b7280;
+}

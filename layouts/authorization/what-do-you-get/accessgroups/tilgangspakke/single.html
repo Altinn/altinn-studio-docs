@@ -1,0 +1,112 @@
+{{- /*
+  Detaljside for én tilgangspakke.
+  Sidene genereres ved byggetid av _content.gotmpl i samme seksjon.
+
+  Forventede page params (satt av _content.gotmpl):
+    packageUrn, packageDescription, packageIsDelegable, packageIsAssignable,
+    areaName, areaIconUrl, typeName ("Organisasjon" | "Person"), resources (liste)
+*/ -}}
+{{ partial "header.html" . }}
+
+{{- $p := .Params -}}
+{{- $lang := site.Language.Lang -}}
+
+{{- /* Tilbake-lenke og etikett basert på pakke-type fra API-et. */ -}}
+{{- $listURL := "" -}}
+{{- $listLabel := "" -}}
+{{- if eq $p.typeName "Organisasjon" -}}
+  {{- $listURL = "/authorization/what-do-you-get/accessgroups/accessgroups/" | relLangURL -}}
+  {{- $listLabel = cond (eq $lang "en") "Organisations" "Virksomheter" -}}
+{{- else if eq $p.typeName "Person" -}}
+  {{- $listURL = "/authorization/what-do-you-get/accessgroups/accessgroups-citizens/" | relLangURL -}}
+  {{- $listLabel = cond (eq $lang "en") "Individuals" "Innbyggere" -}}
+{{- else -}}
+  {{- $listURL = "/authorization/what-do-you-get/accessgroups/" | relLangURL -}}
+  {{- $listLabel = cond (eq $lang "en") "Access packages" "Tilgangspakker" -}}
+{{- end -}}
+
+{{- $labelDelegable   := cond (eq $lang "en") "Delegable"                     "Delegerbar" -}}
+{{- $labelAssignable  := cond (eq $lang "en") "Assignable"                    "Tilordningsbar" -}}
+{{- $headingAbout     := cond (eq $lang "en") "About this access package"     "Om tilgangspakken" -}}
+{{- $headingServices  := cond (eq $lang "en") "Services in this access package" "Tjenester i tilgangspakken" -}}
+
+<article class="pkgd">
+
+  <a href="{{ $listURL }}" class="pkgd-back">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    {{ $listLabel }}
+  </a>
+
+  <header class="pkgd-header">
+    {{- if $p.areaIconUrl -}}
+    <div class="pkgd-area-icon-wrap">
+      <img src="{{ $p.areaIconUrl }}" alt="" width="36" height="36" loading="lazy">
+    </div>
+    {{- end -}}
+    <div class="pkgd-header-text">
+      <div class="pkgd-area-label">{{ $p.areaName }}</div>
+      <h1 class="pkgd-title">{{ .Title }}</h1>
+    </div>
+  </header>
+
+  <div class="pkgd-tags">
+    {{- if $p.packageIsDelegable -}}
+    <span class="pkgd-tag pkgd-tag-green">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      {{ $labelDelegable }}
+    </span>
+    {{- end -}}
+    {{- if $p.packageIsAssignable -}}
+    <span class="pkgd-tag pkgd-tag-blue">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 8 12 12 14 14"></polyline></svg>
+      {{ $labelAssignable }}
+    </span>
+    {{- end -}}
+    <span class="pkgd-tag pkgd-tag-gray">{{ $p.typeName }}</span>
+  </div>
+
+  <section class="pkgd-section">
+    <h2>{{ $headingAbout }}</h2>
+    <p>{{ $p.packageDescription }}</p>
+    <div class="pkgd-urn-row">
+      <span class="pkgd-urn-label">URN</span>
+      <code class="pkgd-urn">{{ $p.packageUrn }}</code>
+    </div>
+  </section>
+
+  {{- if $p.resources -}}
+  <section class="pkgd-section">
+    <h2>{{ $headingServices }} <span class="pkgd-count">{{ len $p.resources }}</span></h2>
+    <div class="pkgd-resources">
+      {{- range $p.resources -}}
+      <div class="pkgd-resource">
+        <div class="pkgd-resource-header">
+          {{- if .provider -}}{{- if .provider.logoUrl -}}
+          <img src="{{ .provider.logoUrl }}" alt="" class="pkgd-resource-logo" width="28" height="28" loading="lazy">
+          {{- end -}}{{- end -}}
+          <strong class="pkgd-resource-name">{{ .name }}</strong>
+        </div>
+        {{- if and .description (ne .description "-") -}}
+        <p class="pkgd-resource-desc">{{ .description }}</p>
+        {{- end -}}
+        <div class="pkgd-resource-meta">
+          {{- if .type -}}<span class="pkgd-tag pkgd-tag-gray">{{ .type.name }}</span>{{- end -}}
+          {{- if .provider -}}<span class="pkgd-resource-provider">{{ .provider.name }}</span>{{- end -}}
+        </div>
+      </div>
+      {{- end -}}
+    </div>
+  </section>
+  {{- end -}}
+
+</article>
+
+<footer class="footline">
+  {{- with .Params.LastModifierDisplayName -}}
+  <i class="fa fa-user"></i>
+  <a href="mailto:{{ $.Params.LastModifierEmail }}">{{ . }}</a>
+  {{- with $.Date }} <i class="fa fa-calendar"></i> {{ .Format "02/01/2006" }}{{ end -}}
+  {{- end -}}
+</footer>
+
+{{ partial "footer.html" . }}

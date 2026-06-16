@@ -1,0 +1,34 @@
+{{- /*
+  Content adapter – genererer én Hugo-side per tilgangspakke (kun nb).
+
+  Hugo kjører content adapters én gang per seksjon for standardspråket (nb)
+  i et enkelt-katalog-flerspråklig oppsett. Engelske sider lenker til nb-versjonene.
+
+  Vi bruker search-endepunktet (ikke export) fordi det er det eneste offentlige
+  endepunktet som inkluderer resources (tjenestene) per pakke.
+  Se data/accesspackages.yaml for URL-konfigurasjon.
+*/ -}}
+{{- $url := site.Data.accesspackages.searchUrl -}}
+{{- with resources.GetRemote $url -}}
+  {{- range (. | transform.Unmarshal) -}}
+    {{- with .object -}}
+      {{- $slug := .urn | replaceRE "urn:altinn:accesspackage:" "" -}}
+      {{- $.AddPage (dict
+        "path"  $slug
+        "title" .name
+        "params" (dict
+          "packageId"           .id
+          "packageUrn"          .urn
+          "packageDescription"  .description
+          "packageIsDelegable"  .isDelegable
+          "packageIsAssignable" .isAssignable
+          "areaName"            .area.name
+          "areaDescription"     .area.description
+          "areaIconUrl"         .area.iconUrl
+          "typeName"            .type.name
+          "resources"           .resources
+        )
+      ) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

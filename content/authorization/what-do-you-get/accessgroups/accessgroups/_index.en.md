@@ -1,39 +1,11 @@
 ---
-title: Fullmaktsområder og tilgangspakker
-tags: [needstranslation]
-linktitle: Fullmaktsområder og tilgangspakker
-description: Informasjon om fullmaktsområder og tilgangspakker
+title: Access groups and access packages for organisations
+linktitle: Access groups and access packages
+description: Overview of access groups and access packages for organisations in Altinn
 toc: false
 weight: 100
 ---
 
-For å kunne styre tilgang til apper og ressurser, må det opprettes policyfiler på app/ressurs. 
+Access groups for access management are built on Statistics Norway's categorisation of organisations, and they contain a set of access packages within each group. Apps and resources are linked to access packages in Altinn Studio and the Resource Registry.
 
-Fullmaktsområdene for tilgangsstyring er bygget på Statistisk sentralbyrå sin kategorisering av virksomheter, og de inneholder et sett med tilgangspakker innenfor området. Apper og ressurser knyttes til tilgangspakker i Altinn studio og Ressursregisteret.
-![Fullmaktsområder](hierarki-tilgangspakker.jpg "Struktur på fullmaktsområder")
-
-
-
-|**Fullmaktsområder for virksomheter**|
-|---|
-|[Administrere tilganger](./adminstreretilganger/)|
-|[Andre tjenesteytende næringer](./andretjenesteytende/)|
-|[Bygg, anlegg og eiendom](./bygganleggeiendom/)|
-|[Energi, vann, avløp og avfall](./energivannavlopavfall/)|
-|[Forhold ved virksomheten](./forholdvedvirksomheten/)|
-|[Forretningsfører](./forretningsforer/)|
-|[Handel, overnatting og servering](./handelovernatting/)|
-|[Helse, pleie, omsorg og vern](./helsepleieomsorgvern/)|
-|[Industrier](./industrier/)|
-|[Integrasjoner](./integrasjoner/)|
-|[Jordbruk, skogbruk, jakt, fiske og akvakultur](./jordbrukskogbrukjaktfiskeakvakultur/)|
-|[Konkursbo](./konkursbo/)|
-|[Kultur og frivillighet](./kulturfrivillighet/)|
-|[Miljø, ulykke og sikkerhet](./miljoulykkesikkerhet/)|
-|[Oppvekst og utdanning](./oppvekstutdanning/)|
-|[Personale](./personale/)|
-|[Post og arkiv](./postogarkiv/)|
-|[Regnskapsfører](./regnskapsforer/)|
-|[Revisor](./revisor/)|
-|[Skatt, avgift, regnskap og toll](./skattavgiftregnskaptoll/)|
-|[Transport og lagring](./transportoglagring/)|
+{{< accesspackages type="organisasjon" >}}
