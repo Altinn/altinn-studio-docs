@@ -71,6 +71,7 @@ Det finnes flere scopes som definerer tilgang til forskjellige deler av tjeneste
 | `digdir:dialogporten.serviceprovider`                | Alle tjenesteeier-APIer, unntatt søke/liste-API-et                                                                                                                                                       |
 | `digdir:dialogporten.serviceprovider.search`         | Alle tjenesteeier-APIer, inkludert søke/liste-API-et                                                                                                                                                     |
 | `digdir:dialogporten.serviceprovider.correspondence` | Opprett og oppdater dialoger som refererer en tjenesteressurs av typen `CorrespondenceService` i [Altinn Resource Registry](/nb/authorization/what-do-you-get/resourceadministration/) (kun intern bruk) |
+| `digdir:dialogporten.serviceprovider.changetransmissions` | Gjør tekniske rettelser på en forsendelse etter at den er opprettet (se [Tekniske rettelser på forsendelser](#tekniske-rettelser-på-forsendelser)) |
 
 Bruk av disse scopene krever at organisasjonen i `consumer`-claimet er registrert som en tjenesteeier ("org") i Altinn. Hvis ikke vil forespørsler mislykkes.
 
@@ -95,3 +96,9 @@ Tjenesteeier-scope er delegerbare via Altinn API-delegering. Tjenesteeierorganis
 **Les mer**
 
 [Opprette og publisere delegerbare API ressurser i Altinn Studio](/nb/authorization/guides/resource-owner/api-scheme/)
+
+### Tekniske rettelser på forsendelser
+
+Scopet `digdir:dialogporten.serviceprovider.changetransmissions` skal bare brukes til tekniske rettelser av en forsendelse som allerede er opprettet, for eksempel rette skrivefeil i beskrivende tekst eller oppdatere URL-er som har endret seg fordi infrastrukturen er lagt om. Det skal ikke brukes til å gjøre endringer som hører til en forretningsprosess.
+
+Du kan endre alle felt på forsendelsen unntatt forsendelses-ID-en. Rettelsen utløser ingen hendelser (som `transmissionUpdated`) og oppdaterer ingen tidsstempler, slik at sluttbrukere ikke blir varslet om at noe har skjedd. Derfor må du utføre rettelsen med spørringsparameteren `IsSilentUpdate=true`; uten denne avvises forespørselen.
