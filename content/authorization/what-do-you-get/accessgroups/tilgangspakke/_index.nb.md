@@ -2,7 +2,7 @@
 title: Tilgangspakker
 description: Detaljert informasjon om tilgangspakker i Altinn
 toc: false
-_build:
+build:
   list: never
   render: never
 ---

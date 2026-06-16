@@ -8,7 +8,7 @@
   endepunktet som inkluderer resources (tjenestene) per pakke.
   Se data/accesspackages.yaml for URL-konfigurasjon.
 */ -}}
-{{- $url := site.Data.accesspackages.searchUrl -}}
+{{- $url := hugo.Data.accesspackages.searchUrl -}}
 {{- with resources.GetRemote $url -}}
   {{- range (. | transform.Unmarshal) -}}
     {{- with .object -}}
