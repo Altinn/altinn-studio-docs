@@ -4,7 +4,16 @@
       "Bash(xargs grep -l \"accessmanagement\")",
       "Bash(sed 's/\"\"//g')",
       "Bash(python3:*)",
-      "Bash(grep -v \"^$\")"
+      "Bash(grep -v \"^$\")",
+      "Bash(gh *)",
+      "Bash(git clone *)",
+      "Bash(git pull *)",
+      "Bash(grep *)",
+      "Bash(find *)",
+      "Bash(curl *)",
+      "Bash(cat *)",
+      "Bash(head *)",
+      "Bash(wc *)"
     ]
   }
 }
