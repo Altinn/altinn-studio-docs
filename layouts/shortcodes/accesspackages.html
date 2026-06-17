@@ -45,7 +45,7 @@
 {{- end -}}
 
 {{- /* API-URL hentes fra data/accesspackages.yaml via hugo.Data. Accept-Language-header gir oversatt innhold. */ -}}
-{{- $apiUrl := hugo.Data.accesspackages.exportUrl -}}
+{{- $apiUrl := site.Data.accesspackages.exportUrl -}}
 {{- $reqOpts := dict -}}
 {{- if eq $lang "en" -}}
   {{- $reqOpts = dict "headers" (dict "Accept-Language" "en") -}}
