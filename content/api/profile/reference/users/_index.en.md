@@ -28,7 +28,7 @@ This API resource is restricted by access rules and can only be used with a vali
 }
 ```
 
-* **language** (string) The user's language choice as a two-letter code. Valid values: "no", "nn", "en".
+* **language** (string) The user's language choice as a two-letter code. Valid values: "nb", "nn", "en".
 * **preselectedPartyUuid** (GUID) Pre-selected party as a party UUID.
 * **doNotPromptForParty** (bool) If true, the user will not be prompted to select a party when starting a new form.
 * **showClientUnits** (bool) If true, show client units in the party list. Applies only to accountants and auditors.
