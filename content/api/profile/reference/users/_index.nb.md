@@ -28,7 +28,7 @@ Denne API-ressursen er begrenset av tilgangsregler og kan kun benyttes med et gy
 }
 ```
 
-* **language** (string) Brukerens språkvalg som en to-bokstavs kode. Gyldige alternativer: "no", "nn", "en".
+* **language** (string) Brukerens språkvalg som en to-bokstavs kode. Gyldige alternativer: "nb", "nn", "en".
 * **preselectedPartyUuid** (GUID) Forhåndsvalgt aktør som partyUuid.
 * **doNotPromptForParty** (bool) Et flagg for å indikere om brukeren skal bli spurt om aktør hver gang den starter utfylling av et nytt skjema.
 * **showClientUnits** (bool) Et flagg for å indikere om klient-enheter skal vises i aktørlisten. Gjelder kun regnskapsførere og revisorer.
