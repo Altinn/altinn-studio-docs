@@ -56,6 +56,10 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`displayValue`](#func-displayValue)      | Streng                           | Streng     | ✅       | ❌      |
 | [`round`](#func-round)                    | Tall, valgfritt Tall             | Streng     | ✅       | ✅      |
 | [`formatDate`](#func-formatDate)          | Dato/tid, valgfri Streng         | Streng     | ✅       | ✅      |
+| [`plus`](#func-plus)                      | Ett eller flere tall             | Tall       | ✅        | ✅      |
+| [`minus`](#func-minus)                    | Tall], tall                      | Tall       | ✅        | ✅      |
+| [`multiply`](#func-multiply)              | Ett eller flere tall             | Tall       | ✅        | ✅      |
+| [`divide`](#func-divide)                  | Tall, tall                       | Tall       | ✅        | ✅      |
 
 ### Lister og objekter
 
@@ -741,6 +745,57 @@ Dette uttrykket henter ut verdien til svaralternativet (hvis brukt i filtrering 
 ```
 
 Uttrykket over henter ut teksten til svaralternativet (hvis brukt i filtrering av svaralternativer). I andre sammenhenger gir dette uttrykket en feilmelding.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-plus" header="plus" %}}
+Funksjonen `plus` returnerer summen av de oppgitte tallene.
+
+Eksempel:
+```json
+["plus", 22, 9.2]
+```
+Dette eksemplet gir tallverdien `31.2`.
+
+Dersom `null` sendes inn som argument, tolker funksjonen dette som `0`.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-minus" header="minus" %}}
+Funksjonen `minus` returnerer differansen mellom to tall,
+hvor det første tallet er minuenden og det andre er subtrahenden.
+
+Eksempel:
+```json
+["minus", 22, 9.2]
+```
+Dette eksemplet gir tallverdien `12.8`.
+
+Dersom `null` sendes inn som argument, tolker funksjonen dette som `0`.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-multiply" header="multiply" %}}
+Funksjonen `multiply` returnerer produktet av de oppgitte tallene.
+
+Eksempel:
+```json
+["multiply", 22, 10]
+```
+Dette eksemplet gir tallverdien `220`.
+
+Dersom `null` sendes inn som argument, tolker funksjonen dette som `0`.
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-divide" header="divide" %}}
+Funksjonen `divide` returnerer kvotienten av to tall, hvor det første tallet er dividenden og det andre er divisoren.
+
+Eksempel:
+```json
+["divide", 22, 10]
+```
+Dette eksemplet gir tallverdien `2.2`.
+
+Vær oppmerksom på at tallet 0 ikke er gyldig som divisor.
+
+Dersom `null` sendes inn som argument, tolker funksjonen dette som `0`.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-list" header="list" %}}
