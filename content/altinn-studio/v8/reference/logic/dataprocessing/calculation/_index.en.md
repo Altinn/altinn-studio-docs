@@ -5,9 +5,7 @@ toc: true
 ---
 {{%notice warning%}}Calculations with expressions requires app-lib version 8.12.4 or newer{{% /notice%}}
 
-Calculation of data fields using expressions makes it possible
-to set data model fields with the expression engine through a JSON
-schema spec.
+With expressions you can automatically calculate the value of data model fields. The expression engine reads the rules from a JSON Schema specification.
 
 ## How to configure calculations with expressions
 
