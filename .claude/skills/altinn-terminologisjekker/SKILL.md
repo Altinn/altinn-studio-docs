@@ -1,15 +1,10 @@
 ---
 name: altinn-terminologisjekker
-description: >
-  Sjekker begrepsbruk på tvers av Altinn-produkter og lager faktagrunnlag for beslutninger.
-tools: Read, Write, Edit, Bash, Grep, Glob, WebSearch
-model: sonnet
+description: Sjekker begrepsbruk på tvers av Altinn-produkter og lager faktagrunnlag for beslutninger.
+disable-model-invocation: true
 ---
 
-> **Under testing** — skillen er testet manuelt på et lite utvalg filer (juni 2026). Instruksjonene kan trenge justering etter full test.
-
-Du sjekker begrepsbruk. Jobben din er å lese dokumentasjonsfiler for Altinn-produktene på tvers av GitHub-repositorier,
-finne begreper som brukes ulikt på tvers av produkter eller innad i produkter, og anbefale hvilke begreper som bør brukes.
+Du sjekker begrepsbruk. Jobben din er å finne begreper som brukes ulikt, og anbefale hvilke begreper som bør brukes.
 
 ### Definisjon av ulike begreper
 
@@ -22,22 +17,15 @@ Altinn skal bruke de samme begrepene på tvers av produktene.
 
 ## Slik gjør du det:
 
-### 1. Klon GitHub-repositorier
+### 1. Finn dokumentasjonsfiler
 
-Bruk `gh` CLI-verktøyet til å klone disse repositoriene:
-<!-- - https://github.com/Altinn/altinn-studio.git -->
-- https://github.com/Altinn/altinn-studio-docs.git
+Skann dette repositoriet (altinn-studio-docs), eller bare de delene brukeren har spesifisert.
 
-### 2. Finn dokumentasjonsfiler
-
-Skann ett eller flere av docs-repositoriene til Altinn-produktene, eller bare de delene brukeren har spesifisert.
-
-### 3. Samle informasjon
+### 2. Samle informasjon
 
 Opprett en midlertidig arbeidsfil `terminologi-arbeidsfil.md` for denne sesjonen.
 Lag en tabell med disse kolonnene:
 - Begrep — begrepet du fant
-- Repositorium — repositoriet der begrepet ble funnet
 - Kilde — nøyaktig filbane og linjenummer
 
 Gå gjennom hvert repositorium og fyll inn tabellen.
@@ -57,29 +45,29 @@ Ikke ta med begreper av denne typen:
 - Begreper i kodeeksempler og filnavn
 
 
-### 4. Sjekk Begrepskatalogen
+### 3. Sjekk Begrepskatalogen
 
-Begrepskatalogen på data.norge.no er en JavaScript-app og kan ikke hentes automatisk. Generer i stedet en direkte søke-URL for hvert begrep, slik at brukeren kan sjekke manuelt i nettleseren:
+For hvert begrep, gjør oppslag i begrepskatalogen:
 
 ```
-https://data.norge.no/nb/concepts?orgPath=%2FSTAT%2F932384469%2F991825827&q=BEGREP
+https://search.api.fellesdatakatalog.digdir.no/suggestions/concepts?org=991825827&q=BEGREP
 ```
 
-Erstatt BEGREP med begrepet du søker etter. Vis URL-ene samlet i arbeidsfilen under overskriften «Sjekk manuelt i Begrepskatalogen».
+Erstatt BEGREP med begrepet du søker etter.
 
 Legg til en kolonne i `terminologi-arbeidsfil.md`:
-- Begrepskatalogen — fyll inn «Ja, definert som [begrep]», «Nei» eller «Delvis» etter manuell sjekk
+- Begrepskatalog — fyll inn «Ja, definert som [begrep]», «Nei» eller «Delvis» etter manuell sjekk
 
 Et begrep som er offisielt definert i Begrepskatalogen er nyttig informasjon, men ikke nødvendigvis autoritativt. Katalogen inneholder både gamle og nye begreper og brukes ikke systematisk som kilde til besluttede og godkjente begreper. Noter funnet, men ikke trekk sterke konklusjoner fra det alene.
 
-### 5. Finn forskjeller og vis dem i en tabell
+### 4. Finn forskjeller og vis dem i en tabell
 
 Opprett en permanent fil `terminologianbefalinger.md`.
 Lag en tabell med disse kolonnene:
 - Begrepsavvik — for eksempel «instans / eksemplar»
 - Frekvens — hvor mange ganger hvert begrep ble funnet
 - Filbaner — reponavn + filbane + linjenummer, f.eks. «altinn-studio-docs/content/authorization/.../_index.nb.md, linje 9» (denne kolonnen er obligatorisk)
-- Begrepskatalogen — søke-URL for manuell sjekk, eller funn etter manuell sjekk
+- Begrepskatalogen — funn etter sjekk
 - Faktagrunnlag — kortfattet sammenstilling av funnene
 - Beslutning mangler — merk alltid med «Ja» — dette krever enighet på tvers av team
 
