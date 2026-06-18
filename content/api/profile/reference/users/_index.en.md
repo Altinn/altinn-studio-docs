@@ -12,6 +12,10 @@ Profile fetches updates from the Contact and Reservation Register every ten minu
 A logged-in user can change display settings in the Altinn workspace, for example the language and which parties should appear in the party list.
 The API supports both PUT (replaces the entire object) and PATCH (updates parts of the object).
 
+{{% notice info %}}
+This API resource is restricted by access rules and can only be used with a valid end-user token.
+{{% /notice %}}
+
 ### Response model
 ```json
 {
@@ -24,7 +28,7 @@ The API supports both PUT (replaces the entire object) and PATCH (updates parts 
 }
 ```
 
-* **language** (string) The user's language choice as a two-letter code. Valid values: "no", "nn", "en".
+* **language** (string) The user's language choice as a two-letter code. Valid values: "nb", "nn", "en".
 * **preselectedPartyUuid** (GUID) Pre-selected party as a party UUID.
 * **doNotPromptForParty** (bool) If true, the user will not be prompted to select a party when starting a new form.
 * **showClientUnits** (bool) If true, show client units in the party list. Applies only to accountants and auditors.

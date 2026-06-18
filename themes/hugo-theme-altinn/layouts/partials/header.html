@@ -44,6 +44,11 @@
       {{- partial "jumbotron.html" . -}}
     {{- end -}}
 
+    {{/* Get current product using our detection logic */}}
+    {{- $productInfo := partial "get-current-product.html" . -}}
+    {{- $currentProduct := $productInfo.product -}}
+    {{- $currentVersion := $productInfo.version -}}
+
     <div class="container pt-2 pt-md-3 pt-lg-5">      
       <div class="adocs-scrollcontainer">
         <div class="row">
@@ -51,8 +56,7 @@
         </div>
         <div class="row">
           <div class="col-sm-12 col-md-10">
-              {{- $productInfo := partial "get-current-product.html" . -}}              
-              {{- partialCached "sidebar-menu.html" . $productInfo.product $productInfo.version -}}
+              {{- partialCached "sidebar-menu.html" . $currentProduct $currentVersion -}}
         <script>
           {{ template "activeMenus" dict "page" . "value" (printf "$(\"li.dd-item a[href='%s']\").parent().addClass(\"active\");" .RelPermalink) }}
         </script>
@@ -80,6 +84,12 @@
                   {{- template "breadcrumb" dict "page" . "value" $currentBreadcrumbText -}}
                 </span>
             </div>            
+          </div>
+        {{- end -}}
+        {{- if and $currentVersion (eq $currentVersion "v9") (eq $currentProduct "altinn-studio") -}}
+          <div  id="version-alert-container">
+             Dette er dokumentasjonen for versjon {{ $currentVersion }} av {{ $currentProduct }}, som er i pre-release. Gjeldende versjon er v8. 
+             For å se dokumentasjonen for gjeldende versjon, velg v8 i versjonsvelgeren i menyen til venstre.
           </div>
         {{- end -}}
         {{- if and false .Params.tags -}}

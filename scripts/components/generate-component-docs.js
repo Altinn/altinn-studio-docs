@@ -18,7 +18,7 @@ const ROOT_SCHEMA_URL =
   'https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json';
 
 const CACHE_DIR = path.join(__dirname, '.schema-cache');
-const OUTPUT_DIR = path.join(__dirname, '../../content/altinn-studio/v10/develop-a-service/look-and-feel/components');
+const OUTPUT_DIR = path.join(__dirname, '../../content/altinn-studio/v9/develop-a-service/look-and-feel/components');
 
 // ---------------------------------------------------------------------------
 // HTTP fetch (returns parsed JSON)

@@ -72,7 +72,7 @@ Under kopiering av skjema vil logikken utføre metode kall mot **IInstantiationP
 
 ## Validering
 
-{{%notice warning%}}Validering krever versjon 8.13 eller nyere av app-lib{{% /notice%}}
+{{%notice warning%}}Validering krever versjon 8.12.2 eller nyere av app-lib{{% /notice%}}
 
 Validering er nyttig hvis tjenesteeier ønsker å begrense når brukere kan kopiere instanser, for eksempel basert på tidsfrister eller endringer i applikasjonen.
 

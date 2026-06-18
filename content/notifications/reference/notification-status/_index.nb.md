@@ -117,21 +117,58 @@ Status for én SMS til én mottaker.
 | `Failed_Undelivered`           | `SMS_Failed_Undelivered`       | Meldingen kunne ikke leveres.                               | Endelig     |
 | `Failed_RecipientNotIdentified`| `SMS_Failed_RecipientNotIdentified` | Mottakeren kunne ikke identifiseres.                | Endelig     |
 | `Failed_Rejected`              | `SMS_Failed_Rejected`          | Avvist av leverandør eller operatør.                        | Endelig     |
-| `Failed_TTL`                   | `SMS_Failed_TTL`               | Meldingen utløp før levering (time‑to‑live overskredet).    | Endelig     |
+| `Failed_TTL`                   | `SMS_Failed_TTL`               | Varslingen nådde levetiden (TTL) i Altinn uten at en endelig leveringsrapport kom inn. Se forklaringen under. | Endelig     |
 
 ## Time-to-live (TTL) og utløp
 
-For både e‑post og SMS kan meldinger utløpe før de leveres:
+Levetiden (TTL) bestemmer hvor lenge Altinn følger opp en varsling før den
+regnes som utløpt. Hvor lang levetiden er, og om du kan styre den selv, avhenger
+av hvilket endepunkt du bruker.
 
-- For SMS kan du eksplisitt angi en **time‑to‑live (TTL)** når du bestiller
-  enkelte typer varsler (for eksempel umiddelbare varsler).
-- E‑post og SMS vil også ha en øvre grense hos leverandør/gateway for hvor
-  lenge de forsøker levering.
+### Standard levetid på 48 timer
 
-Når TTL eller maks levetid er nådd:
+Vanlige varslinger (bestilt via `/orders` og `/future/orders`) har en fast
+levetid på **48 timer** som tjenesteeiere **ikke kan konfigurere**. Altinn
+beregner utløpstidspunktet ut fra ønsket sendetidspunkt pluss 48 timer for både
+e‑post og SMS.
 
-- resultatet vil typisk bli rapportert som `Failed_TTL`, `Failed_Expired`
-  eller en annen terminal feilstatus
+Umiddelbare varslinger (endepunktene `/future/orders/instant/*`) styres
+annerledes:
+
+- For umiddelbar SMS **må** avsenderen selv sette `timeToLiveInSeconds` i
+  forespørselen. Gyldig verdi er mellom 60 og 172 800 sekunder (48 timer).
+  Se [veiledningen for umiddelbar varsling]({{< relref "/notifications/guides/instant-notifications" >}})
+  for anbefalte verdier.
+- For umiddelbar e‑post gjelder den samme faste levetiden på 48 timer som for
+  vanlige varslinger, og den kan ikke konfigureres.
+
+### Forskjellen mellom `Failed_TTL` og `Failed_Expired`
+
+Begge statusene betyr at meldingen utløp før den ble levert, men de oppstår på
+ulike steder:
+
+- **`Failed_TTL`** settes av Altinn når den interne levetiden (TTL) er nådd.
+  Dette skjer i to situasjoner:
+  - varslingen forble i en ikke‑endelig tilstand helt til levetiden ble nådd –
+    for eksempel ved gjentatte midlertidige feil i forsøkene på å levere til
+    tredjeparten (Link Mobility for SMS), eller
+  - varslingen ble akseptert for sending, men ingen leveringsrapport kom inn
+    innenfor levetiden – for eksempel fordi mottakeren var utenfor dekning
+    eller hadde telefonen avslått, eller fordi leveringsrapporten kom for sent
+    fra leverandøren.
+- **`Failed_Expired`** (kun SMS) settes når operatøren eller gatewayen melder
+  tilbake at meldingens gyldighetsperiode utløp hos dem. Her kommer det altså
+  en leveringsrapport, men den forteller at operatøren ga opp.
+
+Kort sagt: `Failed_TTL` gjelder utløp i Altinns egen oppfølging, mens
+`Failed_Expired` gjelder utløp meldt fra operatør eller gateway.
+
+### Når en varsling utløper
+
+Når levetiden er nådd:
+
+- resultatet blir rapportert som `Failed_TTL`, `Failed_Expired` eller en annen
+  endelig feilstatus
 - det er ikke hensiktsmessig å prøve samme varsel på nytt uten at du først
   vurderer om innholdet fortsatt er relevant for mottakeren
 
