@@ -84,8 +84,18 @@ The phone number must be in international format with country code. Norwegian nu
 
 #### timeToLiveInSeconds (required)
 - **Type:** Integer
-- **Description:** Time-to-live for the message in seconds. Specifies how long the SMS gateway should attempt to deliver the message.
+- **Description:** Time-to-live (TTL) for the message in seconds. Specifies how long Altinn and the SMS gateway should attempt to deliver the message before it is considered expired.
+- **Valid value:** Between 60 and 172,800 seconds (48 hours).
+- **Recommended:** Choose a lifetime that suits your flow. Short lifetimes suit synchronous flows where the code loses its value quickly anyway, such as one-time passwords (OTP). For OTP, 300 seconds (5 minutes) is a common choice, and 60–600 seconds covers most such scenarios. For messages where the recipient may have their phone switched off for a while, choose a longer lifetime.
 - **Example:** `300` (5 minutes)
+
+{{% notice info %}}
+`timeToLiveInSeconds` controls how long Altinn and the SMS gateway attempt to **deliver** the message. This is not the same as how long the code itself remains valid in your own system – you control that validity yourself. Set the delivery time shorter than or equal to the code's validity period.
+{{% /notice %}}
+
+{{% notice info %}}
+Unlike instant SMS, the lifetime is not configurable for instant email or for regular notifications (`/orders` and `/future/orders`). These have a fixed lifetime of 48 hours. See [status values for orders and notifications]({{< relref "/notifications/reference/notification-status" >}}#time-to-live-ttl-and-expiry) for details.
+{{% /notice %}}
 
 #### sender (optional)
 - **Type:** String
