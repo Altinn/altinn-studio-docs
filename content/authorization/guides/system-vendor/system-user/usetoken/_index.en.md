@@ -116,3 +116,25 @@ The service owner then uses the token against Altinn Authorization (PDP) to dete
 A system user token (exchanged for an Altinn token) can also be used to call the AuthorizedParties endpoint in the access management API. The endpoint returns the parties the system user is authorised for, so that the end user system can look up the correct `partyUuid` for subsequent calls.
 
 The Maskinporten token must include the scope `altinn:accessmanagement/authorizedparties`. See [the access management API](../../access-management/#api-retrieve-authorised-parties) for the full endpoint description.
+
+## Request a token for a specific system user
+
+The vendor can provide `externalRef` in the request to ask for a token for one specific system user.
+
+`externalRef` is the external reference the vendor set when the system user was created. If an `externalRef` was provided in the system user request, it is used to identify the correct system user when the vendor has several system users for the same customer.
+
+```json
+{
+  "aud": "https://maskinporten.no",
+  "scope": "api provider's scope",
+  "iss": "my_client_id",
+  "authorization_details": [ {
+    "type": "urn:altinn:systemuser",
+    "systemuser_org": {
+      "authority": "iso6523-actorid-upis",
+      "ID": "0192:999888777"
+    },
+    "externalRef": "systembruker #1"
+  } ]
+}
+```
