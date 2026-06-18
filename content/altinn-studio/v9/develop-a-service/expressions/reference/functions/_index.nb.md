@@ -57,7 +57,7 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`round`](#func-round)                    | Tall, valgfritt Tall             | Streng     | ✅       | ✅      |
 | [`formatDate`](#func-formatDate)          | Dato/tid, valgfri Streng         | Streng     | ✅       | ✅      |
 | [`plus`](#func-plus)                      | Ett eller flere tall             | Tall       | ✅        | ✅      |
-| [`minus`](#func-minus)                    | Tall], tall                      | Tall       | ✅        | ✅      |
+| [`minus`](#func-minus)                    | Tall, tall                       | Tall       | ✅        | ✅      |
 | [`multiply`](#func-multiply)              | Ett eller flere tall             | Tall       | ✅        | ✅      |
 | [`divide`](#func-divide)                  | Tall, tall                       | Tall       | ✅        | ✅      |
 
