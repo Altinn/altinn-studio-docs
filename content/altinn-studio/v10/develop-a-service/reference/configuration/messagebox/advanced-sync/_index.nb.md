@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Synkroniseringsinnstillinger (avansert)
 linktitle: Synkroniseringsinnstillinger
 description: Referanse for avanserte Dialogporten-synkroniseringsalternativer.

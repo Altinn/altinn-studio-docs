@@ -3,7 +3,7 @@ draft: true
 title: Tilgjengelige kilder for forhåndsutfylling via konfigurasjon
 linktitle: Tilgjengelige kilder
 description: Oversikt over tilgjengelige kilder og tilhørende felter for forhåndsutfylling med konfigurasjonsfil
-tags: [needsReview, needsTranslation]
+tags: [needsReview]
 ---
 
 ## Folkeregisteret (DSF)

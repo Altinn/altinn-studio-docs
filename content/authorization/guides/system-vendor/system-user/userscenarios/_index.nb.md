@@ -10,6 +10,8 @@ aliases:
   ]
 ---
 
+Se også [Veiledning for oppsett av systembrukere](setupguidance/) for praktiske anbefalinger om hvor mange systembrukere du trenger, hvordan du fordeler tilgangspakker, og hvordan du håndterer tilgangskontroll.
+
 ## Begreper
 
 Nedenfor finner du sentrale begreper som brukes i brukerscenarioene.

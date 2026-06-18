@@ -13,14 +13,13 @@ There are two ways to edit and test your changes to the docs:
 1. Install the required software ([Git](https://git-scm.com/downloads), [Hugo](https://gohugo.io/installation/) and [Visual Studio Code](https://code.visualstudio.com/))
 2. Clone the repo
    ```shell
-   cd C:/repos
    git clone https://github.com/altinn/altinn-studio-docs
    ```
-3. Navigate to folder and run Hugo
+3. Navigate to repo folder and run Hugo
    ```shell
-   cd altinn-studio-docs
    hugo server --navigateToChanged
    ```
+  PS: If you want to test search locally, generate index with `npx -y pagefind --site "public"`
 4. The documentation can now be opened in browser at http://localhost:1313/
 5. Edit and save files to get the site refreshed in your browser, so you can test your changes
 6. When happy, [push your changes](https://github.com/Altinn/altinn-studio-docs/blob/master/CONTRIBUTING.md#push-your-changes-to-github)

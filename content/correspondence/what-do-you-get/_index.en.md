@@ -28,8 +28,8 @@ The system offers advanced access control, ensuring that only authorized users c
 - Ability to send correspondences in Markdown or clean text.
 - Support for [HTML numeric character references.](https://en.wikipedia.org/wiki/Numeric_character_reference)
 - Support for up to 100 attachments per correspondence.
-- Support for many file types: .doc, .xls, .docx, .xlsx, .ppt, .pps, .zip, .pdf, .html, .txt, .xml, .jpg, .gif, .bmp, .png, .csv and .json.
-- Supports attachments up to 5 GB. 
+- Support for many file types: .doc, .xls, .docx, .xlsx, .ppt, .pps, .zip, .pdf, .html, .txt, .xml, .jpg, .jpeg, .gif, .bmp, .png, .csv, .json, .dcm and .dicom.
+- Supports attachments up to 50 GB. 
 
 ### Advanced Support for Linking to Content and Attachments
 - As an alternative to sending correspondence content and attachments directly in the correspondences,

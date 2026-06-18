@@ -2,7 +2,7 @@
 draft: true
 title: Beskyttede data
 description: Slik setter du opp ekstra databeskyttelse for en app
-tags: [needsReview, needsTranslation]
+tags: [needsReview]
 
 ---
 

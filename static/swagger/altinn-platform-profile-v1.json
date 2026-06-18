@@ -4,7 +4,7 @@
     "title": "Altinn Profile",
     "version": "v1"
   },
-  "servers": [
+    "servers": [
     {
       "url": "https://platform.tt02.altinn.no/profile/api/v1",
       "description": "TT02"
@@ -77,6 +77,45 @@
           },
           "429": {
             "description": "Too Many Requests"
+          }
+        }
+      }
+    },
+    "/users/current/verification/send": {
+      "post": {
+        "tags": [
+          "AddressVerification"
+        ],
+        "summary": "Starts the verification process for the current user and the given address, by generating a code with a validity period and sending it to the address.\r\nThis can also be used to resend a new code for an address that is already in the verification process, but not yet verified, by generating a new code and invalidating the previous one. \r\nHowever, if a code has already been sent and is still within its cooldown period, a new code will not be generated, and the existing code's cooldown will be returned in the response to inform the user when they can attempt to resend.",
+        "requestBody": {
+          "description": "The address type and value to send code for",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddressCodeSendRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "204": {
+            "description": "Indicates that the verification code was successfully generated and sent"
+          },
+          "400": {
+            "description": "Indicates that the request was malformed, e.g. missing required properties or invalid address format"
+          },
+          "403": {
+            "description": "Indicates that the user is not authenticated"
+          },
+          "422": {
+            "description": "Indicates that the address is already verified for the user, and thus a code cannot be sent"
+          },
+          "429": {
+            "description": "Indicates that a code has already been sent for the address and is still within its cooldown period, thus a new code cannot be sent until the cooldown expires. The response includes information about when the user can attempt to resend."
+          },
+          "500": {
+            "description": "Indicates that an unexpected error occurred on the server while processing the request, such as being unable to send the verification code"
           }
         }
       }
@@ -570,158 +609,6 @@
           },
           "404": {
             "description": "Returns status code 404 if the party was not found in favorites"
-          }
-        }
-      }
-    },
-    "/users/current/notificationsettings/parties/{partyUuid}": {
-      "get": {
-        "tags": [
-          "NotificationsSettings"
-        ],
-        "summary": "Get the notification addresses the current user has registered for a party",
-        "parameters": [
-          {
-            "name": "partyUuid",
-            "in": "path",
-            "description": "The UUID of the party for which the notification address is being set",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotificationSettingsResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "NotificationsSettings"
-        ],
-        "summary": "Add or update the notification addresses the current user has registered for a party",
-        "parameters": [
-          {
-            "name": "partyUuid",
-            "in": "path",
-            "description": "The UUID of the party for which the notification address is being set",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "requestBody": {
-          "description": "The request containing the notification address details",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NotificationSettingsRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "201": {
-            "description": "Created"
-          },
-          "204": {
-            "description": "No Content"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "NotificationsSettings"
-        ],
-        "summary": "Delete the notification addresses the current user has registered for a party",
-        "parameters": [
-          {
-            "name": "partyUuid",
-            "in": "path",
-            "description": "The UUID of the party for which the notification address is being deleted",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NotificationSettingsResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "404": {
-            "description": "Not Found"
-          }
-        }
-      }
-    },
-    "/users/current/notificationsettings/parties": {
-      "get": {
-        "tags": [
-          "NotificationsSettings"
-        ],
-        "summary": "Get the notification addresses the current user has registered for all parties",
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/NotificationSettingsResponse"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
           }
         }
       }
@@ -1297,6 +1184,248 @@
         }
       }
     },
+    "/users/current/notificationsettings/private/phonenumber": {
+      "put": {
+        "tags": [
+          "PrivateNotificationsSettings"
+        ],
+        "summary": "Add or update the telephone number for a self-identified user. The phone number must be verified before it can be added as a notification address. \r\nIf the user already has a phone number registered, it will be replaced with the new one.",
+        "requestBody": {
+          "description": "The request containing the notification address details",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PrivateNotificationSettingsUpdateRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PrivateNotificationSettingsUpdateResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Unprocessable Content"
+          }
+        }
+      }
+    },
+    "/users/current/notificationsettings/parties/{partyUuid}": {
+      "get": {
+        "tags": [
+          "ProfessionalNotificationSettings"
+        ],
+        "summary": "Get the notification addresses the current user has registered for a party",
+        "parameters": [
+          {
+            "name": "partyUuid",
+            "in": "path",
+            "description": "The UUID of the party for which the notification address is being set",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationSettingsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ProfessionalNotificationSettings"
+        ],
+        "summary": "Add or update the notification addresses the current user has registered for a party",
+        "parameters": [
+          {
+            "name": "partyUuid",
+            "in": "path",
+            "description": "The UUID of the party for which the notification address is being set",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The request containing the notification address details",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NotificationSettingsRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "ProfessionalNotificationSettings"
+        ],
+        "summary": "Add or update the notification addresses the current user has registered for a party. This endpoint allows partial updates, meaning that the user can choose to update only the email address,\r\nonly the phone number, or only the resource include list without affecting the other fields.",
+        "description": "Note that addresses are required to be verified. If the user attempts to add or update an address that has not been verified, the operation will be rejected with a 422 Unprocessable Entity response, and the notification address will not be added or updated.",
+        "parameters": [
+          {
+            "name": "partyUuid",
+            "in": "path",
+            "description": "The UUID of the party for which the notification address is being set",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "The request containing the notification address details",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NotificationSettingsPatchRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "422": {
+            "description": "Unprocessable Content"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ProfessionalNotificationSettings"
+        ],
+        "summary": "Delete the notification addresses the current user has registered for a party",
+        "parameters": [
+          {
+            "name": "partyUuid",
+            "in": "path",
+            "description": "The UUID of the party for which the notification address is being deleted",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationSettingsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/users/current/notificationsettings/parties": {
+      "get": {
+        "tags": [
+          "ProfessionalNotificationSettings"
+        ],
+        "summary": "Get the notification addresses the current user has registered for all parties",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/NotificationSettingsResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
     "/users/{userID}": {
       "get": {
         "tags": [
@@ -1517,13 +1646,32 @@
         "additionalProperties": false,
         "description": "Represents a request to resend a verification code for a given address (email or phone number)"
       },
+      "AddressCodeSendRequest": {
+        "required": [
+          "type",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "value": {
+            "maxLength": 320,
+            "minLength": 5,
+            "type": "string",
+            "description": "Gets or sets the address to verify, either an email or a phone number."
+          },
+          "type": {
+            "$ref": "#/components/schemas/AddressType"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a request to send a verification code for a given address (email or phone number)"
+      },
       "AddressType": {
         "enum": [
-          0,
-          1
+          "Email",
+          "Sms"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "AddressVerificationRequest": {
         "required": [
@@ -1703,19 +1851,22 @@
             "pattern": "(^\\+([0-9]{1,3}))",
             "type": "string",
             "description": "Country code for phone number",
-            "nullable": true
+            "nullable": true,
+            "example": "+47"
           },
           "email": {
             "pattern": "^((([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{}~])+(\\.([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{}~])+)*)@(((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9\\-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ]\\.)|[a-zA-Z0-9æøåÆØÅ]\\.){1,9})([a-zA-Z]{2,14})))$",
             "type": "string",
             "description": "Email address",
-            "nullable": true
+            "nullable": true,
+            "example": "user@example.com"
           },
           "phone": {
             "pattern": "(^[0-9]+$)",
             "type": "string",
             "description": "Phone number",
-            "nullable": true
+            "nullable": true,
+            "example": "98765432"
           }
         },
         "additionalProperties": false,
@@ -1728,28 +1879,47 @@
             "pattern": "(^\\+([0-9]{1,3}))",
             "type": "string",
             "description": "Country code for phone number",
-            "nullable": true
+            "nullable": true,
+            "example": "+47"
           },
           "email": {
             "pattern": "^((([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{}~])+(\\.([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{}~])+)*)@(((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9\\-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ]\\.)|[a-zA-Z0-9æøåÆØÅ]\\.){1,9})([a-zA-Z]{2,14})))$",
             "type": "string",
             "description": "Email address",
-            "nullable": true
+            "nullable": true,
+            "example": "user@example.com"
           },
           "phone": {
             "pattern": "(^[0-9]+$)",
             "type": "string",
             "description": "Phone number",
-            "nullable": true
+            "nullable": true,
+            "example": "98765432"
           },
           "notificationAddressId": {
             "type": "integer",
-            "description": "Altinn.Profile.Models.NotificationAddressResponse.NotificationAddressId",
+            "description": "Altinn.Profile.Models.OrganizationNotificationAddresses.NotificationAddressResponse.NotificationAddressId",
             "format": "int32"
           }
         },
         "additionalProperties": false,
         "description": "Represents a notification address"
+      },
+      "NotificationSettingsPatchRequest": {
+        "type": "object",
+        "properties": {
+          "emailAddress": {
+            "$ref": "#/components/schemas/StringOptional"
+          },
+          "phoneNumber": {
+            "$ref": "#/components/schemas/StringOptional"
+          },
+          "resourceIncludeList": {
+            "$ref": "#/components/schemas/StringListOptional"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Data model for the professional notification address for an organization, also called personal notification address."
       },
       "NotificationSettingsRequest": {
         "type": "object",
@@ -1758,13 +1928,15 @@
             "pattern": "^((\"[^\"]+\")|(([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{|}~])+(\\.([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9\\-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ]\\.)|[a-zA-Z0-9æøåÆØÅ]\\.){1,9})([a-zA-Z]{2,14}))|((\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})))$",
             "type": "string",
             "description": "The email address. May be null if no email address is set.",
-            "nullable": true
+            "nullable": true,
+            "example": "user@example.com"
           },
           "phoneNumber": {
             "pattern": "^(([0-9]{5})|([0-9]{8})|((00[0-9]{2})[0-9]+)|((\\+[0-9]{2})[0-9]+))$",
             "type": "string",
             "description": "The phone number. May be null if no phone number is set.",
-            "nullable": true
+            "nullable": true,
+            "example": "+4798765432"
           },
           "resourceIncludeList": {
             "type": "array",
@@ -1772,11 +1944,6 @@
               "type": "string"
             },
             "description": "A list of resources that the user has registered to receive notifications for. The format is in URN. This is used to determine which resources the user can receive notifications for.",
-            "nullable": true
-          },
-          "generateVerificationCode": {
-            "type": "boolean",
-            "description": "A feature flag to indicate whether a verification code should be generated and sent to the provided email address or phone number. This is used to verify that the user has access to the provided contact information before it is saved as a notification address. If set to true, a verification code will be generated and sent, and the user will need to verify the code before the notification address is considered valid.",
             "nullable": true
           }
         },
@@ -1790,13 +1957,15 @@
             "pattern": "^((\"[^\"]+\")|(([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{|}~])+(\\.([a-zA-Z0-9!#$%&'*+\\-=?\\^_`{|}~])+)*))@((((([a-zA-Z0-9æøåÆØÅ]([a-zA-Z0-9\\-æøåÆØÅ]{0,61})[a-zA-Z0-9æøåÆØÅ]\\.)|[a-zA-Z0-9æøåÆØÅ]\\.){1,9})([a-zA-Z]{2,14}))|((\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})))$",
             "type": "string",
             "description": "The email address. May be null if no email address is set.",
-            "nullable": true
+            "nullable": true,
+            "example": "user@example.com"
           },
           "phoneNumber": {
             "pattern": "^(([0-9]{5})|([0-9]{8})|((00[0-9]{2})[0-9]+)|((\\+[0-9]{2})[0-9]+))$",
             "type": "string",
             "description": "The phone number. May be null if no phone number is set.",
-            "nullable": true
+            "nullable": true,
+            "example": "+4798765432"
           },
           "resourceIncludeList": {
             "type": "array",
@@ -2069,6 +2238,33 @@
         },
         "additionalProperties": false
       },
+      "PrivateNotificationSettingsUpdateRequest": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "pattern": "^(((\\+[0-9]{2})[0-9]+))$",
+            "type": "string",
+            "description": "The phone number. May be null if no phone number is set.",
+            "nullable": true,
+            "example": "+4798765432"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Data model for the private notification address for a self-identified user, used when updating the notification address."
+      },
+      "PrivateNotificationSettingsUpdateResponse": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "description": "The phone number. May be null if no phone number is set.",
+            "nullable": true,
+            "example": "+4798765432"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Response model for the private notification address for a self-identified user, used when updating the notification address."
+      },
       "ProblemDetails": {
         "type": "object",
         "properties": {
@@ -2217,6 +2413,37 @@
         "additionalProperties": false,
         "description": "Represents user-specific portal settings and preferences."
       },
+      "StringListOptional": {
+        "type": "object",
+        "properties": {
+          "hasValue": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "value": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StringOptional": {
+        "type": "object",
+        "properties": {
+          "hasValue": {
+            "type": "boolean",
+            "readOnly": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "UserProfile": {
         "type": "object",
         "properties": {
@@ -2316,12 +2543,11 @@
       },
       "VerificationType": {
         "enum": [
-          0,
-          1,
-          2
+          "Legacy",
+          "Verified",
+          "Unverified"
         ],
-        "type": "integer",
-        "format": "int32"
+        "type": "string"
       },
       "VerifiedAddressResponse": {
         "required": [

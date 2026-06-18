@@ -1,6 +1,6 @@
 ---
 title: 'Front end'
-description: 'Referanseinformasjon for front end-relaterte mekanismer'
+description: 'Referanseinformasjon for front-end-relaterte mekanismer'
 weight: 40
 ---
 

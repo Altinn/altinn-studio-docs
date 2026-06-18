@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Handlinger
 linktitle: Handlinger
 description: Slik definerer du hva en bruker kan gjøre i en oppgave.

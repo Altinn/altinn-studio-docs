@@ -1,5 +1,6 @@
 # Migreringslogg: v8 til v10
 
+
 Dette dokumentet holder oversikt over innhold som må migreres fra v8 til v10.
 
 ## Status-symboler
@@ -46,6 +47,16 @@ Dette dokumentet holder oversikt over innhold som må migreres fra v8 til v10.
 **Status:** Bildene må kopieres til v10-strukturen
 
 ## Fullførte migreringer
+
+### 🟢 API-referanse
+**v8-sti:** `/nb/altinn-studio/v8/reference/api/`
+**v10-sti:** `/nb/altinn-studio/v10/develop-a-service/reference/api/`
+**Status:** Migrert og språkvasket. Inkluderer:
+- API-oversikt (_index.nb.md)
+- Autentisering (auth/)
+- Konsumere eksterne API-er (consume/)
+- Eksponere egne API-er (expose/)
+- Instans-API (instance/)
 
 ### 🟢 Underskjema konfigurasjon
 **v8-sti:** `/nb/altinn-studio/v8/guides/development/subform/config-options/`

@@ -121,7 +121,7 @@
           "Order"
         ],
         "summary": "Creates a new notification order with zero or more reminders",
-        "description": "The API will accept the request after some basic validation of the request.\nThe system will also attempt to verify that it will be possible to fulfill the order.",
+        "description": "The API will accept the request after some basic validation of the request.\r\nThe system will also attempt to verify that it will be possible to fulfill the order.",
         "requestBody": {
           "description": "The notification order request",
           "content": {
@@ -170,17 +170,24 @@
             }
           },
           "422": {
-            "description": "The notification order is invalid",
+            "description": "Missing contact information for one or more recipients",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
                 }
               }
             }
           },
           "499": {
-            "description": "Request terminated - The client disconnected or cancelled the request before the server could complete processing"
+            "description": "Request terminated - The client disconnected or cancelled the request before the server could complete processing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -188,7 +195,7 @@
     "/future/orders/instant": {
       "post": {
         "tags": [
-          "Instant Orders"
+          "Deprecated"
         ],
         "summary": "Creates and sends an instant SMS notification to a single recipient (deprecated - use /sms endpoint instead).",
         "requestBody": {
@@ -239,10 +246,14 @@
             }
           },
           "499": {
-            "description": "Request terminated - The client disconnected or cancelled the request before the server could complete processing"
-          },
-          "500": {
-            "description": "An internal server error occurred while processing the notification order"
+            "description": "Request terminated - The client disconnected or cancelled the request before the server could complete processing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
           }
         },
         "deprecated": true
@@ -302,10 +313,14 @@
             }
           },
           "499": {
-            "description": "Request terminated - The client disconnected or cancelled the request before the server could complete processing"
-          },
-          "500": {
-            "description": "An internal server error occurred while processing the SMS notification order"
+            "description": "Request terminated - The client disconnected or cancelled the request before the server could complete processing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -364,10 +379,14 @@
             }
           },
           "499": {
-            "description": "Request terminated - The client disconnected or cancelled the request before the server could complete processing"
-          },
-          "500": {
-            "description": "An internal server error occurred while processing the email notification order"
+            "description": "Request terminated - The client disconnected or cancelled the request before the server could complete processing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -554,7 +573,7 @@
     "/orders/{id}/cancel": {
       "put": {
         "tags": [
-          "Order"
+          "Deprecated"
         ],
         "summary": "Cancel a notification order.",
         "description": "Endpoint for stopping the sending of a registered notification order.",
@@ -593,7 +612,8 @@
           "409": {
             "description": "The order cannot be cancelled due to current processing status."
           }
-        }
+        },
+        "deprecated": true
       }
     },
     "/future/shipment/{id}": {
@@ -622,7 +642,14 @@
             "description": "Caller is not authorized to access the requested resource"
           },
           "404": {
-            "description": "No shipment with the provided identifier was found"
+            "description": "No shipment with the provided identifier was found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
           },
           "200": {
             "description": "The shipment matching the provided identifier was retrieved successfully",
@@ -635,7 +662,14 @@
             }
           },
           "499": {
-            "description": "Request terminated - The client disconnected or cancelled the request"
+            "description": "Request terminated - The client disconnected or cancelled the request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -752,7 +786,7 @@
             "in": "query",
             "description": "The sequence number to start fetching status feed entries from",
             "schema": {
-              "maximum": 9223372036854775807,
+              "maximum": 9.223372036854776E+18,
               "minimum": 0,
               "type": "integer",
               "format": "int64"
@@ -775,9 +809,6 @@
           "403": {
             "description": "Caller is not authorized to access the requested resource"
           },
-          "499": {
-            "description": "The operation was cancelled by the caller"
-          },
           "200": {
             "description": "Successfully retrieved status feed entries",
             "content": {
@@ -790,6 +821,16 @@
                 }
               }
             }
+          },
+          "499": {
+            "description": "Request terminated - The client disconnected or cancelled the request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -797,6 +838,44 @@
   },
   "components": {
     "schemas": {
+      "AltinnProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "$ref": "#/components/schemas/ErrorCode"
+          },
+          "traceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "statusDescription": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": {}
+      },
       "DialogportenIdentifiersExt": {
         "type": "object",
         "properties": {
@@ -853,6 +932,11 @@
           "resourceId": {
             "type": "string",
             "description": "Gets or sets the ID of the resource that the notification is related to.",
+            "nullable": true
+          },
+          "resourceAction": {
+            "type": "string",
+            "description": "Gets or sets the action to authorize against the resource.",
             "nullable": true
           },
           "subject": {
@@ -1028,6 +1112,16 @@
         },
         "additionalProperties": false,
         "description": "Template for an email notification"
+      },
+      "ErrorCode": {
+        "type": "object",
+        "properties": {
+          "hasValue": {
+            "type": "boolean",
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
       },
       "IDeliveryManifestExt": {
         "type": "object",
@@ -1322,7 +1416,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "Represents the root tracking entity for a notification shipment that\ncan be sent to multiple recipients through various communication channels."
+        "description": "Represents the root tracking entity for a notification shipment that\r\ncan be sent to multiple recipients through various communication channels."
       },
       "NotificationOrderChainReceiptExt": {
         "required": [
@@ -1396,7 +1490,7 @@
           }
         },
         "additionalProperties": false,
-        "description": "Represents a contract between API clients and the server, defining the structure of notification order\nrequests with reminders that can be submitted to the system.\nInherits the scheduling options from Altinn.Notifications.Models.NotificationOrderBaseExt."
+        "description": "Represents a contract between API clients and the server, defining the structure of notification order\r\nrequests with reminders that can be submitted to the system.\r\nInherits the scheduling options from Altinn.Notifications.Models.NotificationOrderBaseExt."
       },
       "NotificationOrderChainResponseExt": {
         "required": [
@@ -1486,6 +1580,11 @@
             "description": "Gets or sets the id of the resource that the notification is related to",
             "nullable": true
           },
+          "resourceAction": {
+            "type": "string",
+            "description": "Gets or sets the action to authorize against the resource",
+            "nullable": true
+          },
           "conditionEndpoint": {
             "type": "string",
             "description": "Gets or sets the condition endpoint used to check the send condition",
@@ -1570,6 +1669,11 @@
           "resourceId": {
             "type": "string",
             "description": "Gets or sets the ID of the resource that the notification is related to.",
+            "nullable": true
+          },
+          "resourceAction": {
+            "type": "string",
+            "description": "Gets or sets the action to authorize against the resource.",
             "nullable": true
           },
           "notificationChannel": {
@@ -1659,6 +1763,11 @@
             "description": "Gets or sets the id of the resource that the notification is related to",
             "nullable": true
           },
+          "resourceAction": {
+            "type": "string",
+            "description": "Gets or sets the action to authorize against the resource",
+            "nullable": true
+          },
           "conditionEndpoint": {
             "type": "string",
             "description": "Gets or sets the condition endpoint used to check the send condition",
@@ -1696,45 +1805,6 @@
         },
         "additionalProperties": false,
         "description": "Defines a container for specifying the recipient of a notification order."
-      },
-      "RecipientExternalIdentityExt": {
-        "required": [
-          "channelSchema",
-          "externalIdentity"
-        ],
-        "type": "object",
-        "properties": {
-          "emailSettings": {
-            "$ref": "#/components/schemas/EmailSendingOptionsExt"
-          },
-          "smsSettings": {
-            "$ref": "#/components/schemas/SmsSendingOptionsExt"
-          },
-          "externalIdentity": {
-            "minLength": 1,
-            "type": "string",
-            "description": "The external identity of the recipient in URN format."
-          },
-          "resourceId": {
-            "type": "string",
-            "description": "Gets or sets an optional resource identifier for authorization and auditing purposes.",
-            "nullable": true
-          },
-          "channelSchema": {
-            "enum": [
-              "Email",
-              "Sms",
-              "EmailPreferred",
-              "SmsPreferred",
-              "EmailAndSms"
-            ],
-            "type": "string",
-            "description": "The channel scheme for delivering the notification.",
-            "default": "Email"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Represents a notification recipient identified by an external identity."
       },
       "NotificationReminderExt": {
         "required": [
@@ -1866,6 +1936,52 @@
         "additionalProperties": false,
         "description": "Class representing a notification recipient."
       },
+      "RecipientExternalIdentityExt": {
+        "required": [
+          "channelSchema",
+          "externalIdentity"
+        ],
+        "type": "object",
+        "properties": {
+          "emailSettings": {
+            "$ref": "#/components/schemas/EmailSendingOptionsExt"
+          },
+          "smsSettings": {
+            "$ref": "#/components/schemas/SmsSendingOptionsExt"
+          },
+          "resourceId": {
+            "pattern": "^urn:altinn:resource:.+$",
+            "type": "string",
+            "description": "An optional URN-formatted resource identifier for authorization and auditing purposes. Prefix 'urn:altinn:resource:' is required.",
+            "nullable": true,
+            "example": "urn:altinn:resource:org_example_app"
+          },
+          "resourceAction": {
+            "type": "string",
+            "description": "Gets or sets the action to authorize against the resource. Defaults to \"read\" when not specified.",
+            "nullable": true
+          },
+          "externalIdentity": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The external identity of the recipient in URN format."
+          },
+          "channelSchema": {
+            "enum": [
+              "Email",
+              "Sms",
+              "EmailPreferred",
+              "SmsPreferred",
+              "EmailAndSms"
+            ],
+            "type": "string",
+            "description": "The channel scheme for delivering the notification.",
+            "default": "Email"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a notification recipient identified by an external identity."
+      },
       "RecipientLookupResultExt": {
         "type": "object",
         "properties": {
@@ -1911,15 +2027,22 @@
           "smsSettings": {
             "$ref": "#/components/schemas/SmsSendingOptionsExt"
           },
+          "resourceId": {
+            "pattern": "^urn:altinn:resource:.+$",
+            "type": "string",
+            "description": "An optional URN-formatted resource identifier for authorization and auditing purposes. Prefix 'urn:altinn:resource:' is required.",
+            "nullable": true,
+            "example": "urn:altinn:resource:org_example_app"
+          },
+          "resourceAction": {
+            "type": "string",
+            "description": "Gets or sets the action to authorize against the resource. Defaults to \"read\" when not specified.",
+            "nullable": true
+          },
           "orgNumber": {
             "minLength": 1,
             "type": "string",
             "description": "Gets or sets the organization number that identifies the recipient."
-          },
-          "resourceId": {
-            "type": "string",
-            "description": "Gets or sets an optional resource identifier for authorization and auditing purposes.",
-            "nullable": true
           },
           "channelSchema": {
             "enum": [
@@ -1949,15 +2072,22 @@
           "smsSettings": {
             "$ref": "#/components/schemas/SmsSendingOptionsExt"
           },
+          "resourceId": {
+            "pattern": "^urn:altinn:resource:.+$",
+            "type": "string",
+            "description": "An optional URN-formatted resource identifier for authorization and auditing purposes. Prefix 'urn:altinn:resource:' is required.",
+            "nullable": true,
+            "example": "urn:altinn:resource:org_example_app"
+          },
+          "resourceAction": {
+            "type": "string",
+            "description": "Gets or sets the action to authorize against the resource. Defaults to \"read\" when not specified.",
+            "nullable": true
+          },
           "nationalIdentityNumber": {
             "minLength": 1,
             "type": "string",
             "description": "Gets or sets the national identity number of the recipient."
-          },
-          "resourceId": {
-            "type": "string",
-            "description": "Gets or sets an optional resource identifier for authorization and auditing purposes.",
-            "nullable": true
           },
           "channelSchema": {
             "enum": [
@@ -2081,6 +2211,11 @@
           "resourceId": {
             "type": "string",
             "description": "Gets or sets the ID of the resource that the notification is related to.",
+            "nullable": true
+          },
+          "resourceAction": {
+            "type": "string",
+            "description": "Gets or sets the action to authorize against the resource.",
             "nullable": true
           },
           "senderNumber": {

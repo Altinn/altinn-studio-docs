@@ -14,6 +14,7 @@ aliases:
 |[Tilgangsstyring](#tilgangsstyring)|
 |[Hovedadministrator](#hovedadministrator)|
 |[Maskinporten administrator](#maskinporten-administrator)|
+|[Tilgangsstyrer for enkeltmeldinger, -skjema og -dialoger](#tilgangsstyrer-for-enkeltmeldinger--skjema-og--dialoger)|
 
 ### Klientadministrator
 Denne rollen gir bruker mulighet til å administrere tilganger som virksomheten har på vegne av klienter og kunder, enten via registrerte kundeforhold i Enhetsregisteret eller delegering til virksomheten.  
@@ -32,6 +33,9 @@ Denne tilgangspakken gir bruker mulighet til å administrere alle tilganger for 
 Denne tilgangspakken gir bruker mulighet til å administrere tilgang til Maskinporten scopes.  
 *urn:altinn:accesspackage:maskinporten-administrator*
 
+### Tilgangsstyrer for enkeltmeldinger, -skjema og -dialoger
+Gir tilgang til brukergrensesnitt i meldingsboksen, for å kunne gi andre brukere tilgang til enkeltmeldinger, -skjema og -dialoger, som mottakeren selv har tilgang til.  
+
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
 |**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
 |---|---|---|
@@ -40,3 +44,4 @@ Denne tilgangspakken gir bruker mulighet til å administrere tilgang til Maskinp
 |Hovedadministrator|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder|Ja|
 |Konkursbo tilgangsstyring|Privatperson|Ja|
 |Maskinporten administrator|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer, Kontaktperson NUF|Ja|
+|Tilgangsstyrer for enkeltmeldinger, -skjema og -dialoger|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer, Kontaktperson NUF|Ja|

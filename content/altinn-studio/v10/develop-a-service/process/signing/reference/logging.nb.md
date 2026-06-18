@@ -1,6 +1,7 @@
 ---
 title: Logging
 draft: true
+tags: [needsReview]
 ---
 
 ## Altinn logger alle signeringer

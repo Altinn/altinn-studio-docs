@@ -110,3 +110,9 @@ Tokenet fra Maskinporten skal brukes som Bearer-token i API-kallene.
 {{% /notice%}}
 
 Tjenesteeier bruker deretter tokenet mot Altinn Autorisasjon (PDP) for å avgjøre hvilke operasjoner systemet er autorisert til å utføre.
+
+## Hente parter systembrukeren er autorisert for
+
+Et systembrukertoken (vekslet til Altinn-token) kan også brukes til å kalle AuthorizedParties-endepunktet i tilgangsstyrings-API-et. Da returneres parter som systembrukeren er autorisert for, slik at fagsystemet kan finne riktig `partyUuid` for videre kall.
+
+Maskinporten-tokenet må inneholde scopet `altinn:accessmanagement/authorizedparties`. Se [tilgangsstyrings-API-et](../../access-management/#api-hente-autoriserte-parter) for fullstendig beskrivelse av endepunktet.

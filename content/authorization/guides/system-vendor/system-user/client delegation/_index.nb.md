@@ -221,6 +221,22 @@ Fjerner en eksisterende klient fra systembruker for klientforhold
 }
 ```
 
+## 6 Hente klienter systembrukeren er autorisert for
+
+Når en systembruker for klientforhold har fått delegert klienter, kan fagsystemet bruke et systembrukertoken til å kalle AuthorizedParties-endepunktet i tilgangsstyrings-API-et. Endepunktet returnerer parter (klienter) som systembrukeren er autorisert for, slik at fagsystemet kan finne riktig `partyUuid` for videre kall mot Altinn-tjenester på vegne av klienten.
+
+**API endepunkt:** `GET accessmanagement/api/v1/enduser/authorizedparties`
+
+**Scopes:** Maskinporten-token (vekslet til Altinn-token) med scope `altinn:accessmanagement/authorizedparties`
+
+**Innholdstype:** `application/json`
+
+### Eksempel på forespørsel
+
+{{environmenturl}}/accessmanagement/api/v1/enduser/authorizedparties
+
+Se [tilgangsstyrings-API-et](../../access-management/#api-hente-autoriserte-parter) for fullstendig beskrivelse av endepunktet, inkludert alle parametere og responsfelter.
+
 ## Utforsk API-dokumentasjonen
 
 For fullstendig teknisk dokumentasjon, inkludert detaljerte beskrivelser av parametere, responser og autentisering, gå til Altinns OpenAPI-grensesnitt [her](/nb/api/authentication/systemuserapi/clientdelegation/).

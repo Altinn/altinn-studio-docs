@@ -22,9 +22,9 @@ Dialogporten utfører grunnleggende autentisering og omfangsbasert autorisering 
 
 Alle listevisninger i Dialogporten benytter [Authorized Parties API](/nb/authorization/guides/resource-owner/generic-access-resource/integrating-link-service/#integrasjon-med-api-for-autoriserte-parter-avgivere), som gir en liste over alle parter den autentiserte brukeren kan representere sammen med alle roller/tilgangspakker og tjeneste-/instansrettigheter som brukeren har fått for hver part.
 
-Dialogporten vedlikeholder en oversikt over hvilke roller/tilgangspakker som gir rettigheter til hver ressurs i ressursregisteret, og bruker det til å hente bare dialoger som refererer til tjenesteressurser som brukeren har en eller annen form for tilgang til. Hvilke handlinger (lese, skrive osv.) som ikke vurderes - enhver rettighet for den gitte parten for den gitte ressursen er tilstrekkelig for å se dialogen i dialoglisten.
+Dialogporten vedlikeholder en oversikt over hvilke roller og tilgangspakker som gir rettigheter til hver ressurs i ressursregisteret, og bruker det til å hente bare dialoger som refererer til tjenesteressurser som brukeren har en eller annen form for tilgang til. Hvilke handlinger, som lese eller skrive, vurderes ikke; enhver rettighet for den gitte parten og den gitte ressursen er tilstrekkelig for å se dialogen i dialoglisten.
 
-Siden bare én forespørsel (for en gitt part/tjenesteressurs-tuppel) vil måtte utføres innenfor et cache TTL-vindu, krever ikke omsortering/filtrering og paginering ytterligere forespørsler til Altinn Autorisering, og kan derfor utføres raskt.
+Siden bare én forespørsel for en gitt part- og tjenesteressurskombinasjon må utføres innenfor et cache-TTL-vindu, krever ikke omsortering, filtrering og paginering ytterligere forespørsler til Altinn Autorisering, og kan derfor utføres raskt.
 
 ## Dialogdetaljer autorisering
 
@@ -33,7 +33,7 @@ For dialogdetaljer benyttes [PDP API](/nb/authorization/guides/resource-owner/ge
 Alle handlinger og overføringer er dekorert med et `IsAuthorized`-flagg, som indikerer til sluttbrukersystemet om brukeren har tilgang eller ikke. Hvis ikke, fjernes alle URL-er.
 
 {{<notice warning>}}
-Selv om Dialogporten indikerer at handlingen er uautorisert, og fjerner URL-ene, bør endepunktet fortsatt alltid utføre autentisering/autorisering på innkommende forespørsler og ikke stole på at Dialogporten bare skjuler tilgangen til endepunktene
+Selv om Dialogporten indikerer at handlingen er uautorisert og fjerner URL-ene, bør endepunktet fortsatt alltid utføre autentisering og autorisering på innkommende forespørsler og ikke stole på at Dialogporten bare skjuler tilgangen til endepunktene.
 {{</notice>}}
 
 {{<children />}}
