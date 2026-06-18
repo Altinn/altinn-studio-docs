@@ -1,11 +1,11 @@
 ---
 title: Kalkulering av datafelt
-description: Hvordan konfigurere kalkulering ved hjelp av dynamiske uttrykk
+description: Slik konfigurerer du kalkulering med dynamiske uttrykk
 toc: true
 ---
+{{%notice warning%}}Kalkulering med uttrykk krever app-lib versjon 8.12.4 eller nyere{{% /notice%}}
 
-Kalkulering av datafelt ved hjelp av uttrykk gjør det mulig 
-å sette datamodellfelt med uttryksmotoren gjennom en JSON Schema-spesifikasjon.
+Med uttrykk kan du beregne verdien av datamodellfelt automatisk. Uttrykksmotoren leser reglene fra en JSON Schema-spesifikasjon.
 
 ## Hvordan konfigurere kalkulering med uttrykk
 

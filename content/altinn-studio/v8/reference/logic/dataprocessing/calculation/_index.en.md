@@ -3,6 +3,7 @@ title: Calculation of data fields
 description: How to configure calculation using dynamic expressions
 toc: true
 ---
+{{%notice warning%}}Calculations with expressions requires app-lib version 8.12.4 or newer{{% /notice%}}
 
 Calculation of data fields using expressions makes it possible
 to set data model fields with the expression engine through a JSON

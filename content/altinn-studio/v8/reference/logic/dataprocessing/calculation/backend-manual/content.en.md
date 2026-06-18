@@ -3,7 +3,7 @@ headless: true
 hidden: true
 ---
 Calculations with expressions are defined in a separate file next to your data model, using the naming convention `name.calculation.json`.
-If your data model is called `skjema`, you will already have files like `skjema.cs` and `skjema.schema.json`, and the file you create should be in the same folder and called `skjema.calculation.json`.
+If your data model is called `skjema`, you will already have files like `skjema.cs` and `skjema.schema.json`. The file you create should be in the same folder and be called `skjema.calculation.json`.
 You can copy the content below as a starting point:
 
 {{< code-title >}}
