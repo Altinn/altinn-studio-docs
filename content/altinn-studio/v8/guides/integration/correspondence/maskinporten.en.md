@@ -77,13 +77,9 @@ a notification to the recipient, and an attached file.
 You will find all available options and associated documentation through IntelliSense in your favorite code editor.
 
 {{<notice info>}}
-The example below reflects the recommended usage as of [Altinn.App.Core](https://www.nuget.org/packages/Altinn.App.Core) and [Altinn.App.Api](https://www.nuget.org/packages/Altinn.App.Api) **v8.12.2**:
+Attachment data can be supplied either as a `Stream` via `WithData(Stream)` or as a byte array via `WithData(ReadOnlyMemory<byte>)`. The client uploads the attachment to the Correspondence service as a stream in both cases, but we recommend passing a `Stream` (as shown below): it lets you stream the data end to end, for example straight from a file, without holding the whole attachment in memory. This matters for large attachments.
 
-- **Attachment data is streamed**: pass a `Stream` to `WithData(...)` instead of a byte array. This is far more efficient for large attachments. The client takes ownership of the stream and disposes it once the upload completes, so you should not dispose it yourself.
-- **The sender is resolved automatically** from the Altinn resource. `WithSender(...)` is no longer required and has been deprecated.
-- **`WithAllowSystemDeleteAfter(...)` has been deprecated** as it is no longer supported by the Correspondence API.
-
-The deprecated methods still compile, but will be removed in a future major version.
+When you pass a `Stream`, the client takes ownership of it and disposes it once the upload completes, so you should not dispose it yourself.
 {{</notice>}}
 
 ### Service registration

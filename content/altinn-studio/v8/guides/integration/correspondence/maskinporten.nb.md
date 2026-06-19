@@ -76,13 +76,9 @@ selve meldingen, en varsling til mottakeren, og et vedlegg.
 Du finner alle tilgjengelige alternativer og tilhørende dokumentasjon via IntelliSense i din foretrukne kodeeditor.
 
 {{<notice info>}}
-Eksempelet nedenfor viser anbefalt bruk fra og med [Altinn.App.Core](https://www.nuget.org/packages/Altinn.App.Core) og [Altinn.App.Api](https://www.nuget.org/packages/Altinn.App.Api) **v8.12.2**:
+Vedleggsdata kan oppgis enten som en `Stream` med `WithData(Stream)` eller som en byte-array med `WithData(ReadOnlyMemory<byte>)`. Klienten laster opp vedlegget til meldingstjenesten som en strøm i begge tilfeller, men vi anbefaler at du sender en `Stream` (slik eksempelet nedenfor viser): da kan du strømme dataene hele veien, for eksempel direkte fra en fil, uten å holde hele vedlegget i minnet. Dette er viktig for store vedlegg.
 
-- **Vedleggsdata strømmes**: send en `Stream` til `WithData(...)` i stedet for en byte-array. Dette er langt mer effektivt for store vedlegg. Klienten overtar ansvaret for strømmen og lukker den når opplastingen er fullført, så du skal ikke lukke den selv.
-- **Avsenderen utledes automatisk** fra Altinn-ressursen. `WithSender(...)` er ikke lenger nødvendig og er avviklet.
-- **`WithAllowSystemDeleteAfter(...)` er avviklet** fordi det ikke lenger støttes av meldingstjenesten.
-
-De avviklede metodene kompilerer fortsatt, men fjernes i en framtidig hovedversjon.
+Når du sender en `Stream`, overtar klienten ansvaret for den og lukker den når opplastingen er fullført, så du skal ikke lukke den selv.
 {{</notice>}}
 
 ### Tjenesteregistrering
