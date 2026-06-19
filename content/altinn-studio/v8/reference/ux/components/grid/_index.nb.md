@@ -298,19 +298,19 @@ Eksempel:
 
 Grid-visningen av enkeltkomponenter er nyttig for å gi brukeren bedre oversikt over innholdet i en side og relaterte
 felter når skjermen er stor nok. En slik tabellvisning er derimot ikke optimal for mindre skjermer, derfor vil
-Grid-komponenten automatisk vise enkeltkomponentene (som om de ikke var del av en Grid) på mindre skjermer. Tekst-celler og
-celler som bruker `labelFrom` vises ikke på mobil. Rekkefølgen  til komponentene blir den samme som rekkefølgen til
-radene og cellene i Grid-konfigurasjonen (en og en rad av gangen), derfor har rekkefølgen til enkeltkomponentene slik
-de er definert i layout-konfigurasjonen har ingen betydning.
+Grid-komponenten automatisk vise enkeltkomponentene (som om de ikke var del av en Grid) på mindre skjermer. Tekstceller og
+celler som bruker `labelFrom` vises ikke på mobil. Rekkefølgen til komponentene blir den samme som rekkefølgen til
+radene og cellene i Grid-konfigurasjonen (en og en rad av gangen). Rekkefølgen til enkeltkomponentene slik de er
+definert i layout-konfigurasjonen, har derfor ingen betydning.
 
 Det samme gjelder også for visning av en Grid-komponent i [et sammendrag](/nb/altinn-studio/v8/reference/ux/pages/summary/), hvor de samme
 komponentene referert til i Grid vil vises som sammendrag av enkeltkomponenter, uten visning av tekst-celler og `labelFrom`-celler.
 
 ## Fallgruver
 
-Ved konfigurasjon av Grid-komponenten kan det være ved første øyekast se riktig ut om man deler opp ledetekst og
-komponenter i forskjellige celler. På en stor skjerm vil dette oppleves riktig, men det vil gi uventet oppførsel på
-mobil og ved bruk av skjermleser.
+Når du konfigurerer Grid-komponenten, kan det ved første øyekast se riktig ut å dele ledetekst og komponenter i
+ulike celler. På en stor skjerm vil dette se riktig ut, men det gir uventet oppførsel på mobil og ved bruk av
+skjermleser.
 
 Som et eksempel, her er en vanlig fallgruve for Grid-konfigurasjonen:
 
@@ -321,7 +321,7 @@ Som et eksempel, her er en vanlig fallgruve for Grid-konfigurasjonen:
     "type": "Grid",
     "textResourceBindings": {
       "title": "Innrapportering av verdier",
-      "description": "Staten ønsker å vite om at det verdifulle du har samlet på."
+      "description": "Staten ønsker å vite om alt det verdifulle du har samlet på."
     },
     "rows": [
       {
@@ -372,14 +372,15 @@ I skjermbildet av denne konfigurasjonen vil det se riktig ut på en stor skjerm:
 
 ![Eksempel på stor skjerm](bad-example-desktop.png "Tabell med spørsmål og svar")
 
-I dette eksempelet vil en bruker som navigerer til svar-feltet med en skjermleser bare få opplest teksten "Antall", uten
-å få vite hva man faktisk skal svare på. Dette blir også tydelig på en mindre skjerm:
+I dette eksempelet vil en bruker som navigerer til svarfeltet med en skjermleser, bare få opplest teksten "Antall",
+uten å få vite hva feltet gjelder. Dette blir også tydelig på en mindre skjerm:
 
 ![Eksempel på mindre skjerm](bad-example-mobile.png "Komponentoppstilling med bare svar")
 
-I mobilvisningen ser man bare selve komponentene, ikke tekst-cellene, og dermed har informasjonen man fikk fra
-tekst-cellene falt helt bort for mobil-brukere.
+I mobilvisningen ser du bare komponentene. Tekstcellene vises ikke, og informasjonen i dem faller derfor bort for
+mobilbrukere.
 
-Det finnes flere løsninger for dette problemet:
-1. Dersom teksten i cellen og ledeteksten for komponenten kan være den samme, bruk en mer beskrivende ledetekst på komponenten og benytt `labelFrom` istedenfor `text` i cellen.
-2. Dersom man ønsker ulik tekst i cellen og som ledetekst på komponenten kan man fortsette å bruke `text`, men sørge for at ledetekst og beskrivelse på komponenten også gir all nødvendig informasjon brukeren trenger for å fylle ut feltet.
+Du kan løse problemet på to måter:
+
+1. Hvis teksten i cellen og ledeteksten for komponenten kan være den samme, bruker du en mer beskrivende ledetekst på komponenten og `labelFrom` i stedet for `text` i cellen.
+2. Hvis du vil ha ulik tekst i cellen og som ledetekst på komponenten, kan du fortsette å bruke `text`. Sørg for at ledeteksten og beskrivelsen på komponenten også gir all informasjonen brukeren trenger for å fylle ut feltet.
