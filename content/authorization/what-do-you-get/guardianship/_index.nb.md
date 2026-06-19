@@ -9,7 +9,7 @@ Personer som ikke kan ta hånd om interessene sine selv på grunn av skade, sykd
 En slik ordning er frivillig og tilpasset ønskene og behovene til den som har verge.
 Statsforvalteren oppnevner og følger opp vergene, og Sivilrettsforvaltningen er sentral vergemålsmyndighet.
 
-## Slik fungerer vergemål i Altinn
+## Slik innfører du støtte for vergemål
 
 ![Overordnet arkitektur for vergemål i Altinn](./GuardianshipOverview.png "Overordnet arkitektur for vergemål i Altinn")
 
@@ -17,26 +17,21 @@ Sivilrettsforvaltningen definerer vergefullmaktene som angir hva en verge kan gj
 
 Som tjenesteeier gjør du tre ting:
 
-- Du oppretter tilgangsregler som knytter aktuelle vergefullmakter til tjenesten din.
-- Du legger til aktørvalg slik at vergen kan velge hvem hen representerer.
-- Du gjør et autorisasjonsoppslag for å bekrefte at vergen har riktig vergefullmakt.
-
-Folkeregisteret er autoritativ kilde for vergefullmakter. Det er ikke mulig å gi eller trekke tilbake vergefullmakter i Altinn — det gjøres hos Statsforvalteren.
-
-## Slik ser det ut for brukerne
-
-I brukerflaten for tilgangsstyring vil vergehaver se sine verger, og verger vil se personene de er verge for.
-Dersom en vergehaver har flere verger, vises alle, men det vises ikke innenfor hvilke områder den enkelte vergen har ansvar.
-
-## Slik innfører du støtte for vergemål
-
-1. Opprett en autorisasjonsressurs.
-2. Sett tilgangsregler for vergemål.
-3. Legg til støtte for aktørvalg og autorisasjonsoppslag.
+1. Oppretter tilgangsregler som knytter aktuelle vergefullmakter til tjenesten din.
+2. Legger til aktørvalg slik at vergen kan velge hvem hen representerer.
+3. Gjør et autorisasjonsoppslag for å bekrefte at vergen har riktig vergefullmakt.
 
 Når dette er på plass, kan vergen logge inn, velge å representere vergehaver og utføre handlinger i tjenesten.
 
+Folkeregisteret er autoritativ kilde for vergefullmakter. Det er ikke mulig å gi eller trekke tilbake vergefullmakter i Altinn — det gjøres hos Statsforvalteren.
+
 Se [steg-for-steg-guide for å innføre vergemål](/nb/authorization/getting-started/guardianship/).
+
+## Slik ser det ut for brukerne
+
+Når en verge logger inn på en tjeneste som støtter vergemål, vises alle vergehaverne hen er verge for — avgrenset til vergefullmaktene tjenesten har støtte for. Vergen velger en vergehaver fra aktørvalget og kan deretter utføre handlinger på vegne av den valgte vergehaveren.
+
+I brukerflaten for tilgangsstyring i Altinn vil vergehaver se sine verger, og verger vil se personene de er verge for. Har en vergehaver flere verger, vises alle, men det vises ikke innenfor hvilke områder den enkelte vergen har ansvar.
 
 ## Les mer
 
