@@ -11,7 +11,7 @@ En slik integrasjon gjør det mulig for en app å sende digitale meldinger og ve
 
 ## Forutsetninger
 1. En [Altinn-ressurs](#altinn-ressurs)
-2. [Altinn.App.Api](https://www.nuget.org/packages/Altinn.App.Api) og [Altinn.App.Core](https://www.nuget.org/packages/Altinn.App.Core) _v8.5.0_ eller nyere (_v8.12.5_ eller nyere for bruken med strømming av vedlegg som vises i denne veiledningen)
+2. [Altinn.App.Api](https://www.nuget.org/packages/Altinn.App.Api) og [Altinn.App.Core](https://www.nuget.org/packages/Altinn.App.Core) _v8.12.2_ eller nyere
 
 ### Altinn-ressurs
 Når du sender en korrespondanse må den knyttes til en Altinn-ressurs. Denne ressursen kontrollerer tilgangsstyring for

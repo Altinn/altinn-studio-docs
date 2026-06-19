@@ -77,7 +77,7 @@ a notification to the recipient, and an attached file.
 You will find all available options and associated documentation through IntelliSense in your favorite code editor.
 
 {{<notice info>}}
-The example below reflects the recommended usage as of [Altinn.App.Core](https://www.nuget.org/packages/Altinn.App.Core) and [Altinn.App.Api](https://www.nuget.org/packages/Altinn.App.Api) **v8.12.5**:
+The example below reflects the recommended usage as of [Altinn.App.Core](https://www.nuget.org/packages/Altinn.App.Core) and [Altinn.App.Api](https://www.nuget.org/packages/Altinn.App.Api) **v8.12.2**:
 
 - **Attachment data is streamed**: pass a `Stream` to `WithData(...)` instead of a byte array. This is far more efficient for large attachments. The client takes ownership of the stream and disposes it once the upload completes, so you should not dispose it yourself.
 - **The sender is resolved automatically** from the Altinn resource. `WithSender(...)` is no longer required and has been deprecated.

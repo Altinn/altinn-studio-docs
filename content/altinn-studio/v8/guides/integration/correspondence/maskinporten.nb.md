@@ -76,7 +76,7 @@ selve meldingen, en varsling til mottakeren, og et vedlegg.
 Du finner alle tilgjengelige alternativer og tilhørende dokumentasjon via IntelliSense i din foretrukne kodeeditor.
 
 {{<notice info>}}
-Eksempelet nedenfor viser anbefalt bruk fra og med [Altinn.App.Core](https://www.nuget.org/packages/Altinn.App.Core) og [Altinn.App.Api](https://www.nuget.org/packages/Altinn.App.Api) **v8.12.5**:
+Eksempelet nedenfor viser anbefalt bruk fra og med [Altinn.App.Core](https://www.nuget.org/packages/Altinn.App.Core) og [Altinn.App.Api](https://www.nuget.org/packages/Altinn.App.Api) **v8.12.2**:
 
 - **Vedleggsdata strømmes**: send en `Stream` til `WithData(...)` i stedet for en byte-array. Dette er langt mer effektivt for store vedlegg. Klienten overtar ansvaret for strømmen og lukker den når opplastingen er fullført, så du skal ikke lukke den selv.
 - **Avsenderen utledes automatisk** fra Altinn-ressursen. `WithSender(...)` er ikke lenger nødvendig og er avviklet.
