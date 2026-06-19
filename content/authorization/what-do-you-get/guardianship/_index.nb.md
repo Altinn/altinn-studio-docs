@@ -9,11 +9,6 @@ Personer som ikke kan ta hånd om interessene sine selv på grunn av skade, sykd
 En slik ordning er frivillig og tilpasset ønskene og behovene til den som har verge.
 Statsforvalteren oppnevner og følger opp vergene, og Sivilrettsforvaltningen er sentral vergemålsmyndighet.
 
-{{% notice warning %}}
-Dette er funksjonalitet som enda ikke er i TEST eller PROD, men som er planlagt lansert tidlig i mars.
-For å være klar kan du starte med å finne ut hva som er relevante vergemål, samt integrere mot aktørvalg og autorisasjonsoppslag.
-{{% /notice %}}
-
 ## Slik fungerer vergemål i Altinn
 
 Altinn Autorisasjon tilrettelegger slik at tjenesteeiere enkelt kan innføre støtte for vergemål i tjenester som bruker Altinn Autorisasjon:

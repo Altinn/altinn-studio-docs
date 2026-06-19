@@ -8,11 +8,6 @@ People who cannot look after their own interests due to injury, illness or disab
 Such an arrangement is voluntary and tailored to the wishes and needs of the person under guardianship.
 The County Governor appoints and supervises guardians, and the Civil Affairs Authority (Sivilrettsforvaltningen) is the central guardianship authority.
 
-{{% notice warning %}}
-This functionality is not yet available in TEST or PROD, but is planned for launch in early March.
-To be prepared, you can start by identifying the relevant guardianship types and integrating with the party selector and authorisation lookup.
-{{% /notice %}}
-
 ## How guardianship works in Altinn
 
 Altinn Authorisation enables service owners to easily add support for guardianship in services that use Altinn Authorisation:
