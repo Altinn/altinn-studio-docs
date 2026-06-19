@@ -702,9 +702,35 @@ margin-bottom: 0 !important;
     border-bottom: none;
 }
 
-/* Version alert message */
-#version-alert-container {
-    padding: 12px 18px;
-    margin-bottom: 18px;
-    background-color: #fbf6bd;
+/* Version control alert - based in ds-alert*/
+.ds-alert{
+    background:#dcebf6;
+    border-radius:5px;
+    border-width:1px;
+    border-style:solid;
+    border-color:#1f7dc5;
+    box-sizing:border-box;
+    color:#182f46;
+    margin-bottom:18px;
+    padding-block:24px;
+    padding-inline-start:48px;
+    padding-inline-end:24px;
+    position:relative
+}
+
+.ds-alert:not(:has(>:is(h1,h2,h3,h4,h5,h6):first-child)):before,.ds-alert>:is(h1,h2,h3,h4,h5,h6):first-child:before {
+    background:#0860a3;
+    content:"";
+    height:24px;
+    margin-inline:calc((36px)*-1);
+    -webkit-mask:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill-rule='evenodd' d='M3.25 4A.75.75 0 0 1 4 3.25h16a.75.75 0 0 1 .75.75v16a.75.75 0 0 1-.75.75H4a.75.75 0 0 1-.75-.75zM11 7.75a1 1 0 1 1 2 0 1 1 0 0 1-2 0m-1.25 3a.75.75 0 0 1 .75-.75H12a.75.75 0 0 1 .75.75v4.75h.75a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1 0-1.5h.75v-4h-.75a.75.75 0 0 1-.75-.75'/%3E%3C/svg%3E") center /contain no-repeat;
+    mask:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill-rule='evenodd' d='M3.25 4A.75.75 0 0 1 4 3.25h16a.75.75 0 0 1 .75.75v16a.75.75 0 0 1-.75.75H4a.75.75 0 0 1-.75-.75zM11 7.75a1 1 0 1 1 2 0 1 1 0 0 1-2 0m-1.25 3a.75.75 0 0 1 .75-.75H12a.75.75 0 0 1 .75.75v4.75h.75a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1 0-1.5h.75v-4h-.75a.75.75 0 0 1-.75-.75'/%3E%3C/svg%3E") center /contain no-repeat;
+    position:absolute;
+    translate:0 calc((1lh - 24px)/2);
+    width:24px;
+    -webkit-print-color-adjust:exact;print-color-adjust:exact;
+}
+@media (forced-colors:active){
+    .ds-alert:not(:has(>:is(h1,h2,h3,h4,h5,h6):first-child)):before,
+    .ds-alert>:is(h1,h2,h3,h4,h5,h6):first-child:before{background:CanvasText}
 }
