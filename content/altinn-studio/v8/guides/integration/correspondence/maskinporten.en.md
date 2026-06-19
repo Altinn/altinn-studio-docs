@@ -76,6 +76,16 @@ a notification to the recipient, and an attached file.
 
 You will find all available options and associated documentation through IntelliSense in your favorite code editor.
 
+{{<notice info>}}
+The example below reflects the recommended usage as of [Altinn.App.Core](https://www.nuget.org/packages/Altinn.App.Core) and [Altinn.App.Api](https://www.nuget.org/packages/Altinn.App.Api) **v8.12.5**:
+
+- **Attachment data is streamed**: pass a `Stream` to `WithData(...)` instead of a byte array. This is far more efficient for large attachments. The client takes ownership of the stream and disposes it once the upload completes, so you should not dispose it yourself.
+- **The sender is resolved automatically** from the Altinn resource. `WithSender(...)` is no longer required and has been deprecated.
+- **`WithAllowSystemDeleteAfter(...)` has been deprecated** as it is no longer supported by the Correspondence API.
+
+The deprecated methods still compile, but will be removed in a future major version.
+{{</notice>}}
+
 ### Service registration
 
 {{< code-title >}}
@@ -99,6 +109,7 @@ App/CorrespondenceClientDemo.cs
 
 ```cs
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using Altinn.App.Core.Features.Correspondence;
 using Altinn.App.Core.Features.Correspondence.Builder;
@@ -113,13 +124,16 @@ internal sealed class CorrespondenceClientDemo(
   public async Task<SendCorrespondenceResponse> SendMessage()
   {
     CorrespondenceAuthorisation authorisation = CorrespondenceAuthorisation.Maskinporten;
+
+    // The attachment data is streamed to the Correspondence service.
+    // Don't dispose the stream yourself: the client takes ownership and disposes it once the upload completes.
+    Stream attachmentData = File.OpenRead("path/to/attachment.txt");
+
     CorrespondenceRequest request = CorrespondenceRequestBuilder
       .Create()
       .WithResourceId("A valid resource registry identifier")
-      .WithSender("Sender's organisation number")
       .WithSendersReference("Sender's arbitrary reference for the correspondence")
       .WithRecipient("Recipient's organisation number")
-      .WithAllowSystemDeleteAfter(DateTime.Now.AddYears(1))
       .WithContent(
         language: "en",
         title: "Hello from .NET 👋🏻",
@@ -141,10 +155,8 @@ internal sealed class CorrespondenceClientDemo(
         CorrespondenceAttachmentBuilder
           .Create()
           .WithFilename("attachment.txt")
-          .WithName("The attachment 📎")
           .WithSendersReference("Sender's arbitrary reference for the attachment")
-          .WithDataType("text/plain")
-          .WithData("This is the attachment content"u8.ToArray())
+          .WithData(attachmentData)
       )
       .Build();
 

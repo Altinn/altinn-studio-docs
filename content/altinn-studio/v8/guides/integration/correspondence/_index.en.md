@@ -11,7 +11,7 @@ This integration enables an app to securely send digital messages and attachment
 
 ## Prerequisites
 1. An applicable [Altinn resource](#altinn-resource)
-2. [Altinn.App.Api](https://www.nuget.org/packages/Altinn.App.Api) and [Altinn.App.Core](https://www.nuget.org/packages/Altinn.App.Core) _v8.5.0_ or greater
+2. [Altinn.App.Api](https://www.nuget.org/packages/Altinn.App.Api) and [Altinn.App.Core](https://www.nuget.org/packages/Altinn.App.Core) _v8.5.0_ or greater (_v8.12.5_ or greater for the streamed-attachment usage shown in this guide)
 
 ### Altinn Resource
 When sending a correspondence, it needs to be tied to an Altinn resource. This resource controls the access policy for
