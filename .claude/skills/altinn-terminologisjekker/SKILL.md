@@ -28,7 +28,7 @@ Lag en tabell med disse kolonnene:
 - Begrep — begrepet du fant
 - Kilde — nøyaktig filbane og linjenummer
 
-Gå gjennom hvert repositorium og fyll inn tabellen.
+Gå gjennom hvert repositorium og fyll ut tabellen.
 
 Se etter denne typen begreper:
 - Begreper for produkter og tjenester: app, applikasjon, tjeneste
