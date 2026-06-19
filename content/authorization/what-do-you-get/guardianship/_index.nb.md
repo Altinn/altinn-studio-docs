@@ -11,16 +11,17 @@ Statsforvalteren oppnevner og følger opp vergene, og Sivilrettsforvaltningen er
 
 ## Slik fungerer vergemål i Altinn
 
-Altinn Autorisasjon tilrettelegger slik at tjenesteeiere enkelt kan innføre støtte for vergemål i tjenester som bruker Altinn Autorisasjon:
-
 ![Overordnet arkitektur for vergemål i Altinn](./GuardianshipOverview.png "Overordnet arkitektur for vergemål i Altinn")
 
-- Legitimasjoner definert av Sivilrettsforvaltningen hentes fra Folkeregisteret og kobles direkte mot tilgangspakker i Altinn Autorisasjon.
-- Tjenesteeier oppretter tilgangsregler knyttet til tilgangspakkene for sin tjeneste.
-- Tjenesteeier legger til aktørvalg i tjenesten sin.
-- Tjenesteeier gjør autorisasjonsoppslag (PDP) fra tjenesten.
-- Folkeregisteret er autoritativ kilde — det er ikke mulig å gi eller trekke tilbake vergefullmakter i Altinn.
-- Ved behov for å gi private fullmakter finnes det egne tilgangspakker for privatpersoner.
+Sivilrettsforvaltningen definerer vergefullmaktene som angir hva en verge kan gjøre på vegne av vergehaver. Vergefullmaktene hentes fra Folkeregisteret og kobles mot tilgangspakker i Altinn Autorisasjon — du som tjenesteeier trenger ikke å håndtere dette.
+
+Som tjenesteeier gjør du tre ting:
+
+- Du oppretter tilgangsregler som knytter aktuelle vergefullmakter til tjenesten din.
+- Du legger til aktørvalg slik at vergen kan velge hvem hen representerer.
+- Du gjør et autorisasjonsoppslag for å bekrefte at vergen har riktig vergefullmakt.
+
+Folkeregisteret er autoritativ kilde for vergefullmakter. Det er ikke mulig å gi eller trekke tilbake vergefullmakter i Altinn — det gjøres hos Statsforvalteren.
 
 ## Slik ser det ut for brukerne
 
@@ -39,6 +40,5 @@ Se [steg-for-steg-guide for å innføre vergemål](/nb/authorization/getting-sta
 
 ## Les mer
 
-- Les mer om vergemål hos [Sivilrettsforvaltningen](https://www.vergemal.no).
-- Statsforvalteren er lokal vergemålsmyndighet og fatter vedtak om opprettelse, endring og opphør av vergemål.
-  Vedtak og opplysninger meldes til Folkeregisteret for registrering, mens Sivilrettsforvaltningen er overordnet fag- og klageinstans.
+- [Vergefullmakter fra Sivilrettsforvaltningen — oversikt over hva de ulike vergefullmaktene dekker](/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/verger/)
+- [Les mer om vergemål hos Sivilrettsforvaltningen](https://www.vergemal.no)
