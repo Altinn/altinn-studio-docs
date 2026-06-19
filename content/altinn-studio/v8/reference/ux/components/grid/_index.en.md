@@ -140,8 +140,8 @@ weight: 10
 
 ## Configuration
 
-The Grid component is configured like any other, but it requires a configuration for rows and cells. To start with a
-2x2 Grid having two columns and two rows, we can use the following configuration:
+The Grid component requires a configuration for rows and cells. To start with a 2x2 Grid having two columns and two
+rows, we can use the following configuration:
 
 ```json
 {
@@ -161,6 +161,9 @@ The Grid component is configured like any other, but it requires a configuration
 Each cell should either be an object with a `text` property (for text cells), an object with a `component` property
 (referencing other components), an object with a `labelFrom` property (referencing other components) or `null` (for an empty cell). Each row must have the same amount of cell objects as
 every other row.
+
+Note that the mobile view of a Grid only shows the components. The components in the cells must therefore also work
+on their own. [Read more about this in the pitfalls section below](#pitfalls).
 
 ### Rows
 
@@ -287,9 +290,90 @@ Example:
 
 Grid arrangement of components is useful to give the user a better overview of the content of a page and related
 fields when the screen is large enough. However, such a table view is not optimal for smaller screens, so the Grid
-component will automatically display the components (as if they were not part of a Grid) on smaller screens. The order
-of the components will be the same as the order of the rows and cells in the Grid configuration (one row at a time),
-and the order of the components as they are defined in the layout configuration has no significance.
+component will automatically display the components (as if they were not part of a Grid) on smaller screens. Text cells
+and cells that use `labelFrom` are not shown on mobile. The order of the components will be the same as the order of
+the rows and cells in the Grid configuration (one row at a time). The order of the individual components as they are
+defined in the layout configuration therefore has no significance.
 
 The same applies to displaying a Grid component in [a Summary](/en/altinn-studio/v8/reference/ux/pages/summary/), where the same components
-referenced in the Grid will be displayed as a summary of single components.
+referenced in the Grid will be displayed as a summary of single components, without showing text cells or `labelFrom`
+cells.
+
+## Pitfalls
+
+When you configure the Grid component, it may seem correct at first glance to split label text and components into
+different cells. On a large screen, this will look correct, but it gives unexpected behavior on mobile and when using
+a screen reader.
+
+As an example, here is a common pitfall in Grid configuration:
+
+```json
+[
+  {
+    "id": "grid-example",
+    "type": "Grid",
+    "textResourceBindings": {
+      "title": "Reporting valuables",
+      "description": "The government wants to know about all the valuables you have collected."
+    },
+    "rows": [
+      {
+        "header": true,
+        "cells": [
+          { "text": "Valuable" },
+          { "text": "Count" }
+        ]
+      },
+      {
+        "cells": [
+          { "text": "Stamps" },
+          { "component": "stamp-count" }
+        ]
+      },
+      {
+        "cells": [
+          { "text": "Old pennies" },
+          { "component": "old-penny-count" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "stamp-count",
+    "type": "Input",
+    "dataModelBindings": {
+      "simpleBinding": "Valuables.Stamps.Count"
+    },
+    "textResourceBindings": {
+      "title": "Count"
+    }
+  },
+  {
+    "id": "old-penny-count",
+    "type": "Input",
+    "dataModelBindings": {
+      "simpleBinding": "Valuables.OldPennies.Count"
+    },
+    "textResourceBindings": {
+      "title": "Count"
+    }
+  }
+]
+```
+
+In a screenshot of this configuration, it will look correct on a large screen:
+
+![Example on a large screen](bad-example-desktop-en.png "Table with questions and answers")
+
+In this example, a user who navigates to the answer field with a screen reader will only hear the text "Count",
+without knowing what the field is about. This also becomes clear on a smaller screen:
+
+![Example on a smaller screen](bad-example-mobile-en.png "Component layout with only answers")
+
+In the mobile view, you only see the components. The text cells are not shown, so the information in them is therefore
+lost for mobile users.
+
+You can solve the problem in two ways:
+
+1. If the text in the cell and the label for the component can be the same, use a more descriptive label on the component and `labelFrom` instead of `text` in the cell.
+2. If you want different text in the cell and as the label for the component, you can continue using `text`. Make sure the label and description on the component also give users all the information they need to fill in the field.
