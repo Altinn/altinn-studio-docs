@@ -8,41 +8,31 @@ People who cannot look after their own interests due to injury, illness or disab
 Such an arrangement is voluntary and tailored to the wishes and needs of the person under guardianship.
 The County Governor appoints and supervises guardians, and the Civil Affairs Authority (Sivilrettsforvaltningen) is the central guardianship authority.
 
-{{% notice warning %}}
-This functionality is not yet available in TEST or PROD, but is planned for launch in early March.
-To be prepared, you can start by identifying the relevant guardianship types and integrating with the party selector and authorisation lookup.
-{{% /notice %}}
-
-## How guardianship works in Altinn
-
-Altinn Authorisation enables service owners to easily add support for guardianship in services that use Altinn Authorisation:
+## How to add support for guardianship
 
 ![High-level architecture for guardianship in Altinn](./GuardianshipOverview.png "High-level architecture for guardianship in Altinn")
 
-- Credentials defined by the Civil Affairs Authority are retrieved from the National Population Register and mapped directly to access packages in Altinn Authorisation.
-- The service owner creates access rules linked to the access packages for their service.
-- The service owner adds a party selector to their service.
-- The service owner performs authorisation lookups (PDP) from the service.
-- The National Population Register is the authoritative source — it is not possible to grant or revoke guardianship powers in Altinn.
-- If there is a need to grant private powers of attorney, separate access packages for private individuals are available.
+The Civil Affairs Authority defines the guardianship powers that specify what a guardian can do on behalf of a ward. The guardianship powers are retrieved from the National Population Register and linked to access packages in Altinn Authorisation — you as a service owner do not need to manage this.
 
-## What it looks like for end users
+As a service owner, you do three things:
 
-In the access management interface, the ward can see their guardians, and guardians can see the people they are guardians for.
-If a ward has multiple guardians, all are displayed, but the specific areas each guardian is responsible for are not shown.
-
-## How to add support for guardianship
-
-1. Create an authorisation resource.
-2. Set access rules for guardianship.
-3. Add support for party selection and authorisation lookup.
+1. Create access rules that link the relevant guardianship powers to your service.
+2. Add a party selector so the guardian can choose who they represent.
+3. Perform an authorisation lookup to confirm the guardian has the correct guardianship power.
 
 Once this is in place, the guardian can log in, choose to represent the ward and perform actions in the service.
 
+The National Population Register is the authoritative source for guardianship powers. It is not possible to grant or revoke guardianship powers in Altinn — this is done via the County Governor.
+
 See the [step-by-step guide for adding guardianship support](/en/authorization/getting-started/guardianship/).
+
+## What it looks like for end users
+
+When a guardian logs into a service that supports guardianship, all wards they are guardian for are displayed — limited to the guardianship powers the service supports. The guardian selects a ward from the party selector and can then perform actions on behalf of that ward.
+
+In the access management interface in Altinn, the ward can see their guardians, and guardians can see the people they are guardians for. If a ward has multiple guardians, all are displayed, but the specific areas each guardian is responsible for are not shown.
 
 ## Read more
 
-- Read more about guardianship at the [Civil Affairs Authority](https://www.vergemal.no).
-- The County Governor is the local guardianship authority and makes decisions on the establishment, amendment and termination of guardianships.
-  Decisions and information are reported to the National Population Register for registration, whilst the Civil Affairs Authority is the superior professional and appeals body.
+- [Guardianship powers from the Civil Affairs Authority — overview of what the different guardianship powers cover](/en/authorization/what-do-you-get/accessgroups/accessgroups-citizens/verger/)
+- [Read more about guardianship at the Civil Affairs Authority](https://www.vergemal.no)

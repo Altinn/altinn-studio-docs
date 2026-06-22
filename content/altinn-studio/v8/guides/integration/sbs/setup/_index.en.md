@@ -20,12 +20,18 @@ the vendor's system and the app. There are mainly two ways to create this integr
   - Vendor creates a system in the system registry of Altinn Authorization (in the system definition, you specify the need for access to resources, e.g., an app)
   - Customer registers a system user. The rights are then delegated.
   - Vendor authenticates with Maskinporten client
-  - When integrating with Altinn apps, the system authenticates with Maskinporten and uses this token when submitting to Altinn
+  - When integrating with Altinn apps, the system authenticates with Maskinporten and then exchanges the Maskinporten token for an Altinn token before submitting to Altinn
   - For more information, see [Altinn Authorization user guide for system users](/en/authorization/guides/system-vendor/)
   - Suitable for systems with a higher degree of automation (and less need for contact/connection to the end-user), and for submissions on behalf of organizations.
 
 {{% notice warning %}}
 System user support towards an Altinn Studio app requires `Altinn.App.Api` and `Altinn.App.Core` version `v8.6.0` or later.
+{{% /notice %}}
+
+{{% notice info %}}
+Maskinporten tokens from system users cannot be used directly with Altinn apps or platform services that require Altinn tokens.
+The token must first be exchanged for an Altinn token through Altinn Authentication.
+Use the Altinn token in the `Authorization` header towards app and platform APIs.
 {{% /notice %}}
 
 ## Integration using ID-porten
@@ -430,7 +436,8 @@ POST https://test.maskinporten.no/token
 }
 ```
 
-Now that we have the system user token from Maskinporten, we currently need to exchange it for an Altinn token before it can be used with an app.
+Now that we have the system user token from Maskinporten, we need to exchange it for an Altinn token before it is used with Altinn apps and platform services that require Altinn tokens.
+The Maskinporten token is used as input to the exchange, while the Altinn token from the response is used in the `Authorization` header afterwards.
 In the future, this will no longer be necessary, and this documentation will be updated accordingly.
 
 ```http
@@ -446,7 +453,7 @@ Content-Type: text/plain; charset=utf-8
 
 #### 7. Fiken can instantiate in the app
 
-We use the `access_token` from the response in the previous step to create an empty instance in the `aarsregnskap` app.
+We use the `access_token` from the response in the previous step, meaning the exchanged Altinn token, to create an empty instance in the `aarsregnskap` app.
 
 ```http
 POST https://brg.apps.tt02.altinn.no/brg/aarsregnskap/instances/create
