@@ -1,127 +1,139 @@
 ---
-title: Opprette og publisere ressurser i altinn Studio
+title: Opprette og publisere ressurser i Altinn Studio
 linktitle: Opprette ressurser
-description: Denne guiden forklarer hvordan du kan opprette og publisere ressurser i fra Ressursadministrasjon i Altinn Studio
+description: Slik oppretter og publiserer du ressurser i Ressursadministrasjon i Altinn Studio
 toc: false
 ---
 
-I Altinn Studio Resource admin kan du opprette ressurser som skal brukes som grunnlag for tilgangskontroll for tjenester utenfor Altinn-plattformen.
+I Altinn Studio Ressursadministrasjon kan du opprette ressurser som brukes som grunnlag for tilgangskontroll for tjenester utenfor Altinn-plattformen.
 
 ## Forutsetninger
 
 Du må ha tilgang til ressursadministrasjon for organisasjonen din. Se [Kom i gang-veiledningen](/nb/authorization/getting-started/resourceadministration/).
 
-## Trinn 1 Opprett ressurs
+## Trinn 1: Opprett ressurs
 
-Logg inn i Altinn Studio
+Logg inn i Altinn Studio og gå til Ressursadministrasjon for organisasjonen din:
+`https://altinn.studio/resourceadm/{orgkode}/{orgkode}-resources`
 
-Opprett ressurs
+Klikk **Opprett ressurs**. Gi ressursen en unik ID — denne brukes i Altinn API for å sjekke tilgang. Deretter gir du ressursen et navn.
 
-IDen som er gitt for ressursen vil være den som brukes i Altinn API for å sjekke tilgang
+{{% notice info %}}
+Første gang du besøker Ressursadministrasjon etter å ha opprettet repository og team, kan det ta noen minutter før siden er tilgjengelig.
+{{% /notice %}}
 
-![Create Resource](create_resource_1.png)
+![Opprett ressurs](create_resource_1.png)
 
 ### Ressurstype
 
 For eksterne ressurser vil typen være generisk tilgangsressurs.
 
-![Create Resource](create_resource_15.png)
+![Ressurstype](create_resource_15.png)
 
 ### Tittel
 
-Tittelen vil vises i Access Management og i tjenestekataloger som data.altinn.no
+Tittelen vises i tilgangsstyring og i tjenestekataloger som data.altinn.no.
 
 Du må definere tittelen på bokmål, nynorsk og engelsk.
 
-![Create Resource](create_resource_3.png)
+![Tittel](create_resource_3.png)
 
 ### Beskrivelse
 
-Beskrivelsen vil vises i Access Management og i tjenestekataloger som data.altinn.no
+Beskrivelsen vises i tilgangsstyring og i tjenestekataloger som data.altinn.no.
 
 Du må definere beskrivelsen på bokmål, nynorsk og engelsk.
 
-![Create Resource](create_resource_4.png)
+![Beskrivelse](create_resource_4.png)
 
-### Delegasjonsbeskrivelse
+### Delegeringsbeskrivelse
 
-Dersom ressursen skal kunne delegeres som ressursdelegering må du aktivere delegering og angi delegasjonsbeskrivelse på bokmål, nynorsk og engelsk.
+Hvis ressursen skal kunne delegeres, aktiverer du delegering og angir delegeringsbeskrivelse på bokmål, nynorsk og engelsk.
 
-![Create Resource](create_resource_5.png)
+![Delegeringsbeskrivelse](create_resource_5.png)
 
 ### Nøkkelord
 
-Nøkkelord kan angis for hjelp. Foreløpig ikke brukt, men kan brukes til forskjellige tjenestekataloger senere
+Nøkkelord kan brukes til filtrering i tjenestekataloger på et senere tidspunkt.
 
-![Create Resource](create_resource_6.png)
+![Nøkkelord](create_resource_6.png)
 
 ### Status
 
-Statusen til tjenesten som ressursen peker på
+Statusen til tjenesten ressursen peker på.
 
-![Create Resource](create_resource_7.png)
+![Status](create_resource_7.png)
 
 ### Brukertyper
 
-Definerer hvilke typer brukere som har tilgang. Disse innstillingene kan brukes til filtrering på et senere tidspunkt. For tiden
-dette er bare informasjon.
+Definerer hvilke typer brukere som har tilgang. Brukes foreløpig kun som informasjon.
 
-![Create Resource](create_resource_8.png)
+![Brukertyper](create_resource_8.png)
 
-### Party type
+### Parter som kan bruke tjenesten
 
-Definerer hvilken type part tjenesten er målrettet mot. Kan brukes til filtrering i servicekatalog på et senere tidspunkt.
+Definerer hvilken type brukere tjenesten er rettet mot. Kan brukes til filtrering i tjenestekatalog på et senere tidspunkt.
 
-![Create Resource](create_resource_9.png)
+![Partstype](create_resource_9.png)
 
 ### Kontaktinformasjon
 
-Kontaktinformasjon for tjenesten. Kan bli presentert i servicekatalog på et senere tidspunkt.
+Kontaktinformasjon for tjenesten. Kan vises i tjenestekatalog på et senere tidspunkt.
 
-![Create Resource](create_resource_10.png)
+![Kontaktinformasjon](create_resource_10.png)
 
 ## Opprett policy
 
-Når ressursen er opprettet, må du definere policyen.
-Policyen må inneholde minst én regel.
+Når ressursen er opprettet, må du definere policyen. Policyen må inneholde minst én regel.
 
-Hver regel inneholder ressurs, emne og handling
+Hver regel inneholder ressurs, emne og handling.
 
 ### Ressurs
 
-Definer ressursen for regelen
-![Create Resource](create_resource_11.png)
+Definer ressursen for regelen.
+
+![Ressurs](create_resource_11.png)
 
 ### Handling
 
-Definer handlingen for regelen
+Definer handlingen for regelen.
 
-![Create Resource](create_resource_12.png)
+![Handling](create_resource_12.png)
 
 ### Emne
 
-Definer emnet for rollen. Du kan velge mellom ER-roller, Altinn-roller og tilgangspakker.  
-Les mer om tilgangspakker og roller [her](/nb/authorization/what-do-you-get/accessgroups/).
+Definer emnet for regelen. Du kan velge mellom ER-roller, Altinn-roller og tilgangspakker.
 
-![Create Resource](create_resource_13.png)
+Les mer om [tilgangspakker og roller](/nb/authorization/what-do-you-get/accessgroups/).
 
-## Publisere
+![Emne](create_resource_13.png)
 
-Når du er ferdig med å angi ressursinnstillingene og policyen kan du publisere.
-Før publisering må du angi en ny versjons-ID og foreta endringer i ressurslageret.
+## Publiser
 
-![Create Resource](create_resource_14.png)
+Når du er ferdig med ressursinnstillingene og policyen, kan du publisere. Du må angi en ny versjons-ID og bekrefte endringene i ressurslageret.
+
+{{% notice info %}}
+Får du en feilmelding om at det lokale lageret er ute av synk med det som finnes fra før, velger du å hente siste versjon fra serveren og prøver på nytt.
+{{% /notice %}}
+
+![Publiser](create_resource_14.png)
 
 ### Rettighet til å publisere
 
-For å kunne publisere ressurser må du være medlem av riktig team i Gitea. Disse teamene settes opp i Gitea av administratoren i organisasjonen din. Team for din organisasjon finnes på https://altinn.studio/repos/org/{orgcode}/teams. Følgende team gir tilgang til å publisere ressurser:
+For å publisere ressurser må du være medlem av riktig team i Gitea. Disse teamene settes opp av administratoren i organisasjonen din. Team for din organisasjon finnes på
+`https://altinn.studio/repos/org/{orgkode}/teams`
 
-- Resources-Publish-PROD: Rett til å publisere til produksjon
-- Resources-Publish-TT02: Team med rettigheter til å publisere til TT02
+Følgende team gir tilgang til å publisere ressurser:
 
-## Bekrefte
+- **Resources-Publish-PROD**: Rettighet til å publisere til produksjon
+- **Resources-Publish-TT02**: Rettighet til å publisere til TT02
 
-Når den er publisert, er ressursen tilgjengelig på søke-APIet i ressursregisteret.
+## Bekreft
 
-Eksempel Ressurs fra guide. [https://platform.tt02.altinn.no/resourceregistry/api/v1/resource/ekstern-tjeneste-portal](https://platform.tt02.altinn.no/resourceregistry/api/v1/resource/ekstern- tjeneste-portal)
-Retningslinjer for eksempelressurs fra denne veiledningen [https://platform.tt02.altinn.no/resourceregistry/api/v1/resource/ekstern-tjeneste-portal/policy](https://platform.tt02.altinn.no/resourceregistry /api/v1/resource/ekstern-tjeneste-portal/policy)
+Når ressursen er publisert, er den tilgjengelig i ressursregisteret.
+
+Eksempel på ressurs fra denne guiden:
+[https://platform.tt02.altinn.no/resourceregistry/api/v1/resource/ekstern-tjeneste-portal](https://platform.tt02.altinn.no/resourceregistry/api/v1/resource/ekstern-tjeneste-portal)
+
+Eksempel på policy fra denne guiden:
+[https://platform.tt02.altinn.no/resourceregistry/api/v1/resource/ekstern-tjeneste-portal/policy](https://platform.tt02.altinn.no/resourceregistry/api/v1/resource/ekstern-tjeneste-portal/policy)

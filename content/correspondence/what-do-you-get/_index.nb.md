@@ -42,6 +42,7 @@ Du kan motta varsler om hendelser knyttet til sendte meldingstjenester, ved å s
   f.eks. on-premise hos avsender eller i avsenders prefererte skyløsning.
 - Støtte for å angi utløpsdato på vedlegg. Når utløpsdatoen er nådd, blir vedlegget automatisk markert som slettet og filen fjernet fra meldingssystemet.
 - Støtte for å sette tilgangstyring på et vedlegg som er forskjellig fra tilgangstyringen til meldingen den tilhører.
+- For meldinger med 2 eller flere vedlegg, hvor total filstørrelse ikke overstiger 2 GB, vil mottaker få mulighet til å laste ned alle vedlegg til en zip-fil.
 
 ### Arkivering og oppbevaring
 - Alle meldinger lagres i brukerens meldingsboks i Altinn.
