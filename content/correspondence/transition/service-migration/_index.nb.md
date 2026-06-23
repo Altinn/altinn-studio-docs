@@ -36,7 +36,7 @@ Denne vil ikke tilgjengeliggjøres for eksterne parter, men kun brukes av Flytt 
 ## Migrering av tjenestekonfigurasjon for reetablering av tjeneste
 
 Det har blitt vurdert en funksjon i Altinn studio som tjenesteeier kan benytte for å manuelt migrere en Meldingstjeneste-konfigurasjon slik at man enkelt kan reetablere tjenesten i Altinn 3.
-Dette kan følge samme mønster som benyttes for [Migrering av Lenketjenester](/en/authorization/guides/resource-owner/migrate/linked_services/)
+~Dette kan følge samme mønster som benyttes for [Migrering av Lenketjenester]()~
 
 Men dette er dessverre ikke blitt en prioritert funksjon på grunn av at det er meldt om få tjenester som skal reetableres, og det er lav kapasitet i relevante team.
 
