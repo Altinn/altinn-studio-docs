@@ -24,7 +24,7 @@ Dette er den foretrukne metoden hvor du som SBSL initierer opprettelsen via API.
 
   * Du må kjenne organisasjonsnummeret (`partyOrgNo`) til sluttbrukerkunden.
   * Du må ha definert hvilke tilgangspakker (`accessPackages`) eller enkeltrettigheter (`rights`) systembrukeren trenger.
-  * (Valgfritt) Hvis `redirectUrl` skal benyttes, må denne URL-en være forhåndsregistrert på systemet ditt.
+  * (Valgfritt) Hvis `redirectUrl` skal benyttes, må denne URL-en være forhåndsregistrert på systemet ditt. Omdirigeringen skjer i nettleseren til den personen som godkjenner forespørselen — ikke nødvendigvis den som initierte den. Hvis en annen person (f.eks. en leder eller tilgangsstyrer) godkjenner via `confirmUrl`, er det denne personens nettleser som blir omdirigert. Anbefalt praksis er å bruke statusendepunktet til å følge opp om forespørselen er godkjent, i stedet for å basere flyten utelukkende på callback-URL.
   * (Valgfritt) Hvis du ønsker et spesifikt navn på systembrukeren som opprettes, kan `integrationTitle` settes. Hvis `integrationTitle` ikke er satt, vil systembrukeren få samme navn som systemet.
 
 1.  **Initier forespørsel:** Send en HTTP POST-forespørsel til API-endepunktet.
