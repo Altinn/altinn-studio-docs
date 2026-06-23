@@ -37,7 +37,7 @@ This component will not be made available to external parties but will only be u
 
 ## Migration of Service Configuration for Re-establishing a Service
 
-A function in Altinn Studio to let Service Owners manually migrate a Message service configuration was considered, following the pattern for [Migration of Linked Services](/en/authorization/guides/resource-owner/migrate/linked_services/).
+A function in Altinn Studio to let Service Owners manually migrate a Message service configuration was considered, ~following the pattern for [Migration of Linked Services]()~.
 
 This has unfortunately not been prioritized due to few reported services needing re-establishment and limited team capacity.
 
