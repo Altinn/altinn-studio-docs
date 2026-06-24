@@ -72,7 +72,7 @@ It is possible to add different keys in textResourceBindings:
 
 ## Visual grouping of components
 
-It is possible to visually group components together. This can be done by setting the `groupingIndicator` parameter to `indent` or `panel` on the group component.
+It is possible to visually group components together. This can be done by setting the `groupingIndicator` parameter to `indented` or `panel` on the group component.
 
 ### Panel
 
