@@ -1,0 +1,12 @@
+# API-endepunkter for tilgangspakker i Altinn Access Management.
+# Brukes av to filer:
+#   - layouts/shortcodes/accesspackages.html  (liste-siden)
+#   - content/.../tilgangspakke/_content.gotmpl (detaljsider)
+#
+# Export-endepunktet gir ferdig hierarki (gruppe → område → pakker), men uten
+# ressurser per pakke (resources: null). Brukes derfor kun til liste-visning.
+#
+# Search-endepunktet returnerer alle pakker med ressurser inkludert. Brukes
+# til å generere individuelle detaljsider der ressursene vises.
+exportUrl: "https://platform.altinn.no/accessmanagement/api/v1/meta/info/accesspackages/export"
+searchUrl: "https://platform.altinn.no/accessmanagement/api/v1/meta/info/accesspackages/search?searchInResources=false&simpleSearch=true&strict=false"

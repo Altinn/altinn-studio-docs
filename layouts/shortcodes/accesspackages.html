@@ -1,0 +1,211 @@
+{{- /*
+  Shortcode: accesspackages
+  Bruk: {{< accesspackages type="organisasjon" >}} eller {{< accesspackages type="person" >}}
+
+  Henter tilgangspakker fra Altinn Access Management API ved byggetid og rendrer
+  dem som søkbare accordion-grupper. Brukes på to sider:
+    - accessgroups/_index.nb.md / _index.en.md  (virksomheter)
+    - accessgroups-citizens/_index.nb.md / _index.en.md  (innbyggere)
+
+  Hvert pakkekort lenker til en detaljside generert av _content.gotmpl i samme seksjon.
+  Detaljsider finnes kun på nb – en-sider lenker til /nb/-varianten.
+  API-URLer konfigureres i data/accesspackages.yaml.
+*/ -}}
+{{- $typeParam := .Get "type" | lower -}}
+
+{{- /* Valider type-parameteren tidlig. Gyldige verdier: "organisasjon" eller "person". */ -}}
+{{- if not (or (eq $typeParam "organisasjon") (eq $typeParam "person")) -}}
+<div style="border:2px solid #dc2626;background:#fef2f2;padding:1rem;border-radius:8px;color:#991b1b">
+  <strong>Shortcode error:</strong> <code>type="{{ .Get "type" }}"</code> is not valid.
+  Use <code>type="organisasjon"</code> or <code>type="person"</code>.
+</div>
+{{- else -}}
+
+{{- $typeValue := cond (eq $typeParam "person") "Person" "Organisasjon" -}}
+{{- $id := printf "ap-%s" $typeParam -}}
+{{- $lang := site.Language.Lang -}}
+
+{{- /* Språkspesifikke UI-tekster */ -}}
+{{- $searchPlaceholder := "Søk etter tilgangspakke..." -}}
+{{- $openAll := "Åpne alle" -}}
+{{- $closeAll := "Lukk alle" -}}
+{{- $pkgSingular := " pakke" -}}
+{{- $pkgPlural := " pakker" -}}
+{{- $noResults := "Ingen tilgangspakker samsvarer med søket ditt." -}}
+{{- $apiError := "Access packages could not be loaded from the API." -}}
+{{- if eq $lang "en" -}}
+  {{- $searchPlaceholder = "Search for access package..." -}}
+  {{- $openAll = "Expand all" -}}
+  {{- $closeAll = "Collapse all" -}}
+  {{- $pkgSingular = " package" -}}
+  {{- $pkgPlural = " packages" -}}
+  {{- $noResults = "No access packages match your search." -}}
+{{- else -}}
+  {{- $apiError = "Kunne ikke laste tilgangspakker fra API-et." -}}
+{{- end -}}
+
+{{- /* API-URL hentes fra data/accesspackages.yaml via hugo.Data. Accept-Language-header gir oversatt innhold. */ -}}
+{{- $apiUrl := site.Data.accesspackages.exportUrl -}}
+{{- $reqOpts := dict -}}
+{{- if eq $lang "en" -}}
+  {{- $reqOpts = dict "headers" (dict "Accept-Language" "en") -}}
+{{- end -}}
+{{- $res := resources.GetRemote $apiUrl $reqOpts -}}
+{{- if $res -}}
+{{- $allGroups := $res | transform.Unmarshal -}}
+
+<div class="ap-root" id="{{ $id }}"
+  data-singular="{{ $pkgSingular }}"
+  data-plural="{{ $pkgPlural }}"
+>
+
+  <div class="ap-toolbar">
+    <div class="ap-search-wrap">
+      <svg class="ap-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input
+        type="search"
+        class="ap-search-input"
+        placeholder="{{ $searchPlaceholder }}"
+        aria-label="{{ $searchPlaceholder }}"
+        oninput="apSearch(this, '{{ $id }}')"
+      >
+    </div>
+    <div class="ap-toolbar-right">
+      <span class="ap-result-count" id="{{ $id }}-count" aria-live="polite"></span>
+      <button class="ap-expand-all" type="button" onclick="apExpandAll('{{ $id }}', true)">{{ $openAll }}</button>
+      <button class="ap-expand-all" type="button" onclick="apExpandAll('{{ $id }}', false)">{{ $closeAll }}</button>
+    </div>
+  </div>
+
+  {{- range $allGroups -}}
+  {{- if eq .type $typeValue -}}
+  <section class="ap-group">
+    <h3 class="ap-group-heading">{{ .name }}</h3>
+    {{- range .areas -}}
+    {{- if gt (len .packages) 0 -}}
+    <div class="ap-area">
+      <button
+        class="ap-area-btn"
+        type="button"
+        aria-expanded="false"
+        onclick="apToggle(this)"
+      >
+        {{- if .iconUrl -}}
+        <img src="{{ .iconUrl }}" alt="" class="ap-area-icon" width="22" height="22" loading="lazy">
+        {{- end -}}
+        <span class="ap-area-name">{{ .name }}</span>
+        <span class="ap-area-count" data-original="{{ len .packages }}">{{ len .packages }}</span>
+        <svg class="ap-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+      <div class="ap-packages-grid">
+        {{- range .packages -}}
+        {{- $slug := .urn | replaceRE "urn:altinn:accesspackage:" "" -}}
+        {{- /* Detaljsider genereres kun for nb (Hugo content adapter begrensning i enkelt-katalog-oppsett). */ -}}
+        {{- $detailURL := printf "/nb/authorization/what-do-you-get/accessgroups/tilgangspakke/%s/" $slug -}}
+        <a
+          class="ap-pkg"
+          href="{{ $detailURL }}"
+          data-name="{{ .name | lower | htmlEscape }}"
+          data-desc="{{ .description | lower | htmlEscape }}"
+        >
+          <div class="ap-pkg-header">
+            <strong class="ap-pkg-name">{{ .name }}</strong>
+            {{- if .isDelegable -}}
+            {{- $delegableLabel := cond (eq $lang "en") "Delegable" "Delegerbar" -}}
+            <span class="ap-badge ap-badge-delegable">{{ $delegableLabel }}</span>
+            {{- end -}}
+          </div>
+          <p class="ap-pkg-desc">{{ .description }}</p>
+          <code class="ap-pkg-urn">{{ .urn }}</code>
+        </a>
+        {{- end -}}
+      </div>
+    </div>
+    {{- end -}}
+    {{- end -}}
+  </section>
+  {{- end -}}
+  {{- end -}}
+
+  <p class="ap-no-results" id="{{ $id }}-noresults" hidden>
+    {{ $noResults }}
+  </p>
+</div>
+
+{{- else -}}
+<p>{{ $apiError }}</p>
+{{- end -}}
+
+{{- end -}}
+
+<script>
+(function() {
+  function apSearch(input, rootId) {
+    var term = input.value.toLowerCase().trim();
+    var root = document.getElementById(rootId);
+    var noResults = document.getElementById(rootId + '-noresults');
+    var countEl = document.getElementById(rootId + '-count');
+    var visibleTotal = 0;
+
+    root.querySelectorAll('.ap-area').forEach(function(area) {
+      var areaVisible = 0;
+
+      area.querySelectorAll('.ap-pkg').forEach(function(pkg) {
+        var name = pkg.dataset.name || '';
+        var desc = pkg.dataset.desc || '';
+        var match = !term || name.indexOf(term) !== -1 || desc.indexOf(term) !== -1;
+        pkg.hidden = !match;
+        if (match) { areaVisible++; visibleTotal++; }
+      });
+
+      var hasVisible = areaVisible > 0;
+      area.hidden = !!term && !hasVisible;
+
+      var countBadge = area.querySelector('.ap-area-count');
+      if (countBadge) {
+        countBadge.textContent = term ? areaVisible : countBadge.dataset.original;
+      }
+
+      if (term && hasVisible) {
+        var btn = area.querySelector('.ap-area-btn');
+        if (btn) btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+
+    /* Skjul gruppe-seksjoner der alle underliggende områder er filtrert bort. */
+    root.querySelectorAll('.ap-group').forEach(function(group) {
+      var hasVisibleArea = Array.from(group.querySelectorAll('.ap-area')).some(function(a) {
+        return !a.hidden;
+      });
+      group.hidden = !!term && !hasVisibleArea;
+    });
+
+    var singular = root.dataset.singular || ' package';
+    var plural = root.dataset.plural || ' packages';
+    countEl.textContent = term ? visibleTotal + (visibleTotal === 1 ? singular : plural) : '';
+    noResults.hidden = !(term && visibleTotal === 0);
+  }
+
+  function apToggle(btn) {
+    var expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+  }
+
+  function apExpandAll(rootId, expand) {
+    var root = document.getElementById(rootId);
+    root.querySelectorAll('.ap-area-btn').forEach(function(btn) {
+      if (!btn.closest('.ap-area[hidden]')) {
+        btn.setAttribute('aria-expanded', expand ? 'true' : 'false');
+      }
+    });
+  }
+
+  window.apSearch = apSearch;
+  window.apToggle = apToggle;
+  window.apExpandAll = apExpandAll;
+})();
+</script>
