@@ -64,6 +64,8 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`jmespath`](#func-jmespath) | Vilkårlig type, streng                                        | Liste, objekt, streng, tall, boolsk eller null | ❌        | ❌       |
 | [`list`](#func-list)         | Ubegrenset antall verdier                                     | Liste                                          | ❌        | ❌       |
 | [`object`](#func-object)     | Et partall antall verdier, hvor oddetallsverdiene er strenger | Objekt                                         | ❌        | ❌       |
+| [`sum`](#func-sum)           | Liste                                                         | Tall                                           | ✅        | ✅       |
+| [`average`](#func-average)   | Liste, tall                                                   | Tall                                           | ✅        | ✅       |
 
 ### Oppslag, komponenter og data
 
@@ -802,4 +804,49 @@ Dette eksemplet returnerer følgende liste:
 ["Ola", "Kari"]
 ```
 I dette eksemplet har vi hardkodet dataen ved hjelp av funksjonene [`list`](#func-list) og [`object`](#func-object), men dette kan også være data som kommer fra funksjoner som [`dataModel`](#func-datamodel) og [`component`](#func-component).
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-sum" header="sum" %}}
+Funksjonen `sum` returnerer summen av en liste med tall. `null` blir tolket som 0. Strenger blir konvertert til tall på samme måte som i andre funksjoner som aksepterer tall som parametre. Hvis listen inneholder verdier av andre typer eller strenger som ikke kan konverteres til tall, vil funksjonen feile.
+
+Eksempel:
+```json
+[
+  "sum",
+  ["list", 1, 2, 3]
+]
+```
+Dette eksemplet returnerer tallet `6`. Det gjør også dette:
+```json
+[
+  "sum",
+  ["list", "1", "2", "3"]
+]
+```
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-average" header="average" %}}
+Funksjonen `average` returnerer gjennomsnittet av en liste med tall. Den tar imot to parametre:
+1. Første parameter er listen med tall. I denne listen blir `null` tolket som 0, mens strenger blir konvertert til tall på samme måte som i andre funksjoner som aksepterer tall som parametre. Hvis listen inneholder verdier av andre typer eller strenger som ikke kan konverteres til tall, vil funksjonen feile.
+2. Andre parameter er en reserveverdi som funksjonen skal returnere dersom listen er tom. Denne verdien kan være `null` eller et tall.
+
+Eksempel:
+```json
+[
+  "average",
+  ["list", 2, 2, 7, 5],
+  null
+]
+```
+Dette uttrykket returnerer tallet `4`, som er gjennomsnittet av de oppgitte tallene. Hadde listen vært tom, ville det returnert `null`, som er reserveverdien.
+
+Det virker kanskje overflødig å spesifisere en reserveverdi når listen er hardkodet på denne måten. Da vet vi jo at den aldri er tom. Grunnen til at den må være der, er at listen kan være dynamisk, som i dette uttrykket:
+```json
+[
+  "average",
+  ["dataModel", "karakterer"],
+  0
+]
+```
+Her er det fullt mulig at datamodellfunksjonen returnerer en tom liste. Siden det ikke er mulig å beregne gjennomsnittet av en tom liste, må vi spesifisere hva funksjonen skal returnere i dette tilfellet. I dette eksemplet returnerer den `0`.
 {{% /expandlarge %}}
