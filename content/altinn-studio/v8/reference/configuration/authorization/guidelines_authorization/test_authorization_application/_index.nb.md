@@ -11,7 +11,8 @@ Dette kan få alvorlige konsekvenser for aktør og vil være å betrakte som en 
 
 ## Hva må testes?
 
-Ved testing er det viktig å gjennomføre både positive og negative tester, dvs at man verifiserer at ønskede brukere får tilgang og at andre IKKE får tilgang. 
+Ved testing er det viktig å gjennomføre både positive og negative tester, dvs at man verifiserer at ønskede brukere får 
+tilgang og at andre IKKE får tilgang. 
 
 Nedenfor har vi laget en liste over testsituasjoner som applikasjonsutvikler bør lage testscenario på og verifisere. 
 Vi anbefaler at man automatiserer disse testene på samme måte som annen app-testing. 
@@ -24,12 +25,16 @@ Vi anbefaler at man automatiserer disse testene på samme måte som annen app-te
   
 
 ## Dokumentasjon av manuell testing
-For å sikre tilstrekkelig kvalitet på test av autorisasjonsregler er det nødvendig med en systematisk tilnærming og dokumenterer testing ved å ha detaljerte test-skript. 
-Ved evt feil under testing eller senere er det viktig at man har god kontroll på hvilke brukere og akøtører som ble brukt og hvilke trinn i arbeidsprosessen som ble verifisert. 
+For å sikre tilstrekkelig kvalitet på test av autorisasjonsregler er det nødvendig med en systematisk tilnærming og 
+dokumenterer testing ved å ha detaljerte test-skript. 
+Ved evt feil under testing eller senere er det viktig at man har god kontroll på hvilke brukere og akøtører som ble 
+brukt og hvilke trinn i arbeidsprosessen som ble verifisert. 
 
 
 ## Testdata
-Det er mulig å benytte [testdata fra Tenor](https://www.skatteetaten.no/skjema/testdata/) i Altinn for å finne brukere med riktige roller for riktige aktører. 
+Det er mulig å benytte [testdata fra Tenor](https://www.skatteetaten.no/skjema/testdata/) i Altinn for å finne brukere 
+med riktige roller for riktige aktører. 
 
-Noen ganger kan det være utfordrende å finne til testdata som dekker ønskede testscenario avhengig av hvilke type aktører som benyttes (f eks bestemte organisasjonsformer) eller at man har tatt i bruk "uvanlige" eksterne roller. 
+Noen ganger kan det være utfordrende å finne til testdata som dekker ønskede testscenario avhengig av hvilke type aktører 
+som benyttes (f eks bestemte organisasjonsformer) eller at man har tatt i bruk "uvanlige" eksterne roller. 
 Ta kontakt med Altinn hvis du ikke finner passende testdata så kan vi lese inn testbrukere og -aktører tilpasset ditt behov. 
