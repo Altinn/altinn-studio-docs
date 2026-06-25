@@ -1,12 +1,15 @@
 ---
-title: Vergemål
-linktitle: Vergemal
-description: Altinn autorisasjon vil ta i bruk Sivilrettsforvaltningens inndeling av legitimasjoner for oppnevnte verger som ekstern autorisasjonskilde. De ulike legitimasjonene vil gi vergene fullmakt til å opptre på vegne av vergehaveren innefor de ulike områdene.
+title: Vergefullmakter
+linktitle: Vergefullmakter
+description: Oversikt over vergefullmaktene fra Sivilrettsforvaltningen og hva de gir verger tilgang til å gjøre på vegne av vergehaver.
 toc: true
 ---
 
-Vergemål oppnevnes av Statsforvalteren, og informasjon om verge, omfang og legitimasjoner lagres i Folkeregisteret. Altinn autorisasjon mottar informasjon om vergemål i overføringene fra FReg.
-For å gi verge fullmakt til å benytte en tjeneste eller ressurs, må tjenesteeier angi akuell(e) legitimasjon(er) i policy-filen til tjenesten.
+Sivilrettsforvaltningen definerer vergefullmaktene som angir hva en verge kan gjøre på vegne av vergehaver. Informasjon om vergemål, inkludert hvilke vergefullmakter som gjelder, lagres i Folkeregisteret. Altinn Autorisasjon henter informasjonen derfra.
+
+For å gi en verge tilgang til tjenesten din angir du aktuelle vergefullmakter i tilgangsreglene for tjenesten.
+
+Noen vergefullmakter krever at Statsforvalteren har gitt samtykke. Dette er en juridisk forutsetning som gjelder mellom verge og Statsforvalteren — det påvirker ikke hvordan du setter opp tilgangsreglene i tjenesten din.
 
 {{% expandlarge id="bank" header="Bank" %}}
 
@@ -228,10 +231,10 @@ Gjelder i forbindelse med avslutning av husleiekontrakter
 
 ### Salg av løsøre av større verdi
 
-Gjelder salg av løsøre av større verdi (herunder bil), usedvanlig karakter eller av spesiell interesse for deg eller din nærmeste familie - dette krever statsforvalterens samtykke
+Gjelder salg av løsøre av større verdi (herunder bil), usedvanlig karakter eller av spesiell interesse for vergehaver eller nærmeste familie — dette krever statsforvalterens samtykke
 
 ### Disponere inntekter til å dekke utgifter
 
-Gir adgang til å bruke dine inntekter til å betale regninger, betjene gjeld, og dekke øvrige utgifter.
+Gir verge adgang til å bruke vergehavers inntekter til å betale regninger, betjene gjeld og dekke øvrige utgifter.
 
 {{% /expandlarge %}}

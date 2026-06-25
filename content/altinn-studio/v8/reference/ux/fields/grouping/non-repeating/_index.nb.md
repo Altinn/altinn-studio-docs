@@ -14,7 +14,7 @@ eller via skjemaeditor i Atinn Studio ved å bruke Gruppe-komponenten.
 Noen punkter å notere seg ved manuelt oppsett:
 
 - Gruppen må ligge _før_ ev. komponenter som skal inngå i gruppen i FormLayout.json.
-- En gruppe _MÅ_ ha `type: "group"` satt for at den skal registreres som en gruppe
+- En gruppe _MÅ_ ha `type: "Group"` satt for at den skal registreres som en gruppe
 
 Eksempel på en (repeterende) gruppe definert i `FormLayout.json` som inneholder 4 felter som kan repetere 3 ganger:
 En gruppe defineres på følgende måte i FormLayout.json:
@@ -22,7 +22,7 @@ En gruppe defineres på følgende måte i FormLayout.json:
 ```json {hl_lines=[3,"8-12"]}
 {
   "id": "<unik-id>",
-  "type": "group",
+  "type": "Group",
   "dataModelBindings": {
     "group": "<gruppen i datamodellen (kun repeterende grupper)>"
   },
@@ -65,7 +65,7 @@ Det er mulig å legge til ulike nøkler i textResourceBindings:
 
 ## Visuell gruppering av komponenter
 
-Det er mulig å sette opp en gruppe slik at komponentene i gruppen vises visuelt som en gruppe. Dette gjøres ved å sette `groupingIndicator` til `indent` eller `panel` på gruppen.
+Det er mulig å sette opp en gruppe slik at komponentene i gruppen vises visuelt som en gruppe. Dette gjøres ved å sette `groupingIndicator` til `indented` eller `panel` på gruppen.
 
 ### Panel
 
