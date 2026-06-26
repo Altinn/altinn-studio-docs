@@ -26,8 +26,6 @@ Avhengig av din bruk må du velge de scopene som er relevant for deg. I tabellen
 | altinn:authentication/systemregister | Tilgang til systemregisteret | For systemtilbydere som trenger å administrere oppføringer i systemregisteret |
 | altinn:authorization/authorize       | Access to PDP endepunkt      | For organisasajoner som trenger tilgang til autorisasjon                      |
 
-For en liste over eldre scopes kan du referere til [Altinn 2 dokumentasjonen](https://altinn.github.io/docs/api/rest/kom-i-gang/scopes/).
-
 ## Autentisering
 
 En detaljert beskrivelse av hvordan du autentiserer klienten din med et JWT Grant, finner du [her](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument).

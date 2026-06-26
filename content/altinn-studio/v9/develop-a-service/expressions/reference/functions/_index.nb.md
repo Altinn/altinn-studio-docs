@@ -65,9 +65,9 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 
 | Funksjonsnavn                | Parametre                                                     | Returverdi                                     | Frontend | Backend |
 |------------------------------|---------------------------------------------------------------|------------------------------------------------|----------|---------|
-| [`jmespath`](#func-jmespath) | Vilkårlig type, streng                                        | Liste, objekt, streng, tall, boolsk eller null | ❌        | ❌       |
-| [`list`](#func-list)         | Ubegrenset antall verdier                                     | Liste                                          | ❌        | ❌       |
-| [`object`](#func-object)     | Et partall antall verdier, hvor oddetallsverdiene er strenger | Objekt                                         | ❌        | ❌       |
+| [`jmespath`](#func-jmespath) | Vilkårlig type, streng                                        | Liste, objekt, streng, tall, boolsk eller null | ✅        | ✅       |
+| [`list`](#func-list)         | Ubegrenset antall verdier                                     | Liste                                          | ✅        | ✅       |
+| [`object`](#func-object)     | Et partall antall verdier, hvor oddetallsverdiene er strenger | Objekt                                         | ✅        | ✅       |
 
 ### Oppslag, komponenter og data
 
