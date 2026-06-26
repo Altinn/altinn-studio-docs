@@ -793,9 +793,9 @@ Eksempel:
 ```
 Dette eksemplet gir tallverdien `2.2`.
 
-Vær oppmerksom på at tallet 0 ikke er gyldig som divisor.
-
 Dersom `null` sendes inn som argument, tolker funksjonen dette som `0`.
+
+Vær oppmerksom på at tallet 0 ikke er gyldig som divisor.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-list" header="list" %}}
