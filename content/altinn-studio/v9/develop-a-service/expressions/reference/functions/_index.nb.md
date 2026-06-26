@@ -748,54 +748,102 @@ Uttrykket over henter ut teksten til svaralternativet (hvis brukt i filtrering a
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-plus" header="plus" %}}
-Funksjonen `plus` returnerer summen av de oppgitte tallene.
+Funksjonen `plus` returnerer summen av de oppgitte tallene. Den kan ta imot et ubegrenset antall ledd.
 
 Eksempel:
 ```json
-["plus", 22, 9.2]
+["plus", 1, 2]
 ```
-Dette eksemplet gir tallverdien `31.2`.
+Dette eksemplet gir tallverdien `3`.
 
-Dersom `null` sendes inn som argument, tolker funksjonen dette som `0`.
+Verdien `null` blir tolket som `0`.
+
+Her er noen flere eksempler som viser gyldige kombinasjoner av parametre:
+
+| Uttrykk                      | Resultat |
+|------------------------------|----------|
+| `["plus", 22, 9.2]`          | `31.2`   |
+| `["plus", 22, 9.2, 8.5, -3]` | `36.7`   |
+| `["plus", 0, 3]`             | `3`      |
+| `["plus", null, 3]`          | `3`      |
+| `["plus", 3, null]`          | `3`      |
+| `["plus", "22", "9.2"]`      | `31.2`   |
+
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-minus" header="minus" %}}
-Funksjonen `minus` returnerer differansen mellom to tall,
-hvor det første tallet er minuenden og det andre er subtrahenden.
+Funksjonen `minus` returnerer differansen mellom to tall. Den trekker det andre tallet (subtrahenden) fra det første (minuenden).
 
 Eksempel:
 ```json
-["minus", 22, 9.2]
+["minus", 2, 1]
 ```
-Dette eksemplet gir tallverdien `12.8`.
+Dette eksemplet gir tallverdien `1`.
 
-Dersom `null` sendes inn som argument, tolker funksjonen dette som `0`.
+Verdien `null` blir tolket som `0`.
+
+Her er noen flere eksempler som viser gyldige kombinasjoner av parametre:
+
+| Uttrykk                  | Resultat |
+|--------------------------|----------|
+| `["minus", 22, 9.2]`     | `12.8`   |
+| `["minus", 9.2, 22]`     | `-12.8`  |
+| `["minus", 0, 3]`        | `-3`     |
+| `["minus", null, 3]`     | `-3`     |
+| `["minus", 3, null]`     | `3`      |
+| `["minus", "22", "9.2"]` | `12.8`   |
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-multiply" header="multiply" %}}
-Funksjonen `multiply` returnerer produktet av de oppgitte tallene.
+Funksjonen `multiply` returnerer produktet av de oppgitte tallene. Den kan ta imot et ubegrenset antall faktorer.
 
 Eksempel:
 ```json
-["multiply", 22, 10]
+["multiply", 2, 3]
 ```
-Dette eksemplet gir tallverdien `220`.
+Dette eksemplet gir tallverdien `6`.
 
-Dersom `null` sendes inn som argument, tolker funksjonen dette som `0`.
+Verdien `null` blir tolket som `0`. Det vil si at hvis ett eller flere av parametrene er `null`, så returnerer funksjonen `0`, siden produktet alltid blir 0 når minst én av faktorene er 0.
+
+Her er noen flere eksempler som viser gyldige kombinasjoner av parametre:
+
+| Uttrykk                        | Resultat |
+|--------------------------------|----------|
+| `["multiply", 22, 10]`         | `220`    |
+| `["multiply", -22, 10]`        | `-220`   |
+| `["multiply", 22, 10, 0.2, 8]` | `352`    |
+| `["multiply", 0, 3]`           | `0`      |
+| `["multiply", null, 3]`        | `0`      |
+| `["multiply", 3, null]`        | `0`      |
+| `["multiply", "22", "10"]`     | `220`    |
+
+
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-divide" header="divide" %}}
-Funksjonen `divide` returnerer kvotienten av to tall, hvor det første tallet er dividenden og det andre er divisoren.
+Funksjonen `divide` returnerer kvotienten av to tall. Den deler det første tallet (dividenden) på det andre (divisoren).
 
 Eksempel:
 ```json
-["divide", 22, 10]
+["divide", 6, 3]
 ```
-Dette eksemplet gir tallverdien `2.2`.
+Dette eksemplet gir tallverdien `2`.
 
-Dersom `null` sendes inn som argument, tolker funksjonen dette som `0`.
+Tallet 0 ikke er ikke gyldig som divisor.
 
-Vær oppmerksom på at tallet 0 ikke er gyldig som divisor.
+Verdien `null` blir tolket som `0`. Det vil si at når første parameter er `null`, returnerer funksjonen `0`, siden en divisjon alltid vil gjøre det når dividenden er `0`. Når andre parameter er `null`, feiler funksjonen på samme måte som med tallet `0` som divisor.
+
+Her er noen flere eksempler som viser gyldige kombinasjoner av parametre:
+
+| Uttrykk                  | Resultat |
+|--------------------------|----------|
+| `["divide", 22, 10]`     | `2.2`    |
+| `["divide", -22, 10]`    | `-2.2`   |
+| `["divide", 22, 0.1]`    | `220`    |
+| `["divide", 0, 3]`       | `0`      |
+| `["divide", null, 3]`    | `0`      |
+| `["divide", "22", "10"]` | `2.2`    |
+
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-list" header="list" %}}
