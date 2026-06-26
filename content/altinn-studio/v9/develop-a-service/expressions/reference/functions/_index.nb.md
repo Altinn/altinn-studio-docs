@@ -829,7 +829,7 @@ Eksempel:
 ```
 Dette eksemplet gir tallverdien `2`.
 
-Tallet 0 ikke er ikke gyldig som divisor.
+Tallet 0 er ikke gyldig som divisor.
 
 Verdien `null` blir tolket som `0`. Det vil si at når første parameter er `null`, returnerer funksjonen `0`, siden en divisjon alltid vil gjøre det når dividenden er `0`. Når andre parameter er `null`, feiler funksjonen på samme måte som med tallet `0` som divisor.
 
