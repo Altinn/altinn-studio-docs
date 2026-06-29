@@ -82,9 +82,9 @@ Hvis du ikke spesifiserer et *typeFilter*, vil du motta alle forskjellige typer 
 `*` Hendelse er foreldet og vil bli fjernet, se tabellen under for en passende erstatning.
 
 
-**Deprecated events for service owners:**
+**Hendelser som er foreldet :**
 
-| Event | Use instead |
+| Hendelse | Bruk heller |
 |-------|------|
 | `no.altinn.correspondence.correspondencepublished` | Bruk correspondencepublished hendelsen som gjelder for mottaker. |
 
