@@ -84,7 +84,7 @@ Hvis du ikke spesifiserer et *typeFilter*, vil du motta alle forskjellige typer 
 
 **Hendelser som er foreldet :**
 
-| Hendelse | Bruk heller |
+| Hendelse | Bruk i stedet |
 |-------|------|
 | `no.altinn.correspondence.correspondencepublished` | Bruk correspondencepublished hendelsen som gjelder for mottaker. |
 
