@@ -64,6 +64,7 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`jmespath`](#func-jmespath) | Vilkårlig type, streng                                        | Liste, objekt, streng, tall, boolsk eller null | ✅        | ✅       |
 | [`list`](#func-list)         | Ubegrenset antall verdier                                     | Liste                                          | ✅        | ✅       |
 | [`object`](#func-object)     | Et partall antall verdier, hvor oddetallsverdiene er strenger | Objekt                                         | ✅        | ✅       |
+| [`count`](#func-count)       | Liste                                                         | Tall                                           | ✅        | ✅       |
 | [`sum`](#func-sum)           | Liste                                                         | Tall                                           | ✅        | ✅       |
 | [`average`](#func-average)   | Liste, tall                                                   | Tall                                           | ✅        | ✅       |
 
@@ -804,6 +805,27 @@ Dette eksemplet returnerer følgende liste:
 ["Ola", "Kari"]
 ```
 I dette eksemplet har vi hardkodet dataen ved hjelp av funksjonene [`list`](#func-list) og [`object`](#func-object), men dette kan også være data som kommer fra funksjoner som [`dataModel`](#func-datamodel) og [`component`](#func-component).
+{{% /expandlarge %}}
+
+{{% expandlarge id="func-count" header="count" %}}
+Funksjonen `count` returnerer antallet elementer i en liste.
+
+Eksempel:
+```json
+[
+  "count",
+  ["list", 1, 2, 3, 4]
+]
+```
+Dette uttrykket returnerer tallet `4`, siden det er fire elementer i listen.
+
+Funksjonen fungerer med alle typer lister. `null`-verdier blir også regnet med. Her er et eksempel som også returnerer `4`:
+```json
+[
+  "count",
+  ["list", "Ola", "Kari", "Knut", null]
+]
+```
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-sum" header="sum" %}}
