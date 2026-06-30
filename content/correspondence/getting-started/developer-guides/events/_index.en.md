@@ -68,7 +68,7 @@ If you do not specify a Type Filter you will receive all the different types of 
 | `no.altinn.correspondence.attachmentuploadfailed` | Attachment failed malware scanning | Notification that the attachment has been rejected |
 | `no.altinn.correspondence.attachmentexpired` | Attachment expiration time has passed, it is no longer available to the recipient and cannot be used in new correspondences | Confirmation that attachment has expired |
 | `no.altinn.correspondence.correspondenceinitialized` | Correspondence has been initialized | Confirmation that correspondence has been initialized |
-| `no.altinn.correspondence.correspondencepublished` | Correspondence has been published and is available to the recipient | Confirmation and notification that correspondence has been successfully published |
+| `no.altinn.correspondence.correspondencepublished` * | Correspondence has been published and is available to the recipient | Confirmation and notification that correspondence has been successfully published |
 | `no.altinn.correspondence.correspondencepurged` | Correspondence has either been purged by the recipient after publishing, or by the service owner before publishing | Notification that correspondence has been purged |
 | `no.altinn.correspondence.correspondencepublishfailed` | Correspondence publish failed | Notification that correspondence failed before publish and will not be made available to the recipient |
 | `no.altinn.correspondence.notificationcreated` | Notification order has been created in Altinn Notification | Confirmation that notification has been ordered |
@@ -77,6 +77,15 @@ If you do not specify a Type Filter you will receive all the different types of 
 | `no.altinn.correspondence.correspondencenotificationallfailed` | Delivery to all notification addresses failed — recipient was not notified | Notification that the recipient was not successfully notified. Consider follow-up |
 | `no.altinn.correspondence.correspondencenotificationdelivered` | The initial notification has been confirmed delivered | Confirmation that recipient has been notified |
 | `no.altinn.correspondence.correspondencenotificationreminderdelivered` | The reminder notification has been confirmed delivered | Confirmation that reminder has been sent |
+
+`*` Event is deprecated and will be removed, refer to table below for appropriate replacement.
+
+
+**Deprecated events for service owners:**
+
+| Event | Use instead |
+|-------|------|
+| `no.altinn.correspondence.correspondencepublished` | Use the correspondencepublished event for recipients. |
 
 **For each recipient:**
 
