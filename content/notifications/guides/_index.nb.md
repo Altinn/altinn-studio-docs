@@ -16,7 +16,7 @@ I mellomtiden gjelder eksisterende retningslinjer for sending av varsler gjennom
 
 #### Hvordan ser et varsel ut?
 
-Sluttbrukerne kan få varsel på SMS, e-post eller begge deler. Dette bestemmes av hva slags adresseinformasjon sluttbrukerne har registrert i sin profil i Altinn, men tjenesteeier har også mulighet til overstyre dette.
+Sluttbrukerne kan få varsel på SMS, e-post eller begge deler. Dette bestemmes av hva slags adresseinformasjon sluttbrukerne har registrert i sin profil i Altinn, men tjenesteeier har også mulighet til å overstyre dette.
 
 {{% notice info %}} **Varselet bør inneholde:** 
 - beskrivelse av oppgaven, 
@@ -27,7 +27,7 @@ Sluttbrukerne kan få varsel på SMS, e-post eller begge deler. Dette bestemmes 
 #### Hva skal et varsel ikke inneholde? 
 Phishing utgjør en stadig større trussel mot IT-sikkerhet. I retningslinjene fra myndighetene for å unngå svindel står følgende: *Vær obs på lenker i SMS som ber deg logge på med BankID. Banken din eller andre seriøse aktører sender aldri ut påloggingslenker til BankID i SMS.* 
 
-Vær derfor spesielt oppmerksom på at varslinger som sendes ut via Altinns varslingstjeneste **IKKE skal inneholde lenke eller formuleringer som skal minne om en lenke,** f eks altinn.no eller minetat.no. I slike tilfeller vil "Altinns nettside», «våre nettsider» eller lignende være riktig formulering å bruke. 
+Vær derfor spesielt oppmerksom på at varslinger som sendes ut via Altinns varslingstjeneste **IKKE skal inneholde lenke eller formuleringer som skal minne om en lenke,** f. eks. altinn.no eller minetat.no. I slike tilfeller vil «Altinns nettside», «våre nettsider» eller lignende være riktig formulering å bruke. 
 
 ### Opprette en ny Maskinporten-klient
 
