@@ -51,6 +51,8 @@ Denne operasjonen initialiserer en filoverføring og laster opp filen i en og sa
 
 Last opp fildataene som en strøm ved hjelp av FileTransferId mottatt i InitialiserFileTransfer.
 
+For store filer eller ustabile nettverk bør du bruke [TUS-opplasting](/nb/broker/reference/tus/) i stedet.
+
 **Forespørsel**: FileTransferID spesifisert i URLen, og dataene som en strøm.
 
 **Return**: HTTP 200 hvis vellykket fullført.
@@ -62,6 +64,14 @@ Last opp fildataene som en strøm ved hjelp av FileTransferId mottatt i Initiali
   - Hvis skadelig programvare ble oppdaget, blir hendelsen [uploadfailed](#event-uploadfailed) i stedet publisert.
 
 **Eksempel**: 'File Transfer\{fileTransferId}\Upload' i vår [Bruno-pakke](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru)
+
+## Operasjon: Last opp med TUS {#operation-upload-tus}
+
+**Endepunkt:** `/broker/api/v1/filetransfer/upload/tus/{fileTransferId}`
+
+Last opp fildata med [TUS-protokollen](https://tus.io/). Initialiser filoverføringen først, og opprett og fullfør TUS-opplastingen på denne URL-en.
+
+Se [TUS-referansedokumentasjonen](/nb/broker/reference/tus/) for full opplastingsflyt, påkrevde headere og anbefalte klientbiblioteker.
 
 ## Operasjon: Hent Filoverføringsoversikt {#operation-get-filetransfer-overview}
 

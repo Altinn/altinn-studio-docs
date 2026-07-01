@@ -43,6 +43,7 @@ but relies om End User System GUIs._
 **Interfaces for runtime operation:**
 
 - API for individual file transfers, including upload, download and status monitoring
+- [TUS resumable upload](/en/broker/reference/tus/) for large files and unreliable networks
 
 **Interfaces for historical data and statistics:**
 
@@ -172,7 +173,7 @@ The following ... TBD ..
 
 1. Failing upload
 2. Failing download
-3. Resuming a failed upload
+3. Resuming a failed upload — use [TUS resumable upload](/en/broker/reference/tus/)
 4. Resuming a failed download
 
 ### Other scenarios
