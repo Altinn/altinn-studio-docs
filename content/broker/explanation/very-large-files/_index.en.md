@@ -11,6 +11,8 @@ Broker is restricted to files up to 50 GB by default. This is due to restriction
 
 The theoretical maximum size is 1.6TB, but we only regularly benchmark it to 100GB. We can make changes to accomodate larger files than 1.6TB if needed.
 
+For large files that take a long time to transfer, we recommend [TUS uploads](/broker/reference/tus/). TUS splits the upload into short requests and lets you resume after network interruptions.
+
 # How to break the 50GB limit
 
 1. Contact us [@Slack#team-formidling](https://digdir-samarbeid.slack.com/archives/C06982E0UGH) for pre-approval.

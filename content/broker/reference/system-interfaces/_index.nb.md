@@ -43,6 +43,7 @@ men overlater dette til sluttbrukersystemene._
 **Grensesnitt for kjøretidsoperasjoner:**
 
 - API for individuelle filoverføringer, inkludert opplasting, nedlasting og statusovervåking
+- [TUS-opplasting](/broker/reference/tus/) for store filer og ustabile nettverk
 
 **Grensesnitt for historiske data og statistikk:**
 
