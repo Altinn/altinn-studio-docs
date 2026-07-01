@@ -77,7 +77,8 @@ DELETE  /broker/api/v1/filetransfer/upload/tus/{fileTransferId}
 Det er vanskelig å implementere TUS-protokollen manuelt uten feil. Bruk et TUS-klientbibliotek i stedet, for eksempel:
 
 - [tus-js-client](https://github.com/tus/tus-js-client) (JavaScript)
-- [tus-dotnet-client](https://github.com/Jon-Indico/TusDotNetClient) (.NET)
+- [Referanse-implementasjon](https://github.com/Altinn/altinn-broker/blob/main/tests/Altinn.Broker.Tests.LargeFile/TusUploader.cs) (.NET)
+- [tus-java-client](https://github.com/tus/tus-java-client) (Java)
 
 Pek klienten mot `/broker/api/v1/filetransfer/upload/tus/{fileTransferId}` og send samme Bearer-token som for andre Broker API-kall.
 
@@ -88,18 +89,8 @@ Pek klienten mot `/broker/api/v1/filetransfer/upload/tus/{fileTransferId}` og se
 - **Nedlasting** er ikke tilgjengelig via TUS. Mottakere laster ned filer via [standard nedlastingsendepunkt](/nb/broker/getting-started/developer-guides/receive-files/).
 - **Ufullstendige opplastinger** fjernes etter 24 timer uten aktivitet.
 
-## Konfigurasjon av reverse proxy
-
-TUS krever ikke HTTP-tilkoblinger som varer i timevis. Hver `PATCH` er en kort forespørsel. Konfigurer proxyen til å tillate
-
-- forespørselsstørrelse minst like stor som delstørrelsen (for eksempel 32 MiB pluss overhead)
-- moderate tidsavbrudd for inaktivitet (minutter, ikke timer)
-
-Hvis du fortsatt bruker strømmeendepunktet, kan du trenge lengre tidsavbrudd for den stien.
-
 ## Relatert dokumentasjon
 
 - [Veiledning for avsender — initialiser og last opp](/nb/broker/getting-started/developer-guides/send-files/)
 - [Store filer](/nb/broker/explanation/very-large-files/)
-- [Hendelser](/nb/broker/getting-started/developer-guides/events/)
 - [OpenAPI-spesifikasjon](/nb/api/broker/spec/)

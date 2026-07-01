@@ -77,7 +77,8 @@ DELETE  /broker/api/v1/filetransfer/upload/tus/{fileTransferId}
 Implementing the TUS protocol by hand is error-prone. Use a TUS client library instead, for example:
 
 - [tus-js-client](https://github.com/tus/tus-js-client) (JavaScript)
-- [tus-dotnet-client](https://github.com/Jon-Indico/TusDotNetClient) (.NET)
+- [Reference implementation](https://github.com/Altinn/altinn-broker/blob/main/tests/Altinn.Broker.Tests.LargeFile/TusUploader.cs) (.NET)
+- [tus-java-client](https://github.com/tus/tus-java-client) (Java)
 
 Point the client at `/broker/api/v1/filetransfer/upload/tus/{fileTransferId}` and pass the same Bearer token you use for other Broker API calls.
 
@@ -88,18 +89,8 @@ Point the client at `/broker/api/v1/filetransfer/upload/tus/{fileTransferId}` an
 - **Downloads** are not available via TUS. Recipients download files through the [standard download endpoint](/en/broker/getting-started/developer-guides/receive-files/).
 - **Incomplete uploads** are removed after 24 hours without activity.
 
-## Reverse proxy configuration
-
-TUS does not require multi-hour HTTP connections. Each `PATCH` is a short request. Configure your proxy to allow:
-
-- request body size at least as large as your chunk size (for example 32 MiB plus overhead)
-- moderate idle timeouts (minutes, not hours)
-
-If you still use the streaming upload endpoint, you may need longer timeouts for that path.
-
 ## Related documentation
 
 - [Guide for sender — initialize and upload](/en/broker/getting-started/developer-guides/send-files/)
 - [Large files](/en/broker/explanation/very-large-files/)
-- [Events](/en/broker/getting-started/developer-guides/events/)
 - [OpenAPI specification](/en/api/broker/spec/)
