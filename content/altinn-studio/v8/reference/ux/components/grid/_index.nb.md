@@ -138,7 +138,7 @@ weight: 10
 
 ## Konfigurasjon
 
-Grid-komponenten konfigureres som alle andre, men krever en konfigurasjon for rader og celler. For å starte med en
+Grid-komponenten krever en konfigurasjon for rader og celler. For å starte med en
 2x2 Grid med to kolonner og to rader, kan vi bruke følgende konfigurasjon:
 
 ```json
@@ -165,6 +165,9 @@ Grid-komponenten konfigureres som alle andre, men krever en konfigurasjon for ra
 Hver celle må være enten et objekt med en `text`-egenskap (for tekstceller), et objekt med en `component`-egenskap
 (refererer til andre komponenter), et objekt med en `labelFrom`-egenskap (tekstcelle som refererer til andre komponenter) eller `null` (for en tom celle). Hver rad må ha samme antall celler som alle andre
 rader.
+
+Legg spesielt merke til at mobilvisningen av Grid bare viser komponentene. Det er viktig å være oppmerksom på at
+komponentene i cellene derfor må fungere frittstående også. [Les mer om dette i fallgruver nedenfor](#fallgruver).
 
 ### Rader
 For noen rader, vanligvis den første, kan du konfigurere en overskriftsrad. For å gjøre dette, legg til
@@ -295,9 +298,89 @@ Eksempel:
 
 Grid-visningen av enkeltkomponenter er nyttig for å gi brukeren bedre oversikt over innholdet i en side og relaterte
 felter når skjermen er stor nok. En slik tabellvisning er derimot ikke optimal for mindre skjermer, derfor vil
-Grid-komponenten automatisk vise enkeltkomponentene (som om de ikke var del av en Grid) på mindre skjermer. Rekkefølgen
-til komponentene blir den samme som rekkefølgen til radene og cellene i Grid-konfigurasjonen (en og en rad av gangen),
-og rekkefølgen til enkeltkomponentene slik de er definert i layout-konfigurasjonen har ingen betydning.
+Grid-komponenten automatisk vise enkeltkomponentene (som om de ikke var del av en Grid) på mindre skjermer. Tekstceller og
+celler som bruker `labelFrom` vises ikke på mobil. Rekkefølgen til komponentene blir den samme som rekkefølgen til
+radene og cellene i Grid-konfigurasjonen (en og en rad av gangen). Rekkefølgen til enkeltkomponentene slik de er
+definert i layout-konfigurasjonen, har derfor ingen betydning.
 
 Det samme gjelder også for visning av en Grid-komponent i [et sammendrag](/nb/altinn-studio/v8/reference/ux/pages/summary/), hvor de samme
-komponentene referert til i Grid vil vises som sammendrag av enkeltkomponenter.
+komponentene referert til i Grid vil vises som sammendrag av enkeltkomponenter, uten visning av tekst-celler og `labelFrom`-celler.
+
+## Fallgruver
+
+Når du konfigurerer Grid-komponenten, kan det ved første øyekast se riktig ut å dele ledetekst og komponenter i
+ulike celler. På en stor skjerm vil dette se riktig ut, men det gir uventet oppførsel på mobil og ved bruk av
+skjermleser.
+
+Som et eksempel, her er en vanlig fallgruve for Grid-konfigurasjonen:
+
+```json
+[
+  {
+    "id": "grid-example",
+    "type": "Grid",
+    "textResourceBindings": {
+      "title": "Innrapportering av verdier",
+      "description": "Staten ønsker å vite om alt det verdifulle du har samlet på."
+    },
+    "rows": [
+      {
+        "header": true,
+        "cells": [
+          { "text": "Verdisak" },
+          { "text": "Antall" }
+        ]
+      },
+      {
+        "cells": [
+          { "text": "Frimerker" },
+          { "component": "antall-frimerker" }
+        ]
+      },
+      {
+        "cells": [
+          { "text": "10-øringer" },
+          { "component": "antall-10oringer" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "antall-frimerker",
+    "type": "Input",
+    "dataModelBindings": {
+      "simpleBinding": "Verdisaker.Frimerker.Antall"
+    },
+    "textResourceBindings": {
+      "title": "Antall"
+    }
+  },
+  {
+    "id": "antall-10oringer",
+    "type": "Input",
+    "dataModelBindings": {
+      "simpleBinding": "Verdisaker.10Oringer.Antall"
+    },
+    "textResourceBindings": {
+      "title": "Antall"
+    }
+  }
+]
+```
+
+I skjermbildet av denne konfigurasjonen vil det se riktig ut på en stor skjerm:
+
+![Eksempel på stor skjerm](bad-example-desktop.png "Tabell med spørsmål og svar")
+
+I dette eksempelet vil en bruker som navigerer til svarfeltet med en skjermleser, bare få opplest teksten "Antall",
+uten å få vite hva feltet gjelder. Dette blir også tydelig på en mindre skjerm:
+
+![Eksempel på mindre skjerm](bad-example-mobile.png "Komponentoppstilling med bare svar")
+
+I mobilvisningen ser du bare komponentene. Tekstcellene vises ikke, og informasjonen i dem faller derfor bort for
+mobilbrukere.
+
+Du kan løse problemet på to måter:
+
+1. Hvis teksten i cellen og ledeteksten for komponenten kan være den samme, bruker du en mer beskrivende ledetekst på komponenten og `labelFrom` i stedet for `text` i cellen.
+2. Hvis du vil ha ulik tekst i cellen og som ledetekst på komponenten, kan du fortsette å bruke `text`. Sørg for at ledeteksten og beskrivelsen på komponenten også gir all informasjonen brukeren trenger for å fylle ut feltet.
