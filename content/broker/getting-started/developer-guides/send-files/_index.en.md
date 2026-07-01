@@ -51,7 +51,7 @@ This operation initializes a file transfer and uploads the file in one and the s
 
 Upload the file data as a stream using the FileTransferId received in InitializeFileTransfer.
 
-For large files or unreliable networks, use [TUS resumable upload](/broker/reference/tus/) instead.
+For large files or unreliable networks, use [TUS resumable upload](/en/broker/reference/tus/) instead.
 
 **Request**: FileTransferID specified in url, and the data as a stream.
 
@@ -71,7 +71,7 @@ For large files or unreliable networks, use [TUS resumable upload](/broker/refer
 
 Upload file data using the [TUS protocol](https://tus.io/). Initialize the file transfer first, then create and complete the TUS upload on this URL.
 
-See the [TUS reference documentation](/broker/reference/tus/) for the full upload flow, required headers, and client library recommendations.
+See the [TUS reference documentation](/en/broker/reference/tus/) for the full upload flow, required headers, and client library recommendations.
 
 ## Operation: Get FileTransfer Overview {#operation-get-filetransfer-overview}
 

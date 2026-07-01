@@ -51,7 +51,7 @@ Denne operasjonen initialiserer en filoverføring og laster opp filen i en og sa
 
 Last opp fildataene som en strøm ved hjelp av FileTransferId mottatt i InitialiserFileTransfer.
 
-For store filer eller ustabile nettverk bør du bruke [TUS-opplasting](/broker/reference/tus/) i stedet.
+For store filer eller ustabile nettverk bør du bruke [TUS-opplasting](/nb/broker/reference/tus/) i stedet.
 
 **Forespørsel**: FileTransferID spesifisert i URLen, og dataene som en strøm.
 
@@ -71,7 +71,7 @@ For store filer eller ustabile nettverk bør du bruke [TUS-opplasting](/broker/r
 
 Last opp fildata med [TUS-protokollen](https://tus.io/). Initialiser filoverføringen først, og opprett og fullfør TUS-opplastingen på denne URL-en.
 
-Se [TUS-referansedokumentasjonen](/broker/reference/tus/) for full opplastingsflyt, påkrevde headere og anbefalte klientbiblioteker.
+Se [TUS-referansedokumentasjonen](/nb/broker/reference/tus/) for full opplastingsflyt, påkrevde headere og anbefalte klientbiblioteker.
 
 ## Operasjon: Hent Filoverføringsoversikt {#operation-get-filetransfer-overview}
 

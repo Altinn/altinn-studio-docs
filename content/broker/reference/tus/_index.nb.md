@@ -9,7 +9,7 @@ weight: 35
 
 Altinn Formidling støtter [TUS](https://tus.io/) for gjenopptakbar opplasting av store filer. TUS deler opplastingen i mange korte HTTP-forespørsler. Hvis tilkoblingen brytes kan klienten fortsette fra siste vellykkede offset i stedet for å starte på nytt.
 
-For mindre filer og enkle integrasjoner er [strømmeopplasting](/broker/getting-started/developer-guides/send-files/#operation-uploadstreamed) det beste valget.
+For mindre filer og enkle integrasjoner er [strømmeopplasting](/nb/broker/getting-started/developer-guides/send-files/#operation-uploadStreamed) det beste valget.
 
 ## Når du bør bruke TUS
 
@@ -21,20 +21,20 @@ Bruk TUS når du trenger å
 
 Strømmeendepunktet sender hele filen i én forespørsel. Det fungerer godt for mindre filer, men lange tilkoblinger avsluttes ofte av lastbalanserere eller reverse proxy.
 
-Se også [Store filer](/broker/explanation/very-large-files/) for størrelsesgrenser og viruskanning over 50 GB.
+Se også [Store filer](/nb/broker/explanation/very-large-files/) for størrelsesgrenser og viruskanning over 50 GB.
 
 ## Forutsetninger
 
 TUS-opplasting bruker samme autorisasjon som andre avsenderoperasjoner. Du trenger et Maskinporten-token med scope `altinn:broker.write`.
 
-Før opplasting må du [initialisere filoverføringen](/broker/getting-started/developer-guides/send-files/#operation-initialize-filetransfer). Angi filstørrelse, sjekksum, mottakere og annen metadata i det kallet — på samme måte som for strømmeopplasting.
+Før opplasting må du [initialisere filoverføringen](/nb/broker/getting-started/developer-guides/send-files/#operation-initialize-filetransfer). Angi filstørrelse, sjekksum, mottakere og annen metadata i det kallet — på samme måte som for strømmeopplasting.
 
 ## Opplastingsflyt
 
 1. **Initialiser** — `POST /broker/api/v1/filetransfer` returnerer en `fileTransferId`.
 2. **Opprett TUS-opplasting** — `POST /broker/api/v1/filetransfer/upload/tus/{fileTransferId}` med headeren `Upload-Length` og `Tus-Resumable: 1.0.0`.
 3. **Last opp deler** — send `PATCH`-forespørsler til samme URL til hele filen er lastet opp. Bruk `HEAD` for å lese gjeldende offset ved gjenopptak.
-4. **Vent på behandling** — poll `GET /broker/api/v1/filetransfer/{fileTransferId}` eller abonner på [hendelser](/broker/getting-started/developer-guides/events/) til status er `Published` (eller `UploadProcessing` hvis viruskanning er aktivert).
+4. **Vent på behandling** — poll `GET /broker/api/v1/filetransfer/{fileTransferId}` eller abonner på [hendelser](/nb/broker/getting-started/developer-guides/events/) til status er `Published` (eller `UploadProcessing` hvis viruskanning er aktivert).
 
 Statusoverganger:
 
@@ -85,7 +85,7 @@ Pek klienten mot `/broker/api/v1/filetransfer/upload/tus/{fileTransferId}` og se
 
 - **Upload-Length må angis ved opprettelse.** Utsatt lengde (`Upload-Defer-Length`) støttes ikke.
 - **Sjekksum per del** er ikke aktivert. MD5-sjekksum kontrolleres når opplastingen er fullført (angis ved initialisering).
-- **Nedlasting** er ikke tilgjengelig via TUS. Mottakere laster ned filer via [standard nedlastingsendepunkt](/broker/getting-started/developer-guides/receive-files/).
+- **Nedlasting** er ikke tilgjengelig via TUS. Mottakere laster ned filer via [standard nedlastingsendepunkt](/nb/broker/getting-started/developer-guides/receive-files/).
 - **Ufullstendige opplastinger** fjernes etter 24 timer uten aktivitet.
 
 ## Konfigurasjon av reverse proxy
@@ -99,7 +99,7 @@ Hvis du fortsatt bruker strømmeendepunktet, kan du trenge lengre tidsavbrudd fo
 
 ## Relatert dokumentasjon
 
-- [Veiledning for avsender — initialiser og last opp](/broker/getting-started/developer-guides/send-files/)
-- [Store filer](/broker/explanation/very-large-files/)
-- [Hendelser](/broker/getting-started/developer-guides/events/)
+- [Veiledning for avsender — initialiser og last opp](/nb/broker/getting-started/developer-guides/send-files/)
+- [Store filer](/nb/broker/explanation/very-large-files/)
+- [Hendelser](/nb/broker/getting-started/developer-guides/events/)
 - [OpenAPI-spesifikasjon](/nb/api/broker/spec/)

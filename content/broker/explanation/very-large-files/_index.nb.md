@@ -11,7 +11,7 @@ Broker er i utgangspunktet begrenset til filer opp til 50GB. Dette skyldes begre
 
 Den teoretiske maksimale størrelsen er 1,6TB, men vi gjennomfører regelmessig testing kun opp til 100GB. Vi kan gjøre endringer for å håndtere filer større enn 1,6TB hvis nødvendig.
 
-For store filer som tar lang tid å overføre, anbefaler vi [TUS-opplasting](/broker/reference/tus/). TUS deler opplastingen i korte forespørsler og lar deg gjenoppta etter nettverksavbrudd.
+For store filer som tar lang tid å overføre, anbefaler vi [TUS-opplasting](/nb/broker/reference/tus/). TUS deler opplastingen i korte forespørsler og lar deg gjenoppta etter nettverksavbrudd.
 
 # Hvordan bryte 50GB-grensen
 
