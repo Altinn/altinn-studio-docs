@@ -12,10 +12,21 @@ cascade:
 {{% notice info %}}
 We are working on providing you with new and updated guidelines on usage of Altinn Notifications.
 In the meantime existing guidelines for sending notifications through Altinn 2 also apply to Altinn Notifications.
-
-
-[Please familiarize yourself with existing documentation and guidelines](https://altinn.github.io/docs/utviklingsguider/varsling/)
 {{% /notice %}}
+
+#### How does a notification look?
+
+End users can receive notifications via SMS, email, or both. This is determined by the type of address information end users have registered in their Altinn profile, but the service owner also has the option to override this.
+{{% notice info %}} **The notification should include:**
+- a description of the task,
+- specifically what it concerns,
+- who is responsible for/can resolve the task
+- if applicable, also inform about the deadline for the task {{% /notice %}}
+
+#### What should a notification not contain?
+Phishing poses an ever-increasing threat to IT security. Government guidelines for avoiding fraud state the following: *Be aware of links in SMS messages that ask you to log in with BankID. Your bank or other reputable organizations never send BankID login links via SMS.*
+
+Therefore, pay particular attention that notifications sent through Altinn's notification service **MUST NOT contain links or phrasing that resembles a link,** e.g. altinn.no or minetat.no. In such cases, "Altinn's website", "our website" or similar would be the correct phrasing to use.
 
 ### Creating a new Maskinporten Client
 
