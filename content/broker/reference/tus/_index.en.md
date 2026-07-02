@@ -23,6 +23,12 @@ The streaming endpoint sends the entire file in one request. That works well for
 
 See also [Large files](/en/broker/explanation/very-large-files/) for size limits and virus-scan options above 50 GB.
 
+## Parallel upload (concatenation)
+
+For large files, we strongly recommend the TUS [concatenation extension](https://tus.io/protocols/resumable-upload#concatenation). It lets you upload several parts in parallel and combine them into one file, which gives better throughput than uploading through a single stream.
+
+Many TUS client libraries support concatenation, for example [tus-js-client](https://github.com/tus/tus-js-client) with `parallelUploads`. 
+
 ## Prerequisites
 
 TUS upload uses the same authorization as other sender operations. You need a Maskinporten token with the `altinn:broker.write` scope.
@@ -62,7 +68,7 @@ DELETE  /broker/api/v1/filetransfer/upload/tus/{fileTransferId}
 
 | Method | Purpose |
 |--------|---------|
-| `OPTIONS` | Discover supported TUS extensions |
+| `OPTIONS` | Discover supported TUS extensions (including `concatenation`) |
 | `POST` | Create the upload (requires `Upload-Length`) |
 | `HEAD` | Read current upload offset (for resume) |
 | `PATCH` | Send the next chunk of file data |
@@ -77,10 +83,14 @@ DELETE  /broker/api/v1/filetransfer/upload/tus/{fileTransferId}
 Implementing the TUS protocol by hand is error-prone. Use a TUS client library instead, for example:
 
 - [tus-js-client](https://github.com/tus/tus-js-client) (JavaScript)
-- [Reference implementation](https://github.com/Altinn/altinn-broker/blob/main/tests/Altinn.Broker.Tests.LargeFile/TusUploader.cs) (.NET)
 - [tus-java-client](https://github.com/tus/tus-java-client) (Java)
 
 Point the client at `/broker/api/v1/filetransfer/upload/tus/{fileTransferId}` and pass the same Bearer token you use for other Broker API calls.
+
+## Reference implementations:
+
+- [Implementation without library](https://github.com/Altinn/altinn-broker/blob/main/tests/Altinn.Broker.Tests.LargeFile/TusUploader.cs) (.NET)
+- [Node with tus-js-client](https://github.com/Altinn/altinn-broker/blob/main/tests/Altinn.Broker.Tests.TusJsClient)
 
 ## Limitations
 

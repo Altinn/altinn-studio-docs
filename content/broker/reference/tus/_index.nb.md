@@ -23,6 +23,12 @@ Strømmeendepunktet sender hele filen i én forespørsel. Det fungerer godt for 
 
 Se også [Store filer](/nb/broker/explanation/very-large-files/) for størrelsesgrenser og viruskanning over 50 GB.
 
+## Parallell opplasting (concatenation)
+
+For store filer anbefaler vi sterkt [concatenation-utvidelsen](https://tus.io/protocols/resumable-upload#concatenation) i TUS. Da kan du laste opp flere deler parallelt og sette dem sammen til én fil, noe som gir bedre ytelse enn å laste opp gjennom én enkelt strøm.
+
+Mange TUS-klientbiblioteker støtter concatenation direkte, for eksempel [tus-js-client](https://github.com/tus/tus-js-client) med `parallelUploads`. 
+
 ## Forutsetninger
 
 TUS-opplasting bruker samme autorisasjon som andre avsenderoperasjoner. Du trenger et Maskinporten-token med scope `altinn:broker.write`.
@@ -62,7 +68,7 @@ DELETE  /broker/api/v1/filetransfer/upload/tus/{fileTransferId}
 
 | Metode | Formål |
 |--------|--------|
-| `OPTIONS` | Finn ut hvilke TUS-utvidelser som støttes |
+| `OPTIONS` | Finn ut hvilke TUS-utvidelser som støttes (inkludert `concatenation`) |
 | `POST` | Opprett opplastingen (krever `Upload-Length`) |
 | `HEAD` | Les gjeldende offset (for gjenopptak) |
 | `PATCH` | Send neste del av fildata |
@@ -77,10 +83,13 @@ DELETE  /broker/api/v1/filetransfer/upload/tus/{fileTransferId}
 Det er vanskelig å implementere TUS-protokollen manuelt uten feil. Bruk et TUS-klientbibliotek i stedet, for eksempel:
 
 - [tus-js-client](https://github.com/tus/tus-js-client) (JavaScript)
-- [Referanse-implementasjon](https://github.com/Altinn/altinn-broker/blob/main/tests/Altinn.Broker.Tests.LargeFile/TusUploader.cs) (.NET)
 - [tus-java-client](https://github.com/tus/tus-java-client) (Java)
 
 Pek klienten mot `/broker/api/v1/filetransfer/upload/tus/{fileTransferId}` og send samme Bearer-token som for andre Broker API-kall.
+
+## Referanseimplementasjoner:
+- [Implementasjon uten bibliotek](https://github.com/Altinn/altinn-broker/blob/main/tests/Altinn.Broker.Tests.LargeFile/TusUploader.cs) (.NET)
+- [Node med tus-js-client](https://github.com/Altinn/altinn-broker/blob/main/tests/Altinn.Broker.Tests.TusJsClient)
 
 ## Begrensninger
 
