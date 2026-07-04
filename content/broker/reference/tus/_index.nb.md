@@ -88,8 +88,10 @@ Det er vanskelig å implementere TUS-protokollen manuelt uten feil. Bruk et TUS-
 Pek klienten mot `/broker/api/v1/filetransfer/upload/tus/{fileTransferId}` og send samme Bearer-token som for andre Broker API-kall.
 
 ## Referanseimplementasjoner:
-- [Implementasjon uten bibliotek](https://github.com/Altinn/altinn-broker/blob/main/tests/Altinn.Broker.Tests.LargeFile/TusUploader.cs) (.NET)
-- [Node med tus-js-client](https://github.com/Altinn/altinn-broker/blob/main/tests/Altinn.Broker.Tests.TusJsClient)
+
+Vi har implementert referanse-implementasjoner for Node, .NET og Python:
+
+- [Referanse-implementasjoner](https://github.com/Altinn/altinn-broker/blob/main/tests/tus)
 
 ## Begrensninger
 

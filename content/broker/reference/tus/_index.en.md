@@ -89,8 +89,9 @@ Point the client at `/broker/api/v1/filetransfer/upload/tus/{fileTransferId}` an
 
 ## Reference implementations:
 
-- [Implementation without library](https://github.com/Altinn/altinn-broker/blob/main/tests/Altinn.Broker.Tests.LargeFile/TusUploader.cs) (.NET)
-- [Node with tus-js-client](https://github.com/Altinn/altinn-broker/blob/main/tests/Altinn.Broker.Tests.TusJsClient)
+You can find reference implementations for Node, .NET and Python here:
+
+- [Reference implementations](https://github.com/Altinn/altinn-broker/blob/main/tests/tus)
 
 ## Limitations
 
