@@ -7,9 +7,7 @@ toc: true
 weight: 10
 ---
 
-Broker er i utgangspunktet begrenset til filer opp til 50GB. Dette skyldes begrensninger med viruskanningen. Du kan allikevel sende større filer hvis tjenesteressursen har deaktivert viruskanning. For å kontrollere potensielle juridiske risikoer krever vi at ressurser som deaktiverer viruskanning blir forhåndsgodkjent av oss.
-
-Den teoretiske maksimale størrelsen er 1,6TB, men vi gjennomfører regelmessig testing kun opp til 100GB. Vi kan gjøre endringer for å håndtere filer større enn 1,6TB hvis nødvendig.
+Broker er i utgangspunktet begrenset til filer opp til 50GB. Dette skyldes begrensninger med viruskanningen. Du kan allikevel sende større filer hvis tjenesteressursen har deaktivert viruskanning. For å kontrollere potensielle juridiske risikoer krever vi at ressurser som deaktiverer viruskanning blir forhåndsgodkjent av oss. Vi har verifisert at opp til 1TB fungerer med TUS.
 
 For store filer som tar lang tid å overføre, anbefaler vi [TUS-opplasting](/nb/broker/reference/tus/). TUS deler opplastingen i korte forespørsler og lar deg gjenoppta etter nettverksavbrudd.
 

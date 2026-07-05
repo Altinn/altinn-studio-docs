@@ -89,7 +89,7 @@ Pek klienten mot `/broker/api/v1/filetransfer/upload/tus/{fileTransferId}` og se
 
 ## Referanseimplementasjoner:
 
-Vi har implementert referanse-implementasjoner for Node, .NET og Python:
+Finn referanse-implementasjoner for Node, .NET og Python her:
 
 - [Referanse-implementasjoner](https://github.com/Altinn/altinn-broker/blob/main/tests/tus)
 
