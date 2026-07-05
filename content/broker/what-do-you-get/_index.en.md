@@ -19,11 +19,6 @@ Altinn Broker leverages Microsoft Azure Storage Service Encryption to protect co
 ### Logging
 Altinn Broker ensures that all events and processes are thoroughly logged, making it easy to trace who did what and when.
 
-### Notifications
-- Automatic notifications via email or SMS to recipients.
-- Reminder after 7 days if a file remains unopened.
-- Customizable notification templates and delivery addresses.
-
 ### Events
 You can receive notifications about events related to submitted messaging services by setting up a subscription for the specific service. For example, you can see whether the file has reached the recipient and whether it has been opened.
 

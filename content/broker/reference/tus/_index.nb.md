@@ -88,13 +88,21 @@ Det er vanskelig å implementere TUS-protokollen manuelt uten feil. Bruk et TUS-
 Pek klienten mot `/broker/api/v1/filetransfer/upload/tus/{fileTransferId}` og send samme Bearer-token som for andre Broker API-kall.
 
 ## Referanseimplementasjoner:
-- [Implementasjon uten bibliotek](https://github.com/Altinn/altinn-broker/blob/main/tests/Altinn.Broker.Tests.LargeFile/TusUploader.cs) (.NET)
-- [Node med tus-js-client](https://github.com/Altinn/altinn-broker/blob/main/tests/Altinn.Broker.Tests.TusJsClient)
+
+Finn referanse-implementasjoner for Node, .NET og Python her:
+
+- [Referanse-implementasjoner](https://github.com/Altinn/altinn-broker/blob/main/tests/tus)
+
+## Bruno:
+
+Hvis du ønsker å eksperimentere med TUS kan du gjøre det med Bruno-oppsettet vårt (se FileTransfer/TUS):
+
+https://github.com/Altinn/altinn-broker/tree/main/.bruno
 
 ## Begrensninger
 
 - **Upload-Length må angis ved opprettelse.** Utsatt lengde (`Upload-Defer-Length`) støttes ikke.
-- **Sjekksum per del** er ikke aktivert. MD5-sjekksum kontrolleres når opplastingen er fullført (angis ved initialisering).
+- **Sjekksum MD5-sjekksum** kontrolleres når opplastingen er fullført (angis ved initialisering). Opplastningen settes til UploadProcessing mens dette blir gjort asynkront.
 - **Nedlasting** er ikke tilgjengelig via TUS. Mottakere laster ned filer via [standard nedlastingsendepunkt](/nb/broker/getting-started/developer-guides/receive-files/).
 - **Ufullstendige opplastinger** fjernes etter 24 timer uten aktivitet.
 

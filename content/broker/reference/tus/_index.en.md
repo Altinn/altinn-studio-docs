@@ -89,13 +89,20 @@ Point the client at `/broker/api/v1/filetransfer/upload/tus/{fileTransferId}` an
 
 ## Reference implementations:
 
-- [Implementation without library](https://github.com/Altinn/altinn-broker/blob/main/tests/Altinn.Broker.Tests.LargeFile/TusUploader.cs) (.NET)
-- [Node with tus-js-client](https://github.com/Altinn/altinn-broker/blob/main/tests/Altinn.Broker.Tests.TusJsClient)
+You can find reference implementations for Node, .NET and Python here:
+
+- [Reference implementations](https://github.com/Altinn/altinn-broker/blob/main/tests/tus)
+
+## Bruno collection:
+
+If you want to experiment with TUS you can do so using our Bruno collection (see FileTransfer/TUS):
+
+https://github.com/Altinn/altinn-broker/tree/main/.bruno
 
 ## Limitations
 
 - **Upload-Length is required at create time.** Deferred length (`Upload-Defer-Length`) is not supported.
-- **Per-chunk checksums** are not enabled. End-to-end MD5 checksum validation runs when the upload completes (set at initialize).
+- **MD5 checksum validation** runs async when the upload completes if checksum is provided on initialization. The upload is set to UploadProcessing while this is generated async.
 - **Downloads** are not available via TUS. Recipients download files through the [standard download endpoint](/en/broker/getting-started/developer-guides/receive-files/).
 - **Incomplete uploads** are removed after 24 hours without activity.
 
