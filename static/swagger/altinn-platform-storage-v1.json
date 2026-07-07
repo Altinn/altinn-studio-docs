@@ -1849,42 +1849,6 @@
         }
       }
     },
-    "/metrics/instances": {
-      "get": {
-        "tags": [
-          "Metrics"
-        ],
-        "summary": "Endpoint for triggering generation of daily instance metrics",
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Unauthorized",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ProblemDetails"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
     "/instances/{instanceOwnerPartyId}/{instanceGuid}/process": {
       "put": {
         "tags": [
