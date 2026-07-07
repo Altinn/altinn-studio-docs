@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.3",
   "info": {
     "title": "Altinn Platform Storage",
     "version": "v1"
@@ -1071,6 +1071,14 @@
             }
           },
           {
+            "name": "dataValues.A2ArchRef",
+            "in": "query",
+            "description": "The historical Altinn 2 archive reference stored under the \"A2ArchRef\" key in the instance's data values.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "process.isComplete",
             "in": "query",
             "description": "A value indicating whether the process is completed.",
@@ -1159,6 +1167,14 @@
             }
           },
           {
+            "name": "confirmed",
+            "in": "query",
+            "description": "Confirmed = false is a compact version of ExcludeConfirmedBy indicating\r\nExcludeConfirmedBy for the org that invokes the request",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
             "name": "status.isSoftDeleted",
             "in": "query",
             "description": "A value indicating whether the instance is soft deleted.",
@@ -1240,6 +1256,15 @@
             "description": "Gets or sets the value by which the result will be sorted.",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "includeDataElements",
+            "in": "query",
+            "description": "Should query include data elements",
+            "schema": {
+              "type": "boolean",
+              "default": true
             }
           }
         ],
@@ -1330,7 +1355,7 @@
         "tags": [
           "Instances"
         ],
-        "summary": "Gets a specific instance with the given instance id.",
+        "summary": "Gets a specific instance with the given instance id.\r\nThis endpoint is maintained for backwards compatibility but requires an unnecessary instanceOwnerPartyId parameter.\r\nPrefer using GetByGuid which only requires the instance GUID.",
         "parameters": [
           {
             "name": "instanceOwnerPartyId",
@@ -1441,6 +1466,48 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instances/{instanceGuid}": {
+      "get": {
+        "tags": [
+          "Instances"
+        ],
+        "summary": "Gets a specific instance with the given instance guid.\r\nPrefer this endpoint over Get which requires an unnecessary instanceOwnerPartyId parameter.",
+        "parameters": [
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance to retrieve.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Instance"
                 }
               }
             }
@@ -1686,6 +1753,26 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -1748,6 +1835,52 @@
                 }
               }
             }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/metrics/instances": {
+      "get": {
+        "tags": [
+          "Metrics"
+        ],
+        "summary": "Endpoint for triggering generation of daily instance metrics",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
@@ -1957,7 +2090,7 @@
           }
         ],
         "requestBody": {
-          "description": "Signrequest containing data element ids and sign status.",
+          "description": "Sign request containing data element ids and sign status.",
           "content": {
             "application/json-patch+json": {
               "schema": {
@@ -2287,6 +2420,82 @@
   },
   "components": {
     "schemas": {
+      "ApiScopes": {
+        "type": "object",
+        "properties": {
+          "read": {
+            "type": "string",
+            "nullable": true
+          },
+          "write": {
+            "type": "string",
+            "nullable": true
+          },
+          "errorMessageTextResourceKey": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiScopesConfiguration": {
+        "type": "object",
+        "properties": {
+          "users": {
+            "$ref": "#/components/schemas/ApiScopes"
+          },
+          "serviceOwners": {
+            "$ref": "#/components/schemas/ApiScopes"
+          },
+          "errorMessageTextResourceKey": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AppMetadataAccess": {
+        "type": "object",
+        "properties": {
+          "rightDescription": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "delegable": {
+            "type": "boolean"
+          },
+          "visible": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AppMetadataContactPoint": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "telephone": {
+            "type": "string",
+            "nullable": true
+          },
+          "contactPage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Application": {
         "type": "object",
         "properties": {
@@ -2368,6 +2577,9 @@
           "copyInstanceSettings": {
             "$ref": "#/components/schemas/CopyInstanceSettings"
           },
+          "apiScopes": {
+            "$ref": "#/components/schemas/ApiScopesConfiguration"
+          },
           "storageAccountNumber": {
             "type": "integer",
             "format": "int32",
@@ -2375,6 +2587,35 @@
           },
           "disallowUserInstantiation": {
             "type": "boolean"
+          },
+          "homepage": {
+            "type": "string",
+            "nullable": true
+          },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Keyword"
+            },
+            "nullable": true
+          },
+          "description": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "access": {
+            "$ref": "#/components/schemas/AppMetadataAccess"
+          },
+          "contactPoints": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AppMetadataContactPoint"
+            },
+            "nullable": true
           },
           "created": {
             "type": "string",
@@ -2480,6 +2721,9 @@
               "type": "string"
             },
             "nullable": true
+          },
+          "includeAttachments": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -2661,6 +2905,22 @@
             "items": {
               "type": "string"
             },
+            "nullable": true,
+            "deprecated": true
+          },
+          "allowedContributors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "actionRequiredToRead": {
+            "type": "string",
+            "nullable": true
+          },
+          "actionRequiredToWrite": {
+            "type": "string",
             "nullable": true
           },
           "appLogic": {
@@ -3001,6 +3261,10 @@
           "username": {
             "type": "string",
             "nullable": true
+          },
+          "externalIdentifier": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -3085,6 +3349,20 @@
         },
         "additionalProperties": false
       },
+      "Keyword": {
+        "type": "object",
+        "properties": {
+          "word": {
+            "type": "string",
+            "nullable": true
+          },
+          "language": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "MarginOptions": {
         "type": "object",
         "properties": {
@@ -3117,6 +3395,9 @@
         "properties": {
           "hideSettings": {
             "$ref": "#/components/schemas/HideSettings"
+          },
+          "syncAdapterSettings": {
+            "$ref": "#/components/schemas/SyncAdapterSettings"
           }
         },
         "additionalProperties": false
@@ -3599,6 +3880,274 @@
         },
         "additionalProperties": false
       },
+      "SimpleDataElement": {
+        "required": [
+          "contentType",
+          "dataType",
+          "id",
+          "isRead",
+          "locked",
+          "size"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique id, a guid.",
+            "nullable": true
+          },
+          "dataType": {
+            "type": "string",
+            "description": "Data type, must be equal to the ones defined in application data types.",
+            "nullable": true
+          },
+          "contentType": {
+            "type": "string",
+            "description": "Content type in the stored data element (file).",
+            "nullable": true
+          },
+          "size": {
+            "type": "integer",
+            "description": "Size of file in bytes",
+            "format": "int64"
+          },
+          "locked": {
+            "type": "boolean",
+            "description": "Value indicating whether the element can be updated."
+          },
+          "isRead": {
+            "type": "boolean",
+            "description": "Value indicating whether the element has been read."
+          },
+          "fileScanResult": {
+            "$ref": "#/components/schemas/FileScanResult"
+          },
+          "hardDeletedAt": {
+            "type": "string",
+            "description": "The date the data element was marked for hard delete by user.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "The date and time for when the data element was created.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lastChangedAt": {
+            "type": "string",
+            "description": "The date and time for when the data element was last edited.",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a simplified data element with most fields redacted, see Altinn.Platform.Storage.Interface.Models.DataElement."
+      },
+      "SimpleInstance": {
+        "required": [
+          "app",
+          "id",
+          "org"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "The unique id of the instance {instanceGuid}.",
+            "nullable": true
+          },
+          "org": {
+            "type": "string",
+            "description": "Application owner identifier, usually a abbreviation of organisation name. All in lower case.",
+            "nullable": true
+          },
+          "app": {
+            "type": "string",
+            "description": "The id of the application this is an instance of.",
+            "nullable": true
+          },
+          "isRead": {
+            "type": "boolean",
+            "description": "If the instance is read."
+          },
+          "currentTaskId": {
+            "type": "string",
+            "description": "Reference to the current task/event element id as given in the process definition, Altinn.Platform.Storage.Interface.Models.ProcessElementInfo.",
+            "nullable": true
+          },
+          "currentTaskName": {
+            "type": "string",
+            "description": "The name of the process element, Altinn.Platform.Storage.Interface.Models.ProcessElementInfo.",
+            "nullable": true
+          },
+          "completedAt": {
+            "type": "string",
+            "description": "The date the instance process was completed.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "archivedAt": {
+            "type": "string",
+            "description": "The date the instance was archived.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "softDeletedAt": {
+            "type": "string",
+            "description": "The date the instance was deleted.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "hardDeletedAt": {
+            "type": "string",
+            "description": "The date the instance was marked for hard delete by user.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "confirmedAt": {
+            "type": "string",
+            "description": "The date the instance was marked as confirmed by service owner.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "The date and time for when the instance was created.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lastChangedAt": {
+            "type": "string",
+            "description": "The date and time for when the instance was last edited.",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a simplified instance with most fields redacted, see Altinn.Platform.Storage.Interface.Models.Instance."
+      },
+      "SimpleInstanceDetails": {
+        "required": [
+          "app",
+          "id",
+          "org"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SimpleDataElement"
+            },
+            "description": "A list of simplified data elements associated with the instance",
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "description": "The unique id of the instance {instanceGuid}.",
+            "nullable": true
+          },
+          "org": {
+            "type": "string",
+            "description": "Application owner identifier, usually a abbreviation of organisation name. All in lower case.",
+            "nullable": true
+          },
+          "app": {
+            "type": "string",
+            "description": "The id of the application this is an instance of.",
+            "nullable": true
+          },
+          "isRead": {
+            "type": "boolean",
+            "description": "If the instance is read."
+          },
+          "currentTaskId": {
+            "type": "string",
+            "description": "Reference to the current task/event element id as given in the process definition, Altinn.Platform.Storage.Interface.Models.ProcessElementInfo.",
+            "nullable": true
+          },
+          "currentTaskName": {
+            "type": "string",
+            "description": "The name of the process element, Altinn.Platform.Storage.Interface.Models.ProcessElementInfo.",
+            "nullable": true
+          },
+          "completedAt": {
+            "type": "string",
+            "description": "The date the instance process was completed.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "archivedAt": {
+            "type": "string",
+            "description": "The date the instance was archived.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "softDeletedAt": {
+            "type": "string",
+            "description": "The date the instance was deleted.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "hardDeletedAt": {
+            "type": "string",
+            "description": "The date the instance was marked for hard delete by user.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "confirmedAt": {
+            "type": "string",
+            "description": "The date the instance was marked as confirmed by service owner.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "description": "The date and time for when the instance was created.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "lastChangedAt": {
+            "type": "string",
+            "description": "The date and time for when the instance was last edited.",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a simplified instance with most fields redacted, see Altinn.Platform.Storage.Interface.Models.Instance."
+      },
+      "SimpleInstanceQueryResponse": {
+        "type": "object",
+        "properties": {
+          "count": {
+            "type": "integer",
+            "description": "The number of items in this response.",
+            "format": "int64"
+          },
+          "self": {
+            "type": "string",
+            "description": "The current query.",
+            "nullable": true
+          },
+          "next": {
+            "type": "string",
+            "description": "A link to the next page.",
+            "nullable": true
+          },
+          "instances": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SimpleInstance"
+            },
+            "description": "The metadata.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Query response object"
+      },
       "Substatus": {
         "type": "object",
         "properties": {
@@ -3609,6 +4158,76 @@
           "description": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SyncAdapterSettings": {
+        "type": "object",
+        "properties": {
+          "disableSync": {
+            "type": "boolean",
+            "default": false
+          },
+          "enableUserSuppliedDialogId": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableCreate": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableDelete": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableAddActivities": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableAddTransmissions": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableSyncDueAt": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableSyncStatus": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableMarkCompletedWhenConfirmed": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableSyncContentTitle": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableSyncContentSummary": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableSyncContentAdditionalInformation": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableSyncContentExtendedStatus": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableSyncAttachments": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableSyncApiActions": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableSyncGuiActions": {
+            "type": "boolean",
+            "default": false
           }
         },
         "additionalProperties": false
