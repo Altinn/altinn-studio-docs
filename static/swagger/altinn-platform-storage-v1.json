@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.3",
   "info": {
     "title": "Altinn Platform Storage",
     "version": "v1"
@@ -1071,6 +1071,14 @@
             }
           },
           {
+            "name": "dataValues.A2ArchRef",
+            "in": "query",
+            "description": "The historical Altinn 2 archive reference stored under the \"A2ArchRef\" key in the instance's data values.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
             "name": "process.isComplete",
             "in": "query",
             "description": "A value indicating whether the process is completed.",
@@ -1159,6 +1167,14 @@
             }
           },
           {
+            "name": "confirmed",
+            "in": "query",
+            "description": "Confirmed = false is a compact version of ExcludeConfirmedBy indicating\r\nExcludeConfirmedBy for the org that invokes the request",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
             "name": "status.isSoftDeleted",
             "in": "query",
             "description": "A value indicating whether the instance is soft deleted.",
@@ -1240,6 +1256,15 @@
             "description": "Gets or sets the value by which the result will be sorted.",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "includeDataElements",
+            "in": "query",
+            "description": "Should query include data elements",
+            "schema": {
+              "type": "boolean",
+              "default": true
             }
           }
         ],
@@ -1330,7 +1355,7 @@
         "tags": [
           "Instances"
         ],
-        "summary": "Gets a specific instance with the given instance id.",
+        "summary": "Gets a specific instance with the given instance id.\r\nThis endpoint is maintained for backwards compatibility but requires an unnecessary instanceOwnerPartyId parameter.\r\nPrefer using GetByGuid which only requires the instance GUID.",
         "parameters": [
           {
             "name": "instanceOwnerPartyId",
@@ -1441,6 +1466,48 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/instances/{instanceGuid}": {
+      "get": {
+        "tags": [
+          "Instances"
+        ],
+        "summary": "Gets a specific instance with the given instance guid.\r\nPrefer this endpoint over Get which requires an unnecessary instanceOwnerPartyId parameter.",
+        "parameters": [
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance to retrieve.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Instance"
                 }
               }
             }
@@ -1686,6 +1753,26 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -1741,6 +1828,16 @@
           },
           "400": {
             "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
             "content": {
               "application/json": {
                 "schema": {
@@ -1957,7 +2054,7 @@
           }
         ],
         "requestBody": {
-          "description": "Signrequest containing data element ids and sign status.",
+          "description": "Sign request containing data element ids and sign status.",
           "content": {
             "application/json-patch+json": {
               "schema": {
@@ -2287,6 +2384,82 @@
   },
   "components": {
     "schemas": {
+      "ApiScopes": {
+        "type": "object",
+        "properties": {
+          "read": {
+            "type": "string",
+            "nullable": true
+          },
+          "write": {
+            "type": "string",
+            "nullable": true
+          },
+          "errorMessageTextResourceKey": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ApiScopesConfiguration": {
+        "type": "object",
+        "properties": {
+          "users": {
+            "$ref": "#/components/schemas/ApiScopes"
+          },
+          "serviceOwners": {
+            "$ref": "#/components/schemas/ApiScopes"
+          },
+          "errorMessageTextResourceKey": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AppMetadataAccess": {
+        "type": "object",
+        "properties": {
+          "rightDescription": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "delegable": {
+            "type": "boolean"
+          },
+          "visible": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AppMetadataContactPoint": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "telephone": {
+            "type": "string",
+            "nullable": true
+          },
+          "contactPage": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "Application": {
         "type": "object",
         "properties": {
@@ -2368,6 +2541,9 @@
           "copyInstanceSettings": {
             "$ref": "#/components/schemas/CopyInstanceSettings"
           },
+          "apiScopes": {
+            "$ref": "#/components/schemas/ApiScopesConfiguration"
+          },
           "storageAccountNumber": {
             "type": "integer",
             "format": "int32",
@@ -2375,6 +2551,35 @@
           },
           "disallowUserInstantiation": {
             "type": "boolean"
+          },
+          "homepage": {
+            "type": "string",
+            "nullable": true
+          },
+          "keywords": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Keyword"
+            },
+            "nullable": true
+          },
+          "description": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string",
+              "nullable": true
+            },
+            "nullable": true
+          },
+          "access": {
+            "$ref": "#/components/schemas/AppMetadataAccess"
+          },
+          "contactPoints": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AppMetadataContactPoint"
+            },
+            "nullable": true
           },
           "created": {
             "type": "string",
@@ -2480,6 +2685,9 @@
               "type": "string"
             },
             "nullable": true
+          },
+          "includeAttachments": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -2661,6 +2869,22 @@
             "items": {
               "type": "string"
             },
+            "nullable": true,
+            "deprecated": true
+          },
+          "allowedContributors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "actionRequiredToRead": {
+            "type": "string",
+            "nullable": true
+          },
+          "actionRequiredToWrite": {
+            "type": "string",
             "nullable": true
           },
           "appLogic": {
@@ -3001,6 +3225,10 @@
           "username": {
             "type": "string",
             "nullable": true
+          },
+          "externalIdentifier": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -3085,120 +3313,31 @@
         },
         "additionalProperties": false
       },
-      "MarginOptions": {
+      "Keyword": {
         "type": "object",
         "properties": {
-          "top": {
+          "word": {
             "type": "string",
-            "description": "Top margin, accepts values labeled with units.",
             "nullable": true
           },
-          "left": {
+          "language": {
             "type": "string",
-            "description": "Left margin, accepts values labeled with units",
-            "nullable": true
-          },
-          "bottom": {
-            "type": "string",
-            "description": "Bottom margin, accepts values labeled with units",
-            "nullable": true
-          },
-          "right": {
-            "type": "string",
-            "description": "Right margin, accepts values labeled with units",
             "nullable": true
           }
         },
-        "additionalProperties": false,
-        "description": "This class is created to match the PDF generator marking options."
+        "additionalProperties": false
       },
       "MessageBoxConfig": {
         "type": "object",
         "properties": {
           "hideSettings": {
             "$ref": "#/components/schemas/HideSettings"
+          },
+          "syncAdapterSettings": {
+            "$ref": "#/components/schemas/SyncAdapterSettings"
           }
         },
         "additionalProperties": false
-      },
-      "MessageBoxQueryModel": {
-        "required": [
-          "instanceOwnerPartyIdList"
-        ],
-        "type": "object",
-        "properties": {
-          "instanceOwnerPartyIdList": {
-            "type": "array",
-            "items": {
-              "type": "integer",
-              "format": "int32"
-            },
-            "description": "List of instance owner party id(s)"
-          },
-          "appId": {
-            "type": "string",
-            "description": "The application id",
-            "nullable": true
-          },
-          "includeActive": {
-            "type": "boolean",
-            "description": "Boolean indicating whether to include active instances."
-          },
-          "includeArchived": {
-            "type": "boolean",
-            "description": "Boolean indicating whether to include archived instances."
-          },
-          "includeDeleted": {
-            "type": "boolean",
-            "description": "Boolean indicating whether to include deleted instances."
-          },
-          "fromLastChanged": {
-            "type": "string",
-            "description": "Gets or sets the from last changed date.",
-            "format": "date-time",
-            "nullable": true
-          },
-          "toLastChanged": {
-            "type": "string",
-            "description": "Gets or sets the to last changed date.",
-            "format": "date-time",
-            "nullable": true
-          },
-          "fromCreated": {
-            "type": "string",
-            "description": "Gets or sets the from created time.",
-            "format": "date-time",
-            "nullable": true
-          },
-          "toCreated": {
-            "type": "string",
-            "description": "Gets or sets the to created time.",
-            "format": "date-time",
-            "nullable": true
-          },
-          "searchString": {
-            "type": "string",
-            "description": "Search string.",
-            "nullable": true
-          },
-          "archiveReference": {
-            "type": "string",
-            "description": "The archive reference.",
-            "nullable": true
-          },
-          "language": {
-            "type": "string",
-            "description": "Language nb, en, nn",
-            "nullable": true
-          },
-          "filterMigrated": {
-            "type": "boolean",
-            "description": "Gets or sets a value indicating whether to filter migrated a1/a2 elements",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "Represents queryparams for search from messagebox."
       },
       "OnEntryConfig": {
         "type": "object",
@@ -3227,54 +3366,6 @@
           }
         },
         "additionalProperties": false
-      },
-      "PdfGeneratorRequest": {
-        "type": "object",
-        "properties": {
-          "url": {
-            "type": "string",
-            "description": "The Url that the PDF generator will used to obtain the HTML needed to created the PDF\r\nif Html is not specified. Don't use both!",
-            "nullable": true
-          },
-          "html": {
-            "type": "string",
-            "description": "The html that is input to the PDF generator if Url is not specified. Don't use both!",
-            "nullable": true
-          },
-          "options": {
-            "$ref": "#/components/schemas/PdfGeneratorRequestOptions"
-          }
-        },
-        "additionalProperties": false,
-        "description": "This class is created to match the input required to generate a PDF by the PDF generator service."
-      },
-      "PdfGeneratorRequestOptions": {
-        "type": "object",
-        "properties": {
-          "printBackground": {
-            "type": "boolean",
-            "description": "Indicate wheter the background should be included."
-          },
-          "format": {
-            "type": "string",
-            "description": "Defines the page size. Default is A4.",
-            "nullable": true
-          },
-          "landscape": {
-            "type": "boolean",
-            "description": "Whether to print in landscape orientation"
-          },
-          "margin": {
-            "$ref": "#/components/schemas/MarginOptions"
-          },
-          "scale": {
-            "type": "number",
-            "description": "Scales the rendering of the web page. Amount must be between 0.1 and 2",
-            "format": "float"
-          }
-        },
-        "additionalProperties": false,
-        "description": "This class is created to match the PDF generator options used by the PDF generator."
       },
       "PlatformUser": {
         "type": "object",
@@ -3609,6 +3700,76 @@
           "description": {
             "type": "string",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "SyncAdapterSettings": {
+        "type": "object",
+        "properties": {
+          "disableSync": {
+            "type": "boolean",
+            "default": false
+          },
+          "enableUserSuppliedDialogId": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableCreate": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableDelete": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableAddActivities": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableAddTransmissions": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableSyncDueAt": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableSyncStatus": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableMarkCompletedWhenConfirmed": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableSyncContentTitle": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableSyncContentSummary": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableSyncContentAdditionalInformation": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableSyncContentExtendedStatus": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableSyncAttachments": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableSyncApiActions": {
+            "type": "boolean",
+            "default": false
+          },
+          "disableSyncGuiActions": {
+            "type": "boolean",
+            "default": false
           }
         },
         "additionalProperties": false
