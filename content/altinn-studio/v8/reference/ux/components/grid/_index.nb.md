@@ -380,7 +380,7 @@ uten å få vite hva feltet gjelder. Dette blir også tydelig på en mindre skje
 I mobilvisningen ser du bare komponentene. Tekstcellene vises ikke, og informasjonen i dem faller derfor bort for
 mobilbrukere.
 
-Du kan løse problemet på to måter:
+Du kan løse dette på to måter:
 
-1. Hvis teksten i cellen og ledeteksten for komponenten kan være den samme, bruker du en mer beskrivende ledetekst på komponenten og `labelFrom` i stedet for `text` i cellen.
-2. Hvis du vil ha ulik tekst i cellen og som ledetekst på komponenten, kan du fortsette å bruke `text`. Sørg for at ledeteksten og beskrivelsen på komponenten også gir all informasjonen brukeren trenger for å fylle ut feltet.
+1. Hvis teksten i cellen kan være den samme som ledeteksten til komponenten, anbefaler vi å bruke en beskrivende ledetekst og hente den inn i cellen med `labelFrom` i stedet for `text`.
+2. Hvis teksten i cellen skal vise en annen tekst enn ledeteksten til komponentene, bruker du `text` i cellen. Her er det viktig at ledeteksten, og eventuell beskrivelse på komponentene, inneholder all informasjon brukeren trenger.

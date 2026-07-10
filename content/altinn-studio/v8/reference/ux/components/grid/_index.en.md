@@ -373,7 +373,7 @@ without knowing what the field is about. This also becomes clear on a smaller sc
 In the mobile view, you only see the components. The text cells are not shown, so the information in them is therefore
 lost for mobile users.
 
-You can solve the problem in two ways:
+There are two ways to solve this:
 
-1. If the text in the cell and the label for the component can be the same, use a more descriptive label on the component and `labelFrom` instead of `text` in the cell.
-2. If you want different text in the cell and as the label for the component, you can continue using `text`. Make sure the label and description on the component also give users all the information they need to fill in the field.
+1. If the text in the cell can be the same as the component label, give the component a more descriptive label and reference it with `labelFrom` instead of `text`.
+2. If the cell needs different text from the component label, use `text`. Make sure the label and any description on the component still give the user all the information they need.
