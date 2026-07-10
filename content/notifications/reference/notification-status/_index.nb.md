@@ -10,7 +10,9 @@ Denne siden beskriver statusverdiene som brukes når Altinn Notifications rappor
 fremdrift for varslingsordrer og leveringsresultat for e‑post og SMS.
 
 Disse verdiene vises i svarene fra status‑API‑ene (for eksempel
-`/future/shipment/{id}` og statusfeed). De hjelper deg å
+`/future/shipment/{id}` og
+[statusfeeden]({{< relref "/notifications/reference/status-feed" >}})).
+De hjelper deg å
 
 - overvåke utsendingene dine
 - finne årsaken når noe går galt
