@@ -18,7 +18,7 @@
     "/future/orders/composed-email": {
       "post": {
         "tags": [
-          "ComposedEmailOrders"
+          "Order"
         ],
         "summary": "Creates a new composed email notification order.",
         "description": "The API validates the request at the boundary before any database write or queue publish.\r\nFiles are referenced by SAS URL and downloaded by the email service at send time.",
@@ -2803,10 +2803,6 @@
     {
       "name": "Instant Orders",
       "description": "Create and send instant notifications to single recipients"
-    },
-    {
-      "name": "Composed Orders",
-      "description": "Create and send composed email orders with file references to single recipients"
     }
   ]
 }
