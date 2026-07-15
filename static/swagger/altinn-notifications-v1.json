@@ -2798,11 +2798,11 @@
     },
     {
       "name": "Status",
-      "description": "Get status/updates for notifications already ordered"
+      "description": "Retrieve delivery status for notification orders"
     },
     {
       "name": "Instant Orders",
-      "description": "Create and send instant notifications to single recipients"
+      "description": "Create and immediately send a notification to a single recipient"
     }
   ]
 }
