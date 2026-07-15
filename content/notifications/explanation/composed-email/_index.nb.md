@@ -44,7 +44,7 @@ Hver SAS-URL blir validert før bestillingen godtas. API-et kontrollerer at:
 
 API-et validerer også metadata for vedlegg:
 
-- Filnavnet må ikke inneholde stiskilletegn (`/`, `\`) og må ha filendelse
+- Filnavnet må ikke inneholde skilletegn i filbaner (`/`, `\`) og må ha filendelse
 
 ### Sendetid og utløpsbuffer
 

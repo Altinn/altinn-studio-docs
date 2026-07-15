@@ -118,7 +118,7 @@ Hvis `requestedSendTime` utelates, bruker API-et nåværende tidspunkt i UTC.
 #### filename (påkrevd når vedlegg er med)
 - **Type:** String
 - **Beskrivelse:** Filnavn for vedlegget.
-- **Validering:** Må ikke inneholde stiskilletegn (`/`, `\`) og må ha filendelse.
+- **Validering:** Må ikke inneholde skilletegn i filbaner (`/`, `\`) og må ha filendelse.
 - **Eksempel:** `"vedtak.pdf"`
 
 #### mimeType (påkrevd når vedlegg er med)
@@ -152,7 +152,7 @@ Ved API-grensen blir hver SAS-URL for vedlegg kontrollert mot disse kravene:
 
 | Regel | Krav |
 |-------|------|
-| Filnavn | Må ikke inneholde stiskilletegn (`/`, `\`) |
+| Filnavn | Må ikke inneholde skilletegn i filbaner (`/`, `\`) |
 | Filnavn | Må ha filendelse |
 | MIME-type | Må være støttet av Azure Communication Services |
 
