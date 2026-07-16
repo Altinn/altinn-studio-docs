@@ -6,7 +6,7 @@ weight: 6
 toc: true
 ---
 
-Flytene viser ansvarsovergangene mellom komponenter. Detaljerte API-kontrakter og integrasjonstrinn dokumenteres i API- og veiledningsseksjonene.
+Flytene viser ansvarsovergangene mellom komponenter. [Følg en kjørbar autorisasjonsbeslutning ende til ende](./authorization-decision/) som hovedøvelse. Detaljerte API-kontrakter og integrasjonstrinn dokumenteres i API- og veiledningsseksjonene.
 
 ## Interaktiv autentisering
 
