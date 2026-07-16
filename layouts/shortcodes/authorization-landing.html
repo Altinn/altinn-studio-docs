@@ -1,0 +1,222 @@
+<style>
+.authorization-landing {
+  --authz-ink: #1e2b3c;
+  --authz-muted: #526173;
+  --authz-border: #d8e0e8;
+  --authz-blue: #eaf4ff;
+  --authz-green: #eaf7ef;
+  --authz-warm: #fff4e5;
+  margin: 0 0 3rem;
+}
+.authorization-landing * { box-sizing: border-box; }
+.authorization-landing__hero {
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+  margin: 0 0 2rem;
+  border: 1px solid var(--authz-border);
+  border-radius: 1rem;
+  background: linear-gradient(135deg, #f5f9ff 0%, #eef8f2 100%);
+}
+.authorization-landing__eyebrow {
+  margin: 0 0 .5rem;
+  color: #075985;
+  font-size: .9rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.authorization-landing__hero h2 {
+  max-width: 46rem;
+  margin: 0 0 .75rem;
+  color: var(--authz-ink);
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+  line-height: 1.12;
+}
+.authorization-landing__lead {
+  max-width: 48rem;
+  margin: 0;
+  color: var(--authz-muted);
+  font-size: 1.1rem;
+}
+.authorization-landing__heading {
+  margin: 2rem 0 1rem;
+  color: var(--authz-ink);
+}
+.authorization-landing__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+.authorization-landing__grid--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.authorization-landing__card {
+  display: flex;
+  min-height: 13rem;
+  flex-direction: column;
+  padding: 1.5rem;
+  border: 1px solid var(--authz-border);
+  border-radius: .85rem;
+  color: var(--authz-ink) !important;
+  text-decoration: none !important;
+  transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease;
+}
+.authorization-landing__card:nth-child(1) { background: var(--authz-blue); }
+.authorization-landing__card:nth-child(2) { background: var(--authz-green); }
+.authorization-landing__grid--three .authorization-landing__card { min-height: 10rem; background: #fff; }
+.authorization-landing__card:hover {
+  border-color: #67809a;
+  box-shadow: 0 .5rem 1.25rem rgba(30, 43, 60, .10);
+  transform: translateY(-2px);
+}
+.authorization-landing__card:focus-visible,
+.authorization-landing__chooser:focus-visible {
+  outline: 3px solid #0062ba;
+  outline-offset: 3px;
+}
+.authorization-landing__card-label {
+  margin-bottom: .75rem;
+  color: #075985;
+  font-size: .85rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}
+.authorization-landing__card h3 { margin: 0 0 .65rem; color: var(--authz-ink); }
+.authorization-landing__card p { margin: 0 0 1.25rem; color: var(--authz-muted); }
+.authorization-landing__card-link { margin-top: auto; font-weight: 700; }
+.authorization-landing__chooser {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  align-items: center;
+  margin: 1.25rem 0 2.5rem;
+  padding: 1.35rem 1.5rem;
+  border: 1px solid #e5c07b;
+  border-radius: .85rem;
+  background: var(--authz-warm);
+  color: var(--authz-ink) !important;
+  text-decoration: none !important;
+}
+.authorization-landing__chooser h3 { margin: 0 0 .35rem; color: var(--authz-ink); }
+.authorization-landing__chooser p { margin: 0; color: var(--authz-muted); }
+.authorization-landing__chooser-action { font-weight: 700; white-space: nowrap; }
+@media (max-width: 760px) {
+  .authorization-landing__grid,
+  .authorization-landing__grid--three { grid-template-columns: 1fr; }
+  .authorization-landing__chooser { grid-template-columns: 1fr; gap: .75rem; }
+  .authorization-landing__card { min-height: auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .authorization-landing__card { transition: none; }
+}
+</style>
+
+{{- if eq .Page.Language.Lang "nb" -}}
+<div class="authorization-landing">
+  <section class="authorization-landing__hero" aria-labelledby="authorization-landing-title">
+    <p class="authorization-landing__eyebrow">Altinn Autorisasjon</p>
+    <h2 id="authorization-landing-title">Finn riktig vei fra behov til fungerende integrasjon</h2>
+    <p class="authorization-landing__lead">Velg rollen din. Du får ett hovedløp som samler stegene og peker videre til detaljene du trenger.</p>
+  </section>
+
+  <h2 class="authorization-landing__heading">Hva skal du gjøre?</h2>
+  <div class="authorization-landing__grid">
+    <a class="authorization-landing__card" href="{{ "authorization/getting-started/service-owner/" | relLangURL }}">
+      <span class="authorization-landing__card-label">For tjenesteeiere</span>
+      <h3>Beskytt et API</h3>
+      <p>Registrer ressursen, definer reglene og håndhev beslutningen fra Altinn Autorisasjon.</p>
+      <span class="authorization-landing__card-link">Følg tjenesteeierløpet →</span>
+    </a>
+    <a class="authorization-landing__card" href="{{ "authorization/getting-started/system-integrator/" | relLangURL }}">
+      <span class="authorization-landing__card-label">For systemintegratorer</span>
+      <h3>Integrer et system</h3>
+      <p>Velg identitet, sett opp systembruker og kall tjenester på vegne av personer eller virksomheter.</p>
+      <span class="authorization-landing__card-link">Følg integratorløpet →</span>
+    </a>
+  </div>
+
+  <a class="authorization-landing__chooser" href="{{ "authorization/getting-started/choose-authentication/" | relLangURL }}">
+    <span>
+      <h3>Usikker på hvilken løsning du trenger?</h3>
+      <p>Sammenlign ID-porten, Maskinporten, systembruker, samtykke og tilgangskontroll.</p>
+    </span>
+    <span class="authorization-landing__chooser-action">Velg integrasjonsmåte →</span>
+  </a>
+
+  <h2 class="authorization-landing__heading">Finn mer informasjon</h2>
+  <div class="authorization-landing__grid authorization-landing__grid--three">
+    <a class="authorization-landing__card" href="{{ "authorization/what-do-you-get/" | relLangURL }}">
+      <span class="authorization-landing__card-label">Forstå</span>
+      <h3>Hva får du?</h3>
+      <p>Se funksjonene og bruksområdene i Altinn Autorisasjon.</p>
+      <span class="authorization-landing__card-link">Se mulighetene →</span>
+    </a>
+    <a class="authorization-landing__card" href="{{ "authorization/guides/" | relLangURL }}">
+      <span class="authorization-landing__card-label">Utfør</span>
+      <h3>Guider</h3>
+      <p>Finn trinnvise veiledninger for konkrete oppgaver.</p>
+      <span class="authorization-landing__card-link">Finn en guide →</span>
+    </a>
+    <a class="authorization-landing__card" href="{{ "authorization/reference/" | relLangURL }}">
+      <span class="authorization-landing__card-label">Slå opp</span>
+      <h3>Referanse</h3>
+      <p>Finn API-er, kontrakter, arkitektur og tekniske detaljer.</p>
+      <span class="authorization-landing__card-link">Åpne referansen →</span>
+    </a>
+  </div>
+</div>
+{{- else -}}
+<div class="authorization-landing">
+  <section class="authorization-landing__hero" aria-labelledby="authorization-landing-title">
+    <p class="authorization-landing__eyebrow">Altinn Authorization</p>
+    <h2 id="authorization-landing-title">Find the right path from need to working integration</h2>
+    <p class="authorization-landing__lead">Choose your role. Each main journey collects the steps and directs you to the details you need.</p>
+  </section>
+
+  <h2 class="authorization-landing__heading">What do you need to do?</h2>
+  <div class="authorization-landing__grid">
+    <a class="authorization-landing__card" href="{{ "authorization/getting-started/service-owner/" | relLangURL }}">
+      <span class="authorization-landing__card-label">For service owners</span>
+      <h3>Protect an API</h3>
+      <p>Register the resource, define the policy and enforce the decision from Altinn Authorization.</p>
+      <span class="authorization-landing__card-link">Follow the service owner journey →</span>
+    </a>
+    <a class="authorization-landing__card" href="{{ "authorization/getting-started/system-integrator/" | relLangURL }}">
+      <span class="authorization-landing__card-label">For system integrators</span>
+      <h3>Integrate a system</h3>
+      <p>Choose an identity, set up a system user and call services on behalf of people or organisations.</p>
+      <span class="authorization-landing__card-link">Follow the integrator journey →</span>
+    </a>
+  </div>
+
+  <a class="authorization-landing__chooser" href="{{ "authorization/getting-started/choose-authentication/" | relLangURL }}">
+    <span>
+      <h3>Unsure which solution you need?</h3>
+      <p>Compare ID-porten, Maskinporten, system users, consent and access control.</p>
+    </span>
+    <span class="authorization-landing__chooser-action">Choose an integration method →</span>
+  </a>
+
+  <h2 class="authorization-landing__heading">Find more information</h2>
+  <div class="authorization-landing__grid authorization-landing__grid--three">
+    <a class="authorization-landing__card" href="{{ "authorization/what-do-you-get/" | relLangURL }}">
+      <span class="authorization-landing__card-label">Understand</span>
+      <h3>What do you get?</h3>
+      <p>Explore the capabilities and use cases in Altinn Authorization.</p>
+      <span class="authorization-landing__card-link">Explore the capabilities →</span>
+    </a>
+    <a class="authorization-landing__card" href="{{ "authorization/guides/" | relLangURL }}">
+      <span class="authorization-landing__card-label">Do</span>
+      <h3>Guides</h3>
+      <p>Find step-by-step guides for individual tasks.</p>
+      <span class="authorization-landing__card-link">Find a guide →</span>
+    </a>
+    <a class="authorization-landing__card" href="{{ "authorization/reference/" | relLangURL }}">
+      <span class="authorization-landing__card-label">Look up</span>
+      <h3>Reference</h3>
+      <p>Find APIs, contracts, architecture and technical details.</p>
+      <span class="authorization-landing__card-link">Open the reference →</span>
+    </a>
+  </div>
+</div>
+{{- end -}}

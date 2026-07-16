@@ -1,8 +1,14 @@
 ---
-title: Sluttbrukersystemleverandør
-linktitle: Systemleverandør
-description: Les om hvordan du som sluttbrukersystemleverandør kan integrere mot våre API og bruke Altinn Autorisasjon gjennom dine systemer
+title: Systemintegrator
+linktitle: Systemintegrator
+description: Veiledninger for systemleverandører og virksomheter som integrerer systemer med Altinn Autorisasjon.
 toc: false
 ---
+
+Er dette den første integrasjonen din?
+
+[Følg hovedløpet for å integrere et system med Altinn Autorisasjon.](../../getting-started/system-integrator/)
+
+Bruk veiledningene nedenfor når du skal utføre en konkret oppgave.
 
 {{<children />}}
