@@ -15,3 +15,5 @@ Klikk på en boks for å åpne den tilhørende filen eller mappen på GitHub.
 API-ene for bestemte konsumenter bygger på den interne Party API-en. Importintegrasjonene oppdaterer registerdata, mens publiserte kontrakter og meldinger gjør dataene tilgjengelige for andre komponenter.
 
 [Se arkitekturmønstrene som Register bruker for forespørsler, transaksjoner, datastrømmer og bakgrunnsarbeid.](./patterns/)
+
+[Se Registers databasemodell og bruk av PostgreSQL og Azure Storage.](./persistence/)
