@@ -13,3 +13,5 @@ Select a box to open the corresponding file or directory on GitHub.
 <object data="register-application.svg" type="image/svg+xml" aria-label="Register application architecture with links to source code" style="width:100%;height:auto;min-height:680px;display:block;"></object>
 
 Consumer-specific APIs build on the internal Party API. Import integrations update register data, while published contracts and messages make the data available to other components.
+
+[See the architecture patterns Register uses for requests, transactions, data streams and background work.](./patterns/)

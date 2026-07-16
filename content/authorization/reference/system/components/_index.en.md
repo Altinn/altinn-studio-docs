@@ -2,7 +2,7 @@
 title: Components
 linktitle: Components
 description: Responsibilities, data and collaboration for Altinn Authorization components.
-weight: 4
+weight: 5
 toc: true
 ---
 

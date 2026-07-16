@@ -2,7 +2,7 @@
 title: Technical flows
 linktitle: Flows
 description: The main cross-component flows in Altinn Authorization.
-weight: 5
+weight: 6
 toc: true
 ---
 

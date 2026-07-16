@@ -2,7 +2,7 @@
 title: Security and trust
 linktitle: Security
 description: Trust boundaries and security principles in Altinn Authorization.
-weight: 7
+weight: 8
 toc: true
 ---
 

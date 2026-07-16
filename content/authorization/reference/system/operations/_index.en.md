@@ -2,7 +2,7 @@
 title: Operations and observability
 linktitle: Operations
 description: Runtime, observability and cross-component troubleshooting for Altinn Authorization.
-weight: 8
+weight: 9
 toc: true
 ---
 

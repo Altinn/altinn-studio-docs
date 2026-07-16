@@ -20,3 +20,5 @@ Klikk på en blå API-boks for å åpne controlleren på GitHub. De grønne tjen
 - **Felles lag** inneholder domenemodeller, integrasjoner og persistens som API-ene bruker.
 
 Skissen viser logiske kodegrenser. Boksene representerer ikke nødvendigvis egne prosesser eller deploybare enheter.
+
+Les mer om [arkitekturmønstrene i komponenten](./patterns/).
