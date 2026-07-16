@@ -8,6 +8,8 @@ toc: true
 
 Components have separate deployment and operational models. This page provides the cross-cutting view; concrete runbooks belong close to the operated code.
 
+[See the logical runtime architecture, component profiles and delivery model.](./runtime-architecture/)
+
 ## Runtime
 
 Core services are primarily containerised .NET APIs. Access Management UI consists of a React client and .NET BFF. Audit Log uses Azure Storage Queue, a Function App, a container application and PostgreSQL. Databases and schemas are internal component contracts, not integration surfaces.

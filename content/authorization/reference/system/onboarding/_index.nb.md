@@ -60,7 +60,7 @@ Integrasjonstester krever en containermotor. Et grønt enhetstestsett dekker ikk
 
 Følg [én autorisasjonsbeslutning ende til ende](../flows/authorization-decision/). Gjør øvelsen sammen med en fadder første gang dersom du trenger testmiljø, abonnementnøkkel eller testdata.
 
-Ikke kopier tokens, nøkler eller personopplysninger til dokumentasjon, terminalhistorikk, skjermbilder eller pull requester.
+Ikke kopier tokens, nøkler eller personopplysninger til dokumentasjon, terminalhistorikk, skjermbilder eller pull requests.
 
 ## Første kodeendring
 
