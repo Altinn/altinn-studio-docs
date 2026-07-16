@@ -15,3 +15,5 @@ Select a box to open the corresponding file or directory on GitHub.
 Consumer-specific APIs build on the internal Party API. Import integrations update register data, while published contracts and messages make the data available to other components.
 
 [See the architecture patterns Register uses for requests, transactions, data streams and background work.](./patterns/)
+
+[See the Register database model and its use of PostgreSQL and Azure Storage.](./persistence/)
