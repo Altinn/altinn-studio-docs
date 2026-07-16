@@ -36,7 +36,7 @@ Den eldre `eventlog`-tabellen er en TimescaleDB-hypertabell og mangler `subject_
 
 <a href="./partition-model.svg" target="_blank" rel="noopener"><img src="./partition-model.svg" alt="Partisjons- og oppbevaringsmodell for Audit Log" style="width:100%;height:auto;display:block;cursor:zoom-in;" /></a>
 
-En bakgrunnstjeneste oppretter partisjoner for forrige, gjeldende og neste måned i begge skjemaene. Navnet følger mønsteret `eventlogv1_yÅÅÅÅmMM`. Tjenesten kjører ved oppstart og deretter daglig.
+En bakgrunnstjeneste oppretter partisjoner for forrige, gjeldende og neste måned i begge skjemaene. Navnet følger mønsteret `eventlogv1_yYYYYmMM`. Tjenesten kjører ved oppstart og deretter daglig.
 
 Sletting av gamle partisjoner styres per miljø med `EnableOldPartitionDeletion` og `RetentionMonths`. Standardkonfigurasjonen deaktiverer sletting. Produksjonskonfigurasjonen angir 24 måneder, men har også sletting deaktivert i den analyserte committen. Dokumentasjonen beskriver konfigurasjonen, ikke en juridisk eller virksomhetsmessig oppbevaringsregel.
 
