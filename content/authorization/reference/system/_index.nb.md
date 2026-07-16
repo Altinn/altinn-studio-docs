@@ -16,6 +16,8 @@ Altinn Autorisasjon knytter sammen identitet, part, ressurs, rettighet og kontek
 
 ## Leseguide
 
+- [Ny i teamet](onboarding/) gir nye utviklere en plan for første dag og første uke.
+
 - [Arkitektur](architecture/) beskriver systemkontekst, ansvar og overordnet oppbygning.
 - [Applikasjonsarkitektur](application-architecture/) beskriver intern oppbygning, teknologier og dataeierskap.
 - [Utviklingsarkitektur](development-architecture/) beskriver hvordan kildekoden er fordelt, bygd, testet og levert.
