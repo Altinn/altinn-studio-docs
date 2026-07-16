@@ -10,7 +10,9 @@ This page describes the status values used when Altinn Notifications reports
 processing progress for notification orders and delivery results for email and SMS.
 
 These values appear in responses from the status APIs (for example
-`/future/shipment/{id}` and the status feed). They help you:
+`/future/shipment/{id}` and the
+[status feed]({{< relref "/notifications/reference/status-feed" >}})).
+They help you:
 
 - monitor your deliveries
 - understand what went wrong when something fails
