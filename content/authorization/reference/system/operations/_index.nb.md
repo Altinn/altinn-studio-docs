@@ -2,7 +2,7 @@
 title: Drift og observabilitet
 linktitle: Drift
 description: Runtime, observabilitet og feilsøking på tvers av Altinn Autorisasjon.
-weight: 8
+weight: 9
 toc: true
 ---
 

@@ -2,7 +2,7 @@
 title: Integrasjoner og avhengigheter
 linktitle: Integrasjoner
 description: Systemgrenser mot andre Altinn-team, fellesløsninger og datakilder.
-weight: 6
+weight: 7
 toc: true
 ---
 

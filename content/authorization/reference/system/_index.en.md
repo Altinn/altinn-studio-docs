@@ -18,6 +18,7 @@ Altinn Authorization combines identity, party, resource, rights and context to d
 
 - [Architecture](architecture/) describes the system context, responsibilities and overall construction.
 - [Application architecture](application-architecture/) describes internal structure, technologies and data ownership.
+- [Development architecture](development-architecture/) describes how the source code is divided, built, tested and delivered.
 - [Components](components/) explains component ownership and collaboration.
 - [Technical flows](flows/) follows the most important calls through the system.
 - [Integrations and dependencies](integrations/) describes boundaries towards other Altinn teams and shared national services.
