@@ -28,16 +28,21 @@ Phishing poses an ever-increasing threat to IT security. Government guidelines f
 
 Therefore, pay particular attention that notifications sent through Altinn's notification service **MUST NOT contain links or phrasing that resembles a link,** e.g. altinn.no or minetat.no. In such cases, "Altinn's website", "our website" or similar would be the correct phrasing to use.
 
+### Guides for specific order types
+
+- [Send email with file references]({{< relref "/notifications/guides/composed-email" >}})
+- [Send instant notifications]({{< relref "/notifications/guides/instant-notifications" >}})
+
 ### Creating a new Maskinporten Client
 
 A Maskinporten Client, also known as a Maskinporten Integration, can generate tokens with a set of scopes on request.
 The token must then be exchanged for an Altinn token and used to gain access to the API.
 
-The scope **altinn:serviceowner/notifications.create** is required for clients to
-access the Notifications API.
+The scope **altinn:serviceowner/notifications.composedemail.create** is required for clients to access the Composed Notifications API.
 
-All registered service owners have been delegated this scope by Digdir and should
-be able to find it in their list of scopes in Samarbeidsportalen.
+The scope **altinn:serviceowner/notifications.create** is required for clients to access the Notifications and Instant Notifications APIs.
+
+All registered service owners have been delegated `altinn:serviceowner/notifications.create` by Digdir and should be able to find it in their list of scopes in Samarbeidsportalen.
 
 Register your Maskinporten client(s) to authenticate with the Notifications API, assigning them this scope.
 

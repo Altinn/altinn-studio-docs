@@ -15,6 +15,73 @@
     }
   ],
   "paths": {
+    "/future/orders/composed-email": {
+      "post": {
+        "tags": [
+          "Order"
+        ],
+        "summary": "Creates a new composed email notification order.",
+        "description": "The API validates the request at the boundary before any database write or queue publish.\r\nFiles are referenced by SAS URL and downloaded by the email service at send time.",
+        "requestBody": {
+          "description": "The composed email order request.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ComposedEmailRequestExt"
+              }
+            }
+          }
+        },
+        "responses": {
+          "401": {
+            "description": "Caller is unauthorized"
+          },
+          "403": {
+            "description": "Caller is not authorized to access the requested resource"
+          },
+          "201": {
+            "description": "The notification order was created.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationOrderChainResponseExt"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "The notification order was created previously.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationOrderChainResponseExt"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "The notification order is invalid.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "499": {
+            "description": "Request terminated - The client disconnected or cancelled the request before the server could complete processing",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/orders/email": {
       "post": {
         "tags": [
@@ -800,6 +867,18 @@
               "type": "integer",
               "format": "int32"
             }
+          },
+          {
+            "name": "OrderBy",
+            "in": "query",
+            "description": "The order in which the status feed entries should be returned. The default value is \"Asc\" for ascending order",
+            "schema": {
+              "enum": [
+                "Asc",
+                "Desc"
+              ],
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -875,6 +954,96 @@
           }
         },
         "additionalProperties": {}
+      },
+      "ComposedEmailRequestExt": {
+        "required": [
+          "idempotencyId",
+          "recipient"
+        ],
+        "type": "object",
+        "properties": {
+          "sendersReference": {
+            "type": "string",
+            "description": "Gets or sets the sender's reference identifier.",
+            "nullable": true
+          },
+          "requestedSendTime": {
+            "type": "string",
+            "description": "Gets or sets the earliest date and time when the notification should be delivered.",
+            "format": "date-time"
+          },
+          "conditionEndpoint": {
+            "type": "string",
+            "description": "Gets or sets a URI endpoint that can determine whether the notification should be sent.",
+            "format": "uri",
+            "nullable": true
+          },
+          "dialogportenAssociation": {
+            "$ref": "#/components/schemas/DialogportenIdentifiersExt"
+          },
+          "idempotencyId": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The idempotency identifier defined by the sender."
+          },
+          "recipient": {
+            "$ref": "#/components/schemas/RecipientComposedEmailExt"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a request to create a composed email order with one or more SAS-referenced files."
+      },
+      "ComposedEmailSendingOptionsExt": {
+        "required": [
+          "body",
+          "subject"
+        ],
+        "type": "object",
+        "properties": {
+          "senderEmailAddress": {
+            "type": "string",
+            "description": "Gets or sets the sender's email address.",
+            "nullable": true
+          },
+          "subject": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Gets or sets the subject line of the email."
+          },
+          "body": {
+            "minLength": 1,
+            "type": "string",
+            "description": "Gets or sets the main body content of the email."
+          },
+          "contentType": {
+            "enum": [
+              "Plain",
+              "Html"
+            ],
+            "type": "string",
+            "description": "Gets or sets the content type (plain text or HTML) of the email.",
+            "default": "Plain"
+          },
+          "sendingTimePolicy": {
+            "enum": [
+              "Anytime",
+              "Daytime"
+            ],
+            "type": "string",
+            "description": "Gets or sets the policy defining when the email should be sent.",
+            "default": "Anytime"
+          },
+          "attachments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SasFileReferenceExt"
+            },
+            "description": "The files to include in the email, each identified by a Altinn.Notifications.Models.Files.SasFileReferenceExt.",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Extends Altinn.Notifications.Models.Email.EmailSendingOptionsExt with an optional list of SAS-referenced files\r\nto be included when the email is sent."
       },
       "DialogportenIdentifiersExt": {
         "type": "object",
@@ -1161,7 +1330,9 @@
               "Email_Failed_Bounced",
               "Email_Failed_FilteredSpam",
               "Email_Failed_Quarantined",
-              "Email_Failed_TTL"
+              "Email_Failed_TTL",
+              "Email_Failed_InvalidSasUrl",
+              "Email_Failed_PayloadTooLarge"
             ],
             "type": "string",
             "description": "Gets the current lifecycle status of the entity.",
@@ -1398,7 +1569,9 @@
               "Email_Failed_Bounced",
               "Email_Failed_FilteredSpam",
               "Email_Failed_Quarantined",
-              "Email_Failed_TTL"
+              "Email_Failed_TTL",
+              "Email_Failed_InvalidSasUrl",
+              "Email_Failed_PayloadTooLarge"
             ],
             "type": "string",
             "description": "Represents the lifecycle status of orders and individual notifications."
@@ -1885,6 +2058,25 @@
         "additionalProperties": false,
         "description": "A class representing a set of resource links of a notification order."
       },
+      "RecipientComposedEmailExt": {
+        "required": [
+          "emailAddress",
+          "emailSettings"
+        ],
+        "type": "object",
+        "properties": {
+          "emailAddress": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The email address of the recipient."
+          },
+          "emailSettings": {
+            "$ref": "#/components/schemas/ComposedEmailSendingOptionsExt"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Identifies a recipient for a composed email notification by their email address\r\nand the associated sending options, including SAS-referenced files."
+      },
       "RecipientEmailExt": {
         "required": [
           "emailAddress",
@@ -2104,6 +2296,11 @@
           "ignoreReservation": {
             "type": "boolean",
             "description": "Gets or sets a value indicating whether to bypass the recipient's reservation against electronic communication."
+          },
+          "useStaleContactInformation": {
+            "type": "boolean",
+            "description": "Gets or sets a value indicating whether to use potentially stale contact information from the Common Contact Register (KRR).",
+            "default": false
           }
         },
         "additionalProperties": false,
@@ -2127,6 +2324,35 @@
         },
         "additionalProperties": false,
         "description": "Represents the model for sending an SMS to a specific mobile number."
+      },
+      "SasFileReferenceExt": {
+        "required": [
+          "filename",
+          "mimeType",
+          "sasUrl"
+        ],
+        "type": "object",
+        "properties": {
+          "filename": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The filename, including extension (e.g. `contract.pdf`).",
+            "example": "contract.pdf"
+          },
+          "mimeType": {
+            "minLength": 1,
+            "type": "string",
+            "description": "The MIME type of the file (e.g. `application/pdf`).",
+            "example": "application/pdf"
+          },
+          "sasUrl": {
+            "type": "string",
+            "description": "The SAS URL granting time-limited read access to the file in Azure Blob Storage.",
+            "format": "uri"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Identifies a file in Azure Blob Storage by its SAS URL, name, and MIME type."
       },
       "ShortMessageContentExt": {
         "required": [
@@ -2437,7 +2663,9 @@
               "Email_Failed_Bounced",
               "Email_Failed_FilteredSpam",
               "Email_Failed_Quarantined",
-              "Email_Failed_TTL"
+              "Email_Failed_TTL",
+              "Email_Failed_InvalidSasUrl",
+              "Email_Failed_PayloadTooLarge"
             ],
             "type": "string",
             "description": "Gets the current lifecycle status of the order."
@@ -2504,7 +2732,9 @@
               "Email_Failed_Bounced",
               "Email_Failed_FilteredSpam",
               "Email_Failed_Quarantined",
-              "Email_Failed_TTL"
+              "Email_Failed_TTL",
+              "Email_Failed_InvalidSasUrl",
+              "Email_Failed_PayloadTooLarge"
             ],
             "type": "string",
             "description": "Gets the current status of the processing lifecycle."
@@ -2568,11 +2798,11 @@
     },
     {
       "name": "Status",
-      "description": "Get status/updates for notifications already ordered"
+      "description": "Retrieve delivery status for notification orders"
     },
     {
       "name": "Instant Orders",
-      "description": "Create and send instant notifications to single recipients"
+      "description": "Create and immediately send a notification to a single recipient"
     }
   ]
 }
