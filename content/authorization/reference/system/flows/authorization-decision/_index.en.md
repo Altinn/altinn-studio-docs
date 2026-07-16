@@ -51,7 +51,7 @@ Do not change shared test data without agreement.
 5. On `NotApplicable`, relevant delegations are loaded and evaluated.
 6. A preliminary `Permit` may become `Deny` when a required access list rejects the party.
 7. Event Log creates the event when enabled.
-8. the Audit Log function consumes `authorizationeventlog` and calls the Audit Log API.
+8. The Audit Log function consumes `authorizationeventlog` and calls the Audit Log API.
 
 ## Run locally
 
