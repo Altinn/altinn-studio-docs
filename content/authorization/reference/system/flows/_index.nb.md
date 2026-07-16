@@ -2,7 +2,7 @@
 title: Tekniske flyter
 linktitle: Flyter
 description: De viktigste flytene på tvers av komponentene i Altinn Autorisasjon.
-weight: 5
+weight: 6
 toc: true
 ---
 

@@ -18,6 +18,7 @@ Altinn Autorisasjon knytter sammen identitet, part, ressurs, rettighet og kontek
 
 - [Arkitektur](architecture/) beskriver systemkontekst, ansvar og overordnet oppbygning.
 - [Applikasjonsarkitektur](application-architecture/) beskriver intern oppbygning, teknologier og dataeierskap.
+- [Utviklingsarkitektur](development-architecture/) beskriver hvordan kildekoden er fordelt, bygd, testet og levert.
 - [Komponenter](components/) forklarer hva hver komponent eier og hvordan komponentene samarbeider.
 - [Tekniske flyter](flows/) følger de viktigste kallene gjennom systemet.
 - [Integrasjoner og avhengigheter](integrations/) beskriver systemgrensene mot andre Altinn-team og eksterne fellesløsninger.

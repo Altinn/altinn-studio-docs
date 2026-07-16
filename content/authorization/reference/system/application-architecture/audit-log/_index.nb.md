@@ -11,3 +11,5 @@ Audit Log mottar autentiserings- og autorisasjonshendelser gjennom køer og HTTP
 Klikk på en boks for å åpne kildekoden på GitHub.
 
 <object data="audit-log-application.svg" type="image/svg+xml" aria-label="Applikasjonsarkitektur for Audit Log med lenker til kildekoden" style="width:100%;height:auto;min-height:620px;display:block;"></object>
+
+Les mer om [arkitekturmønstrene i komponenten](./patterns/).

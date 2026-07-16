@@ -2,7 +2,7 @@
 title: Komponenter
 linktitle: Komponenter
 description: Ansvar, data og samspill for komponentene i Altinn Autorisasjon.
-weight: 4
+weight: 5
 toc: true
 ---
 
