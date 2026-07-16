@@ -13,3 +13,5 @@ Klikk på en boks for å åpne kildekoden på GitHub.
 <object data="access-management-application.svg" type="image/svg+xml" aria-label="Applikasjonsarkitektur for Access Management med lenker til kildekoden" style="width:100%;height:auto;min-height:780px;display:block;"></object>
 
 [Se arkitekturmønstrene som Access Management bruker for API-grenser, tilgangsforhold, validering og pålitelige sideeffekter.](./patterns/)
+
+[Se databaseskjemaene, revisjonshistorikken og bloblagringen i Access Management.](./persistence/)
