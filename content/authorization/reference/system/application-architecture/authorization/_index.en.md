@@ -11,3 +11,7 @@ Authorization builds decision context and evaluates access against policies and 
 Select a box to open the source code on GitHub.
 
 <object data="authorization-application.svg" type="image/svg+xml" aria-label="Authorization application architecture with links to source code" style="width:100%;height:auto;min-height:640px;display:block;"></object>
+
+Read more about the [architecture patterns in Authorization and the PDP](./patterns/).
+
+[See the PDP delegation metadata, policy blobs, event queue and cache.](./persistence/)

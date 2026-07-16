@@ -2,11 +2,13 @@
 title: Operations and observability
 linktitle: Operations
 description: Runtime, observability and cross-component troubleshooting for Altinn Authorization.
-weight: 8
+weight: 9
 toc: true
 ---
 
 Components have separate deployment and operational models. This page provides the cross-cutting view; concrete runbooks belong close to the operated code.
+
+[See the logical runtime architecture, component profiles and delivery model.](./runtime-architecture/)
 
 ## Runtime
 

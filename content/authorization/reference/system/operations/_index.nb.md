@@ -2,11 +2,13 @@
 title: Drift og observabilitet
 linktitle: Drift
 description: Runtime, observabilitet og feilsøking på tvers av Altinn Autorisasjon.
-weight: 8
+weight: 9
 toc: true
 ---
 
-Komponentene har egne deploy- og driftsmodeller. Denne siden beskriver det tverrgående perspektivet; konkrete runbooks skal ligge nær koden som driftes.
+Komponentene har egne leveranse- og driftsmodeller. Denne siden beskriver det tverrgående perspektivet; konkrete driftsprosedyrer skal ligge nær koden som driftes.
+
+[Se den logiske kjøremiljøarkitekturen, komponentprofilene og leveransemodellen.](./runtime-architecture/)
 
 ## Runtime
 

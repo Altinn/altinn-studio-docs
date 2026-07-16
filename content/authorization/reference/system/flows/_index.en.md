@@ -2,11 +2,11 @@
 title: Technical flows
 linktitle: Flows
 description: The main cross-component flows in Altinn Authorization.
-weight: 5
+weight: 6
 toc: true
 ---
 
-The flows highlight transitions of responsibility between components. Detailed API contracts and integration steps belong in the API and guide sections.
+The flows highlight transitions of responsibility between components. [Trace an executable authorisation decision end to end](./authorization-decision/) as the main exercise. Detailed API contracts and integration steps belong in the API and guide sections.
 
 ## Interactive authentication
 

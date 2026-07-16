@@ -11,3 +11,5 @@ Resource Registry forvalter ressursmetadata, policytilknytning og tilgangslister
 Klikk på en boks for å åpne kildekoden på GitHub.
 
 <object data="resource-registry-application.svg" type="image/svg+xml" aria-label="Applikasjonsarkitektur for Resource Registry med lenker til kildekoden" style="width:100%;height:auto;min-height:640px;display:block;"></object>
+
+Les mer om [arkitekturmønstrene i komponenten](./patterns/) og [persistensarkitekturen](./persistence/).

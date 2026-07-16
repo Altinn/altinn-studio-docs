@@ -2,7 +2,7 @@
 title: Sikkerhet og tillit
 linktitle: Sikkerhet
 description: Tillitsgrenser og sikkerhetsprinsipper i Altinn Autorisasjon.
-weight: 7
+weight: 8
 toc: true
 ---
 
