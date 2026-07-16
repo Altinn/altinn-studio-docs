@@ -8,9 +8,11 @@ weight: 10
 
 To use the Altinn Notifications API, you must have a Maskinporten client with the correct scope.
 
-The scope **altinn:serviceowner/notifications.create** is required for clients to access the Notifications API.
+The scope **altinn:serviceowner/notifications.composedemail.create** is required for clients to access the Composed Notifications API.
 
-All registered service owners have been delegated this scope by Digdir and should be able to find it in their list of scopes in Samarbeidsportalen.
+The scope **altinn:serviceowner/notifications.create** is required for clients to access the Notifications and Instant Notifications APIs.
+
+All registered service owners have been delegated `altinn:serviceowner/notifications.create` by Digdir and should be able to find it in their list of scopes in Samarbeidsportalen.
 
 For a guide on how to register a new Maskinporten integration in Samarbeidsportalen, please see [Altinn Authorization](/en/authorization/getting-started/maskinportenclient/)
 

@@ -22,3 +22,5 @@ Klikk på en blå API-boks for å åpne controlleren på GitHub. De grønne tjen
 Skissen viser logiske kodegrenser. Boksene representerer ikke nødvendigvis egne prosesser eller deploybare enheter.
 
 Les mer om [arkitekturmønstrene i komponenten](./patterns/).
+
+[Se Authentication-databasene, blobcontaineren og hendelseskøen.](./persistence/)

@@ -12,4 +12,4 @@ Select a box to open the source code on GitHub.
 
 <object data="audit-log-application.svg" type="image/svg+xml" aria-label="Audit Log application architecture with links to source code" style="width:100%;height:auto;min-height:620px;display:block;"></object>
 
-Read more about the [architecture patterns in the component](./patterns/).
+Read more about the [architecture patterns in the component](./patterns/) and [the persistence architecture](./persistence/).

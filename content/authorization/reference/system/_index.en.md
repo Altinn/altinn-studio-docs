@@ -16,6 +16,8 @@ Altinn Authorization combines identity, party, resource, rights and context to d
 
 ## Reading guide
 
+- [New to the team](onboarding/) provides a plan for a developer's first day and first week.
+
 - [Architecture](architecture/) describes the system context, responsibilities and overall construction.
 - [Application architecture](application-architecture/) describes internal structure, technologies and data ownership.
 - [Development architecture](development-architecture/) describes how the source code is divided, built, tested and delivered.

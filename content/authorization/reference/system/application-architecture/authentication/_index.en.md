@@ -22,3 +22,5 @@ Select a blue API box to open its controller on GitHub. Green service boxes link
 The diagram shows logical code boundaries. Boxes do not necessarily represent separate processes or deployable units.
 
 Read more about the [architecture patterns in the component](./patterns/).
+
+[See the Authentication databases, blob container and event queue.](./persistence/)
