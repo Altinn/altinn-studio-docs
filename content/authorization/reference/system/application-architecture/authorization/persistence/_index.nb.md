@@ -20,7 +20,7 @@ PDP eier én PostgreSQL-tabell og bruker to blobcontainere. Autorisasjonshendels
 
 <a href="./delegation-schema.svg" target="_blank" rel="noopener"><img src="./delegation-schema.svg" alt="Databasemodell for PDP-skjemaet delegation" style="width:100%;height:auto;display:block;cursor:zoom-in;" /></a>
 
-`delegationchanges` er en append-orientert endringslogg. Hver rad peker til stien og versjonen til en delegeringspolicy i Blob Storage. Databasefunksjoner finner gjeldende endring eller historikk for en kombinasjon av app og parter.
+`delegationchanges` er en append-orientert endringslogg. Hver rad inneholder stien til en delegeringspolicy i Blob Storage og, når den finnes, blobversjonens ID. Databasefunksjoner finner gjeldende endring eller historikk for en kombinasjon av app og parter.
 
 `AuthorizationDbContext` har ingen `DbSet` og EF-snapshoten er tom. EF bruker en håndskrevet baseline til å opprette eller adoptere skjemaet, mens rå Npgsql-repositories fortsetter å bruke tabellen og funksjonene. Tilbakemigreringen er med vilje tom for å unngå tap av delegeringsdata.
 
@@ -30,11 +30,11 @@ PDP eier én PostgreSQL-tabell og bruker to blobcontainere. Autorisasjonshendels
 
 `MetadataContainer` bruker standardnavnet `metadata` og inneholder app- og ressurspolicyer. `DelegationsContainer` bruker standardnavnet `delegationpolicies` og inneholder versjonerte `delegationpolicy.xml`-filer. Repositoryet velger container ut fra filnavnet.
 
-Blob leases beskytter samtidige policyoppdateringer. PostgreSQL lagrer blobstien og versjons-ID-en, slik at PDP kan evaluere den policyversjonen som hører til endringen.
+Blob leases beskytter samtidige policyoppdateringer. PostgreSQL lagrer blobstien og en eventuell versjons-ID, slik at PDP kan evaluere policyversjonen som hører til endringen når den er angitt.
 
 ## Hendelseskø og hurtigbuffer
 
-`AuthorizationEventQueueName` angir køen for beslutningshendelser. Standardkonfigurasjonen bruker `authorizationeventlog` og en levetid på 90 dager før Audit Log behandler hendelsen.
+`AuthorizationEventQueueName` angir køen for beslutningshendelser. Standardkonfigurasjonen bruker `authorizationeventlog`. Hendelsene sendes til Audit Log, og kømeldingene har en TTL på 90 dager.
 
 `IMemoryCache` lagrer blant annet tolkede policyer, parter, profiler, roller og svar fra Resource Registry og Access Management. Hurtigbufferen er lokal for prosessen og er ikke en autoritativ eller varig datakilde.
 
