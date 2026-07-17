@@ -197,9 +197,3 @@ Eksempel på eFormidling-systemoppgave:
 {{% notice info %}}
 Mer info kommer snart.
 {{% /notice %}}
-
-### Overføre data via Fiks Arkiv
-
-{{% notice info %}}
-Mer info kommer snart.
-{{% /notice %}}
