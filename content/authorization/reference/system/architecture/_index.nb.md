@@ -49,4 +49,4 @@ En PEP håndhever en beslutning nær den beskyttede tjenesten. PEP kan derfor li
 - Eksterne tokens er bevis som valideres og oversettes til en intern identitetskontekst.
 - Hendelser skal kunne korreleres på tvers av komponentgrenser.
 
-Den eksisterende [arkitekturreferansen](/nb/authorization/reference/architecture/) beholdes inntil videre. Den beskriver særlig XACML-rollene PDP, PAP, PRP, PIP, Context Handler og PEP. Denne siden er den nye systemorienterte inngangen.
+[Beslutningsmodellen i XACML](../development-architecture/xacml-decision-model/) beskriver ansvaret til PDP, PAP, PRP, PIP, konteksthåndtereren og PEP. De eldre detaljsidene er tilgjengelige fra denne inngangen, men vises ikke lenger som et eget arkitekturtre i menyen.

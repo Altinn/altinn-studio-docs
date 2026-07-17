@@ -11,7 +11,7 @@ You can do this via API or in the Policy editor in Resource Administration.
 
 ![Policy editor in Altinn Studio](./vergemal_regler.png "Policy editor in Altinn Studio")
 
-See the [overview of guardianship powers from the Civil Affairs Authority](/en/authorization/what-do-you-get/accessgroups/accessgroups-citizens/verger/).
+See the [overview of guardianship powers from the Civil Affairs Authority](/en/authorization/what-do-you-get/accesspackages/citizens/verger/).
 
 See the [guide on how to create and publish a resource](/en/authorization/guides/resource-owner/create-resource-resource-admin/).
 

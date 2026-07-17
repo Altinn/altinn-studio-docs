@@ -104,7 +104,7 @@ Define the action for the rule.
 
 Define the subject for the rule. You can choose from ER roles, Altinn roles and access packages.
 
-Read more about [access packages and roles](/en/authorization/what-do-you-get/accessgroups/).
+Read more about [access packages and roles](/en/authorization/what-do-you-get/accesspackages/).
 
 ![Subject](create_resource_13.png)
 

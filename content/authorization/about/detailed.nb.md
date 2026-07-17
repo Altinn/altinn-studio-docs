@@ -74,7 +74,7 @@ Noen roller i Enhetsregisteret gir særlig brede fullmakter og kalles **nøkkelr
 
 Det spesielle med nøkkelroller er at personen automatisk arver rettighetene som virksomheten har fått. Hvis en virksomhet har fått delegert rettigheter fra mange aktører, får personen med nøkkelrolle tilgang til alle disse. For eksempel vil daglig leder i et stort regnskapsbyrå kunne ha mange tusen aktører å velge mellom når vedkommende logger inn i Altinn.
 
-I tillegg har flere av nøkkelrollene automatisk tilgang til de fleste [tilgangspakkene](/nb/authorization/what-do-you-get/accessgroups/accessgroups/) uten at noen trenger å delegere manuelt. Andre roller, som regnskapsfører (REGN) og revisor (REVI), gir kun tilgang til et utvalg tjenester som er relevante for den rollen.
+I tillegg har flere av nøkkelrollene automatisk tilgang til de fleste [tilgangspakkene](/nb/authorization/what-do-you-get/accesspackages/business/) uten at noen trenger å delegere manuelt. Andre roller, som regnskapsfører (REGN) og revisor (REVI), gir kun tilgang til et utvalg tjenester som er relevante for den rollen.
 
 ### Arv av rettigheter
 
@@ -95,7 +95,7 @@ Tilgangspakker er samlinger av tilganger til relaterte tjenester. I stedet for �
 
 Pakker er organisert i fullmaktsområder basert på SSBs kategorisering av virksomhetstyper. Det finnes over **135 tilgangspakker** fordelt på **21 fullmaktsområder** for virksomheter – mot bare et titalls roller i Altinn 2. Den økte granulariteten gjør det mulig å gi ansatte og systemer mer presis tilgang etter prinsippet om minste nødvendige rettighet: man gir tilgang til det som faktisk trengs, ikke mer.
 
-[Se oversikt over alle fullmaktsområder og tilgangspakker](/nb/authorization/what-do-you-get/accessgroups/accessgroups/).
+[Se oversikt over alle fullmaktsområder og tilgangspakker](/nb/authorization/what-do-you-get/accesspackages/business/).
 
 Tjenesteeier bestemmer selv hvilke tilgangspakker som skal gi tilgang til sin tjeneste. Når flere tjenesteeiere knytter tjenestene sine til samme pakke, bygger de opp et felles bransjeområde over tid. Det betyr at en tilgangspakke kan gi tilgang til tjenester fra mange ulike tjenesteeiere.
 

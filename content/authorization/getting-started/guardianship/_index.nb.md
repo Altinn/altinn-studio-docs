@@ -11,7 +11,7 @@ Du kan gjøre dette via API eller i Policy editor i Ressursadministrasjon.
 
 ![Policy editor i Altinn Studio](./vergemal_regler.png "Policy editor i Altinn Studio")
 
-Se [oversikt over vergefullmaktene fra Sivilrettsforvaltningen](/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/verger/).
+Se [oversikt over vergefullmaktene fra Sivilrettsforvaltningen](/nb/authorization/what-do-you-get/accesspackages/citizens/verger/).
 
 Se [gjennomgang av hvordan du oppretter og publiserer en ressurs](/nb/authorization/guides/resource-owner/create-resource-resource-admin/).
 

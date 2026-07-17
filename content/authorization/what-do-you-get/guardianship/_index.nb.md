@@ -35,5 +35,5 @@ I brukerflaten for tilgangsstyring i Altinn vil vergehaver se sine verger, og ve
 
 ## Les mer
 
-- [Vergefullmakter fra Sivilrettsforvaltningen — oversikt over hva de ulike vergefullmaktene dekker](/nb/authorization/what-do-you-get/accessgroups/accessgroups-citizens/verger/)
+- [Vergefullmakter fra Sivilrettsforvaltningen — oversikt over hva de ulike vergefullmaktene dekker](/nb/authorization/what-do-you-get/accesspackages/citizens/verger/)
 - [Les mer om vergemål hos Sivilrettsforvaltningen](https://www.vergemal.no)
