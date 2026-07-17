@@ -11,4 +11,4 @@ cascade:
     product: product_authorization
 ---
 
-{{< authorization-landing >}}
+{{< authorization-hub kind="main" >}}

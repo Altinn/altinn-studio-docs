@@ -1,12 +1,14 @@
 ---
 title: Integrer et system med Altinn Autorisasjon
-linktitle: For systemintegratorer
+linktitle: For systemleverandører
 description: Slik velger du identitet, setter opp systembruker og kaller en tjeneste på vegne av personer eller virksomheter.
 weight: 3
 toc: true
+aliases:
+  - /authorization/getting-started/system-integrator/
 ---
 
-Denne veiledningen gir systemintegratorer ett hovedløp fra valg av identitet til produksjonsklart kall. Den passer for systemleverandører og virksomheter som utvikler egne integrasjoner.
+Denne veiledningen gir systemleverandører ett hovedløp fra valg av identitet til produksjonsklart kall. Den passer også for virksomheter som utvikler og drifter egne sluttbrukersystemer.
 
 Detaljsidene inneholder API-kontrakter og komplette eksempler. Bruk denne siden til å velge riktig løp og rekkefølge.
 
