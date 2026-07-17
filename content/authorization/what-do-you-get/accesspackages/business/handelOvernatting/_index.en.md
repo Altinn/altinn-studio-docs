@@ -1,37 +1,19 @@
 ---
-title: Handel, overnatting og servering
-tags: [needstranslation]
-linktitle: Handel, overnatting og servering
-description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som omhandler varehandel(engros- og detaljhandel, import og eksport), overnatting og servering. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+title: Commerce, Accommodation and Catering
+linktitle: Commerce, Accommodation and Catering
+description: This authorization area includes access packages related to commerce, accommodation and catering.
 toc: true
 weight: 100
 aliases:
   - /authorization/what-do-you-get/accessgroups/accessgroups/handelovernatting/
 ---
 
-|**Tilgangspakker i kategorien**|
-|---|
-|[Varehandel](#varehandel)|
-|[Overnatting](#overnatting)|
-|[Servering](#servering)|
+This authorization area includes access packages related to commerce, accommodation and catering.
 
+| Access package | Description | URN | For service owners | Contents |
+|---|---|---|---|---|
+| Accommodation | This access package provides authorizations for services related to accommodation businesses. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:overnatting` | Yes | <a href="https://tjenesteoversikten.no/package/overnatting" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Accommodation">View contents ↗</a> |
+| Catering | This access package provides authorizations for services related to catering businesses. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:servering` | Yes | <a href="https://tjenesteoversikten.no/package/servering" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Catering">View contents ↗</a> |
+| Retail trade | This access package provides authorizations for services related to retail trade, including wholesale and retail, import and export, and sale and repair of motor vehicles. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:varehandel` | Yes | <a href="https://tjenesteoversikten.no/package/varehandel" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Retail trade">View contents ↗</a> |
 
-### Varehandel
-Denne tilgangspakken gir fullmakter til tjenester knyttet til varehandel, inkludert engros- og detaljhandel, import og eksport, og salg og reparasjon av motorvogner. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:varehandel*
-
-### Overnatting
-Denne tilgangspakken gir fullmakter til tjenester knyttet til overnattingsvirksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:overnatting*
-
-### Servering
-Denne tilgangspakken gir fullmakter til tjenester knyttet til serveringsvirksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:servering*
-
-
-## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
-|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
-|---|---|---|
-|Varehandel|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Overnatting|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Servering|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+Source: [Package definitions in Access Management](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Constants/PackageConstants.cs). Role assignments are defined in [IngestRolePackage.cs](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Data/IngestRolePackage.cs).

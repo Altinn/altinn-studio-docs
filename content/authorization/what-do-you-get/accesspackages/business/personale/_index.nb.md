@@ -1,67 +1,25 @@
 ---
 title: Personale
 linktitle: Personale
-description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter til tjenester og ressurser knyttet til personaladministrasjon og ansettelsesforhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+description: Dette fullmaktsområdet omfatter tilgangspakker knyttet til personale.
 toc: true
 weight: 100
 aliases:
   - /authorization/what-do-you-get/accessgroups/accessgroups/personale/
 ---
 
-| **Tilgangspakker i kategorien**|
-|---|
-|[Ansettelsesforhold](#ansettelsesforhold)|
-|[Lønn](#lønn)|
-|[Pensjon](#pensjon)|
-|[Permisjon](#permisjon)|
-|[Sykefravær](#sykefravær)|
-|[A-ordningen](#a-ordningen)|
-|[Lønn med personopplysninger av særlig kategori](#lønn-med-personopplysninger-av-særlig-kategori)|
-|[Sykefravær med personopplysninger av særlig kategori](#sykefravær-med-personopplysninger-av-særlig-kategori)|
+Dette fullmaktsområdet omfatter tilgangspakker knyttet til personale.
 
+| Tilgangspakke | Beskrivelse | URN | For tjenesteeiere | Innhold |
+|---|---|---|---|---|
+| A-ordningen | Denne tilgangspakken gir fullmakter til tjenester som inngår i A-ordningen. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  OBS! Vær oppmerksompå at tilgangspakken inneholder fullmakter som kan ha sensitiv karakter. Vurder om fullmaktene skal gis som enkeltrettigheter. | `urn:altinn:accesspackage:a-ordning` | Ja | <a href="https://tjenesteoversikten.no/package/a-ordning" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for A-ordningen">Se innhold ↗</a> |
+| Ansettelsesforhold | Denne tilgangspakken gir fullmakter til tjenester knyttet til ansettelsesforhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:ansettelsesforhold` | Ja | <a href="https://tjenesteoversikten.no/package/ansettelsesforhold" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Ansettelsesforhold">Se innhold ↗</a> |
+| Permisjon | Denne tilgangspakken gir fullmakter til tjenester knyttet til permisjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:permisjon` | Ja | <a href="https://tjenesteoversikten.no/package/permisjon" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Permisjon">Se innhold ↗</a> |
+| Pensjon | Denne tilgangspakken gir fullmakter til tjenester knyttet til pensjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:pensjon` | Ja | <a href="https://tjenesteoversikten.no/package/pensjon" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Pensjon">Se innhold ↗</a> |
+| Lønn | Denne tilgangspakken gir fullmakter til tjenester knyttet til lønn og honorar. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:lonn` | Ja | <a href="https://tjenesteoversikten.no/package/lonn" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for L&#248;nn">Se innhold ↗</a> |
+| Lønn med personopplysninger av særlig kategori | Denne tilgangspakken gir fullmakter til tjenester knyttet til lønn og refusjon som inkluderer personopplysninger av særlig kategori. Denne fullmakten kan gi bruker tilgang til sensitive personopplysninger om ansatte, for eksempel knyttet til informasjon om ansattes sykefravær, foreldrepenger, pleiepenger eller lignende opplysninger. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:lonn-personopplysninger-saerlig-kategori` | Ja | <a href="https://tjenesteoversikten.no/package/lonn-personopplysninger-saerlig-kategori" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for L&#248;nn med personopplysninger av s&#230;rlig kategori">Se innhold ↗</a> |
+| Sykefravær | Denne tilgangspakken gir fullmakter til tjenester knyttet til sykefravær. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:sykefravaer` | Ja | <a href="https://tjenesteoversikten.no/package/sykefravaer" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Sykefrav&#230;r">Se innhold ↗</a> |
+| Sykefravær med personopplysninger av særlig kategori | Denne tilgangspakken gir fullmakter til tjenester knyttet til sykefravær som inkluderer personopplysninger av særlig kategori. Denne fullmakten kan gi bruker tilgang til sensitive personopplysninger om ansatte, for eksempel knyttet til informasjon om ansattes sykefravær. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:sykefravaer-personopplysninger-saerlig-kategori` | Ja | <a href="https://tjenesteoversikten.no/package/sykefravaer-personopplysninger-saerlig-kategori" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Sykefrav&#230;r med personopplysninger av s&#230;rlig kategori">Se innhold ↗</a> |
+| Oppgi nærmeste leder for sykmeldt ansatt | Denne tilgangspakken gir fullmakt til å fylle ut hvem som er nærmeste leder for en sykmeldt ansatt i bedriften. Tilgangen gjør at man også mottar varsler fra Nav når informasjonen om hvem som er nærmeste leder, mangler. | `urn:altinn:accesspackage:oppgi-naermeste-leder` | Ja | <a href="https://tjenesteoversikten.no/package/oppgi-naermeste-leder" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Oppgi n&#230;rmeste leder for sykmeldt ansatt">Se innhold ↗</a> |
 
-### Ansettelsesforhold
-Denne tilgangspakken gir fullmakter til tjenester knyttet til ansettelsesforhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:ansettelsesforhold*
-
-### Lønn
-Denne tilgangspakken gir fullmakter til tjenester knyttet til lønn og honorar. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:lonn*
-
-### Pensjon
-Denne tilgangspakken gir fullmakter til tjenester knyttet til pensjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:pensjon*
-
-### Permisjon
-Denne tilgangspakken gir fullmakter til tjenester knyttet til permisjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:permisjon*
-
-### Sykefravær
-Denne tilgangspakken gir fullmakter til tjenester knyttet til sykefravær. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:sykefravaer*
-
-### A-ordningen
-Denne tilgangspakken gir fullmakter til tjenester som inngår i A-ordningen. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-**OBS! Vær oppmerksom på at tilgangspakken inneholder fullmakter som kan ha sensitiv karakter. Vurder om fullmaktene skal gis som enkeltrettigheter.**  
-*urn:altinn:accesspackage:a-ordning*
-
-### Lønn med personopplysninger av særlig kategori
-Denne tilgangspakken gir fullmakter til tjenester knyttet til lønn og refusjon som inkluderer personopplysninger av særlig kategori. Denne fullmakten kan gi bruker tilgang til sensitive personopplysninger om ansatte, for eksempel knyttet til informasjon om ansattes sykefravær, foreldrepenger, pleiepenger eller lignende opplysninger. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:lonn-personopplysninger-saerlig-kategori*
-
-### Sykefravær med personopplysninger av særlig kategori
-Denne tilgangspakken gir fullmakter til tjenester knyttet til sykefravær som inkluderer personopplysninger av særlig kategori. Denne fullmakten kan gi bruker tilgang til sensitive personopplysninger om ansatte, for eksempel knyttet til informasjon om ansattes sykefravær. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:sykefravaer-personopplysninger-saerlig-kategori*
-
-
-## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
-|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
-|---|---|---|
-|Ansettelsesforhold|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Lønn|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Pensjon|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder|Ja|
-|Permisjon|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Sykefravær|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|A-ordningen|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Lønn med personopplysninger av særlig kategori|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Sykefravær med personopplysninger av særlig kategori|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+Kilde: [Pakkedefinisjonene i Access Management](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Constants/PackageConstants.cs). Rollefordelingen er definert i [IngestRolePackage.cs](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Data/IngestRolePackage.cs).

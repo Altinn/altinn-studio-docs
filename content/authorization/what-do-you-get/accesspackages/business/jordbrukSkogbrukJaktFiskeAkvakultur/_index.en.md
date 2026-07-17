@@ -1,61 +1,23 @@
 ---
-title: Jordbruk, skogbruk, jakt, fiske og akvakultur
-tags: [needstranslation]
-linktitle: Jordbruk, skogbruk, jakt, fiske og akvakultur
-description: Dette fullmkatspmrådet omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som angår jordbruk, skogbruk, jakt, fiske og akvakultur. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+title: Agriculture, Forestry, Hunting, Fishing and Aquaculture
+linktitle: Agriculture, Forestry, Hunting, Fishing and Aquaculture
+description: This authorization area includes access packages related to agriculture, forestry, hunting, fishing and aquaculture.
 toc: true
 weight: 100
 aliases:
   - /authorization/what-do-you-get/accessgroups/accessgroups/jordbrukskogbrukjaktfiskeakvakultur/
 ---
 
-|**Tilgangspakker i kategorien**|
-|---|
-|[Jordbruk](#jordbruk)|
-|[Dyrehold](#dyrehold)|
-|[Reindrift](#reindrift)|
-|[Jakt og viltstell](#jakt-og-viltstell)|
-|[Skogbruk](#skogbruk)|
-|[Fiske](#fiske)|
-|[Akvakultur](#akvakultur)|
+This authorization area includes access packages related to agriculture, forestry, hunting, fishing and aquaculture.
 
+| Access package | Description | URN | For service owners | Contents |
+|---|---|---|---|---|
+| Agriculture | This access package provides access to services related to agriculture. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:jordbruk` | Yes | <a href="https://tjenesteoversikten.no/package/jordbruk" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Agriculture">View contents ↗</a> |
+| Animal husbandry | This access package provides access to services related to animal husbandry. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:dyrehold` | Yes | <a href="https://tjenesteoversikten.no/package/dyrehold" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Animal husbandry">View contents ↗</a> |
+| Aquaculture | This access package provides provides access to services related to aquaculture and fish farming. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that this access package provides. | `urn:altinn:accesspackage:akvakultur` | Yes | <a href="https://tjenesteoversikten.no/package/akvakultur" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Aquaculture">View contents ↗</a> |
+| Fishing | This access package provides authorizations for services related to fishing. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:fiske` | Yes | <a href="https://tjenesteoversikten.no/package/fiske" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Fishing">View contents ↗</a> |
+| Forestry | This access package provides authorizations for services related to forestry. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:skogbruk` | Yes | <a href="https://tjenesteoversikten.no/package/skogbruk" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Forestry">View contents ↗</a> |
+| Hunting and wildlife management | This access package provides authorizations for services related to hunting and wildlife management. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:jakt-og-viltstell` | Yes | <a href="https://tjenesteoversikten.no/package/jakt-og-viltstell" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Hunting and wildlife management">View contents ↗</a> |
+| Reindeer herding | This access package provides access to services related to reindeer herding. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:reindrift` | Yes | <a href="https://tjenesteoversikten.no/package/reindrift" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Reindeer herding">View contents ↗</a> |
 
-### Jordbruk
-Denne tilgangspakken gir tilgang til tjenester knyttet til jordbruk. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:jordbruk*
-
-### Dyrehold
-Denne tilgangspakken gir tilgang til tjenester knyttet til dyrehold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:dyrehold*
-
-### Reindrift
-Denne tilgangspakken gir tilgang til tjenester knyttet til reindrift. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:reindrift*
-
-### Jakt og viltstell
-Denne tilgangspakken gir fullmakter til tjenester knyttet til jakt og viltstell. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:jakt-og-viltstell*
-
-### Skogbruk
-Denne tilgangspakken gir fullmakter til tjenester knyttet til skogbruk. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:skogbruk*
-
-### Fiske
-Denne tilgangspakken gir fullmakter til tjenester knyttet til fiske. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:fiske*
-
-### Akvakultur
-Denne tilgangspakken gir fullmakter til tjenester knyttet til akvakultur og fiskeoppdrett. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:akvakultur*
-
-
-## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
-|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
-|---|---|---|
-|Jordbruk|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Dyrehold|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Reindrift|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja|
-|Jakt og viltstell|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja|
-|Skogbruk|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Fiske|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Akvakultur|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja|
+Source: [Package definitions in Access Management](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Constants/PackageConstants.cs). Role assignments are defined in [IngestRolePackage.cs](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Data/IngestRolePackage.cs).

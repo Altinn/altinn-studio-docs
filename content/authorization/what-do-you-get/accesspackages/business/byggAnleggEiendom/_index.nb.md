@@ -1,64 +1,24 @@
 ---
 title: Bygg, anlegg og eiendom
 linktitle: Bygg, anlegg og eiendom
-description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som angår bygge- og anleggsvirksomhet, samt oppføring, omsetning og drift av anlegg/eiendom. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+description: Dette fullmaktsområdet omfatter tilgangspakker knyttet til bygg, anlegg og eiendom.
 toc: true
 weight: 100
 aliases:
   - /authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/
 ---
 
-|**Tilgangspakker i kategorien**|
-|---|
-|[Byggesøknad](#byggesøknad)|
-|[Plansak](#plansak)|
-|[Motta nabo- og planvarsel](#motta-nabo--og-planvarsel)|
-|[Oppføring av bygg og anlegg](#oppføring-av-bygg-og-anlegg)|
-|[Kjøp og salg av eiendom](#kjøp-og-salg-av-eiendom)|
-|[Utleie av eiendom](#utleie-av-eiendom)|
-|[Eiendomsmegler](#eiendomsmegler)|
-|[Tinglysing eiendom](#tinglysing-eiendom)|
+Dette fullmaktsområdet omfatter tilgangspakker knyttet til bygg, anlegg og eiendom.
 
-### Byggesøknad
-Denne tilgangspakken gir fullmakter til tjenester som ansvarlig søker/tiltakshaver trenger, for eksempel byggesøknader, direkte signerte erklæringer, nabovarsel og eiendomssak. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:byggesoknad*
+| Tilgangspakke | Beskrivelse | URN | For tjenesteeiere | Innhold |
+|---|---|---|---|---|
+| Byggesøknad | Denne tilgangspakken gir fullmakter til tjenester som ansvarlig søker/tiltakshaver trenger, for eksempel byggesøknader, direkte signerte erklæringer, nabovarsel og eiendomssak. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:byggesoknad` | Ja | <a href="https://tjenesteoversikten.no/package/byggesoknad" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Bygges&#248;knad">Se innhold ↗</a> |
+| Kjøp og salg av eiendom | Denne tilgangspakken gir fullmakter til tjenester knyttet til kjøp og salg av eiendom. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:kjop-og-salg-eiendom` | Ja | <a href="https://tjenesteoversikten.no/package/kjop-og-salg-eiendom" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Kj&#248;p og salg av eiendom">Se innhold ↗</a> |
+| Oppføring av bygg og anlegg | Denne tilgangspakken gir fullmakter til tjenester relatert til oppføring av bygninger og annlegg unntatt plan og byggesaksbehandling. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:oppforing-bygg-anlegg` | Ja | <a href="https://tjenesteoversikten.no/package/oppforing-bygg-anlegg" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Oppf&#248;ring av bygg og anlegg">Se innhold ↗</a> |
+| Plansak | Denne tilgangspakken gir fullmakter til tjenester som forslagsstiller/ plankonsulent trenger, for eksempel varsel om planopppstart og høring og offentlig ettersyn. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:plansak` | Ja | <a href="https://tjenesteoversikten.no/package/plansak" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Plansak">Se innhold ↗</a> |
+| Tinglysing eiendom | Denne tilgangspakken gir fullmakter til tjenester knyttet til elektronisk tinglysing av rettigheter i eiendom. | `urn:altinn:accesspackage:tinglysing-eiendom` | Ja | <a href="https://tjenesteoversikten.no/package/tinglysing-eiendom" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Tinglysing eiendom">Se innhold ↗</a> |
+| Eiendomsmegler | Denne tilgangspakken gir fullmakter til tjenester knyttet til omsetning og drift av fast eiendom på oppdrag, som eiendomsmegling og eiendomsforvaltning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:eiendomsmegler` | Ja | <a href="https://tjenesteoversikten.no/package/eiendomsmegler" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Eiendomsmegler">Se innhold ↗</a> |
+| Utleie av eiendom | Denne tilgangspakken gir fullmakter til tjenester knyttet til utleie av eiendom. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:utleie-eiendom` | Ja | <a href="https://tjenesteoversikten.no/package/utleie-eiendom" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Utleie av eiendom">Se innhold ↗</a> |
+| Motta nabo- og planvarsel | Denne tilgangspakken gir fullmakter til tjenester til å lese og svare på varsel om plan-/byggesak. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:motta-nabo-og-planvarsel` | Ja | <a href="https://tjenesteoversikten.no/package/motta-nabo-og-planvarsel" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Motta nabo- og planvarsel">Se innhold ↗</a> |
 
-### Plansak
-Denne tilgangspakken gir fullmakter til tjenester som forslagsstiller/ plankonsulent trenger, for eksempel varsel om planopppstart og høring og offentlig ettersyn. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:plansak*
-
-### Motta nabo- og planvarsel
-Denne tilgangspakken gir fullmakter til tjenester til å lese og svare på varsel om plan-/byggesak. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:motta-nabo-og-planvarsel*
-
-### Oppføring av bygg og anlegg
-Denne tilgangspakken gir fullmakter til tjenester relatert til oppføring av bygninger og annlegg unntatt plan og byggesaksbehandling. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:oppforing-bygg-anlegg*
-
-### Kjøp og salg av eiendom
-Denne tilgangspakken gir fullmakter til tjenester knyttet til kjøp og salg av eiendom. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:kjop-og-salg-eiendom*
-
-### Utleie av eiendom
-Denne tilgangspakken gir fullmakter til tjenester knyttet til utleie av eiendom. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:utleie-eiendom*
-
-### Eiendomsmegler
-Denne tilgangspakken gir fullmakter til tjenester knyttet til omsetning og drift av fast eiendom på oppdrag, som eiendomsmegling og eiendomsforvaltning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:eiendomsmegler*
-
-### Tinglysing eiendom
-Denne tilgangspakken gir fullmakter til tjenester knyttet til elektronisk tinglysing av rettigheter i eiendom. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:tinglysing-eiendom*
-
-## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
-|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
-|---|---|---|
-|Byggesøknad|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Plansak|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Motta nabo- og planvarsel|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Oppføring av bygg og anlegg|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Kjøp og salg av eiendom|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Utleie av eiendom|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Eiendomsmegler|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Tinglysing eiendom|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+Kilde: [Pakkedefinisjonene i Access Management](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Constants/PackageConstants.cs). Rollefordelingen er definert i [IngestRolePackage.cs](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Data/IngestRolePackage.cs).

@@ -6,6 +6,7 @@ weight: 3
 aliases:
   - /authorization/what-do-you-get/accessgroups/
   - /authorization/modules/accessgroups/
+  - /authorization/what-do-you-get/accesspackages/catalog/
 ---
 
 ## Who defines the packages and access?
@@ -22,7 +23,10 @@ An access package may contain services from several service owners. Granting an 
 
 Service owners should choose a package based on the task and the level of access required. Packages containing sensitive services may require explicit assignment rather than access inherited from a role in the Central Coordinating Register for Legal Entities.
 
-[See the complete catalogue of access packages and authorisation areas](./catalog/).
+- [See authorisation areas and access packages for organisations](./business/).
+- [See authorisation areas and access packages for individuals](./citizens/).
+
+The **View contents** links on the area pages open the package in Tjenesteoversikten in a new tab. Tjenesteoversikten is an unofficial visualisation that uses Altinn's open APIs.
 
 ## If no access package fits
 

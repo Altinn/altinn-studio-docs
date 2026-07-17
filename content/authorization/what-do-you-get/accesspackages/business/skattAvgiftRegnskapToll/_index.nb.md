@@ -1,80 +1,28 @@
 ---
 title: Skatt, avgift, regnskap og toll
 linktitle: Skatt, avgift, regnskap og toll
-description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som omhandler skatt, avgift, regnskap og toll. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+description: Dette fullmaktsområdet omfatter tilgangspakker knyttet til skatt, avgift, regnskap og toll.
 toc: true
 weight: 100
 aliases:
   - /authorization/what-do-you-get/accessgroups/accessgroups/skattavgiftregnskaptoll/
 ---
 
-| **Tilgangspakker i kategorien**|
-|---|
-| [Skatt næring](#skatt-næring)|
-| [Skattegrunnlag](#skattegrunnlag)|
-| [Merverdiavgift](#merverdiavgift)|
-| [Motorvognavgifter](#motorvognavgifter)|
-| [Særavgifter](#særavgifter)|
-| [Krav, betalinger og utlegg](#krav-betalinger-og-utlegg)|
-| [Kreditt- og oppgjørsordninger](#kreditt--og-oppgjørsordninger)|
-| [Regnskap og økonomirapportering](#regnskap-og-økonomirapportering)|
-| [Revisorattesterer](#revisorattesterer)|
-| [Toll](#toll)|
-| [Revisjon](#revisjon)|
-| [MVA-kompensasjon revisorattesterer](#mva-kompensasjon-revisorattesterer)|
+Dette fullmaktsområdet omfatter tilgangspakker knyttet til skatt, avgift, regnskap og toll.
 
+| Tilgangspakke | Beskrivelse | URN | For tjenesteeiere | Innhold |
+|---|---|---|---|---|
+| Regnskap og økonomirapportering | Denne tilgangspakken gir fullmakter til tjenester knyttet til regnskap og øknomirapportering som ikke tilhører skatt og merverdiavgift. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:regnskap-okonomi-rapport` | Ja | <a href="https://tjenesteoversikten.no/package/regnskap-okonomi-rapport" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Regnskap og &#248;konomirapportering">Se innhold ↗</a> |
+| Revisjon | Denne tilgangspakken gir fullmakter til tjenester knyttet til revisjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:revisjon` | Ja | <a href="https://tjenesteoversikten.no/package/revisjon" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Revisjon">Se innhold ↗</a> |
+| Revisorattesterer | Denne fullmakten gir tilgang til alle tjenester som krever revisorattestering. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:revisorattesterer` | Ja | <a href="https://tjenesteoversikten.no/package/revisorattesterer" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Revisorattesterer">Se innhold ↗</a> |
+| Skatt næring | Denne tilgangspakken gir fullmakter til tjenester knyttet til skatt for næringer. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:skatt-naering` | Ja | <a href="https://tjenesteoversikten.no/package/skatt-naering" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Skatt n&#230;ring">Se innhold ↗</a> |
+| Krav, betalinger og utlegg | Denne tilgangspakken gir fullmakter til tjenester knyttet til krav og utlegg. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:krav-og-utlegg` | Ja | <a href="https://tjenesteoversikten.no/package/krav-og-utlegg" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Krav, betalinger og utlegg">Se innhold ↗</a> |
+| Kreditt- og oppgjørsordninger | Denne tilgangspakken gir fullmakter til tjenester knyttet til kreditt- og oppgjørsordninger. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:kreditt-og-oppgjoer` | Ja | <a href="https://tjenesteoversikten.no/package/kreditt-og-oppgjoer" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Kreditt- og oppgj&#248;rsordninger">Se innhold ↗</a> |
+| Toll | Denne tilgangspakken gir fullmakter til tjenester knyttet til toll og fortolling. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:toll` | Ja | <a href="https://tjenesteoversikten.no/package/toll" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Toll">Se innhold ↗</a> |
+| Motorvognavgifter | Denne tilgangspakken gir fullmakter til tjenester knyttet til motorvognavgifter. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:motorvognavgift` | Ja | <a href="https://tjenesteoversikten.no/package/motorvognavgift" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Motorvognavgifter">Se innhold ↗</a> |
+| Særavgifter | Denne tilgangspakken gir fullmakter til tjenester knyttet til særavgifter. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:saeravgifter` | Ja | <a href="https://tjenesteoversikten.no/package/saeravgifter" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for S&#230;ravgifter">Se innhold ↗</a> |
+| Skattegrunnlag | Denne tilgangspakken gir fullmakter til tjenester knyttet til innhenting av skattegrunnlag. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:skattegrunnlag` | Ja | <a href="https://tjenesteoversikten.no/package/skattegrunnlag" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Skattegrunnlag">Se innhold ↗</a> |
+| Merverdiavgift | Denne tilgangspakken gir fullmakter til tjenester knyttet til merverdiavgift. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:merverdiavgift` | Ja | <a href="https://tjenesteoversikten.no/package/merverdiavgift" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Merverdiavgift">Se innhold ↗</a> |
+| MVA-kompensasjon revisorattesterer | Denne fullmakten gir statsautoriserte revisorer tilgang til å attestere \ | `urn:altinn:accesspackage:mva-kompensasjon-revisorattesterer` | Ja | <a href="https://tjenesteoversikten.no/package/mva-kompensasjon-revisorattesterer" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for MVA-kompensasjon revisorattesterer">Se innhold ↗</a> |
 
-### Skatt næring
-Denne tilgangspakken gir fullmakter til tjenester knyttet til skatt for næringer. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:skatt-naering*
-### Skattegrunnlag
-Denne tilgangspakken gir fullmakter til tjenester knyttet til innhenting av skattegrunnlag. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:skattegrunnlag*
-### Merverdiavgift
-Denne tilgangspakken gir fullmakter til tjenester knyttet til merverdiavgift. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:merverdiavgift*
-### Motorvognavgifter
-Denne tilgangspakken gir fullmakter til tjenester knyttet til motorvognavgifter. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:motorvognavgift*
-### Særavgifter
-Denne tilgangspakken gir fullmakter til tjenester knyttet til særavgifter. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:saeravgifter*
-### Krav, betalinger og utlegg
-Denne tilgangspakken gir fullmakter til tjenester knyttet til krav og utlegg. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:krav-og-utlegg*
-### Kreditt- og oppgjørsordninger
-Denne tilgangspakken gir fullmakter til tjenester knyttet til kreditt- og oppgjørsordninger. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:kreditt-og-oppgjoer*
-### Regnskap og økonomirapportering
-Denne tilgangspakken gir fullmakter til tjenester knyttet til regnskap og øknomirapportering som ikke tilhører skatt og merverdiavgift. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:regnskap-okonomi-rapport*
-### Revisorattesterer
-Denne fullmakten gir tilgang til alle tjenester som krever revisorattestering. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:revisorattesterer*
-### Toll 
-Denne tilgangspakken gir fullmakter til tjenester knyttet til toll og fortolling. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:toll*
-### Revisjon
-Denne tilgangspakken gir fullmakter til tjenester knyttet til revisjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:revisjon*
-
-### MVA-kompensasjon revisorattesterer
-Denne fullmakten gir statsautoriserte revisorer tilgang til å attestere "Kompensasjonsmelding for merverdiavgift". Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:mva-kompensasjon-revisorattesterer*
-
-
-## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
-|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
-|---|---|---|
-|Skatt næring|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Skattegrunnlag|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Merverdiavgift|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Motorvognavgifter|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Særavgifter|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Krav, betalinger og utlegg|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Kreditt- og oppgjørsordninger|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Regnskap og økonomirapportering|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Revisorattesterer|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Toll|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Revisjon|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|MVA-kompensasjon revisorattesterer|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+Kilde: [Pakkedefinisjonene i Access Management](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Constants/PackageConstants.cs). Rollefordelingen er definert i [IngestRolePackage.cs](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Data/IngestRolePackage.cs).

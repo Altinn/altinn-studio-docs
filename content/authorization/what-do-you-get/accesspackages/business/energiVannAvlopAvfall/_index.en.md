@@ -1,54 +1,23 @@
 ---
-title: Energi, vann, avløp og avfall
-tags: [needstranslation]
-linktitle: Energi, vann, avløp og avfall
-description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som omhandler energi, vann, avløp og avfall. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+title: Energy, Water, Sewage and Waste
+linktitle: Energy, Water, Sewage and Waste
+description: This authorization area includes access packages related to energy, water, sewage and waste.
 toc: true
 weight: 100
 aliases:
   - /authorization/what-do-you-get/accessgroups/accessgroups/energivannavlopavfall/
 ---
 
-|**Tilgangspakker i kategorien**|
-|---|
-|[Elektrisitet - produsere, overføre og distribuere](#elektrisitet---produsere-overføre-og-distribuere)|
-|[Damp- og varmtvann](#damp--og-varmtvann)|
-|[Vann - ta ut fra kilde, rense og distribuere](#vann---ta-ut-fra-kilde-rense-og-distribuere)|
-|[Samle opp og behandle avløpsvann](#samle-opp-og-behandle-avløpsvann)|
-|[Avfall - samle inn, behandle, bruke og gjenvinne](#avfall---samle-inn-behandle-bruke-og-gjenvinne)|
-|[Utvinning av råolje, naturgass og kull](#utvinning-av-råolje-naturgass-og-kull)|
+This authorization area includes access packages related to energy, water, sewage and waste.
 
-### Elektrisitet - produsere, overføre og distribuere
-Denne tilgangspakken gir fullmakter til tjenester knyttet til elektrisitet: produsere, overføre og distribuere. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:elektrisitet-produsere-overfore-distrubere*
+| Access package | Description | URN | For service owners | Contents |
+|---|---|---|---|---|
+| Environmental remediation, cleaning and similar activities | This access package provides authorizations for services related to environmental remediation, cleaning and similar activities. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:miljorydding-rensing` | Yes | <a href="https://tjenesteoversikten.no/package/miljorydding-rensing" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Environmental remediation, cleaning and similar activities">View contents ↗</a> |
+| Electricity - production, transmission and distribution | This access package provides authorizations for services related to electricity: production, transmission and distribution. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:elektrisitet-produsere-overfore-distrubere` | Yes | <a href="https://tjenesteoversikten.no/package/elektrisitet-produsere-overfore-distrubere" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Electricity - production, transmission and distribution">View contents ↗</a> |
+| Extraction of crude oil, natural gas and coal | This access package provides authorizations for services related to the extraction of crude oil, natural gas and coal. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:utvinning-raaolje-naturgass-kull` | Yes | <a href="https://tjenesteoversikten.no/package/utvinning-raaolje-naturgass-kull" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Extraction of crude oil, natural gas and coal">View contents ↗</a> |
+| Sewage collection and treatment | This access package provides authorizations for services related to sewage collection and treatment. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:samle-behandle-avlopsvann` | Yes | <a href="https://tjenesteoversikten.no/package/samle-behandle-avlopsvann" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Sewage collection and treatment">View contents ↗</a> |
+| Steam and hot water | This access package provides authorizations for services related to steam and hot water. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:damp-varmtvann` | Yes | <a href="https://tjenesteoversikten.no/package/damp-varmtvann" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Steam and hot water">View contents ↗</a> |
+| Waste - collection, treatment, use and recycling | This access package provides authorizations for services related to waste: collection, treatment, use and recycling. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:avfall-behandle-gjenvinne` | Yes | <a href="https://tjenesteoversikten.no/package/avfall-behandle-gjenvinne" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Waste - collection, treatment, use and recycling">View contents ↗</a> |
+| Water - source extraction, treatment and distribution | This access package provides authorizations for services related to water: source extraction, treatment and distribution. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:vann-kilde-rense-distrubere` | Yes | <a href="https://tjenesteoversikten.no/package/vann-kilde-rense-distrubere" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Water - source extraction, treatment and distribution">View contents ↗</a> |
 
-### Damp- og varmtvann 
-Denne tilgangspakken gir fullmakter til tjenester knyttet til damp- og varmtvann. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:damp-varmtvann*
-
-### Vann - ta ut fra kilde, rense og distribuere 
-Denne tilgangspakken gir fullmakter til tjenester knyttet til vann: ta ut fra kilde, rense og distribuere. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:vann-kilde-rense-distrubere*
-
-### Samle opp og behandle avløpsvann
-Denne tilgangspakken gir fullmakter til tjenester knyttet til samle opp og behandle avløpsvann. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:samle-behandle-avlopsvann*
-
-### Avfall - samle inn, behandle, bruke og gjenvinne
-Denne tilgangspakken gir fullmakter til tjenester knyttet til avfall: samle inn, behandle, bruke og gjenvinne. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:avfall-behandle-gjenvinne*
-
-### Utvinning av råolje, naturgass og kull
-Denne tilgangspakken gir fullmakter til tjenester knyttet til utvinning av råolje, naturgass og kull. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:utvinning-raaolje-naturgass-kull*
-
-
-## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
-|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
-|---|---|---|
-|Elektrisitet - produsere, overføre og distribuere|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Damp- og varmtvann|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Vann - ta ut fra kilde, rense og distribuere|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Samle opp og behandle avløpsvann|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Avfall - samle inn, behandle, bruke og gjenvinne|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Utvinning av råolje, naturgass og kull|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+Source: [Package definitions in Access Management](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Constants/PackageConstants.cs). Role assignments are defined in [IngestRolePackage.cs](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Data/IngestRolePackage.cs).

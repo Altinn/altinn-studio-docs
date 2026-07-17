@@ -1,60 +1,23 @@
 ---
-title: Helse, pleie, omsorg og vern
-tags: [needstranslation]
-linktitle: Helse, pleie, omsorg og vern
-description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter til tjenester og ressurser omfatter helse- og sosialtjenester med og uten botilbud. Denne fullmakten kan gi bruker tilgang til helseopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
+title: Health, Care and Protection
+linktitle: Health, Care and Protection
+description: This authorization area includes access packages related to health, care and protection.
 toc: true
 weight: 100
 aliases:
   - /authorization/what-do-you-get/accessgroups/accessgroups/helsepleieomsorgvern/
 ---
 
-|**Tilgangspakker i kategorien**|
-|---|
-|[Kommuneoverlege](#kommuneoverlege)|
-|[Helsetjenester med personopplysninger av særlig kategori](#helsetjenester-med-personopplysninger-av-særlig-kategori)|
-|[Helsetjenester](#helsetjenester)|
-|[Pleie- og omsorgstjenester i institusjon](#pleie--og-omsorgstjenester-i-institusjon)|
-|[Sosiale omsorgstjenester uten botilbud og flyktningemottak](#sosiale-omsorgstjenester-uten-botilbud-og-flyktningemottak)|
-|[Barnevern](#barnevern)|
-|[Familievern](#familievern)|
+This authorization area includes access packages related to health, care and protection.
 
-### Kommuneoverlege
-Denne tilgangspakken gir fullmakter til tjenester knyttet til sykehus, lege, tannlege og hjemmesykepleie,fysioterapi, ambulanse og lignende, som er relevant for kommuneleger. Denne fullmakten kan gi bruker tilgang til personopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:kommuneoverlege*
+| Access package | Description | URN | For service owners | Contents |
+|---|---|---|---|---|
+| Care services in institutions | This access package provides authorizations for services related to care services in institutions. These are services that offer institutional stays combined with nursing, supervision or other forms of care depending on what is required by the residents. This authorization may give the user access to health information about persons being reported on. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:pleie-omsorgstjenester-i-institusjon` | Yes | <a href="https://tjenesteoversikten.no/package/pleie-omsorgstjenester-i-institusjon" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Care services in institutions">View contents ↗</a> |
+| Child protection services | This access package provides authorizations for services related to child protection services. This authorization may give the user access to health information about persons being reported on. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. NOTE! Be aware that the access package contains authorizations that may be of a sensitive nature. Consider whether the authorizations should be granted as individual rights. | `urn:altinn:accesspackage:barnevern` | Yes | <a href="https://tjenesteoversikten.no/package/barnevern" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Child protection services">View contents ↗</a> |
+| Family counseling | This access package provides authorizations for services related to family counseling. This authorization may give the user access to health information about persons being reported on. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. NOTE! Be aware that the access package contains authorizations that may be of a sensitive nature. Consider whether the authorizations should be granted as individual rights. | `urn:altinn:accesspackage:familievern` | Yes | <a href="https://tjenesteoversikten.no/package/familievern" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Family counseling">View contents ↗</a> |
+| Health services | This access package provides authorizations for services related to hospitals, doctors, dentists, home nursing, physiotherapy, ambulances and similar services. This authorization may give the user access to personal information about persons being reported on. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:helsetjenester` | Yes | <a href="https://tjenesteoversikten.no/package/helsetjenester" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Health services">View contents ↗</a> |
+| Health services with personal data of special category | This access package provides authorizations for services related to hospitals, doctors, dentists, home nursing, physiotherapy, ambulances and similar services, which are of a special category. This authorization may give the user access to sensitive personal information about persons being reported on. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:helsetjenester-personopplysninger-saerlig-kategori` | Yes | <a href="https://tjenesteoversikten.no/package/helsetjenester-personopplysninger-saerlig-kategori" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Health services with personal data of special category">View contents ↗</a> |
+| Municipal chief medical officer | This access package provides authorizations for services related to hospitals, doctors, dentists, home nursing, physiotherapy, ambulances and similar services, which are relevant for municipal doctors. This authorization may give the user access to personal information about persons being reported on. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:kommuneoverlege` | Yes | <a href="https://tjenesteoversikten.no/package/kommuneoverlege" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Municipal chief medical officer">View contents ↗</a> |
+| Social care services without housing and refugee reception | This access package provides authorizations for services related to social care services without housing for the elderly, disabled and substance abusers as well as refugee reception centers, and services related to work training and other social services, e.g., under the auspices of welfare organizations. This authorization may give the user access to health information about persons being reported on. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:sosiale-omsorgstjenester-uten-botilbud-og-flyktningemottak` | Yes | <a href="https://tjenesteoversikten.no/package/sosiale-omsorgstjenester-uten-botilbud-og-flyktningemottak" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Social care services without housing and refugee reception">View contents ↗</a> |
 
-### Helsetjenester med personopplysninger av særlig kategori
-Denne tilgangspakken gir fullmakter til tjenester knyttet til sykehus, lege, tannlege og hjemmesykepleie,fysioterapi, ambulanse og lignende, som er av særlig kategori. Denne fullmakten kan gi bruker tilgang til sensitive personopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:helsetjenester-personopplysninger-saerlig-kategori*
-
-### Helsetjenester
-Denne tilgangspakken gir fullmakter til tjenester knyttet til sykehus, lege, tannlege og hjemmesykepleie,fysioterapi, ambulanse og lignende. Denne fullmakten kan gi bruker tilgang til personopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:helsetjenester*
-
-### Pleie- og omsorgstjenester i institusjon
-Denne tilgangspakken gir fullmakter til tjenester knyttet til pleie og omsorgstilbud i institursjon. Dette er tjenester som tilbyr institusjonsopphold kombinert med sykepleie, tilsyn eller annen form for pleie alt etter hva som kreves av beboerne. Denne fullmakten kan gi bruker tilgang til helseopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:pleie-omsorgstjenester-i-institusjon*
-
-### Sosiale omsorgstjenester uten botilbud og flyktningemottak
-Denne tilgangspakken gir fullmakter til tjenester knyttet til sosiale omsorgstjeneser uten botilbud for eldre, funksjonshemmede og rusmisbrukere samt flykningemottak, og tjenester relatert til arbeidstrening og andre sosiale tjenester, f eks i regi av velferdsorganisasjoner. Denne fullmakten kan gi bruker tilgang til helseopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:sosiale-omsorgstjenester-uten-botilbud-og-flyktningemottak*
-
-### Barnevern 
-Denne tilgangspakken gir fullmakter til tjenester knyttet til barnevern. Denne fullmakten kan gi bruker tilgang til helseopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. OBS! Vær oppmerksom på at tilgangspakken inneholder fullmakter som kan ha sensitiv karakter. Vurder om fullmaktene skal gis som enkeltrettigheter.  
-*urn:altinn:accesspackage:barnevern*
-
-### Familievern
-Denne tilgangspakken gir fullmakter til tjenester knyttet til familievern. Denne fullmakten kan gi bruker tilgang til helseopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. OBS! Vær oppmerksom på at tilgangspakken inneholder fullmakter som kan ha sensitiv karakter. Vurder om fullmaktene skal gis som enkeltrettigheter.  
-*urn:altinn:accesspackage:familievern*
-
-
-## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
-|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
-|---|---|---|
-|Kommuneoverlege|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja|
-|Helsetjenester med personopplysninger av særlig kategori|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja||
-|Helsetjenester|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja||
-|Pleie- og omsorgstjenester i institusjon|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja||
-|Sosiale omsorgstjenester uten botilbud, og flyktningemottak|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja||
-|Barnevern|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja||
-|Familievern|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja||
+Source: [Package definitions in Access Management](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Constants/PackageConstants.cs). Role assignments are defined in [IngestRolePackage.cs](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Data/IngestRolePackage.cs).

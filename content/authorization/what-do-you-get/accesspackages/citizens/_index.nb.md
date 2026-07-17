@@ -16,11 +16,15 @@ Fullmaktsområdene og tilgangspakkene for innbygger er basert på kategorisering
 
 |**Fullmaktsområder for innbyggere**|
 |---|
+|[Administratorrettigheter](./administratorrettigheter/)|
+|[Plan, bygg og eiendom](./planbyggeiendom/)|
+|[Politi og rettsvesen](./politirettsvesen/)|
 |[Skatt, avgift, bank og forsikring](./skattavgiftbankforsikring)|
+|[Trafikk og transport](./trafikktransport/)|
 |[Arbeidsliv, skole og utdanning](./arbeidslivskoleutdanning/)|
 |[Familie og fritid](./familiefritid/)|
 |[Helse og omsorg](./helseomsorg/)|
 |[Kultur, idrett og frivillighet](./kulturidrettfrivillighet/)|
 |[Patenter, sertifikater og attester](./patentersertifikaterattester/)|
 |[Privatperson](./privatperson/)|
-|[Verger](./verger/)|
+|[Vergefullmakter](./verger/)|

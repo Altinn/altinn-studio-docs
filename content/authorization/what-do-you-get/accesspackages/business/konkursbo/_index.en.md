@@ -1,8 +1,7 @@
 ---
-title: Konkursbo
-tags: [needstranslation]
-linktitle: Konkursbo
-description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter til bosiden, med tjenester og ressurser som er aktuelle for bostyrer å benytte på vegne av debitor. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+title: Authorizations for Bankruptcy Estates
+linktitle: Authorizations for Bankruptcy Estates
+description: This authorization area includes access packages related to authorizations for bankruptcy estates.
 toc: true
 weight: 100
 aliases:
@@ -10,24 +9,11 @@ aliases:
   - /authorization/modules/accessgroups/type-accessgroups
 ---
 
-|**Tilgangspakker i kategorien**|
-|---|
-|[Konkursbo lesetilgang](#konkursbo-lesetilgang)|
-|[Konkursbo skrivetilgang](#konkursbo-skrivetilgang)|
+This authorization area includes access packages related to authorizations for bankruptcy estates.
 
+| Access package | Description | URN | For service owners | Contents |
+|---|---|---|---|---|
+| Bankruptcy estate write access | This authorization gives the estate administrator's assistant access to work on behalf of the estate administrator. The estate administrator delegates this authorization together with Bankruptcy Estate Read Access to the assistant for each bankruptcy estate. | `urn:altinn:accesspackage:konkursbo-skrivetilgang` | Yes | <a href="https://tjenesteoversikten.no/package/konkursbo-skrivetilgang" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Bankruptcy estate write access">View contents ↗</a> |
+| Bankruptcy estate read access | This authorization is delegated to creditors and others who should have read access to the individual bankruptcy estate. | `urn:altinn:accesspackage:konkursbo-lesetilgang` | Yes | <a href="https://tjenesteoversikten.no/package/konkursbo-lesetilgang" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Bankruptcy estate read access">View contents ↗</a> |
 
-
-### Konkursbo lesetilgang
-Denne fullmakten delegeres til kreditorer og andre som skal ha lesetilgang til det enkelte konkursbo.  
-*urn:altinn:accesspackage:konkursbo-lesetilgang*
-
-### Konkursbo skrivetilgang
-Denne fullmakten gir bostyrers medhjelper tilgang til å jobbe på vegne av bostyrer. Bostyrer delegerer denne fullmakten sammen med Konkursbo lesetilgang til medhjelper for hvert konkursbo.  
-*urn:altinn:accesspackage:konkursbo-skrivetilgang*
-
-
-## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
-|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
-|---|---|---|
-|Konkursbo lesetilgang|Bostyrer|Borolle delegering|
-|Konkursbo skrivetilgang|Bostyrer|Borolle delegering|
+Source: [Package definitions in Access Management](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Constants/PackageConstants.cs). Role assignments are defined in [IngestRolePackage.cs](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Data/IngestRolePackage.cs).

@@ -1,45 +1,20 @@
 ---
-title: Patenter, sertifikater og attester
-linktitle: Patenter, sertifikater og attester
-description: Fullmaktsområde for tilgangspakker for tjenester som er relatert til å søke om patent, sertifisering, attester eller design og varemerker. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
+title: Patents, certificates, and attestations
+linktitle: Patents, certificates, and attestations
+description: Authorization area for access packages for services related to applying for patents, certifications, certificates, designs and trademarks. When new digital services are introduced, there may be changes in the access that the authorization provides.
 toc: true
 weight: 100
 aliases:
   - /authorization/what-do-you-get/accessgroups/accessgroups-citizens/patentersertifikaterattester/
 ---
 
-|**Tilgangspakker i kategorien**|
-|---|
-|[Patent](#patent)|
-|[Sertifisering](#sertifisering)|
-|[Attester](#attester)|
-|[Design og varemerke](#design-og-varemerke)|
+Authorization area for access packages for services related to applying for patents, certifications, certificates, designs and trademarks. When new digital services are introduced, there may be changes in the access that the authorization provides.
 
+| Access package | Description | URN | For service owners | Contents |
+|---|---|---|---|---|
+| Patent | This access package authorizes services and correspondence related to patent applications. When new digital services are introduced, there may be changes in the access that the authorizations provide. | `urn:altinn:accesspackage:innbygger-patent` | Yes | <a href="https://tjenesteoversikten.no/package/innbygger-patent" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Patent">View contents ↗</a> |
+| Certification | This access package authorizes services and correspondence related to applications for various certifications. When new digital services are introduced, there may be changes in the access that the authorizations provide. | `urn:altinn:accesspackage:innbygger-sertifisering` | Yes | <a href="https://tjenesteoversikten.no/package/innbygger-sertifisering" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Certification">View contents ↗</a> |
+| Attestation | This access package authorizes services and correspondence related to certificates. When new digital services are introduced, there may be changes in the access that the authorizations provide. | `urn:altinn:accesspackage:innbygger-attester` | Yes | <a href="https://tjenesteoversikten.no/package/innbygger-attester" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Attestation">View contents ↗</a> |
+| Design and trademark | This access package authorizes services and correspondence related to design and trademark. When new digital services are introduced, there may be changes in the access that the authorizations provide. | `urn:altinn:accesspackage:innbygger-design-varemerke` | Yes | <a href="https://tjenesteoversikten.no/package/innbygger-design-varemerke" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Design and trademark">View contents ↗</a> |
 
-### Patent
-Denne fullmakten gir tilgang til alle skjema og tjenester knyttet til patentsøknader og korrespondanse med patentstyret. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.   
-*urn:altinn:accesspackage:innbygger-patent*
-
-### Sertifisering
-Denne tilgangspakken gir fullmakter til tjenester knyttet til søknader og korrespondanse for sertifisering. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.   
-*urn:altinn:accesspackage:innbygger-sertifisering*
-
-### Attester
-Denne tilgangspakken gir fullmakter til tjenester knyttet til attester. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.    
-*urn:altinn:accesspackage:innbygger-attester*
-
-### Design og varemerke
-Denne tilgangspakken gir fullmakter til tjenester knyttet til all korrespondanse vedr. design og varemerke. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:innbygger-design-varemerke*
-
-
-
-## Hvilke roller får fullmakt til tilgangspakken
-|**Tilgangspakke**|**Tilknyttet rolle**|**Delegerbar**|
-|---|---|---|
-|Patent|Privatperson|Ja|
-|Sertifisering|Privatperson|Ja|
-|Attester|Privatperson|Ja|
-|Design og varemerke|Privatperson|Ja|
-
-
+Source: [Package definitions in Access Management](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Constants/PackageConstants.cs). Role assignments are defined in [IngestRolePackage.cs](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Data/IngestRolePackage.cs).
