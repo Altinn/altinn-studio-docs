@@ -35,7 +35,7 @@ Detaljert guide for opprettelse av ressurser finnes under [Guider](/nb/authoriza
 {{< stepcard step="5" title="Opprette Tilgangslister (ikke påkrevd)" >}}
 I utgangspunktet får alle som har rolle eller tilgangsliste som tilfredstiller kravet til tjenesten, tilgang til tjenesten.
 Dersom det er behov for å begrense tilgangen til enkelte virksomheter kan man benytte tilgangslister.
-Dette er samme funsjonalitet som i Altinn 2 het Tjenesterettsregisteret (SRR)
+Dette er samme funksjonalitet som i Altinn 2 het Tjenesterettsregisteret (SRR)
 
 **Definere team for Tilgangsliste**
 

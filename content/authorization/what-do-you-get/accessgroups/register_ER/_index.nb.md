@@ -5,6 +5,7 @@ description: Altinn bruker Enhetsregisteret som kilde for hvem som har fullmakte
 tags: [architecture, security, authorization]
 toc: true
 weight: 200
+hidden: true
 ---
 
 *Innhold på siden er under arbeid. Innholdet vil ikke være gjeldende før nye [tilgangspakker](/nb/authorization/what-do-you-get/accessgroups/accessgroups/) trer i kraft. Dette må derfor ikke ansees som en fasit pr nå*

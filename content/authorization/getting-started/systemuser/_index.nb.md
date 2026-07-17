@@ -1,6 +1,6 @@
 ---
 title: Systembruker
-description: For å ta i bruk systembruker må du gå gjennom noen administrative skritt, samt gjøre tilpasninger i ditt system.
+description: For å ta i bruk systembruker må du gå gjennom noen administrative skritt, samt gjøre tilpasninger i systemet ditt.
 tags: [platform, authentication]
 toc: false
 aliases:

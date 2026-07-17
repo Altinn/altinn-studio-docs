@@ -1,45 +1,23 @@
 ---
 title: Tilgangsstyring
 linktitle: Tilgangsstyring
-description: Tilgangsstyring (Access Management) gir funksjonalitet til sluttbrukere for å administrere grupper, roller og rettigheter
+description: Tilgangsstyring gir personer og virksomheter oversikt over fullmakter og mulighet til å gi eller trekke tilbake tilgang.
 weight: 5
 ---
 
-{{<notice warning>}}
-Dette er et arbeid som pågår
-{{</notice>}}
+Tilgangsstyring samler funksjonene som personer og virksomheter bruker for å administrere hvem som kan handle på vegne av dem i Altinn.
 
-Tilgangsstyringen vil gi funksjonalitet for å administrere ulike aspekter ved autorisasjon i Altinn.
+Du kan blant annet
 
-- Delegere og tilbakekalle Altinn 2 roller
-- Delegere og tilbakekalle tilgangspakker
-- Opprette tilgangsgrupper
-- Legg til og fjern medlemskap for tilgangsgrupper
-- Delegere app- og instansrettigheter
-- [Administrer delegerbare Maskinporten API-ressurser](https://github.com/Altinn/altinn-authorization/issues/59)
-- Liste tilgangsgrupper medlemmer
-- Liste ressurser som er knyttet til tilgangspakker
+- se hvilke fullmakter en person, virksomhet eller systembruker har
+- gi og trekke tilbake tilgang til tjenester og ressurser
+- delegere tilgangspakker og enkeltrettigheter
+- administrere delegerbar tilgang til API-er som er registrert i Ressursregisteret
 
-Dette designet er i tidlig fase.
+Hvilke valg som er tilgjengelige, avhenger av tjenesten, ressursen og fullmaktene til den som administrerer tilgangen.
 
-## Delegering og administrasjon av delegert API-tilgang
+## For tjenesteeiere
 
-Denne funksjonaliteten lar brukere delegere tilgang gjennom API ved hjelp av å delegere tilgang i Maskinporten.
+Tjenesteeieren beskriver ressursen og autorisasjonsreglene. Når ressursen er publisert, kan Altinn bruke reglene og tilknytningen til tilgangspakker når brukerne administrerer tilganger.
 
-![API-delegasjoner](apidelegations.jpg "API-delegasjoner")
-
-Denne funksjonaliteten forventes levert vinteren 2022/2023.
-
-## Delegering av generelle ressursrettigheter
-
-Den andre funksjonen som leveres fra den nye Access Management-komponenten vil være
-
-## Delegering og administrasjon av tilgangspakker
-
-Som en del av ny design vil ledelse av tilgangspakker overta for rollestyring
-
-![Tilgangspakker](accessgroups.jpg "Administrasjon av tilgangspakker")
-
-### Konstruksjon
-
-Se detaljer hvordan AccessManagement er [konstruert](/nb/authorization/reference/architecture/accessmanagment/).
+[Les hvordan du registrerer en ressurs og setter opp autorisasjon.](/nb/authorization/getting-started/resourceadministration/)

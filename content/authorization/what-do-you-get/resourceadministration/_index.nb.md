@@ -27,7 +27,7 @@ Generisk tilgangsressurser er tjenester som bruker Altinn Autorsiasjon som autor
 
 ### Maskinporten-skjema
 
-Maskinporten-skjema gjør det mulig å gi annen virksomhet fullmakt til å benytte API på vegne av seg. Dette benyttes gjeren i leverandørforhold der det er en driftsleverandør som står for infrastrukturen og muliggjør at denne kan bruke eget virkrsomhetsertifikat eller jwk ved oppslag.
+Maskinporten-skjema gjør det mulig å gi en annen virksomhet fullmakt til å bruke et API på vegne av virksomheten. Dette brukes gjerne i leverandørforhold der en driftsleverandør står for infrastrukturen. Leverandøren kan da bruke sitt eget virksomhetssertifikat eller sin egen JWK ved oppslag.
 I praksis deleregerer man her tilgang til scopes og må ikke forvekles med systembruker der man delegerer
 
 ### Formidlingstjeneste

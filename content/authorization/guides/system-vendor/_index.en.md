@@ -1,6 +1,6 @@
 ---
-title: System integrator
-linktitle: System integrator
+title: System vendor
+linktitle: System vendor
 description: Guides for system suppliers and organisations integrating systems with Altinn Authorization.
 toc: false
 ---

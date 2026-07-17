@@ -1,47 +1,23 @@
 ---
-title: Access Management component
-linktitle: Access Management
-description: The Access Management provides functionality to end users for managing groups, roles and rights
+title: Access management
+linktitle: Access management
+description: Access management lets people and organisations review authorisations and grant or revoke access.
 weight: 5
 ---
 
-{{<notice warning>}}
-This is work in progress
-{{</notice>}}
+Access management brings together the functions people and organisations use to manage who may act on their behalf in Altinn.
 
-The access management will provide functionality to manage different aspects of authorization in Altinn.
+You can, among other things,
 
-- Delegate and revoke Altinn 2 roles
-- Add and remove membership for Access Groups
-- Delegate App and instance rights
-- [Manage Delegatable Maskinporten API resources](https://github.com/Altinn/altinn-authorization/issues/59)
-- List access groups members
-- List resources that is linked to access groups
+- review the authorisations held by a person, organisation or system user
+- grant and revoke access to services and resources
+- delegate access packages and individual rights
+- manage delegable access to APIs registered in the Resource Registry
 
-## Delegation & Administration of Delegated API Access
+The available options depend on the service, resource and the authorisations held by the person managing access.
 
-This functionality allows users to delegate access throug API with help of delegating access in Maskinporten.
+## For service owners
 
-![API Delegations](apidelegations.jpg "API Delegations")
+The service owner describes the resource and its authorisation rules. Once the resource is published, Altinn can use the rules and its access-package assignment when users manage access.
 
-This functionality is expected to be delivered winter 2022/2023.
-
-## Delegation of general resource rights
-
-The second feature delivered from the new Access Management component will be
-
-## Delegation and management of Access Groups
-
-As part of new design, management of access groups will take over for role management
-
-This design is in early phase.
-
-![Concept](concept1.png "Authorization Landing page")
-
-![Concept](concept2.png "Concept: Delegation of access package")
-
-![Concept](concept3.png "Concept: Creation of Access Group")
-
-### Construction
-
-See details how AccessManagement is [constructed](/en/authorization/reference/architecture/accessmanagment/).
+[Learn how to register a resource and configure authorisation.](/en/authorization/getting-started/resourceadministration/)

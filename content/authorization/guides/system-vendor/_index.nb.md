@@ -1,6 +1,6 @@
 ---
-title: Systemintegrator
-linktitle: Systemintegrator
+title: Systemleverandør
+linktitle: Systemleverandør
 description: Veiledninger for systemleverandører og virksomheter som integrerer systemer med Altinn Autorisasjon.
 toc: false
 ---

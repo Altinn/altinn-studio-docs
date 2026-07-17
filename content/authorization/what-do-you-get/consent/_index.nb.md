@@ -20,7 +20,7 @@ Avhengig av samtykkets formål og innhold, kan dette gi tjenesteeier både nødv
 
 Dagens samtykkeprosess i Altinn 2 fungerer i utgangspunktet veldig bra, og vi har derfor tilstrebet å endre den minst mulig for å gjøre overgangen til Altinn 3 så enkel som mulig. For å gjøre prosessen enda mer smidig for alle parter har vi likevel gjort noen forbedringer.
 
-- **Forenklet token-håndtering:** Kun ett Maskinporten-token benyttes, som inneholder all nødvendig informasjon om samtykket. Dette gjøre det enklere for Datakonsument som kun trenger etterspørre ett token, samt for tjenesteier som mottar både autentisering- og autorisasjonsinsinformasjon i samme token.
+- **Forenklet token-håndtering:** Kun ett Maskinporten-token benyttes, som inneholder all nødvendig informasjon om samtykket. Dette gjør det enklere for datakonsumenten, som bare trenger å be om ett token, og for tjenesteeieren, som mottar både autentiserings- og autorisasjonsinformasjon i det samme tokenet.
 - **Nytt token-format:** API-tilbydere må oppdatere valideringskoden for å tolke det nye formatet. Nytt format er beskrevet under Guider for både [Tjenesteeier](/nb/authorization/guides/resource-owner/consent/) og [Datakonsument](/nb/authorization/guides/system-vendor/consent/)
 - **Bedre brukeropplevelse:** Sluttbrukere møter et oppgradert og mer brukervennlig grensesnitt.
 - **Støtte for leverandører:** Mulighet for å bruke tredjepartsleverandører til å håndtere samtykkeprosessen.
