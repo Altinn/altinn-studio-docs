@@ -7,11 +7,7 @@ toc: true
 weight: 50
 ---
 
-Vi har laget en [eksempelapp](https://altinn.studio/repos/ttd/eformidling-sample-app) som viser det komplette eFormidling-oppsettet.
-
-{{%notice info%}}
-Denne siden beskriver oppsettet for en **v8** Altinn-app. For tidligere versjoner, se [eFormidling-oppsett for v7-dokumentasjonen](/nb/altinn-studio/v8/reference/configuration/eformidling/).
-{{% /notice%}}
+I v9 er eFormidling en **systemoppgave**. Du legger den til som et steg i app-prosessen (`process.bpmn`), og all konfigurasjon for meldingen ligger på denne oppgaven. Det finnes ikke lenger noen eFormidling-konfigurasjon i `applicationmetadata.json` eller `appsettings.json`.
 
 ## Forutsetninger
 
@@ -114,88 +110,63 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 }
 ```
 
-### Konfigurere metadata for meldingen {#eFormidling-oppsett-applicationmetadata}
-Du må konfigurere metadata for meldingen i `applicationmetadata.json`.
+### Legge til eFormidling som en systemoppgave {#eFormidling-oppsett-servicetask}
+eFormidling legges til i prosessen som en systemoppgave, og meldingen sendes når prosessen når denne oppgaven. Plasser oppgaven der du vil at meldingen skal sendes, vanligvis etter oppgaven som produserer dataene du vil sende. Oppgaven må ha en innkommende og en utgående sekvensflyt.
 
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="Egenskaper">}}
-For å sette opp nødvendig metadata, må du opprette en ny seksjon `"eFormidling"` i `applicationmetadata.json` og legge til verdier for parameterne som er definert nedenfor.
+**Merk:** Du kan ennå ikke dra en eFormidling-oppgave direkte inn i Arbeidsflyt-editoren i Altinn Studio. Inntil videre anbefaler vi denne fremgangsmåten:
 
-|      **Egenskap**          |      **Type**     |      **Beskrivelse**                                                                                              |
-|------------------------|---------------|---------------------------------------------------------------------------------------------------------------|
-|     serviceId **\***           |     string    |     ID som spesifiserer forsendelsestype. (DPO, DPV, DPI eller DPF)                                                |
-|     dpfShipmentType    |     string    |     DPF-forsendelsestype som brukes til ruting i mottakersystemet                                          |
-|     receiver           |     string    |     Organisasjonsnummer til mottaker (valgfritt). Kun norske organisasjoner støttes.        |
-|     sendAfterTaskId    |     string    |     ID for oppgaven som må fullføres før meldingen sendes.   |
-|     process **\*\***          |     string    |     Prosesstype                                                                                              |
-|     standard **\*\*\***         |     string    |     Dokumentstandarden                                |
-|     typeVersion        |     string    |     Versjon av meldingstypen                                                                               |
-|     type **\*\*\***             |     string    |     Dokumenttypen                                                                 |
-|     securityLevel **\*\*\***       |     number    |     Sikkerhetsnivå som skal settes på _StandardBusinessDocument_                                              |
-|     dataTypes          |     array     |     Liste over datatyper som skal inkluderes i meldingen                                                            |
+1. Dra en vanlig dataoppgave inn i Arbeidsflyt-editoren.
+2. Del endringene i Studio.
+3. Rediger `process.bpmn` på din egen maskin.
+4. Gjør dataoppgaven om til en `bpmn:serviceTask` (se eksemplet nedenfor).
 
-**\*** Altinn støtter kun DPF og DPO.
-
-**\*\*** Du kan finne tilgjengelige prosesser for hver mottaker på:
-```http
-https://platform.altinn.no/eformidling/api/capabilities/{orgnummer}
-```
-
-**\*\*\*** Du kan finne denne informasjonen på sidene som beskriver hver <a href="https://docs.digdir.no/docs/eFormidling/Utvikling/Dokumenttyper/" target="_blank" rel="noopener noreferrer">dokumenttype</a>, eller ved å bruke URL-en ovenfor.
-
-{{</content-version-container>}}
-{{<content-version-container version-label="Eksempel">}}
-Nedenfor er et eksempel på konfigurasjon for meldingstypen `arkivmelding`.
-{{< code-title >}}
-  App/applicationmetadata.json
-{{< /code-title >}}
-
-```json
-{
-...
- "eFormidling": {
-   "serviceId": "DPO",
-   "receiver": "991825827",
-   "sendAfterTaskId": "Task_1",
-   "process": "urn:no:difi:profile:arkivmelding:administrasjon:ver1.0",
-   "standard": "urn:no:difi:arkivmelding:xsd::arkivmelding",
-   "typeVersion": "2.0",
-   "type": "arkivmelding",
-  "securityLevel": 3,
-   "dataTypes": [
-    "ref-data-as-pdf"
-   ]
-  },
-...
-}
-```
-{{</content-version-container>}}
-{{</content-version-selector>}}
-
-### Aktivere eFormidling-integrasjon  {#eFormidling-oppsett-appsettings}
-Du må eksplisitt aktivere eFormidling-integrasjon i appen din.
-I `appsettings.json`, aktiver eFormidling i `"AppSettings"`-seksjonen og legg til en ny seksjon `"EFormidlingClientSettings"`:
+Slik sikrer du at sekvensflytene og diagrammet holder seg korrekte.
 
 {{< code-title >}}
-  App/appsettings.json
+  App/config/process/process.bpmn
 {{< /code-title >}}
 
-```json {hl_lines=[5,"7-9"]}
-{
-  ...
-  "AppSettings": {
-    ...
-    "EnableEFormidling": true
-  },
-  "EFormidlingClientSettings": {
-    "BaseUrl": "http://localhost:9093/api/"
-  }
-}
+```xml
+<bpmn:serviceTask id="Task_eFormidling" name="eFormidling">
+  <bpmn:extensionElements>
+      <altinn:taskExtension>
+          <altinn:taskType>eFormidling</altinn:taskType>
+          <altinn:eFormidlingConfig>
+              <altinn:disabled env="development">true</altinn:disabled> <!-- Hindrer at meldingen sendes under lokal utvikling. -->
+              <altinn:receiver>991825827</altinn:receiver>
+              <altinn:process>urn:no:difi:profile:arkivmelding:administrasjon:ver1.0</altinn:process>
+              <altinn:standard>urn:no:difi:arkivmelding:xsd::arkivmelding</altinn:standard>
+              <altinn:typeVersion>2.0</altinn:typeVersion>
+              <altinn:type>arkivmelding</altinn:type>
+              <altinn:securityLevel>3</altinn:securityLevel>
+              <altinn:dpfShipmentType>digital</altinn:dpfShipmentType>
+              <altinn:dataTypes>
+                  <altinn:dataType>ref-data-as-pdf</altinn:dataType>
+              </altinn:dataTypes>
+          </altinn:eFormidlingConfig>
+      </altinn:taskExtension>
+  </bpmn:extensionElements>
+  <bpmn:incoming>Flow_1uewkmg</bpmn:incoming>
+  <bpmn:outgoing>Flow_0c1ure8</bpmn:outgoing>
+</bpmn:serviceTask>
 ```
-Hvis du ikke vil teste eFormidling-integrasjonen lokalt, kan du legge til en `"AppSettings"`-seksjon i `appsettings.Development.json` og sette `"EnableEFormidling"` til `false`.
+
+| **Egenskap**    | **Type** | **Beskrivelse**                                                                                                                                                                                                                                            |
+|-----------------|----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| disabled        | boolean  | Slår av meldingen uten å fjerne konfigurasjonen. Bruk det valgfrie attributtet `env` for å slå den av kun i bestemte driftsmiljøer (for eksempel `env="development"` for å hoppe over sending under lokal utvikling). Utelat elementet for å aktivere den overalt. |
+| receiver        | string   | Organisasjonsnummer til mottaker (kan utelates). Kun norske organisasjoner støttes.                                                                                                                                                                       |
+| process         | string   | Prosesstype. Se `https://platform.altinn.no/eformidling/api/capabilities/{orgnummer}`                                                                                                                                                                     |
+| standard        | string   | Dokumentstandarden                                                                                                                                                                                                                                        |
+| typeVersion     | string   | Versjon av meldingstypen                                                                                                                                                                                                                                  |
+| type            | string   | Dokumenttypen, som du finner på sidene som beskriver hver <a href="https://docs.digdir.no/docs/eFormidling/Utvikling/Dokumenttyper/" target="_blank" rel="noopener noreferrer">dokumenttype</a> eller på `https://platform.altinn.no/eformidling/api/capabilities/{orgnummer}` |
+| securityLevel   | number   | Sikkerhetsnivå som skal settes på _StandardBusinessDocument_                                                                                                                                                                                               |
+| dpfShipmentType | string   | DPF-forsendelsestype som brukes til ruting i mottakersystemet                                                                                                                                                                                             |
+| dataTypes       | array    | Liste over datatyper som skal inkluderes i meldingen. Hver datatype legges til som sitt eget element `<altinn:dataType>ref-data-as-pdf</altinn:dataType>`.                                                                                                 |
+
+**Merk:** Altinn støtter kun forsendelsestypene DPF og DPO.
 
 ### Generere meldingsmetadata {#eFormidling-oppsett-eFormidlingMetadata}
-Du er ansvarlig for å lage meldingen som sendes gjennom eFormidling.
+Du lager selv meldingen som sendes gjennom eFormidling.
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Kode/Syntaks">}}
@@ -362,7 +333,11 @@ public class EFormidlingMetadata : IEFormidlingMetadata
 
 ### Sette meldingsmottaker dynamisk {#eFormidling-oppsett-eFormidlingReceivers}
 
-Hvis du må sette meldingsmottakeren dynamisk, må du lage en klasse som implementerer `IEFormidlingReceivers`-grensesnittet og registrere den i [`Program.cs`](#eFormidling-oppsett-program).
+Du kan sette mottakeren på to måter:
+- Statisk gjennom `<altinn:receiver>` i BPMN-konfigurasjonen (se [tabellen ovenfor](#eFormidling-oppsett-servicetask)).
+- Dynamisk ved å implementere `IEFormidlingReceivers`-grensesnittet.
+
+Hvis du må sette mottakeren dynamisk, må du lage en klasse som implementerer `IEFormidlingReceivers`-grensesnittet og registrere den i [`Program.cs`](#eFormidling-oppsett-program).
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Kode/Syntaks">}}
@@ -402,14 +377,12 @@ public class EFormidlingReceivers : IEFormidlingReceivers
 {{</content-version-selector>}}
 
 ### Legge til tilbakemeldingsoppgave {#eFormidling-oppsett-process}
-Vi anbefaler at du legger til en [tilbakemeldingsoppgave](/nb/altinn-studio/v8/reference/process/tasks/#feedback-task) i app-prosessen din. Dette sikrer at prosessen fortsetter når meldingen er mottatt.
+Vi anbefaler at du legger til en [tilbakemeldingsoppgave](/nb/altinn-studio/v9/develop-a-service/reference/process/tasks/#feedback-task) i app-prosessen din. Dette sikrer at prosessen fortsetter når meldingen er mottatt.
 Ingen ytterligere endringer er nødvendige når du har lagt til oppgaven, siden eFormidling-tjenesten automatisk flytter prosessen videre.
-Hvis du vil tilpasse tekstene som vises til brukeren i dette steget, kan du overstyre [tekstnøklene](/nb/altinn-studio/v8/reference/configuration/process/customize/#feedback).
+Hvis du vil tilpasse tekstene som vises til brukeren i dette steget, kan du overstyre [tekstnøklene](/nb/altinn-studio/v9/develop-a-service/reference/configuration/process/customize/#feedback).
 
 ### Sikre unike filnavn {#eFormidling-oppsett-filenames}
-Hvis meldingen din inneholder flere vedlegg, må du sikre at de har unike filnavn. Ellers vil meldingen feile.
-Hvis meldingen din inkluderer den genererte PDF-en av skjemaet, må du sjekke at de andre filnavnene ikke er de samme som appnavnet.
-En måte å sikre unike filnavn på er gjennom [filvalidering](/nb/altinn-studio/v8/reference/logic/validation/files/).
+Filnavnene på vedlegg som sendes gjennom eFormidling må være unike. Integrasjonen inneholder logikk som sikrer dette, og kan endre filnavnene litt før filene sendes.
 
 ## Testing
 Test eFormidling-integrasjonen i appen din grundig.
@@ -418,7 +391,7 @@ Ugyldige meldinger (inkludert manglende vedlegg eller feil i `"arkivmelding"`) v
 
 ### Lokal testing
 {{%notice warning%}}
-For øyeblikket kan du ikke teste eFormidling-integrasjonen lokalt. Det er fordi vi renoverer <a href="https://github.com/felleslosninger/efm-mocks" target="_blank" rel="noopener noreferrer">efm-mocks</a> (nødvendig for lokal testing).
+For øyeblikket kan du ikke teste eFormidling-integrasjonen lokalt. Det er fordi vi renoverer <a href="https://github.com/felleslosninger/efm-mocks" target="_blank" rel="noopener noreferrer">efm-mocks</a> (nødvendig for lokal testing). Sett i mellomtiden `<altinn:disabled env="development">true</altinn:disabled>` på systemoppgaven, slik at prosessen fullfører lokalt uten å forsøke å sende.
 {{% /notice%}}
 
 ### Testmiljø (TT02)

@@ -78,7 +78,7 @@ Eksempel på konfigurasjon i `applicationmetadata.json` for instanser:
 
 Eksempel på konfigurasjon i `applicationmetadata.json` for datatype:
 
-```json {linenos=false,hl_lines=[11, 35]}
+```json {linenos=false,hl_lines=[11, 32]}
 "dataTypes":[
 	{
 		"id": "Skjema",
@@ -93,8 +93,7 @@ Eksempel på konfigurasjon i `applicationmetadata.json` for datatype:
 		},
 		"taskId": "Task_1",
 		"maxCount": 1,
-		"minCount": 1,
-		"enablePdfCreation": true
+		"minCount": 1
 	},
 	{
 		"id": "ref-data-as-pdf",
@@ -102,8 +101,7 @@ Eksempel på konfigurasjon i `applicationmetadata.json` for datatype:
 			"application/pdf"
 		],
 		"maxCount": 0,
-		"minCount": 0,
-		"enablePdfCreation": true
+		"minCount": 0
 	},
 	{
 		"id": "vedleggA",
@@ -111,7 +109,6 @@ Eksempel på konfigurasjon i `applicationmetadata.json` for datatype:
 		"maxSize": 25,
 		"maxCount": 1,
 		"minCount": 1,
-		"enablePdfCreation": true,
 		"appLogic": {
 			"autoDeleteOnProcessEnd": true
 		}

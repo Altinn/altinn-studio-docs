@@ -140,7 +140,7 @@ steg når den har kjørt ferdig, men dette kan systemoppgaven definere selv.
 Tjenesteeiere kan implementere sine egne systemoppgaver og legge de som steg i appens prosess.
 
 ### Generere PDF (`pdf`)
-Genererer PDF basert på valgt oppsett. Bruker standard oppsett for PDF, eller egendefinert visning.
+Genererer PDF basert på valgt oppsett. Bruker standard oppsett for PDF, eller egendefinert visning. Se [Slik setter du opp PDF-generering]({{< relref "/altinn-studio/v9/develop-a-service/process/pdf" >}}) for hele oppsettet.
 
 Eksempel på PDF-systemoppgave:
 
@@ -162,7 +162,37 @@ Eksempel på PDF-systemoppgave:
 </bpmn:serviceTask>
 ```
 
-### Overføre data via eFormidling
+### Overføre data via eFormidling (`eFormidling`)
+Sender instansdata via eFormidling når prosessen når oppgaven. All konfigurasjon for meldingen ligger på selve oppgaven, i `<altinn:eFormidlingConfig>`. Plasser oppgaven der du vil at meldingen skal sendes, vanligvis etter oppgaven som produserer dataene du vil sende. Se [Slik setter du opp eFormidling]({{< relref "/altinn-studio/v9/receive-data/eFormidling" >}}) for hele oppsettet.
+
+Eksempel på eFormidling-systemoppgave:
+
+```xml
+<bpmn:serviceTask id="Task_eFormidling" name="eFormidling">
+    <bpmn:extensionElements>
+        <altinn:taskExtension>
+            <altinn:taskType>eFormidling</altinn:taskType>
+            <altinn:eFormidlingConfig>
+                <altinn:disabled env="development">true</altinn:disabled>
+                <altinn:receiver>991825827</altinn:receiver>
+                <altinn:process>urn:no:difi:profile:arkivmelding:administrasjon:ver1.0</altinn:process>
+                <altinn:standard>urn:no:difi:arkivmelding:xsd::arkivmelding</altinn:standard>
+                <altinn:typeVersion>2.0</altinn:typeVersion>
+                <altinn:type>arkivmelding</altinn:type>
+                <altinn:securityLevel>3</altinn:securityLevel>
+                <altinn:dpfShipmentType>digital</altinn:dpfShipmentType>
+                <altinn:dataTypes>
+                    <altinn:dataType>ref-data-as-pdf</altinn:dataType>
+                </altinn:dataTypes>
+            </altinn:eFormidlingConfig>
+        </altinn:taskExtension>
+    </bpmn:extensionElements>
+    <bpmn:incoming>Flow_1uewkmg</bpmn:incoming>
+    <bpmn:outgoing>Flow_0c1ure8</bpmn:outgoing>
+</bpmn:serviceTask>
+```
+
+### Overføre data via Fiks Arkiv
 
 {{% notice info %}}
 Mer info kommer snart.

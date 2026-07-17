@@ -52,7 +52,6 @@ Altinn.App.Core NuGet-pakken definerer grensesnittene som kreves, i tillegg til 
          "maxSize": 25,
          "maxCount": 1,
          "minCount": 1,
-         "enablePdfCreation": false,
          "enabledFileAnalysers": [ "mimeTypeAnalyser" ],
          "enabledFileValidators": [ "mimeTypeValidator" ]
       }
@@ -152,7 +151,6 @@ Hvis du vil skrive din egen validator, må du implementere to grensesnitt: `IFil
       "maxSize": 25,
       "maxCount": 1,
       "minCount": 1,
-      "enablePdfCreation": false,
       "enabledFileAnalysers": [ "mimeTypeAnalyser" ],
       "enabledFileValidators": [ "mimeTypeValidator" ]
     }

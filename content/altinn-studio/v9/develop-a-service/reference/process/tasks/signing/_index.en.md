@@ -96,8 +96,7 @@ Example of a applicationmetadata.json with a signature datatype named signature:
         "application/pdf"
       ],
       "maxCount": 0,
-      "minCount": 0,
-      "enablePdfCreation": true
+      "minCount": 0
     },
     {
       "id": "Model",
@@ -112,8 +111,7 @@ Example of a applicationmetadata.json with a signature datatype named signature:
       },
       "taskId": "Task_1",
       "maxCount": 1,
-      "minCount": 1,
-      "enablePdfCreation": true
+      "minCount": 1
     },
     {
       "id": "signature",
@@ -123,8 +121,7 @@ Example of a applicationmetadata.json with a signature datatype named signature:
       "taskId": "Task_2",
       "maxSize": 25,
       "maxCount": 1,
-      "minCount": 0,
-      "enablePdfCreation": false
+      "minCount": 0
     }
   ],
   "partyTypesAllowed": {
