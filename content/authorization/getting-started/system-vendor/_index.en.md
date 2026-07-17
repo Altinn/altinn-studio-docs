@@ -1,12 +1,14 @@
 ---
 title: Integrate a system with Altinn Authorization
-linktitle: For system integrators
+linktitle: For system vendors
 description: How to choose an identity, set up a system user and call a service on behalf of people or organisations.
 weight: 3
 toc: true
+aliases:
+  - /authorization/getting-started/system-integrator/
 ---
 
-This guide gives system integrators one main journey from choosing an identity to a production-ready call. It is intended for system suppliers and organisations developing their own integrations.
+This guide gives system vendors one main journey from choosing an identity to a production-ready call. It also suits organisations that develop and operate their own end-user systems.
 
 Use the linked pages for API contracts and complete examples.
 

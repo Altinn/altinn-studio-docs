@@ -7,7 +7,7 @@ toc: false
 
 Is this your first integration?
 
-[Follow the main journey for integrating a system with Altinn Authorization.](../../getting-started/system-integrator/)
+[Follow the main journey for integrating a system with Altinn Authorization.](../../getting-started/system-vendor/)
 
 Use the guides below for individual tasks.
 

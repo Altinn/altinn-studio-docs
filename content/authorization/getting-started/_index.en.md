@@ -1,20 +1,13 @@
 ---
 title: Getting started with Altinn Authorization
 linktitle: Getting started
-description: Choose an integration method and follow the main journey for service owners or system integrators.
+description: Choose an integration method and follow the main journey for service owners or system vendors.
 toc: false
+layout: authorization-landing
 weight: 3
 cascade:
   params:
     diataxis: diataxis_tutorials
 ---
 
-Start with your role:
-
-- [Service owner: Protect an API with Altinn Authorization.](./service-owner/)
-- [System integrator: Integrate a system with Altinn Authorization.](./system-integrator/)
-- [Choose the right integration method if you are unsure.](./choose-authentication/)
-
-Use the topic pages below when the main journey directs you to them.
-
-{{<children />}}
+{{< authorization-hub kind="getting-started" >}}
