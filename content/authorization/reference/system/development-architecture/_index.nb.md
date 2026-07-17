@@ -6,7 +6,7 @@ weight: 4
 toc: true
 ---
 
-Utviklingen av Altinn Autorisasjon er fordelt på flere kodebaser. Grensene følger i hovedsak komponentansvaret, men Authorization og Access Management deler et monorepo. [Applikasjonsarkitekturen](../application-architecture/) beskriver den interne oppbygningen av applikasjonene. Denne siden beskriver hvordan utviklerne arbeider med kildekoden og gjør endringer klare for drift.
+Utviklingen av Altinn Autorisasjon er fordelt på flere kodebaser. Grensene følger i hovedsak komponentansvaret, men Authorization og Access Management deler et monorepo. [Applikasjonsarkitekturen](../application-architecture/) beskriver den interne oppbygningen av applikasjonene. Denne siden beskriver hvordan utviklerne arbeider med kildekoden og gjør endringer klare for drift. [Beslutningsmodellen i XACML](./xacml-decision-model/) forklarer ansvarsdelingen i en autorisasjonsbeslutning.
 
 Versjoner, kommandoer og arbeidsflyter endres oftere enn arkitekturen. Prosjektfilene, `README.md` og arbeidsflytene under `.github/workflows/` i hvert repositorium er derfor kildene til gjeldende detaljer.
 

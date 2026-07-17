@@ -104,7 +104,7 @@ Definer handlingen for regelen.
 
 Definer emnet for regelen. Du kan velge mellom ER-roller, Altinn-roller og tilgangspakker.
 
-Les mer om [tilgangspakker og roller](/nb/authorization/what-do-you-get/accessgroups/).
+Les mer om [tilgangspakker og roller](/nb/authorization/what-do-you-get/accesspackages/).
 
 ![Emne](create_resource_13.png)
 

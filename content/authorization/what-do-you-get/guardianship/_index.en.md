@@ -34,5 +34,5 @@ In the access management interface in Altinn, the ward can see their guardians, 
 
 ## Read more
 
-- [Guardianship powers from the Civil Affairs Authority — overview of what the different guardianship powers cover](/en/authorization/what-do-you-get/accessgroups/accessgroups-citizens/verger/)
+- [Guardianship powers from the Civil Affairs Authority — overview of what the different guardianship powers cover](/en/authorization/what-do-you-get/accesspackages/citizens/verger/)
 - [Read more about guardianship at the Civil Affairs Authority](https://www.vergemal.no)

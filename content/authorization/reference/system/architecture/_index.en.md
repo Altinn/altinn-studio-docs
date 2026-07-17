@@ -47,4 +47,4 @@ A PEP enforces a decision close to the protected service and may therefore be ou
 - External tokens are evidence that is validated and translated into internal identity context.
 - Events should be correlatable across component boundaries.
 
-The existing [architecture reference](/en/authorization/reference/architecture/) remains for now. It focuses on the XACML roles PDP, PAP, PRP, PIP, Context Handler and PEP. This page is the new system-oriented entry point.
+[The XACML decision model](../development-architecture/xacml-decision-model/) describes the responsibilities of the PDP, PAP, PRP, PIP, context handler and PEP. The older detailed pages are available through this entry point but no longer appear as a separate architecture tree in the menu.

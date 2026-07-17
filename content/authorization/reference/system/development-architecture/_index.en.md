@@ -6,7 +6,7 @@ weight: 4
 toc: true
 ---
 
-Development of Altinn Authorization is divided across several repositories. The boundaries generally follow component ownership, whilst Authorization and Access Management share a monorepo. [Application architecture](../application-architecture/) describes the internal structure of the applications. This page describes how developers work with the source code and prepare changes for operation.
+Development of Altinn Authorization is divided across several repositories. The boundaries generally follow component ownership, whilst Authorization and Access Management share a monorepo. [Application architecture](../application-architecture/) describes the internal structure of the applications. This page describes how developers work with the source code and prepare changes for operation. [The XACML decision model](./xacml-decision-model/) explains the separation of responsibilities in an authorisation decision.
 
 Versions, commands and workflows change more frequently than the architecture. The project files, `README.md` and workflows under `.github/workflows/` in each repository are therefore the sources for current details.
 

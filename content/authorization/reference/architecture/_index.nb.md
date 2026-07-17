@@ -5,6 +5,10 @@ description: Altinn Autorisasjon består av flere komponenter.
 tags: [architecture, solution]
 weight: 999
 toc: false
+hidden: true
+cascade:
+  params:
+    hidden: true
 ---
 
 Da vi definerte autorisasjonskomponentene, tok vi utgangspunkt i [XACML-referansearkitekturen](https://en.wikipedia.org/wiki/XACML).
