@@ -1,172 +1,108 @@
 ---
-title: Integrer et system med Altinn Autorisasjon
+title: Kom i gang som systemleverandør
 linktitle: For systemleverandører
-description: Slik velger du identitet, setter opp systembruker og kaller en tjeneste på vegne av personer eller virksomheter.
+description: Finn riktig veiledning for systembruker, aktørvalg, kundetilganger, samtykke og API-kall
 weight: 3
 toc: true
 aliases:
   - /authorization/getting-started/system-integrator/
 ---
 
-Denne veiledningen gir systemleverandører ett hovedløp fra valg av identitet til produksjonsklart kall. Den passer også for virksomheter som utvikler og drifter egne sluttbrukersystemer.
+Velg oppgaven som beskriver hva systemet skal gjøre. Siden passer også for virksomheter som utvikler og drifter egne sluttbrukersystemer.
 
-Detaljsidene inneholder API-kontrakter og komplette eksempler. Bruk denne siden til å velge riktig løp og rekkefølge.
+Tjenesteeieren bestemmer hvilke ressurser, handlinger og tilgangspakker API-et krever. Systemleverandøren har ansvar for å bruke riktig identitet, part og tokenkontekst i hvert kall.
 
-## Før du starter
+## Kalle et API med systembruker for egen virksomhet
 
-Avklar
+**Passer når:** Systemet skal hente eller sende data for virksomheten som bruker systemet, uten at en person er innlogget.
 
-- om en person er innlogget når systemet kaller tjenesten
-- om systemet handler for egen virksomhet eller for kunder
-- hvilken tjenesteeier og hvilket API dere skal integrere med
-- hvilke ressurser, handlinger, scopes og tilgangspakker API-et krever
-- hvem som kan godkjenne tilgangen
-- hvilke testdata og miljøer dere kan bruke
+**Du skal ende opp med:** Et registrert system, en godkjent systembruker og et Maskinporten-token med systembrukerinformasjon.
 
-Tjenesteeieren må bekrefte hvilke tilganger API-et krever. Ikke utled kravene bare fra navnet på en tilgangspakke eller et scope.
+1. [Sett opp en Maskinporten-klient.](../maskinportenclient/)
+2. [Registrer systemet med nødvendige ressurser eller tilgangspakker.](../../guides/system-vendor/system-user/systemregistration/)
+3. Velg systembruker for eget system.
+4. [Send eller legg til rette for en forespørsel.](../../guides/system-vendor/system-user/systemuserrequest/)
+5. [Vent på godkjenning og hent systembrukeren.](../../guides/system-vendor/system-user/byquery/)
+6. [Hent og bruk systembrukertokenet.](../../guides/system-vendor/system-user/usetoken/)
+7. Kall API-et med riktig virksomhet, ressurs og handling.
 
-[Bruk valgveiviseren hvis du er usikker på integrasjonsmåten.](../choose-authentication/)
+En sendt forespørsel er ikke det samme som en godkjent systembruker. Håndter avvist, utløpt og slettet forespørsel som egne tilstander.
 
-## Velg hovedløp
+## Kalle API-er på vegne av kunder
 
-### En person er innlogget
+**Passer når:** En regnskapsfører, revisor eller annen tjenestetilbyder bruker systemet til å arbeide for flere kunder.
 
-Bruk ID-porten når en person er til stede og systemet skal handle på vegne av personen.
+**Du skal ende opp med:** Et registrert klientsystem, en systembruker for tjenestetilbyderen og kontrollerte klientdelegeringer.
 
-1. Registrer klienten etter kravene fra ID-porten.
-2. Be bare om scopene systemet trenger.
-3. La personen logge inn og godkjenne scopene.
-4. Bruk access-tokenet, ikke ID-tokenet, i den videre tokenflyten.
-5. Veksle tokenet hvis Altinn-API-et krever Altinn-token.
-6. Finn aktuelle parter når brukeren skal velge hvem handlingen gjelder for.
-7. Kall API-et med riktig part og ressurs.
-8. Håndter avvist tilgang uten å skjule den som en teknisk feil.
+1. [Les forskjellen mellom eget system og klientsystem.](../../guides/system-vendor/system-user/)
+2. [Følg sikkerhetskravene for systemer med flere kunder.](../../guides/system-vendor/system-user/access-control/)
+3. Registrer systemet med tilgangspakkene kundearbeidet krever.
+4. Opprett og få godkjent systembrukeren.
+5. [Knytt godkjente kunder til systembrukeren.](../../guides/system-vendor/system-user/client-delegation/)
+6. Hent tokenet med riktig klientkontekst og kall API-et.
+7. Test feil kunde, manglende klientforhold og manglende pakke.
 
-[Følg veiledningen for autentisering med ID-porten.](../authentication/id-porten/)
+Ikke bruk én kundes tokenkontekst, mellomlager eller autorisasjonsresultat for en annen kunde.
 
-### Systemet handler for egen virksomhet
+## Finne aktører en innlogget bruker kan representere
 
-Bruk Maskinporten når systemet kjører uten en innlogget person. Bruk systembruker i tillegg når API-et krever tilganger som virksomheten har godkjent.
+**Passer når:** En bruker logger inn med ID-porten og skal velge hvilken person eller virksomhet handlingen gjelder for.
 
-Følg systembrukerløpet nedenfor og velg **systembruker for eget system**.
+**Du skal ende opp med:** Et forståelig aktørvalg basert på Authorized Parties, etterfulgt av en egen tilgangskontroll.
 
-### Systemet handler for kunder
+1. [Sett opp autentisering med ID-porten.](../authentication/id-porten/)
+2. Bruk access-tokenet fra ID-porten i den videre tokenflyten, ikke ID-tokenet.
+3. [Hent aktuelle parter med Authorized Parties.](../../guides/resource-owner/generic-access-resource/integrating-link-service/#integrasjon-med-api-for-autoriserte-parter-avgivere)
+4. Vis bare opplysningene brukeren trenger for å velge riktig aktør.
+5. Kall tjenesten med den valgte parten.
+6. Håndter avvist tilgang som et forventet resultat.
 
-Bruk systembruker for klientsystem når en regnskapsfører, revisor eller annen tjenestetilbyder skal bruke systemet på vegne av kunder.
+Authorized Parties erstatter ikke tjenesteeierens endelige kontroll av ressursen og handlingen.
 
-Dette løpet krever tilgangspakker og klientforhold. Systemet må skille kundene og kontrollere at en innlogget bruker bare kan bruke riktig systembruker for kunder vedkommende kan arbeide for.
+## Be om og bruke samtykke til å hente data
 
-[Se sikkerhetskravene for delte systemer.](../../guides/system-vendor/system-user/access-control/)
+**Passer når:** Systemet trenger en tidsavgrenset og uttrykkelig godkjenning for å hente bestemte data.
 
-## Sett opp systembruker
+**Du skal ende opp med:** En samtykkeforespørsel og et samtykketoken for riktig API og datasett.
 
-### 1. Opprett Maskinporten-klient
+1. Avtal samtykkeressurs, formål og datamodell med tjenesteeieren.
+2. [Få oversikt over samtykkeløpet.](../../guides/system-vendor/consent/)
+3. [Opprett samtykkeforespørselen.](../../guides/system-vendor/consent/request/)
+4. [Følg hendelser og status.](../../guides/system-vendor/consent/events/)
+5. [Hent samtykketokenet.](../../guides/system-vendor/consent/retrieve-token/)
+6. [Kall API-et på vegne av den som ga samtykket.](../../guides/system-vendor/consent/behalf-of/)
 
-Opprett en Maskinporten-klient for systemintegrasjonen. Skaff scopene som trengs for å registrere systemet, administrere systembrukere og kalle tjenesteeierens API.
+Systemet må håndtere at samtykket blir avvist, utløper eller trekkes tilbake.
 
-[Sett opp en Maskinporten-klient.](../maskinportenclient/)
+## Administrere tilganger for kunder
 
-### 2. Registrer systemet
+**Passer når:** Systemet skal hjelpe en tjenestetilbyder med å administrere hvilke ansatte som kan arbeide for hvilke kunder.
 
-Registrer systemet i Altinns systemregister. Systemdefinisjonen angir blant annet
+**Du skal ende opp med:** En integrasjon som viser og endrer tilganger uten å blande klientene eller gi bredere administrasjonsrett enn brukeren har.
 
-- system-ID og leverandør
-- navn og beskrivelse
-- ressurser eller tilgangspakker
-- Maskinporten-klienter
-- tillatte omdirigeringsadresser
-- om systemet skal være synlig for brukerstyrt opprettelse
+- [Se veiledningen for klientadministrasjon.](../../guides/system-vendor/client-admin/)
+- [Se API-ene for tilgangsstyring.](../../guides/system-vendor/access-management/)
+- [Se hvordan sluttbrukeren delegerer klienter.](../../guides/end-user/system-user/delegate-clients/)
 
-Be bare om tilganger som systemet faktisk trenger.
+Kontroller både at brukeren kan administrere tilgangen, og at den ansatte kan bruke den etterpå.
 
-[Følg veiledningen for å registrere systemet.](../../guides/system-vendor/system-user/systemregistration/)
+## Kalle et API for systemets egen identitet
 
-### 3. Velg eget system eller klientsystem
+**Passer når:** API-et krever Maskinporten-autentisering, men ikke fullmakter gjennom systembruker.
 
-**Eget system** brukes når virksomheten skal hente eller sende data for seg selv. Det kan bruke enkeltrettigheter eller tilgangspakker som ressursen støtter.
+**Du skal ende opp med:** En Maskinporten-klient med riktig scope og et token som representerer klientvirksomheten.
 
-**Klientsystem** brukes når tjenestetilbyderen handler for kunder. Dette løpet bruker tilgangspakker og krever at klientforholdet og videredelegeringen er på plass.
+1. Avklar med tjenesteeieren om systembruker er nødvendig.
+2. [Sett opp Maskinporten-klienten.](../maskinportenclient/)
+3. Be bare om scopene API-et krever.
+4. Kontroller mottaker, scope, miljø og levetid.
+5. Kall API-et etter kontrakten fra tjenesteeieren.
 
-[Se forskjellen mellom de to typene systembruker.](../../guides/system-vendor/system-user/#systembruker-for-eget-system)
+## Test og forvalt integrasjonen
 
-### 4. Velg hvem som starter opprettelsen
+Test godkjente, avviste og utløpte forespørsler, feil virksomhet eller kunde, manglende tilgang, ugyldige token og utilgjengelige API-er. Ikke logg komplette token, nøkler eller unødvendige personopplysninger.
 
-Ved **leverandørstyrt opprettelse** sender systemleverandøren en forespørsel og gir kunden en sikker lenke til godkjenning.
-
-Ved **brukerstyrt opprettelse** finner og oppretter kunden systembrukeren fra Altinn. Systemet må være registrert som synlig og støtte denne flyten.
-
-[Følg veiledningen for å opprette en systembruker.](../../guides/system-vendor/system-user/systemuserrequest/)
-
-### 5. Vent på godkjenning
-
-Ikke behandle en sendt forespørsel som en opprettet systembruker. Følg statusen til forespørselen er godkjent og systembrukeren finnes.
-
-Håndter avvist, utløpt og slettet forespørsel som egne tilstander. Ikke gjenta opprettelsen ukontrollert hvis svaret er uklart.
-
-[Se hvordan du henter en eksisterende systembruker.](../../guides/system-vendor/system-user/byquery/)
-
-### 6. Knytt til kunder når det er nødvendig
-
-For et klientsystem må tjenestetilbyderen ha fullmakten fra kunden, og klienten må knyttes til systembrukeren. Hvilke klienter som kan knyttes til, avhenger av klientforholdet og tilgangspakkene.
-
-[Se hvordan klientdelegering fungerer for systemleverandører.](../../guides/system-vendor/system-user/client-delegation/)
-
-### 7. Hent og kontroller tokenet
-
-Hent systembrukertokenet gjennom Maskinporten. Kontroller at tokenet gjelder riktig
-
-- system
-- systembruker
-- virksomhet
-- klient
-- scope
-- miljø
-
-Ikke bruk én kundes identitet eller tokenkontekst til å utføre handlinger for en annen kunde.
-
-[Se hvordan du henter og bruker systembrukertokenet.](../../guides/system-vendor/system-user/usetoken/)
-
-### 8. Kall tjenesteeierens API
-
-Følg kontrakten og sikkerhetskravene fra tjenesteeieren. Oppgi riktig part, ressurs og handling. Et gyldig systembrukertoken betyr ikke at alle operasjoner er tillatt; tjenesteeierens API gjør den endelige tilgangskontrollen.
-
-Logg tekniske identifikatorer og korrelasjons-ID-er som gjør feilsøking mulig, men ikke komplette token eller unødvendige personopplysninger.
-
-## Test integrasjonen
-
-Test minst
-
-- opprettelse og godkjenning
-- avvist og utløpt forespørsel
-- eget system og klientsystem der begge støttes
-- kunde uten nødvendig fullmakt
-- feil kunde eller systembruker
-- trukket tilbake tilgang
-- utløpt eller ugyldig token
-- gjentatt forespørsel og usikkert svar
-- utilgjengelig Altinn- eller tjenesteeier-API
-
-[Bruk feilsøkingsveiledningen for Systembruker.](../../guides/system-vendor/system-user/troubleshooting/)
-
-## Klargjør produksjon
-
-Før produksjonssetting skal du kontrollere at
-
-- produksjonsklienten har riktige scopes
-- systemet er registrert med riktige produksjonsverdier
-- omdirigeringsadressene er eksakte og godkjente
-- systemet skiller virksomheter og kunder i alle lag
-- hemmeligheter og nøkler kan roteres
-- integrasjonen håndterer avvist, utløpt og trukket tilbake tilgang
-- logger og spor ikke inneholder komplette token eller unødvendige personopplysninger
-- brukeren får forståelig beskjed når en godkjenning eller fullmakt mangler
-
-[Kontroller gjeldende status for Altinn Autorisasjon før produksjonssetting.](../../reference/status/)
-
-## Forvalt integrasjonen
-
-Oppdater systemregistreringen når systemet trenger andre ressurser eller tilgangspakker. Bruk endringsløpet som dokumentasjonen støtter, og test eksisterende kunder før du erstatter en systembruker.
-
+- [Bruk feilsøkingsveiledningen for systembruker.](../../guides/system-vendor/system-user/troubleshooting/)
 - [Endre rettigheter for en systembruker.](../../guides/system-vendor/system-user/changerequest/)
-- [Slette en systembruker.](../../guides/system-vendor/system-user/deleterequest/)
-- [Se aktuelle brukerscenarioer.](../../guides/system-vendor/system-user/userscenarios/)
+- [Slett en systembruker.](../../guides/system-vendor/system-user/deleterequest/)
+- [Kontroller gjeldende status.](../../reference/status/)

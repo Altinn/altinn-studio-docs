@@ -1,7 +1,7 @@
 ---
 title: Getting started with Altinn Authorization
 linktitle: Getting started
-description: Choose an integration method and follow the main journey for service owners or system vendors.
+description: Choose the task you need to complete and find the right guidance for service owners or system vendors.
 toc: false
 layout: authorization-landing
 weight: 3

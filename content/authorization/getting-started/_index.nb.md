@@ -1,7 +1,7 @@
 ---
 title: Kom i gang med Altinn Autorisasjon
 linktitle: Kom i gang
-description: Velg integrasjonsmåte og følg hovedløpet for tjenesteeiere eller systemleverandører.
+description: Velg oppgaven du skal løse, og finn riktig veiledning for tjenesteeiere eller systemleverandører.
 toc: false
 layout: authorization-landing
 weight: 3
