@@ -5,7 +5,7 @@ linktitle: Bruk av Systembruker
 weight: 5
 ---
 
-**Målgruppe:** Utviklere og systemintegratorer som allerede har opprettet en Systembruker og skal ta den i bruk i egne løsninger.
+**Målgruppe:** Utviklere hos systemleverandører som allerede har opprettet en Systembruker og skal ta den i bruk i egne løsninger.
 
 Bruken av Systembruker mot tjensester foregår på følgende måte:
 

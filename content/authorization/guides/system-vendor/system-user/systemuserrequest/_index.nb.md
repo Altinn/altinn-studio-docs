@@ -6,7 +6,7 @@ weight: 2
 
 
 
-**Målgruppe:** Utviklere og systemintegratorer hos en Sluttbrukersystemleverandør (SBSL) som skal integrere sitt system med Altinn-plattformen.
+**Målgruppe:** Utviklere hos en systemleverandør som skal integrere sitt system med Altinn-plattformen.
 
 ## **Forutsetninger:**
 

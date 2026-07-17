@@ -5,6 +5,7 @@ description: Virksomheter som tildeles roller i Enhetsregisteret kan også få f
 tags: [architecture, security, authorization, needstranslation]
 toc: true
 weight: 1
+hidden: true
 ---
 *Innhold på siden er under arbeid. Innholdet vil ikke være gjeldende før nye [tilgangspakker](/en/authorization/what-do-you-get/accessgroups/accessgroups/) trer i kraft. Dette må derfor ikke ansees som en fasit pr nå*
 

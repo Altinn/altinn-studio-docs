@@ -29,24 +29,24 @@ For en overordnet funksjonell gjennomgang og brukerreise, se [Samarbeidsportalen
 **For tjenesteeier**
 For å støtte systembruker på tjenesten din må du velge Maskinporten som autentiseringsmetode og gjøre oppslag mot vårt autorisasjons-API (PDP) med systembrukerinformasjonen som finnes i Maskinporten-tokenet.
 
-Detaljert veiledning for å komme i gang finnes [her](./../../guides/resource-owner/system-user/).
+[Følg veiledningen for tjenesteeiere som vil ta i bruk systembruker.](./../../guides/resource-owner/system-user/)
 **For sluttbrukersystemleverandør**
 
 Systembruker gir deg en enkel og sikker måte å opprette en bruker som kan brukes til å automatisere handlinger på vegne av dine kunder, uten at det er behov for å utveksle sertifikat eller andre hemmeligheter.
-Systembruker støtter både kunder som jobber på vegne av seg selv i ditt system og på vegne av klienter (regnskapsførere etc.).
+Systembruker støtter både kunder som jobber på vegne av seg selv i systemet ditt og på vegne av klienter (regnskapsførere etc.).
 Du velger selv om du ønsker dine kunder skal kunne opprette systembruker fra Altinn portal, eller om du ønsker kontrollere og lede de gjennom prosessen i ditt sluttbrukersystem.
 For å kunne bruke systembruker må du sikre at tjenesteeier støtter dette på sin tjeneste.
 
 <!--Beskriv støtte i apps-->
 
-For mer informasjon for å komme i gang finnes [her](./../../guides/system-vendor/system-user/)
+[Følg veiledningen for systemleverandører som vil ta i bruk systembruker.](./../../guides/system-vendor/system-user/)
 
 **For sluttbruker**
 
 Systembruker gjør det mulig for sluttbrukersystemleverandøren din å utføre handlinger på vegne av virksomheten din på en enkel og sikker måte.
 Du vil til enhver tid kunne se hvilke fullmakter du har gitt systembrukeren via Altinns brukerflate, og eventuelt slette systembrukeren dersom leverandøren ikke lenger trenger fullmaktene.
 
-For mer informasjon for å komme i gang finnes [her](./../../guides/end-user/system-user/).
+[Les hvordan sluttbrukere administrerer systembrukere.](./../../guides/end-user/system-user/)
 
 ## Økosystem
 
