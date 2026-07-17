@@ -1,38 +1,22 @@
 ---
-title: Andre tjenesteytende næringer
-tags: [needstranslation]
-linktitle: Andre tjenesteytende næringer
-description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som omhandler annen tjenesteyting som f eks post, telekommunikasjon, informasjon, kommunikasjon, forsikring, finansiering. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+title: Other Service Industries
+linktitle: Other Service Industries
+description: This authorization area includes access packages related to other service industries.
 toc: true
 weight: 100
 aliases:
   - /authorization/what-do-you-get/accessgroups/accessgroups/andretjenesteytende/
 ---
 
+This authorization area includes access packages related to other service industries.
 
-|**Tilgangspakker i kategorien**|
-|---|
-|[Informasjon og kommunikasjon](#informasjon-og-kommunikasjon)|
-|[Finansiering og forsikring](#finansiering-og-forsikring)|
-|[Annen tjenesteyting](#annen-tjenesteyting)|
+| Access package | Description | URN | For service owners | Contents |
+|---|---|---|---|---|
+| Financing and insurance | This authorization provides access to services related to financing and insurance. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:finansiering-og-forsikring` | Yes | <a href="https://tjenesteoversikten.no/package/finansiering-og-forsikring" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Financing and insurance">View contents ↗</a> |
+| Information and communication | This authorization provides access to services related to information and communication. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:informasjon-og-kommunikasjon` | Yes | <a href="https://tjenesteoversikten.no/package/informasjon-og-kommunikasjon" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Information and communication">View contents ↗</a> |
+| Electronic communication | This authorization gives access to services related to electronic communication. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:elektronisk-kommunikasjon` | Yes | <a href="https://tjenesteoversikten.no/package/elektronisk-kommunikasjon" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Electronic communication">View contents ↗</a> |
+| Other services | This authorization provides access to services related to other services such as organizations and associations, repair of computers and goods for personal and household use, and a range of personal services not mentioned elsewhere. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:annen-tjenesteyting` | Yes | <a href="https://tjenesteoversikten.no/package/annen-tjenesteyting" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Other services">View contents ↗</a> |
+| Postal services | This authorization gives access to services related to postal services. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:posttjenester` | Yes | <a href="https://tjenesteoversikten.no/package/posttjenester" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Postal services">View contents ↗</a> |
+| Services NUF | This access package provides authorizations for services that a contact person, Norwegian representative or business manager for a NUF should be able to use and delegate authorization for. In the event of regulatory changes, new deliberations by service owners or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:tjenester-nuf` | Yes | <a href="https://tjenesteoversikten.no/package/tjenester-nuf" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Services NUF">View contents ↗</a> |
 
-
-### Informasjon og kommunikasjon
-Denne fullmakten gir tilgang til tjenester knyttet til informasjon og kommunikasjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:informasjon-og-kommunikasjon*
-
-### Finansiering og forsikring
-Denne fullmakten gir tilgang til tjenester knyttet til finansiering og forsikring. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:finansiering-og-forsikring*
-
-### Annen tjenesteyting
-Denne fullmakten gir tilgang til tjenester knyttet til annen tjenesteyting som f eks organisasjoner og foreninger, reparasjon av datamaskiner og varer til personlig bruk og husholdningsbruk og en rekke personlige tjenester som ikke er nevnt annet sted. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:annen-tjenesteyting*
-
-## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
-|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
-|---|---|---|
-|Post- og telekommunikasjon|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Informasjon og kommunikasjon|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Finansiering og forsikring|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder|Ja|
-|Annen tjenesteyting|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+Source: [Package definitions in Access Management](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Constants/PackageConstants.cs). Role assignments are defined in [IngestRolePackage.cs](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Data/IngestRolePackage.cs).

@@ -1,36 +1,19 @@
 ---
 title: Handel, overnatting og servering
 linktitle: Handel, overnatting og servering
-description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som omhandler varehandel(engros- og detaljhandel, import og eksport), overnatting og servering. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+description: Dette fullmaktsområdet omfatter tilgangspakker knyttet til handel, overnatting og servering.
 toc: true
 weight: 100
 aliases:
   - /authorization/what-do-you-get/accessgroups/accessgroups/handelovernatting/
 ---
 
-|**Tilgangspakker i kategorien**|
-|---|
-|[Varehandel](#varehandel)|
-|[Overnatting](#overnatting)|
-|[Servering](#servering)|
+Dette fullmaktsområdet omfatter tilgangspakker knyttet til handel, overnatting og servering.
 
+| Tilgangspakke | Beskrivelse | URN | For tjenesteeiere | Innhold |
+|---|---|---|---|---|
+| Overnatting | Denne tilgangspakken gir fullmakter til tjenester knyttet til overnattingsvirksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:overnatting` | Ja | <a href="https://tjenesteoversikten.no/package/overnatting" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Overnatting">Se innhold ↗</a> |
+| Servering | Denne tilgangspakken gir fullmakter til tjenester knyttet til serveringsvirksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:servering` | Ja | <a href="https://tjenesteoversikten.no/package/servering" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Servering">Se innhold ↗</a> |
+| Varehandel | Denne tilgangspakken gir fullmakter til tjenester knyttet til varehandel, inkludert engros- og detaljhandel, import og eksport, og salg og reparasjon av motorvogner. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:varehandel` | Ja | <a href="https://tjenesteoversikten.no/package/varehandel" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Varehandel">Se innhold ↗</a> |
 
-### Varehandel
-Denne tilgangspakken gir fullmakter til tjenester knyttet til varehandel, inkludert engros- og detaljhandel, import og eksport, og salg og reparasjon av motorvogner. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:varehandel*
-
-### Overnatting
-Denne tilgangspakken gir fullmakter til tjenester knyttet til overnattingsvirksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:overnatting*
-
-### Servering
-Denne tilgangspakken gir fullmakter til tjenester knyttet til serveringsvirksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:servering*
-
-
-## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
-|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
-|---|---|---|
-|Varehandel|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Overnatting|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Servering|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+Kilde: [Pakkedefinisjonene i Access Management](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Constants/PackageConstants.cs). Rollefordelingen er definert i [IngestRolePackage.cs](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Data/IngestRolePackage.cs).

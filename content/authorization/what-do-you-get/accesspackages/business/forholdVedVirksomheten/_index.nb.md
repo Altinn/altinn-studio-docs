@@ -1,119 +1,36 @@
 ---
 title: Forhold ved virksomheten
 linktitle: Forhold ved virksomheten
-description: Fullmaktsområde for tilgangspakker for tjenester som er relatert til å etablere og drive en virksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
+description: Dette fullmaktsområdet omfatter tilgangspakker knyttet til forhold ved virksomheten.
 toc: true
 weight: 100
 aliases:
   - /authorization/what-do-you-get/accessgroups/accessgroups/forholdvedvirksomheten/
 ---
 
-|**Tilgangspakker i kategorien**|
-|---|
-| [Generelle Helfo tjenester](#generelle-helfo-tjenester)|
-| [Helfotjenester med personopplysninger av særlig kategori](#helfotjenester-med-personopplysninger-av-særlig-kategori)|
-| [Starte, drive, endre og avvikle virksomhet](#starte-drive-endre-og-avvikle-virksomhet)|
-| [Aksjer og eierforhold](#aksjer-og-eierforhold)|
-| [Attester](#attester)|
-| [Dokumentbasert tilsyn](#dokumentbasert-tilsyn)|
-| [Infrastruktur](#infrastruktur)|
-| [Patent, varemerke og design](#patent-varemerke-og-design)|
-| [Tilskudd, støtte og erstatning](#tilskudd-støtte-og-erstatning)|
-| [Mine sider hos kommunen](#mine-sider-hos-kommunen)|
-| [Politi og domstol](#politi-og-domstol)|
-| [Rapportering av statistikk](#rapportering-av-statistikk)|
-| [Forskning](#forskning)|
-| [Eksplisitt tjenestedelegering](#eksplisitt-tjenestedelegering)|
-| [Folkeregister](#folkeregister)|
-| [Teknisk samhandling med Skatteetaten](#teknisk-samhandling-med-skatteetaten)|
-| [Beredskap](#beredskap)|
+Dette fullmaktsområdet omfatter tilgangspakker knyttet til forhold ved virksomheten.
 
+| Tilgangspakke | Beskrivelse | URN | For tjenesteeiere | Innhold |
+|---|---|---|---|---|
+| Attester | Denne tilgangspakken gir fullmakter til tjenester knyttet til attestering av virksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:attester` | Ja | <a href="https://tjenesteoversikten.no/package/attester" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Attester">Se innhold ↗</a> |
+| Dokumentbasert tilsyn | Denne tilgangspakken gir fullmakter til tjenester knyttet til dokumentbaserte tilsyn. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:dokumentbasert-tilsyn` | Ja | <a href="https://tjenesteoversikten.no/package/dokumentbasert-tilsyn" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Dokumentbasert tilsyn">Se innhold ↗</a> |
+| Eksplisitt tjenestedelegering | Denne fullmakten er ikke delegerbar, og er ikke knyttet til noen roller i Enhetsregisteret. Tilgang til tjenester knyttet til denne pakken kan gis av Hovedadministrator gjennom enkeltrettighetsdelegering. | `urn:altinn:accesspackage:eksplisitt` | Ja | <a href="https://tjenesteoversikten.no/package/eksplisitt" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Eksplisitt tjenestedelegering">Se innhold ↗</a> |
+| Teknisk samhandling med Skatteetaten | Denne tilgangspakken gir fullmakter til tjenester for å forvalte og koordinere tekniske grensesnitt mot Skatteetaten. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:teknisk-samhandling-skatt` | Ja | <a href="https://tjenesteoversikten.no/package/teknisk-samhandling-skatt" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Teknisk samhandling med Skatteetaten">Se innhold ↗</a> |
+| Teknisk samhandling med Digdir | Denne tilgangspakken gir fullmakter til tjenester for å forvalte virksomhetens kundeforhold til Digdir, inkludert tekniske grensesnitt, integrasjoner og tilhørende oppsett. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:teknisk-samhandling-digdir` | Ja | <a href="https://tjenesteoversikten.no/package/teknisk-samhandling-digdir" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Teknisk samhandling med Digdir">Se innhold ↗</a> |
+| Beredskap | Denne tilgangspakken gir fullmakt til tjenester knyttet til etablering, rapportering og varsling av beredskap. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:beredskap` | Ja | <a href="https://tjenesteoversikten.no/package/beredskap" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Beredskap">Se innhold ↗</a> |
+| Reelle rettighetshavere - avviksrapportering og EU-oppslag | Denne tilgangspakken gir tilgang til å sende inn varsel om uoverensstemmelse i Register over reelle rettighetshavere og søke i registre over reelle rettighetshavere i EU/EØS-land via BORIS-portalen for enkelte offentlige myndigheter og rapporteringspliktige. De som kan sende inn varsel om uoverensstemmelse er de som er nevnt i forskrift til lov om register over reelle rettighetshavere § 3-10 første ledd. I tillegg til de som er nevnt i forrige setning, kan alle rapporteringspliktige etter hvitvaskingsloven § 4 søke i BORIS-portalen. | `urn:altinn:accesspackage:reelle-rettighetshavere-avvik-eu-oppslag` | Ja | <a href="https://tjenesteoversikten.no/package/reelle-rettighetshavere-avvik-eu-oppslag" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Reelle rettighetshavere - avviksrapportering og EU-oppslag">Se innhold ↗</a> |
+| Generelle helfotjenester | Denne fullmakten gir tilgang til ordinære tjenester knyttet til virksomhetens dialog med Helfo der bruker kan få tilgang til personopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:generelle-helfotjenester` | Ja | <a href="https://tjenesteoversikten.no/package/generelle-helfotjenester" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Generelle helfotjenester">Se innhold ↗</a> |
+| Tilskudd, støtte og erstatning | Denne tilgangspakken gir fullmakter til tjenester knyttet til å søke tilskudd, støtte og erstatning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:tilskudd-stotte-erstatning` | Ja | <a href="https://tjenesteoversikten.no/package/tilskudd-stotte-erstatning" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Tilskudd, st&#248;tte og erstatning">Se innhold ↗</a> |
+| Helfotjenester med personopplysninger av særlig kategori | Denne tilgangspakken gir fullmakter til tjenester knyttet til virksomhetens dialog med Helfo der bruker kan få tilgang til personopplysninger av særlig kategori. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir | `urn:altinn:accesspackage:helfo-saerlig-kategori` | Ja | <a href="https://tjenesteoversikten.no/package/helfo-saerlig-kategori" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Helfotjenester med personopplysninger av s&#230;rlig kategori">Se innhold ↗</a> |
+| Infrastruktur | Denne tilgangspakken gir fullmakter til tjenester knyttet til virksomhetens infrastruktur. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:infrastruktur` | Ja | <a href="https://tjenesteoversikten.no/package/infrastruktur" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Infrastruktur">Se innhold ↗</a> |
+| Mine sider hos kommunen | Denne fullmakten gir generell tilgang til tjenester av typen “mine sider” tjenester hos kommuner. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:mine-sider-kommune` | Ja | <a href="https://tjenesteoversikten.no/package/mine-sider-kommune" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Mine sider hos kommunen">Se innhold ↗</a> |
+| Patent, varemerke og design | Denne tilgangspakken gir fullmakter til tjenester knyttet til patent, varemerke og design. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:patent-varemerke-design` | Ja | <a href="https://tjenesteoversikten.no/package/patent-varemerke-design" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Patent, varemerke og design">Se innhold ↗</a> |
+| Politi og domstol | Denne tilgangspakken gir fullmakter til tjenester knyttet til virksomhetens dialog om juridiske forhold med politi og jusitsmyndigheter. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:politi-og-domstol` | Ja | <a href="https://tjenesteoversikten.no/package/politi-og-domstol" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Politi og domstol">Se innhold ↗</a> |
+| Folkeregister | Denne tilgangspakken gir fullmakt til tjenester som en virksomhet kan ha mot folkeregister. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:folkeregister` | Ja | <a href="https://tjenesteoversikten.no/package/folkeregister" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Folkeregister">Se innhold ↗</a> |
+| Offentlige anskaffelser | Denne tilgangspakken gir fullmakter til å dele data om virksomheten i forbindelse med offentlige anskaffelser. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:offentlige-anskaffelser` | Ja | <a href="https://tjenesteoversikten.no/package/offentlige-anskaffelser" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Offentlige anskaffelser">Se innhold ↗</a> |
+| Forskning | Denne fullmakten gir tilgang til tjenester knyttet til forskning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:forskning` | Ja | <a href="https://tjenesteoversikten.no/package/forskning" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Forskning">Se innhold ↗</a> |
+| Aksjer og eierforhold | Denne tilgangspakken gir fullmakter til tjenester knyttet til aksjer og eierforhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:aksjer-og-eierforhold` | Ja | <a href="https://tjenesteoversikten.no/package/aksjer-og-eierforhold" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Aksjer og eierforhold">Se innhold ↗</a> |
+| Starte, endre og avvikle virksomhet | Denne tilgangspakken gir fullmakter til tjenester knyttet til å starte, endre og avvikle en virksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:starte-drive-endre-avvikle-virksomhet` | Ja | <a href="https://tjenesteoversikten.no/package/starte-drive-endre-avvikle-virksomhet" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Starte, endre og avvikle virksomhet">Se innhold ↗</a> |
+| Rapportering av statistikk | Denne fullmakten gir tilgang til alle pålagte rapportering av statistikk. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:rapportering-statistikk` | Ja | <a href="https://tjenesteoversikten.no/package/rapportering-statistikk" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Rapportering av statistikk">Se innhold ↗</a> |
 
-### Generelle Helfo tjenester
-Denne fullmakten gir tilgang til ordinære tjenester knyttet til virksomhetens dialog med Helfo der bruker kan få tilgang til personopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:generelle-helfotjenester*
-
-### Helfotjenester med personopplysninger av særlig kategori
-Denne tilgangspakken gir fullmakter til tjenester knyttet til virksomhetens dialog med Helfo der bruker kan få tilgang til personopplysninger av særlig kategori. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir  
-*urn:altinn:accesspackage:helfo-saerlig-kategori*
-
-### Starte, drive, endre og avvikle virksomhet
-Denne tilgangspakken gir fullmakter til tjenester knyttet til å starte, drive, endre og avvikle en virksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:starte-drive-endre-avvikle-virksomhet*
-
-### Aksjer og eierforhold
-Denne tilgangspakken gir fullmakter til tjenester knyttet til aksjer og eierforhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:aksjer-og-eierforhold*
-
-### Attester
-Denne tilgangspakken gir fullmakter til tjenester knyttet til attestering av virksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:attester*
-
-### Dokumentbasert tilsyn
-Denne tilgangspakken gir fullmakter til tjenester knyttet til dokumentbaserte tilsyn. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:dokumentbasert-tilsyn*
-
-### Infrastruktur
-Denne tilgangspakken gir fullmakter til tjenester knyttet til virksomhetens infrastruktur. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:infrastruktur*
-
-### Patent, varemerke og design
-Denne tilgangspakken gir fullmakter til tjenester knyttet til patent, varemerke og design. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:patent-varemerke-design*
-
-### Tilskudd, støtte og erstatning
-Denne tilgangspakken gir fullmakter til tjenester knyttet til å søke og rapportere på tilskudd, støtte og erstatning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:tilskudd-stotte-erstatning*
-
-### Mine sider hos kommunen
-Denne fullmakten gir generell tilgang til tjenester av typen “mine side” tjenester hos kommuner. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:mine-sider-kommune*
-
-### Politi og domstol
-Denne tilgangspakken gir fullmakter til tjenester knyttet til virksomhetens dialog om juridiske forhold med politi og jusitsmyndigheter. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:politi-og-domstol*
-
-### Rapportering av statistikk
-Denne fullmakten gir tilgang til alle pålagte rapportering av statistikk. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:rapportering-statistikk*
-
-### Forskning
-Denne fullmakten gir tilgang til tjenester knyttet til forskning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:forskning*
-
-### Eksplisitt tjenestedelegering
-Denne fullmakten er ikke delegerbar, og er ikke knyttet til noen roller i ENhetsregisteret. Tilgang til tjenester knyttet til denne pakken kan gis av Hovedadministrator gjennom enkeltrettighetsdelegering.  
-*urn:altinn:accesspackage:eksplisitt*
-
-### Folkeregister
-Denne tilgangspakken gir fullmakt til tjenester som en virksomhet kan ha mot folkeregister. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:folkeregister*
-
-### Teknisk samhandling med Skatteetaten
-Denne tilgangspakken gir fullmakter til tjenester for å forvalte og koordinere tekniske grensesnitt mot Skatteetaten. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:teknisk-samhandling-skatt*
-
-### Beredskap
-Denne tilgangspakken gir fullmakt til tjenester knyttet til etablering, rapportering og varsling av beredskap. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:beredskap*
-
-## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
-|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
-|---|---|---|
-|Generelle helfotjenester|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Helfotjenester med personopplysnigner av særlig kategori|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Starte, drive, endre og avvikle virksomhet|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder|Ja|
-|Aksjer og eierforhold|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Attester|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Dokumentbasert tilsyn|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Infrastrultur|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder|Ja|
-|Patent, varemerke og design|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Tilskudd, støtte og erstatning|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Mine sider hos kommunen|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Politi og domstol|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder|Ja|
-|Rapportering av statistikk|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Forskning|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Eksplisitt tjenestedelegering||Nei|
-|Folkeregister|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Teknisk samhandling med Skatteetaten|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Beredskap|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+Kilde: [Pakkedefinisjonene i Access Management](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Constants/PackageConstants.cs). Rollefordelingen er definert i [IngestRolePackage.cs](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Data/IngestRolePackage.cs).

@@ -1,54 +1,22 @@
 ---
-title: Skatt, avgift, bank og forsikring
-linktitle: Skatt, avgift, bank og forsikring
-description: Fullmaktsområde for tilgangspakker for tjenester som er relatert til søknader og korrespondase som gjelder skatt, avgifter, bank, forsikring og andre økonomiske forhold. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
+title: Tax, levy, bank and insurance
+linktitle: Tax, levy, bank and insurance
+description: Authorization area for access packages for services related to applications and correspondence relating to tax, duties, banking, insurance and other financial matters. When new digital services are introduced, there may be changes in the access that the authorization provides.
 toc: true
 weight: 100
 aliases:
   - /authorization/what-do-you-get/accessgroups/accessgroups-citizens/skattavgiftbankforsikring/
 ---
 
-|**Tilgangspakker i kategorien**|
-|---|
-|[Skatteforhold for privatpersoner](#skatteforhold-for-privatpersoner)|
-|[Bank og finans](#bank-og-finans)|
-|[Forsikring](#forsikring)|
-|[Toll og avgift](#toll-og-avgift)|
-|[Støtte og tilskudd](#støtte-og-tilskudd)|
-|[Innkreving](#innkreving)|
+Authorization area for access packages for services related to applications and correspondence relating to tax, duties, banking, insurance and other financial matters. When new digital services are introduced, there may be changes in the access that the authorization provides.
 
+| Access package | Description | URN | For service owners | Contents |
+|---|---|---|---|---|
+| Banking and finance | This access package provides authorization for services and correspondence related to banking and finance. When new digital services are introduced, there may be changes in the access that the authorizations provide. | `urn:altinn:accesspackage:innbygger-bank-finans` | Yes | <a href="https://tjenesteoversikten.no/package/innbygger-bank-finans" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Banking and finance">View contents ↗</a> |
+| Insurance | This access package provides authorization for services and correspondence related to Insurance. When new digital services are introduced, there may be changes in the access that the authorizations provide. | `urn:altinn:accesspackage:innbygger-forsikring` | Yes | <a href="https://tjenesteoversikten.no/package/innbygger-forsikring" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Insurance">View contents ↗</a> |
+| Taxation for individuals | This access package gives authorizations for services and correspondence related to tax matters for private individuals. When new digital services are introduced, there may be changes in the access that the authorizations provide. | `urn:altinn:accesspackage:innbygger-skatteforhold-privatpersoner` | Yes | <a href="https://tjenesteoversikten.no/package/innbygger-skatteforhold-privatpersoner" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Taxation for individuals">View contents ↗</a> |
+| Customs duties and taxes | This access package gives authorizations for services and correspondence related to customs and taxes. When new digital services are introduced, there may be changes in the access that the authorizations provide. | `urn:altinn:accesspackage:innbygger-toll-avgift` | Yes | <a href="https://tjenesteoversikten.no/package/innbygger-toll-avgift" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Customs duties and taxes">View contents ↗</a> |
+| Support and grants | This access package authorizes services and correspondence related to various support and subsidy schemes. When new digital services are introduced, there may be changes in the access that the authorizations provide. | `urn:altinn:accesspackage:innbygger-stotte-tilskudd` | Yes | <a href="https://tjenesteoversikten.no/package/innbygger-stotte-tilskudd" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Support and grants">View contents ↗</a> |
+| Collection | This access package gives authorizations for services and correspondence related to debt collection for private individuals. The access package is reserved for the Norwegian Tax Agency. When new digital services are introduced, there may be changes in the access that the authorizations provide. | `urn:altinn:accesspackage:innbygger-innkreving` | Yes | <a href="https://tjenesteoversikten.no/package/innbygger-innkreving" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Collection">View contents ↗</a> |
 
-### Skatteforhold for privatpersoner
-Denne tilgangspakken gir fullmakter til tjenester og korrespondanse knyttet til skatteforhold for privatpersoner. Tilgangspakken er forbeholdt Skatteetaten. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.   
-*urn:altinn:accesspackage:innbygger-skatteforhold-privatpersoner*
-
-### Bank og finans
-Denne tilgangspakken gir fullmakter til tjenester og korrespondanse knyttet til bank og finans. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.    
-*urn:altinn:accesspackage:innbygger-bank-finans*
-
-### Forsikring
-Denne tilgangspakken gir fullmakter til tjenester og korrespondanse knyttet til forsikring. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.    
-*urn:altinn:accesspackage:innbygger-forsikring*
-
-### Toll og avgift
-Denne tilgangspakken gir fullmakter til tjenester og korrespondanse knyttet til toll og avgift. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.  
-*urn:altinn:accesspackage:innbygger-toll-avgift*
-
-### Støtte og tilskudd
-Denne tilgangspakken gir fullmakter til tjenester og korrespondanse knyttet til ulike støtte- og tilskuddsordninger. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.    
-*urn:altinn:accesspackage:innbygger-stotte-tilskudd*
-
-### Innkreving
-Denne tilgangspakken gir fullmakter til tjenester og korrespondanse knyttet til innkreving for privatpersoner. Tilgangspakken er forbeholdt Skatteetaten. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
-*urn:altinn:accesspackage:innbygger-innkreving*
-
-
-## Hvilke roller får fullmakt til tilgangspakken
-|**Tilgangspakke**|**Tilknyttet rolle**|**Delegerbar**|
-|---|---|---|
-|Skatteforhold for privatpersoner|Privatperson|Ja|
-|Bank og finans|Privatperson|Ja|
-|Forsikring|Privatperson|Ja|
-|Toll og avgift|Privatperson|Ja|
-|Støtte og tilskudd|Privatperson|Ja|
-|Innkreving|Privatperson|Ja|
+Source: [Package definitions in Access Management](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Constants/PackageConstants.cs). Role assignments are defined in [IngestRolePackage.cs](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Data/IngestRolePackage.cs).

@@ -1,65 +1,24 @@
 ---
-title: Bygg, anlegg og eiendom
-tags: [needstranslation]
-linktitle: Bygg, anlegg og eiendom
-description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som angår bygge- og anleggsvirksomhet, samt oppføring, omsetning og drift av anlegg/eiendom. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+title: Construction, Infrastructure and Real Estate
+linktitle: Construction, Infrastructure and Real Estate
+description: This authorization area includes access packages related to construction, infrastructure and real estate.
 toc: true
 weight: 100
 aliases:
   - /authorization/what-do-you-get/accessgroups/accessgroups/bygganleggeiendom/
 ---
 
-|**Tilgangspakker i kategorien**|
-|---|
-|[Byggesøknad](#byggesøknad)|
-|[Plansak](#plansak)|
-|[Motta nabo- og planvarsel](#motta-nabo--og-planvarsel)|
-|[Oppføring av bygg og anlegg](#oppføring-av-bygg-og-anlegg)|
-|[Kjøp og salg av eiendom](#kjøp-og-salg-av-eiendom)|
-|[Utleie av eiendom](#utleie-av-eiendom)|
-|[Eiendomsmegler](#eiendomsmegler)|
-|[Tinglysing eiendom](#tinglysing-eiendom)|
+This authorization area includes access packages related to construction, infrastructure and real estate.
 
-### Byggesøknad
-Denne tilgangspakken gir fullmakter til tjenester som ansvarlig søker/tiltakshaver trenger, for eksempel byggesøknader, direkte signerte erklæringer, nabovarsel og eiendomssak. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:byggesoknad*
+| Access package | Description | URN | For service owners | Contents |
+|---|---|---|---|---|
+| Building application | This access package provides authorizations for services that the responsible applicant/project owner needs, such as building applications, directly signed declarations, neighbor notifications and property cases. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:byggesoknad` | Yes | <a href="https://tjenesteoversikten.no/package/byggesoknad" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Building application">View contents ↗</a> |
+| Buying and selling real estate | This access package provides authorizations for services related to buying and selling real estate. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:kjop-og-salg-eiendom` | Yes | <a href="https://tjenesteoversikten.no/package/kjop-og-salg-eiendom" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Buying and selling real estate">View contents ↗</a> |
+| Construction of buildings and facilities | This access package provides authorizations for services related to the construction of buildings and facilities, excluding planning and building case processing. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:oppforing-bygg-anlegg` | Yes | <a href="https://tjenesteoversikten.no/package/oppforing-bygg-anlegg" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Construction of buildings and facilities">View contents ↗</a> |
+| Planning case | This access package provides authorizations for services that the proposer/planning consultant needs, such as notification of planning commencement, public hearing and public review. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:plansak` | Yes | <a href="https://tjenesteoversikten.no/package/plansak" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Planning case">View contents ↗</a> |
+| Property registration | This access package provides authorizations for services related to electronic registration of rights in real estate. | `urn:altinn:accesspackage:tinglysing-eiendom` | Yes | <a href="https://tjenesteoversikten.no/package/tinglysing-eiendom" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Property registration">View contents ↗</a> |
+| Real estate agent | This access package provides authorizations for services related to the sale and operation of real estate on assignment, such as real estate brokerage and property management. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:eiendomsmegler` | Yes | <a href="https://tjenesteoversikten.no/package/eiendomsmegler" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Real estate agent">View contents ↗</a> |
+| Real estate rental | This access package provides authorizations for services related to real estate rental. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:utleie-eiendom` | Yes | <a href="https://tjenesteoversikten.no/package/utleie-eiendom" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Real estate rental">View contents ↗</a> |
+| Receive neighbor and planning notifications | This access package provides authorizations for services to read and respond to notifications about planning/building cases. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:motta-nabo-og-planvarsel` | Yes | <a href="https://tjenesteoversikten.no/package/motta-nabo-og-planvarsel" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Receive neighbor and planning notifications">View contents ↗</a> |
 
-### Plansak
-Denne tilgangspakken gir fullmakter til tjenester som forslagsstiller/ plankonsulent trenger, for eksempel varsel om planopppstart og høring og offentlig ettersyn. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:plansak*
-
-### Motta nabo- og planvarsel
-Denne tilgangspakken gir fullmakter til tjenester til å lese og svare på varsel om plan-/byggesak. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:motta-nabo-og-planvarsel*
-
-### Oppføring av bygg og anlegg
-Denne tilgangspakken gir fullmakter til tjenester relatert til oppføring av bygninger og annlegg unntatt plan og byggesaksbehandling. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:oppforing-bygg-anlegg*
-
-### Kjøp og salg av eiendom
-Denne tilgangspakken gir fullmakter til tjenester knyttet til kjøp og salg av eiendom. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:kjop-og-salg-eiendom*
-
-### Utleie av eiendom
-Denne tilgangspakken gir fullmakter til tjenester knyttet til utleie av eiendom. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:utleie-eiendom*
-
-### Eiendomsmegler
-Denne tilgangspakken gir fullmakter til tjenester knyttet til omsetning og drift av fast eiendom på oppdrag, som eiendomsmegling og eiendomsforvaltning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:eiendomsmegler*
-
-### Tinglysing eiendom
-Denne tilgangspakken gir fullmakter til tjenester knyttet til elektronisk tinglysing av rettigheter i eiendom. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:tinglysing-eiendom*
-
-## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
-|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
-|---|---|---|
-|Byggesøknad|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Plansak|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Motta nabo- og planvarsel|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Oppføring av bygg og anlegg|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Kjøp og salg av eiendom|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Utleie av eiendom|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Eiendomsmegler|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Tinglysing eiendom|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
+Source: [Package definitions in Access Management](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Constants/PackageConstants.cs). Role assignments are defined in [IngestRolePackage.cs](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Data/IngestRolePackage.cs).

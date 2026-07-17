@@ -1,95 +1,29 @@
 ---
 title: Oppvekst og utdanning
 linktitle: Oppvekst og utdanning
-description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter til tjenester og ressurser som omhandler barnehage, skole og høyere utdanning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+description: Dette fullmaktsområdet omfatter tilgangspakker knyttet til oppvekst og utdanning.
 toc: true
 weight: 100
 aliases:
   - /authorization/what-do-you-get/accessgroups/accessgroups/oppvekstutdanning/
 ---
 
-|**Tilgangspakker i kategorien**|
-|---|
-|[Barnehageeier](#barnehageeier)|
-|[Barnehageleder](#barnehageleder)|
-|[Barnehagemyndighet](#barnehagemyndighet)|
-|[Statsforvalter-barnehage](#statsforvalter-barnehage)|
-|[Statsforvalter-skole og opplæring](#statsforvalter-skole-og-opplæring)|
-|[Skoleeier](#skoleeier)|
-|[Skoleleder](#skoleleder)|
-|[Opplæringskontorleder](#opplæringskontorleder)|
-|[PPT-leder](#ppt-leder)|
-|[SFO-leder](#sfo-leder)|
-|[Høyere utdanning og høyere yrkesfaglig utdanning](#høyere-utdanning-og-høyere-yrkesfaglig-utdanning)|
-|[Godkjenning av personell](#godkjenning-av-personell)|
-|[Godkjenning av utdanningsvirksomhet](#godkjenning-av-utdanningsvirksomhet)|
+Dette fullmaktsområdet omfatter tilgangspakker knyttet til oppvekst og utdanning.
 
-### Barnehageeier 
-Denne fullmakten gir tilgang til alle tjenester innen drift av barnehage som barnehageeier er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:barnehageeier*
+| Tilgangspakke | Beskrivelse | URN | For tjenesteeiere | Innhold |
+|---|---|---|---|---|
+| SFO-leder | Denne tilgangspakken gir fullmakter til tjenester knyttet til førskole og fritidsordning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:sfo-leder` | Ja | <a href="https://tjenesteoversikten.no/package/sfo-leder" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for SFO-leder">Se innhold ↗</a> |
+| Godkjenning av utdanningsvirksomhet | Denne tilgangspakken gir fullmakter til tjenester knyttet til å søke om godkjenning av utdanningsvirksomheter. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:godkjenning-av-utdanningsvirksomhet` | Ja | <a href="https://tjenesteoversikten.no/package/godkjenning-av-utdanningsvirksomhet" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Godkjenning av utdanningsvirksomhet">Se innhold ↗</a> |
+| Statsforvalter - barnehage | Denne fullmakten gir tilgang til tjenester for statsforvalter knyttet til barnehagesektor. | `urn:altinn:accesspackage:statsforvalter-barnehage` | Ja | <a href="https://tjenesteoversikten.no/package/statsforvalter-barnehage" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Statsforvalter - barnehage">Se innhold ↗</a> |
+| Statsforvalter - skole og opplæring | Denne fullmakten gir tilgang til tjenester for statsforvalter knyttet til skole- og opplæringssektor, herunder fagopplæring og voksenopplæring. | `urn:altinn:accesspackage:statsforvalter-skole-og-opplearing` | Ja | <a href="https://tjenesteoversikten.no/package/statsforvalter-skole-og-opplearing" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Statsforvalter - skole og oppl&#230;ring">Se innhold ↗</a> |
+| Høyere utdanning og høyere yrkesfaglig utdanning | Denne tilgangspakken gir fullmakter til tjenester knyttet til høyere utdanning og høyere yrkesfaglig utdanning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:hoyere-utdanning-og-hoyere-yrkesfaglig-utdanning` | Ja | <a href="https://tjenesteoversikten.no/package/hoyere-utdanning-og-hoyere-yrkesfaglig-utdanning" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for H&#248;yere utdanning og h&#248;yere yrkesfaglig utdanning">Se innhold ↗</a> |
+| Barnehagemyndighet | Denne fullmakten gir tilgang til tjenester innen drift av barnehage som barnehagemyndighet er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:barnehagemyndighet` | Ja | <a href="https://tjenesteoversikten.no/package/barnehagemyndighet" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Barnehagemyndighet">Se innhold ↗</a> |
+| Barnehageleder | Denne fullmakten gir tilgang til tjenester innen drift av barnehage som barnehageleder er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:barnehageleder` | Ja | <a href="https://tjenesteoversikten.no/package/barnehageleder" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Barnehageleder">Se innhold ↗</a> |
+| Barnehageeier | Denne fullmakten gir tilgang til tjenester innen drift av barnehage som barnehageeier er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:barnehageeier` | Ja | <a href="https://tjenesteoversikten.no/package/barnehageeier" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Barnehageeier">Se innhold ↗</a> |
+| Opplæringskontorleder | Denne fullmakten gir tilgang til tjenester innen drift av opplæringskontor som opplæringskontorleder er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:opplaeringskontorleder` | Ja | <a href="https://tjenesteoversikten.no/package/opplaeringskontorleder" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Oppl&#230;ringskontorleder">Se innhold ↗</a> |
+| PPT-leder | Denne fullmakten gir tilgang til tjenester innen drift av Pedagogisk-psykologisk tjeneste (PPT) som PPT-leder er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:ppt-leder` | Ja | <a href="https://tjenesteoversikten.no/package/ppt-leder" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for PPT-leder">Se innhold ↗</a> |
+| Godkjenning av personell | Denne tilgangspakken gir fullmakter til tjenester knyttet til å søke om godkjenning til enkeltpersoner. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:godkjenning-av-personell` | Ja | <a href="https://tjenesteoversikten.no/package/godkjenning-av-personell" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Godkjenning av personell">Se innhold ↗</a> |
+| Skoleleder | Denne fullmakten gir tilgang til tjenester innen drift av skole som skoleleder er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:skoleleder` | Ja | <a href="https://tjenesteoversikten.no/package/skoleleder" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Skoleleder">Se innhold ↗</a> |
+| Skoleeier | Denne fullmakten gir tilgang til tjenester innen drift av skole som skoleeier er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:skoleeier` | Ja | <a href="https://tjenesteoversikten.no/package/skoleeier" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Skoleeier">Se innhold ↗</a> |
 
-### Barnehageleder 
-Denne fullmakten gir tilgang til alle tjenester innen drift av barnehage som barnehageleder er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:barnehageleder*
-
-### Barnehagemyndighet 
-Denne fullmakten gir tilgang til alle tjenester innen drift av barnehage som barnehagemyndighet er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:barnehagemyndighet*
-
-### Statsforvalter-barnehage 
-Denne fullmakten gir tilgang til tjenester innen barnehageområdet som statsforvalteren er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.   
-*urn:altinn:accesspackage:statsforvalter-barnehage*
-
-### Statsforvalter-skole og opplæring 
-Denne fullmakten gir tilgang til tjenester innen skole og opplæring som statsforvalteren er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:statsforvalter-skole-og-opplearing*
-
-### Skoleeier 
-Denne fullmakten gir tilgang til alle tjenester innen drift av skole som skoleeier er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:skoleeier*
-
-### Skoleleder 
-Denne fullmakten gir tilgang til alle tjenester innen drift av skole som skoleleder er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:skoleleder*
-
-### Opplæringskontorleder 
-Denne fullmakten gir tilgang til alle tjenester innen drift av opplæringskontor som opplæringskontorleder er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:opplaeringskontorleder*
-
-### PPT-leder 
-Denne fullmakten gir tilgang til alle tjenester innen drift av Pedagogisk-psykologisk tjeneste (PPT) som PPT-leder er ansvarlig for. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:ppt-leder*
-
-### SFO-leder 
-Denne tilgangspakken gir fullmakter til tjenester knyttet til førskole og fritidsordning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:sfo-leder*
-
-### Høyere utdanning og høyere yrkesfaglig utdanning 
-Denne tilgangspakken gir fullmakter til tjenester knyttet til høyere utdanning og høyere yrkesfaglig utdanning. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:hoyere-utdanning-og-hoyere-yrkesfaglig-utdanning*
-
-### Godkjenning av personell 
-Denne tilgangspakken gir fullmakter til tjenester knyttet til å søke om godkjenning til enkeltpersoner. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:godkjenning-av-personell*
-
-### Godkjenning av utdanningsvirksomhet 
-Denne tilgangspakken gir fullmakter til tjenester knyttet til å søke om godkjenning av utdanningsvirksomheter. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:godkjenning-av-utdanningsvirksomhet*
-
-
-## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
-|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
-|---|---|---|
-|Barnehageeier|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja|
-|Barnehageleder|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja|
-|Barnehagemyndighet|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja|
-|Statsforvalter - barnehage|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja|
-|Statsforvalter - skole og opplæring|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja|
-|Skoleeier|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja|
-|Skoleleder|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja|
-|Opplæringskontorleder|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja|
-|PPT-leder|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja|
-|SFO-leder|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja|
-|Høyere utdanning og høyere yrkesfaglig utdanning|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja|
-|Godkjenning av personell|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja|
-|Godkjenning av utdanningsvirksomhet|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja|
+Kilde: [Pakkedefinisjonene i Access Management](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Constants/PackageConstants.cs). Rollefordelingen er definert i [IngestRolePackage.cs](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Data/IngestRolePackage.cs).

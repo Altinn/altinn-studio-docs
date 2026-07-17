@@ -6,6 +6,7 @@ weight: 3
 aliases:
   - /authorization/what-do-you-get/accessgroups/
   - /authorization/modules/accessgroups/
+  - /authorization/what-do-you-get/accesspackages/catalog/
 ---
 
 ## Hvem definerer pakkene og tilgangene?
@@ -56,7 +57,10 @@ Tilgangspakker skal brukes for å styre tilgang til tjenester og ressurser. De f
 
 Tilgangspakkene er inndelt i fullmaktsområder inspirert av SSBs kategorisering av virksomheter. Hvert område samler tilgangspakker som naturlig hører sammen, og gjør det enklere både for tjenesteeiere å plassere tjenester riktig og for virksomheter å delegere passende fullmakter.
 
-[Se den komplette katalogen over tilgangspakker og fullmaktsområder](./catalog/).
+- [Se fullmaktsområder og tilgangspakker for virksomheter](./business/).
+- [Se fullmaktsområder og tilgangspakker for innbyggere](./citizens/).
+
+Lenkene **Se innhold** på områdesidene åpner pakken i Tjenesteoversikten i en ny fane. Tjenesteoversikten er en uoffisiell visualisering som bruker Altinns åpne API-er.
 
 ## Kilder for vedlikehold
 

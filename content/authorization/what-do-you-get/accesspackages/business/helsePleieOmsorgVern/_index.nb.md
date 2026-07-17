@@ -1,59 +1,23 @@
 ---
 title: Helse, pleie, omsorg og vern
 linktitle: Helse, pleie, omsorg og vern
-description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter til tjenester og ressurser omfatter helse- og sosialtjenester med og uten botilbud. Denne fullmakten kan gi bruker tilgang til helseopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.
+description: Dette fullmaktsområdet omfatter tilgangspakker knyttet til helse, pleie, omsorg og vern.
 toc: true
 weight: 100
 aliases:
   - /authorization/what-do-you-get/accessgroups/accessgroups/helsepleieomsorgvern/
 ---
 
-|**Tilgangspakker i kategorien**|
-|---|
-|[Kommuneoverlege](#kommuneoverlege)|
-|[Helsetjenester med personopplysninger av særlig kategori](#helsetjenester-med-personopplysninger-av-særlig-kategori)|
-|[Helsetjenester](#helsetjenester)|
-|[Pleie- og omsorgstjenester i institusjon](#pleie--og-omsorgstjenester-i-institusjon)|
-|[Sosiale omsorgstjenester uten botilbud og flyktningemottak](#sosiale-omsorgstjenester-uten-botilbud-og-flyktningemottak)|
-|[Barnevern](#barnevern)|
-|[Familievern](#familievern)|
+Dette fullmaktsområdet omfatter tilgangspakker knyttet til helse, pleie, omsorg og vern.
 
-### Kommuneoverlege
-Denne tilgangspakken gir fullmakter til tjenester knyttet til sykehus, lege, tannlege og hjemmesykepleie, fysioterapi, ambulanse og lignende, som er relevant for kommuneleger. Denne fullmakten kan gi bruker tilgang til personopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:kommuneoverlege*
+| Tilgangspakke | Beskrivelse | URN | For tjenesteeiere | Innhold |
+|---|---|---|---|---|
+| Pleie- og omsorgstjenester i institusjon | Denne tilgangspakken gir fullmakter til tjenester knyttet til pleie og omsorgstilbud i institursjon. Dette er tjenester som tilbyr institusjonsopphold kombinert med sykepleie, tilsyn eller annen form for pleie alt etter hva som kreves av beboerne. Denne fullmakten kan gi bruker tilgang til helseopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:pleie-omsorgstjenester-i-institusjon` | Ja | <a href="https://tjenesteoversikten.no/package/pleie-omsorgstjenester-i-institusjon" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Pleie- og omsorgstjenester i institusjon">Se innhold ↗</a> |
+| Barnevern | Denne tilgangspakken gir fullmakter til tjenester knyttet til barnevern. Denne fullmakten kan gi bruker tilgang til helseopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. OBS! Vær oppmerksom på at tilgangspakken inneholder fullmakter som kan ha sensitiv karakter. Vurder om fullmaktene skal gis som enkeltrettigheter. | `urn:altinn:accesspackage:barnevern` | Ja | <a href="https://tjenesteoversikten.no/package/barnevern" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Barnevern">Se innhold ↗</a> |
+| Familievern | Denne tilgangspakken gir fullmakter til tjenester knyttet til familievern. Denne fullmakten kan gi bruker tilgang til helseopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. OBS! Vær oppmerksom på at tilgangspakken inneholder fullmakter som kan ha sensitiv karakter. Vurder om fullmaktene skal gis som enkeltrettigheter. | `urn:altinn:accesspackage:familievern` | Ja | <a href="https://tjenesteoversikten.no/package/familievern" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Familievern">Se innhold ↗</a> |
+| Helsetjenester | Denne tilgangspakken gir fullmakter til tjenester knyttet til sykehus, lege, tannlege og hjemmesykepleie,fysioterapi, ambulanse og lignende. Denne fullmakten kan gi bruker tilgang til personopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:helsetjenester` | Ja | <a href="https://tjenesteoversikten.no/package/helsetjenester" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Helsetjenester">Se innhold ↗</a> |
+| Helsetjenester med personopplysninger av særlig kategori | Denne tilgangspakken gir fullmakter til tjenester knyttet til sykehus, lege, tannlege og hjemmesykepleie,fysioterapi, ambulanse og lignende, som er av særlig kategori. Denne fullmakten kan gi bruker tilgang til sensitive personopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:helsetjenester-personopplysninger-saerlig-kategori` | Ja | <a href="https://tjenesteoversikten.no/package/helsetjenester-personopplysninger-saerlig-kategori" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Helsetjenester med personopplysninger av s&#230;rlig kategori">Se innhold ↗</a> |
+| Kommuneoverlege | Denne tilgangspakken gir fullmakter til tjenester knyttet til sykehus, lege, tannlege og hjemmesykepleie,fysioterapi, ambulanse og lignende, som er relevant for kommuneleger. Denne fullmakten kan gi bruker tilgang til personopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:kommuneoverlege` | Ja | <a href="https://tjenesteoversikten.no/package/kommuneoverlege" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Kommuneoverlege">Se innhold ↗</a> |
+| Sosiale omsorgstjenester uten botilbud og flyktningemottak | Denne tilgangspakken gir fullmakter til tjenester knyttet til sosiale omsorgstjeneser uten botilbud for eldre, funksjonshemmede og rusmisbrukere samt flykningemottak, og tjenester relatert til arbeidstrening og andre sosiale tjenester, f eks i regi av velferdsorganisasjoner. Denne fullmakten kan gi bruker tilgang til helseopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. | `urn:altinn:accesspackage:sosiale-omsorgstjenester-uten-botilbud-og-flyktningemottak` | Ja | <a href="https://tjenesteoversikten.no/package/sosiale-omsorgstjenester-uten-botilbud-og-flyktningemottak" target="_blank" rel="noopener noreferrer" aria-label="Se innholdet i Tjenesteoversikten for Sosiale omsorgstjenester uten botilbud og flyktningemottak">Se innhold ↗</a> |
 
-### Helsetjenester med personopplysninger av særlig kategori
-Denne tilgangspakken gir fullmakter til tjenester knyttet til sykehus, lege, tannlege og hjemmesykepleie, fysioterapi, ambulanse og lignende, som er av særlig kategori. Denne fullmakten kan gi bruker tilgang til sensitive personopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:helsetjenester-personopplysninger-saerlig-kategori*
-
-### Helsetjenester
-Denne tilgangspakken gir fullmakter til tjenester knyttet til sykehus, lege, tannlege og hjemmesykepleie, fysioterapi, ambulanse og lignende. Denne fullmakten kan gi bruker tilgang til personopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:helsetjenester*
-
-### Pleie- og omsorgstjenester i institusjon
-Denne tilgangspakken gir fullmakter til tjenester knyttet til pleie og omsorgstilbud i institusjon. Dette er tjenester som tilbyr institusjonsopphold kombinert med sykepleie, tilsyn eller annen form for pleie alt etter hva som kreves av beboerne. Denne fullmakten kan gi bruker tilgang til helseopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:pleie-omsorgstjenester-i-institusjon*
-
-### Sosiale omsorgstjenester uten botilbud og flyktningemottak
-Denne tilgangspakken gir fullmakter til tjenester knyttet til sosiale omsorgstjenester uten botilbud for eldre, funksjonshemmede og rusmisbrukere samt flyktningemottak, og tjenester relatert til arbeidstrening og andre sosiale tjenester, f.eks. i regi av velferdsorganisasjoner. Denne fullmakten kan gi bruker tilgang til helseopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:sosiale-omsorgstjenester-uten-botilbud-og-flyktningemottak*
-
-### Barnevern 
-Denne tilgangspakken gir fullmakter til tjenester knyttet til barnevern. Denne fullmakten kan gi bruker tilgang til helseopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. OBS! Vær oppmerksom på at tilgangspakken inneholder fullmakter som kan ha sensitiv karakter. Vurder om fullmaktene skal gis som enkeltrettigheter.  
-*urn:altinn:accesspackage:barnevern*
-
-### Familievern
-Denne tilgangspakken gir fullmakter til tjenester knyttet til familievern. Denne fullmakten kan gi bruker tilgang til helseopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir. OBS! Vær oppmerksom på at tilgangspakken inneholder fullmakter som kan ha sensitiv karakter. Vurder om fullmaktene skal gis som enkeltrettigheter.  
-*urn:altinn:accesspackage:familievern*
-
-
-## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
-|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
-|---|---|---|
-|Kommuneoverlege|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja|
-|Helsetjenester med personopplysninger av særlig kategori|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja||
-|Helsetjenester|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja||
-|Pleie- og omsorgstjenester i institusjon|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja||
-|Sosiale omsorgstjenester uten botilbud, og flyktningemottak|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja||
-|Barnevern|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja||
-|Familievern|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bostyrer|Ja||
+Kilde: [Pakkedefinisjonene i Access Management](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Constants/PackageConstants.cs). Rollefordelingen er definert i [IngestRolePackage.cs](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Data/IngestRolePackage.cs).

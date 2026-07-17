@@ -1,32 +1,18 @@
 ---
-title: Post og arkiv
-tags: [needstranslation]
-linktitle: Post og arkiv
-description: Dette fullmaktsområdet omfatter tilgangspakker som gir fullmakter til post til virksomheten fra det offentlige. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmaktene gir.
+title: Mail and Archive
+linktitle: Mail and Archive
+description: This authorization area includes access packages related to mail and archive.
 toc: true
 weight: 100
 aliases:
   - /authorization/what-do-you-get/accessgroups/accessgroups/postogarkiv/
 ---
 
-|**Tilgangspakker i kategorien**|
-|---|
-|[Ordinær post til virksomheten](#ordinær-post-til-virksomheten)|
-|[Post til virksomheten med taushetsbelagt innhold](#post-til-virksomheten-med-taushetsbelagt-innhold)|
+This authorization area includes access packages related to mail and archive.
 
-### Ordinær post til virksomheten
-Denne fullmakten gir tilgang til all mottatt post som ikke inneholder sensitiv/taushetsbelagt informasjon som sendes virksomheten. Fullmakten gis normalt til de i virksomheten som håndterer mottak av post. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:ordinaer-post-til-virksomheten*
+| Access package | Description | URN | For service owners | Contents |
+|---|---|---|---|---|
+| Mail to business with confidential content | This authorization provides access to all received mail containing sensitive/confidential information sent to the business. The authorization is normally granted to those in the business who handle the receipt of mail with confidential content. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:post-til-virksomheten-med-taushetsbelagt-innhold` | Yes | <a href="https://tjenesteoversikten.no/package/post-til-virksomheten-med-taushetsbelagt-innhold" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Mail to business with confidential content">View contents ↗</a> |
+| Regular mail to business | This authorization provides access to all received mail that does not contain sensitive/confidential information sent to the business. The authorization is normally granted to those in the business who handle the receipt of mail. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:ordinaer-post-til-virksomheten` | Yes | <a href="https://tjenesteoversikten.no/package/ordinaer-post-til-virksomheten" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Regular mail to business">View contents ↗</a> |
 
-### Post til virksomheten med taushetsbelagt innhold
-Denne fullmakten gir tilgang til all mottatt post som inneholder sensitiv/taushetsbelagt informasjon som sendes virksomheten. Fullmakten gis normalt til de i virksomheten som håndterer mottak av post som har taushetsbelagt innhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-**OBS! Vær oppmerksom på at tilgangspakken inneholder fullmakter som kan ha sensitiv karakter. Vurder om fullmaktene skal gis som enkeltrettigheter.**  
-*urn:altinn:accesspackage:post-til-virksomheten-med-taushetsbelagt-innhold*
-
-## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken
-|**Tilgangspakke**|**Enhetsregisterroller**|**Delegerbar**|
-|---|---|---|
-|Ordinær post til virksomheten|Daglig leder, Styrets leder, Innehaver, Deltaker fullt ansvar, Deltaker delt ansvar, Komplementar, Bestyrende reder, Bostyrer|Ja|
-|Post til virksomheten med taushetsbelagt innhold||Ja*|
-
-*) Kan delegeres av Hovedadministrator
+Source: [Package definitions in Access Management](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Constants/PackageConstants.cs). Role assignments are defined in [IngestRolePackage.cs](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Data/IngestRolePackage.cs).
