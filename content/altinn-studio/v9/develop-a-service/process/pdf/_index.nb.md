@@ -57,15 +57,15 @@ Altinn Studio setter inn en systemoppgave i `process.bpmn`. Resultatet kan avvik
 
 {{% /expandlarge %}}
 
-{{% expandlarge id="custom-pdf-layout" header="Egendefinert PDF med eget layout-set" %}}
+{{% expandlarge id="custom-pdf-layout" header="Egendefinert PDF med eget layoutsett" %}}
 
-Velger du dette alternativet, kan du selv bestemme innholdet i PDF-en ved å definere et eget layout-set for PDF-systemoppgaven.
+Velger du dette alternativet, kan du selv bestemme innholdet i PDF-en ved å definere et eget layoutsett for PDF-systemoppgaven.
 
-Du oppgir først et navn for layout-settet og velger deretter en datamodell som standardmodell for settet. Du kan f.eks. velge modellen til en av oppgavene som inngår i PDF-en.
+Du oppgir først et navn for layoutsettet og velger deretter en datamodell som standardmodell for settet. Du kan f.eks. velge modellen til en av oppgavene som inngår i PDF-en.
 
 ![Eksempeloppsett egendefinert PDF](manual-pdf.png "Eksempeloppsett egendefinert PDF")
 
-Altinn Studio setter inn en systemoppgave i `process.bpmn` og genererer layout-set-filene, men uten innhold i PdfLayout.json.
+Altinn Studio setter inn en systemoppgave i `process.bpmn` og genererer filene til layoutsettet, men uten innhold i PdfLayout.json.
 
 {{< code-title >}}
   App/config/process/process.bpmn
@@ -89,9 +89,9 @@ Altinn Studio setter inn en systemoppgave i `process.bpmn` og genererer layout-s
 </bpmn:serviceTask>
 ```
 
-### Layout-set
+### Layoutsett
 
-PDF-systemoppgaven trenger et eget layout-set for å definere innholdet. Bruker du arbeidsflyt-editoren, genererer Altinn Studio dette automatisk. Da trenger du bare å redigere innholdet i `PdfLayout.json`.
+PDF-systemoppgaven trenger et eget layoutsett for å definere innholdet. Bruker du arbeidsflyt-editoren, genererer Altinn Studio dette automatisk. Da trenger du bare å redigere innholdet i `PdfLayout.json`.
 
 Filene og mappestrukturen skal se omtrent slik ut:
 
@@ -168,7 +168,7 @@ App/ui/
 
 #### PdfLayout.json
 
-I denne filen definerer du innholdet i PDF-en. Du bruker typisk Summary2-komponenten, enten mot enkeltkomponenter eller mot hele sider og layout-set.
+I denne filen definerer du innholdet i PDF-en. Du bruker typisk Summary2-komponenten, enten mot enkeltkomponenter eller mot hele sider og layoutsett.
 
 {{< code-title >}}
   App/ui/Pdf/layouts/PdfLayout.json

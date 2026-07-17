@@ -12,7 +12,7 @@ weight: 20
 The app generates PDFs through a **service task** that you add as a step in the process. The task defines which content the PDF should contain and where in the process it is generated.
 
 {{% notice info %}}
-Images in this guide show norwegian GUI elements, as Altinn Studio Designer is only available in norwegian.
+Images in this guide show Norwegian GUI elements, as Altinn Studio Designer is only available in Norwegian.
 {{% /notice %}}
 
 ## Setup

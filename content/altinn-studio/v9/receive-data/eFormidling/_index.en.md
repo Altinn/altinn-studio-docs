@@ -151,19 +151,19 @@ This ensures that the sequence flows and the diagram stay correct.
 </bpmn:serviceTask>
 ```
 
-| **Property**    | **Type** | **Description**                                                                                                                                                                                                                                            |
-|-----------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| disabled        | boolean  | Turns the shipment off without removing the configuration. Use the optional `env` attribute to disable it only in specific hosting environments (for example `env="development"` to skip sending during local development). Omit the element to enable it everywhere. |
-| receiver        | string   | Organisation number of the receiver (can be omitted). Only Norwegian organisations are supported.                                                                                                                                                          |
-| process         | string   | Process type. See `https://platform.altinn.no/eformidling/api/capabilities/{orgnumber}`                                                                                                                                                                    |
-| standard        | string   | The document standard                                                                                                                                                                                                                                      |
-| typeVersion     | string   | Version of the message type                                                                                                                                                                                                                                |
-| type            | string   | The document type, which you can find in the pages describing each <a href="https://docs.digdir.no/docs/eFormidling/Utvikling/Dokumenttyper/" target="_blank" rel="noopener noreferrer">document type</a> or at `https://platform.altinn.no/eformidling/api/capabilities/{orgnumber}` |
-| securityLevel   | number   | Security level to be set on the _StandardBusinessDocument_                                                                                                                                                                                                  |
-| dpfShipmentType | string   | The DPF shipment type used for routing in the receiving system                                                                                                                                                                                             |
-| dataTypes       | array    | List of data types to include in the shipment. Each data type is added as its own `<altinn:dataType>ref-data-as-pdf</altinn:dataType>` element.                                                                                                            |
+| **Property**    | **Type** | **Required** | **Description**                                                                                                                                                                                                                                            |
+|-----------------|----------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| disabled        | boolean  | No           | Turns the shipment off without removing the configuration. Use the optional `env` attribute to disable it only in specific hosting environments (for example `env="development"` to skip sending during local development). Omit the element to enable it everywhere. |
+| receiver        | string   | No           | Organisation number of the receiver. Only Norwegian organisations are supported.                                                                                                                                                          |
+| process         | string   | Yes          | Process type. See `https://platform.altinn.no/eformidling/api/capabilities/{orgnumber}`                                                                                                                                                                    |
+| standard        | string   | Yes          | The document standard                                                                                                                                                                                                                                      |
+| typeVersion     | string   | Yes          | Version of the message type                                                                                                                                                                                                                                |
+| type            | string   | Yes          | The document type, which you can find in the pages describing each <a href="https://docs.digdir.no/docs/eFormidling/Utvikling/Dokumenttyper/" target="_blank" rel="noopener noreferrer">document type</a> or at `https://platform.altinn.no/eformidling/api/capabilities/{orgnumber}` |
+| securityLevel   | number   | Yes          | Security level to be set on the _StandardBusinessDocument_                                                                                                                                                                                                  |
+| dpfShipmentType | string   | No           | The DPF shipment type used for routing in the receiving system                                                                                                                                                                                             |
+| dataTypes       | array    | No           | List of data types to include in the shipment. Each data type is added as its own `<altinn:dataType>ref-data-as-pdf</altinn:dataType>` element.                                                                                                            |
 
-**Note:** Altinn only supports the DPF and DPO shipment types.
+**Note:** Altinn only supports the DPF and DPO shipment types. If a required property is missing, the service task stops with a configuration error when the process reaches it.
 
 ### Generate message metadata {#eFormidling-setup-eFormidlingMetadata}
 You are responsible for creating the message for the shipment sent through eFormidling.
@@ -379,7 +379,7 @@ public class EFormidlingReceivers : IEFormidlingReceivers
 ### Add a feedback task {#eFormidling-setup-process}
 We recommend that you add a [feedback task](/en/altinn-studio/v9/develop-a-service/reference/process/tasks/#feedback-task) to your app process. This ensures that the process continues when the message has been received.
 No further changes are needed once you have added the task, as the eFormidling service will automatically move the process forward.
-If you want to customise the texts shown to the user during this step, you can override the [text keys](/en/altinn-studio/v9/develop-a-service/reference/configuration/process/customize/#feedback).
+If you want to customise the texts shown to the user during this step, you can override the [text keys](/nb/altinn-studio/v9/develop-a-service/reference/configuration/process/customize/#feedback) (documentation available in Norwegian only).
 
 ### Ensure unique filenames {#eFormidling-setup-filenames}
 Filenames of attachments sent through eFormidling must be unique. The integration contains logic to guarantee this and may change the filenames slightly before the files are sent.
