@@ -1,118 +1,70 @@
 ---
-title: Fullmakter fra Enhetsregisteret som knytter virksomheter sammen
-linktitle: Virksomhetsknytninger
-description: Virksomheter som tildeles roller i Enhetsregisteret kan også få fullmakter på vegne av virksomheten i Altinn. Her forklares hvordan dette gjøres.
-tags: [architecture, security, authorization, needstranslation]
+title: When one organisation holds a role for another
+linktitle: Organisation connections
+description: How a role from the Central Coordinating Register can pass access through a connected organisation
+tags: [architecture, security, authorization]
 toc: true
 weight: 1
 hidden: true
 aliases:
   - /authorization/what-do-you-get/accessgroups/register_er/knytning_org/
 ---
-*Innhold på siden er under arbeid. Innholdet vil ikke være gjeldende før nye [tilgangspakker](/en/authorization/what-do-you-get/accesspackages/business/) trer i kraft. Dette må derfor ikke ansees som en fasit pr nå*
 
+A role in the Central Coordinating Register may be held by an individual or an organisation. When an organisation holds the role, individuals who represent the connected organisation may in some cases act on behalf of the organisation that granted the role.
 
-I mange tilfeller er det mulig å registrere andre organisasjoner i en eller flere roller på virksomheten.
-Altinn vil i mange tilfeller da sørge for en knytning mellom disse virksomhetene slik at person som har bestemte roller i tilknyttet organisasjon da få fullmakter på vegne av den aktuelle virksomheten.
-Vi kaller dette nøsting av fullmakter.
+This is used, for example, when an organisation has another organisation as its accountant, auditor or business manager.
 
-## Hvem får fullmakt på vegne av tilknyttet virksomhet
-Det er tilknyttet virksomhet og personer reigstrert med nøkkelroller i denne som får fullmakter på vegne av den aktuelle virksomheten. I tabeller på [denne siden](/en/authorization/what-do-you-get/accesspackages/register_er/) finner du oversikt over hvilke nøkkelroller som finnes på ulike organisasjonsformer.
+## How the connection works
 
-Eksempel 1 på hvordan det fungerer:
+Example:
 
-- "Bergen AS" registrerer "Trondheim AS" i rollen som daglig leder
-- Kari er daglig leder for "Trondheim AS"
+- Fjordhandel AS has registered Regnskapspartner AS as its accountant.
+- Kari represents Regnskapspartner AS with a role that provides the relevant accounting access.
+- Kari can use the pre-assigned accounting packages on behalf of Fjordhandel AS.
 
-I dette eksemplet vil Kari få fullmakter på vegne av "Bergen AS". Kari vil kunne opptre på vegne av "Bergen AS" med samme fullmakter som en daglig leder.
+Kari does not receive every access held by Fjordhandel AS. She receives only the access that follows from the accountant role and its associated access packages.
 
-Eksempel 2 på hvordan det fungerer:
-- "Bergen AS" registrerer "Trondheim AS" i rollen som daglig leder
-- "Trondheim AS" oppretter en virksomhetsbruker og denne gis fullmakten "Fullmakt for leverandør" (ECKEY-role) på vegne av "Trondheim AS"
+## The role at each end matters
 
-I dette eksemplet vil virksomhetsbruker få fullmakter på vegne av "Bergen AS" gjennom sin knytning til "Trondheim AS". Virksomhetsbruker vil kunne opptre på vegne av "Bergen AS" med samme fullmater som en daglig leder.
+Altinn considers
 
+- the role that connects the organisations
+- the role or access held by the individual in the connected organisation
+- the access packages mapped to the role
+- the actions that the service owner has placed in the packages through the service policy
 
-### For hvor mange ledd nøstes fullmakter videre?
+A connection between two organisations is therefore not a general power of attorney by itself.
 
-Altinn nøster fullmakter kun i ett ledd.
+## Access does not pass through an unlimited chain
 
-Eksempel på hvordan det fungerer:
-- "Bergen AS" registrerer "Trondheim AS" i rollen som daglig leder
-- Daglig leder for "Trondheim AS" er "Oslo AS"
-- Ola er daglig leder for "Oslo AS"
+Organisation connections must not be understood as a chain in which access automatically passes through any number of organisations.
 
-I dette tilfellet vil ikke Ola få fullmakter på vegne av "Bergen AS".
+If Bergen AS has registered Trondheim AS as its managing director, and Oslo AS is in turn the managing director of Trondheim AS, this does not automatically mean that a representative of Oslo AS can act on behalf of Bergen AS. Check the actual access in Altinn when several organisations form a chain.
 
-### Hva med underenheter?
-Det registreres ikke roller direkte på underenheter (AAFY og BEDR) i Enhetsregisteret. Derfor styres tilgang på vegne av en underenhet gjennom roller registert på hovedenhet i Enhetsregisteret.
+## Subunits
 
-Eks 1
-- "Avdeling Salhus" er knyttet til aksjeselskapet "Brønnøysund AS"
-- Kari er registert som daglig leder for "Brønnøysund AS"
-I dette tilfellet vil Kari få samme fullmakter for "Avdeling Salhus" som hun har for "Brønnøysund AS"
+A subunit is connected to one or more main units in Register. Roles are normally registered for the main unit. Access to a subunit must therefore be assessed from its connection to the main unit and the rules for the relevant service.
 
-Eks 2
-- "Avdeling Salhus" er knyttet til aksjeselskapet "Brønnøysund AS"
-- "Regnskap AS" er registert som regnskapsfører for "Brønnøysund AS"
-- Ola er daglig leder for "Regnskap AS"
-I dette tilfellet vil Ola få regnskapsfullmakter på vegne av "Avdeling salhus" og "Brønnøysund AS"
+Service owners should test both the main unit and the subunit if subunits can use the service.
 
-## Hva med regnskapsfører og revisor for Enkeltpersonforetak?
-Enkeltpersonforetak er spesielle på den måten at det er innehaver selv som er 100% ansvarlig for virksomheten. Derfor får nøstes enkelte fullmakter videre til innehavers personnummer for regnskapsfører og revisor
+## Sole proprietorships
 
-Eks:
-- Kari har registert et ENK kalt "Kari sitt ENK"
-- "Rgnskap AS" er registert regnskapsfører for "Kari ENK"
-- Ola er daglig leder for "Regnskap AS"
-I dette tilfellet vil Ola få regnskapsfullmakter på vegne av "Kari sitt ENK" og på vegne av Kari som person.
+A sole proprietorship and its owner are closely connected, but they are separate parties in Altinn. Do not assume that access for the business always applies to the owner as a private individual, or vice versa. The service policy and the specific role relationship determine who receives access.
 
+## How to investigate specific access
 
-## Oversikt over hvilke organisasjonsformer og roller som nøster knytning mellom organisasjoner i Altinn
+1. Find the role registered between the organisations.
+2. Find the access packages provided by the role.
+3. Check whether the individual can use or administer the package through the connected organisation.
+4. Check which services and actions are included in the package.
+5. Test with representative test data before putting the service into use.
 
-|Navn (kode)|Roller som nøstes videre til nøkkelroller i tilnyttet selskap|Merknader|
-|-----------|--------------------------------------------------------------|----------|
-|Aksjeselskap (AS)|DAGL, LEDE, REVI, REGN||
-|Europeisk selskap (SE)|DAGL, LEDE, REVI, REGN||
-|Selskap med begrenset ansvar (BA)|DAGL, LEDE, REVI, REGN||
-|Samvirkeforetak (SA)|DAGL, LEDE, REVI, REGN||
-|Enkeltpersonforetak (ENK)|DAGL, LEDE, REVI, REGN||
-|Ansvarlig selskap med delt ansvar (DA)|DAGL, LEDE, *DTPR, REVI, REGN||
-|Ansvarlig selskap med solidarisk ansvar (ANS)|DAGL, LEDE, *DTSO, REVI, REGN||
-|Kommandittselskap (KS)|DAGL, LEDE, *KOMP, REVI, REGN||
-|Tingsrettslig sameie (SAM)|DAGL, LEDE, REVI, REGN||
-|Borettslag (BRL)|DAGL, LEDE, REVI, REGN||
-|Boligbyggelag (BBL)|DAGL, LEDE, REVI, REGN||
-|Eierseksjonssameie (ESEK)|LEDE, REVI, REGN||
-|Sparebank (SPA)|DAGL, LEDE, REVI, REGN||
-|Pensjonskasse (PK)|DAGL, LEDE, REVI, REGN||
-|Gjensidig forsikringsselskap (GFS)|DAGL, LEDE, REVI, REGN||
-|Partrederi(PRE)|BEST, LEDE, DTPR REVI, REGN||
-|Verdipapirfond (VPF0)|DAGL, REVI, REGN||
-|Annen juridisk person (ANNA)|DAGL, LEDE, REVI, REGN||
-|Forening/lag/innretning (FLI)|DAGL, LEDE, REVI, REGN||
-|Stiftelse (STI)|DAGL, LEDE, REVI, REGN||
-|Kommune (KOMM)|DAGL, REVI, REGN||
-|Staten (STAT)|DAGL, REVI, REGN||
-|Fylkeskommune (FYLK)|DAGL, REVI, REGN||
-|Organisasjonsledd (ORGL)|DAGL, LEDE, REVI, REGN, ORGL||
-|Administrativ enhet -offentlig sektor (ADOS)|LEDE, REVI, REGN, ADOS||
-|Statsforetak (SF)|DAGL, LEDE, REVI, REGN||
-|Fylkeskommunalt foretak (FKF)|DAGL, LEDE, REVI, REGN, EIKM||
-|Kommunalt foretak (KF)|DAGL, LEDE, REVI, REGN, EIKM||
-|Interkommunalt selskap (IKS)|DAGL, LEDE, REVI, REGN| Det ansees ikke som relevant å gi kommunedirekøtr i deltakende kommune fullmakter på vegne av IKS|
-|Den norske kirke (KIRK)|DAGL, LEDE, REVI, REGN|Det ansees ikke som relevant å gi tilknyttet kirkeorganisasjon i en eierkommune fullmakter på vegne av tilknyttet KIRK|
-|Annet foretak iflg. særskilt lov (SÆR)|DAGL, LEDE, REVI, REGN||
-|Norskregistrert utenlandsk foretak (NUF)|DAGL, LEDE, REVI, REGN||
-|Utenlandsk enhet (UTLA)|DAGL, REVI, REGN||
-|Europeisk selskap(SE)|DAGL, LEDE, REVI, REGN||
-|Europeisk økonomisk foretaksgruppe (EOFG)|DAGL, LEDE, REVI, REGN||
-|Kontorfellesskap (KTRF)|REVI, REGN||
-|Særskilt oppdelt enhet jfr mval § 2-2 (OPMV)|DAGL, REVI, REGN||
-|Andre bo (BO)|DAGL, LEDE, REVI, REGN||
-|Konkursbo (KBO)|REVI, REGN||
-|Tvangsregistrert for MVA (TVAM)|DAGL, INNH, REVI, REGN||
-|Andre enkeltpersoner som registreres i tilknyttet register (PERS)|(ingen)||
-|Andre ikke-juridiske personer (IKJP)|DAGL, LEDE, REVI, REGN||
-|Underenhet til ikke-næringsdrivende (AAFY)|Samme roller som for overordnet enhet||
-|Underenhet til næringsdrivende og offentlig forvaltning (BEDR)|Samme roller som for overordnet enhet||
+[Read how roles from the Central Coordinating Register map to access packages](../).
+
+<a href="https://tjenesteoversikten.no/packages" target="_blank" rel="noopener noreferrer">Inspect the contents of access packages in Tjenesteoversikten (opens in a new tab)</a>. Tjenesteoversikten is an unofficial information tool.
+
+## Sources and maintenance
+
+- [Register code that imports and stores roles from the Central Coordinating Register](https://github.com/Altinn/altinn-register/tree/main/src/apps/Altinn.Register)
+- [Role definitions in Access Management](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Constants/RoleConstants.cs)
+- [Mappings between roles and access packages](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Data/IngestRolePackage.cs)
