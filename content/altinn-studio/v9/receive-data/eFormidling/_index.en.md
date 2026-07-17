@@ -165,6 +165,17 @@ This ensures that the sequence flows and the diagram stay correct.
 
 **Note:** Altinn only supports the DPF and DPO shipment types. If a required property is missing, the service task stops with a configuration error when the process reaches it.
 
+#### Environment-specific values {#eFormidling-setup-env}
+
+Every element in `<altinn:eFormidlingConfig>` supports the optional `env` attribute, not just `disabled`. You can repeat an element with different `env` values, and the value for the current hosting environment takes precedence over the value without `env`. The environment names are grouped into three environments: development (`development`, `dev`, `local`, `localtest`), test (`staging`, `test`, `at22`, `at23`, `at24`, `tt02`, `yt01`) and production (`production`, `prod`, `produksjon`).
+
+For example, to send to a test receiver in TT02 and the real receiver in production:
+
+```xml
+<altinn:receiver env="staging">310075809</altinn:receiver>
+<altinn:receiver>991825827</altinn:receiver>
+```
+
 ### Generate message metadata {#eFormidling-setup-eFormidlingMetadata}
 You are responsible for creating the message for the shipment sent through eFormidling.
 

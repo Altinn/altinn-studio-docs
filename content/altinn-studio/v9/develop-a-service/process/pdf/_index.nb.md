@@ -11,6 +11,8 @@ weight: 20
 
 Appen genererer PDF gjennom en **systemoppgave** du legger til som et steg i prosessen. Oppgaven definerer hvilket innhold PDF-en skal ha, og hvor i prosessen den genereres.
 
+Skal du generere PDF av underskjema, finnes det en egen systemoppgave for det. Se [PDF-generering for underskjema]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/subform/subform-pdf" >}}).
+
 ## Oppsett
 
 Du kan bruke arbeidsflyt-fanen i Altinn Studio for å legge til en PDF-systemoppgave.

@@ -165,6 +165,17 @@ Slik sikrer du at sekvensflytene og diagrammet holder seg korrekte.
 
 **Merk:** Altinn støtter kun forsendelsestypene DPF og DPO. Mangler en påkrevd egenskap, stopper systemoppgaven med en konfigurasjonsfeil når prosessen når den.
 
+#### Miljøspesifikke verdier {#eFormidling-oppsett-env}
+
+Alle elementene i `<altinn:eFormidlingConfig>` støtter det valgfrie attributtet `env`, ikke bare `disabled`. Du kan gjenta et element med ulike `env`-verdier, og verdien for gjeldende driftsmiljø går foran verdien uten `env`. Miljønavnene grupperes i tre miljøer: utvikling (`development`, `dev`, `local`, `localtest`), test (`staging`, `test`, `at22`, `at23`, `at24`, `tt02`, `yt01`) og produksjon (`production`, `prod`, `produksjon`).
+
+For eksempel kan du sende til en testmottaker i TT02 og den reelle mottakeren i produksjon:
+
+```xml
+<altinn:receiver env="staging">310075809</altinn:receiver>
+<altinn:receiver>991825827</altinn:receiver>
+```
+
 ### Generere meldingsmetadata {#eFormidling-oppsett-eFormidlingMetadata}
 Du lager selv meldingen som sendes gjennom eFormidling.
 

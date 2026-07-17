@@ -11,6 +11,8 @@ weight: 20
 
 The app generates PDFs through a **service task** that you add as a step in the process. The task defines which content the PDF should contain and where in the process it is generated.
 
+To generate PDFs of subforms, there is a separate service task. See [PDF generation for subforms](/nb/altinn-studio/v9/develop-a-service/look-and-feel/subform/subform-pdf/) (documentation available in Norwegian only).
+
 {{% notice info %}}
 Images in this guide show Norwegian GUI elements, as Altinn Studio Designer is only available in Norwegian.
 {{% /notice %}}
