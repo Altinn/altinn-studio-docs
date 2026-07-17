@@ -11,7 +11,6 @@ aliases:
 |**Tilgangspakker i kategorien**|
 |---|
 |[Barn og foreldre](#barn-og-foreldre)|
-|[Fullmakter](#fullmakter)|
 |[Barnehage, SFO og skole](#barnehage-sfo-og-skole)|
 |[Samliv](#samliv)|
 |[Fritidsaktiviteter og friluftsliv](#fritidsaktiviteter-og-friluftsliv)|
@@ -19,23 +18,19 @@ aliases:
 
 ### Barn og foreldre
 Denne tilgangspakken gir fullmakter til tjenester som berører barn og foreldre. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:innbygger:barn-foreldre*
-
-### Fullmakter
-Denne tilgangspakken gir fullmakter til tjenester knyttet til fullmakter. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:innbygger:fullmakter*
+*urn:altinn:accesspackage:innbygger-barn-foreldre*
 
 ### Barnehage, SFO og skole
 Denne tilgangspakken gir fullmakter til tjenester knyttet til barnehage, SFO og skole. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:innbygger:barnehage-sfo-skole*
+*urn:altinn:accesspackage:innbygger-barnehage-sfo-skole*
 
 ### Samliv
 Denne tilgangspakken gir fullmakter til tjenester relatert til samliv. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:innbygger:samliv*
+*urn:altinn:accesspackage:innbygger-samliv*
 
 ### Fritidsaktiviteter og friluftsliv
 Denne tilgangspakken gir fullmakter til tjenester knyttet til fritidsaktiviteter og friluftsliv. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:innbygger:fritidsaktiviteter-friluftsliv*
+*urn:altinn:accesspackage:innbygger-fritidsaktiviteter-friluftsliv*
 
 
 

@@ -24,7 +24,7 @@ Denne fullmakten gir tilgang til tjenester knyttet til posttjenester. Ved regelv
 
 ### Elektronisk kommunikasjon
 Denne fullmakten gir tilgang til tjenester knyttet til elektronisk kommunikasjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:elektronisk-kommunikasjn*  
+*urn:altinn:accesspackage:elektronisk-kommunikasjon*
 
 ### Informasjon og kommunikasjon
 Denne fullmakten gir tilgang til tjenester knyttet til informasjon og kommunikasjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  

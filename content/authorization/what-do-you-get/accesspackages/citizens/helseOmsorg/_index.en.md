@@ -19,19 +19,19 @@ aliases:
 
 ### Avlastning og støtte
 Denne tilgangspakken gir fullmakter til tjenester som berører avlastning og støtte. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:innbygger:avlastning-støtte*
+*urn:altinn:accesspackage:innbygger-avlastning-stotte*
 
 ### Behandling
 Denne tilgangspakken gir fullmakter til tjenester knyttet til behandling. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:innbygger:behandling*
+*urn:altinn:accesspackage:innbygger-behandling*
 
 ### Helsetjenester
 Denne tilgangspakken gir fullmakter til tjenester knyttet til helsetjenester. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:innbygger:helsetjenester*
+*urn:altinn:accesspackage:innbygger-helsetjenester*
 
 ### Pleie og omsorg
 Denne tilgangspakken gir fullmakter til tjenester relatert til pleie og omsorg. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:innbygger:pleie-omsorg*
+*urn:altinn:accesspackage:innbygger-pleie-omsorg*
 
 
 

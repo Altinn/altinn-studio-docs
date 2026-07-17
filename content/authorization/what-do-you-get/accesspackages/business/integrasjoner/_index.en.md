@@ -18,11 +18,11 @@ aliases:
 
 ### Delegable Maskinporten scopes
 This access package grants authority to manage access to data and programming interfaces (APIs) that use Maskinporten or equivalent solutions for API security. Changes to regulations or the introduction of new digital services may result in modifications to the access provided by this authority.  
-*urn:altinn:accesspackage:delegerbare-maskinporten-scopes*
+*urn:altinn:accesspackage:maskinporten-scopes*
 
 ### Delegable Maskinporten scopes - NUF
 This access package grants authority to manage access to data and programming interfaces (APIs) that use Maskinporten or equivalent solutions for API security on behalf of Norwegian registered foreign business (NUF). Changes to regulations or the introduction of new digital services may result in modifications to the access provided by this authority.  
-*urn:altinn:accesspackage:delegerbare-maskinporten-scopes-NUF*
+*urn:altinn:accesspackage:maskinporten-scopes-nuf*
 
 ### Machine-Readable Events
 This access package grants authority to manage access to machine-readable events. Changes to regulations or the introduction of new digital services may result in modifications to the access provided by this authority.  

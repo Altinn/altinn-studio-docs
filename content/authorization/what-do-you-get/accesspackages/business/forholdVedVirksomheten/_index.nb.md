@@ -35,11 +35,11 @@ Denne fullmakten gir tilgang til ordinære tjenester knyttet til virksomhetens d
 
 ### Helfotjenester med personopplysninger av særlig kategori
 Denne tilgangspakken gir fullmakter til tjenester knyttet til virksomhetens dialog med Helfo der bruker kan få tilgang til personopplysninger av særlig kategori. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir  
-*urn:altinn:accesspackage:helfo-searlig-kategori*
+*urn:altinn:accesspackage:helfo-saerlig-kategori*
 
 ### Starte, drive, endre og avvikle virksomhet
 Denne tilgangspakken gir fullmakter til tjenester knyttet til å starte, drive, endre og avvikle en virksomhet. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:starte-drive-endre-avikle-virksomhet*
+*urn:altinn:accesspackage:starte-drive-endre-avvikle-virksomhet*
 
 ### Aksjer og eierforhold
 Denne tilgangspakken gir fullmakter til tjenester knyttet til aksjer og eierforhold. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
@@ -71,7 +71,7 @@ Denne fullmakten gir generell tilgang til tjenester av typen “mine side” tje
 
 ### Politi og domstol
 Denne tilgangspakken gir fullmakter til tjenester knyttet til virksomhetens dialog om juridiske forhold med politi og jusitsmyndigheter. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:politi-domstol*
+*urn:altinn:accesspackage:politi-og-domstol*
 
 ### Rapportering av statistikk
 Denne fullmakten gir tilgang til alle pålagte rapportering av statistikk. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  

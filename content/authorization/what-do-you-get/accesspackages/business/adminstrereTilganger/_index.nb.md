@@ -19,11 +19,11 @@ aliases:
 ### Klientadministrator
 Denne rollen gir bruker mulighet til å administrere tilganger som virksomheten har på vegne av klienter og kunder, enten via registrerte kundeforhold i Enhetsregisteret eller delegering til virksomheten.  
 Når kundeforholdet opphører, vil delegeringer gjort via klientadministrasjon også opphøre.
-*urn:altinn:accesspackage:klientadminstrator*
+*urn:altinn:accesspackage:klientadministrator*
 
 ### Tilgangsstyring
 Denne tilgangspakken gir bruker mulighet til å gi videre tilganger for virksomheten som man selv innehar.  
-*urn:altinn:accesspackage:tilgangsstyring*
+*urn:altinn:accesspackage:tilgangsstyrer*
 
 ### Hovedadministrator
 Denne tilgangspakken gir bruker mulighet til å administrere alle tilganger for virksomheten.  

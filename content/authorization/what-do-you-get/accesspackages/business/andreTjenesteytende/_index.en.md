@@ -12,15 +12,10 @@ aliases:
 
 |**Tilgangspakker i kategorien**|
 |---|
-|[Post- og telekommunikasjon](#post--og-telekommunikasjon)|
 |[Informasjon og kommunikasjon](#informasjon-og-kommunikasjon)|
 |[Finansiering og forsikring](#finansiering-og-forsikring)|
 |[Annen tjenesteyting](#annen-tjenesteyting)|
 
-
-### Post- og telekommunikasjon
-Denne fullmakten gir tilgang til tjenester knyttet til post og telekommunikasjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:post-og-telekommunikasjon*
 
 ### Informasjon og kommunikasjon
 Denne fullmakten gir tilgang til tjenester knyttet til informasjon og kommunikasjon. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
