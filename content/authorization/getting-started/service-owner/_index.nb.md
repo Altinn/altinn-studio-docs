@@ -45,7 +45,7 @@ Et gyldig Maskinporten-token gir ikke i seg selv tilgang til alle operasjoner. A
 **Du skal ende opp med:** Tjenesten er lagt i en tilgangspakke som beskriver en forståelig arbeidsoppgave, og policyen bruker pakken for de aktuelle handlingene.
 
 1. [Finn tilgangspakken som passer oppgaven.](../../what-do-you-get/accesspackages/business/)
-2. [Se hvordan roller fra Enhetsregisteret kan gi pakker på forhånd.](../../what-do-you-get/accesspackages/register_ER/)
+2. [Se hvordan roller fra Enhetsregisteret kan gi pakker på forhånd.](../../what-do-you-get/accesspackages/register_er/)
 3. Knytt handlingene i policyen til pakken.
 4. Test direkte tildeling, forhåndstildeling og manglende tilgang.
 5. Kontakt servicedesk hvis ingen eksisterende pakke dekker behovet.

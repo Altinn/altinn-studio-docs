@@ -103,6 +103,5 @@ Check both that the user may administer the access and that the employee can use
 Test approved, rejected and expired requests, the wrong organisation or client, missing access, invalid tokens and unavailable APIs. Do not log complete tokens, keys or unnecessary personal data.
 
 - [Use the System User troubleshooting guidance.](../../guides/system-vendor/system-user/troubleshooting/)
-- [Change a system user's rights.](../../guides/system-vendor/system-user/changerequest/)
 - [Delete a system user.](../../guides/system-vendor/system-user/deleterequest/)
 - [Check the current status.](../../reference/status/)

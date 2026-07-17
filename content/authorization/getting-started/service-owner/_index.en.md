@@ -45,7 +45,7 @@ A valid Maskinporten token does not by itself grant every operation. The API mus
 **You will achieve:** The service is included in an access package that describes a recognisable task, and the policy uses the package for the relevant actions.
 
 1. [Find an access package that matches the task.](../../what-do-you-get/accesspackages/business/)
-2. [See how roles from the Central Coordinating Register may pre-assign packages.](../../what-do-you-get/accesspackages/register_ER/)
+2. [See how roles from the Central Coordinating Register may pre-assign packages.](../../what-do-you-get/accesspackages/register_er/)
 3. Map the policy actions to the package.
 4. Test direct assignment, pre-assignment and missing access.
 5. Contact the service desk if no existing package covers the need.
