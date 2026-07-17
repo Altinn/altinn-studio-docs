@@ -46,7 +46,7 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbind
 
 ### Gummi, plast og ikke-metallholdige mineralprodukter
 Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med gummi, plast og ikke-metallholdige mineralprodukter. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:gummi-plast-og-ikke-metallholdige-mineralprodukter*
+*urn:altinn:accesspackage:gummi-plast-og-ikkemetallholdige-mineralprodukter*
 
 ### Metaller og mineraler
 Denne tilgangspakken gir fullmakter til tjenester knyttet til industri i forbindelse med metaller og mineraler. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  

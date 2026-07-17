@@ -50,7 +50,7 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til regnskap og øknom
 *urn:altinn:accesspackage:regnskap-okonomi-rapport*
 ### Revisorattesterer
 Denne fullmakten gir tilgang til alle tjenester som krever revisorattestering. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:reviorattesterer*
+*urn:altinn:accesspackage:revisorattesterer*
 ### Toll 
 Denne tilgangspakken gir fullmakter til tjenester knyttet til toll og fortolling. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
 *urn:altinn:accesspackage:toll*

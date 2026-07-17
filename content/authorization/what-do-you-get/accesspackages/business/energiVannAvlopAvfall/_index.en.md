@@ -28,7 +28,7 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til damp- og varmtvann
 
 ### Vann - ta ut fra kilde, rense og distribuere 
 Denne tilgangspakken gir fullmakter til tjenester knyttet til vann: ta ut fra kilde, rense og distribuere. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:vannkilde-rense-distrubere*
+*urn:altinn:accesspackage:vann-kilde-rense-distrubere*
 
 ### Samle opp og behandle avløpsvann
 Denne tilgangspakken gir fullmakter til tjenester knyttet til samle opp og behandle avløpsvann. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
@@ -40,7 +40,7 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til avfall: samle inn,
 
 ### Utvinning av råolje, naturgass og kull
 Denne tilgangspakken gir fullmakter til tjenester knyttet til utvinning av råolje, naturgass og kull. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:utvinning-raolje-naturgass-kull*
+*urn:altinn:accesspackage:utvinning-raaolje-naturgass-kull*
 
 
 ## Hvilke roller fra Enhetsregisteret får fullmakt til tilgangspakken

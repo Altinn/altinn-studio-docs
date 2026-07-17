@@ -24,7 +24,7 @@ Denne tilgangspakken gir fullmakter til tjenester knyttet til sykehus, lege, tan
 
 ### Helsetjenester med personopplysninger av særlig kategori
 Denne tilgangspakken gir fullmakter til tjenester knyttet til sykehus, lege, tannlege og hjemmesykepleie, fysioterapi, ambulanse og lignende, som er av særlig kategori. Denne fullmakten kan gi bruker tilgang til sensitive personopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:helsetjenester-personopplysinger-saerlig-kategori*
+*urn:altinn:accesspackage:helsetjenester-personopplysninger-saerlig-kategori*
 
 ### Helsetjenester
 Denne tilgangspakken gir fullmakter til tjenester knyttet til sykehus, lege, tannlege og hjemmesykepleie, fysioterapi, ambulanse og lignende. Denne fullmakten kan gi bruker tilgang til personopplysninger om personer det rapporteres om. Ved regelverksendringer eller innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  

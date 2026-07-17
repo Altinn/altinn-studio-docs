@@ -18,19 +18,19 @@ aliases:
 
 ### Patent
 Denne fullmakten gir tilgang til alle skjema og tjenester knyttet til patentsøknader og korrespondanse med patentstyret. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.   
-*urn:altinn:accesspackage:innbygger:patent*
+*urn:altinn:accesspackage:innbygger-patent*
 
 ### Sertifisering
 Denne tilgangspakken gir fullmakter til tjenester knyttet til søknader og korrespondanse for sertifisering. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.   
-*urn:altinn:accesspackage:innbygger:sertifisering*
+*urn:altinn:accesspackage:innbygger-sertifisering*
 
 ### Attester
 Denne tilgangspakken gir fullmakter til tjenester knyttet til attester. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.    
-*urn:altinn:accesspackage:innbygger:attester*
+*urn:altinn:accesspackage:innbygger-attester*
 
 ### Design og varemerke
 Denne tilgangspakken gir fullmakter til tjenester knyttet til all korrespondanse vedr. design og varemerke. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:innbygger:design-varemerke*
+*urn:altinn:accesspackage:innbygger-design-varemerke*
 
 
 

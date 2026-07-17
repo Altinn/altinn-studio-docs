@@ -19,23 +19,23 @@ aliases:
 
 ### Permisjon og oppsigelse
 Denne tilgangspakken gir fullmakter til tjenester knyttet til permisjon og oppsigelser. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:innbygger:permisjon-oppsigelse*
+*urn:altinn:accesspackage:innbygger-permisjon-oppsigelse*
 
 ### Pensjon
 Denne tilgangspakken gir fullmakter til tjenester knyttet til pensjon. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:innbygger:pensjon*
+*urn:altinn:accesspackage:innbygger-pensjon*
 
 ### Utdanning
 Denne tilgangspakken gir fullmakter til tjenester knyttet til utdanning. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:innbygger:utdanning*
+*urn:altinn:accesspackage:innbygger-utdanning*
 
 ### Sykefravær
 Denne tilgangspakken gir fullmakter til tjenester relatert til sykefravær. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:innbygger:sykefravaer*
+*urn:altinn:accesspackage:innbygger-sykefravaer*
 
 ### Søknader og sertifisering
 Denne tilgangspakken gir fullmakter til tjenester knyttet til søknader og sertifisering. Ved innføring av nye digitale tjenester kan det bli endringer i tilganger som fullmakten gir.  
-*urn:altinn:accesspackage:innbygger:soknader-sertifisering*
+*urn:altinn:accesspackage:innbygger-soknader-sertifisering*
 
 
 

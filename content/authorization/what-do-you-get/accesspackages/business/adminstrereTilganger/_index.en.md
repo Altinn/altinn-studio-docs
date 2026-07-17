@@ -20,11 +20,11 @@ Aliases:
 
 ### Client administrator
 This role allows the user to manage access on behalf of clients and customers.
-*urn:altinn:accesspackage:klientadminstrator*
+*urn:altinn:accesspackage:klientadministrator*
 
 ### Access management
 This access package allows users to delegate access rights within the organization for roles they hold themselves.
-*urn:altinn:accesspackage:tilgangsstyring*
+*urn:altinn:accesspackage:tilgangsstyrer*
 
 ### Main administrator
 This access package allows users to manage all access rights for the organization.
