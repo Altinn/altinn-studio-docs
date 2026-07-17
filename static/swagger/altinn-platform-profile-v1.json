@@ -120,38 +120,104 @@
         }
       }
     },
-    "/users/current/verification/resend": {
+    "/correspondence/units/contactpoint/lookup": {
       "post": {
         "tags": [
-          "AddressVerification"
+          "Correspondence"
         ],
-        "summary": "Resets the verification process for the current user and the given address, by regenerating a code with a renewed validity period and sending it to the address.",
+        "summary": "Endpoint for looking up user-registered notification addresses for the provided organizations and the\r\ngiven resource id.",
         "requestBody": {
-          "description": "The address type and value to resend code for",
+          "description": "The search criteria.",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/AddressCodeResendRequest"
+                "$ref": "#/components/schemas/UnitContactPointLookup"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UnitContactPointLookup"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UnitContactPointLookup"
               }
             }
           },
           "required": true
         },
         "responses": {
-          "204": {
-            "description": "No Content"
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UnitContactPointsList"
+                }
+              }
+            }
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/correspondence/organizations/notificationaddresses/lookup": {
+      "post": {
+        "tags": [
+          "Correspondence"
+        ],
+        "summary": "Endpoint looking up the notification addresses for the organization provided in the lookup object in the\r\nrequest body. If the organization has no notification addresses registered, the main unit address will be\r\nreturned if it exists.",
+        "requestBody": {
+          "description": "The search criteria.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrgNotificationAddressRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrgNotificationAddressRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/OrgNotificationAddressRequest"
+              }
+            }
           },
-          "403": {
-            "description": "Forbidden"
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OrgNotificationAddressesResponse"
+                }
+              }
+            }
           },
-          "422": {
-            "description": "Unprocessable Content"
-          },
-          "429": {
-            "description": "Too Many Requests"
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           }
         }
       }
@@ -259,6 +325,144 @@
               }
             }
           }
+        },
+        "deprecated": true
+      }
+    },
+    "/dashboard/organizations/notificationaddresses/email": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "summary": "Endpoint that can retrieve a list of all Notification Addresses for the given email address",
+        "parameters": [
+          {
+            "name": "emailAddress",
+            "in": "header",
+            "description": "The email address to search for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DashboardNotificationAddressResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/organizations/notificationaddresses/phonenumber": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "summary": "Endpoint that can retrieve a list of all Notification Addresses for the given phone number",
+        "parameters": [
+          {
+            "name": "phoneNumber",
+            "in": "header",
+            "description": "The phone number to retrieve notification addresses for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "countrycode",
+            "in": "header",
+            "description": "The country code for the phone number (default: +47)",
+            "schema": {
+              "type": "string",
+              "default": "+47"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DashboardNotificationAddressResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -322,7 +526,8 @@
               }
             }
           }
-        }
+        },
+        "deprecated": true
       }
     },
     "/dashboard/organizations/{organizationNumber}/contactinformation": {
@@ -450,6 +655,134 @@
               }
             }
           }
+        },
+        "deprecated": true
+      }
+    },
+    "/dashboard/organizations/contactinformation/email": {
+      "get": {
+        "tags": [
+          "DashboardUserContactInformation"
+        ],
+        "summary": "Endpoint that can retrieve a list of all user contact information for the given email address.\r\nReturns the contact details that users have registered with the specified email address.",
+        "parameters": [
+          {
+            "name": "emailAddress",
+            "in": "header",
+            "description": "The email address to retrieve contact information for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved user contact information. Returns an array of contacts for the specified email address (empty array if no contacts found)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DashboardUserContactInformationResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters (model validation failed).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Caller does not have the required Dashboard Maskinporten scope (altinn:profile.support.admin).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/organizations/contactinformation/phonenumber": {
+      "get": {
+        "tags": [
+          "DashboardUserContactInformation"
+        ],
+        "summary": "Endpoint that can retrieve a list of all user contact information for the given phone number.\r\nReturns the contact details that users have registered with the specified phone number.",
+        "parameters": [
+          {
+            "name": "phoneNumber",
+            "in": "header",
+            "description": "The phone number to retrieve contact information for",
+            "required": true,
+            "schema": {
+              "pattern": "^[0-9]{5,15}$",
+              "type": "string"
+            }
+          },
+          {
+            "name": "countryCode",
+            "in": "header",
+            "description": "The optional country code for the phone number",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved user contact information. Returns an array of contacts for the specified phone number (empty array if no contacts found)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DashboardUserContactInformationResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters (model validation failed).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Caller does not have the required Dashboard Maskinporten scope (altinn:profile.support.admin).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -512,9 +845,116 @@
                 }
               }
             }
+          }
+        },
+        "deprecated": true
+      }
+    },
+    "/dashboard/users/contactinformation": {
+      "get": {
+        "tags": [
+          "DashboardUserPrivateContactInformation"
+        ],
+        "summary": "Endpoint that can retrieve all user contact information for the given user.",
+        "parameters": [
+          {
+            "name": "NationalIdentityNumber",
+            "in": "header",
+            "description": "The National Identity Number of the user to retrieve contact information for",
+            "required": true,
+            "schema": {
+              "pattern": "^\\d{11}$",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved user contact information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DashboardUserContactPointResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters (model validation failed).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Caller does not have the required Dashboard Maskinporten scope (altinn:profile.support.admin).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
           },
           "404": {
-            "description": "Not Found",
+            "description": "User with the provided National Identity Number does not exist.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/dashboard/users/contactinformation/email": {
+      "get": {
+        "tags": [
+          "DashboardUserPrivateContactInformation"
+        ],
+        "summary": "Endpoint that can retrieve a list of all user contact information for the given email from both KRR and email identified users.",
+        "parameters": [
+          {
+            "name": "emailAddress",
+            "in": "header",
+            "description": "The email of the user to retrieve contact information for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved user contact information.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DashboardUserContactPointResponse"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request parameters (model validation failed).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Caller does not have the required Dashboard Maskinporten scope (altinn:profile.support.admin).",
             "content": {
               "application/json": {
                 "schema": {
@@ -699,7 +1139,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ValidationProblemDetails"
+                  "$ref": "#/components/schemas/ProblemDetails"
                 }
               }
             }
@@ -1184,49 +1624,6 @@
         }
       }
     },
-    "/users/current/notificationsettings/private/phonenumber": {
-      "put": {
-        "tags": [
-          "PrivateNotificationsSettings"
-        ],
-        "summary": "Add or update the telephone number for a self-identified user. The phone number must be verified before it can be added as a notification address. \r\nIf the user already has a phone number registered, it will be replaced with the new one.",
-        "requestBody": {
-          "description": "The request containing the notification address details",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PrivateNotificationSettingsUpdateRequest"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PrivateNotificationSettingsUpdateResponse"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          },
-          "422": {
-            "description": "Unprocessable Content"
-          }
-        }
-      }
-    },
     "/users/current/notificationsettings/parties/{partyUuid}": {
       "get": {
         "tags": [
@@ -1307,6 +1704,9 @@
           },
           "403": {
             "description": "Forbidden"
+          },
+          "422": {
+            "description": "Unprocessable Content"
           }
         }
       },
@@ -1387,6 +1787,46 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/users/current/notificationsettings/parties/byorgnumber/{orgNumber}": {
+      "get": {
+        "tags": [
+          "ProfessionalNotificationSettings"
+        ],
+        "summary": "Get the notification addresses that the current user has registered for a party, using the party's organization number",
+        "parameters": [
+          {
+            "name": "orgNumber",
+            "in": "path",
+            "description": "The organization number of the party to get notification addresses for",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NotificationSettingsResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
           },
           "404": {
             "description": "Not Found"
@@ -1626,26 +2066,6 @@
   },
   "components": {
     "schemas": {
-      "AddressCodeResendRequest": {
-        "required": [
-          "type",
-          "value"
-        ],
-        "type": "object",
-        "properties": {
-          "value": {
-            "maxLength": 320,
-            "minLength": 5,
-            "type": "string",
-            "description": "Gets or sets the address to verify, either an email or a phone number."
-          },
-          "type": {
-            "$ref": "#/components/schemas/AddressType"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Represents a request to resend a verification code for a given address (email or phone number)"
-      },
       "AddressCodeSendRequest": {
         "required": [
           "type",
@@ -1706,7 +2126,7 @@
         "properties": {
           "notificationAddressId": {
             "type": "integer",
-            "description": "Altinn.Profile.Models.DashboardNotificationAddressResponse.NotificationAddressId",
+            "description": "Altinn.Profile.Models.Dashboard.DashboardNotificationAddressResponse.NotificationAddressId",
             "format": "int32"
           },
           "countryCode": {
@@ -1775,6 +2195,14 @@
             "description": "Gets or sets the organization number the user is acting on behalf of.\r\nMay be null if no organization number is set.",
             "nullable": true
           },
+          "resourceIncludeList": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Gets or sets the list of resources the user is subscribed to for notifications.\r\nThis is a list of resource IDs with the prefix \"urn:altinn:resource:\".\r\nMay be null if no resources are set.",
+            "nullable": true
+          },
           "lastChanged": {
             "type": "string",
             "description": "Gets or sets the timestamp when this contact information was last changed.\r\nThis timestamp applies to both email and phone number as they are stored together.\r\nTimestamps are stored and returned in UTC.",
@@ -1783,6 +2211,49 @@
         },
         "additionalProperties": false,
         "description": "Response model for user contact information registered for an organization in the Support Dashboard.\r\nRepresents a user's personal contact details they have registered for acting on behalf of an organization.\r\nThis also includes the organization number the user is acting on behalf of."
+      },
+      "DashboardUserContactPointResponse": {
+        "type": "object",
+        "properties": {
+          "nationalIdentityNumber": {
+            "type": "string",
+            "description": "Gets or sets the national identity number of the user",
+            "nullable": true
+          },
+          "isReserved": {
+            "type": "boolean",
+            "description": "Gets or sets a boolean indicating whether the user has reserved themselves from electronic communication"
+          },
+          "phoneNumber": {
+            "type": "string",
+            "description": "Gets or sets the mobile number",
+            "nullable": true
+          },
+          "emailAddress": {
+            "type": "string",
+            "description": "Gets or sets the email address",
+            "nullable": true
+          },
+          "phoneNumberLastUpdatedOrVerified": {
+            "type": "string",
+            "description": "The latest date and time when the mobile number was updated or verified by the user.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "emailLastUpdatedOrVerified": {
+            "type": "string",
+            "description": "The latest date and time when the email address was updated or verified by the user.",
+            "format": "date-time",
+            "nullable": true
+          },
+          "username": {
+            "type": "string",
+            "description": "Gets or sets the username of the user",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a user's contact point information for the dashboard."
       },
       "GroupRequest": {
         "required": [
@@ -1844,6 +2315,14 @@
         },
         "additionalProperties": false
       },
+      "Language": {
+        "enum": [
+          "Nb",
+          "En",
+          "Nn"
+        ],
+        "type": "string"
+      },
       "NotificationAddressRequest": {
         "type": "object",
         "properties": {
@@ -1904,6 +2383,44 @@
         },
         "additionalProperties": false,
         "description": "Represents a notification address"
+      },
+      "NotificationAddresses": {
+        "type": "object",
+        "properties": {
+          "organizationNumber": {
+            "type": "string",
+            "description": "Gets or sets the organization number for the organization",
+            "nullable": true
+          },
+          "addressOrigin": {
+            "type": "string",
+            "description": "Gets or sets the organization number for the organization where the address originated",
+            "nullable": true
+          },
+          "partyId": {
+            "type": "integer",
+            "description": "Gets or sets the party id of the organization",
+            "format": "int32"
+          },
+          "mobileNumberList": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Gets or sets a list of official mobile numbers",
+            "nullable": true
+          },
+          "emailList": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Gets or sets a list of official email addresses",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "Class describing the notification addresses for an organization as notifications services uses"
       },
       "NotificationSettingsPatchRequest": {
         "type": "object",
@@ -1998,6 +2515,38 @@
         },
         "additionalProperties": false,
         "description": "Response model for the professional notification address for an organization, also called personal notification address."
+      },
+      "OrgNotificationAddressRequest": {
+        "required": [
+          "organizationNumbers"
+        ],
+        "type": "object",
+        "properties": {
+          "organizationNumbers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Gets or sets the list of organization numbers to lookup contact points for"
+          }
+        },
+        "additionalProperties": false,
+        "description": "A class describing the query model for contact points for organizations"
+      },
+      "OrgNotificationAddressesResponse": {
+        "type": "object",
+        "properties": {
+          "contactPointsList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NotificationAddresses"
+            },
+            "description": "A list containing notification addresses for organizations",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false,
+        "description": "A list representation of Altinn.Profile.Models.OrgNotificationAddressesResponse.NotificationAddresses"
       },
       "Organization": {
         "type": "object",
@@ -2238,33 +2787,6 @@
         },
         "additionalProperties": false
       },
-      "PrivateNotificationSettingsUpdateRequest": {
-        "type": "object",
-        "properties": {
-          "value": {
-            "pattern": "^(((\\+[0-9]{2})[0-9]+))$",
-            "type": "string",
-            "description": "The phone number. May be null if no phone number is set.",
-            "nullable": true,
-            "example": "+4798765432"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Data model for the private notification address for a self-identified user, used when updating the notification address."
-      },
-      "PrivateNotificationSettingsUpdateResponse": {
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "description": "The phone number. May be null if no phone number is set.",
-            "nullable": true,
-            "example": "+4798765432"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Response model for the private notification address for a self-identified user, used when updating the notification address."
-      },
       "ProblemDetails": {
         "type": "object",
         "properties": {
@@ -2343,6 +2865,9 @@
             "nullable": true,
             "writeOnly": true
           },
+          "language": {
+            "$ref": "#/components/schemas/Language"
+          },
           "preSelectedPartyId": {
             "type": "integer",
             "format": "int32"
@@ -2363,11 +2888,6 @@
             "type": "boolean",
             "description": "Indicates whether deleted entities should be shown."
           },
-          "language": {
-            "minLength": 1,
-            "type": "string",
-            "description": "Gets or sets the user's language preference in Altinn."
-          },
           "preselectedPartyUuid": {
             "type": "string",
             "description": "The UUID of the preselected party. Optional - will be set to null if not provided.",
@@ -2382,9 +2902,7 @@
         "type": "object",
         "properties": {
           "language": {
-            "type": "string",
-            "description": "The language the user has selected in Altinn portal.",
-            "nullable": true
+            "$ref": "#/components/schemas/Language"
           },
           "doNotPromptForParty": {
             "type": "boolean",
@@ -2444,6 +2962,61 @@
         },
         "additionalProperties": false
       },
+      "UnitContactPointLookup": {
+        "required": [
+          "organizationNumbers",
+          "resourceId"
+        ],
+        "type": "object",
+        "properties": {
+          "organizationNumbers": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "resourceId": {
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UnitContactPoints": {
+        "type": "object",
+        "properties": {
+          "organizationNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "partyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userContactPoints": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserRegisteredContactPoint"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UnitContactPointsList": {
+        "type": "object",
+        "properties": {
+          "contactPointsList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UnitContactPoints"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "UserProfile": {
         "type": "object",
         "properties": {
@@ -2487,6 +3060,24 @@
           },
           "profileSettingPreference": {
             "$ref": "#/components/schemas/ProfileSettingPreference"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserRegisteredContactPoint": {
+        "type": "object",
+        "properties": {
+          "mobileNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "userId": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -2568,5 +3159,37 @@
         "description": "Represents a verified address response model that contains information about a verified address, including the address value and its type (email or phone)."
       }
     }
-  }
+  },
+  "tags": [
+    {
+      "name": "AddressVerification"
+    },
+    {
+      "name": "Correspondence"
+    },
+    {
+      "name": "Dashboard"
+    },
+    {
+      "name": "DashboardUserContactInformation"
+    },
+    {
+      "name": "DashboardUserPrivateContactInformation"
+    },
+    {
+      "name": "Favorites"
+    },
+    {
+      "name": "Organizations"
+    },
+    {
+      "name": "PartyGroups"
+    },
+    {
+      "name": "ProfessionalNotificationSettings"
+    },
+    {
+      "name": "Users"
+    }
+  ]
 }
