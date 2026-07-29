@@ -1,5 +1,5 @@
 {
-  "openapi": "3.0.1",
+  "openapi": "3.0.4",
   "info": {
     "title": "Altinn.ResourceRegistry",
     "version": "1.0"
@@ -2264,6 +2264,20 @@
           },
           {
             "name": "Reference",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "OrgCode",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "OrganizationId",
             "in": "query",
             "schema": {
               "type": "string"
