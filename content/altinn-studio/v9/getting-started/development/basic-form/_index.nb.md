@@ -14,16 +14,6 @@ header: 'Lag et enkelt skjema'
 footer: 'Altinn Studio - kom i gang'
 ---
 
-Veiledningen er delt opp i flere moduler:
-- [Oppsett](./#oppsett) hjelper deg med å sette opp alt du trenger for å komme i gang med veiledningen.
-- [Lage skjema](./#lage-skjema) vil gi deg den grunnleggende kunnskapen du trenger for å lage et enkelt skjema.
-- [Tilganger](./#tilganger) vil hjelpe deg å forstå hvordan du kan styre tilgang til tjenesten din.
-- [Publiser og test](./#publiser-og-test) vil vise deg hvordan du tilgjengeliggjør tjenesten og tester den i et testmiljø.
-
-## Lage skjema
-
-Nå er vi klare til å lage en tjeneste med et skjema.
-
 ### Opprette ny tjeneste
 
 1. Klikk på knappen "Opprett ny app" for å lage en ny app som skal inneholde skjemaet.
