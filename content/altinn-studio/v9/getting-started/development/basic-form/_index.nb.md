@@ -1,7 +1,7 @@
 ---
 title: Lag et enkelt skjema
 linktitle: Lag et enkelt skjema
-description: Du skal lage et enkelt skjema i Altinn Studio. Denne veiledningen antar ingen tidligere kjennskap til Altinn Studio. Oppgavene du skal gjennom vil hjelpe deg raskt komme i gang med å lage en tjeneste i Altinn Studio, og ta deg gjennom en del grunnleggende konsepter som er sentrale i Altinn Studio.
+description: Du skal lage et enkelt skjema i Altinn Studio. 
 weight: 1
 draft: true
 marp: true
@@ -19,37 +19,6 @@ Veiledningen er delt opp i flere moduler:
 - [Lage skjema](./#lage-skjema) vil gi deg den grunnleggende kunnskapen du trenger for å lage et enkelt skjema.
 - [Tilganger](./#tilganger) vil hjelpe deg å forstå hvordan du kan styre tilgang til tjenesten din.
 - [Publiser og test](./#publiser-og-test) vil vise deg hvordan du tilgjengeliggjør tjenesten og tester den i et testmiljø.
-
-## Hva skal vi lage?
-
-Vi skal lage et enkelt skjema i Altinn Studio, der brukeren blir bedt om å fylle ut informasjon om seg selv og sende 
-det inn. Vi baserer oss på et fiktivt case for Sogndal kommune, der kommunen ønsker å samle inn nyttig informasjon om nye
-tilflyttere, for å kunne tilpasse tjenestetilbudet.
-
-Når du er ferdig, vil du ha en fullstendig tjeneste kjørende i testmiljø, med et skjema som kan fylles ut og sendes inn.
-
-## Oppsett
-
-### Lag en bruker i Altinn Studio
-
-Du trenger en bruker i Altinn Studio for å følge denne veiledningen. For å kunne følge alle stegene, må denne brukeren 
-være en del av en organisasjon som har tilgang til et testmiljø. 
-Om du ikke har tilgang til en slik organisasjon, kan du ikke følge den siste modulen ([Publiser og test](./#publiser-og-test)).
-
-[Følg oppskriften for å opprette en bruker i Altinn Studio](../../create-user/).
-
-### Naviger i Altinn Studio
-
-Når du er logget inn får du opp en oversiktsside som viser dine tjenester.
-Her ser du:
-- _Dine favoritter_: Tjenester du har markert som favoritter.
-- _Dine apper_: En oversikt over alle appene (tjenestene) du har lagd i Altinn Studio
-- _Profilmeny og aktørvelger_: Her kan du velge om du skal representere deg selv, eller en organisasjon du har tilgang til.
-  - Velger du å representere en organisasjon, vil det være organisasjonens apper som vises i oversikten.
-- _Knapp for å lage ny tjeneste_: Denne skal vi bruke for å lage en ny tjeneste.
-
----
-![Dashboard](Kurs-skjermbilder-Konsept-Dashboard.jpg)
 
 ## Lage skjema
 
@@ -240,15 +209,3 @@ Naviger til "Utforming" i toppmenyen, og velg "Form" på oversiktssiden.
 2. Velg "Kort svar" fra komponentlisten.
 
 #### Legg til resten av skjemakomponentene
-
-## Tilganger
-
-### Om: Tilgangsstyring
-
-### Konfigurere tilganger til skjema
-
-## Publiser og test
-
-### Bygge og publisere tjenesten
-
-### Teste tjenesten i testmiljø

@@ -6,8 +6,19 @@ description: Slik lager du deg en bruker i Altinn Studio
 toc: true
 weight: 1
 tags: [needsReview]
+marp: true
+headingDivider: 4
+style: |
+  section {
+    color: #393b51
+  }
+header: 'Lag en bruker'
+footer: 'Altinn Studio - kom i gang'
 ---
+Alle som ønsker å teste og/eller bruke Altinn Studio må først lage en bruker. Dette er selvbetjent.
 Din Altinn Studio-bruker er personlig for deg og kan knyttes til en eller flere organisasjoner for å samarbeide med andre og få tilgang til eksisterende apper.
+Om du skal ha tilgang til å lage tjenester for en organisasjon må du kontakte den som administrerer Altinn Studio
+for din organisasjon.
 
 ### Lag en bruker med Ansattporten
 {.floating-bullet-numbers-sibling-ol}
