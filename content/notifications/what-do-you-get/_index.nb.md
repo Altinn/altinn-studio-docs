@@ -21,6 +21,7 @@ Altinn Varslinger støtter følgende kommunikasjonskanaler:
 
 - **E-post**: Sender tilpassede og formaterte e-poster direkte til brukernes innbokser.
 - **SMS**: Leverer tilpassede, konsise, tidsriktige meldinger til brukernes mobiltelefoner, og støtter både nasjonale og internasjonale numre.
+- **E-post og SMS**: Sender både e-post og SMS til mottakeren samtidig.
 - **E-post foretrukket**: Prioriterer e-post som primærkanal, med SMS som reserve når e-postkontaktinformasjon ikke er tilgjengelig.
 - **SMS foretrukket**: Prioriterer SMS som primærkanal, med e-post som reserve når SMS-kontaktinformasjon ikke er tilgjengelig.
 
