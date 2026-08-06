@@ -124,6 +124,10 @@ Se [Readme-filen på GitHub](https://github.com/Altinn/altinn-correspondence/blo
 Repoet inneholder også en [Bruno-pakke](https://github.com/Altinn/altinn-correspondence/blob/main/.bruno/collection.bru) med eksempler.
 
 Swagger for meldings-APIet finner du [her](/nb/api/correspondence/spec/).
+
+{{% notice warning %}}
+**Anbefalt**: Send med feltet `idempotentKey` når du oppretter meldinger. Da oppretter Altinn hver melding bare én gang, selv om integrasjonen din sender samme forespørsel på nytt. Les mer om [idempotens i Altinn 3 Melding]({{< relref "/correspondence/getting-started/developer-guides/idempotency" >}}).
+{{% /notice %}}
 {{% /expandlarge %}}
 
 {{% expandlarge id="test-appearance-formatting" header="9. Test oppsett og formatering i Arbeidsflate og Altinn 2-innboks" %}}
