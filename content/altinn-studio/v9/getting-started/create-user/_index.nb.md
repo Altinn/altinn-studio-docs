@@ -6,43 +6,46 @@ description: Slik lager du deg en bruker i Altinn Studio
 toc: true
 weight: 1
 tags: [needsReview]
+marp: true
+headingDivider: 4
+style: |
+  section {
+    color: #393b51
+  }
+header: 'Lag en bruker'
+footer: 'Altinn Studio - kom i gang'
 ---
-
-## Lag en bruker i Altinn Studio
-
+Alle som ønsker å teste og/eller bruke Altinn Studio må først lage en bruker. Dette er selvbetjent.
 Din Altinn Studio-bruker er personlig for deg og kan knyttes til en eller flere organisasjoner for å samarbeide med andre og få tilgang til eksisterende apper.
+Om du skal ha tilgang til å lage tjenester for en organisasjon må du kontakte den som administrerer Altinn Studio
+for din organisasjon.
 
-### Lag en bruker med Ansattporten
+## Lag en bruker med Ansattporten
 {.floating-bullet-numbers-sibling-ol}
 
-1. Gå til [altinn.studio](https://altinn.studio) og klikk på "Opprett ny  bruker".
+1. Gå til [altinn.studio](https://altinn.studio) og klikk på "Logg inn".
    ![Innlogging](./velkommen.png "Velkommen")
 
-2. Registrer deg via Ansattporten.
-   - *Registrering via kun e-postadresse er ikke lenger støttet. Av sikkerhetsmessige årsaker er vi i gang med å fjerne
-      alle muligheter for registrering utenom Ansattporten. Vi anbefaler derfor at du velger Ansattporten.*
-
-   ![Registrer via Ansattporten](./register-user.png "Registrer via Ansattporten")
-
-3. Logg inn gjennom Ansattporten.
-   - *Du kan bruke Ansattporten for innlogging/registrering om du kan logge inn i ID-porten. Det er ikke et krav om knytning
+2. Registrer/Logg inn gjennom Ansattporten.
+   - Du registrerer deg ved å logge inn via Ansattporten.
+   - Velg BankID eller en av de andre innloggingsmetodene.
+   - *Av sikkerhetsmessige årsaker kan du kun bruke Ansattporten for innlogging/registrering. Det er ikke et krav om knytning
       til en virksomhet i offentlig sektor.*
 
    ![Ansattporten innlogging](./ansattporten.png "Ansattporten innlogging")
 
-
-4. Lag en Altinn Studio-bruker ved å fylle ut brukernavn, e-post, passord og en bekreftelse på at du er et menneske. Klikk deretter på **Fullfør**.
+3. Lag en Altinn Studio-bruker ved å fylle ut brukernavn, e-post, passord og en bekreftelse på at du er et menneske. Klikk deretter på **Fullfør**.
    Brukeren i Altinn Studio vil bli koblet til din Ansattporten-bruker.
    ![Registrer ditt brukernavn i Altinn Studio](./register-new-gitea-user.png "Registrer ditt brukernavn i Altinn Studio")
 
-5. Aktiver kontoen din ved å bekrefte e-postadressen du registrerte med.
+4. Aktiver kontoen din ved å bekrefte e-postadressen du registrerte med.
    - *En e-post er sendt til den e-postadressen du oppga med en lenke. Kopier ut lenken og lim den inn i nettleservinduet.*
 
    {{% notice warning%}}
    Hvis du får en feilmelding om at lenken er utløpt, prøv å logge inn på nytt (via Ansattporten). Kontoen skal være aktivert.
    {{% /notice %}}
 
-6. Gi Altinn Studio-applikasjonen tilgang til din brukerkonto.
+5. Gi Altinn Studio-applikasjonen tilgang til din brukerkonto.
    ![Gi Altinn Studio-applikasjonen tilgang til din brukerkonto](./authorize-application.png "Gi Altinn Studio-applikasjonen tilgang til din brukerkonto")
 
 Etter at kontoen er aktivert, klikk på logoen øverst til venstre på siden for å gå til ditt tjeneste-dashboard.

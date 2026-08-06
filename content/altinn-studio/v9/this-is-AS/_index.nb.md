@@ -16,7 +16,7 @@ Du kan bruke Altinn Studio både med brukergrensesnitt for manuell innsending og
 ## Hva kan jeg lage med Altinn Studio?
 Med Altinn Studio kan du utvikle digitale tjenester for mange forskjellige formål. Det kan være alt fra enkle skjematjenester og innsynsløsninger til komplekse arbeidsflyter med betaling og signering. Plattformen støtter både tradisjonelle skjemaer og tilpassede applikasjoner med avanserte integrasjoner.
 
-Se eksempler på konkrete bruksområder [her](/nb/altinn-studio/v9/this-is-as/get-to-know-as/open-source).
+Se eksempler på konkrete bruksområder [her](/nb/altinn-studio/v9/this-is-as/get-to-know-as/usecases).
 
 ## Altinn Studio er bindemiddelet
 Et skjema er sjelden bare datafelter som skal sendes inn. Du trenger mer for å lage en god tjeneste. Det kan være:
