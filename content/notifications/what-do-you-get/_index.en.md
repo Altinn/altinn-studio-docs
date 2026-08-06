@@ -21,6 +21,7 @@ Altinn Notifications supports the following communication channels:
 
 - **Email**: Sends customized and formatted emails directly to users’ inboxes. 
 - **SMS**: Delivers customized, concise, timely messages to users’ mobile phones, supporting both national and international numbers.
+- **EmailAndSms**: Sends both email and SMS to the recipient simultaneously.
 - **EmailPreferred**: Prioritizes email as the primary channel, with SMS as a fallback when email contact information is unavailable.
 - **SmsPreferred**: Prioritizes SMS as the primary channel, with email as a fallback when SMS contact information is unavailable.
 
@@ -61,7 +62,6 @@ Altinn Email notifications provide the capability to send plain text or HTML con
 ### Recipient Restrictions
 
 - **Single Recipient**: Each email notification is sent to one recipient.
-- **Attachments**: Currently, email notifications do not support attachments.
 
 ## Recipient Lookup
 

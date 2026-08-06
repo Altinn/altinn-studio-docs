@@ -145,3 +145,9 @@ weight: 15
 
   A _send condition_ is evaluated as either true or false, based on whether the condition for sending the notification is met. 
   The condition is checked by the application through the condition endpoint provided in the notification order. 
+
+- #### Notification log
+
+  A _notification log_ captures immutable snapshots of notification delivery status as reported by email or SMS providers. Each log entry records how a single notification was processed—not a complete history of all status changes. Log entries are queried by Dialogporten identifiers (dialogId and/or transmissionId) for auditing deliveries and troubleshooting notification flows.
+
+  For more details, see the [Notification Log reference](/en/notifications/reference/notification-log/).
