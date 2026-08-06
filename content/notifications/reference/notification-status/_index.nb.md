@@ -121,6 +121,14 @@ Status for én SMS til én mottaker.
 | `Failed_Rejected`              | `SMS_Failed_Rejected`          | Avvist av leverandør eller operatør.                        | Endelig     |
 | `Failed_TTL`                   | `SMS_Failed_TTL`               | Varslingen nådde levetiden (TTL) i Altinn uten at en endelig leveringsrapport kom inn. Se forklaringen under. | Endelig     |
 
+## Tolking av 'Delivered'-status
+
+`Email_Delivered` og `SMS_Delivered` indikerer at leverandøren rapporterte vellykket levering, **ikke** at meldingen nådde brukerens postkasse eller enhet. Etter leverandørens godkjenning kan meldinger fortsatt:
+- E-poster: filtreres som spam eller uønsket e-post, blokkeres av brukerens e-postregler, avvises av mellomliggende gateways, eller slettes av brukere før lesing
+- SMS: filtreres av operatørens systemer, avvises av brukerens telefon, eller leveres ikke på grunn av tekniske problemer
+
+Status-API-ene og loggen fanger leverandørens rapport, som representerer det fjerneste punktet i leveringskjeden som Altinn kan verifisere. Faktisk brukermottak kan ikke garanteres gjennom disse API-ene.
+
 ## Time-to-live (TTL) og utløp
 
 Levetiden (TTL) bestemmer hvor lenge Altinn følger opp en varsling før den

@@ -1,16 +1,18 @@
 ---
 draft: true
 title: Kom i gang
-description: Det du trenger for å komme i gang i Altinn Studio
+description: Det du trenger for å komme i gang i Altinn Studio. 
 weight: 5
+marp: true
+headingDivider: 4
+style: |
+  section {
+    color: #393b51
+  }
+header: 'Kom i gang'
+footer: 'Altinn Studio - kom i gang'
 ---
 
-## Lag en bruker
-Alle som ønsker å teste og/eller bruke Altinn Studio må først lage en bruker. Dette er selvbetjent.
-[Følg denne veiledningen for å komme i gang](). 
-
-Om du skal ha tilgang til å lage tjenester for en organisasjon må du kontakte den som administrerer Altinn Studio
-for din organisasjon.
 
 ## For deg som skal utvikle tjenester
 Du kan følge disse veiledningene for å komme i gang med å utvikle tjenester på Altinn Studio plattformen. 

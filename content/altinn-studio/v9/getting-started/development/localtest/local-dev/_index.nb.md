@@ -8,6 +8,14 @@ toc: true
 weight: 40
 aliases:
 - /nb/altinn-studio/guides/local-dev/
+marp: true
+headingDivider: 4
+style: |
+  section {
+    color: #393b51
+  }
+header: 'Lokal utvikling'
+footer: 'Altinn Studio - kom i gang'
 ---
 
 Når du utvikler en app, jobber du både i Altinn Studio og i et lokalt utviklingsmiljø.

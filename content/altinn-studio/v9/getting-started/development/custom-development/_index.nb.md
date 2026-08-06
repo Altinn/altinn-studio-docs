@@ -4,6 +4,14 @@ linktitle: Egne tilpasninger
 description: Gjør tilpasninger i appen din med egen kode
 draft: true
 weight: 40
+marp: true
+headingDivider: 4
+style: |
+  section {
+    color: #393b51
+  }
+header: 'Egne tilpasninger'
+footer: 'Altinn Studio - kom i gang'
 ---
 
 ## Om bruk av egen kode i en Altinn-app

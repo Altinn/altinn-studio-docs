@@ -458,6 +458,73 @@
         }
       }
     },
+    "/future/log": {
+      "get": {
+        "tags": [
+          "Notification Log"
+        ],
+        "summary": "Retrieves notification log entries filtered by dialog identifier, transmission identifier, or both.",
+        "parameters": [
+          {
+            "name": "DialogId",
+            "in": "query",
+            "description": "The Dialogporten dialog identifier to filter by.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "TransmissionId",
+            "in": "query",
+            "description": "The Dialogporten transmission identifier to filter by.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "401": {
+            "description": "Caller is unauthorized"
+          },
+          "403": {
+            "description": "Caller is not authorized to access the requested resource"
+          },
+          "200": {
+            "description": "Notification log entries matching the provided identifiers were retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/NotificationLogSummaryExt"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "One or more query parameters are invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "499": {
+            "description": "Request terminated - The client disconnected or cancelled the request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/orders/{id}": {
       "get": {
         "tags": [
@@ -1590,6 +1657,67 @@
         },
         "additionalProperties": false,
         "description": "Represents the root tracking entity for a notification shipment that\r\ncan be sent to multiple recipients through various communication channels."
+      },
+      "NotificationLogSummaryExt": {
+        "required": [
+          "channel",
+          "destination",
+          "lastUpdateTime",
+          "notificationId",
+          "requestedSendTime",
+          "status",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "notificationId": {
+            "type": "string",
+            "description": "The identifier of the email or SMS notification this log entry was derived from.",
+            "format": "uuid"
+          },
+          "dialogId": {
+            "type": "string",
+            "description": "The Dialogporten dialog identifier associated with this notification, or null if not applicable.",
+            "nullable": true
+          },
+          "transmissionId": {
+            "type": "string",
+            "description": "The Dialogporten transmission identifier associated with this notification, or null if not applicable.",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "description": "The notification order type (e.g. `Notification`, `Reminder`, `Instant`, `Composed`).",
+            "nullable": true
+          },
+          "channel": {
+            "type": "string",
+            "description": "The notification channel (`Email` or `Sms`).",
+            "nullable": true
+          },
+          "destination": {
+            "type": "string",
+            "description": "The email address or mobile number the notification was sent to.",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "description": "The delivery result status at the time the log entry was created.",
+            "nullable": true
+          },
+          "requestedSendTime": {
+            "type": "string",
+            "description": "The timestamp the order requested notifications be sent at.",
+            "format": "date-time"
+          },
+          "lastUpdateTime": {
+            "type": "string",
+            "description": "The timestamp when the notification status was last updated.",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false,
+        "description": "Represents a notification log summary returned by the API."
       },
       "NotificationOrderChainReceiptExt": {
         "required": [
@@ -2803,6 +2931,10 @@
     {
       "name": "Instant Orders",
       "description": "Create and immediately send a notification to a single recipient"
+    },
+    {
+      "name": "Notification Log",
+      "description": "Retrieves notification log entries filtered by dialog identifier, transmission identifier, or both"
     }
   ]
 }
