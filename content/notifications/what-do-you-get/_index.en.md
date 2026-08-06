@@ -61,7 +61,6 @@ Altinn Email notifications provide the capability to send plain text or HTML con
 ### Recipient Restrictions
 
 - **Single Recipient**: Each email notification is sent to one recipient.
-- **Attachments**: Currently, email notifications do not support attachments.
 
 ## Recipient Lookup
 

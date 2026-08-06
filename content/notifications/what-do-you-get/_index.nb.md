@@ -61,7 +61,6 @@ Altinn E-postvarsler gir mulighet til å sende ren tekst eller HTML-innhold dire
 ### Mottakerbegrensninger
 
 - **Enkeltmottaker**: Hver e-postvarsel sendes til én mottaker.
-- **Vedlegg**: Foreløpig støtter ikke e-postvarsler vedlegg.
 
 ## Mottakeroppslag
 
