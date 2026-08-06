@@ -124,6 +124,14 @@ Status for a single SMS to one recipient.
 | `Failed_Rejected`              | `SMS_Failed_Rejected`             | Rejected by provider or operator.                            | Final       |
 | `Failed_TTL`                   | `SMS_Failed_TTL`                  | The notification reached its time-to-live (TTL) in Altinn without a final delivery report arriving. See the explanation below. | Final       |
 
+## Understanding 'Delivered' status
+
+`Email_Delivered` and `SMS_Delivered` indicate that the provider reported successful delivery, **not** that the message reached the user's inbox or device. After provider acceptance, messages may still be:
+- Emails: filtered as spam or junk, blocked by user mail rules, rejected by intermediate gateways, or deleted by users before reading
+- SMS: filtered by carrier systems, rejected by user's phone, or not delivered due to technical issues
+
+The log and status APIs capture the provider's report, which represents the furthest point in the delivery chain that Altinn can verify. Actual user receipt cannot be guaranteed through these APIs.
+
 ## Time-to-live (TTL) and expiry
 
 The time-to-live (TTL) determines how long Altinn keeps tracking a notification
