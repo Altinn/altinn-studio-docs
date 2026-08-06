@@ -122,6 +122,10 @@ See the [readme file on GitHub](https://github.com/Altinn/altinn-correspondence/
 The Repo also contains a [Bruno-collection](https://github.com/Altinn/altinn-correspondence/blob/main/.bruno/collection.bru) with examples.
 
 Swagger for the correspondence API is hosted [here](https://docs.altinn.studio/api/correspondence/spec/).
+
+{{% notice warning %}}
+**Recommended**: Include the `idempotentKey` field when you create correspondences. Altinn then creates each correspondence only once, even if your integration sends the same request again. Read more about [idempotency in Altinn 3 Correspondence]({{< relref "/correspondence/getting-started/developer-guides/idempotency" >}}).
+{{% /notice %}}
 {{% /expandlarge %}}
 
 {{% expandlarge id="test-appearance-formatting" header="9. Test layout and formatting in Arbeidsflate and Altinn 2 inbox" %}}

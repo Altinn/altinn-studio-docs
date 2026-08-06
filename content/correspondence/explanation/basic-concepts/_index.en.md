@@ -25,4 +25,5 @@ This allows correspondence statuses and events to be handled individually for ea
 
 {{% notice warning  %}}
 **Note**: Specifying an IdempotentKey on the correspondences is not supported when using batch sending.
+If you need this safeguard, send one request per recipient. Read how you [use idempotentKey to make sure Altinn only creates a correspondence once]({{< relref "/correspondence/getting-started/developer-guides/idempotency" >}}).
 {{% /notice %}}
