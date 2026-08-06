@@ -20,10 +20,10 @@ Din Altinn Studio-bruker er personlig for deg og kan knyttes til en eller flere 
 Om du skal ha tilgang til å lage tjenester for en organisasjon må du kontakte den som administrerer Altinn Studio
 for din organisasjon.
 
-### Lag en bruker med Ansattporten
+## Lag en bruker med Ansattporten
 {.floating-bullet-numbers-sibling-ol}
 
-1. Gå til [altinn.studio](https://altinn.studio) og klikk på "Logg inn.
+1. Gå til [altinn.studio](https://altinn.studio) og klikk på "Logg inn".
    ![Innlogging](./velkommen.png "Velkommen")
 
 2. Registrer/Logg inn gjennom Ansattporten.

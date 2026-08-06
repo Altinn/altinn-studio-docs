@@ -37,7 +37,7 @@ Når du er ferdig, vil du ha en fullstendig tjeneste kjørende i testmiljø, med
 
 Du trenger en bruker i Altinn Studio for å følge denne veiledningen. For å kunne følge alle stegene, må denne brukeren 
 være en del av en organisasjon som har tilgang til et testmiljø. 
-Om du ikke har tilgang til en slik organisasjon, kan du ikke følge den siste modulen ([Publiser og test](./basic-form/#publiser-og-test)).
+Om du ikke har tilgang til en slik organisasjon, kan du ikke følge den siste modulen ([Publiser og test](./publish/)).
 
 [Følg oppskriften for å opprette en bruker i Altinn Studio](../create-user/).
 
