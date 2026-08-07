@@ -1,0 +1,259 @@
+{{ partial "authorization/landing-styles.html" . }}
+{{ $lang := .Page.Language.Lang }}{{ $nb := eq $lang "nb" }}{{ $kind := .Get "kind" }}
+<div class="authz-hub">
+    {{ if eq $kind "main" }}
+    <section class="authz-hero">
+        <div class="authz-wrap authz-hero-grid">
+            <div>
+                <div class="authz-eyebrow">Altinn Studio</div>
+                <h1>{{ if $nb }}Bygg dine tjenester med Altinn Studio{{ else }}Build your services using Altinn Studio{{
+                    end }}</h1>
+                <p class="authz-lead">{{ if $nb }}Alt du trenger for å utvikle, publisere og forvalte digitale tjenester
+                    for innbyggere og næringsliv.{{ else }}Everything you need to develop, publish and manage digital
+                    services for citizens and businesses.{{ end }}</p>
+                <div class="authz-actions">
+                    <a class="authz-btn authz-btn-primary" href="{{ "altinn-studio/v9/getting-started/" | relLangURL
+                        }}">{{ if $nb }}Kom i gang{{ else }}Get started{{ end }} →</a>
+                    <a class="authz-btn authz-btn-secondary" href="{{ "altinn-studio/v9/this-is-as/" | relLangURL
+                        }}">{{ if $nb }}Se hva du får{{ else }}Explore capabilities{{ end }}</a>
+                </div>
+            </div>
+            <aside class="authz-decision authz-decision-illustrated">
+                <h2>{{ if $nb }}Altinn Studio er bindemiddelet{{ else }}Every request, one decision{{ end }}</h2>
+                <img src="{{ "images/studio/studio-i-midten.png" | relURL }}"
+                    alt="{{ if $nb }}Altinn Studio har ferdig utviklet integrasjoner mot flere av Digdir sine fellestjenester og nasjonale registre{{ else }}Altinn Studio has pre-built integrations with several of Digdir's common services and national registers.{{ end }}">
+            </aside>
+        </div>
+    </section>
+    <div class="authz-about">
+        <div class="authz-wrap"><a href="{{ "altinn-studio/v9/this-is-as/" | relLangURL }}">{{ if $nb }}Dette er Altinn
+                Studio →{{ else }}How Altinn Studio works →{{ end }}</a></div>
+    </div>
+    <section class="authz-section authz-wrap">
+        <div class="authz-section-head">
+            <div>
+                <h2>{{ if $nb }}Start med rollen din{{ else }}Start with your role{{ end }}</h2>
+                <p>{{ if $nb }}Vi leder deg til riktig løp og riktig detaljnivå.{{ else }}We will guide you to the right
+                    journey and level of detail.{{ end }}</p>
+            </div>
+        </div>
+        <div class="authz-grid">
+            <a class="authz-card authz-role" href="{{ "altinn-studio/v9/getting-started/serviceowner" | relLangURL }}">
+                <h3>{{ if $nb }}Jeg er tjenesteeier{{ else }}I am a service owner{{ end }}</h3>
+                <p>{{ if $nb }}Lag eller forvalt en digital tjeneste.{{ else }}Protect a service or API.{{ end }}</p>
+            </a>
+            <a class="authz-card authz-role" href="{{ "altinn-studio/v9/getting-started/vendor/" | relLangURL }}">
+                <h3>{{ if $nb }}Jeg er systemleverandør{{ else }}I am a system vendor{{ end }}</h3>
+                <p>{{ if $nb }}Koble til en digital tjeneste.{{ else }}Connect a system to Altinn Authorization.{{ end
+                    }}</p>
+            </a>
+        </div>
+    </section>
+    <section class="authz-section authz-wrap">
+        <h2>{{ if $nb }}Dette får du{{ else }}Capabilities{{ end }}</h2>
+        <div class="authz-grid authz-grid-5">{{ partial "studio/capability-cards.html" (dict "nb" $nb) }}</div>
+    </section>
+    <section class="authz-section authz-soft">
+        <div class="authz-wrap">
+            <h2>{{ if $nb }}Gå dypere{{ else }}Go deeper{{ end }}</h2>
+            <div class="authz-grid"><a class="authz-card" href="{{ "altinn-studio/v9/plan-a-service/" | relLangURL }}">
+                    <h3>{{ if $nb }}Planlegge tjenester{{ else }}Plan services{{ end }}</h3>
+                    <p>{{ if $nb }}Plan og forbered din digitale tjeneste{{ else }}Plan and prepare your digital service{{ end }}</p>
+                </a><a class="authz-card" href="{{ "altinn-studio/v9/develop-a-service/" | relLangURL }}">
+                    <h3>{{ if $nb }}Utvikle tjenester{{ else }}Develop services{{ end }}</h3>
+                    <p>{{ if $nb }}Alt du trenger å vite for å utvikle en tjeneste.{{ else }}Everything you need to know to develop a service.{{ end }}</p>
+                </a><a class="authz-card" href="{{ "altinn-studio/v9/terms/" | relLangURL }}">
+                    <h3>{{ if $nb }}Begreper{{ else }}Glossary{{ end }}</h3>
+                    <p>{{ if $nb }}Finn forklaringer på sentrale ord og uttrykk.{{ else }}Find explanations of key
+                        terms.{{ end }}</p>
+                </a></div>
+        </div>
+    </section>
+    {{ else }}
+    <header class="authz-page-head">
+        <div class="authz-wrap">
+            <div class="authz-crumbs">
+                <a href="{{ "altinn-studio/v9/" | relLangURL }}">Altinn Studio</a> / {{ .Page.Title }}
+            </div>
+            <div class="authz-eyebrow">Altinn Studio</div>
+            <h1>{{ .Page.Title }}</h1>
+            <p>{{ .Page.Description }}</p>
+        </div>
+    </header>
+    <section class="authz-section authz-wrap{{ if eq $kind " getting-started" }} authz-task-overview{{ end }}">
+        {{ if eq $kind "getting-started" }}
+        <header class="authz-section-head authz-task-intro">
+            <div>
+                <h2>{{ if $nb }}Hva skal du gjøre?{{ else }}What do you need to do?{{ end }}</h2>
+                <p>{{ if $nb }}Velg oppgaven som ligner mest på behovet ditt. Du trenger ikke kjenne produktnavnene
+                    eller integrasjonsmønstrene på forhånd.{{ else }}Choose the task that most closely matches your
+                    need. You do not need to know the product names or integration patterns in advance.{{ end }}</p>
+            </div>
+        </header>
+        <div class="authz-task-groups">
+            <section class="authz-task-group" aria-labelledby="authz-owner-tasks">
+                <div class="authz-task-group-head">
+                    <div>
+                        <h2 id="authz-owner-tasks">{{ if $nb }}For tjenesteeiere{{ else }}For service owners{{ end }}
+                        </h2>
+                        <p>{{ if $nb }}Du eier tjenesten.{{ else }}You own the service.{{ end }}</p>
+                    </div>
+                    <a href="{{ "altinn-studio/v9/getting-started/serviceowner/" | relLangURL }}">{{ if $nb }}Se alle
+                        oppgaver for tjenesteeiere{{ else }}See all service owner tasks{{ end }} →</a>
+                </div>
+                <div class="authz-task-grid">
+                    <a class="authz-card authz-task-card" href="{{ "altinn-studio/v9/getting-started/serviceowner/" |
+                        relLangURL }}">
+                        <h3>{{ if $nb }}Lag en bruker{{ else }}Protect a service or API{{ end }}</h3>
+                        <p>{{ if $nb }}Lag en bruker i Altinn Studio og kom i gang med å lage tjenester{{ else
+                            }}Register the resource, create rules and check every request.{{ end }}</p>
+                        <span class="authz-card-link">{{ if $nb }}Finn riktig løp{{ else }}Find the right journey{{ end
+                            }} →</span>
+                    </a>
+                    <a class="authz-card authz-task-card" href="{{ "altinn-studio/v9/getting-started/serviceowner/" |
+                        relLangURL }}">
+                        <h3>{{ if $nb }}Lag en tjeneste{{ else }}Protect a service or API{{ end }}</h3>
+                        <p>{{ if $nb }}Kom i gang med å lage tjenester{{ else }}Register the resource, create rules and
+                            check every request.{{ end }}</p>
+                        <span class="authz-card-link">{{ if $nb }}Finn riktig løp{{ else }}Find the right journey{{ end
+                            }} →</span>
+                    </a>
+                    <a class="authz-card authz-task-card" href="{{ "altinn-studio/v9/getting-started/serviceowner/" |
+                        relLangURL }}">
+                        <h3>{{ if $nb }}Administrer en tjeneste{{ else }}Protect a service or API{{ end }}</h3>
+                        <p>{{ if $nb }}Administrer og vedlikehold kjørende tjenester i Altinn Studio.{{ else }}Register
+                            the resource, create rules and check every request.{{ end }}</p>
+                        <span class="authz-card-link">{{ if $nb }}Finn riktig løp{{ else }}Find the right journey{{ end
+                            }} →</span>
+                    </a>
+                    <a class="authz-card authz-task-card" href="{{ "altinn-studio/v9/getting-started/serviceowner/" |
+                        relLangURL }}">
+                        <h3>{{ if $nb }}Administrer din organisasjon{{ else }}Protect a service or API{{ end }}</h3>
+                        <p>{{ if $nb }}Styr hvem som skal ha tilgang til hva for din organisasjon i Altinn Studio{{ else
+                            }}Register the resource, create rules and check every request.{{ end }}</p>
+                        <span class="authz-card-link">{{ if $nb }}Finn riktig løp{{ else }}Find the right journey{{ end
+                            }} →</span>
+                    </a>
+                    <a class="authz-card authz-task-card" href="{{ "altinn-studio/v9/getting-started/serviceowner/" |
+                        relLangURL }}">
+                        <h3>{{ if $nb }}Integrer mot en tjeneste{{ else }}Protect a service or API{{ end }}</h3>
+                        <p>{{ if $nb }}Lag integrasjoner mot tjenestene via API for å hente ut data, sende ut data og
+                            utføre handlinger.{{ else }}Register the resource, create rules and check every request.{{
+                            end }}</p>
+                        <span class="authz-card-link">{{ if $nb }}Finn riktig løp{{ else }}Find the right journey{{ end
+                            }} →</span>
+                    </a>
+                </div>
+            </section>
+            <!-- <section class="authz-task-group" aria-labelledby="authz-vendor-tasks">
+                <div class="authz-task-group-head">
+                    <div>
+                        <h2 id="authz-vendor-tasks">{{ if $nb }}For systemleverandører{{ else }}For system vendors{{ end
+                            }}</h2>
+                        <p>{{ if $nb }}Du kobler systemet til Altinn og bruker riktig identitet og tilgang i hvert
+                            kall.{{ else }}You connect the system to Altinn and use the correct identity and access for
+                            every call.{{ end }}</p>
+                    </div><a href="{{ " authorization/getting-started/system-vendor/" | relLangURL }}">{{ if $nb }}Se
+                        alle oppgaver for systemleverandører{{ else }}See all system vendor tasks{{ end }} →</a>
+                </div>
+                <div class="authz-task-grid">
+                    <a class="authz-card authz-task-card" href="{{ " authorization/getting-started/system-vendor/" |
+                        relLangURL }}">
+                        <h3>{{ if $nb }}Kall API for egen virksomhet{{ else }}Call an API for your own organisation{{
+                            end }}</h3>
+                        <p>{{ if $nb }}Bruk systembruker når systemet handler uten en innlogget person.{{ else }}Use a
+                            system user when the system acts without a signed-in person.{{ end }}</p><span
+                            class="authz-card-link">{{ if $nb }}Finn riktig løp{{ else }}Find the right journey{{ end }}
+                            →</span>
+                    </a>
+                    <a class="authz-card authz-task-card" href="{{ " authorization/getting-started/system-vendor/" |
+                        relLangURL }}">
+                        <h3>{{ if $nb }}Kall API på vegne av kunder{{ else }}Call APIs on behalf of clients{{ end }}
+                        </h3>
+                        <p>{{ if $nb }}Bruk klientsystem, tilgangspakker og klientdelegering.{{ else }}Use a client
+                            system, access packages and client delegation.{{ end }}</p><span class="authz-card-link">{{
+                            if $nb }}Finn riktig løp{{ else }}Find the right journey{{ end }} →</span>
+                    </a>
+                    <a class="authz-card authz-task-card" href="{{ " authorization/getting-started/system-vendor/" |
+                        relLangURL }}">
+                        <h3>{{ if $nb }}Finn aktører brukeren kan representere{{ else }}Find parties the user can
+                            represent{{ end }}</h3>
+                        <p>{{ if $nb }}Lag aktørvalg for en bruker som logger inn med ID-porten.{{ else }}Build party
+                            selection for a user who signs in with ID-porten.{{ end }}</p><span
+                            class="authz-card-link">{{ if $nb }}Finn riktig løp{{ else }}Find the right journey{{ end }}
+                            →</span>
+                    </a>
+                    <a class="authz-card authz-task-card" href="{{ " authorization/getting-started/system-vendor/" |
+                        relLangURL }}">
+                        <h3>{{ if $nb }}Be om samtykke til å hente data{{ else }}Request consent to retrieve data{{ end
+                            }}</h3>
+                        <p>{{ if $nb }}Opprett forespørselen og bruk samtykketokenet mot riktig API.{{ else }}Create the
+                            request and use the consent token with the correct API.{{ end }}</p><span
+                            class="authz-card-link">{{ if $nb }}Finn riktig løp{{ else }}Find the right journey{{ end }}
+                            →</span>
+                    </a>
+                    <a class="authz-card authz-task-card" href="{{ " authorization/getting-started/system-vendor/" |
+                        relLangURL }}">
+                        <h3>{{ if $nb }}Administrer kundetilganger{{ else }}Manage client access{{ end }}</h3>
+                        <p>{{ if $nb }}Styr hvilke ansatte som kan arbeide for hvilke kunder.{{ else }}Control which
+                            employees may work for which clients.{{ end }}</p><span class="authz-card-link">{{ if $nb
+                            }}Finn riktig løp{{ else }}Find the right journey{{ end }} →</span>
+                    </a>
+                    <a class="authz-card authz-task-card" href="{{ " authorization/getting-started/system-vendor/" |
+                        relLangURL }}">
+                        <h3>{{ if $nb }}Kall API med Maskinporten{{ else }}Call an API with Maskinporten{{ end }}</h3>
+                        <p>{{ if $nb }}Bruk systemets egen identitet når API-et ikke krever systembruker.{{ else }}Use
+                            the system's own identity when the API does not require a system user.{{ end }}</p><span
+                            class="authz-card-link">{{ if $nb }}Finn riktig løp{{ else }}Find the right journey{{ end }}
+                            →</span>
+                    </a>
+                </div>
+            </section> -->
+        </div>
+        {{ else if eq $kind "capabilities" }}{{ partial "authorization/capability-detail-cards.html" (dict "nb" $nb)}}
+        {{ else if eq $kind "guides" }}
+        <!-- <div class="authz-grid">
+            <a class="authz-card authz-role" href="{{ "authorization/guides/end-user/" | relLangURL }}">
+                <h2>{{ if $nb }}For sluttbrukere{{ else }}For end users{{ end }}</h2>
+                <p>{{ if $nb }}Deleger tilgang, godkjenn systembrukere og administrer kundeforhold.{{ else }}Delegate
+                    access, approve system users and manage clients.{{ end }}</p>
+            </a>
+            <a class="authz-card authz-role" href="{{ " authorization/guides/resource-owner/" | relLangURL }}">
+                <h2>{{ if $nb }}For tjenesteeiere{{ else }}For service owners{{ end }}</h2>
+                <p>{{ if $nb }}Registrer ressurser, bruk tilgangslister og sett opp samtykke.{{ else }}Register
+                    resources, use access lists and configure consent.{{ end }}</p>
+            </a>
+            <a class="authz-card authz-role" href="{{ " authorization/guides/system-vendor/" | relLangURL }}">
+                <h2>{{ if $nb }}For systemleverandører{{ else }}For system vendors{{ end }}</h2>
+                <p>{{ if $nb }}Registrer systemer, bruk API-er og feilsøk integrasjonen.{{ else }}Register systems, use
+                    APIs and troubleshoot integrations.{{ end }}</p>
+            </a>
+        </div> -->
+        {{ else if eq $kind "reference" }}
+        <!-- <div class="authz-grid">
+            <a class="authz-card" href="{{ "authorization/reference/system/" | relLangURL }}">
+                <h2>{{ if $nb }}Løsningsarkitektur{{ else }}Solution architecture{{ end }}</h2>
+                <p>{{ if $nb }}Komponenter, flyter, drift og informasjonsmodeller.{{ else }}Components, flows,
+                    operations and information models.{{ end }}</p>
+            </a>
+            <a class="authz-card" href="{{ " authorization/reference/referenceimplementations/" | relLangURL }}">
+                <h2>{{ if $nb }}Referanseimplementasjoner{{ else }}Reference implementations{{ end }}</h2>
+                <p>{{ if $nb }}Kodeeksempler som viser hvordan løsningene brukes.{{ else }}Code examples showing how to
+                    use the solutions.{{ end }}</p>
+            </a>
+            <a class="authz-card" href="{{ " authorization/reference/status/" | relLangURL }}">
+                <h2>{{ if $nb }}Status{{ else }}Status{{ end }}</h2>
+                <p>{{ if $nb }}Se hva som er tilgjengelig og hva som kommer.{{ else }}See what is available and what is
+                    coming.{{ end }}</p>
+            </a>
+        </div>
+        <div class="authz-grid" style="margin-top:22px">
+            <a class="authz-card" href="{{ " authorization/reference/xacml/" | relLangURL }}">
+                <h2>XACML</h2>
+                <p>{{ if $nb }}Regelmodell og eksempler.{{ else }}Policy model and examples.{{ end }}</p>
+            </a>
+        </div> -->
+        {{ end }}
+    </section>
+    {{ end }}
+</div>

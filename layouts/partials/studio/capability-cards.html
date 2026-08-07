@@ -1,0 +1,19 @@
+{{ $nb := .nb }}
+{{ $cards := slice
+  (dict "path" "altinn-studio/v9" "nb" "Tilgjengelige tjenester" "en" "Accessible services" "nbDesc" "Vi bruker komponenter fra Designsystemet som sikrer en helhetlig brukeropplevelse og gode, brukervennlige tjenester." "enDesc" "We use components from the Design System that ensure a consistent user experience and good, user-friendly services.")
+  (dict "path" "altinn-studio/v9" "nb" "Både skjema og API innsending samtidig" "en" "For GUI and API at the same time" "nbDesc" "Våre tjenester har som standard støtte for både skjema- og API-basert innsending av data." "enDesc" "Our services support both form-based and API-based submission of data as standard.")
+  (dict "path" "altinn-studio/v9" "nb" "Skjemakontroll" "en" "Validation" "nbDesc" "Du styrer selv hvordan skjema ser ut og oppfører seg." "enDesc" "You control how the form looks and behaves.")
+  (dict "path" "altinn-studio/v9" "nb" "Vedlegg" "en" "Attachments" "nbDesc" "Vi støtter opplasting av vedlegg, både direkte i et skjema og via API. " "enDesc" "We support uploading attachments, both directly in a form and via API.")
+  (dict "path" "altinn-studio/v9" "nb" "Forhåndsutfylte data" "en" "Prefill of data" "nbDesc" "Du kan hjelpe brukeren på vei ved å forhåndsutfylle skjema med data man allerede har tilgjengelig." "enDesc" "You can help the user along by pre-filling forms with data already available.")
+  (dict "path" "altinn-studio/v9" "nb" "Kodelister" "en" "Code lists" "nbDesc" "Vi har støtte for å hente inn valgmuligheter til felt/skjema fra en rekke standard kodelister." "enDesc" "We support fetching options for fields/forms from a range of standard code lists.")
+  (dict "path" "altinn-studio/v9" "nb" "Dynamiske uttrykk" "en" "Dynamic expressions" "nbDesc" "Dynamiske uttrykk lar deg uttrykke logikk og valideringer i et enkelt JSON-basert språk" "enDesc" "Dynamic expressions allow you to express logic and validations in a simple JSON-based language.")
+  (dict "path" "altinn-studio/v9" "nb" "Full fleksibilitet" "en" "Complete flexibility" "nbDesc" "Hver tjeneste er en fullstendig web-applikasjon, og man har dermed stor fleksibilitet." "enDesc" "Each service is a complete web application, providing great flexibility.")
+  (dict "path" "altinn-studio/v9" "nb" "Prosess" "en" "Process" "nbDesc" "Hver tjeneste kommer med en prosessflyt som kan konfigureres." "enDesc" "Each service comes with a configurable process flow.")
+  (dict "path" "altinn-studio/v9" "nb" "Utvikling" "en" "Development" "nbDesc" "Altinn Studio er åpen kildekode, og ny funksjonalitet og feilrettinger legges ut fortløpende." "enDesc" "Altinn Studio is open source, and new features and bug fixes are released continuously.") }}
+{{ range $cards }}
+<div class="authz-card authz-small" href="{{ .path | relLangURL }}">
+  <h3>{{ if $nb }}{{ .nb }}{{ else }}{{ .en }}{{ end }}</h3>
+  <p>{{ if $nb }}{{ .nbDesc }}{{ else }}{{ .enDesc }}{{ end }}</p>
+  <!-- <span class="authz-card-link" aria-hidden="true">→</span> -->
+</div>
+{{ end }}
