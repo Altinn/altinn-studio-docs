@@ -11,13 +11,18 @@ En systemoppgave kjører automatisk på serveren, og prosessen går normalt vide
 er ferdig. Noen ganger er ikke resultatet klart med en gang — for eksempel når appen har sendt en forespørsel
 til et annet system og venter på svar. Da kan systemoppgaven sette prosessen på vent.
 
-Appen viser automatisk en venteside til brukeren så lenge prosessen står på systemoppgaven. Du trenger ikke
+Appen viser automatisk en innebygd side til brukeren så lenge prosessen står på systemoppgaven. Du trenger ikke
 definere et eget steg i prosessen eller lage egne sider — derfor kaller vi det et *implisitt* ventesteg.
 
 Se [oppgavetyper]({{<relref "/altinn-studio/v9/develop-a-service/process/reference/task-types" >}}) for mer
 om systemoppgaver generelt.
 
 ## Sett prosessen på vent
+
+En systemoppgave kan vente på to måter. Hvilken som passer, kommer an på hvordan utfallet når deg: om det
+eksterne systemet kan kalle tilbake, eller om oppgaven selv må gå og se etter.
+
+### Parkere prosessen til noe slipper den videre
 
 Returner `ServiceTaskResult.SuccessWithoutAutoAdvance()` fra `Execute`-metoden i systemoppgaven. Oppgaven
 regnes som vellykket, men prosessen går ikke videre av seg selv. Den blir stående på systemoppgaven til noen
@@ -34,6 +39,51 @@ public async Task<ServiceTaskResult> Execute(ServiceTaskContext context)
 
 Tilstanden lagres på serveren. Ventingen overlever derfor at brukeren laster siden på nytt eller kommer
 tilbake senere — brukeren lander på den samme ventesiden helt til prosessen går videre.
+
+Ingenting driver prosessen videre av seg selv her. Kommer kallet aldri, blir instansen stående på oppgaven i
+det uendelige.
+
+### Sjekke selv til utfallet kommer
+
+Returner `ServiceTaskResult.Defer(delay, reason)` når ingenting kan kalle tilbake, og oppgaven selv må finne
+det ut. Prosessen settes på vent, arbeideren frigjøres, og oppgaven kjører igjen etter `delay` — så mange
+ganger som den trenger, til den returnerer et resultat som avslutter den. Ingen feil blir registrert
+underveis. En utsettelse er en venting, ikke et mislykket forsøk.
+
+```C#
+public async Task<ServiceTaskResult> Execute(ServiceTaskContext context)
+{
+    var status = await CheckExternalSystem(...);
+    if (status.IsFinished)
+    {
+        return ServiceTaskResult.Success();
+    }
+
+    return ServiceTaskResult.Defer(TimeSpan.FromMinutes(5), "Venter på at det eksterne systemet blir ferdig");
+}
+```
+
+Velg hver `delay` ut fra hvor raskt utfallet realistisk kan komme. Å sjekke ofte i starten og så øke
+intervallet er vanligvis riktig form, og oppgaven velger på nytt hver gang den utsetter.
+
+En utsettelse lagrer ingenting. Oppgaven kjøres på nytt fra starten, så det den må huske mellom sjekkene –
+først og fremst at en forespørsel alt er sendt – kan ikke ligge i utsettelsen. Gi det arbeidet sitt eget
+steg i systemoppgaven, et steg som fullfører i stedet for å utsette, slik at det ikke gjentas ved hver ny sjekk.
+
+`context.Wait` forteller oppgaven hvor lenge den har ventet, og hvor mange sjekker den har gjort. Bruk
+`context.Wait.IsFinalCheck` til å kjenne igjen den siste sjekken før tiden er ute, slik at oppgaven kan feile
+med sin egen forklaring på hva som aldri kom, i stedet for et generisk tidsavbrudd.
+
+Ventingen har en øvre grense, og det er den andre forskjellen fra en parkert prosess: `WaitBudget` setter tak
+på hvor lang tid en oppgave til sammen kan bruke på å utsette, og motoren feiler steget når tiden er brukt
+opp. Sett grensen ut fra hvor lang tid utfallet legitimt kan ta:
+
+```C#
+public ProcessStepOptions? StepOptions => new() { WaitBudget = TimeSpan.FromHours(2) };
+```
+
+eFormidling-systemoppgaven er det innebygde eksempelet: den sender meldingen, og utsetter deretter til
+integrasjonspunktet bekrefter at den er levert.
 
 ## Hva brukeren ser
 
@@ -53,6 +103,22 @@ erfaringsmessig bruker lang tid:
 Appen sjekker prosesstilstanden jevnlig mens brukeren venter. Den starter med å spørre hvert sekund, og øker
 gradvis intervallet opp til maksimalt 30 sekunder. I det øyeblikket prosessen går videre, sender appen
 brukeren automatisk til neste steg.
+
+### Mens en oppgave som utsetter, venter
+
+Siden over er den en *parkert* prosess viser. En oppgave som utsetter, står fortsatt midt i en
+prosessovergang, og brukeren ser derfor den innebygde behandlingssiden i appen i stedet — den samme som alle
+tregere overganger viser. Tekstene der er egne ressurser du kan overstyre:
+
+| Nøkkel                             | Standardtekst (bokmål)                                                                                                                                                       |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `process_workflow.advancing_title` | Vi jobber med skjemaet ditt                                                                                                                                                  |
+| `process_workflow.advancing_body`  | Du trenger ikke gjøre noe. Vi sender deg videre så snart alt er klart.                                                                                                        |
+| `process_workflow.still_working`   | Dette tar uvanlig lang tid. Opplysningene dine er lagret, og vi fortsetter automatisk – du kan trygt lukke siden og komme tilbake på et senere tidspunkt.                     |
+
+`process_workflow.still_working` kommer etter 30 sekunder, og er dermed teksten som bærer en lang venting. Den
+er verdt å tilpasse hvis oppgaven din kan holde brukeren ventende i timer. Også her blir brukeren sendt videre
+til neste steg automatisk når prosessen går videre.
 
 ## Egen layout i stedet for ventesiden
 
@@ -84,6 +150,10 @@ Den vanligste integrasjonen er at det eksterne systemet kaller dette endepunktet
 sin, med et Maskinporten-token for tjenesteeieren.
 
 ## Autorisasjon
+
+Denne delen handler om en parkert prosess. En oppgave som utsetter, er ikke avhengig av et
+`process/next`-kall i det hele tatt – den avslutter seg selv – så ingenting av det som står under, gjelder
+den.
 
 {{% notice warning %}}
 En systemoppgave som venter, er **bare** beskyttet av autorisasjon. Ingenting annet hindrer et
