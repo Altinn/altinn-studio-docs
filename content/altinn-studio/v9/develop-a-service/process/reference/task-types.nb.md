@@ -163,7 +163,7 @@ Eksempel på PDF-systemoppgave:
 ```
 
 ### Overføre data via eFormidling (`eFormidling`)
-Sender instansdata via eFormidling når prosessen når oppgaven. All konfigurasjon for meldingen ligger på selve oppgaven, i `<altinn:eFormidlingConfig>`. Plasser oppgaven der du vil at meldingen skal sendes, vanligvis etter oppgaven som produserer dataene du vil sende. Se [Slik setter du opp eFormidling]({{< relref "/altinn-studio/v9/receive-data/eFormidling" >}}) for hele oppsettet.
+Sender instansdata via eFormidling når prosessen når oppgaven. Oppgaven venter deretter på at integrasjonspunktet bekrefter at meldingen er levert, og prosessen går først videre når bekreftelsen har kommet. Du skal derfor ikke legge en tilbakemeldingsoppgave etter den. All konfigurasjon for meldingen ligger på selve oppgaven, i `<altinn:eFormidlingConfig>`. Plasser oppgaven der du vil at meldingen skal sendes, vanligvis etter oppgaven som produserer dataene du vil sende. Se [Slik setter du opp eFormidling]({{< relref "/altinn-studio/v9/receive-data/eFormidling" >}}) for hele oppsettet.
 
 Eksempel på eFormidling-systemoppgave:
 

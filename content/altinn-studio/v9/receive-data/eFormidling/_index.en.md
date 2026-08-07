@@ -11,9 +11,7 @@ In v9, eFormidling is a **service task**. You add it as a step in the app's proc
 
 ## Prerequisites
 
-Before you set up eFormidling, you need to configure:
-  * [Maskinporten integration](#maskinporten-integration)
-  * [Events](#events)
+Before you set up eFormidling, you need to configure [Maskinporten integration](#maskinporten-integration).
 
 ### Maskinporten integration
 
@@ -31,68 +29,6 @@ To enable eFormidling in your app, you need to [set up integration between your 
     services.ConfigureMaskinportenClient("CustomMaskinportenSettingsPath");
   }
   ```
-
-### Events
-
-You need to set up an [event subscription](/en/altinn-studio/v8/reference/logic/events/subscribing/) so your app knows the delivery status of messages sent through eFormidling.
-
-{{% expandlarge id="event-subscription-setup" header="Event subscription setup" %}}
-
-* Add a new secret `EventSubscription--SecretCode` to Azure Key Vault.
-* Create a new `.cs` file and add the following code:
-{{< code-title >}}
-  App/logic/Events/EventSecretCodeProvider.cs
-{{< /code-title >}}
-
-  ```csharp
-  using Altinn.App.Core.Internal.Events;
-  using System;
-  using System.Threading.Tasks;
-  using Altinn.App.Core.Internal.Secrets;
-
-  namespace Altinn.App.logic.Events
-  {
-    public class EventSecretCodeProvider : IEventSecretCodeProvider
-    {
-      private readonly ISecretsClient _keyVaultClient;
-      private string _secretCode = string.Empty;
-
-      public EventSecretCodeProvider(ISecretsClient keyVaultClient)
-      {
-        _keyVaultClient = keyVaultClient;
-      }
-
-      public async Task<string> GetSecretCode()
-      {
-        if (!string.IsNullOrEmpty(_secretCode))
-        {
-          return _secretCode;
-        }
-
-        var secretKey = "EventSubscription--SecretCode";
-        string secretCode = await _keyVaultClient.GetSecretAsync(secretKey);
-        _secretCode = secretCode ?? throw new ArgumentException($"Unable to fetch event subscription secret code from Key Vault with the specified secret {secretKey}.");
-        return _secretCode;
-      }
-    }
-  }
-  ```
-* In `Program.cs`, add the following to `RegisterCustomAppServices`:
-{{< code-title >}}
-  App/Program.cs
-{{< /code-title >}}
-
-```csharp
-void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
-{
-  services.AddSingleton<IEventSecretCodeProvider, EventSecretCodeProvider>();
-
-  // Configure HTTP client for Events API with Maskinporten authorisation
-  services.AddHttpClient<IEventsSubscription, EventsSubscriptionClient>()
-    .UseMaskinportenAltinnAuthorization("altinn:serviceowner/instances.read");
-}
-```
-{{% /expandlarge %}}
 
 ## Set up eFormidling in your app {#eFormidling-setup}
 
@@ -163,7 +99,9 @@ This ensures that the sequence flows and the diagram stay correct.
 | dpfShipmentType | string   | No           | The DPF shipment type used for routing in the receiving system                                                                                                                                                                                             |
 | dataTypes       | array    | No           | List of data types to include in the shipment. Each data type is added as its own `<altinn:dataType>ref-data-as-pdf</altinn:dataType>` element.                                                                                                            |
 
-**Note:** Altinn only supports the DPF and DPO shipment types. If a required property is missing, the service task stops with a configuration error when the process reaches it.
+**Note:** Altinn only supports the DPF and DPO shipment types.
+
+The app checks its eFormidling configuration when it starts, not when the first instance reaches the task, and reports every problem it finds at once. The app refuses to start if an eFormidling task has no `<altinn:eFormidlingConfig>` block, is missing a required setting for the environment being started, names a data type that is not defined in `applicationmetadata.json`, or is enabled without the eFormidling services having been [registered](#eFormidling-setup-program). A task that is turned off for the environment being started does not need the services, so an app that uses eFormidling only in production still starts locally.
 
 #### Environment-specific values {#eFormidling-setup-env}
 
@@ -193,7 +131,7 @@ App/logic/EFormidling/EFormidlingMetadata.cs
 ```cs
 public class EFormidlingMetadata : IEFormidlingMetadata
 {
-  public async Task<(string MetadataFilename, Stream Metadata)> GenerateEFormidlingMetadata(Instance instance)
+  public async Task<(string MetadataFilename, Stream Metadata)> GenerateEFormidlingMetadata(IInstanceDataAccessor dataAccessor)
   {
       YourMessageType yourMessage = new YourMessageType();
 
@@ -228,6 +166,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Altinn.App.Core.EFormidling.Interface;
+using Altinn.App.Core.Features;
 using Altinn.App.Core.Internal.App;
 using Altinn.App.Core.Models;
 using Altinn.App.Models.Arkivmelding;
@@ -248,8 +187,9 @@ public class EFormidlingMetadata : IEFormidlingMetadata
         _logger = logger;
     }
 
-    public async Task<(string MetadataFilename, Stream Metadata)> GenerateEFormidlingMetadata(Instance instance)
+    public async Task<(string MetadataFilename, Stream Metadata)> GenerateEFormidlingMetadata(IInstanceDataAccessor dataAccessor)
     {
+        Instance instance = dataAccessor.Instance;
         string title = $"{_applicationMetadata.Title["nb"]}";
         Guid mappeSystemID = Guid.NewGuid();
 
@@ -360,14 +300,14 @@ App/logic/EFormidling/EFormidlingReceivers.cs
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Altinn.App.Core.EFormidling.Interface;
+using Altinn.App.Core.Features;
 using Altinn.Common.EFormidlingClient.Models.SBD;
-using Altinn.Platform.Storage.Interface.Models;
 
 namespace Altinn.App.logic.EFormidling;
 
 public class EFormidlingReceivers : IEFormidlingReceivers
 {
-    public async Task<List<Receiver>> GetEFormidlingReceivers(Instance instance)
+    public async Task<List<Receiver>> GetEFormidlingReceivers(IInstanceDataAccessor dataAccessor, string? receiverFromConfig)
     {
         Identifier identifier = new()
         {
@@ -383,14 +323,24 @@ public class EFormidlingReceivers : IEFormidlingReceivers
 }
 ```
 
+`receiverFromConfig` carries the `<altinn:receiver>` value from the service task configuration, or `null` when the element is absent, so your implementation can fall back to the configured receiver rather than duplicating it. The default implementation does only that: it returns the configured receiver, and an empty list when there is none.
+
 **Note:** Only Norwegian organisations are supported, and you must use the prefix `0192:` before the organisation number.
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-### Add a feedback task {#eFormidling-setup-process}
-We recommend that you add a [feedback task](/en/altinn-studio/v9/develop-a-service/reference/process/tasks/#feedback-task) to your app process. This ensures that the process continues when the message has been received.
-No further changes are needed once you have added the task, as the eFormidling service will automatically move the process forward.
-If you want to customise the texts shown to the user during this step, you can override the [text keys](/nb/altinn-studio/v9/develop-a-service/reference/configuration/process/customize/#feedback) (documentation available in Norwegian only).
+### Wait for the delivery confirmation {#eFormidling-setup-process}
+The service task is not finished when the shipment has been handed to the integrasjonspunkt. It is finished when the integrasjonspunkt confirms that the shipment has been delivered. The task sends, and then checks the delivery status itself — first after 15 seconds, then every minute, then every five minutes, and finally every quarter of an hour. The process moves on to the next step only once delivery is confirmed.
+
+The task waits for about two and a half hours altogether. A shipment has a two-hour lifetime of its own, and the task deliberately waits a little longer than that, so a shipment that expires fails with the integrasjonspunkt's own verdict instead of a generic timeout.
+
+The task fails if the shipment is rejected, or if the integrasjonspunkt reports that it has expired. That failure is not retried: the id of an eFormidling shipment is tied to the instance id, so the same shipment can never be sent again, and someone has to follow it up by hand. Either way, the last status the integrasjonspunkt reported is written to the instance as the data value `eFormidlingShipmentStatus`, so you can see what became of a shipment long after the process has moved on.
+
+While the app waits, the end user sees the built-in processing page, which tells them that the app is working and that they do not need to do anything. After 30 seconds it adds that this is taking longer than usual and that the page can safely be closed and revisited later. The texts are text resources (`process_workflow.advancing_title`, `process_workflow.advancing_body` and `process_workflow.still_working`) that your app can override. The user is taken on to the next step automatically once the process advances.
+
+{{% notice warning %}}
+**Do not add a feedback task after the eFormidling task.** In v8 a feedback task was needed to hold the instance while delivery was pending, and a reminder built on Altinn Events moved the process past it once the shipment arrived. That reminder is gone in v9, because the service task now does the waiting itself. Nothing moves a feedback task behind the eFormidling task forward, so instances left there wait indefinitely. If you are upgrading an app from v8, remove it — `studioctl app upgrade v9` reports feedback tasks that sit behind a service task.
+{{% /notice %}}
 
 ### Ensure unique filenames {#eFormidling-setup-filenames}
 Filenames of attachments sent through eFormidling must be unique. The integration contains logic to guarantee this and may change the filenames slightly before the files are sent.
@@ -398,11 +348,11 @@ Filenames of attachments sent through eFormidling must be unique. The integratio
 ## Testing
 We recommend thorough testing of the eFormidling integration in your app.
 Safety measures and retry mechanisms are in place to ensure that a shipment reaches the receiver when errors are due to weak network connections.
-However, invalid shipments (including missing attachments or mistakes in the `"arkivmelding"`) will cause the shipment to fail without warning to the end user or app owner.
+An invalid shipment — a missing attachment, or a mistake in the `"arkivmelding"` — still makes the shipment fail, but in v9 that failure fails the service task as well, so it surfaces instead of passing unnoticed. The shipment cannot be sent again automatically, so it needs manual follow-up.
 
 ### Local testing
 {{%notice warning%}}
-You **cannot** currently test the eFormidling integration locally, as <a href="https://github.com/felleslosninger/efm-mocks" target="_blank" rel="noopener noreferrer">efm-mocks</a> (required for local testing) is being renovated. In the meantime, set `<altinn:disabled env="development">true</altinn:disabled>` on the service task so the process completes locally without attempting to send.
+You **cannot** currently test the eFormidling integration locally, as <a href="https://github.com/felleslosninger/efm-mocks" target="_blank" rel="noopener noreferrer">efm-mocks</a> (required for local testing) is being renovated. In the meantime, set `<altinn:disabled env="development">true</altinn:disabled>` on the service task so the process completes locally without attempting to send. If you leave eFormidling enabled locally, the send fails and the process stops on the service task with an error.
 {{% /notice%}}
 
 ### Test environment (TT02)
