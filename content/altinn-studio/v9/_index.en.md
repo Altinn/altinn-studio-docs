@@ -5,7 +5,7 @@ breadcrumbText: V9 (next)
 description: Altinn Studio - Your tool to develop digital services for citizens and businesses
 weight: 1
 draft: true
-toc:false
+toc: false
 layout: authorization-landing
 cascade:
   params:
