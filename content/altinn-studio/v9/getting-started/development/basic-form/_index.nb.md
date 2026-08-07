@@ -4,6 +4,8 @@ linktitle: Lag et enkelt skjema
 description: Du skal lage et enkelt skjema i Altinn Studio. 
 weight: 1
 draft: true
+
+# Marp settings - used for generating a HTML/PDF presentation that can be used in live training sessions.
 marp: true
 headingDivider: 4
 style: |
@@ -12,6 +14,7 @@ style: |
   }
 header: 'Lag et enkelt skjema'
 footer: 'Altinn Studio - kom i gang'
+# End of Marp settings
 ---
 
 ### Opprette ny tjeneste
