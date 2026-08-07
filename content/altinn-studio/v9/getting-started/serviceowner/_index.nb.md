@@ -8,7 +8,7 @@ weight: 98
 
 ## Lag en bruker
 Alle som ønsker å teste og/eller bruke Altinn Studio må først lage en bruker. Dette er selvbetjent.
-[Følg denne veiledningen for å komme i gang](create-user). 
+[Følg denne veiledningen for å komme i gang](../create-user). 
 
 Om du skal ha tilgang til å lage tjenester for en organisasjon må du kontakte den som administrerer Altinn Studio
 for din organisasjon.
