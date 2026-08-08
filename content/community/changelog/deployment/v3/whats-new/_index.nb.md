@@ -4,6 +4,12 @@ description: Oversikt over endringer som ble introdusert i v3 av deployment.
 toc: true
 ---
 
+## 3.3.0
+
+* Legger til betinget dual stack konfigurasjon med IPv4/IPv6 støtte når ipv6.enabled er true (standard).
+
+[View release on Github](https://github.com/Altinn/altinn-studio-charts/releases/tag/deployment-3.3.0)
+
 ## 3.2.0
 
 * Oppgrader Traefik API fra traefik.containo.us til traefik.io
