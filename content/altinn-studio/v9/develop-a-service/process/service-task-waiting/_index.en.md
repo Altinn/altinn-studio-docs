@@ -138,8 +138,9 @@ custom layout. A custom layout can never hide a failure.
 
 The failure page gives the user two options:
 
-- **Try again** re-runs the failed step via `POST .../process/resume`.
-- **Go back** performs the `reject` action, if the process model defines one for the task.
+- **Try again** re-runs the failed step via `POST .../process/resume`. It requires `write` access.
+- **Go back** performs the `reject` action. The button is only shown when the user is authorized for
+  `reject`, which takes both the action on the task in the process model and a policy rule granting it.
 
 ## Releasing the process
 

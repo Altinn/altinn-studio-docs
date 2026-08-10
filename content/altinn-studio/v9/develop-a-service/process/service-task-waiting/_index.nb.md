@@ -135,8 +135,9 @@ En egen layout kan aldri skjule en feil.
 
 Feilsiden gir brukeren to muligheter:
 
-- **Prøv igjen** kjører det feilede steget på nytt via `POST .../process/resume`.
-- **Gå tilbake** utfører `reject`-handlingen, hvis prosessmodellen har definert den for oppgaven.
+- **Prøv igjen** kjører det feilede steget på nytt via `POST .../process/resume`. Det krever `write`-tilgang.
+- **Gå tilbake** utfører `reject`-handlingen. Knappen vises bare når brukeren har tilgang til `reject`,
+  og det krever både at handlingen er definert på oppgaven i prosessmodellen og en regel i policyen.
 
 ## Slipp prosessen videre
 
