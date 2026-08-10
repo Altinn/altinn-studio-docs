@@ -101,7 +101,7 @@ The PDF service task needs its own layout set to define the content. If you use 
 
 The files and folder structure should look approximately like this:
 
-```
+```text
 App/ui/
 ├── layout-sets.json
 ├── form/

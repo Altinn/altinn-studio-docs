@@ -97,7 +97,7 @@ PDF-systemoppgaven trenger et eget layoutsett for å definere innholdet. Bruker 
 
 Filene og mappestrukturen skal se omtrent slik ut:
 
-```
+```text
 App/ui/
 ├── layout-sets.json
 ├── form/
