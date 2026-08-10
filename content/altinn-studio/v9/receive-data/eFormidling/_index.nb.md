@@ -328,15 +328,11 @@ public class EFormidlingReceivers : IEFormidlingReceivers
 {
     public async Task<List<Receiver>> GetEFormidlingReceivers(IInstanceDataAccessor dataAccessor, string? receiverFromConfig)
     {
-        // Finn mottakeren ut fra instansen. Bytt ut YourDataModel og feltet nedenfor med din egen
-        // modell og feltet der mottakeren faktisk ligger – å bestemme mottakeren per instans er
-        // hele grunnen til å implementere dette grensesnittet.
+        // Der appen din faktisk har mottakeren.
         YourDataModel? formData = await dataAccessor.GetFormData<YourDataModel>();
         string? organisationNumber = formData?.ReceiverOrganisationNumber;
 
-        // Ved å falle tilbake på <altinn:receiver> beholder du konfigurasjonen på systemoppgaven
-        // som standardverdi, i stedet for å gjenta organisasjonsnummeret her. Tomt teller som
-        // fraværende: et felt ingen har fylt ut, er en tom streng – ikke null.
+        // Fall tilbake på mottakeren fra BPMN-konfigurasjonen.
         if (string.IsNullOrWhiteSpace(organisationNumber))
         {
             organisationNumber = receiverFromConfig;
@@ -344,15 +340,15 @@ public class EFormidlingReceivers : IEFormidlingReceivers
 
         if (string.IsNullOrWhiteSpace(organisationNumber))
         {
-            // Ingen å sende til, og ingenting som ordner seg av seg selv. La meldingen feile med
-            // en gang, i stedet for å bli forsøkt på nytt.
-            throw new EformidlingDeliveryException("Fant ingen eFormidling-mottaker for denne instansen.");
+            throw new EformidlingDeliveryException(
+                "Fant ingen eFormidling-mottaker."
+            );
         }
 
         Identifier identifier = new()
         {
             Authority = "iso6523-actorid-upis",
-            // Alle norske organisasjoner må ha prefikset '0192:'
+            // Norske organisasjoner må ha prefikset '0192:'.
             Value = $"0192:{organisationNumber.Trim()}"
         };
 
@@ -361,7 +357,11 @@ public class EFormidlingReceivers : IEFormidlingReceivers
 }
 ```
 
-`receiverFromConfig` inneholder verdien fra `<altinn:receiver>` i konfigurasjonen av systemoppgaven, eller `null` når elementet mangler. Da kan koden din falle tilbake på mottakeren fra konfigurasjonen i stedet for å gjenta den. Standardimplementasjonen gjør bare det: den returnerer mottakeren fra konfigurasjonen, og en tom liste når det ikke finnes noen.
+Bytt ut `YourDataModel` og `ReceiverOrganisationNumber` med din egen modell og feltet mottakeren faktisk kommer fra. Å finne mottakeren per instans er hele grunnen til å implementere dette grensesnittet – er den den samme for alle instanser, hører den hjemme i `<altinn:receiver>` i stedet.
+
+`receiverFromConfig` inneholder verdien fra `<altinn:receiver>` i konfigurasjonen av systemoppgaven, eller `null` når elementet mangler. Da kan koden din falle tilbake på mottakeren fra konfigurasjonen i stedet for å gjenta den. Standardimplementasjonen gjør bare det: den returnerer mottakeren fra konfigurasjonen, og en tom liste når det ikke finnes noen. Behandle tomt som fraværende når du faller tilbake, slik eksemplet gjør: et felt ingen har fylt ut, er en tom streng – ikke `null`.
+
+Det er `EformidlingDeliveryException` som gjør at en mottaker du ikke klarer å finne, lar meldingen feile med en gang. Systemoppgaven fanger nettopp dette unntaket og feiler permanent, uten nye forsøk – og det er riktig utfall her, for ingen nye forsøk vil trylle fram en mottaker. Alle andre unntakstyper blir forsøkt på nytt først.
 
 **Merk:** Kun norske organisasjoner støttes, og du må bruke prefikset `0192:` før organisasjonsnummeret.
 {{</content-version-container>}}

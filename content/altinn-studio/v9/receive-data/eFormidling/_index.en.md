@@ -328,15 +328,11 @@ public class EFormidlingReceivers : IEFormidlingReceivers
 {
     public async Task<List<Receiver>> GetEFormidlingReceivers(IInstanceDataAccessor dataAccessor, string? receiverFromConfig)
     {
-        // Work out the receiver from the instance. Replace YourDataModel and the field below with
-        // your own model and wherever the receiver actually comes from in your app - deciding this
-        // per instance is the whole reason to implement this interface.
+        // Where your app actually keeps the receiver.
         YourDataModel? formData = await dataAccessor.GetFormData<YourDataModel>();
         string? organisationNumber = formData?.ReceiverOrganisationNumber;
 
-        // Falling back on <altinn:receiver> keeps the service task configuration as the default,
-        // instead of repeating the organisation number here. Blank counts as absent: a form field
-        // nobody filled in is an empty string, not null.
+        // Fall back on the receiver from the BPMN configuration.
         if (string.IsNullOrWhiteSpace(organisationNumber))
         {
             organisationNumber = receiverFromConfig;
@@ -344,15 +340,15 @@ public class EFormidlingReceivers : IEFormidlingReceivers
 
         if (string.IsNullOrWhiteSpace(organisationNumber))
         {
-            // Nothing to send to, and nothing that will fix itself: fail the shipment outright
-            // rather than let it be retried.
-            throw new EformidlingDeliveryException("No eFormidling receiver could be determined for this instance.");
+            throw new EformidlingDeliveryException(
+                "No eFormidling receiver could be determined."
+            );
         }
 
         Identifier identifier = new()
         {
             Authority = "iso6523-actorid-upis",
-            // All Norwegian organisations need a prefix of '0192:'
+            // Norwegian organisations need the '0192:' prefix.
             Value = $"0192:{organisationNumber.Trim()}"
         };
 
@@ -361,7 +357,11 @@ public class EFormidlingReceivers : IEFormidlingReceivers
 }
 ```
 
-`receiverFromConfig` carries the `<altinn:receiver>` value from the service task configuration, or `null` when the element is absent, so your implementation can fall back to the configured receiver rather than duplicating it. The default implementation does only that: it returns the configured receiver, and an empty list when there is none.
+Replace `YourDataModel` and `ReceiverOrganisationNumber` with your own model and the field the receiver actually comes from. Working the receiver out per instance is the whole reason to implement this interface — if it is the same for every instance, put it in `<altinn:receiver>` instead.
+
+`receiverFromConfig` carries the `<altinn:receiver>` value from the service task configuration, or `null` when the element is absent, so your implementation can fall back to the configured receiver rather than duplicating it. The default implementation does only that: it returns the configured receiver, and an empty list when there is none. Treat blank as absent when you fall back, as above: a form field nobody filled in is an empty string, not `null`.
+
+Throwing `EformidlingDeliveryException` is what makes a receiver you cannot determine fail the shipment outright. The service task catches that exception specifically and fails permanently, without retrying — which is the right outcome here, because no number of retries will conjure up a receiver. Any other exception type would be retried first.
 
 **Note:** Only Norwegian organisations are supported, and you must use the prefix `0192:` before the organisation number.
 {{</content-version-container>}}
