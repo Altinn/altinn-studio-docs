@@ -1,7 +1,7 @@
 ---
 draft: true
-title: Definere autorisasjonspolicy
-linktitle: Autorisasjon
+title: Definere hvem som skal ha tilgang til hva
+linktitle: Tilgangsstyring
 description: I Altinn Studio designer kan applikasjonsutvikleren definere policyen for applikasjonen som er opprettet
 tags: [needsReview, needsTranslation, needsLinks]
 ---
