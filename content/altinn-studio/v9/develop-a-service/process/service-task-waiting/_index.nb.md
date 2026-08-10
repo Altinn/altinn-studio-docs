@@ -47,7 +47,8 @@ det uendelige.
 
 Returner `ServiceTaskResult.Defer(delay, reason)` når ingenting kan kalle tilbake, og oppgaven selv må finne
 det ut. Prosessen settes på vent, arbeideren frigjøres, og oppgaven kjører igjen etter `delay` — så mange
-ganger som den trenger, til den returnerer et resultat som avslutter den. Ingen feil blir registrert
+ganger som den trenger. To ting stopper utsettingen: et resultat som avslutter oppgaven, eller at
+`WaitBudget` nedenfor blir brukt opp – da regner motoren steget som feilet. Ingen feil blir registrert
 underveis. En utsettelse er en venting, ikke et mislykket forsøk.
 
 ```C#
@@ -106,7 +107,7 @@ brukeren automatisk til neste steg.
 
 ### Mens en oppgave som utsetter, venter
 
-Siden over er den en *parkert* prosess viser. En oppgave som utsetter, står fortsatt midt i en
+Siden over vises når prosessen er *parkert*. En oppgave som utsetter, står fortsatt midt i en
 prosessovergang, og brukeren ser derfor den innebygde behandlingssiden i appen i stedet — den samme som alle
 tregere overganger viser. Tekstene der er egne ressurser du kan overstyre:
 

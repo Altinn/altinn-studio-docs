@@ -48,8 +48,9 @@ sitting on the task indefinitely.
 
 Return `ServiceTaskResult.Defer(delay, reason)` when there is nothing that can call you back and the task has
 to find out for itself. The process is put on hold, the worker is released, and the task runs again after
-`delay` — as many times as it needs to, until it returns a result that concludes it. No error is recorded
-along the way; a deferral is a wait, not a failed attempt.
+`delay` — as many times as it needs to. Two things end the deferring: a result that concludes the task, or the
+`WaitBudget` below running out, which the engine treats as a failed step. No error is recorded along the way;
+a deferral is a wait, not a failed attempt.
 
 ```C#
 public async Task<ServiceTaskResult> Execute(ServiceTaskContext context)
