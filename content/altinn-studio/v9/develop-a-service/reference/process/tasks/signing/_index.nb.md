@@ -96,8 +96,7 @@ Eksempel på en applicationmetadata.json-fil med en signaturdatatype kalt "signa
         "application/pdf"
       ],
       "maxCount": 0,
-      "minCount": 0,
-      "enablePdfCreation": true
+      "minCount": 0
     },
     {
       "id": "Modell",
@@ -112,8 +111,7 @@ Eksempel på en applicationmetadata.json-fil med en signaturdatatype kalt "signa
       },
       "taskId": "Task_1",
       "maxCount": 1,
-      "minCount": 1,
-      "enablePdfCreation": true
+      "minCount": 1
     },
     {
       "id": "signatur",
@@ -123,8 +121,7 @@ Eksempel på en applicationmetadata.json-fil med en signaturdatatype kalt "signa
       "taskId": "Task_2",
       "maxSize": 25,
       "maxCount": 1,
-      "minCount": 0,
-      "enablePdfCreation": false
+      "minCount": 0
     }
   ],
   "partyTypesAllowed": {

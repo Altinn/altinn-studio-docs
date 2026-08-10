@@ -7,17 +7,11 @@ toc: true
 weight: 50
 ---
 
-Vi har laget en [eksempelapp](https://altinn.studio/repos/ttd/eformidling-sample-app) som viser det komplette eFormidling-oppsettet.
-
-{{%notice info%}}
-Denne siden beskriver oppsettet for en **v8** Altinn-app. For tidligere versjoner, se [eFormidling-oppsett for v7-dokumentasjonen](/nb/altinn-studio/v8/reference/configuration/eformidling/).
-{{% /notice%}}
+I v9 er eFormidling en **systemoppgave**. Du legger den til som et steg i app-prosessen (`process.bpmn`), og all konfigurasjon for meldingen ligger på denne oppgaven. `eFormidling`-seksjonen i `applicationmetadata.json` finnes ikke lenger.
 
 ## Forutsetninger
 
-Før du setter opp eFormidling må du konfigurere:
-  * [Maskinporten-integrasjon](#maskinporten-integrasjon)
-  * [Hendelser](#hendelser)
+Før du setter opp eFormidling, må du ha [integrasjonen mot Maskinporten](#maskinporten-integrasjon) på plass.
 
 ### Maskinporten-integrasjon
 
@@ -36,68 +30,6 @@ For å aktivere eFormidling i appen din, må du [sette opp integrasjon mellom ap
   }
   ```
 
-### Hendelser
-
-Du må sette opp et [hendelsesabonnement](/nb/altinn-studio/v8/reference/logic/events/subscribing/) slik at appen din får vite leveringsstatusen til meldinger som sendes gjennom eFormidling.
-
-{{% expandlarge id="event-subscription-setup" header="Sette opp hendelsesabonnement" %}}
-
-* Legg til en ny hemmelighet `EventSubscription--SecretCode` i Azure Key Vault.
-* Opprett en ny `.cs`-fil og legg til følgende kode:
-{{< code-title >}}
-  App/logic/Events/EventSecretCodeProvider.cs
-{{< /code-title >}}
-
-  ```csharp
-  using Altinn.App.Core.Internal.Events;
-  using System;
-  using System.Threading.Tasks;
-  using Altinn.App.Core.Internal.Secrets;
-
-  namespace Altinn.App.logic.Events
-  {
-    public class EventSecretCodeProvider : IEventSecretCodeProvider
-    {
-      private readonly ISecretsClient _keyVaultClient;
-      private string _secretCode = string.Empty;
-
-      public EventSecretCodeProvider(ISecretsClient keyVaultClient)
-      {
-        _keyVaultClient = keyVaultClient;
-      }
-
-      public async Task<string> GetSecretCode()
-      {
-        if (!string.IsNullOrEmpty(_secretCode))
-        {
-          return _secretCode;
-        }
-
-        var secretKey = "EventSubscription--SecretCode";
-        string secretCode = await _keyVaultClient.GetSecretAsync(secretKey);
-        _secretCode = secretCode ?? throw new ArgumentException($"Unable to fetch event subscription secret code from Key Vault with the specified secret {secretKey}.");
-        return _secretCode;
-      }
-    }
-  }
-  ```
-* I `Program.cs`, legg til følgende i `RegisterCustomAppServices`:
-{{< code-title >}}
-  App/Program.cs
-{{< /code-title >}}
-
-```csharp
-void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
-{
-  services.AddSingleton<IEventSecretCodeProvider, EventSecretCodeProvider>();
-
-  // Konfigurer HTTP-klient for Events API med Maskinporten-autorisasjon
-  services.AddHttpClient<IEventsSubscription, EventsSubscriptionClient>()
-    .UseMaskinportenAltinnAuthorization("altinn:serviceowner/instances.read");
-}
-```
-{{% /expandlarge %}}
-
 ## Sette opp eFormidling i appen {#eFormidling-oppsett}
 
 ### Registrere eFormidling-tjenester {#eFormidling-oppsett-program}
@@ -107,100 +39,105 @@ For å legge til eFormidling-støtte i appen din, må du registrere tjenestene v
   App/Program.cs
 {{< /code-title >}}
 
-```cs{hl_lines=[3]}
+```cs{hl_lines=["3-6"]}
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
-  services.AddEFormidlingServices2<EFormidlingMetadata, EFormidlingReceivers>(config);
+  services
+    .AddEFormidling()
+    .WithMetadata<EFormidlingMetadata>()
+    .WithReceivers<EFormidlingReceivers>();
 }
 ```
 
-### Konfigurere metadata for meldingen {#eFormidling-oppsett-applicationmetadata}
-Du må konfigurere metadata for meldingen i `applicationmetadata.json`.
+Utvidelsesmetodene ligger i navnerommet `Altinn.App.Core.EFormidling.Extensions`, så husk `using` for dette.
 
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="Egenskaper">}}
-For å sette opp nødvendig metadata, må du opprette en ny seksjon `"eFormidling"` i `applicationmetadata.json` og legge til verdier for parameterne som er definert nedenfor.
+`AddEFormidling()` registrerer alt systemoppgaven trenger. Resten av registreringen fullfører du med dine egne implementasjoner:
 
-|      **Egenskap**          |      **Type**     |      **Beskrivelse**                                                                                              |
-|------------------------|---------------|---------------------------------------------------------------------------------------------------------------|
-|     serviceId **\***           |     string    |     ID som spesifiserer forsendelsestype. (DPO, DPV, DPI eller DPF)                                                |
-|     dpfShipmentType    |     string    |     DPF-forsendelsestype som brukes til ruting i mottakersystemet                                          |
-|     receiver           |     string    |     Organisasjonsnummer til mottaker (valgfritt). Kun norske organisasjoner støttes.        |
-|     sendAfterTaskId    |     string    |     ID for oppgaven som må fullføres før meldingen sendes.   |
-|     process **\*\***          |     string    |     Prosesstype                                                                                              |
-|     standard **\*\*\***         |     string    |     Dokumentstandarden                                |
-|     typeVersion        |     string    |     Versjon av meldingstypen                                                                               |
-|     type **\*\*\***             |     string    |     Dokumenttypen                                                                 |
-|     securityLevel **\*\*\***       |     number    |     Sikkerhetsnivå som skal settes på _StandardBusinessDocument_                                              |
-|     dataTypes          |     array     |     Liste over datatyper som skal inkluderes i meldingen                                                            |
+- **`WithMetadata<T>()`** – påkrevd. Registrerer klassen som [genererer meldingsmetadataen](#eFormidling-oppsett-eFormidlingMetadata), vanligvis arkivmeldingen. Ingen standardimplementasjon kan tre inn i stedet, så dette er det eneste kallet du ikke kan utelate. Det er også det eneste `AddEFormidling()` lar deg kalle, og stopper du der, får du en byggefeil (`ALTINNAPP0701`).
+- **`WithReceivers<T>()`** – valgfri. Registrerer en klasse som [setter mottakeren dynamisk](#eFormidling-oppsett-eFormidlingReceivers). Utelater du den, hentes mottakeren fra `<altinn:receiver>` på systemoppgaven.
+- **`WithConfig(...)`** – valgfri. Binder klientinnstillingene for eFormidling til en annen konfigurasjonsseksjon, eller setter dem i kode. Som standard leses de fra seksjonen `EFormidlingClientSettings` i `appsettings.json`.
 
-**\*** Altinn støtter kun DPF og DPO.
+### Legge til eFormidling som en systemoppgave {#eFormidling-oppsett-servicetask}
+eFormidling legges til i prosessen som en systemoppgave, og meldingen sendes når prosessen når denne oppgaven. Plasser oppgaven der du vil at meldingen skal sendes, vanligvis etter oppgaven som produserer dataene du vil sende. Oppgaven må ha en innkommende og en utgående sekvensflyt.
 
-**\*\*** Du kan finne tilgjengelige prosesser for hver mottaker på:
-```http
-https://platform.altinn.no/eformidling/api/capabilities/{orgnummer}
-```
+**Merk:** Du kan ennå ikke dra en eFormidling-oppgave direkte inn i Arbeidsflyt-editoren i Altinn Studio. Inntil videre anbefaler vi denne fremgangsmåten:
 
-**\*\*\*** Du kan finne denne informasjonen på sidene som beskriver hver <a href="https://docs.digdir.no/docs/eFormidling/Utvikling/Dokumenttyper/" target="_blank" rel="noopener noreferrer">dokumenttype</a>, eller ved å bruke URL-en ovenfor.
+1. Dra en vanlig dataoppgave inn i Arbeidsflyt-editoren.
+2. Del endringene i Studio.
+3. Rediger `process.bpmn` på din egen maskin.
+4. Gjør dataoppgaven om til en `bpmn:serviceTask` (se eksemplet nedenfor).
 
-{{</content-version-container>}}
-{{<content-version-container version-label="Eksempel">}}
-Nedenfor er et eksempel på konfigurasjon for meldingstypen `arkivmelding`.
-{{< code-title >}}
-  App/applicationmetadata.json
-{{< /code-title >}}
-
-```json
-{
-...
- "eFormidling": {
-   "serviceId": "DPO",
-   "receiver": "991825827",
-   "sendAfterTaskId": "Task_1",
-   "process": "urn:no:difi:profile:arkivmelding:administrasjon:ver1.0",
-   "standard": "urn:no:difi:arkivmelding:xsd::arkivmelding",
-   "typeVersion": "2.0",
-   "type": "arkivmelding",
-  "securityLevel": 3,
-   "dataTypes": [
-    "ref-data-as-pdf"
-   ]
-  },
-...
-}
-```
-{{</content-version-container>}}
-{{</content-version-selector>}}
-
-### Aktivere eFormidling-integrasjon  {#eFormidling-oppsett-appsettings}
-Du må eksplisitt aktivere eFormidling-integrasjon i appen din.
-I `appsettings.json`, aktiver eFormidling i `"AppSettings"`-seksjonen og legg til en ny seksjon `"EFormidlingClientSettings"`:
+Slik sikrer du at sekvensflytene og diagrammet holder seg korrekte.
 
 {{< code-title >}}
-  App/appsettings.json
+  App/config/process/process.bpmn
 {{< /code-title >}}
 
-```json {hl_lines=[5,"7-9"]}
-{
-  ...
-  "AppSettings": {
-    ...
-    "EnableEFormidling": true
-  },
-  "EFormidlingClientSettings": {
-    "BaseUrl": "http://localhost:9093/api/"
-  }
-}
+```xml
+<bpmn:serviceTask id="Task_eFormidling" name="eFormidling">
+  <bpmn:extensionElements>
+      <altinn:taskExtension>
+          <altinn:taskType>eFormidling</altinn:taskType>
+          <altinn:eFormidlingConfig>
+              <altinn:disabled env="development">true</altinn:disabled> <!-- Hindrer at meldingen sendes under lokal utvikling. -->
+              <altinn:receiver>991825827</altinn:receiver> <!-- Bytt ut med organisasjonsnummeret til mottakeren du faktisk sender til. -->
+              <altinn:process>urn:no:difi:profile:arkivmelding:administrasjon:ver1.0</altinn:process>
+              <altinn:standard>urn:no:difi:arkivmelding:xsd::arkivmelding</altinn:standard>
+              <altinn:typeVersion>2.0</altinn:typeVersion>
+              <altinn:type>arkivmelding</altinn:type>
+              <altinn:securityLevel>3</altinn:securityLevel>
+              <altinn:dpfShipmentType>digital</altinn:dpfShipmentType>
+              <altinn:dataTypes>
+                  <altinn:dataType>ref-data-as-pdf</altinn:dataType>
+              </altinn:dataTypes>
+          </altinn:eFormidlingConfig>
+      </altinn:taskExtension>
+  </bpmn:extensionElements>
+  <bpmn:incoming>Flow_1uewkmg</bpmn:incoming>
+  <bpmn:outgoing>Flow_0c1ure8</bpmn:outgoing>
+</bpmn:serviceTask>
 ```
-Hvis du ikke vil teste eFormidling-integrasjonen lokalt, kan du legge til en `"AppSettings"`-seksjon i `appsettings.Development.json` og sette `"EnableEFormidling"` til `false`.
+
+| **Egenskap**    | **Type** | **Påkrevd** | **Beskrivelse**                                                                                                                                                                                                                                            |
+|-----------------|----------|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| disabled        | boolean  | Nei         | Slår av meldingen uten å fjerne konfigurasjonen. Bruk det valgfrie attributtet `env` for å slå den av kun i bestemte driftsmiljøer (for eksempel `env="development"` for å hoppe over sending under lokal utvikling). Utelat elementet for å aktivere den overalt. |
+| receiver        | string   | Nei         | Organisasjonsnummeret til mottakeren du sender til. Kun norske organisasjoner støttes.                                                                                                                                                                     |
+| process         | string   | Ja          | Prosesstype. Se `https://platform.altinn.no/eformidling/api/capabilities/{orgnummer}`                                                                                                                                                                     |
+| standard        | string   | Ja          | Dokumentstandarden                                                                                                                                                                                                                                        |
+| typeVersion     | string   | Ja          | Versjon av meldingstypen                                                                                                                                                                                                                                  |
+| type            | string   | Ja          | Dokumenttypen, som du finner på sidene som beskriver hver <a href="https://docs.digdir.no/docs/eFormidling/Utvikling/Dokumenttyper/" target="_blank" rel="noopener noreferrer">dokumenttype</a> eller på `https://platform.altinn.no/eformidling/api/capabilities/{orgnummer}` |
+| securityLevel   | number   | Ja          | Sikkerhetsnivå som skal settes på _StandardBusinessDocument_                                                                                                                                                                                               |
+| dpfShipmentType | string   | Nei         | DPF-forsendelsestype som brukes til ruting i mottakersystemet                                                                                                                                                                                             |
+| dataTypes       | array    | Nei         | Liste over datatyper som skal inkluderes i meldingen. Hver datatype legges til som sitt eget element `<altinn:dataType>ref-data-as-pdf</altinn:dataType>`.                                                                                                 |
+
+**Merk:** Altinn støtter kun forsendelsestypene DPF og DPO.
+
+{{% notice info %}}
+**Kommer du fra v8?** Flagget `EnableEFormidling` under `AppSettings` finnes ikke lenger. I v9 er det `<altinn:disabled>` på systemoppgaven som slår av meldingen, og `<altinn:disabled env="…">` tar over for å sette flagget ulikt i ulike `appsettings.<miljø>.json`-filer. `studioctl app upgrade v9` leser det gamle flagget, uttrykker det som `<altinn:disabled>` på den migrerte oppgaven og fjerner det fra `appsettings`-filene.
+
+Seksjonen `EFormidlingClientSettings` i `appsettings.json` er uendret – den konfigurerer fortsatt selve eFormidling-klienten, og verdien settes for deg i test- og produksjonsmiljøene.
+{{% /notice %}}
+
+Appen kontrollerer eFormidling-konfigurasjonen når den starter, ikke når den første instansen kommer til oppgaven, og melder om alle problemene den finner samtidig. Appen nekter å starte hvis en eFormidling-oppgave mangler `<altinn:eFormidlingConfig>`-blokken, mangler en påkrevd innstilling for miljøet som startes, viser til en datatype som ikke er definert i `applicationmetadata.json`, eller er slått på uten at eFormidling-tjenestene er [registrert](#eFormidling-oppsett-program) – også når et `AddEFormidling()`-kall står ufullført, uten metadatagenerator. En oppgave som er slått av for miljøet som startes, trenger ikke tjenestene. En app som bruker eFormidling bare i produksjon, starter derfor fortsatt lokalt.
+
+#### Miljøspesifikke verdier {#eFormidling-oppsett-env}
+
+Alle elementene i `<altinn:eFormidlingConfig>` støtter det valgfrie attributtet `env`, ikke bare `disabled`. Du kan gjenta et element med ulike `env`-verdier, og verdien for gjeldende driftsmiljø går foran verdien uten `env`. Miljønavnene grupperes i tre miljøer: utvikling (`development`, `dev`, `local`, `localtest`), test (`staging`, `test`, `at22`, `at23`, `at24`, `tt02`, `yt01`) og produksjon (`production`, `prod`, `produksjon`).
+
+For eksempel kan du sende til en testmottaker i TT02 og den reelle mottakeren i produksjon (bytt ut begge organisasjonsnumrene med dine egne):
+
+```xml
+<altinn:receiver env="staging">310075809</altinn:receiver>
+<altinn:receiver>991825827</altinn:receiver>
+```
 
 ### Generere meldingsmetadata {#eFormidling-oppsett-eFormidlingMetadata}
-Du er ansvarlig for å lage meldingen som sendes gjennom eFormidling.
+Du lager selv meldingen som sendes gjennom eFormidling.
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Kode/Syntaks">}}
 
-For å lage meldingen, trenger du en klasse som implementerer `IEFormidlingMetadata`-grensesnittet og lager meldingen din i `GenerateEFormidlingMetadata`-metoden. Husk å registrere klassen din i [`Program.cs`](#eFormidling-oppsett-program).
+For å lage meldingen, trenger du en klasse som implementerer `IEFormidlingMetadata`-grensesnittet og lager meldingen din i `GenerateEFormidlingMetadata`-metoden. Registrer den med `WithMetadata<T>()` i [`Program.cs`](#eFormidling-oppsett-program).
 
 Du må erstatte `YourMessageType` og `yourMessage` med meldingstypen din.
 
@@ -211,7 +148,7 @@ App/logic/EFormidling/EFormidlingMetadata.cs
 ```cs
 public class EFormidlingMetadata : IEFormidlingMetadata
 {
-  public async Task<(string MetadataFilename, Stream Metadata)> GenerateEFormidlingMetadata(Instance instance)
+  public async Task<(string MetadataFilename, Stream Metadata)> GenerateEFormidlingMetadata(IInstanceDataAccessor dataAccessor)
   {
       YourMessageType yourMessage = new YourMessageType();
 
@@ -246,6 +183,7 @@ using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Altinn.App.Core.EFormidling.Interface;
+using Altinn.App.Core.Features;
 using Altinn.App.Core.Internal.App;
 using Altinn.App.Core.Models;
 using Altinn.App.Models.Arkivmelding;
@@ -266,8 +204,9 @@ public class EFormidlingMetadata : IEFormidlingMetadata
         _logger = logger;
     }
 
-    public async Task<(string MetadataFilename, Stream Metadata)> GenerateEFormidlingMetadata(Instance instance)
+    public async Task<(string MetadataFilename, Stream Metadata)> GenerateEFormidlingMetadata(IInstanceDataAccessor dataAccessor)
     {
+        Instance instance = dataAccessor.Instance;
         string title = $"{_applicationMetadata.Title["nb"]}";
         Guid mappeSystemID = Guid.NewGuid();
 
@@ -362,7 +301,11 @@ public class EFormidlingMetadata : IEFormidlingMetadata
 
 ### Sette meldingsmottaker dynamisk {#eFormidling-oppsett-eFormidlingReceivers}
 
-Hvis du må sette meldingsmottakeren dynamisk, må du lage en klasse som implementerer `IEFormidlingReceivers`-grensesnittet og registrere den i [`Program.cs`](#eFormidling-oppsett-program).
+Du kan sette mottakeren på to måter:
+- Statisk gjennom `<altinn:receiver>` i BPMN-konfigurasjonen (se [tabellen ovenfor](#eFormidling-oppsett-servicetask)).
+- Dynamisk ved å implementere `IEFormidlingReceivers`-grensesnittet.
+
+Hvis du må sette mottakeren dynamisk, må du lage en klasse som implementerer `IEFormidlingReceivers`-grensesnittet og registrere den med `WithReceivers<T>()` i [`Program.cs`](#eFormidling-oppsett-program).
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Kode/Syntaks">}}
@@ -373,52 +316,81 @@ App/logic/EFormidling/EFormidlingReceivers.cs
 ```cs
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Altinn.App.Core.EFormidling.Implementation;
 using Altinn.App.Core.EFormidling.Interface;
+using Altinn.App.Core.Features;
+using Altinn.App.Models;
 using Altinn.Common.EFormidlingClient.Models.SBD;
-using Altinn.Platform.Storage.Interface.Models;
 
 namespace Altinn.App.logic.EFormidling;
 
 public class EFormidlingReceivers : IEFormidlingReceivers
 {
-    public async Task<List<Receiver>> GetEFormidlingReceivers(Instance instance)
+    public async Task<List<Receiver>> GetEFormidlingReceivers(IInstanceDataAccessor dataAccessor, string? receiverFromConfig)
     {
+        // Der appen din faktisk har mottakeren.
+        YourDataModel? formData = await dataAccessor.GetFormData<YourDataModel>();
+        string? organisationNumber = formData?.ReceiverOrganisationNumber;
+
+        // Fall tilbake på mottakeren fra BPMN-konfigurasjonen.
+        if (string.IsNullOrWhiteSpace(organisationNumber))
+        {
+            organisationNumber = receiverFromConfig;
+        }
+
+        if (string.IsNullOrWhiteSpace(organisationNumber))
+        {
+            throw new EformidlingDeliveryException(
+                "Fant ingen eFormidling-mottaker."
+            );
+        }
+
         Identifier identifier = new()
         {
             Authority = "iso6523-actorid-upis",
-            // Alle norske organisasjoner må ha prefikset '0192:'
-            Value = "0192:{organisasjonsnummer}"
+            // Norske organisasjoner må ha prefikset '0192:'.
+            Value = $"0192:{organisationNumber.Trim()}"
         };
 
-        List<Receiver> receiverList = [new Receiver { Identifier = identifier }];
-
-        return await Task.FromResult(receiverList);
+        return [new Receiver { Identifier = identifier }];
     }
 }
 ```
+
+Bytt ut `YourDataModel` og `ReceiverOrganisationNumber` med din egen modell og feltet mottakeren faktisk kommer fra. Å finne mottakeren per instans er hele grunnen til å implementere dette grensesnittet – er den den samme for alle instanser, hører den hjemme i `<altinn:receiver>` i stedet.
+
+`receiverFromConfig` inneholder verdien fra `<altinn:receiver>` i konfigurasjonen av systemoppgaven, eller `null` når elementet mangler. Da kan koden din falle tilbake på mottakeren fra konfigurasjonen i stedet for å gjenta den. Standardimplementasjonen gjør bare det: den returnerer mottakeren fra konfigurasjonen, og en tom liste når det ikke finnes noen. Behandle tomt som fraværende når du faller tilbake, slik eksemplet gjør: et felt ingen har fylt ut, er en tom streng – ikke `null`.
+
+Det er `EformidlingDeliveryException` som gjør at en mottaker du ikke klarer å finne, lar meldingen feile med en gang. Systemoppgaven fanger nettopp dette unntaket og feiler permanent, uten nye forsøk – og det er riktig utfall her, for ingen nye forsøk vil trylle fram en mottaker. Alle andre unntakstyper blir forsøkt på nytt først.
 
 **Merk:** Kun norske organisasjoner støttes, og du må bruke prefikset `0192:` før organisasjonsnummeret.
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-### Legge til tilbakemeldingsoppgave {#eFormidling-oppsett-process}
-Vi anbefaler at du legger til en [tilbakemeldingsoppgave](/nb/altinn-studio/v8/reference/process/tasks/#feedback-task) i app-prosessen din. Dette sikrer at prosessen fortsetter når meldingen er mottatt.
-Ingen ytterligere endringer er nødvendige når du har lagt til oppgaven, siden eFormidling-tjenesten automatisk flytter prosessen videre.
-Hvis du vil tilpasse tekstene som vises til brukeren i dette steget, kan du overstyre [tekstnøklene](/nb/altinn-studio/v8/reference/configuration/process/customize/#feedback).
+### Vente på leveringsbekreftelsen {#eFormidling-oppsett-process}
+Systemoppgaven er ikke ferdig når meldingen er overlevert til integrasjonspunktet. Den er ferdig når integrasjonspunktet bekrefter at meldingen er levert. Oppgaven sender, og sjekker deretter leveringsstatusen selv – først etter 15 sekunder, så hvert minutt, så hvert femte minutt, og til slutt hvert kvarter. Prosessen går videre til neste steg først når leveringen er bekreftet.
+
+Oppgaven venter i om lag to og en halv time til sammen. En melding har en egen levetid på to timer, og oppgaven venter med hensikt litt lenger enn det. Slik feiler en melding som går ut på tid, med integrasjonspunktets egen dom i stedet for et generisk tidsavbrudd.
+
+Oppgaven feiler hvis meldingen blir avvist, eller hvis integrasjonspunktet melder at den har gått ut på tid. Feilen forsøkes ikke på nytt: id-en til en eFormidling-melding er knyttet til instans-id-en, så den samme meldingen kan aldri sendes igjen, og noen må følge den opp manuelt. Uansett utfall skriver appen den siste statusen integrasjonspunktet meldte, til instansen som dataverdien `eFormidlingShipmentStatus`. Slik kan du se hva som ble av en melding lenge etter at prosessen har gått videre.
+
+Mens appen venter, ser sluttbrukeren den innebygde behandlingssiden. Den forteller at appen jobber, og at brukeren ikke trenger å gjøre noe. Etter 30 sekunder legger den til at dette tar uvanlig lang tid, og at siden trygt kan lukkes og åpnes igjen senere. Tekstene er tekstressurser (`process_workflow.advancing_title`, `process_workflow.advancing_body` og `process_workflow.still_working`) som appen din kan overstyre. Brukeren blir sendt videre til neste steg automatisk når prosessen går videre.
+
+{{% notice warning %}}
+**Ikke legg en tilbakemeldingsoppgave etter eFormidling-oppgaven.** I v8 trengte du en tilbakemeldingsoppgave for å holde instansen mens leveringen sto på vent, og en påminnelse bygget på Altinn Events flyttet prosessen videre når meldingen kom fram. Denne påminnelsen er borte i v9, fordi systemoppgaven nå venter selv. Ingenting flytter en tilbakemeldingsoppgave som ligger etter eFormidling-oppgaven, videre, og instanser som blir stående der, venter i det uendelige. Oppgraderer du en app fra v8, må du fjerne den – `studioctl app upgrade v9` melder om tilbakemeldingsoppgaver som ligger etter en systemoppgave.
+{{% /notice %}}
 
 ### Sikre unike filnavn {#eFormidling-oppsett-filenames}
-Hvis meldingen din inneholder flere vedlegg, må du sikre at de har unike filnavn. Ellers vil meldingen feile.
-Hvis meldingen din inkluderer den genererte PDF-en av skjemaet, må du sjekke at de andre filnavnene ikke er de samme som appnavnet.
-En måte å sikre unike filnavn på er gjennom [filvalidering](/nb/altinn-studio/v8/reference/logic/validation/files/).
+Filnavnene på vedlegg som sendes gjennom eFormidling må være unike. Integrasjonen inneholder logikk som sikrer dette, og kan endre filnavnene litt før filene sendes.
 
 ## Testing
 Test eFormidling-integrasjonen i appen din grundig.
 Sikkerhetstiltak og mekanismer for nye forsøk er på plass for å sikre at en melding når mottakeren når feil skyldes svake nettverksforbindelser.
-Ugyldige meldinger (inkludert manglende vedlegg eller feil i `"arkivmelding"`) vil imidlertid føre til at meldingen feiler uten advarsel til sluttbrukeren eller tjenesteeieren.
+En ugyldig melding – et manglende vedlegg, eller en feil i `"arkivmelding"` – gjør fortsatt at meldingen feiler, men i v9 feiler systemoppgaven også. Feilen blir dermed synlig i stedet for å gå upåaktet hen. Meldingen kan ikke sendes på nytt automatisk, så den må følges opp manuelt.
 
 ### Lokal testing
 {{%notice warning%}}
-For øyeblikket kan du ikke teste eFormidling-integrasjonen lokalt. Det er fordi vi renoverer <a href="https://github.com/felleslosninger/efm-mocks" target="_blank" rel="noopener noreferrer">efm-mocks</a> (nødvendig for lokal testing).
+For øyeblikket kan du ikke teste eFormidling-integrasjonen lokalt. Det er fordi vi renoverer <a href="https://github.com/felleslosninger/efm-mocks" target="_blank" rel="noopener noreferrer">efm-mocks</a> (nødvendig for lokal testing). Sett i mellomtiden `<altinn:disabled env="development">true</altinn:disabled>` på systemoppgaven, slik at prosessen fullfører lokalt uten å forsøke å sende. Hvis du lar eFormidling stå på lokalt, feiler sendingen, og prosessen stopper på systemoppgaven med en feil.
 {{% /notice%}}
 
 ### Testmiljø (TT02)
