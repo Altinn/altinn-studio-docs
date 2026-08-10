@@ -174,7 +174,7 @@ Eksempel på eFormidling-systemoppgave:
             <altinn:taskType>eFormidling</altinn:taskType>
             <altinn:eFormidlingConfig>
                 <altinn:disabled env="development">true</altinn:disabled>
-                <altinn:receiver>991825827</altinn:receiver>
+                <altinn:receiver>991825827</altinn:receiver> <!-- Bytt ut med organisasjonsnummeret til mottakeren du faktisk sender til. -->
                 <altinn:process>urn:no:difi:profile:arkivmelding:administrasjon:ver1.0</altinn:process>
                 <altinn:standard>urn:no:difi:arkivmelding:xsd::arkivmelding</altinn:standard>
                 <altinn:typeVersion>2.0</altinn:typeVersion>

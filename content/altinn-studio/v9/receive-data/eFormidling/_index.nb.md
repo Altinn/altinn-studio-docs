@@ -7,7 +7,7 @@ toc: true
 weight: 50
 ---
 
-I v9 er eFormidling en **systemoppgave**. Du legger den til som et steg i app-prosessen (`process.bpmn`), og all konfigurasjon for meldingen ligger på denne oppgaven. Det finnes ikke lenger noen eFormidling-konfigurasjon i `applicationmetadata.json` eller `appsettings.json`.
+I v9 er eFormidling en **systemoppgave**. Du legger den til som et steg i app-prosessen (`process.bpmn`), og all konfigurasjon for meldingen ligger på denne oppgaven. `eFormidling`-seksjonen i `applicationmetadata.json` finnes ikke lenger.
 
 ## Forutsetninger
 
@@ -39,12 +39,23 @@ For å legge til eFormidling-støtte i appen din, må du registrere tjenestene v
   App/Program.cs
 {{< /code-title >}}
 
-```cs{hl_lines=[3]}
+```cs{hl_lines=["3-6"]}
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
-  services.AddEFormidlingServices2<EFormidlingMetadata, EFormidlingReceivers>(config);
+  services
+    .AddEFormidling()
+    .WithMetadata<EFormidlingMetadata>()
+    .WithReceivers<EFormidlingReceivers>();
 }
 ```
+
+Utvidelsesmetodene ligger i navnerommet `Altinn.App.Core.EFormidling.Extensions`, så husk `using` for dette.
+
+`AddEFormidling()` registrerer alt systemoppgaven trenger. Resten av registreringen fullfører du med dine egne implementasjoner:
+
+- **`WithMetadata<T>()`** – påkrevd. Registrerer klassen som [genererer meldingsmetadataen](#eFormidling-oppsett-eFormidlingMetadata), vanligvis arkivmeldingen. Ingen standardimplementasjon kan tre inn i stedet, så dette er det eneste kallet du ikke kan utelate. Det er også det eneste `AddEFormidling()` lar deg kalle, og stopper du der, får du en byggefeil (`ALTINNAPP0701`).
+- **`WithReceivers<T>()`** – valgfri. Registrerer en klasse som [setter mottakeren dynamisk](#eFormidling-oppsett-eFormidlingReceivers). Utelater du den, hentes mottakeren fra `<altinn:receiver>` på systemoppgaven.
+- **`WithConfig(...)`** – valgfri. Binder klientinnstillingene for eFormidling til en annen konfigurasjonsseksjon, eller setter dem i kode. Som standard leses de fra seksjonen `EFormidlingClientSettings` i `appsettings.json`.
 
 ### Legge til eFormidling som en systemoppgave {#eFormidling-oppsett-servicetask}
 eFormidling legges til i prosessen som en systemoppgave, og meldingen sendes når prosessen når denne oppgaven. Plasser oppgaven der du vil at meldingen skal sendes, vanligvis etter oppgaven som produserer dataene du vil sende. Oppgaven må ha en innkommende og en utgående sekvensflyt.
@@ -69,7 +80,7 @@ Slik sikrer du at sekvensflytene og diagrammet holder seg korrekte.
           <altinn:taskType>eFormidling</altinn:taskType>
           <altinn:eFormidlingConfig>
               <altinn:disabled env="development">true</altinn:disabled> <!-- Hindrer at meldingen sendes under lokal utvikling. -->
-              <altinn:receiver>991825827</altinn:receiver>
+              <altinn:receiver>991825827</altinn:receiver> <!-- Bytt ut med organisasjonsnummeret til mottakeren du faktisk sender til. -->
               <altinn:process>urn:no:difi:profile:arkivmelding:administrasjon:ver1.0</altinn:process>
               <altinn:standard>urn:no:difi:arkivmelding:xsd::arkivmelding</altinn:standard>
               <altinn:typeVersion>2.0</altinn:typeVersion>
@@ -90,7 +101,7 @@ Slik sikrer du at sekvensflytene og diagrammet holder seg korrekte.
 | **Egenskap**    | **Type** | **Påkrevd** | **Beskrivelse**                                                                                                                                                                                                                                            |
 |-----------------|----------|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | disabled        | boolean  | Nei         | Slår av meldingen uten å fjerne konfigurasjonen. Bruk det valgfrie attributtet `env` for å slå den av kun i bestemte driftsmiljøer (for eksempel `env="development"` for å hoppe over sending under lokal utvikling). Utelat elementet for å aktivere den overalt. |
-| receiver        | string   | Nei         | Organisasjonsnummer til mottaker. Kun norske organisasjoner støttes.                                                                                                                                                                       |
+| receiver        | string   | Nei         | Organisasjonsnummeret til mottakeren du sender til. Kun norske organisasjoner støttes.                                                                                                                                                                     |
 | process         | string   | Ja          | Prosesstype. Se `https://platform.altinn.no/eformidling/api/capabilities/{orgnummer}`                                                                                                                                                                     |
 | standard        | string   | Ja          | Dokumentstandarden                                                                                                                                                                                                                                        |
 | typeVersion     | string   | Ja          | Versjon av meldingstypen                                                                                                                                                                                                                                  |
@@ -101,13 +112,19 @@ Slik sikrer du at sekvensflytene og diagrammet holder seg korrekte.
 
 **Merk:** Altinn støtter kun forsendelsestypene DPF og DPO.
 
-Appen kontrollerer eFormidling-konfigurasjonen når den starter, ikke når den første instansen kommer til oppgaven, og melder om alle problemene den finner samtidig. Appen nekter å starte hvis en eFormidling-oppgave mangler `<altinn:eFormidlingConfig>`-blokken, mangler en påkrevd innstilling for miljøet som startes, viser til en datatype som ikke er definert i `applicationmetadata.json`, eller er slått på uten at eFormidling-tjenestene er [registrert](#eFormidling-oppsett-program). En oppgave som er slått av for miljøet som startes, trenger ikke tjenestene. En app som bruker eFormidling bare i produksjon, starter derfor fortsatt lokalt.
+{{% notice info %}}
+**Kommer du fra v8?** Flagget `EnableEFormidling` under `AppSettings` finnes ikke lenger. I v9 er det `<altinn:disabled>` på systemoppgaven som slår av meldingen, og `<altinn:disabled env="…">` tar over for å sette flagget ulikt i ulike `appsettings.<miljø>.json`-filer. `studioctl app upgrade v9` leser det gamle flagget, uttrykker det som `<altinn:disabled>` på den migrerte oppgaven og fjerner det fra `appsettings`-filene.
+
+Seksjonen `EFormidlingClientSettings` i `appsettings.json` er uendret – den konfigurerer fortsatt selve eFormidling-klienten, og verdien settes for deg i test- og produksjonsmiljøene.
+{{% /notice %}}
+
+Appen kontrollerer eFormidling-konfigurasjonen når den starter, ikke når den første instansen kommer til oppgaven, og melder om alle problemene den finner samtidig. Appen nekter å starte hvis en eFormidling-oppgave mangler `<altinn:eFormidlingConfig>`-blokken, mangler en påkrevd innstilling for miljøet som startes, viser til en datatype som ikke er definert i `applicationmetadata.json`, eller er slått på uten at eFormidling-tjenestene er [registrert](#eFormidling-oppsett-program) – også når et `AddEFormidling()`-kall står ufullført, uten metadatagenerator. En oppgave som er slått av for miljøet som startes, trenger ikke tjenestene. En app som bruker eFormidling bare i produksjon, starter derfor fortsatt lokalt.
 
 #### Miljøspesifikke verdier {#eFormidling-oppsett-env}
 
 Alle elementene i `<altinn:eFormidlingConfig>` støtter det valgfrie attributtet `env`, ikke bare `disabled`. Du kan gjenta et element med ulike `env`-verdier, og verdien for gjeldende driftsmiljø går foran verdien uten `env`. Miljønavnene grupperes i tre miljøer: utvikling (`development`, `dev`, `local`, `localtest`), test (`staging`, `test`, `at22`, `at23`, `at24`, `tt02`, `yt01`) og produksjon (`production`, `prod`, `produksjon`).
 
-For eksempel kan du sende til en testmottaker i TT02 og den reelle mottakeren i produksjon:
+For eksempel kan du sende til en testmottaker i TT02 og den reelle mottakeren i produksjon (bytt ut begge organisasjonsnumrene med dine egne):
 
 ```xml
 <altinn:receiver env="staging">310075809</altinn:receiver>
@@ -120,7 +137,7 @@ Du lager selv meldingen som sendes gjennom eFormidling.
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Kode/Syntaks">}}
 
-For å lage meldingen, trenger du en klasse som implementerer `IEFormidlingMetadata`-grensesnittet og lager meldingen din i `GenerateEFormidlingMetadata`-metoden. Husk å registrere klassen din i [`Program.cs`](#eFormidling-oppsett-program).
+For å lage meldingen, trenger du en klasse som implementerer `IEFormidlingMetadata`-grensesnittet og lager meldingen din i `GenerateEFormidlingMetadata`-metoden. Registrer den med `WithMetadata<T>()` i [`Program.cs`](#eFormidling-oppsett-program).
 
 Du må erstatte `YourMessageType` og `yourMessage` med meldingstypen din.
 
@@ -288,7 +305,7 @@ Du kan sette mottakeren på to måter:
 - Statisk gjennom `<altinn:receiver>` i BPMN-konfigurasjonen (se [tabellen ovenfor](#eFormidling-oppsett-servicetask)).
 - Dynamisk ved å implementere `IEFormidlingReceivers`-grensesnittet.
 
-Hvis du må sette mottakeren dynamisk, må du lage en klasse som implementerer `IEFormidlingReceivers`-grensesnittet og registrere den i [`Program.cs`](#eFormidling-oppsett-program).
+Hvis du må sette mottakeren dynamisk, må du lage en klasse som implementerer `IEFormidlingReceivers`-grensesnittet og registrere den med `WithReceivers<T>()` i [`Program.cs`](#eFormidling-oppsett-program).
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Kode/Syntaks">}}
@@ -299,8 +316,10 @@ App/logic/EFormidling/EFormidlingReceivers.cs
 ```cs
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Altinn.App.Core.EFormidling.Implementation;
 using Altinn.App.Core.EFormidling.Interface;
 using Altinn.App.Core.Features;
+using Altinn.App.Models;
 using Altinn.Common.EFormidlingClient.Models.SBD;
 
 namespace Altinn.App.logic.EFormidling;
@@ -309,16 +328,31 @@ public class EFormidlingReceivers : IEFormidlingReceivers
 {
     public async Task<List<Receiver>> GetEFormidlingReceivers(IInstanceDataAccessor dataAccessor, string? receiverFromConfig)
     {
+        // Finn mottakeren ut fra instansen. Bytt ut YourDataModel og feltet nedenfor med din egen
+        // modell og feltet der mottakeren faktisk ligger – å bestemme mottakeren per instans er
+        // hele grunnen til å implementere dette grensesnittet.
+        YourDataModel? formData = await dataAccessor.GetFormData<YourDataModel>();
+        string? organisationNumber = formData?.ReceiverOrganisationNumber;
+
+        // Ved å falle tilbake på <altinn:receiver> beholder du konfigurasjonen på systemoppgaven
+        // som standardverdi, i stedet for å gjenta organisasjonsnummeret her.
+        organisationNumber ??= receiverFromConfig;
+
+        if (string.IsNullOrWhiteSpace(organisationNumber))
+        {
+            // Ingen å sende til, og ingenting som ordner seg av seg selv. La meldingen feile med
+            // en gang, i stedet for å bli forsøkt på nytt.
+            throw new EformidlingDeliveryException("Fant ingen eFormidling-mottaker for denne instansen.");
+        }
+
         Identifier identifier = new()
         {
             Authority = "iso6523-actorid-upis",
             // Alle norske organisasjoner må ha prefikset '0192:'
-            Value = "0192:{organisasjonsnummer}"
+            Value = $"0192:{organisationNumber}"
         };
 
-        List<Receiver> receiverList = [new Receiver { Identifier = identifier }];
-
-        return await Task.FromResult(receiverList);
+        return [new Receiver { Identifier = identifier }];
     }
 }
 ```

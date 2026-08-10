@@ -7,7 +7,7 @@ toc: true
 weight: 15
 ---
 
-In v9, eFormidling is a **service task**. You add it as a step in the app's process (`process.bpmn`), and all shipment configuration lives on that task. There is no longer any eFormidling configuration in `applicationmetadata.json` or `appsettings.json`.
+In v9, eFormidling is a **service task**. You add it as a step in the app's process (`process.bpmn`), and all shipment configuration lives on that task. The `eFormidling` section in `applicationmetadata.json` no longer exists.
 
 ## Prerequisites
 
@@ -39,12 +39,23 @@ To add eFormidling support to your app, register its services by adding the foll
   App/Program.cs
 {{< /code-title >}}
 
-```cs{hl_lines=[3]}
+```cs{hl_lines=["3-6"]}
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
-  services.AddEFormidlingServices2<EFormidlingMetadata, EFormidlingReceivers>(config);
+  services
+    .AddEFormidling()
+    .WithMetadata<EFormidlingMetadata>()
+    .WithReceivers<EFormidlingReceivers>();
 }
 ```
+
+The extension methods live in `Altinn.App.Core.EFormidling.Extensions`, so remember the `using` for that namespace.
+
+`AddEFormidling()` registers everything the service task needs and returns a builder you finish with your own implementations:
+
+- **`WithMetadata<T>()`** — required. Registers the class that [generates the message metadata](#eFormidling-setup-eFormidlingMetadata), typically the arkivmelding. No default can stand in for it, so this is the only call you cannot leave out: it is the only thing `AddEFormidling()` lets you call, and stopping at `AddEFormidling()` fails the build (`ALTINNAPP0701`).
+- **`WithReceivers<T>()`** — optional. Registers a class that [sets the receiver dynamically](#eFormidling-setup-eFormidlingReceivers). Leave it out and the receiver comes from `<altinn:receiver>` on the service task.
+- **`WithConfig(...)`** — optional. Binds the eFormidling client settings to a different configuration section, or configures them in code. By default they are read from the `EFormidlingClientSettings` section in `appsettings.json`.
 
 ### Add eFormidling as a service task {#eFormidling-setup-servicetask}
 eFormidling is added to the process as a service task, and the shipment is sent when the process reaches that task. Place the task where you want the shipment to be sent, typically after the task that produces the data you want to send. The task must have an incoming and an outgoing sequence flow.
@@ -69,7 +80,7 @@ This ensures that the sequence flows and the diagram stay correct.
           <altinn:taskType>eFormidling</altinn:taskType>
           <altinn:eFormidlingConfig>
               <altinn:disabled env="development">true</altinn:disabled> <!-- Prevents the shipment from being sent during local development. -->
-              <altinn:receiver>991825827</altinn:receiver>
+              <altinn:receiver>991825827</altinn:receiver> <!-- Replace with the organisation number of the receiver you are actually sending to. -->
               <altinn:process>urn:no:difi:profile:arkivmelding:administrasjon:ver1.0</altinn:process>
               <altinn:standard>urn:no:difi:arkivmelding:xsd::arkivmelding</altinn:standard>
               <altinn:typeVersion>2.0</altinn:typeVersion>
@@ -90,7 +101,7 @@ This ensures that the sequence flows and the diagram stay correct.
 | **Property**    | **Type** | **Required** | **Description**                                                                                                                                                                                                                                            |
 |-----------------|----------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | disabled        | boolean  | No           | Turns the shipment off without removing the configuration. Use the optional `env` attribute to disable it only in specific hosting environments (for example `env="development"` to skip sending during local development). Omit the element to enable it everywhere. |
-| receiver        | string   | No           | Organisation number of the receiver. Only Norwegian organisations are supported.                                                                                                                                                          |
+| receiver        | string   | No           | Organisation number of the receiver you are sending to. Only Norwegian organisations are supported.                                                                                                                                       |
 | process         | string   | Yes          | Process type. See `https://platform.altinn.no/eformidling/api/capabilities/{orgnumber}`                                                                                                                                                                    |
 | standard        | string   | Yes          | The document standard                                                                                                                                                                                                                                      |
 | typeVersion     | string   | Yes          | Version of the message type                                                                                                                                                                                                                                |
@@ -101,13 +112,19 @@ This ensures that the sequence flows and the diagram stay correct.
 
 **Note:** Altinn only supports the DPF and DPO shipment types.
 
-The app checks its eFormidling configuration when it starts, not when the first instance reaches the task, and reports every problem it finds at once. The app refuses to start if an eFormidling task has no `<altinn:eFormidlingConfig>` block, is missing a required setting for the environment being started, names a data type that is not defined in `applicationmetadata.json`, or is enabled without the eFormidling services having been [registered](#eFormidling-setup-program). A task that is turned off for the environment being started does not need the services, so an app that uses eFormidling only in production still starts locally.
+{{% notice info %}}
+**Coming from v8?** The `EnableEFormidling` flag under `AppSettings` no longer exists. `<altinn:disabled>` on the service task is what turns the shipment off in v9, and `<altinn:disabled env="…">` replaces setting the flag differently per `appsettings.<environment>.json` file. `studioctl app upgrade v9` reads the old flag, expresses it as `<altinn:disabled>` on the migrated task, and removes it from the `appsettings` files.
+
+The `EFormidlingClientSettings` section in `appsettings.json` is unchanged — it still configures the eFormidling client itself, and the deployed environments override it for you.
+{{% /notice %}}
+
+The app checks its eFormidling configuration when it starts, not when the first instance reaches the task, and reports every problem it finds at once. The app refuses to start if an eFormidling task has no `<altinn:eFormidlingConfig>` block, is missing a required setting for the environment being started, names a data type that is not defined in `applicationmetadata.json`, or is enabled without the eFormidling services having been [registered](#eFormidling-setup-program) — including an `AddEFormidling()` call left unfinished, with no metadata generator. A task that is turned off for the environment being started does not need the services, so an app that uses eFormidling only in production still starts locally.
 
 #### Environment-specific values {#eFormidling-setup-env}
 
 Every element in `<altinn:eFormidlingConfig>` supports the optional `env` attribute, not just `disabled`. You can repeat an element with different `env` values, and the value for the current hosting environment takes precedence over the value without `env`. The environment names are grouped into three environments: development (`development`, `dev`, `local`, `localtest`), test (`staging`, `test`, `at22`, `at23`, `at24`, `tt02`, `yt01`) and production (`production`, `prod`, `produksjon`).
 
-For example, to send to a test receiver in TT02 and the real receiver in production:
+For example, to send to a test receiver in TT02 and the real receiver in production (replacing both organisation numbers with your own):
 
 ```xml
 <altinn:receiver env="staging">310075809</altinn:receiver>
@@ -120,7 +137,7 @@ You are responsible for creating the message for the shipment sent through eForm
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Code/Syntax">}}
 
-To create the shipment message, you need a class that implements the `IEFormidlingMetadata` interface and creates your message in the `GenerateEFormidlingMetadata` method. Remember to register your class in [`Program.cs`](#eFormidling-setup-program).
+To create the shipment message, you need a class that implements the `IEFormidlingMetadata` interface and creates your message in the `GenerateEFormidlingMetadata` method. Register it with `WithMetadata<T>()` in [`Program.cs`](#eFormidling-setup-program).
 
 You need to replace `YourMessageType` and `yourMessage` with your shipment message type.
 
@@ -288,7 +305,7 @@ You can set the receiver in two ways:
 - Statically through `<altinn:receiver>` in the BPMN configuration (see the [table above](#eFormidling-setup-servicetask)).
 - Dynamically by implementing the `IEFormidlingReceivers` interface.
 
-If you need to set the receiver dynamically, create a class that implements the `IEFormidlingReceivers` interface and register it in [`Program.cs`](#eFormidling-setup-program).
+If you need to set the receiver dynamically, create a class that implements the `IEFormidlingReceivers` interface and register it with `WithReceivers<T>()` in [`Program.cs`](#eFormidling-setup-program).
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Code/Syntax">}}
@@ -299,8 +316,10 @@ App/logic/EFormidling/EFormidlingReceivers.cs
 ```cs
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Altinn.App.Core.EFormidling.Implementation;
 using Altinn.App.Core.EFormidling.Interface;
 using Altinn.App.Core.Features;
+using Altinn.App.Models;
 using Altinn.Common.EFormidlingClient.Models.SBD;
 
 namespace Altinn.App.logic.EFormidling;
@@ -309,16 +328,31 @@ public class EFormidlingReceivers : IEFormidlingReceivers
 {
     public async Task<List<Receiver>> GetEFormidlingReceivers(IInstanceDataAccessor dataAccessor, string? receiverFromConfig)
     {
+        // Work out the receiver from the instance. Replace YourDataModel and the field below with
+        // your own model and wherever the receiver actually comes from in your app - deciding this
+        // per instance is the whole reason to implement this interface.
+        YourDataModel? formData = await dataAccessor.GetFormData<YourDataModel>();
+        string? organisationNumber = formData?.ReceiverOrganisationNumber;
+
+        // Falling back on <altinn:receiver> keeps the service task configuration as the default,
+        // instead of repeating the organisation number here.
+        organisationNumber ??= receiverFromConfig;
+
+        if (string.IsNullOrWhiteSpace(organisationNumber))
+        {
+            // Nothing to send to, and nothing that will fix itself: fail the shipment outright
+            // rather than let it be retried.
+            throw new EformidlingDeliveryException("No eFormidling receiver could be determined for this instance.");
+        }
+
         Identifier identifier = new()
         {
             Authority = "iso6523-actorid-upis",
             // All Norwegian organisations need a prefix of '0192:'
-            Value = "0192:{organisationNumber}"
+            Value = $"0192:{organisationNumber}"
         };
 
-        List<Receiver> receiverList = [new Receiver { Identifier = identifier }];
-
-        return await Task.FromResult(receiverList);
+        return [new Receiver { Identifier = identifier }];
     }
 }
 ```
@@ -352,7 +386,7 @@ An invalid shipment — a missing attachment, or a mistake in the `"arkivmelding
 
 ### Local testing
 {{%notice warning%}}
-You **cannot** currently test the eFormidling integration locally, as <a href="https://github.com/felleslosninger/efm-mocks" target="_blank" rel="noopener noreferrer">efm-mocks</a> (required for local testing) is being renovated. In the meantime, set `<altinn:disabled env="development">true</altinn:disabled>` on the service task so the process completes locally without attempting to send. If you leave eFormidling enabled locally, the send fails and the process stops on the service task with an error.
+You **cannot** currently test the eFormidling integration locally, as <a href="https://github.com/felleslosninger/efm-mocks" target="_blank" rel="noopener noreferrer">efm-mocks</a> (required for local testing) is being renovated. In the meantime, set `<altinn:disabled env="development">true</altinn:disabled>` on the service task so the process completes locally without attempting to send. If you leave eFormidling enabled locally, sending fails and the process stops on the service task with an error.
 {{% /notice%}}
 
 ### Test environment (TT02)
