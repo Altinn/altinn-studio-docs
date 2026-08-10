@@ -15,8 +15,8 @@ The app automatically shows a built-in page to the user for as long as the proce
 You do not need to define a separate step in the process or create any pages — which is why we call it an
 *implicit* waiting step.
 
-See [task types]({{<relref "/altinn-studio/v9/develop-a-service/process/reference/task-types" >}}) for more
-about service tasks in general.
+See [task types](/nb/altinn-studio/v9/develop-a-service/process/reference/task-types/) for more
+about service tasks in general (documentation available in Norwegian only).
 
 ## Putting the process on hold
 
@@ -227,5 +227,5 @@ to be able to release the process themselves:
 Replace `[org]`/`[ORG]`, `[APP]`, `[RULE_ID]` and `[TASK_TYPE]` with the values for your app. `[TASK_TYPE]`
 must equal the `Type` property on the `IServiceTask` implementation.
 
-See [Defining authorization policy]({{<relref "/altinn-studio/v9/develop-a-service/configuration/authorization" >}})
-for more about the policy file.
+See [Defining authorization policy](/nb/altinn-studio/v9/develop-a-service/configuration/authorization/)
+for more about the policy file (documentation available in Norwegian only).
