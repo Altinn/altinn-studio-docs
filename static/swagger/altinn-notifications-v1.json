@@ -461,7 +461,7 @@
     "/future/log": {
       "get": {
         "tags": [
-          "NotificationLog"
+          "Notification Log"
         ],
         "summary": "Retrieves notification log entries filtered by dialog identifier, transmission identifier, or both.",
         "parameters": [
@@ -2932,6 +2932,10 @@
     {
       "name": "Instant Orders",
       "description": "Create and immediately send a notification to a single recipient"
+    },
+    {
+      "name": "Notification Log",
+      "description": "Retrieves notification log entries filtered by dialog identifier, transmission identifier, or both"
     }
   ]
 }
