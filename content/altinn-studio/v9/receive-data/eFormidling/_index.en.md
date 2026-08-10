@@ -55,7 +55,7 @@ The extension methods live in `Altinn.App.Core.EFormidling.Extensions`, so remem
 
 - **`WithMetadata<T>()`** — required. Registers the class that [generates the message metadata](#eFormidling-setup-eFormidlingMetadata), typically the arkivmelding. No default can stand in for it, so this is the only call you cannot leave out: it is the only thing `AddEFormidling()` lets you call, and stopping at `AddEFormidling()` fails the build (`ALTINNAPP0701`).
 - **`WithReceivers<T>()`** — optional. Registers a class that [sets the receiver dynamically](#eFormidling-setup-eFormidlingReceivers). Leave it out and the receiver comes from `<altinn:receiver>` on the service task.
-- **`WithConfig(...)`** — optional. Binds the eFormidling client settings to a different configuration section, or configures them in code. By default they are read from the `EFormidlingClientSettings` section in `appsettings.json`.
+- **`WithConfig(...)`** — optional. Binds the eFormidling client settings to a different configuration section, or configures them in code. By default, they are read from the `EFormidlingClientSettings` section in `appsettings.json`.
 
 ### Add eFormidling as a service task {#eFormidling-setup-servicetask}
 eFormidling is added to the process as a service task, and the shipment is sent when the process reaches that task. Place the task where you want the shipment to be sent, typically after the task that produces the data you want to send. The task must have an incoming and an outgoing sequence flow.
@@ -335,8 +335,12 @@ public class EFormidlingReceivers : IEFormidlingReceivers
         string? organisationNumber = formData?.ReceiverOrganisationNumber;
 
         // Falling back on <altinn:receiver> keeps the service task configuration as the default,
-        // instead of repeating the organisation number here.
-        organisationNumber ??= receiverFromConfig;
+        // instead of repeating the organisation number here. Blank counts as absent: a form field
+        // nobody filled in is an empty string, not null.
+        if (string.IsNullOrWhiteSpace(organisationNumber))
+        {
+            organisationNumber = receiverFromConfig;
+        }
 
         if (string.IsNullOrWhiteSpace(organisationNumber))
         {
@@ -349,7 +353,7 @@ public class EFormidlingReceivers : IEFormidlingReceivers
         {
             Authority = "iso6523-actorid-upis",
             // All Norwegian organisations need a prefix of '0192:'
-            Value = $"0192:{organisationNumber}"
+            Value = $"0192:{organisationNumber.Trim()}"
         };
 
         return [new Receiver { Identifier = identifier }];

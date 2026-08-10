@@ -335,8 +335,12 @@ public class EFormidlingReceivers : IEFormidlingReceivers
         string? organisationNumber = formData?.ReceiverOrganisationNumber;
 
         // Ved å falle tilbake på <altinn:receiver> beholder du konfigurasjonen på systemoppgaven
-        // som standardverdi, i stedet for å gjenta organisasjonsnummeret her.
-        organisationNumber ??= receiverFromConfig;
+        // som standardverdi, i stedet for å gjenta organisasjonsnummeret her. Tomt teller som
+        // fraværende: et felt ingen har fylt ut, er en tom streng – ikke null.
+        if (string.IsNullOrWhiteSpace(organisationNumber))
+        {
+            organisationNumber = receiverFromConfig;
+        }
 
         if (string.IsNullOrWhiteSpace(organisationNumber))
         {
@@ -349,7 +353,7 @@ public class EFormidlingReceivers : IEFormidlingReceivers
         {
             Authority = "iso6523-actorid-upis",
             // Alle norske organisasjoner må ha prefikset '0192:'
-            Value = $"0192:{organisationNumber}"
+            Value = $"0192:{organisationNumber.Trim()}"
         };
 
         return [new Receiver { Identifier = identifier }];
