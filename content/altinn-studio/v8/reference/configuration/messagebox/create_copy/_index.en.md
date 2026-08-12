@@ -34,7 +34,7 @@ It is possible to provide a list of data types you do not want to be copied to t
 
 ### Copying attachments
 
-{{%notice warning%}}Copying attachments requires app-lib version 8.7.0 or newer.{{% /notice%}}
+{{%notice warning%}}Copying attachments requires `Altinn.App.Api` version 8.7.0 or newer.{{% /notice%}}
 
 Attachments are copied only when `includeAttachments` is set to `true`. If the setting is `false` or omitted, attachments are not copied. Attachments with a data type listed in `excludedDataTypes` are not copied either.
 
@@ -91,7 +91,7 @@ During the copying of an instance the logic will perform a method call to **IIns
 
 ## Validation
 
-{{%notice warning%}}Validation requires version 8.12.2 or newer of app-lib{{% /notice%}}
+{{%notice warning%}}Validation requires version 8.12.2 or newer of the `Altinn.App` libraries.{{% /notice%}}
 
 Validation is useful if the service owner wishes to restrict when end users can copy instances, for example based on deadlines or changes to the application.
 

@@ -34,7 +34,7 @@ Det er mulig å angi en liste over datatyper man ikke ønsker at skal kopieres o
 
 ### Kopiering av vedlegg
 
-{{%notice warning%}}Kopiering av vedlegg krever versjon 8.7.0 eller nyere av app-lib.{{% /notice%}}
+{{%notice warning%}}Kopiering av vedlegg krever versjon 8.7.0 eller nyere av `Altinn.App.Api`.{{% /notice%}}
 
 Vedlegg kopieres bare når `includeAttachments` er satt til `true`. Hvis innstillingen er `false` eller utelatt, blir vedlegg ikke kopiert. Vedlegg med en datatype som er oppført i `excludedDataTypes`, blir heller ikke kopiert.
 
@@ -92,7 +92,7 @@ Under kopiering av skjema vil logikken utføre metode kall mot **IInstantiationP
 
 ## Validering
 
-{{%notice warning%}}Validering krever versjon 8.12.2 eller nyere av app-lib{{% /notice%}}
+{{%notice warning%}}Validering krever versjon 8.12.2 eller nyere av `Altinn.App`-bibliotekene.{{% /notice%}}
 
 Validering er nyttig hvis tjenesteeier ønsker å begrense når brukere kan kopiere instanser, for eksempel basert på tidsfrister eller endringer i applikasjonen.
 
