@@ -19,17 +19,24 @@ Lag ny kopi funksjonaliteten ble introdusert i versjon 7.9.0 av nuget pakkene.
 Konfigurasjonen har tilbakevirkende kraft på tidligere arkiverte instanser.
 {{% /notice %}}
 
-I tillegg til at funksjonaliteten kan skrues av og på er det mulig å ekskludere data typer og data felter i et skjema fra å bli kopiert.
+I tillegg til at funksjonaliteten kan skrues av og på, er det mulig å velge om vedlegg skal kopieres og å ekskludere datatyper og datafelter fra kopien.
 
-| Navn               | Beskrivelse                                                                                          |
-| ------------------ | ---------------------------------------------------------------------------------------------------- |
-| enabled            | true/false for å indikere om funksjonaliteten er skrudd på eller ikke. Standard verdi er av(false).  |
-| excludedDataTypes  | Liste med navn på data typer som ikke skal kopieres over.                                            |
-| excludedDataFields | Liste med navn på felter som ikke skal opieres over.                                                 |
+| Navn               | Beskrivelse                                                                                              |
+| ------------------ | -------------------------------------------------------------------------------------------------------- |
+| enabled            | true/false for å indikere om funksjonaliteten er skrudd på eller ikke. Standardverdi er av (false).       |
+| excludedDataTypes  | Liste med navn på datatyper som ikke skal kopieres over. Gjelder både skjemadata og vedlegg.              |
+| excludedDataFields | Liste med navn på felter som ikke skal kopieres over.                                                    |
+| includeAttachments | true/false for å indikere om vedlegg skal kopieres over. Standardverdi er av (false).                     |
 
 ### Ekskludering av data typer
 
-Det er mulig å angi en liste over data typer man ikke ønsker at skal kopieres over i ny instans, men hva man kan kopiere av data typer er allerede meget begrenset. Listen med ekskluderte data typer har derfor begrenset funksjon i dagens løsning. Kopierings funksjonaliteten vil bare kopiere data elementer relatert til et skjema. Dette betyr at det ikke blir laget kopier av vedlegg. I tillegg må data typene være knyttet til første steg i prosessen til appen. 
+Det er mulig å angi en liste over datatyper man ikke ønsker at skal kopieres over i den nye instansen. Ekskluderingen gjelder både skjemadata og vedlegg. Alle datatyper som skal kopieres, må være knyttet til første steg i prosessen til appen.
+
+### Kopiering av vedlegg
+
+{{%notice warning%}}Kopiering av vedlegg krever versjon 8.7.0 eller nyere av `Altinn.App.Api`.{{% /notice%}}
+
+Vedlegg kopieres bare når `includeAttachments` er satt til `true`. Hvis innstillingen er `false` eller utelatt, blir vedlegg ikke kopiert. Vedlegg med en datatype som er oppført i `excludedDataTypes`, blir heller ikke kopiert.
 
 ### Ekskludering av felter
 
@@ -66,13 +73,26 @@ applicationmetadata.json
 }
 ```
 
+Konfigurasjon hvor **Lag ny kopi** blir aktivert og vedlegg blir kopiert til den nye instansen.
+
+{{< code-title >}}
+applicationmetadata.json
+{{< /code-title >}}
+
+```json
+"copyInstanceSettings": {
+    "enabled": true,
+    "includeAttachments": true
+}
+```
+
 ## Programatiske endringer
 
 Under kopiering av skjema vil logikken utføre metode kall mot **IInstantiationProcessor.DataCreation**. Dette skal gjøre det mulig å gjøre programatiske endringer i data som blir kopiert. [Programatisk prefill](/nb/altinn-studio/v8/guides/development/prefill/custom/).
 
 ## Validering
 
-{{%notice warning%}}Validering krever versjon 8.12.2 eller nyere av app-lib{{% /notice%}}
+{{%notice warning%}}Validering krever versjon 8.12.2 eller nyere av `Altinn.App`-bibliotekene.{{% /notice%}}
 
 Validering er nyttig hvis tjenesteeier ønsker å begrense når brukere kan kopiere instanser, for eksempel basert på tidsfrister eller endringer i applikasjonen.
 

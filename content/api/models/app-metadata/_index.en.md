@@ -144,13 +144,14 @@ Only one of the two settings should be used at a time.
 
 ## CopyInstanceSettings
 
-Configure if copying data from an archived instance is allowed and what data types and data fields that should be excluded in the new instance.
+Configure if copying data from an archived instance is allowed, whether attachments should be copied, and what data types and data fields should be excluded in the new instance.
 
-| Name               | Description                                                                      |
-| ------------------ | -------------------------------------------------------------------------------- |
-| enabled            | true/false if its possible to create a copy of an instance.                      |
-| excludedDataTypes  | List of DataTypes that should be excluded when a new copy is made.               |
-| excludedDataFields | List of fields in the DataModel that should be excluded when a new copy is made.  |
+| Name               | Description                                                                                       |
+| ------------------ | ------------------------------------------------------------------------------------------------- |
+| enabled            | true/false if it is possible to create a copy of an instance.                                    |
+| excludedDataTypes  | List of data types that should be excluded when a new copy is made.                              |
+| excludedDataFields | List of fields in the data model that should be excluded when a new copy is made.                |
+| includeAttachments | true/false indicating whether attachments should be copied. Defaults to false.                   |
 
 The portal message box will show a link called [Create new copy](/en/altinn-studio/v8/reference/configuration/messagebox/create_copy/) when the user selects an archived instance.
 

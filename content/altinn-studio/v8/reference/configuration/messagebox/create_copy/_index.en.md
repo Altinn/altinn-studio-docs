@@ -19,17 +19,24 @@ The Create new copy functionality was introduced in version 7.9.0 of the nuget p
 The configuration has a retroactive effect and will also apply to previously created instances.
 {{% /notice %}}
 
-In addition to turning the functionality on and off, it is possible to exclude data types and data fields in a schema from being copied.
+In addition to turning the functionality on and off, it is possible to choose whether attachments are copied and to exclude data types and data fields from the copy.
 
-| Name               | Description                                                                      |
-| ------------------ | -------------------------------------------------------------------------------- |
-| enabled            | true/false if its possible to create a copy of an instance.                      |
-| excludedDataTypes  | List of DataTypes that should be excluded when a new copy is made.               |
-| excludedDataFields | List of fields in the DataModel that should be excluded when a new copy is made. |
+| Name               | Description                                                                                       |
+| ------------------ | ------------------------------------------------------------------------------------------------- |
+| enabled            | true/false if it is possible to create a copy of an instance. Defaults to false.                  |
+| excludedDataTypes  | List of data types that should be excluded. Applies to both form data and attachments.            |
+| excludedDataFields | List of fields in the data model that should be excluded.                                         |
+| includeAttachments | true/false indicating whether attachments should be copied. Defaults to false.                    |
 
 ### Exclusion of data types
 
-It is possible to provide a list of data types you don't want to be copied over to the new instance, but which data types that can be copied are already fairly limited. The list of excluded data types have therefor limited effect. The copy feature will only copy data elements related to a schema/form. This means that no attachments will be copied. I addition to this the data types being copied needs to be associated with the first step in the process for the app.
+It is possible to provide a list of data types you do not want to be copied to the new instance. The exclusion applies to both form data and attachments. All data types to be copied must be associated with the first step in the app process.
+
+### Copying attachments
+
+{{%notice warning%}}Copying attachments requires `Altinn.App.Api` version 8.7.0 or newer.{{% /notice%}}
+
+Attachments are copied only when `includeAttachments` is set to `true`. If the setting is `false` or omitted, attachments are not copied. Attachments with a data type listed in `excludedDataTypes` are not copied either.
 
 ### Exclusion of data fields
 
@@ -64,13 +71,27 @@ applicationmetadata.json
     ]
 }
 ```
+
+Configuration where the Create new copy feature is activated and attachments are copied to the new instance.
+
+{{< code-title >}}
+applicationmetadata.json
+{{< /code-title >}}
+
+```json
+"copyInstanceSettings": {
+    "enabled": true,
+    "includeAttachments": true
+}
+```
+
 ## Programing interface
 
 During the copying of an instance the logic will perform a method call to **IInstantiationProcessor.DataCreation**. This makes it possible to perform programmatic changes to the data as it is being copied. [Programmatic prefill](/en/altinn-studio/v8/guides/development/prefill/custom/).
 
 ## Validation
 
-{{%notice warning%}}Validation requires version 8.12.2 or newer of app-lib{{% /notice%}}
+{{%notice warning%}}Validation requires version 8.12.2 or newer of the `Altinn.App` libraries.{{% /notice%}}
 
 Validation is useful if the service owner wishes to restrict when end users can copy instances, for example based on deadlines or changes to the application.
 
