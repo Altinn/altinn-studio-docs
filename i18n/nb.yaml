@@ -205,3 +205,13 @@
   translation: Til toppen
 - id: write-us
   translation: Skriv til oss
+
+# Veiledninger som går over flere sider
+- id: guide-nav
+  translation: Navigasjon i veiledningen
+- id: guide-next
+  translation: Neste
+- id: guide-previous
+  translation: Forrige
+- id: guide-start
+  translation: Kom i gang
