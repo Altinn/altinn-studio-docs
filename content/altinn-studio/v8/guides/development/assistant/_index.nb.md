@@ -15,11 +15,19 @@ Assistenten er en KI-agent som kan hjelpe deg med å bygge apper i Altinn Studio
 - sette opp dynamisk visning av elementer
 - finne og rette opp feil i appen
 
-Gi den en instruksjon og aktiver **Tillat endringer i appen** for å komme i gang. Assistenten har tilgang til Studio-dokumentasjonen og kan også svare på spørsmål om skjemaoppsett, tilgangsstyring og andre funksjoner i verktøyet.
+Assistenten har tilgang til Studio-dokumentasjonen og kan også svare på spørsmål om skjemaoppsett, tilgangsstyring og andre funksjoner i verktøyet.
 
 {{% notice warning %}}
 Assistenten er spesielt tilpasset Altinn og apputvikling, og egner seg ikke for andre bruksområder. Den kan gi svar som ikke alltid er helt presise, så kontroller alltid endringene før du publiserer appen.
 {{% /notice %}}
+
+## Slå på assistenten
+
+Assistenten er skjult bak et funksjonsflagg mens den er i lukket beta. Slik slår du den på:
+
+1. Gå til [altinn.studio/info/flags](https://altinn.studio/info/flags).
+2. Slå på bryteren for **ai-assistant**.
+3. Åpne en app i Studio. Da ser du **Assistent** i menylinjen øverst.
 
 ## Stille spørsmål
 

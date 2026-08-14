@@ -15,11 +15,19 @@ The assistant is an AI agent that can help you build apps in Altinn Studio. Amon
 - set up dynamic visibility of elements
 - find and fix errors in the app
 
-Give it an instruction and enable **Tillat endringer i appen** to get started. The assistant has access to the Studio documentation and can also answer questions about form setup, access control and other features in the tool.
+The assistant has access to the Studio documentation and can also answer questions about form setup, access control and other features in the tool.
 
 {{% notice warning %}}
 The assistant is specially adapted for Altinn and app development, and is not suited to other uses. It can give answers that are not always precise, so always check the changes before you publish the app.
 {{% /notice %}}
+
+## Turn on the assistant
+
+The assistant is hidden behind a feature flag while it is in closed beta. To turn it on:
+
+1. Go to [altinn.studio/info/flags](https://altinn.studio/info/flags).
+2. Turn on the switch for **ai-assistant**.
+3. Open an app in Studio. You will now see **Assistent** in the top menu bar.
 
 ## Asking questions
 
