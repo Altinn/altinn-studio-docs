@@ -13,7 +13,7 @@ style: |
 header: 'Tilgangskontroll'
 footer: 'Altinn Studio - kom i gang'
 ---
-Før vi går videre med tjenesten skal vi sette opp regler for hvem som skal ha lov til å bruke tjenesten. Altinn Studio kommer med noen regler som standard, men du må alltid vurdere disse før du publiserer tjenesten. Standard oppsett innebærer at både privatpersoner og virksomheter kan ta i bruke tjenesten, inkludert virksomheter som er under konkursbehandling. I tillegg er din virksomhet som eier tjenesten også satt opp med tilgang.
+Før vi går videre med tjenesten skal vi sette opp regler for hvem som skal ha lov til å bruke tjenesten. Altinn Studio kommer med noen regler som standard, men du må alltid vurdere disse før du publiserer tjenesten. Standard oppsett innebærer at både privatpersoner og virksomheter kan ta i bruk tjenesten, inkludert virksomheter som er under konkursbehandling. I tillegg er din virksomhet som eier tjenesten også satt opp med tilgang.
 
 ## Oppstartskontroll
 Det første vi skal gjøre er å vurdere hvem som får lov til å starte tjenesten. Dette finner du under Innstillinger og Oppstartskontroll.
@@ -31,7 +31,7 @@ De du krysser av for er de som har lov til å starte skjemaet/tjenesten din.
 ---
 
 ## Sikkerhetsnivå
-Det neste du bestemmer er sikkerhetsnivå som bestemmer minstekravet til innloggingsmetoden for brukeren. Dette finner du under Instillinger og Tiganger. Her har du 5 valg:
+Det neste du bestemmer er sikkerhetsnivå som bestemmer minstekravet til innloggingsmetoden for brukeren. Dette finner du under Instillinger og Tilganger. Her har du 5 valg:
 
 * 0 - Selvidentifisert bruker i Altinn (Eget passord og brukernavn)
 * 1 - Kun passord (Eget passord og fødselsnummer)
