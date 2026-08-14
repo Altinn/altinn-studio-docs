@@ -9,6 +9,8 @@ weight: 2
 
 Dersom du oppretter en systembruker for klientforhold, kan klienter tildeles i Altinn-portalen. Dette steget gjelder ikke dersom du oppretter en systembruker for eget system. Om du utøver tjenester på vegne av en annen virksomhet og dette skal gjøres ved hjelp av Systembruker, må klient-virksomheten gi fullmakt til dette til din virksomhet.
 
+Vil du gjøre klientdelegering programmatisk via API i stedet for gjennom portalen? Se [Klientadministrasjons-API-et](../../../system-vendor/client-admin/) for dokumentasjon av API-et som lar deg administrere klienter og tilganger.
+
 ### Automatiske klientforhold
 
 Noen klientforhold opprettes automatisk basert på roller registrert i Enhetsregisteret. Disse forholdene gir deg tilgang til å bruke visse tilgangspakker når du oppretter en systembruker for klientforhold.
