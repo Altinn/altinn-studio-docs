@@ -7,6 +7,15 @@ aliases:
 - /en/altinn-studio/
 - /en/teknologi/altinnstudio/solutions/altinn-studio/
 - /en/app/
+- /technology/solutions/cli/
+- /technology/solutions/cli/commands/
+- /technology/solutions/cli/software-implementation/
+- /altinn-cli/
+- /altinn-cli/commands
+- /altinn-cli/implementation
+- /teknologi/altinnstudio/solutions/cli/
+- /teknologi/altinnstudio/solutions/cli/commands
+- /teknologi/altinnstudio/solutions/cli/implementation
 weight: 1
 cascade:
   params:
