@@ -223,7 +223,7 @@ A Maskinporten client is required to use the system registry and to utilize the 
 - Note down the client ID (for example, `a2ed712d-4144-4471-839f-80ae4a68146b`)
 - Generate and register JWKS for the client (keep both the private and public JWK)
 
-See documentation for [registering a Maskinporten client here](/en/technology/solutions/cli/configuration/maskinporten-setup/).
+See the [Maskinporten integration guide](/en/altinn-studio/v8/guides/integration/maskinporten/) for more information.
 
 #### 3. Fiken registers system in the system registry
 

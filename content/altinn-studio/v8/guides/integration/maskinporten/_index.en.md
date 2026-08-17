@@ -7,6 +7,9 @@ toc: true
 aliases:
 - /app/maskinporten-app-integration/
 - /altinn-studio/guides/integration/maskinporten-app-integration
+- /technology/solutions/cli/configuration/
+- /technology/solutions/cli/configuration/maskinporten-setup/
+- /teknologi/altinnstudio/solutions/cli/configuration
 ---
 
 This guide shows how to set up an Altinn app to make authorised requests with Maskinporten on behalf of the app owner, as opposed to the active user.

@@ -38,9 +38,3 @@ Altinn App-malen er en applikasjonsmal med funksjonalitet for de vanligste scena
 Altinn Studio baserer alle apper på denne malen. I tillegg inneholder malen integrasjon med Altinn Platform for å kunne nyttigjøre seg funksjonaliteten i Altinn Platform raskt og effektivt
 
 [Les mer om Altinn App Template](/nb/app-template)
-
-## Altinn CLI
-
-Altinn CLI er en kommandolinjeapplikasjon som appeiere kan bruke for å få tilgang til Altinn APIer.
-
-[Les mer om Altinn CLI](/nb/technology/solutions/cli)

@@ -38,10 +38,3 @@ The Altinn App template is an application template with prebuilt functionality f
 Altinn Studio base all apps on this template. In addition, the template contains integration with Altinn Platform to use the power of the standard functionality provided by Altinn Platform.
 
 [Learn more about Altinn App Template](/en/app-template)
-
-
-## Altinn CLI 
-
-Altinn CLI is a command line application that app owners can use to access Altinn APIs.
-
-[Learn more about Altinn CLI](cli)

@@ -7,6 +7,9 @@ toc: true
 aliases:
 - /app/maskinporten-app-integration/
 - /altinn-studio/guides/integration/maskinporten-app-integration
+- /technology/solutions/cli/configuration/
+- /technology/solutions/cli/configuration/maskinporten-setup/
+- /teknologi/altinnstudio/solutions/cli/configuration
 ---
 
 Denne veiledningen viser hvordan du setter opp en Altinn-app til å utføre autoriserte forespørsler med Maskinporten på vegne av eieren av appen, i stedet for den aktive brukeren.
