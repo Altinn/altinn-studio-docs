@@ -29,8 +29,8 @@ Systembruker mot Altinn Studio-app krever `Altinn.App.Api` og `Altinn.App.Core` 
 {{% /notice %}}
 
 {{% notice info %}}
-Maskinporten-token fra systembruker kan ikke brukes direkte mot Altinn-apper eller plattformtjenester som krever Altinn-token.
-Tokenet må først veksles inn til et Altinn-token via Altinn Authentication.
+Du kan ikke bruke Maskinporten-token fra systembruker direkte mot Altinn-apper eller plattformtjenester som krever Altinn-token.
+Du må først veksle tokenet inn til et Altinn-token via Altinn Authentication.
 Bruk Altinn-tokenet i `Authorization`-headeren mot app- og plattform-API-er.
 {{% /notice %}}
 
@@ -39,8 +39,8 @@ Bruk Altinn-tokenet i `Authorization`-headeren mot app- og plattform-API-er.
 Ved integrasjon fra sluttbrukersystem basert på ID-porten klient har man alltid direkte kontakt med sluttbruker.
 Når sluttbruker logger inn i sluttbrukersystem via ID-porten vil sluttbruker måtte godta at systemet gjør
 `altinn:instances.read` og `altinn:instances.write` på vegne av brukeren (gitt at disse scopene er registrert i ID-porten klienten).
-Tokenet må deretter [veksles i Altinn Autorisasjon](/nb/api/authentication/spec/).
-Dette Altinn-tokenet kan deretter brukes til å sende inn skjema i en Altinn app på vegne av brukeren.
+Du må deretter [veksle tokenet i Altinn Autorisasjon](/nb/api/authentication/spec/).
+Du kan deretter bruke dette Altinn-tokenet til å sende inn skjema i en Altinn app på vegne av brukeren.
 
 {{% notice info %}}
 Scopene `altinn:instances.read` og `altinn:instances.write` er ikke tjenesteeier- eller app-spesifikke.
@@ -67,7 +67,7 @@ som også vil gjelde plattformtjenester i Altinn (f. eks. Storage), men det er i
 {{% notice info %}}
 `IAuthenticationContext.Current` bruker informasjon om innlogget bruker fra ASP.NET Core sin authentication stack.
 Det betyr at ASP.NET Core auth middleware må ha kjørt før du kan få riktig informasjon.
-Middleware for auth legges til i `UseAltinnAppCommonConfiguration`. Hvis du trenger å få tilgang til `IAuthenticationContext.Current` i et middleware, må denne legges til **etter** at `UseAltinnAppCommonConfiguration` er kalt.
+Du legger til middleware for auth i `UseAltinnAppCommonConfiguration`. Hvis du trenger å få tilgang til `IAuthenticationContext.Current` i et middleware, må du legge den til **etter** at `UseAltinnAppCommonConfiguration` er kalt.
 {{% /notice %}}
 
 Tjenesteeier kan deretter lage et middleware e.l. som gjør ekstra autorisasjon basert på den autentiserte brukeren. Eksempel:
@@ -169,7 +169,7 @@ på vegne av en organisasjon. I Systembruker-konseptet sitter følgende komponen
   - Systemet registreres og eies av sluttbrukersystem-leverandøren i systemregisteret
 - Systembruker
   - En virtuell bruker som eies av kunden til leverandøren/sluttbrukersystemet
-  - Når systembrukeren registreres, vil rettighetene systemet ber om måtte delegeres til systembrukeren. I praksis må den personen som oppretter systembrukeren (hos kunden) ha disse rettighetene som systemet ber om
+  - Når du registrerer systembrukeren, må du delegere de rettighetene som systemet ber om til systembrukeren. I praksis må den personen som oppretter systembrukeren (hos kunden) ha disse rettighetene som systemet ber om
 
 Dette konseptet lar dermed systemet impersonere systembrukeren i integrasjonen mot en Altinn app.
 Dermed _kan_ systemet gjøre kall mot Altinns API-er uten at en sluttbruker hos organisasjonen er tilstede.

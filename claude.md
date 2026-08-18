@@ -148,7 +148,10 @@ Rett småfeil (ofte grammatikk) raskt - tar vanligvis 5-10 min.
 ## Språk og stil (norsk)
 
 - Bruk konservativ bokmål ("listen", "hentet" - ikke "lista", "henta")
-- Unngå passive konstruksjoner
+- Unngå passive konstruksjoner, **spesielt s-passiv** (verb + -s)
+  - ❌ Feil: "Meldinger sendes", "Dette gjøres", "Ressursen knyttes", "Tokenet brukes"
+  - ✅ Riktig: "Du sender meldinger", "Slik gjør du det", "Du knytter ressursen", "Du bruker tokenet"
+  - S-passiv gjenkjennes ved ord som: brukes, sendes, knyttes, styres, evalueres, settes, skrives, opprettes, legges til, lukkes
 - Unngå "av + -ing" konstruksjoner
 - **Unngå substantiveringer** - bruk verb i stedet for substantiverte verb
   - ❌ Feil: "Verifisering av signatur", "Lagring av data", "Behandling av personopplysninger"

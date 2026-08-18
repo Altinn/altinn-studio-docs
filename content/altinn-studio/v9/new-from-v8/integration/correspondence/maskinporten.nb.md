@@ -65,7 +65,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 ## Applikasjonskode
 
 Ved å bruke avhengighetsinjeksjon i .NET, kan du registrere at tjenesten din trenger en `ICorrespondenceClient`.
-Denne klienten kan deretter brukes til å sende meldinger og vil automatisk håndtere Maskinporten-autorisering.
+Du kan deretter bruke denne klienten til å sende meldinger, og den vil automatisk håndtere Maskinporten-autorisering.
 
 Når du skal sende en melding, finnes det veldig mange tilgjengelige parametere. Selv om bare et fåtall er nødvendige,
 kan selve prosessen med å bygge forespørselen være litt overveldende. For å hjelpe med dette, er det et `CorrespondenceRequestBuilder`-grensesnitt tilgjengelig.

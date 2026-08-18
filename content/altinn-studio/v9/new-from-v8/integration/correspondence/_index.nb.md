@@ -14,7 +14,7 @@ Slik integrerer du [meldingstjenesten](/nb/correspondence/) med en Altinn-app. M
 2. [Altinn.App.Api](https://www.nuget.org/packages/Altinn.App.Api) og [Altinn.App.Core](https://www.nuget.org/packages/Altinn.App.Core) _v8.12.2_ eller nyere
 
 ### Altinn-ressurs
-Når du sender en korrespondanse må den knyttes til en Altinn-ressurs. Ressursen styrer tilgangen for meldingene. Tilgangen evalueres for både avsendere og mottakere.
+Når du sender en korrespondanse må du knytte den til en Altinn-ressurs. Ressursen styrer tilgangen for meldingene. Både avsendere og mottakere blir evaluert for tilgang.
 
 Se [veiledningen for ressursregistrering](/nb/correspondence/getting-started/developer-guides/serviceowner/#registeraresourceinaltinnresourceregistry) for mer informasjon om oppsett og opprettelse.
 
@@ -22,14 +22,14 @@ Se [veiledningen for ressursregistrering](/nb/correspondence/getting-started/dev
 Ressursen må tillate sender-tilgang for [din organisasjon](https://github.com/Altinn/altinn-cdn/blob/master/orgs/altinn-orgs.json)
 og mottaker-tilgang for ønskelige [rollekoder](https://github.com/Altinn/altinn-cdn/blob/master/authorization/subjectoptions.json).
 
-Merk at for meldinger sendt til en person, skal koden `priv` brukes. For meldinger sendt til en organisasjon, skal de rollene
-som best beskriver din tiltenkte mottaker brukes.
+Når du sender en melding til en person, bruker du koden `priv`. Når du sender en melding til en organisasjon, bruker du de rollene
+som best beskriver din tiltenkte mottaker.
 {{</notice>}}
 
 ## Implementasjon og bruk
 
-For å bruke meldingstjenesten må forespørselen autoriseres med en passende bearer-token og en abonnementnøkkel.
+For å bruke meldingstjenesten må du autorisere forespørselen med en passende bearer-token og en abonnementnøkkel.
 
-Se seksjonene nedenfor for en detaljert veiledning om hvordan du oppnår dette:
+Under finner du veiledninger for hvordan du setter opp dette:
 
 - [Sende meldinger ved hjelp av Maskinporten](maskinporten)

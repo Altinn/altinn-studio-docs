@@ -20,7 +20,7 @@ Det følgende manuelle oppsettet er bare nødvendig for eldre apper eller spesia
 {{% expandlarge id="legacy-manual-maskinporten-setup" header="Vis manuelt oppsett med Samarbeidsportalen og Azure Key Vault" %}}
 
 ### Tilgang til Azure Key Vault
-Før du går videre med det manuelle oppsettet, må du forsikre deg om at du har tilgang til Azure Key Vault for organisasjonen din. Dette sikrer at nøklene som opprettes senere i veiledningen kan lagres riktig som hemmeligheter i Azure.
+Før du går videre med det manuelle oppsettet, må du forsikre deg om at du har tilgang til Azure Key Vault for organisasjonen din. Dette sikrer at du kan lagre nøklene som opprettes senere i veiledningen riktig som hemmeligheter i Azure.
 
 Hvis tilgang mangler, se
 [Tilgang til logger og hemmeligheter](/nb/altinn-studio/v9/develop-a-service/reference/administration/access-management/apps/).
@@ -62,8 +62,8 @@ Når appen forberedes til å bruke hemmeligheter fra Azure Key Vault, må du:
    MaskinportenSettings--ClientId
    MaskinportenSettings--JwkBase64
    ```
-2. For at appen skal kunne lese hemmelighetene fra Azure Key Vault, må den konfigureres til å gjøre det. Se
-[secrets-seksjonen](/nb/altinn-studio/v8/reference/configuration/secrets/) for å få dette til.
+2. For at appen skal kunne lese hemmelighetene fra Azure Key Vault, må du konfigurere den til å gjøre det. Se
+[secrets-seksjonen](/nb/altinn-studio/v8/reference/configuration/secrets/) for instruksjoner.
 3. Legge til appsettings-eksempelet ovenfor i `appsettings.{env}.json`-filen.
 {.floating-bullet-numbers}
 
