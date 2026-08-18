@@ -28,7 +28,7 @@ som best beskriver din tiltenkte mottaker brukes.
 
 ## Implementasjon og bruk
 
-For å bruke meldingstjenesten må forespørselen godkjennes med en passende bearer-token og en abonnementnøkkel.
+For å bruke meldingstjenesten må forespørselen autoriseres med en passende bearer-token og en abonnementnøkkel.
 
 Se seksjonene nedenfor for en detaljert veiledning om hvordan du oppnår dette:
 

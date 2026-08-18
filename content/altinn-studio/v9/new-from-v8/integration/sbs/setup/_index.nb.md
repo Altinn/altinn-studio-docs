@@ -44,7 +44,7 @@ Dette Altinn-tokenet kan deretter brukes til å sende inn skjema i en Altinn app
 
 {{% notice info %}}
 Scopene `altinn:instances.read` og `altinn:instances.write` er ikke tjenesteeier- eller app-spesifikke.
-Ved godkjenning gir brukeren systemet lov til å sende inn i alle Altinn apper hvor brukeren er autorisert til det (via XACML og annen config).
+Når brukeren godkjenner, gir brukeren systemet lov til å sende inn i alle Altinn-apper som brukeren har tilgang til (via XACML og annen config).
 {{% /notice %}}
 
 ### Bedre scope validering
@@ -66,9 +66,8 @@ som også vil gjelde plattformtjenester i Altinn (f. eks. Storage), men det er i
 
 {{% notice info %}}
 `IAuthenticationContext.Current` bruker informasjon om innlogget bruker fra ASP.NET Core sin authentication stack.
-Det vil si at ASP.NET Core auth middleware må ha kjørt for at man skal få riktig informasjon.
-Middleware for auth legges til i `UseAltinnAppCommonConfiguration`. Så hvis man skal aksessere `IAuthenticationContext.Current`
-i et middleware så må denne legges til **etter** at `UseAltinnAppCommonConfiguration` har blitt kalt.
+Det betyr at ASP.NET Core auth middleware må ha kjørt før du kan få riktig informasjon.
+Middleware for auth legges til i `UseAltinnAppCommonConfiguration`. Hvis du trenger å få tilgang til `IAuthenticationContext.Current` i et middleware, må denne legges til **etter** at `UseAltinnAppCommonConfiguration` er kalt.
 {{% /notice %}}
 
 Tjenesteeier kan deretter lage et middleware e.l. som gjør ekstra autorisasjon basert på den autentiserte brukeren. Eksempel:
@@ -471,13 +470,12 @@ Authorization: Bearer <access-token>
 
 #### 8. Tjenesteeier kan bruke informasjon om autentisert part om nødvendig
 
-Som eksemplifisert lenger opp, så kan man bruke `IAuthenticationContext` for å gjøre custom logikk basert på om det er systembruker som er innlogget i requestet:
+Som eksemplifisert lenger opp, kan du bruke `IAuthenticationContext` til å gjøre custom logikk basert på om det er systembruker som er innlogget i requestet:
 
 {{% notice info %}}
 `IAuthenticationContext.Current` bruker informasjon om innlogget bruker fra ASP.NET Core sin authentication stack.
-Det vil si at ASP.NET Core auth middleware må ha kjørt for at man skal få riktig informasjon.
-Middleware for auth legges til i `UseAltinnAppCommonConfiguration`. Så hvis man skal aksessere `IAuthenticationContext.Current`
-i et middleware så må denne legges til **etter** at `UseAltinnAppCommonConfiguration` har blitt kalt.
+Det betyr at ASP.NET Core auth middleware må ha kjørt før du kan få riktig informasjon.
+Middleware for auth legges til i `UseAltinnAppCommonConfiguration`. Hvis du trenger å få tilgang til `IAuthenticationContext.Current` i et middleware, må denne legges til **etter** at `UseAltinnAppCommonConfiguration` er kalt.
 {{% /notice %}}
 
 ```csharp

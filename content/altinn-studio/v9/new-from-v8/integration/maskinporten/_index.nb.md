@@ -7,7 +7,7 @@ toc: true
 tags: [needsReview]
 ---
 
-Slik setter du opp en Altinn-app til å utføre autoriserte forespørsler med Maskinporten på vegne av eieren av appen, i stedet for den aktive brukeren.
+Slik setter du opp en Altinn-app til å utføre godkjente forespørsler med Maskinporten på vegne av eieren av appen, i stedet for den aktive brukeren.
 
 {{% insert "content/shared/maskinporten/altinn-studio-scope-setup.nb.md" %}}
 
