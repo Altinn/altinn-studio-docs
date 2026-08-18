@@ -17,7 +17,7 @@ leverandørens system og appen. Det er i hovedsak 2 måter å lage denne integra
   - Egner seg godt for systemer der kontakt med sluttbruker er viktig, det er liten grad av automasjon og flyten i integrasjonen er fullstendig brukerstyrt.
 - Systembruker
   - [Leverandør lager Maskinporten klient](/nb/authorization/getting-started/maskinportenclient/)
-  - Leverandør lager system i systemregisteret til Altinn Autorisasjon (i systemdefinisjonen uttrykker man behov for tilgang til ressurser, f. eks. en app)
+  - Leverandør lager system i systemregisteret til Altinn Autorisasjon (i systemdefinisjonen uttrykker du behov for tilgang til ressurser, f. eks. en app)
   - Kunde registrerer systembruker. Dermed blir rettighetene delegert.
   - Leverandør autentiserer med Maskinporten klient
   - Ved integrasjon mot Altinn apper så vil systemet autentisere mot Maskinporten og deretter veksle Maskinporten-tokenet inn til et Altinn-token før innsending til Altinn
@@ -36,7 +36,7 @@ Bruk Altinn-tokenet i `Authorization`-headeren mot app- og plattform-API-er.
 
 ## Integrasjon med ID-porten
 
-Ved integrasjon fra sluttbrukersystem basert på ID-porten klient har man alltid direkte kontakt med sluttbruker.
+Ved integrasjon fra sluttbrukersystem basert på ID-porten klient har du alltid direkte kontakt med sluttbruker.
 Når sluttbruker logger inn i sluttbrukersystem via ID-porten vil sluttbruker måtte godta at systemet gjør
 `altinn:instances.read` og `altinn:instances.write` på vegne av brukeren (gitt at disse scopene er registrert i ID-porten klienten).
 Du må deretter [veksle tokenet i Altinn Autorisasjon](/nb/api/authentication/spec/).
@@ -173,7 +173,7 @@ på vegne av en organisasjon. I Systembruker-konseptet sitter følgende komponen
 
 Dette konseptet lar dermed systemet impersonere systembrukeren i integrasjonen mot en Altinn app.
 Dermed _kan_ systemet gjøre kall mot Altinns API-er uten at en sluttbruker hos organisasjonen er tilstede.
-Dette er ikke mulig med en ID-porten integrasjon, da man til enhver tid er avhengig av et gyldig token fra sluttbrukeren som jobber hos kunden (med tilstrekkelig tilganger).
+Dette er ikke mulig med en ID-porten integrasjon, da du til enhver tid er avhengig av et gyldig token fra sluttbrukeren som jobber hos kunden (med tilstrekkelig tilganger).
 
 ### Eksempel
 
@@ -299,8 +299,8 @@ Content-Type: application/json; charset=utf-8
 
 #### 4. Fiken forespør systembruker for kunden
 
-Som systemleverandør (Fiken) kan man etterspørre systembruker for en kunde.
-I responsen får man en `confirmUrl` som kan videresendes kunden slik at kunden kan godkjenne og fullføre opprettelsen av systembrukeren.
+Som systemleverandør (Fiken) kan du etterspørre systembruker for en kunde.
+I responsen får du en `confirmUrl` som kan videresendes kunden slik at kunden kan godkjenne og fullføre opprettelsen av systembrukeren.
 
 ```http
 POST https://platform.tt02.altinn.no/authentication/api/v1/systemuser/request/vendor/
@@ -409,7 +409,7 @@ Dette gjøres ved å legge til `authorization_details` claim i assertion med `/t
 Her bruker vi bare scopene `altinn:instances.read` og `altinn:instances.write` som lar oss sende inn i en Altinn app.
 
 {{% notice info %}}
-Hvis man bruker `externalRef` ved forespørsel om systembruker, så må denne også være med i assertion for token.
+Hvis du bruker `externalRef` ved forespørsel om systembruker, så må denne også være med i assertion for token.
 I eksempelet over sendes `313725138_Fikenbruker` som `externalRef`, så vi sender den med under.
 {{% /notice %}}
 

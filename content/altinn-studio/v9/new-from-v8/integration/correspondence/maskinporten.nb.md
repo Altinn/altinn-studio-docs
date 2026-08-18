@@ -8,7 +8,7 @@ tags: [needsReview]
 
 På [forrige side](/nb/altinn-studio/v9/develop-a-service/reference/integration/correspondence/) gikk vi gjennom hvordan du setter opp en [ressurs](/nb/altinn-studio/v9/develop-a-service/reference/integration/correspondence/#altinn-ressurs) og versjonskravene for meldingsklienten.
 
-Nå kan du gå videre til [oppsett av Maskinporten](#maskinporten) og [applikasjonskode](#applikasjonskode).
+Nå kan du gå videre til [oppsett av Maskinporten](#maskinporten) og [app-kode](#app-kode).
 
 ## Maskinporten
 
@@ -62,7 +62,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 {{% /expandlarge %}}
 
-## Applikasjonskode
+## App-kode
 
 Ved å bruke avhengighetsinjeksjon i .NET, kan du registrere at tjenesten din trenger en `ICorrespondenceClient`.
 Du kan deretter bruke denne klienten til å sende meldinger, og den vil automatisk håndtere Maskinporten-autorisering.
@@ -76,7 +76,7 @@ selve meldingen, en varsling til mottakeren, og et vedlegg.
 Du finner alle tilgjengelige alternativer og tilhørende dokumentasjon via IntelliSense i din foretrukne kodeeditor.
 
 {{<notice info>}}
-Vedleggsdata kan oppgis enten som en `Stream` med `WithData(Stream)` eller som en byte-array med `WithData(ReadOnlyMemory<byte>)`. Klienten laster opp vedlegget til meldingstjenesten som en strøm i begge tilfeller, men vi anbefaler at du sender en `Stream` (slik eksempelet nedenfor viser): da kan du strømme dataene hele veien, for eksempel direkte fra en fil, uten å holde hele vedlegget i minnet. Dette er viktig for store vedlegg.
+Du kan oppgi vedleggsdata enten som en `Stream` med `WithData(Stream)` eller som en byte-array med `WithData(ReadOnlyMemory<byte>)`. Klienten laster opp vedlegget til meldingstjenesten som en strøm i begge tilfeller, men vi anbefaler at du sender en `Stream` (slik eksempelet nedenfor viser): da kan du strømme dataene hele veien, for eksempel direkte fra en fil, uten å holde hele vedlegget i minnet. Dette er viktig for store vedlegg.
 
 Når du sender en `Stream`, overtar klienten ansvaret for den og lukker den når opplastingen er fullført, så du skal ikke lukke den selv.
 {{</notice>}}
@@ -96,7 +96,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 }
 {{</highlight>}}
 
-### Implementering av korrespondanseklient
+### Implementere korrespondanseklienten
 
 {{< code-title >}}
 App/CorrespondenceClientDemo.cs

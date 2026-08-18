@@ -1,14 +1,14 @@
 ---
-title: API integrasjon
-description: Bruk og integrasjon med app API.
+title: API-integrasjon
+description: Bruk og integrasjon med app-API.
 weight: 20
 toc: true
 ---
 
-Appens APIer er dokumentert med OpenAPI. Det finnes to varianter av OpenAPI spesifikasjonen:
+Appens API-er er dokumentert med OpenAPI. Det finnes to varianter av OpenAPI spesifikasjonen:
 
-* Generisk app API - eksponerer alle endepunkter uten hensyn til konkret konfigurasjon av appen
-* App-spesifikk API - eksponerer redusert sett APIer, hvor flere av de er relevante fra sluttbrukersystemer
+* Generisk app-API - eksponerer alle endepunkter uten hensyn til konkret konfigurasjon av appen
+* App-spesifikk API - eksponerer redusert sett API-er, hvor flere av de er relevante fra sluttbrukersystemer
 
 Begge to er tilgjengelige på URL:
 
@@ -16,9 +16,9 @@ Begge to er tilgjengelige på URL:
 
 ## Integrasjon med systembruker
 
-Guiden for [oppsett og konfigurasjon](/nb/altinn-studio/v8/guides/integration/sbs/setup/) på forrige side
-viste hvordan man logger inn med systembruker i Maskinporten. Vi fikk også se et instansierings-request, som er der 
-skjemautfyllingen i en Altinn 3 app starter. Her skal vi se videre på app APIene for å komme i mål med en komplett innsending.
+Veiledningen for [oppsett og konfigurasjon](/nb/altinn-studio/v8/guides/integration/sbs/setup/) på forrige side
+viste hvordan du logger inn med systembruker i Maskinporten. Vi fikk også se et instansierings-request, som er der 
+skjemautfyllingen i en Altinn 3 app starter. Her skal vi se videre på app API-ene for å komme i mål med en komplett innsending.
 Se eksempel instansieringer nedenfor.
 
 `<access-token>` i eksemplene her er et Maskinporten systembruker token som er innvekslet til et Altinn token.
@@ -81,7 +81,7 @@ Content-Type: application/json; charset=utf-8
 
 ### 1.2 Multipart instansiering
 
-Appen har også et multipart endepunkt hvor man kan laste opp datamodeller og vedlegg i samme request:
+Appen har også et multipart endepunkt hvor du kan laste opp datamodeller og vedlegg i samme request:
 
 ```http
 POST https://brg.apps.tt02.altinn.no/brg/aarsregnskap/instances
@@ -203,7 +203,7 @@ Content-Type: application/json; charset=utf-8
 
 ### 4. Hente kvittering
 
-Når instansen er ferdig innsendt kan man eventuelt hente ut kvittering e.l.
+Når instansen er ferdig innsendt kan du eventuelt hente ut kvittering e.l.
 for å presentere til bruker eller rapportere i leverandørsystemet.
 
 Først kan vi liste ut alle datalementer på instansen:
