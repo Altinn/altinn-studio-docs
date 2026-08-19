@@ -147,7 +147,7 @@ Actions have themselves an `action` property that corresponds to a [XACML action
 
 {{<notice warning>}}While Dialogporten will check authorization for the action and remove the URL if the check fails, the service owner system MUST perform its own authorization based on the same policy{{</notice>}}
 
-For added control, an [authorization attribute]({{< relref "/dialogporten/getting-started/authorization/attributes" >}}) can be supplied, which allows service owners to refer to specific rules within the policy or other service resources (which the service owner controls) entirely.
+For added control, an [authorization context]({{< relref "/dialogporten/getting-started/authorization/authorization-contexts" >}}) can be supplied, which allows service owners to refer to specific rules within the policy, other service resources entirely, or additional parties beyond the dialog's own. The older [authorization attribute]({{< relref "/dialogporten/getting-started/authorization/attributes" >}}) mechanism is deprecated but continues to work.
 
 ### Defining GUI actions
 
@@ -173,6 +173,8 @@ Note that Dialogporten will not consider the validity or semantics of API action
 - {{<link "../../../reference/entities/action">}}
 - {{<link "../../../getting-started/write-actions">}}
 - {{<link "../../../getting-started/authorization/dialog-tokens">}}
+- {{<link "../using-authorization-contexts">}}
+- {{<link "../../../reference/authorization/authorization-contexts">}}
 
 ## Defining attachments
 
@@ -204,7 +206,7 @@ Navigational actions have the following properties:
 - `url` — the URL to navigate to; must always be a GET endpoint over HTTPS
 - `expiresAt` (optional) — when the timestamp is reached, Dialogporten rewrites the URL to `urn:dialogporten:expired`, and end-user systems should hide or disable the action
 
-If the transmission has an `authorizationAttribute` that renders the end user unauthorised, the URL is rewritten to `urn:dialogporten:unauthorized`.
+Navigational actions never supported `authorizationAttribute` - they can only carry an [authorization context]({{< relref "/dialogporten/getting-started/authorization/authorization-contexts" >}}), which defaults to a `read` check unless it names a different `action` explicitly. If the navigational action's own context renders the end user unauthorised, or the parent transmission itself is unauthorised, the URL is rewritten to `urn:dialogporten:unauthorized` (or the title is cleared too, if `unauthorizedPresentation` is `Redacted`).
 
 When defining navigational actions, the current implementation requires:
 

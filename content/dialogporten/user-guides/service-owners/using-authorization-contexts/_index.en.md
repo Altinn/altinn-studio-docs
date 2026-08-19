@@ -1,0 +1,132 @@
+---
+title: 'Using Authorization Contexts'
+description: 'How to restrict access to individual actions, transmissions, attachments and navigational actions'
+weight: 25
+---
+
+{{<notice warning>}}
+Authorization contexts are an experimental feature and may change or be removed without a major version bump. See [issue #3978](https://github.com/Altinn/dialogporten/issues/3978) for details.
+{{</notice>}}
+
+## Introduction
+
+Use an [authorization context]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}) when different parts of the same dialog need different access rules - for example, when a signing action should only be available to an external auditor, or when a transmission should be visible to a party other than the one who owns the dialog.
+
+## Restricting a transmission to a subresource
+
+The like-for-like replacement for a legacy authorization attribute that narrows access within the dialog's own resource - for example, a transmission that should only be accessible to whoever has access to a particular task in the case-handling process.
+
+```jsonc
+{
+  "transmissions": [
+    {
+      "type": "Information",
+      "sender": { "actorType": "ServiceOwner" },
+      "content": { /* ... */ },
+      "authorizationContext": {
+        // "action" defaults to "read" if left out - but a plain read rule on the main resource
+        // would then also match this narrowed request, defeating the narrowing. Name a distinct
+        // action here (any name of your choosing) and key your policy rule on that action plus
+        // the task, exactly like the old, automatically-derived "transmissionread" used to.
+        "action": "elementread",
+        "additionalResourceAttribute": "urn:altinn:task:Task_1",
+        "includeDialogParty": true,
+        "unauthorizedPresentation": "Disabled"
+      }
+    }
+  ]
+}
+```
+
+## Granting access to a party that does not own the dialog
+
+The capability a legacy authorization attribute could not express at all: exposing a transmission to a party other than the dialog's own, without also granting it to the dialog owner.
+
+```jsonc
+{
+  "transmissions": [
+    {
+      "type": "Information",
+      "sender": { "actorType": "ServiceOwner" },
+      "content": { /* ... */ },
+      "authorizationContext": {
+        // Access is evaluated ONLY for these parties - the dialog's own party is excluded
+        // because includeDialogParty is false. OR semantics: any one permitted party grants
+        // access. Maximum 3 entries.
+        "parties": [
+          "urn:altinn:organization:identifier-no:912345678",
+          "urn:altinn:person:identifier-no:12018212345"
+        ],
+        "includeDialogParty": false,
+        // Reveals nothing but the transmission's existence, id and timestamp to everyone else.
+        "unauthorizedPresentation": "Redacted"
+      }
+    }
+  ]
+}
+```
+
+Because no `serviceResource` or `additionalResourceAttribute` is set, the evaluated action derives to `read`, and the issued context token will not carry an `r` claim.
+
+## Pointing at another service's policy
+
+Set `serviceResource` when the part of the dialog you're restricting should be governed by a different resource's policy entirely, rather than a subresource within the dialog's own policy. Two things follow from this:
+
+- The dialog's own instance reference stops applying to this entity - the check is evaluated purely against the named resource.
+- You must own the referenced resource. Referencing a resource you don't own fails the whole create or update with `403 Forbidden`.
+
+## Restricting an attachment or a navigational action
+
+Attachments and navigational actions carry the same authorization context shape as any other surface, including `action` - but since these entities are only ever fetched or viewed, not acted upon, there is rarely a reason to name anything other than the default `read`. Access to the parent (the dialog for a dialog-level attachment, the transmission for a transmission attachment or navigational action) is still a precondition; a permissive context on the child never grants access if the parent itself is denied.
+
+```jsonc
+{
+  "attachments": [
+    {
+      "displayName": [{ "languageCode": "en", "value": "Auditor report" }],
+      "urls": [{ "url": "https://example.com/files/auditor-report.pdf", "consumerType": "Gui" }],
+      "authorizationContext": {
+        "additionalResourceAttribute": "urn:altinn:subresource:auditor-documents",
+        "includeDialogParty": true,
+        "unauthorizedPresentation": "Redacted"
+      }
+    }
+  ]
+}
+```
+
+## Choosing between `Disabled` and `Redacted`
+
+`unauthorizedPresentation` is required on every authorization context, and has no default:
+
+- `Disabled` masks URLs but keeps the rest of the entity's content visible. This is what the legacy authorization attribute mechanism has always done, so it's the recommended choice when migrating an existing dialog without intending to change what end users see.
+- `Redacted` additionally strips the entity's content, leaving only enough to show something exists in that position. Use this when the mere existence of the part of the dialog should not be disclosed to an unauthorized user - for example, a transmission naming a party the end user shouldn't know is involved.
+
+See the [field reference]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}#what-an-unauthorized-end-user-sees) for the exact effect on every field, per surface.
+
+## Calling the protected endpoint
+
+Read `contextToken` off the entity that carries the authorization context, and send it instead of the dialog token when calling that entity's URL. Validate it following the [context token checklist]({{< relref "/dialogporten/reference/authorization/context-tokens" >}}#validation-checklist-for-receiving-services), in particular checking `pp`, not `p`, for who is authorized.
+
+{{<notice warning>}}
+While Dialogporten will check authorization and mask or redact the entity when the check fails, the service owner system MUST perform its own authorization based on the same policy
+{{</notice>}}
+
+## Migrating an existing dialog
+
+`authorizationContext` and `authorizationAttribute` cannot both be set on the same entity. When migrating:
+
+- Remove the entity's `authorizationAttribute`, and on API/GUI actions the top-level `action` as well - use `authorizationContext.action` instead.
+- If the attribute you're migrating narrowed a transmission to a subresource or task, don't leave `authorizationContext.action` unset - it defaults to `read`, which a broad `read` rule on the main resource will still match. Name your own `action` (see the example above) and update your policy to key on it, or the migrated entity will end up more broadly visible than it was before.
+- Coordinate with whoever validates the dialog token's authorized actions on the receiving side first: the moment an entity gains a context, its grant disappears from the dialog token and only appears in the entity's own context token.
+- Double-check policies that combine several distinct actions across entities in the same dialog - a defect in the legacy authorization check that used to grant broader access than intended has been fixed, and while it does not affect any known production policy today, it's worth verifying against your own.
+
+See the [full migration table]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}#migration-from-authorizationattribute) for the exact translation from each legacy shape.
+
+**Read more**
+
+- {{<link "../../../reference/authorization/authorization-contexts">}}
+- {{<link "../../../reference/authorization/context-tokens">}}
+- {{<link "../creating-dialogs">}}
+
+{{<children />}}

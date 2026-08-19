@@ -1,0 +1,132 @@
+---
+title: 'Bruke autorisasjonskontekster'
+description: 'Slik begrenser du tilgang til enkelte handlinger, forsendelser, vedlegg og navigasjonshandlinger'
+weight: 25
+---
+
+{{<notice warning>}}
+Autorisasjonskontekster er en eksperimentell funksjon og kan endres eller fjernes uten en større versjonsoppdatering. Se [sak #3978](https://github.com/Altinn/dialogporten/issues/3978) for detaljer.
+{{</notice>}}
+
+## Introduksjon
+
+Bruk en [autorisasjonskontekst]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}) når ulike deler av samme dialog trenger ulike tilgangsregler - for eksempel når en signeringshandling bare skal være tilgjengelig for en ekstern revisor, eller når en forsendelse skal være synlig for en annen part enn den som eier dialogen.
+
+## Begrense en forsendelse til en underressurs
+
+Den direkte erstatningen for et gammelt autorisasjonsattributt som avgrenser tilgang innenfor dialogens egen ressurs - for eksempel en forsendelse som bare skal være tilgjengelig for den som har tilgang til en bestemt oppgave i saksbehandlingsprosessen.
+
+```jsonc
+{
+  "transmissions": [
+    {
+      "type": "Information",
+      "sender": { "actorType": "ServiceOwner" },
+      "content": { /* ... */ },
+      "authorizationContext": {
+        // "action" blir "read" som standard hvis feltet utelates - men en ren read-regel på
+        // hovedressursen ville da også truffet denne avgrensede forespørselen, og avgrensingen
+        // ville falt bort. Gi handlingen et eget navn (helt fritt valgt) og la policyregelen
+        // matche på den handlingen sammen med oppgaven, akkurat som den gamle, automatisk
+        // utledede "transmissionread" gjorde.
+        "action": "elementread",
+        "additionalResourceAttribute": "urn:altinn:task:Task_1",
+        "includeDialogParty": true,
+        "unauthorizedPresentation": "Disabled"
+      }
+    }
+  ]
+}
+```
+
+## Gi tilgang til en part som ikke eier dialogen
+
+Muligheten et gammelt autorisasjonsattributt ikke kunne uttrykke i det hele tatt: å eksponere en forsendelse for en annen part enn dialogens egen, uten å samtidig gi tilgang til dialogeieren.
+
+```jsonc
+{
+  "transmissions": [
+    {
+      "type": "Information",
+      "sender": { "actorType": "ServiceOwner" },
+      "content": { /* ... */ },
+      "authorizationContext": {
+        // Tilgang evalueres KUN for disse partene - dialogens egen part er utelatt fordi
+        // includeDialogParty er false. ELLER-semantikk: én tillatt part er nok. Maks 3 stk.
+        "parties": [
+          "urn:altinn:organization:identifier-no:912345678",
+          "urn:altinn:person:identifier-no:12018212345"
+        ],
+        "includeDialogParty": false,
+        // Avslører ingenting annet enn forsendelsens eksistens, ID og tidsstempel for alle andre.
+        "unauthorizedPresentation": "Redacted"
+      }
+    }
+  ]
+}
+```
+
+Siden verken `serviceResource` eller `additionalResourceAttribute` er satt, utledes handlingen til `read`, og konteksttokenet som utstedes vil ikke ha noe `r`-claim.
+
+## Peke på en annen tjenestes policy
+
+Sett `serviceResource` når delen av dialogen du begrenser, skal styres av en helt annen ressurs' policy, i stedet for en underressurs innenfor dialogens egen policy. To ting følger av dette:
+
+- Dialogens egen instansreferanse gjelder ikke lenger for denne entiteten - sjekken evalueres utelukkende mot den navngitte ressursen.
+- Du må eie ressursen det refereres til. Å referere til en ressurs du ikke eier, feiler hele opprettelsen eller oppdateringen med `403 Forbidden`.
+
+## Begrense et vedlegg eller en navigasjonshandling
+
+Vedlegg og navigasjonshandlinger har samme autorisasjonskontekst-form som alle andre deler, inkludert `action` - men siden disse entitetene bare noensinne hentes eller vises, aldri handles på, er det sjelden noen grunn til å navngi noe annet enn standardverdien `read`. Tilgang til forelderen (dialogen for et vedlegg på dialognivå, forsendelsen for et vedlegg på forsendelsen eller en navigasjonshandling) er fortsatt en forutsetning; en tillatende kontekst på barnet gir aldri tilgang hvis forelderen selv er nektet.
+
+```jsonc
+{
+  "attachments": [
+    {
+      "displayName": [{ "languageCode": "nb", "value": "Revisorrapport" }],
+      "urls": [{ "url": "https://example.com/files/revisorrapport.pdf", "consumerType": "Gui" }],
+      "authorizationContext": {
+        "additionalResourceAttribute": "urn:altinn:subresource:auditor-documents",
+        "includeDialogParty": true,
+        "unauthorizedPresentation": "Redacted"
+      }
+    }
+  ]
+}
+```
+
+## Velge mellom `Disabled` og `Redacted`
+
+`unauthorizedPresentation` er påkrevd på hver autorisasjonskontekst, og har ingen standardverdi:
+
+- `Disabled` maskerer URL-er, men beholder resten av innholdet til entiteten synlig. Dette er det det gamle autorisasjonsattributtet alltid har gjort, så det er det anbefalte valget når du migrerer en eksisterende dialog uten å ønske å endre hva sluttbrukere ser.
+- `Redacted` fjerner i tillegg innholdet til entiteten, og lar bare nok stå igjen til å vise at noe finnes i den posisjonen. Bruk dette når selve det at delen av dialogen finnes, ikke bør avsløres for en uautorisert bruker - for eksempel en forsendelse som navngir en part sluttbrukeren ikke bør vite er involvert.
+
+Se [feltreferansen]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}#hva-en-uautorisert-sluttbruker-ser) for den nøyaktige effekten på hvert felt, per del.
+
+## Kalle det beskyttede endepunktet
+
+Les `contextToken` fra entiteten som har autorisasjonskonteksten, og send det i stedet for dialogtokenet når du kaller URL-ene til den entiteten. Valider det i tråd med [sjekklisten for konteksttoken]({{< relref "/dialogporten/reference/authorization/context-tokens" >}}#sjekkliste-for-validering-hos-mottakende-tjenester), og sjekk særlig `pp`, ikke `p`, for hvem som er autorisert.
+
+{{<notice warning>}}
+Selv om Dialogporten sjekker autorisasjon og maskerer eller fjerner innholdet på entiteten når sjekken feiler, MÅ tjenesteeiersystemet utføre sin egen autorisasjon basert på den samme policyen
+{{</notice>}}
+
+## Migrere en eksisterende dialog
+
+`authorizationContext` og `authorizationAttribute` kan ikke begge være satt på samme entitet. Ved migrering:
+
+- Fjern entitetens `authorizationAttribute`, og på API-/GUI-handlinger også det øverste `action`-feltet - bruk `authorizationContext.action` i stedet.
+- Hvis attributtet du migrerer avgrenset en forsendelse til en underressurs eller oppgave, la ikke `authorizationContext.action` stå usatt - da blir den `read`, og en bred `read`-regel på hovedressursen vil fortsatt treffe den. Gi handlingen et eget navn (se eksempelet ovenfor) og la policyen matche på det, ellers ender den migrerte entiteten opp mer synlig enn den var før.
+- Avstem med den som validerer dialogtokenets autoriserte handlinger på mottakersiden først: så snart en entitet får en kontekst, forsvinner rettigheten fra dialogtokenet og finnes bare igjen i entitetens eget konteksttoken.
+- Dobbeltsjekk policyer som kombinerer flere ulike handlinger på tvers av entiteter i samme dialog - en feil i den gamle autorisasjonssjekken, som tidligere kunne gi bredere tilgang enn tiltenkt, er nå rettet. Feilen påvirker ingen kjent policy i produksjon i dag, men det er verdt å dobbeltsjekke din egen.
+
+Se [den fullstendige migreringstabellen]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}#migrere-fra-authorizationattribute) for den nøyaktige oversettelsen fra hver gammel form.
+
+**Les mer**
+
+- {{<link "../../../reference/authorization/authorization-contexts">}}
+- {{<link "../../../reference/authorization/context-tokens">}}
+- {{<link "../creating-dialogs">}}
+
+{{<children />}}
