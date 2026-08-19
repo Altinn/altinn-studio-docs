@@ -105,9 +105,8 @@ app.Use(
 Du kan også bruke scope fra token som attributt i XACML.
 
 {{% notice warning %}}
-Matcheren `urn:oasis:names:tc:xacml:1.0:function:string-is-in` er ikke nødvendigvis helt trygg.
-Scopet `annentest:app.a` vil også matche her, siden `test:app.a` er en substreng av denne.
-Vi vurderer om vi kan lage en bedre matchfunksjon.
+Matcheren `urn:oasis:names:tc:xacml:1.0:function:string-is-in` gjør eksakt medlemskapssjekking. 
+Scopet `annentest:app.a` vil IKKE matche `test:app.a` fordi det er eksakt sammenligning, ikke substring-matching.
 {{% /notice %}}
 
 ```xml
@@ -231,7 +230,14 @@ For å hente et token du kan bruke til systemregistrering, legger Fiken inn et s
 
 ```http
 POST https://test.maskinporten.no/token
+Content-Type: application/x-www-form-urlencoded
 
+grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=<signed JWT>
+```
+
+JWT-payload som skal signeres:
+
+```json
 {
   "aud": "https://test.maskinporten.no/",
   "scope": "altinn:authentication/systemuser.request.read altinn:authentication/systemuser.request.write altinn:authentication/systemregister.write",
@@ -240,7 +246,11 @@ POST https://test.maskinporten.no/token
   "iat": 1718124715,
   "jti": "a4de-ac36af8ef3e2"
 }
+```
 
+Response:
+
+```http
 HTTP/1.1 200 OK
 Content-Type: application/json
 

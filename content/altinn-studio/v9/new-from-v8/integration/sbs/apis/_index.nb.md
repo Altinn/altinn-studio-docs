@@ -16,7 +16,7 @@ Begge to er tilgjengelige på URL:
 
 ## Integrasjon med systembruker
 
-Veiledningen for [oppsett og konfigurasjon](/nb/altinn-studio/v8/guides/integration/sbs/setup/) på forrige side
+Veiledningen for [oppsett og konfigurasjon](/nb/altinn-studio/v9/new-from-v8/integration/sbs/setup/) på forrige side
 viste hvordan du logger inn med systembruker i Maskinporten. Vi fikk også se en instansierings-forespørsel, som er der 
 skjemautfyllingen i en Altinn 3 app starter. Her skal vi se videre på app API-ene for å komme i mål med en komplett innsending.
 Se eksempel instansieringer nedenfor.

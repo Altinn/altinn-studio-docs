@@ -57,7 +57,7 @@ Når appen forberedes til å bruke hemmeligheter fra Azure Key Vault, må du:
 
    Skal hemmelighetene i Azure Key Vault ha navn som dette:
 
-   ```
+   ```text
    MaskinportenSettings--Authority
    MaskinportenSettings--ClientId
    MaskinportenSettings--JwkBase64
