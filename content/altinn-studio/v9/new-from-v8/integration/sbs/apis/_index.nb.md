@@ -7,8 +7,8 @@ toc: true
 
 Appens API-er er dokumentert med OpenAPI. Det finnes to varianter av OpenAPI spesifikasjonen:
 
-* Generisk app-API - eksponerer alle endepunkter uten hensyn til konkret konfigurasjon av appen
-* App-spesifikk API - eksponerer redusert sett API-er, hvor flere av de er relevante fra sluttbrukersystemer
+* Generisk app-API - eksponerer alle endepunkter uten hensyn til konkret konfigurasjon av appen.
+* App-spesifikk API - eksponerer redusert sett API-er, hvor flere av de er relevante fra sluttbrukersystemer.
 
 Begge to er tilgjengelige på URL:
 
@@ -17,12 +17,12 @@ Begge to er tilgjengelige på URL:
 ## Integrasjon med systembruker
 
 Veiledningen for [oppsett og konfigurasjon](/nb/altinn-studio/v8/guides/integration/sbs/setup/) på forrige side
-viste hvordan du logger inn med systembruker i Maskinporten. Vi fikk også se et instansierings-request, som er der 
+viste hvordan du logger inn med systembruker i Maskinporten. Vi fikk også se en instansierings-forespørsel, som er der 
 skjemautfyllingen i en Altinn 3 app starter. Her skal vi se videre på app API-ene for å komme i mål med en komplett innsending.
 Se eksempel instansieringer nedenfor.
 
 `<access-token>` i eksemplene her er et Maskinporten systembruker token som er innvekslet til et Altinn token.
-Responsene i eksemplene er forkortet for enkelhets skyld. Se OpenAPI spec for komplett beskrivelse av requests og responser.
+Responsene i eksemplene er forkortet for enkelhets skyld. Se OpenAPI spec for komplett beskrivelse av forespørsler og svar.
 
 ### 1.1 Enkel instansiering med JSON prefill
 
@@ -79,9 +79,9 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-### 1.2 Multipart instansiering
+### 1.2 Multipart-instansiering
 
-Appen har også et multipart endepunkt hvor du kan laste opp datamodeller og vedlegg i samme request:
+Appen har også et multipart-endepunkt hvor du kan laste opp datamodeller og vedlegg i samme forespørsel:
 
 ```http
 POST https://brg.apps.tt02.altinn.no/brg/aarsregnskap/instances
@@ -146,7 +146,7 @@ Content-Type: application/json; charset=utf-8
 
 ### 2. Oppdatere dataelement
 
-Man kan også oppdatere dataene for et dataelement ved å referere til dataelementets ID:
+Du kan også oppdatere dataene for et dataelement ved å referere til dataelementets ID:
 
 ```http
 PUT https://brg.apps.tt02.altinn.no/brg/aarsregnskap/instances/500700/232c5390-9479-4506-a266-9890d7287bfb/data/ce8665c1-01c3-49f7-960f-196b250a2266/type/model?language=nb
@@ -174,7 +174,7 @@ Content-Type: application/json; charset=utf-8
 ### 3. Sende prosessen videre
 
 Prosessen for instansen sendes videre ved å kalle `/process/next`-endepunktet.
-Avhengig av prosessdesignet i appen vil dette da instansen til et neste steg eller fullføre instansen.
+Avhengig av prosessdesignet i appen vil dette ta instansen til et neste steg eller fullføre instansen.
 I eksempelet under ser vi at instansen er ferdig innsendt. Tjenesteeier vil gi spesifikk dokumentasjon for appen det gjelder.
 
 ```http
@@ -206,7 +206,7 @@ Content-Type: application/json; charset=utf-8
 Når instansen er ferdig innsendt kan du eventuelt hente ut kvittering e.l.
 for å presentere til bruker eller rapportere i leverandørsystemet.
 
-Først kan vi liste ut alle datalementer på instansen:
+Først kan du liste ut alle datalementer på instansen:
 
 ```http
 GET https://brg.apps.tt02.altinn.no/brg/aarsregnskap/instances/500700/232c5390-9479-4506-a266-9890d7287bfb

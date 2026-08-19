@@ -45,7 +45,7 @@ Hvis Studio viser meldingen **Du har ikke tilgang på vegne av virksomheten**, k
 For å løse dette:
 
 1. Kontroller at appen eies av riktig virksomhet i Altinn Studio.
-2. Be en direktør/leder i virksomheten, eller noen med Altinn-rollen **Hovedadministrator**, gi brukeren din tilgang til selvbetjening av klienter i ID-porten/Maskinporten i Altinn. Hvis virksomheten også administrerer API-scopes selv, må brukeren også ha tilgang til selvbetjening av API-er. Se [Digdirs veiledning for tilgang i test- og produksjonsmiljø](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web.html#tilgang-i-test-og-produksjonsmilj%C3%B8).
+2. Be en direktør/leder i virksomheten, eller noen med tilgangspakken **Hovedadministrator**, gi brukeren din tilgang til selvbetjening av klienter i ID-porten/Maskinporten i Altinn. Hvis virksomheten også administrerer API-scopes selv, må brukeren også ha tilgang til selvbetjening av API-er. Se [Digdirs veiledning for tilgang i test- og produksjonsmiljø](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web.html#tilgang-i-test-og-produksjonsmilj%C3%B8).
 3. Alternativt kan en bruker som allerede har denne tilgangen legge til scopene i appen.
 4. Prøv igjen i Altinn Studio når tilgangen er på plass.
 5. Kontakt Altinn servicedesk hvis tilgangen skal være riktig, men meldingen fortsatt vises.

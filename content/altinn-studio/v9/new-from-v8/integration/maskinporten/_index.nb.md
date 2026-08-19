@@ -39,7 +39,7 @@ Når appen forberedes til å bruke hemmeligheter fra Azure Key Vault, må du:
     - Base64-kodet JWT offentlig og privat nøkkelpar
     - Klient-ID for integrasjonen
 
-   Det er viktig at navnet på disse hemmelighetene i Azure Key Vault tilsvarer navnet på seksjonen i appsettings-filen i kodebasen til appen. For eksempel, hvis din appsettings-seksjon for Maskinporten-integrasjonen ser slik ut:
+   Det er viktig at navnet på disse hemmelighetene i Azure Key Vault tilsvarer navnet på konfigurasjonsblokken i appsettings-filen i kodebasen til appen. For eksempel, hvis konfigurasjonsblokken for Maskinporten-integrasjonen i appsettings-filen din ser slik ut:
 
    {{< code-title >}}
    App/appsettings.json
@@ -63,7 +63,7 @@ Når appen forberedes til å bruke hemmeligheter fra Azure Key Vault, må du:
    MaskinportenSettings--JwkBase64
    ```
 2. For at appen skal kunne lese hemmelighetene fra Azure Key Vault, må du konfigurere den til å gjøre det. Se
-[secrets-seksjonen](/nb/altinn-studio/v8/reference/configuration/secrets/) for instruksjoner.
+[delen om secrets](/nb/altinn-studio/v8/reference/configuration/secrets/) for instruksjoner.
 3. Legge til appsettings-eksempelet ovenfor i `appsettings.{env}.json`-filen.
 {.floating-bullet-numbers}
 
@@ -150,7 +150,7 @@ Hvis du har [konfigurert MaskinportenSettings i Key Vault](#key-vault-konfiguras
 
 {{% expandlarge id="migreringsveier-expander" header="Vis detaljer" %}}
 
-I denne seksjonen finner du noen korte eksempler på hvordan du kan migrere din eksisterende konfigurasjon fra den
+I denne delen finner du noen korte eksempler på hvordan du kan migrere din eksisterende konfigurasjon fra den
 [frittstående Maskinporten-klienten](https://github.com/Altinn/altinn-apiclient-maskinporten) til den innebygde.
 
 ### Bruk av AddMaskinportenHttpClient
