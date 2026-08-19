@@ -234,12 +234,11 @@ POST https://test.maskinporten.no/token
 
 {
   "aud": "https://test.maskinporten.no/",
-  "sub": "2829136a-1dd4-4a13-8150-d605a3fc39e6",
   "scope": "altinn:authentication/systemuser.request.read altinn:authentication/systemuser.request.write altinn:authentication/systemregister.write",
-  "iss": "2829136a-1dd4-4a13-8150-d605a3fc39e6",
+  "iss": "a2ed712d-4144-4471-839f-80ae4a68146b",
   "exp": 1718124835,
   "iat": 1718124715,
-  "jti": "89365ecd-772b-4462-a4de-ac36af8ef3e2"
+  "jti": "a4de-ac36af8ef3e2"
 }
 
 HTTP/1.1 200 OK
@@ -285,7 +284,7 @@ Content-Type: application/json
     }
   ],
   "AllowedRedirectUrls": [ "https://fiken.no/receipt" ],
-  "ClientId": [ "a2ed712d-4144-4471-839f-80ae4a68146b" ]
+  "clientId": [ "a2ed712d-4144-4471-839f-80ae4a68146b" ]
 }
 
 
@@ -351,7 +350,7 @@ Content-Type: application/json; charset=utf-8
 
 Person hos kunden, for eksempel daglig leder, godkjenner forespørsel om systembruker ved å følge `confirmUrl` fra responsen over.
 Hvis testing foregår i tt02, kan du for eksempel finne DAGL for organisasjonen til systembrukeren.
-Kunden i dette tilfellet, med fødselsnummer `14830199986`, har rollen DAGL (daglig leder), så du kan bruke denne ved innlogging med TestID.
+Kunden i dette tilfellet, med fødselsnummer `00000000001` (syntetisk testnummer), har rollen DAGL (daglig leder), så du kan bruke denne ved innlogging med TestID.
 Personen som godkjenner systembrukeren (systemtilgangen) må selv ha de rettighetene som skal delegeres til systembrukeren.
 I dette tilfellet, hvor DAGL skal godkjenne, må appen ha en regel som gir DAGL `instantiate` og `read`.
 Siden systembrukeren får delegert de samme rettighetene som godkjenneren har (i dette tilfelle DAGL), vil systembrukeren få `instantiate` og `read` i dette tilfellet.

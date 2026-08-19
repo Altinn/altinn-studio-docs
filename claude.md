@@ -155,7 +155,7 @@ Rett småfeil (ofte grammatikk) raskt - tar vanligvis 5-10 min.
 - Unngå "av + -ing" konstruksjoner
 - **Unngå substantiveringer** - bruk verb i stedet for substantiverte verb
   - ❌ Feil: "Verifisering av signatur", "Lagring av data", "Behandling av personopplysninger"
-  - ✅ Riktig: "Slik verifiserer du signaturen", "Slik lagres data", "Slik behandles personopplysninger"
+  - ✅ Riktig: "Slik verifiserer du signaturen", "Slik lagrer du data", "Slik behandler du personopplysninger"
 - **Bruk etterstilte pronomen** på norsk
   - ❌ Feil: "ditt system", "din tjeneste", "dine data"
   - ✅ Riktig: "systemet ditt", "tjenesten din", "dataene dine"

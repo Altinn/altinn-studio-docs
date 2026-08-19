@@ -40,7 +40,7 @@ Authorization: Bearer <access-token>
     "property3": "value3"
   },
   "instanceOwner": {
-    "organisationNumber": "950474084"
+    "organisationNumber": "313725138"
   }
 }
 
@@ -52,7 +52,7 @@ Content-Type: application/json; charset=utf-8
   "id": "500700/232c5390-9479-4506-a266-9890d7287bfb",
   "instanceOwner": {
     "partyId": "500700",
-    "organisationNumber": "950474084",
+    "organisationNumber": "313725138",
     "party": { }
   },
   "process": {
@@ -94,7 +94,7 @@ Content-Type: application/json
 
 {
   "instanceOwner": {
-    "organisationNumber": "950474084"
+    "organisationNumber": "313725138"
   }
 }
 
@@ -117,7 +117,7 @@ Content-Type: application/json; charset=utf-8
   "id": "500700/232c5390-9479-4506-a266-9890d7287bfb",
   "instanceOwner": {
     "partyId": "500700",
-    "organisationNumber": "950474084",
+    "organisationNumber": "313725138",
     "party": { }
   },
   "process": {
@@ -206,7 +206,7 @@ Content-Type: application/json; charset=utf-8
 Når instansen er ferdig innsendt kan du eventuelt hente ut kvittering e.l.
 for å presentere til bruker eller rapportere i leverandørsystemet.
 
-Først kan du liste ut alle datalementer på instansen:
+Først kan du liste ut alle dataelementer på instansen:
 
 ```http
 GET https://brg.apps.tt02.altinn.no/brg/aarsregnskap/instances/500700/232c5390-9479-4506-a266-9890d7287bfb
@@ -231,7 +231,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-Deretter kan vi laste ned `ref-data-as-pdf` elemented som er kvitteringen i dette tilfellet:
+Deretter kan vi laste ned `ref-data-as-pdf` elementet som er kvitteringen i dette tilfellet:
 
 ```http
 GET https://brg.apps.tt02.altinn.no/brg/aarsregnskap/instances/500700/232c5390-9479-4506-a266-9890d7287bfb/data/0445d618-28b8-4af5-95e0-c8c989487e7a/type/ref-data-as-pdf?language=nb
