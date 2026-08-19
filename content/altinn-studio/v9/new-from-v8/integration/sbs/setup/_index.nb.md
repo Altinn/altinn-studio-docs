@@ -1,6 +1,6 @@
 ---
 title: Oppsett og konfigurasjon
-description: Oppsett og konfigurasjon av app og infrastruktur for sluttbrukersystem-integrasjon i en app.
+description: Slik setter du opp og konfigurerer app og infrastruktur for sluttbrukersystemintegrasjon
 weight: 10
 toc: true
 ---
