@@ -25,7 +25,7 @@ Meldingsklienten finner og bruker automatisk den innebygde Maskinporten-klienten
 
 {{% expandlarge id="legacy-correspondence-maskinporten-config" header="Vis eldre egendefinert Maskinporten-konfigurasjon" %}}
 
-Hvis du trenger en annen konfigurasjonssti, kan du konfigurere den med hjelp av `ConfigureMaskinportenClient`:
+Hvis du trenger en annen konfigurasjonssti, kan du bruke `ConfigureMaskinportenClient` til å konfigurere den:
 
 {{< code-title >}}
 App/Program.cs
@@ -40,7 +40,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 }
 {{</highlight>}}
 
-Hvis du trenger et tilpasset konfigurasjonsoppsett, kan du bruke en delegatmetode:
+Hvis du trenger egendefinert konfigurasjon, kan du bruke en delegatmetode:
 
 {{< code-title >}}
 App/Program.cs
@@ -68,7 +68,7 @@ Ved å bruke avhengighetsinjeksjon i .NET, kan du registrere at tjenesten din tr
 Du kan deretter bruke denne klienten til å sende meldinger, og den vil automatisk håndtere Maskinporten-autorisering.
 
 Når du skal sende en melding, finnes det veldig mange tilgjengelige parametere. Selv om bare et fåtall er nødvendige,
-kan selve prosessen med å bygge forespørselen være litt overveldende. For å hjelpe med dette, er det et `CorrespondenceRequestBuilder`-grensesnitt tilgjengelig.
+kan det å bygge forespørselen være litt komplisert. For å hjelpe med dette, er det et `CorrespondenceRequestBuilder`-grensesnitt tilgjengelig.
 
 Eksempelet nedenfor bruker dette grensenittet til å bygge en meldingsforespørsel med de vanligste alternativene:
 selve meldingen, en varsling til mottakeren, og et vedlegg.

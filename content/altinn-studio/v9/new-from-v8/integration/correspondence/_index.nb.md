@@ -14,7 +14,7 @@ Slik integrerer du [meldingstjenesten](/nb/correspondence/) med en Altinn-app. M
 2. [Altinn.App.Api](https://www.nuget.org/packages/Altinn.App.Api) og [Altinn.App.Core](https://www.nuget.org/packages/Altinn.App.Core) _v8.12.2_ eller nyere
 
 ### Altinn-ressurs
-Når du sender en korrespondanse må du knytte den til en Altinn-ressurs. Ressursen styrer tilgangen for meldingene. Både avsendere og mottakere blir evaluert for tilgang.
+Når du sender en korrespondanse må du knytte den til en Altinn-ressurs. Ressursen bestemmer tilgangen for meldingene. Systemet evaluerer både avsendere og mottakere.
 
 Se [veiledningen for ressursregistrering](/nb/correspondence/getting-started/developer-guides/serviceowner/#registeraresourceinaltinnresourceregistry) for mer informasjon om oppsett og opprettelse.
 
