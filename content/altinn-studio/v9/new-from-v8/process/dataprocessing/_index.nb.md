@@ -5,7 +5,7 @@ toc: true
 tags: [needsReview]
 ---
 
-Dataprosessering kjøres på serveren, og er basert på input fra sluttbruker eller skjemadata.
+Dataprosessering kjøres på serveren, og er basert på det sluttbrukeren har fylt ut, eller skjemadata.
 Du kan bruke dataprosessering til rent matematiske kalkuleringer, overføring av verdier mellom felter, resultater av API-kall, og mer.
 
 Dataprosessering kjøres hver gang du lagrer data — altså hver gang en bruker gjør en endring.
