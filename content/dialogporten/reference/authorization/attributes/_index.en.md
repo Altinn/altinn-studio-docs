@@ -4,11 +4,19 @@ description: 'Reference information about authorization attributes'
 weight: 10
 ---
 
+{{<notice warning "deprecated">}}
+Authorization attributes are deprecated in favour of [authorization contexts]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}), which support the same use cases plus multi-party access and control over what an unauthorized end user sees. Authorization attributes continue to work; there is no removal date.
+{{</notice>}}
+
 ## Introduction
 
 See [getting started with authorization attributes](/en/dialogporten/reference/authorization/attributes/../../../getting-started/authorization/attributes/) for a functional overview of authorization attributes and what they can be used for.
 
 Authorization attributes are a way to control how the XACML request is constructed for a given dialog, making it possible to have more fine grained rules and even refer to several distinct resource policies.
+
+{{<notice warning>}}
+A legacy action with no authorization attribute at all is authorized against the exact resource the entity refers to, not merely "some entity in this dialog has a matching permit". If you rely on an action being granted implicitly through another entity's permit on the main resource, that no longer holds.
+{{</notice>}}
 
 {{<notice info>}}
 Authorization attributes are only considered in single dialog endpoints, ie. when requesting a dialog by ID. For dialog search/lists, the authorization attributes are not considered.
@@ -131,11 +139,15 @@ While Dialogporten indicates that the action is unauthorized, and removes the UR
 
 ## Using authorization attributes on transmissions
 
-For transmissions, the mechanics are the same, but there are no explicit actions associated with transmission. Therefore, either `read` or `transmissionread` actions are inferred and used in the XACML requests.
+{{<notice warning>}}
+For new dialogs, consider an [authorization context]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}) instead - it can express the same subresource/task narrowing shown below, plus grant access to a party other than the dialog's own.
+{{</notice>}}
 
-If a authorization attribute is supplied that refers to a separate resource/policy in Resource Registry (see below), `read` will be used as the action in the authorization check. `read` is also used if no authorization attribute is supplied at all. However, if a authorization attribute that does NOT refer to a separate resource/policy i Resource Registry is supplied, then `transmissionread` will be used as the action in the authorization check. 
+For transmissions, the mechanics are the same, but there is no explicit action associated with a transmission - `read` is always used as the action in the XACML request, whatever the authorization attribute refers to: a separate resource, a subresource, or a task.
 
-The reason for this is that the `read` action is usually defined for the entire resource, which will include all subresources due to the matching nature of XACML authorization "permit"-rules used in Altinn Authorization (a XACML rule defines constraints, ie. attributes that must be present in the request; an empty XACML rule will thus match - and return "permit" - any request). So in order to use authorization attributes that refer to rules within the same policy that should define separate access requirements, using something else than `read` is required, ie `transmissionread`. 
+{{<notice warning>}}
+A subresource or task named in a transmission's authorization attribute can only ever *broaden* access through a dedicated policy rule, never *narrow* it. The action sent is always `read`, and a plain `read` rule on the main resource - typically defined for the entire resource - matches regardless of which subresource or task attribute is also present in the request, because XACML target matching only checks that the attributes a rule requires are present, not that no other attributes are. If you need to restrict a transmission's visibility below the main resource's `read` grant, use an [authorization context]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}) with an explicit `action` instead - that is the only mechanism that can express real narrowing.
+{{</notice>}}
 
 Example:
 
@@ -210,7 +222,7 @@ Example:
 </xacml:Rule>
 ```
 
-In the above example, the following XACML request:
+Given a transmission whose authorization attribute is `urn:altinn:subresource:sometransmission`, Dialogporten sends this XACML request:
 
 ```json
 {
@@ -253,7 +265,7 @@ In the above example, the following XACML request:
 }
 ```
 
-Will result in `Permit`, because the request satisfies all the constraints defined in the first rule, which is not what we want. Using a different action, ie `transmissionread`, it will no longer match the first rule, and because UTINN is not part of the subject in the second rule, a `Permit` response will not be given and the transmission will be flagged as unaccessible by Dialogporten.
+This satisfies the rule above and results in `Permit` for any UTINN or DAGL user, regardless of the `sometransmission` subresource attribute - the attribute narrowed which resource the request names, but not which policy rule the request can match.
 
 ## Refer to separate resource/policy in Resource Registry
 
