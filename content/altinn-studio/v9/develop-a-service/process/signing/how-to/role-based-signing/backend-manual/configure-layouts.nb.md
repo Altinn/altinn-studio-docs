@@ -5,7 +5,7 @@ hidden: true
 tags: [needsReview, translate]
 ---
 
-1. Legg til en ny mappe under `App/ui` for signeringsoppgaven din. Kall den f.eks. `signing`.
+1. Legg til en ny mappe under `App/ui` for signeringsoppgaven din. Kall den for eksempel `signing`.
 
 2. Oppdater filen `App/ui/layout-sets.json` med ny sidegruppe, som har samme `id` som mappen du opprettet i forrige steg.
 
@@ -38,12 +38,12 @@ tags: [needsReview, translate]
    Det finnes et sett med ferdige komponenter for å bygge opp layout for et signeringssteg. Vi anbefaler å bruke disse, men de er ikke obligatoriske.
 
    - **SigningDocumentList**: Lister ut dataene som blir signert på, for eksempel vedlegg, xml-data eller PDF-oppsummering fra tidligere steg.
-   - **SigneeList**: Lister ut de som skal signere (signatarer) og tilhørende signeringsstatus. Per nå støtter ikke denne listen å vise roller som skal signere, kun personer som har fått brukerstyrt delegert tilgang. Men i det øyeblikket en person utfører en signering vil de dukke opp, så vi kan bruke den som en "Signaturer"-liste.
-   - **SigningStatusPanel**: Utleder status for signeringssteget og viser relevante knapper til sluttbruker, for eksempel "Signer"-knappen.
+   - **SigneeList**: Lister ut de som skal signere (signatarer) og tilhørende signeringsstatus. Per nå støtter ikke denne listen å vise roller som skal signere, kun personer som har fått brukerstyrt delegert tilgang. Men i det øyeblikket en person utfører en signering vil de dukke opp, så vi kan bruke den som en **Signaturer**-liste.
+   - **SigningStatusPanel**: Utleder status for signeringssteget og viser relevante knapper til sluttbruker, for eksempel **Signer**-knappen.
 
-   Hvis du ikke bruker `SigningStatusPanel` for å vise "Signer"-knappen, må du legge til en egen handlingsknapp med action "sign", for å la sluttbruker signere.
+   Hvis du ikke bruker `SigningStatusPanel` for å vise **Signer**-knappen, må du legge til en egen handlingsknapp med action "sign", for å la sluttbruker signere.
 
-   Eksempel på bruk av komponentene:
+   Eksempler på hvordan du kan bruke komponentene:
 
    ```json
    {
