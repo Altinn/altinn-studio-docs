@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Dataprosessering
 description: Slik legger du til kalkuleringer og annen dataprosessering
 toc: true

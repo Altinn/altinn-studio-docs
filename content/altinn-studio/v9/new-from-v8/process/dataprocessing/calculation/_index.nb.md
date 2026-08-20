@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Kalkulering av datafelt
 description: Slik konfigurerer du kalkulering med dynamiske uttrykk
 toc: true
