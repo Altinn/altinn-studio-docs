@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Roller som Altinn bruker
 linktitle: Roller
 description: Denne siden inneholder informasjon om hvilke typer roller Altinn har som du kan bruke til å gi tilgang til en applikasjon

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Veiledning for autorisasjonsregler
 linktitle: Veiledning
 description: Autorisasjonsregler må du definere med omhu. Denne veiledningen forteller hva du som applikasjonseier må vurdere før du setter autorisasjonsregler for en applikasjon

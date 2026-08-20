@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Roller fra Enhetsregisteret
 linktitle: ER-roller
 description: Roller fra Enhetsregisteret som du kan bruke til å gi tilgang til en applikasjon
