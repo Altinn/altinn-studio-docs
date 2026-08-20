@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Assistent
 description: Slik bruker du KI-assistenten i Studio
 hidden: true
