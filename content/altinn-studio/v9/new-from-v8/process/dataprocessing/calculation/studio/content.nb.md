@@ -3,4 +3,4 @@ headless: true
 hidden: true
 tags: [needsReview]
 ---
-Kalkulering med uttrykk kan du ikke konfigurere gjennom Altinn Studio Designer for øyeblikket.
+Du kan foreløpig ikke konfigurere kalkulering med uttrykk gjennom Altinn Studio Designer.
