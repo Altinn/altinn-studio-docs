@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Gruppering av felter
 linktitle: Gruppering
 description: Slik grupperer du felter i skjemaet
