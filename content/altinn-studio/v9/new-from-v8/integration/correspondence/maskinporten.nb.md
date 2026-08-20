@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Sende meldinger med Maskinporten-autorisasjon
 linktitle: Med Maskinporten
 weight: 100

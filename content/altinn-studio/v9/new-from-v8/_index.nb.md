@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Nye emner fra v8
 description: Emner migrert fra Altinn Studio v8-dokumentasjonen som skal integreres i v9-strukturen
 weight: 9999

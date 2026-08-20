@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Integrere Altinn-app med Maskinporten
 linktitle: Maskinporten
 description: Slik setter du opp en integrasjon mellom en Altinn-app og Maskinporten.

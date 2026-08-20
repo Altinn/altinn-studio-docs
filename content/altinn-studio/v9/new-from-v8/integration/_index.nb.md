@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Integrasjon
 description: Veiledninger for integrasjoner til/fra en Altinn Studio app.
 weight: 40

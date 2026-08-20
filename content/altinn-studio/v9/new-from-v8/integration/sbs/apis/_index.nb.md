@@ -1,4 +1,5 @@
 ---
+draft: true
 title: API-integrasjon
 description: Bruk og integrasjon med app-API.
 weight: 20
