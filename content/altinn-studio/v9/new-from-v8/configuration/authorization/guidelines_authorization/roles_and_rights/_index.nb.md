@@ -26,7 +26,7 @@ Du kan lese mer om hvilke roller fra Enhetsregisteret som Altinn bruker [her](/n
 
 ### Roller fra [Skatteetaten](https://www.skatteetaten.no/)
 Du bruker disse rollene når [aktøren](/nb/technology/terms/#actor) er en virksomhet eller person 
-Du kan lese mer om hvilke roller fra Skatteetaten som Altinn bruker [her](/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_SKE/)
+Du kan lese mer om hvilke roller fra Skatteetaten som Altinn bruker [her](/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/roles_and_rights/roles_ske/)
 
 ### Roller fra [Arbeidsgiver- og arbeidstakerregisteret](https://www.nav.no/no/bedrift/tjenester-og-skjemaer/aa-registeret-og-a-meldingen)
 Dette er ikke implementert i dag, men ligger i backloggen som en ny kilde til eksterne roller
