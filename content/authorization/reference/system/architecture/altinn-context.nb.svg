@@ -1,0 +1,208 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1080" viewBox="0 0 1600 1080" role="img" aria-labelledby="title description">
+  <title id="title">Altinn – slik henger Autorisasjon sammen med resten</title>
+  <desc id="description">Forenklet systemkontekst som viser aktører, brukerflater, apper, felles digitale tjenester, Altinn Autorisasjon, utviklingsverktøy, eksterne tillitskilder og fagsystemer. Autorisasjon ligger på tvers og gir tilgangsbeslutninger til beskyttede tjenester og grensesnitt.</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#475569"/>
+    </marker>
+    <marker id="arrow-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#c2410c"/>
+    </marker>
+    <style>
+      .title { font: 700 30px Arial, sans-serif; fill: #111827; }
+      .subtitle { font: 16px Arial, sans-serif; fill: #475569; }
+      .section-title { font: 700 16px Arial, sans-serif; fill: #334155; letter-spacing: 0.4px; }
+      .group-title { font: 700 18px Arial, sans-serif; fill: #1e293b; }
+      .box-title { font: 700 16px Arial, sans-serif; fill: #111827; }
+      .auth-title { font: 700 14px Arial, sans-serif; fill: #111827; }
+      .box-text { font: 14px Arial, sans-serif; fill: #334155; }
+      .small-text { font: 13px Arial, sans-serif; fill: #475569; }
+      .arrow-label { font: 700 13px Arial, sans-serif; fill: #9a3412; paint-order: stroke; stroke: #fff7ed; stroke-width: 6px; stroke-linejoin: round; }
+      .external-label { font: 13px Arial, sans-serif; fill: #475569; paint-order: stroke; stroke: #ffffff; stroke-width: 5px; stroke-linejoin: round; }
+      .platform { fill: #f8fafc; stroke: #64748b; stroke-width: 2.5; stroke-dasharray: 10 7; }
+      .actor-group { fill: #f5f3ff; stroke: #8b5cf6; stroke-width: 2; }
+      .external-group { fill: #ffffff; stroke: #94a3b8; stroke-width: 2; stroke-dasharray: 8 6; }
+      .surface-box { fill: #eaf4ff; stroke: #2563a6; stroke-width: 2; }
+      .service-box { fill: #edf7f4; stroke: #287d68; stroke-width: 2; }
+      .support-box { fill: #f1f5f9; stroke: #64748b; stroke-width: 1.8; }
+      .auth-boundary { fill: #fff7ed; stroke: #c2410c; stroke-width: 3; }
+      .auth-box { fill: #ffffff; stroke: #ea580c; stroke-width: 1.8; }
+      .actor-box { fill: #ffffff; stroke: #7c3aed; stroke-width: 1.8; }
+      .external-box { fill: #ffffff; stroke: #64748b; stroke-width: 1.8; }
+      .flow { fill: none; stroke: #475569; stroke-width: 2.2; marker-end: url(#arrow); }
+      .soft-flow { fill: none; stroke: #64748b; stroke-width: 1.8; stroke-dasharray: 7 6; marker-end: url(#arrow); }
+      .auth-flow { fill: none; stroke: #c2410c; stroke-width: 3; marker-start: url(#arrow-orange); marker-end: url(#arrow-orange); }
+    </style>
+  </defs>
+
+  <rect width="1600" height="1080" fill="#ffffff"/>
+  <text x="50" y="52" class="title">Altinn – slik henger Autorisasjon sammen med resten</text>
+  <text x="50" y="82" class="subtitle">Forenklet systemkontekst: Autorisasjon gir tilgangsbeslutninger på tvers av brukerflater, apper og felles digitale tjenester.</text>
+
+  <!-- Actors -->
+  <rect x="35" y="130" width="245" height="425" rx="16" class="actor-group"/>
+  <text x="58" y="162" class="section-title">AKTØRER</text>
+
+  <rect x="55" y="190" width="205" height="88" rx="10" class="actor-box"/>
+  <text x="158" y="223" text-anchor="middle" class="box-title">Innbyggere og ansatte</text>
+  <text x="158" y="248" text-anchor="middle" class="box-text">bruker tjenester</text>
+
+  <rect x="55" y="315" width="205" height="88" rx="10" class="actor-box"/>
+  <text x="158" y="348" text-anchor="middle" class="box-title">Sluttbrukersystemer</text>
+  <text x="158" y="373" text-anchor="middle" class="box-text">bruker API-er</text>
+
+  <rect x="55" y="440" width="205" height="88" rx="10" class="actor-box"/>
+  <text x="158" y="473" text-anchor="middle" class="box-title">Tjenesteeiere</text>
+  <text x="158" y="498" text-anchor="middle" class="box-text">utvikler og forvalter</text>
+
+  <!-- External trust sources -->
+  <rect x="35" y="595" width="245" height="420" rx="16" class="external-group"/>
+  <text x="58" y="627" class="section-title">EKSTERNE TILLITSKILDER</text>
+
+  <rect x="55" y="660" width="205" height="76" rx="10" class="external-box"/>
+  <text x="158" y="692" text-anchor="middle" class="box-title">ID-porten</text>
+  <text x="158" y="715" text-anchor="middle" class="box-text">personidentitet</text>
+
+  <rect x="55" y="765" width="205" height="76" rx="10" class="external-box"/>
+  <text x="158" y="797" text-anchor="middle" class="box-title">Maskinporten</text>
+  <text x="158" y="820" text-anchor="middle" class="box-text">systemidentitet</text>
+
+  <rect x="55" y="870" width="205" height="96" rx="10" class="external-box"/>
+  <text x="158" y="901" text-anchor="middle" class="box-title">Offentlige registre</text>
+  <text x="158" y="925" text-anchor="middle" class="box-text">personer, virksomheter</text>
+  <text x="158" y="946" text-anchor="middle" class="box-text">og roller</text>
+
+  <!-- Altinn platform -->
+  <rect x="315" y="110" width="970" height="925" rx="20" class="platform"/>
+  <text x="345" y="145" class="section-title">ALTINN-PLATTFORMEN</text>
+
+  <text x="345" y="184" class="group-title">Brukerflater og integrasjon</text>
+  <rect x="355" y="205" width="260" height="98" rx="12" class="surface-box"/>
+  <text x="485" y="240" text-anchor="middle" class="box-title">Arbeidsflate</text>
+  <text x="485" y="265" text-anchor="middle" class="box-text">oppgaver, dialoger</text>
+  <text x="485" y="286" text-anchor="middle" class="box-text">og tilganger</text>
+
+  <rect x="670" y="205" width="260" height="98" rx="12" class="surface-box"/>
+  <text x="800" y="240" text-anchor="middle" class="box-title">Altinn Apps</text>
+  <text x="800" y="265" text-anchor="middle" class="box-text">digitale tjenester</text>
+  <text x="800" y="286" text-anchor="middle" class="box-text">fra tjenesteeierne</text>
+
+  <rect x="985" y="205" width="260" height="98" rx="12" class="surface-box"/>
+  <text x="1115" y="240" text-anchor="middle" class="box-title">Integrasjons-API-er</text>
+  <text x="1115" y="265" text-anchor="middle" class="box-text">maskinell bruk av</text>
+  <text x="1115" y="286" text-anchor="middle" class="box-text">Altinn-tjenester</text>
+
+  <text x="345" y="350" class="group-title">Felles digitale tjenester</text>
+  <rect x="355" y="372" width="160" height="92" rx="11" class="service-box"/>
+  <text x="435" y="407" text-anchor="middle" class="box-title">Dialogporten</text>
+  <text x="435" y="433" text-anchor="middle" class="box-text">dialogoversikt</text>
+
+  <rect x="538" y="372" width="160" height="92" rx="11" class="service-box"/>
+  <text x="618" y="407" text-anchor="middle" class="box-title">Melding</text>
+  <text x="618" y="433" text-anchor="middle" class="box-text">korrespondanse</text>
+
+  <rect x="721" y="372" width="160" height="92" rx="11" class="service-box"/>
+  <text x="801" y="407" text-anchor="middle" class="box-title">Formidling</text>
+  <text x="801" y="433" text-anchor="middle" class="box-text">filoverføring</text>
+
+  <rect x="904" y="372" width="160" height="92" rx="11" class="service-box"/>
+  <text x="984" y="407" text-anchor="middle" class="box-title">Varslinger</text>
+  <text x="984" y="433" text-anchor="middle" class="box-text">SMS og e-post</text>
+
+  <rect x="1087" y="372" width="160" height="92" rx="11" class="service-box"/>
+  <text x="1167" y="407" text-anchor="middle" class="box-title">Hendelser</text>
+  <text x="1167" y="428" text-anchor="middle" class="box-text">publisering og</text>
+  <text x="1167" y="449" text-anchor="middle" class="box-text">abonnement</text>
+
+  <!-- Cross-cutting authorization -->
+  <path d="M800 484 V548" class="auth-flow"/>
+  <text x="817" y="510" class="arrow-label">tilgangsspørsmål</text>
+  <text x="817" y="535" class="arrow-label">tillat eller avvis</text>
+
+  <rect x="345" y="560" width="910" height="250" rx="16" class="auth-boundary"/>
+  <text x="370" y="596" class="group-title">Altinn Autorisasjon</text>
+  <text x="370" y="623" class="box-text">Svarer på: Kan denne aktøren gjøre denne handlingen på denne ressursen?</text>
+
+  <rect x="365" y="658" width="132" height="108" rx="10" class="auth-box"/>
+  <text x="431" y="690" text-anchor="middle" class="auth-title">Authentication</text>
+  <text x="431" y="715" text-anchor="middle" class="small-text">identitet og</text>
+  <text x="431" y="736" text-anchor="middle" class="small-text">sesjon</text>
+
+  <rect x="510" y="658" width="132" height="108" rx="10" class="auth-box"/>
+  <text x="576" y="690" text-anchor="middle" class="auth-title">Register</text>
+  <text x="576" y="715" text-anchor="middle" class="small-text">part, rolle og</text>
+  <text x="576" y="736" text-anchor="middle" class="small-text">representasjon</text>
+
+  <rect x="655" y="658" width="132" height="108" rx="10" class="auth-box"/>
+  <text x="721" y="690" text-anchor="middle" class="auth-title">Ressursregisteret</text>
+  <text x="721" y="715" text-anchor="middle" class="small-text">ressurser og</text>
+  <text x="721" y="736" text-anchor="middle" class="small-text">policy</text>
+
+  <rect x="800" y="658" width="132" height="108" rx="10" class="auth-box"/>
+  <text x="866" y="690" text-anchor="middle" class="auth-title">Tilgangsstyring</text>
+  <text x="866" y="715" text-anchor="middle" class="small-text">delegering, samtykke</text>
+  <text x="866" y="736" text-anchor="middle" class="small-text">og systembruker</text>
+
+  <rect x="945" y="658" width="132" height="108" rx="10" class="auth-box"/>
+  <text x="1011" y="690" text-anchor="middle" class="auth-title">Authorization/PDP</text>
+  <text x="1011" y="715" text-anchor="middle" class="small-text">beregner</text>
+  <text x="1011" y="736" text-anchor="middle" class="small-text">beslutningen</text>
+
+  <rect x="1090" y="658" width="132" height="108" rx="10" class="auth-box"/>
+  <text x="1156" y="690" text-anchor="middle" class="auth-title">Audit Log</text>
+  <text x="1156" y="715" text-anchor="middle" class="small-text">sporbarhet og</text>
+  <text x="1156" y="736" text-anchor="middle" class="small-text">hendelser</text>
+
+  <!-- Development and operations -->
+  <text x="345" y="858" class="group-title">Utvikling, publisering og drift</text>
+  <rect x="385" y="880" width="240" height="92" rx="11" class="support-box"/>
+  <text x="505" y="915" text-anchor="middle" class="box-title">Altinn Studio</text>
+  <text x="505" y="941" text-anchor="middle" class="box-text">utvikle og konfigurere</text>
+
+  <rect x="680" y="880" width="240" height="92" rx="11" class="support-box"/>
+  <text x="800" y="915" text-anchor="middle" class="box-title">Publisering og drift</text>
+  <text x="800" y="941" text-anchor="middle" class="box-text">kjøre tjenester sikkert</text>
+
+  <rect x="975" y="880" width="240" height="92" rx="11" class="support-box"/>
+  <text x="1095" y="915" text-anchor="middle" class="box-title">Logging og overvåking</text>
+  <text x="1095" y="941" text-anchor="middle" class="box-text">følge feil og hendelser</text>
+
+  <!-- External systems -->
+  <rect x="1320" y="130" width="245" height="540" rx="16" class="external-group"/>
+  <text x="1343" y="162" class="section-title">EKSTERNE SYSTEMER</text>
+
+  <rect x="1340" y="215" width="205" height="96" rx="10" class="external-box"/>
+  <text x="1443" y="247" text-anchor="middle" class="box-title">Tjenesteeiernes</text>
+  <text x="1443" y="270" text-anchor="middle" class="box-title">fagsystemer</text>
+  <text x="1443" y="294" text-anchor="middle" class="box-text">sender og mottar data</text>
+
+  <rect x="1340" y="350" width="205" height="96" rx="10" class="external-box"/>
+  <text x="1443" y="383" text-anchor="middle" class="box-title">Andre offentlige</text>
+  <text x="1443" y="406" text-anchor="middle" class="box-title">fellesløsninger</text>
+  <text x="1443" y="430" text-anchor="middle" class="box-text">kobles til via API-er</text>
+
+  <rect x="1340" y="485" width="205" height="96" rx="10" class="external-box"/>
+  <text x="1443" y="518" text-anchor="middle" class="box-title">Leverandørsystemer</text>
+  <text x="1443" y="543" text-anchor="middle" class="box-text">handler på vegne av</text>
+  <text x="1443" y="564" text-anchor="middle" class="box-text">virksomheter</text>
+
+  <!-- Main relationships -->
+  <path d="M260 234 H355" class="flow"/>
+  <text x="307" y="222" text-anchor="middle" class="external-label">bruker</text>
+  <path d="M260 359 H300 V326 H1115 V303" class="flow"/>
+  <text x="610" y="320" text-anchor="middle" class="external-label">bruker API-er og tjenester</text>
+  <path d="M260 484 H300 V926 H385" class="soft-flow"/>
+  <text x="309" y="815" class="external-label" transform="rotate(-90 309 815)">utvikler og forvalter</text>
+
+  <path d="M1340 263 H1245" class="flow"/>
+  <path d="M1340 398 H1280 V275 H1245" class="flow"/>
+  <path d="M1340 533 H1280 V418 H1247" class="flow"/>
+  <text x="1287" y="495" class="external-label" transform="rotate(-90 1287 495)">API-kall og hendelser</text>
+
+  <path d="M260 698 H330 V712 H365" class="soft-flow"/>
+  <path d="M260 803 H315 V742 H365" class="soft-flow"/>
+  <path d="M260 918 H325 V742 H510" class="soft-flow"/>
+
+  <text x="800" y="1012" text-anchor="middle" class="small-text">Forenklet oversikt. Diagrammet viser hovedansvar og avhengigheter, ikke all intern dataflyt.</text>
+</svg>

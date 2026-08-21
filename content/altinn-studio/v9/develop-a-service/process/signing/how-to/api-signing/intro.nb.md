@@ -1,6 +1,7 @@
 ---
 draft: true
 hidden: true
+headless: true
 tags: [needsReview, translate]
 ---
 
