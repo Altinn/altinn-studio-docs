@@ -135,7 +135,9 @@ Eksempel på betalingsoppgave:
 
 ## Systemoppgaver
 En systemoppgave er en prosessoppgave som kjører automatisk på serveren. Prosessen går som hovedregel videre til neste 
-steg når den har kjørt ferdig, men dette kan systemoppgaven definere selv. 
+steg når den har kjørt ferdig, men dette kan systemoppgaven definere selv. En systemoppgave kan også sette prosessen 
+på vent til et eksternt system svarer — se 
+[Ventesteg for systemoppgaver]({{<relref "/altinn-studio/v9/develop-a-service/process/service-task-waiting" >}}).
 
 Tjenesteeiere kan implementere sine egne systemoppgaver og legge de som steg i appens prosess.
 

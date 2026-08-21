@@ -376,6 +376,8 @@ The task fails if the shipment is rejected, or if the integrasjonspunkt reports 
 
 While the app waits, the end user sees the built-in processing page, which tells them that the app is working and that they do not need to do anything. After 30 seconds it adds that this is taking longer than usual and that the page can safely be closed and revisited later. The texts are text resources (`process_workflow.advancing_title`, `process_workflow.advancing_body` and `process_workflow.still_working`) that your app can override. The user is taken on to the next step automatically once the process advances.
 
+Waiting like this is not specific to eFormidling — it is the general mechanism any service task can use to put the process on hold, and eFormidling is the built-in example of it. See [Waiting step for service tasks]({{<relref "/altinn-studio/v9/develop-a-service/process/service-task-waiting" >}}) if you are writing your own.
+
 {{% notice warning %}}
 **Do not add a feedback task after the eFormidling task.** In v8 a feedback task was needed to hold the instance while delivery was pending, and a reminder built on Altinn Events moved the process past it once the shipment arrived. That reminder is gone in v9, because the service task now does the waiting itself. Nothing moves a feedback task behind the eFormidling task forward, so instances left there wait indefinitely. If you are upgrading an app from v8, remove it — `studioctl app upgrade v9` reports feedback tasks that sit behind a service task.
 {{% /notice %}}
