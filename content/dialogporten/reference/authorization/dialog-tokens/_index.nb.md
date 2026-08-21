@@ -31,14 +31,25 @@ Ved hjelp av dialogtoken vil ressursserveren kunne autentisere og autorisere for
 
 Merk at ressursserveren også må implementere [CORS-protokollen](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) for å håndtere forespørsler fra nettleserbaserte klienter, inkludert Altinn.no-portalen.
 
+{{<notice warning>}}
+Entiteter med en [autorisasjonskontekst]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}) er unntaket: de får utstedt sitt eget, snevrere [konteksttoken]({{< relref "/dialogporten/reference/authorization/context-tokens" >}}), som må brukes i stedet for dialogtokenet mot URL-ene til den entiteten, siden dialogtokenet ikke bekrefter rettigheten deres. Se `contextToken`-feltet på de enkelte entitetene.
+{{</notice>}}
+
+### Tokentype
+
+Dialogtokenets JOSE-header `typ` er `JWT`. Dette er uendret, og det er ikke planlagt å endres for den nåværende hovedversjonen. Siden Dialogporten nå også utsteder en ny, snevrere token-type - [konteksttoken]({{< relref "/dialogporten/reference/authorization/context-tokens" >}}) - med en annen `typ`-verdi, bør en mottakende tjeneste validere `typ`-headeren eksplisitt i stedet for å anta at alle token den mottar er dialogtoken.
+
 ### Liste over Dialogporten-spesifikke claims
 
 | Claim            | Description                                                                                                                                                        | Example                                                                           |
 |------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| c                | Autentisert som en konsument av Dialogporten. Prefikset for enten enkeltpersoner (vanligvis ID-porten), organisasjoner (vanligvis Maskinporten), eller selvregistrerte brukere. | `"urn:altinn:person:identifier-no::12018212345` `"urn:altinn:organization:identifier-no::991825827"` `"urn:altinn:party-identifier:username::someemail@example.com"` |
+| jti              | Unik identifikator for dette tokenet (en fersk verdi for hvert utstedte token).                                                                                     | `"8e1f2c3d-4b5a-6978-8a9b-0c1d2e3f4a5b"`                                          |
+| c                | Autentisert som en konsument av Dialogporten. Prefikset for enten enkeltpersoner (vanligvis ID-porten), organisasjoner (vanligvis Maskinporten), eller selvregistrerte brukere. | `"urn:altinn:person:identifier-no:12018212345"` `"urn:altinn:organization:identifier-no:991825827"` `"urn:altinn:party-identifier:username:someemail@example.com"` |
+| y                | Valgfritt. Til stede når en systembruker er autentisert - systembrukerens identifikator. Se `o` for organisasjonen systembrukeren opptrer for.                       | `"urn:altinn:systemuser:uuid:0194a1b2-3c4d-7e5f-8a9b-0c1d2e3f4a5b"`               |
+| o                | Valgfritt. Til stede sammen med `y` - organisasjonen systembrukeren opptrer for.                                                                                     | `"urn:altinn:organization:identifier-no:991825827"`                              |
 | l                | Sikkerhetsnivå for autentisering (4)                                                                                                                                | `4`                                                                               |
-| u                | Valgfritt. Hvis en provider token i Maskinporten er blitt brukt, vil den autentiserte leverandørens organisasjonsnummer bli gitt her.                                     | `"urn:altinn:organization:identifier-no::991825827"`                                                                  |
-| p                | Hvem konsumenten handler på vegne av (hvis ikke dem selv), dvs. hvem som eier den relevante dialogen.                                                                 | `"urn:altinn:person:identifier-no::12018212345"` `"urn:altinn:organization:identifier-no::991825827"`  `"urn:altinn:party-identifier:username::someemail@example.com"` |
+| u                | Valgfritt. Hvis en provider token i Maskinporten er blitt brukt, vil den autentiserte leverandørens organisasjonsnummer bli gitt her.                                     | `"urn:altinn:organization:identifier-no:991825827"`                                                                  |
+| p                | Hvem konsumenten handler på vegne av (hvis ikke dem selv), dvs. hvem som eier den relevante dialogen.                                                                 | `"urn:altinn:person:identifier-no:12018212345"` `"urn:altinn:organization:identifier-no:991825827"`  `"urn:altinn:party-identifier:username:someemail@example.com"` |
 | i                | Unik identifikator for dialogen.                                                                                                                                  | `"e0300961-85fb-4ef2-abff-681d77f9960e"`                                           |
 | s                | Tjenesteressursen som dialogen refererer til.                                                                                                                   | `"urn:altinn:resource:super-simple-service"`                                      |
 | a                | Autoriserte handlinger/autorisasjonsattributter.                                                                                                                        | `"read;write;sign;elementread,urn:altinn:subresource:authorizationattribute1"`                                    |
@@ -53,10 +64,10 @@ Merk at ressursserveren også må implementere [CORS-protokollen](https://develo
 }
 // .
 {
-  "c": "urn:altinn:person:identifier-no::12018212345", 
+  "c": "urn:altinn:person:identifier-no:12018212345", 
   "l": 4,  
-  "u": "urn:altinn:organization:identifier-no::825827991",
-  "p": "urn:altinn:organization:identifier-no::991825827", 
+  "u": "urn:altinn:organization:identifier-no:825827991",
+  "p": "urn:altinn:organization:identifier-no:991825827", 
   "i": "e0300961-85fb-4ef2-abff-681d77f9960e",
   "s": "urn:altinn:resource:super-simple-service",
   "a": "read;write;sign;elementread,urn:altinn:subresource:autorisasjonsattributt1",
@@ -75,7 +86,15 @@ Dialogtoken bruker en [Edwards-Curve Digital Signature Algorithm (EdDSA)](https:
 
 ### Well-known endpoints
 
-Dialogporten tilbyr [OAuth 2.0 Authorization Server Metadata (RFC8414)](https://datatracker.ietf.org/doc/html/rfc8414), som muliggjør nøkkeloppdagelse, rotasjon og tokenvalidering ved kjøretid. Se [OpenAPI-spesifikasjonen]({{< relref "../../openapi/" >}}) (tag "Metadata") for well-known-URL-ene for det aktuelle miljøet.
+Dialogporten tilbyr [OAuth 2.0 Authorization Server Metadata (RFC8414)](https://datatracker.ietf.org/doc/html/rfc8414), som muliggjør nøkkeloppdagelse, rotasjon og tokenvalidering ved kjøretid, på `{base}/api/v1/.well-known/oauth-authorization-server` og `{base}/api/v1/.well-known/jwks.json`. `{base}` er Dialogportens grunn-URI for miljøet:
+
+| Miljø | Grunn-URI |
+|---|---|
+| Produksjon | `https://platform.altinn.no/dialogporten` |
+| Staging (TT02) | `https://platform.tt02.altinn.no/dialogporten` |
+| Test (at23) | `https://platform.at23.altinn.cloud/dialogporten` |
+
+Begge operasjonene er også beskrevet i [OpenAPI-spesifikasjonen]({{< relref "../../openapi/" >}}), under taggen «Metadata».
 
 ### Nøkkelsett og rotasjon
 JSON Web Key-settene som publiseres på well-known-endepunktene vil alltid inneholde minst to JWK-er. Alle endepunkter som aksepterer og verifiserer dialogtoken utstedt av Dialogporten, bør tillate token signert med hvilken som helst av nøklene som finnes i nøkkelsettet for det aktuelle miljøet.

@@ -12,8 +12,10 @@ Actions describe operations the end user or a client integration can perform in 
 Both GUI actions and API actions share the same core authorization model:
 
 - `action` maps to an action identifier in the service resource policy
-- `authorizationAttribute` can override the default authorization resource for the action
+- an [authorization context]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}) (preferred) can evaluate the action against a different resource, additional parties, or both
+- `authorizationAttribute` (deprecated) can override the default authorization resource for the action
 - `isAuthorized` shows whether the authenticated user is currently authorized
+- `contextToken` is present when the action carries an authorization context the current user is authorized for, and must be used instead of the dialog token against the action's URLs
 
 In end-user APIs, unauthorized targets are redacted:
 
@@ -47,5 +49,10 @@ API actions are intended for client integrations and group one or more versioned
 ## API Actions
 
 {{<swaggerdisplayentity "V1EndUserDialogsQueriesGet_DialogApiAction">}}
+
+**Read more**
+
+- {{<link "../../authorization/authorization-contexts">}}
+- {{<link "../../authorization/context-tokens">}}
 
 {{<children />}}

@@ -28,11 +28,22 @@ With the help of dialog tokens, the resource server will be able to fully authen
 
 Note that for browser-based clients, including the Altinn.no portal, the resource server must also implement the [CORS protocol](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) in order to handle requests.
 
+{{<notice warning>}}
+Entities carrying an [authorization context]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}) are the exception: they are issued their own, narrower [context token]({{< relref "/dialogporten/reference/authorization/context-tokens" >}}), which must be used instead of the dialog token against that entity's URLs, since the dialog token does not assert their grant. See the `contextToken` property on the individual entities.
+{{</notice>}}
+
+### Token type
+
+The dialog token's JOSE `typ` header is `JWT`. This is unchanged, and is not planned to change for the current major version. Since Dialogporten now also issues a second, narrower [context token]({{< relref "/dialogporten/reference/authorization/context-tokens" >}}) type with a different `typ` value, a receiving service should validate the `typ` header explicitly rather than assume every token it receives is a dialog token.
+
 ### List of Dialogporten specific claims
 
 | Claim            | Description                                                                                                                                                        | Example                                                                           |
 |------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| c                | Authenticated as a consumer of Dialogporten. The prefix for either individuals (typically ID-porten), organizations (typically Maskinporten), or self-registered users. | `"urn:altinn:person:identifier-no:12018212345` `"urn:altinn:organization:identifier-no:991825827"` `"urn:altinn:party-identifier:username:someemail@example.com"` |
+| jti              | Unique identifier for this token (a fresh value on every issued token).                                                                                             | `"8e1f2c3d-4b5a-6978-8a9b-0c1d2e3f4a5b"`                                          |
+| c                | Authenticated as a consumer of Dialogporten. The prefix for either individuals (typically ID-porten), organizations (typically Maskinporten), or self-registered users. | `"urn:altinn:person:identifier-no:12018212345"` `"urn:altinn:organization:identifier-no:991825827"` `"urn:altinn:party-identifier:username:someemail@example.com"` |
+| y                | Optional. Present when a system user authenticated - the system user's identifier. See `o` for the system user's organization.                                     | `"urn:altinn:systemuser:uuid:0194a1b2-3c4d-7e5f-8a9b-0c1d2e3f4a5b"`               |
+| o                | Optional. Present alongside `y` - the organization the system user acts for.                                                                                        | `"urn:altinn:organization:identifier-no:991825827"`                              |
 | l                | Security level of authentication (4)                                                                                                                                | `4`                                                                               |
 | u                | Optional. If a provider token in Maskinporten has been used, the authenticated provider's organization number will be given here.                                     | `"urn:altinn:organization:identifier-no:991825827"`                                                                  |
 | p                | Whom the consumer is acting on behalf of (if not themselves), i.e., who owns the relevant dialogue.                                                                 | `"urn:altinn:person:identifier-no:12018212345"` `"urn:altinn:organization:identifier-no:991825827"`  `"urn:altinn:party-identifier:username:someemail@example.com"` |
@@ -72,7 +83,15 @@ Dialog tokens use an [Edwards-Curve Digital Signature Algorithm (EdDSA)](https:/
 
 ### Well-known endpoints
 
-Dialogporten provides [OAuth 2.0 Authorization Server Metadata (RFC8414)](https://datatracker.ietf.org/doc/html/rfc8414) allowing for runtime key discovery, rotation and token validation. Consult the [OpenAPI specification]({{< relref "/dialogporten/reference/openapi" >}}) (tag "Metadata") for the well-known URLs for the given environment.
+Dialogporten provides [OAuth 2.0 Authorization Server Metadata (RFC8414)](https://datatracker.ietf.org/doc/html/rfc8414) allowing for runtime key discovery, rotation and token validation, at `{base}/api/v1/.well-known/oauth-authorization-server` and `{base}/api/v1/.well-known/jwks.json`. `{base}` is the Dialogporten base URI for the environment:
+
+| Environment | Base URI |
+|---|---|
+| Production | `https://platform.altinn.no/dialogporten` |
+| Staging (TT02) | `https://platform.tt02.altinn.no/dialogporten` |
+| Test (at23) | `https://platform.at23.altinn.cloud/dialogporten` |
+
+Both operations are also described in the [OpenAPI specification]({{< relref "/dialogporten/reference/openapi" >}}), tag "Metadata".
 
 ### Key sets and rotations
 The JSON Web Key sets published on the well-known endpoints will always contain at least two JWKs. All endpoints that accept and verify dialog tokens issued by Dialogporten should allow tokens signed by any of the keys present in the key set for the given environment.
