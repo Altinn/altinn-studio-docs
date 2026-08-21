@@ -243,9 +243,9 @@ JWT-payload som skal signeres:
   "aud": "https://test.maskinporten.no/",
   "scope": "altinn:authentication/systemuser.request.read altinn:authentication/systemuser.request.write altinn:authentication/systemregister.write",
   "iss": "a2ed712d-4144-4471-839f-80ae4a68146b",
-  "exp": 1718124835,
-  "iat": 1718124715,
-  "jti": "a4de-ac36af8ef3e2"
+  "exp": 1718189000,
+  "iat": 1718188700,
+  "jti": "3f1a9c7e-5b6d-4e2a-8d0f-6c1b2a9e4d3f"
 }
 ```
 
