@@ -8,8 +8,6 @@ toc: true
 tags: [needsReview]
 ---
 
-Slik legger du til Maskinporten-scopes i en app i Altinn Studio.
-
 Før du starter må du være logget inn med Ansattporten på vegne av virksomheten som eier appen. Appen må også ha en tjenesteeierregel i `App/config/authorization/policy.xml` som gir `[org]` rettighetene `read` og `write`.
 
 {{% notice info %}}
