@@ -89,3 +89,113 @@ applicationmetadata.json
 ## Programmatiske endringer
 
 Under kopiering av skjema utfører logikken metodekall mot **IInstantiationProcessor.DataCreation**. Dette gjør det mulig å gjøre programmatiske endringer i data som kopieres. [Les mer om egendefinert forhåndsutfylling](/nb/altinn-studio/v8/guides/development/prefill/custom/).
+
+## Validering
+
+{{%notice warning%}}Validering krever versjon 8.12.2 eller nyere av `Altinn.App`-bibliotekene.{{% /notice%}}
+
+Validering er nyttig hvis du som tjenesteeier ønsker å begrense når brukere kan kopiere instanser, for eksempel basert på tidsfrister eller endringer i applikasjonen.
+
+Du kan implementere `ICopyInstanceValidator` i applikasjonskoden for å legge til egendefinert validering som bare kjøres når noen ønsker å kopiere fra en instans. Grensesnittet tar imot en `IInstanceDataAccessor` basert på kildeinstansen som argument og returnerer en `InstantiationValidationResult`.
+
+Hvis valideringen returnerer `Valid = false`, får brukeren en feilmelding og kopieringen avbrytes.
+
+### Eksempler
+
+Instansiering av kopi er ikke tillatt hvis det har gått mer enn 10 dager siden fristen for innsending.
+
+```C# {hl_lines=[12]}
+using System;
+using System.Threading.Tasks;
+using Altinn.App.Core.Features;
+using Altinn.App.Core.Models.Validation;
+
+namespace Altinn.App.models;
+
+public class CopyInstanceValidator : ICopyInstanceValidator
+{
+    private const int NumberOfDaysAfterDueDate = 10;
+    
+    public async Task<InstantiationValidationResult> Validate(IInstanceDataAccessor sourceInstanceDataAccessor)
+    {
+        if (sourceInstanceDataAccessor.Instance.DueBefore.HasValue)
+        {
+            var deadline = sourceInstanceDataAccessor.Instance.DueBefore.Value.AddDays(NumberOfDaysAfterDueDate);
+            if (DateTimeOffset.UtcNow > deadline)
+            {
+                return new InstantiationValidationResult
+                {
+                    Valid = false,
+                    Message = "ERROR: Too long since due date"
+                };
+            }
+        }
+
+        return null;
+    }
+}
+```
+
+Instansiering av kopi er ikke tillatt etter en fastsatt dato.
+
+```C# {hl_lines=[12]}
+using System;
+using System.Threading.Tasks;
+using Altinn.App.Core.Features;
+using Altinn.App.Core.Models.Validation;
+
+namespace Altinn.App.models;
+
+public class CopyInstanceValidator : ICopyInstanceValidator
+{
+    private static readonly DateTime CopiesNotAllowedAfter = new(2026, 6, 30);
+
+    public async Task<InstantiationValidationResult> Validate(IInstanceDataAccessor sourceInstanceDataAccessor)
+    {
+        if (DateTime.UtcNow > CopiesNotAllowedAfter)
+        {
+            return new InstantiationValidationResult
+            {
+                Valid = false,
+                Message = "ERROR: Not allowed to copy instances after 2026-06-30"
+            };
+        }
+
+        return null;
+    }
+}
+```
+
+Instansiering av kopi er ikke tillatt hvis applikasjonsversjonen er endret siden kildeinstansen ble opprettet.
+
+```C# {hl_lines=[12]}
+using System.Linq;
+using System.Threading.Tasks;
+using Altinn.App.Core.Features;
+using Altinn.App.Core.Internal.App;
+using Altinn.App.Core.Models.Validation;
+
+namespace Altinn.App.models;
+
+public class CopyInstanceValidator(IAppMetadata appMetadata) : ICopyInstanceValidator
+{
+    public async Task<InstantiationValidationResult> Validate(IInstanceDataAccessor sourceInstanceDataAccessor)
+    {
+            var appVersionDataValue = sourceInstanceDataAccessor
+                .Instance
+                .DataValues
+                .SingleOrDefault(x => x.Key == "appVersion");
+            var application = await appMetadata.GetApplicationMetadata();
+            if (appVersionDataValue != null && appVersionDataValue.Value.Equals(application.VersionId) == false)
+            {
+                return new InstantiationValidationResult
+                {
+                    Valid = false,
+                    Message = "ERROR: Application version differs from the version that the source instance was created with"
+                };
+            }
+
+            return null;
+    }
+}
+```
