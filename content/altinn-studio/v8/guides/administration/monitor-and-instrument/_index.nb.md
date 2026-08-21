@@ -45,11 +45,11 @@ logg-melding.
 
 Vi anbefaler å eksperimentere mer med dette eksempelet - test ut andre typer metrikker, legg til attributter på traces o.l.
 
-Telemetri- og instrumentering-APIene i Altinn.App-biblioteket blir eksponert gjennom *Telemetry*-klassen. Det er
+Altinn.App-biblioteket eksponerer telemetri- og instrumentering-API-ene gjennom *Telemetry*-klassen. Det er
 et trådsikkert singleton-objekt tilgjengelig i dependency injection-containeren.
 Vi utvider *Program.cs* med dette.
 
-Hvis de ikke allerede er der, trenger vi følgende avhengigheter øverst i filen:
+Hvis de ikke allerede er der, trenger vi følgende using-direktiver øverst i filen:
 
 ```csharp
 using System;
@@ -110,8 +110,8 @@ Her viser vi kort hvordan du kan visualisere telemetrien fra eksempelet over.
 
 ### Lokal utvikling
 
-Ved lokal utvikling så kan en monitoreringsstack bestående av Grafana og OpenTelemetry Collector
-settes opp ved siden av localtest og Platform APIer. [Se localtest README for mer informasjon](https://github.com/Altinn/app-localtest/blob/main/README.md).
+Ved lokal utvikling kan du sette opp et monitoreringsoppsett bestående av Grafana og OpenTelemetry Collector
+ved siden av localtest og Platform APIer. [Se localtest README for mer informasjon](https://github.com/Altinn/app-localtest/blob/main/README.md).
 
 Monitoreringsoppsettet i localtest inneholder en Grafana-instans med ASP.NET Core dashboard og et preview Altinn app dashboard.
 I tillegg gir det muligheten til å fritt undersøke telemetrien som eksponeres fra Altinn-plattformen og biblioteket.
@@ -126,7 +126,7 @@ Du kan også finne logger og traces fra koden over på denne siden ved hjelp av 
 Åpne Grafana på [local.altinn.cloud/grafana/](http://local.altinn.cloud/grafana/) og naviger via sidemenyen.
 
 Vi starter med å utforske metrikker ved å navigere til *Explore*-siden, der vi kan velge *Metrics* som kilde i nedtrekksmenyen. Her
-kan vi se på ønskelig metrikk ved hjelp av *Select a metric*-seksjonen:
+kan vi se på ønsket metrikk ved hjelp av *Select a metric*-seksjonen:
 
 ![Utforsk metrikker](grafana-quickstart-metric.png "Utforsk metrikker")
 
@@ -139,9 +139,9 @@ Ved å trykke på *Logs for this span*-knappen kan vi navigere til de relevante 
 
 ![Explore logs](grafana-quickstart-logs.png "Utforsk logger. Her ser vi alle logg-meldinger relatert til root-tracen vi laget med koden over.")
 
-### Deployment til et miljø
+### Distribusjon til et miljø
 
-Når appen er deployed til et test- eller produksjonsmiljø, sendes telemetrien til Azure Monitor.
+Når appen er distribuert til et test- eller produksjonsmiljø, sendes telemetrien til Azure Monitor.
 
 [Les mer om Azure Monitor på referansesiden for visualisering](/nb/altinn-studio/v8/reference/monitoring/visualisation/#azure-monitor).
 

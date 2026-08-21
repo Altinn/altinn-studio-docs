@@ -71,7 +71,7 @@ Du kan deretter bruke denne klienten til å sende meldinger, og den vil automati
 Når du skal sende en melding, finnes det veldig mange tilgjengelige parametere. Selv om bare et fåtall er nødvendige,
 kan det å bygge forespørselen være litt komplisert. For å hjelpe med dette, er det et `CorrespondenceRequestBuilder`-grensesnitt tilgjengelig.
 
-Eksempelet nedenfor bruker dette grensenittet til å bygge en meldingsforespørsel med de vanligste alternativene:
+Eksempelet nedenfor bruker dette grensesnittet til å bygge en meldingsforespørsel med de vanligste alternativene:
 selve meldingen, en varsling til mottakeren, og et vedlegg.
 
 Du finner alle tilgjengelige alternativer og tilhørende dokumentasjon via IntelliSense i din foretrukne kodeeditor.
