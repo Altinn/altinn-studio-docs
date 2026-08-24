@@ -26,7 +26,7 @@ De viktigste cookiegruppene er:
 
 - `AltinnStudioRuntime` inneholder JWT-en som BFF-en bruker når den kaller backendtjenester
 - `XSRF-TOKEN` brukes som beskyttelse mot forfalskede forespørsler og sendes som `X-XSRF-TOKEN`
-- `AltinnPartyId` og `AltinnPartyUuid` angir parten brukeren representerer
+- `AltinnPartyId` og `AltinnPartyUuid` angir parten brukeren handler på vegne av
 - `selectedLanguage` og `altinnPersistentContext` påvirker språkvalget
 - `AltinnLogoutInfo` brukes til kontrollert videresending og enkelte forespørselsidentifikatorer ved utlogging
 

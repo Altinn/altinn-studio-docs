@@ -20,6 +20,6 @@ For å ta i bruk Altinn Autorisasjon registrerer tjenesteeier tjenesten i **Ress
 
 ![Brukerscenario](om_autorisasjon.png "Altinn Autorisasjon")
 
-Virksomheter og privatpersoner kan gi fullmakter i Altinn Autorisasjon sin brukerflate. De kan se hvem som har rettigheter på deres vegne og trekke dem tilbake ved behov.
+Virksomheter og privatpersoner kan gi fullmakter i Altinn Autorisasjon sin brukerflate. De kan se hvem som har fullmakt til å handle på deres vegne, og trekke fullmaktene tilbake ved behov.
 
-For sluttbrukersystem, som for eksempel et regnskapssystem, tilbyr vi API-er. Systemleverandører kan da bygge inn samme delegering og tilgangskontroll i sine egne løsninger, mens Altinn står for sikker autorisasjon.
+For sluttbrukersystem, som for eksempel et regnskapssystem, tilbyr vi API-er. Systemleverandører kan da bygge inn den samme administrasjonen av fullmakter i sine egne løsninger, mens Altinn står for sikker autorisasjon.

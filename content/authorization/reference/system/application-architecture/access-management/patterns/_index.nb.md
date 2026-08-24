@@ -108,7 +108,7 @@ Dette er specification- og composite-lignende mønstre: små predikater settes s
 
 ## Grafmodell for tilgangsforhold
 
-Den nyere datamodellen representerer aktører som `Entity` og forbindelser som `Assignment` eller `Delegation`. Roller beskriver typen forbindelse. Tilgangspakker, ressurser og instanser kobles til forbindelsen gjennom egne koblingstabeller. Dermed kan samme grunnmodell uttrykke flere typer tilgangsforhold.
+Den nyere datamodellen representerer parter som `Entity` og forbindelser som `Assignment` eller `Delegation`. Roller beskriver typen forbindelse. Tilgangspakker, ressurser og instanser kobles til forbindelsen gjennom egne koblingstabeller. Dermed kan samme grunnmodell uttrykke flere typer tilgangsforhold.
 
 Dette er en relasjonell grafmodell: noder og kanter lagres i PostgreSQL-tabeller, ikke i en egen grafdatabase. `ConnectionQuery` samler traversering og projeksjon til resultatmodeller.
 

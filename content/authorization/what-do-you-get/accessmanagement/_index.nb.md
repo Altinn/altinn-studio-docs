@@ -1,7 +1,7 @@
 ---
 title: Tilgangsstyring
 linktitle: Tilgangsstyring
-description: Tilgangsstyring gir personer og virksomheter oversikt over fullmakter og mulighet til å gi eller trekke tilbake tilgang.
+description: Tilgangsstyring gir personer og virksomheter oversikt over fullmakter og mulighet til å gi eller trekke tilbake fullmakter.
 weight: 5
 ---
 
@@ -10,9 +10,9 @@ Tilgangsstyring samler funksjonene som personer og virksomheter bruker for å ad
 Du kan blant annet
 
 - se hvilke fullmakter en person, virksomhet eller systembruker har
-- gi og trekke tilbake tilgang til tjenester og ressurser
-- delegere tilgangspakker og enkeltrettigheter
-- administrere delegerbar tilgang til API-er som er registrert i Ressursregisteret
+- gi og trekke tilbake fullmakter
+- gi fullmakt til tilgangspakker og enkelttjenester
+- administrere fullmakter til API-er som er registrert i Ressursregisteret
 
 Hvilke valg som er tilgjengelige, avhenger av tjenesten, ressursen og fullmaktene til den som administrerer tilgangen.
 

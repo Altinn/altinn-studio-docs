@@ -1,7 +1,7 @@
 ---
 title: Kom i gang som tjenesteeier
 linktitle: For tjenesteeiere
-description: Finn riktig veiledning for å beskytte tjenester, gi tilgang og støtte systemer som bruker Altinn Autorisasjon
+description: Finn riktig veiledning for å beskytte tjenester, legge til rette for fullmakter og støtte systemer som bruker Altinn Autorisasjon
 weight: 2
 toc: true
 ---
@@ -38,11 +38,11 @@ API-et ditt er Policy Enforcement Point (PEP). Det må avvise Deny og NotApplica
 
 Et gyldig Maskinporten-token gir ikke i seg selv tilgang til alle operasjoner. API-et må fortsatt kontrollere ressursen, handlingen og parten.
 
-## La virksomheter delegere tilgang til tjenesten
+## La virksomheter gi fullmakt til tjenesten
 
-**Passer når:** En virksomhet skal kunne gi en ansatt, en annen person eller en leverandør tilgang til tjenesten.
+**Passer når:** En virksomhet skal kunne gi en ansatt, en annen person eller en leverandør fullmakt til tjenesten.
 
-**Du skal ende opp med:** Tjenesten er lagt i en tilgangspakke som beskriver en forståelig arbeidsoppgave, og policyen bruker pakken for de aktuelle handlingene.
+**Du skal ende opp med:** Tjenesten er lagt i en tilgangspakke som beskriver en forståelig arbeidsoppgave og avgrenser fullmakten, og policyen bruker pakken for de aktuelle handlingene.
 
 1. [Finn tilgangspakken som passer oppgaven.](../../what-do-you-get/accesspackages/business/)
 2. [Se hvordan roller fra Enhetsregisteret kan gi pakker på forhånd.](../../what-do-you-get/accesspackages/register_er/)
@@ -77,11 +77,11 @@ Tilgangslisten erstatter ikke autentisering eller øvrige regler. Test virksomhe
 
 Ikke bruk samtykke som en generell eller varig fullmakt.
 
-## Støtte representasjon for en innlogget bruker
+## Støtte at en innlogget bruker handler på vegne av andre
 
-**Passer når:** Brukeren skal velge hvilken person eller virksomhet handlingen gjelder for, eller handle som verge eller annen representant.
+**Passer når:** Brukeren skal velge hvilken person eller virksomhet handlingen gjelder for, eller handle som verge på vegne av en annen person.
 
-**Du skal ende opp med:** Et forståelig aktørvalg og en endelig tilgangskontroll for den valgte parten, ressursen og handlingen.
+**Du skal ende opp med:** Et forståelig aktørvalg, der brukeren velger person eller virksomhet, og en endelig tilgangskontroll for den valgte parten, ressursen og handlingen.
 
 - Bruk Authorized Parties til å finne aktuelle parter.
 - Ikke bruk listen over parter som endelig tilgangskontroll.

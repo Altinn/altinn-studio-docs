@@ -146,12 +146,12 @@ Denne tjenesten har satt opp at følgende tilgangspakker gir rettighet til å ra
 
 ## 3. Regnskapsfører med behov for å differensiere tilgang til systembruker
 
-Rett Revisjon sin avdeling for små bedrifter fordeler oppgaver internt og har nå fordelt innrapportering av betalinger til selvstendig næringsdrivende til medarbeidere som er uregistrerte regnskapsførere for bedriftene.
+Rett Revisjon sin avdeling for små virksomheter fordeler oppgaver internt og har nå fordelt innrapportering av betalinger til selvstendig næringsdrivende til medarbeidere som er uregistrerte regnskapsførere for virksomhetene.
 
-Noen får delegert tilgangspakker fra sine klienter.  
-Noen får videredelegert tilgangspakker fra registrert revisor i Rett Revisjon.
+Noen får fullmakt til tilgangspakker fra klientene sine.<br>
+Noen får fullmakt til tilgangspakker videre fra en registrert revisor i Rett Revisjon.
 
-Rett Revisjon er bekymret for at det kan utføres handlinger på vegne av bedriftene via systembruker som ikke ligger innenfor ansvaret til de uregistrerte regnskapsførerne (ofte ved uhell).
+Rett Revisjon er bekymret for at det via systembruker kan utføres handlinger på vegne av virksomhetene som ikke ligger innenfor ansvaret til de uregistrerte regnskapsførerne, ofte ved uhell.
 
 ### Utfordring
 
@@ -322,7 +322,7 @@ av data til myndighetene.
 
 1. Virksomheten har avtale med Digdir for tilgang til systemregisteret.
 2. Virksomheten har opprettet Maskinporten-klient.
-3. Virksomheten registrerer systemet i registeret som representerer SAP-installasjonen, med nødvendige rettigheter.
+3. Virksomheten registrerer systemet for SAP-installasjonen i registeret, med nødvendige rettigheter.
 4. Nøkkel for klient er installert og tilgjengelig på server.
 
 ### Steg
@@ -424,7 +424,7 @@ Nedenfor vises noen skjermbilder for dette scenarioet.
 Tjenesteleverandør har kjøpt systemet Superavstemming fra Kontrollen AS.  
 Superavstemming trenger nødvendige tilganger til å hente avstemmingsdata for a-melding (A06/A07) for de klientene systemet skal brukes for.  
 Tjenesteleverandøren ønsker å sikre at Superavstemming ikke får rettigheter utover å hente avstemmingsdata for a-melding.  
-Klienten har kun kjøpt tjenesten "avstemming av a-melding" og ønsker kun å delegere rettigheter for dette.  
+Klienten har bare kjøpt tjenesten "avstemming av a-melding" og ønsker bare å gi fullmakt til denne tjenesten.
 (Her er det noen få spesifikke rettigheter som er nødvendige, trolig ikke en hel tilgangspakke, da tilgangspakker ofte er grovkornede.)
 
 ---

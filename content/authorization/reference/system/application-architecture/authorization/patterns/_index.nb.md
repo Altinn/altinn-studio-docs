@@ -53,7 +53,7 @@ XACML-modellen er den felles kontrakten gjennom beslutningsflyten. API-et tar im
 
 ## Kontekstberikelse før evaluering
 
-Forespørselen trenger ikke inneholde alle attributtene som policyen bruker. `ContextHandler` beriker den med opplysninger om blant annet aktør, roller, ressurs og instans. Den orkestrerer oppslag mot Register, Resource Registry, Access Management, profil- og lagringstjenester.
+Forespørselen trenger ikke inneholde alle attributtene som policyen bruker. `ContextHandler` beriker den med opplysninger om blant annet part, roller, ressurs og instans. Den orkestrerer oppslag mot Register, Resource Registry, Access Management, profil- og lagringstjenester.
 
 **Fordeler**
 

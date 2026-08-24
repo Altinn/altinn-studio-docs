@@ -16,7 +16,7 @@ Dette gjøres typisk ved hjelp av ID-porten
 For å få tilgang til Altinns API trenger tjenesteier følgende
 
 - API Subscription for produktene Access Management.
-- Scope for avgiverliste for tjenesteeierbruker "altinn:accessmanagement/authorizedparties.resourceowner"
+- Scope for tjenesteeierbrukerens kall til Authorized Parties: "altinn:accessmanagement/authorizedparties.resourceowner"
 - Scope for PDP "altinn:authorization/authorize"
 
 Dette kan bestilles hos Altinn servicedesk@altinn.no
@@ -36,9 +36,9 @@ som krever autorisasjon. I Altinn kaller vi slik kode "Policy Enforcment Point" 
 
 Policy Enforcement Point sin oppgave er å kalle Policy Decision Point for å få svar på om sluttbruker/system er autorisert for å utføre forespurt operasjon.
 
-## Integrasjon med API for autoriserte parter (Avgivere)
+## Integrasjon med API for autoriserte parter {#integrasjon-med-api-for-autoriserte-parter-avgivere}
 
-For å kunne presentere en liste over avgivere som en sluttbruker kan velge mellom tilbyr Altinn et API for å kunne presentere dette.
+Authorized Parties-API-et returnerer personene og virksomhetene som sluttbrukeren kan velge å handle på vegne av.
 
 ![Autoriserte parter fra vegvesen.no](authorizedparty.png "Autoriserter parter fra Altinn presentert på vegvesen.no")
 
@@ -55,12 +55,12 @@ Input er personr til autentisert person på følgende format
 
 ### Respons
 
-Nedenfor vises respons for en person som har
+Nedenfor vises en respons for en person som
 
-- Tilgang på seg selv (OPPRIKTIG KAMEL)
-- Tilgang på virksomhet han har daglig leder for (ULASTELIG RETTFERDIG TIGER AS)
-- Tilgang på virksomhet han er regnskapsfører for
-- Tilgang på virksomhet han har fått delegert 
+- kan handle på vegne av seg selv (OPPRIKTIG KAMEL)
+- kan handle på vegne av virksomheten der personen er daglig leder (ULASTELIG RETTFERDIG TIGER AS)
+- kan handle på vegne av en virksomhet der personen er regnskapsfører
+- kan handle på vegne av en virksomhet som har gitt personen fullmakt
 
 
 ```json
@@ -656,23 +656,23 @@ Hvis man kun er interessert i noen spesielle party og om brukeren har tilgang ka
 
 **Query param: includeAltinn2**
 
-Filter for å definere om API skal inkludere aktører man kan representere til via Altinn 2. Default = true
+Angir om API-et skal inkludere parter som brukeren kan handle på vegne av gjennom Altinn 2. Standardverdien er `true`.
 
 **Query param: includeAltinn3**
 
-Filter for å definere om API skal inkludere aktører man kan representere til via Altinn 3. Default = true
+Angir om API-et skal inkludere parter som brukeren kan handle på vegne av gjennom Altinn 3. Standardverdien er `true`.
 
 **Query param: includeRoles**
 
-Filter for å definere om API skal returnere roller man har for aktørene.
+Angir om API-et skal returnere rollene brukeren har for partene.
 
 **Query param: includeAccessPackages**
 
-Filter for å definere om API skal returnere tilgangspakker man har aktørene.
+Angir om API-et skal returnere tilgangspakkene brukeren har for partene.
 
 **Query param: includeResources**
 
-Filter for å definere om API skal returnere tjenestedelegerigner man har for aktørene.
+Angir om API-et skal returnere fullmaktene til enkelttjenester som brukeren har for partene.
 
 **Query param: includeInstances**
 
@@ -680,11 +680,11 @@ Filter for å definere om API skal returnere
 
 **Query param: includePartiesViaKeyRoles**
 
-Filter for å definere om API skal returnere aktører man får via nøkkelrolle tilgang. F.eks er man styreleder eller daglig leder for store regnskapsfører som BDO eller KPMG vil denne settingen avgjøre man man får tusenvis av kunder i responsen.
+Angir om API-et skal returnere parter som brukeren kan handle på vegne av gjennom en nøkkelrolle. For en styreleder eller daglig leder i et stort regnskapsforetak kan dette valget avgjøre om responsen inneholder tusenvis av kunder.
 
 **Query param: anyOfResourceIds**
 
-Filter for å fjerne alle aktører som ikke sluttbruker har rettighet for gitte ressurser.
+Filtrerer bort alle parter som sluttbrukeren ikke har rettighet for på de angitte ressursene.
 
 
 ## Integrasjon med PDP
