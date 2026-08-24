@@ -27,7 +27,7 @@ Hvis du ikke gjør dette, vil de oppdaterte dataene ikke være synlige for slutt
 {{<content-version-container version-label="v7">}}
 I versjon 7 endret vi måten preutfylling med egendefinert kode gjøres på. Vi bruker nå _dependency injection_ i stedet for overstyring av metoder. Hvis du tidligere plasserte koden din i _ProcessDataRead_ og _ProcessDataWrite_ metodene i _DataProcessingHandler.cs_ klassen, vil du se at det er omtrent det samme som nå gjøres.
 
-1. Opprett en klasse som implementerer `IDataProcessor` grensesnittet som ligger i `Altinn.App.Core.Features.DataProcessing` navnerommet.  
+1. Opprett en klasse som implementerer `IDataProcessor` grensesnittet som ligger i `Altinn.App.Core.Features` navnerommet.  
     Du kan navngi og plassere filene i den mappestrukturen du selv ønsker i prosjektet ditt. Men vi anbefaler at du bruker meningsfulle navnerom som i ethvert annet .Net prosjekt.
     Eksempel på kode fra app som prosesserer og populerer forskjellige data under lagring.
     ```C#
