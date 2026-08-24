@@ -29,7 +29,7 @@ På samme måte bør du være forsiktig med å bruke for eksempel rollen «Konta
 
 Hvis du ikke finner en rolle som passer, må du ta kontakt med Altinn slik at vi kan vurdere om vi bør opprette nye roller.
 
-[Her](/nb/altinn-studio/v9/new-from-v8/configuration/authorization/guidelines_authorization/roles_and_rights/) kan du lese mer om hvilke roller som finnes i Altinn. 
+[Her](/nb/authorization/what-do-you-get/accesspackages/) kan du lese mer om hvilke roller og tilgangspakker som finnes i Altinn.
 
 ## Unngå å endre autorisasjonsregler etter produksjonssetting
 Hvis du endrer autorisasjonsregler etter en produksjonssetting, kan brukere som har fått tilgang til tjenesten gjennom delegering av en rolle som tidligere var satt på tjenesten, miste muligheten til å utføre tjenesten.
