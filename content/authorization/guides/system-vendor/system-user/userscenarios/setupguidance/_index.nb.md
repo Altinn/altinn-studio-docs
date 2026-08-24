@@ -29,7 +29,7 @@ Se også [wizard](https://systemuserwizard.azurewebsites.net/) som dekker noe av
 
 ## A. Virksomheten rapporterer egne data
 
-**Typisk eksempel:** En bedrift bruker et sluttbrukersystem til å rapportere mva., aksjonærregister eller andre data på vegne av seg selv.
+**Typisk eksempel:** En virksomhet bruker et sluttbrukersystem til å rapportere mva., aksjonærregister eller andre data på vegne av seg selv.
 
 ### Anbefalt oppsett
 
@@ -115,7 +115,7 @@ Tjenesteyter (f.eks. Rett Revisjon)
 
 ### Hvorfor separate systembrukere?
 
-Hver tilgangspakke representerer et **ulikt rettslig grunnlag** for å handle på vegne av klienten.
+Hver tilgangspakke er knyttet til et **ulikt rettslig grunnlag** for å handle på vegne av klienten.
 En registrert regnskapsfører har andre rettigheter enn en revisor eller en virksomhet med delegert tilgang.
 Ved å skille dem sikrer du at:
 
@@ -344,15 +344,15 @@ Oslo kommune (hovedenhet)
 
 ### Hvorfor dette oppsettet?
 
-Selv om organisasjonsleddene er en del av samme kommune, er hvert ledd en selvstendig juridisk enhet i Enhetsregisteret og eier sine egne rettigheter i Altinn. Det betyr at hovedenheten ikke automatisk kan handle på vegne av et organisasjonsledd — organisasjonsleddet må aktivt delegere tilgangspakkene til hovedenheten.
+Selv om organisasjonsleddene er en del av samme kommune, er hvert ledd en selvstendig juridisk enhet i Enhetsregisteret og eier sine egne rettigheter i Altinn. Det betyr at hovedenheten ikke automatisk kan handle på vegne av et organisasjonsledd — organisasjonsleddet må aktivt gi hovedenheten fullmakt til tilgangspakkene.
 
-Underenhetene (skoler, helsestasjoner og liknende) er et unntak:  De trenger ikke delegere egne rettigheter til kommunen siden systembrukeren arver rettighetene fra organisasjonsleddet. Når organisasjonsleddet er lagt til som klient, kan sluttbrukersystemet dermed rapportere for alle underenhetene under leddet uten ekstra oppsett.
+Underenhetene (skoler, helsestasjoner og liknende) er et unntak: De trenger ikke gi egne fullmakter til kommunen fordi systembrukeren arver fullmaktene fra organisasjonsleddet. Når organisasjonsleddet er lagt til som klient, kan sluttbrukersystemet dermed rapportere for alle underenhetene under leddet uten ekstra oppsett.
 
 ### Viktig å huske
 
-- **Delegering må gjøres av hvert enkelt organisasjonsledd.** Tilgangspakker følger ikke automatisk av tilknytningen i Enhetsregisteret. Hovedenheten kan ikke delegere på vegne av organisasjonsleddene.
+- **Hvert organisasjonsledd må gi fullmakt.** Tilgangspakker følger ikke automatisk av tilknytningen i Enhetsregisteret. Hovedenheten kan ikke gi fullmakt på vegne av organisasjonsleddene.
 - Hvis et organisasjonsledd trenger andre tilgangspakker enn de andre (f.eks. bare Utdanningsetaten skal rapportere a-melding, mens Bydel Grünerløkka skal rapportere mva.), kan du kombinere dette oppsettet med scenario C og opprette én systembruker per pakkekombinasjon.
-- Når et nytt organisasjonsledd opprettes, må det delegere tilgangspakker på nytt, og klientadministratoren må knytte det til systembrukeren.
+- Når et nytt organisasjonsledd opprettes, må det gi fullmakt til tilgangspakkene på nytt, og klientadministratoren må knytte det til systembrukeren.
 - Nye underenheter krever ingen ekstra handling — de arver automatisk rettighetene fra organisasjonsleddet de tilhører.
 - Sluttbrukersystemet må ha tilgangskontroll slik at bare autoriserte ansatte kan handle på vegne av hvert organisasjonsledd og hver underenhet.
 
@@ -399,7 +399,7 @@ Sluttbrukersystemet må velge riktig systembruker basert på hvem det skal rappo
 
 ### Flere relasjonstyper i tillegg
 
-Hvis virksomheten i tillegg har klientforhold som kommer fra Enhetsregisteret — registrert regnskapsfører, ansvarlig revisor eller forretningsfører — trenger du **én ekstra systembruker per relasjonstype**. Disse relasjonene kan ikke kombineres med de delegerte klientforholdene på samme systembruker, fordi hver relasjonstype representerer et eget rettslig grunnlag for å handle på vegne av klienten. Se [scenario C](#c-tjenesteyter-med-flere-typer-klientforhold) for utfyllende begrunnelse.
+Hvis virksomheten i tillegg har klientforhold som kommer fra Enhetsregisteret — registrert regnskapsfører, ansvarlig revisor eller forretningsfører — trenger du **én ekstra systembruker per relasjonstype**. Disse relasjonene kan ikke kombineres med de delegerte klientforholdene på samme systembruker, fordi hver relasjonstype er knyttet til et eget rettslig grunnlag for å handle på vegne av klienten. Se [scenario C](#c-tjenesteyter-med-flere-typer-klientforhold) for utfyllende begrunnelse.
 
 **Eksempel:** Et konsern som rapporterer egne data, har delegerte klientforhold fra datterselskaper og i tillegg fungerer som registrert regnskapsfører for noen kunder, trenger tre systembrukere:
 
@@ -436,7 +436,7 @@ Inntil funksjonen er tilgjengelig, bør du planlegge med to systembrukere slik d
 
 - Dette oppsettet kombinerer scenario A (egen rapportering) og scenario G (delegerte klientforhold). Les også disse for detaljer om hver del.
 - Sluttbrukersystemet må vite hvilken systembruker som skal brukes for hvilken juridisk enhet. Bruk `external ref` for å velge riktig token ved rapportering.
-- Samme delegeringskrav gjelder som i scenario G: hvert organisasjonsledd (eller datterselskap) må aktivt delegere tilgangspakkene til hovedenheten. Underenhetene arver automatisk fra organisasjonsleddet.
+- Samme krav til fullmakt gjelder som i scenario G: Hvert organisasjonsledd eller datterselskap må aktivt gi hovedenheten fullmakt til tilgangspakkene. Underenhetene arver automatisk fra organisasjonsleddet.
 - Hvis ulike organisasjonsledd trenger ulike tilgangspakker, kan oppsettet kombineres med scenario C og få én systembruker for klientforhold per pakkekombinasjon.
 
 ---

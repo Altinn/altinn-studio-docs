@@ -1,7 +1,7 @@
 ---
-title: Delegerbare API ressurser
-linktitle: Delegerbare API ressurser
-description: Hvordan delegere API tilgang til leverandør
+title: Gi fullmakt til API-ressurser
+linktitle: Gi fullmakt til API-ressurser
+description: Slik gir du en leverandør fullmakt til en API-ressurs
 ---
 
 TBA

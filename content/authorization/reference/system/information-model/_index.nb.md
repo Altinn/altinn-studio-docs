@@ -35,7 +35,7 @@ classDiagram
     Autorisasjonsbeslutning --> Hendelse : kan registreres som
 {{< /mermaid >}}
 
-En autorisasjonsbeslutning gjelder en identitet som vil utføre en handling på en ressurs. Beslutningen bygger også på hvilken part identiteten representerer, og hvilke tilganger som gjelder i den aktuelle konteksten.
+En autorisasjonsbeslutning gjelder en identitet som vil utføre en handling på en ressurs. Beslutningen bygger også på hvilken part identiteten handler på vegne av, og hvilke tilganger som gjelder i den aktuelle konteksten.
 
 ## Autentisering
 
@@ -98,7 +98,7 @@ classDiagram
     Tilgangspakke "*" --> "1..*" Ressurs : grupperer
 {{< /mermaid >}}
 
-Resource Registry beskriver hva en aktør kan be om tilgang til. Ressursen har en stabil identifikator, en eier og metadata. Autorisasjonsreglene beskriver hvilke handlinger som kan utføres og på hvilke vilkår.
+Resource Registry beskriver hva en part kan be om tilgang til. Ressursen har en stabil identifikator, en eier og metadata. Autorisasjonsreglene beskriver hvilke handlinger som kan utføres og på hvilke vilkår.
 
 ## Tilgang og delegering
 
@@ -149,22 +149,21 @@ Et registrert system beskriver et produkt som en systemleverandør tilbyr. En sy
 {{< mermaid >}}
 classDiagram
     class Samtykke
-    class Avgiver
-    class Mottaker
+    class Part
     class Samtykkerettighet
     class Ressurs
     class Handling
     class Samtykkehendelse
 
-    Samtykke "*" --> "1" Avgiver : gis av
-    Samtykke "*" --> "1" Mottaker : gis til
+    Samtykke "*" --> "1" Part : gis av
+    Samtykke "*" --> "1" Part : gis til
     Samtykke "1" --> "1..*" Samtykkerettighet : inneholder
     Samtykkerettighet "*" --> "1" Ressurs : gjelder
     Samtykkerettighet "*" --> "1..*" Handling : tillater
     Samtykke "1" --> "1..*" Samtykkehendelse : har historikk
 {{< /mermaid >}}
 
-Et samtykke gir en mottaker en formålsbestemt og tidsavgrenset fullmakt fra en avgiver. Samtykket viser hvilke ressurser og handlinger fullmakten omfatter.
+Et samtykke gir mottakeren en formålsbestemt og tidsavgrenset fullmakt fra personen eller virksomheten som gir samtykket. Samtykket viser hvilke ressurser og handlinger fullmakten omfatter.
 
 ## Sporbarhet
 

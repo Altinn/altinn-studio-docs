@@ -25,7 +25,7 @@ ID for ressursen bør navngis på formen `{tjenesteeierkode}-{forståeligressurs
 
 ### Navn og beskrivelse
 
-Gi samtykkeressursen et navn og en beskrivelse. Dette vises til brukere når de skal delegere tilgang til å gi samtykke på vegne av virksomheter.
+Gi samtykkeressursen et navn og en beskrivelse. Dette vises til brukere når de skal gi andre fullmakt til å samtykke på vegne av virksomheter.
 
 ![consentresource](navn-beskrivelse.png)
 

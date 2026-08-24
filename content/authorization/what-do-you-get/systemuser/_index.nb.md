@@ -55,7 +55,7 @@ Du vil til enhver tid kunne se hvilke fullmakter du har gitt systembrukeren via 
 Ressurseier oppretter tjeneste i Ressursregisteret slik at Altinn autorisasjon kan benyttes til autorisasjon.
 Videre oppretter eller bestemmer ressurseier hvilke scopes som skal brukes på sin tjeneste.
 Dersom scopene ikke er public tildeler ressurseier scope til de som skal ha tilgang til å benytte tjenesten
-Når tjenesten er i drift, gjør ressurseier oppslag mot Altinn Autorisasjon for å avgjøre om systembruker kan utføre de forespurte handlingene på vegne av virksomheten den representerer.
+Når tjenesten er i drift, gjør ressurseier oppslag mot Altinn Autorisasjon for å avgjøre om systembrukeren kan utføre de forespurte handlingene på vegne av virksomheten den handler for.
 
 ### Altinn Autorisasjon
 

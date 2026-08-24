@@ -28,7 +28,7 @@ Persistenslaget har generelle grenser for aggregater og aggregathendelser. Tilst
 
 ## Eksplisitt eierskapsautorisasjon
 
-En egen ASP.NET Core-autorisasjonshåndterer kontrollerer om aktøren eier ressursen. En leverandør finner ressurseieren, og særskilte scopes behandles i en egen håndterer.
+En egen ASP.NET Core-autorisasjonshåndterer kontrollerer om parten eier ressursen. En leverandør finner ressurseieren, og særskilte scopes behandles i en egen håndterer.
 
 **Fordeler:** eierskapsregelen kan gjenbrukes deklarativt på endepunkter. **Ulemper:** flere håndterere kan gi uoversiktlig samspill, og feil i eieroppslaget påvirker alle beskyttede operasjoner.
 

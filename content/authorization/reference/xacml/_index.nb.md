@@ -96,7 +96,7 @@ Ressursdelen beskriver hvilken ressurs regelen gjelder for. Det kan være en app
 - **Action** beskriver hvilke handlinger regelen gjelder for. Det kan være handlinger som _read_, _write_, _sign_, _fire_, _Opendoor_ osv.
 - **Subject** beskriver hvem regelen gjelder for. Det kan være en rolle, tilgangsgruppe, organisasjonsnummer, en spesifikk bruker osv.
 - **Obligation** beskriver tilleggsinformasjon, for eksempel krav til minimum autentiseringsnivå.
-- **Condition** beskriver ytterligere vilkår, for eksempel at avgiver må være registrert i SRR/RRR for den aktuelle ressursen/tjenesten.
+- **Condition** beskriver ytterligere vilkår, for eksempel at parten må være registrert i SRR/RRR for den aktuelle ressursen eller tjenesten.
 
 ### Subjekt
 

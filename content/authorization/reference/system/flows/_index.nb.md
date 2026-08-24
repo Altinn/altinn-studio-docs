@@ -44,4 +44,4 @@ Systembruker binder et registrert leverandørsystem til en kundevirksomhet og et
 
 ## Samtykke
 
-Samtykke bruker ressursdefinisjoner og metadata fra Resource Registry. Et samtykke etablerer en formåls- og ofte tidsavgrenset fullmakt. Ved validering må identitet, avgiver, mottaker, ressurs, handling, formål og gyldighet ses i sammenheng.
+Samtykke bruker ressursdefinisjoner og metadata fra Resource Registry. Et samtykke etablerer en formåls- og ofte tidsavgrenset fullmakt. Ved validering må identiteten til den som gir samtykket, mottaker, ressurs, handling, formål og gyldighet ses i sammenheng.

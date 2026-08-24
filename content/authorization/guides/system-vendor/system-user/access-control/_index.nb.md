@@ -5,7 +5,7 @@ linktitle: Tilgangskontroll
 weight: 15
 ---
 
-Når et sluttbrukersystem leveres som en delt SaaS-løsning, deler flere kunder samme installasjon. Det gir effektiv drift, men stiller også strenge krav til hvordan systemleverandøren håndterer tilgangen til systembrukerne. En systembruker representerer en virksomhet utad, og kallene som gjøres med systembruker-token, kan ikke knyttes til en navngitt person. Dersom feil ansatt får tilgang til feil systembruker, kan det utføres handlinger på vegne av en virksomhet uten at verken Altinn eller tjenesteeieren oppdager det.
+Når et sluttbrukersystem leveres som en delt SaaS-løsning, deler flere kunder samme installasjon. Det gir effektiv drift, men stiller også strenge krav til hvordan systemleverandøren håndterer tilgangen til systembrukerne. En systembruker handler på vegne av en virksomhet utad, og kallene som gjøres med systembrukertokenet, kan ikke knyttes til en navngitt person. Dersom feil ansatt får tilgang til feil systembruker, kan det utføres handlinger på vegne av en virksomhet uten at verken Altinn eller tjenesteeieren oppdager det.
 
 ## Hvorfor tilgangskontroll er kritisk i delte installasjoner
 

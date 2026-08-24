@@ -22,7 +22,7 @@ Bruker tjenesten din Altinn Studio? Da trenger du kun å gjennomføre dette steg
 {{< /stepcard >}}
 
 {{< stepcard step="2" title="Legg til aktørvalg" >}}
-Vergen må kunne velge hvem hen skal representere i tjenesten.
+Vergen må kunne velge hvem hen skal handle på vegne av i tjenesten.
 Bruk grensesnittet Autoriserte parter (Authorized Parties) for å vise hvem vergen kan handle på vegne av.
 
 ![Autoriserte parter fra vegvesen.no](./authorizedparty.png "Autoriserte parter fra Altinn presentert på vegvesen.no")

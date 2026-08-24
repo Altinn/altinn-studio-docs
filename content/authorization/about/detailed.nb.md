@@ -13,7 +13,7 @@ Altinn Autorisasjon hjelper offentlige virksomheter med å styre hvem som kan gj
 Tilgangskontroll via Altinn Autorisasjon er forbeholdt offentlige virksomheter. Det er foreløpig ikke åpnet for at private virksomheter kan bruke Altinn som grunnlag for tilgangskontroll i egne tjenester.
 {{% /notice %}}
 
-Det som gjør Altinn Autorisasjon til det naturlige valget for offentlige tjenester er kombinasjonen av tre ting: innebygd tilgangskontroll for tjenester, et velfungerende system for delegering som innbyggere og virksomheter allerede kjenner og bruker, og direkte integrasjon med de nasjonale registrene. Tjenesteeier slipper å bygge dette fra grunnen av – og brukerne slipper å lære noe nytt.
+Det som gjør Altinn Autorisasjon til det naturlige valget for offentlige tjenester er kombinasjonen av tre ting: innebygd tilgangskontroll for tjenester, et velfungerende system for å gi og administrere fullmakter som innbyggere og virksomheter allerede kjenner og bruker, og direkte integrasjon med de nasjonale registrene. Tjenesteeier slipper å bygge dette fra grunnen av – og brukerne slipper å lære noe nytt.
 
 ## Ressurser og ressursregisteret
 
@@ -42,7 +42,7 @@ Tjenesteeier knytter reglene i policyen til
 - tilgangspakker definert av Altinn (grupper av relaterte tjenester)
 - Altinn-roller fra Altinn 2 (fases ut og vil ikke lenger gi tilgang fra 1. januar 2027)
 
-I tillegg kan en **tilgangsstyrer** i virksomheten delegere rettigheter til enkeltpersoner eller virksomheter. En slik delegering oppretter en egen delegeringspolicy som peker direkte til den aktuelle personen eller virksomheten – ikke til en rolle eller tilgangspakke.
+I tillegg kan en **tilgangsstyrer** i virksomheten gi fullmakt direkte til enkeltpersoner eller virksomheter. Teknisk oppretter denne operasjonen en delegeringspolicy som peker direkte til den aktuelle personen eller virksomheten – ikke til en rolle eller tilgangspakke.
 
 Det er den ansvarlige virksomheten – det vi kaller **tjenesteeier** – som definerer reglene i policyen og er ansvarlig for at de er riktige. Altinn håndhever dem automatisk når noen prøver å bruke tjenesten.
 
@@ -52,11 +52,11 @@ En av de viktigste fordelene med Altinn Autorisasjon er at løsningen er direkte
 
 Tjenesteeier kan dermed basere tilgangsreglene sine på faktiske, autoritative opplysninger fra registrene – og Altinn sørger for at dette alltid er oppdatert.
 
-## Roller og representasjon
+## Roller og det å handle på vegne av andre
 
-Altinn henter roller fra **Enhetsregisteret** (for eksempel daglig leder, regnskapsfører, styremedlem). Disse rollene gir automatisk rettigheter til bestemte tjenester, uten at noen trenger å delegere manuelt.
+Altinn henter roller fra **Enhetsregisteret** (for eksempel daglig leder, regnskapsfører, styremedlem). Disse rollene gir automatisk fullmakter til bestemte tjenester, uten at noen trenger å gi fullmaktene manuelt.
 
-En **avgiver** (også kalt aktør) er den innbyggeren eller virksomheten man opptrer på vegne av. For eksempel kan en regnskapsfører logge inn i Altinn og handle på vegne av en av sine kunder.
+En person eller virksomhet kan gi andre fullmakt til å handle på sine vegne. For eksempel kan en regnskapsfører logge inn i Altinn og handle på vegne av en av sine kunder.
 
 ### Nøkkelroller
 
@@ -72,9 +72,9 @@ Noen roller i Enhetsregisteret gir særlig brede fullmakter og kalles **nøkkelr
 | DTPR | Deltaker med delt ansvar (når registrert på personnummer) |
 | DTSO | Deltaker med solidarisk ansvar (når registrert på personnummer) |
 
-Det spesielle med nøkkelroller er at personen automatisk arver rettighetene som virksomheten har fått. Hvis en virksomhet har fått delegert rettigheter fra mange aktører, får personen med nøkkelrolle tilgang til alle disse. For eksempel vil daglig leder i et stort regnskapsbyrå kunne ha mange tusen aktører å velge mellom når vedkommende logger inn i Altinn.
+Det spesielle med nøkkelroller er at personen automatisk arver fullmaktene som virksomheten har fått. Hvis virksomheten har fått fullmakter fra mange kunder, kan personen med nøkkelrolle handle på vegne av alle disse. For eksempel vil daglig leder i et stort regnskapsbyrå kunne ha mange tusen kunder å velge mellom når vedkommende logger inn i Altinn.
 
-I tillegg har flere av nøkkelrollene automatisk tilgang til de fleste [tilgangspakkene](/nb/authorization/what-do-you-get/accesspackages/business/) uten at noen trenger å delegere manuelt. Andre roller, som regnskapsfører (REGN) og revisor (REVI), gir kun tilgang til et utvalg tjenester som er relevante for den rollen.
+I tillegg gir flere av nøkkelrollene automatisk fullmakt til de fleste [tilgangspakkene](/nb/authorization/what-do-you-get/accesspackages/business/), uten at noen trenger å gi fullmaktene manuelt. Andre roller, som regnskapsfører (REGN) og revisor (REVI), gir bare fullmakt til et utvalg tilgangspakker som er relevante for rollen.
 
 ### Arv av rettigheter
 
@@ -85,15 +85,15 @@ Når en virksomhet registrerer en annen virksomhet i en rolle i Enhetsregisteret
 Det er to viktige begrensninger:
 
 - **Kun ett ledd:** Altinn nøster fullmakter bare ett ledd. Hvis Trondheim AS igjen har Oslo AS som daglig leder, får Oslo AS sine representanter *ikke* fullmakter på vegne av Bergen AS.
-- **Rettigheter gjelder også underenheter:** Underenheter (avdelinger) har ingen egne roller i Enhetsregisteret. En bruker eller virksomhet som har fått rettigheter til hovedenheten, får automatisk de samme rettighetene til underenhetene.
+- **Fullmakter gjelder også underenheter:** Underenheter (avdelinger) har ingen egne roller i Enhetsregisteret. En person eller virksomhet som har fått fullmakt til å handle på vegne av hovedenheten, får automatisk samme fullmakt for underenhetene.
 
 For **enkeltpersonforetak** gjelder en særregel: regnskapsfører og revisor som er registrert for foretaket, får i tillegg utvalgte fullmakter på vegne av innehavers personnummer.
 
 ## Tilgangspakker
 
-Tilgangspakker er samlinger av tilganger til relaterte tjenester. I stedet for å gi tilgang til én og én tjeneste, kan en tilgangsstyrer gi en medarbeider en hel pakke som dekker et arbeidsområde.
+Tilgangspakker er samlinger av rettigheter til relaterte tjenester. I stedet for å gi fullmakt til én og én tjeneste, kan en tilgangsstyrer gi en medarbeider fullmakt til en hel pakke som dekker et arbeidsområde.
 
-Pakker er organisert i fullmaktsområder basert på SSBs kategorisering av virksomhetstyper. Det finnes over **135 tilgangspakker** fordelt på **21 fullmaktsområder** for virksomheter – mot bare et titalls roller i Altinn 2. Den økte granulariteten gjør det mulig å gi ansatte og systemer mer presis tilgang etter prinsippet om minste nødvendige rettighet: man gir tilgang til det som faktisk trengs, ikke mer.
+Pakker er organisert i fullmaktsområder basert på SSBs kategorisering av virksomhetstyper. Det finnes over **135 tilgangspakker** fordelt på **21 fullmaktsområder** for virksomheter – mot bare et titalls roller i Altinn 2. Den økte granulariteten gjør det mulig å gi ansatte og systemer mer presise fullmakter etter prinsippet om minste nødvendige tilgang: Man gir fullmakt til det som faktisk trengs, ikke mer.
 
 [Se oversikt over alle fullmaktsområder og tilgangspakker](/nb/authorization/what-do-you-get/accesspackages/business/).
 
@@ -107,9 +107,9 @@ Når Altinn 2 slås av, vil det ikke lenger være mulig å tildele Altinn-roller
 
 Tjenesteeiere som i dag bruker Altinn-roller i policyene sine, må knytte tjenestene sine til tilgangspakker i god tid før dette.
 
-## Delegering og fullmakt
+## Gi fullmakt
 
-**Delegering** betyr å gi noen andre rett til å handle på dine vegne. I Altinn kan du delegere til
+En **fullmakt** gir noen myndighet til å handle på dine vegne. I Altinn kan du gi fullmakt til
 
 - enkeltpersoner (innbyggere eller ansatte)
 - andre virksomheter
@@ -117,26 +117,26 @@ Tjenesteeiere som i dag bruker Altinn-roller i policyene sine, må knytte tjenes
 
 Den som administrerer tilganger i en virksomhet kalles **tilgangsstyrer**. Tilgangsstyrer kan se hvem som har fullmakt, gi nye fullmakter og trekke dem tilbake.
 
-### Typiske scenarier for delegering
+### Typiske scenarier for fullmakter
 
-- En daglig leder delegerer tilgang til lønn- og HR-tjenester til en HR-ansvarlig, uten å måtte gi tilgang til alle andre tjenester.
-- En regnskapsfører gir en av sine ansatte tilgang til å håndtere en bestemt kundes rapportering.
+- En daglig leder gir en HR-ansvarlig fullmakt til lønn- og HR-tjenester, uten å gi fullmakt til andre tjenester.
+- En regnskapsfører gir en av sine ansatte fullmakt til å håndtere en bestemt kundes rapportering.
 - En privatperson gir et familiemedlem fullmakt til å følge opp en sak hos Nav på sine vegne.
-- En virksomhet delegerer tilgang til en ekstern leverandør som skal utføre en avgrenset oppgave.
+- En virksomhet gir en ekstern leverandør fullmakt til å utføre en avgrenset oppgave.
 
-### Enkeltrettigheter vs. tilgangspakker
+### Fullmakt til en enkelttjeneste eller en tilgangspakke
 
-Du kan velge mellom to måter å delegere på:
+Du kan gi fullmakt på to måter:
 
-**Enkeltrettighet** gir tilgang til én bestemt tjeneste. Bruk dette når du vil gi en presis og avgrenset tilgang – for eksempel kun til én spesifikk rapporteringstjeneste. Enkeltrettigheter er mer tidkrevende å administrere hvis en medarbeider trenger tilgang til mange tjenester.
+**Fullmakt til en enkelttjeneste** gjelder én bestemt tjeneste. Bruk dette når du vil gi en presis og avgrenset fullmakt – for eksempel bare til én bestemt rapporteringstjeneste. Slike fullmakter er mer tidkrevende å administrere hvis en medarbeider trenger tilgang til mange tjenester.
 
-**Tilgangspakke** gir tilgang til alle tjenestene som inngår i pakken. Bruk dette når en medarbeider skal jobbe innenfor et helt ansvarsområde – for eksempel regnskap eller personale. Det er raskere å administrere, men gir bredere tilgang.
+**Fullmakt til en tilgangspakke** gir tilgang til alle tjenestene som inngår i pakken. Bruk dette når en medarbeider skal jobbe innenfor et helt ansvarsområde – for eksempel regnskap eller personale. Det er raskere å administrere, men gir bredere tilgang.
 
 Tilgangsstyrer velger selv hva som passer best ut fra medarbeiderens behov og virksomhetens krav til tilgangskontroll.
 
 ## API-er for tilgangsstyring
 
-Altinn Autorisasjon tilbyr API-er som gjør det mulig å integrere tilgangsstyringen direkte i virksomhetens egne systemer og fagsystemer. Det betyr at delegering og administrasjon av fullmakter ikke trenger å skje manuelt i Altinn sin brukerflate – det kan skje automatisk som en del av eksisterende arbeidsflyter.
+Altinn Autorisasjon tilbyr API-er som gjør det mulig å integrere tilgangsstyringen direkte i virksomhetens egne systemer og fagsystemer. Det betyr at fullmakter ikke trenger å gis og administreres manuelt i Altinn sin brukerflate – det kan skje automatisk som en del av eksisterende arbeidsflyter.
 
 Noen typiske bruksområder:
 
@@ -148,7 +148,7 @@ Dette gir en sømløs opplevelse for sluttbrukerne, og reduserer administrativ b
 
 ### Relevante API-er
 
-- [Tilgangsstyrings-API – guide for sluttbrukersystemer](/nb/authorization/guides/system-vendor/access-management/) – hvordan du integrerer delegering og tilgangsadministrasjon i egne systemer
+- [Tilgangsstyrings-API – guide for sluttbrukersystemer](/nb/authorization/guides/system-vendor/access-management/) – hvordan du integrerer administrasjon av fullmakter og tilganger i egne systemer
 - [Access Management API – EndUser (OpenAPI)](/nb/api/accessmanagement/enduser/) – API-referanse for å lese og administrere fullmakter på vegne av innloggede brukere
 - [Access Management API – ResourceOwner (OpenAPI)](/nb/api/accessmanagement/resourceowneropenapi/) – API-referanse for tjenesteeiere som administrerer tilganger på ressursnivå
 - [Authorization API (OpenAPI)](/nb/api/authorization/) – API-referanse for tilgangskontroll og autorisasjonsoppslag
@@ -218,4 +218,4 @@ De ulike delene av Altinn Autorisasjon henger sammen slik:
 - **Sluttbruker** logger inn og handler på vegne av seg selv eller virksomheten.
 - **Systemleverandør** bruker API-er til å sette opp systembrukere og klientadministrasjon.
 
-Kjernen i dette er at millioner av innbyggere og virksomheter allerede administrerer fullmakter i Altinn – til å representere hverandre, delegere til ansatte og gi fagsystemer tilgang. Integrasjonen med Folkeregisteret og Enhetsregisteret gjør at tilgangene alltid reflekterer de faktiske forholdene: hvem som er registrert som daglig leder, hvem som er verge, hvem som driver enkeltpersonforetak. Når en offentlig tjeneste bruker Altinn Autorisasjon, kobles den inn i dette eksisterende nettverket av tillit uten at verken tjenesteeier eller bruker trenger å bygge det opp fra scratch.
+Kjernen i dette er at millioner av innbyggere og virksomheter allerede administrerer fullmakter i Altinn – slik at de kan handle på vegne av hverandre, gi fullmakt til ansatte og la fagsystemer utføre oppgaver. Integrasjonen med Folkeregisteret og Enhetsregisteret gjør at fullmaktene alltid reflekterer de faktiske forholdene: hvem som er registrert som daglig leder, hvem som er verge, og hvem som driver enkeltpersonforetak. Når en offentlig tjeneste bruker Altinn Autorisasjon, kobles den inn i dette eksisterende nettverket av tillit uten at verken tjenesteeier eller bruker trenger å bygge det opp fra grunnen av.
