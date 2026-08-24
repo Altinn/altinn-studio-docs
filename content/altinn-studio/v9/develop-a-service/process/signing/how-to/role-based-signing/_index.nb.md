@@ -1,6 +1,6 @@
 ---
 draft: true
-title: Rolle- og tilgangspakkebasert signering
+title: Signering med roller og tilgangspakker
 linktitle: Rolle/tilgangspakke
 description: Slik setter du opp signering basert på rolle eller tilgangspakke.
 tags: [rollebasert, signering, needsReview, translate, missingDesignerDocs]
