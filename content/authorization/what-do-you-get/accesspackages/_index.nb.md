@@ -30,9 +30,9 @@ Når flere tjenesteeiere legger tjenestene sine inn i samme tilgangspakke, bygge
 Over tid blir tilgangspakken Lønn en samling av tjenester fra flere ulike etater, basert på tjenesteeiernes egne vurderinger av hvilke tjenester som hører hjemme i lønnsområdet.
 
 
-## Når en bruker får fullmakt til en tilgangspakke, får brukeren tilgang til alt i pakken
+## Når en bruker får tilgang til en tilgangspakke, får de alt i pakken
 
-Hvis en virksomhet gir en ansatt fullmakt til tilgangspakken “Lønn”, får den ansatte tilgang til:
+Hvis en virksomhet gir en ansatt tilgang til tilgangspakken “Lønn”, får vedkommende:
 
 * tjenesten din som du har lagt inn i lønnspakken
 * _og_ alle andre tjenester som andre tjenesteeiere har lagt inn i samme pakke
@@ -50,12 +50,12 @@ Beskriv hvilke tjenester eller ressurser pakken skal dekke, hvem som trenger til
 
 ## Forhåndstildelte og ikke-forhåndstildelte tilgangspakker
 
-Tilgangspakker skal brukes for å styre tilgang til tjenester og ressurser. De fleste har forhåndstildelte roller fra Enhetsregisteret som gir fullmakt til å handle på vegne av virksomheten og dermed til å gi fullmakt videre. Noen pakker – særlig der innholdet er sensitivt – har ingen forhåndstildelte roller og må tildeles manuelt av virksomhetens hovedadministrator.
+Tilgangspakker skal brukes for å styre tilgang til tjenester og ressurser. De fleste har forhåndstildelte roller fra Enhetsregisteret som har fullmakt til å opptre på vegne av virksomheten og dermed kan dele tilgang videre. Noen pakker – særlig der innholdet er sensitivt – har ingen forhåndstildelte roller og må tildeles manuelt av virksomhetens hovedadministrator.
 
 
 ## Fullmaktsområder
 
-Tilgangspakkene er inndelt i fullmaktsområder inspirert av SSBs kategorisering av virksomheter. Hvert område samler tilgangspakker som naturlig hører sammen, og gjør det enklere både for tjenesteeiere å plassere tjenester riktig og for virksomheter å gi passende fullmakter.
+Tilgangspakkene er inndelt i fullmaktsområder inspirert av SSBs kategorisering av virksomheter. Hvert område samler tilgangspakker som naturlig hører sammen, og gjør det enklere både for tjenesteeiere å plassere tjenester riktig og for virksomheter å delegere passende fullmakter.
 
 - [Se fullmaktsområder og tilgangspakker for virksomheter](./business/).
 - [Se fullmaktsområder og tilgangspakker for innbyggere](./citizens/).

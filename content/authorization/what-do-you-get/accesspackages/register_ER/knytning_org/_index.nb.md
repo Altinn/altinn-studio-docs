@@ -10,7 +10,7 @@ aliases:
   - /authorization/what-do-you-get/accessgroups/register_er/knytning_org/
 ---
 
-En rolle i Enhetsregisteret kan innehas av en person eller en virksomhet. Når en virksomhet har rollen, kan personer som handler på vegne av den tilknyttede virksomheten, i enkelte tilfeller også handle på vegne av virksomheten som ga rollen.
+En rolle i Enhetsregisteret kan innehas av en person eller en virksomhet. Når en virksomhet har rollen, kan personer som representerer den tilknyttede virksomheten i enkelte tilfeller handle på vegne av virksomheten som ga rollen.
 
 Dette brukes blant annet når en virksomhet har en annen virksomhet som regnskapsfører, revisor eller forretningsfører.
 
@@ -19,7 +19,7 @@ Dette brukes blant annet når en virksomhet har en annen virksomhet som regnskap
 Eksempel:
 
 - Fjordhandel AS har registrert Regnskapspartner AS som regnskapsfører.
-- Kari handler på vegne av Regnskapspartner AS med en rolle som gir de aktuelle regnskapstilgangene.
+- Kari representerer Regnskapspartner AS med en rolle som gir de aktuelle regnskapstilgangene.
 - Kari kan bruke de forhåndstildelte regnskapspakkene på vegne av Fjordhandel AS.
 
 Kari får ikke alle tilgangene til Fjordhandel AS. Hun får bare tilgangene som følger av regnskapsførerrollen og de tilhørende tilgangspakkene.
@@ -39,7 +39,7 @@ En tilknytning mellom to virksomheter er derfor ikke i seg selv en generell full
 
 Virksomhetsknytninger skal ikke forstås som en kjede der tilgangen automatisk går gjennom et vilkårlig antall virksomheter.
 
-Hvis Bergen AS har registrert Trondheim AS som daglig leder, og Oslo AS igjen er daglig leder for Trondheim AS, betyr det ikke automatisk at en person som handler på vegne av Oslo AS, også kan handle på vegne av Bergen AS. Kontroller den faktiske tilgangen i Altinn når flere virksomheter inngår i kjeden.
+Hvis Bergen AS har registrert Trondheim AS som daglig leder, og Oslo AS igjen er daglig leder for Trondheim AS, betyr det ikke automatisk at en representant for Oslo AS kan handle på vegne av Bergen AS. Kontroller den faktiske tilgangen i Altinn når flere virksomheter inngår i kjeden.
 
 ## Underenheter
 
@@ -49,7 +49,7 @@ Tjenesteeiere bør teste både hovedenheten og underenheten hvis tjenesten kan b
 
 ## Enkeltpersonforetak
 
-Et enkeltpersonforetak og innehaveren er tett knyttet, men de er registrert separat i Altinn. Ikke legg til grunn at en tilgang for foretaket alltid gjelder innehaveren som privatperson, eller omvendt. Tjenestens policy og den konkrete rollekoblingen avgjør hvem som får tilgang.
+Et enkeltpersonforetak og innehaveren er tett knyttet, men de er forskjellige aktører i Altinn. Ikke legg til grunn at en tilgang for foretaket alltid gjelder innehaveren som privatperson, eller omvendt. Tjenestens policy og den konkrete rollekoblingen avgjør hvem som får tilgang.
 
 ## Slik undersøker du en konkret tilgang
 

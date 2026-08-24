@@ -1,7 +1,7 @@
 ---
 title: Privatperson
 linktitle: Privatperson
-description: Ekstern rolle fra Folkeregisteret som alle innbyggere har for seg selv. Rollen kan ikke gis videre, men det kan knyttes tjenester direkte til rollen.
+description: Ekstern rolle fra Folkeregisteret som alle innbyggere har for seg selv. Rollen kan ikke delegeres, men det kan knyttes tjenester direkte til rollen.
 toc: true
 weight: 100
 aliases:

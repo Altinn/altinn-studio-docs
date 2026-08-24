@@ -10,7 +10,7 @@ aliases:
   - /authorization/what-do-you-get/accessgroups/register_er/
 ---
 
-Altinn henter opplysninger om roller i virksomheter fra Enhetsregisteret. En rolle kan gi innehaveren fullmakt til tilgangspakker og mulighet til å gi fullmakt videre på vegne av virksomheten.
+Altinn henter opplysninger om roller i virksomheter fra Enhetsregisteret. En rolle kan gi innehaveren tilgangspakker og mulighet til å delegere tilganger på vegne av virksomheten.
 
 Hvilke roller en virksomhet kan registrere, avhenger av organisasjonsformen. Brønnøysundregistrene bestemmer hvem som har rollen. Altinn bestemmer hvilke tilgangspakker rollen gir.
 
@@ -28,16 +28,16 @@ Rollen alene inneholder derfor ikke en fast liste over tjenester. Tilgangen føl
 En rollekobling kan gi ulike muligheter:
 
 - **Har tilgang** betyr at rolleinnehaveren kan bruke tjenester som inngår i pakken.
-- **Kan gi fullmakt** betyr at rolleinnehaveren kan gi andre fullmakt til pakken.
+- **Kan delegere** betyr at rolleinnehaveren kan gi pakken videre til andre.
 - **Kan tildele** brukes for enkelte administrative koblinger og betyr at rolleinnehaveren kan tildele tilgang innenfor det aktuelle området.
 
-Disse mulighetene følger ikke alltid hverandre. En regnskapsfører kan for eksempel få fullmakt til regnskapspakker uten å kunne gi fullmakten videre.
+Disse mulighetene følger ikke alltid hverandre. En regnskapsfører kan for eksempel få regnskapspakker uten å kunne delegere dem videre.
 
 ## Eksempler på roller og forhåndstildelte pakker
 
 Tabellen viser sentrale eksempler. Koblingene kan endres når pakker eller tjenester endres.
 
-| Rolle fra Enhetsregisteret | Eksempler på pakker | Kan gi fullmakt til eksempelpakkene? |
+| Rolle fra Enhetsregisteret | Eksempler på pakker | Kan delegere eksempelpakkene? |
 |---|---|---|
 | Daglig leder, styrets leder og innehaver | Klientadministrator, tilgangsstyring, hovedadministrator og Maskinporten administrator | Ja |
 | Regnskapsfører | Regnskapsfører med signeringsrettighet, regnskapsfører uten signeringsrettighet og regnskapsfører lønn | Nei |
@@ -52,7 +52,7 @@ Tabellen viser sentrale eksempler. Koblingene kan endres når pakker eller tjene
 
 At en person er registrert med en rolle i Enhetsregisteret, betyr ikke at rollen automatisk gir tilgang i Altinn. Roller som styremedlem, varamedlem og kontaktperson er eksempler på roller som ikke nødvendigvis har forhåndstildelte tilgangspakker.
 
-Personen kan likevel få fullmakt hvis noen som kan administrere fullmakter, gir personen fullmakt til en tilgangspakke eller en enkelttjeneste.
+Personen kan likevel få tilgang hvis noen med delegasjonsrett gir personen en tilgangspakke eller tilgang til en enkelt tjeneste.
 
 ## Organisasjonsformen påvirker resultatet
 
@@ -64,7 +64,7 @@ En rolle kan også innehas av en annen virksomhet. Da kan Altinn i enkelte tilfe
 
 - Velg en tilgangspakke som dekker oppgaven brukeren skal utføre, ikke en bestemt stillingstittel.
 - Kontroller at pakken ikke gir bredere tilgang enn tjenesten krever.
-- Ikke legg til grunn at alle personer med en registrert rolle kan gi fullmakten videre.
+- Ikke legg til grunn at alle personer med en registrert rolle kan delegere tilgangen sin.
 - Test med de organisasjonsformene og rollene som målgruppen faktisk bruker.
 - Beskriv eventuelle tilleggskrav i veiledningen for tjenesten.
 

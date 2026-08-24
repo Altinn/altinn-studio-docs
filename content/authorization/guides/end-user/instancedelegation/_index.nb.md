@@ -8,7 +8,7 @@ hidden: true
 
 Funksjonen er tilgjengelig fra meldings- eller skjemaelementet i Altinn-innboksen. For å dele elementet og gi mottakeren fullmakt må du
 - ha tilgang til elementet via en tilgangspakke, en rolle eller en fullmakt til enkelttjenesten
-- ha fått fullmakt til tilgangspakken «Tilgangsstyrer for enkeltmeldinger, enkeltskjemaer og enkeltdialoger»
+- ha fått fullmakt til tilgangspakken «Tilgangsstyrer for enkeltmeldinger, -skjema og -dialoger»
 
 ![Skjermbilde av tilgangspakken](./instansdelegering2.png)
 
@@ -27,15 +27,15 @@ Når du har gitt fullmakten, finner mottakeren meldingen eller skjemaet i Altinn
 Hvis mottakeren ikke tidligere har hatt tilgang til elementer for personen eller virksomheten du handler på vegne av, vil denne personen eller virksomheten også vises i aktørlisten for første gang.
 
 
-## Gi fullmakt til tilgangspakken for enkeltmeldinger, enkeltskjemaer og enkeltdialoger
+## Gi fullmakt til tilgangspakken for enkeltmeldinger, -skjema og -dialoger
 
-Du gir fullmakt til tilgangspakken «Tilgangsstyrer for enkeltmeldinger, enkeltskjemaer og enkeltdialoger» på samme måte som til andre tilgangspakker i Altinn.
+Du gir fullmakt til tilgangspakken «Tilgangsstyrer for enkeltmeldinger, -skjema og -dialoger» på samme måte som til andre tilgangspakker i Altinn.
 
 ![Skjermbilde av å gi fullmakt til en tilgangspakke](./instansdelegering.png)
 
 
 ## Brukere uten nødvendig tilgangspakke
 
-Brukere som ikke har tilgangspakken «Tilgangsstyrer for enkeltmeldinger, enkeltskjemaer og enkeltdialoger», får en melding om at de mangler fullmakten som kreves for å gi fullmakt videre.
+Brukere som ikke har nødvendig fullmakt, får meldingen «Du har ikke fullmakt til å gi denne videre til andre.» De må ha tilgangspakken «Tilgangsstyrer for enkeltmeldinger, -skjema og -dialoger» for å dele og gi fullmakt fra innboksen.
 
 ![Skjermbilde som viser melding om manglende rettigheter](./instansdelegering4.png)
