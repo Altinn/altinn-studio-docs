@@ -498,5 +498,105 @@
     "correct": 1,
     "explanation": "Tjenesteeieren må uttrykke vergefullmaktene i tilgangsreglene, la vergen velge riktig vergehaver og til slutt kontrollere at vergen har riktig fullmakt for handlingen.",
     "source": {"label": "Kom i gang med vergemål", "url": "/nb/authorization/getting-started/guardianship/"}
+  },
+  {
+    "id": 51,
+    "category": "Fullmakter og tilgangsstyring",
+    "level": "Scenario",
+    "question": "Hva avgjør hvilke fullmakter Tilgangsstyring kan tilby når en bruker handler på vegne av en virksomhet?",
+    "options": ["Tjenesten, ressursen og fullmaktene til den som administrerer tilgangen", "Nettleseren og skjermstørrelsen brukeren har valgt", "Hvor lenge virksomheten har vært registrert", "Om mottakeren tidligere har brukt Altinn"],
+    "correct": 0,
+    "explanation": "Tilgangsstyring må ta hensyn til både reglene for tjenesten eller ressursen og fullmaktene til personen som administrerer tilgangen.",
+    "source": {"label": "Tilgangsstyring", "url": "/nb/authorization/what-do-you-get/accessmanagement/"}
+  },
+  {
+    "id": 52,
+    "category": "Fullmakter og tilgangsstyring",
+    "level": "Detaljert",
+    "question": "Hva må tjenesteeieren gjøre før en ny ressurs kan håndteres i Tilgangsstyring?",
+    "options": ["Legge ressursen manuelt inn i brukergrensesnittet", "Gi alle brukere fullmakt som hovedadministrator", "Opprette et Maskinporten-scope uten å registrere ressursen", "Beskrive og publisere ressursen med autorisasjonsregler og eventuell tilknytning til tilgangspakke"],
+    "correct": 3,
+    "explanation": "Når ressursen er publisert, kan Altinn bruke autorisasjonsreglene og tilknytningen til tilgangspakker når brukerne administrerer fullmakter.",
+    "source": {"label": "Tilgangsstyring for tjenesteeiere", "url": "/nb/authorization/what-do-you-get/accessmanagement/#for-tjenesteeiere"}
+  },
+  {
+    "id": 53,
+    "category": "Fullmakter og tilgangsstyring",
+    "level": "Overordnet",
+    "question": "Hvilken formulering bør normalt brukes når en bruker skal gi en annen person myndighet til å handle på vegne av virksomheten?",
+    "options": ["Delegere rettigheter", "Gi fullmakt", "Opprette tilkobling", "Provisjonere tilgang"],
+    "correct": 1,
+    "explanation": "I brukerrettet tekst skal handlingen normalt beskrives som å gi fullmakt. Delegering kan beholdes i tekniske navn, API-operasjoner og teknisk dokumentasjon.",
+    "source": {"label": "Begreper: Delegere og delegering", "url": "/nb/authorization/getting-started/terms/#delegeredelegering"}
+  },
+  {
+    "id": 54,
+    "category": "Fullmakter og tilgangsstyring",
+    "level": "Detaljert",
+    "question": "En virksomhet vil se hvem den har gitt fullmakter til. Hvilken retning skal oppslaget etter tilkoblinger representere?",
+    "options": ["Fullmakter som virksomheten har mottatt fra andre", "Bare fullmakter som er gitt til systembrukere", "Fullmakter som er gitt fra virksomheten til andre", "Bare forespørsler som virksomheten har mottatt"],
+    "correct": 2,
+    "explanation": "Når virksomheten er avgiver, skal oppslaget vise fullmakter som er gitt fra virksomheten til andre. I API-et betyr dette at parten som administreres, er lik from.",
+    "source": {"label": "Tilgangsstyrings-API: Hente tilkoblinger", "url": "/nb/authorization/guides/system-vendor/access-management/#api-hente-tilkoblinger"}
+  },
+  {
+    "id": 55,
+    "category": "Fullmakter og tilgangsstyring",
+    "level": "Detaljert",
+    "question": "Hvordan kan en aktørvelger finne virksomhetene som brukeren faktisk kan administrere fullmakter for?",
+    "options": ["Hente autoriserte parter filtrert på ressursen altinn_access_management", "Vise alle virksomheter fra Enhetsregisteret", "Vise bare virksomheter der brukeren er registrert som daglig leder", "Bruke virksomheten som sist ble lagret i nettleseren"],
+    "correct": 0,
+    "explanation": "Authorized Parties kan filtreres med anyOfResourceIds=altinn_access_management. Da returneres bare parter der brukeren har rettigheter til å styre tilganger.",
+    "source": {"label": "Tilgangsstyrings-API: Hente autoriserte parter", "url": "/nb/authorization/guides/system-vendor/access-management/#api-hente-autoriserte-parter"}
+  },
+  {
+    "id": 56,
+    "category": "Fullmakter og tilgangsstyring",
+    "level": "Scenario",
+    "question": "Hva bør kontrolleres før brukergrensesnittet lar en bruker gi fullmakt til en bestemt tilgangspakke?",
+    "options": ["At mottakeren har logget inn samme dag", "At tilgangspakken inneholder mer enn én tjeneste", "At brukeren alltid er registrert som daglig leder", "At brukeren kan delegere den aktuelle tilgangspakken på vegne av valgt part"],
+    "correct": 3,
+    "explanation": "Delegeringskontrollen undersøker om den innloggede brukeren kan delegere den konkrete tilgangspakken på vegne av parten som administreres.",
+    "source": {"label": "Tilgangsstyrings-API: Kontrollere delegeringsmulighet", "url": "/nb/authorization/guides/system-vendor/access-management/#api-kontrollere-delegeringsmulighet-for-tilgangspakker"}
+  },
+  {
+    "id": 57,
+    "category": "Fullmakter og tilgangsstyring",
+    "level": "Scenario",
+    "question": "En sendt forespørsel om fullmakt har status Pending. Hva kan avsenderen gjøre?",
+    "options": ["Godkjenne forespørselen på vegne av mottakeren", "Bytte mottaker uten å opprette en ny forespørsel", "Trekke forespørselen så lenge den ikke er behandlet", "Opprette fullmakten uten at mottakeren behandler forespørselen"],
+    "correct": 2,
+    "explanation": "Avsenderen kan trekke en forespørsel som ennå ikke er godkjent eller avvist. Det er mottakeren som kan godkjenne eller avvise den.",
+    "source": {"label": "Tilgangsstyrings-API: Be om fullmakt", "url": "/nb/authorization/guides/system-vendor/access-management/#be-om-fullmakt-fra-en-annen-part"}
+  },
+  {
+    "id": 58,
+    "category": "Fullmakter og tilgangsstyring",
+    "level": "Overordnet",
+    "question": "Hva skjer når mottakeren godkjenner en forespørsel om fullmakt?",
+    "options": ["Forespørselen arkiveres uten andre endringer", "Den underliggende fullmakten blir opprettet", "Avsenderen må opprette fullmakten manuelt etterpå", "Mottakeren får automatisk hovedadministrator"],
+    "correct": 1,
+    "explanation": "Når mottakeren godkjenner forespørselen, oppretter Altinn den underliggende delegeringen som realiserer fullmakten.",
+    "source": {"label": "Tilgangsstyrings-API: Godkjenne en forespørsel", "url": "/nb/authorization/guides/system-vendor/access-management/#api-godkjenne-en-mottatt-forespørsel"}
+  },
+  {
+    "id": 59,
+    "category": "Fullmakter og tilgangsstyring",
+    "level": "Detaljert",
+    "question": "En forespørsel gjelder flere rettigheter på én ressurs. Må mottakeren godkjenne alle rettighetene?",
+    "options": ["Nei, mottakeren kan godkjenne et utvalg av rettighetene", "Ja, en forespørsel om en ressurs kan aldri deles opp", "Nei, men bare tjenesteeieren kan velge rettigheter", "Ja, med mindre mottakeren har fullmakt som hovedadministrator"],
+    "correct": 0,
+    "explanation": "Ved godkjenning av en ressursforespørsel kan mottakeren angi hvilke rettigheter som skal gis. En tom forespørselskropp godkjenner alle rettighetene som ble forespurt.",
+    "source": {"label": "Tilgangsstyrings-API: Godkjenne en forespørsel", "url": "/nb/authorization/guides/system-vendor/access-management/#api-godkjenne-en-mottatt-forespørsel"}
+  },
+  {
+    "id": 60,
+    "category": "Fullmakter og tilgangsstyring",
+    "level": "Detaljert",
+    "question": "Hvorfor bruker Access Management UI en backend for frontend (BFF)?",
+    "options": ["For å lagre alle fullmaktene lokalt i brukergrensesnittet", "For å erstatte alle underliggende autorisasjonstjenester", "For å la nettleseren kontakte alle underliggende API-er direkte", "For å tilby endepunkter tilpasset brukeroppgavene og skjule tjenestetopologi og tilgangstokener for nettleseren"],
+    "correct": 3,
+    "explanation": "BFF-en samler orkestreringen bak endepunkter som passer brukeroppgavene. Det gir færre nettleserkall, enklere kontrakter og en samlet sikkerhetsgrense.",
+    "source": {"label": "Arkitekturmønstre: Backend for frontend", "url": "/nb/authorization/reference/system/application-architecture/access-management-ui/patterns/#backend-for-frontend"}
   }
 ]

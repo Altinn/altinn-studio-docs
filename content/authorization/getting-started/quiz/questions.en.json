@@ -498,5 +498,105 @@
     "correct": 1,
     "explanation": "The service owner must express the guardianship powers in the access rules, let the guardian select the correct ward and finally check that the guardian has the right power for the action.",
     "source": {"label": "Get started with guardianship", "url": "/en/authorization/getting-started/guardianship/"}
+  },
+  {
+    "id": 51,
+    "category": "Authorizations and access management",
+    "level": "Scenario",
+    "question": "What determines which authorizations Access Management can offer when a user acts on behalf of an organisation?",
+    "options": ["The service, the resource and the authorizations held by the person managing access", "The browser and screen size selected by the user", "How long the organisation has been registered", "Whether the recipient has previously used Altinn"],
+    "correct": 0,
+    "explanation": "Access Management must take into account both the rules for the service or resource and the authorizations held by the person managing access.",
+    "source": {"label": "Access Management", "url": "/en/authorization/what-do-you-get/accessmanagement/"}
+  },
+  {
+    "id": 52,
+    "category": "Authorizations and access management",
+    "level": "Detailed",
+    "question": "What must the service owner do before a new resource can be managed in Access Management?",
+    "options": ["Add the resource manually to the user interface", "Give every user Main Administrator authorization", "Create a Maskinporten scope without registering the resource", "Describe and publish the resource with authorization rules and any access-package assignment"],
+    "correct": 3,
+    "explanation": "Once the resource is published, Altinn can use its authorization rules and access-package assignment when users manage authorizations.",
+    "source": {"label": "Access Management for service owners", "url": "/en/authorization/what-do-you-get/accessmanagement/#for-service-owners"}
+  },
+  {
+    "id": 53,
+    "category": "Authorizations and access management",
+    "level": "Overview",
+    "question": "Which phrase should normally describe the user-facing action of giving another person authority to act on behalf of an organisation?",
+    "options": ["Provision access", "Grant authorization", "Create connection", "Synchronize rights"],
+    "correct": 1,
+    "explanation": "Grant authorization clearly describes the user-facing action. Delegation and connection are useful technical terms for the corresponding API operations and domain model.",
+    "source": {"label": "Access Management", "url": "/en/authorization/what-do-you-get/accessmanagement/"}
+  },
+  {
+    "id": 54,
+    "category": "Authorizations and access management",
+    "level": "Detailed",
+    "question": "An organisation wants to see who it has granted authorizations to. Which direction should the connections lookup represent?",
+    "options": ["Authorizations the organisation has received from others", "Only authorizations granted to system users", "Authorizations granted from the organisation to others", "Only requests the organisation has received"],
+    "correct": 2,
+    "explanation": "When the organisation is the sender, the lookup must show authorizations granted from the organisation to others. In the API, this means the administered party equals from.",
+    "source": {"label": "Access Management API: Retrieve connections", "url": "/en/authorization/guides/system-vendor/access-management/#api-retrieve-connections"}
+  },
+  {
+    "id": 55,
+    "category": "Authorizations and access management",
+    "level": "Detailed",
+    "question": "How can a party selector find the organisations for which the user can actually manage authorizations?",
+    "options": ["Retrieve authorized parties filtered by the altinn_access_management resource", "Display every organisation from the Central Coordinating Register for Legal Entities", "Display only organisations where the user is registered as general manager", "Use the organisation most recently stored in the browser"],
+    "correct": 0,
+    "explanation": "Authorized Parties can be filtered with anyOfResourceIds=altinn_access_management. This returns only parties where the user has rights to manage access.",
+    "source": {"label": "Access Management API: Retrieve authorised parties", "url": "/en/authorization/guides/system-vendor/access-management/#api-retrieve-authorised-parties"}
+  },
+  {
+    "id": 56,
+    "category": "Authorizations and access management",
+    "level": "Scenario",
+    "question": "What should be checked before the user interface allows a user to grant a particular access package?",
+    "options": ["That the recipient signed in on the same day", "That the access package contains more than one service", "That the user is always registered as general manager", "That the user can delegate the access package on behalf of the selected party"],
+    "correct": 3,
+    "explanation": "The delegation check determines whether the logged-in user can delegate the specific access package on behalf of the party being managed.",
+    "source": {"label": "Access Management API: Check delegation eligibility", "url": "/en/authorization/guides/system-vendor/access-management/#api-check-delegation-eligibility-for-access-packages"}
+  },
+  {
+    "id": 57,
+    "category": "Authorizations and access management",
+    "level": "Scenario",
+    "question": "A sent authorization request has status Pending. What can the sender do?",
+    "options": ["Approve the request on behalf of the recipient", "Change the recipient without creating a new request", "Withdraw the request while it has not been processed", "Create the authorization without the recipient processing the request"],
+    "correct": 2,
+    "explanation": "The sender can withdraw a request that has not yet been approved or rejected. The recipient is responsible for approving or rejecting it.",
+    "source": {"label": "Access Management API: Requesting access", "url": "/en/authorization/guides/system-vendor/access-management/#requesting-access-from-another-party"}
+  },
+  {
+    "id": 58,
+    "category": "Authorizations and access management",
+    "level": "Overview",
+    "question": "What happens when the recipient approves an authorization request?",
+    "options": ["The request is archived without any other change", "The underlying authorization is created", "The sender must create the authorization manually afterwards", "The recipient automatically receives Main Administrator authorization"],
+    "correct": 1,
+    "explanation": "When the recipient approves the request, Altinn creates the underlying delegation that implements the authorization.",
+    "source": {"label": "Access Management API: Approve a request", "url": "/en/authorization/guides/system-vendor/access-management/#api-approve-a-received-request"}
+  },
+  {
+    "id": 59,
+    "category": "Authorizations and access management",
+    "level": "Detailed",
+    "question": "A request concerns several rights on one resource. Must the recipient approve every right?",
+    "options": ["No, the recipient can approve a selection of the rights", "Yes, a resource request can never be divided", "No, but only the service owner can select rights", "Yes, unless the recipient has Main Administrator authorization"],
+    "correct": 0,
+    "explanation": "When approving a resource request, the recipient can specify which rights to grant. An empty request body approves all the rights that were requested.",
+    "source": {"label": "Access Management API: Approve a request", "url": "/en/authorization/guides/system-vendor/access-management/#api-approve-a-received-request"}
+  },
+  {
+    "id": 60,
+    "category": "Authorizations and access management",
+    "level": "Detailed",
+    "question": "Why does Access Management UI use a backend for frontend (BFF)?",
+    "options": ["To store every authorization locally in the user interface", "To replace all underlying authorization services", "To let the browser call every underlying API directly", "To expose endpoints shaped around user tasks and hide service topology and access tokens from the browser"],
+    "correct": 3,
+    "explanation": "The BFF gathers orchestration behind endpoints suited to user tasks. This gives fewer browser calls, simpler contracts and one security boundary.",
+    "source": {"label": "Architecture patterns: Backend for frontend", "url": "/en/authorization/reference/system/application-architecture/access-management-ui/patterns/#backend-for-frontend"}
   }
 ]

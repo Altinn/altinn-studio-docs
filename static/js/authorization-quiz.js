@@ -23,6 +23,11 @@
       categoryResult: (category, value, total) => `${category}: ${value} av ${total} riktige`,
       yourAnswer: (answer) => `Ditt svar: ${answer}`,
       rightAnswer: (answer) => `Riktig svar: ${answer}`,
+      topicCount: (count) => `${count} spørsmål`,
+      topicSelection: (subjectCount, questionCount) => `${subjectCount} ${subjectCount === 1 ? 'fagområde' : 'fagområder'} valgt · ${questionCount} spørsmål`,
+      topicEmpty: 'Velg minst ett fagområde.',
+      startTopic: (count) => `Start ${count} spørsmål`,
+      startTopicDefault: 'Start tematest',
       resultBands: {
         low: ['Bygg videre på grunnlaget', 'Bruk temaoversikten og forklaringene under til å velge hva du bør lese først.'],
         foundation: ['Du har grunnlaget', 'Du kjenner de viktigste prinsippene. En målrettet gjennomgang av temaene under vil gi deg et tryggere helhetsbilde.'],
@@ -44,6 +49,11 @@
       categoryResult: (category, value, total) => `${category}: ${value} of ${total} correct`,
       yourAnswer: (answer) => `Your answer: ${answer}`,
       rightAnswer: (answer) => `Correct answer: ${answer}`,
+      topicCount: (count) => `${count} questions`,
+      topicSelection: (subjectCount, questionCount) => `${subjectCount} subject ${subjectCount === 1 ? 'area' : 'areas'} selected · ${questionCount} questions`,
+      topicEmpty: 'Select at least one subject.',
+      startTopic: (count) => `Start ${count} questions`,
+      startTopicDefault: 'Start topic quiz',
       resultBands: {
         low: ['Build on the basics', 'Use the subject overview and explanations below to decide what to read first.'],
         foundation: ['You have the foundation', 'You know the most important principles. A focused review of the subjects below will give you a more confident overall understanding.'],
@@ -159,6 +169,12 @@
     const questionText = root.querySelector('[data-question-text]');
     const questionCategory = root.querySelector('[data-question-category]');
     const questionLevel = root.querySelector('[data-question-level]');
+    const topicPicker = root.querySelector('[data-topic-picker]');
+    const topicModeButton = root.querySelector('[data-show-topic-picker]');
+    const topicOptions = root.querySelector('[data-topic-options]');
+    const topicStartButton = root.querySelector('[data-start-topic]');
+    const topicSummary = root.querySelector('[data-topic-summary]');
+    const topicCloseButton = root.querySelector('[data-close-topic]');
     let activeQuestions = [];
     let answers = [];
     let currentIndex = 0;
@@ -167,6 +183,51 @@
     root.querySelectorAll('[data-question-bank-count], [data-full-test-count]').forEach((element) => {
       element.textContent = questionBank.length;
     });
+    const categoryCounts = new Map();
+    questionBank.forEach((question) => {
+      categoryCounts.set(question.category, (categoryCounts.get(question.category) || 0) + 1);
+    });
+
+    [...categoryCounts.entries()]
+      .sort(([first], [second]) => first.localeCompare(second, language))
+      .forEach(([category, count]) => {
+        const label = createElement('label', 'authorization-quiz__topic-option');
+        const input = document.createElement('input');
+        input.type = 'checkbox';
+        input.value = category;
+        const text = createElement('span', 'authorization-quiz__topic-text');
+        text.append(
+          createElement('strong', '', category),
+          createElement('span', '', labels.topicCount(count)),
+        );
+        label.append(input, text);
+        topicOptions.append(label);
+      });
+
+    const selectedTopics = () => [...topicOptions.querySelectorAll('input:checked')].map((input) => input.value);
+
+    const updateTopicSelection = () => {
+      const topics = selectedTopics();
+      const questionTotal = questionBank.filter((question) => topics.includes(question.category)).length;
+      topicStartButton.disabled = topics.length === 0;
+      topicSummary.textContent = topics.length
+        ? labels.topicSelection(topics.length, questionTotal)
+        : labels.topicEmpty;
+      topicStartButton.textContent = topics.length ? labels.startTopic(questionTotal) : labels.startTopicDefault;
+    };
+
+    const setTopicPicker = (open, returnFocus = false) => {
+      topicPicker.hidden = !open;
+      topicModeButton.setAttribute('aria-expanded', String(open));
+      if (open) {
+        topicPicker.focus({ preventScroll: true });
+        topicPicker.scrollIntoView({ behavior: scrollBehavior, block: 'nearest' });
+      } else if (returnFocus) {
+        topicModeButton.focus();
+      }
+    };
+
+    updateTopicSelection();
 
     const showScreen = (name) => {
       Object.entries(screens).forEach(([screenName, element]) => {
@@ -174,10 +235,13 @@
       });
     };
 
-    const startQuiz = (requestedCount, reuseQuestions = false) => {
+    const startQuiz = (requestedCount, reuseQuestions = false, topics = []) => {
       if (!reuseQuestions) {
-        const count = requestedCount === 'all' ? questionBank.length : Math.min(Number(requestedCount), questionBank.length);
-        activeQuestions = count === questionBank.length ? shuffle(questionBank) : balancedSample(questionBank, count);
+        const availableQuestions = topics.length
+          ? questionBank.filter((question) => topics.includes(question.category))
+          : questionBank;
+        const count = requestedCount === 'all' ? availableQuestions.length : Math.min(Number(requestedCount), availableQuestions.length);
+        activeQuestions = count === availableQuestions.length ? shuffle(availableQuestions) : balancedSample(availableQuestions, count);
       } else {
         activeQuestions = shuffle(activeQuestions);
       }
@@ -327,6 +391,15 @@
     root.querySelectorAll('[data-start-quiz]').forEach((button) => {
       button.addEventListener('click', () => startQuiz(button.dataset.startQuiz));
     });
+    topicModeButton.addEventListener('click', () => setTopicPicker(true));
+    topicOptions.addEventListener('change', updateTopicSelection);
+    topicStartButton.addEventListener('click', () => {
+      const topics = selectedTopics();
+      if (!topics.length) return;
+      setTopicPicker(false);
+      startQuiz('all', false, topics);
+    });
+    topicCloseButton.addEventListener('click', () => setTopicPicker(false, true));
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       submitAnswer();
@@ -343,6 +416,7 @@
     });
     root.querySelector('[data-retry-button]').addEventListener('click', () => startQuiz(activeQuestions.length, true));
     root.querySelector('[data-reset-button]').addEventListener('click', () => {
+      setTopicPicker(false);
       showScreen('start');
       screens.start.focus({ preventScroll: true });
       window.scrollTo({ top: root.offsetTop, behavior: scrollBehavior });
