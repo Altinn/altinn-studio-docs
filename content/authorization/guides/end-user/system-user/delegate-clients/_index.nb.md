@@ -38,6 +38,6 @@ Når du oppretter en systembruker for klientforhold, må du angi hvilke tilgangs
    ![Klientadministrasjon steg 2](klientdelegering2.png)
 3. Trykk **Legg til klienter**.
    ![Klientadministrasjon steg 3](klientdelegering3.png)
-4. Legg til klienter til systemtilgangen, en av gangen, ved å trykke **Legg til i systemtilgang**. I dette eksempelet legger vi til "Revisorkunde AS". Hvis du ikke ser noen klienter i denne modalen, er ikke klientforholdet satt opp. Se [egen guide for å sette opp dette](/nb/authorization/guides/end-user/system-user/setup-client-relationship/).
+4. Legg til klienter i systemtilgangen, én av gangen, ved å trykke **Legg til i systemtilgang**. I dette eksempelet legger vi til "Revisorkunde AS". Hvis en klient ikke vises i modalen, kontroller at klientforholdet finnes, og at virksomheten din har fått fullmakt til alle tilgangspakkene i systemtilgangen, enten direkte eller gjennom en rolle i Enhetsregisteret. Hvis klientforholdet mangler, se [guiden for å sette opp et klientforhold](/nb/authorization/guides/end-user/system-user/setup-client-relationship/).
 5. Trykk **Bekreft og lukk** etter at klientene er lagt til.
    ![Klientadministrasjon steg 4](klientdelegering4.png)
