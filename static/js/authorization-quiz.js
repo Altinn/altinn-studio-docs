@@ -11,17 +11,64 @@
   const balancedSample = (questions, count) => {
     const groups = new Map();
     questions.forEach((question) => {
-      if (!groups.has(question.category)) groups.set(question.category, []);
-      groups.get(question.category).push(question);
+      if (!groups.has(question.category)) groups.set(question.category, [[], [], [], []]);
+      groups.get(question.category)[question.correct].push(question);
     });
 
-    const queues = [...groups.values()].map(shuffle);
+    const categories = shuffle([...groups.keys()]).sort((first, second) => {
+      const firstPositions = groups.get(first).filter((items) => items.length).length;
+      const secondPositions = groups.get(second).filter((items) => items.length).length;
+      return firstPositions - secondPositions;
+    });
+    const baseCategoryQuota = Math.floor(count / categories.length);
+    const categoryQuotas = new Map(categories.map((category) => [category, baseCategoryQuota]));
+    shuffle(categories).slice(0, count % categories.length).forEach((category) => {
+      categoryQuotas.set(category, categoryQuotas.get(category) + 1);
+    });
+
+    const answerQuotas = Array(4).fill(Math.floor(count / 4));
+    shuffle([0, 1, 2, 3]).slice(0, count % 4).forEach((position) => {
+      answerQuotas[position] += 1;
+    });
+
+    const allocations = new Map();
+    const allocateCategory = (categoryIndex, remainingAnswers) => {
+      if (categoryIndex === categories.length) return remainingAnswers.every((remaining) => remaining === 0);
+
+      const category = categories[categoryIndex];
+      const available = groups.get(category).map((items) => items.length);
+      const candidates = [];
+      const buildCandidates = (position, remainingCategory, allocation) => {
+        if (position === 3) {
+          if (remainingCategory <= available[position] && remainingCategory <= remainingAnswers[position]) {
+            candidates.push([...allocation, remainingCategory]);
+          }
+          return;
+        }
+        const maximum = Math.min(remainingCategory, available[position], remainingAnswers[position]);
+        for (let amount = 0; amount <= maximum; amount += 1) {
+          buildCandidates(position + 1, remainingCategory - amount, [...allocation, amount]);
+        }
+      };
+      buildCandidates(0, categoryQuotas.get(category), []);
+
+      for (const allocation of shuffle(candidates)) {
+        allocations.set(category, allocation);
+        const nextRemaining = remainingAnswers.map((remaining, position) => remaining - allocation[position]);
+        if (allocateCategory(categoryIndex + 1, nextRemaining)) return true;
+      }
+      allocations.delete(category);
+      return false;
+    };
+
+    if (!allocateCategory(0, answerQuotas)) throw new Error('Kunne ikke lage et balansert spørsmålsutvalg.');
+
     const selected = [];
-    while (selected.length < count && queues.some((queue) => queue.length)) {
-      shuffle(queues).forEach((queue) => {
-        if (selected.length < count && queue.length) selected.push(queue.pop());
+    categories.forEach((category) => {
+      allocations.get(category).forEach((amount, position) => {
+        selected.push(...shuffle(groups.get(category)[position]).slice(0, amount));
       });
-    }
+    });
     return shuffle(selected);
   };
 

@@ -11,8 +11,9 @@
   --quiz-success-bg: #e8f6ee;
   --quiz-error: #a1261d;
   --quiz-error-bg: #fff0ef;
+
   color: var(--quiz-ink);
-  font-family: "DIN-reg", Arial, sans-serif;
+  font-family: DIN-reg, Arial, sans-serif;
   min-height: 70vh;
 }
 
@@ -50,7 +51,7 @@
 .authorization-quiz__kicker,
 .authorization-quiz__mode-label,
 .authorization-quiz__feedback-label {
-  font-family: "DIN-bold", Arial, sans-serif;
+  font-family: DIN-bold, Arial, sans-serif;
   font-size: 13px;
   letter-spacing: .07em;
   text-transform: uppercase;
@@ -63,7 +64,7 @@
 
 .authorization-quiz__hero h1 {
   color: #fff;
-  font: clamp(38px, 6vw, 64px)/1.05 "DIN-bold", Arial, sans-serif;
+  font: clamp(38px, 6vw, 64px)/1.05 DIN-bold, Arial, sans-serif;
   margin: 0 0 18px;
   max-width: 780px;
 }
@@ -105,7 +106,7 @@
 
 .authorization-quiz h2 {
   color: var(--quiz-ink);
-  font: clamp(28px, 4vw, 38px)/1.15 "DIN-bold", Arial, sans-serif;
+  font: clamp(28px, 4vw, 38px)/1.15 DIN-bold, Arial, sans-serif;
   margin: 0 0 14px;
 }
 
@@ -136,7 +137,7 @@
 
 .authorization-quiz__facts strong {
   color: var(--quiz-navy);
-  font: 25px/1 "DIN-bold", Arial, sans-serif;
+  font: 25px/1 DIN-bold, Arial, sans-serif;
 }
 
 .authorization-quiz__facts span {
@@ -180,7 +181,7 @@
 }
 
 .authorization-quiz__mode strong {
-  font: 24px/1.2 "DIN-bold", Arial, sans-serif;
+  font: 24px/1.2 DIN-bold, Arial, sans-serif;
   margin-bottom: 8px;
 }
 
@@ -248,7 +249,7 @@
 
 .authorization-quiz legend {
   color: var(--quiz-ink);
-  font: clamp(24px, 3vw, 32px)/1.25 "DIN-bold", Arial, sans-serif;
+  font: clamp(24px, 3vw, 32px)/1.25 DIN-bold, Arial, sans-serif;
   margin-bottom: 26px;
   width: 100%;
 }
@@ -292,7 +293,7 @@
   background: #edf1f4;
   border-radius: 50%;
   display: inline-flex;
-  font-family: "DIN-bold", Arial, sans-serif;
+  font-family: DIN-bold, Arial, sans-serif;
   height: 32px;
   justify-content: center;
   width: 32px;
@@ -321,7 +322,7 @@
 .authorization-quiz__button {
   border-radius: 8px;
   cursor: pointer;
-  font: 17px/1.2 "DIN-bold", Arial, sans-serif;
+  font: 17px/1.2 DIN-bold, Arial, sans-serif;
   margin-top: 25px;
   padding: 13px 21px;
 }
@@ -371,7 +372,7 @@
 }
 
 .authorization-quiz__feedback h3 {
-  font: 24px/1.2 "DIN-bold", Arial, sans-serif;
+  font: 24px/1.2 DIN-bold, Arial, sans-serif;
   margin: 7px 0 9px;
 }
 
@@ -383,7 +384,7 @@
 .authorization-quiz__feedback a,
 .authorization-quiz__review a {
   color: var(--quiz-action);
-  font-family: "DIN-bold", Arial, sans-serif;
+  font-family: DIN-bold, Arial, sans-serif;
 }
 
 .authorization-quiz__result-hero {
@@ -406,7 +407,7 @@
 }
 
 .authorization-quiz__score strong {
-  font: 43px/1 "DIN-bold", Arial, sans-serif;
+  font: 43px/1 DIN-bold, Arial, sans-serif;
 }
 
 .authorization-quiz__score span {
@@ -424,7 +425,7 @@
 
 .authorization-quiz__breakdown h3,
 .authorization-quiz__review h3 {
-  font: 24px/1.2 "DIN-bold", Arial, sans-serif;
+  font: 24px/1.2 DIN-bold, Arial, sans-serif;
   margin: 0 0 20px;
 }
 
@@ -462,7 +463,7 @@
 }
 
 .authorization-quiz__review-item h4 {
-  font: 18px/1.35 "DIN-bold", Arial, sans-serif;
+  font: 18px/1.35 DIN-bold, Arial, sans-serif;
   margin: 0 0 12px;
 }
 
