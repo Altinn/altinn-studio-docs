@@ -14,13 +14,13 @@ Funksjonen er tilgjengelig fra meldings- eller skjemaelementet i Altinn-innbokse
 
 Hvis du har brukt tilsvarende funksjon i den gamle innboksen, vil du oppleve at kravene er strengere. Nå kan bare personer med riktig fullmakt dele elementet og gi andre fullmakt, ikke alle som har tilgang til meldinger og skjemaer i innboksen.
 
-Når du klikker på knappen **Gi tilgang**, kommer du til en ny side.
+Når du klikker på knappen **Gi tilgang**, kommer du til siden **Del og gi fullmakt**. Her kan du velge en person som allerede er registrert, eller klikke på **Ny bruker** for å gi fullmakt til en ny person.
 
-På denne siden må du
-- velge hvilke handlinger i tjenesten (lese, skrive) mottakeren skal ha rett til å utføre
+Når du gir fullmakt til en ny person, må du
 - identifisere mottakeren med fødselsnummer og etternavn, eller med Altinn-brukernavn og etternavn
+- velge hvilke handlinger i tjenesten (lese, skrive) mottakeren skal ha rett til å utføre
 
-![Skjermbilde som viser valg av tilganger før du fyller inn identifiserende informasjon](./instansdelegering3.png)
+![Skjermbilde av å gi fullmakt til en ny person](./instansdelegering3.png)
 
 Når du har gitt fullmakten, finner mottakeren meldingen eller skjemaet i Altinn-innboksen.
 
