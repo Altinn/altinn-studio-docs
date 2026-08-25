@@ -10,7 +10,7 @@
       <a class="authorization-quiz__back" href="{{ "authorization/getting-started/" | relLangURL }}">{{ if $en }}← Back to Get started{{ else }}← Tilbake til Kom i gang{{ end }}</a>
       <p class="authorization-quiz__eyebrow">Onboarding · {{ if $en }}Altinn Authorization{{ else }}Altinn Autorisasjon{{ end }}</p>
       <h1>{{ if $en }}Test your knowledge{{ else }}Test kunnskapen din{{ end }}</h1>
-      <p class="authorization-quiz__lead">{{ if $en }}Choose a short or full quiz. After each question, you get the correct answer, a detailed explanation and a link to the documentation.{{ else }}Velg en kort eller full test. Du får riktig svar, en faglig forklaring og en lenke til dokumentasjonen etter hvert spørsmål.{{ end }}</p>
+      <p class="authorization-quiz__lead">{{ if $en }}Choose a short, full or topic-based quiz. After each question, you get the correct answer, a detailed explanation and a link to the documentation.{{ else }}Velg en kort, full eller temabasert test. Du får riktig svar, en faglig forklaring og en lenke til dokumentasjonen etter hvert spørsmål.{{ end }}</p>
     </div>
   </header>
 
@@ -24,7 +24,7 @@
         </div>
         <ul class="authorization-quiz__facts" aria-label="{{ if $en }}What the quiz includes{{ else }}Dette får du i testen{{ end }}">
           <li><strong>4</strong><span>{{ if $en }}answer options{{ else }}svaralternativer{{ end }}</span></li>
-          <li><strong data-question-bank-count>50</strong><span>{{ if $en }}questions in the bank{{ else }}spørsmål i banken{{ end }}</span></li>
+          <li><strong data-question-bank-count>60</strong><span>{{ if $en }}questions in the bank{{ else }}spørsmål i banken{{ end }}</span></li>
           <li><strong>7</strong><span>{{ if $en }}subject areas{{ else }}fagområder{{ end }}</span></li>
         </ul>
       </div>
@@ -38,9 +38,35 @@
         <button class="authorization-quiz__mode authorization-quiz__mode--full" type="button" data-start-quiz="all">
           <span class="authorization-quiz__mode-label">{{ if $en }}Complete curriculum{{ else }}Hele pensumet{{ end }}</span>
           <strong>{{ if $en }}Full quiz{{ else }}Full test{{ end }}</strong>
-          <span><span data-full-test-count>50</span> {{ if $en }}questions · about 30 minutes{{ else }}spørsmål · omtrent 30 minutter{{ end }}</span>
+          <span><span data-full-test-count>60</span> {{ if $en }}questions · about 40 minutes{{ else }}spørsmål · omtrent 40 minutter{{ end }}</span>
+        </button>
+        <button class="authorization-quiz__mode authorization-quiz__mode--topic" type="button" data-show-topic-picker aria-expanded="false" aria-controls="authorization-quiz-topic-picker">
+          <span class="authorization-quiz__mode-label">{{ if $en }}Choose subjects{{ else }}Velg fagområder{{ end }}</span>
+          <strong>{{ if $en }}Topic quiz{{ else }}Tematest{{ end }}</strong>
+          <span>{{ if $en }}Focus on one or more of the 7 subject areas{{ else }}Fordyp deg i ett eller flere av de 7 fagområdene{{ end }}</span>
         </button>
       </div>
+
+      <section class="authorization-quiz__topic-picker" id="authorization-quiz-topic-picker" data-topic-picker hidden tabindex="-1" aria-labelledby="authorization-quiz-topic-title">
+        <span class="authorization-quiz__kicker">{{ if $en }}Tailor the quiz{{ else }}Tilpass testen{{ end }}</span>
+        <h3 id="authorization-quiz-topic-title">{{ if $en }}Which subjects do you want to be tested on?{{ else }}Hvilke fagområder vil du testes i?{{ end }}</h3>
+        <p>{{ if $en }}Select one or more subjects. The quiz includes every question in your selection.{{ else }}Velg ett eller flere fagområder. Testen tar med alle spørsmålene i utvalget ditt.{{ end }}</p>
+        <fieldset>
+          <legend class="authorization-quiz__topic-legend">{{ if $en }}Available subjects{{ else }}Tilgjengelige fagområder{{ end }}</legend>
+          <div class="authorization-quiz__topic-options" data-topic-options></div>
+        </fieldset>
+        <div class="authorization-quiz__topic-footer">
+          <p data-topic-summary aria-live="polite">{{ if $en }}Select at least one subject.{{ else }}Velg minst ett fagområde.{{ end }}</p>
+          <div class="authorization-quiz__topic-actions">
+            <button class="authorization-quiz__button authorization-quiz__button--primary" type="button" data-start-topic disabled>
+              {{ if $en }}Start topic quiz{{ else }}Start tematest{{ end }}
+            </button>
+            <button class="authorization-quiz__button authorization-quiz__button--secondary" type="button" data-close-topic>
+              {{ if $en }}Cancel{{ else }}Avbryt{{ end }}
+            </button>
+          </div>
+        </div>
+      </section>
 
       <p class="authorization-quiz__privacy">{{ if $en }}No sign-in. No results are sent or stored.{{ else }}Ingen innlogging. Ingen resultater sendes eller lagres.{{ end }}</p>
     </section>
