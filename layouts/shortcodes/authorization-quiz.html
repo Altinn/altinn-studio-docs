@@ -1,0 +1,115 @@
+{{ $questions := .Page.Resources.GetMatch "questions.json" }}
+{{ if not $questions }}{{ errorf "authorization-quiz: questions.json mangler for %s" .Page.File.Path }}{{ end }}
+<link rel="stylesheet" href="{{ "css/authorization-quiz.css" | relURL }}">
+
+<main class="authorization-quiz" data-authorization-quiz>
+  <header class="authorization-quiz__hero">
+    <div class="authorization-quiz__wrap">
+      <a class="authorization-quiz__back" href="{{ "authorization/getting-started/" | relLangURL }}">← Tilbake til Kom i gang</a>
+      <p class="authorization-quiz__eyebrow">Onboarding · Altinn Autorisasjon</p>
+      <h1>Test kunnskapen din</h1>
+      <p class="authorization-quiz__lead">Velg en kort eller full test. Du får riktig svar, en faglig forklaring og en lenke til dokumentasjonen etter hvert spørsmål.</p>
+    </div>
+  </header>
+
+  <div class="authorization-quiz__wrap authorization-quiz__stage">
+    <section class="authorization-quiz__card authorization-quiz__start" data-quiz-screen="start" aria-labelledby="quiz-start-title" tabindex="-1">
+      <div class="authorization-quiz__intro-grid">
+        <div>
+          <span class="authorization-quiz__kicker">Finn nivået ditt</span>
+          <h2 id="quiz-start-title">Hvor grundig vil du teste deg?</h2>
+          <p>Spørsmålene dekker både grunnleggende begreper, praktiske situasjoner og tekniske detaljer. Resultatet lagres ikke.</p>
+        </div>
+        <ul class="authorization-quiz__facts" aria-label="Dette får du i testen">
+          <li><strong>4</strong><span>svaralternativer</span></li>
+          <li><strong data-question-bank-count>50</strong><span>spørsmål i banken</span></li>
+          <li><strong>7</strong><span>fagområder</span></li>
+        </ul>
+      </div>
+
+      <div class="authorization-quiz__modes">
+        <button class="authorization-quiz__mode" type="button" data-start-quiz="15">
+          <span class="authorization-quiz__mode-label">Anbefalt</span>
+          <strong>Kort test</strong>
+          <span>15 balanserte spørsmål · omtrent 10 minutter</span>
+        </button>
+        <button class="authorization-quiz__mode authorization-quiz__mode--full" type="button" data-start-quiz="all">
+          <span class="authorization-quiz__mode-label">Hele pensumet</span>
+          <strong>Full test</strong>
+          <span><span data-full-test-count>50</span> spørsmål · omtrent 30 minutter</span>
+        </button>
+      </div>
+
+      <p class="authorization-quiz__privacy">Ingen innlogging. Ingen resultater sendes eller lagres.</p>
+    </section>
+
+    <section class="authorization-quiz__card authorization-quiz__question-screen" data-quiz-screen="question" hidden aria-labelledby="quiz-question" tabindex="-1">
+      <div class="authorization-quiz__status">
+        <div>
+          <span data-question-count>Spørsmål 1 av 15</span>
+          <strong data-live-score>0 riktige</strong>
+        </div>
+        <div class="authorization-quiz__progress" role="progressbar" aria-label="Fremdrift i testen" aria-valuemin="0" aria-valuemax="15" aria-valuenow="1">
+          <span data-progress-bar></span>
+        </div>
+      </div>
+
+      <div class="authorization-quiz__tags">
+        <span data-question-category></span>
+        <span data-question-level></span>
+      </div>
+
+      <form data-question-form>
+        <fieldset>
+          <legend id="quiz-question" data-question-text></legend>
+          <div class="authorization-quiz__options" data-question-options></div>
+        </fieldset>
+        <button class="authorization-quiz__button authorization-quiz__button--primary" type="submit" data-answer-button disabled>Svar</button>
+      </form>
+
+      <div class="authorization-quiz__feedback" data-feedback hidden tabindex="-1" aria-live="polite">
+        <span class="authorization-quiz__feedback-label" data-feedback-label></span>
+        <h3 data-feedback-title></h3>
+        <p data-feedback-text></p>
+        <a data-feedback-source href="#">Les mer i dokumentasjonen →</a>
+      </div>
+
+      <button class="authorization-quiz__button authorization-quiz__button--next" type="button" data-next-button hidden>Neste spørsmål →</button>
+    </section>
+
+    <section class="authorization-quiz__card authorization-quiz__results" data-quiz-screen="results" hidden aria-labelledby="quiz-results-title" tabindex="-1">
+      <div class="authorization-quiz__result-hero">
+        <div class="authorization-quiz__score" aria-label="Resultat">
+          <strong data-result-percent>0 %</strong>
+          <span data-result-fraction>0 av 0 riktige</span>
+        </div>
+        <div>
+          <span class="authorization-quiz__kicker">Testen er fullført</span>
+          <h2 id="quiz-results-title" data-result-title></h2>
+          <p data-result-text></p>
+        </div>
+      </div>
+
+      <div class="authorization-quiz__breakdown">
+        <h3>Resultat per tema</h3>
+        <div data-category-results></div>
+      </div>
+
+      <div class="authorization-quiz__review" data-review-section>
+        <h3>Spørsmål du bør se på igjen</h3>
+        <div data-incorrect-review></div>
+      </div>
+
+      <div class="authorization-quiz__result-actions">
+        <button class="authorization-quiz__button authorization-quiz__button--primary" type="button" data-retry-button>Ta samme test på nytt</button>
+        <button class="authorization-quiz__button authorization-quiz__button--secondary" type="button" data-reset-button>Velg en annen test</button>
+      </div>
+    </section>
+
+    <noscript><p class="authorization-quiz__noscript">Du må aktivere JavaScript for å gjennomføre testen.</p></noscript>
+  </div>
+
+  <script type="application/json" data-quiz-data>{{ $questions.Content | safeJS }}</script>
+</main>
+
+<script src="{{ "js/authorization-quiz.js" | relURL }}"></script>
