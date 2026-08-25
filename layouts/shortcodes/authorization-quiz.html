@@ -40,15 +40,10 @@
           <strong>{{ if $en }}Full quiz{{ else }}Full test{{ end }}</strong>
           <span><span data-full-test-count>60</span> {{ if $en }}questions · about 40 minutes{{ else }}spørsmål · omtrent 40 minutter{{ end }}</span>
         </button>
-        <button class="authorization-quiz__mode authorization-quiz__mode--topic" type="button" data-show-topic-picker aria-expanded="false" aria-controls="authorization-quiz-topic-picker">
-          <span class="authorization-quiz__mode-label">{{ if $en }}Choose subjects{{ else }}Velg fagområder{{ end }}</span>
-          <strong>{{ if $en }}Topic quiz{{ else }}Tematest{{ end }}</strong>
-          <span>{{ if $en }}Focus on one or more of the 7 subject areas{{ else }}Fordyp deg i ett eller flere av de 7 fagområdene{{ end }}</span>
-        </button>
       </div>
 
-      <section class="authorization-quiz__topic-picker" id="authorization-quiz-topic-picker" data-topic-picker hidden tabindex="-1" aria-labelledby="authorization-quiz-topic-title">
-        <span class="authorization-quiz__kicker">{{ if $en }}Tailor the quiz{{ else }}Tilpass testen{{ end }}</span>
+      <section class="authorization-quiz__topic-picker" data-topic-picker aria-labelledby="authorization-quiz-topic-title">
+        <span class="authorization-quiz__kicker">{{ if $en }}Topic quiz{{ else }}Tematest{{ end }}</span>
         <h3 id="authorization-quiz-topic-title">{{ if $en }}Which subjects do you want to be tested on?{{ else }}Hvilke fagområder vil du testes i?{{ end }}</h3>
         <p>{{ if $en }}Select one or more subjects. The quiz includes every question in your selection.{{ else }}Velg ett eller flere fagområder. Testen tar med alle spørsmålene i utvalget ditt.{{ end }}</p>
         <fieldset>
@@ -60,9 +55,6 @@
           <div class="authorization-quiz__topic-actions">
             <button class="authorization-quiz__button authorization-quiz__button--primary" type="button" data-start-topic disabled>
               {{ if $en }}Start topic quiz{{ else }}Start tematest{{ end }}
-            </button>
-            <button class="authorization-quiz__button authorization-quiz__button--secondary" type="button" data-close-topic>
-              {{ if $en }}Cancel{{ else }}Avbryt{{ end }}
             </button>
           </div>
         </div>

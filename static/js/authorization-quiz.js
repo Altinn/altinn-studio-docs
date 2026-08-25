@@ -169,12 +169,9 @@
     const questionText = root.querySelector('[data-question-text]');
     const questionCategory = root.querySelector('[data-question-category]');
     const questionLevel = root.querySelector('[data-question-level]');
-    const topicPicker = root.querySelector('[data-topic-picker]');
-    const topicModeButton = root.querySelector('[data-show-topic-picker]');
     const topicOptions = root.querySelector('[data-topic-options]');
     const topicStartButton = root.querySelector('[data-start-topic]');
     const topicSummary = root.querySelector('[data-topic-summary]');
-    const topicCloseButton = root.querySelector('[data-close-topic]');
     let activeQuestions = [];
     let answers = [];
     let currentIndex = 0;
@@ -214,17 +211,6 @@
         ? labels.topicSelection(topics.length, questionTotal)
         : labels.topicEmpty;
       topicStartButton.textContent = topics.length ? labels.startTopic(questionTotal) : labels.startTopicDefault;
-    };
-
-    const setTopicPicker = (open, returnFocus = false) => {
-      topicPicker.hidden = !open;
-      topicModeButton.setAttribute('aria-expanded', String(open));
-      if (open) {
-        topicPicker.focus({ preventScroll: true });
-        topicPicker.scrollIntoView({ behavior: scrollBehavior, block: 'nearest' });
-      } else if (returnFocus) {
-        topicModeButton.focus();
-      }
     };
 
     updateTopicSelection();
@@ -391,15 +377,14 @@
     root.querySelectorAll('[data-start-quiz]').forEach((button) => {
       button.addEventListener('click', () => startQuiz(button.dataset.startQuiz));
     });
-    topicModeButton.addEventListener('click', () => setTopicPicker(true));
+
     topicOptions.addEventListener('change', updateTopicSelection);
     topicStartButton.addEventListener('click', () => {
       const topics = selectedTopics();
       if (!topics.length) return;
-      setTopicPicker(false);
       startQuiz('all', false, topics);
     });
-    topicCloseButton.addEventListener('click', () => setTopicPicker(false, true));
+
     form.addEventListener('submit', (event) => {
       event.preventDefault();
       submitAnswer();
@@ -416,7 +401,6 @@
     });
     root.querySelector('[data-retry-button]').addEventListener('click', () => startQuiz(activeQuestions.length, true));
     root.querySelector('[data-reset-button]').addEventListener('click', () => {
-      setTopicPicker(false);
       showScreen('start');
       screens.start.focus({ preventScroll: true });
       window.scrollTo({ top: root.offsetTop, behavior: scrollBehavior });
