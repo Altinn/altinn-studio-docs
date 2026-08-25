@@ -8,6 +8,51 @@
     return copy;
   };
 
+  const translations = {
+    nb: {
+      questionCount: (current, total) => `Spørsmål ${current} av ${total}`,
+      score: (value) => `${value} riktige`,
+      correctLabel: 'Riktig svar',
+      incorrectLabel: 'Ikke helt riktig',
+      correctTitle: 'Godt jobbet!',
+      correctAnswer: (answer) => `Riktig svar er: ${answer}`,
+      readMore: (label) => `Les mer: ${label} →`,
+      showResult: 'Se resultatet →',
+      nextQuestion: 'Neste spørsmål →',
+      resultFraction: (value, total) => `${value} av ${total} riktige`,
+      categoryResult: (category, value, total) => `${category}: ${value} av ${total} riktige`,
+      yourAnswer: (answer) => `Ditt svar: ${answer}`,
+      rightAnswer: (answer) => `Riktig svar: ${answer}`,
+      resultBands: {
+        low: ['Bygg videre på grunnlaget', 'Bruk temaoversikten og forklaringene under til å velge hva du bør lese først.'],
+        foundation: ['Du har grunnlaget', 'Du kjenner de viktigste prinsippene. En målrettet gjennomgang av temaene under vil gi deg et tryggere helhetsbilde.'],
+        good: ['God forståelse', 'Du har et solid grep om autorisasjon. Se gjennom temaene med lavest score for å tette de siste hullene.'],
+        excellent: ['Svært god forståelse', 'Du behersker både de overordnede prinsippene og mange av detaljene i Altinn Autorisasjon.'],
+      },
+    },
+    en: {
+      questionCount: (current, total) => `Question ${current} of ${total}`,
+      score: (value) => `${value} correct`,
+      correctLabel: 'Correct answer',
+      incorrectLabel: 'Not quite right',
+      correctTitle: 'Well done!',
+      correctAnswer: (answer) => `The correct answer is: ${answer}`,
+      readMore: (label) => `Read more: ${label} →`,
+      showResult: 'View result →',
+      nextQuestion: 'Next question →',
+      resultFraction: (value, total) => `${value} of ${total} correct`,
+      categoryResult: (category, value, total) => `${category}: ${value} of ${total} correct`,
+      yourAnswer: (answer) => `Your answer: ${answer}`,
+      rightAnswer: (answer) => `Correct answer: ${answer}`,
+      resultBands: {
+        low: ['Build on the basics', 'Use the subject overview and explanations below to decide what to read first.'],
+        foundation: ['You have the foundation', 'You know the most important principles. A focused review of the subjects below will give you a more confident overall understanding.'],
+        good: ['Good understanding', 'You have a solid grasp of authorization. Review the subjects with the lowest scores to close the remaining gaps.'],
+        excellent: ['Very good understanding', 'You have mastered both the high-level principles and many of the details of Altinn Authorization.'],
+      },
+    },
+  };
+
   const balancedSample = (questions, count) => {
     const groups = new Map();
     questions.forEach((question) => {
@@ -61,7 +106,7 @@
       return false;
     };
 
-    if (!allocateCategory(0, answerQuotas)) throw new Error('Kunne ikke lage et balansert spørsmålsutvalg.');
+    if (!allocateCategory(0, answerQuotas)) throw new Error('Unable to create a balanced question set.');
 
     const selected = [];
     categories.forEach((category) => {
@@ -79,16 +124,19 @@
     return element;
   };
 
-  const setDocumentationLink = (link, value) => {
-    link.href = '/nb/authorization/';
+  const setDocumentationLink = (link, value, language) => {
+    const authorizationRoot = `/${language}/authorization/`;
+    link.href = authorizationRoot;
     const sourceUrl = new URL(value, window.location.origin);
-    if (sourceUrl.origin !== window.location.origin || !sourceUrl.pathname.startsWith('/nb/authorization/')) return;
+    if (sourceUrl.origin !== window.location.origin || !sourceUrl.pathname.startsWith(authorizationRoot)) return;
     link.pathname = sourceUrl.pathname;
     link.hash = sourceUrl.hash;
   };
 
   const initializeQuiz = (root) => {
     if (root.dataset.quizReady === 'true') return;
+    const language = root.dataset.quizLanguage === 'en' ? 'en' : 'nb';
+    const labels = translations[language];
     const scrollBehavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
     root.dataset.quizReady = 'true';
 
@@ -145,8 +193,8 @@
     const renderQuestion = () => {
       const question = activeQuestions[currentIndex];
       const position = currentIndex + 1;
-      questionCount.textContent = `Spørsmål ${position} av ${activeQuestions.length}`;
-      liveScore.textContent = `${score} riktige`;
+      questionCount.textContent = labels.questionCount(position, activeQuestions.length);
+      liveScore.textContent = labels.score(score);
       questionCategory.textContent = question.category;
       questionLevel.textContent = question.level;
       questionText.textContent = question.question;
@@ -187,7 +235,7 @@
       const isCorrect = selected === question.correct;
       if (isCorrect) score += 1;
       answers.push({ question, selected, isCorrect });
-      liveScore.textContent = `${score} riktige`;
+      liveScore.textContent = labels.score(score);
 
       optionsContainer.querySelectorAll('.authorization-quiz__option').forEach((label, optionIndex) => {
         const input = label.querySelector('input');
@@ -197,17 +245,17 @@
       });
 
       feedback.classList.add(isCorrect ? 'authorization-quiz__feedback--correct' : 'authorization-quiz__feedback--wrong');
-      root.querySelector('[data-feedback-label]').textContent = isCorrect ? 'Riktig svar' : 'Ikke helt riktig';
+      root.querySelector('[data-feedback-label]').textContent = isCorrect ? labels.correctLabel : labels.incorrectLabel;
       root.querySelector('[data-feedback-title]').textContent = isCorrect
-        ? 'Godt jobbet!'
-        : `Riktig svar er: ${question.options[question.correct]}`;
+        ? labels.correctTitle
+        : labels.correctAnswer(question.options[question.correct]);
       root.querySelector('[data-feedback-text]').textContent = question.explanation;
       const sourceLink = root.querySelector('[data-feedback-source]');
-      sourceLink.textContent = `Les mer: ${question.source.label} →`;
-      setDocumentationLink(sourceLink, question.source.url);
+      sourceLink.textContent = labels.readMore(question.source.label);
+      setDocumentationLink(sourceLink, question.source.url, language);
       feedback.hidden = false;
       answerButton.hidden = true;
-      nextButton.textContent = currentIndex === activeQuestions.length - 1 ? 'Se resultatet →' : 'Neste spørsmål →';
+      nextButton.textContent = currentIndex === activeQuestions.length - 1 ? labels.showResult : labels.nextQuestion;
       nextButton.hidden = false;
       feedback.focus();
     };
@@ -216,20 +264,13 @@
       showScreen('results');
       const percent = Math.round((score / activeQuestions.length) * 100);
       root.querySelector('[data-result-percent]').textContent = `${percent} %`;
-      root.querySelector('[data-result-fraction]').textContent = `${score} av ${activeQuestions.length} riktige`;
+      root.querySelector('[data-result-fraction]').textContent = labels.resultFraction(score, activeQuestions.length);
 
-      let title = 'Bygg videre på grunnlaget';
-      let text = 'Bruk temaoversikten og forklaringene under til å velge hva du bør lese først.';
-      if (percent >= 90) {
-        title = 'Svært god forståelse';
-        text = 'Du behersker både de overordnede prinsippene og mange av detaljene i Altinn Autorisasjon.';
-      } else if (percent >= 75) {
-        title = 'God forståelse';
-        text = 'Du har et solid grep om autorisasjon. Se gjennom temaene med lavest score for å tette de siste hullene.';
-      } else if (percent >= 50) {
-        title = 'Du har grunnlaget';
-        text = 'Du kjenner de viktigste prinsippene. En målrettet gjennomgang av temaene under vil gi deg et tryggere helhetsbilde.';
-      }
+      let resultBand = labels.resultBands.low;
+      if (percent >= 90) resultBand = labels.resultBands.excellent;
+      else if (percent >= 75) resultBand = labels.resultBands.good;
+      else if (percent >= 50) resultBand = labels.resultBands.foundation;
+      const [title, text] = resultBand;
       root.querySelector('[data-result-title]').textContent = title;
       root.querySelector('[data-result-text]').textContent = text;
 
@@ -242,7 +283,7 @@
         if (answer.isCorrect) current.correct += 1;
         categories.set(answer.question.category, current);
       });
-      [...categories.entries()].sort(([a], [b]) => a.localeCompare(b, 'nb')).forEach(([category, result]) => {
+      [...categories.entries()].sort(([a], [b]) => a.localeCompare(b, language)).forEach(([category, result]) => {
         const row = createElement('div', 'authorization-quiz__category-row');
         const label = createElement('span', '', category);
         const track = createElement('span', 'authorization-quiz__category-track');
@@ -250,7 +291,7 @@
         const categoryPercent = Math.round((result.correct / result.total) * 100);
         fill.style.width = `${categoryPercent}%`;
         track.append(fill);
-        track.setAttribute('aria-label', `${category}: ${result.correct} av ${result.total} riktige`);
+        track.setAttribute('aria-label', labels.categoryResult(category, result.correct, result.total));
         track.setAttribute('role', 'progressbar');
         track.setAttribute('aria-valuemin', '0');
         track.setAttribute('aria-valuemax', '100');
@@ -269,12 +310,12 @@
         const item = createElement('article', 'authorization-quiz__review-item');
         item.append(
           createElement('h4', '', answer.question.question),
-          createElement('p', '', `Ditt svar: ${answer.question.options[answer.selected]}`),
-          createElement('p', '', `Riktig svar: ${answer.question.options[answer.question.correct]}`),
+          createElement('p', '', labels.yourAnswer(answer.question.options[answer.selected])),
+          createElement('p', '', labels.rightAnswer(answer.question.options[answer.question.correct])),
           createElement('p', '', answer.question.explanation),
         );
         const link = createElement('a', '', `${answer.question.source.label} →`);
-        setDocumentationLink(link, answer.question.source.url);
+        setDocumentationLink(link, answer.question.source.url, language);
         item.append(link);
         review.append(item);
       });
