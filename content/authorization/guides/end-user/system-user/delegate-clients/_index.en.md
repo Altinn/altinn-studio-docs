@@ -1,21 +1,19 @@
 ---
-title: Client Delegation
-description:
-linktitle: Client Delegation
+title: Client Administration
+description: This guide shows how to add clients to a system access for clients.
+linktitle: Client Administration
 weight: 2
 ---
 
-## Assigning Clients to a System User
+## Add clients to a system access
 
-If you are creating a system user for client relationships, clients can be assigned either in the Altinn portal or via API. This step does not apply if you are creating a system user for your own system.
+If you use a system access for clients, you can add clients in the Altinn portal. This does not apply to system access for your own organization. To perform services on behalf of another organization through the system access, the client must grant your organization the necessary powers of attorney.
 
-Part of this process can be done using our API. See the [Client Delegation API documentation](/en/api/authentication/systemuserapi/clientdelegation/).
+### Automatic client relationships
 
-## Automatic Client Relationships
+Some client relationships are created automatically based on roles registered in the Central Coordinating Register for Legal Entities (Enhetsregisteret). These relationships may give your organization powers of attorney for certain access packages when you use a system access for clients.
 
-Some client relationships are created automatically based on roles registered in the Central Coordinating Register for Legal Entities (Enhetsregisteret). These relationships give you access to use certain access packages when creating a system user for client relationships.
-
-The table below shows which access packages are available based on your role in the Central Coordinating Register:
+The table below shows which access packages are available based on your role in the Central Coordinating Register for Legal Entities:
 
 | ER Role                                 | Available Access Packages                                                                                                                                                                 | Organization type |
 | --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
@@ -23,17 +21,22 @@ The table below shows which access packages are available based on your role in 
 | **Regnskapsfører** (Accountant)         | `urn:altinn:accesspackage:regnskapsforer-med-signeringsrettighet`<br>`urn:altinn:accesspackage:regnskapsforer-uten-signeringsrettighet`<br>`urn:altinn:accesspackage:regnskapsforer-lonn` | All               |
 | **Forretningsfører** (Business Manager) | `urn:altinn:accesspackage:forretningsforer-eiendom`                                                                                                                                       | ESEK, BRL         |
 
-When creating a system user for client relationships, you must specify which access packages the system user should have access to. These packages must align with the roles you have in the Central Coordinating Register.
+When a system access for clients is created, the access packages it needs are specified. Your organization's powers of attorney for the client must cover these packages.
 
-> **Note:** Access packages with client relationships only work for "AND" cases. This means that if a system user for client relationships has multiple access packages, the client must have **either directly delegated or received delegation through the ER role** for **all** packages for the system user to function. For example: If the system user for client relationships has both the agriculture package and the accountant package, the client must have explicitly delegated the agriculture package (directly delegated) in addition to having received delegation for the accountant package through the ER role (which comes automatically).
+> **Note:** Access packages for client relationships are evaluated as an "AND" condition. If the system access includes several access packages, your organization must have received a power of attorney for **all** of them from the client, either directly or through a role in the Central Coordinating Register for Legal Entities. For example, if the system access includes both the agriculture package and the accountant package, the client must grant the agriculture package directly, while the accountant package may follow automatically from the registered role.
 
-## In the Altinn Portal
+### Prerequisites
 
-1. Go to the overview of system accesses
-2. Select system access
+- You must be able to administer clients in Altinn, for example as **Client Administrator** or **General Manager**.
+- An [approved system access for clients](/en/authorization/guides/end-user/system-user/accept-request/#approve-system-access-for-clients) must exist.
+
+### Process in the Altinn portal
+
+1. Open the [system access overview](https://am.ui.altinn.no/accessmanagement/ui/systemuser/overview). In this example, a general manager is logged in on behalf of DISKRET NÆR TIGER AS.
+2. Select an existing system access for clients.
    ![client delegation step 1](delegate_clients_1.png)
-3. Click "Add clients"
+3. Click **Add clients**.
    ![client delegation step 2](delegate_clients_2.png)
-4. Select clients (one, several, or all)
-5. Click confirm and close
+4. Add clients individually by clicking **Add to system access**, or click **Add all clients**. If a client is not shown, check that the client relationship exists and that your organization has a power of attorney for every access package in the system access, either directly or through a role in the Central Coordinating Register for Legal Entities. If the client relationship is missing, see the [guide to setting up a client relationship](/en/authorization/guides/end-user/system-user/setup-client-relationship/).
+5. Click **Confirm and close**.
    ![client delegation step 3](delegate_clients_3.png)
