@@ -12,11 +12,11 @@ Dette gjelder tilfeller der det ikke finnes et etablert klientforhold i Brønnø
 
 ### Forutsetninger
 
-- Du må ha tilgang til Altinn som **Klientadministrator** eller **Daglig leder**.
+- Du må kunne administrere fullmakter for virksomheten som skal gi fullmakten. Det kan du for eksempel gjøre som daglig leder eller med administratorfullmakten **Tilgangsstyring** eller **Hovedadministrator**.
 
 ### Prosess i Altinn-portalen
 
-1. Logg på som daglig leder i virksomheten som skal legges til som kunde i systemtilgang for kunder. I dette eksempelet bruker vi Klientkunde AS som klient.
+1. Logg inn på vegne av virksomheten som skal legges til som klient i systemtilgangen. I dette eksempelet er en daglig leder logget inn på vegne av Klientkunde AS.
 2. Gå til **Brukere** i menyen, hvis du ikke allerede er på denne siden.
    ![Opprett klientforhold steg 1](virksomhetsdelegering1.png)
 3. Trykk på **+ Ny bruker** for å etablere et klientforhold.

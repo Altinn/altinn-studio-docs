@@ -1,7 +1,7 @@
 ---
 title: Systemtilgang veiledning for sluttbruker
 linktitle: Systemtilgang
-description: Her under "guider" vil du finne enkle og trinnvise veiledninger som hjelper deg som sluttbruker med å gjennomføre oppgavene du må gjøre for å sette opp å bruke systemtilgang i Altinn.
+description: Her finner du enkle og trinnvise veiledninger som hjelper deg med å sette opp og bruke systemtilgang i Altinn.
 toc: false
 ---
 
@@ -29,12 +29,8 @@ Hver av disse tjenestene krever en fullmakt som kan følge av en bestemt rolle e
 Hvis du ikke har alle fullmaktene som kreves for å gi systemet denne myndigheten, vil Altinn stoppe prosessen. Det holder ikke å ha noen av fullmaktene – du må ha alle som systemet ber om.
 
 **Eksempel:**
-La oss si at systemet ber om tilgang til:
-- **Rolle:** "Regnskapsfører"
-- **Rolle:** "Lønnsinnsender"
+Et fagsystem ber om fullmakt til både en tilgangspakke og en enkelttjeneste. Hvis du bare kan gi fullmakt til tilgangspakken, men ikke enkelttjenesten, kan du ikke godkjenne systemtilgangen. Du må enten få den manglende fullmakten eller sende forespørselen videre til en person som kan gi alle fullmaktene.
 
-Hvis du bare har "Regnskapsfører"-rollen, men ikke "Lønnsinnsender", vil du ikke kunne godkjenne systemtilgangen. Du må da få tildelt den manglende rollen av noen som har fullmakt til å administrere dette i virksomheten – for eksempel daglig leder.
-
-Guidene åpnes i nye faner, slik at du enkelt kan følge dem steg for steg uten å miste oversikten. Velg den guiden som passer for deg og kom i gang med systemtilgang.
+Velg guiden som passer for deg, og kom i gang med systemtilgang.
 
 {{<children />}}
