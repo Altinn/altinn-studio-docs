@@ -147,7 +147,7 @@
 .authorization-quiz__modes {
   display: grid;
   gap: 18px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   margin-top: 38px;
 }
 
@@ -162,6 +162,8 @@
   min-height: 164px;
   padding: 22px;
   text-align: left;
+  min-width: 0;
+  white-space: normal;
   transition: border-color .16s, box-shadow .16s, transform .16s;
 }
 
@@ -188,10 +190,8 @@
 .authorization-quiz__mode > span:last-child {
   color: var(--quiz-muted);
   line-height: 1.4;
-}
-
-.authorization-quiz__mode--topic {
-  background: linear-gradient(145deg, #f5f2ff, #fff);
+  overflow-wrap: anywhere;
+  white-space: normal;
 }
 
 .authorization-quiz__topic-picker {
