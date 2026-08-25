@@ -1,0 +1,502 @@
+[
+  {
+    "id": 1,
+    "category": "Grunnbegreper",
+    "level": "Overordnet",
+    "question": "Hva beskriver autorisasjon i Altinn?",
+    "options": ["Reglene og kontrollene som avgjør hvem som kan utføre en handling på en ressurs", "Bare innloggingen av en person gjennom ID-porten", "Registreringen av en virksomhet i Enhetsregisteret", "Krypteringen av data mellom to offentlige virksomheter"],
+    "correct": 0,
+    "explanation": "Autorisasjon avgjør om en person, virksomhet eller et system får utføre en bestemt handling på en ressurs. Autentisering fastslår identiteten, mens autorisasjon avgjør hva identiteten får gjøre.",
+    "source": {"label": "Ordliste for Altinn Autorisasjon", "url": "/nb/authorization/getting-started/terms/"}
+  },
+  {
+    "id": 2,
+    "category": "Grunnbegreper",
+    "level": "Overordnet",
+    "question": "Hva er en fullmakt i Altinn Autorisasjon?",
+    "options": ["En teknisk forbindelse mellom to API-er", "En enkelt tillatt handling på en ressurs", "Myndigheten til å handle på vegne av en annen person eller virksomhet", "En bekreftelse på at en bruker er logget inn"],
+    "correct": 2,
+    "explanation": "En fullmakt beskriver myndigheten en person, virksomhet eller et system har til å handle på vegne av andre. Fullmakten kan omfatte én eller flere konkrete rettigheter.",
+    "source": {"label": "Ordliste: Fullmakt", "url": "/nb/authorization/getting-started/terms/#fullmakt"}
+  },
+  {
+    "id": 3,
+    "category": "Grunnbegreper",
+    "level": "Overordnet",
+    "question": "Hva menes med tilgang når begrepet brukes presist?",
+    "options": ["Den juridiske myndigheten til å handle på vegne av andre", "En samling av alle reglene i en policy", "Et historisk navn på en virksomhet i Altinn 2", "Den tekniske muligheten til å bruke en funksjon, tjeneste eller ressurs"],
+    "correct": 3,
+    "explanation": "Tilgang er den tekniske gjennomføringen av en fullmakt eller rettighet. Når teksten handler om myndighet til å handle på vegne av andre, skal begrepet fullmakt brukes.",
+    "source": {"label": "Ordliste: Tilgang", "url": "/nb/authorization/getting-started/terms/#tilgang"}
+  },
+  {
+    "id": 4,
+    "category": "Grunnbegreper",
+    "level": "Detaljert",
+    "question": "Hvordan beskrives en rettighet vanligvis i autorisasjonsmodellen?",
+    "options": ["Som navnet på personen som logger inn", "Som virksomhetens organisasjonsform", "Som levetiden til et token", "Som en kombinasjon av en handling og en ressurs"],
+    "correct": 3,
+    "explanation": "En rettighet er en bestemt handling noen har lov til å utføre på en ressurs, for eksempel å lese en melding eller signere et skjema.",
+    "source": {"label": "Ordliste: Rettighet", "url": "/nb/authorization/getting-started/terms/#rettighet"}
+  },
+  {
+    "id": 5,
+    "category": "Grunnbegreper",
+    "level": "Detaljert",
+    "question": "Når er part det riktige begrepet å bruke?",
+    "options": ["Når en teknisk modell omtaler personen eller virksomheten som en ressurs, dialog eller forespørsel gjelder", "I all brukerrettet tekst om organisasjoner", "Bare når en bruker har en nøkkelrolle", "Som synonym for tilgangspakke"],
+    "correct": 0,
+    "explanation": "Part er et teknisk domenebegrep. I brukerrettet tekst bør man vanligvis skrive personen, virksomheten eller den du handler på vegne av.",
+    "source": {"label": "Ordliste: Part", "url": "/nb/authorization/getting-started/terms/#part"}
+  },
+  {
+    "id": 6,
+    "category": "Grunnbegreper",
+    "level": "Overordnet",
+    "question": "Hvilken formulering anbefales i brukerrettet tekst når noen utfører en oppgave for andre?",
+    "options": ["Opptre som avgiver", "Gjennomføre aktørrepresentasjon", "Handle på vegne av personen eller virksomheten", "Aktivere en partskontekst"],
+    "correct": 2,
+    "explanation": "Bruk gjøre eller handle på vegne av i brukerrettet tekst. Representasjon kan beholdes som teknisk domenebegrep når det forklares.",
+    "source": {"label": "Ordliste: Handle på vegne av", "url": "/nb/authorization/getting-started/terms/#gjøre-eller-handle-på-vegne-av"}
+  },
+  {
+    "id": 7,
+    "category": "Grunnbegreper",
+    "level": "Detaljert",
+    "question": "Hva skal den tekniske funksjonen instansdelegering normalt kalles i brukergrensesnitt og brukerrettet dokumentasjon?",
+    "options": ["Overfør instansrettighet", "Del og gi fullmakt", "Kopier aktørtilgang", "Opprett delegeringspolicy"],
+    "correct": 1,
+    "explanation": "Del og gi fullmakt er den brukerrettede formuleringen. Instansdelegering beholdes bare når den tekniske funksjonen må beskrives.",
+    "source": {"label": "Ordliste: Instansdelegering", "url": "/nb/authorization/getting-started/terms/#instansdelegering"}
+  },
+  {
+    "id": 8,
+    "category": "Grunnbegreper",
+    "level": "Overordnet",
+    "question": "Hvilket standardbegrep brukes om en organisasjon i brukerrettet tekst?",
+    "options": ["Aktør", "Hovedenhet", "Selskap", "Virksomhet"],
+    "correct": 3,
+    "explanation": "Virksomhet er standardbegrepet når organisasjonsformen eller Enhetsregisterets struktur ikke er relevant for forklaringen.",
+    "source": {"label": "Ordliste: Virksomhet", "url": "/nb/authorization/getting-started/terms/#virksomhet"}
+  },
+  {
+    "id": 9,
+    "category": "Ressurser og tilgangskontroll",
+    "level": "Overordnet",
+    "question": "Hva er Ressursregisterets viktigste rolle i Altinn Autorisasjon?",
+    "options": ["Å beskrive digitale tjenester og ressurser og knytte dem til regler for tilgang", "Å autentisere alle sluttbrukere uten ID-porten", "Å lagre regnskapsdata fra private virksomheter", "Å erstatte Folkeregisteret og Enhetsregisteret"],
+    "correct": 0,
+    "explanation": "Tjenesteeieren registrerer og beskriver ressursen i Ressursregisteret og knytter den til policyer som sier hvem som kan utføre hvilke handlinger.",
+    "source": {"label": "Om Altinn Autorisasjon", "url": "/nb/authorization/about/"}
+  },
+  {
+    "id": 10,
+    "category": "Ressurser og tilgangskontroll",
+    "level": "Overordnet",
+    "question": "Hvilket av disse kan registreres som en ressurs som det skal styres tilgang til?",
+    "options": ["Bare skjemaer bygget i Altinn Studio", "Bare API-er som kjører på Altinn-plattformen", "En digital tjeneste, et API, en meldingstjeneste eller et datasett", "Bare organisasjonsnumre fra Enhetsregisteret"],
+    "correct": 2,
+    "explanation": "En ressurs er det tjenesteeieren ønsker å styre tilgangen til. Ressursen kan blant annet være en digital tjeneste, et API, en meldingstjeneste eller et datasett.",
+    "source": {"label": "Detaljert konsept: Ressurser", "url": "/nb/authorization/about/detailed/#ressurser-og-ressursregisteret"}
+  },
+  {
+    "id": 11,
+    "category": "Ressurser og tilgangskontroll",
+    "level": "Overordnet",
+    "question": "Hva er en policy i Altinn Autorisasjon?",
+    "options": ["Et token som beviser hvem brukeren er", "En liste over alle registrerte virksomheter", "En avtale mellom systemleverandør og sluttbruker", "En samling av én eller flere regler"],
+    "correct": 3,
+    "explanation": "En policy samler reglene som beskriver hvem som får gjøre hva med en ressurs. Altinn bruker XACML-formatet for å beskrive policyer.",
+    "source": {"label": "Ordliste: Policy", "url": "/nb/authorization/getting-started/terms/#policy"}
+  },
+  {
+    "id": 12,
+    "category": "Ressurser og tilgangskontroll",
+    "level": "Detaljert",
+    "question": "Hvilke tre grunnkomponenter brukes i Altinns autorisasjonsregler?",
+    "options": ["Token, klient og redirect-URL", "Person, virksomhet og system", "Ressurs, register og samtykke", "Hvem, hva og hvor"],
+    "correct": 3,
+    "explanation": "Reglene beskriver hvem som får tilgang, hva de får gjøre, og hvor i en prosess eller på hvilken del av en ressurs handlingen gjelder.",
+    "source": {"label": "Autorisasjonsregler", "url": "/nb/authorization/what-do-you-get/rules/"}
+  },
+  {
+    "id": 13,
+    "category": "Ressurser og tilgangskontroll",
+    "level": "Scenario",
+    "question": "En systemleverandør bygger integrasjonen for en offentlig tjeneste. Hvem har fortsatt ansvaret for å bestemme og kvalitetssikre autorisasjonsreglene?",
+    "options": ["Tjenesteeieren", "Systemleverandøren alene", "Sluttbrukeren som logger inn først", "Maskinporten"],
+    "correct": 0,
+    "explanation": "Systemleverandøren kan gjennomføre integrasjonen, men tjenesteeieren eier ressursen og har ansvaret for reglene og den endelige tilgangskontrollen.",
+    "source": {"label": "Kom i gang som tjenesteeier", "url": "/nb/authorization/getting-started/service-owner/"}
+  },
+  {
+    "id": 14,
+    "category": "Ressurser og tilgangskontroll",
+    "level": "Scenario",
+    "question": "En tjeneste kjører utenfor Altinn-plattformen. Hvordan gjennomfører den tilgangskontroll med Altinn Autorisasjon?",
+    "options": ["Den trenger ingen kontroll når ressursen er registrert", "Den leser bare policyfilen lokalt", "Den ber brukeren bekrefte tilgangen manuelt for hvert kall", "Den kaller Altinn Autorisasjons API-er og håndhever svaret i egen tjeneste"],
+    "correct": 3,
+    "explanation": "Eksterne tjenester må eksplisitt sende ressurs, handling og kontekst til Altinn Autorisasjon og tillate eller avvise handlingen basert på svaret.",
+    "source": {"label": "Detaljert konsept: Tilgangskontroll", "url": "/nb/authorization/about/detailed/#tilgangskontroll"}
+  },
+  {
+    "id": 15,
+    "category": "Ressurser og tilgangskontroll",
+    "level": "Detaljert",
+    "question": "Hva gjelder for tilgangskontroll i Altinn-apper som kjører på Altinn-plattformen?",
+    "options": ["Appen må alltid implementere en egen PDP", "Tilgangskontroll er bare tilgjengelig for Maskinporten", "Plattformen håndhever reglene automatisk når policyen er definert", "Alle innloggede brukere får tilgang til appen"],
+    "correct": 2,
+    "explanation": "Altinn-plattformens produkter har innebygd tilgangskontroll. Tjenesteeieren definerer reglene, og plattformen håndhever dem ved bruk av tjenesten.",
+    "source": {"label": "Detaljert konsept: Innebygd tilgangskontroll", "url": "/nb/authorization/about/detailed/#altinn-plattformens-produkter-har-innebygget-tilgangskontroll"}
+  },
+  {
+    "id": 16,
+    "category": "Ressurser og tilgangskontroll",
+    "level": "Detaljert",
+    "question": "Hvordan skal tjenestens Policy Enforcement Point behandle et svar som ikke uttrykkelig er Permit?",
+    "options": ["Gi midlertidig tilgang og kontrollere igjen senere", "Avvise Deny og NotApplicable, og behandle Indeterminate eller manglende svar som teknisk feil", "Gi tilgang dersom tokenet ikke er utløpt", "La systemleverandøren velge standardresultat"],
+    "correct": 1,
+    "explanation": "Bare et uttrykkelig Permit skal gi tilgang. Tekniske feil, manglende svar eller andre beslutninger må aldri åpne for uautorisert bruk.",
+    "source": {"label": "Kom i gang som tjenesteeier", "url": "/nb/authorization/getting-started/service-owner/#beskytte-en-ekstern-tjeneste-eller-et-api"}
+  },
+  {
+    "id": 17,
+    "category": "Autentisering og aktørvalg",
+    "level": "Scenario",
+    "question": "Hvilken identitetsløsning bør brukes når tjenesten må vite hvilken person som utfører handlingen?",
+    "options": ["ID-porten", "Systembruker", "Kun et Maskinporten-scope", "Ressursregisteret"],
+    "correct": 0,
+    "explanation": "ID-porten brukes når operasjonen må knyttes til en innlogget person. Systembruker brukes når tjenesten må vite hvilket system som står bak.",
+    "source": {"label": "Systembruker: Valg av identitet", "url": "/nb/authorization/what-do-you-get/systemuser/"}
+  },
+  {
+    "id": 18,
+    "category": "Autentisering og aktørvalg",
+    "level": "Scenario",
+    "question": "Et API-kall skjer uten en innlogget person, og tjenesten må vite hvilket fagsystem som står bak. Hva er riktig valg?",
+    "options": ["ID-porten alene", "Systembruker sammen med Maskinporten", "Kun Authorized Parties", "Et samtykke uten token"],
+    "correct": 1,
+    "explanation": "Systembruker identifiserer den ikke-personlige brukeren og fullmaktene, mens Maskinporten brukes i autentiserings- og tokenflyten.",
+    "source": {"label": "Systembruker", "url": "/nb/authorization/what-do-you-get/systemuser/"}
+  },
+  {
+    "id": 19,
+    "category": "Autentisering og aktørvalg",
+    "level": "Overordnet",
+    "question": "Når kan Maskinporten alene være tilstrekkelig?",
+    "options": ["Når tjenesten må vite nøyaktig hvilken person som signerte", "Når en regnskapsfører skal velge mellom flere klienter", "Når det bare er nødvendig å vite hvilken virksomhet og eventuelt hvilket scope som brukes", "Når en verge skal velge vergehaver"],
+    "correct": 2,
+    "explanation": "Maskinporten passer når systemets virksomhetsidentitet og scopes gir tilstrekkelig kontekst. Systembruker legger til finkornede fullmakter når det er nødvendig.",
+    "source": {"label": "Systembruker: ID-porten, systembruker og Maskinporten", "url": "/nb/authorization/what-do-you-get/systemuser/"}
+  },
+  {
+    "id": 20,
+    "category": "Autentisering og aktørvalg",
+    "level": "Detaljert",
+    "question": "Hvilket token fra ID-porten skal veksles inn i et Altinn-token før kall mot aktuelle Altinn-API-er?",
+    "options": ["ID-tokenet", "Refresh-tokenet direkte", "Et samtykketoken", "Access-tokenet"],
+    "correct": 3,
+    "explanation": "Access-tokenet fra ID-porten skal veksles inn. ID-tokenet skal ikke brukes i dette endepunktet, mens refresh-tokenet brukes til å fornye access-tokenet.",
+    "source": {"label": "Autentisere med ID-porten", "url": "/nb/authorization/getting-started/authentication/id-porten/#veksling-av-access-token-til-altinn-token"}
+  },
+  {
+    "id": 21,
+    "category": "Autentisering og aktørvalg",
+    "level": "Scenario",
+    "question": "Hva er hovedformålet med Authorized Parties i et aktørvalg?",
+    "options": ["Å returnere aktuelle personer og virksomheter brukeren kan velge mellom", "Å opprette nye fullmakter automatisk", "Å erstatte den endelige tilgangskontrollen", "Å utstede Maskinporten-token"],
+    "correct": 0,
+    "explanation": "Authorized Parties brukes til å bygge et forståelig valg av person eller virksomhet. Etter valget må tjenesten fortsatt kontrollere valgt part, ressurs og handling.",
+    "source": {"label": "Kom i gang som systemleverandør: Aktørvalg", "url": "/nb/authorization/getting-started/system-vendor/#finne-hvem-en-innlogget-bruker-kan-handle-på-vegne-av"}
+  },
+  {
+    "id": 22,
+    "category": "Autentisering og aktørvalg",
+    "level": "Detaljert",
+    "question": "Hvordan virker et ID-porten-scope sammen med brukerens eksisterende autorisasjon?",
+    "options": ["Scopet gir tilgang til alt selv om brukeren mangler fullmakt", "Scopet brukes bare til å velge språk", "Scopet erstatter ressursens policy", "Scopet avgrenser hva systemet kan gjøre, men handlingen må også være noe brukeren er autorisert for"],
+    "correct": 3,
+    "explanation": "Systemet kan bare utføre handlinger innenfor scopet og innenfor det brukeren allerede er autorisert til å gjøre. Scope og autorisasjon må begge være oppfylt.",
+    "source": {"label": "Autentisere med ID-porten", "url": "/nb/authorization/getting-started/authentication/id-porten/"}
+  },
+  {
+    "id": 23,
+    "category": "Fullmakter og tilgangsstyring",
+    "level": "Overordnet",
+    "question": "Hva kan en person eller virksomhet gjøre i Tilgangsstyring?",
+    "options": ["Bare se egen innloggingshistorikk", "Bare registrere nye offentlige tjenester", "Se, gi og trekke tilbake fullmakter", "Endre roller direkte i Enhetsregisteret"],
+    "correct": 2,
+    "explanation": "Tilgangsstyring samler funksjoner for å se hvem som har fullmakt, gi nye fullmakter og trekke dem tilbake, blant annet for tilgangspakker og enkelttjenester.",
+    "source": {"label": "Tilgangsstyring", "url": "/nb/authorization/what-do-you-get/accessmanagement/"}
+  },
+  {
+    "id": 24,
+    "category": "Fullmakter og tilgangsstyring",
+    "level": "Overordnet",
+    "question": "Hva er en tilgangspakke?",
+    "options": ["En definert samling rettigheter til tjenester innenfor et område", "En liste over virksomheter som får bruke et API", "Et token som inneholder brukerens fødselsnummer", "En policy som alltid gir alle handlinger"],
+    "correct": 0,
+    "explanation": "Tilgangspakken samler rettigheter til relaterte tjenester. Når noen får fullmakt til pakken, beskriver pakken hvilke tjenester og rettigheter fullmakten omfatter.",
+    "source": {"label": "Ordliste: Tilgangspakke", "url": "/nb/authorization/getting-started/terms/#tilgangspakke"}
+  },
+  {
+    "id": 25,
+    "category": "Fullmakter og tilgangsstyring",
+    "level": "Detaljert",
+    "question": "Kan en bruker få fullmakt direkte til et område i tilgangspakkestrukturen?",
+    "options": ["Ja, området gir automatisk alle pakkene under", "Ja, men bare som hovedadministrator", "Ja, dersom området inneholder færre enn fem pakker", "Nei, områder brukes bare til å kategorisere tilgangspakker"],
+    "correct": 3,
+    "explanation": "Et område er en tematisk kategorisering. Fullmakt gis til en tilgangspakke eller en enkelttjeneste, ikke til selve området.",
+    "source": {"label": "Ordliste: Område", "url": "/nb/authorization/getting-started/terms/#område"}
+  },
+  {
+    "id": 26,
+    "category": "Fullmakter og tilgangsstyring",
+    "level": "Scenario",
+    "question": "Når passer det best å gi fullmakt til en enkelttjeneste fremfor en tilgangspakke?",
+    "options": ["Når personen trenger alle tjenester innenfor et arbeidsområde", "Når fullmakten skal være presis og bare gjelde én bestemt tjeneste", "Når virksomheten vil unngå å definere en ressurs", "Når mottakeren ikke skal kunne logge inn"],
+    "correct": 1,
+    "explanation": "Fullmakt til en enkelttjeneste gir en presis og avgrenset myndighet. En tilgangspakke er enklere når behovet omfatter et helt arbeidsområde, men gir bredere tilgang.",
+    "source": {"label": "Detaljert konsept: Gi fullmakt", "url": "/nb/authorization/about/detailed/#fullmakt-til-en-enkelttjeneste-eller-en-tilgangspakke"}
+  },
+  {
+    "id": 27,
+    "category": "Fullmakter og tilgangsstyring",
+    "level": "Detaljert",
+    "question": "Hva kjennetegner administratorfullmaktene i Altinn?",
+    "options": ["De gir automatisk tilgang til alle offentlige tjenester", "De gir bare rett til å endre virksomhetens adresse", "De gir fullmakt til å administrere fullmakter, men ikke i seg selv tilgang til tjenester", "De kan bare brukes av offentlige virksomheter"],
+    "correct": 2,
+    "explanation": "Administratorfullmakter som Tilgangsstyring og Hovedadministrator gjelder administrasjon av fullmakter. De skal ikke forveksles med fullmakter til å bruke selve tjenestene.",
+    "source": {"label": "Ordliste: Administratortilgang", "url": "/nb/authorization/getting-started/terms/#administratortilgang"}
+  },
+  {
+    "id": 28,
+    "category": "Fullmakter og tilgangsstyring",
+    "level": "Scenario",
+    "question": "Hva må en bruker ha for å dele en bestemt melding fra Altinn-innboksen og gi mottakeren fullmakt?",
+    "options": ["Bare lesetilgang til hvilken som helst melding", "Bare rollen daglig leder", "Et gyldig Maskinporten-token", "Tilgang til elementet og fullmakt til tilgangspakken for å administrere enkeltmeldinger, skjemaer og dialoger"],
+    "correct": 3,
+    "explanation": "Brukeren må både ha tilgang til det konkrete elementet og ha administratorfullmakten som gir myndighet til å dele og gi fullmakt videre.",
+    "source": {"label": "Del og gi fullmakt", "url": "/nb/authorization/guides/end-user/instancedelegation/"}
+  },
+  {
+    "id": 29,
+    "category": "Fullmakter og tilgangsstyring",
+    "level": "Detaljert",
+    "question": "Hva må oppgis når en ny person skal få fullmakt til en enkeltmelding eller et skjema?",
+    "options": ["Bare personens e-postadresse", "Fødselsnummer og etternavn, eller Altinn-brukernavn og etternavn, samt tillatte handlinger", "Organisasjonsnummer og Maskinporten-scope", "Bare navnet på tilgangspakken"],
+    "correct": 1,
+    "explanation": "Mottakeren identifiseres med fødselsnummer og etternavn eller Altinn-brukernavn og etternavn. Den som gir fullmakten velger også handlingene, for eksempel lese eller skrive.",
+    "source": {"label": "Del og gi fullmakt", "url": "/nb/authorization/guides/end-user/instancedelegation/"}
+  },
+  {
+    "id": 30,
+    "category": "Systemtilgang og systembruker",
+    "level": "Overordnet",
+    "question": "Hva gjør en systemtilgang mulig for en sluttbruker?",
+    "options": ["At et fagsystem kan utføre avgrensede oppgaver i Altinn på vegne av en virksomhet uten manuell innlogging hver gang", "At alle ansatte automatisk blir hovedadministratorer", "At et system kan bruke alle offentlige API-er uten scopes", "At virksomheten kan endre roller i Enhetsregisteret"],
+    "correct": 0,
+    "explanation": "Systemtilgang bruker en teknisk systembruker med nødvendige fullmakter slik at fagsystemet kan hente eller sende data maskin-til-maskin.",
+    "source": {"label": "Systemtilgang for sluttbrukere", "url": "/nb/authorization/guides/end-user/system-user/"}
+  },
+  {
+    "id": 31,
+    "category": "Systemtilgang og systembruker",
+    "level": "Detaljert",
+    "question": "Hvordan skiller begrepene systemtilgang og systembruker seg?",
+    "options": ["De beskriver to helt uavhengige produkter", "Systemtilgang brukes i brukergrensesnittet, mens systembruker brukes om det tekniske konseptet og samspillet mellom aktørene", "Systembruker er bare et gammelt navn som ikke lenger brukes", "Systemtilgang gjelder personer, mens systembruker gjelder samtykke"],
+    "correct": 1,
+    "explanation": "Systemtilgang er det brukerrettede produktbegrepet i Altinn. Systembruker beskriver konseptet der tjenesteeier, systemleverandør og sluttbruker bidrar til at fullmakten fungerer.",
+    "source": {"label": "Ordliste: Systemtilgang og systembruker", "url": "/nb/authorization/getting-started/terms/#systemtilgangsystembruker"}
+  },
+  {
+    "id": 32,
+    "category": "Systemtilgang og systembruker",
+    "level": "Overordnet",
+    "question": "Hvilken påstand om systembruker, ID-porten og Maskinporten er riktig?",
+    "options": ["Systembruker erstatter både ID-porten og Maskinporten", "ID-porten kan ikke brukes på tjenester som støtter systembruker", "Systembruker supplerer og utvider funksjonaliteten fra ID-porten og Maskinporten", "Maskinporten brukes bare ved manuell innlogging"],
+    "correct": 2,
+    "explanation": "Systembruker er ikke en erstatning for de etablerte identitetsløsningene. Valget avhenger av om tjenesten må vite hvilken person, hvilket system eller bare hvilken virksomhet som kaller.",
+    "source": {"label": "Systembruker", "url": "/nb/authorization/what-do-you-get/systemuser/"}
+  },
+  {
+    "id": 33,
+    "category": "Systemtilgang og systembruker",
+    "level": "Overordnet",
+    "question": "Hvordan kan en systemtilgang opprettes?",
+    "options": ["Bare automatisk når en virksomhet registreres", "Bare av tjenesteeieren i Ressursregisteret", "Enten brukerstyrt i Altinn eller gjennom en forespørsel fra systemleverandøren", "Bare gjennom Maskinportens administrasjonsgrensesnitt"],
+    "correct": 2,
+    "explanation": "Brukeren kan opprette systemtilgangen direkte i Altinn når systemet støtter det, eller godkjenne en leverandørstyrt forespørsel.",
+    "source": {"label": "Systemtilgang for sluttbrukere", "url": "/nb/authorization/guides/end-user/system-user/#hvordan-får-du-systemtilgang"}
+  },
+  {
+    "id": 34,
+    "category": "Systemtilgang og systembruker",
+    "level": "Detaljert",
+    "question": "Hvilken type systemtilgang kan ikke opprettes manuelt i Altinn-portalen?",
+    "options": ["Systemtilgang for klienter", "Systemtilgang for egen virksomhet", "En systemtilgang som bruker en tilgangspakke", "En systemtilgang til en ekstern tjeneste"],
+    "correct": 0,
+    "explanation": "Den manuelle flyten i Altinn-portalen gjelder systemtilgang for egen virksomhet. Systemtilgang for klienter må etableres gjennom leverandørflyten.",
+    "source": {"label": "Opprett systemtilgang", "url": "/nb/authorization/guides/end-user/system-user/create-systemuser/"}
+  },
+  {
+    "id": 35,
+    "category": "Systemtilgang og systembruker",
+    "level": "Scenario",
+    "question": "Hva må være oppfylt før en bruker kan godkjenne en forespørsel om systemtilgang?",
+    "options": ["Brukeren må bare kjenne navnet på fagsystemet", "Brukeren må kunne administrere fullmakter for virksomheten og gi alle fullmaktene i forespørselen", "Brukeren må være registrert som systemleverandør", "Virksomheten må ha minst én klient"],
+    "correct": 1,
+    "explanation": "Den som godkjenner må både kunne administrere virksomhetens fullmakter og selv ha grunnlag for å gi samtlige fullmakter systemet ber om.",
+    "source": {"label": "Godkjenne systemtilgang", "url": "/nb/authorization/guides/end-user/system-user/accept-request/"}
+  },
+  {
+    "id": 36,
+    "category": "Systemtilgang og systembruker",
+    "level": "Scenario",
+    "question": "Et fagsystem ber om fullmakt til en tilgangspakke og én enkelttjeneste. Brukeren kan bare gi fullmakt til tilgangspakken. Hva er riktig handling?",
+    "options": ["Godkjenne systemtilgangen med bare tilgangspakken", "Godkjenne og be leverandøren rydde opp senere", "Få den manglende fullmakten eller sende forespørselen videre til noen som kan gi alle fullmaktene", "Opprette en ny virksomhet i Ressursregisteret"],
+    "correct": 2,
+    "explanation": "Systemtilgangen kan ikke opprettes med bare deler av forespørselen. Brukeren må få den manglende fullmakten eller videresende forespørselen.",
+    "source": {"label": "Systemtilgang for sluttbrukere", "url": "/nb/authorization/guides/end-user/system-user/"}
+  },
+  {
+    "id": 37,
+    "category": "Systemtilgang og systembruker",
+    "level": "Detaljert",
+    "question": "Hva skjer i hovedtrekk når et sluttbrukersystem bruker en systembruker mot en tjeneste?",
+    "options": ["Systemet bruker et ID-token direkte uten ytterligere kontroll", "Maskinporten verifiserer systembrukerkonteksten og utsteder token; tjenesten kontrollerer scope og nødvendige fullmakter", "Ressursregisteret logger inn sluttbrukeren manuelt", "Klienten sender bare organisasjonsnummeret uten token"],
+    "correct": 1,
+    "explanation": "Maskinporten-tokenet bærer systembrukerinformasjon. Tjenesten autentiserer kallet, kontrollerer scopes og gjør autorisasjonsoppslag for ressursen og handlingen.",
+    "source": {"label": "Systembruker: I bruk", "url": "/nb/authorization/what-do-you-get/systemuser/#i-bruk"}
+  },
+  {
+    "id": 38,
+    "category": "Klientadministrasjon",
+    "level": "Overordnet",
+    "question": "Hva må en klient gjøre før et fagsystem kan utføre tjenester på klientens vegne gjennom en systemtilgang?",
+    "options": ["Registrere fagsystemet som offentlig virksomhet", "Gi tjenestetilbyderens virksomhet nødvendige fullmakter", "Opprette en ny ID-porten-bruker for systemet", "Legge alle ansatte inn i en tilgangsliste"],
+    "correct": 1,
+    "explanation": "Klientvirksomheten må gi tjenestetilbyderen fullmakter som dekker tjenestene eller tilgangspakkene systemtilgangen trenger.",
+    "source": {"label": "Klientadministrasjon", "url": "/nb/authorization/guides/end-user/system-user/delegate-clients/"}
+  },
+  {
+    "id": 39,
+    "category": "Klientadministrasjon",
+    "level": "Detaljert",
+    "question": "Hvilke forutsetninger må være på plass for å legge klienter til en systemtilgang i Altinn?",
+    "options": ["En godkjent systemtilgang for klienter og myndighet til å administrere klienter", "Bare en Maskinporten-klient med read-scope", "Et samtykke fra tjenesteeieren", "En policy uten tilgangspakker"],
+    "correct": 0,
+    "explanation": "Det må finnes en godkjent systemtilgang for klienter, og brukeren må kunne administrere klienter, for eksempel som klientadministrator eller daglig leder.",
+    "source": {"label": "Klientadministrasjon: Forutsetninger", "url": "/nb/authorization/guides/end-user/system-user/delegate-clients/#forutsetninger"}
+  },
+  {
+    "id": 40,
+    "category": "Klientadministrasjon",
+    "level": "Detaljert",
+    "question": "Hvordan vurderes flere tilgangspakker på en systemtilgang for klienter?",
+    "options": ["Det holder at klienten har gitt fullmakt til én tilfeldig pakke", "Pakkene vurderes som et ELLER-forhold", "Tjenestetilbyderen må ha fullmakt til alle pakkene for klienten", "Pakkene ignoreres når klientforholdet finnes"],
+    "correct": 2,
+    "explanation": "Tilgangspakkene fungerer som et OG-forhold. Fullmakt til noen av pakkene er ikke nok; alle må være dekket direkte eller gjennom en rolle i Enhetsregisteret.",
+    "source": {"label": "Klientadministrasjon: Automatiske klientforhold", "url": "/nb/authorization/guides/end-user/system-user/delegate-clients/#automatiske-klientforhold"}
+  },
+  {
+    "id": 41,
+    "category": "Klientadministrasjon",
+    "level": "Scenario",
+    "question": "En forventet klient vises ikke når den skal legges til systemtilgangen. Hva bør kontrolleres først?",
+    "options": ["Om klienten bruker samme nettleser", "Om klientforholdet finnes og om alle tilgangspakkene i systemtilgangen er dekket av fullmakter", "Om systemleverandøren eier klientens organisasjonsnummer", "Om klienten har et aktivt samtykke til alle offentlige data"],
+    "correct": 1,
+    "explanation": "Klienten kan mangle fra listen dersom klientforholdet ikke finnes, eller dersom tjenestetilbyderen ikke har fått fullmakt til alle pakkene systemtilgangen krever.",
+    "source": {"label": "Klientadministrasjon: Prosess", "url": "/nb/authorization/guides/end-user/system-user/delegate-clients/#prosess-i-altinn-portalen"}
+  },
+  {
+    "id": 42,
+    "category": "Klientadministrasjon",
+    "level": "Scenario",
+    "question": "Hva er et viktig sikkerhetskrav for et system som håndterer mange klienter?",
+    "options": ["Gjenbruke samme autorisasjonsresultat for alle klienter", "Lagre alle komplette token i feilloggen", "Ikke blande tokenkontekst, mellomlager eller autorisasjonsresultater mellom klienter", "La sluttbrukeren velge klient etter at API-kallet er sendt"],
+    "correct": 2,
+    "explanation": "Hver klientkontekst må holdes adskilt. Feil gjenbruk av token, cache eller autorisasjonsbeslutninger kan gi tilgang på vegne av feil kunde.",
+    "source": {"label": "Kom i gang som systemleverandør: Kunder", "url": "/nb/authorization/getting-started/system-vendor/#kalle-api-er-på-vegne-av-kunder"}
+  },
+  {
+    "id": 43,
+    "category": "Klientadministrasjon",
+    "level": "Detaljert",
+    "question": "Hvordan kan enkelte klientforhold og fullmakter oppstå automatisk?",
+    "options": ["Gjennom roller som regnskapsfører eller revisor registrert i Enhetsregisteret", "Når klienten besøker dokumentasjonssiden", "Når systemleverandøren oppretter et nytt scope", "Gjennom et tilfeldig valg i Altinn-portalen"],
+    "correct": 0,
+    "explanation": "Roller registrert i Enhetsregisteret kan etablere klientforhold og gi fullmakter til bestemte tilgangspakker uten en separat direkte tildeling.",
+    "source": {"label": "Klientadministrasjon: Automatiske klientforhold", "url": "/nb/authorization/guides/end-user/system-user/delegate-clients/#automatiske-klientforhold"}
+  },
+  {
+    "id": 44,
+    "category": "Samtykke, tilgangslister og vergemål",
+    "level": "Overordnet",
+    "question": "Hvilken påstand om samtykke i Altinn er riktig?",
+    "options": ["Et samtykke er en generell og varig fullmakt til alle data", "Et samtykke kan bare gis av tjenesteeieren", "Et samtykke erstatter autentisering og øvrig tilgangskontroll", "Et samtykke er tidsavgrenset og kan trekkes tilbake"],
+    "correct": 3,
+    "explanation": "Samtykke brukes for en uttrykkelig og avgrenset godkjenning med definert varighet. Brukeren kan trekke samtykket tilbake.",
+    "source": {"label": "Samtykke i Altinn Autorisasjon", "url": "/nb/authorization/what-do-you-get/consent/"}
+  },
+  {
+    "id": 45,
+    "category": "Samtykke, tilgangslister og vergemål",
+    "level": "Detaljert",
+    "question": "Hvilken rekkefølge beskriver hovedflyten for samtykke korrekt?",
+    "options": ["Tjenesteeier gir samtykke, brukeren oppretter scope, Altinn sletter tokenet", "Brukeren henter data først og samtykker etterpå", "Maskinporten velger data og oppretter automatisk en permanent fullmakt", "Datakonsumenten oppretter forespørsel, brukeren godkjenner i Altinn, datakonsumenten henter token og bruker det mot datakilden"],
+    "correct": 3,
+    "explanation": "Datakonsumenten starter flyten og sender brukeren til Altinn. Etter godkjenning hentes samtykketokenet og brukes som dokumentasjon når data hentes fra tjenesteeieren.",
+    "source": {"label": "Samtykkeprosessen", "url": "/nb/authorization/what-do-you-get/consent/#slik-fungerer-samtykkeprosessen"}
+  },
+  {
+    "id": 46,
+    "category": "Samtykke, tilgangslister og vergemål",
+    "level": "Detaljert",
+    "question": "Hva er en viktig egenskap ved samtykketokenet i Altinn 3?",
+    "options": ["Det er ett Maskinporten-token som inneholder informasjonen som trengs for å validere og loggføre samtykket", "Det er et ID-token som aldri utløper", "Det kan brukes mot alle API-er uten egne scopes", "Det inneholder ingen informasjon om samtykkets omfang"],
+    "correct": 0,
+    "explanation": "Samtykkeløsningen bruker ett Maskinporten-token som samler autentiserings- og autorisasjonsinformasjon om samtykket. API-tilbyderen må validere tokenet korrekt.",
+    "source": {"label": "Samtykke: Token-håndtering", "url": "/nb/authorization/what-do-you-get/consent/#hva-er-nytt-i-samtykke"}
+  },
+  {
+    "id": 47,
+    "category": "Samtykke, tilgangslister og vergemål",
+    "level": "Overordnet",
+    "question": "Hva er forholdet mellom en tilgangsliste og øvrig autorisasjon?",
+    "options": ["Tilgangslisten erstatter både autentisering og policy", "Tilgangslisten begrenser aktuelle virksomheter, men erstatter ikke autentisering eller øvrige regler", "Tilgangslisten gir automatisk alle handlinger på ressursen", "Tilgangslisten kan bare brukes for privatpersoner"],
+    "correct": 1,
+    "explanation": "En tilgangsliste kan avgrense tjenesten til en bestemt gruppe virksomheter. Tjenesten må fortsatt autentisere kallet og evaluere de øvrige autorisasjonsreglene.",
+    "source": {"label": "Kom i gang som tjenesteeier: Tilgangslister", "url": "/nb/authorization/getting-started/service-owner/#gi-bare-utvalgte-virksomheter-tilgang"}
+  },
+  {
+    "id": 48,
+    "category": "Samtykke, tilgangslister og vergemål",
+    "level": "Scenario",
+    "question": "En datakonsument står ikke på tilgangslisten for en samtykketjeneste. Når skal flyten normalt stoppes?",
+    "options": ["Etter at sluttbrukeren har gitt samtykke og dataene er hentet", "Før sluttbrukeren blir bedt om å gi samtykke", "Før datakonsumenten autentiserer seg i Maskinporten", "Bare når samtykket utløper"],
+    "correct": 1,
+    "explanation": "En datakonsument utenfor tilgangslisten skal ikke kunne opprette samtykkeforespørselen. Dermed avsluttes flyten før brukeren involveres.",
+    "source": {"label": "Kom i gang med samtykke: Tilgangslister", "url": "/nb/authorization/getting-started/consent/#tjenesteeier"}
+  },
+  {
+    "id": 49,
+    "category": "Samtykke, tilgangslister og vergemål",
+    "level": "Detaljert",
+    "question": "Hvor kommer vergefullmaktene fra, og kan de endres i Altinn?",
+    "options": ["De opprettes av systemleverandøren og kan endres i Ressursregisteret", "De kommer fra Enhetsregisteret og kan trekkes tilbake av klientadministrator", "De hentes fra Folkeregisteret og kan ikke gis eller trekkes tilbake i Altinn", "De genereres av ID-porten ved hver innlogging"],
+    "correct": 2,
+    "explanation": "Folkeregisteret er autoritativ kilde for vergefullmakter. Oppnevning og endring håndteres hos Statsforvalteren, ikke i Altinns tilgangsstyring.",
+    "source": {"label": "Vergemål", "url": "/nb/authorization/what-do-you-get/guardianship/"}
+  },
+  {
+    "id": 50,
+    "category": "Samtykke, tilgangslister og vergemål",
+    "level": "Scenario",
+    "question": "Hvilke tre tiltak må en ekstern tjeneste normalt gjennomføre for å støtte vergemål?",
+    "options": ["Opprette vergefullmakter, lagre fødselsnumre og hoppe over tilgangskontroll", "Knytte vergefullmakter til regler, tilby aktørvalg og gjøre et autorisasjonsoppslag", "Kreve Maskinporten fra vergen, opprette systembruker og gi permanent samtykke", "Registrere alle verger som ansatte, bruke én felles part og bare kontrollere innlogging"],
+    "correct": 1,
+    "explanation": "Tjenesteeieren må uttrykke vergefullmaktene i tilgangsreglene, la vergen velge riktig vergehaver og til slutt kontrollere at vergen har riktig fullmakt for handlingen.",
+    "source": {"label": "Kom i gang med vergemål", "url": "/nb/authorization/getting-started/guardianship/"}
+  }
+]
