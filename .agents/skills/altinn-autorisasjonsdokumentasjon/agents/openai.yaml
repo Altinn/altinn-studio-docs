@@ -1,0 +1,4 @@
+interface:
+  display_name: "Altinn autorisasjonsdokumentasjon"
+  short_description: "Retningslinjer for Altinn Autorisasjon"
+  default_prompt: "Use $altinn-autorisasjonsdokumentasjon to review this Altinn Authorization documentation change."
