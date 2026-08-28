@@ -22,3 +22,6 @@ Kategori `Authorization`, alvorlighetsgrad **feil**. Regelen stopper altså bygg
 
 Gi handlingene til org-subjektet i `config/authorization/policy.xml`, eller kjør
 oppgraderingen fra v8 til v9, som setter inn regelen.
+
+Se regelbiblioteket for hvordan en regel for org-subjektet skrives her: 
+https://docs.altinn.studio/nb/altinn-studio/v8/reference/configuration/authorization/rules/
