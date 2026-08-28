@@ -10,3 +10,6 @@ Denne diagnostikken meldes når `applicationmetadata.json` inneholder en
 Kategori `Deprecation`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
 
 Konfigurer eFormidling på en BPMN eFormidling-tjenesteoppgave i stedet.
+
+Se veiledningen for eFormidling-tjenesteoppgaven her: 
+https://docs.altinn.studio/nb/altinn-studio/v8/guides/development/eformidling/service-task/

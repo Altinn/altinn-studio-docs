@@ -17,3 +17,6 @@ Kategori `Contracts`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
 Fullfør registreringen, for eksempel med `.WithMetadata<T>()`. Ønsker du bevisst kun det
 inngangspunktet registrerer, skriv en eksplisitt forkastning — `_ = services.AddEFormidling();`
 — som ikke rapporteres.
+
+Se veiledningen for eFormidling-tjenesteoppgaven her: 
+https://docs.altinn.studio/nb/altinn-studio/v8/guides/development/eformidling/service-task/

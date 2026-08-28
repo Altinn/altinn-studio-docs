@@ -12,3 +12,6 @@ av app-backend. Meldingen navngir hvilken `dataType` det gjelder.
 Kategori `Deprecation`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
 
 Generer PDF med en PDF-tjenesteoppgave i prosessen i stedet.
+
+Se veiledningen for PDF i appen her: 
+https://docs.altinn.studio/en/altinn-studio/v8/guides/development/pdf/
