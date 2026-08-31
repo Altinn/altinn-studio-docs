@@ -6,16 +6,16 @@
   },
   "servers": [
     {
-      "url": "https://platform.tt02.altinn.no/accessmanagement/api/v1",
+      "url": "https://platform.tt02.altinn.no/accessmanagement/api/v2",
       "description": "Integration Test"
     },
     {
-      "url": "https://platform.altinn.no/accessmanagement/api/v1",
+      "url": "https://platform.altinn.no/accessmanagement/api/v2",
       "description": "Production"
     }
   ],
   "paths": {
-    "/accessmanagement/api/v2/enduser/clientdelegations/my/clients": {
+    "/enduser/clientdelegations/my/clients": {
       "get": {
         "tags": [
           "Client Delegation"
@@ -221,7 +221,7 @@
         ]
       }
     },
-    "/accessmanagement/api/v2/enduser/clientdelegations/my/clientproviders": {
+    "/enduser/clientdelegations/my/clientproviders": {
       "get": {
         "tags": [
           "Client Delegation"
@@ -375,7 +375,7 @@
         ]
       }
     },
-    "/accessmanagement/api/v2/enduser/clientdelegations/my/clients/accesspackages/delete": {
+    "/enduser/clientdelegations/my/clients/accesspackages/delete": {
       "post": {
         "tags": [
           "Client Delegation"
@@ -494,7 +494,7 @@
         ]
       }
     },
-    "/accessmanagement/api/v2/enduser/clientdelegations/my/clients/resources/delete": {
+    "/enduser/clientdelegations/my/clients/resources/delete": {
       "post": {
         "tags": [
           "Client Delegation"
@@ -613,7 +613,7 @@
         ]
       }
     },
-    "/accessmanagement/api/v2/enduser/clientdelegations/clients": {
+    "/enduser/clientdelegations/clients": {
       "get": {
         "tags": [
           "Client Delegation"
@@ -753,7 +753,7 @@
         ]
       }
     },
-    "/accessmanagement/api/v2/enduser/clientdelegations/agents": {
+    "/enduser/clientdelegations/agents": {
       "get": {
         "tags": [
           "Client Delegation"
@@ -1072,7 +1072,7 @@
         ]
       }
     },
-    "/accessmanagement/api/v2/enduser/clientdelegations/agents/clients": {
+    "/enduser/clientdelegations/agents/clients": {
       "delete": {
         "tags": [
           "Client Delegation"
@@ -1179,7 +1179,7 @@
         ]
       }
     },
-    "/accessmanagement/api/v2/enduser/clientdelegations/agents/accesspackages": {
+    "/enduser/clientdelegations/agents/accesspackages": {
       "get": {
         "tags": [
           "Client Delegation"
@@ -1403,7 +1403,7 @@
         ]
       }
     },
-    "/accessmanagement/api/v2/enduser/clientdelegations/clients/accesspackages": {
+    "/enduser/clientdelegations/clients/accesspackages": {
       "get": {
         "tags": [
           "Client Delegation"
@@ -1500,7 +1500,7 @@
         ]
       }
     },
-    "/accessmanagement/api/v2/enduser/clientdelegations/agents/accesspackages/delete": {
+    "/enduser/clientdelegations/agents/accesspackages/delete": {
       "post": {
         "tags": [
           "Client Delegation"
@@ -1629,7 +1629,7 @@
         ]
       }
     },
-    "/accessmanagement/api/v2/enduser/clientdelegations/agents/resources": {
+    "/enduser/clientdelegations/agents/resources": {
       "get": {
         "tags": [
           "Client Delegation"
@@ -1853,7 +1853,7 @@
         ]
       }
     },
-    "/accessmanagement/api/v2/enduser/clientdelegations/clients/resources": {
+    "/enduser/clientdelegations/clients/resources": {
       "get": {
         "tags": [
           "Client Delegation"
@@ -1950,7 +1950,7 @@
         ]
       }
     },
-    "/accessmanagement/api/v2/enduser/clientdelegations/agents/resources/delete": {
+    "/enduser/clientdelegations/agents/resources/delete": {
       "post": {
         "tags": [
           "Client Delegation"
