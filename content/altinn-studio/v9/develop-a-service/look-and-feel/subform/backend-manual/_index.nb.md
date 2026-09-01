@@ -3,7 +3,7 @@ draft: true
 hidden: true
 ---
 
-1. [Opprett en datamodell](/nb/altinn-studio/v8/reference/data/data-modeling/) for underskjemaet.
+1. [Opprett en datamodell](/nb/altinn-studio/v9/develop-a-service/reference/data/data-modeling/) for underskjemaet.
 2. Du skal nå se tre filer under `App/model`: klassen i C#, JSON-schema og XSD.
 3. Sett [appLogic.allowInSubform](/nb/api/models/app-metadata/#applicationlogic) til **true** i **applicationMetadata.json**.
 4. Opprett en mappe under **App/ui** med det navnet du vil ha på underskjemaet.
