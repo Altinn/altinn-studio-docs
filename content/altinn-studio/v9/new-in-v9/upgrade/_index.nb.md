@@ -14,7 +14,7 @@ tags: [needsReview]
 
 - Commit alt du har jobbet med. Oppgraderingen stopper hvis repositoriet har endringer du ikke har committet.
 - Lukk appen i editoren din, for eksempel Visual Studio eller Visual Studio Code.
-- Lag en egen branch, slik at du har et punkt å gå tilbake til hvis du vil forkaste oppgraderingen.
+- Lag en egen branch, slik at du har et punkt å gå tilbake til hvis du vil angre oppgraderingen.
 
 ## 1. Installer studioctl
 
