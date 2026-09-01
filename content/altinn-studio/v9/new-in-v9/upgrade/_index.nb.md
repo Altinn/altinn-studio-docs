@@ -87,7 +87,7 @@ Mappestrukturen viser dermed selv hvilket skjema som hører til hvilket steg. Da
 
 ### PDF-en har fått sitt eget steg i prosessen
 
-Tidligere laget appen PDF-kvitteringen idet brukeren gikk ut av et utfyllingssteg. PDF-en var altså en implisitt del av det steget. Feilet PDF-en, kunne hele innsendingen feile, og det var ikke lett å starte prosessen på nytt fra punktet som gikk galt.
+Tidligere laget appen PDF-kvitteringen samtidig som brukeren gikk ut av et utfyllingssteg. PDF-en var altså en del av det steget. Feilet PDF-en, kunne hele innsendingen feile, og det var ikke lett å starte prosessen på nytt fra punktet som gikk galt.
 
 Etter oppgraderingen har appen din en egen PDF-oppgave i prosessen. Det gjør både feilhåndtering og ny kjøring enklere, og du får flere valg:
 
