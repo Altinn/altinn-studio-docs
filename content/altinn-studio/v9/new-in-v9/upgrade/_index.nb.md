@@ -8,7 +8,7 @@ toc: true
 tags: [needsReview]
 ---
 
-`studioctl app upgrade` gjør mesteparten av jobben for deg. Verktøyet går gjennom appen og endrer filene som trenger det.
+`studioctl app upgrade` gjør mesteparten av jobben for deg. Verktøyet går gjennom appen og endrer de filene som trenger det.
 
 ## Før du starter
 
