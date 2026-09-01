@@ -2,7 +2,7 @@
 draft: true
 title: Slik oppgraderer du appen fra v8 til v9
 linktitle: Oppgradere fra v8
-description: Slik oppgraderer du en Altinn-app fra v8 til v9 med studioctl, og dette endrer oppgraderingen i appen din.
+description: Slik oppgraderer du en Altinn-app fra v8 til v9 med studioctl.
 weight: 10
 toc: true
 tags: [needsReview]
