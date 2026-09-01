@@ -99,7 +99,7 @@ Standardoppsettet lager en PDF som oppsummerer skjemautfyllingen, ut fra skjemao
 {{% notice warning %}}
 **PDF-en kan se annerledes ut etter oppgraderingen.** Tidligere kunne du sette funksjonsflagget `BetaPDFenabled` for å la `Summary2`-komponenten lage PDF-en automatisk. Dette er nå standardinnstillingen, og flagget forsvinner. Har du ikke tilpasset utseendet på PDF-en selv, kan den derfor se annerledes ut.
 
-v9 støtter i tillegg egenskapen `pageBreak` på `Summary2`-komponenter. Det gjorde ikke app-frontend v4. Se etter om PDF-en har fått flere sideskift enn du ønsker.
+V9 støtter i tillegg egenskapen `pageBreak` på `Summary2`-komponenter. Det gjorde ikke app-frontend v4. Se etter om PDF-en har fått flere sideskift enn du ønsker.
 {{% /notice %}}
 
 ### Regelfilene forsvinner
