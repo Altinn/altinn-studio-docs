@@ -1,7 +1,7 @@
 ---
-title: Naviger i Altinn Studio
-linktitle: Naviger i Altinn Studio
-description: 
+title: Navigere i Altinn Studio
+linktitle: Navigere i Altinn Studio
+description: Oversikt over hva du ser når du logger inn i Altinn Studio.
 weight: 1
 draft: true
 marp: true
@@ -14,13 +14,13 @@ header: 'Naviger i Altinn Studio'
 footer: 'Altinn Studio - kom i gang'
 ---
 
-Når du er logget inn får du opp en oversiktsside som viser dine tjenester.
+Når du er logget inn, får du opp en oversiktsside som viser tjenestene dine.
 Her ser du:
-- _Dine favoritter_: Tjenester du har markert som favoritter.
-- _Dine apper_: En oversikt over alle appene (tjenestene) du har lagd i Altinn Studio
-- _Profilmeny og aktørvelger_: Her kan du velge om du skal representere deg selv, eller en organisasjon du har tilgang til.
+- **Favoritter**: Tjenester du har markert som favoritter.
+- **Dine apper**: En oversikt over alle appene (tjenestene) du har laget i Altinn Studio.
+- **Profilmeny og aktørvelger**: Her kan du velge om du skal representere deg selv eller en organisasjon du har tilgang til.
   - Velger du å representere en organisasjon, vil det være organisasjonens apper som vises i oversikten.
-- _Knapp for å lage ny tjeneste_: Denne skal vi bruke for å lage en ny tjeneste.
+- **Lag ny tjeneste**: Denne knappen bruker du til å lage en ny tjeneste.
 
 ---
-![Dashboard](Kurs-skjermbilder-Konsept-Dashboard.jpg)
+![Oversiktssiden i Altinn Studio med forklaring av elementene](Kurs-skjermbilder-Konsept-Dashboard.jpg)
