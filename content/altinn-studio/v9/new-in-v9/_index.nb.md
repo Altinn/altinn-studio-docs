@@ -59,7 +59,7 @@ Frontend og backend i Altinn Studio har nå samme versjonsnummer. Altinn Studio 
 For deg betyr det:
 
 - Du trenger bare å holde styr på ett versjonsnummer.
-- Du slipper å finne ut hvilken backendversjon som passer med hvilken frontendversjon.
+- Du slipper å finne ut hvilken backend-versjon som passer med hvilken frontend-versjon.
 
 ## studioctl er kommandolinjeverktøyet
 
