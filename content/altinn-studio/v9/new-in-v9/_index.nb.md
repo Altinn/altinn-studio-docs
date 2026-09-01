@@ -47,7 +47,7 @@ Når du har oppgradert til v9, har de fleste apper ikke lenger filen `Index.csht
 
 Det gir to fordeler:
 
-- Appen kan forberede mer av informasjonen den trenger med en gang og laster derfor raskere i nettleseren til brukeren.
+- Appen kan forberede mer av informasjonen den trenger med en gang, og laster derfor raskere i nettleseren til brukeren.
 - Vi får større rom til å videreutvikle bibliotekene uten å be deg endre denne filen. Du kan fortsatt legge til egne JavaScript- og CSS-filer hvis du vil overstyre noe.
 
 Noen apper beholder `Index.cshtml`. Det gjelder apper som ikke tilbyr brukeropplevelsen fra app-frontenden vår, apper som har bygget sin egen versjon av den og apper med en helt egen frontend. Har appen din fortsatt filen etter oppgraderingen, går vi ut fra at du vil styre innholdet og frontenden selv.
