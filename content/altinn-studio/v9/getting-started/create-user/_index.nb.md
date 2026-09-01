@@ -72,7 +72,7 @@ For å kunne få en organisasjon i Altinn Studio må virksomheten din
 - være tjenesteeier og ha inngått en avtale med Altinn, eller
 - tilby tjenesteutvikling i Altinn Studio på vegne av offentlige virksomheter
 
-Organisasjoner som ikke er tjenesteeiere, vil ikke få tilgang til eget test- eller produksjonsmiljø.
+Organisasjoner som ikke er tjenesteeiere vil ikke få tilgang til eget test- eller produksjonsmiljø.
 
 For å opprette en ny organisasjon, send en e-post til [Altinn Servicedesk](mailto:tjenesteeier@altinn.no) med navn på organisasjonen og hvem som skal være administrator.
 Det kan ta noen dager, og du får svar på e-post så snart det er gjort.
