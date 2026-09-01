@@ -54,7 +54,7 @@ Noen apper beholder `Index.cshtml`. Det gjelder apper som ikke tilbyr brukeroppl
 
 ## Én versjon for frontenden og backenden
 
-Frontenden og backenden i Altinn Studio har nå samme versjonsnummer. Altinn Studio er ett produkt og har derfor én versjon.
+Frontend og backend i Altinn Studio har nå samme versjonsnummer. Altinn Studio er ett produkt og har derfor én versjon.
 
 For deg betyr det:
 
