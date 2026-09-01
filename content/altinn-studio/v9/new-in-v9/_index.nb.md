@@ -28,7 +28,7 @@ I v9 har vi lagt til en ny prosessmotor (workflow engine). Det er en egen tjenes
 
 Når en prosess skal videre, havner den i kø hos prosessmotoren. Motoren kjører ett steg om gangen og kaller appen din for å gjøre arbeidet. En database holder på tilstanden underveis, så ingenting går tapt om et steg feiler.
 
-### Hva plattformen vinner
+### Hva som blir bedre på plattformen
 
 - Tunge eller trege operasjoner blokkerer ikke lenger brukeren.
 - Prosessmotoren prøver automatisk på nytt når feilen er midlertidig.
