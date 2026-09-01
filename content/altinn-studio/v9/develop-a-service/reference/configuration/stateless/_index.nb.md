@@ -116,7 +116,7 @@ Appens frontend leser konfigurasjonen fra `applicationmetadata.json` og forstår
 {{%notice warning%}}
 OBS! Skjemakomponenter som påvirker prosess (knapp for innsending eller instansiering) er ikke støttet for anonyme brukere!
 
-**MERK:** For å bruke denne funksjonaliteten må du bruke versjon >= 5.1.0 av [nuget-pakkene](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
+**MERK:** For å bruke denne funksjonaliteten må du bruke versjon >= 5.1.0 av [nuget-pakkene](/nb/altinn-studio/v9/manage-a-service/maintainance/dependencies/#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
 
 {{%/notice%}}
 
@@ -433,7 +433,7 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
 
 Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre og vil ikke være støttet i Altinn Studio.
 
-**MERK:** For å bruke denne funksjonaliteten må du bruke versjon >= 4.17.2 av [nuget-pakkene](/nb/altinn-studio/v8/guides/administration/maintainance/dependencies#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
+**MERK:** For å bruke denne funksjonaliteten må du bruke versjon >= 4.17.2 av [nuget-pakkene](/nb/altinn-studio/v9/manage-a-service/maintainance/dependencies/#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
 
 {{%/notice%}}
 

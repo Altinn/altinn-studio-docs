@@ -94,7 +94,7 @@ Hvis en applikasjonsprosess har et bekreftelsessteg kan du avvise dataene og sen
 <bpmn:sequenceFlow id="Flow_g1_end" sourceRef="Gateway_1" targetRef="EndEvent" />
 ```
 
-I eksempelet ovenfor er det definert to handlinger i _Task_2_: `confirm` og `reject`. [Les mer om handlinger](/nb/altinn-studio/v8/reference/process/tasks/)
+I eksempelet ovenfor er det definert to handlinger i _Task_2_: `confirm` og `reject`. [Les mer om handlinger](/nb/altinn-studio/v9/develop-a-service/reference/process/tasks/)
 
 Prosessmotoren skal velge _Flow_g1_t1_ hvis brukeren utfører handlingen _reject_ og _Flow_g1_end_ hvis handlingen var _confirm_.
 

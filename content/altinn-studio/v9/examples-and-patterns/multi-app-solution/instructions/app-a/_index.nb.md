@@ -35,13 +35,13 @@ Vi anbefaler å bruke stegtypen _confirm_, og det er det denne veilederen bruker
 For å legge til steg og utvide appprosessen, må du oppdatere `process.bpmn` og `policy.xml`.
 
 1. Du finner eksempler på hvordan du tilpasser filen `process.bpmn`, der appprosessen er definert, i
-   [prosessdokumentasjonen](/nb/altinn-studio/v8/reference/configuration/process).
+   [prosessdokumentasjonen](/nb/altinn-studio/v9/develop-a-service/reference/configuration/process).
    <br><br>Når du bruker stegtypen _confirm_, må du tillate å gå tilbake til en tidligere stegtype, noe som også betyr
    at du må bruke _exclusive gateways_. Les mer om exclusive
-   gateways [her](/nb/altinn-studio/v8/reference/configuration/process/exclusive-gateways).
+   gateways [her](/nb/altinn-studio/v9/develop-a-service/reference/configuration/process/exclusive-gateways).
 2. Filen `policy.xml`, der autorisasjonsreglene er definert, trenger oppdateringer slik at du kan utføre lese- og skriveoperasjoner
    på det nye steget. <br><br>Se [XACML-policy](/nb/authorization/reference/xacml),
-   [policyredigerer](/nb/altinn-studio/v8/reference/configuration/authorization)
+   [policyredigerer](/nb/altinn-studio/v9/develop-a-service/reference/configuration/authorization)
    og [Retningslinjer for autorisasjonsregler](/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization)
    for detaljer. De fleste apper tillater dette som standard med gjeldende mal.
 
@@ -58,7 +58,7 @@ Det er ingen innebygd måte i Altinn for å utløse denne atferden, noe som bety
 
 Den generelle tilnærmingen for at en Altinn-app skal utføre egendefinerte operasjoner, er å implementere kode på
 visse hooks, som er forhåndsdefinerte funksjoner i app-backend.
-Les om hvordan du legger til denne egendefinerte koden [her](/nb/altinn-studio/v8/reference/configuration/process/pre-post-hooks).
+Les om hvordan du legger til denne egendefinerte koden [her](/nb/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks).
 
 1. Hvis filen ikke allerede finnes, opprett en fil for å implementere den egendefinerte koden som kjører på slutten
    av et steg: `ProcessTaskEnd.cs`. I filen implementerer du koden som oppretter instansobjektet som blir brukt som
@@ -88,7 +88,7 @@ Les om hvordan du legger til denne egendefinerte koden [her](/nb/altinn-studio/v
    ```
 
 2. For å faktisk utføre forespørselen for å opprette instansen, må du legge til en klient. Se
-   [konsumer dokumentasjonen](/nb/altinn-studio/v8/reference/api/consume#implementere-klient) for et eksempel på hvordan
+   [konsumer dokumentasjonen](/nb/altinn-studio/v9/develop-a-service/reference/api/consume#implementere-klienten) for et eksempel på hvordan
    du kan legge til en slik klient i appen. Et passende navn for klienten som brukes i denne konteksten kan for
    eksempel være `AppInstantiationClient`. I tillegg til instruksjonene i den refererte dokumentasjonen, trenger
    konstruktøren ytterligere konfigurasjon for HttpClient. Legg til følgende kode i konstruktøren for å legge til
@@ -135,7 +135,7 @@ Les om hvordan du legger til denne egendefinerte koden [her](/nb/altinn-studio/v
 
 3. I filen `ProcessTaskEnd.cs` legger du til den nye _AppInstantiationClient_ i klassen `ProcessTaskEnd` på samme måte
    som _CountryClient_ legges til i klassen `DataProcessingHandler`
-   i [konsumer dokumentasjonen](/nb/altinn-studio/v8/reference/api/consume#benytte-klient-i-applogikk).
+   i [konsumer dokumentasjonen](/nb/altinn-studio/v9/develop-a-service/reference/api/consume#bruke-klient-i-app-logikk).
    Kall deretter metoden som utløser forespørselen i appInstantiationClient slik:
 
    ```csharp
@@ -189,7 +189,7 @@ Du kan kontrollere visse data i app B på flere måter, der du kan utnytte en el
   den tilsvarende verdien i `prefill`-feltet til instansmalen som du opprettet i
   [Utløs opprettelsen av app B](#utløse-opprettelse-av-app-b)-delen over.
 - **Alt 2:** Hvis intensjonen er å manipulere tekstene i Altinn-innboksen for instanser av app B,
-  bruk [_presentasjonsfelt_](/nb/altinn-studio/v8/reference/configuration/messagebox/presentationfields).
+  bruk [_presentasjonsfelt_](/nb/altinn-studio/v9/develop-a-service/reference/configuration/messagebox/presentationfields/).
 
 - **Alt 3:** Legg til data som binære data ved å sende en POST-forespørsel til instansen av app B.
 

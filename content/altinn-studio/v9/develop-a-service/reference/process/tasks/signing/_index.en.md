@@ -305,7 +305,7 @@ If it should be possible to decline signing and, for example send the instance b
 
 This is then added to the authorization rule, and a separate `ActionButton` is defined that is associated with the `reject` action.
 
-See [Controlling process flow](/en/altinn-studio/v8/reference/process/flowcontrol/) for more information.
+See [Controlling process flow](/en/altinn-studio/v9/develop-a-service/reference/process/flowcontrol/) for more information.
 
 
 ### Signing object stored when user signs

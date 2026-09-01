@@ -94,7 +94,7 @@ If an applications process has a confirmation step where it is possible to rejec
 <bpmn:sequenceFlow id="Flow_g1_end" sourceRef="Gateway_1" targetRef="EndEvent" />
 ```
 
-In the example above there is defined two actions in _Task_2_ confirm and reject. [Read more about actions](/en/altinn-studio/v8/reference/process/tasks/)
+In the example above there is defined two actions in _Task_2_ confirm and reject. [Read more about actions](/en/altinn-studio/v9/develop-a-service/reference/process/tasks/)
 
 What we want to accomplish is to make the process engine choose _Flow_g1_t1_ if the user performs action _reject_ and _Flow_g1_end_ if action performed was _confirm…
 

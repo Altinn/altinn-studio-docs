@@ -35,13 +35,13 @@ We recommend using the _confirm_ step type, and that is what this guide uses.
 To add steps and extend the app process, you must update `process.bpmn` and `policy.xml`.
 
 1. You will find examples of how to customise the `process.bpmn` file, where the app process is defined, in
-   the [process documentation](/nb/altinn-studio/v8/reference/configuration/process).
+   the [process documentation](/nb/altinn-studio/v9/develop-a-service/reference/configuration/process).
    <br><br>When using the _confirm_ step type, you must allow going back to a previous step type, which also means
    that you need to use _exclusive gateways_. Read more about exclusive
-   gateways [here](/nb/altinn-studio/v8/reference/configuration/process/exclusive-gateways).
+   gateways [here](/nb/altinn-studio/v9/develop-a-service/reference/configuration/process/exclusive-gateways).
 2. The `policy.xml` file, where the authorisation rules are defined, needs updates so that you can perform read and write operations
    on the new step. <br><br>See [XACML policy](/nb/authorization/reference/xacml),
-   [policy editor](/nb/altinn-studio/v8/reference/configuration/authorization)
+   [policy editor](/nb/altinn-studio/v9/develop-a-service/reference/configuration/authorization)
    and [Guidelines for authorisation rules](/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization)
    for details. Most apps allow this by default with the current template.
 
@@ -58,7 +58,7 @@ There is no built-in way in Altinn to trigger this behaviour, which means you mu
 
 The general approach for an Altinn app to perform custom operations is to implement code on
 certain hooks, which are predefined functions in the app backend.
-Read about how to add this custom code [here](/nb/altinn-studio/v8/reference/configuration/process/pre-post-hooks).
+Read about how to add this custom code [here](/nb/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks).
 
 1. If the file does not already exist, create a file to implement the custom code that runs at the end
    of a step: `ProcessTaskEnd.cs`. In the file, implement the code that creates the instance object that will be used as
@@ -88,7 +88,7 @@ Read about how to add this custom code [here](/nb/altinn-studio/v8/reference/con
    ```
 
 2. To actually perform the request to create the instance, you must add a client. See
-   the [consume documentation](/nb/altinn-studio/v8/reference/api/consume#implementere-klient) for an example of how
+   the [consume documentation](/nb/altinn-studio/v9/develop-a-service/reference/api/consume#implementere-klienten) for an example of how
    you can add such a client to the app. A suitable name for the client used in this context could be,
    for example, `AppInstantiationClient`. In addition to the instructions in the referenced documentation, the
    constructor needs additional configuration for the HttpClient. Add the following code to the constructor to add
@@ -135,7 +135,7 @@ Read about how to add this custom code [here](/nb/altinn-studio/v8/reference/con
 
 3. In the `ProcessTaskEnd.cs` file, add the new _AppInstantiationClient_ to the `ProcessTaskEnd` class in the same way
    as the _CountryClient_ is added to the `DataProcessingHandler` class
-   in the [consume documentation](/nb/altinn-studio/v8/reference/api/consume#benytte-klient-i-applogikk).
+   in the [consume documentation](/nb/altinn-studio/v9/develop-a-service/reference/api/consume#bruke-klient-i-app-logikk).
    Then call the method that triggers the request in the appInstantiationClient like this:
 
    ```csharp
@@ -189,7 +189,7 @@ You can control certain data in app B in several ways, where you can utilise one
   the corresponding value in the `prefill` field of the instance template that you created in
   the [Trigger creation of app B](#triggering-creation-of-app-b) section above.
 - **Alt 2:** If the intention is to manipulate the texts in the Altinn inbox for instances of app B,
-  use [_presentation fields_](/nb/altinn-studio/v8/reference/configuration/messagebox/presentationfields).
+  use [_presentation fields_](/nb/altinn-studio/v9/develop-a-service/reference/configuration/messagebox/presentationfields/).
 
 - **Alt 3:** Add data as binary data by sending a POST request to the instance of app B.
 

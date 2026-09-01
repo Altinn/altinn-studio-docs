@@ -36,7 +36,7 @@ brukeropplevelsen til en sluttbruker. Feilsøking og varsling gjør Application 
     Test Developer-rollen gir tilgang til Application Insights for apper i TT02, og Production Developer-rollen gir tilgang
     til apper i produksjon.
 
-    [Her kan du se hvordan du ber om rollen](/nb/altinn-studio/v8/guides/administration/access-management/apps/)
+    [Her kan du se hvordan du ber om rollen](/nb/altinn-studio/v9/manage-a-service/access-management/apps/)
 
 - **Generell oversikt over Application Insights-funksjoner**
     Application Insights har flere funksjoner tilgjengelig.
