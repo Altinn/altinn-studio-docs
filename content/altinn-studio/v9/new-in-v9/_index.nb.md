@@ -33,7 +33,7 @@ Når en prosess skal videre, havner den i kø hos prosessmotoren. Motoren kjøre
 - Tunge eller trege operasjoner blokkerer ikke lenger brukeren.
 - Prosessmotoren prøver automatisk på nytt når feilen er midlertidig.
 - Feil blir eksplisitte og synlige. Ingen feil forsvinner i stillhet.
-- Plattformen tåler mer trafikk, fordi flere appinstanser deler på arbeidet.
+- Plattformen tåler mer trafikk, fordi flere app-instanser deler på arbeidet.
 
 ### Hva det betyr for deg
 
