@@ -61,7 +61,7 @@ For å bli del av en organisasjon må en administrator for organisasjonen din gi
 Hvis du er usikker på hvem som er administrator, eller du ikke vet om organisasjonen din er satt opp i Altinn Studio,
 kan du spørre [Altinn Servicedesk](mailto:tjenesteeier@altinn.no) om hjelp.
 
-_Er du administrator for organisasjonen din og skal legge inn brukere? Se [veiledning for hvordan du legger inn brukere](/nb/altinn-studio/v8/guides/administration/access-management/studio/)._
+_Er du administrator for organisasjonen din og skal legge inn brukere? Se [veiledning for hvordan du legger inn brukere](/nb/altinn-studio/v9/manage-a-service/access-management/studio/)._
 
 ## Opprette en organisasjon
 
