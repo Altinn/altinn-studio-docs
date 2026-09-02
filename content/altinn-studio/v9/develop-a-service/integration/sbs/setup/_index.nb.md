@@ -222,7 +222,7 @@ Du trenger en Maskinporten-klient for å bruke systemregisteret og for å ta i b
 - Noter ned klient-ID (`a2ed712d-4144-4471-839f-80ae4a68146b` for eksempel)
 - Lag og registrer JWKS på klienten (ta vare på privat og public JWK)
 
-Se [veiledningen for Maskinporten-integrasjon](/nb/altinn-studio/v8/guides/integration/maskinporten/) for mer informasjon.
+Se [veiledningen for Maskinporten-integrasjon](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/) for mer informasjon.
 
 #### 3. Fiken registrerer system i systemregisteret
 
@@ -236,14 +236,14 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=<signed JWT>
 ```
 
-JWT-payload som skal signeres:
+JWT-payload som skal signeres (`iat` og `jti` må være unike for hver forespørsel, og `exp` kan være maks 180 sekunder etter `iat`):
 
 ```json
 {
   "aud": "https://test.maskinporten.no/",
   "scope": "altinn:authentication/systemuser.request.read altinn:authentication/systemuser.request.write altinn:authentication/systemregister.write",
   "iss": "a2ed712d-4144-4471-839f-80ae4a68146b",
-  "exp": 1718189000,
+  "exp": 1718188820,
   "iat": 1718188700,
   "jti": "3f1a9c7e-5b6d-4e2a-8d0f-6c1b2a9e4d3f"
 }
@@ -423,7 +423,14 @@ I eksempelet over er `externalRef` satt til `313725138_Fikenbruker`, så du send
 
 ```http
 POST https://test.maskinporten.no/token
+Content-Type: application/x-www-form-urlencoded
 
+grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=<signed JWT>
+```
+
+JWT-payload som skal signeres (`iat` og `jti` må være unike for hver forespørsel, og `exp` kan være maks 180 sekunder etter `iat`):
+
+```json
 {
   "aud": "https://test.maskinporten.no/",
   "sub": "a2ed712d-4144-4471-839f-80ae4a68146b",

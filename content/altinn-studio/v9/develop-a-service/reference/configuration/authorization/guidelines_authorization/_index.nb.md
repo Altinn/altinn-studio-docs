@@ -8,7 +8,7 @@ tags: [needsReview]
 ---
 
 Du definerer autorisasjonsregler i henhold til XACML 3.0-standarden. Reglene angir hvilke betingelser som må være til stede for å gi
-en bestemt bruker tilgang til å utføre ett eller flere trinn i applikasjonens [definerte arbeidsprosess](/nb/altinn-studio/v8/reference/configuration/process/).
+en bestemt bruker tilgang til å utføre ett eller flere trinn i applikasjonens [definerte arbeidsprosess](/nb/altinn-studio/v9/develop-a-service/process/).
 
 ## Du må vite hva du gjør!
 Du som eier av tjenesten er selv ansvarlig for å lage autorisasjonsregler og velge riktige roller som gir tilgang til beskyttet informasjon. 
