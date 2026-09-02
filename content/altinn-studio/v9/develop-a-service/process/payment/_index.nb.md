@@ -88,9 +88,9 @@ Altinn Studio legger automatisk til standardscopene for tjenesteeier i Maskinpor
 
 ## 7. Automatisk videreføring etter fullført betaling
 
-Den innebygde Nets Easy-integrasjonen registrerer en webhook når den oppretter en betaling. Når Nets varsler om en fullført betaling, kontrollerer appen betalingsstatusen hos Nets, oppdaterer betalingsinformasjonen og fører betalingssteget videre hvis statusen er `Paid`. Dette skjer på serveren og er ikke avhengig av at brukeren returnerer til appen etter betalingen.
+Den innebygde Nets Easy-integrasjonen registrerer en webhook når den oppretter en betaling. Når Nets varsler om en fullført betaling, kontrollerer appen betalingsstatusen hos Nets, oppdaterer betalingsinformasjonen og fører betalingsoppgaven videre hvis statusen er `Paid`. Dette skjer på serveren og er ikke avhengig av at brukeren returnerer til appen etter betalingen.
 
-Det er betalingssteget som fullføres automatisk. Hvis neste steg i prosessen er en slutthendelse, blir også instansen fullført. Ellers går instansen videre til neste prosessteg.
+Det er betalingsoppgaven som fullføres automatisk. Hvis neste steg i prosessen er en slutthendelse, blir også instansen fullført. Ellers går instansen videre til neste prosessteg.
 
 For at automatisk videreføring skal fungere:
 
