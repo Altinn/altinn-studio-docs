@@ -62,7 +62,7 @@ Subjektdelen for regelen definerer hvem regelen er rettet mot.
 
 En fullstendig liste over rolletyper finner du på [Altinn API](https://www.altinn.no/api/metadata/roledefinitions).
 
-**Det er viktig å lese [Veiledning for autorisasjonsregler](/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization/) før du velger rolle.**
+**Det er viktig å lese [Veiledning for autorisasjonsregler](/nb/altinn-studio/v9/develop-a-service/reference/configuration/authorization/guidelines_authorization/) før du velger rolle.**
 
 ### Eksempler
 

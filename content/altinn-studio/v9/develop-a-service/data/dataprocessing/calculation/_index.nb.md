@@ -14,11 +14,11 @@ Med uttrykk kan du beregne verdien av datamodellfelt automatisk. Uttrykksmotoren
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Manuelt oppsett">}}
-{{% insert "content/altinn-studio/v9/new-from-v8/process/dataprocessing/calculation/backend-manual/content.nb.md" %}}
+{{% insert "content/altinn-studio/v9/develop-a-service/data/dataprocessing/calculation/backend-manual/content.nb.md" %}}
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-{{% insert "content/altinn-studio/v9/new-from-v8/process/dataprocessing/calculation/studio/content.nb.md" %}}
+{{% insert "content/altinn-studio/v9/develop-a-service/data/dataprocessing/calculation/studio/content.nb.md" %}}
 {{</content-version-container>}}
 
 {{</content-version-selector>}}

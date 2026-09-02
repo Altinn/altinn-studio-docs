@@ -17,7 +17,7 @@ Tilgjengelig fra [v8.6.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/
 ### Maskinporten
 Du trenger Maskinporten både for [meldingstjenesten](#meldingstjenesten) og for å jobbe med [beskyttede data](/nb/altinn-studio/v9/develop-a-service/data/restricted-data/).
 
-Hvis du trenger hjelp med å sette opp Maskinporten i appen din, finner du det du trenger i [denne veiledningen](/nb/altinn-studio/v9/develop-a-service/reference/integration/maskinporten/).
+Hvis du trenger hjelp med å sette opp Maskinporten i appen din, finner du det du trenger i [denne veiledningen](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/).
 
 ### Meldingstjenesten
 Brukerstyrt signering bruker meldingstjenesten (Correspondence) i Altinn. Den må du sette opp separat.

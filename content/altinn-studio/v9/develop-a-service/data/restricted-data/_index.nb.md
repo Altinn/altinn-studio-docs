@@ -11,7 +11,7 @@ tags: [needsReview]
 Beskyttede data er informasjon som krever ekstra tilgangskontroll, for eksempel personopplysninger eller konfidensiell/klassifisert informasjon. Les mer om [konseptet beskyttede data](/nb/altinn-studio/v9/this-is-as/explanations/data-model/restricted-data/).
 
 ## Sett opp Maskinporten
-Du må sette opp Maskinporten for at appen skal kunne utføre handlinger på vegne av tjenesteeier. Se [integrere en Altinn-app med Maskinporten](/nb/altinn-studio/v9/develop-a-service/reference/integration/maskinporten/).
+Du må sette opp Maskinporten for at appen skal kunne utføre handlinger på vegne av tjenesteeier. Se [integrere en Altinn-app med Maskinporten](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/).
 
 ## Sett opp datatyper
 Filen `applicationmetadata.json` definerer alle [datatyper](/nb/api/models/app-metadata/#datatype) (kun på engelsk foreløpig) i en app. Her angir du hvilke [handlinger](/nb/altinn-studio/v9/develop-a-service/reference/configuration/authorization/#action-attributter) som kreves for den beskyttede datatypen.
