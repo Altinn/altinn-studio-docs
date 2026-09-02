@@ -7,7 +7,7 @@ toc: true
 tags: [needsReview]
 ---
 
-På [forrige side](/nb/altinn-studio/v9/new-from-v8/integration/correspondence/) gikk vi gjennom hvordan du setter opp en [ressurs](/nb/altinn-studio/v9/new-from-v8/integration/correspondence/#altinn-ressurs) og versjonskravene for meldingsklienten.
+På [forrige side](/nb/altinn-studio/v9/develop-a-service/integration/correspondence/) gikk vi gjennom hvordan du setter opp en [ressurs](/nb/altinn-studio/v9/develop-a-service/integration/correspondence/#altinn-ressurs) og versjonskravene for meldingsklienten.
 
 Nå kan du gå videre til [oppsett av Maskinporten](#maskinporten) og [app-kode](#app-kode).
 
@@ -20,7 +20,7 @@ For å bruke [meldingstjenesten](/nb/correspondence/) trenger du en [Maskinporte
 - `altinn:correspondence.write`
 {.correspondence-custom-list}
 
-For å sette opp dette legger du til scopene i Altinn Studio som beskrevet i [veiledningen for å legge til Maskinporten-scopes](/nb/altinn-studio/v9/new-from-v8/integration/maskinporten/add-scopes/). Når appen publiseres, oppretter Altinn Studio Maskinporten-klienten og monterer generert `MaskinportenSettings` i appen.
+For å sette opp dette legger du til scopene i Altinn Studio som beskrevet i [veiledningen for å legge til Maskinporten-scopes](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/add-scopes/). Når appen publiseres, oppretter Altinn Studio Maskinporten-klienten og monterer generert `MaskinportenSettings` i appen.
 
 Meldingsklienten finner og bruker automatisk den innebygde Maskinporten-klienten med standard konfigurasjonssti `MaskinportenSettings`.
 

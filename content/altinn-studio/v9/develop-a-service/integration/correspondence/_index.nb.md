@@ -26,7 +26,7 @@ Policyen til ressursen må tillate handlingene:
 - `subscribe`, for å registrere hendelsesabonnement i Altinn Events
 
 Ressursen må tillate sender-tilgang for [din organisasjon](https://github.com/Altinn/altinn-cdn/blob/master/orgs/altinn-orgs.json)
-og mottaker-tilgang for ønskelige [rollekoder](https://github.com/Altinn/altinn-cdn/blob/master/authorization/subjectoptions.json) eller [tilgangspakker](https://docs.altinn.studio/nb/authorization/what-do-you-get/accesspackages/business/). Frem til juni 2026 støtter Altinn begge deler.
+og mottaker-tilgang for ønskelige [rollekoder](https://github.com/Altinn/altinn-cdn/blob/master/authorization/subjectoptions.json) eller [tilgangspakker](https://docs.altinn.studio/nb/authorization/what-do-you-get/accesspackages/business/). Tilgangspakker erstatter etter hvert de tradisjonelle Altinn-rollene, men rollekoder fungerer fortsatt som et unntak fram til 1. januar 2027.
 
 Når du sender en melding til en person, bruker du koden `priv`. Når du sender en melding til en organisasjon, bruker du rollene eller tilgangspakkene
 som best beskriver din tiltenkte mottaker.
