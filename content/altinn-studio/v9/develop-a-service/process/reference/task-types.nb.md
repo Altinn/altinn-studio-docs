@@ -205,7 +205,8 @@ Mer info kommer snart.
 ### Egendefinert systemoppgave
 
 Trenger du arbeid plattformen ikke har en ferdig oppgave for, lager du en egen systemoppgave. Da velger du selv navnet på 
-oppgavetypen, og bruker det samme navnet i `<altinn:taskType>`, i C#-klassen og i tilgangsregelen. Se 
+oppgavetypen. Det samme navnet må stå tre steder: i `Type`-egenskapen på C#-klassen, i `<altinn:taskType>` i prosessen, og 
+som handling i tilgangsregelen. Klassenavnet har ingenting å si. Se 
 [Lage en egendefinert systemoppgave]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}).
 
 Eksempel på en egendefinert systemoppgave:

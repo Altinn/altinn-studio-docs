@@ -29,6 +29,14 @@ namespace Altinn.App.Logic.ServiceTasks;
 
 public class ArchiveServiceTask : IPipelineServiceTask
 {
+    // IArchiveClient er ditt eget grensesnitt mot arkivet, ikke noe plattformen har.
+    private readonly IArchiveClient _archive;
+
+    public ArchiveServiceTask(IArchiveClient archive)
+    {
+        _archive = archive;
+    }
+
     public string Type => "archive";
 
     public ServiceTaskPipeline Define(ServiceTaskPipelineBuilder pipeline) =>
@@ -65,6 +73,7 @@ public class ArchiveServiceTask : IPipelineServiceTask
 Oppgaver med flere arbeidssteg registrerer du på `IPipelineServiceTask`:
 
 ```csharp
+services.AddTransient<IArchiveClient, ArchiveClient>();
 services.AddTransient<IPipelineServiceTask, ArchiveServiceTask>();
 ```
 
