@@ -28,6 +28,16 @@
                 Studio →{{ else }}How Altinn Studio works →{{ end }}</a></div>
     </div>
     <section class="authz-section authz-wrap">
+        <div class="authz-banner" style="margin:0 0 44px">
+            <div>
+                <h2>{{ if $nb }}Hva er nytt i v9?{{ else }}What is new in v9?{{ end }}</h2>
+                <p>{{ if $nb }}v9 gir bedre ytelse og stabilitet, ikke ny funksjonalitet. Se hva vi har endret og
+                    hvordan du oppgraderer en app fra v8.{{ else }}v9 brings better performance and stability rather
+                    than new functionality. See what has changed and how to upgrade an app from v8.{{ end }}</p>
+            </div>
+            <a class="authz-btn authz-btn-primary" href="{{ "altinn-studio/v9/new-in-v9/" | relLangURL }}">{{ if $nb
+                }}Se hva som er nytt{{ else }}See what is new{{ end }} →</a>
+        </div>
         <div class="authz-section-head">
             <div>
                 <h2>{{ if $nb }}Start med rollen din{{ else }}Start with your role{{ end }}</h2>
