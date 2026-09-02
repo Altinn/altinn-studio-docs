@@ -29,8 +29,8 @@ Du finner informasjon om hvordan du oppretter avtalen her:
 {{</content-version-selector>}}
 
 
-<!-- Gi tilganger til den som skal betale-->
-## 3. Gi tilganger til den som skal betale
+<!-- Gi tilganger til den som skal betale og tjenesteeieren -->
+## 3. Gi tilganger til den som skal betale og tjenesteeieren
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 {{% insert "content/altinn-studio/v8/guides/development/payment/studio/access-rules.nb.md" %}}
@@ -40,6 +40,10 @@ Du finner informasjon om hvordan du oppretter avtalen her:
 {{% insert "content/altinn-studio/v8/guides/development/payment/backend-manual/access-rules.nb.md" %}}
 {{</content-version-container>}}
 {{</content-version-selector>}}
+
+Når Nets varsler appen om at betalingen er fullført, oppdaterer appen betalingsinformasjonen og fører prosessen videre på vegne av tjenesteeieren. I `App/config/authorization/policy.xml` må `[org]` derfor ha handlingene `read` og `write` for appen og `confirm` for betalingsoppgaven.
+
+Appen må også ha standardscopene for tjenesteeier i Maskinporten. Se [hvordan du legger til Maskinporten-scopes](/nb/altinn-studio/v8/guides/integration/maskinporten/add-scopes/). Bygg og publiser appen på nytt etter at du har endret scopene eller autorisasjonspolicyen.
 
 
 <!--Konfigurer visning av betalingsinformasjon-->
@@ -79,3 +83,19 @@ Du finner informasjon om hvordan du oppretter avtalen her:
 {{% insert "content/altinn-studio/v8/guides/development/payment/backend-manual/configure-secrets.nb.md" %}}
 {{</content-version-container>}}
 {{</content-version-selector>}}
+
+
+## 7. Automatisk videreføring etter fullført betaling
+
+Fra og med Altinn.App 8.12.0 registrerer den innebygde Nets Easy-integrasjonen en webhook når den oppretter en betaling. Når Nets varsler om en fullført betaling, kontrollerer appen betalingsstatusen hos Nets, oppdaterer betalingsinformasjonen og fører betalingsoppgaven videre hvis statusen er `Paid`. Dette skjer på serveren og er ikke avhengig av at brukeren returnerer til appen etter betalingen.
+
+Det er betalingsoppgaven som fullføres automatisk. Hvis neste steg i prosessen er en slutthendelse, blir også instansen fullført. Ellers går instansen videre til neste prosessteg.
+
+For at automatisk videreføring skal fungere:
+
+- Bruk Altinn.App 8.12.0 eller nyere. Vi anbefaler den nyeste tilgjengelige patch-versjonen.
+- Sett opp Maskinporten og tilgangene for tjenesteeieren som beskrevet i [steg 3](#3-gi-tilganger-til-den-som-skal-betale-og-tjenesteeieren).
+- Bygg og publiser appen på nytt etter konfigurasjonsendringer.
+- Start en ny betaling etter publisering. Webhooken registreres når betalingen opprettes, så betalinger som ble opprettet før oppgraderingen, får ikke den nye callbacken.
+
+Webhooken registreres ikke ved lokal utvikling. Test derfor denne flyten i et publisert testmiljø.
