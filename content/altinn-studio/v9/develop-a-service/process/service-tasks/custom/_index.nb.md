@@ -13,7 +13,7 @@ En egendefinert systemoppgave lar appen gjøre arbeid på serveren midt i proses
 - en tilgangsregel som lar brukeren kjøre steget
 
 {{% notice info %}}
-Grensesnittet endret seg mellom v8 og v9. Har du en egendefinert systemoppgave fra før, se avsnittet om systemoppgaver i [oppgraderingsveiledningen]({{< relref "/altinn-studio/v9/new-in-v9/upgrade" >}}). Veiledningen for v8 ligger [her](/nb/altinn-studio/v8/guides/development/service-tasks/custom/).
+Grensesnittet endret seg mellom v8 og v9. Har du en egendefinert systemoppgave fra før, se avsnittet om systemoppgaver i [oppgraderingsveiledningen]({{< relref "/altinn-studio/v9/new-in-v9/upgrade" >}}). Du finner [den tilsvarende veiledningen for v8](/nb/altinn-studio/v8/guides/development/service-tasks/custom/) i dokumentasjonen for gjeldende versjon.
 {{% /notice %}}
 
 ## Skrive systemoppgaven i C#
