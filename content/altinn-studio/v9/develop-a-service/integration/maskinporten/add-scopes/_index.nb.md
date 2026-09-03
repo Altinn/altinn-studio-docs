@@ -16,7 +16,7 @@ Hvis appen bare trenger standardscopene for tjenesteeier, `altinn:serviceowner`,
 
 ## Steg
 
-1. Åpne appen i Altinn Studio. Gå til **Innstillinger**, og åpne fanen **Maskinporten**. Hvis knappen **Legg til standard-scopes** vises, kan du bruke den til å legge til standardscopene. Velg **Legg til** for å legge til andre scopes manuelt.
+1. Åpne appen i Altinn Studio. Gå til **Innstillinger**, og åpne fanen **Maskinporten**. Hvis knappen **Legg til standard-scopes** vises, kan du bruke den til å legge til standardscopene. Klikk på **Legg til** for å legge til andre scopes manuelt.
 
    ![Maskinporten-fanen i appinnstillingene med knappene Legg til standard-scopes og Legg til](maskinporten-scopes-overview.nb.png "Maskinporten-fanen i appinnstillingene.")
 
@@ -28,11 +28,11 @@ Hvis appen bare trenger standardscopene for tjenesteeier, `altinn:serviceowner`,
 
    ![To Maskinporten-scopes er valgt i dialogen](maskinporten-scopes-selected-in-dialog.nb.png "Velg scopes i dialogen.")
 
-4. Velg **Fullfør** for å lagre scopene i appinnstillingene.
+4. Klikk på **Fullfør** for å lagre scopene i appinnstillingene.
 
    ![Valgte Maskinporten-scopes vises i appinnstillingene](maskinporten-scopes-selected.nb.png "Valgte scopes vises i appinnstillingene.")
 
-5. Bygg og publiser appen på nytt. Scope-endringer trer i kraft neste gang appen bygges og publiseres.
+5. Bygg og publiser appen på nytt. Scope-endringer trer i kraft neste gang du bygger og publiserer appen.
 {.floating-bullet-numbers}
 
 ## Hvis du ikke har tilgang
@@ -43,7 +43,7 @@ Hvis Studio viser meldingen **Du har ikke tilgang på vegne av virksomheten**, k
 
 For å løse dette:
 
-1. Kontroller at appen eies av riktig virksomhet i Altinn Studio.
+1. Kontroller at riktig virksomhet eier appen i Altinn Studio.
 2. Be en direktør/leder i virksomheten, eller noen med tilgangspakken **Hovedadministrator**, gi brukeren din tilgang til selvbetjening av klienter i ID-porten/Maskinporten i Altinn. Hvis virksomheten også administrerer API-scopes selv, må brukeren også ha tilgang til selvbetjening av API-er. Se [Digdirs veiledning for tilgang i test- og produksjonsmiljø](https://docs.digdir.no/docs/Maskinporten/maskinporten_sjolvbetjening_web.html#tilgang-i-test-og-produksjonsmilj%C3%B8).
 3. Alternativt kan en bruker som allerede har denne tilgangen legge til scopene i appen.
 4. Prøv igjen i Altinn Studio når tilgangen er på plass.
