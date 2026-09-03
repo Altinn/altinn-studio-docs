@@ -1,122 +1,70 @@
 ---
 title: SMS-segmentering
-description: "Altinn Varslinger deler automatisk opp lange SMS-meldinger i flere segmenter for å sikre levering. Denne artikkelen forklarer hvordan SMS-segmentering fungerer, hvilke tegnbegrensninger som gjelder, og hva som fungerer og ikke fungerer når du bruker API-et."
+description: "Lange SMS-meldinger deles automatisk opp i flere segmenter for å kunne leveres. Denne artikkelen forklarer hvordan SMS-segmentering fungerer, hvordan tegnene i meldingen avgjør hvor mange segmenter den blir, og hva det betyr for kostnaden."
 linktitle: SMS-segmentering
 tags: [sms, segmentering, tegnbegrensning]
 weight: 40
 ---
 
-## Introduksjon
+## Innledning
 
-SMS-meldinger har tekniske begrensninger på hvor mange tegn som kan sendes i én enkelt melding. Når du sender SMS via Altinn Varslinger, håndterer systemet automatisk oppdeling av lange meldinger i flere segmenter. Dette gjør at du kan sende lengre tekster uten å måtte dele dem opp manuelt.
+En SMS kan bare inneholde et begrenset antall tegn. Når du sender en lengre melding gjennom Altinn Varslinger, deles den automatisk opp i flere deler, kalt segmenter. Mottakeren ser fortsatt én sammenhengende melding, fordi telefonen setter segmentene sammen igjen.
 
-Å forstå hvordan segmentering fungerer er viktig for å sikre at meldingene dine leveres som forventet, og for å unngå at meldinger blir avvist på grunn av lengdebegrensninger.
+Det er nyttig å forstå hvordan denne oppdelingen fungerer, for hvert segment teller og faktureres som en egen SMS. En melding som ser kort ut, kan likevel bli til flere segmenter dersom den inneholder visse tegn. Tegnene du bruker, påvirker altså både kostnaden og hvor mye tekst det er plass til.
 
-## Hvordan SMS-segmentering fungerer
+## Tegnkodingen bestemmer segmentlengden
 
-SMS-teknologien har to forskjellige måter å håndtere meldingslengde på:
+Hvor mange tegn det er plass til i hvert segment, avhenger av hvordan teksten kodes. En SMS sendes på én av to måter, og mottelefonen velger automatisk ut fra hvilke tegn meldingen inneholder:
 
-### Enkeltmelding (opp til 160 tegn)
+- **GSM-7** er standardalfabetet for SMS. Det dekker vanlige bokstaver, tall og tegnsetting, og **de norske bokstavene æ, ø og å** (også store). Så lenge meldingen bare bruker tegn fra dette alfabetet, er det god plass i hvert segment.
+- **UCS-2** brukes når meldingen inneholder minst ett tegn som ikke finnes i GSM-7-alfabetet, for eksempel en emoji eller et ikke-latinsk tegn. Da kodes hele meldingen på en måte som tar mer plass, og det blir plass til langt færre tegn per segment.
 
-Hvis meldingen din inneholder **160 tegn eller mindre**, sendes den som én enkelt SMS. Dette er den mest effektive måten å sende korte meldinger på.
+Det holder med ett eneste tegn utenfor GSM-7-alfabetet for at hele meldingen går over til UCS-2. Da blir plassen mer enn halvert, slik tabellen under viser.
 
-### Konkatenerte meldinger (over 160 tegn)
+## Hvor mange tegn det er plass til
 
-Når meldingen er **lengre enn 160 tegn**, deles den automatisk opp i flere segmenter som sendes separat og settes sammen igjen på mottakerens telefon. Hvert segment i en konkatenert melding kan inneholde **opp til 134 tegn**.
+| Tegnkoding | Enkeltmelding | Per segment i en oppdelt melding |
+|------------|---------------|----------------------------------|
+| GSM-7 (vanlig tekst, inkludert æ, ø, å) | 160 tegn | 153 tegn |
+| UCS-2 (emoji, typografiske tegn, ikke-latinske tegn) | 70 tegn | 67 tegn |
 
-{{% notice info %}}
-Grunnen til at segmentene er på 134 tegn i stedet for 160 tegn, er at noe plass brukes til metadata som forteller mottakerens telefon hvordan segmentene skal settes sammen igjen.
-{{% /notice %}}
+Når en melding må deles opp, går noe av plassen i hvert segment med til skjøteinformasjon, altså opplysninger telefonen trenger for å sette segmentene sammen i riktig rekkefølge. Derfor rommer hvert segment litt mindre enn en enkeltmelding: 153 tegn med GSM-7 og 67 tegn med UCS-2.
 
-## Tegnbegrensninger
+### Tegn som teller dobbelt i GSM-7
 
-Altinn Varslinger har følgende begrensninger for SMS-meldinger:
+Noen tegn finnes i GSM-7, men i en egen utvidelsestabell, og hvert av dem teller som **to** tegn:
 
-- **Enkeltmelding**: opp til **160 tegn**
-- **Konkatenert melding**: opp til **134 tegn per segment**
-- **Maksimalt antall segmenter**: **16 segmenter**
-- **Maksimal totallengde**: **2144 tegn** (16 × 134 tegn)
+- `^ { } \ [ ] ~ |`
+- `€` (eurotegnet)
 
-{{% notice warning %}}
-Den maksimale grensen på 16 segmenter er en begrensning i SMS-gatewayen som Altinn Varslinger bruker. Meldinger som overskrider denne grensen avkortes til de første 16 segmentene.
-{{% /notice %}}
+Bruker du for eksempel flere krøllparenteser eller eurotegn, fylles meldingen raskere enn antall synlige tegn skulle tilsi.
 
-### Eksempel på segmentering
+## Antall segmenter og øvre grense
 
-| Meldingslengde | Antall segmenter | Beskrivelse |
-|----------------|------------------|-------------|
-| 50 tegn | 1 | Sendes som én enkelt SMS |
-| 160 tegn | 1 | Sendes som én enkelt SMS (maksimal lengde) |
-| 161 tegn | 2 | Deles i 2 segmenter (134 + 27 tegn) |
-| 268 tegn | 2 | Deles i 2 segmenter (134 + 134 tegn) |
-| 269 tegn | 3 | Deles i 3 segmenter (134 + 134 + 1 tegn) |
-| 2144 tegn | 16 | Deles i 16 segmenter (maksimal lengde) |
-| 2145 tegn | 16 | Avkortes til 16 segmenter (innhold forkortes) |
+En melding kan bli inntil **16 segmenter** i Altinn Varslinger. Hvor mye tekst det gir plass til totalt, avhenger av tegnkodingen:
 
-## Spesialtegn og URL-koding
+- Med **GSM-7** er den øvre grensen 16 × 153 tegn.
+- Med **UCS-2** er den øvre grensen 16 × 67 tegn.
 
-Når systemet beregner meldingslengden, måles lengden basert på **URL-kodet format**. Dette betyr at visse spesialtegn teller som mer enn ett tegn.
+Det finnes altså ikke ett fast tak på antall tegn. Taket avhenger av hvilke tegn meldingen inneholder. En melding med bare vanlig tekst får plass til mye mer enn en melding med emoji eller andre spesialtegn.
 
-### Tegn som påvirker lengden
+Meldinger som er lengre enn 16 segmenter, blir avkortet. Da kommer ikke hele teksten fram til mottakeren, og derfor er det viktig å holde lange meldinger innenfor grensen.
 
-Følgende typer tegn kan påvirke den faktiske lengden av meldingen:
+## Eksempel: ett tegn kan doble kostnaden
 
-- **Æ, Ø, Å** og andre nasjonale spesialtegn
-- **Emojier** og andre spesialsymboler
-- **Linjeskift** og andre kontrolltegn
+Tenk deg en melding på 70 tegn som bare bruker vanlige bokstaver:
 
-### Praktisk eksempel
+- Skrevet med vanlig tekst (GSM-7) får den plass i **én** SMS, siden grensen er 160 tegn. Du betaler for ett segment.
+- Bytter du ut det vanlige sitattegnet `"` med et typografisk anførselstegn (`"` eller `"`), eller legger til én emoji, går hele meldingen over til UCS-2. Da er grensen 70 tegn for en enkeltmelding, og en melding på 70 tegn fyller akkurat opp. Legger du til litt mer tekst, deles den i **to** segmenter à 67 tegn, og du betaler for to.
 
-```text
-Original melding: "Møte kl. 14:00"
-Lengde i tegn: 14 tegn
-URL-kodet lengde: 25 tegn (nesten dobbelt så lang)
-```
+Ett enkelt «smart» anførselstegn, en tankestrek (– eller —) eller en emoji kan altså flytte meldingen fra GSM-7 til UCS-2 og mer enn doble antall segmenter, og dermed kostnaden.
 
-Eksempelet viser hvordan norske tegn som "ø" blir til "%C3%B8" (6 tegn) og mellomrom blir til "%20" (3 tegn) i URL-koding.
+## Råd for å holde kostnaden nede
 
-{{% notice info %}}
-For å være sikker på at meldingen din ikke overstiger grensene, bør du teste med representative eksempler som inneholder de samme typene spesialtegn du planlegger å bruke.
-{{% /notice %}}
+For å unngå at meldingene blir dyrere eller lengre enn nødvendig:
 
-## Begrensninger og hva som ikke fungerer
-
-### Hva skjer med meldinger over 2144 tegn?
-
-Når en melding (målt i URL-kodet lengde) overskrider 2144 tegn:
-
-- Meldingen **avkortes automatisk** til de første 16 segmentene (2144 tegn)
-- Innhold utover denne grensen **sendes ikke**
-- Du får **ingen feilmelding** fra API-et om at innholdet er avkortet
-
-{{% notice warning %}}
-API-et vil ikke varsle deg om at meldingen er avkortet. Det er derfor svært viktig å teste meldingslengden på forhånd, spesielt hvis du bruker mange spesialtegn.
-{{% /notice %}}
-
-### Anbefalinger
-
-For å sikre at meldingene dine leveres som forventet:
-
-1. **Hold meldinger korte og konsise** - under 160 tegn om mulig
-2. **Unngå unødvendige emojier** - disse kan øke lengden betydelig
-3. **Test med representative data** - bruk spesialtegn som ligner på det du vil bruke i produksjon
-4. **Planlegg for segmentering** - dersom du vet at meldingen blir lang, sørg for at den fortsatt gir mening selv om den deles opp
-5. **Vurder alternative kanaler** - for lengre meldinger kan e-post være et bedre valg
-
-## Hvordan API-et håndterer segmentering
-
-Når du sender en SMS via Altinn Varslinger API-et:
-
-1. **Du sender hele meldingen** - du trenger ikke dele den opp selv
-2. **Systemet beregner lengden** - basert på URL-kodet lengde
-3. **Systemet beregner antall segmenter** - og begrenser til maksimalt 16 segmenter
-4. **Systemet deler opp meldingen** - automatisk i segmenter dersom nødvendig
-5. **Meldingen sendes** - segmentene leveres til SMS-gatewayen
-
-{{% notice warning %}}
-Hvis den URL-kodede lengden av meldingen krever mer enn 16 segmenter, sendes kun de første 16 segmentene (2144 tegn). Du får ingen feilmelding om dette, så det er viktig å validere meldingslengden på forhånd.
-{{% /notice %}}
-
-{{% notice info %}}
-Du kan ikke kontrollere hvordan meldingen deles opp i segmenter. Oppdelingen skjer automatisk basert på tegngrensene beskrevet i denne artikkelen.
-{{% /notice %}}
+- Hold meldingene korte. Jo kortere teksten er, desto større er sjansen for at den får plass i ett segment.
+- Vær forsiktig med emoji og typografiske tegn. Ett enkelt slikt tegn kan halvere plassen og doble kostnaden.
+- Pass på hvilke anførselstegn og tankestreker du kopierer inn. Tegn fra tekstbehandlere er ofte typografiske varianter som utløser UCS-2. Bruk heller vanlig `"` og bindestrek `-`.
+- Hold lange meldinger innenfor 16 segmenter. Tekst utover grensen blir avkortet og kommer ikke fram.
+- Vurder e-post for lengre innhold. SMS egner seg best til korte beskjeder.
