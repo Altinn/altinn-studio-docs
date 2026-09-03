@@ -112,6 +112,24 @@ Oppgraderingen sletter regelfilene og forsøker samtidig å skrive reglene om ti
 Gå gjennom uttrykkene oppgraderingen har laget, og test at dynamikken i skjemaet virker som den skal.
 {{% /notice %}}
 
+### Egendefinerte systemoppgaver trenger nye svarverdier
+
+Har appen din en egen systemoppgave, altså en C#-klasse som implementerer `IServiceTask`, ordner oppgraderingen én del av jobben og lar deg gjøre resten selv.
+
+Oppgraderingen bytter navnerommet for deg, fra `Altinn.App.Core.Internal.Process.ProcessTasks.ServiceTasks` til `Altinn.App.Core.Features.Process`.
+
+Svarverdiene må du skrive om selv. `ServiceTaskErrorHandling` og `ServiceTaskErrorStrategy` forsvinner, sammen med `Failed(...)`, `FailedAbortProcessNext()` og `FailedContinueProcessNext(...)`. Oppgraderingen lister opp stedene i koden den fant, men lar valget stå til deg — hva en feil skal føre til, er et faglig spørsmål og ikke en mekanisk erstatning:
+
+| Slik svarte oppgaven i v8 | Slik svarer den i v9 |
+| --- | --- |
+| `FailedAbortProcessNext()` | `FailedPermanent("melding")` når feilen ikke retter seg selv. Kan den gå bort av seg selv, for eksempel et system som er nede akkurat nå, bruker du `FailedRetryable("melding")`, så prøver plattformen på nytt før den gir opp. |
+| `FailedContinueProcessNext("reject")` | `Success("reject")`. Oppgaven er ferdig, og prosessen går videre med handlingen du oppgir. |
+| `Failed(new ServiceTaskErrorHandling(...))` | Velg blant svarene over, ut fra hva strategien din faktisk skulle oppnå. |
+
+I tillegg kjører plattformen systemoppgaver på en ny måte i v9. I v8 kjørte oppgaven én gang, som en del av `process/next`. Nå kjører den for seg: plattformen prøver på nytt hvis noe utenfor appen svikter, og kan parkere prosessen mens oppgaven venter på svar. Det stiller et nytt krav til koden: oppgaven må tåle å kjøre flere ganger uten å sende samme melding eller opprette samme sak to ganger.
+
+Se [Lage en egendefinert systemoppgave]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}) for hele oppsettet, og [Systemoppgaver med flere steg]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg" >}}) hvis oppgaven sender noe og venter på svar.
+
 ### Mindre endringer
 
 Oppgraderingen ordner disse endringene uten at du trenger å gjøre noe, men det er greit å kjenne til dem:

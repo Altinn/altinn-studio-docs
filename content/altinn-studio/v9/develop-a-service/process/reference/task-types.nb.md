@@ -137,7 +137,11 @@ Eksempel på betalingsoppgave:
 En systemoppgave er en prosessoppgave som kjører automatisk på serveren. Prosessen går som hovedregel videre til neste 
 steg når den har kjørt ferdig, men dette kan systemoppgaven definere selv. 
 
-Tjenesteeiere kan implementere sine egne systemoppgaver og legge de som steg i appens prosess.
+Plattformen kjører systemoppgaven for seg: den prøver på nytt hvis noe utenfor appen svikter, og kan parkere 
+prosessen mens oppgaven venter på svar fra et annet system.
+
+Tjenesteeiere kan lage sine egne systemoppgaver og legge dem inn som steg i prosessen til appen. Se 
+[Systemoppgaver]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks" >}}).
 
 ### Generere PDF (`pdf`)
 Genererer PDF basert på valgt oppsett. Bruker standard oppsett for PDF, eller egendefinert visning. Se [Slik setter du opp PDF-generering]({{< relref "/altinn-studio/v9/develop-a-service/process/pdf" >}}) for hele oppsettet.
@@ -197,3 +201,24 @@ Eksempel på eFormidling-systemoppgave:
 {{% notice info %}}
 Mer info kommer snart.
 {{% /notice %}}
+
+### Egendefinert systemoppgave
+
+Trenger du arbeid plattformen ikke har en innebygd oppgave for, lager du en egen systemoppgave. Da velger du selv navnet på 
+oppgavetypen. Det samme navnet må stå tre steder: i `Type`-egenskapen på C#-klassen, i `<altinn:taskType>` i prosessen, og 
+som handling i tilgangsregelen. Klassenavnet har ingenting å si. Se 
+[Lage en egendefinert systemoppgave]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}).
+
+Eksempel på en egendefinert systemoppgave:
+
+```xml
+<bpmn:serviceTask id="ExampleServiceTask" name="Example service task">
+    <bpmn:extensionElements>
+        <altinn:taskExtension>
+            <altinn:taskType>exampleServiceTask</altinn:taskType>
+        </altinn:taskExtension>
+    </bpmn:extensionElements>
+    <bpmn:incoming>Flow_1yq6g64</bpmn:incoming>
+    <bpmn:outgoing>Flow_1xowpt0</bpmn:outgoing>
+</bpmn:serviceTask>
+```
