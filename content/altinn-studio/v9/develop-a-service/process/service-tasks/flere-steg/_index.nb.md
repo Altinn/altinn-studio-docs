@@ -101,7 +101,7 @@ Bare avslutningen kan si at hele oppgaven er ferdig og at prosessen skal gå vid
 - Ventetiden til sammen har en frist, `WaitBudget`. Sett fristen på avslutningen, ikke på hele oppgaven, slik at arbeidssteg som aldri venter, ikke arver den.
 - `context.Wait` forteller hvor langt ventingen er kommet: `DeferCount`, `StartedAt`, `Deadline`, `Remaining` og `IsFinalCheck`. Bruk dem til å spørre ofte i starten og sjeldnere etter hvert, og til å avslutte med en melding som sier hva som aldri kom.
 - Teksten du sender med i `reason`, lagrer plattformen på steget, og den følger med i prosessdataene og driftsverktøyene. Ingen av standardvisningene viser den til brukeren, så skal brukeren se den, må du [lage din egen side]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}). Skriv den likevel for et menneske.
-- Et forsøk som venter, lagrer ingenting. Arbeid som skal etterlate et spor, hører til i sitt eget arbeidssteg foran ventingen.
+- Et forsøk som venter, lagrer ingenting, og endrer forsøket data mens det venter, avviser plattformen forsøket. Arbeid som skal etterlate et spor, hører til i sitt eget arbeidssteg foran ventingen.
 
 ## Få svaret som en melding
 
@@ -113,6 +113,7 @@ public ServiceTaskPipeline Define(ServiceTaskPipelineBuilder pipeline) =>
         .Stage(SendOrder, new MailboxOptions { Timeout = TimeSpan.FromDays(14) }, out MailboxHandle svar)
         .ConcludeOnReplies(svar, onMessage: HandleAnswer, onClosed: HandleClosed);
 
+// _partner, TryLesSvar og Svar er dine egne, på samme måte som IArchiveClient over.
 private async Task<ServiceTaskOpeningStageResult> SendOrder(ServiceTaskContext context, ServiceTaskMailbox mailbox)
 {
     // Send mailbox.Id med bestillingen, i det feltet mottakeren sender tilbake.
@@ -134,13 +135,14 @@ private async Task<ServiceTaskExchangeResult> HandleAnswer(ServiceTaskContext co
 }
 
 private Task<ServiceTaskResult> HandleClosed(ServiceTaskContext context, MailboxClosedReason reason) =>
-    Task.FromResult(ServiceTaskResult.FailedPermanent("Fikk aldri svar fra samarbeidspartneren."));
+    // Typeargumentet er nødvendig: uten det blir returtypen Task<ServiceTaskFailedResult>, som ikke kompilerer.
+    Task.FromResult<ServiceTaskResult>(ServiceTaskResult.FailedPermanent("Fikk aldri svar fra samarbeidspartneren."));
 ```
 
 Slik henger delene sammen:
 
 - Arbeidssteget som åpner postkassen, må publisere `mailbox.Id` i det feltet mottakeren svarer tilbake i. Id-en er adressen, og ingenting annet finner veien tilbake.
-- Fristen i `MailboxOptions.Timeout` løper fra oppgaven åpner postkassen, og ingen melding forlenger den. Fristen kan godt være flere dager.
+- Fristen i `MailboxOptions.Timeout` løper fra oppgaven åpner postkassen, og ingen melding forlenger den. Fristen kan godt være flere dager, men plattformen godtar ikke mer enn 21 døgn. Den grensen kan du ikke oppdage ved oppstart: avvisningen kommer når oppgaven prøver å åpne postkassen.
 - Kanalen som tar imot svaret hos dere, for eksempel en lytter på en meldingskø eller et endepunkt, sender meldingen videre med `IServiceTaskReplyForwarder.ForwardReply(mailboxId, serviceTaskType, payload, idempotencyKey)`, og gjør ikke noe arbeid selv. Bruk avsenderens egen meldings-id som `idempotencyKey`, siden samme melding kan komme flere ganger.
 - `onMessage` kjører én gang per melding. `AwaitNextReply()` betyr «denne er håndtert, vent på neste». `Success()` avslutter utvekslingen, og plattformen lukker postkassen først, slik at ingen senere melding lander i en utveksling som allerede er svart på.
 - `onClosed` kjører når postkassen er lukket uten at oppgaven har konkludert, fordi fristen gikk ut eller fordi noen lukket den. Der bestemmer du om det er kritisk (`FailedPermanent`) eller noe oppgaven kan leve med.
@@ -154,6 +156,6 @@ Formen på oppgaven låser seg når prosessen starter overgangen, og plattformen
 
 Dette er samme problem som å endre en BPMN-fil mens instanser er i gang, og det er utviklerne som må håndtere det: la instansene som er underveis, bli ferdige på koden de startet på, eller avslutt dem bevisst før utrullingen.
 
-## Ikke overstyr `Define` i en enkel oppgave
+## Ikke overstyre `Define` i en enkel oppgave
 
 `IServiceTask` er en oppgave med bare én avslutning: plattformen svarer `Finally(Execute)` for deg. Skriver du din egen `Define` i en klasse som implementerer `IServiceTask`, blir `Execute` død kode, og det får du en byggefeil for. Trenger du flere arbeidssteg, bruker du `IPipelineServiceTask` i stedet.

@@ -19,11 +19,13 @@ En systemoppgave kjører på serveren, men brukeren sitter og venter i nettleser
 
 De to første situasjonene er ulike inne i plattformen, men like for brukeren: begge er en side som venter, og appen sender brukeren videre av seg selv. Forskjellen er hva som slipper prosessen videre. Se [de to måtene å vente på]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}).
 
-**Prøv igjen** kjører steget som feilet på nytt, og krever `write`. **Gå tilbake** krever at prosessen har en `reject`-flyt ut av oppgaven, og at brukeren har tilgang til handlingen. Har brukeren ikke det, viser appen bare **Prøv igjen**.
+**Prøv igjen** kjører steget som feilet på nytt. Knappen er aktiv for brukere med `write`, og for en egendefinert oppgavetype må brukeren i tillegg ha handlingen med samme navn som typen. Har bare tjenesteeieren handlingen, er det driften som må starte oppgaven på nytt, ikke brukeren.
+
+**Gå tilbake** krever at oppgaven har `reject` blant handlingene sine i prosessen, og at brukeren har tilgang til handlingen. Mangler noe av det, viser appen bare **Prøv igjen**. Se [tilgang til oppgaven]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}#gi-tilgang-til-oppgaven).
 
 ## Bytte ut tekstene
 
-Alle tekstene i disse visningene er tekstressurser. Legg nøkkelen inn i tekstfilen din, og appen bruker din tekst i stedet for standardteksten. Dette er nok for de fleste tjenester: du forklarer hva appen venter på, med ord brukerne dine kjenner.
+Alle tekstene i disse visningene er tekstressurser. Legg nøkkelen inn i tekstfilen din, og appen bruker teksten din i stedet for standardteksten. Dette er nok for de fleste tjenester: du forklarer hva appen venter på, med ord brukerne dine kjenner.
 
 Når appen flytter prosessen videre, eller oppgaven venter med `Defer`:
 

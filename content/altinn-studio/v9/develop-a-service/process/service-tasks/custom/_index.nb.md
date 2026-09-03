@@ -10,7 +10,7 @@ En egendefinert systemoppgave lar appen gjøre arbeid på serveren midt i proses
 
 - en C#-klasse som implementerer grensesnittet `IServiceTask`
 - et nytt steg i prosessen (BPMN)
-- en tilgangsregel som lar brukeren kjøre steget
+- en tilgangsregel som lar appen flytte prosessen forbi steget
 
 {{% notice info %}}
 Grensesnittet endret seg mellom v8 og v9. Har du en egendefinert systemoppgave fra før, se avsnittet om systemoppgaver i [oppgraderingsveiledningen]({{< relref "/altinn-studio/v9/new-in-v9/upgrade" >}}). Du finner [den tilsvarende veiledningen for v8](/nb/altinn-studio/v8/guides/development/service-tasks/custom/) i dokumentasjonen for gjeldende versjon.
@@ -92,28 +92,17 @@ App/config/process/process.bpmn
 </bpmn:serviceTask>
 ```
 
-## Gi brukeren tilgang til oppgaven
+## Gi tilgang til oppgaven
 
-Systemoppgaver kjører med rettighetene til den som driver prosessen videre (`process/next`). Plattformen autoriserer de ferdige systemoppgavene som `write`-operasjoner, men en egendefinert oppgave krever en handling med samme navn som `Type`. Legg handlingen på samme sted som de andre handlingene den aktuelle brukeren skal ha tilgang til.
+Når plattformen flytter prosessen ut av en systemoppgave, gjør den det som tjenesteeier, ikke som brukeren. Kaller en bruker eller et annet system `process/next` selv, kontrollerer appen i tillegg at den som kaller, har handlingen for oppgaven den står på.
 
-{{< code-title >}}
-App/config/authorization/policy.xml
-{{< /code-title >}}
+Tjenesteeieren må derfor ha tilgang til handlingen som hører til oppgavetypen. Mangler den, feiler overgangen ut av steget. Plattformen prøver på nytt i opptil ett døgn mens brukeren ser ventesiden, og loggen forteller hvilken rettighet tjenesteeieren mangler.
 
-```xml
-<xacml:AllOf>
-    <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
-    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">exampleServiceTask</xacml:AttributeValue>
-    <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
-    </xacml:Match>
-</xacml:AllOf>
-```
+Tilgangsfilen fra appmalen gir tjenesteeieren de grunnleggende handlingene, blant annet `read`, `write`, `instantiate` og `complete`. Den gir ingen egendefinert handling, så en egen oppgavetype må du åpne selv.
 
-### Hvilken handling prosessen krever
+### Handlingen prosessen krever
 
-Plattformen utleder handlingen fra oppgavetypen, og både appen og plattformen håndhever den likt:
-
-| Oppgavetype | Handling som kreves |
+| Oppgavetype | Handlingen prosessen krever |
 | --- | --- |
 | `data`, `feedback`, `pdf`, `eFormidling`, `fiksArkiv`, `subformPdf` | `write` |
 | `payment` | `pay` eller `write` |
@@ -121,20 +110,11 @@ Plattformen utleder handlingen fra oppgavetypen, og både appen og plattformen h
 | `confirmation` | `confirm` |
 | Egendefinert oppgavetype | Handling med samme navn som oppgavetypen |
 
-Det har to konsekvenser du bør kjenne til:
+Oppgraderingen fra v8 legger inn de grunnleggende reglene for tjenesteeieren, men gir ikke tilgang til egendefinerte oppgavetyper automatisk. Den leser prosessen og sier fra om handlingene du må legge inn selv. Appen kontrollerer det samme når du bygger, gjennom regelen `ALTINNAPP0800`.
 
-- **De kjente oppgavetypene er en svak sperre.** Alle med `write`-tilgang kan selv drive prosessen forbi en systemoppgave av typen `data`, `feedback` eller `pdf`, med et enkelt kall til `process/next`. Tokenet til brukeren er nok.
-- **Egendefinerte oppgavetyper er stengt til du åpner dem.** Tilgangsfilen fra appmalen gir ingen tilgang til en handling med ditt eget navn, heller ikke til tjenesteeieren. Et tilbakekall fra et annet system får derfor 403 helt til du legger inn regelen.
+### Regelen tjenesteeieren trenger
 
-### Slippe prosessen videre fra et annet system
-
-Parkerer oppgaven prosessen med `SuccessWithoutAutoAdvance()`, går prosessen videre først når noen kaller
-
-```http
-PUT /{org}/{app}/instances/{instanceOwnerPartyId}/{instanceGuid}/process/next
-```
-
-Vanligvis er det det andre systemet som kaller, med et Maskinporten-token for tjenesteeieren. Da trenger tjenesteeieren en egen regel i tilgangsfilen. Bytt ut `[ORG]`, `[APP]`, `[RULE_ID]` og `[TASK_TYPE]` med verdiene for appen din, der `[TASK_TYPE]` er den samme som `Type` i C#-klassen:
+Bytt ut `[ORG]`, `[APP]`, `[RULE_ID]` og `[TASK_TYPE]` med verdiene for appen din, der `[TASK_TYPE]` er den samme som `Type` i C#-klassen:
 
 {{< code-title >}}
 App/config/authorization/policy.xml
@@ -142,7 +122,7 @@ App/config/authorization/policy.xml
 
 ```xml
 <xacml:Rule RuleId="urn:altinn:example:ruleid:[RULE_ID]" Effect="Permit">
-  <xacml:Description>Tjenesteeier kan drive prosessen forbi systemoppgaven [TASK_TYPE].</xacml:Description>
+  <xacml:Description>Tjenesteeier kan flytte prosessen forbi systemoppgaven [TASK_TYPE].</xacml:Description>
   <xacml:Target>
     <xacml:AnyOf>
       <xacml:AllOf>
@@ -178,9 +158,34 @@ App/config/authorization/policy.xml
 
 Se [tilgangsregler]({{< relref "/altinn-studio/v9/develop-a-service/configuration/authorization" >}}) for mer om filen.
 
+### Når brukeren også skal kunne flytte prosessen
+
+Skal en person kunne flytte prosessen forbi oppgaven selv, eller kunne trykke **Prøv igjen** på en oppgave som har feilet, trenger brukeren den samme handlingen. Legg den på samme sted som de andre handlingene brukeren skal ha tilgang til.
+
+```xml
+<xacml:AllOf>
+    <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
+    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">exampleServiceTask</xacml:AttributeValue>
+    <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
+    </xacml:Match>
+</xacml:AllOf>
+```
+
 {{% notice warning %}}
-En systemoppgave som venter, er bare beskyttet av tilgangsreglene. Skal ikke sluttbrukeren kunne hoppe over ventingen, må oppgaven ha en egendefinert oppgavetype, og bare tjenesteeieren ha tilgang til handlingen. Ventesiden er et brukergrensesnitt, ikke en sperre.
+En oppgave som er parkert med `SuccessWithoutAutoAdvance()`, er bare beskyttet av tilgangsreglene. Alle som har handlingen, kan flytte prosessen forbi ventingen med et kall til `process/next`. Skal ikke sluttbrukeren kunne det, gi bare tjenesteeieren tilgang.
+
+En oppgave som venter med `Defer` eller på en postkasse, kan ingen hoppe over. Plattformen svarer 409 så lenge oppgaven fortsatt jobber.
 {{% /notice %}}
+
+### Slippe prosessen videre fra et annet system
+
+Parkerer oppgaven prosessen med `SuccessWithoutAutoAdvance()`, går prosessen videre først når noen kaller
+
+```http
+PUT /{org}/{app}/instances/{instanceOwnerPartyId}/{instanceGuid}/process/next
+```
+
+Vanligvis er det det andre systemet som kaller, med et Maskinporten-token for tjenesteeieren. Da holder det med regelen tjenesteeieren trenger, som står over: den dekker både kallet og lagringen etterpå.
 
 ## Hva oppgaven kan svare
 
@@ -197,7 +202,7 @@ En systemoppgave som venter, er bare beskyttet av tilgangsreglene. Skal ikke slu
 
 Kaster koden en feil du ikke håndterer selv, tolker plattformen det som en feil den kan prøve på nytt. Skriv derfor `FailedPermanent` selv når du vet at nye forsøk er nytteløse. Da slipper du en lang rekke forsøk som likevel ikke fører noe sted.
 
-Et forsøk som venter (`Defer`), lagrer ingenting. Skal oppgaven huske noe, må den lagre det i et forsøk som svarer `Success`, eller i et eget arbeidssteg. Se [Systemoppgaver med flere steg]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg" >}}).
+Et forsøk som venter (`Defer`), lagrer ingenting. Endrer oppgaven data og venter i samme forsøk, avviser plattformen forsøket som et brudd på kontrakten. Skal oppgaven huske noe, må den lagre det i et forsøk som svarer `Success`, eller i et eget arbeidssteg. Se [Systemoppgaver med flere steg]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg" >}}).
 
 ## Vente på svar fra et annet system
 
@@ -240,6 +245,18 @@ Feltene betyr dette:
 - `MaxExecutionTime` er hvor lenge ett forsøk får bruke før plattformen avbryter det og regner forsøket som feilet. Hold den nær det kallet realistisk trenger. Et langt tidsavbrudd på et tregt kall kan forsinke andre instanser.
 - `WaitBudget` er hvor lenge oppgaven til sammen får vente når den svarer `Defer`. Når fristen er ute, feiler steget.
 - `RetryStrategy` styrer hvor mange nye forsøk plattformen gjør, og hvor lang pausen mellom dem er.
+
+Standardverdiene og grensene ligger i plattformen, og kan avvike mellom miljøene:
+
+| Verdi | Standard | Grense |
+| --- | --- | --- |
+| `MaxExecutionTime` for en systemoppgave | 10 minutter | 2 timer |
+| `WaitBudget` | ett døgn | 14 døgn |
+| Nye forsøk etter `FailedRetryable` | økende pause fra ett sekund, maks fem minutter mellom forsøkene, i opptil ett døgn | — |
+| Pausen du oppgir i `Defer` | — | Minst ett sekund |
+| `MailboxOptions.Timeout` | — | 21 døgn |
+
+Setter du `MaxExecutionTime` eller `WaitBudget` høyere enn grensen, avviser plattformen overgangen med en gang. Det samme gjelder en postkassefrist over 21 døgn, men den avvisningen kommer først når oppgaven prøver å åpne postkassen. Oppgir du en kortere pause i `Defer` enn ett sekund, venter plattformen ett sekund likevel.
 
 ## Oppgaver med flere steg
 
