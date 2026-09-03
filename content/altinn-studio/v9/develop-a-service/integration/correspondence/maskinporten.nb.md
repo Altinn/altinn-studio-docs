@@ -20,7 +20,7 @@ For å bruke [meldingstjenesten](/nb/correspondence/) trenger du en [Maskinporte
 - `altinn:correspondence.write`
 {.correspondence-custom-list}
 
-For å sette opp dette legger du til scopene i Altinn Studio som beskrevet i [veiledningen for å legge til Maskinporten-scopes](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/add-scopes/). Når appen publiseres, oppretter Altinn Studio Maskinporten-klienten og monterer generert `MaskinportenSettings` i appen.
+For å sette opp dette legger du til scopene i Altinn Studio som beskrevet i [veiledningen for å legge til Maskinporten-scopes](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/add-scopes/). Når du publiserer appen, oppretter Altinn Studio Maskinporten-klienten og monterer generert `MaskinportenSettings` i appen.
 
 Meldingsklienten finner og bruker automatisk den innebygde Maskinporten-klienten med standard konfigurasjonssti `MaskinportenSettings`.
 
@@ -121,7 +121,7 @@ internal sealed class CorrespondenceClientDemo(
   {
     CorrespondenceAuthorisation authorisation = CorrespondenceAuthorisation.Maskinporten;
 
-    // Vedleggsdataene strømmes til meldingstjenesten.
+    // Klienten strømmer vedleggsdataene til meldingstjenesten.
     // Ikke lukk strømmen selv: klienten overtar ansvaret og lukker den når opplastingen er fullført.
     Stream attachmentData = File.OpenRead("path/to/attachment.txt");
 
