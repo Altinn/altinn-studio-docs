@@ -1,6 +1,6 @@
 ---
 draft: true
-title: Kalkulering av datafelt
+title: Kalkulering med uttrykk
 description: Slik konfigurerer du kalkulering med dynamiske uttrykk
 toc: true
 tags: [needsReview]
@@ -9,7 +9,7 @@ tags: [needsReview]
 
 Med uttrykk kan du beregne verdien av datamodellfelt automatisk. Uttrykksmotoren leser reglene fra en JSON Schema-spesifikasjon.
 
-## Hvordan konfigurere kalkulering med uttrykk
+## Konfigurere kalkulering med uttrykk
 
 {{<content-version-selector classes="border-box">}}
 

@@ -4,7 +4,7 @@ headless: true
 hidden: true
 tags: [needsReview]
 ---
-Kalkulering med uttrykk defineres i en egen fil ved siden av datamodellen din, og bruker navnekonvensjonen `navn.calculation.json`.
+Definer kalkulering med uttrykk i en egen fil ved siden av datamodellen din. Filen bruker navnekonvensjonen `navn.calculation.json`.
 Hvis datamodellen din heter `skjema`, har du allerede filene `skjema.cs` og `skjema.schema.json`. Den nye filen skal ligge i samme mappe og hete `skjema.calculation.json`.
 Du kan kopiere innholdet nedenfor som et utgangspunkt:
 
@@ -39,7 +39,7 @@ example.calculation.json
 }
 ```
 
-Reglene for feltene i datamodellen settes i `calculations`-objektet, der datamodellstien er nøkkelen, og verdien er en regel.
+Sett reglene for feltene i datamodellen i `calculations`-objektet, der datamodellstien er nøkkelen, og verdien er en regel.
 
 I motsetning til validering med uttrykk, støtter ikke kalkuleringer med uttrykk lister.
 
