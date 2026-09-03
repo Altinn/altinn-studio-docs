@@ -45,5 +45,3 @@ Som applikasjonseier må du alltid vurdere om intensjonene i rollebeskrivelsen s
 ## Altinn kan pålegge deg å endre autorisasjonsregler
 Selv om det er ditt ansvar som applikasjonseier å konstruere riktig autorisasjonsregel og velge riktige roller, gjennomfører Altinn stikkprøver av autorisasjonsreglene til tjenester i produksjon.
 Hvis vi oppdager det vi anser som feil bruk av Altinn Autorisasjon, vil vi om nødvendig ta tjenesten ut av produksjon eller pålegge deg å endre autorisasjonsreglene.
-
-{{<children />}}
