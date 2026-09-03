@@ -67,7 +67,7 @@ The capability a legacy authorization attribute could not express at all: exposi
 }
 ```
 
-Because no `serviceResource` or `additionalResourceAttribute` is set, the evaluated action derives to `read`, and the issued context token will not carry an `r` claim.
+Because no `serviceResource` or `additionalResourceAttribute` is set, the check evaluates a plain `read` against the dialog's own resource, for the listed parties only.
 
 ## Pointing at another service's policy
 
@@ -109,7 +109,28 @@ See the [field reference]({{< relref "/dialogporten/reference/authorization/auth
 
 ## Calling the protected endpoint
 
-Read `contextToken` off the entity that carries the authorization context, and send it instead of the dialog token when calling that entity's URL. Validate it following the [context token checklist]({{< relref "/dialogporten/reference/authorization/context-tokens" >}}#validation-checklist-for-receiving-services), in particular checking `pp`, not `p`, for who is authorized.
+End-user systems send the ordinary [dialog token]({{< relref "/dialogporten/reference/authorization/dialog-tokens" >}}) against the entity's URL, exactly as for any other part of the dialog. What differs is on the receiving side: a grant derived from an authorization context is not listed among the token's authorized actions (`a`). Instead, the token's `e` claim lists every context-carrying entity the end user is authorized for, so after verifying the token as usual, check that the entity the request is for is listed there - by its id, or by a `tokenRef` you set on the context:
+
+```jsonc
+{
+  "attachments": [
+    {
+      "displayName": [{ "languageCode": "en", "value": "Auditor report" }],
+      "urls": [{ "url": "https://example.com/files/auditor-report.pdf", "consumerType": "Gui" }],
+      "authorizationContext": {
+        "additionalResourceAttribute": "urn:altinn:subresource:auditor-documents",
+        "includeDialogParty": true,
+        // Listed in the dialog token's "e" claim instead of the attachment's id, so the receiving
+        // service can recognize the grant without knowing Dialogporten's entity ids. Max 50 characters.
+        "tokenRef": "auditor-report-2026",
+        "unauthorizedPresentation": "Excluded"
+      }
+    }
+  ]
+}
+```
+
+Use `tokenRef` whenever your receiving service does not track Dialogporten entity ids. See the [validation recommendations]({{< relref "/dialogporten/reference/authorization/dialog-tokens" >}}#token-validation-recommendations) for the full checklist.
 
 {{<notice warning>}}
 While Dialogporten will check authorization and mask or exclude the entity when the check fails, the service owner system MUST perform its own authorization based on the same policy
@@ -121,7 +142,7 @@ While Dialogporten will check authorization and mask or exclude the entity when 
 
 - Remove the entity's `authorizationAttribute`, and on API/GUI actions the top-level `action` as well - use `authorizationContext.action` instead.
 - If the attribute you're migrating narrowed a transmission to a subresource or task, don't leave `authorizationContext.action` unset - it defaults to `read`, which a broad `read` rule on the main resource will still match. Name your own `action` (see the example above) and update your policy to key on it, or the migrated entity will end up more broadly visible than it was before.
-- Coordinate with whoever validates the dialog token's authorized actions on the receiving side first: the moment an entity gains a context, its grant disappears from the dialog token and only appears in the entity's own context token.
+- Coordinate with whoever validates the dialog token on the receiving side first: the moment an entity gains a context, its grant disappears from the token's authorized actions (`a`) and the entity is instead listed in the `e` claim, by id or `tokenRef`.
 - Double-check policies that combine several distinct actions across entities in the same dialog - a defect in the legacy authorization check that used to grant broader access than intended has been fixed, and while it does not affect any known production policy today, it's worth verifying against your own.
 
 See the [full migration table]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}#migration-from-authorizationattribute) for the exact translation from each legacy shape.
@@ -129,7 +150,7 @@ See the [full migration table]({{< relref "/dialogporten/reference/authorization
 **Read more**
 
 - {{<link "../../../reference/authorization/authorization-contexts">}}
-- {{<link "../../../reference/authorization/context-tokens">}}
+- {{<link "../../../reference/authorization/dialog-tokens">}}
 - {{<link "../creating-dialogs">}}
 
 {{<children />}}

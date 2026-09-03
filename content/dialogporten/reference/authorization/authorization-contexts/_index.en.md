@@ -37,9 +37,9 @@ All six surfaces share exactly the same `authorizationContext` shape - an attach
 
 This applies to the dialog create and update endpoints, and to the dedicated create/update-transmission endpoints.
 
-**Read-back of the context itself is service-owner-only.** `authorizationContext` is included on the service owner read DTOs (the dialog `GET` response and the service-owner transmission endpoints), but is not present on any end-user DTO. This is a deliberate confidentiality property: an authorization context can name specific parties, and publishing that list to an end user would reveal which other parties may have access to a given part of the dialog. End users only ever see the *effects* of a context: `isAuthorized`, the masked fields or the exclusion described below, and `contextToken`.
+**Read-back of the context itself is service-owner-only.** `authorizationContext` is included on the service owner read DTOs (the dialog `GET` response and the service-owner transmission endpoints), but is not present on any end-user DTO. This is a deliberate confidentiality property: an authorization context can name specific parties, and publishing that list to an end user would reveal which other parties may have access to a given part of the dialog. End users only ever see the *effects* of a context: `isAuthorized`, the masked fields or the exclusion described below, and the entity's entry in the dialog token's `e` claim.
 
-GraphQL follows the same pattern: it exposes `contextToken` and the `excluded*` collections on the end-user entities, but not the authorization context itself.
+GraphQL follows the same pattern: it exposes `isAuthorized` and the `excluded*` collections on the end-user entities, but not the authorization context itself.
 
 ## Fields
 
@@ -100,6 +100,14 @@ Maximum length 255 characters.
 
 On the end-user read surface, the entity's `action` property always reports the action that was actually evaluated: the context's `action` when it names one, and `read` when it does not. On the service owner read surface the two are kept apart - the legacy top-level `action` reads back as an empty string for an entity that uses a context, and the evaluated action is found in `authorizationContext.action`.
 
+### `tokenRef`
+
+Type `string`, optional. Maximum length 50 characters; must not be blank when set.
+
+A reference of your own choosing that identifies this context in the [dialog token]({{< relref "/dialogporten/reference/authorization/dialog-tokens" >}}#the-e-claim-authorized-entities). When the end user is authorized for the context, the token's `e` claim lists this value instead of the id of the entity carrying the context, so a receiving service can recognize the grant without tracking Dialogporten entity ids. Several contexts may share the same `tokenRef`; that is allowed, and the token then lists it once - useful for letting the receiving service check one reference for a whole group of entities. Dialogporten does not check `tokenRef` for uniqueness or for collisions with entity ids, since both the contexts and the receiving check are yours; take care not to reuse a reference for entities that should be authorized separately.
+
+`tokenRef` is read back on the service owner surface along with the rest of the context, and is never exposed to end users other than through the token.
+
 ### `unauthorizedPresentation`
 
 Type `string` enum, values `Disabled` or `Excluded`. **Required.**
@@ -113,7 +121,7 @@ Although not marked as a required property in the OpenAPI schema, omitting this 
 
 ### `Disabled`: kept in place, URLs masked
 
-The entity stays where it is in its array, `isAuthorized` is `false`, and `contextToken` is `null`. Everything the entity says about itself remains readable; only the parts that would let the end user act on it are replaced.
+The entity stays where it is in its array, `isAuthorized` is `false`, and the entity is not listed in the dialog token's `e` claim. Everything the entity says about itself remains readable; only the parts that would let the end user act on it are replaced.
 
 URLs are replaced with one of two placeholder values: `urn:dialogporten:unauthorized` for an access denial, and `urn:dialogporten:expired` for an expired attachment or navigational action URL - but the expired placeholder is only used when the caller is authorized; a URL that is both unauthorized and expired shows the unauthorized placeholder.
 
@@ -128,7 +136,7 @@ URLs are replaced with one of two placeholder values: `urn:dialogporten:unauthor
 
 ### `Excluded`: removed from its collection
 
-The entity is not in the response at all. There is no element with `isAuthorized: false` to find, and no `contextToken`. All that is left is a stub in a sibling array, carrying two fields and nothing else:
+The entity is not in the response at all. There is no element with `isAuthorized: false` to find, and no entry in the dialog token's `e` claim. All that is left is a stub in a sibling array, carrying two fields and nothing else:
 
 ```json
 {
@@ -181,8 +189,7 @@ Four consequences worth keeping in mind:
 
 1. **`isAuthorized: false` means exactly one thing.** It marks an entity that exists, is described, and cannot be used - never an entity that has been withheld. An excluded entity is simply absent.
 2. **An excluded transmission takes its children with it.** Only the transmission's own stub appears; its attachments and navigational actions are not reported separately, in that transmission's shadow arrays or anywhere else. A child with its own `Excluded` context inside a transmission that is only `Disabled` (and denied), however, is excluded individually, into that transmission's own shadow array.
-3. **An excluded navigational action discloses an `id` it would not otherwise have.** Navigational actions carry no `id` in the end-user API, but their stubs do. It is an identifier and nothing more - it reveals nothing about the action itself.
-4. Dialog-level content (`content.mainContentReference`) is **not** governed by an authorization context at all - dialog content has no context of its own. Its visibility is gated purely on whether the caller has read access to the dialog's main resource.
+3. Dialog-level content (`content.mainContentReference`) is **not** governed by an authorization context at all - dialog content has no context of its own. Its visibility is gated purely on whether the caller has read access to the dialog's main resource.
 
 ## Endpoint behaviour for excluded transmissions
 
@@ -196,7 +203,7 @@ Four consequences worth keeping in mind:
 
 A child authorization context can only narrow access, never widen it. Access to the parent is always a precondition:
 
-- For a transmission's attachments and navigational actions, the transmission's own authorization is the precondition - a permissive child context inside a denied transmission grants nothing, and its `contextToken` is `null` regardless of what the child context alone would otherwise permit.
+- For a transmission's attachments and navigational actions, the transmission's own authorization is the precondition - a permissive child context inside a denied transmission grants nothing, and the child is not listed in the dialog token's `e` claim regardless of what the child context alone would otherwise permit.
 - For dialog-level attachments, the precondition is read access to the dialog's main resource. A dialog attachment with no context of its own is never individually restricted - it inherits the dialog's own access.
 
 If the caller cannot read the dialog's main resource at all, `GET /dialogs/{id}` fails with `403 Forbidden` before any per-entity evaluation runs, unless list authorization grants a narrower form of access - in which case the dialog is returned with its actions flagged as unauthorized rather than the request being rejected outright. The standalone transmission endpoints have no such fallback: without main-resource access they answer `404 Not Found`, as if the dialog did not exist.
@@ -236,7 +243,7 @@ Five things to be aware of when migrating:
 1. **Legacy authorization attributes no longer derive a distinct action for subresource/task narrowing.** They used to derive `transmissionread` in that case, specifically so the request would not accidentally match a broader `read` rule on the main resource; that derivation is gone, and every legacy attribute now derives a plain `read`, whatever it refers to. A subresource or task named in a legacy attribute can therefore only ever broaden access through a dedicated policy rule, never narrow it - see [using authorization attributes on transmissions]({{< relref "/dialogporten/reference/authorization/attributes" >}}#using-authorization-attributes-on-transmissions). If you relied on `transmissionread` to narrow a transmission's visibility, and want to keep doing so after migrating, name an explicit, distinct `action` on the authorization context (`elementread` in the table above is just an example name) and update your policy to match on that action instead of `transmissionread` - `authorizationContext.action` is the only place a narrowing action can still be named.
 2. **A related behaviour change applies to legacy entities regardless of whether you migrate them.** Authorization on a legacy action with no `authorizationAttribute` now requires that action to be permitted on the exact resource the entity refers to. Previously, it could also be satisfied by *any other entity in the same dialog* having that action permitted on some resource, including the dialog's main resource - which meant, for example, a `write` GUI action with no authorization attribute could be granted purely because some unrelated entity in the dialog also had a permitted `write`. It now needs `write` on the main resource specifically. This is a defect fix rather than a live migration risk today, but any future policy shaped the old way would be affected - if your service uses several distinct actions across entities sharing the same dialog, it's worth double-checking your policies.
 3. **`unauthorizedPresentation` has no legacy equivalent and must be chosen explicitly.** Legacy behaviour (mask URLs, keep content) corresponds to `Disabled`. Migrating with `Excluded` instead is a visible change for end users, and one their systems have to be ready for: the entity disappears from the collection it used to sit in.
-4. **`contextToken` replaces the dialog token for migrated entities.** The moment an entity gains an authorization context, its grant disappears from the dialog token's list of authorized actions - a receiving service that authorizes purely from the dialog token will start denying requests for that entity. Coordinate the receiving side to use the entity's [context token]({{< relref "/dialogporten/reference/authorization/context-tokens" >}}) before migrating.
+4. **The grant moves from the `a` claim to the `e` claim.** The moment an entity gains an authorization context, its grant disappears from the dialog token's list of authorized actions (`a`), and the entity is instead listed in the token's `e` claim by id or `tokenRef` - a receiving service that authorizes purely from `a` will start denying requests for that entity. Coordinate the receiving side to check `e` (see [the dialog token reference]({{< relref "/dialogporten/reference/authorization/dialog-tokens" >}}#the-e-claim-authorized-entities)) before migrating.
 5. **A wire-level difference in the resource attribute is easy to miss.** For `authorizationAttribute`, Dialogporten has always sent a subresource attribute on the underlying authorization request - a sentinel value, `main`, when no attribute was supplied at all. An authorization context that neither sets `serviceResource` nor `additionalResourceAttribute` (pure party-only narrowing) sends no subresource attribute at all. A policy rule that matches specifically on the subresource attribute being `main` will stop matching once you migrate to a plain party-narrowed context. Policies that don't reference the attribute are unaffected.
 
 ## Validation errors
@@ -268,7 +275,7 @@ The stub used in the six `excluded*` collections on the end-user API:
 **Read more**
 
 - {{<link "../../../getting-started/authorization/authorization-contexts">}}
-- {{<link "../context-tokens">}}
+- {{<link "../dialog-tokens">}}
 - {{<link "../attributes">}}
 
 {{<children />}}

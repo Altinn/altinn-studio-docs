@@ -67,7 +67,7 @@ Muligheten et gammelt autorisasjonsattributt ikke kunne uttrykke i det hele tatt
 }
 ```
 
-Siden verken `serviceResource` eller `additionalResourceAttribute` er satt, utledes handlingen til `read`, og konteksttokenet som utstedes vil ikke ha noe `r`-claim.
+Siden verken `serviceResource` eller `additionalResourceAttribute` er satt, evaluerer sjekken en ren `read` mot dialogens egen ressurs, bare for partene i listen.
 
 ## Peke på en annen tjenestes policy
 
@@ -109,7 +109,28 @@ Se [feltreferansen]({{< relref "/dialogporten/reference/authorization/authorizat
 
 ## Kalle det beskyttede endepunktet
 
-Les `contextToken` fra entiteten som har autorisasjonskonteksten, og send det i stedet for dialogtokenet når du kaller URL-ene til den entiteten. Valider det i tråd med [sjekklisten for konteksttoken]({{< relref "/dialogporten/reference/authorization/context-tokens" >}}#sjekkliste-for-validering-hos-mottakende-tjenester), og sjekk særlig `pp`, ikke `p`, for hvem som er autorisert.
+Sluttbrukersystemer sender det vanlige [dialogtokenet]({{< relref "/dialogporten/reference/authorization/dialog-tokens" >}}) mot entitetens URL, akkurat som for alle andre deler av dialogen. Forskjellen ligger på mottakersiden: en rettighet avledet fra en autorisasjonskontekst står ikke blant tokenets autoriserte handlinger (`a`). I stedet lister tokenets `e`-claim opp hver kontekstbærende entitet sluttbrukeren er autorisert for, så etter å ha verifisert tokenet som vanlig, sjekk at entiteten forespørselen gjelder står der - ved ID-en sin, eller ved en `tokenRef` du setter på konteksten:
+
+```jsonc
+{
+  "attachments": [
+    {
+      "displayName": [{ "languageCode": "nb", "value": "Revisorrapport" }],
+      "urls": [{ "url": "https://example.com/files/revisorrapport.pdf", "consumerType": "Gui" }],
+      "authorizationContext": {
+        "additionalResourceAttribute": "urn:altinn:subresource:revisordokumenter",
+        "includeDialogParty": true,
+        // Listes opp i dialogtokenets "e"-claim i stedet for vedleggets ID, slik at den mottakende
+        // tjenesten kan gjenkjenne rettigheten uten å kjenne Dialogportens entitets-ID-er. Maks 50 tegn.
+        "tokenRef": "revisorrapport-2026",
+        "unauthorizedPresentation": "Excluded"
+      }
+    }
+  ]
+}
+```
+
+Bruk `tokenRef` når den mottakende tjenesten din ikke holder styr på Dialogportens entitets-ID-er. Se [anbefalingene for tokenvalidering]({{< relref "/dialogporten/reference/authorization/dialog-tokens" >}}#anbefalinger-for-tokenvalidering) for hele sjekklisten.
 
 {{<notice warning>}}
 Selv om Dialogporten sjekker autorisasjon og maskerer eller utelukker entiteten når sjekken feiler, MÅ tjenesteeiersystemet utføre sin egen autorisasjon basert på den samme policyen
@@ -121,7 +142,7 @@ Selv om Dialogporten sjekker autorisasjon og maskerer eller utelukker entiteten 
 
 - Fjern entitetens `authorizationAttribute`, og på API-/GUI-handlinger også det øverste `action`-feltet - bruk `authorizationContext.action` i stedet.
 - Hvis attributtet du migrerer avgrenset en forsendelse til en underressurs eller oppgave, la ikke `authorizationContext.action` stå usatt - da blir den `read`, og en bred `read`-regel på hovedressursen vil fortsatt treffe den. Gi handlingen et eget navn (se eksempelet ovenfor) og la policyen matche på det, ellers ender den migrerte entiteten opp mer synlig enn den var før.
-- Avstem med den som validerer dialogtokenets autoriserte handlinger på mottakersiden først: så snart en entitet får en kontekst, forsvinner rettigheten fra dialogtokenet og finnes bare igjen i entitetens eget konteksttoken.
+- Avstem med den som validerer dialogtokenet på mottakersiden først: så snart en entitet får en kontekst, forsvinner rettigheten fra tokenets autoriserte handlinger (`a`), og entiteten listes i stedet opp i `e`-claimet, ved ID eller `tokenRef`.
 - Dobbeltsjekk policyer som kombinerer flere ulike handlinger på tvers av entiteter i samme dialog - en feil i den gamle autorisasjonssjekken, som tidligere kunne gi bredere tilgang enn tiltenkt, er nå rettet. Feilen påvirker ingen kjent policy i produksjon i dag, men det er verdt å dobbeltsjekke din egen.
 
 Se [den fullstendige migreringstabellen]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}#migrere-fra-authorizationattribute) for den nøyaktige oversettelsen fra hver gammel form.
@@ -129,7 +150,7 @@ Se [den fullstendige migreringstabellen]({{< relref "/dialogporten/reference/aut
 **Les mer**
 
 - {{<link "../../../reference/authorization/authorization-contexts">}}
-- {{<link "../../../reference/authorization/context-tokens">}}
+- {{<link "../../../reference/authorization/dialog-tokens">}}
 - {{<link "../creating-dialogs">}}
 
 {{<children />}}

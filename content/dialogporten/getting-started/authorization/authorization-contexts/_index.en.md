@@ -47,12 +47,12 @@ SBS->>DP: Fetch dialog
 DP->>DP: Flatten dialog into authorization checks
 DP->>AA: Authorize checks (one evaluation per check per party)
 AA->>DP: Return decisions
-DP->>DP: Determine isAuthorized per entity, issue a context token per authorized entity
-DP->>SBS: Return dialog + dialog token + context tokens
-SBS->>TT: Call the entity's endpoint, supply its context token
-TT->>TT: Validate typ, signature and claims
+DP->>DP: Determine isAuthorized per entity, list the authorized entities in the dialog token
+DP->>SBS: Return dialog + dialog token
+SBS->>TT: Call the entity's endpoint, supply the dialog token
+TT->>TT: Validate signature and claims, check that the entity is listed
 {{</mermaid>}}
-{{<center>}}_Diagram showing the overall flow for a dialog with authorization contexts. As with the dialog token, note step 8, where the service provider authorizes the request from the context token's claims, without having to make a request back to Altinn Authorization._{{</center>}}
+{{<center>}}_Diagram showing the overall flow for a dialog with authorization contexts. Note step 8, where the service provider authorizes the request from the dialog token's claims, without having to make a request back to Altinn Authorization._{{</center>}}
 
 ## What an end user sees when access is denied
 
@@ -66,11 +66,11 @@ The exact, field-by-field effect of each option is covered in the [technical ref
 
 ## Relationship to the dialog token
 
-The [dialog token]({{< relref "/dialogporten/getting-started/authorization/dialog-tokens" >}}) deliberately does not carry grants derived from authorization contexts. Those grants are expressed exclusively through a new, per-entity [context token]({{< relref "/dialogporten/reference/authorization/context-tokens" >}}), issued only for entities that both carry a context and are authorized. A service provider that receives an authorization context on part of a dialog must use that entity's context token against its URLs, not the dialog token.
+End-user systems keep using the single [dialog token]({{< relref "/dialogporten/getting-started/authorization/dialog-tokens" >}}) against every URL in the dialog, including those of entities carrying an authorization context. What changes is how the grant is expressed inside the token: the list of authorized actions deliberately does not include grants derived from authorization contexts, since a context may grant access through a party or resource other than the dialog's own. Instead the token carries a dedicated claim listing every context-carrying entity the user is authorized for, by the entity's id or by a `tokenRef` the service owner chooses on the context. A service provider receiving a request for such an entity checks that it is listed there.
 
 **Read more**
 
 - {{<link "../../../reference/authorization/authorization-contexts">}}
-- {{<link "../../../reference/authorization/context-tokens">}}
+- {{<link "../../../reference/authorization/dialog-tokens">}}
 
 {{<children />}}

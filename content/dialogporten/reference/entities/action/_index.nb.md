@@ -15,7 +15,7 @@ Både GUI-handlinger og API-handlinger deler den samme grunnleggende autorisasjo
 - en [autorisasjonskontekst]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}) (foretrukket) kan evaluere handlingen mot en annen ressurs, flere parter, eller begge deler
 - `authorizationAttribute` (utfaset) kan overstyre standard autorisasjonsressurs for handlingen
 - `isAuthorized` viser om den autentiserte brukeren er autorisert akkurat nå
-- `contextToken` er til stede når handlingen har en autorisasjonskontekst den nåværende brukeren er autorisert for, og må brukes i stedet for dialogtokenet mot URL-ene til handlingen
+- når handlingen har en autorisasjonskontekst den nåværende brukeren er autorisert for, lister dialogtokenet opp handlingens `id` (eller kontekstens `tokenRef`) i `e`-claimet sitt i stedet for å legge handlingen til i `a`-claimet
 
 I sluttbruker-API-er maskeres URL-ene til en uautorisert handling:
 
@@ -54,6 +54,6 @@ API-handlinger er ment for klientintegrasjoner og grupperer ett eller flere vers
 **Les mer**
 
 - {{<link "../../authorization/authorization-contexts">}}
-- {{<link "../../authorization/context-tokens">}}
+- {{<link "../../authorization/dialog-tokens">}}
 
 {{<children />}}

@@ -37,9 +37,9 @@ Alle seks delene deler nøyaktig samme `authorizationContext`-form - et vedlegg 
 
 Dette gjelder både endepunktene for opprettelse og oppdatering av dialoger, og de egne endepunktene for opprettelse og oppdatering av forsendelser.
 
-**Selve konteksten kan bare leses tilbake av tjenesteeieren.** `authorizationContext` er med i tjenesteeierens lese-DTO-er (svaret fra dialog-GET-et og tjenesteeierens forsendelsesendepunkter), men finnes ikke på noen sluttbruker-DTO. Dette er en bevisst konfidensialitetsegenskap: en autorisasjonskontekst kan navngi bestemte parter, og å publisere den listen til en sluttbruker ville avslørt hvilke andre parter som kan ha tilgang til en gitt del av dialogen. Sluttbrukere ser bare *effekten* av en kontekst: `isAuthorized`, feltene som maskeres eller det at entiteten utelukkes (beskrevet nedenfor), og `contextToken`.
+**Selve konteksten kan bare leses tilbake av tjenesteeieren.** `authorizationContext` er med i tjenesteeierens lese-DTO-er (svaret fra dialog-GET-et og tjenesteeierens forsendelsesendepunkter), men finnes ikke på noen sluttbruker-DTO. Dette er en bevisst konfidensialitetsegenskap: en autorisasjonskontekst kan navngi bestemte parter, og å publisere den listen til en sluttbruker ville avslørt hvilke andre parter som kan ha tilgang til en gitt del av dialogen. Sluttbrukere ser bare *effekten* av en kontekst: `isAuthorized`, feltene som maskeres eller det at entiteten utelukkes (beskrevet nedenfor), og entitetens oppføring i dialogtokenets `e`-claim.
 
-GraphQL følger samme mønster: det eksponerer `contextToken` og `excluded*`-listene på sluttbrukerentitetene, men ikke selve autorisasjonskonteksten.
+GraphQL følger samme mønster: det eksponerer `isAuthorized` og `excluded*`-listene på sluttbrukerentitetene, men ikke selve autorisasjonskonteksten.
 
 ## Felt
 
@@ -100,6 +100,14 @@ Maks 255 tegn.
 
 I sluttbruker-API-et rapporterer `action`-feltet på entiteten alltid handlingen som faktisk ble evaluert: kontekstens `action` når den navngir en, og `read` når den ikke gjør det. I tjenesteeier-API-et holdes de to fra hverandre - det gamle `action`-feltet på øverste nivå leses tilbake som en tom streng for en entitet som bruker en kontekst, og den evaluerte handlingen finner du i `authorizationContext.action`.
 
+### `tokenRef`
+
+Type `string`, valgfritt. Maksimalt 50 tegn; kan ikke være blankt når det er satt.
+
+En referanse du velger selv, som identifiserer denne konteksten i [dialogtokenet]({{< relref "/dialogporten/reference/authorization/dialog-tokens" >}}#e-claimet-autoriserte-entiteter). Når sluttbrukeren er autorisert for konteksten, lister tokenets `e`-claim opp denne verdien i stedet for ID-en til entiteten som har konteksten, slik at en mottakende tjeneste kan gjenkjenne rettigheten uten å holde styr på Dialogportens entitets-ID-er. Flere kontekster kan dele samme `tokenRef`; det er tillatt, og tokenet lister den da opp én gang - nyttig når den mottakende tjenesten skal sjekke én referanse for en hel gruppe entiteter. Dialogporten sjekker ikke `tokenRef` for unikhet eller for kollisjoner med entitets-ID-er, siden både kontekstene og sjekken på mottakersiden er dine; pass på å ikke gjenbruke en referanse for entiteter som skal autoriseres hver for seg.
+
+`tokenRef` leses tilbake på tjenesteeierflaten sammen med resten av konteksten, og eksponeres aldri for sluttbrukere på annen måte enn gjennom tokenet.
+
 ### `unauthorizedPresentation`
 
 Type `string`-enum, verdiene `Disabled` eller `Excluded`. **Påkrevd.**
@@ -113,7 +121,7 @@ Selv om feltet ikke er markert som påkrevd i OpenAPI-schemaet, blir det avvist 
 
 ### `Disabled`: blir liggende, URL-ene maskeres
 
-Entiteten blir liggende der den er i listen sin, `isAuthorized` er `false`, og `contextToken` er `null`. Alt entiteten forteller om seg selv, er fortsatt lesbart; bare det som ville latt sluttbrukeren handle på den, erstattes.
+Entiteten blir liggende der den er i listen sin, `isAuthorized` er `false`, og entiteten står ikke i dialogtokenets `e`-claim. Alt entiteten forteller om seg selv, er fortsatt lesbart; bare det som ville latt sluttbrukeren handle på den, erstattes.
 
 URL-er erstattes med én av to plassholderverdier: `urn:dialogporten:unauthorized` ved nektet tilgang, og `urn:dialogporten:expired` for en utløpt URL på et vedlegg eller en navigasjonshandling - men plassholderen for utløpt brukes bare når den som spør er autorisert; en URL som både er uautorisert og utløpt, viser plassholderen for uautorisert.
 
@@ -128,7 +136,7 @@ URL-er erstattes med én av to plassholderverdier: `urn:dialogporten:unauthorize
 
 ### `Excluded`: fjernet fra listen sin
 
-Entiteten er ikke med i svaret i det hele tatt. Det finnes ingen oppføring med `isAuthorized: false` å finne, og ikke noe `contextToken`. Det eneste som står igjen, er en stubb i en liste ved siden av, med to felt og ikke noe mer:
+Entiteten er ikke med i svaret i det hele tatt. Det finnes ingen oppføring med `isAuthorized: false` å finne, og ingen oppføring i dialogtokenets `e`-claim. Det eneste som står igjen, er en stubb i en liste ved siden av, med to felt og ikke noe mer:
 
 ```json
 {
@@ -181,8 +189,7 @@ Fire ting som er verdt å ha i bakhodet:
 
 1. **`isAuthorized: false` betyr nøyaktig én ting.** Det markerer en entitet som finnes, er beskrevet og ikke kan brukes - aldri en entitet som holdes tilbake. En utelukket entitet er rett og slett borte.
 2. **En utelukket forsendelse tar med seg de underliggende delene sine.** Bare forsendelsens egen stubb dukker opp; vedleggene og navigasjonshandlingene rapporteres ikke separat, verken i skyggelistene til den forsendelsen eller andre steder. Et vedlegg eller en navigasjonshandling med sin egen `Excluded`-kontekst inni en forsendelse som bare er `Disabled` (og nektet), utelukkes derimot individuelt, til skyggelisten på den forsendelsen.
-3. **En utelukket navigasjonshandling avslører en `id` den ellers ikke har.** Navigasjonshandlinger har ingen `id` i sluttbruker-API-et, men stubbene deres har det. Det er en identifikator og ikke noe mer - den avslører ingenting om selve handlingen.
-4. Innhold på dialognivå (`content.mainContentReference`) styres **ikke** av noen autorisasjonskontekst i det hele tatt - dialoginnhold har ingen egen kontekst. Synligheten avhenger utelukkende av om den som spør har lesetilgang til dialogens hovedressurs.
+3. Innhold på dialognivå (`content.mainContentReference`) styres **ikke** av noen autorisasjonskontekst i det hele tatt - dialoginnhold har ingen egen kontekst. Synligheten avhenger utelukkende av om den som spør har lesetilgang til dialogens hovedressurs.
 
 ## Slik oppfører endepunktene seg for utelukkede forsendelser
 
@@ -196,7 +203,7 @@ Fire ting som er verdt å ha i bakhodet:
 
 En underordnet autorisasjonskontekst kan bare avgrense tilgang, aldri utvide den. Tilgang til forelderen er alltid en forutsetning:
 
-- For en forsendelses vedlegg og navigasjonshandlinger er forsendelsens egen autorisasjon forutsetningen - en tillatende underordnet kontekst inni en nektet forsendelse gir ingenting, og `contextToken` er `null` uansett hva den underordnede konteksten alene ellers ville tillatt.
+- For en forsendelses vedlegg og navigasjonshandlinger er forsendelsens egen autorisasjon forutsetningen - en tillatende underordnet kontekst inni en nektet forsendelse gir ingenting, og den underordnede delen står ikke i dialogtokenets `e`-claim uansett hva den underordnede konteksten alene ellers ville tillatt.
 - For vedlegg på dialogen er forutsetningen lesetilgang til dialogens hovedressurs. Et vedlegg på dialogen uten egen kontekst begrenses aldri individuelt - det arver dialogens egen tilgang.
 
 Hvis den som spør ikke kan lese dialogens hovedressurs i det hele tatt, feiler `GET /dialogs/{id}` med `403 Forbidden` før noen vurdering per entitet kjøres, med mindre listeautorisasjon gir en snevrere form for tilgang - i så fall returneres dialogen med handlingene sine markert som uautoriserte i stedet for at forespørselen avvises helt. De frittstående forsendelsesendepunktene har ingen slik reserveløsning: uten tilgang til hovedressursen svarer de `404 Not Found`, som om dialogen ikke fantes.
@@ -236,7 +243,7 @@ Fem ting du bør være klar over ved migrering:
 1. **Gamle autorisasjonsattributter utleder ikke lenger en egen handling for avgrensing til underressurs eller oppgave.** De utledet tidligere `transmissionread` i det tilfellet, nettopp for at forespørselen ikke skulle treffe en bredere `read`-regel på hovedressursen ved et uhell; den utledningen er borte, og hvert gammelt attributt utleder nå et rent `read`, uansett hva det refererer til. En underressurs eller oppgave navngitt i et gammelt attributt kan derfor bare utvide tilgang gjennom en egen policyregel, aldri avgrense den - se [bruke autorisasjonsattributter på forsendelser]({{< relref "/dialogporten/reference/authorization/attributes" >}}#bruke-autorisasjonsattributter-på-forsendelser). Hvis du var avhengig av `transmissionread` for å avgrense en forsendelses synlighet, og vil fortsette med det etter migrering, gi autorisasjonskonteksten en egen, distinkt `action` (`elementread` i tabellen ovenfor er bare et eksempelnavn) og oppdater policyen din til å matche på den handlingen i stedet for `transmissionread` - `authorizationContext.action` er det eneste stedet en avgrensende handling fortsatt kan navngis.
 2. **En relatert oppførselsendring gjelder gamle entiteter uansett om du migrerer dem eller ikke.** Autorisasjon for en gammel handling uten `authorizationAttribute` krever nå at handlingen er tillatt på nøyaktig den ressursen entiteten refererer til. Tidligere kunne dette også oppfylles av at *en annen entitet i samme dialog* hadde den handlingen tillatt på en eller annen ressurs, inkludert dialogens hovedressurs - noe som blant annet betydde at en `write`-GUI-handling uten autorisasjonsattributt kunne bli tillatt bare fordi en urelatert entitet i dialogen også hadde et tillatt `write`. Den trenger nå `write` spesifikt på hovedressursen. Dette er en feilretting snarere enn en levende migreringsrisiko i dag, men en fremtidig policy utformet på den gamle måten ville blitt påvirket - hvis tjenesten din bruker flere ulike handlinger på tvers av entiteter i samme dialog, kan det være verdt å dobbeltsjekke policyene dine.
 3. **`unauthorizedPresentation` har ingen tilsvarende gammel verdi og må velges eksplisitt.** Den gamle oppførselen (maskere URL-er, beholde innhold) tilsvarer `Disabled`. Å migrere med `Excluded` i stedet er en synlig endring for sluttbrukere, og en systemene deres må være forberedt på: entiteten forsvinner ut av listen den lå i.
-4. **`contextToken` erstatter dialogtokenet for migrerte entiteter.** Så snart en entitet får en autorisasjonskontekst, forsvinner rettigheten fra listen over autoriserte handlinger i dialogtokenet - en mottakende tjeneste som autoriserer utelukkende ut fra dialogtokenet, vil begynne å nekte forespørsler for den entiteten. Sørg for at mottakersiden bruker entitetens [konteksttoken]({{< relref "/dialogporten/reference/authorization/context-tokens" >}}) før du migrerer.
+4. **Rettigheten flytter fra `a`-claimet til `e`-claimet.** Så snart en entitet får en autorisasjonskontekst, forsvinner rettigheten fra listen over autoriserte handlinger i dialogtokenet (`a`), og entiteten listes i stedet opp i tokenets `e`-claim ved ID eller `tokenRef` - en mottakende tjeneste som autoriserer utelukkende ut fra `a`, vil begynne å nekte forespørsler for den entiteten. Sørg for at mottakersiden sjekker `e` (se [referansen for dialogtoken]({{< relref "/dialogporten/reference/authorization/dialog-tokens" >}}#e-claimet-autoriserte-entiteter)) før du migrerer.
 5. **En forskjell på trådnivå i ressursattributtet er lett å overse.** For `authorizationAttribute` har Dialogporten alltid sendt et underressursattributt i den underliggende autorisasjonsforespørselen - en sentinelverdi, `main`, når det ikke ble oppgitt noe attributt i det hele tatt. En autorisasjonskontekst som verken setter `serviceResource` eller `additionalResourceAttribute` (ren avgrensing til part), sender ikke noe underressursattributt i det hele tatt. En policyregel som matcher spesifikt på at underressursattributtet er `main`, vil slutte å matche etter at du migrerer til en ren partsavgrenset kontekst. Policyer som ikke refererer til attributtet, påvirkes ikke.
 
 ## Valideringsfeil
@@ -268,7 +275,7 @@ Stubben som brukes i de seks `excluded*`-listene i sluttbruker-API-et:
 **Les mer**
 
 - {{<link "../../../getting-started/authorization/authorization-contexts">}}
-- {{<link "../context-tokens">}}
+- {{<link "../dialog-tokens">}}
 - {{<link "../attributes">}}
 
 {{<children />}}

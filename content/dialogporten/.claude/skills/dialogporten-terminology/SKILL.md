@@ -29,7 +29,8 @@ rendering, even a reasonable-looking one:
 | Altinn Correspondence | Altinn Melding |
 | dialog token | dialogtoken |
 | authorization context | autorisasjonskontekst |
-| context token | konteksttoken |
+| authorized entities (the `e` claim) | autoriserte entiteter (`e`-claimet) |
+| token reference (`tokenRef`) | tokenreferanse |
 | excluded (unauthorizedPresentation) | utelukket |
 | disabled (unauthorizedPresentation) | sperret |
 

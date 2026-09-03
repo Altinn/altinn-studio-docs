@@ -15,7 +15,7 @@ Both GUI actions and API actions share the same core authorization model:
 - an [authorization context]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}) (preferred) can evaluate the action against a different resource, additional parties, or both
 - `authorizationAttribute` (deprecated) can override the default authorization resource for the action
 - `isAuthorized` shows whether the authenticated user is currently authorized
-- `contextToken` is present when the action carries an authorization context the current user is authorized for, and must be used instead of the dialog token against the action's URLs
+- when the action carries an authorization context the current user is authorized for, the dialog token lists the action's `id` (or the context's `tokenRef`) in its `e` claim instead of adding the action to the `a` claim
 
 In end-user APIs, the URLs of an unauthorized action are masked:
 
@@ -55,6 +55,6 @@ API actions are intended for client integrations and group one or more versioned
 **Read more**
 
 - {{<link "../../authorization/authorization-contexts">}}
-- {{<link "../../authorization/context-tokens">}}
+- {{<link "../../authorization/dialog-tokens">}}
 
 {{<children />}}

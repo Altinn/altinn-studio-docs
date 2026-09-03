@@ -20,7 +20,7 @@ Important parts of the transmission model are:
 - `relatedTransmissionId`, which links the transmission to another transmission when the service owner wants to express that relation
 - `content`, `attachments`, and `navigationalActions`, which contain the transmission-specific presentation and navigation data
 
-In end-user APIs, `isAuthorized` tells you whether the authenticated user may access the transmission content. If access is denied, the transmission's `unauthorizedPresentation` decides what happens: `Disabled` keeps the transmission in the list, masks its embedded content reference and the URLs of its children, and keeps the rest of the content readable, while `Excluded` removes the transmission from `transmissions` altogether and records its id and creation time in `excludedTransmissions` beside it - its children go with it. `contextToken` is present when the transmission carries an authorization context the current user is authorized for, and must be used instead of the dialog token against the transmission's URLs, including for [front channel embeds]({{< relref "/dialogporten/reference/front-end/front-channel-embeds" >}}).
+In end-user APIs, `isAuthorized` tells you whether the authenticated user may access the transmission content. If access is denied, the transmission's `unauthorizedPresentation` decides what happens: `Disabled` keeps the transmission in the list, masks its embedded content reference and the URLs of its children, and keeps the rest of the content readable, while `Excluded` removes the transmission from `transmissions` altogether and records its id and creation time in `excludedTransmissions` beside it - its children go with it. When the transmission carries an authorization context the current user is authorized for, the dialog token lists the transmission's `id` (or the context's `tokenRef`) in its `e` claim; the dialog token is used against the transmission's URLs as usual, including for [front channel embeds]({{< relref "/dialogporten/reference/front-end/front-channel-embeds" >}}).
 
 The standalone transmission endpoints follow the same rule: `GET` by ID returns `403 Forbidden` for an excluded transmission, and the transmission list simply leaves it out.
 
@@ -32,6 +32,6 @@ The service-owner APIs expose the same transmission concept in the service-owner
 **Read more**
 
 - {{<link "../../authorization/authorization-contexts">}}
-- {{<link "../../authorization/context-tokens">}}
+- {{<link "../../authorization/dialog-tokens">}}
 
 {{<children />}}

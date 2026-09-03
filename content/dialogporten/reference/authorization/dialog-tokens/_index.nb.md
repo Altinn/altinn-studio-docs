@@ -31,13 +31,11 @@ Ved hjelp av dialogtoken vil ressursserveren kunne autentisere og autorisere for
 
 Merk at ressursserveren også må implementere [CORS-protokollen](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) for å håndtere forespørsler fra nettleserbaserte klienter, inkludert Altinn.no-portalen.
 
-{{<notice warning>}}
-Entiteter med en [autorisasjonskontekst]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}) er unntaket: de får utstedt sitt eget, snevrere [konteksttoken]({{< relref "/dialogporten/reference/authorization/context-tokens" >}}), som må brukes i stedet for dialogtokenet mot URL-ene til den entiteten, siden dialogtokenet ikke bekrefter rettigheten deres. Se `contextToken`-feltet på de enkelte entitetene.
-{{</notice>}}
+Entiteter med en [autorisasjonskontekst]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}) bruker det samme dialogtokenet. Rettighetene deres uttrykkes ikke gjennom `a`-claimet, men ved at entiteten listes opp i [`e`-claimet](#e-claimet-autoriserte-entiteter) - se nedenfor.
 
 ### Tokentype
 
-Dialogtokenets JOSE-header `typ` er `JWT`. Dette er uendret, og det er ikke planlagt å endres for den nåværende hovedversjonen. Siden Dialogporten nå også utsteder en ny, snevrere token-type - [konteksttoken]({{< relref "/dialogporten/reference/authorization/context-tokens" >}}) - med en annen `typ`-verdi, bør en mottakende tjeneste validere `typ`-headeren eksplisitt i stedet for å anta at alle token den mottar er dialogtoken.
+Dialogtokenets JOSE-header `typ` er `JWT`. Det er ikke planlagt å endre dette for den nåværende hovedversjonen.
 
 ### Liste over Dialogporten-spesifikke claims
 
@@ -53,6 +51,17 @@ Dialogtokenets JOSE-header `typ` er `JWT`. Dette er uendret, og det er ikke plan
 | i                | Unik identifikator for dialogen.                                                                                                                                  | `"e0300961-85fb-4ef2-abff-681d77f9960e"`                                           |
 | s                | Tjenesteressursen som dialogen refererer til.                                                                                                                   | `"urn:altinn:resource:super-simple-service"`                                      |
 | a                | Autoriserte handlinger/autorisasjonsattributter.                                                                                                                        | `"read;write;sign;elementread,urn:altinn:subresource:authorizationattribute1"`                                    |
+| e                | Valgfritt. Autoriserte entiteter: for hver entitet med en autorisasjonskontekst som brukeren er autorisert for, entitetens ID eller tjenesteeierens `tokenRef`. Utelates når det ikke er noen. Se nedenfor. | `["0194a1b2-3c4d-7e5f-8a9b-0c1d2e3f4a5b", "my-own-reference"]`                    |
+
+#### `e`-claimet: autoriserte entiteter
+
+En entitet med en [autorisasjonskontekst]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}) kan ha fått tilgang gjennom en annen part eller ressurs enn dialogens egen, noe et handlingsnavn i `a` ikke kan uttrykke på en trygg måte. Rettigheter avledet fra autorisasjonskontekster holdes derfor helt utenfor `a`, og uttrykkes i stedet per entitet i `e`: en flat liste med én oppføring for hver kontekstbærende entitet (API-handling, GUI-handling, forsendelse, dialogvedlegg, forsendelsesvedlegg eller navigasjonshandling på en forsendelse) som brukeren er autorisert for.
+
+Hver oppføring er entitetens `id`, eller - når tjenesteeieren har satt en `tokenRef` på autorisasjonskonteksten - denne referansen ordrett. Like referanser slås sammen til én oppføring. Claimet utelates når det ikke er noe å liste opp, slik at en dialog uten autorisasjonskontekster utsteder et token med nøyaktig den formen det alltid har hatt.
+
+En mottakende tjeneste som håndterer en forespørsel rettet mot en kontekstbærende entitet, må sjekke at entiteten står i `e` - ved ID-en sin, eller ved den `tokenRef` tjenesteeieren valgte - i stedet for å se etter en handling i `a`. Regelen om at forelderen vurderes først gjelder også her: en underliggende del av en nektet forsendelse listes aldri opp, uansett hva dens egen kontekst ville tillatt.
+
+[.NET-SDK-et]({{< relref "/dialogporten/user-guides/service-owners/api-client" >}}) eksponerer dette som den valgfrie parameteren `requiredEntityReference` på `IDialogTokenValidator.Validate`, som lar valideringen feile med mindre den oppgitte referansen er listet opp, og som utvidelsesmetoden `GetAuthorizedEntityReferences()` på det validerte `ClaimsPrincipal`-objektet.
 
 #### Eksempel på dekodet token
 
@@ -71,6 +80,7 @@ Dialogtokenets JOSE-header `typ` er `JWT`. Dette er uendret, og det er ikke plan
   "i": "e0300961-85fb-4ef2-abff-681d77f9960e",
   "s": "urn:altinn:resource:super-simple-service",
   "a": "read;write;sign;elementread,urn:altinn:subresource:autorisasjonsattributt1",
+  "e": ["0194a1b2-3c4d-7e5f-8a9b-0c1d2e3f4a5b", "my-own-reference"],
   "exp": 1672772834,
   "iss": "https://dialogporten.no",
   "nbf": 1672771934,
@@ -102,6 +112,16 @@ JSON Web Key-settene som publiseres på well-known-endepunktene vil alltid inneh
 Nøkkelsettet bør caches og oppdateres med en frekvens på ikke mer enn 24 timer. Dialogporten kan når som helst introdusere nye nøkler i nøkkelsettet, men vil ikke signere dialogtoken før nøkkelen har vært publisert og tilgjengelig på well-known-endepunktet i minst 48 timer. Dette gir konsumenter tid til å oppdatere cache og verifisere signaturen til alle token utstedt av Dialogporten.
 
 ### Anbefalinger for tokenvalidering
+
+1. Verifiser signaturen mot JWKS-et, og velg nøkkel etter `kid`.
+2. Verifiser at `typ == "JWT"`.
+3. Verifiser at `iss` er den forventede Dialogporten-utstederen for miljøet.
+4. Verifiser `exp`/`nbf` med minimal klokkeslakk, gitt levetiden på 10 minutter.
+5. Verifiser at `i` (dialog-ID) er dialogen du forventer, hvis du kjenner den.
+6. For en forespørsel mot selve dialogen eller mot en entitet uten autorisasjonskontekst: verifiser at `a` inneholder handlingen du er i ferd med å utføre. For en forespørsel mot en entitet med en autorisasjonskontekst: verifiser i stedet at entitetens ID eller `tokenRef` står i `e`.
+7. Verifiser at `l` oppfyller ditt minstekrav til autentiseringsnivå.
+8. Avvis alt du ikke kjenner igjen.
+
 Se [RFC 8725](https://datatracker.ietf.org/doc/html/rfc8725) og RFC-ene nevnt ovenfor for informasjon om beste praksis for validering av JWS-signaturer.
 
 

@@ -29,18 +29,13 @@ TT->>SBS: Return response
 
 The dialog token also enables [front channel embeds]({{< relref "/dialogporten/getting-started/front-channel-embeds" >}}) and [write actions]({{< relref "/dialogporten/getting-started/write-actions" >}}), which are point-to-point interactions between the end user's device or system and the service provider systems, avoiding the need for intermediaries to handle data transfers.
 
-{{<notice warning>}}
-A transmission-level front channel embed is the exception: if the transmission carries an [authorization context]({{< relref "/dialogporten/getting-started/authorization/authorization-contexts" >}}), use that transmission's context token instead of the dialog token.
-{{</notice>}}
-
 ## Security and trust
 Dialogporten issues bearer tokens as JWTs (JSON Web Tokens) signed using state-of-the-art cryptography standards. The public key material used to verify tokens issued by Dialogporten is published at a standard HTTPS location, allowing for automatic configuration using most well-established cryptography application libraries.
 
-Dialogporten issues a second, narrower token type for entities carrying an [authorization context]({{< relref "/dialogporten/getting-started/authorization/authorization-contexts" >}}), signed with the same keys as the dialog token but distinguished by its JOSE `typ` header. See [context tokens]({{< relref "/dialogporten/reference/authorization/context-tokens" >}}) for details.
+Grants that stem from an [authorization context]({{< relref "/dialogporten/getting-started/authorization/authorization-contexts" >}}) are carried by the same dialog token, in a dedicated claim that lists the parts of the dialog the user is authorized for. See the [technical reference for dialog tokens]({{< relref "/dialogporten/reference/authorization/dialog-tokens" >}}#the-e-claim-authorized-entities) for details.
 
 **Read more**
 * [Technical reference for dialog tokens]({{< relref "/dialogporten/reference/authorization/dialog-tokens" >}})
 * {{<link "../authorization-contexts">}}
-* {{<link "../../../reference/authorization/context-tokens">}}
 
 {{<children />}}

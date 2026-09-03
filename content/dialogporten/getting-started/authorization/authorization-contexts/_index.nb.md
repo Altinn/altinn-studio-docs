@@ -47,12 +47,12 @@ SBS->>DP: Henter dialogen
 DP->>DP: Deler dialogen opp i autorisasjonssjekker
 DP->>AA: Autoriserer sjekkene (én evaluering per sjekk per part)
 AA->>DP: Returnerer beslutninger
-DP->>DP: Fastsetter isAuthorized per entitet, utsteder ett konteksttoken per autorisert entitet
-DP->>SBS: Returnerer dialog + dialogtoken + konteksttoken
-SBS->>TT: Kaller entitetens endepunkt, sender med dens konteksttoken
-TT->>TT: Validerer typ, signatur og claims
+DP->>DP: Fastsetter isAuthorized per entitet, lister de autoriserte entitetene i dialogtokenet
+DP->>SBS: Returnerer dialog + dialogtoken
+SBS->>TT: Kaller entitetens endepunkt, sender med dialogtokenet
+TT->>TT: Validerer signatur og claims, sjekker at entiteten er listet opp
 {{</mermaid>}}
-{{<center>}}_Diagram som viser den overordnede flyten for en dialog med autorisasjonskontekster. Som med dialogtokenet, merk trinn 8, der tjenesteleverandøren autoriserer forespørselen ut fra konteksttokenets claims, uten å måtte sende en ny forespørsel til Altinn Authorization._{{</center>}}
+{{<center>}}_Diagram som viser den overordnede flyten for en dialog med autorisasjonskontekster. Merk trinn 8, der tjenesteleverandøren autoriserer forespørselen ut fra dialogtokenets claims, uten å måtte sende en ny forespørsel til Altinn Authorization._{{</center>}}
 
 ## Hva en sluttbruker ser når tilgang nektes
 
@@ -66,11 +66,11 @@ Den nøyaktige, felt-for-felt-effekten av hvert valg er dekket i [teknisk refera
 
 ## Forholdet til dialogtokenet
 
-[Dialogtokenet]({{< relref "/dialogporten/getting-started/authorization/dialog-tokens" >}}) bærer bevisst ikke rettigheter avledet fra autorisasjonskontekster. Disse rettighetene uttrykkes utelukkende gjennom et nytt [konteksttoken]({{< relref "/dialogporten/reference/authorization/context-tokens" >}}) per entitet, som bare utstedes for entiteter som både har en kontekst og er autorisert. En tjenesteleverandør som mottar en autorisasjonskontekst på en del av en dialog, må bruke denne entitetens konteksttoken mot URL-ene dens, ikke dialogtokenet.
+Sluttbrukersystemer bruker det samme [dialogtokenet]({{< relref "/dialogporten/getting-started/authorization/dialog-tokens" >}}) mot alle URL-er i dialogen, også de som tilhører entiteter med en autorisasjonskontekst. Det som er annerledes, er hvordan rettigheten uttrykkes inne i tokenet: listen over autoriserte handlinger inneholder bevisst ikke rettigheter avledet fra autorisasjonskontekster, siden en kontekst kan gi tilgang gjennom en annen part eller ressurs enn dialogens egen. I stedet har tokenet et eget claim som lister opp hver kontekstbærende entitet brukeren er autorisert for, ved entitetens ID eller ved en `tokenRef` tjenesteeieren velger på konteksten. En tjenesteleverandør som mottar en forespørsel for en slik entitet, sjekker at den står i listen.
 
 **Les mer**
 
 - {{<link "../../../reference/authorization/authorization-contexts">}}
-- {{<link "../../../reference/authorization/context-tokens">}}
+- {{<link "../../../reference/authorization/dialog-tokens">}}
 
 {{<children />}}

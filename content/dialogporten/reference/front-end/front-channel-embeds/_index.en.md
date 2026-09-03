@@ -73,10 +73,6 @@ The FCE media types can be identified by their prefix `application/vnd.dialogpor
 
 Once identified, the EUS MUST perform a GET request to the specified endpoint using an HTTP client mechanism that supports either HTTP 1.1 or 2.0. The request MUST contain an `Authorization: Bearer <token>` header, using the dialog token supplied with the dialog. The EUS MUST make sure that the token is no older than 10 minutes. A new dialog token is issued with every request to the dialog details endpoint in the Dialogporten end-user API, either REST or GraphQL.
 
-{{<notice warning>}}
-A transmission-level FCE is the exception: if the transmission carries an [authorization context]({{< relref "/dialogporten/getting-started/authorization/authorization-contexts" >}}), the EUS MUST use that transmission's [context token]({{< relref "/dialogporten/reference/authorization/context-tokens" >}}) instead of the dialog token.
-{{</notice>}}
-
 The EUS MAY supply an `Origin` header in accordance with the CORS protocol. The EUS SHOULD NOT supply any cookies belonging to the domain of the CPS endpoint.
 
 ### Step 3: Handling the request at the CPS endpoint
@@ -143,6 +139,6 @@ Here are the constraints of the FCE remote content types that both CPSs and EUSs
 **Read more**
 
 - {{<link "../../authorization/authorization-contexts">}}
-- {{<link "../../authorization/context-tokens">}}
+- {{<link "../../authorization/dialog-tokens">}}
 
 {{<children />}}
