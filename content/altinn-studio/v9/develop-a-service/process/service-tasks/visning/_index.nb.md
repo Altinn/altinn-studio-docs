@@ -6,7 +6,7 @@ description: Slik styrer du visningen mens appen jobber, venter eller feiler
 tags: [altinn-apps, process, bpmn, task, service task, systemoppgave, needsReview, translate-to-english]
 ---
 
-En systemoppgave kjører på serveren, men brukeren sitter og venter i nettleseren. Appen har ferdige visninger for alle situasjonene som kan oppstå. Du trenger ikke gjøre noe for å få dem, men du kan bytte ut tekstene, og du kan lage din egen side når oppgaven trenger mer forklaring enn en tekst kan gi.
+En systemoppgave kjører på serveren, men brukeren sitter og venter i nettleseren. Appen har innebygde visninger for alle situasjonene som kan oppstå. Du trenger ikke gjøre noe for å få dem, men du kan bytte ut tekstene, og du kan lage din egen side når oppgaven trenger mer forklaring enn en tekst kan gi.
 
 ## De fire situasjonene
 
@@ -85,7 +85,7 @@ App/
       Settings.json
 ```
 
-Da bruker appen sidene dine i stedet for standard ventevisning, både når prosessen er parkert og når oppgaven venter med `Defer`. Alt annet virker som før: appen fortsetter å sjekke om prosessen har gått videre, og sender brukeren til neste steg når systemoppgaven er ferdig.
+Da bruker appen sidene dine i stedet for den innebygde ventevisningen, både når prosessen er parkert og når oppgaven venter med `Defer`. Alt annet virker som før: appen fortsetter å sjekke om prosessen har gått videre, og sender brukeren til neste steg når systemoppgaven er ferdig.
 
 Egen side er nyttig når du vil
 
@@ -111,7 +111,7 @@ Ventingen ligger lagret på serveren. Brukeren kan trygt lukke siden og komme ti
 
 ## Det brukeren ikke ser
 
-Noen opplysninger finnes i prosess-API-et, men ingen av standardvisningene viser dem:
+Noen opplysninger finnes i prosess-API-et, men ingen av de innebygde visningene viser dem:
 
 - Årsaken oppgaven oppgir når den venter, altså `reason` i `Defer`. Den ligger i prosessdataene og i driftsverktøyene, men ventesiden viser den ikke. Skal brukeren se den, må du lage din egen side.
 - Hvor langt oppgaven er kommet i sine egne steg. Interne steg betyr ingenting for brukeren, og appen viser dem derfor ikke.

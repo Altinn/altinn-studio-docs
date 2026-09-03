@@ -6,21 +6,21 @@ description: Slik bruker du systemoppgaver til arbeid appen gjør selv
 tags: [altinn-apps, process, bpmn, task, service task, systemoppgave, needsReview, translate-to-english]
 ---
 
-En systemoppgave er et steg i prosessen som appen kjører selv, uten at brukeren gjør noe. Plattformen har noen ferdige systemoppgaver du bare konfigurerer, og utviklerne dine kan skrive egne.
+En systemoppgave er et steg i prosessen som appen kjører selv, uten at brukeren gjør noe. Plattformen har noen innebygde systemoppgaver du bare konfigurerer, og utviklerne dine kan skrive egne.
 
-## Ferdige systemoppgaver
+## Innebygde systemoppgaver
 
 Disse systemoppgavene følger med plattformen:
 
 - [PDF-generering]({{< relref "/altinn-studio/v9/develop-a-service/process/pdf" >}}) lager en PDF av det brukeren har fylt ut.
 - [eFormidling]({{< relref "/altinn-studio/v9/receive-data/eFormidling" >}}) sender data videre til arkivet eller en annen mottaker.
-- Fiks Arkiv sender data til arkiv gjennom KS Fiks. Den ligger i en egen pakke som utviklerne legger til i appen.
+- Fiks Arkiv sender data til arkiv gjennom KS Fiks. Den ligger i en egen pakke som utviklerne legger til i appen. Oppsettet er ennå ikke dokumentert for v9, så bruk [veiledningen for v8](/nb/altinn-studio/v8/guides/development/fiks-arkiv/) inntil den er på plass.
 
 Du finner hele oversikten over oppgavetyper under [📚 Referanse]({{< relref "/altinn-studio/v9/develop-a-service/process/reference/task-types" >}}).
 
 ## Egne systemoppgaver
 
-Skal tjenesten din gjøre noe plattformen ikke har en ferdig oppgave for, kan utviklerne skrive en egen systemoppgave. Typiske eksempler er å melde saken inn i fagsystemet deres, hente en bekreftelse fra et register eller bestille noe hos en annen virksomhet før prosessen går videre.
+Skal tjenesten din gjøre noe plattformen ikke har en innebygd oppgave for, kan utviklerne skrive en egen systemoppgave. Typiske eksempler er å melde saken inn i fagsystemet deres, hente en bekreftelse fra et register eller bestille noe hos en annen virksomhet før prosessen går videre.
 
 Se [Lage en egendefinert systemoppgave]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}).
 
@@ -32,7 +32,7 @@ Plattformen kjører oppgaven på serveren når prosessen kommer til steget, og p
 - **Oppgaven kan vente.** Venter oppgaven på svar fra et annet system, parkerer plattformen prosessen i steget og sjekker på nytt til svaret kommer. Brukeren ser at appen venter. Oppgaven har en ventefrist, og plattformen stopper oppgaven når fristen er ute.
 - **Noen feil stopper prosessen.** Gir oppgaven opp, står instansen i steget til noen retter årsaken og starter oppgaven på nytt. Da trenger dere en rutine for å følge opp slike instanser.
 
-Brukeren ser en ferdig ventevisning i alle disse situasjonene, og du kan bytte ut tekstene eller lage din egen side. Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}).
+Brukeren ser en innebygd ventevisning i alle disse situasjonene, og du kan bytte ut tekstene eller lage din egen side. Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}).
 
 Nyttige spørsmål til utviklerne:
 

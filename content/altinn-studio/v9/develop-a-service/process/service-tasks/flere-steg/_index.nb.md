@@ -148,7 +148,7 @@ Slik henger delene sammen:
 - `onClosed` kjører når postkassen er lukket uten at oppgaven har konkludert, fordi fristen gikk ut eller fordi noen lukket den. Der bestemmer du om det er kritisk (`FailedPermanent`) eller noe oppgaven kan leve med.
 - Id-en til postkassen er umulig å gjette, men den er ikke en hemmelighet. Den er en adresse, ikke bevis for hvem som sendte meldingen.
 
-Fiks Arkiv er det ferdige eksempelet i plattformen: oppgaven sender id-en til postkassen som `klientKorrelasjonsId`, og lytteren leser den tilbake fra svaret og sender meldingen videre.
+Fiks Arkiv er det innebygde eksempelet i plattformen: oppgaven sender id-en til postkassen som `klientKorrelasjonsId`, og lytteren leser den tilbake fra svaret og sender meldingen videre.
 
 ## Endre en oppgave mens instanser er underveis
 
