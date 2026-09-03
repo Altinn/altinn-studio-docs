@@ -14,7 +14,7 @@ Disse systemoppgavene følger med plattformen:
 
 - [PDF-generering]({{< relref "/altinn-studio/v9/develop-a-service/process/pdf" >}}) lager en PDF av det brukeren har fylt ut.
 - [eFormidling]({{< relref "/altinn-studio/v9/receive-data/eFormidling" >}}) sender data videre til arkivet eller en annen mottaker.
-- Fiks Arkiv sender data til Fiks-arkivet.
+- Fiks Arkiv sender data til arkiv gjennom KS Fiks.
 
 Du finner hele oversikten over oppgavetyper under [📚 Referanse]({{< relref "/altinn-studio/v9/develop-a-service/process/reference/task-types" >}}).
 
@@ -26,7 +26,7 @@ Se [Lage en egendefinert systemoppgave]({{< relref "/altinn-studio/v9/develop-a-
 
 ## Slik kjører appen en systemoppgave
 
-Plattformen kjører oppgaven på serveren når prosessen kommer til steget, og prosessen går som hovedregel videre av seg selv når oppgaven er ferdig. Tre ting er verdt å kjenne til:
+Plattformen kjører oppgaven på serveren når prosessen kommer til steget, og prosessen går som hovedregel videre av seg selv når oppgaven er ferdig. Tre ting bør du vite:
 
 - **Plattformen prøver på nytt.** Feiler oppgaven fordi noe utenfor appen er nede, kjører plattformen den på nytt med økende pause mellom forsøkene. Oppgaven må derfor tåle å kjøre flere ganger uten å gjøre samme arbeid to ganger.
 - **Oppgaven kan vente.** Venter oppgaven på svar fra et annet system, parkerer plattformen prosessen i steget og sjekker på nytt til svaret kommer. Brukeren ser at appen venter. Oppgaven har en ventefrist, og plattformen stopper oppgaven når fristen er ute.

@@ -137,7 +137,7 @@ Eksempel på betalingsoppgave:
 En systemoppgave er en prosessoppgave som kjører automatisk på serveren. Prosessen går som hovedregel videre til neste 
 steg når den har kjørt ferdig, men dette kan systemoppgaven definere selv. 
 
-Plattformen kjører systemoppgaven i en arbeidsflyt som prøver på nytt hvis noe utenfor appen svikter, og som kan parkere 
+Plattformen kjører systemoppgaven for seg: den prøver på nytt hvis noe utenfor appen svikter, og kan parkere 
 prosessen mens oppgaven venter på svar fra et annet system.
 
 Tjenesteeiere kan lage sine egne systemoppgaver og legge dem inn som steg i prosessen til appen. Se 

@@ -8,7 +8,7 @@ tags: [altinn-apps, process, bpmn, task, service task, systemoppgave, needsRevie
 
 En egendefinert systemoppgave lar appen gjøre arbeid på serveren midt i prosessen, uten at brukeren gjør noe. Oppgaven består av
 
-- en C#-klasse som oppfyller grensesnittet `IServiceTask`
+- en C#-klasse som implementerer grensesnittet `IServiceTask`
 - et nytt steg i prosessen (BPMN)
 - en tilgangsregel som lar brukeren kjøre steget
 
@@ -18,7 +18,7 @@ Grensesnittet endret seg mellom v8 og v9. Har du en egendefinert systemoppgave f
 
 ## Skrive systemoppgaven i C#
 
-Klassen forteller to ting: hvilken oppgavetype den svarer for (`Type`), og hva den skal gjøre (`Execute`). Verdien i `Type` er navnet du bruker i prosessen og i tilgangsregelen.
+Klassen sier hvilken oppgavetype den håndterer (`Type`), og hva oppgaven skal gjøre (`Execute`). Verdien i `Type` er navnet du bruker i prosessen og i tilgangsregelen.
 
 {{< code-title >}}
 App/logic/ServiceTasks/ExampleServiceTask.cs
@@ -58,7 +58,7 @@ Du leser og endrer data gjennom `context.InstanceDataMutator`. Plattformen lagre
 
 ## Registrere systemoppgaven
 
-Plattformen finner oppgaven gjennom tjenesteregisteret i `Program.cs`:
+Registrer klassen i `Program.cs`, slik at plattformen finner den:
 
 {{< code-title >}}
 App/Program.cs
@@ -94,7 +94,7 @@ App/config/process/process.bpmn
 
 ## Gi brukeren tilgang til oppgaven
 
-Systemoppgaver kjører med rettighetene til den som driver prosessen videre (`process/next`). De ferdige systemoppgavene autoriserer plattformen som `write`-operasjoner, men en egendefinert oppgave krever en handling med samme navn som `Type`. Legg handlingen på samme sted som de andre handlingene den aktuelle brukeren skal ha tilgang til.
+Systemoppgaver kjører med rettighetene til den som driver prosessen videre (`process/next`). Plattformen autoriserer de ferdige systemoppgavene som `write`-operasjoner, men en egendefinert oppgave krever en handling med samme navn som `Type`. Legg handlingen på samme sted som de andre handlingene den aktuelle brukeren skal ha tilgang til.
 
 {{< code-title >}}
 App/config/authorization/policy.xml
@@ -109,7 +109,7 @@ App/config/authorization/policy.xml
 </xacml:AllOf>
 ```
 
-## Svare fra systemoppgaven
+## Hva oppgaven kan svare
 
 `Execute` svarer alltid med et `ServiceTaskResult`. Svaret bestemmer hva plattformen gjør videre:
 
@@ -122,11 +122,11 @@ App/config/authorization/policy.xml
 | `ServiceTaskResult.FailedPermanent("melding")` | Noe gikk galt som ikke retter seg selv. Plattformen gir opp med en gang, og steget står som feilet. |
 | `ServiceTaskResult.Defer(TimeSpan.FromMinutes(5), "venter på svar fra fagsystemet")` | Oppgaven gikk bra, men svaret den venter på har ikke kommet. Plattformen parkerer prosessen og kjører oppgaven på nytt om fem minutter. |
 
-Kaster koden en feil du ikke håndterer selv, tolker plattformen det som en feil den kan prøve på nytt. Skriv derfor `FailedPermanent` selv når du vet at nye forsøk er nytteløse — da slipper både brukeren og driftsmiljøet en lang rekke forsøk.
+Kaster koden en feil du ikke håndterer selv, tolker plattformen det som en feil den kan prøve på nytt. Skriv derfor `FailedPermanent` selv når du vet at nye forsøk er nytteløse. Da slipper du en lang rekke forsøk som likevel ikke fører noe sted.
 
-Et forsøk som venter (`Defer`), lagrer ingenting. Skal oppgaven huske noe, må den lagre det i et forsøk som svarer `Success` — eller i et eget steg, se [Systemoppgaver med flere steg]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg" >}}).
+Et forsøk som venter (`Defer`), lagrer ingenting. Skal oppgaven huske noe, må den lagre det i et forsøk som svarer `Success`, eller i et eget arbeidssteg. Se [Systemoppgaver med flere steg]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg" >}}).
 
-## Sørge for at oppgaven tåler flere kjøringer
+## Gjøre oppgaven trygg å kjøre om igjen
 
 Plattformen kan kjøre oppgaven på nytt etter en feil. Sender oppgaven en melding, oppretter en sak eller trekker et beløp, må den kjenne igjen arbeid den allerede har gjort:
 
@@ -135,7 +135,7 @@ Plattformen kan kjøre oppgaven på nytt etter en feil. Sender oppgaven en meldi
 - Ikke la koden avgjøre noe ut fra `context.Attempt` eller `context.Wait` for å hindre dobbeltarbeid. Et forsøk som rakk å sende noe før det stoppet, kjører på nytt med de samme verdiene.
 - Trenger oppgaven varig spor av noe den har gjort, lagrer du det i instansdataene gjennom `context.InstanceDataMutator`.
 
-## Styre tid og gjentakelser
+## Styre tidsbruk og nye forsøk
 
 Trenger oppgaven andre tidsrammer enn standard, overstyrer du `StepOptions`:
 
@@ -148,10 +148,12 @@ public ProcessStepOptions? StepOptions =>
     };
 ```
 
+Feltene betyr dette:
+
 - `MaxExecutionTime` er hvor lenge ett forsøk får bruke før plattformen avbryter det og regner forsøket som feilet. Hold den nær det kallet realistisk trenger. Et langt tidsavbrudd på et tregt kall kan forsinke andre instanser.
 - `WaitBudget` er hvor lenge oppgaven til sammen får vente når den svarer `Defer`. Når fristen er ute, feiler steget.
 - `RetryStrategy` styrer hvor mange nye forsøk plattformen gjør, og hvor lang pausen mellom dem er.
 
 ## Oppgaver med flere steg
 
-Skal oppgaven gjøre flere ting etter hverandre — for eksempel sende noe først og vente på svar etterpå — bør hvert arbeidsstykke få sitt eget steg. Se [Systemoppgaver med flere steg]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg" >}}).
+Skal oppgaven gjøre flere ting etter hverandre, for eksempel sende noe først og vente på svar etterpå, bør hvert arbeidsstykke få sitt eget arbeidssteg. Se [Systemoppgaver med flere steg]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg" >}}).
