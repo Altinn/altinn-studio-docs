@@ -10,7 +10,7 @@ tags: [needsReview]
 Appens API-er er dokumentert med OpenAPI. Det finnes to varianter av OpenAPI-spesifikasjonen:
 
 - Generisk app-API - eksponerer alle endepunkter uten hensyn til konkret konfigurasjon av appen.
-- App-spesifikk API - eksponerer et redusert sett API-er, der flere av dem er relevante for sluttbrukersystemer.
+- App-spesifikt API - eksponerer et redusert sett API-er, der flere av dem er relevante for sluttbrukersystemer.
 
 Begge er tilgjengelige på denne URL-en:
 
@@ -205,8 +205,8 @@ Content-Type: application/json; charset=utf-8
 
 ### 4. Hente kvittering
 
-Når instansen er ferdig innsendt, kan du eventuelt hente ut kvittering
-for å presentere for brukeren eller rapportere i leverandørsystemet.
+Når instansen er ferdig innsendt, kan du eventuelt hente ut kvitteringen
+for å presentere den for brukeren eller rapportere den i leverandørsystemet.
 
 Først kan du liste ut alle dataelementer på instansen:
 
