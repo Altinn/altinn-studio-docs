@@ -4,23 +4,24 @@ title: API-integrasjon
 description: Bruk og integrasjon med app-API.
 weight: 20
 toc: true
+tags: [needsReview]
 ---
 
-Appens API-er er dokumentert med OpenAPI. Det finnes to varianter av OpenAPI spesifikasjonen:
+Appens API-er er dokumentert med OpenAPI. Det finnes to varianter av OpenAPI-spesifikasjonen:
 
-* Generisk app-API - eksponerer alle endepunkter uten hensyn til konkret konfigurasjon av appen.
-* App-spesifikk API - eksponerer redusert sett API-er, hvor flere av de er relevante fra sluttbrukersystemer.
+- Generisk app-API - eksponerer alle endepunkter uten hensyn til konkret konfigurasjon av appen.
+- App-spesifikk API - eksponerer et redusert sett API-er, der flere av dem er relevante for sluttbrukersystemer.
 
-Begge to er tilgjengelige på URL:
+Begge er tilgjengelige på denne URL-en:
 
 `https://<org>.apps.<env>.altinn.no/<org>/<app>/swagger`
 
 ## Integrasjon med systembruker
 
 Veiledningen for [oppsett og konfigurasjon](/nb/altinn-studio/v9/develop-a-service/integration/sbs/setup/) på forrige side
-viste hvordan du logger inn med systembruker i Maskinporten. Vi fikk også se en instansierings-forespørsel, som er der 
-skjemautfyllingen i en Altinn 3 app starter. Her skal vi se videre på app API-ene for å komme i mål med en komplett innsending.
-Se eksempel instansieringer nedenfor.
+viste hvordan du logger inn med systembruker i Maskinporten. Der så du også et eksempel på en instansieringsforespørsel, som er der 
+skjemautfyllingen i en Altinn 3-app starter. Her skal du se videre på app-API-ene for å komme i mål med en komplett innsending.
+Se eksempler på instansieringer nedenfor.
 
 `<access-token>` i eksemplene her er et Maskinporten systembruker token som er innvekslet til et Altinn token.
 Responsene i eksemplene er forkortet for enkelhets skyld. Se OpenAPI spec for komplett beskrivelse av forespørsler og svar.
@@ -174,9 +175,9 @@ Content-Type: application/json; charset=utf-8
 
 ### 3. Sende prosessen videre
 
-Prosessen for instansen sendes videre ved å kalle `/process/next`-endepunktet.
+Du sender prosessen for instansen videre ved å kalle `/process/next`-endepunktet.
 Avhengig av prosessdesignet i appen vil dette ta instansen til et neste steg eller fullføre instansen.
-I eksempelet under ser vi at instansen er ferdig innsendt. Tjenesteeier vil gi spesifikk dokumentasjon for appen det gjelder.
+I eksempelet under ser du at instansen er ferdig innsendt. Tjenesteeier vil gi spesifikk dokumentasjon for appen det gjelder.
 
 ```http
 PUT https://brg.apps.tt02.altinn.no/brg/aarsregnskap/instances/500700/232c5390-9479-4506-a266-9890d7287bfb/process/next
@@ -204,8 +205,8 @@ Content-Type: application/json; charset=utf-8
 
 ### 4. Hente kvittering
 
-Når instansen er ferdig innsendt kan du eventuelt hente ut kvittering e.l.
-for å presentere til bruker eller rapportere i leverandørsystemet.
+Når instansen er ferdig innsendt, kan du eventuelt hente ut kvittering
+for å presentere for brukeren eller rapportere i leverandørsystemet.
 
 Først kan du liste ut alle dataelementer på instansen:
 
@@ -232,7 +233,7 @@ Content-Type: application/json; charset=utf-8
 }
 ```
 
-Deretter kan vi laste ned `ref-data-as-pdf` elementet som er kvitteringen i dette tilfellet:
+Deretter kan du laste ned `ref-data-as-pdf`-elementet, som er kvitteringen i dette tilfellet:
 
 ```http
 GET https://brg.apps.tt02.altinn.no/brg/aarsregnskap/instances/500700/232c5390-9479-4506-a266-9890d7287bfb/data/0445d618-28b8-4af5-95e0-c8c989487e7a/type/ref-data-as-pdf?language=nb

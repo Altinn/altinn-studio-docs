@@ -4,6 +4,7 @@ title: Oppsett og konfigurasjon
 description: Slik setter du opp og konfigurerer app og infrastruktur for sluttbrukersystemintegrasjon
 weight: 10
 toc: true
+tags: [needsReview]
 ---
 
 Sluttbrukersystemer (SBS) er systemer utviklet av leverandører som forenkler innsending til Altinn for sine kunder.
@@ -68,7 +69,7 @@ som også vil gjelde plattformtjenester i Altinn (for eksempel Storage), men det
 {{% notice info %}}
 `IAuthenticationContext.Current` bruker informasjon om innlogget bruker fra ASP.NET Core sin authentication stack.
 Det betyr at ASP.NET Core auth middleware må ha kjørt før du kan få riktig informasjon.
-Du legger til middleware for auth i `UseAltinnAppCommonConfiguration`. Hvis du trenger å få tilgang til `IAuthenticationContext.Current` i et middleware, må du legge den til **etter** at `UseAltinnAppCommonConfiguration` er kalt.
+Du legger til middleware for autentisering i `UseAltinnAppCommonConfiguration`. Hvis du trenger å få tilgang til `IAuthenticationContext.Current` i et middleware, må du legge den til **etter** at `UseAltinnAppCommonConfiguration` er kalt.
 {{% /notice %}}
 
 Tjenesteeier kan deretter lage et middleware som gjør ekstra autorisasjon basert på den autentiserte brukeren. Eksempel:
@@ -85,9 +86,9 @@ app.Use(
         var authenticated = authenticationContext.Current;
         if (authenticated is Authenticated.User user)
         {
-            // Here we are expressing that for any API request for the authenticated party is a user, the user either has to
-            // * Be logged in through Altinn portal
-            // * Have consented to the custom app scope `myappscope` (it has consent required registered on the scope in ID-porten)
+            // Her uttrykker vi at for enhver API-forespørsel der den autentiserte parten er en bruker, må brukeren enten
+            // * være logget inn gjennom Altinn-portalen
+            // * ha samtykket til det egendefinerte app-scopet `myappscope` (scopet krever registrert samtykke i ID-porten)
             if (!user.InAltinnPortal && !user.Scopes.HasScope("myappscope"))
             {
                 context.Response.StatusCode = 403;
@@ -157,7 +158,7 @@ Scopet `annentest:app.a` vil IKKE matche `test:app.a` fordi det er eksakt sammen
 Systembruker-konseptet i Altinn Autorisasjon støtter mer automatiserte integrasjoner mellom sluttbrukersystemer og Altinn-apper der du sender inn på vegne av en organisasjon. Systembruker-konseptet består av følgende komponenter:
 
 - Maskinporten - autentiseringsmekanismen for alt som har med systembrukere å gjøre:
-  - Registrering av system i systemregisteret (API hos Altinn Autorisasjon)
+  - Registrere system i systemregisteret (API hos Altinn Autorisasjon)
   - Registrere systembruker (API hos Altinn Autorisasjon)
   - Innsending fra systemet (leverandørens system/sluttbrukersystemet)
 - Systemregisteret
@@ -166,7 +167,7 @@ Systembruker-konseptet i Altinn Autorisasjon støtter mer automatiserte integras
   - Definisjonen for sluttbrukersystemet. Denne definisjonen inneholder blant annet hvilke rettigheter systemet trenger fra systembrukeren, og hvilken Maskinporten-klient (klient-ID) systemet har tenkt til å bruke ved autentisering i Maskinporten.
   - Sluttbrukersystem-leverandøren registrerer og eier systemet i systemregisteret
 - Systembruker
-  - En virtuell bruker som eies av kunden til leverandøren/sluttbrukersystemet
+  - En virtuell bruker som kunden til leverandøren/sluttbrukersystemet eier
   - Når du registrerer systembrukeren, må du delegere de rettighetene som systemet ber om til systembrukeren. I praksis må den personen som oppretter systembrukeren (hos kunden) ha disse rettighetene som systemet ber om
 
 Dette konseptet lar dermed systemet opptre som systembrukeren i integrasjonen mot en Altinn-app.
@@ -183,12 +184,12 @@ Merk at det er få steg for tjenesteeier å utføre her, men det er likevel vikt
 {{% /notice %}}
 
 - Systemet: **Fiken AS (913312465)**
-- Tjenesteier: **Brønnøysundregisteret (brg)**
+- Tjenesteeier: **Brønnøysundregisteret (brg)**
 - App: **aarsregnskap**
 - Kunden: **Sindig Oriental Tiger AS (313725138)**
 - Miljø: **tt02**
 
-I dette eksempelet vil Fiken automatisk sende inn årsregnskap på slutten av året basert på det regnskapet som er oppført i deres systemer av kunden.
+I dette eksempelet vil Fiken automatisk sende inn årsregnskap på slutten av året basert på regnskapet kunden har registrert i systemene sine.
 Denne innsendingen skjer helt automatisk, men sluttbruker hos kunden må fortsatt signere årsregnskapet etter at det er ferdig utfylt i `årsregnskap`.
 Du skal nå sette opp denne integrasjonen helt fra start.
 
@@ -220,7 +221,7 @@ Du trenger en Maskinporten-klient for å bruke systemregisteret og for å ta i b
   - `altinn:authentication/systemuser.request.read`, `altinn:authentication/systemuser.request.write` - for å forespørre systembruker for systemet
   - `altinn:instances.read`, `altinn:instances.write` - for å sende inn på vegne av systembrukeren
 - Noter ned klient-ID (`a2ed712d-4144-4471-839f-80ae4a68146b` for eksempel)
-- Lag og registrer JWKS på klienten (ta vare på privat og public JWK)
+- Lag og registrer JWKS på klienten (ta vare på privat og offentlig JWK)
 
 Se [veiledningen for Maskinporten-integrasjon](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/) for mer informasjon.
 
@@ -236,7 +237,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=<signed JWT>
 ```
 
-JWT-payload som skal signeres (`iat` og `jti` må være unike for hver forespørsel, og `exp` kan være maks 180 sekunder etter `iat`):
+JWT-payloaden du skal signere (`iat` og `jti` må være unike for hver forespørsel, og `exp` kan være maks 180 sekunder etter `iat`):
 
 ```json
 {
@@ -308,7 +309,7 @@ Content-Type: application/json; charset=utf-8
 #### 4. Fiken forespør systembruker for kunden
 
 Som systemleverandør (Fiken) kan du etterspørre systembruker for en kunde.
-I responsen får du en `confirmUrl` som du kan videresende til kunden slik at kunden kan godkjenne og fullføre opprettelsen av systembrukeren.
+I responsen får du en `confirmUrl` som du kan videresende til kunden slik at kunden kan godkjenne forespørselen og opprette systembrukeren.
 
 ```http
 POST https://platform.tt02.altinn.no/authentication/api/v1/systemuser/request/vendor/
@@ -362,7 +363,7 @@ Content-Type: application/json; charset=utf-8
 Person hos kunden, for eksempel daglig leder, godkjenner forespørsel om systembruker ved å følge `confirmUrl` fra responsen over.
 Hvis testing foregår i tt02, kan du for eksempel finne DAGL for organisasjonen til systembrukeren.
 Kunden i dette tilfellet, med fødselsnummer `00000000001` (syntetisk testnummer), har rollen DAGL (daglig leder), så du kan bruke denne ved innlogging med TestID.
-Personen som godkjenner systembrukeren (systemtilgangen) må selv ha de rettighetene som skal delegeres til systembrukeren.
+Personen som godkjenner systembrukeren (systemtilgangen) må selv ha rettighetene systembrukeren skal få.
 I dette tilfellet, hvor DAGL skal godkjenne, må appen ha en regel som gir DAGL `instantiate` og `read`.
 Siden systembrukeren får delegert de samme rettighetene som godkjenneren har (i dette tilfelle DAGL), vil systembrukeren få `instantiate` og `read` i dette tilfellet.
 
@@ -428,7 +429,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=<signed JWT>
 ```
 
-JWT-payload som skal signeres (`iat` og `jti` må være unike for hver forespørsel, og `exp` kan være maks 180 sekunder etter `iat`):
+JWT-payloaden du skal signere (`iat` og `jti` må være unike for hver forespørsel, og `exp` kan være maks 180 sekunder etter `iat`):
 
 ```json
 {
