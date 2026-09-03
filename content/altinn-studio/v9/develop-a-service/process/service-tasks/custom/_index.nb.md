@@ -16,7 +16,7 @@ En egendefinert systemoppgave lar appen gjøre arbeid på serveren midt i proses
 Grensesnittet endret seg mellom v8 og v9. Har du en egendefinert systemoppgave fra før, se avsnittet om systemoppgaver i [oppgraderingsveiledningen]({{< relref "/altinn-studio/v9/new-in-v9/upgrade" >}}). Du finner [den tilsvarende veiledningen for v8](/nb/altinn-studio/v8/guides/development/service-tasks/custom/) i dokumentasjonen for gjeldende versjon.
 {{% /notice %}}
 
-## Skrive systemoppgaven i C#
+## Skrive systemoppgaven i C\#
 
 Klassen sier hvilken oppgavetype den håndterer, gjennom `Type`-egenskapen, og hva oppgaven skal gjøre, gjennom `Execute`. Verdien du gir `Type`-egenskapen, er navnet du bruker i prosessen og i tilgangsregelen.
 
@@ -110,6 +110,8 @@ Tilgangsfilen fra appmalen gir tjenesteeieren de grunnleggende handlingene, blan
 | `confirmation` | `confirm` |
 | Egendefinert oppgavetype | Handling med samme navn som oppgavetypen |
 
+Har oppgaven en `reject`-flyt ut av seg, trenger tjenesteeieren `reject` i tillegg. Det gjelder når du bruker `Success("reject")`, eller når brukeren skal kunne gå tilbake fra en oppgave som feilet. Plattformen autoriserer en avbrytende overgang med `reject`, uansett hvilken type oppgaven har.
+
 Oppgraderingen fra v8 legger inn de grunnleggende reglene for tjenesteeieren, men gir ikke tilgang til egendefinerte oppgavetyper automatisk. Den leser prosessen og sier fra om handlingene du må legge inn selv. Appen kontrollerer det samme når du bygger, gjennom regelen `ALTINNAPP0800`.
 
 ### Regelen tjenesteeieren trenger
@@ -150,6 +152,12 @@ App/config/authorization/policy.xml
       <xacml:AllOf>
         <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
           <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">[TASK_TYPE]</xacml:AttributeValue>
+          <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
+        </xacml:Match>
+      </xacml:AllOf>
+      <xacml:AllOf> <!-- Tas med når oppgaven har en reject-flyt ut av seg. -->
+        <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
+          <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">reject</xacml:AttributeValue>
           <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
         </xacml:Match>
       </xacml:AllOf>

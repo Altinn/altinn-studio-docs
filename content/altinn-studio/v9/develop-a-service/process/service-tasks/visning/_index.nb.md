@@ -76,7 +76,7 @@ Når feilen krever hjelp fra brukerservice:
 
 Trenger oppgaven mer enn en tekst, kan du lage en helt egen side for ventingen. Lag en UI-mappe med samme navn som systemoppgaven i prosessen:
 
-```
+```text
 App/
   ui/
     Task_Arkivering/
