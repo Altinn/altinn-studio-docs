@@ -18,7 +18,7 @@ Grensesnittet endret seg mellom v8 og v9. Har du en egendefinert systemoppgave f
 
 ## Skrive systemoppgaven i C#
 
-Klassen sier hvilken oppgavetype den håndterer (`Type`), og hva oppgaven skal gjøre (`Execute`). Verdien i `Type` er navnet du bruker i prosessen og i tilgangsregelen.
+Klassen sier hvilken oppgavetype den håndterer, gjennom `Type`-egenskapen, og hva oppgaven skal gjøre, gjennom `Execute`. Verdien du gir `Type`-egenskapen, er navnet du bruker i prosessen og i tilgangsregelen.
 
 {{< code-title >}}
 App/logic/ServiceTasks/ExampleServiceTask.cs
@@ -74,7 +74,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 ## Legge til oppgaven i prosessen
 
-Legg inn en `serviceTask`-node der du vil at arbeidet skal skje. Verdien i `taskType` må være den samme som `Type` i C#-klassen.
+Legg inn en `serviceTask`-node der du vil at arbeidet skal skje. Verdien i `taskType` må være den samme som i `Type`-egenskapen på klassen.
 
 {{< code-title >}}
 App/config/process/process.bpmn
@@ -114,14 +114,16 @@ Oppgraderingen fra v8 legger inn de grunnleggende reglene for tjenesteeieren, me
 
 ### Regelen tjenesteeieren trenger
 
-Bytt ut `[ORG]`, `[APP]`, `[RULE_ID]` og `[TASK_TYPE]` med verdiene for appen din, der `[TASK_TYPE]` er den samme som `Type` i C#-klassen:
+`[ORG]` og `[APP]` skal stå som de er. Det er plassholdere plattformen bytter ut med org- og appnavnet når appen blir satt i drift, så den samme filen virker i alle miljøer. De små variantene `[org]` og `[app]` virker likt.
+
+Du fyller bare inn to ting selv: nummeret på regelen, som må være ledig i filen, og oppgavetypen, som er den samme verdien som `Type`-egenskapen på klassen har.
 
 {{< code-title >}}
 App/config/authorization/policy.xml
 {{< /code-title >}}
 
 ```xml
-<xacml:Rule RuleId="urn:altinn:example:ruleid:[RULE_ID]" Effect="Permit">
+<xacml:Rule RuleId="urn:altinn:resource:app_[ORG]_[APP]:policyid:1:ruleid:3" Effect="Permit">
   <xacml:Description>Tjenesteeier kan flytte prosessen forbi systemoppgaven [TASK_TYPE].</xacml:Description>
   <xacml:Target>
     <xacml:AnyOf>
