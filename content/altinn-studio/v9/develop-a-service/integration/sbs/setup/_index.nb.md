@@ -69,7 +69,7 @@ som også vil gjelde plattformtjenester i Altinn (for eksempel Storage), men det
 {{% notice info %}}
 `IAuthenticationContext.Current` bruker informasjon om innlogget bruker fra ASP.NET Core sin authentication stack.
 Det betyr at ASP.NET Core auth middleware må ha kjørt før du kan få riktig informasjon.
-Du legger til middleware for autentisering i `UseAltinnAppCommonConfiguration`. Hvis du trenger å få tilgang til `IAuthenticationContext.Current` i et middleware, må du legge den til **etter** at `UseAltinnAppCommonConfiguration` er kalt.
+Du legger til mellomvare for autentisering i `UseAltinnAppCommonConfiguration`. Hvis du trenger å få tilgang til `IAuthenticationContext.Current` i en mellomvare, må du legge den til **etter** at `UseAltinnAppCommonConfiguration` er kalt.
 {{% /notice %}}
 
 Tjenesteeier kan deretter lage et middleware som gjør ekstra autorisasjon basert på den autentiserte brukeren. Eksempel:
