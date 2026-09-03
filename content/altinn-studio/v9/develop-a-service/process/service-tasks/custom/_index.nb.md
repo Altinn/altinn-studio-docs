@@ -109,6 +109,79 @@ App/config/authorization/policy.xml
 </xacml:AllOf>
 ```
 
+### Hvilken handling prosessen krever
+
+Plattformen utleder handlingen fra oppgavetypen, og både appen og plattformen håndhever den likt:
+
+| Oppgavetype | Handling som kreves |
+| --- | --- |
+| `data`, `feedback`, `pdf`, `eFormidling`, `fiksArkiv`, `subformPdf` | `write` |
+| `payment` | `pay` eller `write` |
+| `signing` | `sign` eller `write` |
+| `confirmation` | `confirm` |
+| Egendefinert oppgavetype | Handling med samme navn som oppgavetypen |
+
+Det har to konsekvenser du bør kjenne til:
+
+- **De kjente oppgavetypene er en svak sperre.** Alle med `write`-tilgang kan selv drive prosessen forbi en systemoppgave av typen `data`, `feedback` eller `pdf`, med et enkelt kall til `process/next`. Tokenet til brukeren er nok.
+- **Egendefinerte oppgavetyper er stengt til du åpner dem.** Tilgangsfilen fra appmalen gir ingen tilgang til en handling med ditt eget navn, heller ikke til tjenesteeieren. Et tilbakekall fra et annet system får derfor 403 helt til du legger inn regelen.
+
+### Slippe prosessen videre fra et annet system
+
+Parkerer oppgaven prosessen med `SuccessWithoutAutoAdvance()`, går prosessen videre først når noen kaller
+
+```http
+PUT /{org}/{app}/instances/{instanceOwnerPartyId}/{instanceGuid}/process/next
+```
+
+Vanligvis er det det andre systemet som kaller, med et Maskinporten-token for tjenesteeieren. Da trenger tjenesteeieren en egen regel i tilgangsfilen. Bytt ut `[ORG]`, `[APP]`, `[RULE_ID]` og `[TASK_TYPE]` med verdiene for appen din, der `[TASK_TYPE]` er den samme som `Type` i C#-klassen:
+
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
+
+```xml
+<xacml:Rule RuleId="urn:altinn:example:ruleid:[RULE_ID]" Effect="Permit">
+  <xacml:Description>Tjenesteeier kan drive prosessen forbi systemoppgaven [TASK_TYPE].</xacml:Description>
+  <xacml:Target>
+    <xacml:AnyOf>
+      <xacml:AllOf>
+        <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+          <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">[ORG]</xacml:AttributeValue>
+          <xacml:AttributeDesignator AttributeId="urn:altinn:org" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
+        </xacml:Match>
+      </xacml:AllOf>
+    </xacml:AnyOf>
+    <xacml:AnyOf>
+      <xacml:AllOf>
+        <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+          <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">[ORG]</xacml:AttributeValue>
+          <xacml:AttributeDesignator AttributeId="urn:altinn:org" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
+        </xacml:Match>
+        <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+          <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">[APP]</xacml:AttributeValue>
+          <xacml:AttributeDesignator AttributeId="urn:altinn:app" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
+        </xacml:Match>
+      </xacml:AllOf>
+    </xacml:AnyOf>
+    <xacml:AnyOf>
+      <xacml:AllOf>
+        <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
+          <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">[TASK_TYPE]</xacml:AttributeValue>
+          <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false" />
+        </xacml:Match>
+      </xacml:AllOf>
+    </xacml:AnyOf>
+  </xacml:Target>
+</xacml:Rule>
+```
+
+Se [tilgangsregler]({{< relref "/altinn-studio/v9/develop-a-service/configuration/authorization" >}}) for mer om filen.
+
+{{% notice warning %}}
+En systemoppgave som venter, er bare beskyttet av tilgangsreglene. Skal ikke sluttbrukeren kunne hoppe over ventingen, må oppgaven ha en egendefinert oppgavetype, og bare tjenesteeieren ha tilgang til handlingen. Ventesiden er et brukergrensesnitt, ikke en sperre.
+{{% /notice %}}
+
 ## Hva oppgaven kan svare
 
 `Execute` svarer alltid med et `ServiceTaskResult`. Svaret bestemmer hva plattformen gjør videre:
@@ -125,6 +198,20 @@ App/config/authorization/policy.xml
 Kaster koden en feil du ikke håndterer selv, tolker plattformen det som en feil den kan prøve på nytt. Skriv derfor `FailedPermanent` selv når du vet at nye forsøk er nytteløse. Da slipper du en lang rekke forsøk som likevel ikke fører noe sted.
 
 Et forsøk som venter (`Defer`), lagrer ingenting. Skal oppgaven huske noe, må den lagre det i et forsøk som svarer `Success`, eller i et eget arbeidssteg. Se [Systemoppgaver med flere steg]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg" >}}).
+
+## Vente på svar fra et annet system
+
+Venter oppgaven på et annet system, har du to mekanismer å velge mellom. Valget kommer an på om det andre systemet kan si fra selv, eller om oppgaven må gå og se etter.
+
+**Parkere prosessen.** Svar `SuccessWithoutAutoAdvance()`. Oppgaven er ferdig, men prosessen står på steget til noen driver den videre med et autorisert kall til `process/next`. Dette passer når det andre systemet kan kalle tilbake til appen. Ingenting driver prosessen videre av seg selv, så kommer kallet aldri, står instansen på oppgaven i det uendelige.
+
+**Sjekke selv.** Svar `Defer(delay, reason)`. Prosessen står på steget, og plattformen kjører oppgaven på nytt etter pausen du oppgir, så mange ganger som den trenger. Dette passer når ingenting kan kalle tilbake. `WaitBudget` setter tak på ventetiden til sammen, og steget feiler når taket er nådd. Bruk `context.Wait.IsFinalCheck` til å gi din egen forklaring på hva som aldri kom, i stedet for et generisk tidsavbrudd.
+
+Et forsøk som venter, lagrer ingenting, og oppgaven kjører fra starten hver gang. Det oppgaven må huske mellom sjekkene, først og fremst at forespørselen alt er sendt, hører derfor i et eget arbeidssteg som fullfører. Se [Systemoppgaver med flere steg]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg" >}}).
+
+eFormidling-oppgaven er det innebygde eksempelet: den sender meldingen i ett arbeidssteg, og venter deretter til integrasjonspunktet bekrefter at meldingen er levert.
+
+Uansett hvilken av dem du velger, ser brukeren en side som venter, og appen sender brukeren videre av seg selv. Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}).
 
 ## Gjøre oppgaven trygg å kjøre om igjen
 

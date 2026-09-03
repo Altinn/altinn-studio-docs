@@ -100,7 +100,7 @@ Bare avslutningen kan si at hele oppgaven er ferdig og at prosessen skal gå vid
 
 - Ventetiden til sammen har en frist, `WaitBudget`. Sett fristen på avslutningen, ikke på hele oppgaven, slik at arbeidssteg som aldri venter, ikke arver den.
 - `context.Wait` forteller hvor langt ventingen er kommet: `DeferCount`, `StartedAt`, `Deadline`, `Remaining` og `IsFinalCheck`. Bruk dem til å spørre ofte i starten og sjeldnere etter hvert, og til å avslutte med en melding som sier hva som aldri kom.
-- Teksten du sender med i `reason`, lagrer plattformen på steget og viser den videre, blant annet i ventevisningen brukeren ser. Skriv den for et menneske.
+- Teksten du sender med i `reason`, lagrer plattformen på steget, og den følger med i prosessdataene og driftsverktøyene. Ingen av standardvisningene viser den til brukeren, så skal brukeren se den, må du [lage din egen side]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}). Skriv den likevel for et menneske.
 - Et forsøk som venter, lagrer ingenting. Arbeid som skal etterlate et spor, hører til i sitt eget arbeidssteg foran ventingen.
 
 ## Få svaret som en melding

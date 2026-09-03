@@ -32,6 +32,8 @@ Plattformen kjører oppgaven på serveren når prosessen kommer til steget, og p
 - **Oppgaven kan vente.** Venter oppgaven på svar fra et annet system, parkerer plattformen prosessen i steget og sjekker på nytt til svaret kommer. Brukeren ser at appen venter. Oppgaven har en ventefrist, og plattformen stopper oppgaven når fristen er ute.
 - **Noen feil stopper prosessen.** Gir oppgaven opp, står instansen i steget til noen retter årsaken og starter oppgaven på nytt. Da trenger dere en rutine for å følge opp slike instanser.
 
+Brukeren ser en ferdig ventevisning i alle disse situasjonene, og du kan bytte ut tekstene eller lage din egen side. Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}).
+
 Nyttige spørsmål til utviklerne:
 
 - Hva skjer hvis oppgaven kjører to ganger — kan brukeren få dobbelt vedtak, dobbel faktura eller dobbel arkivering?

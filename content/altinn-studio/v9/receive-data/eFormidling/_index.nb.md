@@ -376,6 +376,8 @@ Oppgaven feiler hvis meldingen blir avvist, eller hvis integrasjonspunktet melde
 
 Mens appen venter, ser sluttbrukeren den innebygde behandlingssiden. Den forteller at appen jobber, og at brukeren ikke trenger å gjøre noe. Etter 30 sekunder legger den til at dette tar uvanlig lang tid, og at siden trygt kan lukkes og åpnes igjen senere. Tekstene er tekstressurser (`process_workflow.advancing_title`, `process_workflow.advancing_body` og `process_workflow.still_working`) som appen din kan overstyre. Brukeren blir sendt videre til neste steg automatisk når prosessen går videre.
 
+Å vente slik er ikke spesielt for eFormidling. Det er mekanismen enhver systemoppgave kan bruke, og eFormidling er det innebygde eksempelet. Skriver du din egen, se [Vente på svar fra et annet system]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}) og [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}).
+
 {{% notice warning %}}
 **Ikke legg en tilbakemeldingsoppgave etter eFormidling-oppgaven.** I v8 trengte du en tilbakemeldingsoppgave for å holde instansen mens leveringen sto på vent, og en påminnelse bygget på Altinn Events flyttet prosessen videre når meldingen kom fram. Denne påminnelsen er borte i v9, fordi systemoppgaven nå venter selv. Ingenting flytter en tilbakemeldingsoppgave som ligger etter eFormidling-oppgaven, videre, og instanser som blir stående der, venter i det uendelige. Oppgraderer du en app fra v8, må du fjerne den – `studioctl app upgrade v9` melder om tilbakemeldingsoppgaver som ligger etter en systemoppgave.
 {{% /notice %}}
