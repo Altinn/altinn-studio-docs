@@ -53,7 +53,7 @@ Når brukeren godkjenner, gir brukeren systemet lov til å sende inn i alle Alti
 
 Gitt at `altinn:instances.read` og `altinn:instances.write` gir tilgang til alle apper i Altinn (der brukeren har tilgang),
 er det ofte behov for større grad av isolasjon, slik at appen krever et mer spesifikt scope laget spesielt for appen.
-Det er foreløpig ikke noe innebygd støtte for dette, men det er mulig å få til på egenhånd ved å utvikle et middleware i appen.
+Det er foreløpig ikke noe innebygd støtte for dette, men det er mulig å få til på egenhånd ved å utvikle en mellomvare i appen.
 
 Tjenesteeier må lage et scope hos ID-porten via samarbeidsportalen som er app-spesifikt, og delegere dette til organisasjoner
 som har tenkt til å lage sluttbrukersystem for tjenesteeiers app. Deretter må sluttbrukersystemet legge til dette scopet på sin ID-porten-klient
@@ -64,15 +64,15 @@ På sikt ønsker vi å gjøre det mulig å konfigurere en app med et egendefiner
 som også vil gjelde plattformtjenester i Altinn (for eksempel Storage), men det er ikke bestemt hvordan eller når dette skal løses.
 {{% /notice %}}
 
-#### Validering med ASP.NET Core middleware
+#### Validering med ASP.NET Core-mellomvare
 
 {{% notice info %}}
 `IAuthenticationContext.Current` bruker informasjon om innlogget bruker fra ASP.NET Core sin authentication stack.
-Det betyr at ASP.NET Core auth middleware må ha kjørt før du kan få riktig informasjon.
+Det betyr at ASP.NET Core-mellomvaren for autentisering må ha kjørt før du kan få riktig informasjon.
 Du legger til mellomvare for autentisering i `UseAltinnAppCommonConfiguration`. Hvis du trenger å få tilgang til `IAuthenticationContext.Current` i en mellomvare, må du legge den til **etter** at `UseAltinnAppCommonConfiguration` er kalt.
 {{% /notice %}}
 
-Tjenesteeier kan deretter lage et middleware som gjør ekstra autorisasjon basert på den autentiserte brukeren. Eksempel:
+Tjenesteeier kan deretter lage en mellomvare som gjør ekstra autorisasjon basert på den autentiserte brukeren. Eksempel:
 
 ```csharp
 WebApplication app = builder.Build();
@@ -490,8 +490,8 @@ Som eksemplifisert lenger opp, kan du bruke `IAuthenticationContext` til å gjø
 
 {{% notice info %}}
 `IAuthenticationContext.Current` bruker informasjon om innlogget bruker fra ASP.NET Core sin authentication stack.
-Det betyr at ASP.NET Core auth middleware må ha kjørt før du kan få riktig informasjon.
-Du legger til middleware for autentisering i `UseAltinnAppCommonConfiguration`. Hvis du trenger å få tilgang til `IAuthenticationContext.Current` i et middleware, må du legge den til **etter** at `UseAltinnAppCommonConfiguration` er kalt.
+Det betyr at ASP.NET Core-mellomvaren for autentisering må ha kjørt før du kan få riktig informasjon.
+Du legger til mellomvare for autentisering i `UseAltinnAppCommonConfiguration`. Hvis du trenger å få tilgang til `IAuthenticationContext.Current` i en mellomvare, må du legge den til **etter** at `UseAltinnAppCommonConfiguration` er kalt.
 {{% /notice %}}
 
 ```csharp
