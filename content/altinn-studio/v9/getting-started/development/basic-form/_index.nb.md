@@ -17,7 +17,7 @@ footer: 'Altinn Studio - kom i gang'
 # End of Marp settings
 ---
 
-### Opprette ny tjeneste
+## Lage en ny tjeneste
 
 1. Klikk på knappen "Opprett ny app" for å lage en ny app som skal inneholde skjemaet.
 2. Velg din organisasjon som eier av appen om du er tilknyttet en organisasjon
@@ -29,7 +29,7 @@ footer: 'Altinn Studio - kom i gang'
 
 ![Opprett ny app](./Kurs-skjermbilder-Oppgave-Lag-ny-app.jpg)
 
-### Redigere informasjon om tjenesten
+## Redigere informasjon om tjenesten
 
 Når appen er opprettet og lastet, kommer du til en oversiktsside for appen. Her kan du se:
 - Menylinje:  Hvor du kan navigere til ulike verktøy, og åpne siden for innstillinger.
@@ -44,7 +44,7 @@ Når appen er opprettet og lastet, kommer du til en oversiktsside for appen. Her
 ![Oversiktssiden](./Kurs-skjermbilder-Konsept-Oversikt-i-appen.jpg)
 
 
-#### Endre informasjon om appen
+### Endre informasjon om appen
 1. Klikk på "Innstillinger" i menylinjen.
 2. Skriv inn appens tittel - en beskrivende overskrift.
 3. Skriv inn en beskrivelse om appen - hvem skal bruke den, og hva brukes den til?
@@ -63,7 +63,7 @@ Når du kommer tilbake til oversiktssiden vil du se at appens tittel har oppdate
 
 ![bg right:60% contain](./Kurs-skjermbilder-Konsept-Oversikt-i-appen-med-tittel.jpg)
 
-### Lagre og dele endringer
+## Lagre og dele endringer
 
 Når du jobber med en app i Altinn Studio er det to hovedområder:
 - Din brukers område: Alle endringer du gjør i en app lagres hit automatisk. Andre kan ikke se disse endringene.
@@ -87,14 +87,14 @@ Nå som du har gjort en endring i appens overskrift, kan du dele den endringen t
 ---
 ![Dele endringer](./Kurs-skjermbilder-Oppgave-Del-endringer.jpg)
 
-### Informasjonsside
+## Informasjonsside
 Vi skal starte med å lage en informasjonsside, som skal inneholde bilde og tekst.
 
-#### Naviger til utforming
+### Naviger til utforming
 1. Klikk på "Utforming" i toppmenyen.
 2. Klikk på "Form" for å utforme første del av skjema
 
-#### Om utformings-siden
+### Om utformings-siden
 Utforming er satt opp med tre kolonner:
 - Selve skjema-oppsettet, der du legger inn sider og komponenter.
 - Konfigurasjonskolonnen, der du kan konfigurere valgt side/komponent.
@@ -104,7 +104,7 @@ Utforming er satt opp med tre kolonner:
 
 ![Utforming-siden](./Kurs-skjermbilder-Konsept-Utforming.jpg)
 
-#### Legg til komponenter på infosiden
+### Legg til komponenter på infosiden
 1. Åpne siden "Side1" ved å klikke på den og klikk på "Legg til komponent".
 2. Klikk på "Vis alle", søk etter "Bilde" og klikk på "Bilde"-komponenten under "Informasjon". Klikk på "Legg til" i 
   høyrepanelet for å legge til bildekomponenten på siden.
@@ -124,7 +124,7 @@ Utforming er satt opp med tre kolonner:
 
 ![Infoside - resultat](./Kurs-skjermbilder-Oppgave-infoside-resultat.jpg)
 
-### Datamodell
+## Datamodell
 En datamodell er en slags innholdsfortegnelse for skjemaet. 
 Datamodellen brukes til å bestemme _hva_ du vil hente inn av data og _hvordan_ dataene
 skal se ut.
@@ -144,7 +144,7 @@ Naviger til "Datamodell" i toppmenyen for å komme i gang.
 ![Datamodell-siden h:620px](./Kurs-skjermbilder-Konsept-Datamodell.jpg)
 
 
-#### Krav fra kommunen
+### Krav fra kommunen
 Kommunen ønsker i første omgang å samle inn følgende data om innflyttere:
 - **Personinformasjon**
   - Fullt navn
@@ -157,7 +157,7 @@ Kommunen ønsker i første omgang å samle inn følgende data om innflyttere:
   - E-postadresse
   - Telefon
 
-#### Lage datamodellen
+### Lage datamodellen
 1. Påse at det er modellen `model` som er valgt. Slett de eksisterende feltene i modellen ved å klikke på 🗑️-ikonet ved siden av feltet.
 2. Klikk på "Legg til" øverst på siden og velg "Objekt".
 3. Endre navn på den nye gruppen til "person".
@@ -182,23 +182,23 @@ Når du er ferdig med datamodellen, klikk på "Generer modeller" for å lage all
 
 ![Generer modeller](./Kurs-skjermbilder%20-%20Oppgave-Datamodell-generer-modeller.jpg)
 
-#### Husk å dele endringer!
+### Husk å dele endringer!
 
 ![Husk å dele endringer](./Kurs-skjermbilder%20-%20Oppgave-Del-endringer-basic.jpg)
 
-### Utforme skjema
+## Utforme skjema
 
 Nå skal du bygge opp skjemaet. Dette er veldig likt det du gjorde for infosiden.
 
 Naviger til "Utforming" i toppmenyen, og velg "Form" på oversiktssiden.
 
-#### Lag en ny side
+### Lag en ny side
 1. Klikk på "Legg til side".
 2. Endre navnet på siden til "om-innflytter". Lagre endringen.
 3. Klikk på "Visningsnavn" og legg inn en visningstekst for siden, f.eks. "Om innflytter". Lagre endringen.
 
-#### Legg til den første skjemakomponenten
+### Legg til den første skjemakomponenten
 1. Påse at du er på siden "om-innflytter". Klikk på "+"-tegnet inne på siden.
 2. Velg "Kort svar" fra komponentlisten.
 
-#### Legg til resten av skjemakomponentene
+### Legg til resten av skjemakomponentene
