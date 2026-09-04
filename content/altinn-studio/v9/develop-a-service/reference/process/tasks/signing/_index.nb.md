@@ -304,7 +304,7 @@ Hvis du vil at signereren skal kunne avslå å signere og for eksempel sende ins
 
 Du legger denne til i autorisasjonsregelen og setter opp en egen ActionButton som knyttes til handlingen `reject`.
 
-Se [Slik styrer du prosessflyten](/nb/altinn-studio/v8/reference/process/flowcontrol/) for mer informasjon.
+Se [Slik styrer du prosessflyten](/nb/altinn-studio/v9/develop-a-service/reference/process/flowcontrol/) for mer informasjon.
 
 ### Slik lagres signaturobjektet når brukeren signerer
 

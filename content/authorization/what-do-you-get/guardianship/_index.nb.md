@@ -18,10 +18,10 @@ Sivilrettsforvaltningen definerer vergefullmaktene som angir hva en verge kan gj
 Som tjenesteeier gjør du tre ting:
 
 1. Oppretter tilgangsregler som knytter aktuelle vergefullmakter til tjenesten din.
-2. Legger til aktørvalg slik at vergen kan velge hvem hen representerer.
+2. Legger til aktørvalg slik at vergen kan velge hvem hen skal handle på vegne av.
 3. Gjør et autorisasjonsoppslag for å bekrefte at vergen har riktig vergefullmakt.
 
-Når dette er på plass, kan vergen logge inn, velge å representere vergehaver og utføre handlinger i tjenesten.
+Når dette er på plass, kan vergen logge inn, velge vergehaveren hen skal handle på vegne av, og utføre handlinger i tjenesten.
 
 Folkeregisteret er autoritativ kilde for vergefullmakter. Det er ikke mulig å gi eller trekke tilbake vergefullmakter i Altinn — det gjøres hos Statsforvalteren.
 

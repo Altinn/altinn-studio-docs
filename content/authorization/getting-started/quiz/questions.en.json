@@ -1,0 +1,602 @@
+[
+  {
+    "id": 1,
+    "category": "Core concepts",
+    "level": "Overview",
+    "question": "What does authorization describe in Altinn?",
+    "options": ["The rules and checks that determine who may perform an action on a resource", "Only signing a person in through ID-porten", "Registering a business in the Central Coordinating Register for Legal Entities", "Encrypting data between two public-sector organisations"],
+    "correct": 0,
+    "explanation": "Authorization determines whether a person, business or system may perform a specific action on a resource. Authentication establishes the identity, while authorization determines what that identity is allowed to do.",
+    "source": {"label": "Altinn Authorization glossary", "url": "/en/authorization/getting-started/terms/"}
+  },
+  {
+    "id": 2,
+    "category": "Core concepts",
+    "level": "Overview",
+    "question": "What is an authorization in Altinn?",
+    "options": ["A technical connection between two APIs", "A single permitted action on a resource", "The authority to act on behalf of another person or business", "Confirmation that a user is signed in"],
+    "correct": 2,
+    "explanation": "An authorization describes the authority a person, business or system has to act on behalf of someone else. It may cover one or more specific rights.",
+    "source": {"label": "Glossary: Authorization", "url": "/en/authorization/getting-started/terms/#authorization"}
+  },
+  {
+    "id": 3,
+    "category": "Core concepts",
+    "level": "Overview",
+    "question": "What does access mean when the term is used precisely?",
+    "options": ["The legal authority to act on behalf of others", "A collection of all the rules in a policy", "A historical name for a business in Altinn 2", "The technical ability to use a function, service or resource"],
+    "correct": 3,
+    "explanation": "Access is the technical implementation of an authorization or right. When the text concerns someone's authority to act on behalf of others, use authorization or power of attorney instead.",
+    "source": {"label": "Glossary: Access", "url": "/en/authorization/getting-started/terms/#access"}
+  },
+  {
+    "id": 4,
+    "category": "Core concepts",
+    "level": "Detailed",
+    "question": "How is a right usually described in the authorization model?",
+    "options": ["As the name of the person signing in", "As the business's legal form", "As the lifetime of a token", "As a combination of an action and a resource"],
+    "correct": 3,
+    "explanation": "A right is a specific action someone is permitted to perform on a resource, such as reading a message or signing a form.",
+    "source": {"label": "Glossary: Right", "url": "/en/authorization/getting-started/terms/#right"}
+  },
+  {
+    "id": 5,
+    "category": "Core concepts",
+    "level": "Detailed",
+    "question": "When is party the appropriate term to use?",
+    "options": ["When a technical model refers to the person or business that a resource, dialogue or request concerns", "In all user-facing text about organisations", "Only when a user has a key role", "As a synonym for access package"],
+    "correct": 0,
+    "explanation": "Party is a technical domain term. In user-facing text, it is usually clearer to write the person, the business or the party you act on behalf of.",
+    "source": {"label": "Glossary: Submitter and actor", "url": "/en/authorization/getting-started/terms/#submitteractor"}
+  },
+  {
+    "id": 6,
+    "category": "Core concepts",
+    "level": "Overview",
+    "question": "Which wording is recommended in user-facing text when someone carries out a task for others?",
+    "options": ["Act as the submitter", "Perform actor representation", "Act on behalf of the person or business", "Activate a party context"],
+    "correct": 2,
+    "explanation": "Use act on behalf of in user-facing text. Representation can remain a technical domain term when it is explained.",
+    "source": {"label": "Glossary: Submitter and actor", "url": "/en/authorization/getting-started/terms/#submitteractor"}
+  },
+  {
+    "id": 7,
+    "category": "Core concepts",
+    "level": "Detailed",
+    "question": "What should the technical feature instance delegation normally be called in the user interface and user-facing documentation?",
+    "options": ["Transfer an instance right", "Share and give power of attorney", "Copy actor access", "Create a delegation policy"],
+    "correct": 1,
+    "explanation": "Share and give power of attorney is the user-facing wording. Instance delegation is retained only when the technical feature itself must be described.",
+    "source": {"label": "Share and give power of attorney", "url": "/en/authorization/guides/end-user/instancedelegation/"}
+  },
+  {
+    "id": 8,
+    "category": "Core concepts",
+    "level": "Overview",
+    "question": "Which standard term is used for an organisation in user-facing text?",
+    "options": ["Actor", "Main unit", "Company", "Business"],
+    "correct": 3,
+    "explanation": "Business is the standard term when the specific legal form or register structure is not relevant to the explanation.",
+    "source": {"label": "Altinn Authorization glossary", "url": "/en/authorization/getting-started/terms/"}
+  },
+  {
+    "id": 9,
+    "category": "Resources and access control",
+    "level": "Overview",
+    "question": "What is the Resource Register's main role in Altinn Authorization?",
+    "options": ["To describe digital services and resources and connect them to access rules", "To authenticate every end user without ID-porten", "To store accounting data from private businesses", "To replace the National Population Register and the Central Coordinating Register for Legal Entities"],
+    "correct": 0,
+    "explanation": "The service owner registers and describes the resource in the Resource Register and connects it to policies that state who may perform which actions.",
+    "source": {"label": "About Altinn Authorization", "url": "/en/authorization/about/"}
+  },
+  {
+    "id": 10,
+    "category": "Resources and access control",
+    "level": "Overview",
+    "question": "Which of these can be registered as a resource whose access must be controlled?",
+    "options": ["Only forms built in Altinn Studio", "Only APIs running on the Altinn platform", "A digital service, API, messaging service or dataset", "Only organisation numbers from the Central Coordinating Register for Legal Entities"],
+    "correct": 2,
+    "explanation": "A resource is what the service owner wants to control access to. It may be a digital service, an API, a messaging service or a dataset, among other things.",
+    "source": {"label": "About Altinn Authorization", "url": "/en/authorization/about/"}
+  },
+  {
+    "id": 11,
+    "category": "Resources and access control",
+    "level": "Overview",
+    "question": "What is a policy in Altinn Authorization?",
+    "options": ["A token that proves who the user is", "A list of all registered businesses", "An agreement between a system provider and an end user", "A collection of one or more rules"],
+    "correct": 3,
+    "explanation": "A policy collects the rules that describe who may do what with a resource. Altinn uses the XACML format to describe policies.",
+    "source": {"label": "Glossary: Policy", "url": "/en/authorization/getting-started/terms/#policy"}
+  },
+  {
+    "id": 12,
+    "category": "Resources and access control",
+    "level": "Detailed",
+    "question": "Which three basic components are used in Altinn's authorization rules?",
+    "options": ["Token, client and redirect URL", "Person, business and system", "Resource, register and consent", "Who, what and where"],
+    "correct": 3,
+    "explanation": "The rules describe who gets access, what they may do, and where in a process or on which part of a resource the action applies.",
+    "source": {"label": "Authorization rules", "url": "/en/authorization/what-do-you-get/rules/"}
+  },
+  {
+    "id": 13,
+    "category": "Resources and access control",
+    "level": "Scenario",
+    "question": "A system provider builds the integration for a public service. Who remains responsible for deciding and quality-assuring the authorization rules?",
+    "options": ["The service owner", "The system provider alone", "The first end user to sign in", "Maskinporten"],
+    "correct": 0,
+    "explanation": "The system provider can implement the integration, but the service owner owns the resource and is responsible for the rules and the final access control.",
+    "source": {"label": "Get started as a service owner", "url": "/en/authorization/getting-started/service-owner/"}
+  },
+  {
+    "id": 14,
+    "category": "Resources and access control",
+    "level": "Scenario",
+    "question": "A service runs outside the Altinn platform. How does it perform access control with Altinn Authorization?",
+    "options": ["It needs no control once the resource is registered", "It only reads the policy file locally", "It asks the user to confirm access manually for every call", "It calls the Altinn Authorization APIs and enforces the response in its own service"],
+    "correct": 3,
+    "explanation": "External services must explicitly send the resource, action and context to Altinn Authorization, then allow or reject the action based on the response.",
+    "source": {"label": "Protect an external service or API", "url": "/en/authorization/getting-started/service-owner/#protect-an-external-service-or-api"}
+  },
+  {
+    "id": 15,
+    "category": "Resources and access control",
+    "level": "Detailed",
+    "question": "What applies to access control in Altinn apps running on the Altinn platform?",
+    "options": ["The app must always implement its own PDP", "Access control is available only for Maskinporten", "The platform enforces the rules automatically once the policy is defined", "Every signed-in user gets access to the app"],
+    "correct": 2,
+    "explanation": "Products on the Altinn platform have built-in access control. The service owner defines the rules, and the platform enforces them when the service is used.",
+    "source": {"label": "Get started as a service owner", "url": "/en/authorization/getting-started/service-owner/"}
+  },
+  {
+    "id": 16,
+    "category": "Resources and access control",
+    "level": "Detailed",
+    "question": "How should the service's Policy Enforcement Point handle a response that is not explicitly Permit?",
+    "options": ["Grant temporary access and check again later", "Reject Deny and NotApplicable, and treat Indeterminate or a missing response as a technical error", "Grant access if the token has not expired", "Let the system provider choose the default result"],
+    "correct": 1,
+    "explanation": "Only an explicit Permit should grant access. Technical errors, missing responses or other decisions must never enable unauthorized use.",
+    "source": {"label": "Protect an external service or API", "url": "/en/authorization/getting-started/service-owner/#protect-an-external-service-or-api"}
+  },
+  {
+    "id": 17,
+    "category": "Authentication and party selection",
+    "level": "Scenario",
+    "question": "Which identity solution should be used when the service must know which person performs the action?",
+    "options": ["ID-porten", "System user", "Only a Maskinporten scope", "The Resource Register"],
+    "correct": 0,
+    "explanation": "ID-porten is used when the operation must be linked to a signed-in person. System user is used when the service needs to know which system is behind the operation.",
+    "source": {"label": "System user: Choosing an identity", "url": "/en/authorization/what-do-you-get/systemuser/"}
+  },
+  {
+    "id": 18,
+    "category": "Authentication and party selection",
+    "level": "Scenario",
+    "question": "An API call takes place without a signed-in person, and the service must know which end-user system is behind it. What is the right choice?",
+    "options": ["ID-porten alone", "System user together with Maskinporten", "Only Authorized Parties", "Consent without a token"],
+    "correct": 1,
+    "explanation": "System user identifies the non-personal user and its authorizations, while Maskinporten is used in the authentication and token flow.",
+    "source": {"label": "System user", "url": "/en/authorization/what-do-you-get/systemuser/"}
+  },
+  {
+    "id": 19,
+    "category": "Authentication and party selection",
+    "level": "Overview",
+    "question": "When can Maskinporten alone be sufficient?",
+    "options": ["When the service must know exactly which person signed", "When an accountant must choose between several clients", "When it is enough to know which business and, where relevant, which scope is used", "When a guardian must choose a ward"],
+    "correct": 2,
+    "explanation": "Maskinporten is suitable when the system's business identity and scopes provide enough context. System user adds fine-grained authorizations when needed.",
+    "source": {"label": "System user: ID-porten, system user and Maskinporten", "url": "/en/authorization/what-do-you-get/systemuser/"}
+  },
+  {
+    "id": 20,
+    "category": "Authentication and party selection",
+    "level": "Detailed",
+    "question": "Which token from ID-porten must be exchanged for an Altinn token before calling the relevant Altinn APIs?",
+    "options": ["The ID token", "The refresh token directly", "A consent token", "The access token"],
+    "correct": 3,
+    "explanation": "The access token from ID-porten must be exchanged. The ID token must not be used at this endpoint, while the refresh token is used to renew the access token.",
+    "source": {"label": "Authenticate with ID-porten", "url": "/en/authorization/getting-started/authentication/id-porten/#exchanging-access-token-for-altinn-token"}
+  },
+  {
+    "id": 21,
+    "category": "Authentication and party selection",
+    "level": "Scenario",
+    "question": "What is the main purpose of Authorized Parties in a party selector?",
+    "options": ["To return relevant people and businesses the user can choose between", "To create new authorizations automatically", "To replace the final access control", "To issue Maskinporten tokens"],
+    "correct": 0,
+    "explanation": "Authorized Parties is used to build a clear choice of person or business. After the selection, the service must still check the selected party, resource and action.",
+    "source": {"label": "Get started as a system provider: Party selection", "url": "/en/authorization/getting-started/system-vendor/#find-parties-a-signed-in-user-can-represent"}
+  },
+  {
+    "id": 22,
+    "category": "Authentication and party selection",
+    "level": "Detailed",
+    "question": "How does an ID-porten scope work with the user's existing authorization?",
+    "options": ["The scope grants access to everything even when the user lacks authorization", "The scope is used only to select a language", "The scope replaces the resource's policy", "The scope limits what the system may do, but the action must also be something the user is authorized to perform"],
+    "correct": 3,
+    "explanation": "The system may perform only actions that fall within the scope and that the user is already authorized to perform. Both the scope and the authorization must be satisfied.",
+    "source": {"label": "Authenticate with ID-porten", "url": "/en/authorization/getting-started/authentication/id-porten/"}
+  },
+  {
+    "id": 23,
+    "category": "Authorizations and access management",
+    "level": "Overview",
+    "question": "What can a person or business do in Access Management?",
+    "options": ["Only view their own sign-in history", "Only register new public services", "View, grant and revoke authorizations", "Change roles directly in the Central Coordinating Register for Legal Entities"],
+    "correct": 2,
+    "explanation": "Access Management provides functions for seeing who has authorization, granting new authorizations and revoking them, including for access packages and single services.",
+    "source": {"label": "Access Management", "url": "/en/authorization/what-do-you-get/accessmanagement/"}
+  },
+  {
+    "id": 24,
+    "category": "Authorizations and access management",
+    "level": "Overview",
+    "question": "What is an access package?",
+    "options": ["A defined collection of rights to services within an area", "A list of businesses allowed to use an API", "A token containing the user's national identity number", "A policy that always permits every action"],
+    "correct": 0,
+    "explanation": "An access package collects rights to related services. When someone receives authorization for the package, the package describes which services and rights the authorization covers.",
+    "source": {"label": "Glossary: Access package", "url": "/en/authorization/getting-started/terms/#access-package"}
+  },
+  {
+    "id": 25,
+    "category": "Authorizations and access management",
+    "level": "Detailed",
+    "question": "Can a user receive authorization directly for an area in the access-package structure?",
+    "options": ["Yes, the area automatically grants every package below it", "Yes, but only as the main administrator", "Yes, if the area contains fewer than five packages", "No, areas are used only to categorize access packages"],
+    "correct": 3,
+    "explanation": "An area is a thematic category. Authorization is granted for an access package or a single service, not for the area itself.",
+    "source": {"label": "Glossary: Area", "url": "/en/authorization/getting-started/terms/#area"}
+  },
+  {
+    "id": 26,
+    "category": "Authorizations and access management",
+    "level": "Scenario",
+    "question": "When is it best to grant authorization for a single service rather than an access package?",
+    "options": ["When the person needs every service within a work area", "When the authorization should be precise and apply to only one specific service", "When the business wants to avoid defining a resource", "When the recipient must not be able to sign in"],
+    "correct": 1,
+    "explanation": "Authorization for a single service provides precise and limited authority. An access package is simpler when the need covers an entire work area, but gives broader access.",
+    "source": {"label": "Glossary: Authorization to a single service", "url": "/en/authorization/getting-started/terms/#authorization-to-a-single-service"}
+  },
+  {
+    "id": 27,
+    "category": "Authorizations and access management",
+    "level": "Detailed",
+    "question": "What characterizes administrator authorizations in Altinn?",
+    "options": ["They automatically grant access to every public service", "They grant only the right to change the business's address", "They grant authority to manage authorizations, but do not themselves grant access to services", "They can be used only by public-sector organisations"],
+    "correct": 2,
+    "explanation": "Administrator authorizations such as Access Management and Main Administrator concern the administration of authorizations. They must not be confused with authorization to use the services themselves.",
+    "source": {"label": "Glossary: Administrator access", "url": "/en/authorization/getting-started/terms/#administrator-access"}
+  },
+  {
+    "id": 28,
+    "category": "Authorizations and access management",
+    "level": "Scenario",
+    "question": "What must a user have to share a specific message from the Altinn inbox and give the recipient power of attorney?",
+    "options": ["Only read access to any message", "Only the role of general manager", "A valid Maskinporten token", "Access to the item and power of attorney for the access package used to manage individual messages, forms and dialogues"],
+    "correct": 3,
+    "explanation": "The user must both have access to the specific item and hold the administrator power that gives authority to share it and pass on power of attorney.",
+    "source": {"label": "Share and give power of attorney", "url": "/en/authorization/guides/end-user/instancedelegation/"}
+  },
+  {
+    "id": 29,
+    "category": "Authorizations and access management",
+    "level": "Detailed",
+    "question": "What information is required when a new person is given power of attorney for an individual message or form?",
+    "options": ["Only the person's email address", "National identity number and surname, or Altinn username and surname, together with the permitted actions", "Organisation number and Maskinporten scope", "Only the name of the access package"],
+    "correct": 1,
+    "explanation": "The recipient is identified by national identity number and surname, or Altinn username and surname. The person granting the power also chooses the actions, such as read or write.",
+    "source": {"label": "Share and give power of attorney", "url": "/en/authorization/guides/end-user/instancedelegation/"}
+  },
+  {
+    "id": 30,
+    "category": "System access and system user",
+    "level": "Overview",
+    "question": "What does system access enable for an end user?",
+    "options": ["A business system can perform limited tasks in Altinn on behalf of a business without a manual sign-in every time", "Every employee automatically becomes a main administrator", "A system can use every public API without scopes", "The business can change roles in the Central Coordinating Register for Legal Entities"],
+    "correct": 0,
+    "explanation": "System access uses a technical system user with the necessary authorizations so the business system can retrieve or submit data machine-to-machine.",
+    "source": {"label": "System access for end users", "url": "/en/authorization/guides/end-user/system-user/"}
+  },
+  {
+    "id": 31,
+    "category": "System access and system user",
+    "level": "Detailed",
+    "question": "How do the terms system access and system user differ?",
+    "options": ["They describe two completely unrelated products", "System access is used in the user interface, while system user describes the technical concept and interaction between the parties", "System user is only an old name that is no longer used", "System access applies to people, while system user applies to consent"],
+    "correct": 1,
+    "explanation": "System access is the user-facing product term in Altinn. System user describes the concept in which the service owner, system provider and end user make the authorization work together.",
+    "source": {"label": "Glossary: System access", "url": "/en/authorization/getting-started/terms/#system-access"}
+  },
+  {
+    "id": 32,
+    "category": "System access and system user",
+    "level": "Overview",
+    "question": "Which statement about system user, ID-porten and Maskinporten is correct?",
+    "options": ["System user replaces both ID-porten and Maskinporten", "ID-porten cannot be used for services that support system user", "System user supplements and extends the functionality of ID-porten and Maskinporten", "Maskinporten is used only for manual sign-in"],
+    "correct": 2,
+    "explanation": "System user does not replace the established identity solutions. The choice depends on whether the service must know which person, which system or only which business is calling.",
+    "source": {"label": "System user", "url": "/en/authorization/what-do-you-get/systemuser/"}
+  },
+  {
+    "id": 33,
+    "category": "System access and system user",
+    "level": "Overview",
+    "question": "How can system access be created?",
+    "options": ["Only automatically when a business is registered", "Only by the service owner in the Resource Register", "Either by the user in Altinn or through a request from the system provider", "Only through Maskinporten's administration interface"],
+    "correct": 2,
+    "explanation": "The user can create system access directly in Altinn when the system supports it, or approve a provider-initiated request.",
+    "source": {"label": "System access for end users", "url": "/en/authorization/guides/end-user/system-user/#how-do-you-obtain-system-access"}
+  },
+  {
+    "id": 34,
+    "category": "System access and system user",
+    "level": "Detailed",
+    "question": "Which type of system access cannot be created manually in the Altinn portal?",
+    "options": ["System access for clients", "System access for your own business", "System access that uses an access package", "System access to an external service"],
+    "correct": 0,
+    "explanation": "The manual flow in the Altinn portal applies to system access for your own business. System access for clients must be established through the provider flow.",
+    "source": {"label": "Create system access", "url": "/en/authorization/guides/end-user/system-user/create-systemuser/"}
+  },
+  {
+    "id": 35,
+    "category": "System access and system user",
+    "level": "Scenario",
+    "question": "What must be true before a user can approve a request for system access?",
+    "options": ["The user only needs to know the name of the business system", "The user must be able to manage authorizations for the business and grant every authorization in the request", "The user must be registered as a system provider", "The business must have at least one client"],
+    "correct": 1,
+    "explanation": "The approver must both be allowed to manage the business's authorizations and have the authority to grant every authorization requested by the system.",
+    "source": {"label": "Approve system access", "url": "/en/authorization/guides/end-user/system-user/accept-request/"}
+  },
+  {
+    "id": 36,
+    "category": "System access and system user",
+    "level": "Scenario",
+    "question": "A business system requests authorization for one access package and one single service. The user can grant only the access package. What is the correct action?",
+    "options": ["Approve the system access with only the access package", "Approve it and ask the provider to tidy it up later", "Obtain the missing authorization or forward the request to someone who can grant every authorization", "Create a new business in the Resource Register"],
+    "correct": 2,
+    "explanation": "System access cannot be created with only part of the request. The user must obtain the missing authorization or forward the request.",
+    "source": {"label": "System access for end users", "url": "/en/authorization/guides/end-user/system-user/"}
+  },
+  {
+    "id": 37,
+    "category": "System access and system user",
+    "level": "Detailed",
+    "question": "At a high level, what happens when an end-user system uses a system user with a service?",
+    "options": ["The system uses an ID token directly with no further checks", "Maskinporten verifies the system-user context and issues a token; the service checks the scope and required authorizations", "The Resource Register signs the end user in manually", "The client sends only the organisation number without a token"],
+    "correct": 1,
+    "explanation": "The Maskinporten token carries system-user information. The service authenticates the call, checks scopes and performs an authorization lookup for the resource and action.",
+    "source": {"label": "System user: In use", "url": "/en/authorization/what-do-you-get/systemuser/#in-use"}
+  },
+  {
+    "id": 38,
+    "category": "Client administration",
+    "level": "Overview",
+    "question": "What must a client do before a business system can perform services on the client's behalf through system access?",
+    "options": ["Register the business system as a public-sector organisation", "Grant the service provider's business the necessary authorizations", "Create a new ID-porten user for the system", "Add every employee to an access list"],
+    "correct": 1,
+    "explanation": "The client business must grant the service provider authorizations that cover the services or access packages required by the system access.",
+    "source": {"label": "Client administration", "url": "/en/authorization/guides/end-user/system-user/delegate-clients/"}
+  },
+  {
+    "id": 39,
+    "category": "Client administration",
+    "level": "Detailed",
+    "question": "Which prerequisites must be in place to add clients to system access in Altinn?",
+    "options": ["Approved system access for clients and authority to administer clients", "Only a Maskinporten client with a read scope", "Consent from the service owner", "A policy without access packages"],
+    "correct": 0,
+    "explanation": "There must be approved system access for clients, and the user must be allowed to administer clients, for example as a client administrator or general manager.",
+    "source": {"label": "Client administration: Prerequisites", "url": "/en/authorization/guides/end-user/system-user/delegate-clients/#prerequisites"}
+  },
+  {
+    "id": 40,
+    "category": "Client administration",
+    "level": "Detailed",
+    "question": "How are multiple access packages evaluated for system access for clients?",
+    "options": ["It is enough for the client to grant authorization for any one package", "The packages are evaluated as an OR relationship", "The service provider must be authorized for every package on behalf of the client", "The packages are ignored when a client relationship exists"],
+    "correct": 2,
+    "explanation": "The access packages work as an AND relationship. Authorization for some packages is not enough; every package must be covered directly or through a role in the Central Coordinating Register for Legal Entities.",
+    "source": {"label": "Client administration: Automatic client relationships", "url": "/en/authorization/guides/end-user/system-user/delegate-clients/#automatic-client-relationships"}
+  },
+  {
+    "id": 41,
+    "category": "Client administration",
+    "level": "Scenario",
+    "question": "An expected client is not shown when it is being added to system access. What should be checked first?",
+    "options": ["Whether the client uses the same browser", "Whether the client relationship exists and every access package in the system access is covered by authorizations", "Whether the system provider owns the client's organisation number", "Whether the client has active consent for all public data"],
+    "correct": 1,
+    "explanation": "The client may be missing from the list because the client relationship does not exist or because the service provider has not been authorized for every package required by the system access.",
+    "source": {"label": "Client administration: Process", "url": "/en/authorization/guides/end-user/system-user/delegate-clients/#process-in-the-altinn-portal"}
+  },
+  {
+    "id": 42,
+    "category": "Client administration",
+    "level": "Scenario",
+    "question": "What is an important security requirement for a system that handles many clients?",
+    "options": ["Reuse the same authorization result for every client", "Store every complete token in the error log", "Do not mix token context, caches or authorization results between clients", "Let the end user select the client after the API call has been sent"],
+    "correct": 2,
+    "explanation": "Each client context must remain separate. Incorrect reuse of tokens, caches or authorization decisions can give access on behalf of the wrong customer.",
+    "source": {"label": "Get started as a system provider: Clients", "url": "/en/authorization/getting-started/system-vendor/#call-apis-on-behalf-of-clients"}
+  },
+  {
+    "id": 43,
+    "category": "Client administration",
+    "level": "Detailed",
+    "question": "How can some client relationships and authorizations be created automatically?",
+    "options": ["Through roles such as accountant or auditor registered in the Central Coordinating Register for Legal Entities", "When the client visits the documentation site", "When the system provider creates a new scope", "Through a random choice in the Altinn portal"],
+    "correct": 0,
+    "explanation": "Roles registered in the Central Coordinating Register for Legal Entities can establish client relationships and grant authorization for specific access packages without a separate direct assignment.",
+    "source": {"label": "Client administration: Automatic client relationships", "url": "/en/authorization/guides/end-user/system-user/delegate-clients/#automatic-client-relationships"}
+  },
+  {
+    "id": 44,
+    "category": "Consent, access lists and guardianship",
+    "level": "Overview",
+    "question": "Which statement about consent in Altinn is correct?",
+    "options": ["Consent is a general and permanent authorization for all data", "Consent can be given only by the service owner", "Consent replaces authentication and other access control", "Consent is time-limited and can be withdrawn"],
+    "correct": 3,
+    "explanation": "Consent is used for an explicit and limited approval with a defined duration. The user can withdraw the consent.",
+    "source": {"label": "Consent in Altinn Authorization", "url": "/en/authorization/what-do-you-get/consent/"}
+  },
+  {
+    "id": 45,
+    "category": "Consent, access lists and guardianship",
+    "level": "Detailed",
+    "question": "Which sequence correctly describes the main consent flow?",
+    "options": ["The service owner gives consent, the user creates a scope, and Altinn deletes the token", "The user retrieves the data first and gives consent afterwards", "Maskinporten selects the data and automatically creates a permanent authorization", "The data consumer creates a request, the user approves it in Altinn, and the data consumer retrieves a token and uses it with the data source"],
+    "correct": 3,
+    "explanation": "The data consumer starts the flow and sends the user to Altinn. After approval, the consent token is retrieved and used as evidence when data is requested from the service owner.",
+    "source": {"label": "The consent process", "url": "/en/authorization/what-do-you-get/consent/#how-the-consent-process-works"}
+  },
+  {
+    "id": 46,
+    "category": "Consent, access lists and guardianship",
+    "level": "Detailed",
+    "question": "What is an important property of the consent token in Altinn 3?",
+    "options": ["It is one Maskinporten token containing the information needed to validate and log the consent", "It is an ID token that never expires", "It can be used with every API without separate scopes", "It contains no information about the scope of the consent"],
+    "correct": 0,
+    "explanation": "The consent solution uses one Maskinporten token that combines authentication and authorization information about the consent. The API provider must validate the token correctly.",
+    "source": {"label": "Consent: Token handling", "url": "/en/authorization/what-do-you-get/consent/#whats-new-in-altinn-3"}
+  },
+  {
+    "id": 47,
+    "category": "Consent, access lists and guardianship",
+    "level": "Overview",
+    "question": "What is the relationship between an access list and the rest of the authorization process?",
+    "options": ["The access list replaces both authentication and the policy", "The access list limits the relevant businesses but does not replace authentication or other rules", "The access list automatically permits every action on the resource", "The access list can be used only for private individuals"],
+    "correct": 1,
+    "explanation": "An access list can limit the service to a defined group of businesses. The service must still authenticate the call and evaluate the other authorization rules.",
+    "source": {"label": "Get started as a service owner: Access lists", "url": "/en/authorization/getting-started/service-owner/#restrict-access-to-selected-organisations"}
+  },
+  {
+    "id": 48,
+    "category": "Consent, access lists and guardianship",
+    "level": "Scenario",
+    "question": "A data consumer is not on the access list for a consent service. When should the flow normally stop?",
+    "options": ["After the end user has given consent and the data has been retrieved", "Before the end user is asked to give consent", "Before the data consumer authenticates with Maskinporten", "Only when the consent expires"],
+    "correct": 1,
+    "explanation": "A data consumer outside the access list must not be able to create the consent request. The flow therefore ends before the user is involved.",
+    "source": {"label": "Get started with consent: Access lists", "url": "/en/authorization/getting-started/consent/#service-owner"}
+  },
+  {
+    "id": 49,
+    "category": "Consent, access lists and guardianship",
+    "level": "Detailed",
+    "question": "Where do guardianship powers come from, and can they be changed in Altinn?",
+    "options": ["They are created by the system provider and can be changed in the Resource Register", "They come from the Central Coordinating Register for Legal Entities and can be revoked by a client administrator", "They are retrieved from the National Population Register and cannot be granted or revoked in Altinn", "They are generated by ID-porten at every sign-in"],
+    "correct": 2,
+    "explanation": "The National Population Register is the authoritative source for guardianship powers. Appointments and changes are handled by the County Governor, not in Altinn Access Management.",
+    "source": {"label": "Guardianship", "url": "/en/authorization/what-do-you-get/guardianship/"}
+  },
+  {
+    "id": 50,
+    "category": "Consent, access lists and guardianship",
+    "level": "Scenario",
+    "question": "Which three measures must an external service normally implement to support guardianship?",
+    "options": ["Create guardianship powers, store national identity numbers and skip access control", "Connect guardianship powers to rules, offer party selection and perform an authorization lookup", "Require Maskinporten from the guardian, create a system user and give permanent consent", "Register every guardian as an employee, use one common party and check only sign-in"],
+    "correct": 1,
+    "explanation": "The service owner must express the guardianship powers in the access rules, let the guardian select the correct ward and finally check that the guardian has the right power for the action.",
+    "source": {"label": "Get started with guardianship", "url": "/en/authorization/getting-started/guardianship/"}
+  },
+  {
+    "id": 51,
+    "category": "Authorizations and access management",
+    "level": "Scenario",
+    "question": "What determines which authorizations Access Management can offer when a user acts on behalf of an organisation?",
+    "options": ["The service, the resource and the authorizations held by the person managing access", "The browser and screen size selected by the user", "How long the organisation has been registered", "Whether the recipient has previously used Altinn"],
+    "correct": 0,
+    "explanation": "Access Management must take into account both the rules for the service or resource and the authorizations held by the person managing access.",
+    "source": {"label": "Access Management", "url": "/en/authorization/what-do-you-get/accessmanagement/"}
+  },
+  {
+    "id": 52,
+    "category": "Authorizations and access management",
+    "level": "Detailed",
+    "question": "What must the service owner do before a new resource can be managed in Access Management?",
+    "options": ["Add the resource manually to the user interface", "Give every user Main Administrator authorization", "Create a Maskinporten scope without registering the resource", "Describe and publish the resource with authorization rules and any access-package assignment"],
+    "correct": 3,
+    "explanation": "Once the resource is published, Altinn can use its authorization rules and access-package assignment when users manage authorizations.",
+    "source": {"label": "Access Management for service owners", "url": "/en/authorization/what-do-you-get/accessmanagement/#for-service-owners"}
+  },
+  {
+    "id": 53,
+    "category": "Authorizations and access management",
+    "level": "Overview",
+    "question": "Which phrase should normally describe the user-facing action of giving another person authority to act on behalf of an organisation?",
+    "options": ["Provision access", "Grant authorization", "Create connection", "Synchronize rights"],
+    "correct": 1,
+    "explanation": "Grant authorization clearly describes the user-facing action. Delegation and connection are useful technical terms for the corresponding API operations and domain model.",
+    "source": {"label": "Access Management", "url": "/en/authorization/what-do-you-get/accessmanagement/"}
+  },
+  {
+    "id": 54,
+    "category": "Authorizations and access management",
+    "level": "Detailed",
+    "question": "An organisation wants to see who it has granted authorizations to. Which direction should the connections lookup represent?",
+    "options": ["Authorizations the organisation has received from others", "Only authorizations granted to system users", "Authorizations granted from the organisation to others", "Only requests the organisation has received"],
+    "correct": 2,
+    "explanation": "When the organisation is the sender, the lookup must show authorizations granted from the organisation to others. In the API, this means the administered party equals from.",
+    "source": {"label": "Access Management API: Retrieve connections", "url": "/en/authorization/guides/system-vendor/access-management/#api-retrieve-connections"}
+  },
+  {
+    "id": 55,
+    "category": "Authorizations and access management",
+    "level": "Detailed",
+    "question": "How can a party selector find the organisations for which the user can actually manage authorizations?",
+    "options": ["Retrieve authorized parties filtered by the altinn_access_management resource", "Display every organisation from the Central Coordinating Register for Legal Entities", "Display only organisations where the user is registered as general manager", "Use the organisation most recently stored in the browser"],
+    "correct": 0,
+    "explanation": "Authorized Parties can be filtered with anyOfResourceIds=altinn_access_management. This returns only parties where the user has rights to manage access.",
+    "source": {"label": "Access Management API: Retrieve authorised parties", "url": "/en/authorization/guides/system-vendor/access-management/#api-retrieve-authorised-parties"}
+  },
+  {
+    "id": 56,
+    "category": "Authorizations and access management",
+    "level": "Scenario",
+    "question": "What should be checked before the user interface allows a user to grant a particular access package?",
+    "options": ["That the recipient signed in on the same day", "That the access package contains more than one service", "That the user is always registered as general manager", "That the user can delegate the access package on behalf of the selected party"],
+    "correct": 3,
+    "explanation": "The delegation check determines whether the logged-in user can delegate the specific access package on behalf of the party being managed.",
+    "source": {"label": "Access Management API: Check delegation eligibility", "url": "/en/authorization/guides/system-vendor/access-management/#api-check-delegation-eligibility-for-access-packages"}
+  },
+  {
+    "id": 57,
+    "category": "Authorizations and access management",
+    "level": "Scenario",
+    "question": "A sent authorization request has status Pending. What can the sender do?",
+    "options": ["Approve the request on behalf of the recipient", "Change the recipient without creating a new request", "Withdraw the request while it has not been processed", "Create the authorization without the recipient processing the request"],
+    "correct": 2,
+    "explanation": "The sender can withdraw a request that has not yet been approved or rejected. The recipient is responsible for approving or rejecting it.",
+    "source": {"label": "Access Management API: Requesting access", "url": "/en/authorization/guides/system-vendor/access-management/#requesting-access-from-another-party"}
+  },
+  {
+    "id": 58,
+    "category": "Authorizations and access management",
+    "level": "Overview",
+    "question": "What happens when the recipient approves an authorization request?",
+    "options": ["The request is archived without any other change", "The underlying authorization is created", "The sender must create the authorization manually afterwards", "The recipient automatically receives Main Administrator authorization"],
+    "correct": 1,
+    "explanation": "When the recipient approves the request, Altinn creates the underlying delegation that implements the authorization.",
+    "source": {"label": "Access Management API: Approve a request", "url": "/en/authorization/guides/system-vendor/access-management/#api-approve-a-received-request"}
+  },
+  {
+    "id": 59,
+    "category": "Authorizations and access management",
+    "level": "Detailed",
+    "question": "A request concerns several rights on one resource. Must the recipient approve every right?",
+    "options": ["No, the recipient can approve a selection of the rights", "Yes, a resource request can never be divided", "No, but only the service owner can select rights", "Yes, unless the recipient has Main Administrator authorization"],
+    "correct": 0,
+    "explanation": "When approving a resource request, the recipient can specify which rights to grant. An empty request body approves all the rights that were requested.",
+    "source": {"label": "Access Management API: Approve a request", "url": "/en/authorization/guides/system-vendor/access-management/#api-approve-a-received-request"}
+  },
+  {
+    "id": 60,
+    "category": "Authorizations and access management",
+    "level": "Detailed",
+    "question": "Why does Access Management UI use a backend for frontend (BFF)?",
+    "options": ["To store every authorization locally in the user interface", "To replace all underlying authorization services", "To let the browser call every underlying API directly", "To expose endpoints shaped around user tasks and hide service topology and access tokens from the browser"],
+    "correct": 3,
+    "explanation": "The BFF gathers orchestration behind endpoints suited to user tasks. This gives fewer browser calls, simpler contracts and one security boundary.",
+    "source": {"label": "Architecture patterns: Backend for frontend", "url": "/en/authorization/reference/system/application-architecture/access-management-ui/patterns/#backend-for-frontend"}
+  }
+]

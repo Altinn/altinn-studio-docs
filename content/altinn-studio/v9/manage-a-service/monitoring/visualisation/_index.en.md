@@ -36,7 +36,7 @@ an end user's experience. Debugging and alerting make Application Insights a val
     The Test Developer role grants access to Application Insights for apps in TT02, and the Production Developer role grants access
     to apps in production.
 
-    [See here how to request the role](/nb/altinn-studio/v8/guides/administration/access-management/apps/)
+    [See here how to request the role](/en/altinn-studio/v9/manage-a-service/access-management/apps/)
 
 - **General overview of Application Insights features**
     Application Insights has several features available.

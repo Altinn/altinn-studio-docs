@@ -11,7 +11,7 @@ Avhengig av samtykkets formål og innhold, kan dette gi tjenesteeier både nødv
 ## Hva får du med Samtykke?
 
 - Helhetlig samtykkeprosess hvor Altinn håndterer dialogen mellom sluttbruker, datakonsument og tjenesteeier.
-- Ett samtykketoken fra Maskinporten som samler all informasjon du trenger for å validere og loggføre delegeringen.
+- Ett samtykketoken fra Maskinporten som samler all informasjon du trenger for å validere og loggføre samtykket.
 - Bedre sluttbrukeropplevelse med oppgradert samtykkeskjerm og tydeligere informasjonsflyt.
 - Fleksibel støtte for tredjepartsleverandører som kan administrere samtykke på vegne av datakonsument.
 - Innebygd styring av tilgangslister, varighet og tilbakekall slik at brukere og tjenesteeiere beholder kontrollen over delte data.
@@ -27,12 +27,12 @@ Dagens samtykkeprosess i Altinn 2 fungerer i utgangspunktet veldig bra, og vi ha
 
 ## Slik fungerer samtykkeprosessen
 
-### Aktører
+### Roller i samtykkeprosessen
 
 **Sluttbruker** Privatperson eller virksomhet som skal gi samtykke.  
 **Datakonsument** Organisasjon (f.eks. bank) som ønsker tilgang til data.  
 **Tjenesteeier** (Datakilde) Offentlig virksomhet som eier dataene.  
-**Altinn Autorisasjon** Altinns system for samtykke, delegering og autorisasjon.  
+**Altinn Autorisasjon** Altinns system for samtykke, fullmakter og autorisasjon.<br>
 **Maskinporten** Felles infrastruktur for autentisering og tokens (OAuth2).
 
 ![Samtykke flyt](samtykke_flyt.png)
@@ -42,7 +42,7 @@ Dagens samtykkeprosess i Altinn 2 fungerer i utgangspunktet veldig bra, og vi ha
 1. Sluttbruker starter en tjeneste der datakonsument må hente data fra offentlig tjeneste → initierer samtykkeflyten.
 2. Datakonsument sender samtykkeforespørsel til Altinn.
 3. Altinn returnerer en redirect_url → brukeren sendes dit for å godkjenne.
-4. Brukeren autentiserer seg og gir samtykke (delegering).
+4. Brukeren autentiserer seg og gir samtykke.
 5. Datakonsument henter samtykketoken (consent_id).
 6. Datakonsument bruker tokenet til å hente data fra tjenesteeier (datakilde).
 
@@ -53,7 +53,7 @@ Dagens samtykkeprosess i Altinn 2 fungerer i utgangspunktet veldig bra, og vi ha
 | 1. Starter tjenesten     | Sluttbruker starter samtykkeprosessen via datakonsument (f.eks. bankens nettside) | Bruker klikker "Innhent samtykke"                                                 | Datakonsument initierer flyten                  |
 | 2. Oppretter forespørsel | Datakonsument oppretter en samtykkeforespørsel i Altinn                           | POST /api/consentRequests med parametre (CoveredBy, OfferedBy, RedirectUrl, osv.) | Krever virksomhetsautentisering (Maskinporten)  |
 | 3. Redirect til Altinn   | Datakonsument sender sluttbrukeren til Altinns samtykkeskjema                     | Redirect til GUI-lenke som inneholder consentRequestId                            | Brukeren ser og godkjenner forespørselen        |
-| 4. Utfører delegering    | Brukeren godkjenner samtykke i Altinn                                             | Altinn registrerer delegering og oppdaterer samtykkestatus                        | Brukeren logger inn via ID-porten               |
+| 4. Godkjenner samtykke  | Brukeren godkjenner samtykke i Altinn                                             | Altinn registrerer samtykket og oppdaterer samtykkestatus                          | Brukeren logger inn via ID-porten               |
 | 5. Hent samtykketoken    | Datakonsument henter et samtykketoken etter godkjenning                           | GET /api/consentTokens/{consent_id}                                               | Token bekrefter at samtykke er gitt             |
 | 6. Hent data             | Datakonsument bruker samtykketoken til å hente data fra tjenesteeier              | API-kall mot tjenesteeier med token i header                                      | Tjenesteeier validerer token og returnerer data |
 
@@ -86,7 +86,7 @@ Brukeren kan når som helst trekke tilbake samtykket i Altinn-portalen.
 
 ## Bruk av leverandører
 
-For datakonsument er mulig å benytte leverandører (tredjepartsaktører) til å opprette samtykkeforespørsler og hente ut data på vegne av datakonsumenten.
+Datakonsumenten kan bruke tredjepartsleverandører til å opprette samtykkeforespørsler og hente ut data på sine vegne.
 
 **Krav for bruk av leverandør:**
 
@@ -99,7 +99,7 @@ For datakonsument er mulig å benytte leverandører (tredjepartsaktører) til å
 
 ## EBevis-løsningen
 
-For Digdirs EBevis-løsning kan Digdir be om samtykke på vegne av datakonsument uten at scope er delegert til Digdir. Dette gjør det mulig for aktører som kommuner å bruke løsningen uten å ha fullt oppsett i Maskinporten.
+For Digdirs EBevis-løsning kan Digdir be om samtykke på vegne av datakonsumenten uten at scopet er delegert til Digdir. Dette gjør det mulig for virksomheter som kommuner å bruke løsningen uten å ha fullt oppsett i Maskinporten.
 
 EBevis-løsningen har et eget scope som tillater opprettelse av samtykkeforespørsler for alle virksomheter for sine ressurser.
 

@@ -1,12 +1,12 @@
 ---
 title: Klientdelegering for systemleverandør
-description: Denne veiledningen viser hvordan systemleverandører kan integrere støtte for klientdelegering i sine sluttbrukersystemer ved hjelp av Altinns API-er. Klientdelegering gjør det mulig for en systembruker å representere klienter (f.eks. klienter av regnskapsførere eller revisorer) i kommunikasjon med offentlige tjenester. Hvert funksjonelt steg er illustrert med konkrete API-eksempler, slik at du enkelt kan implementere løsningen i ditt system.
+description: Denne veiledningen viser hvordan systemleverandører kan integrere støtte for klientdelegering i sine sluttbrukersystemer ved hjelp av Altinns API-er. Klientdelegering gjør det mulig for en systembruker å handle på vegne av klienter, for eksempel klienter av regnskapsførere eller revisorer, i kommunikasjon med offentlige tjenester. Hvert funksjonelt steg er illustrert med konkrete API-eksempler, slik at du enkelt kan implementere løsningen i ditt system.
 linktitle: Klientdelegering
 weight: 5
 toc: true
 ---
 
-Egen guide for _klientdelegering_ som sluttbruker finner du her: [Klientdelegering](/nb/authorization/guides/end-user/system-user/delegate-clients/)
+Sluttbrukere finner en egen veiledning her: [Klientadministrasjon](/nb/authorization/guides/end-user/system-user/delegate-clients/)
 
 ## 1 Hent systembrukere for klientsystem
 

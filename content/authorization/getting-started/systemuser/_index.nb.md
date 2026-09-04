@@ -68,7 +68,7 @@ For å ta i bruk tjenester fra sluttbrukersystemet, må systemet registreres i A
 
 Dette kan gjøres via [API](https://docs.altinn.studio/nb/api/authentication/systemuserapi/systemregister/create/). Systemet må knyttes til Maskinporten-klienten opprettet i steg 1.
 
-Hvilke tilgangspakker og/eller enkelttjenester som systemet må ha avhenger av den enkelte tjeneste og beskrevet i den enkelte tjenestes dokumentasjon.
+Hvilke tilgangspakker eller enkelttjenester systemet må be om fullmakt til, avhenger av den enkelte tjenesten og skal være beskrevet i dokumentasjonen til tjenesten.
 
 > Dagens roller i Altinn skal erstattes av tilgangspakker. For mer informasjon se [tilgangspakker](/nb/authorization/what-do-you-get/accesspackages/).
 
@@ -81,9 +81,9 @@ For å finne ut hvilke scopes du må be om, se tjenesteeiers dokumentasjon eller
 {{< stepcard step="5" title="Tilpasse systemet for kundene" >}}
 Erfaringsmessig tar dette punktet noe tid, da det krever involvering av brukere. Vi oppfordrer derfor alle til å sette av nok tid til gjennomføringen av dette punktet.
 
-En systembruker defineres ved at sluttbrukersystemleverandøren angir hvilke tilgangspakker den skal gi tilgang til.
+En systembruker defineres ved at sluttbrukersystemleverandøren angir hvilke tilgangspakker systembrukeren skal få fullmakt til.
 Hvilke tilgangspakker som er mulig å velge er angitt av tilgangspakkene som systemet ble konfigurert med ved registrering av systemet i systemregisteret.
-For å vite hvilke tilgangspakker en systembruker skal ha, må du som systemleverandør vite hvilke tjenester dine brukere trenger for å utføre ulike arbeidsoppgaver.
+For å vite hvilke tilgangspakker en systembruker skal få fullmakt til, må du som systemleverandør vite hvilke tjenester brukerne trenger for å utføre de ulike arbeidsoppgavene.
 
 Se [guider](/nb/authorization/guides/system-vendor/system-user/) for hvordan du setter opp systembruker for forkjellige formål.
 {{< /stepcard >}}

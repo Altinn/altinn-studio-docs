@@ -16,7 +16,7 @@ En autorisasjonsbeslutning kan forstås som en kjede:
 
 1. **Identitet:** Hvem eller hvilket system handler?
 2. **Part og representasjon:** På vegne av hvilken person eller virksomhet skjer handlingen?
-3. **Ressurs:** Hva forsøker aktøren å bruke?
+3. **Ressurs:** Hva forsøker personen, virksomheten eller systemet å bruke?
 4. **Rettighet:** Hvilke regler, roller, delegeringer eller samtykker gjelder?
 5. **Beslutning:** Er den konkrete handlingen tillatt i denne konteksten?
 6. **Sporbarhet:** Kan hendelsen og beslutningsgrunnlaget undersøkes i ettertid?

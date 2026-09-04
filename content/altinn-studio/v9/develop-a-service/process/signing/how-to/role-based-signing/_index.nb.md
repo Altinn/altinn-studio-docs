@@ -1,6 +1,6 @@
 ---
 draft: true
-title: Rolle- og tilgangspakkebasert signering
+title: Signering med roller og tilgangspakker
 linktitle: Rolle/tilgangspakke
 description: Slik setter du opp signering basert på rolle eller tilgangspakke.
 tags: [rollebasert, signering, needsReview, translate, missingDesignerDocs]
@@ -19,7 +19,7 @@ aliases:
 ### Maskinporten
 Du trenger Maskinporten hvis du vil bruke [meldingstjenesten](#meldingstjenesten-i-altinn) og/eller begrense tilgangen på signaturobjektene.
 
-Hvis du trenger hjelp med å sette opp Maskinporten i appen din, finner du det du trenger i [denne veiledningen](/nb/altinn-studio/v9/develop-a-service/reference/integration/maskinporten/).
+Hvis du trenger hjelp med å sette opp Maskinporten i appen din, finner du det du trenger i [denne veiledningen](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/).
 
 ### Meldingstjenesten i Altinn
 Hvis appen din er [konfigurert til å sende signaturkvitteringer](#legg-til-signeringsoppgave), må meldingstjenesten i Altinn (Correspondence) være aktivert.

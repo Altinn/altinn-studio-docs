@@ -10,7 +10,7 @@ For å opprette samtykkeforespørsler på vegne av en annen virksomhet må dere 
 - Virksomheten som er datakonsument (consumer): organisasjonen som skal stå som mottaker av samtykket (f.eks. Sparebank Super).
 - Virksomheten som har Maskinporten-klienten: leverandør-/driftsorganisasjonen som faktisk kaller API-ene (f.eks. Sparebank Super - Drift).
 
-Eksemplene under bruker fiktive aktører (TT02):
+Eksemplene under bruker fiktive parter (TT02):
 
 - Sparebank Super orgnr (consumer): `313876144`
 - Sparebank Super - Drift orgnr (Maskinporten-klient eies her): `310149942`

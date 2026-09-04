@@ -20,7 +20,7 @@ Konfigurasjon av egendefinerte regler og varsler er for øyeblikket ikke tilgjen
 men vi jobber med å støtte dette.
 {{% /notice %}}
 
-Se [brukerveiledning for instrumentering og overvåking](/nb/altinn-studio/v8/guides/administration/monitor-and-instrument/) for å komme i gang i din app.
+Se [brukerveiledning for instrumentering og overvåking](/nb/altinn-studio/v9/manage-a-service/monitor-and-instrument/) for å komme i gang i din app.
 
 Denne dokumentasjonen inneholder nødvendig informasjon for å støtte apputviklere og tjenesteeiere i å
 drifte, overvåke og instrumentere applikasjoner på Altinn 3-plattformen.

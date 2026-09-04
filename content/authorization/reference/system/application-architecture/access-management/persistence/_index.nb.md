@@ -22,7 +22,7 @@ Klikk på et diagram for å åpne det i full størrelse i en ny fane.
 
 <a href="./dbo-catalog-schema.svg" target="_blank" rel="noopener"><img src="./dbo-catalog-schema.svg" alt="Katalog- og metadatatabeller i dbo" style="width:100%;height:auto;display:block;cursor:zoom-in;" /></a>
 
-Tabellene beskriver aktører, tilbydere, ressurser, roller, områder og tilgangspakker. Koblingstabellene uttrykker hvilke roller som gir pakker og ressurser.
+Tabellene beskriver parter, tilbydere, ressurser, roller, områder og tilgangspakker. Koblingstabellene uttrykker hvilke roller som gir pakker og ressurser.
 
 ### Tilgangsforhold og drift
 
@@ -34,7 +34,7 @@ Denne delen inneholder tildelinger, delegeringer, forespørsler, instans- og res
 
 <a href="./dbo-history-schema.svg" target="_blank" rel="noopener"><img src="./dbo-history-schema.svg" alt="Revisjonstabeller i dbo_history" style="width:100%;height:auto;display:block;cursor:zoom-in;" /></a>
 
-De 27 revisjonstabellene lagrer gyldighetsperiode, endringsoperasjon og aktøren eller systemet som utførte endringen, sammen med en kopi av domenefeltene.
+De 27 revisjonstabellene lagrer gyldighetsperiode, endringsoperasjon og parten eller systemet som utførte endringen, sammen med en kopi av domenefeltene.
 
 ## Skjemaet `consent`
 
