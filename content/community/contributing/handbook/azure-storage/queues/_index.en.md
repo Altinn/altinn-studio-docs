@@ -30,7 +30,7 @@ queue after too many failed attempts.
 4. Click the arrow next to _Move messages_ to specify if all or just a single message should be moved
 5. In the dialogue, select the destination queue and click `Move`
     ![Select destination queue dialogue](select-destination-queue.png)
-6. The messages will be moved immediatly. Check the destination queue to confirm.
+6. The messages will be moved immediately. Check the destination queue to confirm.
 
 
 ## Manually adding messages in queue
