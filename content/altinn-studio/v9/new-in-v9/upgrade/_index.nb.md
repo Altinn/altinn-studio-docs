@@ -130,6 +130,66 @@ I tillegg kjører plattformen systemoppgaver på en ny måte i v9. I v8 kjørte 
 
 Se [Lage en egendefinert systemoppgave]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}) for hele oppsettet, og [Systemoppgaver med flere steg]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg" >}}) hvis oppgaven sender noe og venter på svar.
 
+## Breaking changes
+
+### Vi har flyttet egendefinerte oppgave-hooker og de har fått ny funksjonsmåte
+
+Hvis appen din har en klasse som implementerer `IProcessTaskStart`, `IProcessTaskEnd` eller `IProcessTaskAbandon`, det vil si kode som kjører når en oppgave starter, avsluttes eller forlates, må du migrere den manuelt. Systemoppgavene over er med i oppgraderingen, men for disse tre oppgavene har vi fjernet grensesnittene uten en overgangsperiode med kompileringsadvarsler. Koden slutter rett og slett å kompilere til du har gjort om på den.
+
+Bruk de nye grensesnittene i `Altinn.App.Core.Features.Process` i stedet:
+
+| Gammelt grensesnitt | Nytt grensesnitt |
+| -------------------- | ----------------------- |
+| `IProcessTaskStart` | `IOnTaskStartingHandler` |
+| `IProcessTaskEnd` | `IOnTaskEndingHandler` |
+| `IProcessTaskAbandon` | `IOnTaskAbandonHandler` |
+
+Utover navnet er det tre praktiske forskjeller du må kode mot:
+
+- **Hooken avgjør selv hvilken oppgave den gjelder for.** Før kjørte hver registrerte handler for *alle* oppgaver i prosessen, og koden måtte selv sjekke `taskId`. Nå implementerer hooken `ShouldRunForTask(string taskId)`, og kjører bare handleren(e) som svarer `true` for gjeldende oppgave.
+- **Hooken kjører som et steg i arbeidsflytmotoren**, akkurat som systemoppgavene over. Hvis det oppstår feil, kan det kan hende at den blir forsøkt kjørt på nytt automatisk — implementasjonen må altså være idempotent. I stedet for å kaste unntak ved feil returnerer du et `HookResult` (et eget resultat for hooker, ikke å forveksle med `ServiceTaskResult` som brukes av systemoppgaver): `HookResult.Success()`, `HookResult.FailedRetryable("melding")` for en forbigående feil, eller `HookResult.FailedPermanent("melding")` for en feil som trenger en rettelse.
+- **Instansdata leses og endres via `IInstanceDataMutator`** i stedet for et rått `Instance`-objekt. Kontekstobjektet hooken mottar (`OnTaskStartingContext` og tilsvarende for de to andre) gir deg både instansen og en mutator — endringer du gjør gjennom den, lagres automatisk når hooken fullfører uten feil.
+
+I tillegg mister start-hooken `prefill`-parameteren. Hvis du tidligere har brukt prefill-data i `IProcessTaskStart.Start`, må du flytte den logikken til `IInstantiationProcessor.DataCreation`, som fortsatt mottar prefill og er upåvirket av denne endringen.
+```csharp
+// Før (v8)
+public class MyTaskStartHandler : IProcessTaskStart
+{
+    public Task Start(string taskId, Instance instance, Dictionary<string, string>? prefill)
+    {
+        if (taskId != "Task_1")
+        {
+            return Task.CompletedTask;
+        }
+
+        // Egendefinert logikk her
+
+        return Task.CompletedTask;
+    }
+}
+
+// Etter (v9)
+public class MyTaskStartHandler : IOnTaskStartingHandler
+{
+    public bool ShouldRunForTask(string taskId) => taskId == "Task_1";
+
+    public async Task<HookResult> Execute(OnTaskStartingContext context)
+    {
+        // Egendefinert logikk her, f.eks. context.InstanceDataMutator
+
+        return HookResult.Success();
+    }
+}
+```
+
+`IOnTaskEndingHandler` og `IOnTaskAbandonHandler` følger samme mønster, med `Execute(OnTaskEndingContext)` og `Execute(OnTaskAbandonContext)`. Registrering i `Program.cs` er uendret bortsett fra grensesnittnavnet: `services.AddTransient<IOnTaskStartingHandler, MyTaskStartHandler>();`
+
+De nye hookene gjør også at du kan velge å overstyre arbeidsflytmotorens standard tidsavbrudd og strategi for å prøve igjen for steget, med egenskapen `StepOptions`. Det er en ny mulighet, uten noe tilsvarende i versjon 8, så det er ikke noe du trenger å sette for å migrere.
+
+{{% notice warning %}}
+Bare én matchende handler er tillatt per oppgave. Svarer to registrerte handlere av samme type (for eksempel to `IOnTaskStartingHandler`) `true` for samme oppgave, feiler prosessovergangen permanent. Hadde du før flere handler-klasser rettet mot ulike oppgaver, pass på at `ShouldRunForTask`-implementasjonene deres ikke overlapper — virket to av dine gamle handlere på samme oppgave, slå dem sammen til én.
+{{% /notice %}}
+
 ### Mindre endringer
 
 Oppgraderingen ordner disse endringene uten at du trenger å gjøre noe, men det er greit å kjenne til dem:
