@@ -5,7 +5,7 @@ description: How you can contribute to the development of Altinn Studio.
 weight: 2
 ---
 
-Altinn Studio is not perfect, but the tool takes you a long way towards building good digital services. We continuously add new functionality.
+Altinn Studio is never a finished product, and it will never cover 100% of your needs out of the box. However, the tool takes you a long way towards building good digital services, and we continuously add new functionality based on feedback. Where the tool falls short, it gives you the ability to build the missing pieces yourself.
 
 Instead of building something bespoke or buying something – why not contribute to the project where something is missing? This way you can give something back to society. The Altinn Studio teams handle quality assurance and further maintenance of the code.
 

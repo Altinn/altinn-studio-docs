@@ -15,7 +15,7 @@ You can use Altinn Studio both with user interfaces for manual submission and wi
 ## What can I build with Altinn Studio?
 With Altinn Studio you can develop digital services for many different purposes. This can be anything from simple form services and information solutions to complex workflows with payment and signing. The platform supports both traditional forms and tailored applications with advanced integrations.
 
-See examples of use cases [here](/en/altinn-studio/v9/this-is-as/get-to-know-as/open-source).
+See examples of use cases [here](/en/altinn-studio/v9/this-is-as/get-to-know-as/usecases).
 
 ## Altinn Studio is the connector
 A form is rarely just data fields to be submitted. You need more to create a good service. This can be:
