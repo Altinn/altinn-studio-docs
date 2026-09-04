@@ -135,7 +135,7 @@ Det finnes et [JsonSchema](https://altinncdn.no/schemas/json/test-users/test-use
           }
         ]
       },
-      "addressCity": "Stokarknes",
+      "addressCity": "Stokmarknes",
       "addressHouseLetter": null,
       "addressHouseNumber": "7",
       "addressMunicipalName": "Hadsel",
