@@ -12,13 +12,17 @@ Handlinger beskriver operasjoner som sluttbrukeren eller en klientintegrasjon ka
 Både GUI-handlinger og API-handlinger deler den samme grunnleggende autorisasjonsmodellen:
 
 - `action` mappes til en handlingsidentifikator i policyen for tjenesteressursen
-- `authorizationAttribute` kan overstyre standard autorisasjonsressurs for handlingen
+- en [autorisasjonskontekst]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}) (foretrukket) kan evaluere handlingen mot en annen ressurs, flere parter, eller begge deler
+- `authorizationAttribute` (utfaset) kan overstyre standard autorisasjonsressurs for handlingen
 - `isAuthorized` viser om den autentiserte brukeren er autorisert akkurat nå
+- når handlingen har en autorisasjonskontekst den nåværende brukeren er autorisert for, lister dialogtokenet opp handlingens `id` (eller kontekstens `tokenRef`) i `e`-claimet sitt i stedet for å legge handlingen til i `a`-claimet
 
-I sluttbruker-API-er skjules uautoriserte mål:
+I sluttbruker-API-er maskeres URL-ene til en uautorisert handling:
 
 - URL-er for GUI-handlinger skrives om til `urn:dialogporten:unauthorized`
 - URL-er for endepunkter i API-handlinger skrives om til `urn:dialogporten:unauthorized`
+
+En handling der autorisasjonskonteksten setter `unauthorizedPresentation` til `Excluded`, maskeres ikke, men fjernes: den forsvinner ut av `guiActions` eller `apiActions`, og bare ID-en og opprettelsestidspunktet vises i `excludedGuiActions` eller `excludedApiActions` ved siden av.
 
 GUI-handlinger er ment for nettleserbaserte fronter og legger til UI-spesifikke felt som:
 
@@ -46,5 +50,10 @@ API-handlinger er ment for klientintegrasjoner og grupperer ett eller flere vers
 ## API-handlinger
 
 {{<swaggerdisplayentity "V1EndUserDialogsQueriesGet_DialogApiAction">}}
+
+**Les mer**
+
+- {{<link "../../authorization/authorization-contexts">}}
+- {{<link "../../authorization/dialog-tokens">}}
 
 {{<children />}}

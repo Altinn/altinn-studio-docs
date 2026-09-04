@@ -4,11 +4,19 @@ description: 'Referanseinformasjon om autorisasjonsattributter'
 weight: 10
 ---
 
+{{<notice warning "deprecated">}}
+Autorisasjonsattributter er utfaset til fordel for [autorisasjonskontekster]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}), som dekker de samme brukstilfellene i tillegg til tilgang for flere parter og kontroll over hva en uautorisert sluttbruker ser. Autorisasjonsattributter fortsetter å fungere; det finnes ingen dato for fjerning.
+{{</notice>}}
+
 ## Introduksjon
 
 Se [komme i gang med autorisasjonsattributter](/nb/dialogporten/reference/authorization/attributes/../../../getting-started/authorization/attributes/) for en funksjonell oversikt over autorisasjonsattributter og hva de kan brukes til.
 
 Autorisasjonsattributter er en måte å kontrollere hvordan XACML-forespørselen er konstruert for en gitt dialog, noe som gjør det mulig å ha mer finkornede regler og til og med referere til flere distinkte ressurspolicyer.
+
+{{<notice warning>}}
+En gammel handling uten noe autorisasjonsattributt i det hele tatt autoriseres nå mot nøyaktig den ressursen entiteten refererer til, ikke bare «en eller annen entitet i denne dialogen har et treffende tillat». Hvis du er avhengig av at en handling gis implisitt gjennom en annen entitets tillatelse på hovedressursen, gjelder ikke det lenger.
+{{</notice>}}
 
 {{<notice info>}}
 Autorisasjonsattributter vurderes bare i single dialog-endepunkter, dvs. når du ber om en dialog etter ID. For dialogsøk/lister blir ikke autorisasjonsattributtene vurdert.
@@ -131,11 +139,15 @@ Selv om Dialogporten indikerer at handlingen er uautorisert, og fjerner URL-ene,
 
 ## Bruke autorisasjonsattributter på forsendelser
 
-For forsendelser ("transmissions") er mekanismen den samme, men det er ingen eksplisitte handlinger knyttet til en forsendelse. Derfor er enten `read` eller `transmissionread`-handlinger utledet og brukt i XACML-forespørslene.
+{{<notice warning>}}
+For nye dialoger, vurder en [autorisasjonskontekst]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}) i stedet - den kan uttrykke den samme avgrensingen til underressurs/oppgave som vist under, i tillegg til å gi tilgang til en annen part enn dialogens egen.
+{{</notice>}}
 
-Hvis et autorisasjonsattributt er oppgitt som refererer til en separat ressurs/policy i Resource Registry (se nedenfor), vil `read` bli brukt som handlingen i autorisasjonssjekken. `read` brukes også hvis ingen autorisasjonsattributt er oppgitt i det hele tatt. Men hvis et autorisasjonsattributt som IKKE refererer til en separat ressurs/policy i Resource Registry leveres, vil `transmissionread` bli brukt som handlingen i autorisasjonssjekken.
+For forsendelser er mekanismen den samme, men det finnes ingen eksplisitt handling knyttet til en forsendelse - `read` brukes alltid som handling i XACML-forespørselen, uansett hva autorisasjonsattributtet refererer til: en separat ressurs, en underressurs eller en oppgave.
 
-Årsaken til dette er at `read`-handlingen vanligvis er definert for hele ressursen, som vil inkludere alle underressurser på grunn av den matchende naturen til XACML-autorisasjon "permit"-regler brukt i Altinn Authorization (en XACML-regel definerer begrensninger, dvs. attributter som må være tilstede i forespørselen; en tom XACML-regel vil dermed matche - og returnere "permit" - enhver forespørsel). Så for å bruke autorisasjonsattributter som refererer til regler innenfor samme policy som skal definere separate tilgangskrav, er det nødvendig å bruke noe annet enn `read`, dvs. `transmissionread`.
+{{<notice warning>}}
+En underressurs eller oppgave navngitt i en forsendelses autorisasjonsattributt kan bare *utvide* tilgang gjennom en egen policyregel, aldri *avgrense* den. Handlingen som sendes, er alltid `read`, og en ren `read`-regel på hovedressursen - som typisk er definert for hele ressursen - matcher uansett hvilket underressurs- eller oppgaveattributt som også er med i forespørselen, fordi XACML-målmatching bare kontrollerer at attributtene en regel krever er til stede, ikke at ingen andre attributter er det. Hvis du må begrense en forsendelses synlighet under det som `read` gir tilgang til på hovedressursen, bruk en [autorisasjonskontekst]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}) med en eksplisitt `action` i stedet - det er den eneste mekanismen som kan uttrykke reell avgrensing.
+{{</notice>}}
 
 Eksempel:
 
@@ -175,42 +187,9 @@ Eksempel:
         </xacml:AnyOf>
     </xacml:Target>
 </xacml:Rule>
-<xacml:Rule RuleId="urn:altinn:example:ruleid:2" Effect="Permit">
-<xacml:Description>En regel som gir brukere med DAGL til å lese en bestemt overføring</xacml:Description>
-    <xacml:Target>
-        <xacml:AnyOf>
-            <xacml:AllOf>
-                <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
-                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">DAGL</xacml:AttributeValue>
-                    <xacml:AttributeDesignator AttributeId="urn:altinn:rolecode" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
-                </xacml:Match>
-            </xacml:AllOf>
-        </xacml:AnyOf>
-        <xacml:AnyOf>
-            <xacml:AllOf>
-                <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">myfirstservice</xacml:AttributeValue>
-                    <xacml:AttributeDesignator AttributeId="urn:altinn:resource" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
-                </xacml:Match>
-                <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">sometransmission</xacml:AttributeValue>
-                    <xacml:AttributeDesignator AttributeId="urn:altinn:subresource" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
-                </xacml:Match>
-            </xacml:AllOf>            
-        </xacml:AnyOf>
-        <xacml:AnyOf>
-            <xacml:AllOf>
-                <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
-                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">transmissionread</xacml:AttributeValue>
-                    <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
-                </xacml:Match>
-            </xacml:AllOf>
-        </xacml:AnyOf>
-    </xacml:Target>
-</xacml:Rule>
 ```
 
-I eksemplet ovenfor vil følgende XACML-forespørsel:
+Gitt en forsendelse der autorisasjonsattributtet er `urn:altinn:subresource:sometransmission`, sender Dialogporten denne XACML-forespørselen:
 
 ```json
 {
@@ -253,7 +232,7 @@ I eksemplet ovenfor vil følgende XACML-forespørsel:
 }
 ```
 
-Vil resultere i `Permit`, fordi forespørselen tilfredsstiller alle begrensningene definert i den første regelen, som ikke er det vi ønsker. Ved å bruke en annen handling, dvs. `transmissionread`, vil den ikke lenger samsvare med den første regelen, og fordi UTINN ikke er en del av subjektet i den andre regelen, vil et `Permit`-svar ikke bli gitt, og overføringen vil bli flagget som utilgjengelig av Dialogporten.
+Dette tilfredsstiller regelen ovenfor og gir `Permit` for enhver UTINN- eller DAGL-bruker, uavhengig av underressursattributtet `sometransmission` - attributtet avgrenset hvilken ressurs forespørselen navngir, men ikke hvilken policyregel forespørselen kan matche.
 
 ## Referer til separat ressurs/policy i Resource Registry
 

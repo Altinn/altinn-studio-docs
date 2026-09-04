@@ -71,7 +71,7 @@ FCE-medietypene kan identifiseres ved prefikset `application/vnd.dialogporten.fr
 
 ### Trinn 2: Utføre forespørselen (ved hjelp av CORS-protokollen)
 
-Når den er identifisert, MÅ SBS utføre en GET-forespørsel til det spesifiserte endepunktet ved hjelp av en HTTP-klientmekanisme som støtter enten HTTP 1.1 eller 2.0. Forespørselen MÅ inneholde en `Authorization: Bearer <dialogtoken>`-header, ved hjelp av dialogtokenet som følger med dialogen. SBS MÅ sørge for at dialogtokenet ikke er eldre enn 10 minutter. Et nytt dialogtoken utstedes med hver forespørsel til dialogdetalj-endepunktet i Dialogporten sluttbruker-API, enten REST eller GraphQL.
+Når den er identifisert, MÅ SBS utføre en GET-forespørsel til det spesifiserte endepunktet ved hjelp av en HTTP-klientmekanisme som støtter enten HTTP 1.1 eller 2.0. Forespørselen MÅ inneholde en `Authorization: Bearer <token>`-header, ved hjelp av dialogtokenet som følger med dialogen. SBS MÅ sørge for at tokenet ikke er eldre enn 10 minutter. Et nytt dialogtoken utstedes med hver forespørsel til dialogdetalj-endepunktet i Dialogporten sluttbruker-API, enten REST eller GraphQL.
 
 SBS KAN sende en `Origin`-header i samsvar med CORS-protokollen. SBS BØR IKKE sende informasjonskapsler som tilhører domenet til ILS-endepunktet.
 
@@ -135,5 +135,10 @@ Her er begrensningene for FCE eksterne innholdstyper som både ILS og SBS må ov
 | `<hr>`          | Horisontal linje/separator     | `---` eller `***`                       |
 | `<h1>`–`<h6>`      | Overskrifter             | `# H1`, `## H2`, ..., `###### H6`              |
 | `<br>`          | Linjeskift            | Linje slutter med 2+ mellomrom + Enter              |
+
+**Les mer**
+
+- {{<link "../../authorization/authorization-contexts">}}
+- {{<link "../../authorization/dialog-tokens">}}
 
 {{<children />}}
