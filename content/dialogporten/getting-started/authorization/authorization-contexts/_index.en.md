@@ -4,8 +4,8 @@ description: 'Learn how authorization contexts give fine-grained, multi-party ac
 weight: 25
 ---
 
-{{<notice warning>}}
-Authorization contexts are an experimental feature and may change or be removed without a major version bump. See [issue #3978](https://github.com/Altinn/dialogporten/issues/3978) for details.
+{{<notice danger>}}
+Authorization contexts are an experimental feature and may change or be removed without a major version bump.
 {{</notice>}}
 
 ## Introduction

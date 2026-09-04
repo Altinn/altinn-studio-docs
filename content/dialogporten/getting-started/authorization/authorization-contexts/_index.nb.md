@@ -4,8 +4,8 @@ description: 'Lær hvordan autorisasjonskontekster gir finkornet tilgangskontrol
 weight: 25
 ---
 
-{{<notice warning>}}
-Autorisasjonskontekster er en eksperimentell funksjon og kan endres eller fjernes uten en større versjonsoppdatering. Se [sak #3978](https://github.com/Altinn/dialogporten/issues/3978) for detaljer.
+{{<notice danger>}}
+Autorisasjonskontekster er en eksperimentell funksjon og kan endres eller fjernes uten en større versjonsoppdatering.
 {{</notice>}}
 
 ## Introduksjon
