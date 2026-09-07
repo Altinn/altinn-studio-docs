@@ -30,3 +30,12 @@ hyperlink*
 .claude/settings.local.json
 apikey.secret
 scripts/components/.schema-cache
+
+# Lokale Codex-filer og midlertidige presentasjonsbygg
+/.codex/
+/.codex-*
+/presentation*-build/
+
+# Lokale artefakter; behold den delte autorisasjonspresentasjonen
+/artifacts/*
+!/artifacts/authorization-presentation/
