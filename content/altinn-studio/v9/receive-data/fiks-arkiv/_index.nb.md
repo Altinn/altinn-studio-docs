@@ -8,7 +8,7 @@ toc: true
 weight: 60
 ---
 
-I v9 er Fiks Arkiv en **systemoppgave**. Du legger den til som et steg i prosessen (`process.bpmn`), og appen sender arkivmeldingen når prosessen kommer til steget. Oppgaven venter selv på svaret fra arkivet, så du trenger ikke lenger en tilbakemeldingsoppgave etter den.
+I v9 er Fiks Arkiv en **systemoppgave**. Du legger den til som et steg i prosessen (`process.bpmn`), og appen sender arkivmeldingen når prosessen kommer til steget. Oppgaven venter selv på svaret fra arkivet, så du trenger ikke lenger en tilbakemeldingsoppgave etter den. Når svaret har kommet, går prosessen alltid videre: en eksklusiv gateway rett etter oppgaven skiller en bekreftet arkivering fra en avvist, og appen nekter å starte uten den.
 
 Fiks Arkiv ligger i en egen NuGet-pakke, `Altinn.App.Clients.Fiks`, som du legger til i appen. Det skiller den fra PDF og eFormidling, som følger med `Altinn.App.Core`.
 
@@ -57,7 +57,7 @@ Slik går det steg for steg:
 1. **Appen sender.** Arbeidssteget henter mottakeren, lager `arkivmelding.xml` med hoveddokument og vedlegg fra instansdataene, og lagrer arkivmeldingen på instansen som datatypen i `Receipt.ArchiveRecord`. Så åpner det en postkasse og sender meldingen til mottakerkontoen gjennom Fiks IO. Postkassens id følger med som `klientKorrelasjonsId`, og det er den som gjør at svaret finner tilbake til riktig oppgave. Feiler noe underveis, prøver plattformen steget på nytt med samme innhold.
 2. **Arkivet svarer.** Arkivsystemet sender først en mottaksbekreftelse (`arkivmelding.opprett.mottatt`) og deretter en kvittering (`arkivmelding.opprett.kvittering`) når saken er opprettet. Kan det ikke opprette saken, sender det en feilmelding i stedet.
 3. **Lytteren sender svaret videre.** Appen lytter på Fiks IO-kontoen sin, leser `klientKorrelasjonsId` fra hver melding og leverer den til postkassen som venter. Meldinger uten korrelasjons-id blir logget og forkastet, siden ingen oppgave venter på dem.
-4. **Oppgaven konkluderer.** Mottaksbekreftelsen holder oppgaven ventende. Kvitteringen lagres på instansen som datatypen i `Receipt.ConfirmationRecord`, og deretter gjør oppgaven det `SuccessHandling` sier. En feilmelding fra arkivet behandles etter `ErrorHandling`. Kommer det ingen kvittering på 7 døgn, feiler oppgaven.
+4. **Oppgaven konkluderer.** Mottaksbekreftelsen holder oppgaven ventende. Kvitteringen lagres på instansen som datatypen i `Receipt.ConfirmationRecord`, instansen markeres som fullført med mindre du har slått det av, og prosessen går videre med handlingen i `SuccessHandling.Action`, som standard langs standardflyten. En feilmelding fra arkivet sender prosessen videre med handlingen i `ErrorHandling.Action`, som standard `reject`. Gatewayen etter oppgaven skiller de to veiene. Kommer det ingen kvittering på 7 døgn, feiler oppgaven.
 
 Mens oppgaven venter, ser brukeren ventesiden. Ingen bruker eller tjenesteeier trenger å gjøre noe, og ingenting spør arkivet om status. Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}) for hvordan du tilpasser ventesiden og feilsiden.
 
@@ -65,14 +65,12 @@ Mens oppgaven venter, ser brukeren ventesiden. Ingen bruker eller tjenesteeier t
 
 ### Steg 1: Legg til Maskinporten-scopes i Altinn Studio {#oppsett-scopes}
 
-Legg til disse scopene på appen i Altinn Studio:
+Legg til dette scopet på appen i Altinn Studio:
 
 - `ks:fiks`
-- `altinn:serviceowner/instances.read`
-- `altinn:serviceowner/instances.write`
 {.correspondence-custom-list}
 
-Når appen publiseres, oppretter Altinn Studio Maskinporten-klienten og legger `MaskinportenSettings` inn i appen. Fiks IO-klienten bruker denne klienten til å autentisere seg mot Fiks med `ks:fiks`, og appen bruker den som tjenesteeier mot Altinn-plattformen, blant annet når den markerer instansen som fullført.
+Fiks IO-klienten bruker appens innebygde Maskinporten-klient til å autentisere seg mot Fiks med dette scopet. Tjenesteeier-scopene mot Altinn-plattformen har alle v9-apper allerede, så dem trenger du ikke legge til. Når appen publiseres, oppretter Altinn Studio Maskinporten-klienten og legger innstillingene inn i appen.
 
 Se [Legge til scopes i Altinn Studio]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten/add-scopes" >}}) for fremgangsmåten.
 
@@ -137,24 +135,23 @@ Registrer så Fiks Arkiv-tjenestene og pek dem til konfigurasjonsseksjonene dine
 App/Program.cs
 {{< /code-title >}}
 
-```csharp {hl_lines=["3-7"]}
+```csharp {hl_lines=["3-6"]}
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
     services
         .AddFiksArkiv()
         .WithFiksIOConfig("FiksIOSettings")
-        .WithFiksArkivConfig("FiksArkivSettings")
-        .WithMaskinportenConfig("MaskinportenSettings");
+        .WithFiksArkivConfig("FiksArkivSettings");
 }
 ```
 
 Utvidelsesmetodene ligger i navnerommet `Altinn.App.Clients.Fiks.Extensions`, så husk `using` for dette.
 
-`AddFiksArkiv()` registrerer alt oppgaven trenger: Fiks IO-klienten, lytteren som tar imot svar, generatoren som lager arkivmeldingen, og selve systemoppgaven. Du velger selv navnene på konfigurasjonsseksjonene, men de må stemme med seksjonsnavnene du bruker i `appsettings.json` og i Key Vault.
+`AddFiksArkiv()` registrerer alt oppgaven trenger: Fiks IO-klienten, lytteren som tar imot svar, generatoren som lager arkivmeldingen, og selve systemoppgaven. Fiks IO-klienten bruker appens innebygde Maskinporten-klient og trenger ingen egen Maskinporten-konfigurasjon. Du velger selv navnene på konfigurasjonsseksjonene, men de må stemme med seksjonsnavnene du bruker i `appsettings.json` og i Key Vault.
 
 ### Steg 4: Legg til oppgaven i prosessen {#oppsett-prosess}
 
-Legg oppgaven inn i `process.bpmn` som en `bpmn:serviceTask` med oppgavetypen `fiksArkiv`. Plasser den etter oppgaven som lager dataene du vil arkivere, vanligvis etter PDF-oppgaven. Oppgaven må ha én innkommende og én utgående sekvensflyt, og du skal ikke legge en tilbakemeldingsoppgave etter den.
+Legg oppgaven inn i `process.bpmn` som en `bpmn:serviceTask` med oppgavetypen `fiksArkiv`, og legg en eksklusiv gateway rett etter den. Oppgaven går alltid videre når arkiveringen er avgjort: med handlingen i `SuccessHandling.Action` når arkivet har bekreftet saken, og med handlingen i `ErrorHandling.Action`, som standard `reject`, når arkiveringen ikke kan lykkes. Gatewayen er der de to veiene skiller lag, og appen nekter å starte hvis oppgaven ikke er fulgt av en gateway med minst to utganger. Plasser oppgaven etter oppgaven som lager dataene du vil arkivere, vanligvis etter PDF-oppgaven, og ikke legg en tilbakemeldingsoppgave etter den.
 
 **Merk:** Du kan ennå ikke dra en Fiks Arkiv-oppgave direkte inn i Arbeidsflyt-editoren i Altinn Studio. Inntil videre anbefaler vi denne fremgangsmåten:
 
@@ -179,48 +176,27 @@ App/config/process/process.bpmn
   <bpmn:incoming>Flow_2</bpmn:incoming>
   <bpmn:outgoing>Flow_3</bpmn:outgoing>
 </bpmn:serviceTask>
+<bpmn:sequenceFlow id="Flow_3" sourceRef="Task_FiksArkiv" targetRef="Gateway_FiksArkiv" />
+<bpmn:exclusiveGateway id="Gateway_FiksArkiv" default="Flow_4">
+  <bpmn:incoming>Flow_3</bpmn:incoming>
+  <bpmn:outgoing>Flow_4</bpmn:outgoing>
+  <bpmn:outgoing>Flow_5</bpmn:outgoing>
+</bpmn:exclusiveGateway>
+<bpmn:sequenceFlow id="Flow_4" sourceRef="Gateway_FiksArkiv" targetRef="EndEvent_1" />
+<bpmn:sequenceFlow id="Flow_5" sourceRef="Gateway_FiksArkiv" targetRef="Task_Oppfolging">
+  <bpmn:conditionExpression>["equals", ["gatewayAction"], "reject"]</bpmn:conditionExpression>
+</bpmn:sequenceFlow>
 ```
 
-All konfigurasjon av selve meldingen ligger i `appsettings.json`, ikke i prosessen. Skal prosessen ta en annen vei når arkiveringen feiler, se `ErrorHandling` under [konfigurasjonen](#oppsett-fiksarkivsettings) og [flytkontroll]({{< relref "/altinn-studio/v9/develop-a-service/process/flowcontrol" >}}) for hvordan du legger inn en `reject`-flyt.
+`Flow_4` er standardflyten og tas når arkivet har bekreftet saken. `Flow_5` tas når handlingen er `reject`, og fører her til en oppgave der noen kan følge opp saken. Hva den oppgaven gjør, bestemmer du. All konfigurasjon av selve meldingen ligger i `appsettings.json`, ikke i prosessen. Se [flytkontroll]({{< relref "/altinn-studio/v9/develop-a-service/process/flowcontrol" >}}) for mer om gatewayer og `gatewayAction`.
 
 ### Steg 5: Gi tjenesteeieren tilgang {#oppsett-tilgang}
 
-Plattformen flytter prosessen ut av oppgaven som tjenesteeier. Oppgavetypen `fiksArkiv` krever handlingen `write`, som tilgangsfilen fra appmalen allerede gir tjenesteeieren. Har du en `reject`-flyt ut av oppgaven, trenger tjenesteeieren `reject` i tillegg. Se [Gi tilgang til oppgaven]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom#gi-tilgang-til-oppgaven" >}}) for regelen og hva som skjer når den mangler.
+Plattformen flytter prosessen ut av oppgaven som tjenesteeier. Oppgavetypen `fiksArkiv` krever handlingen `write`, som tilgangsfilen fra appmalen allerede gir tjenesteeieren. Fordi oppgaven går videre med `reject` når arkiveringen ikke kan lykkes, trenger tjenesteeieren `reject` i tillegg. Se [Gi tilgang til oppgaven]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom#gi-tilgang-til-oppgaven" >}}) for regelen og hva som skjer når den mangler.
 
 ### Steg 6: Konfigurer appen {#oppsett-konfigurasjon}
 
 Legg konfigurasjonen i `appsettings.json`, og legg alle sensitive verdier i Azure Key Vault i stedet for å sjekke dem inn. Appen leser secrets ved oppstart, så endrer du dem etter publisering, må du publisere appen på nytt. Se [secrets-dokumentasjonen](/nb/altinn-studio/v8/reference/configuration/secrets/) for hvordan appen leser fra Key Vault.
-
-{{% expandlarge id="guide-mp-config-vals" header="Oversikt over MaskinportenSettings" %}}
-
-Med standardoppsettet i Altinn Studio legges `MaskinportenSettings` inn i appen automatisk når du publiserer, og `.WithMaskinportenConfig("MaskinportenSettings")` peker Fiks IO-klienten til den. Du trenger da ikke gjøre noe mer.
-
-Har du et eldre, manuelt oppsett, legger du klient-ID-en inn som `ClientId` og den base64-kodede JSON Web Key-en som `JwkBase64`:
-
-| Innstilling   | Beskrivelse                                                                             |
-|---------------|-----------------------------------------------------------------------------------------|
-| **Authority** | Maskinporten authority/audience som brukes til autentisering og autorisasjon.           |
-| **ClientId**  | Klient-ID-en som er registrert hos Maskinporten. Vanligvis en UUID.                     |
-| **JwkBase64** | Privatnøkkelen som brukes til å autentisere mot Maskinporten, som base64-kodet JWK.     |
-
-{{< code-title >}}
-App/appsettings.json
-{{< /code-title >}}
-
-```json
-"MaskinportenSettings": {
-  "Authority": "https://[test.]maskinporten.no/",
-  "ClientId": "hentes fra Key Vault",
-  "JwkBase64": "hentes fra Key Vault"
-}
-```
-
-Key Vault-secrets:
-
-- `MaskinportenSettings--ClientId`
-- `MaskinportenSettings--JwkBase64`
-
-{{% /expandlarge %}}
 
 {{% expandlarge id="guide-fiks-io-settings" header="Oversikt over FiksIOSettings" %}}
 
@@ -230,10 +206,10 @@ Key Vault-secrets:
 | **IntegrationId**           | Integrasjons-ID for Fiks-systemet.                                                                                 |
 | **IntegrationPassword**     | Passordet for integrasjonen.                                                                                       |
 | **AccountPrivateKeyBase64** | Privatnøkkelen til kontoen, som base64-kodet PEM med topp- og bunntekst. Brukes til autentisering og til å dekryptere svarene fra arkivet. |
-| **ApiHost**                 | Fiks IO sitt API. `https://api.fiks.test.ks.no:443` i test og `https://api.fiks.ks.no:443` i produksjon.           |
-| **AmqpHost**                | Fiks IO sin meldingskanal. `amqp://io.fiks.test.ks.no:5671` i test og `amqp://io.fiks.ks.no:5671` i produksjon.   |
+| **ApiHost**                 | Nødbrems for adressen til Fiks IO sitt API. Trengs ikke i vanlig bruk, se under.                                   |
+| **AmqpHost**                | Nødbrems for adressen til Fiks IO sin meldingskanal. Trengs ikke i vanlig bruk, se under.                          |
 
-Legg `IntegrationPassword` og `AccountPrivateKeyBase64` i Key Vault. Sett `ApiHost` og `AmqpHost` per miljø, for eksempel i `appsettings.Staging.json`, når appen skal snakke med KS sitt testmiljø.
+Legg `IntegrationPassword` og `AccountPrivateKeyBase64` i Key Vault. `ApiHost` og `AmqpHost` lar du stå tomme: appen velger selv KS sitt testmiljø overalt utenom produksjon, også når du kjører lokalt, og KS sitt produksjonsmiljø i produksjon. De to innstillingene finnes bare i tilfelle KS skulle endre adressene sine før appen er oppdatert.
 
 {{< code-title >}}
 App/appsettings.json
@@ -281,10 +257,8 @@ FiksArkivSettings
 │  ├─ PrimaryDocument
 │  └─ Attachments[]
 ├─ ErrorHandling
-│  ├─ MoveToNextTask
 │  └─ Action
 └─ SuccessHandling
-   ├─ MoveToNextTask
    ├─ Action
    └─ MarkInstanceComplete
 ```
@@ -483,13 +457,14 @@ App/appsettings.json
 
 #### SuccessHandling
 
-Hva oppgaven gjør når arkivet har bekreftet saken med en kvittering. Innstillingene gjelder altså ikke når meldingen er sendt, men når kvitteringen har kommet.
+Hva oppgaven gjør når arkivet har bekreftet saken med en kvittering. Innstillingene gjelder altså ikke når meldingen er sendt, men når kvitteringen har kommet. Prosessen går alltid videre; innstillingene bestemmer hvordan.
 
-| Innstilling              | Formål og standardverdi                                                                                                                 |
-|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
-| **MoveToNextTask**       | Om prosessen skal gå videre av seg selv når kvitteringen kommer. Med `false` blir instansen stående på oppgaven til noen flytter den. Standard: `true`. |
-| **Action**               | Handlingen prosessen går videre med. Standard: ingen, altså standardflyten.                                                             |
-| **MarkInstanceComplete** | Om instansen skal markeres som fullført. Skjer før prosessen går videre. Standard: `false`.                                             |
+| Innstilling              | Formål og standardverdi                                                                                            |
+|--------------------------|--------------------------------------------------------------------------------------------------------------------|
+| **Action**               | Handlingen prosessen går videre med. Standard: ingen, altså standardflyten ut av gatewayen.                        |
+| **MarkInstanceComplete** | Om instansen skal markeres som fullført. Skjer før prosessen går videre. Standard: `true`.                         |
+
+Du trenger vanligvis ikke denne seksjonen. Det vanligste å endre er å la instansen stå åpen:
 
 {{< code-title >}}
 App/appsettings.json
@@ -498,24 +473,24 @@ App/appsettings.json
 ```json
 "FiksArkivSettings": {
   "SuccessHandling": {
-    "MoveToNextTask": true,
-    "MarkInstanceComplete": true
+    "MarkInstanceComplete": false
   }
 }
 ```
 
 #### ErrorHandling
 
-Hva oppgaven gjør når arkiveringen ikke kan lykkes for denne saken: arkivet avviser meldingen, eller mottakerkontoen finnes ikke. Andre feil er ikke omfattet, se [Når noe går galt](#feil).
+Hva oppgaven gjør når arkiveringen ikke kan lykkes for denne saken: arkivet avviser meldingen, eller mottakerkontoen finnes ikke. Prosessen går videre med handlingen i `Action`, og gatewayen etter oppgaven avgjør hvor den går. Andre feil er ikke omfattet, se [Når noe går galt](#feil).
 
-| Innstilling        | Formål og standardverdi                                                                                                        |
-|--------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| **MoveToNextTask** | Om prosessen skal gå videre likevel. Med `false` feiler oppgaven, slik at feilen blir synlig i overvåkingen. Standard: `false`. |
-| **Action**         | Handlingen prosessen går videre med når `MoveToNextTask` er `true`. Standard: `reject`.                                        |
+| Innstilling | Formål og standardverdi                                                                             |
+|-------------|-----------------------------------------------------------------------------------------------------|
+| **Action**  | Handlingen prosessen går videre med når arkiveringen ikke kan lykkes. Standard: `reject`.           |
 
 {{% notice warning %}}
-Standardverdien for `MoveToNextTask` er `false`, også når du utelater hele `ErrorHandling`-seksjonen. En avvist arkivering feiler oppgaven i stedet for å gå videre. Vil du at prosessen skal ta `reject`-flyten, må du skrive `"MoveToNextTask": true` selv, og prosessen må ha en `reject`-flyt ut av oppgaven.
+En avvist arkivering feiler ikke oppgaven. Prosessen tar `reject`-veien ut av gatewayen, og det er oppgaven du har lagt der som avgjør hva som skjer med saken videre. Mangler gatewayen, nekter appen å starte.
 {{% /notice %}}
+
+Du trenger vanligvis ikke denne seksjonen. Sett `Action` bare hvis gatewayen din skal skille på en annen handling enn `reject`:
 
 {{< code-title >}}
 App/appsettings.json
@@ -524,8 +499,7 @@ App/appsettings.json
 ```json
 "FiksArkivSettings": {
   "ErrorHandling": {
-    "MoveToNextTask": true,
-    "Action": "reject"
+    "Action": "arkivering-avvist"
   }
 }
 ```
@@ -558,7 +532,7 @@ Bruk `Value` når du kjenner teksten på forhånd, og `DataModelBinding` når ve
 
 #### Appen kontrollerer konfigurasjonen ved oppstart
 
-Appen kontrollerer Fiks Arkiv-konfigurasjonen når den starter, ikke når den første instansen kommer til oppgaven. Den nekter å starte hvis `Receipt`, `Recipient` eller `Documents` mangler, hvis en datatype ikke finnes i `applicationmetadata.json`, hvis en `DataModelBinding` peker til en datatype uten datamodell, eller hvis en klassifikasjon både har `Source` og egne felt. Feilmeldingen sier hvilken innstilling som er gal.
+Appen kontrollerer Fiks Arkiv-konfigurasjonen og prosessen når den starter, ikke når den første instansen kommer til oppgaven. Den nekter å starte hvis en Fiks Arkiv-oppgave ikke er fulgt av en eksklusiv gateway med minst to utganger, hvis `Receipt`, `Recipient` eller `Documents` mangler, hvis en datatype ikke finnes i `applicationmetadata.json`, hvis en `DataModelBinding` peker til en datatype uten datamodell, eller hvis en klassifikasjon både har `Source` og egne felt. Feilmeldingen sier hva som er galt.
 
 #### Praktiske tips
 
@@ -642,23 +616,24 @@ Fire ting å vite om handleren:
 
 | Situasjon                                                        | Hva oppgaven gjør                                                                                                   |
 |------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
-| Arkivet avviser meldingen                                        | Følger `ErrorHandling`. Som standard feiler oppgaven.                                                               |
-| Mottakerkontoen finnes ikke                                      | Følger `ErrorHandling`. Som standard feiler oppgaven.                                                               |
+| Arkivet avviser meldingen                                        | Prosessen går videre med `ErrorHandling.Action`, som standard `reject`, og gatewayen etter oppgaven avgjør veien.   |
+| Mottakerkontoen finnes ikke                                      | Samme som når arkivet avviser meldingen.                                                                            |
 | Fiks IO avviser integrasjons-ID-en eller passordet               | Oppgaven feiler straks. Rett opp verdiene og gjenoppta oppgaven. `ErrorHandling` brukes ikke, siden ingen handling fra brukeren hjelper. |
 | Midlertidig feil, for eksempel mot Maskinporten eller nettverket | Plattformen prøver sendingen på nytt. Gir det seg ikke, feiler oppgaven.                                            |
 | Ingen kvittering på 7 døgn                                       | Oppgaven feiler. Saken kan likevel være arkivert, så sjekk hos arkivet før du sender på nytt.                        |
 | Kvitteringen kan ikke leses                                      | Oppgaven feiler. Saken er sannsynligvis arkivert, men appen har ingen kvittering å lagre.                           |
 | Din `IFiksArkivMessageHandler` kaster en feil                    | Meldingen prøves på nytt til handleren lykkes.                                                                      |
 
-Når oppgaven feiler, ser brukeren feilsiden, og feilen dukker opp i overvåkingen med en melding som sier hva som skjedde. En som har handlingen for oppgaven kan gjenoppta den med **Prøv igjen**, og en `reject`-flyt gir brukeren mulighet til å gå tilbake. Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}).
+En avvist arkivering feiler altså ikke oppgaven; den er avgjort, og saken går `reject`-veien ut av gatewayen til oppgaven du har lagt der. Når oppgaven derimot feiler, ser brukeren feilsiden, og feilen dukker opp i overvåkingen med en melding som sier hva som skjedde. En som har handlingen for oppgaven kan gjenoppta den med **Prøv igjen**, og en `reject`-flyt gir brukeren mulighet til å gå tilbake. Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}).
 
 ## Kommer du fra v8? {#fra-v8}
 
 Dette er endret fra v8:
 
 - **Ingen tilbakemeldingsoppgave.** Oppgaven venter selv på kvitteringen fra arkivet, og prosessen går først videre når den har kommet. Fjern tilbakemeldingsoppgaven du hadde etter Fiks Arkiv-oppgaven.
-- **`SuccessHandling` gjelder når arkivet har bekreftet saken**, ikke når meldingen er sendt.
-- **`ErrorHandling.MoveToNextTask` er `false` som standard.** En avvist arkivering feiler oppgaven i stedet for å gå videre stille.
+- **`MoveToNextTask` finnes ikke lenger.** Oppgaven går alltid videre når arkiveringen er avgjort: med `SuccessHandling.Action` etter en kvittering, og med `ErrorHandling.Action`, som standard `reject`, etter en avvisning. Legg en eksklusiv gateway rett etter oppgaven, og gi tjenesteeieren `reject`. Appen nekter å starte uten gatewayen.
+- **`SuccessHandling` gjelder når arkivet har bekreftet saken**, ikke når meldingen er sendt, og `MarkInstanceComplete` er `true` som standard.
+- **Fiks IO-klienten bruker appens innebygde Maskinporten-klient.** Du peker den ikke lenger til en egen `MaskinportenSettings`-seksjon.
 - **Klassifikasjon av eieren er valgfri.** Den legges ikke lenger på automatisk. Legg inn `{ "Source": "InstanceOwner" }` i `Metadata.CaseFileClassifications` for å beholde den. Systemene heter nå `PNR` og `ORGNR`, og eieren av instansen klassifiseres, ikke den som sendte inn.
 - **`IFiksArkivResponseHandler` er erstattet av `IFiksArkivMessageHandler`**, og `.WithResponseHandler<T>()` av `.WithMessageHandler<T>()`. Handleren kalles for hver melding arkivet sender, og skal ikke flytte prosessen.
 - **`IFiksArkivHost` er fjernet.** Meldinger sendes bare gjennom systemoppgaven.

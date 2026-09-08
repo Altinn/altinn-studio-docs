@@ -197,7 +197,7 @@ Eksempel på eFormidling-systemoppgave:
 ```
 
 ### Overføre data via Fiks Arkiv (`fiksArkiv`)
-Sender en NOARK 5-arkivmelding med dokumentene fra instansen til et arkivsystem gjennom KS Fiks når prosessen når oppgaven. Oppgaven venter deretter på kvitteringen fra arkivet, og prosessen går først videre når den har kommet. Du skal derfor ikke legge en tilbakemeldingsoppgave etter den. All konfigurasjon av meldingen ligger i `appsettings.json`, ikke i prosessen. Oppgaven ligger i en egen NuGet-pakke, `Altinn.App.Clients.Fiks`, som du legger til i appen. Se [Slik setter du opp Fiks Arkiv]({{< relref "/altinn-studio/v9/receive-data/fiks-arkiv" >}}) for hele oppsettet.
+Sender en NOARK 5-arkivmelding med dokumentene fra instansen til et arkivsystem gjennom KS Fiks når prosessen når oppgaven. Oppgaven venter deretter på kvitteringen fra arkivet, og prosessen går først videre når den har kommet. Du skal derfor ikke legge en tilbakemeldingsoppgave etter den. Prosessen går alltid videre når arkiveringen er avgjort, med `reject` når den ikke kunne lykkes, så oppgaven må følges av en eksklusiv gateway som skiller de to utfallene. Appen nekter å starte uten. All konfigurasjon av meldingen ligger i `appsettings.json`, ikke i prosessen. Oppgaven ligger i en egen NuGet-pakke, `Altinn.App.Clients.Fiks`, som du legger til i appen. Se [Slik setter du opp Fiks Arkiv]({{< relref "/altinn-studio/v9/receive-data/fiks-arkiv" >}}) for hele oppsettet.
 
 Eksempel på Fiks Arkiv-systemoppgave:
 
