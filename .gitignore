@@ -36,6 +36,9 @@ scripts/components/.schema-cache
 /.codex-*
 /presentation*-build/
 
-# Lokale artefakter; behold den delte autorisasjonspresentasjonen
+# Lokale artefakter; behold de delte presentasjonene
 /artifacts/*
 !/artifacts/authorization-presentation/
+
+!/artifacts/systemuser-types/
+!/artifacts/systemuser-types/fire-typer-systembrukere.pptx
