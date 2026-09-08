@@ -464,19 +464,7 @@ Hva oppgaven gjør når arkivet har bekreftet saken med en kvittering. Innstilli
 | **Action**               | Handlingen prosessen går videre med. Standard: ingen, altså standardflyten ut av gatewayen.                        |
 | **MarkInstanceComplete** | Om instansen skal markeres som fullført. Skjer før prosessen går videre. Standard: `true`.                         |
 
-Du trenger vanligvis ikke denne seksjonen. Det vanligste å endre er å la instansen stå åpen:
-
-{{< code-title >}}
-App/appsettings.json
-{{< /code-title >}}
-
-```json
-"FiksArkivSettings": {
-  "SuccessHandling": {
-    "MarkInstanceComplete": false
-  }
-}
-```
+Seksjonen kan utelates. Da markeres instansen som fullført, og prosessen går videre langs standardflyten ut av gatewayen. Sett `MarkInstanceComplete` til `false` hvis instansen skal holdes åpen etter arkiveringen, og `Action` hvis gatewayen skal skille på en egen handling.
 
 #### ErrorHandling
 
@@ -490,19 +478,7 @@ Hva oppgaven gjør når arkiveringen ikke kan lykkes for denne saken: arkivet av
 En avvist arkivering feiler ikke oppgaven. Prosessen tar `reject`-veien ut av gatewayen, og det er oppgaven du har lagt der som avgjør hva som skjer med saken videre. Mangler gatewayen, nekter appen å starte.
 {{% /notice %}}
 
-Du trenger vanligvis ikke denne seksjonen, siden `reject` er standard. Slik ser den ut med standardverdien skrevet ut:
-
-{{< code-title >}}
-App/appsettings.json
-{{< /code-title >}}
-
-```json
-"FiksArkivSettings": {
-  "ErrorHandling": {
-    "Action": "reject"
-  }
-}
-```
+Seksjonen kan utelates. Da går prosessen videre med `reject`. Sett `Action` bare hvis gatewayen din skal skille på en annen handling.
 
 #### Slik oppgir du verdier {#oppsett-verdier}
 
