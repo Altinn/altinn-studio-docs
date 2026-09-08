@@ -303,10 +303,12 @@ Datatypene appen lagrer arkivmeldingen og kvitteringen i. Begge er påkrevd.
 Datatypene må finnes i `applicationmetadata.json`, og appen må kunne skrive til dem.
 {{% /notice %}}
 
-| Innstilling            | Formål                                                                                                          | Format                                            |
-|------------------------|-----------------------------------------------------------------------------------------------------------------|---------------------------------------------------|
-| **ArchiveRecord**      | Datatypen og filnavnet for _arkivmeldingen_. Lagres når meldingen sendes.                                       | `{ "DataType": "string", "Filename": "string" }`  |
-| **ConfirmationRecord** | Datatypen og filnavnet for _arkivkvitteringen_. Lagres når kvitteringen kommer, før prosessen går videre.      | `{ "DataType": "string", "Filename": "string" }`  |
+Begge oppgis som `{ "DataType": "…", "Filename": "…" }`.
+
+| Innstilling            | Formål                                                                                                     |
+|------------------------|------------------------------------------------------------------------------------------------------------|
+| **ArchiveRecord**      | Datatypen og filnavnet for _arkivmeldingen_. Lagres når meldingen sendes.                                  |
+| **ConfirmationRecord** | Datatypen og filnavnet for _arkivkvitteringen_. Lagres når kvitteringen kommer, før prosessen går videre. |
 
 {{< code-title >}}
 App/appsettings.json
@@ -394,15 +396,15 @@ App/appsettings.json
 
 Informasjon arkivsystemet bruker til å plassere saken.
 
-| Innstilling                    | Formål                                                                                   | Standard                                       |
-|--------------------------------|------------------------------------------------------------------------------------------|------------------------------------------------|
-| **SystemId**                   | System-ID i den genererte `arkivmelding.xml`.                                            | `Altinn Studio`                                |
-| **RuleId**                     | Regel-ID for behandling av meldingen i arkivsystemer som støtter regler.                 | Utelatt                                        |
-| **CaseFileId**                 | ID for saksmappen (`saksmappe`).                                                         | Instans-ID-en                                  |
-| **CaseFileTitle**              | Tittel på saksmappen.                                                                    | Apptittelen                                    |
-| **JournalEntryTitle**          | Tittel på journalposten (`journalpost`).                                                 | Apptittelen                                    |
-| **CaseFileAdministrativeUnit** | Administrativ enhet (`administrativEnhet`) på saksmappen.                                | Org-koden til appeieren                        |
-| **CaseFileClassifications**    | Klassifikasjoner (`klassifikasjon`) på saksmappen, i den rekkefølgen du lister dem.      | Ingen                                          |
+| Innstilling                    | Formål og standardverdi                                                                                 |
+|--------------------------------|---------------------------------------------------------------------------------------------------------|
+| **SystemId**                   | System-ID i den genererte `arkivmelding.xml`. Standard: `Altinn Studio`.                                |
+| **RuleId**                     | Regel-ID for behandling av meldingen i arkivsystemer som støtter regler. Utelatt hvis den ikke er satt. |
+| **CaseFileId**                 | ID for saksmappen (`saksmappe`). Standard: instans-ID-en.                                               |
+| **CaseFileTitle**              | Tittel på saksmappen. Standard: apptittelen.                                                            |
+| **JournalEntryTitle**          | Tittel på journalposten (`journalpost`). Standard: apptittelen.                                         |
+| **CaseFileAdministrativeUnit** | Administrativ enhet (`administrativEnhet`) på saksmappen. Standard: org-koden til appeieren.            |
+| **CaseFileClassifications**    | Klassifikasjoner (`klassifikasjon`) på saksmappen, i den rekkefølgen du lister dem. Ingen som standard. |
 
 Alle verdiene unntatt `CaseFileClassifications` kan være faste eller hentes fra datamodellen.
 
@@ -449,14 +451,14 @@ Dokumentene som sendes med arkivmeldingen.
 
 Hvert dokument har disse innstillingene:
 
-| Innstilling  | Formål                                                                                        | Standard                                      |
-|--------------|-----------------------------------------------------------------------------------------------|-----------------------------------------------|
-| **DataType** | Datatypen i `applicationmetadata.json`. Påkrevd.                                              |                                               |
-| **Filename** | Filnavnet dokumentet får i arkivmeldingen.                                                    | Filnavnet på dataelementet, ellers datatypen med filendelse |
-| **Format**   | Formatkode (`dokumentobjekt.format`), for eksempel `PDF/A`. Oppgis som `{ "Code": "…", "Description": "…" }`. | Filendelsen                    |
-| **Variant**  | Variantformat (`dokumentobjekt.variantformat`), for eksempel `A` for arkivformat eller `P` for produksjonsformat. Oppgis som `{ "Code": "…", "Description": "…" }`. | Utelatt |
+| Innstilling  | Formål og standardverdi                                                                                                    |
+|--------------|----------------------------------------------------------------------------------------------------------------------------|
+| **DataType** | Datatypen i `applicationmetadata.json`. Påkrevd.                                                                           |
+| **Filename** | Filnavnet dokumentet får i arkivmeldingen. Standard: filnavnet på dataelementet, ellers datatypen med filendelse.          |
+| **Format**   | Formatkode (`dokumentobjekt.format`), for eksempel `PDF/A`. Standard: filendelsen.                                         |
+| **Variant**  | Variantformat (`dokumentobjekt.variantformat`), for eksempel `A` for arkivformat eller `P` for produksjonsformat. Utelatt hvis det ikke er satt. |
 
-`Description` er valgfri i både `Format` og `Variant`. Spør arkivet ditt hvilke koder det forventer.
+`Format` og `Variant` oppgis som `{ "Code": "…", "Description": "…" }`, der `Description` er valgfri. Spør arkivet ditt hvilke koder det forventer.
 
 {{< code-title >}}
 App/appsettings.json
@@ -483,11 +485,11 @@ App/appsettings.json
 
 Hva oppgaven gjør når arkivet har bekreftet saken med en kvittering. Innstillingene gjelder altså ikke når meldingen er sendt, men når kvitteringen har kommet.
 
-| Innstilling              | Formål                                                                    | Standard |
-|--------------------------|---------------------------------------------------------------------------|----------|
-| **MoveToNextTask**       | Om prosessen skal gå videre av seg selv når kvitteringen kommer. Med `false` blir instansen stående på oppgaven til noen flytter den. | `true` |
-| **Action**               | Handlingen prosessen går videre med.                                      | Ingen (standardflyten) |
-| **MarkInstanceComplete** | Om instansen skal markeres som fullført. Skjer før prosessen går videre.  | `false` |
+| Innstilling              | Formål og standardverdi                                                                                                                 |
+|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| **MoveToNextTask**       | Om prosessen skal gå videre av seg selv når kvitteringen kommer. Med `false` blir instansen stående på oppgaven til noen flytter den. Standard: `true`. |
+| **Action**               | Handlingen prosessen går videre med. Standard: ingen, altså standardflyten.                                                             |
+| **MarkInstanceComplete** | Om instansen skal markeres som fullført. Skjer før prosessen går videre. Standard: `false`.                                             |
 
 {{< code-title >}}
 App/appsettings.json
@@ -506,10 +508,10 @@ App/appsettings.json
 
 Hva oppgaven gjør når arkiveringen ikke kan lykkes for denne saken: arkivet avviser meldingen, eller mottakerkontoen finnes ikke. Andre feil er ikke omfattet, se [Når noe går galt](#feil).
 
-| Innstilling        | Formål                                                                                       | Standard  |
-|--------------------|----------------------------------------------------------------------------------------------|-----------|
-| **MoveToNextTask** | Om prosessen skal gå videre likevel. Med `false` feiler oppgaven, slik at feilen blir synlig i overvåkingen. | `false` |
-| **Action**         | Handlingen prosessen går videre med når `MoveToNextTask` er `true`.                          | `reject`  |
+| Innstilling        | Formål og standardverdi                                                                                                        |
+|--------------------|--------------------------------------------------------------------------------------------------------------------------------|
+| **MoveToNextTask** | Om prosessen skal gå videre likevel. Med `false` feiler oppgaven, slik at feilen blir synlig i overvåkingen. Standard: `false`. |
+| **Action**         | Handlingen prosessen går videre med når `MoveToNextTask` er `true`. Standard: `reject`.                                        |
 
 {{% notice warning %}}
 Standardverdien for `MoveToNextTask` er `false`, også når du utelater hele `ErrorHandling`-seksjonen. En avvist arkivering feiler oppgaven i stedet for å gå videre. Vil du at prosessen skal ta `reject`-flyten, må du skrive `"MoveToNextTask": true` selv, og prosessen må ha en `reject`-flyt ut av oppgaven.
