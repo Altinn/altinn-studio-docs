@@ -22,7 +22,7 @@ Før du setter opp Fiks Arkiv i appen, må du ha dette på plass:
 
 - **Fiks Protokoll** aktivert i Fiks forvaltningsportalen for organisasjonen din.
 - Tilgang i **Samarbeidsportalen** til å administrere Maskinporten-klienter for organisasjonen din. Altinn Studio bruker denne tilgangen når du logger inn med Ansattporten og legger Maskinporten-scopes til appen.
-- Et **arkivsystem** som er integrert med Fiks Arkiv, for eksempel Public 360.
+- Et **arkivsystem** som er integrert med Fiks Arkiv.
 
 ## Slik fungerer oppgaven {#flyt}
 
@@ -669,7 +669,7 @@ Dette er endret fra v8:
 
 ## Konfigurasjon for mottak av meldinger i arkivsystemet {#mottak}
 
-Digdir leverer verken arkivsystemet eller Fiks Arkiv, så vi har ikke fullstendig dokumentasjon for mottakersiden. Bruk KS Digitals dokumentasjon sammen med dokumentasjonen fra arkivsystemleverandøren. Her er likevel de vanligste fallgruvene vi har sett når appeiere tar integrasjonen i bruk.
+Digdir leverer verken arkivsystemet eller Fiks Arkiv, så vi har ikke fullstendig dokumentasjon for mottakersiden. Bruk KS Digitals dokumentasjon sammen med dokumentasjonen fra arkivsystemleverandøren. Oppsettet av mottakerkontoen er likevel det samme uansett arkivsystem.
 
 ### Opprett en Fiks Arkiv-konto for mottak
 {.floating-bullet-numbers-sibling-ol}
@@ -688,12 +688,6 @@ Digdir leverer verken arkivsystemet eller Fiks Arkiv, så vi har ikke fullstendi
 3. Se dokumentasjonen for arkivsystemet for krav til krypteringsnøkkelparet.
 4. Under kontoen, gå til fanen _Søk etter systemer_ og slå opp systemet som ble opprettet for å sende meldinger. Gi systemet tillatelse til å sende til mottakerkontoen ved å klikke _Gi tilgang_.
     <img src="fiks-system-whitelist.png" alt="Skjermbilde som viser hvordan du gir et system tilgang fra en Fiks-konto" width="80%">
-
-### Kjente problemer i konfigurasjonen av Public 360
-
-#### Krypteringsnøkkelen er ikke dokumentert
-
-Maskinporten-tokenet som lastes opp i P360 brukes som den private delen av krypteringsnøkkelen. Fiks Arkiv-kontoen som mottar meldinger, skal laste opp den offentlige delen av dette sertifikatet som krypteringsnøkkel.
 
 ## Ekstern dokumentasjon
 
