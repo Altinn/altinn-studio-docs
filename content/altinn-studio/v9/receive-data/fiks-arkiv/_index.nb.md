@@ -640,7 +640,7 @@ Dette er endret fra v8:
 - **`klientKorrelasjonsId` er postkassens id**, ikke lenken til instansen. Lenken ligger fortsatt i arkivmeldingen, som referansen på mottakerens korrespondansepart.
 - **Tidspunktene i arkivmeldingen er i UTC**, og `dokumentobjekt` har ikke lenger en `systemID`.
 
-`studioctl app upgrade v9` legger inn tilgangsreglene tjenesteeieren trenger, men endrer ikke Fiks Arkiv-konfigurasjonen din.
+`studioctl app upgrade v9` legger inn tilgangsreglene tjenesteeieren trenger, fjerner `MoveToNextTask` fra Fiks Arkiv-konfigurasjonen og sier fra hvis verdien var `false` eller oppgaven mangler gatewayen. Resten av Fiks Arkiv-konfigurasjonen lar den stå.
 
 ## Konfigurasjon for mottak av meldinger i arkivsystemet {#mottak}
 
