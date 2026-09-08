@@ -490,7 +490,7 @@ Hva oppgaven gjør når arkiveringen ikke kan lykkes for denne saken: arkivet av
 En avvist arkivering feiler ikke oppgaven. Prosessen tar `reject`-veien ut av gatewayen, og det er oppgaven du har lagt der som avgjør hva som skjer med saken videre. Mangler gatewayen, nekter appen å starte.
 {{% /notice %}}
 
-Du trenger vanligvis ikke denne seksjonen. Sett `Action` bare hvis gatewayen din skal skille på en annen handling enn `reject`:
+Du trenger vanligvis ikke denne seksjonen, siden `reject` er standard. Slik ser den ut med standardverdien skrevet ut:
 
 {{< code-title >}}
 App/appsettings.json
