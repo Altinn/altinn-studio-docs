@@ -499,7 +499,7 @@ App/appsettings.json
 ```json
 "FiksArkivSettings": {
   "ErrorHandling": {
-    "Action": "arkivering-avvist"
+    "Action": "reject"
   }
 }
 ```
