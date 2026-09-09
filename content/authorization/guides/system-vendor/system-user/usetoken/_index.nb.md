@@ -25,8 +25,13 @@ API-->>Sluttbrukersystem: API Resultat
 
 OAuth2 Rich Authorization Requests (RAR)-utvidelsen brukes til å be om systembrukertoken. Altinn definerer typen **urn:altinn:systemuser** for dette formålet.
 
-Leverandøren ber om token for en bestemt kunde ved å oppgi kundens organisasjonsnummer.  
-Viktig at organisjasjonsnummer oppgis etter følgende standard:
+Leverandøren ber om token for en bestemt kunde ved å oppgi organisasjonsnummeret til **virksomheten som eier systembrukeren**.
+
+{{%notice warning%}}
+**Klient-systembruker:** Hvis du bruker en systembruker for klientforhold (tidligere kalt agent-systembruker), skal `systemuser_org.ID` alltid settes til **din virksomhets eget organisasjonsnummer** (f.eks. regnskapsbyråets org.nr.) — **ikke** til klientens organisasjonsnummer. For å hente token for en bestemt klient, bruk `externalRef` som beskrevet lenger ned på siden.
+{{% /notice%}}
+
+Viktig at organisasjonsnummeret oppgis etter følgende standard:
 
 ```
 "systemuser_org" : {

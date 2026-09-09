@@ -98,4 +98,42 @@ Når tjenesteleverandøren har mottatt fullmakten, kan deres klientadministrator
 > Systembruker for klientsystemer kan kun opprettes med [**leverandørstyrt opprettelse**](https://docs.altinn.studio/nb/authorization/guides/system-vendor/system-user/systemuserrequest/#2-opprette-systembruker-for-klientsystem).
 
 
+## Ofte stilte spørsmål
+
+**Trenger regnskapsbyrået to systembrukere?**
+
+Ja, hvis byrået rapporterer for egne data _og_ for klienter. Bruk én systembruker for eget system og én for klientforhold. Hvis du kun rapporterer for klienter, holder det med én systembruker for klientforhold. Se [veiledning for oppsett](userscenarios/setupguidance/) for en fullstendig oversikt over scenarioer og anbefalinger om antall systembrukere.
+
+---
+
+**Hvilket organisasjonsnummer skal jeg bruke i `systemuser_org.ID` når jeg henter Maskinporten-token?**
+
+Alltid organisasjonsnummeret til **virksomheten som eier systembrukeren** – for eksempel regnskapsbyråets eget org.nr. Du skal _ikke_ bruke klientens org.nr. For å hente token for en bestemt klient bruker du `externalRef`. Se [Bruk av systembruker](usetoken/).
+
+---
+
+**Callback-URL fungerer ikke etter at lederen godkjente forespørselen**
+
+`redirectUrl` i systembrukerforespørselen omdirigerer nettleseren til den personen som faktisk godkjenner. Hvis en annen person (f.eks. en leder) godkjenner via `confirmUrl`, er det lederens nettleser som mottar omdirigeringen. Bruk statusendepunktet eller [byquery](byquery/) til å sjekke om forespørselen er godkjent, i stedet for å basere flyten utelukkende på callback-URL-en.
+
+---
+
+**Kan jeg hente tilgangspakker for en definert systembruker?**
+
+Du kan bruke [byquery](byquery/)-endepunktet til å hente detaljer om en systembruker, inkludert type. For å se hvilke tilgangspakker systemet er registrert med, kan du hente systemdefinisjonen fra systemregisteret-API-et. Tilgangspakker som er delegert til en bestemt klient via klientforhold kan du se via [klientadministrasjons-API-et](../../system-vendor/client-admin/).
+
+---
+
+**Systemlisten i Dialogporten er tom**
+
+Systembrukeren mangler sannsynligvis de nødvendige tilgangspakkene for de aktuelle tjenestene. Se [Systembruker og Dialogporten-API-et](dialogporten/) for full veiledning.
+
+---
+
+**Jeg får 403 ved registrering av systemet**
+
+Se [feilsøkingsguiden](troubleshooting/) for vanlige årsaker og løsninger, inkludert manglende scope og org.nr.-mismatch.
+
+---
+
 {{<children />}}
