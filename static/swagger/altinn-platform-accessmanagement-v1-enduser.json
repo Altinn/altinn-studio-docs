@@ -113,7 +113,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AuthorizedPartyDtoListPaginatedResult"
+                  "$ref": "#/components/schemas/AuthorizedPartyDtoPaginatedResult"
                 }
               }
             }
@@ -7344,16 +7344,13 @@
         },
         "additionalProperties": false
       },
-      "AuthorizedPartyDtoListPaginatedResult": {
+      "AuthorizedPartyDtoPaginatedResult": {
         "type": "object",
         "properties": {
           "data": {
             "type": "array",
             "items": {
-              "type": "array",
-              "items": {
                 "$ref": "#/components/schemas/AuthorizedPartyDto"
-              }
             },
             "nullable": true
           },
