@@ -266,7 +266,7 @@ Les mer om metrikker i
 
 ## Migrering fra classic Application Insights SDK
 
-Microsoft [har dokuemntert at](https://github.com/MicrosoftDocs/azure-docs/commit/25d58a0c1e5a1d5740d99fd68d89a9372042838e)
+Microsoft [har dokumentert at](https://github.com/MicrosoftDocs/azure-docs/commit/25d58a0c1e5a1d5740d99fd68d89a9372042838e)
 
 > The long-term plan for Application Insights is to collect data using OpenTelemetry.
 
