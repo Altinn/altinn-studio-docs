@@ -8,7 +8,7 @@ weight: 100
 
 ## Authentication for application owners
 
-Application owners should be authenticated with [Maskinporten](https://www.digdir.no/felleslosninger/maskinporten/869).
+Application owners should be authenticated with [Maskinporten](https://samarbeid.digdir.no/maskinporten/maskinporten/25).
 
 ### API provisioning in Maskinporten
 
