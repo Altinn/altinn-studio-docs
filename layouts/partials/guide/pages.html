@@ -1,0 +1,24 @@
+{{/*
+  Bygger en flat liste over sidene i en veiledning, i samme rekkefølge som menyen
+  (dybde først, sortert på weight). Kalles rekursivt, og tar imot rotsiden til
+  veiledningen eller en av sidene under den.
+
+  Sider med `guideExclude: true` eller `hidden: true` i front matter blir holdt
+  utenfor - sammen med sidene under dem.
+
+  Returnerer: en liste med sider (uten siden som ble sendt inn).
+*/}}
+{{- $pages := slice -}}
+{{- $children := .Pages -}}
+{{- with .Sections -}}
+  {{- $children = $children | union . -}}
+{{- end -}}
+{{- range $children.ByWeight -}}
+  {{- if not (or .Params.guideExclude .Params.hidden) -}}
+    {{- $pages = $pages | append . -}}
+    {{- with partial "guide/pages.html" . -}}
+      {{- $pages = $pages | append . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- return $pages -}}

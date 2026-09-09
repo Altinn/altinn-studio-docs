@@ -734,3 +734,88 @@ margin-bottom: 0 !important;
     .ds-alert:not(:has(>:is(h1,h2,h3,h4,h5,h6):first-child)):before,
     .ds-alert>:is(h1,h2,h3,h4,h5,h6):first-child:before{background:CanvasText}
 }
+
+/* Navigasjon i veiledninger som går over flere sider */
+.guide-nav {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin: 48px 0 24px;
+    padding-top: 24px;
+    border-top: 1px solid #bcc7cc;
+}
+
+.guide-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 45ch;
+    text-decoration: none;
+    border-bottom: none;
+}
+
+.guide-nav-link--next {
+    margin-left: auto;
+    text-align: right;
+}
+
+.guide-nav-arrow {
+    color: #6a6a6a;
+    font-size: 1.5em;
+}
+
+.guide-nav-label {
+    display: block;
+    font-size: 0.875em;
+    color: #6a6a6a;
+}
+
+.guide-nav-page {
+    display: block;
+    color: #d7203a;
+}
+
+.guide-nav-link:hover,
+.guide-nav-link:focus {
+    text-decoration: none;
+    border-bottom: none;
+}
+
+.guide-nav-link:hover .guide-nav-page,
+.guide-nav-link:focus .guide-nav-page {
+    color: #b61b31;
+    text-decoration: underline;
+}
+
+.guide-nav-link:hover .guide-nav-arrow,
+.guide-nav-link:focus .guide-nav-arrow {
+    color: #b61b31;
+}
+
+/* "Kom i gang"-lenken på rotsiden i veiledningen */
+.guide-nav-start {
+    display: block;
+    padding: 16px 24px;
+    border: 2px solid #0062ba;
+    border-radius: 4px;
+    background-color: #0062ba;
+    color: #ffffff;
+    font-size: 1.125em;
+    text-decoration: none;
+    border-bottom: 2px solid #0062ba;
+}
+
+.guide-nav-start:hover,
+.guide-nav-start:focus {
+    background-color: #00315d;
+    border-color: #00315d;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.guide-nav-start .guide-nav-page {
+    display: block;
+    color: #ffffff;
+    font-size: 0.875em;
+}
