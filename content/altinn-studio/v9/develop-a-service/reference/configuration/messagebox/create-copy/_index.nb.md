@@ -88,7 +88,7 @@ applicationmetadata.json
 
 ## Programmatiske endringer
 
-Under kopiering av skjema utfører logikken metodekall mot **IInstantiationProcessor.DataCreation**. Dette gjør det mulig å gjøre programmatiske endringer i data som kopieres. [Les mer om egendefinert forhåndsutfylling](/nb/altinn-studio/v8/guides/development/prefill/custom/).
+Under kopiering av skjema utfører logikken metodekall mot **IInstantiationProcessor.DataCreation**. Dette gjør det mulig å gjøre programmatiske endringer i data som kopieres. [Les mer om egendefinert forhåndsutfylling]({{< relref "/altinn-studio/v9/develop-a-service/data/prefill/how-to/custom" >}}).
 
 ## Validering
 

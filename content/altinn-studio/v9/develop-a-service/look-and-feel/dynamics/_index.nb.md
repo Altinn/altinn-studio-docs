@@ -9,7 +9,7 @@ aliases:
 
 Du kan sette opp dynamikk i skjema ved å bruke uttrykk med dynamikkverktøyet i Altinn Studio.
 
-Uttrykk er et begrep i Altinn-tjenester som lar deg dynamisk tildele verdier til ulike elementer. [Les mer om hva du kan bruke uttrykk til og hvordan syntaksen fungerer](/nb/altinn-studio/v8/reference/logic/expressions/).
+Uttrykk er et begrep i Altinn-tjenester som lar deg dynamisk tildele verdier til ulike elementer. [Les mer om hva du kan bruke uttrykk til og hvordan syntaksen fungerer]({{< relref "/altinn-studio/v9/develop-a-service/expressions" >}}).
 
 ## Terminologi
 
