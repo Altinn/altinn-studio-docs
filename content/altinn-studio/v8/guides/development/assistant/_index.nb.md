@@ -47,9 +47,9 @@ Tråder lar deg opprette nye samtaler uten kontekst fra gamle meldinger. Vi anbe
 
 Ikke send personopplysninger eller sensitiv informasjon til assistenten. Vi lagrer meldinger i 90 dager, og bruker dataene til å feilsøke og forbedre assistenten. Vi bruker dem også til fakturering, men ikke til å trene KI-modeller.
 
-## Data og KI-modeller
+## KI-modeller
 
-Assistenten bruker språkmodeller gjennom Microsoft Azure. I betaen kan dataene bli behandlet utenfor EU. Vi går over til behandling utelukkende i EU i løpet av betaperioden.
+Assistenten bruker OpenAI-modeller som kjører på Microsoft sin infrastruktur i EØS.
 
 ## Kostnad
 

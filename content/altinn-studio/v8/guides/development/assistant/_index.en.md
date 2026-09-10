@@ -47,9 +47,9 @@ Threads let you start new conversations without context from old messages. We re
 
 Do not send personal or sensitive information to the assistant. We store messages for 90 days and use the data to debug and improve the assistant. We also use it for billing, but not to train AI models.
 
-## Data and AI models
+## AI models
 
-The assistant uses language models through Microsoft Azure. During the beta, the data may be processed outside the EU. We will move to processing strictly within the EU during the beta period.
+The assistant uses OpenAI models that run on Microsoft's infrastructure in the EEA.
 
 ## Cost
 
