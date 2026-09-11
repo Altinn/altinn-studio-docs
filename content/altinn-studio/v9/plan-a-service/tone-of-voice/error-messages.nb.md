@@ -73,7 +73,7 @@ Gi gjerne brukeren to valgmuligheter:
 
 ## Oppsummerende feilmeldinger
 
-Hvis et skjema har flere feil, vis en oppsummering med lenker til hvert felt som har feil. Dette gjør det lettere for brukeren å se hva som må rettes.
+Når én eller flere feil hindrer brukeren i å gå videre eller sende inn skjemaet, vises en oppsummering med lenker til feltene som har feil. Dette gjør det lettere for brukeren å se hva som må rettes.
 
 ### Plassering av oppsummeringen
 
