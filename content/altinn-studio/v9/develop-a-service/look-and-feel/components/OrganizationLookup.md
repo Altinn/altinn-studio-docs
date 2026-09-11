@@ -1,5 +1,5 @@
 ---
-title: OrganisationLookup
+title: OrganizationLookup
 draft: true
 ---
 
@@ -12,7 +12,7 @@ draft: true
 | `showValidations` | List of validation types to show |  |
 | `renderAsSummary` | Boolean value indicating if the component should be rendered as a summary. Defaults to false. |  |
 | `forceShowInSummary` | Will force show the component in a summary even if hideEmptyFields is set to true in the summary component. |  |
-| `type` | Required. | `"OrganisationLookup"` |
+| `type` | Required. | `"OrganizationLookup"` |
 | `textResourceBindings` | See [Text resource bindings](#text-resource-bindings-textresourcebindings). |  |
 | `removeWhenHidden` | Override the logic cleaning data for hidden components at task end, if you want to keep data referenced in hidden components. Currently only has effect if AppSettings.RemoveHiddenData is enabled. |  |
 | `dataModelBindings` | See [Data model bindings](#data-model-bindings-datamodelbindings). Required. |  |
@@ -34,12 +34,12 @@ draft: true
 
 | Property | Description | Allowed Values |
 |----------|-------------|----------------|
-| `organisation_lookup_orgnr` | Required. |  |
-| `organisation_lookup_orgnr.dataType` | The name of the datamodel type to reference Required. |  |
-| `organisation_lookup_orgnr.field` | The path to the property using dot-notation Required. |  |
-| `organisation_lookup_name` |  |  |
-| `organisation_lookup_name.dataType` | The name of the datamodel type to reference Required. |  |
-| `organisation_lookup_name.field` | The path to the property using dot-notation Required. |  |
+| `orgnr` | Stores the organization number. Required. |  |
+| `orgnr.dataType` | The name of the data model type to reference. Required. |  |
+| `orgnr.field` | The path to the property using dot notation. Required. |  |
+| `name` | Stores the organization name. |  |
+| `name.dataType` | The name of the data model type to reference. Required. |  |
+| `name.field` | The path to the property using dot notation. Required. |  |
 
 ## Common properties
 

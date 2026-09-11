@@ -44,13 +44,13 @@ Komponenter for datainnsamling.
 
 ---
 
-### Finn virksomhet (`OrganisationLookup`)
+### Finn virksomhet (`OrganizationLookup`)
 
-`OrganisationLookup`-komponenten slår opp en organisasjon i Enhetsregisteret ved hjelp av organisasjonsnummer.
+`OrganizationLookup`-komponenten slår opp en organisasjon i Enhetsregisteret ved hjelp av organisasjonsnummer.
 
-![OrganisationLookup](./OrganisationLookup.png)
+![OrganizationLookup](./OrganisationLookup.png)
 
-[Detaljer om komponenten](./OrganisationLookup)
+[Detaljer om komponenten](./OrganizationLookup)
 
 ---
 
@@ -339,21 +339,11 @@ vedlegg skal vises, eller kun et utvalg.
 ---
 
 ### Vedlegg (`FileUpload`)
-`FileUpload` lar brukeren laste opp vedlegg. Du kan styre hva slags filtyper som kan lastes opp.
+`FileUpload` lar brukeren laste opp vedlegg. Du kan styre hvilke filtyper som kan lastes opp, og legge til svaralternativer hvis brukeren skal merke hvert vedlegg med en forhåndsdefinert etikett.
 
 ![FileUpload](./FileUpload.png)
 
 [Detaljer om komponenten](./FileUpload)
-
----
-
-### Vedlegg med merking (`FileUploadWithTag`)
-`FileUploadWithTag` lar brukeren laste opp vedlegg og merke vedlegg med forhåndsdefinerte tagger. Du kan styre hva slags
-filtyper som kan lastes opp.
-
-![FileUploadWithTag](./FileUpload.png)
-
-[Detaljer om komponenten](./FileUploadWithTag)
 
 ---
 
