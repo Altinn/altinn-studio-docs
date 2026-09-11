@@ -82,7 +82,11 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
         "textResourceBindings": {
           "title": "ErrorMessage"
         },
-        "hidden": ["notEquals", ["dataModel", "userAuthorized"], false],
+        "hidden": [
+          "or",
+          ["equals", ["dataModel", "userAuthorized"], true],
+          ["equals", ["dataModel", "userAuthorized"], null]
+        ],
         "required": false,
         "readOnly": true
       }
@@ -91,10 +95,10 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
 
 3. **Vis eller skjul felter med uttrykk**
 
-    Komponentenes `hidden`-egenskap styrer hvilke felter brukeren ser. Uttrykkene i layouten leser `userAuthorized` fra datamodellen:
+    Komponentenes `hidden`-egenskap styrer hvilke felter brukeren ser. Feltet `userAuthorized` formidler resultatet av kontrollen som er beskrevet i steg 5. Feltet og uttrykkene styrer bare visningen og gir ikke i seg selv tilgang til tjenesten.
 
     - Søkefeltet og resultatfeltet skjules når `userAuthorized` er `false`.
-    - Feilmeldingen skjules så lenge `userAuthorized` ikke er `false`.
+    - Feilmeldingen skjules når `userAuthorized` er `true` eller ikke har fått en verdi.
 
     Dermed er søke- og resultatfeltene synlige som standard. Hvis autorisasjonen mislykkes, skjules disse feltene, og feilmeldingen vises. Se [dokumentasjonen for uttrykk]({{< relref "/altinn-studio/v9/develop-a-service/expressions" >}}) for flere eksempler.
 
