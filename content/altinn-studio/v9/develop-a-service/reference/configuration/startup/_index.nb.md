@@ -14,7 +14,7 @@ For en app som oppretter og bruker instanser, kan du velge mellom:
 - `new-instance`: Appen oppretter en ny instans. Dette er standardverdien når `onEntry.show` ikke er satt.
 - `select-instance`: Appen lar brukeren fortsette på en aktiv instans eller opprette en ny.
 
-Hvis appen skal starte med en tilstandsløs visning, kan du i stedet angi ID-en til den aktuelle brukergrensesnittmappen. Se [konfigurasjon av tilstandsløse apper]({{< relref "../stateless" >}}).
+Hvis appen skal starte med en tilstandsløs visning, kan du i stedet angi ID-en til den aktuelle brukergrensesnittmappen. Se [konfigurasjon av tilstandsløse apper](../stateless/).
 
 ## La brukeren velge en aktiv instans
 
@@ -38,6 +38,8 @@ Appen undersøker om den valgte avgiveren har aktive instanser:
 - Hvis det finnes én eller flere aktive instanser, viser appen siden for instansvalg.
 
 På siden for instansvalg kan brukeren fortsette på en eksisterende instans eller velge **Start på nytt**. Siden vises også når det bare finnes én aktiv instans, slik at brukeren fortsatt kan velge å opprette en ny.
+
+![Siden for instansvalg med en aktiv instans](instance-selection.png "Brukeren kan fortsette på en aktiv instans eller starte på nytt")
 
 ## Tilpass siden for instansvalg
 
