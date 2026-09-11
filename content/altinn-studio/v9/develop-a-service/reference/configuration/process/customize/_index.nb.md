@@ -127,20 +127,18 @@ Eksempel `formLayout.json` som presenterer data som brukeren fylte ut i data-ste
 
 Dette vil gi følgende app-struktur:
 
-```txt
-├───App
-│   ├───config
-│   ├───logic
-│   ├───models
-|   | ...
-│   ├───ui
-│   │   ├───custom-confirmation
-│   │   │   └───layouts
-|   |   |   └─── ...
-│   │   └───simple
-│   │       └───layouts
-|   |   |   └─── ...
-
+```text
+App/
+├── config/
+├── logic/
+├── models/
+└── ui/
+    ├── Task_1/
+    │   └── ...
+    └── Task_2/
+        ├── Settings.json
+        └── layouts/
+            └── formLayout.json
 ```
 
 Sluttresultatet i appen:
@@ -239,7 +237,7 @@ Legg til `Settings.json` i `CustomReceipt`. Sett `defaultDataType` til datamodel
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Mappestruktur">}}
 
-```
+```text
 |- App/
   |- ui/
     |- CustomReceipt/
