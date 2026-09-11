@@ -99,8 +99,8 @@ Filene og mappestrukturen skal se omtrent slik ut:
 
 ```text
 App/ui/
-├── layout-sets.json
-├── form/
+├── Settings.json
+├── Task_Utfylling1/
 │   ├── Settings.json
 │   └── layouts/
 │       └── ...
@@ -111,42 +111,19 @@ App/ui/
         └── ServiceTask.json
 ```
 
-#### layout-sets.json
+Globale innstillinger for navigasjon mellom oppgaver ligger i `App/ui/Settings.json`:
 
-{{< code-title >}}
-  App/ui/layout-sets.json
-{{< /code-title >}}
-
-```json {hl_lines="11-17"}
+```json
 {
-  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
-  "sets": [
+  "taskNavigation": [
     {
-      "id": "form",
-      "dataType": "model",
-      "tasks": [
-        "Task_Utfylling1"
-      ]
+      "taskId": "Task_Utfylling1",
+      "name": "Utfylling"
     },
     {
-      "id": "Pdf",
-      "dataType": "model",
-      "tasks": [
-        "Pdf"
-      ]
+      "type": "receipt"
     }
-  ],
-  "uiSettings": {
-    "taskNavigation": [
-      {
-        "taskId": "Task_Utfylling1",
-        "name": "Utfylling"
-      },
-      {
-        "type": "receipt"
-      }
-    ]
-  }
+  ]
 }
 ```
 
@@ -159,6 +136,7 @@ App/ui/
 ```json
 {
   "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "defaultDataType": "model",
   "pages": {
     "pdfLayoutName": "PdfLayout",
     "order": [

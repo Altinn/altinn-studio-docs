@@ -5,35 +5,21 @@ hidden: true
 tags: [needsReview, translate]
 ---
 
-1. Legg til en ny mappe under `App/ui` for signeringsoppgaven din. Kall den for eksempel `signing`.
+1. Legg til en ny mappe under `App/ui` for signeringsoppgaven. Mappen må ha samme navn som ID-en til oppgaven i `process.bpmn`, for eksempel `Task_2`.
 
-2. Oppdater filen `App/ui/layout-sets.json` med ny sidegruppe, som har samme `id` som mappen du opprettet i forrige steg.
-
-   Din oppdaterte `layout-sets.json` kan se slik ut:
+2. Opprett en `layouts`-mappe og en `Settings.json`-fil i oppgavemappen. Sett `defaultDataType` til datamodellen som signeringsoppgaven skal bruke:
 
    ```json
    {
-     "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
-     "sets": [
-       {
-         "id": "form",
-         "dataType": "model",
-         "tasks": [
-           "Task_1"
-         ]
-       },
-       {
-         "id": "signing",
-         "dataType": "model",
-         "tasks": [
-           "Task_2"
-         ]
-       }
-     ]
+     "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+     "defaultDataType": "model",
+     "pages": {
+       "order": ["signing"]
+     }
    }
    ```
 
-3. Legg til en ny fil kalt `signing.json` i mappen du opprettet.
+3. Legg til en fil kalt `signing.json` i `layouts`-mappen.
 
    Det finnes et sett med ferdige komponenter for å bygge opp layout for et signeringssteg. Vi anbefaler å bruke disse, men de er ikke obligatoriske.
 

@@ -115,35 +115,23 @@ Payment uses three user actions. If the Altinn user interface is used by the app
 ```
 The value of the node `<altinn:paymentDataType>paymentInformation</altinn:paymentDataType>` must match the ID of the data type you configured in the previous step. Same for the pdf-receipt data type.
 
-### Add Payment layoutSet
+### Add the payment layouts
 
-Add a new layoutSet folder for your payment task, and update your layout-sets.json.
+Add a folder under `App/ui` with the same name as the payment task ID. In the example above, the ID is `Task_2`, so the folder must be named `Task_2`.
 
-Your layout-sets.json may look something like this:
+Add `Settings.json` to the folder. Set `defaultDataType` to the data model used by the payment task:
 
 ```json
 {
-  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
-  "sets": [
-    {
-      "id": "form",
-      "dataType": "model",
-      "tasks": [
-        "Task_1"
-      ]
-    },
-    {
-      "id": "payment",
-      "dataType": "model",
-      "tasks": [
-        "Task_2"
-      ]
-    }
-  ]
+  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "defaultDataType": "model",
+  "pages": {
+    "order": ["payment"]
+  }
 }
 ```
 
-In your payment layoutSet folder, add a new file, payment.json, with the following layout:
+Create `App/ui/Task_2/layouts`, then add `payment.json` with the following layout:
 
 ```json
 {
