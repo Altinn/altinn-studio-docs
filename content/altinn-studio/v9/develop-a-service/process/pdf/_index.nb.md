@@ -99,7 +99,6 @@ Filene og mappestrukturen skal se omtrent slik ut:
 
 ```text
 App/ui/
-├── Settings.json
 ├── Task_Utfylling1/
 │   ├── Settings.json
 │   └── layouts/
@@ -109,22 +108,6 @@ App/ui/
     └── layouts/
         ├── PdfLayout.json
         └── ServiceTask.json
-```
-
-Globale innstillinger for navigasjon mellom oppgaver ligger i `App/ui/Settings.json`:
-
-```json
-{
-  "taskNavigation": [
-    {
-      "taskId": "Task_Utfylling1",
-      "name": "Utfylling"
-    },
-    {
-      "type": "receipt"
-    }
-  ]
-}
 ```
 
 #### Settings.json
@@ -139,6 +122,15 @@ Globale innstillinger for navigasjon mellom oppgaver ligger i `App/ui/Settings.j
   "defaultDataType": "model",
   "pages": {
     "pdfLayoutName": "PdfLayout",
+    "taskNavigation": [
+      {
+        "taskId": "Task_Utfylling1",
+        "name": "Utfylling"
+      },
+      {
+        "type": "receipt"
+      }
+    ],
     "order": [
       "ServiceTask"
     ]

@@ -103,7 +103,6 @@ The files and folder structure should look approximately like this:
 
 ```text
 App/ui/
-├── Settings.json
 ├── Task_Utfylling1/
 │   ├── Settings.json
 │   └── layouts/
@@ -113,22 +112,6 @@ App/ui/
     └── layouts/
         ├── PdfLayout.json
         └── ServiceTask.json
-```
-
-Global settings for navigation between tasks belong in `App/ui/Settings.json`:
-
-```json
-{
-  "taskNavigation": [
-    {
-      "taskId": "Task_Utfylling1",
-      "name": "Utfylling"
-    },
-    {
-      "type": "receipt"
-    }
-  ]
-}
 ```
 
 #### Settings.json
@@ -143,6 +126,15 @@ Global settings for navigation between tasks belong in `App/ui/Settings.json`:
   "defaultDataType": "model",
   "pages": {
     "pdfLayoutName": "PdfLayout",
+    "taskNavigation": [
+      {
+        "taskId": "Task_Utfylling1",
+        "name": "Utfylling"
+      },
+      {
+        "type": "receipt"
+      }
+    ],
     "order": [
       "ServiceTask"
     ]
