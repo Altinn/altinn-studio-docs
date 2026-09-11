@@ -97,8 +97,6 @@ Eksempel app-struktur for en app som er satt opp på denne måten:
         │   layout-sets.json
         │
         └───stateless
-            |   RuleConfiguration.json
-            │   RuleHandler.js
             │   Settings.json
             │
             └───layouts
@@ -244,6 +242,7 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
         "dataModelBindings": {
           "simpleBinding": "searchString"
         },
+        "hidden": ["equals", ["dataModel", "userAuthorized"], false],
         "required": false,
         "readOnly": false
       },
@@ -256,6 +255,7 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
         "dataModelBindings": {
           "simpleBinding": "result"
         },
+        "hidden": ["equals", ["dataModel", "userAuthorized"], false],
         "required": false,
         "readOnly": true
       },
@@ -265,52 +265,25 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
         "textResourceBindings": {
           "title": "ErrorMessage"
         },
+        "hidden": [
+          "or",
+          ["equals", ["dataModel", "userAuthorized"], true],
+          ["equals", ["dataModel", "userAuthorized"], null]
+        ],
         "required": false,
         "readOnly": true
       }
     ]
     ```
 
-3. **Legg inn dynamikkregler for å vise/skjule felter**
+3. **Vis eller skjul felter med uttrykk**
 
-    Vi bruker dynamikkregler til å vise/skjule felter avhengig av om en bruker er autorisert eller ikke.
+    Komponentenes `hidden`-egenskap styrer hvilke felter brukeren ser. Feltet `userAuthorized` formidler resultatet av kontrollen som er beskrevet i steg 5. Feltet og uttrykkene styrer bare visningen og gir ikke i seg selv tilgang til tjenesten.
 
-    Det er lagt inn en dynamikkregel i `RuleHandler.js` som sjekker om et felt i datamodellen har verdien `false`. [Les mer om hvordan du konfigurerer dynamikkregler](/nb/altinn-studio/v9/develop-a-service/look-and-feel/dynamics/).
+    - Søkefeltet og resultatfeltet skjules når `userAuthorized` er `false`.
+    - Feilmeldingen skjules når `userAuthorized` er `true` eller ikke har fått en verdi.
 
-    I `RuleConfiguration.json` ser du hvordan regelen brukes. Hvis input-verdien fra datamodellen `userAuthorized` er false, vises errorBoks-komponenten, mens det motsatte skjer med søke- og resultatfeltene - disse skjules.
-
-    Standard oppførsel er det motsatte, altså at søk og resultat er synlig, mens error-feltet er skjult.
-
-    ```json
-    {
-      "data": {
-        "ruleConnection": {},
-        "conditionalRendering": {
-          "e2dd8ff0-f8f1-11eb-b2bc-5b40a942c260": {
-            "selectedFunction": "isFalse",
-            "inputParams": {
-              "value": "userAuthorized"
-            },
-            "selectedAction": "Show",
-            "selectedFields": {
-              "e2dd68e0-f8f1-11eb-b2bc-5b40a942c260": "errorBoks"
-            }
-          },
-          "e2dd8ff0-f8f1-11eb-b2bc-5b40a942c261": {
-            "selectedFunction": "isFalse",
-            "inputParams": {
-              "value": "userAuthorized"
-            },
-            "selectedAction": "Hide",
-            "selectedFields": {
-              "e2dd68e0-f8f1-11eb-b2bc-5b40a942c261": "sokeBoks",
-              "e2dd68e0-f8f1-11eb-b2bc-5b40a942c262": "resultatBoks"
-            }
-          }
-        }
-      }
-    }
-    ```
+    Dermed er søke- og resultatfeltene synlige som standard. Hvis autorisasjonen mislykkes, skjules disse feltene, og feilmeldingen vises. Se [dokumentasjonen for uttrykk]({{< relref "/altinn-studio/v9/develop-a-service/expressions" >}}) for flere eksempler.
 
 4. **Legg til tekstressurser**
 
