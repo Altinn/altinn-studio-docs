@@ -114,6 +114,14 @@ In Altinn Studio, you must synchronise changes in the same way as with local cha
 {{% insert "content/altinn-studio/shared/studioctl/local-test-workflow.en.md" "/en/altinn-studio/v9/develop-a-service/reference/data/data-modeling/" "/en/altinn-studio/v9/test-a-service/testing/local/testusers/" %}}
 {{% insert "content/altinn-studio/shared/studioctl/useful-commands.en.md" %}}
 
+### Inspect processing in the workflow engine
+
+The workflow engine runs process steps asynchronously in v9. During local testing, use its control panel to see whether a workflow is waiting, running, completed, or failed.
+
+Open the localtest front page and select **Workflow engine** in the navigation. You can also open the control panel directly at [workflow-engine.local.altinn.cloud:8000](http://workflow-engine.local.altinn.cloud:8000/).
+
+The **Live** tab shows scheduled, active, and recently finished workflows. Use the **Query** tab to search older workflows or filter by status and time. The control panel is available while localtest is running.
+
 ### Preview changes in real-time
 
 - If you change JSON files, simply reload the page.
