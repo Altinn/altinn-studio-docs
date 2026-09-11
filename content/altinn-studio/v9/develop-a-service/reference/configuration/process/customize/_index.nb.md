@@ -62,33 +62,25 @@ Dette resulterer i følgende visning:
 
 ### Egendefinert bekreftelse
 
-For bekreftelsessteget kan du som apputvikler definere et eget [layoutsett](/nb/altinn-studio/v8/reference/ux/pages/#oppsett) med tilhørende layoutfiler og andre konfigurasjonsfiler som hører til data-steget.
+For bekreftelsessteget kan du som apputvikler definere egne layouts og andre konfigurasjonsfiler som hører til datasteget.
 
 Dette gjør det mulig å styre innholdet på bekreftelsessiden helt fritt, og du kan bruke komponentene du ellers har tilgjengelig i Altinn Studio.
 
 Siden bekreftelsessteget ikke er ment brukt når du skal skrive data, anbefaler vi å bruke statiske komponenter (header, paragraph) og sette komponenter utover dette som `readOnly`.
 
-Eksempel oppsett av `layout-sets.json` hvor `Task_1` er et datasteg og `Task_2` et bekreftelsesteg.
+Opprett mappen `App/ui/Task_2` for bekreftelsessteget. Mappen må ha samme navn som ID-en til oppgaven i `process.bpmn`. Legg til `Settings.json`, og bruk datatypen fra datasteget som `defaultDataType`:
 
 ```json
 {
-  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
-  "sets": [
-    {
-      "id": "simple",
-      "dataType": "simple",
-      "tasks": ["Task_1"]
-    },
-    {
-      "id": "custom-confirmation",
-      "dataType": "simple",
-      "tasks": ["Task_2"]
-    }
-  ]
+  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "defaultDataType": "simple",
+  "pages": {
+    "order": ["formLayout"]
+  }
 }
 ```
 
-Legg merke til at konfigurasjonen for settet til `Task_2` referer til datatypen til `Task_1`.
+Legg merke til at `Settings.json` for `Task_2` refererer til datatypen til `Task_1`.
 
 Eksempel `formLayout.json` som presenterer data som brukeren fylte ut i data-steget.
 
@@ -135,20 +127,18 @@ Eksempel `formLayout.json` som presenterer data som brukeren fylte ut i data-ste
 
 Dette vil gi følgende app-struktur:
 
-```txt
-├───App
-│   ├───config
-│   ├───logic
-│   ├───models
-|   | ...
-│   ├───ui
-│   │   ├───custom-confirmation
-│   │   │   └───layouts
-|   |   |   └─── ...
-│   │   └───simple
-│   │       └───layouts
-|   |   |   └─── ...
-
+```text
+App/
+├── config/
+├── logic/
+├── models/
+└── ui/
+    ├── Task_1/
+    │   └── ...
+    └── Task_2/
+        ├── Settings.json
+        └── layouts/
+            └── formLayout.json
 ```
 
 Sluttresultatet i appen:
@@ -238,22 +228,19 @@ Dette resulterer i følgende visning:
 
 ### Egendefinert kvittering
 
-En egendefinert kvittering kan lages på samme måte som alle andre skjemasider. Funksjonaliteten vil også innen kort tid bli tilgjengelig i Altinn Studio.
+Du lager en egendefinert kvittering på samme måte som andre skjemasider.
 
-For å lage en egendefinert kvittering lager du en ny sidegruppe (layoutsett). Denne sidegruppen fungerer helt likt som alle andre sidetyper. Innenfor sidegruppen kan du opprette en mappe `layouts` og her definere alle sider du ønsker skal inngå i kvitteringen (Ja, kvitteringen støtter flere sider!). Inne i sidegruppen må du også lage `Settings.json`, hvor du kan definere rekkefølgen på sidene i kvitteringen.
+Opprett mappen `App/ui/CustomReceipt`. Mappenavnet er fast og forteller appen at layoutene skal brukes som kvittering. Opprett en `layouts`-mappe og legg til sidene som skal inngå i kvitteringen. Du kan bruke flere sider.
 
-For at appen skal forstå at denne sidegruppen skal brukes som kvittering, må du referere til navnet på sidegruppen i `layout-sets.json`. Legg til en ny sidegruppe med `id` som referer til navnet på sidegruppen din, og legg til nøkkelverdien `"CustomReceipt"` i `tasks`-arrayet til sidegruppen. I tillegg kan du spesifisere hvilken datamodell som skal være tilgjengelig i kvitteringen ved å legge til nøkkelen `dataType` med navnet på datamodellen du vil støtte.
-
-Her er et fullt eksempel hvor vi har en sidegruppe med navnet `custom-receipt` som skal brukes som kvittering:
+Legg til `Settings.json` i `CustomReceipt`. Sett `defaultDataType` til datamodellen som skal være tilgjengelig i kvitteringen, og oppgi sidene i `pages.order`.
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Mappestruktur">}}
 
-```
+```text
 |- App/
   |- ui/
-    |- layout-sets.json
-    |- custom-receipt/
+    |- CustomReceipt/
       |- layouts/
         |- side1.json
         |- side2.json
@@ -267,35 +254,13 @@ Her er et fullt eksempel hvor vi har en sidegruppe med navnet `custom-receipt` s
 {{<content-version-container version-label="Kode">}}
 
 {{<code-title>}}
-App/ui/layout-sets.json
-{{</code-title>}}
-
-```json {hl_lines=[4,6]}
-{
-  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
-  "sets": [
-    {
-      "id": "custom-receipt",
-      "dataType": "fields",
-      "tasks": ["CustomReceipt"]
-    }
-  ]
-}
-```
-
-{{</content-version-container>}}
-{{</content-version-selector>}}
-
-{{<content-version-selector classes="border-box">}}
-{{<content-version-container version-label="Kode">}}
-
-{{<code-title>}}
-App/ui/custom-receipt/Settings.json
+App/ui/CustomReceipt/Settings.json
 {{</code-title>}}
 
 ```json
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+  "defaultDataType": "fields",
   "pages": {
     "order": ["side1", "side2"]
   }
@@ -311,7 +276,7 @@ Eksempel på en egendefinert layoutfil for kvittering:
 {{<content-version-container version-label="Kode">}}
 
 {{<code-title>}}
-App/ui/custom-receipt/layouts/side1.json
+App/ui/CustomReceipt/layouts/side1.json
 {{</code-title>}}
 
 ```json

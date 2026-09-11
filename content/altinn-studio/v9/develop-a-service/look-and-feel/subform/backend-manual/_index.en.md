@@ -13,7 +13,17 @@ Subforms are contained in a subform table. Let us go through configuring a subfo
 2. You should now see the three files under `App/model`. The c# class, the json schema and the xsd.
 3. Set [appLogic.allowInSubform](/en/api/models/app-metadata/#applicationlogic) to **true** in **applicationMetadata.json**.
 4. Create a folder under **App/ui** with your desired subform name.
-5. In the subform folder, add a `Settings.json` file and a folder called **layouts**.
+5. In the subform folder, add a `Settings.json` file and a folder called **layouts**. Set `defaultDataType` to the data model ID and `type` to `subform`:
+   ```json
+   {
+     "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+     "defaultDataType": "your-subform-dataType",
+     "type": "subform",
+     "pages": {
+       "order": ["page1"]
+     }
+   }
+   ```
 6. You can add page layouts to the layouts folder as you would for the main form.
    {{< notice warning >}}
    Subforms do not support attachments, and nesting subforms is not allowed (subform in subform).
@@ -40,15 +50,8 @@ Subforms are contained in a subform table. Let us go through configuring a subfo
      ]
    }
    ```
-9. Add a layout set to `layout-sets.json` with the data type of the data model from step 1. Choose your subform folder name as the id.
-   ```json
-   {
-     "id": "subform-layout-folder-name",
-     "dataType": "your-subform-dataType"
-   }
-   ```
-10. Navigate to the layout for the page in the main form in which you want to add the sub form table.
-11. Add `Subform` with the [configuration you want](/en/altinn-studio/v8/guides/development/subform/config-options/). Example:
+9. Navigate to the layout for the page in the main form in which you want to add the subform table.
+10. Add `Subform` with the [configuration you want](/en/altinn-studio/v9/develop-a-service/look-and-feel/subform/config-options/). Example:
     ```json
     {
       "id": "subform-test",

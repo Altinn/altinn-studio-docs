@@ -87,34 +87,19 @@ Eksempel på tekstressurs for filnavn med variabel:
 }
 ```
 
-### layout-sets.json
+### Oppgavemappe for PDF-generering
 
-Du må definere et eget layout-set for systemoppgaven som genererer PDF av underskjemaet.
+Opprett en mappe under `App/ui` med samme navn som ID-en til systemoppgaven som genererer PDF-en. I dette eksempelet heter oppgaven `PdfSubform`, og mappen må derfor hete `PdfSubform`.
 
-```json {hl_lines="18-22"}
+Legg til en `Settings.json`-fil i oppgavemappen. Sett `defaultDataType` til datatypen for underskjemaet:
+
+```json
 {
-    "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
-    "sets": [
-      {
-         "id": "form",
-         "dataType": "model",
-         "tasks": ["Task_1"]
-      },
-      {
-         "id": "formPdf",
-         "dataType": "model",
-         "tasks": ["PdfForm"]
-      },
-      {
-         "id": "underskjema",
-         "dataType": "SubformModel"
-      },
-      {
-         "id": "underskjemaPdf",
-         "dataType": "SubformModel",
-         "tasks": ["PdfSubform"]
-      }
-    ]
+  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "defaultDataType": "SubformModel",
+  "pages": {
+    "order": ["ServiceTask"]
+  }
 }
 ```
 
@@ -129,7 +114,7 @@ App/ui/
 │   └── layouts/
 │       ├── Underskjema.json
 │       └── PdfLayout.json
-└── underskjemaPdf/
+└── PdfSubform/
     ├── Settings.json
     └── layouts/
         └── ServiceTask.json
@@ -140,6 +125,8 @@ App/ui/
 ```json
 {
     "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+    "defaultDataType": "SubformModel",
+    "type": "subform",
     "pages": {
         "order": ["Underskjema"],
         "pdfLayoutName": "PdfLayout"
@@ -180,21 +167,22 @@ ui/underskjema/layouts/PdfLayout.json
 }
 ```
 
-#### underskjemaPdf/Settings.json
+#### PdfSubform/Settings.json
 
 {{< code-title >}}
-ui/underskjemaPdf/Settings.json
+ui/PdfSubform/Settings.json
 {{< /code-title >}}
 
 ```json
 {
     "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+    "defaultDataType": "SubformModel",
     "pages": {
         "order": ["ServiceTask"]
     }
 }
 ```
-#### underskjemaPdf/layouts/ServiceTask.json
+#### PdfSubform/layouts/ServiceTask.json
 
 Denne layout-filen viser innhold til brukeren hvis PDF-genereringen feiler, for eksempel feilmeldinger eller instruksjoner.
 
@@ -203,7 +191,7 @@ Hvis du vil la brukeren avbryte systemoppgaven, for eksempel for å gå tilbake 
 **OBS:** Du må også legge til en skjult kopi av underskjemakomponenten i denne layouten for at PDF-genereringen skal fungere korrekt. Se `mySubformComponentId` nedenfor. Vi håper å kunne fjerne dette kravet i en fremtidig versjon, men foreløpig er det påkrevd.
 
 {{< code-title >}}
-ui/underskjemaPdf/layouts/ServiceTask.json
+ui/PdfSubform/layouts/ServiceTask.json
 {{< /code-title >}}
 
 ```json
