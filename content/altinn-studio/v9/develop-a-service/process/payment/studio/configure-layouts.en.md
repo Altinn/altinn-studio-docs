@@ -47,3 +47,4 @@ This step is optional. The default is to use the same setup as the layout from t
 2. Click "Add new page".
 3. In the configuration panel for the page, open "PDF" and click on "Convert page to PDF".
 4. Add the "Payment" component, and any other of the available components to the PDF layout.
+5. To preview the PDF, open the developer tools at the bottom right of the preview ![Developer tools](../devtools.png), then click "Generer PDF".
