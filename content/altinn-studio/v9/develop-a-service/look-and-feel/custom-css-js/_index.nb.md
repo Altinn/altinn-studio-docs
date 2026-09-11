@@ -6,10 +6,10 @@ weight: 90
 draft: true
 ---
 
-Du kan legge til egne CSS- og JavaScript-filer uten å endre siden som laster appen. Appen finner filene ved oppstart og legger dem inn etter appens egne ressurser.
+Du kan legge til egne CSS- og JavaScript-filer i appen. Appen finner filene ved oppstart og legger dem inn etter appens egne ressurser.
 
 {{% notice warning %}}
-Egendefinert kode vedlikeholdes av tjenesteeier. Ikke baser koden på interne HTML-elementer, CSS-klasser eller JavaScript-funksjoner i app-frontenden. Disse kan endres uten å være en del av den offentlige kontrakten.
+Unngå å basere tilpasningene på HTML-elementer, CSS-klasser eller JavaScript-funksjoner i app-frontenden. Disse kan endres mellom versjoner.
 {{% /notice %}}
 
 ## Legg til lokale filer
@@ -61,7 +61,7 @@ App/config/assets.json
 }
 ```
 
-Begge listene er valgfrie. Et stilark støtter egenskapene `url`, `media`, `integrity` og `crossorigin`. Et skript støtter `url`, `type`, `async`, `defer`, `nomodule`, `integrity` og `crossorigin`. Den eneste støttede verdien for `type` er `module`.
+Begge listene er valgfrie. For hvert stilark eller skript er bare `url` påkrevd. Et stilark kan i tillegg ha egenskapene `media`, `integrity` og `crossorigin`. Et skript kan ha `type`, `async`, `defer`, `nomodule`, `integrity` og `crossorigin`. Den eneste støttede verdien for `type` er `module`.
 
 Bruk [Subresource Integrity](https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity) (`integrity`) når leverandøren tilbyr en kontrollsum. Da kontrollerer nettleseren at ressursen ikke er endret. Sett også `crossorigin` til `true` når leverandøren krever det for integritetskontrollen.
 
