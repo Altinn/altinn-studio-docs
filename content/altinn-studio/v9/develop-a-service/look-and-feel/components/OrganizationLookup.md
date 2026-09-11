@@ -1,6 +1,9 @@
 ---
 title: OrganizationLookup
 draft: true
+aliases:
+  - /nb/altinn-studio/v9/develop-a-service/look-and-feel/components/organisationlookup/
+  - /en/altinn-studio/v9/develop-a-service/look-and-feel/components/organisationlookup/
 ---
 
 ## Properties

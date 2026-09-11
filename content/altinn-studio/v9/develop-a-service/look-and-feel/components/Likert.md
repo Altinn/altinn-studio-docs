@@ -31,7 +31,7 @@ draft: true
 | `textResourceBindings` | See [Text resource bindings](#text-resource-bindings-textresourcebindings). |  |
 | `removeWhenHidden` | Override the logic cleaning data for hidden components at task end, if you want to keep data referenced in hidden components. Currently only has effect if AppSettings.RemoveHiddenData is enabled. |  |
 | `dataModelBindings` | See [Data model bindings](#data-model-bindings-datamodelbindings). Required. |  |
-| `filter` | Filters rows in the Likert group by start and stop indexes. The start index is zero-based and the stop index is one-based. For example, `{ "start": 0, "stop": 3 }` displays three rows. |  |
+| `filter` | Optionally filters rows in the Likert group by start and stop indexes. The start index is zero-based and the stop index is one-based. For example, `{ "start": 0, "stop": 3 }` displays three rows. |  |
 | `filter[].key` | Required. | `"start"`, `"stop"` |
 | `filter[].value` | Required. |  |
 
