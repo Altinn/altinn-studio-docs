@@ -9,7 +9,7 @@ draft: true
 |----------|-------------|----------------|
 | `type` | Required. | `"NavigationButtons"` |
 | `textResourceBindings` | See [Text resource bindings](#text-resource-bindings-textresourcebindings). |  |
-| `showBackButton` | Shows two buttons (back/next) instead of just 'next'. |  |
+| `showBackButton` | Shows the back button when a previous page exists. Defaults to `true`. Set to `false` to hide the back button. |  |
 | `validateOnNext` | See [Validate on next](#validate-on-next-validateonnext). |  |
 | `validateOnPrevious` | See [Validate on previous](#validate-on-previous-validateonprevious). |  |
 

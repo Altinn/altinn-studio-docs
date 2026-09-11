@@ -13,6 +13,17 @@ draft: true
 | `renderAsSummary` | Boolean value indicating if the component should be rendered as a summary. Defaults to false. |  |
 | `forceShowInSummary` | Will force show the component in a summary even if hideEmptyFields is set to true in the summary component. |  |
 | `labelSettings` | See [Label settings](#label-settings-labelsettings). |  |
+| `optionsId` | ID of the option list to fetch from the server. Adding options enables tagging for uploaded files. |  |
+| `queryParameters` | A mapping of query string parameters to values. Will be appended to the URL when fetching options. |  |
+| `options` | List of static options |  |
+| `options[].label` | Required. |  |
+| `options[].value` | Required. |  |
+| `options[].description` |  |  |
+| `options[].helpText` |  |  |
+| `secure` | Whether to call the secure API endpoint when fetching options from the server (allows for user/instance-specific options) |  |
+| `sortOrder` | Sorts the option list in either ascending or descending order by label. | `"asc"`, `"desc"` |
+| `source` | See [Source](#source-source). |  |
+| `optionFilter` | An expression that filters the option list. Return `true` to keep an option and `false` to remove it. |  |
 | `type` | Required. | `"FileUpload"` |
 | `textResourceBindings` | See [Text resource bindings](#text-resource-bindings-textresourcebindings). |  |
 | `removeWhenHidden` | Override the logic cleaning data for hidden components at task end, if you want to keep data referenced in hidden components. Currently only has effect if AppSettings.RemoveHiddenData is enabled. |  |
@@ -31,6 +42,17 @@ draft: true
 |----------|-------------|----------------|
 | `optionalIndicator` | Show optional indicator on label |  |
 
+## Source (`source`)
+
+| Property | Description | Allowed Values |
+|----------|-------------|----------------|
+| `dataType` | The data model containing the repeating group. If omitted, the component uses the data model configured for the layout set. |  |
+| `group` | The repeating group to use for options. Required. |  |
+| `label` | The option label. Accepts plain text, a text resource binding, or an expression. Required. |  |
+| `value` | The field in the group to use as the option value. Required. |  |
+| `description` | The option description. Accepts plain text, a text resource binding, or an expression. |  |
+| `helpText` | The option help text. Accepts plain text, a text resource binding, or an expression. |  |
+
 ## Text resource bindings (`textResourceBindings`)
 
 | Property | Description | Allowed Values |
@@ -43,6 +65,7 @@ draft: true
 | `title` | Label text/title shown above the component |  |
 | `description` | Label description shown above the component, below the title |  |
 | `help` | Help text shown in a tooltip when clicking the help button |  |
+| `tagTitle` | The title shown when selecting a tag for each uploaded file |  |
 
 ## Data model bindings (`dataModelBindings`)
 

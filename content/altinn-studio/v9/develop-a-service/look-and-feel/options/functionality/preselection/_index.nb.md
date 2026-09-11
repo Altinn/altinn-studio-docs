@@ -15,7 +15,7 @@ Noen ganger er det ønskelig at et av svaralternativene er forhåndsvalgt. Det f
 ### `preselectedOptionIndex`-egenskapen
 
 {{% notice info %}}
-Denne egenskapen er tilgjengelig for de fleste komponenter som støtter svaralternativer, med unntak av `FileUploadWithTag`-komponenten. Kun ett alternativ kan være forhåndsvalgt til enhver tid, og det er ikke mulig å velge hvilket alternativ som skal være forhåndsvalgt basert på `value`-egenskapen til alternativet.
+Denne egenskapen er tilgjengelig for de fleste komponenter som støtter svaralternativer. Den kan ikke brukes for merking av vedlegg med `FileUpload`. Kun ett alternativ kan være forhåndsvalgt til enhver tid, og det er ikke mulig å velge hvilket alternativ som skal være forhåndsvalgt basert på `value`-egenskapen til alternativet.
 {{% /notice %}}
 
 Med denne egenskapen kan du forhåndsvelge et svaralternativ. Den tar et heltall som argument, som er indeksen til svaralternativet som skal være forhåndsvalgt. Indeksen starter på 0 for det første svaralternativet, 1 for det andre osv.

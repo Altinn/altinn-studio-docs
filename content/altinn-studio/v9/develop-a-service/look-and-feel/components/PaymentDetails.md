@@ -15,7 +15,7 @@ draft: true
 
 | Property | Description | Allowed Values |
 |----------|-------------|----------------|
-| `title` | The title of the paragraph |  |
+| `title` | The title of the payment details |  |
 | `description` | Description, optionally shown below the title |  |
 
 ## Common properties
