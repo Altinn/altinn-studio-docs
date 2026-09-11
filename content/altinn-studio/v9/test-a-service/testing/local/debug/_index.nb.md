@@ -54,13 +54,3 @@ Dette forutsetter at du allerede har startet appen.
    ![debug](debug4.png "Se på lokale verdier")
 
 [Les mer om feilsøking i Visual Studio Code i dokumentasjonen](https://code.visualstudio.com/docs/editor/debugging).
-
-## Endre frontend-versjon
-
-Hvis du har et lokalt utviklingsmiljø for [frontend-appen](https://github.com/Altinn/app-frontend-react/), eller hvis du ønsker å teste med en spesifikk versjon av frontend, kan dette gjøres ved å endre den kjørende frontend-versjonen fra lenken på forsiden av local.altinn.cloud:
-
-![use-diff-frontend-version](use-diff-frontend-version.png "Funksjonalitet for å endre frontend-versjon")
-
-{{% panel info %}}
-**MERK:** Dette virker bare hvis du har beholdt standardstien for lasting av frontend-appens JavaScript-fil i `Index.cshtml`-filen i appen du jobber med. Hvis du har endret til å bruke en annen sti, vil dette overstyre eventuelle endringer du gjør via local.altinn.cloud.
-{{% /panel %}}
