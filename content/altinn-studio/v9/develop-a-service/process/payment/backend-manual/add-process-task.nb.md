@@ -116,33 +116,20 @@ NB: Verdien til noden `<altinn:paymentDataType>paymentInformation</altinn:paymen
 
 ### Legge til sidegruppe for betaling
 
-- Legg til en ny mappe under `App/ui` for betalingsoppgaven din. Kall den for eksempel "payment".
-- Oppdater filen `App/ui/layout-sets.json` med en ny sidegruppe som har samme `id` som mappen du nettopp opprettet.
-  Din oppdaterte `layout-sets.json` kan se slik ut:
+- Legg til en mappe under `App/ui` med samme navn som ID-en til betalingsoppgaven. I eksempelet over er ID-en `Task_2`, så mappen må hete `Task_2`.
+- Legg til `Settings.json` i mappen. Sett `defaultDataType` til datamodellen som betalingssteget skal bruke:
 
   ```json
   {
-    "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
-    "sets": [
-      {
-        "id": "form",
-        "dataType": "model",
-        "tasks": [
-          "Task_1"
-        ]
-      },
-      {
-        "id": "payment",
-        "dataType": "model",
-        "tasks": [
-          "Task_2"
-        ]
-      }
-    ]
+    "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+    "defaultDataType": "model",
+    "pages": {
+      "order": ["payment"]
+    }
   }
-  ``` 
+  ```
 
-- I din payment layoutSet-mappe legger du til en ny fil, `payment.json`, med følgende layout:
+- Opprett mappen `App/ui/Task_2/layouts`, og legg til layout-filen `payment.json` med dette innholdet:
 
   ```json
   {

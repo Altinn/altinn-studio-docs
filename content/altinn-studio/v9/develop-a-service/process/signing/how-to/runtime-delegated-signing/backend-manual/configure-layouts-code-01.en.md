@@ -7,7 +7,7 @@ hidden: true
 ```
 App/
 ├── ui/
-│   └── signing/
+│   └── SigningTask/
 │       ├── layouts/
 │       │   └── signing.json
 │       └── Settings.json

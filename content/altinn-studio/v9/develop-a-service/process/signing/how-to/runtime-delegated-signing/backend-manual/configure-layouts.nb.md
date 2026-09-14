@@ -5,7 +5,7 @@ hidden: true
 tags: [needsReview, translate]
 ---
 
-1. Legg til en ny mappe under `App/ui` for signeringssteget. Kall den for eksempel `signing`.
+1. Legg til en ny mappe under `App/ui` for signeringssteget. Mappen må ha samme navn som ID-en til oppgaven i `process.bpmn`, for eksempel `SigningTask`.
 
 2. I denne mappen legger du til en `layouts`-mappe og en `Settings.json`-fil.
 
@@ -29,8 +29,6 @@ tags: [needsReview, translate]
 
    {{% insert "content/altinn-studio/v9/develop-a-service/process/signing/how-to/runtime-delegated-signing/backend-manual/configure-layouts-code-02.en.md" %}}
 
-5. Oppdater filen `App/ui/layout-sets.json` med ny sidegruppe som har samme `id` som mappen du opprettet i steg 1.
-
-   Den oppdaterte `layout-sets.json` kan se slik ut:
+5. Sett `defaultDataType` i `Settings.json` til datamodellen som signeringsoppgaven skal bruke, og legg layout-filen i `pages.order`:
 
    {{% insert "content/altinn-studio/v9/develop-a-service/process/signing/how-to/runtime-delegated-signing/backend-manual/configure-layouts-code-03.en.md" %}}

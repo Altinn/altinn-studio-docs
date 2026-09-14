@@ -58,29 +58,23 @@ App/config/applicationmetadata.json
 }
 ```
 
-I feltet `onEntry.show` kan du velge hvilket layoutsett som skal vises når appen starter.
+I feltet `onEntry.show` oppgir du navnet på mappen under `App/ui` som skal vises når appen starter.
 
-Selve layoutsettet er definert i konfigurasjonsfilen `App/ui/layout-sets.json`. Hvis filen ikke eksisterer, kan du opprette den. [Les mer om layoutsett](/nb/altinn-studio/v8/reference/ux/pages/#oppsett).
-
-Eksempel på layoutsett:
+Opprett mappen `App/ui/stateless`, og legg til `Settings.json`. Sett `defaultDataType` til datamodellen som stateless-visningen skal bruke:
 
 {{< code-title >}}
-App/ui/layout-sets.json
+App/ui/stateless/Settings.json
 {{< /code-title >}}
 
 ```json
 {
-  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
-  "sets": [
-    {
-      "id": "stateless",
-      "dataType": "Stateless-model"
-    }
-  ]
+  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "defaultDataType": "Stateless-model",
+  "pages": {
+    "order": ["{page}"]
+  }
 }
 ```
-
-I eksempelet over referer layoutsettet `stateless` til datamodellen `Stateless-model`.
 
 Eksempel app-struktur for en app som er satt opp på denne måten:
 
@@ -93,9 +87,7 @@ Eksempel app-struktur for en app som er satt opp på denne måten:
     │       Stateless-model.metadata.json
     │       Stateless-model.schema.json
     │       Stateless-model.xsd
-    ├───ui
-        │   layout-sets.json
-        │
+    └───ui
         └───stateless
             |   RuleConfiguration.json
             │   RuleHandler.js

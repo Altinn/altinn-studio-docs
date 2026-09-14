@@ -7,7 +7,17 @@ hidden: true
 2. Du skal nå se tre filer under `App/model`: klassen i C#, JSON-schema og XSD.
 3. Sett [appLogic.allowInSubform](/nb/api/models/app-metadata/#applicationlogic) til **true** i **applicationMetadata.json**.
 4. Opprett en mappe under **App/ui** med det navnet du vil ha på underskjemaet.
-5. Gå til underskjemamappen, legg til `Settings.json`-filen og en mappe med navnet **layouts**.
+5. Gå til underskjemamappen, legg til `Settings.json`-filen og en mappe med navnet **layouts**. Sett `defaultDataType` til ID-en til datamodellen og `type` til `subform`:
+   ```json
+   {
+     "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+     "defaultDataType": "underskjema-datatype",
+     "type": "subform",
+     "pages": {
+       "order": ["side1"]
+     }
+   }
+   ```
 6. Du kan legge til sideoppsett i layouts-mappen slik du ville gjort for hovedskjemaet.
    {{< notice warning >}}
    Underskjema støtter ikke vedlegg, og nøsting av underskjema er ikke tillatt (underskjema i underskjema).
@@ -34,15 +44,8 @@ hidden: true
      ]
    }
    ```
-9. Legg til et layout set i `layout-sets.json` med datatypen til datamodellen fra steg 1. Bruk navnet på underskjemamappen som id.
-    ```json
-    {
-      "id": "underskjema-mappe-navn",
-      "dataType": "underskjema-datatype"
-    }
-    ```
-10. Gå til layouten for siden i hovedskjemaet der du vil legge inn underskjematabellen.
-11. Legg til `Subform` med [ønsket konfigurasjon](/nb/altinn-studio/v9/develop-a-service/look-and-feel/subform/config-options/). Eksempel:
+9. Gå til layouten for siden i hovedskjemaet der du vil legge inn underskjematabellen.
+10. Legg til `Subform` med [ønsket konfigurasjon](/nb/altinn-studio/v9/develop-a-service/look-and-feel/subform/config-options/). Eksempel:
     ```json
     {
       "id": "subform-test",

@@ -6,22 +6,10 @@ hidden: true
 
 ```json
 {
-  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
-  "sets": [
-    {
-      "id": "form",
-      "dataType": "model",
-      "tasks": [
-        "Task_1"
-      ]
-    },
-    {
-      "id": "signing",
-      "dataType": "model",
-      "tasks": [
-        "SigningTask"
-      ]
-    }
-  ]
+  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "defaultDataType": "model",
+  "pages": {
+    "order": ["signing"]
+  }
 }
 ```

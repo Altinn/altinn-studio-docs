@@ -103,8 +103,7 @@ The files and folder structure should look approximately like this:
 
 ```text
 App/ui/
-├── layout-sets.json
-├── form/
+├── Task_Utfylling1/
 │   ├── Settings.json
 │   └── layouts/
 │       └── ...
@@ -113,45 +112,6 @@ App/ui/
     └── layouts/
         ├── PdfLayout.json
         └── ServiceTask.json
-```
-
-#### layout-sets.json
-
-{{< code-title >}}
-  App/ui/layout-sets.json
-{{< /code-title >}}
-
-```json {hl_lines="11-17"}
-{
-  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
-  "sets": [
-    {
-      "id": "form",
-      "dataType": "model",
-      "tasks": [
-        "Task_Utfylling1"
-      ]
-    },
-    {
-      "id": "Pdf",
-      "dataType": "model",
-      "tasks": [
-        "Pdf"
-      ]
-    }
-  ],
-  "uiSettings": {
-    "taskNavigation": [
-      {
-        "taskId": "Task_Utfylling1",
-        "name": "Utfylling"
-      },
-      {
-        "type": "receipt"
-      }
-    ]
-  }
-}
 ```
 
 #### Settings.json
@@ -163,8 +123,18 @@ App/ui/
 ```json
 {
   "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "defaultDataType": "model",
   "pages": {
     "pdfLayoutName": "PdfLayout",
+    "taskNavigation": [
+      {
+        "taskId": "Task_Utfylling1",
+        "name": "Utfylling"
+      },
+      {
+        "type": "receipt"
+      }
+    ],
     "order": [
       "ServiceTask"
     ]
