@@ -59,6 +59,10 @@ Fyll ut skjemaet, gå gjennom hele prosessen og se at PDF-en og kvitteringen bli
 
 Oppgraderingen tar seg av endringene nedenfor. Noen av dem endrer hvordan appen ser ut eller oppfører seg, så les gjennom dem før du publiserer.
 
+### Egne stilark og skript får nye plasseringer
+
+Har du lagt til egne stilark eller skript i `Index.cshtml`? Se [slik flytter oppgraderingen eksisterende CSS- og JavaScript-tilpasninger]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/custom-css-js#oppgrader-til-v9-med-eksisterende-tilpasninger" >}}).
+
 ### UI-mappen følger nå prosessen
 
 Tidligere hadde `App/ui` én mappe per layoutsett, med sidene i undermappen `layouts`. Filen `layout-sets.json` koblet layoutsettet til steget i prosessen. Den koblingen så du ellers bare igjen i URL-en:
