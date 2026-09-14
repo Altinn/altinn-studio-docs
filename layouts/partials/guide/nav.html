@@ -1,0 +1,77 @@
+{{/*
+  Navigasjon mellom sidene i en veiledning som går over flere sider.
+
+  Rotsiden til veiledningen markeres med `guide: true` i front matter. Alle sidene
+  under rotsiden hører til veiledningen, med mindre de har `guideExclude: true`
+  eller `hidden: true`.
+
+  Rotsiden får en "Kom i gang"-lenke til den første siden i veiledningen. De andre
+  sidene får lenker til forrige og neste side, med tittelen på siden de peker til.
+
+  Partialen kalles fra layoutene, og skriver ingenting for sider som ligger utenfor
+  en veiledning.
+*/}}
+{{- $page := . -}}
+{{- $root := false -}}
+{{- if $page.Params.guide -}}
+  {{- $root = $page -}}
+{{- else -}}
+  {{- range $page.Ancestors -}}
+    {{- if and (not $root) .Params.guide -}}
+      {{- $root = . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- with $root -}}
+  {{- $pages := (slice .) | append (partial "guide/pages.html" .) -}}
+  {{- $index := -1 -}}
+  {{- range $i, $p := $pages -}}
+    {{- if eq $p.RelPermalink $page.RelPermalink -}}
+      {{- $index = $i -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- if ge $index 0 -}}
+    {{- $prev := false -}}
+    {{- $next := false -}}
+    {{- if gt $index 0 -}}
+      {{- $prev = index $pages (sub $index 1) -}}
+    {{- end -}}
+    {{- if lt $index (sub (len $pages) 1) -}}
+      {{- $next = index $pages (add $index 1) -}}
+    {{- end -}}
+
+    {{- if eq $index 0 -}}
+      {{- with $next -}}
+        <nav class="guide-nav guide-nav--start" aria-label="{{ i18n "guide-nav" }}">
+          <a class="guide-nav-start" href="{{ .RelPermalink }}">
+            {{ i18n "guide-start" }}
+            <span class="guide-nav-page">{{ .LinkTitle }}</span>
+          </a>
+        </nav>
+      {{- end -}}
+    {{- else -}}
+      <nav class="guide-nav" aria-label="{{ i18n "guide-nav" }}">
+        {{- with $prev -}}
+          <a class="guide-nav-link guide-nav-link--prev" href="{{ .RelPermalink }}" rel="prev">
+            <i class="fa fa-angle-left guide-nav-arrow" aria-hidden="true"></i>
+            <span class="guide-nav-text">
+              <span class="guide-nav-label">{{ i18n "guide-previous" }}</span>
+              <span class="guide-nav-page">{{ .LinkTitle }}</span>
+            </span>
+          </a>
+        {{- end -}}
+        {{- with $next -}}
+          <a class="guide-nav-link guide-nav-link--next" href="{{ .RelPermalink }}" rel="next">
+            <span class="guide-nav-text">
+              <span class="guide-nav-label">{{ i18n "guide-next" }}</span>
+              <span class="guide-nav-page">{{ .LinkTitle }}</span>
+            </span>
+            <i class="fa fa-angle-right guide-nav-arrow" aria-hidden="true"></i>
+          </a>
+        {{- end -}}
+      </nav>
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

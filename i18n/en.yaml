@@ -206,3 +206,14 @@
   translation: To the top
 - id: write-us
   translation: Write us
+
+
+# Multi-page guides
+- id: guide-nav
+  translation: Guide navigation
+- id: guide-next
+  translation: Next
+- id: guide-previous
+  translation: Previous
+- id: guide-start
+  translation: Get started

@@ -55,15 +55,19 @@ Når appen er opprettet og lastet, kommer du til en oversiktsside for appen. Her
 
 ![Endre tittel på appen](./Kurs-skjermbilder-Oppgave-Endre-tittel-på-appen.jpg)
 
----
-
 Appens tittel bør legges inn på bokmål og nynorsk
+
+---
 
 Når du kommer tilbake til oversiktssiden vil du se at appens tittel har oppdatert seg der og.
 
 ![bg right:60% contain](./Kurs-skjermbilder-Konsept-Oversikt-i-appen-med-tittel.jpg)
 
+---
+
 ### Lagre og dele endringer
+
+Før vi går videre med selve tjenesten skal vi gjøre endringene våre tilgjengelige for andre ved å dele de. Enn så lenge er det kun du som ser det du har gjort.
 
 Når du jobber med en app i Altinn Studio er det to hovedområder:
 - Din brukers område: Alle endringer du gjør i en app lagres hit automatisk. Andre kan ikke se disse endringene.
@@ -72,9 +76,8 @@ Når du jobber med en app i Altinn Studio er det to hovedområder:
 
 Endringer fra brukerens område må deles til appens sentrale område for at endringene skal bli tilgjengelig for publisering.
 
----
-
 ![Lagre og dele endringer](./Kurs-skjermbilder-Konsept-Endringer-og-lagring.jpg)
+Illustrasjonen viser hvordan de ulike arbeidsområdene henger sammen.
 
 ---
 
@@ -84,15 +87,18 @@ Nå som du har gjort en endring i appens overskrift, kan du dele den endringen t
 3. Se på endringene, og klikk på "X" for å lukke vinduet og komme tilbake til vindu for å dele endringer.
 4. Beskriv endringene i tekstboksen og klikk på "Del endringer". 
 
----
 ![Dele endringer](./Kurs-skjermbilder-Oppgave-Del-endringer.jpg)
+
+Hvis noen andre i din organisasjon nå går inn for å jobbe på den samme appen vil de se de siste endringene du har delt.
+
+---
 
 ### Informasjonsside
 Vi skal starte med å lage en informasjonsside, som skal inneholde bilde og tekst.
 
 #### Naviger til utforming
 1. Klikk på "Utforming" i toppmenyen.
-2. Klikk på "Form" for å utforme første del av skjema
+2. Klikk på "Utform" knappen for å utforme første del av skjema
 
 #### Om utformings-siden
 Utforming er satt opp med tre kolonner:
@@ -199,6 +205,6 @@ Naviger til "Utforming" i toppmenyen, og velg "Form" på oversiktssiden.
 
 #### Legg til den første skjemakomponenten
 1. Påse at du er på siden "om-innflytter". Klikk på "+"-tegnet inne på siden.
-2. Velg "Kort svar" fra komponentlisten.
+2. Velg "Lite tekstfelt" fra komponentlisten.
 
 #### Legg til resten av skjemakomponentene
