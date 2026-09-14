@@ -12,6 +12,18 @@ Du kan legge til egne CSS- og JavaScript-filer i appen. Appen finner filene ved 
 Unngå å basere tilpasningene på HTML-elementer, CSS-klasser eller JavaScript-funksjoner i app-frontenden. Disse kan endres mellom versjoner.
 {{% /notice %}}
 
+## Oppgrader til v9 med eksisterende tilpasninger
+
+Når du kjører `studioctl app upgrade v9`, flytter verktøyet støttede CSS- og JavaScript-tilpasninger fra `App/views/Home/Index.cshtml` automatisk:
+
+- Lenker til egne stilark og skript blir oppføringer i `App/config/assets.json`.
+- CSS i `<style>`-elementer blir filer i `App/wwwroot/custom-css`.
+- JavaScript i `<script>`-elementer uten `src` blir filer i `App/wwwroot/custom-js`.
+
+Etter at verktøyet har flyttet tilpasningene, sletter det `Index.cshtml`. Appen lager da HTML-en selv og laster inn tilpasningene fra de nye plasseringene. Gå gjennom filene verktøyet har laget, og test at tilpasningene fortsatt fungerer.
+
+Hvis filen inneholder Razor-kode som `@if` eller `@{ ... }`, HTML-elementer verktøyet ikke kjenner igjen, eller et ufullstendig frontend-oppsett, beholder verktøyet `Index.cshtml` og sier fra om hva du må følge opp manuelt. Da må du gjennomgå filen før du flytter tilpasningene selv og tar i bruk HTML-en appen lager.
+
 ## Legg til lokale filer
 
 Opprett én eller begge av disse mappene i appen:
