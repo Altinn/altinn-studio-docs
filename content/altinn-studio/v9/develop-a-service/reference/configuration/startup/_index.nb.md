@@ -1,5 +1,5 @@
 ---
-title: Styre hva som skjer når appen åpnes
+title: Styre hva som skjer når brukerne åpner appen
 linktitle: Oppstart
 description: Slik oppretter appen en ny instans eller lar brukeren velge en aktiv instans.
 toc: true
@@ -35,11 +35,11 @@ App/config/applicationmetadata.json
 Appen undersøker om den valgte avgiveren har aktive instanser:
 
 - Hvis det ikke finnes noen aktive instanser, oppretter appen en ny instans automatisk.
-- Hvis det finnes én eller flere aktive instanser, viser appen siden for instansvalg.
+- Hvis det finnes én eller flere aktive instanser, viser appen siden der brukeren kan velge instans.
 
-På siden for instansvalg kan brukeren fortsette på en eksisterende instans eller velge **Start på nytt**. Siden vises også når det bare finnes én aktiv instans, slik at brukeren fortsatt kan velge å opprette en ny.
+På siden med instanser kan brukeren fortsette på en eksisterende instans eller velge **Start på nytt**. Siden vises også når det bare finnes én aktiv instans, slik at brukeren fortsatt kan velge å opprette en ny.
 
-![Siden for instansvalg med en aktiv instans](instance-selection.png "Brukeren kan fortsette på en aktiv instans eller starte på nytt")
+![Siden med instanser brukeren kan velge fra, med en aktiv instans](instance-selection.png "Brukeren kan fortsette på en aktiv instans eller starte på nytt")
 
 ## Tilpass siden for instansvalg
 
@@ -47,7 +47,7 @@ Bruk `onEntry.instanceSelection` for å styre sortering og paginering:
 
 - `sortDirection`: Sorterer instansene i stigende (`asc`) eller synkende (`desc`) rekkefølge etter siste endring. Standardverdien er `asc`.
 - `rowsPerPageOptions`: Angir alternativene for hvor mange instanser som vises per side. Standardverdien er `[10, 25, 50]`.
-- `defaultSelectedOption`: Angir indeksen i `rowsPerPageOptions` som skal være valgt når siden åpnes. Indeksen starter på `0`, som også er standardverdien.
+- `defaultSelectedOption`: Angir indeksen i `rowsPerPageOptions` som skal være valgt når brukeren åpner siden. Indeksen starter på `0`, som også er standardverdien.
 
 Eksempelet nedenfor viser 25 instanser per side som standard:
 
