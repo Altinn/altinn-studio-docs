@@ -23,8 +23,12 @@ Depending on your usage, you will need to add the relevant scopes to your client
 | ------------------------------------ | ------------------------- | ----------------------------------------------------------------------------- |
 | altinn:instances.read                | Altinn Apps API read      |                                                                               |
 | altinn:instances.write               | Altinn Apps API write     |                                                                               |
-| altinn:authentication/systemregister | Access to system register | For system providers that need to manage systems available in system register |
+| altinn:authentication/systemregister.write | Access to system register | For system vendors that need to manage their systems in the system register |
+| altinn:authentication/systemuser.request.write | Create system user requests | For system vendors creating, changing or deleting system user requests |
+| altinn:authentication/systemuser.request.read | Read system user requests | For system vendors retrieving the status of their requests |
 | altinn:authorization/authorize       | Access to PDP endpoint    | For orgs that need to authorize access                                        |
+
+For a complete overview of which system user API endpoints require which scopes, see [Scopes for the system user API](/en/api/authentication/systemuserapi/scopes/).
 
 ## Authentication
 

@@ -23,8 +23,12 @@ Avhengig av din bruk må du velge de scopene som er relevant for deg. I tabellen
 | ------------------------------------ | ---------------------------- | ----------------------------------------------------------------------------- |
 | altinn:instances.read                | Altinn Apps API les          |                                                                               |
 | altinn:instances.write               | Altinn Apps API skriv        |                                                                               |
-| altinn:authentication/systemregister | Tilgang til systemregisteret | For systemtilbydere som trenger å administrere oppføringer i systemregisteret |
+| altinn:authentication/systemregister.write | Tilgang til systemregisteret | For systemleverandører som trenger å administrere systemene sine i systemregisteret |
+| altinn:authentication/systemuser.request.write | Opprette systembrukerforespørsler | For systemleverandører som oppretter, endrer eller sletter forespørsler om systembruker |
+| altinn:authentication/systemuser.request.read | Lese systembrukerforespørsler | For systemleverandører som henter status på forespørslene sine |
 | altinn:authorization/authorize       | Access to PDP endepunkt      | For organisasajoner som trenger tilgang til autorisasjon                      |
+
+Trenger du en fullstendig oversikt over hvilke endepunkter i systembruker-API-et som krever hvilke scopes, se [Scopes for systembruker-API-et](/nb/api/authentication/systemuserapi/scopes/).
 
 ## Autentisering
 
