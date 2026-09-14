@@ -7,7 +7,7 @@ toc: true
 ---
 
 Appen er avhengig av flere ressurser som ligger utenfor selve appen.
-Dette inkluderer støttebiblioteker med felles funksjonalitet for alle apper og referanse til appen sin frontend.
+Dette inkluderer støttebiblioteker med felles funksjonalitet for alle apper og Helm-diagrammet som brukes ved utrulling.
 
 Disse avhengighetene er definert noen forskjellige steder i appen, og hver avhengighet refereres til med en spesifikk _versjon_.
 Når ressursene oppdateres, publiseres de på nytt som en ny _versjon_. En ny versjon kommer ofte med ny funksjonalitet eller forbedringer.
@@ -80,45 +80,6 @@ F.eks.:
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-
-## App frontend
-
-App frontend lastes inn av appen runtime, via en lenke til javascript-filen som er app frontend.
-Denne javascript-filen versjoneres ihht. [Semantic Versioning](https://semver.org/):
-
-> Given a version number MAJOR.MINOR.PATCH, increment the:
-> 
-> MAJOR version when you make incompatible API changes,<br/>
-> MINOR version when you add functionality in a backwards compatible manner, and<br/>
-> PATCH version when you make backwards compatible bug fixes.
-> 
-> Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
-
-App'en refererer som standard til en _major_ versjon av app frontend, f.eks. versjon 1.x.y.
-Med mindre det kommer en ny _major_ versjon vil alle oppdateringer med ny _minor_ eller _patch_ versjoner komme med automatisk.
-Om det kommer en ny _major_ versjon må man eksplisitt oppdatere appen til å referere til denne.
-
-Dersom man ønsker å referere til en spesifikk versjon av app frontend (f.eks. 1.2.3) så kan dette spesifiseres direkte i url'en som peker på app frontend.
-
-### Oppgradere til nyeste versjon / spesifisere versjon
-Referansen til app frontend ligger i `App/views/Home/Index.cshtml`.
-
-Det er 2 referanser som må oppdateres:
-
-- Referansen til altinn-app-frontend.**js**-filen som er app frontend koden.
-  
-```html
-<script src="https://altinncdn.no/toolkits/altinn-app-frontend/<VERSJONSNUMMER>/altinn-app-frontend.js"></script>
-```
-- Referansen til altinn-app-frontend.**css** som inneholder styling for app frontend.
-
-```html
-<script src="https://altinncdn.no/toolkits/altinn-app-frontend/<VERSJONSNUMMER>/altinn-app-frontend.css"></script>
-```
-
-Søk etter filnavnet (`altinn-app-frontend.js` eller `altinn-app-frontend.css`) og erstatt versjonsnummeret (f.eks. 1) med ønsket versjonsnummer (f.eks. 2).
-
-_Husk:_ Dersom man setter kun _major versjon_ (f.eks. 2), så vil alle oppdateringer innenfor denne major versjoner (bugfix, ny funksjonalitet som ikke er breaking) komme med automatisk. Dersom man setter en _spesifikk versjon_ (f.eks. 2.0.0) så vil appen hente akkurat denne versjonen, helt til referansen evt. oppdateres til å bruke en annen versjon.
 
 ## Deployment
 
