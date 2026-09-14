@@ -22,7 +22,14 @@ Når du kjører `studioctl app upgrade v9`, flytter verktøyet støttede CSS- og
 
 Etter at verktøyet har flyttet tilpasningene, sletter det `Index.cshtml`. Appen lager da HTML-en selv og laster inn tilpasningene fra de nye plasseringene. Gå gjennom filene verktøyet har laget, og test at tilpasningene fortsatt fungerer.
 
-Hvis filen inneholder Razor-kode som `@if` eller `@{ ... }`, HTML-elementer verktøyet ikke kjenner igjen, eller et ufullstendig frontend-oppsett, beholder verktøyet `Index.cshtml` og sier fra om hva du må følge opp manuelt. Da må du gjennomgå filen før du flytter tilpasningene selv og tar i bruk HTML-en appen lager.
+Hvis filen inneholder Razor-kode som `@if` eller `@{ ... }`, HTML-elementer verktøyet ikke kjenner igjen, eller et ufullstendig frontend-oppsett, beholder verktøyet `Index.cshtml` og sier fra om hva du må følge opp manuelt.
+
+{{% notice warning %}}
+Hvis `Index.cshtml` fortsatt finnes i v9-appen, tolker backenden det som at du leverer frontenden selv. Den innebygde Altinn 3-appfrontenden vil da ikke fungere. Du må velge hvordan appen skal fungere videre:
+
+- Vil du bruke den innebygde appfrontenden, må du flytte tilpasningene til plasseringene beskrevet i denne artikkelen og slette `Index.cshtml`.
+- Vil du beholde `Index.cshtml`, må du levere og vedlikeholde en egen frontend som fungerer med v9-backenden.
+{{% /notice %}}
 
 ## Legg til lokale filer
 
