@@ -46,7 +46,7 @@ Komponenter for datainnsamling.
 
 ### Finn virksomhet (`OrganizationLookup`)
 
-`OrganizationLookup`-komponenten slår opp en organisasjon i Enhetsregisteret ved hjelp av organisasjonsnummer.
+`OrganizationLookup`-komponenten bruker organisasjonsnummer til å slå opp en organisasjon i Enhetsregisteret.
 
 ![OrganizationLookup](./OrganizationLookup.png)
 
