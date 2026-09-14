@@ -57,16 +57,16 @@ draft: true
 | `summaryAccessibleTitle` | Title used for aria-label on the edit button in the summary view (overrides the default and summary title) |  |
 | `title` | The title of the group (shown above each instance in a Summary) |  |
 | `description` | The description text shown underneath the title |  |
-| `add_button_full` | The text for the "Add" button (overrides "add_button", and sets the full text for the button) |  |
-| `add_button` | The text for the "Add" button (used as a suffix after the default button text) |  |
-| `save_button` | The text for the "Save" button when the repeating group item is in edit mode |  |
-| `save_and_next_button` | The text for the "Save and next" button when the repeating group item is in edit mode (only displayed if edit.saveAndNextButton is true) |  |
-| `edit_button_close` | The text for the "Edit" button when the repeating group item is in edit mode (i.e. the user can close the edit mode) |  |
-| `edit_button_open` | The text for the "Edit" button when the repeating group item is not in edit mode (i.e. the user can open the edit mode) |  |
-| `pagination_next_button` | The text for the "Next" button in pagination |  |
-| `pagination_back_button` | The text for the "Back" button in pagination |  |
-| `multipage_back_button` | The text for the "Back" button in multipage navigation |  |
-| `multipage_next_button` | The text for the "Next" button in multipage navigation |  |
+| `addButtonFull` | The text for the "Add" button (overrides `addButton` and sets the full button text) |  |
+| `addButton` | The text for the "Add" button (used as a suffix after the default button text) |  |
+| `saveButton` | The text for the "Save" button when the repeating group item is in edit mode |  |
+| `saveAndNextButton` | The text for the "Save and next" button when the repeating group item is in edit mode (only displayed if `edit.saveAndNextButton` is true) |  |
+| `editButtonClose` | The text for the "Edit" button when the repeating group item is in edit mode (the user can close the edit mode) |  |
+| `editButtonOpen` | The text for the "Edit" button when the repeating group item is not in edit mode (the user can open the edit mode) |  |
+| `paginationNextButton` | The text for the "Next" button in pagination |  |
+| `paginationBackButton` | The text for the "Back" button in pagination |  |
+| `multipageBackButton` | The text for the "Back" button in multipage navigation |  |
+| `multipageNextButton` | The text for the "Next" button in multipage navigation |  |
 
 ## Data model bindings (`dataModelBindings`)
 

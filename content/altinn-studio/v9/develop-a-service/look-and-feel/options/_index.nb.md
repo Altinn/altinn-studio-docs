@@ -34,7 +34,7 @@ Følgende komponenter støtter svaralternativer:
 | [Likert](/nb/altinn-studio/v8/reference/ux/components/likert/)                                           | Ett valg per rad | Bruk denne for å velge ett alternativ per rad i en tabell, vist som en skala. Vanlig i spørreundersøkelser.     |
 | [Checkboxes](/nb/altinn-studio/v8/reference/ux/components/checkboxes/)                                   | Flere valg       | Bruk denne for å velge ett eller flere alternativer fra en liste med avkrysningsbokser.                         |
 | [MultipleSelect](/nb/altinn-studio/v8/reference/ux/components/multipleselect/)                           | Flere valg       | Bruk denne for å velge ett eller flere alternativer fra en nedtrekksliste.                                      |
-| [FileUploadWithTag](/nb/altinn-studio/v8/reference/ux/components/fileuploadwithtag/)                     | Ett valg         | Bruk denne for å laste opp en fil og knytte den til en 'tag'/merkelapp.                                         |
+| [FileUpload](../components/FileUpload/)                     | Ett valg per vedlegg | Bruk denne for å laste opp filer og merke hvert vedlegg med et svaralternativ.                                  |
 | [Option](/nb/altinn-studio/v8/reference/ux/components/option/)                                           | Vise ett valg    | Bruk denne for å vise/presentere et enkelt valg.                                                                |
 
 I kategoriene under kan du lære mer om hvordan du lager en kodeliste, kobler den til en komponent for å vise svaralternativer, og om felles funksjonalitet du kan bruke på tvers av disse komponentene.

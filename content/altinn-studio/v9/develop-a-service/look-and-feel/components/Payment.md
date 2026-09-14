@@ -18,7 +18,7 @@ draft: true
 |----------|-------------|----------------|
 | `summaryTitle` | Title used in the summary view (overrides the default title) |  |
 | `summaryAccessibleTitle` | Title used for aria-label on the edit button in the summary view (overrides the default and summary title) |  |
-| `title` | The title of the paragraph |  |
+| `title` | The title of the payment component |  |
 | `description` | Description, optionally shown below the title |  |
 
 ## Common properties

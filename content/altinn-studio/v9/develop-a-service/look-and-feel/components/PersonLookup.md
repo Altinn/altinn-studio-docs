@@ -34,21 +34,21 @@ draft: true
 
 | Property | Description | Allowed Values |
 |----------|-------------|----------------|
-| `person_lookup_ssn` | Required. |  |
-| `person_lookup_ssn.dataType` | The name of the datamodel type to reference Required. |  |
-| `person_lookup_ssn.field` | The path to the property using dot-notation Required. |  |
-| `person_lookup_name` |  |  |
-| `person_lookup_name.dataType` | The name of the datamodel type to reference Required. |  |
-| `person_lookup_name.field` | The path to the property using dot-notation Required. |  |
-| `person_lookup_last_name` |  |  |
-| `person_lookup_last_name.dataType` | The name of the datamodel type to reference Required. |  |
-| `person_lookup_last_name.field` | The path to the property using dot-notation Required. |  |
-| `person_lookup_middle_name` |  |  |
-| `person_lookup_middle_name.dataType` | The name of the datamodel type to reference Required. |  |
-| `person_lookup_middle_name.field` | The path to the property using dot-notation Required. |  |
-| `person_lookup_first_name` |  |  |
-| `person_lookup_first_name.dataType` | The name of the datamodel type to reference Required. |  |
-| `person_lookup_first_name.field` | The path to the property using dot-notation Required. |  |
+| `ssn` | Stores the national identity number. Required. |  |
+| `ssn.dataType` | The name of the data model type to reference. Required. |  |
+| `ssn.field` | The path to the property using dot notation. Required. |  |
+| `fullName` | Stores the person's full name. |  |
+| `fullName.dataType` | The name of the data model type to reference. Required. |  |
+| `fullName.field` | The path to the property using dot notation. Required. |  |
+| `lastName` | Stores the person's last name. |  |
+| `lastName.dataType` | The name of the data model type to reference. Required. |  |
+| `lastName.field` | The path to the property using dot notation. Required. |  |
+| `middleName` | Stores the person's middle name. |  |
+| `middleName.dataType` | The name of the data model type to reference. Required. |  |
+| `middleName.field` | The path to the property using dot notation. Required. |  |
+| `firstName` | Stores the person's first name. |  |
+| `firstName.dataType` | The name of the data model type to reference. Required. |  |
+| `firstName.field` | The path to the property using dot notation. Required. |  |
 
 ## Common properties
 
