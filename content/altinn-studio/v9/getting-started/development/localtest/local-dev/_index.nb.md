@@ -122,6 +122,14 @@ I Altinn Studio må du synkronisere endringer på samme vis som ved lokale endri
 {{% insert "content/altinn-studio/shared/studioctl/local-test-workflow.nb.md" "/nb/altinn-studio/v9/develop-a-service/reference/data/data-modeling/" "/nb/altinn-studio/v9/test-a-service/testing/local/testusers/" %}}
 {{% insert "content/altinn-studio/shared/studioctl/useful-commands.nb.md" %}}
 
+### Følg prosessen i prosessmotoren
+
+Prosessmotoren utfører prosessteg asynkront i v9. Når du tester appen lokalt, kan du bruke kontrollpanelet til å se om en arbeidsflyt venter, kjører, er fullført eller har feilet.
+
+Åpne forsiden til localtest og velg **Workflow engine** i navigasjonen. Du kan også åpne kontrollpanelet direkte på [workflow-engine.local.altinn.cloud:8000](http://workflow-engine.local.altinn.cloud:8000/).
+
+Fanen **Live** viser planlagte, aktive og nylig avsluttede arbeidsflyter. Bruk fanen **Query** hvis du vil søke i eldre arbeidsflyter eller avgrense listen etter status og tidspunkt. Kontrollpanelet er tilgjengelig så lenge den lokale testplattformen kjører.
+
 ### Se endringer fortløpende
 
 - Hvis du endrer JSON-filer, holder det å laste inn siden på nytt.
