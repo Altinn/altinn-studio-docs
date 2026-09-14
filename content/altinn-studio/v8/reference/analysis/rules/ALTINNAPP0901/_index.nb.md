@@ -9,9 +9,10 @@ Denne diagnostikken meldes når en oppføring i `presentationFields` eller `data
 fil. Meldingen navngir egenskapen, id-en til oppføringen og datatypen den peker på.
 
 Appen regner bare ut feltet for datatypen oppføringen navngir. Peker den på en datatype som
-ikke finnes, blir verdien aldri regnet ut, og feltet står tomt på instansen uten at noe
-feiler. Den vanligste årsaken er en skrivefeil i `dataTypeId`.
+ikke finnes, blir verdien aldri regnet ut, og feltet står tomt på instansen. Appen kjører
+som normalt, men feltet kan aldri få en verdi. Den vanligste årsaken er en skrivefeil i
+`dataTypeId`.
 
-Kategori `Metadata`, alvorlighetsgrad **advarsel**.
+Kategori `Metadata`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
 
 Rett `dataTypeId` til en datatype appen deklarerer, eller fjern oppføringen.
