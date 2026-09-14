@@ -1,5 +1,5 @@
 ---
-title: Egendefinert CSS og JavaScript
+title: Legge til egendefinert CSS og JavaScript
 linktitle: Egendefinert CSS og JavaScript
 description: Slik legger du til egne stilark og skript i en app.
 weight: 90
@@ -9,7 +9,7 @@ draft: true
 Du kan legge til egne CSS- og JavaScript-filer i appen. Appen finner filene ved oppstart og legger dem inn etter appens egne ressurser.
 
 {{% notice warning %}}
-Unngå å basere tilpasningene på HTML-elementer, CSS-klasser eller JavaScript-funksjoner i app-frontenden. Disse kan endres mellom versjoner.
+Ikke baser tilpasningene på HTML-elementer, CSS-klasser eller JavaScript-funksjoner i app-frontenden. Disse kan bli endret mellom versjoner.
 {{% /notice %}}
 
 ## Oppgrader til v9 med eksisterende tilpasninger
@@ -25,7 +25,7 @@ Etter at verktøyet har flyttet tilpasningene, sletter det `Index.cshtml`. Appen
 Hvis filen inneholder Razor-kode som `@if` eller `@{ ... }`, HTML-elementer verktøyet ikke kjenner igjen, eller et ufullstendig frontend-oppsett, beholder verktøyet `Index.cshtml` og sier fra om hva du må følge opp manuelt.
 
 {{% notice warning %}}
-Hvis `Index.cshtml` fortsatt finnes i v9-appen, tolker backenden det som at du leverer frontenden selv. Den innebygde Altinn 3-appfrontenden vil da ikke fungere. Du må velge hvordan appen skal fungere videre:
+Hvis `Index.cshtml` fortsatt finnes i v9-appen, tolker backenden det som at du leverer frontenden selv. Den innebygde Altinn 3-appfrontenden vil da ikke fungere. Du må velge hvordan du vil at appen skal fungere videre:
 
 - Vil du bruke den innebygde appfrontenden, må du flytte tilpasningene til plasseringene beskrevet i denne artikkelen og slette `Index.cshtml`.
 - Vil du beholde `Index.cshtml`, må du levere og vedlikeholde en egen frontend som fungerer med v9-backenden.
@@ -88,9 +88,9 @@ Start appen på nytt etter at du har endret `assets.json`.
 
 ## Test tilpasningene
 
-Test tilpasningene lokalt og i alle miljøer der appen skal kjøre. Kontroller særlig at:
+Test tilpasningene lokalt og i alle miljøer der appen skal kjøre. Kontroller særlig at
 
 - skjemaet fortsatt kan brukes med tastatur og skjermleser
 - tekst, knapper og feilmeldinger er synlige ved ulike skjermstørrelser
 - skriptfeil ikke hindrer brukeren i å fylle ut eller sende inn skjemaet
-- eksterne ressurser er tilgjengelige og tillatt av sikkerhetsinnstillingene i miljøet
+- eksterne ressurser er tilgjengelige og sikkerhetsinnstillingene i miljøet tillater dem
