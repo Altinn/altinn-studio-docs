@@ -20,48 +20,9 @@ For å bruke [meldingstjenesten](/nb/correspondence/) trenger du en [Maskinporte
 - `altinn:correspondence.write`
 {.correspondence-custom-list}
 
-For å sette opp dette legger du til scopene i Altinn Studio som beskrevet i [veiledningen for å legge til Maskinporten-scopes](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/add-scopes/). Når du publiserer appen, oppretter Altinn Studio Maskinporten-klienten og monterer generert `MaskinportenSettings` i appen.
+`altinn:serviceowner` har alle v9-apper allerede, så det er de to meldingsscopene du legger til i Altinn Studio. Se [veiledningen for å legge til Maskinporten-scopes](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/add-scopes/) for fremgangsmåten. Når du publiserer appen, oppretter Altinn Studio Maskinporten-klienten og legger klientdetaljene inn i appen.
 
-Meldingsklienten finner og bruker automatisk den innebygde Maskinporten-klienten med standard konfigurasjonssti `MaskinportenSettings`.
-
-{{% expandlarge id="legacy-correspondence-maskinporten-config" header="Vis eldre egendefinert Maskinporten-konfigurasjon" %}}
-
-Hvis du trenger en annen konfigurasjonssti, kan du bruke `ConfigureMaskinportenClient` til å konfigurere den:
-
-{{< code-title >}}
-App/Program.cs
-{{< /code-title >}}
-
-{{<highlight csharp "linenos=false,hl_lines=5">}}
-void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
-{
-  // ...
-
-  services.ConfigureMaskinportenClient("DinUnikeMaskinportenSettingsSti");
-}
-{{</highlight>}}
-
-Hvis du trenger egendefinert konfigurasjon, kan du bruke en delegatmetode:
-
-{{< code-title >}}
-App/Program.cs
-{{< /code-title >}}
-
-{{<highlight csharp "linenos=false,hl_lines=5-10">}}
-void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
-{
-  // ...
-
-  services.ConfigureMaskinportenClient(maskinportenConfig =>
-  {
-    maskinportenConfig.Authority = "https://[test.]maskinporten.no/";
-    maskinportenConfig.ClientId = "klient-id";
-    maskinportenConfig.JwkBase64 = "base64-kodet jwk";
-  });
-}
-{{</highlight>}}
-
-{{% /expandlarge %}}
+Meldingsklienten bruker appens innebygde Maskinporten-klient automatisk. Appen har én Maskinporten-identitet, og den konfigurerer du ikke selv. Se [Integrere Altinn-app med Maskinporten](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/) for hva det innebærer.
 
 ## App-kode
 
