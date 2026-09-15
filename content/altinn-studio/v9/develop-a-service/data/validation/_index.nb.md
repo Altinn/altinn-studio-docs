@@ -11,6 +11,14 @@ Du kan kjøre valideringer enten på klientsiden (i nettleseren) eller på serve
 
 Du kan også sette opp validering til å kjøre ved sidebytte.
 
+## Når vises feiloppsummeringen?
+
+Mens brukerne fyller ut et skjema, ser de vanligvis valideringsfeil ved hvert felt. Hvis de overser feilene eller lar være å rette dem, kan du sette opp appen slik at de må rette feilene før de får gå videre i skjemaet. Appen viser da en liste nederst på siden med alle valideringsfeilene som gjenstår å rette.
+
+Oppsummeringen vises først når brukeren prøver å gå til en annen side eller sende inn skjemaet, og valideringsfeil stopper handlingen. Hvilke valideringer som kjører ved sidebytte, styres blant annet av `validateOnNext` og `validateOnPrevious` på komponenten [`NavigationButtons`]({{< relref "../../look-and-feel/components/NavigationButtons" >}}).
+
+Når brukeren retter feilene, blir de fjernet fra oppsummeringen. Oppsummeringen forsvinner når det ikke er flere feil. Hvis en feil oppstår på nytt senere, vises den fortsatt ved feltet slik det er satt i komponentens `showValidations`, men feiloppsummeringen blir ikke vist på nytt før brukeren gjør et nytt forsøk på å bytte side eller sende inn.
+
 ## Klientside-validering
 
 Klientside-validering kjører i nettleseren FØR data sendes til serveren for lagring. Dette gjør det mulig å gi raske tilbakemeldinger til brukeren underveis i utfyllingen.
