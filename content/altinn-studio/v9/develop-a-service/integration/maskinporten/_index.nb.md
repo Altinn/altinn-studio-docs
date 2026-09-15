@@ -107,7 +107,7 @@ Du lagrer testklienten én gang:
 studioctl app maskinporten set --file klient.json
 ```
 
-studioctl knytter klienten til app-ID-en i `App/config/applicationmetadata.json`, ikke til mappen du står i, så alle klonene dine av appen deler den samme klienten. Filen ligger under studioctl-hjemmemappen, i `apps/<org>-<app>/secrets/maskinporten-settings.json`, og bare du kan lese den.
+studioctl knytter klienten til app-ID-en i `App/config/applicationmetadata.json`, ikke til mappen du står i, så alle klonene dine av appen deler den samme klienten. Filen ligger under studioctl-hjemmemappen, i `apps/<org>/<app>/secrets/maskinporten-settings.json`, og bare du kan lese den.
 
 JSON-en du gir studioctl, kan ha fire former:
 
