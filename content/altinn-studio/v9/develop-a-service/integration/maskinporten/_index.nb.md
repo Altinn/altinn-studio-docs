@@ -106,7 +106,7 @@ App/appsettings.Development.json
 }
 ```
 
-Filen har samme form som den plattformen legger inn i appen:
+Filen har samme form som den plattformen legger inn i appen: en `MaskinportenSettings`-seksjon med autoritet, klient-ID og nøkkel.
 
 ```json
 {
@@ -117,6 +117,8 @@ Filen har samme form som den plattformen legger inn i appen:
   }
 }
 ```
+
+Nøkkelen kan du oppgi enten som `JwkBase64`, slik eksempelet viser, eller som et `Jwk`-objekt. Plattformen bruker `Jwk`.
 
 {{% notice warning %}}
 Legg aldri en privat nøkkel i repositoriet. Legg filen utenfor appmappen, og la `MaskinportenSettingsFilepath` peke dit.
