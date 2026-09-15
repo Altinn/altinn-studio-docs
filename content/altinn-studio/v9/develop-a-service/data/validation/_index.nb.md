@@ -17,7 +17,7 @@ Mens brukerne fyller ut et skjema, ser de vanligvis valideringsfeil ved hvert fe
 
 Oppsummeringen vises først når brukeren prøver å gå til en annen side eller sende inn skjemaet, og valideringsfeil stopper handlingen. Hvilke valideringer som kjører ved sidebytte, styres blant annet av `validateOnNext` og `validateOnPrevious` på komponenten [`NavigationButtons`]({{< relref "../../look-and-feel/components/NavigationButtons" >}}).
 
-Når brukeren retter feilene, blir de fjernet fra oppsummeringen. Oppsummeringen forsvinner når det ikke er flere feil. Hvis en feil oppstår på nytt senere, vises den fortsatt ved feltet slik det er satt i  komponentens `showValidations`, men feiloppsummeringen blir ikke vist på nytt før brukeren gjør et nytt forsøk på å bytte side eller sende inn.
+Når brukeren retter feilene, blir de fjernet fra oppsummeringen. Oppsummeringen forsvinner når det ikke er flere feil. Hvis en feil oppstår på nytt senere, vises den fortsatt ved feltet slik det er satt i komponentens `showValidations`, men feiloppsummeringen blir ikke vist på nytt før brukeren gjør et nytt forsøk på å bytte side eller sende inn.
 
 ## Klientside-validering
 
