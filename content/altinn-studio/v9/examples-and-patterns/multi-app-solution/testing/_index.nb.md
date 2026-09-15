@@ -31,7 +31,7 @@ Dette betyr at du bare kan bygge de individuelle appene og se utseendet deres i 
 Når du kjører appen lokalt i app-localtest, kan du teste all logikken i app A til punktet der opprettelsesforespørselen til app B utløses.
 En lokal kjøring oppretter ikke runtime-secreten for Maskinporten-klienten som lages under publisering.
 
-For lokal testing mot ekte Maskinporten-beskyttede API-er kan du bruke midlertidig lokal konfigurasjon eller user secrets som beskrevet i legacy-seksjonen i [veiledningen for Maskinporten-integrasjon](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/#eldre-manuelt-oppsett).
+Vil du teste mot ekte Maskinporten-beskyttede API-er lokalt, må du skaffe en `maskinporten-settings.json` selv og la konfigurasjonsnøkkelen `MaskinportenSettingsFilepath` peke på den. Se [Kjøre appen lokalt](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/#lokal-kjoring).
 
 {{% notice warning %}}
 Vær svært forsiktig med denne endringen. Du må ikke dele disse nøklene ved å laste dem opp til Gitea.
