@@ -67,4 +67,6 @@ Du styrer dette med `saveWhileTyping`-egenskapen på en komponent i layoutfilen.
 }
 ```
 
-I app-frontend v3 kunne du skru av automatisk lagring helt ved å sette egenskapen til `false`. Fra v4 er `saveWhileTyping` bare numerisk, så du kan justere forsinkelsen, men ikke slå av funksjonaliteten med denne egenskapen.
+I app-frontend v3 kunne du skru av automatisk lagring helt ved å sette egenskapen til `false`. Fra v4 lagrer appen hele datamodellen samlet i stedet for felt for felt, så `saveWhileTyping` er bare numerisk og kan ikke lenger slå av funksjonaliteten.
+
+Du kan sette en høy verdi for å utsette lagringen lenge, men det er ikke en pålitelig måte å skru av autolagring på: hvis brukeren går videre til et annet felt med kortere forsinkelse (for eksempel standardverdien på 400 millisekunder), lagrer appen hele datamodellen med det samme — også endringene i feltet med høy forsinkelse.
