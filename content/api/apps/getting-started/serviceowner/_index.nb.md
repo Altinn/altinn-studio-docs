@@ -31,7 +31,7 @@ I denne artikkelen betyr dette at fagsystemet er en teknisk komponent under tjen
 | Autentisere fagsystemet                 | Maskinporten                           | Utstede tilgangstoken til tjenesteeierens maskin-til-maskin-kall.                                    |
 | Opprette eller forhåndsutfylle skjema   | [Altinn App API](/nb/api/apps)         | Opprette en konkret appinstans, legge inn data, laste opp vedlegg, validere og styre prosess.        |
 | Motta beskjed om innsending             | [Altinn Events API](/nb/events)        | Motta eller abonnere på hendelser når appinstanser endres eller fullføres.                           |
-| Hente innsending og vedlegg             | [Altinn Storage API ](/nb/api/storage) | Søke etter og laste ned instansmetadata, dataelementer og vedlegg på tvers av tjenesteeierens apper. |
+| Hente innsending og vedlegg             | [Altinn Storage API](/nb/api/storage) | Søke etter og laste ned instansmetadata, dataelementer og vedlegg på tvers av tjenesteeierens apper. |
 | Sende formelle meldinger                | [Altinn Correspondence API](/nb/api/correspondence) | Opprette meldinger med innhold og eventuelle vedlegg til mottakere.                                  |
 | Sende SMS eller e-postvarsel            | [Altinn Notifications API](/nb/notifications/reference/api/)               | Varsle mottakeren om en oppgave, melding eller frist.                                                |
 | Oppdatere dialogstatus og dialoginnhold | [Dialogporten tjenesteeier-API](/nb/api/dialogporten)          | Opprette og oppdatere dialoger, status, handlinger, aktiviteter og forsendelsesmetadata.             |
@@ -43,7 +43,7 @@ Kjernevalg: Events brukes som signal, Storage brukes til uthenting, App API bruk
 
 ## Dataflyt 1: Motta innsendinger
 
-```
+```text
 Bruker
 -> Altinn Studio-app
 -> innsending fullføres
@@ -64,9 +64,10 @@ Anbefalt behandlingsmønster:
 
 ## Dataflyt 2: Opprette og forhåndsutfylle skjema
 
-```
+```text
 Fagsystem
 -> Maskinporten-token
+-> Altinn token exchange
 -> App API
 -> opprett instans
 -> legg inn datamodell og eventuelle vedlegg
@@ -75,7 +76,7 @@ Fagsystem
 
 App API-et brukes for en konkret app og instans. Den appspesifikke OpenAPI-beskrivelsen skal være styrende:
 
-```
+```text
 https://<org>.apps.<miljo>.altinn.no/<org>/<app>/swagger 
 ```
 
@@ -104,7 +105,9 @@ Bruk Notifications for korte SMS- eller e-postvarsler, for eksempel om at en ny 
 ## Dialogporten i dette målbildet
 
 {{% notice info %}}
-Altinn-plattformen gjør appinstanser tilgjengelige i Dialogporten automatisk og oppdaterer representasjonen når appinstansen endres. Det er derfor viktig å avklare hvem som eier hver oppdatering, slik at fagsystemet ikke konkurrerer med eller overskriver den automatiske appintegrasjonen. 
+Altinn-plattformen gjør som standard appinstanser tilgjengelige i Dialogporten automatisk og oppdaterer representasjonen når appinstansen endres. 
+Det er derfor viktig å avklare hvem som eier hver oppdatering, slik at fagsystemet ikke konkurrerer med eller overskriver den automatiske appintegrasjonen. 
+Les mer om hvordan appen kan integreres med Dialogporten [her](nb/dialogporten/user-guides/service-owners/integrating-altinn-apps/).
 {{% /notice %}}
 
 ### To ulike integrasjonsmønstre
@@ -169,7 +172,7 @@ Hvis en konkret handling må knyttes til en navngitt, innlogget person, skal per
 
 - Kontroller at tokenet er utstedt til riktig klient og miljø.
 - Kontroller nødvendige scopes for API-et.
-- Kontroller at tjenesteeieren er kompetent myndighet eller eier for aktuell ressurs.
+- Kontroller at tjenesteeieren er kompetent myndighet for aktuell ressurs.
 - Bruk ressursens autorisasjonspolicy når data eller handlinger eksponeres for sluttbrukere.
 - Bruk separate klienter eller tydelig separerte rettigheter der risiko og driftsmodell tilsier det.
 
