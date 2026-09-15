@@ -13,7 +13,7 @@ Du kan også sette opp validering til å kjøre ved sidebytte.
 
 ## Når vises feiloppsummeringen?
 
-Feilmeldinger kan vises ved hvert felt mens brukeren fyller ut skjemaet. Feiloppsummeringen vises derimot ikke bare fordi et felt har en synlig feil.
+Mens brukerne fyller ut et skjema, ser de vanligvis valideringsfeil ved hvert felt. Hvis de overser feilene eller lar være å rette dem, kan du sette opp appen slik at de må rette feilene før de får gå videre i skjemaet. Appen viser da en liste nederst på siden med alle valideringsfeilene som gjenstår å rette.
 
 Oppsummeringen vises først når brukeren prøver å gå til en annen side eller sende inn skjemaet, og valideringsfeil stopper handlingen. Hvilke valideringer som kjører ved sidebytte, styres blant annet av `validateOnNext` og `validateOnPrevious` på komponenten [`NavigationButtons`]({{< relref "../../look-and-feel/components/NavigationButtons" >}}).
 
