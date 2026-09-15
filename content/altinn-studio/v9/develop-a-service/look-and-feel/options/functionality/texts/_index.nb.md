@@ -3,7 +3,7 @@ draft: true
 title: Tekster
 description: De ulike tekstegenskapene du kan bruke for svaralternativer
 weight: 150
-tags: [needsReview, translate]
+tags: [needsReview]
 ---
 
 ## Ledetekst

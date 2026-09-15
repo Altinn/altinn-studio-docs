@@ -4,7 +4,7 @@ title: Konfigurasjonsalternativer for underskjema
 linktitle: Konfigurasjon
 description: Parametere og innstillinger for underskjema-komponenten
 
-tags: [needsReview, translate]
+tags: [needsReview]
 ---
 
 ## Parametere

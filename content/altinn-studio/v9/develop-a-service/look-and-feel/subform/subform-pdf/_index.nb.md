@@ -3,7 +3,7 @@ draft: true
 title: PDF-generering for underskjema
 linktitle: PDF-generering
 description: Slik setter du opp PDF-generering for underskjema
-tags: [underskjema, pdf, needsReview, translate]
+tags: [underskjema, pdf, needsReview]
 weight: 16
 ---
 

@@ -2,7 +2,7 @@
 draft: true
 headless: true
 hidden: true
-tags: [needsReview, translate]
+tags: [needsReview]
 ---
 
 Her er et eksempel på hvordan du endrer kommunikasjon med en `ProvidedPerson`, det samme gjelder for `ProvidedOrganization`:

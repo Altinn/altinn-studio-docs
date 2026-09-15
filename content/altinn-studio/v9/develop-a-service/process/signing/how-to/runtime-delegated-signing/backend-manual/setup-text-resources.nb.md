@@ -2,7 +2,7 @@
 draft: true
 headless: true
 hidden: true
-tags: [needsReview, translate]
+tags: [needsReview]
 ---
 
 Hvis du vil endre standardtekstene, legger du til en [tekstressurs-fil](/nb/altinn-studio/v9/reference/ux/texts/) under `App/config/texts` for hvert språk du vil støtte.

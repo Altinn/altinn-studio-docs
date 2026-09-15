@@ -3,7 +3,7 @@ draft: true
 title: Handlinger
 linktitle: Handlinger
 description: Slik definerer du hva en bruker kan gjøre i en oppgave.
-tags: [altinn-apper, prosess, bpmn, gateway, handling, handlinger, needsReview, needsTranslation]
+tags: [altinn-apper, prosess, bpmn, gateway, handling, handlinger, needsReview]
 toc: false
 weight: 30
 ---

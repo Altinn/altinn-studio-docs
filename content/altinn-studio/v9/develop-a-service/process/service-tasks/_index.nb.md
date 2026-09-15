@@ -3,7 +3,7 @@ draft: true
 title: Systemoppgaver
 linktitle: Systemoppgaver
 description: Slik bruker du systemoppgaver til arbeid appen gjør selv
-tags: [altinn-apps, process, bpmn, task, service task, systemoppgave, needsReview, translate-to-english]
+tags: [altinn-apps, process, bpmn, task, service task, systemoppgave, needsReview]
 ---
 
 En systemoppgave er et steg i prosessen som appen kjører selv, uten at brukeren gjør noe. Plattformen har noen innebygde systemoppgaver du bare konfigurerer, og utviklerne dine kan skrive egne.

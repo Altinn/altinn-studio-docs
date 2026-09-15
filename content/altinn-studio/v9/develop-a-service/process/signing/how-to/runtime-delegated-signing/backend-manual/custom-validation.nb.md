@@ -2,7 +2,7 @@
 draft: true
 headless: true
 hidden: true
-tags: [needsReview, translate]
+tags: [needsReview]
 ---
 
 Du kan bruke standardvalidatoren som nevnt i punkt 2. Den sjekker at antall signaturer er minst det som er satt til `minCount` på feltet i datamodellen. Du kan sette opp egendefinert validering ved å implementere `IValidator` eller `ITaskValidator`, som beskrevet i [Hvordan legge til egendefinert validering](/nb/altinn-studio/v9/reference/logic/validation/#server-side-validation).

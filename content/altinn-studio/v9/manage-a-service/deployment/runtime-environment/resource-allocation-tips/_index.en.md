@@ -3,7 +3,6 @@ draft: true
 title: Practical tips for resource allocation
 description: 
 
-tags: [translate-to-english]
 ---
 
 Før vi går på konkrete tips må vi kort introdusere Helm Chart. Helm Chart er de(n) filen(e) som styrer hvordan applikasjonen din [deployes](/en/altinn-studio/v8/reference/configuration/deployment/)) til Kubernetes. Det er også her man styrer CPU og minne allokering. Du finner `Chart.yaml`og `values.yaml`i deployment mappen i applikasjonen din. Dette er viktige filer som kan være lett å overse og ikke ha et aktivt forhold til.

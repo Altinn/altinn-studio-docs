@@ -3,7 +3,7 @@ draft: true
 title: Hva brukeren ser mens en systemoppgave kjører
 linktitle: Hva brukeren ser
 description: Slik styrer du visningen mens appen jobber, venter eller feiler
-tags: [altinn-apps, process, bpmn, task, service task, systemoppgave, needsReview, translate-to-english]
+tags: [altinn-apps, process, bpmn, task, service task, systemoppgave, needsReview]
 ---
 
 En systemoppgave kjører på serveren, men brukeren sitter og venter i nettleseren. Appen har innebygde visninger for alle situasjonene som kan oppstå. Du trenger ikke gjøre noe for å få dem, men du kan bytte ut tekstene, og du kan lage din egen side når oppgaven trenger mer forklaring enn en tekst kan gi.

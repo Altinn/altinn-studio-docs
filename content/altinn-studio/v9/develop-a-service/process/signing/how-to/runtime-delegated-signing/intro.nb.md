@@ -2,7 +2,7 @@
 draft: true
 headless: true
 hidden: true
-tags: [needsReview, translate]
+tags: [needsReview]
 ---
 
 Med brukerstyrt signering kan du la brukeren bestemme hvem som skal signere mens skjemaet fylles ut.

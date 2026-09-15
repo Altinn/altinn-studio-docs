@@ -3,7 +3,7 @@ draft: true
 title: Systemoppgaver med flere steg
 linktitle: Flere steg
 description: Slik deler du en systemoppgave i flere arbeidssteg, og lar den vente på svar utenfra
-tags: [altinn-apps, process, bpmn, task, service task, systemoppgave, needsReview, translate-to-english]
+tags: [altinn-apps, process, bpmn, task, service task, systemoppgave, needsReview]
 ---
 
 En systemoppgave som gjør én ting, skriver du med `IServiceTask`. Se [Lage en egendefinert systemoppgave]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}).

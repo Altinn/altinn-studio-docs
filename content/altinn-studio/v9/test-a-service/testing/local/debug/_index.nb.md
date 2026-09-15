@@ -4,7 +4,7 @@ title: Feilsøke i appen
 linktitle: Feilsøking
 description: Slik feilsøker du i appen lokalt ved hjelp av ulike verktøy.
 toc: true
-tags: [needsReview, translate-to-english]
+tags: [needsReview]
 ---
 
 Følgende beskrivelse forutsetter at du har klonet appen fra Altinn Studio Repositories og har filene liggende på lokal harddisk.

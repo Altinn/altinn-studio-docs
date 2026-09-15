@@ -2,7 +2,7 @@
 draft: true
 headless: true
 hidden: true
-tags: [needsReview, translate]
+tags: [needsReview]
 ---
 
 Med rolle- og tilgangspakkebasert signering kan personer signere fordi de har en bestemt rolle eller tilgangspakke. 

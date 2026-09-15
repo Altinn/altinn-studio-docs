@@ -4,7 +4,6 @@ title: Resource Allocation
 description: Which resources are allocated in a cluster and how?
 toc: true
 
-tags: [translate-to-english]
 ---
 
 Primært vil det være CPU og minne som fordeles. Man kan sette minimum (requests) og et tak (limit) for en container.

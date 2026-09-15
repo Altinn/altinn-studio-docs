@@ -4,7 +4,7 @@ title: Teste API som organisasjon
 linktitle: Organisasjon
 description: Slik tester du API-er som applikasjonen eksponerer når du kjører den lokalt sammen med den lokale testplattformen.
 toc: true
-tags: [needsReview, translate-to-english]
+tags: [needsReview]
 ---
 
 {{%notice warning%}}

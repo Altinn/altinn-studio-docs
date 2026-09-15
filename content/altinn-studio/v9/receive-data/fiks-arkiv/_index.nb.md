@@ -3,7 +3,7 @@ draft: true
 title: Fiks Arkiv
 linktitle: Fiks Arkiv
 description: Slik setter du opp Fiks Arkiv som systemoppgave i appen din.
-tags: [fiks-arkiv, fiks, arkiv, systemoppgave, service task, needsReview, translate-to-english]
+tags: [fiks-arkiv, fiks, arkiv, systemoppgave, service task, needsReview]
 toc: true
 weight: 60
 ---

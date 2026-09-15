@@ -5,7 +5,7 @@ linktitle: Felles
 description: Delte standard kodelister som kan brukes i flere applikasjoner
 toc: false
 weight: 200
-tags: [needsReview, translate]
+tags: [needsReview]
 aliases:
   - /nb/altinn-studio/guides/development/options/common-codelists
 ---

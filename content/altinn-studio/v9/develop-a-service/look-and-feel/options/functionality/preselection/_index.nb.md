@@ -3,7 +3,7 @@ draft: true
 title: Forhåndsvalg
 description: Slik gjør du et av alternativene forhåndsvalgt
 weight: 250
-tags: [needsReview, translate]
+tags: [needsReview]
 ---
 
 Noen ganger er det ønskelig at et av svaralternativene er forhåndsvalgt. Det finnes ulike måter å oppnå dette på:

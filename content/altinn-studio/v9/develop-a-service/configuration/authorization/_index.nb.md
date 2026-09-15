@@ -3,7 +3,7 @@ draft: true
 title: Definere autorisasjonspolicy
 linktitle: Autorisasjon
 description: I Altinn Studio designer kan applikasjonsutvikleren definere policyen for applikasjonen som er opprettet
-tags: [needsReview, needsTranslation, needsLinks]
+tags: [needsReview, needsLinks]
 ---
 
 Applikasjonsutvikleren definerer autorisasjonsreglene for en app i en XACML-policyfil som er plassert i applageret. XACML-policyen inneholder én eller flere regler som bestemmer hvem som kan utføre forskjellige handlinger på forskjellige ressurser.
