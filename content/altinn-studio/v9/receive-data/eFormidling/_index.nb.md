@@ -17,18 +17,7 @@ Før du setter opp eFormidling, må du ha [integrasjonen mot Maskinporten](#mask
 
 For å aktivere eFormidling i appen din, må du [sette opp integrasjon mellom appen og Maskinporten](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/).
 
-* **Merk:** Appen inkluderer automatisk den innebygde `IMaskinportenClient`. Hvis du trenger egendefinert konfigurasjon, kan du bruke:
-
-  {{< code-title >}}
-    App/Program.cs
-  {{< /code-title >}}
-  ```csharp {hl_lines=[3,4]}
-  void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
-  {
-    // Valgfritt: Kun nødvendig hvis du bruker ikke-standard konfigurasjonsbane
-    services.ConfigureMaskinportenClient("CustomMaskinportenSettingsPath");
-  }
-  ```
+Du legger til scopene appen trenger i Altinn Studio, som oppretter Maskinporten-klienten når du publiserer. Appen får den innebygde `IMaskinportenClient` automatisk, og du konfigurerer den ikke selv.
 
 ## Sette opp eFormidling i appen {#eFormidling-oppsett}
 
