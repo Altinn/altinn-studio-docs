@@ -69,13 +69,13 @@ Komponenter for datainnsamling.
 
 Komponenter for å vise tekst og informasjon.
 
-### Tittel (`Header`)
+### Tittel (`Heading`)
 
-`Header` brukes til å strukturere innhold og skape hierarki på siden.
+`Heading` brukes til å strukturere innhold og skape hierarki på siden.
 
-![Header](./Header.png)
+![Heading](./Heading.png)
 
-[Detaljer om komponenten](./Header)
+[Detaljer om komponenten](./Heading)
 
 ---
 

@@ -57,6 +57,7 @@ fractions = false # disable automatic fraction rendering
 
 [params]
 editURL = "https://github.com/altinn/altinn-studio-docs/blob/master/content/"
+componentPropertiesBaseURL = "https://raw.githubusercontent.com/Altinn/altinn-studio/main/src/common/ts/layout-contract/docs/components"
 noHomeIcon = true # default is false
 noSearch = false # default is false
 showVisitedLinks = false # default is false
