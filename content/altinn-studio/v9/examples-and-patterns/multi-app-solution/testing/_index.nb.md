@@ -31,7 +31,7 @@ Dette betyr at du bare kan bygge de individuelle appene og se utseendet deres i 
 Når du kjører appen lokalt i app-localtest, kan du teste all logikken i app A til punktet der opprettelsesforespørselen til app B utløses.
 En lokal kjøring oppretter ikke runtime-secreten for Maskinporten-klienten som lages under publisering.
 
-Vil du teste mot ekte Maskinporten-beskyttede API-er lokalt, legger du din egen testklient i en `MaskinportenSettings`-seksjon i appkonfigurasjonen, helst med `dotnet user-secrets`. En app som kjører mot localtest leser den seksjonen. Se [Kjøre appen lokalt](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/#lokal-kjoring).
+Vil du teste mot ekte Maskinporten-beskyttede API-er lokalt, lagrer du din egen testklient med `studioctl app maskinporten set`. studioctl leverer den til appen slik Altinn Studio gjør når du publiserer, så du legger ingenting i appkonfigurasjonen. Se [Kjøre appen lokalt](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/#lokal-kjoring).
 
 {{% notice warning %}}
 Vær svært forsiktig med denne endringen. Du må ikke dele disse nøklene ved å laste dem opp til Gitea.
