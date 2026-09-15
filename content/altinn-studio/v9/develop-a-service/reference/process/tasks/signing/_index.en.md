@@ -10,8 +10,6 @@ toc: true
 ⚠️ Signing task require version 8.0.0 or newer of app-libs
 {{% /panel %}}
 
-{{% insert "content/altinn-studio/v9/develop-a-service/process/signing/auth-requirements.en.md" %}}
-
 Setting up a signing task in the process file requires a bit more work than a regular data, confirm or feedback task.
 
 This page will walk you through what you need to configure and how that is connected to other parts of the configuration.
