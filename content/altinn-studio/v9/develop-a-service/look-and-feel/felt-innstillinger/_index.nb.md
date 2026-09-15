@@ -55,11 +55,7 @@ Skal du kontrollere selve antallet tegn, må du også legge til `maxLength`-egen
 
 ## Konfigurere automatisk lagring
 
-{{% notice info %}}
-Denne delen sjekkes opp mot nyere versjoner av app-frontend. Det er uklart om du fortsatt kan skru av autolagring helt ved å sette `saveWhileTyping` til `false`, eller om egenskapen nå kun styrer forsinkelsen.
-{{% /notice %}}
-
-`Input`-komponenter, `TextArea`-komponenter og `Address`-komponenter (`AddressComponent` i v3) lagrer endringer automatisk mens brukeren skriver. Som standard skjer dette 400 millisekunder etter at brukeren sist skrev noe. Når appen lagrer feltet, kjører den også valideringer og eventuelle triggere. Hvis disse valideringene og triggerne bruker mye ressurser, kan du øke tiden det tar før appen lagrer feltet automatisk, eller skru av funksjonaliteten helt.
+`Input`-komponenter, `TextArea`-komponenter og `Address`-komponenter (`AddressComponent` i v3) lagrer endringer automatisk mens brukeren skriver. Som standard skjer dette 400 millisekunder etter at brukeren sist skrev noe. Når appen lagrer feltet, kjører den også valideringer og eventuelle triggere. Hvis disse valideringene og triggerne bruker mye ressurser, kan du øke tiden det tar før appen lagrer feltet automatisk.
 
 Du styrer dette med `saveWhileTyping`-egenskapen på en komponent i layoutfilen. I eksempelet under lagrer appen dataene to sekunder etter at brukeren slutter å skrive i feltet.
 
@@ -71,4 +67,4 @@ Du styrer dette med `saveWhileTyping`-egenskapen på en komponent i layoutfilen.
 }
 ```
 
-Hvis du setter denne egenskapen til `false`, skrur du av funksjonaliteten. Da lagrer appen dataene først når brukeren forlater feltet.
+I app-frontend v3 kunne du skru av automatisk lagring helt ved å sette egenskapen til `false`. Fra v4 er `saveWhileTyping` bare numerisk, så du kan justere forsinkelsen, men ikke slå av funksjonaliteten med denne egenskapen.
