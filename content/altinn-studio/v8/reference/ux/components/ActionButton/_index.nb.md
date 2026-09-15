@@ -95,19 +95,44 @@ Legg til seksjoner dersom de er relevante:
 
 ## Egenskaper
 
-Følgende er en liste over tilgjengelige egenskaper for {{% title %}}. Listen er automatisk generert basert på komponentens JSON schema (se link).
+Følgende er en liste over tilgjengelige egenskaper for {{% title %}}. Listen er automatisk generert basert på komponentens JSON schema.
 
 {{% notice warning %}}
 Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over egenskaper kan derfor være noe unøyaktig.
 {{% /notice %}}
 
-<!-- Shortkoden `component-props` genererer automatisk en liste over komponentegenskaper fra komponentens JSON schema.
-Komponentnavnet kan gis eksplisitt som argument (f.eks. `component-props "Grid"`).
-Hvis ingen argument gis, henter shortkoden komponentnavnet fra 'schemaname' i frontmatter.
-Hvis komponenten ikke har JSON schema, kommenter ut tekst og shortcode i denne delen og lag evt. tabell manuelt med de viktigste egenskapene (kolonner: Egenskap, Type, Beskrivelse).
- -->
-
-{{% component-props %}}
+<p><p><strong>Required properties: </strong><code>id</code>,<code>type</code>,<code>action</code></p><div class="adocs-property-table">
+<table>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+</tr><tr class="main-prop">
+<td><h4><code>id</code></h4></td>
+<td>string</td>
+<td>The component ID. Must be unique within all layouts/pages in a layout-set. Cannot end with &lt;dash&gt;&lt;number&gt;.<br></td></p>
+</tr><tr class="main-prop">
+    <td><h4><code>type</code></h4></td>
+    <td>string</td>
+    <td>The component type.<br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>textResourceBindings</code></h4></td>
+    <td>object</td>
+    <td><br></td>
+</tr><tr class="sub-prop">
+    <td><code>textResourceBindings.title</code></td>
+    <td>string</td>
+    <td><br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>action</code></h4></td>
+    <td>string</td>
+    <td>The action to be triggered when the button is clicked.<br><strong>Example(s): </strong><code>sign, confirm, reject</code><br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>buttonStyle</code></h4></td>
+    <td>string</td>
+    <td>The style of the button.<br><strong>Enum: </strong>[primary, secondary]<br></td>
+</tr></table>
+    </div>
 
 ## Konfigurering
 
