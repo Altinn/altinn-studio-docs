@@ -29,7 +29,7 @@ Du kan legge til nye komponenter i `footer`-listen.
 
 {{% expandlarge id="email-component" header="E-post" %}}
 
-### Egenskaper
+### E-postegenskaper
 
 | Egenskap | Verdi                                                                                                                        |
 | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -37,7 +37,7 @@ Du kan legge til nye komponenter i `footer`-listen.
 | title    | Tekstressursen du vil vise. Du kan ikke [formatere](/nb/altinn-studio/v8/reference/ux/texts/#formatering-av-tekster) denne teksten. |
 | target   | E-postadressen lenken peker til.                                                                                             |
 
-### Eksempel
+### E-posteksempel
 
 ```json
 {
@@ -51,7 +51,7 @@ Du kan legge til nye komponenter i `footer`-listen.
 
 {{% expandlarge id="phone-component" header="Telefon" %}}
 
-### Egenskaper
+### Telefonegenskaper
 
 | Egenskap | Verdi                                                                                                                        |
 | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -59,7 +59,7 @@ Du kan legge til nye komponenter i `footer`-listen.
 | title    | Tekstressursen du vil vise. Du kan ikke [formatere](/nb/altinn-studio/v8/reference/ux/texts/#formatering-av-tekster) denne teksten. |
 | target   | Telefonnummeret lenken peker til.                                                                                            |
 
-### Eksempel
+### Telefoneksempel
 
 ```json
 {
@@ -73,7 +73,7 @@ Du kan legge til nye komponenter i `footer`-listen.
 
 {{% expandlarge id="link-component" header="Lenke" %}}
 
-### Egenskaper
+### Lenkeegenskaper
 
 | Egenskap | Verdi                                                                                                                        |
 | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -82,7 +82,7 @@ Du kan legge til nye komponenter i `footer`-listen.
 | target   | URL-en lenken peker til.                                                                                                     |
 | icon     | Ikonet ved siden av lenken. Enten `information`, `email` eller `phone`.                                                      |
 
-### Eksempel
+### Lenkeeksempel
 
 ```json
 {
@@ -97,14 +97,14 @@ Du kan legge til nye komponenter i `footer`-listen.
 
 {{% expandlarge id="text-component" header="Tekst" %}}
 
-### Egenskaper
+### Tekstegenskaper
 
 | Egenskap | Verdi                                                                                                                |
 | -------- | ----------------------------------------------------------------------------------------------------------------------- |
 | type     | `Text`                                                                                                              |
 | title    | Tekstressursen du vil vise. Du kan [formatere](/nb/altinn-studio/v8/reference/ux/texts/#formatering-av-tekster) denne teksten. |
 
-### Eksempel
+### Teksteksempel
 
 ```json
 {
