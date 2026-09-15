@@ -156,6 +156,14 @@ Dette er endret fra v8:
 - **Den andre, «interne» klientvarianten er borte.** Seksjonen `MaskinportenSettingsInternal` og filen `maskinporten-settings-internal.json` finnes ikke lenger.
 - **Sporingsdataene fra appen har ikke lenger attributtet `maskinporten.variant`.** Pek om dashbord og søk som grupperer eller filtrerer på det.
 
+Hadde appen sin egen Maskinporten-klient i v8, flytter du den slik:
+
+1. Finn ut hvilke scopes den gamle klienten er satt opp med i Samarbeidsportalen, og hvilke scopes appkoden ber om.
+2. Legg de samme scopene til på appen i Altinn Studio. Fjern `ConfigureMaskinportenClient`-kallet og en eventuell `MaskinportenSettings`-seksjon.
+3. Publiser appen til TT02, og kontroller at den henter token, og at kall som krever innvekslet Altinn-token fortsatt virker.
+4. Gjenta i produksjon. Vent med å slette den gamle klienten og de gamle Key Vault-hemmelighetene til du har kontrollert at ingen andre apper eller integrasjoner bruker dem.
+{.floating-bullet-numbers}
+
 Dette er uendret:
 
 - Du bruker klienten på nøyaktig samme måte som før, med `IMaskinportenClient` eller med `UseMaskinportenAuthorization` på en HTTP-klient.

@@ -20,7 +20,7 @@ For å bruke [meldingstjenesten](/nb/correspondence/) trenger du en [Maskinporte
 - `altinn:correspondence.write`
 {.correspondence-custom-list}
 
-For å sette opp dette legger du til scopene i Altinn Studio som beskrevet i [veiledningen for å legge til Maskinporten-scopes](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/add-scopes/). Når du publiserer appen, oppretter Altinn Studio Maskinporten-klienten og legger klientdetaljene inn i appen.
+`altinn:serviceowner` har alle v9-apper allerede, så det er de to meldingsscopene du legger til i Altinn Studio. Se [veiledningen for å legge til Maskinporten-scopes](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/add-scopes/) for fremgangsmåten. Når du publiserer appen, oppretter Altinn Studio Maskinporten-klienten og legger klientdetaljene inn i appen.
 
 Meldingsklienten bruker appens innebygde Maskinporten-klient automatisk. Appen har én Maskinporten-identitet, og den konfigurerer du ikke selv. Se [Integrere Altinn-app med Maskinporten](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/) for hva det innebærer.
 
