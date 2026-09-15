@@ -27,7 +27,7 @@ Legitimasjonen går altså aldri gjennom konfigurasjonen til appen, verken i et 
 - **Appen bestemmer ikke hvor filen ligger.** Det gjør plattformen appen kjører på: `/mnt/app-secrets/maskinporten-settings.json` i et publisert miljø, og lokalt mappen studioctl legger filen i. Se [Kjøre appen lokalt](#lokal-kjoring).
 
 {{% notice info %}}
-`studioctl app upgrade v9` sier fra om en `MaskinportenSettings`-seksjon som ikke lenger har noen virkning, og om kode som kaller metodene v9 har fjernet. Verktøyet endrer ikke filene for deg, fordi det du skal gjøre i stedet er et valg bare du kan ta. Brukte du seksjonen til å teste lokalt, gir rapporten deg kommandoen som tar legitimasjonen med videre.
+`studioctl app upgrade v9` sier fra om en `MaskinportenSettings`-seksjon som ikke lenger har noen virkning, og om kode som kaller metodene v9 har fjernet. Verktøyet endrer ikke filene for deg, fordi det du skal gjøre i stedet er et valg bare du kan ta. Brukte du seksjonen til å teste lokalt, minner rapporten deg om å ta legitimasjonen med videre først.
 {{% /notice %}}
 
 ## Sett opp integrasjonen {#oppsett}
@@ -109,24 +109,20 @@ studioctl app maskinporten set --file klient.json
 
 studioctl knytter klienten til app-ID-en i `App/config/applicationmetadata.json`, ikke til mappen du står i, så alle klonene dine av appen deler den samme klienten. Filen ligger under studioctl-hjemmemappen, i `apps/<org>-<app>/secrets/maskinporten-settings.json`, og bare du kan lese den.
 
-Filen du peker på, kan ha tre former:
+JSON-en du gir studioctl, kan ha fire former:
 
 - **Den leverte innstillingsfilen**, altså legitimasjonen pakket i et `MaskinportenSettings`-objekt.
 - **Bare legitimasjonen**: `authority`, `clientId` og enten `jwk` eller `jwkBase64`.
 - **En seksjon skrevet for pakken `Altinn.ApiClients.Maskinporten`**, med `ClientId`, `Environment` og `EncodedJwk`. studioctl regner om `test` til `https://test.maskinporten.no/` og `prod` til `https://maskinporten.no/`.
+- **En seksjon du har kopiert ut sammen med navnet sitt**, altså ett enkelt objekt med seksjonsnavnet ytterst, uansett hva seksjonen heter. Da slipper du å pakke om det du kopierte.
 
 Store og små bokstaver i feltnavnene spiller ingen rolle. studioctl kontrollerer bare formen på klienten: at `authority` er en https-adresse, at klient-ID-en er der, at nøkkelen kommer i én av de to formene, og at den har en privat del. Kommandoen henter ikke noe token for å prøve klienten.
 
 studioctl godtar ikke en klient som autentiserer med sertifikat (`EncodedX509`, `CertificatePkcs12Path` eller `CertificateStoreThumbprint`). Appbibliotekene signerer med en JWK, så du må registrere en JWK på klienten i Maskinporten og bruke den i stedet.
 
-Hadde v8-appen din legitimasjonen i en konfigurasjonsseksjon, henter du den derfra:
+studioctl leser ikke JSON med kommentarer eller komma til slutt, og sier fra om det. Har appsettings-filen din kommentarer, tar du dem ikke med når du kopierer seksjonen.
 
-```bash
-studioctl app maskinporten set \
-  --from-appsettings App/appsettings.Development.json
-```
-
-studioctl leter opp den ene toppseksjonen som heter `MaskinportenSettings` eller ender på det, slik at v8-navn som `min-app--MaskinportenSettings` også treffer. Finnes det flere, ber studioctl deg peke ut én med `--section`. studioctl leser ikke filer med JSON-kommentarer, og sier fra om det. Da sender du seksjonen på standard inn i stedet.
+Hadde v8-appen din legitimasjonen i en konfigurasjonsseksjon, limer du seksjonen inn i `set`. Se [Testklienten du hadde lokalt](#lokal-testklient).
 
 ### Send nøkkelen på standard inn
 
@@ -215,14 +211,28 @@ Dette er uendret:
 
 ### Testklienten du hadde lokalt {#lokal-testklient}
 
-Hadde du testlegitimasjonen i en `MaskinportenSettings`-seksjon for å prøve integrasjonen din lokalt, lagrer du den samme klienten i studioctl med én kommando:
+Hadde du testlegitimasjonen i en `MaskinportenSettings`-seksjon for å prøve integrasjonen din lokalt, flytter du den samme klienten over: kopier seksjonen, lim den inn i `set`, og slett den.
+
+Ligger seksjonen i en appsettings-fil, kopierer du den derfra. Ligger den i user secrets, finner du verdiene med `dotnet user-secrets list` fra `App`-mappen.
+
+studioctl tar imot seksjonen med navnet sitt, så du trenger ikke pakke den om:
 
 ```bash
-studioctl app maskinporten set \
-  --from-appsettings App/appsettings.Development.json \
-  --section min-app--MaskinportenSettings
+studioctl app maskinporten set
 ```
 
-Deretter sletter du seksjonen. Appen leser den ikke lenger, og studioctl leverer klienten til de lokale kjøringene dine i stedet. Se [Kjøre appen lokalt](#lokal-kjoring).
+Lim inn seksjonen, og avslutt inndataene med `Ctrl+D` (`Ctrl+Z` og Enter på Windows):
 
-`studioctl app upgrade v9` finner seksjonen for deg og skriver ut den ferdige kommandoen, med navnet på seksjonen din. Har appen bare én seksjon som heter `MaskinportenSettings` eller ender på det, kan du droppe `--section`.
+```json
+{
+  "min-app--MaskinportenSettings": {
+    "ClientId": "din-klient-id",
+    "Environment": "test",
+    "EncodedJwk": "base64-kodet JWK"
+  }
+}
+```
+
+Har du seksjonen i en fil fra før, peker du på den med `--file` i stedet. Til slutt sletter du seksjonen fra appen. Appen leser den ikke lenger, og studioctl leverer klienten til de lokale kjøringene dine i stedet. Se [Kjøre appen lokalt](#lokal-kjoring).
+
+`studioctl app upgrade v9` navngir seksjonene appen har, både dem koden bandt med `ConfigureMaskinportenClient`, og den vanlige `MaskinportenSettings`-seksjonen, som konfigurasjon v9 aldri leser. Rapporten sier fra om at du bør lime seksjonen inn i `set` før du sletter den, og peker i tillegg ut objekter som ser ut som gjenglemt legitimasjon for den innebygde klienten.
