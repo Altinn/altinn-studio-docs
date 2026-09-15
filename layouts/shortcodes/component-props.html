@@ -11,7 +11,7 @@
   {{- errorf "Could not retrieve generated component properties for %s from %s: %s" $component $url . -}}
 {{- else with $remote.Value -}}
   <div class="component-properties component-properties--{{ $locale }}">
-    {{- $.Page.RenderString (dict "display" "block") .Content -}}
+    {{- .Content | safeHTML -}}
   </div>
 {{- else -}}
   {{- errorf "Could not retrieve generated component properties for %s from %s" $component $url -}}
