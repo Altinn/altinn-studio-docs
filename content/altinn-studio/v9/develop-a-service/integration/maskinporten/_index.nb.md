@@ -26,7 +26,7 @@ I et publisert miljø går legitimasjonen altså aldri gjennom konfigurasjonen t
 - **Du kan ikke konfigurere den innebygde klienten fra appkoden.** Metodene som gjorde det i v8, finnes ikke lenger. Se [Kommer du fra v8?](#fra-v8).
 - **Filen kan ikke flyttes.** Appen leser den fra ett sted, og ingen konfigurasjonsnøkkel endrer det.
 
-Det ene unntaket gjelder localtest, der det ikke finnes noen levert klient å fortrenge. Se [Kjøre appen lokalt](#lokal-kjoring).
+Det ene unntaket gjelder localtest. Der kan du la appen bruke din egen testklient, og den overstyrer alt annet. Se [Kjøre appen lokalt](#lokal-kjoring).
 
 {{% notice info %}}
 `studioctl app upgrade v9` sier fra om en `MaskinportenSettings`-seksjon som ikke lenger har noen virkning, og om kode som kaller metodene v9 har fjernet. Verktøyet endrer ikke filene for deg, fordi det du skal gjøre i stedet er et valg bare du kan ta.
@@ -102,8 +102,12 @@ Appen trenger ingen Maskinporten-klient for å kjøre lokalt. Tokenene appen bru
 Da kan du la appen bruke en testklient du har laget selv: en app som kjører mot localtest, leser en `MaskinportenSettings`-seksjon fra sin egen konfigurasjon. Tre regler gjelder for den seksjonen:
 
 - **Bare på localtest.** En publisert app leser den ikke i det hele tatt. Appen kjenner igjen localtest på vertsnavnet den kjører på.
-- **Bare når appen ikke har fått legitimasjon fra plattformen.** Har plattformen lagt inn legitimasjon, er det den som gjelder.
-- **Hele settet eller ingenting.** De to settene blandes aldri, så du kan ikke ende opp med klient-ID fra det ene og nøkkel fra det andre.
+- **Den overstyrer.** Har du lagt inn en seksjon, er det den appen bruker. Skulle det ligge en levert innstillingsfil der fra før, viker den. Du trenger ikke rydde bort noe først.
+- **Hele settet eller ingenting.** Appen bruker den ene kilden eller den andre, aldri en blanding, så du kan ikke ende opp med klient-ID fra det ene settet og nøkkel fra det andre.
+
+Den siste regelen er verdt en advarsel: en halv seksjon overstyrer like fullt. Oppgi alle verdiene klienten trenger, ellers stopper appen på at Maskinporten-konfigurasjonen er ugyldig.
+
+Legger du ingen seksjon inn, bruker appen den leverte innstillingsfilen. Lokalt finnes den sjelden, og da sier appen fra at Maskinporten-konfigurasjonen mangler.
 
 Du har to steder å legge legitimasjonen. Velg ett av dem.
 
