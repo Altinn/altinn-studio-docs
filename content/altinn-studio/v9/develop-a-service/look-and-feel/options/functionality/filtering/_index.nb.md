@@ -3,7 +3,7 @@ draft: true
 title: Filtrering
 description: Slik fjerner du noen alternativer fra listen
 weight: 200
-tags: [needsReview, translate]
+tags: [needsReview]
 ---
 
 Filtrering gjør det mulig å fjerne noen av svaralternativene fra listen. Dette kan være nyttig hvis du vil begrense hvilke alternativer brukeren kan velge mellom.

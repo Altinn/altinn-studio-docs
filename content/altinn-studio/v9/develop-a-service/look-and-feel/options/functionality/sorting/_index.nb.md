@@ -3,7 +3,7 @@ draft: true
 title: Sortering
 description: Slik sorterer du valgene i listen
 weight: 300
-tags: [needsReview, translate]
+tags: [needsReview]
 ---
 
 Systemet viser svaralternativer vanligvis i rekkefølgen de er definert i, men det er også mulig å sortere dem alfabetisk etter ledetekst (`label`). Dette kan være nyttig for å gjøre det enklere for brukeren å finne det alternativet de leter etter når listen ikke må være i en spesifikk rekkefølge.

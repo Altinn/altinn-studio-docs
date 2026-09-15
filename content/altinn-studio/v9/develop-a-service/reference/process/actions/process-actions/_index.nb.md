@@ -3,7 +3,7 @@ draft: true
 title: Prosesshandlinger
 linktitle: Prosesshandlinger
 description: Slik autoriserer du handlinger og skriver tilpasset logikk for prosesshandlinger.
-tags: [altinn-apps, process, bpmn, gateway, action, actions, needsReview, needsTranslation]
+tags: [altinn-apps, process, bpmn, gateway, action, actions, needsReview]
 toc: true
 weight: 10
 ---

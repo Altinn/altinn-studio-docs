@@ -4,7 +4,7 @@ title: Bruke testbrukere lokalt
 linktitle: Testbrukere
 description: Slik bruker du testbrukere til lokal test.
 toc: true
-tags: [needsReview, translate-to-english]
+tags: [needsReview]
 ---
 
 ## Standardbrukere

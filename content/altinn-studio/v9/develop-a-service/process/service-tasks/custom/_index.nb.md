@@ -3,7 +3,7 @@ draft: true
 title: Lage en egendefinert systemoppgave
 linktitle: Egendefinert
 description: Slik lager du en systemoppgave som kjører egen kode i prosessen
-tags: [altinn-apps, process, bpmn, task, service task, systemoppgave, needsReview, translate-to-english]
+tags: [altinn-apps, process, bpmn, task, service task, systemoppgave, needsReview]
 ---
 
 En egendefinert systemoppgave lar appen gjøre arbeid på serveren midt i prosessen, uten at brukeren gjør noe. Oppgaven består av

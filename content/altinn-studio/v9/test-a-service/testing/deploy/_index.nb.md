@@ -4,7 +4,7 @@ title: Teste app i testmiljø
 linktitle: I testmiljø
 description: Bygg, distribuer og test appen i Altinns testmiljø
 toc: true
-tags: [needsReview, translate-to-english]
+tags: [needsReview]
 
 aliases:
 - /nb/altinn-studio/v8/reference/testing/deploy/

@@ -2,7 +2,7 @@
 draft: true
 headless: true
 hidden: true
-tags: [needsReview, translate]
+tags: [needsReview]
 ---
 
 Hvis du ønsker å bruke forskjellige meldingsressurser i forskjellige miljøer, kan du legge til en `env`-attributt

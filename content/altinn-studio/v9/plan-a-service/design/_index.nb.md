@@ -2,7 +2,7 @@
 draft: true
 title: Utforme en god tjeneste
 weight: 1
-tags: [needsReview, translate-to-english]
+tags: [needsReview]
 ---
 
 Tenk på brukerens reise gjennom skjemaet ditt og selve skjemaoppsettet, slik at tjenesten fungerer godt fra start til slutt.

@@ -3,7 +3,7 @@ draft: true
 title: Publisere (deploye) Altinn-tjenester
 description: Informasjon om publisering av tjenester, inkludert konfigurasjon og kjøremiljø.
 
-tags: [needsReview, translate-to-english, migrate-from-v8]
+tags: [needsReview, migrate-from-v8]
 ---
 
 {{<children />}}

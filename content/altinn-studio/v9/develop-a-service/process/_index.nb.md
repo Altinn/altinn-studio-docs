@@ -3,7 +3,7 @@ draft: true
 title: Prosess
 description: Prosess er et sentralt konsept i en Altinn app, og styrer hvilken flyt brukeren opplever når de bruker appen.
 weight: 60
-tags: [needsReview, translate-to-english, migrate-from-v8]
+tags: [needsReview, migrate-from-v8]
 ---
 
 En Altinn-app har en forretningsprosess, definert i [BPMN](https://www.bpmn.org/)-notasjon. Denne prosessen styrer hele 

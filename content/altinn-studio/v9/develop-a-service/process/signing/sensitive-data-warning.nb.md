@@ -1,7 +1,7 @@
 ---
 draft: true
 hidden: true
-tags: [needsReview, translate]
+tags: [needsReview]
 ---
 
 {{% notice warning %}}

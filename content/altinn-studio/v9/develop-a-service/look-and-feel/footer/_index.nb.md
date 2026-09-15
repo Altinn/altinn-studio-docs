@@ -2,7 +2,7 @@
 draft: true
 title: Bunntekst
 description: Slik konfigurerer du bunnteksten i appen
-tags: [needsReview, translate]
+tags: [needsReview]
 ---
 
 I bunnteksten kan du legge inn kontaktinformasjon, lenker og annen tekst. I nye apper inneholder bunnteksten som standard en lenke til tilgjengelighetserklæringen til Altinn 3.

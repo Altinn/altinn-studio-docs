@@ -3,7 +3,6 @@ draft: true
 title: Runtime Environment
 description: Description of the Runtime Environment for Altinn 3 applications for a service owner.
 
-tags: [translate-to-english]
 ---
 
 Altinn 3 applikasjoner for en tjenesteeier kjører i Azure Kubernetes Service (AKS) fra Microsoft Azure. Dette er en såkalt Managed Service hvor vi lar Microsoft Azure ta seg av den underliggende driften av Kubernetes clusteret. Altinn står for konfigurering og provisjonering av clusteret, mens tjenesteeier har selv ansvar for utrulling av applikasjonene til clusteret. 

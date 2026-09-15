@@ -3,7 +3,7 @@ draft: true
 title: Dataknytning
 description: Hva du kan lagre i datamodellen
 weight: 50
-tags: [needsReview, translate]
+tags: [needsReview]
 ---
 
 ## Slik lagrer du valgte alternativer

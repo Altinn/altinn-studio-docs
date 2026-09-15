@@ -2,7 +2,7 @@
 draft: true
 headless: true
 hidden: true
-tags: [needsReview, translate]
+tags: [needsReview]
 ---
 
 1. Legg til en ny mappe under `App/ui` for signeringssteget. Mappen må ha samme navn som ID-en til oppgaven i `process.bpmn`, for eksempel `SigningTask`.

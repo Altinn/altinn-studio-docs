@@ -3,7 +3,7 @@ draft: true
 title: Signering med roller og tilgangspakker
 linktitle: Rolle/tilgangspakke
 description: Slik setter du opp signering basert på rolle eller tilgangspakke.
-tags: [rollebasert, signering, needsReview, translate, missingDesignerDocs]
+tags: [rollebasert, signering, needsReview, missingDesignerDocs]
 
 aliases:
 - /nb/altinn-studio/guides/signing/role-based-signing

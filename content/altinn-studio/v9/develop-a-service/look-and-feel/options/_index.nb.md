@@ -5,7 +5,7 @@ linktitle: Svaralternativer
 description: Slik konfigurerer du svaralternativer for en app
 toc: true
 weight: 140
-tags: [needsReview, translate]
+tags: [needsReview]
 aliases:
 - /nb/altinn-studio/guides/options
 - /nb/altinn-studio/v8/reference/data/options

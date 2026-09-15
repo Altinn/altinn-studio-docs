@@ -3,7 +3,7 @@ draft: true
 title: Signering
 linktitle: Signering
 description: Om signering i en Altinn-app
-tags: [signering, needsReview, translate]
+tags: [signering, needsReview]
 
 aliases:
 - /nb/altinn-studio/guides/signing/

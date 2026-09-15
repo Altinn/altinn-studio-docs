@@ -2,7 +2,7 @@
 draft: true
 headless: true
 hidden: true
-tags: [needsReview, translate]
+tags: [needsReview]
 ---
 
 > Dette steget må du gjøre manuelt. Støtte for konfigurasjon i Altinn Studio kommer senere.

@@ -3,7 +3,7 @@ draft: true
 title: Altinn Studio-tilganger
 linktitle: Studio
 description: Slik konfigurerer du tilganger for team i Altinn Studio.
-tags: [needsReview, translate-to-english]
+tags: [needsReview]
 toc: true
 weight: 200
 aliases:

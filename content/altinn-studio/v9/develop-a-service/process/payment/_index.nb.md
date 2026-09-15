@@ -3,7 +3,7 @@ draft: true
 title: Slik setter du opp betaling i appen
 linktitle: Betaling
 description: Slik integrerer du betaling i Altinn-appen din.
-tags: [betaling, needsReview, needsTranslation]
+tags: [betaling, needsReview]
 
 aliases:
 - /nb/altinn-studio/v8/guides/payment/

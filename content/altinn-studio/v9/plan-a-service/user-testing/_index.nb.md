@@ -2,7 +2,7 @@
 draft: true
 title: Brukerteste tjenester
 weight: 2
-tags: [needsReview, translate-to-english]
+tags: [needsReview]
 ---
 
 Har du laget en tjeneste i Altinn Studio? Da har du sikkert brukt tid på å få alt til å fungere teknisk. Men vet du hvordan det oppleves for brukeren? Brukertesting er en enkel måte å finne ut av det. Med noen få enkle grep kan du avdekke problemer og forbedre tjenesten din.
