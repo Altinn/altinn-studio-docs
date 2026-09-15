@@ -20,10 +20,13 @@ Slik henger det sammen:
 - Plattformen rullerer nøkkelen. Appen tar i bruk den nye nøkkelen uten at du starter den på nytt.
 - Appbibliotekene leser filen direkte, gjennom en konfigurasjonskilde som bare Maskinporten-klienten har tilgang til.
 
-Legitimasjonen går altså aldri gjennom konfigurasjonen til appen, og appen kan ikke peke den innebygde klienten mot en annen identitet. Det betyr to ting i praksis:
+I et publisert miljø går legitimasjonen altså aldri gjennom konfigurasjonen til appen, og appen kan ikke peke den innebygde klienten mot en annen identitet. Det betyr tre ting i praksis:
 
-- **En `MaskinportenSettings`-seksjon i `appsettings.json` har ingen virkning.** Appen leser den ikke. Slett den. Ligger det en privat nøkkel der, bør du fjerne den fra repositoriet uansett.
+- **En `MaskinportenSettings`-seksjon i `appsettings.json` har ingen virkning i et publisert miljø.** Appen leser den ikke. Slett den. Ligger det en privat nøkkel der, bør du fjerne den fra repositoriet uansett.
 - **Du kan ikke konfigurere den innebygde klienten fra appkoden.** Metodene som gjorde det i v8, finnes ikke lenger. Se [Kommer du fra v8?](#fra-v8).
+- **Filen kan ikke flyttes.** Appen leser den fra ett sted, og ingen konfigurasjonsnøkkel endrer det.
+
+Det ene unntaket gjelder localtest, der det ikke finnes noen levert klient å fortrenge. Se [Kjøre appen lokalt](#lokal-kjoring).
 
 {{% notice info %}}
 `studioctl app upgrade v9` sier fra om en `MaskinportenSettings`-seksjon som ikke lenger har noen virkning, og om kode som kaller metodene v9 har fjernet. Verktøyet endrer ikke filene for deg, fordi det du skal gjøre i stedet er et valg bare du kan ta.
@@ -94,35 +97,60 @@ public class Eksempel(IMaskinportenClient maskinporten)
 
 ## Kjøre appen lokalt {#lokal-kjoring}
 
-En app som kjører lokalt får ingen klient fra Altinn Studio, siden klienten hører til miljøet du publiserer til. Vil du prøve et Maskinporten-kall lokalt, må du skaffe en `maskinporten-settings.json` selv og fortelle appen hvor den ligger. Det gjør du med konfigurasjonsnøkkelen `MaskinportenSettingsFilepath`, som bare inneholder en filsti.
+Appen trenger ingen Maskinporten-klient for å kjøre lokalt. Tokenene appen bruker mot Altinn-plattformen, kommer fra tokengeneratoren i localtest, ikke fra Maskinporten. Egen legitimasjon trenger du bare hvis du skal prøve integrasjonen din mot et ekte Maskinporten-testmiljø, for eksempel en Fiks Arkiv-sending.
+
+Da kan du la appen bruke en testklient du har laget selv: en app som kjører mot localtest, leser en `MaskinportenSettings`-seksjon fra sin egen konfigurasjon. Tre regler gjelder for den seksjonen:
+
+- **Bare på localtest.** En publisert app leser den ikke i det hele tatt. Appen kjenner igjen localtest på vertsnavnet den kjører på.
+- **Bare når appen ikke har fått legitimasjon fra plattformen.** Har plattformen lagt inn legitimasjon, er det den som gjelder.
+- **Hele settet eller ingenting.** De to settene blandes aldri, så du kan ikke ende opp med klient-ID fra det ene og nøkkel fra det andre.
+
+Du har to steder å legge legitimasjonen. Velg ett av dem.
+
+### Bruke dotnet user-secrets
+
+Dette er det tryggeste, siden den private nøkkelen aldri kommer i nærheten av repositoriet. Appmalen har ingen `UserSecretsId`, så du klargjør appen først:
+
+```bash
+cd App
+dotnet user-secrets init
+
+dotnet user-secrets set \
+  "MaskinportenSettings:authority" \
+  "https://test.maskinporten.no/"
+
+dotnet user-secrets set \
+  "MaskinportenSettings:clientId" "din-klient-id"
+
+dotnet user-secrets set \
+  "MaskinportenSettings:jwkBase64" "base64-kodet JWK"
+```
+
+Appen leser user secrets når den kjører i utviklingsmiljøet, og det er miljøet appmalen starter den i. Vil du heller oppgi JWK-en felt for felt enn som base64, setter du én verdi per felt: `MaskinportenSettings:jwk:kid`, `MaskinportenSettings:jwk:kty`, `MaskinportenSettings:jwk:n` og så videre.
+
+### Bruke appsettings.Local.json
+
+Appbibliotekene laster `App/appsettings.Local.json` hvis filen finnes. Legg seksjonen der:
 
 {{< code-title >}}
-App/appsettings.Development.json
+App/appsettings.Local.json
 {{< /code-title >}}
 
 ```json
 {
-  "MaskinportenSettingsFilepath": "/sti/til/filen.json"
-}
-```
-
-Filen har samme form som den plattformen legger inn i appen: en `MaskinportenSettings`-seksjon med autoritet, klient-ID og nøkkel.
-
-```json
-{
   "MaskinportenSettings": {
-    "Authority": "https://test.maskinporten.no/",
-    "ClientId": "",
-    "JwkBase64": ""
+    "authority": "https://test.maskinporten.no/",
+    "clientId": "din-klient-id",
+    "jwkBase64": "base64-kodet JWK"
   }
 }
 ```
 
-Nøkkelen kan du oppgi enten som `JwkBase64`, slik eksempelet viser, eller som et `Jwk`-objekt. Plattformen bruker `Jwk`.
-
 {{% notice warning %}}
-Legg aldri en privat nøkkel i repositoriet. Legg filen utenfor appmappen, og la `MaskinportenSettingsFilepath` peke dit.
+**Merk stor L i `Local`.** Appen ser etter `appsettings.Local.json`. På Linux laster den ikke en fil som heter `appsettings.local.json`, og du får ingen feilmelding om det.
 {{% /notice %}}
+
+V9-appmalen har `appsettings.Local.json` i `.gitignore`, så filen holder seg utenfor repositoriet. Kontroller likevel at din egen app faktisk ignorerer den før du legger inn en privat nøkkel.
 
 ## Trenger du et scope appen ikke har? {#nytt-scope}
 
@@ -153,6 +181,7 @@ Dette er endret fra v8:
 - **`IFiksSetupBuilder.WithMaskinportenConfig` finnes ikke lenger.** Fiks IO-klienten bruker appens innebygde Maskinporten-klient og trenger ingen egen Maskinporten-konfigurasjon. Se [Fiks Arkiv]({{< relref "/altinn-studio/v9/receive-data/fiks-arkiv" >}}).
 - **`MaskinportenSettings` og `JwkWrapper` er ikke lenger offentlige typer.** Verken `Configure<T>` eller `GetSection(...).Get<T>()` får tak i legitimasjonen.
 - **En `MaskinportenSettings`-seksjon i `appsettings.json` er død konfigurasjon.** Slett den, og slett tilsvarende secrets i Azure Key Vault hvis de bare var der for den innebygde klienten.
+- **`MaskinportenSettingsFilepath` finnes ikke lenger**, og `AppSettings:RuntimeSecretsDirectory` flytter heller ikke innstillingsfilen. En app som kunne flytte filen, kunne gi seg selv en annen identitet. Skal du teste mot Maskinporten lokalt, se [Kjøre appen lokalt](#lokal-kjoring).
 - **Den andre, «interne» klientvarianten er borte.** Seksjonen `MaskinportenSettingsInternal` og filen `maskinporten-settings-internal.json` finnes ikke lenger.
 - **Sporingsdataene fra appen har ikke lenger attributtet `maskinporten.variant`.** Pek om dashbord og søk som grupperer eller filtrerer på det.
 
@@ -168,4 +197,4 @@ Dette er uendret:
 
 - Du bruker klienten på nøyaktig samme måte som før, med `IMaskinportenClient` eller med `UseMaskinportenAuthorization` på en HTTP-klient.
 - Plattformen rullerer nøkkelen uten at appen må starte på nytt.
-- `MaskinportenSettingsFilepath` sier fortsatt hvor innstillingsfilen ligger. Det er slik en app som kjører utenfor et publisert miljø får tak i en.
+- Du kan fortsatt prøve din egen Maskinporten-integrasjon fra en lokal kjøring. Du oppgir testklienten på en annen måte enn før, men [muligheten er den samme](#lokal-kjoring).

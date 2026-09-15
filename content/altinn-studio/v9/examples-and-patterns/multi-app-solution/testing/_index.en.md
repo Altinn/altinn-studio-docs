@@ -31,7 +31,7 @@ This means you can only build the individual apps and view their appearance in t
 When running the app locally in app-localtest, you can test all the logic in app A up to the point where the instantiation request to app B is triggered.
 A local run does not provision the runtime Maskinporten client secret that is created during deployment.
 
-To test against real Maskinporten-protected APIs locally, supply a `maskinporten-settings.json` of your own and point the `MaskinportenSettingsFilepath` configuration key at it. See [Kjøre appen lokalt](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/#lokal-kjoring) (documentation available in Norwegian only).
+To test against real Maskinporten-protected APIs locally, put a test client of your own in a `MaskinportenSettings` section in the app's configuration, preferably with `dotnet user-secrets`. An app running against localtest reads that section. See [Kjøre appen lokalt](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/#lokal-kjoring) (documentation available in Norwegian only).
 
 {{% notice warning %}}
 Be very careful with this modification. You must not share these keys by uploading them to Gitea.
