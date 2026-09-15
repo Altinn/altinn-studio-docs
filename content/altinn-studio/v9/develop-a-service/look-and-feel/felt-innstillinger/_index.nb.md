@@ -24,13 +24,10 @@ Du kan overstyre denne oppførselen for valgfrie felt med `labelSettings` på en
 
 ```json
 {
-  {
-    "id": "input-felt1",
-    "type": "Input",
-    ...
-    "labelSettings": {
-      "optionalIndicator": true
-    }
+  "id": "input-felt1",
+  "type": "Input",
+  "labelSettings": {
+    "optionalIndicator": true
   }
 }
 ```
@@ -47,12 +44,9 @@ Du kan sette en tegngrense for et tekstfelt ved å legge til `maxLength`-egenska
 
 ```json
 {
-  {
-    "id": "input-felt1",
-    "type": "Input",
-    ...
-    "maxLength": 10
-  }
+  "id": "input-felt1",
+  "type": "Input",
+  "maxLength": 10
 }
 ```
 
@@ -61,18 +55,19 @@ Skal du kontrollere selve antallet tegn, må du også legge til `maxLength`-egen
 
 ## Konfigurere automatisk lagring
 
+{{% notice info %}}
+Denne delen sjekkes opp mot nyere versjoner av app-frontend. Det er uklart om du fortsatt kan skru av autolagring helt ved å sette `saveWhileTyping` til `false`, eller om egenskapen nå kun styrer forsinkelsen.
+{{% /notice %}}
+
 `Input`-komponenter, `TextArea`-komponenter og `Address`-komponenter (`AddressComponent` i v3) lagrer endringer automatisk mens brukeren skriver. Som standard skjer dette 400 millisekunder etter at brukeren sist skrev noe. Når appen lagrer feltet, kjører den også valideringer og eventuelle triggere. Hvis disse valideringene og triggerne bruker mye ressurser, kan du øke tiden det tar før appen lagrer feltet automatisk, eller skru av funksjonaliteten helt.
 
 Du styrer dette med `saveWhileTyping`-egenskapen på en komponent i layoutfilen. I eksempelet under lagrer appen dataene to sekunder etter at brukeren slutter å skrive i feltet.
 
-```json {hl_lines=[6]}
+```json {hl_lines=[4]}
 {
-  {
-    "id": "input-felt1",
-    "type": "Input",
-    ...
-    "saveWhileTyping": 2000
-  }
+  "id": "input-felt1",
+  "type": "Input",
+  "saveWhileTyping": 2000
 }
 ```
 
