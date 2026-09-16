@@ -17,7 +17,7 @@ I denne oppgavetypen viser applikasjonen et skjema som kan fylles ut. Du kan red
 
 I denne oppgavetypen viser applikasjonen noen standardtekster, og brukeren kan velge å _bekrefte_ for å gå videre.
 
-Du kan overstyre tekstene ved å legge inn tekstnøkkel som hører til hver tekst i språkfilene for appen. [Les mer om hvordan du legger inn tekster i språkfilene](/nb/altinn-studio/v8/reference/ux/texts/). Se under for oversikt over de forskjellige tekstnøklene du kan overstyre.
+Du kan overstyre tekstene ved å legge inn tekstnøkkel som hører til hver tekst i språkfilene for appen. [Les mer om hvordan du legger inn tekster i språkfilene]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/tekster" >}}). Se under for oversikt over de forskjellige tekstnøklene du kan overstyre.
 
 ![Bekreftelsesvisningen](confirm-step.png "Tekster du kan endre/overstyre i bekreftelsesvisningen")
 
@@ -54,7 +54,7 @@ Eksempel på overstyrte tekster i filen `resources.nb.json`:
 ```
 
 Merk at i eksempelet over har vi brukt html-taggen `<br/>` for å lage linjeskift.
-For lenke og utheving, [bruk markdown](/nb/altinn-studio/v8/reference/ux/texts#formatering-av-tekster).
+For lenke og utheving, [bruk markdown]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/tekster" >}}#formatere-tekster).
 
 Dette resulterer i følgende visning:
 
@@ -151,7 +151,7 @@ For et komplett oppsett av denne muligheten kan du se vår [eksempelapp](https:/
 
 Dette er et prosesssteg hvor applikasjonseieren sjekker utfylte data for å generere en tilbakemelding før alle data kan arkiveres.
 
-Du kan overstyre tekstene på siden ved å legge inn tekstnøkler som hører til hver tekst i språkfilene for appen. [Les mer om hvordan du legger inn tekster i språkfilene](/nb/altinn-studio/v8/reference/ux/texts/). Se under for oversikt over de forskjellige tekstnøklene du kan overstyre.
+Du kan overstyre tekstene på siden ved å legge inn tekstnøkler som hører til hver tekst i språkfilene for appen. [Les mer om hvordan du legger inn tekster i språkfilene]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/tekster" >}}). Se under for oversikt over de forskjellige tekstnøklene du kan overstyre.
 
 ![Tilbakemeldingsvisningen](feedback-default.png "Tekster du kan endre/overstyre i tilbakemeldingsvisningen")
 
@@ -179,7 +179,7 @@ Eksempel på overstyrte tekster i filen `resources.nb.json`:
 
 I denne oppgavetypen er prosessen ferdig og applikasjonen viser noen standardtekster.
 
-Du kan overstyre tekstene ved å legge inn tekstnøkkel som hører til hver tekst i språkfilene for appen. [Les mer om hvordan du legger inn tekster i språkfilene](/nb/altinn-studio/v8/reference/ux/texts/).
+Du kan overstyre tekstene ved å legge inn tekstnøkkel som hører til hver tekst i språkfilene for appen. [Les mer om hvordan du legger inn tekster i språkfilene]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/tekster" >}}).
 
 Hvis den reelle mottakeren av skjemaet er en annen organisasjon enn organisasjonen som eier appen, bør kvitteringen tydeliggjøre dette i `Mottaker`-feltet. Du kan gjøre dette ved å sette tekstresursen `appReceiver` til navnet på den reelle mottakeren.
 
@@ -358,7 +358,7 @@ Sluttresultatet i appen:
 
 Simple receipt er et konsept som er relevant for de applikasjonene som har aktivert `AutoDeleteOnProcessEnd: True` i `applicationmetadata.json`-filen. For mer informasjon om hva dette innebærer, [les her](../auto-delete/).
 
-Du kan også overstyre tekstene i denne kvitteringen ved å manuelt legge til hver definerte tekstnøkkel i appens tekstressursfil. [Les mer om hvordan du legger inn tekster i språkfilene](/nb/altinn-studio/v8/reference/ux/texts/). Følgende avsnitt viser en oversikt over hvilke tekster du kan tilpasse.
+Du kan også overstyre tekstene i denne kvitteringen ved å manuelt legge til hver definerte tekstnøkkel i appens tekstressursfil. [Les mer om hvordan du legger inn tekster i språkfilene]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/tekster" >}}). Følgende avsnitt viser en oversikt over hvilke tekster du kan tilpasse.
 
 ![Enkel kvitteringsvisning](simple-receipt-step.png "Tekster som kan endres/overstyres i kvitteringsvisningen")
 
