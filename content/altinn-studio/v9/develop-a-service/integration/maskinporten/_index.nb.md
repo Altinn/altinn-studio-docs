@@ -118,7 +118,7 @@ studioctl knytter klienten til app-ID-en i `App/config/applicationmetadata.json`
 JSON-en du gir studioctl, kan ha fire former:
 
 - **Den leverte innstillingsfilen**, altså legitimasjonen pakket i et `MaskinportenSettings`-objekt.
-- **Bare legitimasjonen**: `authority`, `clientId` og enten `jwk` eller `jwkBase64`.
+- **Bare legitimasjonen**: `authority`, `clientId` og enten `jwk` eller `jwkBase64`. Nøkkelen må være en komplett privat RSA-nøkkel, med alle feltene i JWK-en, slik appbibliotekene krever; mangler noe, sier studioctl fra med en gang i stedet for at appen feiler senere.
 - **En seksjon skrevet for pakken `Altinn.ApiClients.Maskinporten`**, med `ClientId`, `Environment` og `EncodedJwk`. studioctl regner om `test` til `https://test.maskinporten.no/` og `prod` til `https://maskinporten.no/`.
 - **En seksjon du har kopiert ut sammen med navnet sitt**, altså ett enkelt objekt med seksjonsnavnet ytterst, uansett hva seksjonen heter. Da slipper du å pakke om det du kopierte.
 
@@ -146,7 +146,7 @@ studioctl skriver aldri ut den private nøkkelen. `studioctl app maskinporten sh
 
 Starter du appen med `dotnet run` eller fra utviklingsverktøyet ditt, får den den samme variabelen. Appen kjører `studioctl app env --json` ved oppstart i utviklingsmiljøet, og variabelen er med der.
 
-Kjører du appen i container med `studioctl app run --mode container`, monterer studioctl mappen skrivebeskyttet på `/mnt/app-secrets`, der en publisert app finner sin egen. Containeren trenger ingen variabel.
+Kjører du appen i container med `studioctl app run --mode container`, monterer studioctl mappen skrivebeskyttet på `/mnt/app-secrets`, der en publisert app finner sin egen. Containeren trenger ingen variabel. Den kjører som din bruker, slik localtest-containerne gjør, så den kan lese mappen som bare du har tilgang til, og nøklene ASP.NET Core Data Protection bruker, får den i en egen mappe på `/mnt/keys`, som i et publisert miljø.
 
 Har du lagret en klient, viser `studioctl app run` den i oppstartsmeldingen, som `Maskinporten: din-klient-id (test)`.
 
@@ -157,10 +157,11 @@ Appbibliotekene godtar `STUDIOCTL_APP_SECRETS_DIR` bare på localtest. En publis
 Appen starter og kjører som før. Først når den faktisk ber om et Maskinporten-token, sier den fra:
 
 ```text
-No Maskinporten client is stored for this local run: nothing was read from
-'…/maskinporten-settings.json'. Store one with 'studioctl app maskinporten set';
-a running app picks it up without a restart.
+No Maskinporten client is stored for this local run. Store one with
+'studioctl app maskinporten set'; a running app picks it up without a restart.
 ```
+
+Meldingen kommer sammen med valideringsfeilene for feltene som mangler.
 
 En app som aldri ber om et Maskinporten-token, ser aldri denne meldingen.
 

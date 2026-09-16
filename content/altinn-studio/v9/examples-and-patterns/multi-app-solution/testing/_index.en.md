@@ -34,7 +34,7 @@ A local run does not provision the runtime Maskinporten client secret that is cr
 To test against real Maskinporten-protected APIs locally, store a test client of your own with `studioctl app maskinporten set`. studioctl provisions it to the app the way Altinn Studio does when you publish, so nothing goes into the app's own configuration. See [Kjøre appen lokalt](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/#lokal-kjoring) (documentation available in Norwegian only).
 
 {{% notice warning %}}
-Be very careful with this modification. You must not share these keys by uploading them to Gitea.
+Never upload these keys to Gitea. With studioctl they are not part of the app at all: studioctl keeps them, and the app receives them only for a local run.
 {{% /notice %}}
 
 After this modification, the app is correctly set up with a client that can be authorised with Maskinporten when sending the instantiation request to app B.
