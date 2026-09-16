@@ -101,7 +101,13 @@ Regelen er den samme lokalt som i et publisert miljø: appen leser aldri Maskinp
 
 ### Lagre klienten
 
-Du lagrer testklienten én gang:
+Du lagrer testklienten én gang. Kjør kommandoen uten noe mer, så spør studioctl deg om de tre verdiene etter hverandre: Maskinporten-miljøet (`test` eller `prod`), klient-ID-en og den private nøkkelen som base64-kodet JWK. Nøkkelen vises ikke mens du skriver eller limer den inn. Du trenger altså bare verdiene, ikke JSON-strukturen.
+
+```bash
+studioctl app maskinporten set
+```
+
+Har du klienten som JSON, gir du den med `--file` i stedet:
 
 ```bash
 studioctl app maskinporten set --file klient.json
@@ -126,13 +132,13 @@ Hadde v8-appen din legitimasjonen i en konfigurasjonsseksjon, limer du seksjonen
 
 ### Send nøkkelen på standard inn
 
-Den private nøkkelen skal aldri stå som et argument på kommandolinjen, der den havner i historikken til skallet. Uten `--file` leser studioctl klienten fra standard inn (`stdin`), og `--file -` betyr det samme. Da kan du sende klienten rett fra passordhvelvet ditt, eller lime den inn i terminalen:
+Den private nøkkelen skal aldri stå som et argument på kommandolinjen, der den havner i historikken til skallet. Vil du lime inn klienten som JSON i stedet for å svare på spørsmålene, ber du studioctl lese fra standard inn (`stdin`) med `--file -`. Da limer du inn JSON-en og avslutter inndataene med `Ctrl+D` (`Ctrl+Z` og Enter på Windows). Sender du JSON-en gjennom et rør, leser studioctl den fra standard inn uten `--file`.
 
 ```bash
 studioctl app maskinporten set --file -
 ```
 
-studioctl skriver aldri ut den private nøkkelen. `studioctl app maskinporten show` viser app-ID, klient-ID, Maskinporten-miljø, nøkkel-ID (`kid`) og hvor filen ligger, og sier fra hvis ingen klient er lagret. `studioctl app maskinporten remove` sletter klienten igjen.
+studioctl skriver aldri ut den private nøkkelen. `studioctl app maskinporten show` viser app-ID, klient-ID, Maskinporten-miljø og nøkkel-ID (`kid`), og sier fra hvis ingen klient er lagret. `studioctl app maskinporten remove` sletter klienten igjen.
 
 ### Appen henter klienten uten omstart
 
@@ -215,10 +221,12 @@ Hadde du testlegitimasjonen i en `MaskinportenSettings`-seksjon for å prøve in
 
 Ligger seksjonen i en appsettings-fil, kopierer du den derfra. Ligger den i user secrets, finner du verdiene med `dotnet user-secrets list` fra `App`-mappen.
 
-studioctl tar imot seksjonen med navnet sitt, så du trenger ikke pakke den om:
+Enklest er å kjøre `studioctl app maskinporten set` og svare på spørsmålene med verdiene fra seksjonen: `Environment` er miljøet, `ClientId` er klient-ID-en og `EncodedJwk` er nøkkelen.
+
+Vil du heller lime inn hele seksjonen, tar studioctl den imot med navnet sitt, så du trenger ikke pakke den om:
 
 ```bash
-studioctl app maskinporten set
+studioctl app maskinporten set --file -
 ```
 
 Lim inn seksjonen, og avslutt inndataene med `Ctrl+D` (`Ctrl+Z` og Enter på Windows):
