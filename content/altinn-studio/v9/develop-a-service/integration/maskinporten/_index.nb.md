@@ -101,7 +101,7 @@ Regelen er den samme lokalt som i et publisert miljø: appen leser aldri Maskinp
 
 ### Lagre klienten
 
-Du lagrer testklienten én gang. Kjør kommandoen uten noe mer, så spør studioctl deg om de tre verdiene etter hverandre: Maskinporten-miljøet (`test` eller `prod`), klient-ID-en og den private nøkkelen som base64-kodet JWK. Nøkkelen vises ikke mens du skriver eller limer den inn. Du trenger altså bare verdiene, ikke JSON-strukturen.
+Du lagrer testklienten én gang. Kjør kommandoen uten noe mer, så spør studioctl deg om de tre verdiene etter hverandre: Maskinporten-miljøet (`test` eller `prod`), klient-ID-en og den private nøkkelen som base64-kodet JWK. Nøkkelen vises ikke mens du skriver eller limer den inn, og du kan lime den inn slik Maskinporten viser den, også over flere linjer. Godtar studioctl ikke svaret, sier den hvorfor og spør igjen. Trykk Enter uten å skrive noe for å avbryte. Du trenger altså bare verdiene, ikke JSON-strukturen.
 
 ```bash
 studioctl app maskinporten set
