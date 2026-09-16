@@ -93,19 +93,60 @@ Legg til seksjoner dersom de er relevante:
 
 ## Egenskaper
 
-Følgende er en liste over tilgjengelige egenskaper for {{% title %}}. Listen er automatisk generert basert på komponentens JSON schema (se link).
+Følgende er en liste over tilgjengelige egenskaper for {{% title %}}. Listen er automatisk generert basert på komponentens JSON schema.
 
 {{% notice warning %}}
 Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over egenskaper kan derfor være noe unøyaktig.
 {{% /notice %}}
 
-<!-- Shortkoden `component-props` genererer automatisk en liste over komponentegenskaper fra komponentens JSON schema.
-Komponentnavnet kan gis eksplisitt som argument (f.eks. `component-props "Grid"`).
-Hvis ingen argument gis, henter shortkoden komponentnavnet fra 'schemaname' i frontmatter.
-Hvis komponenten ikke har JSON schema, kommenter ut tekst og shortcode i denne delen og lag evt. tabell manuelt med de viktigste egenskapene (kolonner: Egenskap, Type, Beskrivelse).
- -->
-
-{{% component-props %}}
+<p><p><strong>Required properties: </strong><code>id</code>,<code>type</code>,<code>rows</code></p><div class="adocs-property-table">
+<table>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+</tr><tr class="main-prop">
+<td><h4><code>id</code></h4></td>
+<td>string</td>
+<td>The component ID. Must be unique within all layouts/pages in a layout-set. Cannot end with &lt;dash&gt;&lt;number&gt;.<br></td></p>
+</tr><tr class="main-prop">
+    <td><h4><code>type</code></h4></td>
+    <td>string</td>
+    <td>The component type.<br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>textResourceBindings</code></h4></td>
+    <td>object</td>
+    <td>Text resource bindings for a component.<br></td>
+</tr><tr class="sub-prop">
+    <td><code>textResourceBindings.title</code></td>
+    <td>string</td>
+    <td><br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>hidden</code></h4></td>
+    <td>boolean</td>
+    <td>Boolean value or expression indicating if the component should be hidden. Defaults to false.<br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>pageBreak</code></h4></td>
+    <td>object</td>
+    <td><br></td>
+</tr><tr class="sub-prop">
+    <td><code>pageBreak.breakAfter</code></td>
+    <td>string</td>
+    <td>PDF only: Value or expression indicating whether a page break should be added after the component. Can be either: &#39;auto&#39; (default), &#39;always&#39;, or &#39;avoid&#39;.<br><strong>Example(s): </strong><code>auto</code>,<code>always</code>,<code>avoid</code><br></td>
+</tr><tr class="sub-prop">
+    <td><code>pageBreak.breakBefore</code></td>
+    <td>string</td>
+    <td>PDF only: Value or expression indicating whether a page break should be added before the component. Can be either: &#39;auto&#39; (default), &#39;always&#39;, or &#39;avoid&#39;.<br><strong>Example(s): </strong><code>auto</code>,<code>always</code>,<code>avoid</code><br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>renderAsSummary</code></h4></td>
+    <td>boolean</td>
+    <td>Boolean or expression indicating if the component should be rendered as a summary. Defaults to false.<br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>rows</code></h4></td>
+    <td>array</td>
+    <td>An array of rows to be rendered in the grid.<br></td>
+</tr></table>
+    </div>
 
 ## Konfigurering
 

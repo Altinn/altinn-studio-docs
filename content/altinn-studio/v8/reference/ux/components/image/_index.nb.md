@@ -63,13 +63,92 @@ For flere retningslinjer og eksempler, se [UUtilsynet](https://www.uutilsynet.no
 
 ## Egenskaper
 
-Følgende er en liste over tilgjengelige egenskaper for {{% title %}}. Listen er automatisk generert basert på komponentens JSON schema (se link).
+Følgende er en liste over tilgjengelige egenskaper for {{% title %}}. Listen er automatisk generert basert på komponentens JSON schema.
 
 {{% notice warning %}}
 Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over egenskaper kan derfor være noe unøyaktig.
 {{% /notice %}}
 
-{{% component-props %}}
+<p><p><strong>Required properties: </strong><code>id</code>,<code>type</code>,<code>src</code>,<code>width</code>,<code>align</code></p><div class="adocs-property-table">
+<table>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+</tr><tr class="main-prop">
+<td><h4><code>id</code></h4></td>
+<td>string</td>
+<td>The component ID. Must be unique within all layouts/pages in a layout-set. Cannot end with &lt;dash&gt;&lt;number&gt;.<br></td></p>
+</tr><tr class="main-prop">
+    <td><h4><code>type</code></h4></td>
+    <td>string</td>
+    <td>The component type.<br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>textResourceBindings</code></h4></td>
+    <td>object</td>
+    <td>Text resource bindings for a component.<br></td>
+</tr><tr class="sub-prop">
+    <td><code>textResourceBindings.altTextImg</code></td>
+    <td>string</td>
+    <td>Alternate text is read aloud to someone using assistive technology, but is hidden from a sighted user.<br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>align</code></h4></td>
+    <td>string</td>
+    <td>Align image<br><strong>Enum: </strong>[flex-start, center, flex-end, space-between, space-around, space-evenly]<br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>grid</code></h4></td>
+    <td>object</td>
+    <td>Settings for the components grid. Used for controlling horizontal alignment.<br><strong>Example(s): </strong><code>{xs: 12}</code><br><tr class="sub-prop">
+    <td><code>gridSettings.innerGrid</code></td>
+    <td>gridProps</td>
+    <td>Optional grid for inner component content like input field or dropdown. Used to avoid inner content filling the component width.<br><strong>Example(s): </strong><code>{xs: 12}</code><br></b><strong>See</strong>: <a href="/nb/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
+</tr><tr class="sub-prop">
+    <td><code>gridSettings.labelGrid</code></td>
+    <td>gridProps</td>
+    <td>Optional grid for the component label. Used in combination with innerGrid to align labels on the side.<br><strong>Example(s): </strong><code>{xs: 12}</code><br></b><strong>See</strong>: <a href="/nb/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
+</tr></td>
+</tr><tr class="main-prop">
+    <td><h4><code>hidden</code></h4></td>
+    <td>boolean</td>
+    <td>Boolean value or expression indicating if the component should be hidden. Defaults to false.<br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>pageBreak</code></h4></td>
+    <td>object</td>
+    <td><br></td>
+</tr><tr class="sub-prop">
+    <td><code>pageBreak.breakAfter</code></td>
+    <td>string</td>
+    <td>PDF only: Value or expression indicating whether a page break should be added after the component. Can be either: &#39;auto&#39; (default), &#39;always&#39;, or &#39;avoid&#39;.<br><strong>Example(s): </strong><code>auto</code>,<code>always</code>,<code>avoid</code><br></td>
+</tr><tr class="sub-prop">
+    <td><code>pageBreak.breakBefore</code></td>
+    <td>string</td>
+    <td>PDF only: Value or expression indicating whether a page break should be added before the component. Can be either: &#39;auto&#39; (default), &#39;always&#39;, or &#39;avoid&#39;.<br><strong>Example(s): </strong><code>auto</code>,<code>always</code>,<code>avoid</code><br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>renderAsSummary</code></h4></td>
+    <td>boolean</td>
+    <td>Boolean or expression indicating if the component should be rendered as a summary. Defaults to false.<br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>src</code></h4></td>
+    <td>object</td>
+    <td>Image source<br></td>
+</tr><tr class="sub-prop">
+    <td><code>src.en</code></td>
+    <td>string</td>
+    <td>English<br></td>
+</tr><tr class="sub-prop">
+    <td><code>src.nb</code></td>
+    <td>string</td>
+    <td>Bokmål<br></td>
+</tr><tr class="sub-prop">
+    <td><code>src.nn</code></td>
+    <td>string</td>
+    <td>Nynorsk<br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>width</code></h4></td>
+    <td>string</td>
+    <td>Image width<br><strong>Example(s): </strong><code>100%</code><br></td>
+</tr></table>
+    </div>
 
 ## Konfigurering
 
