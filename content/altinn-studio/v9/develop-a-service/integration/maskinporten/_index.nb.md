@@ -11,16 +11,15 @@ En Altinn-app kan gjøre autoriserte kall på vegne av virksomheten som eier app
 
 ## Appen har én Maskinporten-identitet {#en-identitet}
 
-Appen har nøyaktig én identitet i Maskinporten: klienten Altinn Studio oppretter for den. Du bestemmer hvilke scopes klienten skal ha. Resten håndterer plattformen.
+Appen har nøyaktig én identitet i Maskinporten, som opprettes og vedlikeholdes av Altinn Studio. Du bestemmer hvilke scopes klienten skal ha. Resten håndterer plattformen.
 
 Slik henger det sammen:
 
 - Du legger til scopene appen trenger i Altinn Studio, og publiserer appen.
 - Altinn Studio oppretter Maskinporten-klienten i miljøet du publiserer til, og leverer klient-ID og nøkkel til appen som en hemmelighet plattformen klargjør.
 - Plattformen rullerer nøkkelen. Appen tar i bruk den nye nøkkelen uten at du starter den på nytt.
-- Appbibliotekene leser legitimasjonen gjennom en egen kanal for hemmelighetene plattformen klargjør, utenfor konfigurasjonen til appen.
 
-Legitimasjonen går altså aldri gjennom konfigurasjonen til appen, verken i et publisert miljø eller lokalt, og appen kan ikke peke den innebygde klienten mot en annen identitet. Det betyr tre ting i praksis:
+Provisjonerte hemmeligheter går aldri gjennom konfigurasjonen til appen, verken i et publisert miljø eller lokalt, og appen kan ikke peke den innebygde klienten mot en annen identitet. Det betyr i praksis:
 
 - **En `MaskinportenSettings`-seksjon i `appsettings.json` har ingen virkning.** Appen leser den ikke, og den leser den heller ikke fra user secrets eller miljøvariabler. Slett seksjonen. Ligger det en privat nøkkel der, bør du fjerne den fra repositoriet uansett.
 - **Du kan ikke konfigurere den innebygde klienten fra appkoden.** Metodene som gjorde det i v8, finnes ikke lenger. Se [Kommer du fra v8?](#fra-v8).
@@ -75,7 +74,7 @@ Bruk `UseMaskinportenAuthorization` mot API-er som tar imot Maskinporten-token d
 
 ### Hente et token selv
 
-Trenger du tokenet til noe annet enn en HTTP-klient, injiserer du `IMaskinportenClient` i tjenesten din.
+Trenger du tokenet til noe annet enn en HTTP-klient, kan du bruke `IMaskinportenClient` fra [dependency injection](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection) direkte i tjenesten din.
 
 {{< highlight csharp "linenos=false,hl_lines=7-8" >}}
 public class Eksempel(IMaskinportenClient maskinporten)
@@ -93,112 +92,60 @@ public class Eksempel(IMaskinportenClient maskinporten)
 }
 {{< / highlight >}}
 
-## Kjøre appen lokalt {#lokal-kjoring}
+## Trenger du et scope appen ikke har? {#nytt-scope}
 
-Hver v9-app trenger en Maskinporten-klient for å starte, lokalt like mye som publisert. Rekkefølgen er derfor lagre først, så kjøre: du lagrer klienten med `studioctl app maskinporten set` før du starter appen første gang.
+Legg scopet du trenger i Altinn Studio og publiser appen på nytt. Hvis du trenger hjelp kan du referere til veiledningen [Legge til Maskinporten-scopes]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten/add-scopes" >}}).
 
-Regelen er den samme lokalt som i et publisert miljø: appen leser aldri Maskinporten-legitimasjon fra sin egen konfigurasjon. I stedet leverer studioctl klienten til appen slik Altinn Studio gjør det når du publiserer.
+Finner du ikke scopet i Altinn Studio, har virksomheten din ennå ikke fått tilgang til det hos den som eier scopet. Den tilgangen avklarer du med den som eier scopet, ikke i Altinn Studio.
 
-Tokenene appen bruker mot Altinn-plattformen lokalt, kommer fra tokengeneratoren i localtest, ikke fra Maskinporten. Klienten du lagrer, er den appen bruker når den selv kaller et Maskinporten-beskyttet API, for eksempel i en Fiks Arkiv-sending mot testmiljøet til Fiks.
+## Kommunikasjon mellom lokal app og eksternt API {#lokal-kjoring}
 
-### Lagre klienten
+Hvis du kjører en lokal app som har behov for å snakke med et eksternt API, enten i _testmiljø_ eller _produksjon_, må du inntil videre provisjonere en Maskinporten-klient manuelt.
 
-Du lagrer klienten én gang. Kjør kommandoen uten noe mer, så spør studioctl deg om de tre verdiene etter hverandre: Maskinporten-miljøet (`test`, som er standardvalget, `prod`, eller en egen authority-adresse), klient-ID-en og den private nøkkelen, enten som base64-kodet JWK eller som JWK-JSON. Nøkkelen vises ikke mens du skriver eller limer den inn, og du kan lime den inn slik Maskinporten viser den, også over flere linjer. Godtar studioctl ikke svaret, sier den hvorfor og spør igjen. Trykk Enter uten å skrive noe for å avbryte. Du trenger altså bare verdiene, ikke JSON-strukturen.
+Eksempler på når dette behovet oppstår kan være ved testing av en integrasjon mot [Meldingstjenesten]({{< relref "/altinn-studio/v9/develop-a-service/integration/correspondence" >}}) eller [Varsling]({{< relref "/altinn-studio/v9/develop-a-service/integration/notifications" >}}).
+
+Oppsettet av en lokal Maskinporten-klient styres via kommandolinjeverktøyet `studioctl app maskinporten`. Her kan du vise, opprette og slette lokale klienter. Informasjonen lagres utenfor repositoriet til appen din, sammen med resten av konfigurasjonen til `studioctl`.
+
+
+{{% notice info %}}
+Alle kommandoene som omfatter `studioctl app` må kjøres fra repositoriet eller mappen der kildekoden til appen din ligger.
+{{% /notice %}}
+
+### Vise gjeldende klient
+
+Hvis du ønsker å vise hvilke Maskinporten-innstillinger som gjelder for appen din, kan du bruke følgende kommando:
+
+```bash
+studioctl app maskinporten show
+```
+
+### Lagre ny klient {#lokal-klient}
+
+For å lagre en ny Maskinporten-klient som skal brukes av appen din, kan du bruke følgende kommando:
 
 ```bash
 studioctl app maskinporten set
 ```
 
-Har du klienten som JSON, gir du den med `--file` i stedet:
+Du vil da bli tatt gjennom en veiledning der du kan skrive inn verdiene for _miljø_, _klient ID_ og _JWK-nøkkel_. Hvis du ønsker å heller lime inn en fil eller et JSON-objekt, kan du få vist alle alternativene slik:
 
 ```bash
-studioctl app maskinporten set --file klient.json
+studioctl app maskinporten set --help
 ```
-
-studioctl knytter klienten til app-ID-en i `App/config/applicationmetadata.json`, ikke til mappen du står i, så alle klonene dine av appen deler den samme klienten. studioctl tar vare på filen for deg, og bare du kan lese den. Du trenger ikke vite hvor den ligger: `show` viser klienten, `remove` fjerner den.
-
-JSON-en du gir studioctl, kan ha fire former:
-
-- **Den leverte innstillingsfilen**, altså legitimasjonen pakket i et `MaskinportenSettings`-objekt.
-- **Bare legitimasjonen**: `authority`, `clientId` og enten `jwk` eller `jwkBase64`. Nøkkelen må være en komplett privat RSA-nøkkel, med alle feltene i JWK-en, slik appbibliotekene krever; mangler noe, sier studioctl fra med en gang i stedet for at appen feiler senere.
-- **En seksjon skrevet for pakken `Altinn.ApiClients.Maskinporten`**, med `ClientId`, `Environment` og `EncodedJwk`. studioctl regner om `test` til `https://test.maskinporten.no/` og `prod` til `https://maskinporten.no/`.
-- **En seksjon du har kopiert ut sammen med navnet sitt**, altså ett enkelt objekt med seksjonsnavnet ytterst, uansett hva seksjonen heter. Da slipper du å pakke om det du kopierte.
-
-Store og små bokstaver i feltnavnene spiller ingen rolle. studioctl kontrollerer bare formen på klienten: at `authority` er en https-adresse, at klient-ID-en er der, at nøkkelen kommer i én av de to formene, og at den har en privat del. Kommandoen henter ikke noe token for å prøve klienten.
-
-studioctl godtar ikke en klient som autentiserer med sertifikat (`EncodedX509`, `CertificatePkcs12Path` eller `CertificateStoreThumbprint`). Appbibliotekene signerer med en JWK, så du må registrere en JWK på klienten i Maskinporten og bruke den i stedet.
-
-studioctl leser ikke JSON med kommentarer eller komma til slutt, og sier fra om det. Har appsettings-filen din kommentarer, tar du dem ikke med når du kopierer seksjonen.
-
-Hadde v8-appen din legitimasjonen i en konfigurasjonsseksjon, limer du seksjonen inn i `set`. Se [Testklienten du hadde lokalt](#lokal-testklient).
-
-### Send nøkkelen på standard inn
-
-Den private nøkkelen skal aldri stå som et argument på kommandolinjen, der den havner i historikken til skallet. Vil du lime inn klienten som JSON i stedet for å svare på spørsmålene, ber du studioctl lese fra standard inn (`stdin`) med `--file -`. Da limer du inn JSON-en og avslutter inndataene med `Ctrl+D` (`Ctrl+Z` og Enter på Windows). Sender du JSON-en gjennom et rør, leser studioctl den fra standard inn uten `--file`.
-
-```bash
-studioctl app maskinporten set --file -
-```
-
-studioctl skriver aldri ut den private nøkkelen. `studioctl app maskinporten show` viser app-ID, klient-ID, Maskinporten-miljø og nøkkel-ID (`kid`), og sier fra hvis ingen klient er lagret. `studioctl app maskinporten remove` sletter klienten igjen.
-
-### Slik når klienten appen
-
-studioctl forteller appen hvor de klargjorte hemmelighetene ligger, slik Altinn Studio gjør det for en publisert app. Det virker likt enten du starter appen med `studioctl app run`, med `dotnet run` eller fra utviklingsverktøyet ditt: studioctl må være installert og ligge i søkestien (`PATH`), for appen spør studioctl om det lokale miljøet sitt når den starter i utviklingsmiljøet.
-
-Kjører du appen i container med `studioctl app run --mode container`, kjører studioctl appbildet som din egen bruker, slik localtest-containerne kjører. Da kan appen lese den lagrede legitimasjonen, som studioctl monterer skrivebeskyttet der en publisert app finner sin egen. Nøklene ASP.NET Core Data Protection bruker, får appen i en egen mappe som består mellom kjøringer, som i et publisert miljø.
-
-Har du lagret en klient, viser `studioctl app run` den i oppstartsmeldingen, som `Maskinporten: din-klient-id (test)`.
-
-Lagrer du en ny klient mens appen kjører, tar appen den i bruk uten at du starter den på nytt. Det er den samme mekanismen som lar plattformen rullere nøkkelen på en app som kjører.
-
-### Hvis ingen klient er lagret
-
-Appen starter ikke. Den sier fra med en gang, og sier hva du skal kjøre:
-
-```text
-No Maskinporten client is stored for this local run. Store one with
-'studioctl app maskinporten set', then start the app again.
-```
-
-Meldingen kommer sammen med valideringsfeilene for feltene som mangler. Lagre klienten, og start appen igjen.
 
 ### Velg riktig Maskinporten-miljø
 
-En klient virker bare i miljøet du registrerte den i. Fiks-testmiljøet godtar for eksempel bare klienter fra `test.maskinporten.no`. Derfor merker `show` klienten med `test` eller `prod`, ut fra verten i `authority`, slik at du ser hvilket miljø den hører til.
-
-## Trenger du et scope appen ikke har? {#nytt-scope}
-
-Legg scopet til på klienten Altinn Studio har opprettet for appen, og publiser appen på nytt. Det er den eneste veien: appen kan ikke bytte til en annen klient for å få et scope den mangler. Se [Legge til Maskinporten-scopes]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten/add-scopes" >}}).
-
-Finner du ikke scopet i Altinn Studio, har virksomheten din ennå ikke fått tilgang til det hos den som eier scopet. Den tilgangen avklarer du med den som eier scopet, ikke i Altinn Studio.
-
-## Trenger du en annen identitet? {#egen-klient}
-
-Noen integrasjoner krever at appen opptrer som noe annet enn tjenesteeieren, med en egen klient og en egen nøkkel. Til det bruker du pakken [Altinn.ApiClients.Maskinporten](https://github.com/Altinn/altinn-apiclient-maskinporten). Det er den støttede måten å bruke egen legitimasjon på.
-
-Pakken leser konfigurasjonen sin fra en seksjon du velger selv, og bruker `MaskinportenSettings` som standardnavn. I v9 er det navnet trygt å bruke igjen: den innebygde klienten leser ikke lenger appkonfigurasjonen, så de to kan ikke komme i veien for hverandre. `studioctl app upgrade v9` kjenner igjen en seksjon som hører til pakken, og lar den stå.
-
-Slik går du frem:
-
-1. Registrer en ny Maskinporten-integrasjon i Samarbeidsportalen. Se [Opprette Maskinporten-klient](/nb/authorization/getting-started/maskinportenclient/).
-2. Legg klientdetaljene i Azure Key Vault i stedet for å sjekke dem inn. Se [secrets-dokumentasjonen](/nb/altinn-studio/v8/reference/configuration/secrets/) for hvordan appen leser fra Key Vault.
-3. Sett opp pakken i appen. Dokumentasjonen til pakken beskriver hvordan.
-{.floating-bullet-numbers}
-
-Den innebygde klienten fortsetter å bruke identiteten Altinn Studio har opprettet. Prosessoverganger, meldinger og andre plattformkall i appen går fortsatt som tjenesteeier.
+En klient virker bare i miljøet du registrerte den i. API-tilbydere i _testmiljø_ godtar for eksempel bare klienter fra `test.maskinporten.no`. Derfor merker `show` klienten med `test` eller `prod`, ut fra verten i `authority`, slik at du ser hvilket miljø den hører til.
 
 ## Kommer du fra v8? {#fra-v8}
 
 Dette er endret fra v8:
 
-- **`ConfigureMaskinportenClient` finnes ikke lenger**, verken varianten som tar en konfigurasjonssti eller den som tar en delegat. Et kall til metoden gir byggefeil. Trenger du et annet scope, legger du det til på klienten Altinn Studio har opprettet. Trenger du en annen identitet, bruker du [en egen klient](#egen-klient).
+- **`ConfigureMaskinportenClient` finnes ikke lenger**, verken varianten som tar en konfigurasjonssti eller den som tar en delegat. Et kall til metoden gir byggefeil. Trenger du et annet scope, legger du det til på klienten Altinn Studio har opprettet. Trenger du en annen identitet, bruker du [en egen klient](#skreddersydd).
 - **`IFiksSetupBuilder.WithMaskinportenConfig` finnes ikke lenger.** Fiks IO-klienten bruker appens innebygde Maskinporten-klient og trenger ingen egen Maskinporten-konfigurasjon. Se [Fiks Arkiv]({{< relref "/altinn-studio/v9/receive-data/fiks-arkiv" >}}).
-- **`MaskinportenSettings` og `JwkWrapper` er ikke lenger offentlige typer.** Verken `Configure<T>` eller `GetSection(...).Get<T>()` får tak i legitimasjonen.
-- **En `MaskinportenSettings`-seksjon i `appsettings.json` er død konfigurasjon.** Slett den, og slett tilsvarende secrets i Azure Key Vault hvis de bare var der for den innebygde klienten. Brukte du seksjonen til å teste lokalt, tar du legitimasjonen med deg først. Se [Testklienten du hadde lokalt](#lokal-testklient).
-- **`MaskinportenSettingsFilepath` finnes ikke lenger**, og `AppSettings:RuntimeSecretsDirectory` flytter heller ikke innstillingsfilen. En app som kunne flytte filen, kunne gi seg selv en annen identitet. Hvor filen ligger, er nå plattformens avgjørelse: lokalt leverer studioctl den. Se [Kjøre appen lokalt](#lokal-kjoring).
-- **Den andre, «interne» klientvarianten er borte.** Seksjonen `MaskinportenSettingsInternal` og filen `maskinporten-settings-internal.json` finnes ikke lenger.
-- **Sporingsdataene fra appen har ikke lenger attributtet `maskinporten.variant`.** Pek om dashbord og søk som grupperer eller filtrerer på det.
+- **`MaskinportenSettings` og `JwkWrapper` er ikke lenger offentlige typer.** Verken `Configure<T>` eller `GetSection(...).Get<T>()` får tak i disse innstillingene.
+- **En `MaskinportenSettings`-seksjon i `appsettings.json` er død konfigurasjon.** Slett den, og slett tilsvarende secrets i Azure Key Vault hvis de bare var der for den innebygde klienten. Brukte du seksjonen til å teste lokalt, kan du sette opp tilsvarende konfigurasjon med `studioctl`-verktøyet. Se [Lagre ny klient](#lokal-klient).
+- **`MaskinportenSettingsFilepath` finnes ikke lenger**, og `AppSettings:RuntimeSecretsDirectory` flytter heller ikke innstillingsfilen.
 
 Hadde appen sin egen Maskinporten-klient i v8, flytter du den slik:
 
@@ -212,34 +159,8 @@ Dette er uendret:
 
 - Du bruker klienten på nøyaktig samme måte som før, med `IMaskinportenClient` eller med `UseMaskinportenAuthorization` på en HTTP-klient.
 - Plattformen rullerer nøkkelen uten at appen må starte på nytt.
-- Du kan fortsatt prøve din egen Maskinporten-integrasjon fra en lokal kjøring. Du oppgir testklienten på en annen måte enn før, men [muligheten er den samme](#lokal-kjoring).
+- Du kan fortsatt prøve din egen Maskinporten-klient for lokal kjøring. Du oppgir testklienten på en annen måte enn før, men [muligheten er den samme](#lokal-kjoring).
 
-### Testklienten du hadde lokalt {#lokal-testklient}
+## Trenger du noe skreddersydd? {#skreddersydd}
 
-Hadde du testlegitimasjonen i en `MaskinportenSettings`-seksjon for å prøve integrasjonen din lokalt, flytter du den samme klienten over: kopier seksjonen, lim den inn i `set`, og slett den.
-
-Ligger seksjonen i en appsettings-fil, kopierer du den derfra. Ligger den i user secrets, finner du verdiene med `dotnet user-secrets list` fra `App`-mappen.
-
-Enklest er å kjøre `studioctl app maskinporten set` og svare på spørsmålene med verdiene fra seksjonen: `Environment` er miljøet, `ClientId` er klient-ID-en og `EncodedJwk` er nøkkelen.
-
-Vil du heller lime inn hele seksjonen, tar studioctl den imot med navnet sitt, så du trenger ikke pakke den om:
-
-```bash
-studioctl app maskinporten set --file -
-```
-
-Lim inn seksjonen, og avslutt inndataene med `Ctrl+D` (`Ctrl+Z` og Enter på Windows):
-
-```json
-{
-  "min-app--MaskinportenSettings": {
-    "ClientId": "din-klient-id",
-    "Environment": "test",
-    "EncodedJwk": "base64-kodet JWK"
-  }
-}
-```
-
-Har du seksjonen i en fil fra før, peker du på den med `--file` i stedet. Til slutt sletter du seksjonen fra appen. Appen leser den ikke lenger, og studioctl leverer klienten til de lokale kjøringene dine i stedet. Se [Kjøre appen lokalt](#lokal-kjoring).
-
-`studioctl app upgrade v9` navngir seksjonene appen har, både dem koden bandt med `ConfigureMaskinportenClient`, og den vanlige `MaskinportenSettings`-seksjonen, som konfigurasjon v9 aldri leser. Rapporten sier fra om at du bør lime seksjonen inn i `set` før du sletter den, og peker i tillegg ut objekter som ser ut som gjenglemt legitimasjon for den innebygde klienten.
+Den innebygde Maskinporten-klienten dekker et bredt behov og bør være tilstrekkelig for de fleste, men om du har krav til funksjonalitet som ikke støttes, kan du også fint benytte en tredjepartsløsning. For eksempel [Altinn.ApiClients.Maskinporten](https://github.com/Altinn/altinn-apiclient-maskinporten).
