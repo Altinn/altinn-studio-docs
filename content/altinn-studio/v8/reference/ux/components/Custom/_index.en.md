@@ -142,11 +142,11 @@ We are currently updating how we implement components, and the list of propertie
 </tr><tr class="sub-prop">
     <td><code>gridSettings.innerGrid</code></td>
     <td>gridProps</td>
-    <td>Optional grid for inner component content like input field or dropdown. Used to avoid inner content filling the component width.<br><strong>Example(s): </strong><code>{xs: 12}</code><br><strong>See</strong>: <a href="/nb/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
+    <td>Optional grid for inner component content like input field or dropdown. Used to avoid inner content filling the component width.<br><strong>Example(s): </strong><code>{xs: 12}</code><br><strong>See</strong>: <a href="/en/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
 </tr><tr class="sub-prop">
     <td><code>gridSettings.labelGrid</code></td>
     <td>gridProps</td>
-    <td>Optional grid for the component label. Used in combination with innerGrid to align labels on the side.<br><strong>Example(s): </strong><code>{xs: 12}</code><br><strong>See</strong>: <a href="/nb/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
+    <td>Optional grid for the component label. Used in combination with innerGrid to align labels on the side.<br><strong>Example(s): </strong><code>{xs: 12}</code><br><strong>See</strong>: <a href="/en/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
 </tr><tr class="main-prop">
     <td><h4><code>hidden</code></h4></td>
     <td>boolean</td>
