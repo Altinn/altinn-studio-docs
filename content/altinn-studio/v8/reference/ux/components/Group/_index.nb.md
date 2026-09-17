@@ -98,7 +98,7 @@ Følgende er en liste over tilgjengelige egenskaper for {{% title %}}.
 Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over egenskaper kan derfor være noe unøyaktig.
 {{% /notice %}}
 
-<p><p><strong>Required properties: </strong><code>id</code>,<code>type</code></p><div class="adocs-property-table">
+<p><strong>Required properties: </strong><code>id</code>,<code>type</code></p><div class="adocs-property-table">
 <table>
 <tr>
 <th><strong>Property</strong></th>
@@ -107,7 +107,7 @@ Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over 
 </tr><tr class="main-prop">
 <td><h4><code>id</code></h4></td>
 <td>string</td>
-<td>The component ID. Must be unique within all layouts/pages in a layout-set. Cannot end with &lt;dash&gt;&lt;number&gt;.<br></td></p>
+<td>The component ID. Must be unique within all layouts/pages in a layout-set. Cannot end with &lt;dash&gt;&lt;number&gt;.<br></td>
 </tr><tr class="main-prop">
     <td><h4><code>type</code></h4></td>
     <td>string</td>
@@ -167,7 +167,8 @@ Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over 
 </tr><tr class="main-prop">
     <td><h4><code>edit</code></h4></td>
     <td>groupEditOptions</td>
-    <td>Alternatives for edit view of repeating group<br><tr class="sub-prop">
+    <td>Alternatives for edit view of repeating group<br></td>
+</tr><tr class="sub-prop">
     <td><code>groupEditOptions.addButton</code></td>
     <td>boolean</td>
     <td>Boolean or expression indicating whether add new button should be shown or not under the table.<br></td>
@@ -211,19 +212,18 @@ Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over 
     <td><code>groupEditOptions.saveButton</code></td>
     <td>boolean</td>
     <td>Boolean or expression indicating whether save button should be shown or not for a given row<br></td>
-</tr></td>
 </tr><tr class="main-prop">
     <td><h4><code>grid</code></h4></td>
     <td>object</td>
-    <td>Settings for the components grid. Used for controlling horizontal alignment.<br><strong>Example(s): </strong><code>{xs: 12}</code><br><tr class="sub-prop">
+    <td>Settings for the components grid. Used for controlling horizontal alignment.<br><strong>Example(s): </strong><code>{xs: 12}</code><br></td>
+</tr><tr class="sub-prop">
     <td><code>gridSettings.innerGrid</code></td>
     <td>gridProps</td>
-    <td>Optional grid for inner component content like input field or dropdown. Used to avoid inner content filling the component width.<br><strong>Example(s): </strong><code>{xs: 12}</code><br></b><strong>See</strong>: <a href="/nb/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
+    <td>Optional grid for inner component content like input field or dropdown. Used to avoid inner content filling the component width.<br><strong>Example(s): </strong><code>{xs: 12}</code><br><strong>See</strong>: <a href="/nb/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
 </tr><tr class="sub-prop">
     <td><code>gridSettings.labelGrid</code></td>
     <td>gridProps</td>
-    <td>Optional grid for the component label. Used in combination with innerGrid to align labels on the side.<br><strong>Example(s): </strong><code>{xs: 12}</code><br></b><strong>See</strong>: <a href="/nb/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
-</tr></td>
+    <td>Optional grid for the component label. Used in combination with innerGrid to align labels on the side.<br><strong>Example(s): </strong><code>{xs: 12}</code><br><strong>See</strong>: <a href="/nb/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
 </tr><tr class="main-prop">
     <td><h4><code>hidden</code></h4></td>
     <td>boolean</td>
@@ -251,7 +251,8 @@ Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over 
 </tr><tr class="main-prop">
     <td><h4><code>panel</code></h4></td>
     <td>groupPanelOptions</td>
-    <td>Alternatives for panel view of repeating group<br><tr class="sub-prop">
+    <td>Alternatives for panel view of repeating group<br></td>
+</tr><tr class="sub-prop">
     <td><code>groupPanelOptions.groupReference</code></td>
     <td>object</td>
     <td>Reference to the group that is being displayed in the panel. Used for referencing another repeating group context.<br></td>
@@ -275,7 +276,6 @@ Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over 
     <td><code>groupPanelOptions.variant</code></td>
     <td>string</td>
     <td>Change the look of the panel.<br><strong>Enum: </strong>[info, warning, success]<br></td>
-</tr></td>
 </tr><tr class="main-prop">
     <td><h4><code>renderAsSummary</code></h4></td>
     <td>boolean</td>
