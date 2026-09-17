@@ -177,10 +177,10 @@ Rett småfeil (ofte grammatikk) raskt - tar vanligvis 5-10 min.
   - ❌ Feil: "layout set", "layout-sett", "form layout-filer"
   - ✅ Riktig: "layoutsett", "layoutfiler"
   - Forklaring: "layout" er innarbeidet i norsk teknisk språk, så vi skriver sammensatte ord i ett ord
-- **App i sammensetninger skrives med bindestrek**
+- **App i sammensetninger skrives med bindestrek (lokal regel for dette repoet)**
   - ❌ Feil: "apptittel", "appeier", "apprepoet"
   - ✅ Riktig: "app-tittel", "app-eier", "app-repoet"
-  - Forklaring: "app" er en forkortelse for "applikasjon", og skilles fra det tilhørende ordet med bindestrek. Gjelder ikke bøyningsformer av selve ordet ("appen", "appens") eller kode/filnavn (`appName`, `appsettings.json`)
+  - Forklaring: Dette er en bevisst lokal skriveregel for lesbarhet, ikke fordi "app" regnes som en forkortelse i offisiell rettskriving (Språkrådet klassifiserer "app" som et vanlig substantiv: "en app - appen - apper"). Gjelder ikke bøyningsformer av selve ordet ("appen", "appens") eller kode/filnavn (`appName`, `appsettings.json`)
 - Lenker skal helst være fullstendige setninger
 - Tall under 12: Skriv med bokstaver i løpende tekst ("fire filer", "tre alternativer")
   - Unntak: Statistikk, tabeller, eller når tallet er spesielt viktig ("maks 10 filer tillatt")
