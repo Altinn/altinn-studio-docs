@@ -29,15 +29,15 @@ Dette betyr at du bare kan bygge de individuelle appene og se utseendet deres i 
 ## Teste i app-localtest
 
 Når du kjører appen lokalt i app-localtest, kan du teste all logikken i app A til punktet der opprettelsesforespørselen til app B utløses.
-En lokal kjøring oppretter ikke runtime-secreten for Maskinporten-klienten som lages under publisering.
+En lokal kjøring får ikke Maskinporten-klienten Altinn Studio oppretter når du publiserer. Den lagrer du selv.
 
-Vil du teste mot ekte Maskinporten-beskyttede API-er lokalt, lagrer du din egen testklient med `studioctl app maskinporten set`. studioctl leverer den til appen slik Altinn Studio gjør når du publiserer, så du legger ingenting i appkonfigurasjonen. Se [Kjøre appen lokalt](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/#lokal-kjoring).
+En v9-app starter ikke uten en lagret Maskinporten-klient, så lagre testklienten din med `studioctl app maskinporten set` før du kjører appen første gang. studioctl leverer den til appen slik Altinn Studio gjør når du publiserer, så du legger ingenting i appkonfigurasjonen. Se [Kjøre appen lokalt](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/#lokal-kjoring).
 
 {{% notice warning %}}
 Nøklene skal aldri lastes opp til Gitea. Med studioctl blir de heller ikke en del av appen: studioctl tar vare på dem, og appen får dem bare når den kjører lokalt.
 {{% /notice %}}
 
-Etter denne endringen er appen riktig satt opp med en klient som kan autoriseres med Maskinporten når opprettelsesforespørselen sendes til app B.
+Med klienten lagret er appen riktig satt opp med en klient som kan autoriseres med Maskinporten når opprettelsesforespørselen sendes til app B.
 Denne forespørselen vil imidlertid ikke bli utført vellykket fordi app B ikke kjører.
 App-localtest kan bare håndtere én kjørende app, men hvis app B kjører i miljøet, helst i tt02 under test, kan du endre forespørselen til å peke på dette miljøet i stedet for local.altinn.cloud.
 Du gjør dette ved å endre envUrl i `AppClient.CreateNewInstance()`-metoden.

@@ -29,15 +29,15 @@ This means you can only build the individual apps and view their appearance in t
 ## Testing in app-localtest
 
 When running the app locally in app-localtest, you can test all the logic in app A up to the point where the instantiation request to app B is triggered.
-A local run does not provision the runtime Maskinporten client secret that is created during deployment.
+A local run does not get the Maskinporten client Altinn Studio provisions when you publish; you store one yourself.
 
-To test against real Maskinporten-protected APIs locally, store a test client of your own with `studioctl app maskinporten set`. studioctl provisions it to the app the way Altinn Studio does when you publish, so nothing goes into the app's own configuration. See [Kjøre appen lokalt](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/#lokal-kjoring) (documentation available in Norwegian only).
+A v9 app does not start without a stored Maskinporten client, so store your test client with `studioctl app maskinporten set` before the first local run. studioctl provisions it to the app the way Altinn Studio does when you publish, so nothing goes into the app's own configuration. See [Kjøre appen lokalt](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/#lokal-kjoring) (documentation available in Norwegian only).
 
 {{% notice warning %}}
 Never upload these keys to Gitea. With studioctl they are not part of the app at all: studioctl keeps them, and the app receives them only for a local run.
 {{% /notice %}}
 
-After this modification, the app is correctly set up with a client that can be authorised with Maskinporten when sending the instantiation request to app B.
+With the client stored, the app is correctly set up with a client that can be authorised with Maskinporten when sending the instantiation request to app B.
 However, this request will not be executed successfully because app B is not running.
 App-localtest can only handle one running app, but if app B is running in the environment, preferably in tt02 during test, you can modify the request to point to this environment instead of local.altinn.cloud.
 You do this by modifying the envUrl in the `AppClient.CreateNewInstance()` method.
