@@ -346,7 +346,7 @@ Content-Type: application/json; charset=utf-8
   ],
   "status": "New",
   "redirectUrl": "https://fiken.no/receipt",
-  "confirmUrl": "https://authn.ui.tt02.altinn.no/authfront/ui/auth/vendorrequest?id=d111dbab-d619-4f15-bf29-58fe570a9ae6"
+  "confirmUrl": "https://am.ui.tt02.altinn.no/authfront/ui/auth/vendorrequest?id=d111dbab-d619-4f15-bf29-58fe570a9ae6"
 }
 ```
 
