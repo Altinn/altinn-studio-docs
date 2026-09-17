@@ -99,7 +99,7 @@ Følgende er en liste over tilgjengelige egenskaper for {{% title %}}.
 Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over egenskaper kan derfor være noe unøyaktig.
 {{% /notice %}}
 
-<p><strong>Required properties: </strong><code>id</code>,<code>type</code>,<code>alternatives</code>,<code>default</code></p><div class="adocs-property-table">
+<p><strong>Required properties: </strong><code>id</code>,<code>type</code>,<code>dataListId</code>,<code>tableHeaders</code></p><div class="adocs-property-table">
 <table>
 <tr>
 <th><strong>Property</strong></th>
@@ -171,8 +171,16 @@ Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over 
     <td>PDF only: Value or expression indicating whether a page break should be added before the component. Can be either: &#39;auto&#39; (default), &#39;always&#39;, or &#39;avoid&#39;.<br><strong>Example(s): </strong><code>auto</code>,<code>always</code>,<code>avoid</code><br></td>
 </tr><tr class="main-prop">
     <td><h4><code>pagination</code></h4></td>
-    <td>$defs</td>
-    <td>Pagination<br></td>
+    <td>object</td>
+    <td>Optional pagination settings. Both alternatives and default are required when pagination is supplied.<br></td>
+</tr><tr class="sub-prop">
+    <td><code>pagination.alternatives</code></td>
+    <td>number[]</td>
+    <td>Page sizes the user can choose from.<br></td>
+</tr><tr class="sub-prop">
+    <td><code>pagination.default</code></td>
+    <td>number</td>
+    <td>The initial page size.<br></td>
 </tr><tr class="main-prop">
     <td><h4><code>renderAsSummary</code></h4></td>
     <td>boolean</td>
