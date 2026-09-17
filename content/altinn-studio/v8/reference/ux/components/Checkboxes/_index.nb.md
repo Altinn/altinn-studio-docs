@@ -59,7 +59,7 @@ Avkrysningsbokser brukes ofte i skjemaer for å samle input fra brukeren,
 
 ## Egenskaper
 
-Følgende er en liste over tilgjengelige egenskaper for {{% title %}}. Listen er automatisk generert basert på komponentens JSON schema.
+Følgende er en liste over tilgjengelige egenskaper for {{% title %}}.
 
 {{% notice warning %}}
 Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over egenskaper kan derfor være noe unøyaktig.
