@@ -97,15 +97,6 @@ Legg til seksjoner dersom de er relevante:
 
 -->
 
-## Egenskaper
-
-Følgende er en liste over tilgjengelige egenskaper for {{% title %}}. Listen er automatisk generert basert på komponentens JSON schema.
-
-{{% notice warning %}}
-Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over egenskaper kan derfor være noe unøyaktig.
-{{% /notice %}}
-
-<p><em>Failed to retrieve JSON schema for &lsquo;Address&rsquo;. Make sure the component schemaname is spelled correctly.</em></p>
 
 ## Konfigurering
 
