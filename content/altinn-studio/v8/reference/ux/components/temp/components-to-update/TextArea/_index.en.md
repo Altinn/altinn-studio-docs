@@ -202,8 +202,8 @@ We are currently updating how we implement components, and the list of propertie
     <td>Boolean or expression indicating if the component should be rendered as a summary. Defaults to false.<br></td>
 </tr><tr class="main-prop">
     <td><h4><code>saveWhileTyping</code></h4></td>
-    <td></td>
-    <td>Boolean or number. True = feature on (default), false = feature off (saves on focus blur), number = timeout in milliseconds (400 by default)<br></td>
+    <td>number</td>
+    <td>Delay in milliseconds before saving changes while typing. Defaults to 400.<br></td>
 </tr><tr class="main-prop">
     <td><h4><code>triggers</code></h4></td>
     <td>array</td>
