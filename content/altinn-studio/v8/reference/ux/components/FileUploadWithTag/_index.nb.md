@@ -195,7 +195,7 @@ Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over 
     <td>Boolean or expression indicating if the component should be rendered as a summary. Defaults to false.<br></td>
 </tr><tr class="main-prop">
     <td><h4><code>validFileEndings</code></h4></td>
-    <td></td>
+    <td>string | string[]</td>
     <td>A separated string of valid file endings to upload. If not set all endings are accepted.<br><strong>Example(s): </strong><code>.csv</code>,<code>.doc</code>,<code>.docx</code>,<code>.gif</code>,<code>.jpeg</code>,<code>.pdf</code>,<code>.txt</code><br></td>
 </tr></table>
     </div>
