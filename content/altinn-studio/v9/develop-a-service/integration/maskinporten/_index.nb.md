@@ -16,15 +16,15 @@ Appen har nøyaktig én identitet i Maskinporten: klienten Altinn Studio opprett
 Slik henger det sammen:
 
 - Du legger til scopene appen trenger i Altinn Studio, og publiserer appen.
-- Altinn Studio oppretter Maskinporten-klienten i miljøet du publiserer til, og legger klient-ID og nøkkel inn i appen som filen `maskinporten-settings.json`.
+- Altinn Studio oppretter Maskinporten-klienten i miljøet du publiserer til, og leverer klient-ID og nøkkel til appen som en hemmelighet plattformen klargjør.
 - Plattformen rullerer nøkkelen. Appen tar i bruk den nye nøkkelen uten at du starter den på nytt.
-- Appbibliotekene leser filen direkte, gjennom en konfigurasjonskilde som bare Maskinporten-klienten har tilgang til.
+- Appbibliotekene leser legitimasjonen gjennom en egen kanal for hemmelighetene plattformen klargjør, utenfor konfigurasjonen til appen.
 
 Legitimasjonen går altså aldri gjennom konfigurasjonen til appen, verken i et publisert miljø eller lokalt, og appen kan ikke peke den innebygde klienten mot en annen identitet. Det betyr tre ting i praksis:
 
 - **En `MaskinportenSettings`-seksjon i `appsettings.json` har ingen virkning.** Appen leser den ikke, og den leser den heller ikke fra user secrets eller miljøvariabler. Slett seksjonen. Ligger det en privat nøkkel der, bør du fjerne den fra repositoriet uansett.
 - **Du kan ikke konfigurere den innebygde klienten fra appkoden.** Metodene som gjorde det i v8, finnes ikke lenger. Se [Kommer du fra v8?](#fra-v8).
-- **Appen bestemmer ikke hvor filen ligger.** Det gjør plattformen appen kjører på: `/mnt/app-secrets/maskinporten-settings.json` i et publisert miljø, og lokalt mappen studioctl legger filen i. Se [Kjøre appen lokalt](#lokal-kjoring).
+- **Appen bestemmer ikke hvor legitimasjonen ligger.** Det gjør plattformen appen kjører på: Altinn Studio klargjør den for en publisert app, og studioctl for en lokal kjøring. Se [Kjøre appen lokalt](#lokal-kjoring).
 
 {{% notice info %}}
 `studioctl app upgrade v9` sier fra om en `MaskinportenSettings`-seksjon som ikke lenger har noen virkning, og om kode som kaller metodene v9 har fjernet. Verktøyet endrer ikke filene for deg, fordi det du skal gjøre i stedet er et valg bare du kan ta. Brukte du seksjonen til å teste lokalt, minner rapporten deg om å ta legitimasjonen med videre først.
@@ -95,13 +95,15 @@ public class Eksempel(IMaskinportenClient maskinporten)
 
 ## Kjøre appen lokalt {#lokal-kjoring}
 
-Appen trenger ingen Maskinporten-klient for å kjøre lokalt. Tokenene appen bruker mot Altinn-plattformen, kommer fra tokengeneratoren i localtest, ikke fra Maskinporten. Egen legitimasjon trenger du bare hvis du skal prøve integrasjonen din mot et ekte Maskinporten-testmiljø, for eksempel en Fiks Arkiv-sending.
+Hver v9-app trenger en Maskinporten-klient for å starte, lokalt like mye som publisert. Rekkefølgen er derfor lagre først, så kjøre: du lagrer klienten med `studioctl app maskinporten set` før du starter appen første gang.
 
-Regelen er den samme lokalt som i et publisert miljø: appen leser aldri Maskinporten-legitimasjon fra sin egen konfigurasjon. I stedet leverer studioctl klienten til appen slik Altinn Studio gjør det når du publiserer, som en fil i en mappe studioctl peker appen til.
+Regelen er den samme lokalt som i et publisert miljø: appen leser aldri Maskinporten-legitimasjon fra sin egen konfigurasjon. I stedet leverer studioctl klienten til appen slik Altinn Studio gjør det når du publiserer.
+
+Tokenene appen bruker mot Altinn-plattformen lokalt, kommer fra tokengeneratoren i localtest, ikke fra Maskinporten. Klienten du lagrer, er den appen bruker når den selv kaller et Maskinporten-beskyttet API, for eksempel i en Fiks Arkiv-sending mot testmiljøet til Fiks.
 
 ### Lagre klienten
 
-Du lagrer testklienten én gang. Kjør kommandoen uten noe mer, så spør studioctl deg om de tre verdiene etter hverandre: Maskinporten-miljøet (`test` eller `prod`), klient-ID-en og den private nøkkelen som base64-kodet JWK. Nøkkelen vises ikke mens du skriver eller limer den inn, og du kan lime den inn slik Maskinporten viser den, også over flere linjer. Godtar studioctl ikke svaret, sier den hvorfor og spør igjen. Trykk Enter uten å skrive noe for å avbryte. Du trenger altså bare verdiene, ikke JSON-strukturen.
+Du lagrer klienten én gang. Kjør kommandoen uten noe mer, så spør studioctl deg om de tre verdiene etter hverandre: Maskinporten-miljøet (`test`, som er standardvalget, `prod`, eller en egen authority-adresse), klient-ID-en og den private nøkkelen, enten som base64-kodet JWK eller som JWK-JSON. Nøkkelen vises ikke mens du skriver eller limer den inn, og du kan lime den inn slik Maskinporten viser den, også over flere linjer. Godtar studioctl ikke svaret, sier den hvorfor og spør igjen. Trykk Enter uten å skrive noe for å avbryte. Du trenger altså bare verdiene, ikke JSON-strukturen.
 
 ```bash
 studioctl app maskinporten set
@@ -140,30 +142,26 @@ studioctl app maskinporten set --file -
 
 studioctl skriver aldri ut den private nøkkelen. `studioctl app maskinporten show` viser app-ID, klient-ID, Maskinporten-miljø og nøkkel-ID (`kid`), og sier fra hvis ingen klient er lagret. `studioctl app maskinporten remove` sletter klienten igjen.
 
-### Appen henter klienten uten omstart
+### Slik når klienten appen
 
-`studioctl app run` forteller alltid appen hvor mappen ligger, gjennom miljøvariabelen `STUDIOCTL_APP_SECRETS_DIR`, også før du har lagret noe. Lagrer du en klient mens appen kjører, tar appen den i bruk uten at du starter den på nytt. Det er den samme mekanismen som lar plattformen rullere nøkkelen på en app som kjører: appbibliotekene følger med på filen.
+studioctl forteller appen hvor de klargjorte hemmelighetene ligger, slik Altinn Studio gjør det for en publisert app. Det virker likt enten du starter appen med `studioctl app run`, med `dotnet run` eller fra utviklingsverktøyet ditt: studioctl må være installert og ligge i søkestien (`PATH`), for appen spør studioctl om det lokale miljøet sitt når den starter i utviklingsmiljøet.
 
-Starter du appen med `dotnet run` eller fra utviklingsverktøyet ditt, får den den samme variabelen. Appen kjører `studioctl app env --json` ved oppstart i utviklingsmiljøet, og variabelen er med der.
-
-Kjører du appen i container med `studioctl app run --mode container`, monterer studioctl mappen skrivebeskyttet på `/mnt/app-secrets`, der en publisert app finner sin egen. Containeren trenger ingen variabel. Den kjører som din bruker, slik localtest-containerne gjør, så den kan lese mappen som bare du har tilgang til, og nøklene ASP.NET Core Data Protection bruker, får den i en egen mappe på `/mnt/keys`, som i et publisert miljø.
+Kjører du appen i container med `studioctl app run --mode container`, kjører studioctl appbildet som din egen bruker, slik localtest-containerne kjører. Da kan appen lese den lagrede legitimasjonen, som studioctl monterer skrivebeskyttet der en publisert app finner sin egen. Nøklene ASP.NET Core Data Protection bruker, får appen i en egen mappe som består mellom kjøringer, som i et publisert miljø.
 
 Har du lagret en klient, viser `studioctl app run` den i oppstartsmeldingen, som `Maskinporten: din-klient-id (test)`.
 
-Appbibliotekene godtar `STUDIOCTL_APP_SECRETS_DIR` bare på localtest. En publisert app leser den ikke.
+Lagrer du en ny klient mens appen kjører, tar appen den i bruk uten at du starter den på nytt. Det er den samme mekanismen som lar plattformen rullere nøkkelen på en app som kjører.
 
 ### Hvis ingen klient er lagret
 
-Appen starter og kjører som før. Først når den faktisk ber om et Maskinporten-token, sier den fra:
+Appen starter ikke. Den sier fra med en gang, og sier hva du skal kjøre:
 
 ```text
 No Maskinporten client is stored for this local run. Store one with
-'studioctl app maskinporten set'; a running app picks it up without a restart.
+'studioctl app maskinporten set', then start the app again.
 ```
 
-Meldingen kommer sammen med valideringsfeilene for feltene som mangler.
-
-En app som aldri ber om et Maskinporten-token, ser aldri denne meldingen.
+Meldingen kommer sammen med valideringsfeilene for feltene som mangler. Lagre klienten, og start appen igjen.
 
 ### Velg riktig Maskinporten-miljø
 
