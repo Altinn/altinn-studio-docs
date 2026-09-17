@@ -99,7 +99,7 @@ Følgende er en liste over tilgjengelige egenskaper for {{% title %}}.
 Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over egenskaper kan derfor være noe unøyaktig.
 {{% /notice %}}
 
-<p><p><strong>Required properties: </strong><code>id</code>,<code>type</code>,<code>dataModelBindings</code></p><div class="adocs-property-table">
+<p><strong>Required properties: </strong><code>id</code>,<code>type</code>,<code>dataModelBindings</code></p><div class="adocs-property-table">
 <table>
 <tr>
 <th><strong>Property</strong></th>
@@ -108,41 +108,41 @@ Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over 
 </tr><tr class="main-prop">
 <td><h4><code>id</code></h4></td>
 <td>string</td>
-<td>The component ID. Must be unique within all layouts/pages in a layout-set. Cannot end with &lt;dash&gt;&lt;number&gt;.<br></td></p>
+<td>The component ID. Must be unique within all layouts/pages in a layout-set. Cannot end with &lt;dash&gt;&lt;number&gt;.<br></td>
 </tr><tr class="main-prop">
     <td><h4><code>type</code></h4></td>
     <td>string</td>
     <td>The component type.<br></td>
 </tr><tr class="main-prop">
-    <td><h4><code>basicDataModelBindings</code></h4></td>
+    <td><h4><code>dataModelBindings</code></h4></td>
     <td>object</td>
     <td>Data model bindings for component<br></td>
 </tr><tr class="sub-prop">
-    <td><code>basicDataModelBindings.simpleBinding</code></td>
+    <td><code>dataModelBindings.simpleBinding</code></td>
     <td>string</td>
     <td>Data model binding for components connection to a single field in the data model<br></td>
 </tr><tr class="main-prop">
-    <td><h4><code>basicTextResources</code></h4></td>
+    <td><h4><code>textResourceBindings</code></h4></td>
     <td>object</td>
     <td>Text resource bindings for a component.<br></td>
 </tr><tr class="sub-prop">
-    <td><code>basicTextResources.description</code></td>
+    <td><code>textResourceBindings.description</code></td>
     <td>string</td>
     <td>The description text for the component<br></td>
 </tr><tr class="sub-prop">
-    <td><code>basicTextResources.help</code></td>
+    <td><code>textResourceBindings.help</code></td>
     <td>string</td>
     <td>The help text for the component<br></td>
 </tr><tr class="sub-prop">
-    <td><code>basicTextResources.shortName</code></td>
+    <td><code>textResourceBindings.shortName</code></td>
     <td>string</td>
     <td>The short name for the component (used in validation messages) (optional). If it is not specified, &#39;title&#39; text is used.<br></td>
 </tr><tr class="sub-prop">
-    <td><code>basicTextResources.tableTitle</code></td>
+    <td><code>textResourceBindings.tableTitle</code></td>
     <td>string</td>
     <td>The text shown in column title when component is used in repeating group (optional). If it is not specified, &#39;title&#39; text is used.<br></td>
 </tr><tr class="sub-prop">
-    <td><code>basicTextResources.title</code></td>
+    <td><code>textResourceBindings.title</code></td>
     <td>string</td>
     <td>The title/label text for the component<br></td>
 </tr><tr class="main-prop">
@@ -157,14 +157,18 @@ Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over 
     <td><h4><code>autocomplete</code></h4></td>
     <td>string</td>
     <td>The HTML autocomplete attribute lets web developers specify what if any permission the user agent has to provide automated assistance in filling out form field values, as well as guidance to the browser as to the type of information expected in the field.<br><strong>Enum: </strong>[on, off, name, honorific-prefix, given-name, additional-name, family-name, honorific-suffix, nickname, email, username, new-password, current-password, one-time-code, organization-title, organization, street-address, address-line1, address-line2, address-line3, address-level4, address-level3, address-level2, address-level1, country, country-name, postal-code, cc-name, cc-given-name, cc-additional-name, cc-family-name, cc-number, cc-exp, cc-exp-month, cc-exp-year, cc-csc, cc-type, transaction-currency, transaction-amount, language, bday, bday-day, bday-month, bday-year, sex, tel, tel-country-code, tel-national, tel-area-code, tel-local, tel-extension, url, photo]<br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>grid</code></h4></td>
+    <td>object</td>
+    <td>Optional settings for horizontal alignment of the component and its content.<br></td>
 </tr><tr class="sub-prop">
-    <td><code>gridSettings.innerGrid</code></td>
+    <td><code>grid.innerGrid</code></td>
     <td>gridProps</td>
-    <td>Optional grid for inner component content like input field or dropdown. Used to avoid inner content filling the component width.<br><strong>Example(s): </strong><code>{xs: 12}</code><br></b><strong>See</strong>: <a href="/nb/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
+    <td>Optional grid for inner component content like input field or dropdown. Used to avoid inner content filling the component width.<br><strong>Example(s): </strong><code>{xs: 12}</code><br><strong>See</strong>: <a href="/nb/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
 </tr><tr class="sub-prop">
-    <td><code>gridSettings.labelGrid</code></td>
+    <td><code>grid.labelGrid</code></td>
     <td>gridProps</td>
-    <td>Optional grid for the component label. Used in combination with innerGrid to align labels on the side.<br><strong>Example(s): </strong><code>{xs: 12}</code><br></b><strong>See</strong>: <a href="/nb/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
+    <td>Optional grid for the component label. Used in combination with innerGrid to align labels on the side.<br><strong>Example(s): </strong><code>{xs: 12}</code><br><strong>See</strong>: <a href="/nb/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
 </tr><tr class="main-prop">
     <td><h4><code>hidden</code></h4></td>
     <td>boolean</td>
@@ -199,8 +203,8 @@ Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over 
     <td>Boolean or expression indicating if the component should be rendered as a summary. Defaults to false.<br></td>
 </tr><tr class="main-prop">
     <td><h4><code>saveWhileTyping</code></h4></td>
-    <td></td>
-    <td>Boolean or number. True = feature on (default), false = feature off (saves on focus blur), number = timeout in milliseconds (400 by default)<br></td>
+    <td>number</td>
+    <td>Delay in milliseconds before saving changes while typing. Defaults to 400.<br></td>
 </tr><tr class="main-prop">
     <td><h4><code>triggers</code></h4></td>
     <td>array</td>

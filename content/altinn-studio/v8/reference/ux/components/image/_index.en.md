@@ -61,7 +61,7 @@ The following is a list of the properties available for {{% title %}}.
 We are currently updating how we implement components, and the list of properties may not be entirely accurate.
 {{% /notice %}}
 
-<p><p><strong>Required properties: </strong><code>id</code>,<code>type</code>,<code>src</code>,<code>width</code>,<code>align</code></p><div class="adocs-property-table">
+<p><strong>Required properties: </strong><code>id</code>,<code>type</code></p><div class="adocs-property-table">
 <table>
 <tr>
 <th><strong>Property</strong></th>
@@ -70,7 +70,7 @@ We are currently updating how we implement components, and the list of propertie
 </tr><tr class="main-prop">
 <td><h4><code>id</code></h4></td>
 <td>string</td>
-<td>The component ID. Must be unique within all layouts/pages in a layout-set. Cannot end with &lt;dash&gt;&lt;number&gt;.<br></td></p>
+<td>The component ID. Must be unique within all layouts/pages in a layout-set. Cannot end with &lt;dash&gt;&lt;number&gt;.<br></td>
 </tr><tr class="main-prop">
     <td><h4><code>type</code></h4></td>
     <td>string</td>
@@ -84,21 +84,25 @@ We are currently updating how we implement components, and the list of propertie
     <td>string</td>
     <td>Alternate text is read aloud to someone using assistive technology, but is hidden from a sighted user.<br></td>
 </tr><tr class="main-prop">
-    <td><h4><code>align</code></h4></td>
+    <td><h4><code>image</code></h4></td>
+    <td>object</td>
+    <td>Optional image settings. src, width and align are required when image is supplied. Individual language entries in src are optional.<br></td>
+</tr><tr class="sub-prop">
+    <td><code>image.align</code></td>
     <td>string</td>
     <td>Align image<br><strong>Enum: </strong>[flex-start, center, flex-end, space-between, space-around, space-evenly]<br></td>
 </tr><tr class="main-prop">
     <td><h4><code>grid</code></h4></td>
     <td>object</td>
-    <td>Settings for the components grid. Used for controlling horizontal alignment.<br><strong>Example(s): </strong><code>{xs: 12}</code><br><tr class="sub-prop">
+    <td>Settings for the components grid. Used for controlling horizontal alignment.<br><strong>Example(s): </strong><code>{xs: 12}</code><br></td>
+</tr><tr class="sub-prop">
     <td><code>gridSettings.innerGrid</code></td>
     <td>gridProps</td>
-    <td>Optional grid for inner component content like input field or dropdown. Used to avoid inner content filling the component width.<br><strong>Example(s): </strong><code>{xs: 12}</code><br></b><strong>See</strong>: <a href="/nb/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
+    <td>Optional grid for inner component content like input field or dropdown. Used to avoid inner content filling the component width.<br><strong>Example(s): </strong><code>{xs: 12}</code><br><strong>See</strong>: <a href="/en/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
 </tr><tr class="sub-prop">
     <td><code>gridSettings.labelGrid</code></td>
     <td>gridProps</td>
-    <td>Optional grid for the component label. Used in combination with innerGrid to align labels on the side.<br><strong>Example(s): </strong><code>{xs: 12}</code><br></b><strong>See</strong>: <a href="/nb/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
-</tr></td>
+    <td>Optional grid for the component label. Used in combination with innerGrid to align labels on the side.<br><strong>Example(s): </strong><code>{xs: 12}</code><br><strong>See</strong>: <a href="/en/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
 </tr><tr class="main-prop">
     <td><h4><code>hidden</code></h4></td>
     <td>boolean</td>
@@ -119,24 +123,24 @@ We are currently updating how we implement components, and the list of propertie
     <td><h4><code>renderAsSummary</code></h4></td>
     <td>boolean</td>
     <td>Boolean or expression indicating if the component should be rendered as a summary. Defaults to false.<br></td>
-</tr><tr class="main-prop">
-    <td><h4><code>src</code></h4></td>
+</tr><tr class="sub-prop">
+    <td><code>image.src</code></td>
     <td>object</td>
     <td>Image source<br></td>
 </tr><tr class="sub-prop">
-    <td><code>src.en</code></td>
+    <td><code>image.src.en</code></td>
     <td>string</td>
     <td>English<br></td>
 </tr><tr class="sub-prop">
-    <td><code>src.nb</code></td>
+    <td><code>image.src.nb</code></td>
     <td>string</td>
     <td>Bokmål<br></td>
 </tr><tr class="sub-prop">
-    <td><code>src.nn</code></td>
+    <td><code>image.src.nn</code></td>
     <td>string</td>
     <td>Nynorsk<br></td>
-</tr><tr class="main-prop">
-    <td><h4><code>width</code></h4></td>
+</tr><tr class="sub-prop">
+    <td><code>image.width</code></td>
     <td>string</td>
     <td>Image width<br><strong>Example(s): </strong><code>100%</code><br></td>
 </tr></table>
