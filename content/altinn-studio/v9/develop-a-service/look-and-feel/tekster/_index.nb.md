@@ -128,7 +128,7 @@ Du kan ikke redigere selve tallet, siden det i dette tilfellet er knyttet til ma
 
 ![Tekster i appen](./defaultTextsEN.png "Standardtekst og nøkler")
 
-Legg til tekstnøkkelen og den nye verdien i `App/configuration/texts/resource`. Merk at nøkkelen må vise til den overordnede gruppen, og deretter tekstnøkkelen, atskilt med `.`
+Legg til tekstnøkkelen og den nye verdien i `App/config/texts/resource`. Merk at nøkkelen må vise til den overordnede gruppen, og deretter tekstnøkkelen, atskilt med `.`
 
 ```json
     {
