@@ -191,7 +191,7 @@ Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over 
 </tr><tr class="main-prop">
     <td><h4><code>source</code></h4></td>
     <td>object</td>
-    <td>Object to define a data model source to be used as basis for options. Can not be used if options or optionId is set. See more on docs: https://docs.altinn.studio/app/development/data/options/<br></td>
+    <td>Object to define a data model source to be used as basis for options. Can not be used if options or optionsId is set. See more on docs: https://docs.altinn.studio/app/development/data/options/<br></td>
 </tr><tr class="sub-prop">
     <td><code>source.description</code></td>
     <td>string</td>
