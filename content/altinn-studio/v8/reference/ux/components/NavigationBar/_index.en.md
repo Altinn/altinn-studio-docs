@@ -97,7 +97,7 @@ The following is a list of the properties available for {{% title %}}.
 We are currently updating how we implement components, and the list of properties may not be entirely accurate.
 {{% /notice %}}
 
-<p><p><strong>Required properties: </strong><code>id</code>,<code>type</code></p><div class="adocs-property-table">
+<p><strong>Required properties: </strong><code>id</code>,<code>type</code></p><div class="adocs-property-table">
 <table>
 <tr>
 <th><strong>Property</strong></th>
@@ -106,7 +106,7 @@ We are currently updating how we implement components, and the list of propertie
 </tr><tr class="main-prop">
 <td><h4><code>id</code></h4></td>
 <td>string</td>
-<td>The component ID. Must be unique within all layouts/pages in a layout-set. Cannot end with &lt;dash&gt;&lt;number&gt;.<br></td></p>
+<td>The component ID. Must be unique within all layouts/pages in a layout-set. Cannot end with &lt;dash&gt;&lt;number&gt;.<br></td>
 </tr><tr class="main-prop">
     <td><h4><code>type</code></h4></td>
     <td>string</td>

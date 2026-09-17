@@ -99,7 +99,7 @@ Følgende er en liste over tilgjengelige egenskaper for {{% title %}}.
 Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over egenskaper kan derfor være noe unøyaktig.
 {{% /notice %}}
 
-<p><p><strong>Required properties: </strong><code>id</code>,<code>type</code>,<code>textResourceBindings</code></p><div class="adocs-property-table">
+<p><strong>Required properties: </strong><code>id</code>,<code>type</code>,<code>textResourceBindings</code></p><div class="adocs-property-table">
 <table>
 <tr>
 <th><strong>Property</strong></th>
@@ -108,7 +108,7 @@ Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over 
 </tr><tr class="main-prop">
 <td><h4><code>id</code></h4></td>
 <td>string</td>
-<td>The component ID. Must be unique within all layouts/pages in a layout-set. Cannot end with &lt;dash&gt;&lt;number&gt;.<br></td></p>
+<td>The component ID. Must be unique within all layouts/pages in a layout-set. Cannot end with &lt;dash&gt;&lt;number&gt;.<br></td>
 </tr><tr class="main-prop">
     <td><h4><code>type</code></h4></td>
     <td>string</td>
@@ -124,15 +124,15 @@ Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over 
 </tr><tr class="main-prop">
     <td><h4><code>grid</code></h4></td>
     <td>object</td>
-    <td>Settings for the components grid. Used for controlling horizontal alignment.<br><strong>Example(s): </strong><code>{xs: 12}</code><br><tr class="sub-prop">
+    <td>Settings for the components grid. Used for controlling horizontal alignment.<br><strong>Example(s): </strong><code>{xs: 12}</code><br></td>
+</tr><tr class="sub-prop">
     <td><code>gridSettings.innerGrid</code></td>
     <td>gridProps</td>
-    <td>Optional grid for inner component content like input field or dropdown. Used to avoid inner content filling the component width.<br><strong>Example(s): </strong><code>{xs: 12}</code><br></b><strong>See</strong>: <a href="/nb/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
+    <td>Optional grid for inner component content like input field or dropdown. Used to avoid inner content filling the component width.<br><strong>Example(s): </strong><code>{xs: 12}</code><br><strong>See</strong>: <a href="/nb/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
 </tr><tr class="sub-prop">
     <td><code>gridSettings.labelGrid</code></td>
     <td>gridProps</td>
-    <td>Optional grid for the component label. Used in combination with innerGrid to align labels on the side.<br><strong>Example(s): </strong><code>{xs: 12}</code><br></b><strong>See</strong>: <a href="/nb/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
-</tr></td>
+    <td>Optional grid for the component label. Used in combination with innerGrid to align labels on the side.<br><strong>Example(s): </strong><code>{xs: 12}</code><br><strong>See</strong>: <a href="/nb/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
 </tr><tr class="main-prop">
     <td><h4><code>hidden</code></h4></td>
     <td>boolean</td>

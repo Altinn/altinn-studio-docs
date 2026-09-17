@@ -99,7 +99,7 @@ Følgende er en liste over tilgjengelige egenskaper for {{% title %}}.
 Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over egenskaper kan derfor være noe unøyaktig.
 {{% /notice %}}
 
-<p><p><strong>Required properties: </strong><code>id</code>,<code>type</code>,<code>alternatives</code>,<code>default</code></p><div class="adocs-property-table">
+<p><strong>Required properties: </strong><code>id</code>,<code>type</code>,<code>dataListId</code>,<code>tableHeaders</code></p><div class="adocs-property-table">
 <table>
 <tr>
 <th><strong>Property</strong></th>
@@ -108,7 +108,7 @@ Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over 
 </tr><tr class="main-prop">
 <td><h4><code>id</code></h4></td>
 <td>string</td>
-<td>The component ID. Must be unique within all layouts/pages in a layout-set. Cannot end with &lt;dash&gt;&lt;number&gt;.<br></td></p>
+<td>The component ID. Must be unique within all layouts/pages in a layout-set. Cannot end with &lt;dash&gt;&lt;number&gt;.<br></td>
 </tr><tr class="main-prop">
     <td><h4><code>type</code></h4></td>
     <td>string</td>
@@ -136,15 +136,15 @@ Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over 
 </tr><tr class="main-prop">
     <td><h4><code>grid</code></h4></td>
     <td>object</td>
-    <td>Settings for the components grid. Used for controlling horizontal alignment.<br><strong>Example(s): </strong><code>{xs: 12}</code><br><tr class="sub-prop">
+    <td>Settings for the components grid. Used for controlling horizontal alignment.<br><strong>Example(s): </strong><code>{xs: 12}</code><br></td>
+</tr><tr class="sub-prop">
     <td><code>gridSettings.innerGrid</code></td>
     <td>gridProps</td>
-    <td>Optional grid for inner component content like input field or dropdown. Used to avoid inner content filling the component width.<br><strong>Example(s): </strong><code>{xs: 12}</code><br></b><strong>See</strong>: <a href="/nb/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
+    <td>Optional grid for inner component content like input field or dropdown. Used to avoid inner content filling the component width.<br><strong>Example(s): </strong><code>{xs: 12}</code><br><strong>See</strong>: <a href="/nb/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
 </tr><tr class="sub-prop">
     <td><code>gridSettings.labelGrid</code></td>
     <td>gridProps</td>
-    <td>Optional grid for the component label. Used in combination with innerGrid to align labels on the side.<br><strong>Example(s): </strong><code>{xs: 12}</code><br></b><strong>See</strong>: <a href="/nb/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
-</tr></td>
+    <td>Optional grid for the component label. Used in combination with innerGrid to align labels on the side.<br><strong>Example(s): </strong><code>{xs: 12}</code><br><strong>See</strong>: <a href="/nb/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
 </tr><tr class="main-prop">
     <td><h4><code>hidden</code></h4></td>
     <td>boolean</td>
@@ -152,11 +152,11 @@ Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over 
 </tr><tr class="main-prop">
     <td><h4><code>mapping</code></h4></td>
     <td>mapping</td>
-    <td>(Optional) Used to map data model paths to query parameters when fetching list data.<br><tr class="main-prop">
+    <td>(Optional) Used to map data model paths to query parameters when fetching list data.<br></td>
+</tr><tr class="main-prop">
     <td><h4><code>mapping</code></h4></td>
     <td>object</td>
     <td>Mapping<br><strong>Example(s): </strong><code>{some.source.field: key1}</code><br></td>
-</tr></td>
 </tr><tr class="main-prop">
     <td><h4><code>pageBreak</code></h4></td>
     <td>object</td>
@@ -171,8 +171,16 @@ Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over 
     <td>PDF only: Value or expression indicating whether a page break should be added before the component. Can be either: &#39;auto&#39; (default), &#39;always&#39;, or &#39;avoid&#39;.<br><strong>Example(s): </strong><code>auto</code>,<code>always</code>,<code>avoid</code><br></td>
 </tr><tr class="main-prop">
     <td><h4><code>pagination</code></h4></td>
-    <td>$defs</td>
-    <td>Pagination<br></td>
+    <td>object</td>
+    <td>Optional pagination settings. Both alternatives and default are required when pagination is supplied.<br></td>
+</tr><tr class="sub-prop">
+    <td><code>pagination.alternatives</code></td>
+    <td>number[]</td>
+    <td>Page sizes the user can choose from.<br></td>
+</tr><tr class="sub-prop">
+    <td><code>pagination.default</code></td>
+    <td>number</td>
+    <td>The initial page size.<br></td>
 </tr><tr class="main-prop">
     <td><h4><code>renderAsSummary</code></h4></td>
     <td>boolean</td>
