@@ -128,13 +128,13 @@ We are currently updating how we implement components, and the list of propertie
     <td>boolean</td>
     <td>Boolean or expression indicating if the component should be presented as read only. Defaults to false. &lt;br /&gt; &lt;i&gt;Please note that even with read-only fields in components, it may currently be possible to update the field by modifying the request sent to the API or through a direct API call.&lt;i/&gt;<br></td>
 </tr><tr class="main-prop">
-    <td><h4><code>daataModelBindings</code></h4></td>
+    <td><h4><code>dataModelBindings</code></h4></td>
     <td>object</td>
-    <td>Data model bindings for component<br></td>
+    <td>Optional data model bindings. Binding names are passed to the custom component.<br></td>
 </tr><tr class="sub-prop">
-    <td><code>daataModelBindings.simpleBinding</code></td>
-    <td>string</td>
-    <td><br></td>
+    <td><code>dataModelBindings.{bindingName}</code></td>
+    <td>string | object</td>
+    <td>A field binding with a name chosen for the custom component.<br></td>
 </tr><tr class="main-prop">
     <td><h4><code>grid</code></h4></td>
     <td>object</td>
