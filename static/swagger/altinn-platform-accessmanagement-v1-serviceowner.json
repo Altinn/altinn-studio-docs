@@ -198,6 +198,362 @@
         ]
       }
     },
+    "/serviceowner/connections/resources/rights": {
+      "get": {
+        "tags": [
+          "Connections"
+        ],
+        "parameters": [
+          {
+            "name": "resource",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RightDto"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "altinn:serviceowner/delegations:resource.write"
+            ]
+          }
+        ]
+      }
+    },
+    "/serviceowner/connections/resources": {
+      "post": {
+        "tags": [
+          "Connections"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ServiceOwnerResourceDelegation"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ServiceOwnerResourceDelegation"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ServiceOwnerResourceDelegation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssignmentResourceDto"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "altinn:serviceowner/delegations:resource.write"
+            ]
+          }
+        ]
+      }
+    },
+    "/serviceowner/connections/resources/revoke": {
+      "post": {
+        "tags": [
+          "Connections"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ServiceOwnerResourceDelegation"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ServiceOwnerResourceDelegation"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ServiceOwnerResourceDelegation"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AltinnProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "altinn:serviceowner/delegations:resource.write"
+            ]
+          }
+        ]
+      }
+    },
+    "/maskinporten/delegations": {
+      "get": {
+        "tags": [
+          "MaskinportenDelegations"
+        ],
+        "parameters": [
+          {
+            "name": "supplierOrg",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "consumerOrg",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "scope",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MPDelegationExternal"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [
+          {
+            "oauth2": [
+              "MaskinportenDelegationsProxy"
+            ]
+          }
+        ]
+      }
+    },
     "/serviceowner/delegationrequests/_meta/urns/party": {
       "get": {
         "tags": [
@@ -779,6 +1135,186 @@
         },
         "additionalProperties": false
       },
+      "AssignmentResourceDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "assignmentId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "resourceId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AttributeDto": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "value": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AuthorizedPartiesIncludeFilter": {
+        "enum": [
+          "false",
+          "true",
+          "auto"
+        ],
+        "type": "string"
+      },
+      "AuthorizedPartyDto": {
+        "type": "object",
+        "properties": {
+          "partyUuid": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "organizationNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "parentId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "personId": {
+            "type": "string",
+            "nullable": true
+          },
+          "dateOfBirth": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "partyId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "emailId": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "$ref": "#/components/schemas/AuthorizedPartyTypeDto"
+          },
+          "unitType": {
+            "type": "string",
+            "nullable": true
+          },
+          "isDeleted": {
+            "type": "boolean"
+          },
+          "onlyHierarchyElementWithNoAccess": {
+            "type": "boolean"
+          },
+          "authorizedAccessPackages": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "authorizedResources": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "authorizedRoles": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "authorizedInstances": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AuthorizedPartyDto.AuthorizedResourceInstance"
+            },
+            "nullable": true
+          },
+          "subunits": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AuthorizedPartyDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AuthorizedPartyDto.AuthorizedResourceInstance": {
+        "type": "object",
+        "properties": {
+          "resourceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "instanceId": {
+            "type": "string",
+            "nullable": true
+          },
+          "instanceRef": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AuthorizedPartyRequestDto": {
+        "required": [
+          "type",
+          "value"
+        ],
+        "type": "object",
+        "properties": {
+          "type": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "value": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "partyFilter": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttributeDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "AuthorizedPartyTypeDto": {
+        "enum": [
+          "None",
+          "Person",
+          "Organization",
+          "SelfIdentified"
+        ],
+        "type": "string"
+      },
       "CharReadOnlyMemory": {
         "type": "object",
         "properties": {
@@ -842,6 +1378,42 @@
         },
         "additionalProperties": false
       },
+      "MPDelegationExternal": {
+        "type": "object",
+        "properties": {
+          "consumer_org": {
+            "type": "string",
+            "nullable": true
+          },
+          "supplier_org": {
+            "type": "string",
+            "nullable": true
+          },
+          "delegation_scheme_Id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "scopes": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "resourceid": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "OrganizationNumber": {
         "type": "object",
         "additionalProperties": false
@@ -870,6 +1442,20 @@
             "nullable": true
           },
           "personIdentifier": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "PartyReferenceDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
             "type": "string",
             "nullable": true
           }
@@ -926,9 +1512,7 @@
             "format": "date-time"
           },
           "lastUpdatedBy": {
-            "type": "string",
-            "format": "uuid",
-            "nullable": true
+            "$ref": "#/components/schemas/PartyReferenceDto"
           },
           "resource": {
             "$ref": "#/components/schemas/RequestReferenceDto"
@@ -1034,6 +1618,43 @@
         ],
         "type": "string"
       },
+      "RightDto": {
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "resource": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AttributeDto"
+            },
+            "nullable": true
+          },
+          "action": {
+            "$ref": "#/components/schemas/AttributeDto"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RightKeyListDto": {
+        "type": "object",
+        "properties": {
+          "directRightKeys": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "ServiceOwnerAccessPackageDelegation": {
         "required": [
           "from",
@@ -1058,6 +1679,9 @@
         "type": "string",
         "oneOf": [
           {
+            "$ref": "#/components/schemas/ServiceOwnerConnectionPartyUrn.PartyUuid"
+          },
+          {
             "$ref": "#/components/schemas/ServiceOwnerConnectionPartyUrn.OrganizationId"
           },
           {
@@ -1066,7 +1690,7 @@
         ],
         "additionalProperties": false,
         "format": "urn",
-        "example": "urn:altinn:person:identifier-no:02013299997"
+        "example": "urn:altinn:party:uuid:049d6f78-f087-41c3-a4ec-c98f5451e387"
       },
       "ServiceOwnerConnectionPartyUrn.OrganizationId": {
         "pattern": "^urn:altinn:organization:identifier-no:.+$",
@@ -1074,6 +1698,13 @@
         "additionalProperties": false,
         "format": "urn",
         "example": "urn:altinn:organization:identifier-no:937884117"
+      },
+      "ServiceOwnerConnectionPartyUrn.PartyUuid": {
+        "pattern": "^urn:(?:altinn:party:uuid)|(?:altinn:person:uuid)|(?:altinn:organization:uuid)|(?:altinn:systemuser:uuid):.+$",
+        "type": "string",
+        "additionalProperties": false,
+        "format": "urn",
+        "example": "urn:altinn:party:uuid:049d6f78-f087-41c3-a4ec-c98f5451e387"
       },
       "ServiceOwnerConnectionPartyUrn.PersonId": {
         "pattern": "^urn:altinn:person:identifier-no:.+$",
@@ -1090,6 +1721,30 @@
         ],
         "type": "integer",
         "format": "int32"
+      },
+      "ServiceOwnerResourceDelegation": {
+        "required": [
+          "from",
+          "resource",
+          "to"
+        ],
+        "type": "object",
+        "properties": {
+          "from": {
+            "$ref": "#/components/schemas/ServiceOwnerConnectionPartyUrn"
+          },
+          "to": {
+            "$ref": "#/components/schemas/ServiceOwnerConnectionPartyUrn"
+          },
+          "resource": {
+            "type": "string",
+            "nullable": true
+          },
+          "rightKeys": {
+            "$ref": "#/components/schemas/RightKeyListDto"
+          }
+        },
+        "additionalProperties": false
       }
     },
     "securitySchemes": {
