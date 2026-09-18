@@ -15,20 +15,9 @@ Before you set up eFormidling, you need to configure [Maskinporten integration](
 
 ### Maskinporten integration
 
-To enable eFormidling in your app, you need to [set up integration between your app and Maskinporten](/en/altinn-studio/v9/develop-a-service/integration/maskinporten/).
+To enable eFormidling in your app, you need to [set up integration between your app and Maskinporten](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/) (documentation available in Norwegian only).
 
-* **Note:** The app automatically includes the built-in `IMaskinportenClient`. If you need custom configuration, you can use:
-
-  {{< code-title >}}
-    App/Program.cs
-  {{< /code-title >}}
-  ```csharp {hl_lines=[3,4]}
-  void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
-  {
-    // Optional: Only needed if using non-default configuration path
-    services.ConfigureMaskinportenClient("CustomMaskinportenSettingsPath");
-  }
-  ```
+You add the scopes your app needs in Altinn Studio, and Altinn Studio provisions the Maskinporten client next time you publish.
 
 ## Set up eFormidling in your app {#eFormidling-setup}
 

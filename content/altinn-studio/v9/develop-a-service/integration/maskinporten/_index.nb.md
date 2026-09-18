@@ -7,218 +7,160 @@ tags: [needsReview]
 toc: true
 ---
 
-Slik setter du opp en Altinn-app til å utføre autoriserte forespørsler med Maskinporten på vegne av eieren av appen, i stedet for den aktive brukeren.
+En Altinn-app kan gjøre autoriserte kall på vegne av virksomheten som eier appen, i stedet for på vegne av brukeren som er logget inn. Til det bruker appen Maskinporten. Denne veiledningen viser hvordan du setter det opp.
 
-{{% insert "content/shared/maskinporten/altinn-studio-scope-setup.nb.md" %}}
+## Appen har én Maskinporten-identitet {#en-identitet}
 
-## Eldre manuelt oppsett
+Appen har nøyaktig én identitet i Maskinporten, som opprettes og vedlikeholdes av Altinn Studio. Du bestemmer hvilke scopes klienten skal ha. Resten håndterer plattformen.
 
-Det følgende manuelle oppsettet er bare nødvendig for eldre apper eller spesialtilfeller der Altinn Studio ikke skal opprette Maskinporten-klienten.
+Slik henger det sammen:
 
-{{% insert "content/shared/maskinporten/altinn-studio-scope-migration.nb.md" %}}
+- Du legger til scopene appen trenger i Altinn Studio, og publiserer appen.
+- Altinn Studio oppretter Maskinporten-klienten i miljøet du publiserer til, og leverer klient-ID og nøkkel til appen som en hemmelighet plattformen klargjør.
+- Plattformen rullerer nøkkelen. Appen tar i bruk den nye nøkkelen uten at du starter den på nytt.
 
-{{% expandlarge id="legacy-manual-maskinporten-setup" header="Vis manuelt oppsett med Samarbeidsportalen og Azure Key Vault" %}}
+Provisjonerte hemmeligheter går aldri gjennom konfigurasjonen til appen, verken i et publisert miljø eller lokalt, og appen kan ikke peke den innebygde klienten mot en annen identitet. Det betyr i praksis:
 
-### Tilgang til Azure Key Vault
-Før du går videre med det manuelle oppsettet, må du forsikre deg om at du har tilgang til Azure Key Vault for organisasjonen din. Dette sikrer at nøklene som opprettes senere i veiledningen kan lagres riktig som hemmeligheter i Azure.
+- **En `MaskinportenSettings`-seksjon i `appsettings.json` har ingen virkning.** Appen leser den ikke, og den leser den heller ikke fra user secrets eller miljøvariabler. Slett seksjonen. Ligger det en privat nøkkel der, bør du fjerne den fra repositoriet uansett.
+- **Du kan ikke konfigurere den innebygde klienten fra appkoden.** Metodene som gjorde det i v8, finnes ikke lenger. Se [Kommer du fra v8?](#fra-v8).
+- **Appen bestemmer ikke hvor legitimasjonen ligger.** Det gjør plattformen appen kjører på: Altinn Studio klargjør den for en publisert app, og studioctl for en lokal kjøring. Se [Kjøre appen lokalt](#lokal-kjoring).
 
-Hvis tilgang mangler, se
-[Tilgang til logger og hemmeligheter](/nb/altinn-studio/v9/develop-a-service/reference/administration/access-management/apps/).
-
-### Maskinporten-integrasjon
-Når tilgang til å opprette hemmeligheter i Azure Key Vault er bekreftet, kan du opprette integrasjonen manuelt.
-
-{{% expandlarge id="guide-mp-int-samarbeid" header="Slik registrerer du en ny Maskinporten-integrasjon i Samarbeidsportalen" %}}
-{{% insert "content/shared/maskinporten/maskinporten-client-create.nb.md" %}}
-{{% /expandlarge %}}
-
-### Konfigurere Azure Key Vault
-Når appen forberedes til å bruke hemmeligheter fra Azure Key Vault, må du:
-
-1. Legge til hemmelighetene som ble hentet under konfigurasjon av Maskinporten-klienten i Azure Key Vault:
-    - Base64-kodet JWT offentlig og privat nøkkelpar
-    - Klient-ID for integrasjonen
-
-   Det er viktig at navnet på disse hemmelighetene i Azure Key Vault tilsvarer navnet på seksjonen i appsettings-filen i kodebasen til appen. For eksempel, hvis din appsettings-seksjon for Maskinporten-integrasjonen ser slik ut:
-
-   {{< code-title >}}
-   App/appsettings.json
-   {{< /code-title >}}
-
-   ```json
-   {
-     "MaskinportenSettings": {
-       "Authority": "https://test.maskinporten.no/",
-       "ClientId": "",
-       "JwkBase64": ""
-     }
-   }
-   ```
-
-   Skal hemmelighetene i Azure Key Vault ha navn som dette:
-
-   ```
-   MaskinportenSettings--Authority
-   MaskinportenSettings--ClientId
-   MaskinportenSettings--JwkBase64
-   ```
-2. For at appen skal kunne lese hemmelighetene fra Azure Key Vault, må den konfigureres til å gjøre det. Se
-[secrets-seksjonen](/nb/altinn-studio/v8/reference/configuration/secrets/) for å få dette til.
-3. Legge til appsettings-eksempelet ovenfor i `appsettings.{env}.json`-filen.
-{.floating-bullet-numbers}
-
-_Merk: Hemmelighetene leses av appen ved oppstart, så hvis du gjør endringer etter at appen er publisert, må du publisere appen på nytt for at de skal tre i kraft._
-
-### Key Vault-konfigurasjon
-
-Til slutt må vi legge til Azure Key Vault-konfigurasjonsleverandøren til vår host. Dette gjøres ved å legge til den markerte koden _etter_ `ConfigureWebHostBuilder`-metoden.
-
-{{< code-title >}}
-App/Program.cs
-{{< /code-title >}}
-
-{{< highlight csharp "linenos=false,hl_lines=6-9" >}}
-//...
-
-ConfigureWebHostBuilder(IWebHostBuilder builder);
-
-// Add Azure KV provider for TT02 & Prod environments
-if (!builder.Environment.IsDevelopment())
-{
-  builder.AddAzureKeyVaultAsConfigProvider();
-}
-{{< / highlight >}}
-
-{{% /expandlarge %}}
-
-## Bakoverkompatibilitet
-
-{{% expandlarge id="bakoverkompatibilitet-expander" header="Vis detaljer" %}}
-
-### IMaskinportenTokenProvider
-Visse eldre tjenester krever en implementering av `IMaskinportenTokenProvider` for å hente tokens. `MaskinportenClient` vil automatisk registrere denne tjenesten hvis den ikke allerede er registrert andre steder.
-
-### Altinn.ApiClients.Maskinporten
-Hvis du trenger å støtte eksisterende bruk av den
-[frittstående Maskinporten-klienten](https://github.com/Altinn/altinn-apiclient-maskinporten), mens du samtidig vil bruke den innebygde klienten for nye funksjoner, gir det vanligvis mening å utnytte én enkelt
-[eldre manuelt oppsett](#eldre-manuelt-oppsett).
-
-Eksempelet nedenfor illustrerer hvordan du kan omforme et `Altinn.ApiClients.Maskinporten.Config.MaskinportenSettings`-objekt til formatet som kreves av den innebygde klienten.
-
-{{< code-title >}}
-App/Program.cs
-{{< /code-title >}}
-
-{{< highlight csharp  >}}
-using Altinn.App.Core.Features.Maskinporten.Exceptions;
-using LegacyMaskinportenSettings = Altinn.ApiClients.Maskinporten.Config.MaskinportenSettings;
-// ...
-
-void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
-{
-  // ...
-
-  var legacySettings =
-    config.GetSection("Maskinporten-Config-Path").Get<LegacyMaskinportenSettings>()
-    ?? throw new MaskinportenConfigurationException("Maskinporten settings not found in config.");
-
-  services.ConfigureMaskinportenClient(options =>
-  {
-    options.ClientId = legacySettings.ClientId;
-    options.JwkBase64 = legacySettings.EncodedJwk;
-    options.Authority = legacySettings.Environment switch
-    {
-      "prod" => "https://maskinporten.no/",
-      "test" => "https://test.maskinporten.no/",
-      "dev" => "https://maskinporten.dev/",
-      _ => throw new MaskinportenConfigurationException($"Unknown Maskinporten environment value {legacySettings.Environment}")
-    };
-  });
-
-  // More information about the Maskinporten environment mapping:
-  // https://github.com/Altinn/altinn-apiclient-maskinporten/blob/main/src/Altinn.ApiClients.Maskinporten/Services/MaskinportenService.cs#L343
-}
-{{< / highlight >}}
-
-{{% notice warning %}}
-Hvis du har [konfigurert MaskinportenSettings i Key Vault](#key-vault-konfigurasjon), må mappingen som er beskrevet i dette steget enten gjøres via forsinket utførelse eller _etter_ at Key Vault er lagt til som en options provider. Hvis konfigurasjonsdelegaten kjøres for tidlig, er ikke alle verdier lastet inn ennå.
+{{% notice info %}}
+`studioctl app upgrade v9` sier fra om en `MaskinportenSettings`-seksjon som ikke lenger har noen virkning, og om kode som kaller metodene v9 har fjernet. Verktøyet endrer ikke filene for deg, fordi det du skal gjøre i stedet er et valg bare du kan ta. Brukte du seksjonen til å teste lokalt, minner rapporten deg om å ta legitimasjonen med videre først.
 {{% /notice %}}
 
-{{% /expandlarge %}}
+## Sett opp integrasjonen {#oppsett}
 
-## Migreringsveier
+1. **Legg til scopene i Altinn Studio.** Se [Legge til Maskinporten-scopes]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten/add-scopes" >}}) for fremgangsmåten. Standardscopene for tjenesteeier, `altinn:serviceowner`, `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write`, får alle v9-apper automatisk. Dem trenger du ikke legge til selv.
+2. **Gi tjenesteeieren rettigheter i autorisasjonspolicyen.** `App/config/authorization/policy.xml` må ha en regel som gir `[org]` rettighetene `read` og `write`. Appmalen har denne regelen. Se [Autorisasjon]({{< relref "/altinn-studio/v9/develop-a-service/configuration/authorization" >}}).
+3. **Bygg og publiser appen.** Endringer i scopes trer i kraft neste gang du publiserer.
+4. **Ta klienten i bruk i appkoden.** Se [Bruke Maskinporten i appkoden](#appkode).
+{.floating-bullet-numbers}
 
-{{% expandlarge id="migreringsveier-expander" header="Vis detaljer" %}}
+Du håndterer verken klientdetaljer, nøkler eller nøkkelrotasjon selv.
 
-I denne seksjonen finner du noen korte eksempler på hvordan du kan migrere din eksisterende konfigurasjon fra den
-[frittstående Maskinporten-klienten](https://github.com/Altinn/altinn-apiclient-maskinporten) til den innebygde.
+{{% notice info %}}
+Brukeren som legger til scopes, må ha tilgang til å administrere klienter i ID-porten og Maskinporten på vegne av virksomheten. Mangler tilgangen, viser Altinn Studio en melding om det. Se [Hvis du ikke har tilgang]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten/add-scopes" >}}#hvis-du-ikke-har-tilgang).
+{{% /notice %}}
 
-### Bruk av AddMaskinportenHttpClient
-Følgende eksempel viser hvordan en `EventSubscriptionClient` tradisjonelt har blitt konfigurert, og hvordan du kan oppnå samme resultat ved å bruke den innebygde Maskinporten-klienten.
+## Bruke Maskinporten i appkoden {#appkode}
 
-{{< code-title >}}
-App/Program.cs
-{{< /code-title >}}
+Appen får den innebygde `IMaskinportenClient` automatisk. Du verken registrerer eller konfigurerer noe.
 
-{{< highlight csharp  >}}
-void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
-{
-  // ...
+### Autorisere en HTTP-klient
 
-  // Before: Altinn.ApiClients.Maskinporten client configuration
-  services
-    .AddMaskinportenHttpClient<SettingsJwkClientDefinition, EventsSubscriptionClient>(
-      config.GetSection("Maskinporten-Config-Path"),
-      clientDefinition =>
-      {
-        clientDefinition.ClientSettings.Scope = "altinn:serviceowner/instances.read";
-        clientDefinition.ClientSettings.ExhangeToAltinnToken = true;
-      }
-    )
-    .AddTypedClient<IEventsSubscription, EventsSubscriptionClient>();
-
-  // After: Built-in client configuration
-  services.ConfigureMaskinportenClient("Maskinporten-Config-Path");
-  services
-    .AddHttpClient<IEventsSubscription, EventsSubscriptionClient>()
-    .UseMaskinportenAltinnAuthorization("altinn:serviceowner/instances.read");
-}
-{{< / highlight >}}
-
-### Bruk av AddMaskinportenHttpMessageHandler
-Følgende eksempel viser hvordan `Altinn.ApiClients.Dan` typisk har blitt konfigurert, og hvordan du kan oppnå samme resultat ved å bruke den innebygde Maskinporten-klienten.
+Den enkleste måten å bruke Maskinporten på er å knytte autorisasjonen til en HTTP-klient. Da legger appen et gyldig token på hver forespørsel klienten sender.
 
 {{< code-title >}}
 App/Program.cs
 {{< /code-title >}}
 
-{{< highlight csharp  >}}
-void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{{< highlight csharp "linenos=false,hl_lines=7-8 10-11" >}}
+void RegisterCustomAppServices(
+  IServiceCollection services,
+  IConfiguration config,
+  IWebHostEnvironment env
+)
 {
-  // ...
+  services.AddHttpClient<Klient1>()
+    .UseMaskinportenAuthorization("scope1", "scope2");
 
-  // Before: Altinn.ApiClients.Maskinporten client configuration
-  services.RegisterMaskinportenClientDefinition<SettingsJwkClientDefinition>(
-    "client-name",
-    config.GetSection("Maskinporten-Config-Path")
-  );
-
-  services
-    .AddDanClient(config.GetSection("Dan-Config-Path"))
-    .AddMaskinportenHttpMessageHandler<SettingsJwkClientDefinition>(
-      "client-name",
-      clientDefinition =>
-      {
-        clientDefinition.ClientSettings.Scope = "altinn:dataaltinnno";
-      }
-    );
-
-  // After: Built-in client configuration
-  services.ConfigureMaskinportenClient("Maskinporten-Config-Path");
-  services
-    .AddDanClient(config.GetSection("Dan-Config-Path"))
-    .UseMaskinportenAuthorization("altinn:dataaltinnno");
+  services.AddHttpClient<Klient2>()
+    .UseMaskinportenAltinnAuthorization("scope1");
 }
 {{< / highlight >}}
 
-{{% /expandlarge %}}
+Bruk `UseMaskinportenAuthorization` mot API-er som tar imot Maskinporten-token direkte, og `UseMaskinportenAltinnAuthorization` mot Altinn-API-er. Den siste veksler Maskinporten-tokenet inn til et Altinn-token først. Begge virker også på navngitte klienter, for eksempel `services.AddHttpClient("navn")`.
+
+### Hente et token selv
+
+Trenger du tokenet til noe annet enn en HTTP-klient, kan du bruke `IMaskinportenClient` fra [dependency injection](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection) direkte i tjenesten din.
+
+{{< highlight csharp "linenos=false,hl_lines=7-8" >}}
+public class Eksempel(IMaskinportenClient maskinporten)
+  : IProcessTaskEnd
+{
+  public async Task End(string taskId, Instance instance)
+  {
+    string[] scopes = ["scope1", "scope2"];
+    var token = await maskinporten.GetAccessToken(scopes);
+    var altinnToken = await maskinporten
+      .GetAltinnExchangedToken(scopes);
+
+    // ...
+  }
+}
+{{< / highlight >}}
+
+## Trenger du et scope appen ikke har? {#nytt-scope}
+
+Legg scopet du trenger i Altinn Studio og publiser appen på nytt. Hvis du trenger hjelp kan du referere til veiledningen [Legge til Maskinporten-scopes]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten/add-scopes" >}}).
+
+Finner du ikke scopet i Altinn Studio, har virksomheten din ennå ikke fått tilgang til det hos den som eier scopet. Den tilgangen avklarer du med den som eier scopet, ikke i Altinn Studio.
+
+## Kommunikasjon mellom lokal app og eksternt API {#lokal-kjoring}
+
+Hvis du kjører en lokal app som har behov for å snakke med et eksternt API, enten i _testmiljø_ eller _produksjon_, må du inntil videre provisjonere en Maskinporten-klient manuelt.
+
+Eksempler på når dette behovet oppstår kan være ved testing av en integrasjon mot [Meldingstjenesten]({{< relref "/altinn-studio/v9/develop-a-service/integration/correspondence" >}}) eller [Varsling]({{< relref "/altinn-studio/v9/develop-a-service/integration/notifications" >}}).
+
+Oppsettet av en lokal Maskinporten-klient styres via kommandolinjeverktøyet `studioctl app maskinporten`. Her kan du vise, opprette og slette lokale klienter. Informasjonen lagres utenfor repositoriet til appen din, sammen med resten av konfigurasjonen til `studioctl`.
+
+
+{{% notice info %}}
+Alle kommandoene som omfatter `studioctl app` må kjøres fra repositoriet eller mappen der kildekoden til appen din ligger.
+{{% /notice %}}
+
+### Vise gjeldende klient
+
+Hvis du ønsker å vise hvilke Maskinporten-innstillinger som gjelder for appen din, kan du bruke følgende kommando:
+
+```bash
+studioctl app maskinporten show
+```
+
+### Lagre ny klient {#lokal-klient}
+
+For å lagre en ny Maskinporten-klient som skal brukes av appen din, kan du bruke følgende kommando:
+
+```bash
+studioctl app maskinporten set
+```
+
+Du vil da bli tatt gjennom en veiledning der du kan skrive inn verdiene for _miljø_, _klient ID_ og _JWK-nøkkel_. Hvis du ønsker å heller lime inn en fil eller et JSON-objekt, kan du få vist alle alternativene slik:
+
+```bash
+studioctl app maskinporten set --help
+```
+
+### Velg riktig Maskinporten-miljø
+
+En klient virker bare i miljøet du registrerte den i. API-tilbydere i _testmiljø_ godtar for eksempel bare klienter fra `test.maskinporten.no`. Derfor merker `show` klienten med `test` eller `prod`, ut fra verten i `authority`, slik at du ser hvilket miljø den hører til.
+
+## Kommer du fra v8? {#fra-v8}
+
+Dette er endret fra v8:
+
+- **`ConfigureMaskinportenClient` finnes ikke lenger**, verken varianten som tar en konfigurasjonssti eller den som tar en delegat. Et kall til metoden gir byggefeil. Trenger du et annet scope, legger du det til på klienten Altinn Studio har opprettet. Trenger du en annen identitet, bruker du [en egen klient](#skreddersydd).
+- **`IFiksSetupBuilder.WithMaskinportenConfig` finnes ikke lenger.** Fiks IO-klienten bruker appens innebygde Maskinporten-klient og trenger ingen egen Maskinporten-konfigurasjon. Se [Fiks Arkiv]({{< relref "/altinn-studio/v9/receive-data/fiks-arkiv" >}}).
+- **`MaskinportenSettings` og `JwkWrapper` er ikke lenger offentlige typer.** Verken `Configure<T>` eller `GetSection(...).Get<T>()` får tak i disse innstillingene.
+- **En `MaskinportenSettings`-seksjon i `appsettings.json` er død konfigurasjon.** Slett den, og slett tilsvarende secrets i Azure Key Vault hvis de bare var der for den innebygde klienten. Brukte du seksjonen til å teste lokalt, kan du sette opp tilsvarende konfigurasjon med `studioctl`-verktøyet. Se [Lagre ny klient](#lokal-klient).
+- **`MaskinportenSettingsFilepath` finnes ikke lenger**, og `AppSettings:RuntimeSecretsDirectory` flytter heller ikke innstillingsfilen.
+
+Hadde appen sin egen Maskinporten-klient i v8, flytter du den slik:
+
+1. Finn ut hvilke scopes den gamle klienten er satt opp med i Samarbeidsportalen, og hvilke scopes appkoden ber om.
+2. Legg de samme scopene til på appen i Altinn Studio. Fjern `ConfigureMaskinportenClient`-kallet og en eventuell `MaskinportenSettings`-seksjon.
+3. Publiser appen til TT02, og kontroller at den henter token, og at kall som krever innvekslet Altinn-token fortsatt virker.
+4. Gjenta i produksjon. Vent med å slette den gamle klienten og de gamle Key Vault-hemmelighetene til du har kontrollert at ingen andre apper eller integrasjoner bruker dem.
+{.floating-bullet-numbers}
+
+Dette er uendret:
+
+- Du bruker klienten på nøyaktig samme måte som før, med `IMaskinportenClient` eller med `UseMaskinportenAuthorization` på en HTTP-klient.
+- Plattformen rullerer nøkkelen uten at appen må starte på nytt.
+- Du kan fortsatt prøve din egen Maskinporten-klient for lokal kjøring. Du oppgir testklienten på en annen måte enn før, men [muligheten er den samme](#lokal-kjoring).
+
+## Trenger du noe skreddersydd? {#skreddersydd}
+
+Den innebygde Maskinporten-klienten dekker et bredt behov og bør være tilstrekkelig for de fleste, men om du har krav til funksjonalitet som ikke støttes, kan du også fint benytte en tredjepartsløsning. For eksempel [Altinn.ApiClients.Maskinporten](https://github.com/Altinn/altinn-apiclient-maskinporten).

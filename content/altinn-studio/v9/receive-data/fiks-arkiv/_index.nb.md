@@ -211,6 +211,8 @@ Legg konfigurasjonen i `appsettings.json`, og legg alle sensitive verdier i Azur
 
 Legg `IntegrationPassword` og `AccountPrivateKeyBase64` i Key Vault. `ApiHost` og `AmqpHost` lar du stå tomme: appen velger selv KS sitt testmiljø overalt utenom produksjon, også når du kjører lokalt, og KS sitt produksjonsmiljø i produksjon. De to innstillingene finnes bare i tilfelle KS skulle endre adressene sine før appen er oppdatert.
 
+Skal du prøve en innsending fra en app som kjører lokalt, må du først sette opp en Maskinporten-klient og koble den til appen din. Du finner utdypende instruksjoner i her: [Integrere Altinn-app med Maskinporten]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten" >}}#lokal-kjoring). Husk scopet `ks:fiks`.
+
 {{< code-title >}}
 App/appsettings.json
 {{< /code-title >}}
