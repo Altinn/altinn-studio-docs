@@ -34,7 +34,7 @@ Du kan legge til nye komponenter i `footer`-listen.
 | Egenskap | Verdi                                                                                                                        |
 | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | type     | `Email`                                                                                                                      |
-| title    | Tekstressursen du vil vise. Du kan ikke [formatere](/nb/altinn-studio/v8/reference/ux/texts/#formatering-av-tekster) denne teksten. |
+| title    | Tekstressursen du vil vise. Du kan ikke [formatere]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/tekster" >}}#formatere-tekster) denne teksten. |
 | target   | E-postadressen lenken peker til.                                                                                             |
 
 ### E-posteksempel
@@ -56,7 +56,7 @@ Du kan legge til nye komponenter i `footer`-listen.
 | Egenskap | Verdi                                                                                                                        |
 | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | type     | `Phone`                                                                                                                      |
-| title    | Tekstressursen du vil vise. Du kan ikke [formatere](/nb/altinn-studio/v8/reference/ux/texts/#formatering-av-tekster) denne teksten. |
+| title    | Tekstressursen du vil vise. Du kan ikke [formatere]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/tekster" >}}#formatere-tekster) denne teksten. |
 | target   | Telefonnummeret lenken peker til.                                                                                            |
 
 ### Telefoneksempel
@@ -78,7 +78,7 @@ Du kan legge til nye komponenter i `footer`-listen.
 | Egenskap | Verdi                                                                                                                        |
 | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
 | type     | `Link`                                                                                                                       |
-| title    | Tekstressursen du vil vise. Du kan ikke [formatere](/nb/altinn-studio/v8/reference/ux/texts/#formatering-av-tekster) denne teksten. |
+| title    | Tekstressursen du vil vise. Du kan ikke [formatere]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/tekster" >}}#formatere-tekster) denne teksten. |
 | target   | URL-en lenken peker til.                                                                                                     |
 | icon     | Ikonet ved siden av lenken. Enten `information`, `email` eller `phone`.                                                      |
 
@@ -102,7 +102,7 @@ Du kan legge til nye komponenter i `footer`-listen.
 | Egenskap | Verdi                                                                                                                |
 | -------- | ----------------------------------------------------------------------------------------------------------------------- |
 | type     | `Text`                                                                                                              |
-| title    | Tekstressursen du vil vise. Du kan [formatere](/nb/altinn-studio/v8/reference/ux/texts/#formatering-av-tekster) denne teksten. |
+| title    | Tekstressursen du vil vise. Du kan [formatere]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/tekster" >}}#formatere-tekster) denne teksten. |
 
 ### Teksteksempel
 
