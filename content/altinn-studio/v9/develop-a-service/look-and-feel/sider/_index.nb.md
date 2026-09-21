@@ -41,7 +41,11 @@ Datamodellen til prosessteget setter du i `Settings.json`-filen til mappen, med 
 
 Du kan konfigurere flere ulike innstillinger for sidene dine. Du gjør dette i `Settings.json`-filen til prosesstegmappen, som du ser i mappestrukturen over, under `pages`-objektet. Hvert prosessteg har sin egen fil.
 
-I tillegg finnes en valgfri, felles `Settings.json`-fil i `App/ui/` for innstillinger som gjelder hele appen. Denne fila er flat — innstillingene ligger direkte i fila, ikke inni et `pages`-objekt.
+I tillegg finnes en valgfri, felles `Settings.json`-fil i `App/ui/` for innstillinger som gjelder hele appen, som `taskNavigation`, `showProgress` og `autoSaveBehavior`. Denne fila er flat — innstillingene ligger direkte i roten av fila, ikke inni et `pages`-objekt.
+
+{{% notice warning %}}
+Legger du innstillingene i et `pages`-objekt i denne fila, slik du gjør i prosesstegets `Settings.json`, blir de stille ignorert. Du får ingen feilmelding, men innstillingen slår rett og slett ikke inn.
+{{% /notice %}}
 
 ```json
 {
