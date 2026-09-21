@@ -1,7 +1,9 @@
 ---
+draft: true
 title: Oversette tekster i appen
 description: Slik lar du brukeren velge språk for tekstene i appen.
 toc: true
+tags: [needsReview, translate]
 ---
 
 Du oversetter tekstene i appen ved å legge til flere tekstressursfiler – én fil per språk. Se {{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/tekster" >}} for mer om disse filene.
