@@ -10,7 +10,7 @@ Du kan sette opp flere sider enkelt i Altinn Studio Designer. Vil du gjøre det 
 
 ## Oppsett
 
-Du plasserer sidene i `layouts`-mappen til layoutsettet. Hvert prosesssteg kan ha sitt eget layoutsett. Vil du endre rekkefølgen på sidene, se [Navigasjon](/nb/altinn-studio/v8/reference/ux/pages/navigation/#vise-en-sidemeny-med-rekkefølgen-på-sideroppgaver). Under ser du et eksempel på filstrukturen for to prosessteg, hver med sitt eget layoutsett:
+Du plasserer sidene i `layouts`-mappen til layoutsettet. Hvert prosessteg kan ha sitt eget layoutsett. Vil du endre rekkefølgen på sidene, se [Navigasjon](/nb/altinn-studio/v8/reference/ux/pages/navigation/#vise-en-sidemeny-med-rekkefølgen-på-sideroppgaver). Under ser du et eksempel på filstrukturen for to prosessteg, hver med sitt eget layoutsett:
 
 ```
 |- App/
@@ -30,7 +30,7 @@ Du plasserer sidene i `layouts`-mappen til layoutsettet. Hvert prosesssteg kan h
         |- side3.json
 ```
 
-I `layout-sets.json`-filen definerer du hvilket prosesssteg (task) du skal bruke hvert layoutsett i. Merk at ID-en skiller mellom store og små bokstaver. Bruker du stor bokstav i mappenavnet, må ID-en gjenspeile dette. Vi anbefaler små bokstaver i mappenavn.
+I `layout-sets.json`-filen definerer du hvilket prosessteg (task) du skal bruke hvert layoutsett i. Merk at ID-en skiller mellom store og små bokstaver. Bruker du stor bokstav i mappenavnet, må ID-en gjenspeile dette. Vi anbefaler små bokstaver i mappenavn.
 
 Eksempel:
 
