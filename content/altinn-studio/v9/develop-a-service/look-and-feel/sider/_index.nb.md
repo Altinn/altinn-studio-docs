@@ -1,7 +1,7 @@
 ---
 draft: true
 title: Sider
-description: Slik setter du opp en app med flere sider, layoutsett og oppsummering.
+description: Slik setter du opp en app med flere sider og oppsummering.
 toc: true
 tags: [needsReview, translate]
 ---
@@ -10,19 +10,22 @@ Du kan sette opp flere sider enkelt i Altinn Studio Designer. Vil du gjøre det 
 
 ## Oppsett
 
-Du plasserer sidene i `layouts`-mappen til layoutsettet. Hvert prosessteg kan ha sitt eget layoutsett. Vil du endre rekkefølgen på sidene, se [Navigasjon](/nb/altinn-studio/v8/reference/ux/pages/navigation/#vise-en-sidemeny-med-rekkefølgen-på-sideroppgaver). Under ser du et eksempel på filstrukturen for to prosessteg, hver med sitt eget layoutsett:
+Du plasserer sidene i `layouts`-mappen under mappen for prosessteget. Mappenavnet under `App/ui/` må være nøyaktig det samme som prosesstegets ID i `process.bpmn`, for eksempel `Task_1` — det er denne mappenavn-matchen som kobler sidene til riktig prosessteg. Vil du endre rekkefølgen på sidene, se [Navigasjon](/nb/altinn-studio/v8/reference/ux/pages/navigation/#vise-en-sidemeny-med-rekkefølgen-på-sideroppgaver). Under ser du et eksempel på filstrukturen for en app med to prosessteg:
 
 ```
 |- App/
+  |- config/
+    |- process/
+      |- process.bpmn        <- her definerer du Task_1 og Task_2
   |- ui/
-    | - layout-sets.json
-    |- skjema-a/
+    |- Settings.json          <- valgfritt: globale innstillinger for hele appen
+    |- Task_1/
       |- Settings.json
       |- layouts/
         |- side1.json
         |- side2.json
         |- side3.json
-    |- skjema-b/
+    |- Task_2/
       |- Settings.json
       |- layouts/
         |- side1.json
@@ -30,32 +33,15 @@ Du plasserer sidene i `layouts`-mappen til layoutsettet. Hvert prosessteg kan ha
         |- side3.json
 ```
 
-I `layout-sets.json`-filen definerer du hvilket prosessteg (task) du skal bruke hvert layoutsett i. Merk at ID-en skiller mellom store og små bokstaver. Bruker du stor bokstav i mappenavnet, må ID-en gjenspeile dette. Vi anbefaler små bokstaver i mappenavn.
+Mappenavnet skiller mellom store og små bokstaver, og må være helt likt prosesstegets ID — som ofte har stor forbokstav, for eksempel `Task_1`.
 
-Eksempel:
-
-```json
-{
-  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
-  "sets": [
-    {
-      "id": "skjema-a",
-      "dataType": "schema_4222_160523_forms_212_20160523",
-      "tasks": ["Task_1"]
-    },
-
-    {
-      "id": "skjema-b",
-      "dataType": "schema_3161_140411_forms_1549_11554",
-      "tasks": ["Task_2"]
-    }
-  ]
-}
-```
+Datamodellen til prosessteget setter du i `Settings.json`-filen til mappen, med egenskapen `defaultDataType`. Se [Innstillinger](#innstillinger) for de andre innstillingene du kan sette i denne fila.
 
 ## Innstillinger
 
-Du kan konfigurere flere ulike innstillinger for sidene dine. Du gjør dette i `Settings.json`-filen, som du ser i mappestrukturen over, under `pages`-objektet. Bruker du layoutsett, har hvert sett sin egen fil.
+Du kan konfigurere flere ulike innstillinger for sidene dine. Du gjør dette i `Settings.json`-filen til prosesstegmappen, som du ser i mappestrukturen over, under `pages`-objektet. Hvert prosessteg har sin egen fil.
+
+I tillegg finnes en valgfri, felles `Settings.json`-fil i `App/ui/` for innstillinger som gjelder hele appen. Denne fila er flat — innstillingene ligger direkte i fila, ikke inni et `pages`-objekt.
 
 ```json
 {
@@ -101,21 +87,15 @@ Dette er innstillingene du har tilgjengelig:
 
 Du kan sette standardverdien for sidebredden til utvidet ved å legge til `expandedWidth`-egenskapen i `data`-egenskapen til en layout. Da fyller siden hele bredden av nettleservinduet når den åpnes. Setter du `expandedWidth` på flere nivåer, overskriver den mest spesifikke verdien de mer generelle.
 
-`layout-sets.json`:
+`App/ui/Settings.json` (globalt, for hele appen):
 
 ```json
 {
-  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout-sets.schema.v1.json",
-  "uiSettings": {
-    "expandedWidth": true
-  },
-  "sets": [
-    ...
-  ]
+  "expandedWidth": true
 }
 ```
 
-`Settings.json`:
+`Settings.json` (per prosessteg):
 
 ```json
 {
