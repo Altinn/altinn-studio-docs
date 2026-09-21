@@ -142,7 +142,7 @@ Eksempel på en applicationmetadata.json-fil med en signaturdatatype kalt "signa
 
 Signeringssteget trenger en layout som bestemmer hva som skal vises til brukeren. Du gjør dette via et eget layoutsett som du knytter til prosesssteget Signering (`Task_2` i eksemplet vårt).
 
-Hvis du har en v3-app uten layoutsett, se [Sider](/nb/altinn-studio/v8/reference/ux/pages/#oppsett) for hvordan du setter dette opp.
+Hvis du har en v3-app uten layoutsett, se [Sider]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/sider" >}}#oppsett) for hvordan du setter dette opp.
 
 Opprett en ny mappe i `App/ui/` med navnet som beskriver dette layoutsettet, for eksempel _signering_. I denne mappen oppretter du filen `Settings.json` og en mappe med navn `layouts`.
 

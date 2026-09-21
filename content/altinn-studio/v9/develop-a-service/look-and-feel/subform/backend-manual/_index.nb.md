@@ -22,7 +22,7 @@ hidden: true
    {{< notice warning >}}
    Underskjema støtter ikke vedlegg, og nøsting av underskjema er ikke tillatt (underskjema i underskjema).
    {{< /notice >}}
-7. [Konfigurer filen for underskjema](/nb/altinn-studio/v8/reference/ux/pages/#innstillinger), **Settings.json**, som normalt.
+7. [Konfigurer filen for underskjema]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/sider" >}}#innstillinger), **Settings.json**, som normalt.
 8. Legg til en egendefinert knapp for å lukke underskjemaet: [CustomButton](/nb/altinn-studio/v8/reference/ux/components/custombutton/) med `closeSubform`-handling. Du velger selv om underskjemaet skal valideres før det lukkes.
    ```json
    {
