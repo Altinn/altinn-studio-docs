@@ -279,7 +279,7 @@ Eksempel:
 }
 ```
 
-Funksjonen returnerer språket appen har valgt blant språkene den støtter. Se [hvordan appen velger språk](/nb/altinn-studio/v9/develop-a-service/look-and-feel/language/).
+Funksjonen returnerer språket appen har valgt blant språkene den støtter. Se [hvordan appen velger språk](/nb/altinn-studio/v9/develop-a-service/look-and-feel/tekster/oversettelse/#hvordan-appen-velger-språk).
 
 **Merk:** Denne funksjonen er ikke tilgjengelig i backend-kode ennå, og gir derfor en feilmelding hvis den blir brukt noen steder hvor uttrykk kjøres på backend, og hvis du har slått på funksjonaliteten for å automatisk slette skjulte data `RemoveHiddenDataPreview`.
 

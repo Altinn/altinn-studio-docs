@@ -37,7 +37,7 @@ En verdi du setter for oppgaven, overstyrer den felles innstillingen. Dette gjel
 
 ## Visning og navigasjon
 
-Du kan vise [språkvelgeren](/nb/altinn-studio/v9/develop-a-service/look-and-feel/language/) med `showLanguageSelector`, fremdriften med `showProgress` og knappen for å utvide skjemaet med `showExpandWidthButton`. `expandedWidth` åpner skjemaet i utvidet bredde. Disse innstillingene er som standard `false`.
+Du kan vise [språkvelgeren](/nb/altinn-studio/v9/develop-a-service/look-and-feel/tekster/oversettelse/) med `showLanguageSelector`, fremdriften med `showProgress` og knappen for å utvide skjemaet med `showExpandWidthButton`. `expandedWidth` åpner skjemaet i utvidet bredde. Disse innstillingene er som standard `false`.
 
 `hideCloseButton` skjuler lukkeknappen og er som standard `false`. `navigationTitle` kan være en tekstressursnøkkel eller et uttrykk. `taskNavigation` styrer hvilke oppgaver som vises i oppgavenavigasjonen.
 

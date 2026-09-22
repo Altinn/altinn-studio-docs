@@ -105,7 +105,7 @@ I v9 ligger den samme stien direkte i URL-en:
 https://ttd.apps.tt02.altinn.no/ttd/rbi-demo-v9/instance/51757388/769c64af-0c52-4db6-839c-36f8284ea1d6/Task_1/Side1
 ```
 
-Appen omdirigerer gamle lenker med `#/` til den nye adressen. Bruk det nye formatet når du lager lenker til appen. Se også [språkvalg](/nb/altinn-studio/v9/develop-a-service/look-and-feel/language/) for hvordan du åpner appen på et bestemt språk med `lang`-parameteren.
+Appen omdirigerer gamle lenker med `#/` til den nye adressen. Bruk det nye formatet når du lager lenker til appen. Se også [språkvalg](/nb/altinn-studio/v9/develop-a-service/look-and-feel/tekster/oversettelse/#hvordan-appen-velger-språk) for hvordan du åpner appen på et bestemt språk med `lang`-parameteren.
 
 ### PDF-en har fått sitt eget steg i prosessen
 

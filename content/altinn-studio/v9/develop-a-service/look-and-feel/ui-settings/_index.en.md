@@ -37,7 +37,7 @@ A value set for the task overrides the shared setting. This includes `false`. Li
 
 ## Display and navigation
 
-You can display the [language selector](/en/altinn-studio/v9/develop-a-service/look-and-feel/language/) with `showLanguageSelector`, progress with `showProgress` and the button for widening the form with `showExpandWidthButton`. `expandedWidth` opens the form at the expanded width. These settings default to `false`.
+You can display the language selector with `showLanguageSelector`, progress with `showProgress` and the button for widening the form with `showExpandWidthButton`. `expandedWidth` opens the form at the expanded width. These settings default to `false`.
 
 `hideCloseButton` hides the close button and defaults to `false`. `navigationTitle` can be a text resource key or an expression. `taskNavigation` controls which tasks appear in task navigation.
 
