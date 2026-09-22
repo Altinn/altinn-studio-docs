@@ -159,7 +159,7 @@ En fremdriftsindikator er et lite visuelt hjul som viser hvor langt brukeren har
 
 ### Viktig å vite
 
-[Oppgavene i arbeidsflyten]({{< relref "/altinn-studio/v9/develop-a-service/reference/process/tasks" >}}) teller med i det totale antallet sider i fremdriftsindikatoren. Har du satt opp [sporvalg](/nb/altinn-studio/v8/reference/ux/pages/tracks/) eller [dynamisk skjulte sider]({{< relref "/altinn-studio/v9/develop-a-service/expressions" >}}#show-hide-pages), kan antallet sider variere mye og virke forvirrende for brukeren.
+Har du satt opp [dynamisk skjulte sider]({{< relref "/altinn-studio/v9/develop-a-service/expressions" >}}#show-hide-pages), kan antallet sider variere mye og virke forvirrende for brukeren.
 
 **Vurder om fremdriftsindikatoren gir mening og verdi for brukeren, før du legger den til.**
 
@@ -237,9 +237,6 @@ Legg til tekster i `resources.XX.json`, der `id` er navnet på fila uten filutvi
 ## Angi validering ved sidebytte
 
 Du kan legge inn kode for å sjekke om det finnes valideringsfeil når brukeren prøver å navigere mellom sider. Valideringsfeil kan for eksempel bety at brukeren har glemt å fylle ut et felt, eller har fylt det ut med feil format på informasjonen. Hvis det er feil, stopper appen navigeringen.
-
-{{< content-version-selector classes="border-box" >}}
-{{< content-version-container version-label="v4 (App Frontend)" >}}
 
 Du kan konfigurere dette på tre nivåer med ulik prioritet: globalt for hele appen, per prosessteg og per side. I tillegg kan du konfigurere NavigationButtons, CustomButton og NavigationBar på komponentnivå.
 
@@ -339,7 +336,6 @@ Har du ikke konfigurert noen av de høyere nivåene, kan du konfigurere valideri
 {
   "id": "nav",
   "type": "NavigationButtons",
-  "showBackButton": true,
   "validateOnNext": {
     "page": "current",
     "show": ["Required", "Schema"]
@@ -387,29 +383,3 @@ NavigationBar-komponenten har tilsvarende egenskaper, `validateOnForward` og `va
 }
 ```
 
-{{< /content-version-container >}}
-{{< content-version-container version-label="v3 (App Frontend)" >}}
-
-I versjon 3 legger du til en utløser på navigasjonsknappen:
-
-```json
-{
-  "id": "nav-buttons1",
-  "type": "NavigationButtons",
-  "textResourceBindings": {
-    "next": "Neste"
-  },
-  "triggers": ["validatePage"]
-}
-```
-
-### Tilgjengelige utløsere
-
-| Utløser | Beskrivelse |
-| --- | --- |
-| validatePage | Validerer komponentene på gjeldende side. |
-| validateAllPages | Validerer alle komponentene på alle sider. Hindrer ikke at brukeren går videre hvis det bare er feil på fremtidige sider. |
-| validateCurrentAndPreviousPages | Validerer både gjeldende og tidligere sider. |
-
-{{< /content-version-container >}}
-{{< /content-version-selector >}}
