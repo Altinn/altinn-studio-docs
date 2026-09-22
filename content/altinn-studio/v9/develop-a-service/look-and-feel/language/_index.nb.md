@@ -6,7 +6,7 @@ weight: 80
 toc: true
 ---
 
-Appen støtter språkene du har tekstressurser for i `App/config/texts`. For eksempel kan du ha `resource.nb.json`, `resource.nn.json` og `resource.en.json`. Verdien i `language` i hver fil må samsvare med språkkoden i filnavnet.
+Appen støtter språkene du har tekstressurser for i `App/config/texts`. For eksempel kan du ha `resource.nb.json`, `resource.nn.json` og `resource.en.json`. Verdien i `language` i hver fil må samsvare med språkkoden i filnavnet. Se [oversette tekster i appen](/nb/altinn-studio/v9/develop-a-service/look-and-feel/tekster/oversettelse/) for et fullstendig eksempel.
 
 ## Vis språkvelgeren
 

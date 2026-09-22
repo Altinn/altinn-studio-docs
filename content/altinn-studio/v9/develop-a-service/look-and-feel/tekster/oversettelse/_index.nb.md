@@ -56,21 +56,25 @@ Under ser du et eksempel på norsk og engelsk:
 
 ## Aktivere språkvelgeren
 
-For at brukeren skal kunne velge språk i appen, må du legge til feltet `showLanguageSelector` i `Settings.json` og sette det til `true`. Da viser appen en nedtrekksmeny der brukeren kan velge språk.
-
-I tillegg må du definere tekstene fra eksemplet over, slik at nedtrekksmenyen viser de riktige tekstene:
+For at brukeren skal kunne velge språk i appen, setter du `showLanguageSelector` til `true` i `App/ui/Settings.json`. Da viser appen en nedtrekksmeny der brukeren kan velge språk i alle oppgaver:
 
 ```json
 {
-    "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
-    "components": {
-      "excludeFromPdf": [...]
-    },
-    "pages": {
-      "order": [...],
-      "showLanguageSelector": true
-    }
+  "showLanguageSelector": true
 }
 ```
 
-Hvis appen har flere layoutsett og du vil la brukeren oversette alle sidene, må du legge til `showLanguageSelector` i alle `Settings.json`-filene.
+Du kan overstyre innstillingen for en oppgave i `App/ui/<TaskId>/Settings.json`. Da legger du `showLanguageSelector` under `pages`:
+
+```json
+{
+  "pages": {
+    "order": ["Side1", "Side2"],
+    "showLanguageSelector": false
+  }
+}
+```
+
+Se [innstillinger for sider og oppgaver](/nb/altinn-studio/v9/develop-a-service/look-and-feel/ui-settings/) for hvordan felles innstillinger og overstyringer virker.
+
+Appen kan velge språk fra URL-en, et tidligere lagret valg eller brukerprofilen. Se [hvordan appen velger språk](/nb/altinn-studio/v9/develop-a-service/look-and-feel/language/) for rekkefølgen og hvordan du bruker `lang`-parameteren i en lenke.
