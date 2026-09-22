@@ -83,4 +83,4 @@ Disse loggene kommer fra `ScopeAuthorizationService` i bibliotekskoden.
 
 - [Autorisasjonsretningslinjer](../) - Lær om XACML-basert autorisasjon
 - [Autentisering](../../authentication/) - Forstå autentiseringsmekanismer
-- [Tekstressurser](/nb/altinn-studio/v8/reference/ux/texts/) - Konfigurer tilpassede tekstmeldinger
+- [Tekstressurser]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/tekster" >}}) - Konfigurer tilpassede tekstmeldinger
