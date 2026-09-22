@@ -67,7 +67,7 @@ Har du lagt til egne stilark eller skript i `Index.cshtml`? Se [slik flytter opp
 
 Tidligere hadde `App/ui` én mappe per layoutsett, med sidene i undermappen `layouts`. Filen `layout-sets.json` koblet layoutsettet til steget i prosessen. Den koblingen så du ellers bare igjen i URL-en:
 
-```
+```text
 https://ttd.apps.tt02.altinn.no/ttd/rbi-demo-v9/#/instance/51757388/769c64af-0c52-4db6-839c-36f8284ea1d6/Task_1/Side1
 ```
 
@@ -101,7 +101,7 @@ https://ttd.apps.tt02.altinn.no/ttd/rbi-demo-v9/#/instance/51757388/769c64af-0c5
 
 I v9 ligger den samme stien direkte i URL-en:
 
-```
+```text
 https://ttd.apps.tt02.altinn.no/ttd/rbi-demo-v9/instance/51757388/769c64af-0c52-4db6-839c-36f8284ea1d6/Task_1/Side1
 ```
 

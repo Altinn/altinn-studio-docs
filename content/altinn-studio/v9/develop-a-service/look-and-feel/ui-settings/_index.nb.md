@@ -49,4 +49,6 @@ Standardverdien for `autoSaveBehavior` er `onChangeFormData`. Appen lagrer da n�
 
 Sett `autoSaveBehavior` til `onChangePage` for å lagre ved sideskifte i stedet. Da kjører serverens dataprosessering først når dataene lagres. Beregnede verdier fra serveren oppdateres dermed ikke for hver endring brukeren gjør på siden. Ta hensyn til dette hvis skjemaet bruker slike verdier i dynamikk eller validering.
 
+Hvis brukeren oppdaterer siden før navigering eller innsending, kan endringer siden forrige lagring gå tapt.
+
 `saveWhileTyping` på et felt styrer forsinkelsen før feltet oppdaterer skjemadataene. En kortere forsinkelse endrer ikke `onChangePage` til lagring for hver feltendring.

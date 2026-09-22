@@ -49,4 +49,6 @@ The default `autoSaveBehavior` is `onChangeFormData`. The app saves when form da
 
 Set `autoSaveBehavior` to `onChangePage` to save on page changes instead. Server-side data processing then runs when the data is saved. Values calculated by the server therefore do not update with every change on the page. Account for this if the form uses these values in dynamic behaviour or validation.
 
+If the user refreshes the page before navigating or submitting, edits made since the last save may be lost.
+
 A field's `saveWhileTyping` controls the delay before it updates form data. Reducing the delay does not make `onChangePage` save every field change.
