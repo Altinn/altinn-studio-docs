@@ -179,9 +179,9 @@ En byggekloss du setter sammen for å lage et skjema, for eksempel et tekstfelt,
 Visningen og plasseringen av komponenter på en side i appen.
 
 ### Layoutsett
-Utgått konsept fra eldre versjoner (v3) av app-frontend: en samling layoutfiler og tilhørende konfigurasjon som definerte hvordan en side eller en gruppe sider skulle presenteres for brukeren, for eksempel selve skjemaet eller kvitteringen. I v9 er layoutsett fjernet — mappenavnet under `App/ui/` er nå det samme som prosesstegets ID, og kobler sidene direkte til riktig prosessteg.
+Utgått konsept fra eldre versjoner (v4) av app-frontend: en samling layoutfiler og tilhørende konfigurasjon som definerte hvordan en side eller en gruppe sider skulle presenteres for brukeren, for eksempel selve skjemaet eller kvitteringen. Filen `layout-sets.json` koblet layoutsettet til riktig prosessteg. I v9 er layoutsett fjernet — mappenavnet under `App/ui/` er nå det samme som prosesstegets ID, og kobler sidene direkte og entydig til ett prosessteg.
 
-**Eksempel:** Hovedskjemaet og en eventuell kvitteringsside kunne i v3 ha hvert sitt eget layoutsett.
+**Eksempel:** I v4 kunne du la flere prosessteg, for eksempel hovedskjemaet og en kvitteringsside, bruke det samme layoutsettet ved å koble begge til samme konfigurasjon i `layout-sets.json`. Dette var lite brukt i praksis, og er ikke mulig i v9.
 
 ### Ledetekst
 Teksten som du viser til brukeren for et felt, en komponent eller et svaralternativ. Også kalt «label» i kode og konfigurasjon.
