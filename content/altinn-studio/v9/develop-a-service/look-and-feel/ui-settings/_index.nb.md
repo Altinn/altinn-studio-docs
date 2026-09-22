@@ -45,10 +45,9 @@ Se også [validering](/nb/altinn-studio/v9/develop-a-service/data/validation/) f
 
 ## Automatisk lagring
 
-Standardverdien for `autoSaveBehavior` er `onChangeFormData`. Appen lagrer da når skjemadataene endres. For tekstfelt kan oppdateringen være forsinket mens brukeren skriver. Se [feltinnstillinger](/nb/altinn-studio/v9/develop-a-service/look-and-feel/felt-innstillinger/).
+Standardverdien for `autoSaveBehavior` er `onChangeFormData`. Appen lagrer når skjemadataene endres. For tekstfelt er oppdateringen normalt forsinket mens brukeren skriver. `saveWhileTyping` styrer hvor lenge appen venter før skjemadataene oppdateres, som standard 400 ms. Se [feltinnstillinger](/nb/altinn-studio/v9/develop-a-service/look-and-feel/felt-innstillinger/).
 
 Sett `autoSaveBehavior` til `onChangePage` for å lagre ved sideskifte i stedet. Da kjører serverens dataprosessering først når dataene lagres. Beregnede verdier fra serveren oppdateres dermed ikke for hver endring brukeren gjør på siden. Ta hensyn til dette hvis skjemaet bruker slike verdier i dynamikk eller validering.
 
 Hvis brukeren oppdaterer siden før navigering eller innsending, kan endringer siden forrige lagring gå tapt.
 
-`saveWhileTyping` på et felt styrer forsinkelsen før feltet oppdaterer skjemadataene. En kortere forsinkelse endrer ikke `onChangePage` til lagring for hver feltendring.
