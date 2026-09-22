@@ -83,7 +83,7 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`component`](#func-component)                 | Streng                           | Streng, liste eller objekt | ✅       | ✅      |
 | [`linkToPage`](#func-linkToPage)               | Streng, Streng, Boolsk (valgfri) | Streng                     | ✅       | ❌      |
 | [`linkToComponent`](#func-linkToComponent)     | Streng, Streng, Boolsk (valgfri) | Streng                     | ✅       | ❌      |
-| [`optionLabel`](#func-optionLabel)             | Streng, Streng, Boolsk (valgfri) | Streng                     | ✅       | ❌      |
+| [`optionLabel`](#func-optionLabel)             | Streng, Streng                   | Streng                     | ✅       | ❌      |
 
 ### Spesialfunksjoner
 
