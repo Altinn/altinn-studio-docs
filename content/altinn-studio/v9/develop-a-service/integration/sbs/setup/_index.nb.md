@@ -26,10 +26,6 @@ leverandørens system og appen. Det er i hovedsak to måter å lage denne integr
   - For mer informasjon, se [Altinn Autorisasjon-brukerveiledning for systembrukere](/nb/authorization/guides/system-vendor/)
   - Egner seg godt for systemer der det er større grad av automasjon (og mindre behov for kontakt/kobling til sluttbruker), og det er snakk om innsendinger på vegne av organisasjoner.
 
-{{% notice warning %}}
-Systembruker mot Altinn Studio-app krever `Altinn.App.Api` og `Altinn.App.Core` `v8.6.0` eller nyere.
-{{% /notice %}}
-
 {{% notice info %}}
 Du kan ikke bruke Maskinporten-token fra systembruker direkte mot Altinn-apper eller plattformtjenester som krever Altinn-token.
 Du må først veksle tokenet inn til et Altinn-token via Altinn Authentication.

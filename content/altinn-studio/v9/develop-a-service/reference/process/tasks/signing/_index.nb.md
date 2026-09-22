@@ -8,10 +8,6 @@ toc: true
 weight: 10
 ---
 
-{{% panel theme="warning" %}}
-⚠️ Signering krever versjon 8.0.0 eller nyere av app-libs.
-{{% /panel %}}
-
 {{% insert "content/altinn-studio/v9/develop-a-service/process/signing/auth-requirements.nb.md" %}}
 
 En signeringsoppgave i prosessfilen krever litt mer arbeid enn en vanlig data-, bekreftelses- eller tilbakemeldingsoppgave.
