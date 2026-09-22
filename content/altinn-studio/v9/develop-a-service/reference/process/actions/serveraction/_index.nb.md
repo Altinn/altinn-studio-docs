@@ -8,12 +8,6 @@ tags: [needsReview]
 weight: 20
 ---
 
-{{% notice warning %}}
-⚠️ Serverhandlinger krever versjon 8.0.0 eller nyere av app-libs.
-
-Hvis du vil definere en generisk knapp, kreves versjon 4.0.0 eller nyere av app-frontend.
-{{% /notice %}}
-
 ## Oversikt
 
 Serverhandlinger er en måte å skrive egendefinert backend-kode som sluttbrukere kan utløse enten ved å trykke på en knapp eller gjøre en API-forespørsel.
