@@ -47,9 +47,12 @@ I tillegg finnes en valgfri, felles `Settings.json`-fil i `App/ui/` for innstill
 Legger du innstillingene i et `pages`-objekt i denne fila, slik du gjør i prosesstegets `Settings.json`, blir de stille ignorert. Du får ingen feilmelding, men innstillingen slår rett og slett ikke inn.
 {{% /notice %}}
 
+**Eksempel på prosesstegets `Settings.json`:**
+
 ```json
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+  "defaultDataType": "Skjema",
   "pages": {
     "order": [
       "Info",
@@ -67,6 +70,24 @@ Legger du innstillingene i et `pages`-objekt i denne fila, slik du gjør i prose
     "pdfLayoutName": "PDFLayout"
   },
   ...
+}
+```
+
+**Eksempel på den globale `App/ui/Settings.json`:**
+
+```json
+{
+  "taskNavigation": [
+    {
+      "name": "task.form",
+      "taskId": "Task_1"
+    },
+    {
+      "type": "receipt"
+    }
+  ],
+  "showProgress": true,
+  "autoSaveBehavior": "onChangePage"
 }
 ```
 
