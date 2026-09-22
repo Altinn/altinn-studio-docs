@@ -128,6 +128,29 @@ Du kan vise hele arbeidsflyten i navigasjonsmenyen på to måter i koden:
 }
 ```
 
+#### Eksempel per prosessteg
+
+**Filplassering:** `App/ui/Task_1/Settings.json`
+
+```json
+{
+  "pages": {
+    "taskNavigation": [
+      {
+        "name": "task.form",
+        "taskId": "Task_1"
+      },
+      {
+        "taskId": "Task_2"
+      },
+      {
+        "type": "receipt"
+      }
+    ]
+  }
+}
+```
+
 ### Parametere for stegene i arbeidsflyten
 
 | Parameter | Beskrivelse |
@@ -221,16 +244,21 @@ Knappene i navigasjonsfeltet henter navnet sitt fra filnavnet til siden, uten fi
 
 **Slik endrer du tekstene:**
 
-Legg til tekster i `resources.XX.json`, der `id` er navnet på fila uten filutvidelsen:
+Legg til tekster i `resource.XX.json`, der `id` er navnet på fila uten filutvidelsen:
 
 ```json
 {
-  "id": "side1",
-  "value": "Første side"
-},
-{
-  "id": "side2",
-  "value": "Siste side"
+  "language": "nb",
+  "resources": [
+    {
+      "id": "side1",
+      "value": "Første side"
+    },
+    {
+      "id": "side2",
+      "value": "Siste side"
+    }
+  ]
 }
 ```
 
