@@ -28,6 +28,20 @@ Dette API-et krever autentisering og et Platform Access Token i headeren.
 Se [Autentisering og autorisasjon](/nb/events/api/#autentisering-og-autorisasjon) for mer informasjon.
 
 
+## Headere
+
+### Idempotency-Key (valgfri)
+
+En GUID du selv genererer for å identifisere forespørselen. Headeren lar deg gjenta
+samme forespørsel trygt, uten at Altinn Events registrerer hendelsen flere ganger.
+
+Hvis Altinn Events allerede har registrert en hendelse med samme idempotency-nøkkel, gir
+forespørselen fortsatt en vellykket respons, men Altinn Events lagrer ikke hendelsen på nytt.
+
+Verdien må være en gyldig GUID. Hvis ikke, avviser Altinn Events forespørselen med
+en _400 Bad Request_-respons. Du kan ikke gjenbruke verdien på tvers av hendelser.
+
+
 ## Forespørsel
 
 ### Content-type
@@ -104,6 +118,7 @@ curl \
 --header 'Content-Type: application/json' \
 --header 'PlatformAccessToken: {Sett inn Platform Access token}' \
 --header 'Authorization: Bearer {Sett inn Altinn token}' \
+--header 'Idempotency-Key: {Sett inn en GUID}' \
 --data '{
 	"type": "app.instance.created",
 	"source": "https://ttd.apps.altinn.no/ttd/apps-test/instances/50019855/428a4575-2c04-4400-89a3-1aaadd2579cd",
