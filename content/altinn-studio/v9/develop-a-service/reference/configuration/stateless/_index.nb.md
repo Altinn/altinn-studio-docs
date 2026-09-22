@@ -105,9 +105,6 @@ Appens frontend leser konfigurasjonen fra `applicationmetadata.json` og forstår
 
 {{%notice warning%}}
 OBS! Skjemakomponenter som påvirker prosess (knapp for innsending eller instansiering) er ikke støttet for anonyme brukere!
-
-**MERK:** For å bruke denne funksjonaliteten må du bruke versjon >= 5.1.0 av [nuget-pakkene](/nb/altinn-studio/v9/manage-a-service/maintainance/dependencies/#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
-
 {{%/notice%}}
 
 For å tillate bruk av appen for brukere som ikke er innlogget, følger du stegene beskrevet over. _I tillegg_ må du angi at datatypen som er satt opp til å brukes for stateless-visningen, tillater anonym (ikke innlogget) bruk. Dette gjør du ved å endre det aktuelle `dataType`-elementet i `applicationMetadata.json`. Datatypens `appLogic`-objekt må få en ny innstilling: `"allowAnonymousOnStateless": true`. Se eksempel under:
@@ -395,11 +392,7 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
 ## Starte instans fra et stateless skjema
 
 {{%notice warning%}}
-
 Dette er helt ny funksjonalitet. Oppsett må gjøres manuelt inntil videre og vil ikke være støttet i Altinn Studio.
-
-**MERK:** For å bruke denne funksjonaliteten må du bruke versjon >= 4.17.2 av [nuget-pakkene](/nb/altinn-studio/v9/manage-a-service/maintainance/dependencies/#nuget) `Altinn.App.PlatformServices`, `Altinn.App.Common` og `Altinn.App.Api`.
-
 {{%/notice%}}
 
 Fra en stateless app kan du bruke `InstantiationButton`-komponenten til å starte en instans. Foreløpig støtter vi kun å starte en instans innad i samme appen som stateless-skjemaet vises i. Muligheten til å starte en instans i en annen app kommer senere.
