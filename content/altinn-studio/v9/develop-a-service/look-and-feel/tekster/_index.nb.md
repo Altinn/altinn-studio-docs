@@ -115,8 +115,8 @@ Du finner tekstene i `App/config/texts`.
 ## Endre standardtekster og feilmeldinger i appen
 
 Du kan endre standardtekster og feilmeldinger som vises i appen.
-Her finner du nøklene med standardverdiene på [engelsk](https://github.com/Altinn/app-frontend-react/blob/main/src/language/texts/en.ts), 
-[norsk bokmål](https://github.com/Altinn/app-frontend-react/blob/main/src/language/texts/nb.ts) og [nynorsk](https://github.com/Altinn/app-frontend-react/blob/main/src/language/texts/nn.ts).
+Her finner du nøklene med standardverdiene på [engelsk](https://github.com/Altinn/altinn-studio/blob/main/src/common/ts/language/src/texts/en.ts),
+[norsk bokmål](https://github.com/Altinn/altinn-studio/blob/main/src/common/ts/language/src/texts/nb.ts) og [nynorsk](https://github.com/Altinn/altinn-studio/blob/main/src/common/ts/language/src/texts/nn.ts).
 
 Du må håndtere standardtekster som inneholder tall, på en litt annen måte. `file_uploader_validation_error` er et eksempel: den viser en feilmelding hvis appen krever minst ett vedlegg.
 Denne standardfeilmeldingen vises som «For å fortsette må du laste opp 1 vedlegg».

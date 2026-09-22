@@ -7,6 +7,10 @@ toc: true
 tags: [needsReview]
 ---
 
+## Velg app og testbruker
+
+Åpne lokaltest og velg appen under **Select app to test**. Dette valget vises også når du kjører én app. Velg deretter bruker under **Select test users** og autentiseringsnivå under **Select your authentication level**. Klikk **Proceed to app** for å åpne appen som testbrukeren.
+
 ## Standardbrukere
 
 Disse kan du velge når du logger inn i lokal test.
@@ -26,13 +30,13 @@ Hun er også styremedlem i borettslaget der hun bor. "Oslos Vakreste Borettslag"
 
 | Avgiver                                                                                                                       | Roller                                                                                                                                        |
 | ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| [01039012345 Sophie Salt](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Person/01039012345.json)        | [Privatperson](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_501337/roles.json)              |
-| [897069650 DDG Fitness AS](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069650.json)            | [Daglig leder + knytninger](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_500000/roles.json) |
-| [897069651 DDG Fitness Oslo](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069651.json)        | [Daglig leder + knytninger](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_500001/roles.json) |
-| [897069652 DDG Fitness Bergen](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069652.json)          | [Daglig leder + knytninger](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_500002/roles.json) |
-| [897069653 DDG Fitness Trondheim](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069653.json)     | [Daglig leder + knytninger](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_500003/roles.json) |
-| [897069631 EAS Health Consulting](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069631.json)     | [Styreleder + knytninger](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_500600/roles.json)   |
-| [950474084 Oslos Vakreste Borettslag](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/950474084.json) | [Styremedlem + knytninger](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1337/party_500700/roles.json)  |
+| [01039012345 Sophie Salt](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/Register/Person/01039012345.json)        | [Privatperson](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/authorization/roles/User_1337/party_501337/roles.json)              |
+| [897069650 DDG Fitness AS](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/Register/Org/897069650.json)            | [Daglig leder + knytninger](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/authorization/roles/User_1337/party_500000/roles.json) |
+| [897069651 DDG Fitness Oslo](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/Register/Org/897069651.json)        | [Daglig leder + knytninger](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/authorization/roles/User_1337/party_500001/roles.json) |
+| [897069652 DDG Fitness Bergen](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/Register/Org/897069652.json)          | [Daglig leder + knytninger](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/authorization/roles/User_1337/party_500002/roles.json) |
+| [897069653 DDG Fitness Trondheim](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/Register/Org/897069653.json)     | [Daglig leder + knytninger](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/authorization/roles/User_1337/party_500003/roles.json) |
+| [897069631 EAS Health Consulting](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/Register/Org/897069631.json)     | [Styreleder + knytninger](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/authorization/roles/User_1337/party_500600/roles.json)   |
+| [950474084 Oslos Vakreste Borettslag](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/Register/Org/950474084.json) | [Styremedlem + knytninger](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/authorization/roles/User_1337/party_500700/roles.json)  |
 
 ![testbrukere](selectparty.png "Avgiver valg Sophie Salt")
 
@@ -44,8 +48,8 @@ Pengelens Partner er regnskapsføreren for selskapet DDG Fitness AS.
 
 | Avgiver                                                                                                                      | Roller                                                                                                                             |
 | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| [01899699552 Pengelens Partner](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Person/01899699552.json) | [Privatperson](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1001/party_510001/roles.json)   |
-| [897069650 DDG Fitness AS](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069650.json)           | [Regnskapsfører](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1001/party_500000/roles.json) |
+| [01899699552 Pengelens Partner](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/Register/Person/01899699552.json) | [Privatperson](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/authorization/roles/User_1001/party_510001/roles.json)   |
+| [897069650 DDG Fitness AS](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/Register/Org/897069650.json)           | [Regnskapsfører](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/authorization/roles/User_1001/party_500000/roles.json) |
 
 ### Gjentagende Forelder
 
@@ -55,8 +59,8 @@ Gjentagende Forelder er revisor for selskapet DDG Fitness AS.
 
 | Avgiver                                                                                                                         | Roller                                                                                                                           |
 | ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| [17858296439 Gjentagende Forelder](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Person/17858296439.json) | [Privatperson](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1002/party_510002/roles.json) |
-| [897069650 DDG Fitness AS](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Org/897069650.json)              | [Revisor](https://github.com/Altinn/app-localtest/blob/main/testdata/authorization/roles/User_1002/party_500000/roles.json)      |
+| [17858296439 Gjentagende Forelder](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/Register/Person/17858296439.json) | [Privatperson](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/authorization/roles/User_1002/party_510002/roles.json) |
+| [897069650 DDG Fitness AS](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/Register/Org/897069650.json)              | [Revisor](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/authorization/roles/User_1002/party_500000/roles.json)      |
 
 ### Ola Nordmann
 
@@ -65,7 +69,7 @@ Han er bosatt på Stokmarknes.
 
 #### Avgivere
 
-- [01017512345 Ola Nordmann](https://github.com/Altinn/app-localtest/blob/main/testdata/Register/Person/01017512345.json)
+- [01017512345 Ola Nordmann](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/Register/Person/01017512345.json)
 
 ### Andre brukere
 
