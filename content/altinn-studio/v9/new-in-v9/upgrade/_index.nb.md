@@ -89,6 +89,24 @@ App/
 
 Mappestrukturen viser dermed selv hvilket skjema som hører til hvilket steg. Da trenger ikke appen `layout-sets.json` lenger, og oppgraderingen sletter filen.
 
+Se [innstillinger for sider og oppgaver](/nb/altinn-studio/v9/develop-a-service/look-and-feel/ui-settings/) for felles innstillinger og overstyringer per oppgave.
+
+### URL-er bruker ikke lenger hash-ruting
+
+I v8 begynte stien inne i appen med `#/`:
+
+```
+https://ttd.apps.tt02.altinn.no/ttd/rbi-demo-v9/#/instance/51757388/769c64af-0c52-4db6-839c-36f8284ea1d6/Task_1/Side1
+```
+
+I v9 ligger den samme stien direkte i URL-en:
+
+```
+https://ttd.apps.tt02.altinn.no/ttd/rbi-demo-v9/instance/51757388/769c64af-0c52-4db6-839c-36f8284ea1d6/Task_1/Side1
+```
+
+Appen omdirigerer gamle lenker med `#/` til den nye adressen. Bruk det nye formatet når du lager lenker til appen. Se også [språkvalg](/nb/altinn-studio/v9/develop-a-service/look-and-feel/language/) for hvordan du åpner appen på et bestemt språk med `lang`-parameteren.
+
 ### PDF-en har fått sitt eget steg i prosessen
 
 Tidligere laget appen PDF-kvitteringen samtidig som brukeren gikk ut av et utfyllingssteg. PDF-en var altså en del av det steget. Feilet PDF-en, kunne hele innsendingen feile, og det var ikke lett å starte prosessen på nytt fra punktet som gikk galt.
