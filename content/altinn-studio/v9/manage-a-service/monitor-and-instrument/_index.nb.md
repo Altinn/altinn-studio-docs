@@ -111,8 +111,13 @@ Her er en kort oversikt over visualisering av telemetrien vi instrumenterte over
 
 ### Lokal utvikling
 
-Ved lokal utvikling så kan en monitoreringsstack bestående av Grafana og OpenTelemetry Collector
-provisjoneres ved siden av localtest og Platform APIer. [Se localtest README for mer informasjon](https://github.com/Altinn/app-localtest/blob/main/README.md).
+Start lokaltest med Grafana og OpenTelemetry Collector ved å bruke `--monitoring`:
+
+```sh
+studioctl env up --monitoring
+```
+
+Kjør `studioctl run` fra app-repoet. Se [oppsettet for lokal utvikling](/nb/altinn-studio/v9/getting-started/development/localtest/local-dev/).
 
 Monitoreringsoppsettet i localtest inneholder en Grafana instans med ASP.NET Core dashboard og et preview Altinn app dashboard.
 I tillegg gir det muligheten til å fritt undersøke telemetrien som eksponeres fra Altinn plattform og bibliotek.
@@ -125,7 +130,7 @@ Det er fordi plattform-tjenestene som kjører lokalt har annerledes kode og konf
 Hvis du har implementert koden over, så skal du kunne finne `altinn_app_started`-metrikken på "Explore"-siden når "Metrics"-datakilden er valgt.
 Du kan også finne logger og traces fra koden over på denne siden ved hjelp av de andre datakildene.
 
-For å åpne Grafana, åpne [local.altinn.cloud/grafana/](http://local.altinn.cloud/grafana/), og naviger via sidemenyen.
+For å åpne Grafana, åpne [local.altinn.cloud:8000/grafana/](http://local.altinn.cloud:8000/grafana/), og naviger via sidemenyen.
 
 Vi starter med å utforske metrikker ved å navigere til *Explore*-siden, der vi kan velge *Metrics* som kilde i nedtrekksmenyen. Her
 kan vi se på ønskelig metrikk ved hjelp av *Select a metric*-seksjonen:

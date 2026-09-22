@@ -109,8 +109,13 @@ Here is a brief overview of visualising the telemetry instrumented above.
 
 ###  Running locally 
 
-When running locally using [localtest](/en/altinn-studio/v9/getting-started/development/localtest/local-dev/), a monitoring stack consisting of Grafana and OpenTelemetry Collector 
-can be provisioned along side localtest and Platform APIs. [See the localtest README for more info](https://github.com/Altinn/app-localtest/blob/main/README.md).
+Start localtest with Grafana and OpenTelemetry Collector using `--monitoring`:
+
+```sh
+studioctl env up --monitoring
+```
+
+Run `studioctl run` from the app repository. See the [local development setup](/en/altinn-studio/v9/getting-started/development/localtest/local-dev/).
 
 Localtest monitoring setup currently contains a Grafana instance with ASP.NET Core dashboards and a preview Altinn app dashboard.
 In addition to these, you can freely explore the emitted telemetry while debugging or learning how the Altinn platform and libraries works.
@@ -123,7 +128,7 @@ This is because the platform services that are running locally have differences 
 If you've implemented the code above, you should be able to find the `altinn_app_started` metric in the explore tab for the *Metrics* datasource.
 You should also be able to find the log message and trace emitted above by using the other datasources.
 
-To open Grafana, visit [local.altinn.cloud/grafana/](http://local.altinn.cloud/grafana/), then click explore in the side-menu.
+To open Grafana, visit [local.altinn.cloud:8000/grafana/](http://local.altinn.cloud:8000/grafana/), then click explore in the side-menu.
 
 First, let's explore metrics by navigation to the *Explore* tab and selecting *Metrics* as source in the dropdown menu. Here we
 can choose which metric to view in the *Select a metric* section:

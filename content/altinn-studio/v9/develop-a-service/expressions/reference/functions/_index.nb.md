@@ -74,16 +74,16 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 
 ### Oppslag, komponenter og data
 
-| Funksjonsnavn                                  | Parametre      | Returverdi                 | Frontend | Backend |
-|------------------------------------------------|----------------|----------------------------|----------|---------|
-| [`instanceContext`](#func-instancecontext)     | Streng         | Streng                     | ✅        | ✅       |
-| [`frontendSettings`](#func-frontendsettings)   | Streng         | Streng                     | ✅        | ✅       |
-| [`countDataElements`](#func-countDataElements) | Streng         | Tall                       | ✅        | ✅       |
-| [`dataModel`](#func-datamodel)                 | Streng         | Streng, liste eller objekt | ✅        | ✅       |
-| [`component`](#func-component)                 | Streng         | Streng, liste eller objekt | ✅        | ✅       |
-| [`linkToPage`](#func-linkToPage)               | Streng, Streng | Streng                     | ✅        | ❌       |
-| [`linkToComponent`](#func-linkToComponent)     | Streng, Streng | Streng                     | ✅        | ❌       |
-| [`optionLabel`](#func-optionLabel)             | Streng, Streng | Streng                     | ✅        | ❌       |
+| Funksjonsnavn                                  | Parametre                        | Returverdi                 | Frontend | Backend |
+|------------------------------------------------|----------------------------------|----------------------------|----------|---------|
+| [`instanceContext`](#func-instancecontext)     | Streng                           | Streng                     | ✅       | ✅      |
+| [`frontendSettings`](#func-frontendsettings)   | Streng                           | Streng                     | ✅       | ✅      |
+| [`countDataElements`](#func-countDataElements) | Streng                           | Tall                       | ✅       | ✅      |
+| [`dataModel`](#func-datamodel)                 | Streng                           | Streng, liste eller objekt | ✅       | ✅      |
+| [`component`](#func-component)                 | Streng                           | Streng, liste eller objekt | ✅       | ✅      |
+| [`linkToPage`](#func-linkToPage)               | Streng, Streng, Boolsk (valgfri) | Streng                     | ✅       | ❌      |
+| [`linkToComponent`](#func-linkToComponent)     | Streng, Streng, Boolsk (valgfri) | Streng                     | ✅       | ❌      |
+| [`optionLabel`](#func-optionLabel)             | Streng, Streng                   | Streng                     | ✅       | ❌      |
 
 ### Spesialfunksjoner
 
@@ -279,7 +279,7 @@ Eksempel:
 }
 ```
 
-Hvis gjeldende språk er ukjent, returneres `nb`, som er standardspråket for Altinn 3-apper. Dermed kan du være trygg på at denne funksjonen alltid returnerer et gyldig språk.
+Funksjonen returnerer språket appen har valgt blant språkene den støtter. Se [hvordan appen velger språk](/nb/altinn-studio/v9/develop-a-service/look-and-feel/tekster/oversettelse/#hvordan-appen-velger-språk).
 
 **Merk:** Denne funksjonen er ikke tilgjengelig i backend-kode ennå, og gir derfor en feilmelding hvis den blir brukt noen steder hvor uttrykk kjøres på backend, og hvis du har slått på funksjonaliteten for å automatisk slette skjulte data `RemoveHiddenDataPreview`.
 
@@ -518,7 +518,7 @@ argument:
 | `instanceOwnerPartyType` | Hva slags aktør eier instansen | `"org", "person", "selfIdentified" eller "unknown"` |
 | `appId`                  | Den aktive appen sin ID        | `org/app-name`                                      |
 
-Alle disse oppslagene gir verdien `null` hvis du jobber i en [tilstandsløs kontekst](/nb/altinn-studio/v9/develop-a-service/reference/configuration/stateless/). Hvis du bruker andre nøkler enn de over, resulterer oppslaget i en feilmelding. Denne oppførselen er unik blant oppslagsfunksjonene, og gjøres for å sikre at du ikke prøver å hente informasjon som finnes i instansen men som ikke (ennå) er eksponert via en nøkkel her. [Gi oss en tilbakemelding](https://github.com/Altinn/app-frontend-react/issues/new?assignees=&labels=kind%2Ffeature-request%2Cstatus%2Ftriage&template=feature_request.yml) hvis du har ønsker om å hente ut instansdata som ikke er tilgjengelig i denne funksjonen.
+Alle disse oppslagene gir verdien `null` hvis du jobber i en [tilstandsløs kontekst](/nb/altinn-studio/v9/develop-a-service/reference/configuration/stateless/). Hvis du bruker andre nøkler enn de over, resulterer oppslaget i en feilmelding. Denne oppførselen er unik blant oppslagsfunksjonene, og gjøres for å sikre at du ikke prøver å hente informasjon som finnes i instansen men som ikke (ennå) er eksponert via en nøkkel her. [Gi oss en tilbakemelding](https://github.com/Altinn/altinn-studio/issues/new/choose) hvis du har ønsker om å hente ut instansdata som ikke er tilgjengelig i denne funksjonen.
 
 Oppslaget gjøres i samme datakilde som er tilgjengelig for [språk/tekster](/nb/altinn-studio/v9/develop-a-service/look-and-feel/options/functionality/texts/).
 {{% /expandlarge %}}
@@ -677,35 +677,51 @@ Vil resultere i `14:54`
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-linkToPage" header="linkToPage" %}}
-`linkToPage`-funksjonen kan brukes for å lage lenker som kan brukes inne i tekst i et skjema.
-Den er ment for å lage lenker som peker til en spesifikk side av skjemaet. Å klikke på denne linken vil navigere
-direkte til den spesifiserte siden.
-
-Funksjonen tar 2 argumenter. Det første argumentet er lenketeksten som vil være synlig for
-brukeren. Det andre argumentet er id-en til siden linken skal peke til.
+`linkToPage` lager en lenke til en side i skjemaet. De to første argumentene er lenketeksten og ID-en til siden.
 
 ```json
-["linkToPage", "Specify your name", "page1"]
+["linkToPage", "Oppgi navnet ditt", "page1"]
 ```
 
-Resultatet blir `<a href="#/instance/<party-id>/<instance-id>/<TaskId>/page1">Oppgi navnet ditt</a>`
-Denne lenken tar brukeren til den spesifiserte siden når de klikker på den.
+Funksjonen lager en lenke med denne strukturen:
 
+```html
+<a href="/instance/<party-id>/<instance-id>/<TaskId>/page1" data-link-type="LinkToPotentialPage">Oppgi navnet ditt</a>
+```
+
+Appens ruting legger til adressen til appen. I en app uten instans er stien `/page1`.
+
+Det tredje argumentet, `enableBackButton`, er valgfritt og har standardverdien `false`:
+
+```json
+["linkToPage", "Oppgi navnet ditt", "page1", true]
+```
+
+Når verdien er `true` og lenken peker til en annen side, legges `backToPage` med gjeldende side til i URL-en. Målsiden må ha en `NavigationButtons`-komponent for å vise knappen som tar brukeren tilbake.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-linkToComponent" header="linkToComponent" %}}
-`linkToComponent`-funksjonen kan brukes for å lage lenker som kan brukes inne i tekst i et skjema. Den er ment for å lage lenker
-som peker til en spesifikk komponent i skjemaet. Å klikke på denne lenken vil navigere direkte til komponenten og gi den fokus.
-
-Funksjonen tar 2 argumenter. Det første argumentet er lenketeksten som vil være synlig for brukeren.
-Det andre argumentet er id-en til komponenten lenken skal peke til.
+`linkToComponent` lager en lenke som navigerer til en komponent og gir den fokus. De to første argumentene er lenketeksten og ID-en til komponenten.
 
 ```json
-["linkToComponent", "Specify your name", "inputMyName"]
+["linkToComponent", "Oppgi navnet ditt", "inputMyName"]
 ```
 
-Resultatet blir `<a href="#/instance/<party-id>/<instance-id>/<TaskId>/<PageId>?focusNodeId=inputMyName">Oppgi navnet ditt</a>`
-Denne lenken tar brukeren til siden komponenten er på og fokuserer på den spesifiserte komponenten når de klikker på lenken.
+Funksjonen lager en lenke med denne strukturen:
+
+```html
+<a href="/instance/<party-id>/<instance-id>/<TaskId>/<PageId>?focusComponentId=inputMyName" data-link-type="LinkToPotentialNode">Oppgi navnet ditt</a>
+```
+
+Appens ruting legger til adressen til appen. I en app uten instans begynner stien med sidenavnet. I repeterende grupper tilpasses komponent-ID-en til raden uttrykket brukes i.
+
+Det valgfrie tredje argumentet, `enableBackButton`, har standardverdien `false`. Sett det til `true` for å legge til `backToPage` når komponenten ligger på en annen side:
+
+```json
+["linkToComponent", "Oppgi navnet ditt", "inputMyName", true]
+```
+
+Målsiden må ha en `NavigationButtons`-komponent for å vise knappen som tar brukeren tilbake.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-optionLabel" header="optionLabel" %}}
