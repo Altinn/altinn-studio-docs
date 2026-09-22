@@ -54,7 +54,7 @@ Du kan motta varsler om hendelser knyttet til sendte meldingstjenester, ved å s
 
 ### Integrasjon med Dialogporten og Arbeidsflate
 - En Altinn 3 Melding oppretter automatisk en dialog i Dialogporten.
-- Meldinger med en eksisterende dialog som ekstern referanse vil opprette en transmission som gir en logisk fremstilling av relaterte meldinger.
+- Meldinger med en eksisterende dialog som ekstern referanse vil opprette en forsendelse som gir en logisk fremstilling av relaterte meldinger.
 - Løsningen gir et enhetlig brukergrensesnitt på tvers gjennom Altinn 3 Arbeidsflate og Dialogporten.
 
 ### Bekreftelse og frist
