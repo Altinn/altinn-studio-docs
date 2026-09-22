@@ -136,13 +136,13 @@ Eksempel på en applicationmetadata.json-fil med en signaturdatatype kalt "signa
 
 ### Design layout for signeringssteget
 
-Signeringssteget trenger en layout som bestemmer hva som skal vises til brukeren. Du gjør dette via et eget layoutsett som du knytter til prosesssteget Signering (`Task_2` i eksemplet vårt).
+Signeringssteget trenger en layout som bestemmer hva som skal vises til brukeren. Du oppretter denne i mappen for prosesssteget Signering (`Task_2` i eksemplet vårt).
 
 Hvis du har en v3-app uten layoutsett, se [Sider](/nb/altinn-studio/v8/reference/ux/pages/#oppsett) for hvordan du setter dette opp.
 
-Opprett en ny mappe i `App/ui/` med navnet som beskriver dette layoutsettet, for eksempel _signering_. I denne mappen oppretter du filen `Settings.json` og en mappe med navn `layouts`.
+Opprett en mappe i `App/ui/` med et navn som er nøyaktig likt prosesstegets ID, for eksempel `Task_2`. I denne mappen oppretter du filen `Settings.json` og en mappe med navn `layouts`.
 
-I `layouts`-mappen oppretter du filer som bestemmer hvordan sider i dette layoutsettet skal se ut. En signering-layout må ha en [`ActionButton`](/nb/altinn-studio/v8/reference/ux/components/actionbutton/) med `"action": "sign"` som bestemmer at brukeren utfører handlingen `sign` når brukeren trykker på den og flytter prosessen videre.
+I `layouts`-mappen oppretter du filene som bestemmer hvordan sidene skal se ut. En signering-layout må ha en [`ActionButton`](/nb/altinn-studio/v8/reference/ux/components/actionbutton/) med `"action": "sign"` som bestemmer at brukeren utfører handlingen `sign` når brukeren trykker på den og flytter prosessen videre.
 
 Eksempel på en enkel layout med et read only-tekstfelt og en signeringsknapp kan se sånn her ut:
 

@@ -73,4 +73,4 @@ I tillegg må du definere tekstene fra eksemplet over, slik at nedtrekksmenyen v
 }
 ```
 
-Hvis appen har flere layoutsett og du vil la brukeren oversette alle sidene, må du legge til `showLanguageSelector` i alle `Settings.json`-filene.
+Hvis appen har flere prosessteg og du vil la brukeren oversette alle sidene, må du legge til `showLanguageSelector` i alle `Settings.json`-filene.
