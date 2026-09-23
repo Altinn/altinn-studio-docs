@@ -55,9 +55,9 @@ Skal du kontrollere selve antallet tegn, må du også legge til `maxLength`-egen
 
 ## Konfigurere automatisk lagring
 
-`Input`-komponenter, `TextArea`-komponenter og `Address`-komponenter (`AddressComponent` i v3) lagrer endringer automatisk mens brukeren skriver. Som standard skjer dette 400 millisekunder etter at brukeren sist skrev noe. Når appen lagrer feltet, kjører den også valideringer og eventuelle triggere. Hvis disse valideringene og triggerne bruker mye ressurser, kan du øke tiden det tar før appen lagrer feltet automatisk.
+`Input`, `TextArea` og `Address` oppdaterer skjemadataene mens brukeren skriver. Som standard skjer dette 400 millisekunder etter at brukeren sist skrev noe. Med standardinnstillingen `autoSaveBehavior: "onChangeFormData"` lagrer appen endringene på serveren. Med `onChangePage` lagres de ved sideskifte. Se [innstillinger for automatisk lagring](/nb/altinn-studio/v9/develop-a-service/look-and-feel/ui-settings/#automatisk-lagring).
 
-Du styrer dette med `saveWhileTyping`-egenskapen på en komponent i layoutfilen. I eksempelet under lagrer appen dataene to sekunder etter at brukeren slutter å skrive i feltet.
+Du styrer dette med `saveWhileTyping`-egenskapen på en komponent i layoutfilen. I eksempelet under oppdaterer feltet skjemadataene to sekunder etter at brukeren slutter å skrive i feltet.
 
 ```json {hl_lines=[4]}
 {
@@ -67,6 +67,4 @@ Du styrer dette med `saveWhileTyping`-egenskapen på en komponent i layoutfilen.
 }
 ```
 
-I app-frontend v3 kunne du skru av automatisk lagring helt ved å sette egenskapen til `false`. Fra v4 lagrer appen hele datamodellen samlet i stedet for felt for felt, så `saveWhileTyping` er bare numerisk og kan ikke lenger slå av funksjonaliteten.
-
-Du kan sette en høy verdi for å utsette lagringen lenge, men det er ikke en pålitelig måte å skru av autolagring på: hvis brukeren går videre til et annet felt med kortere forsinkelse (for eksempel standardverdien på 400 millisekunder), lagrer appen hele datamodellen med det samme — også endringene i feltet med høy forsinkelse.
+`saveWhileTyping` er en forsinkelse i millisekunder og kan ikke slå av automatisk lagring. En høy verdi er heller ikke en pålitelig måte å unngå lagring på. Andre felt og navigasjon kan føre til at appen lagrer dataene.

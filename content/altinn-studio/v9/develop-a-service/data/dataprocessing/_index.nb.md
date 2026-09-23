@@ -8,7 +8,7 @@ toc: true
 
 Serveren kjører dataprosessering basert på inndata fra brukeren/skjemadata. Dataprosessering kan være rent matematiske beregninger, overføring av verdier mellom felter, resultater av API-kall, osv.
 
-Serveren kjører dataprosessering hver gang du lagrer data, og dermed hver gang en bruker har gjort en endring.
+Serveren kjører dataprosessering når appen lagrer data. Med standardinnstillingen lagres data når skjemadataene endres. Hvis appen bruker `autoSaveBehavior: "onChangePage"`, skjer lagringen ved sideskifte. Se [innstillinger for automatisk lagring](/nb/altinn-studio/v9/develop-a-service/look-and-feel/ui-settings/#automatisk-lagring).
 
 For å sikre optimal opplevelse og kontroll har app-malen to forskjellige hendelser hvor du kan plassere logikk:
 
