@@ -18,7 +18,7 @@ Gå til `https://altinn.studio/repos/org/{org}/teams/` (erstatt `{org}` med din 
 
 Det er definert fire standard-team som legger føringer for hva en bruker har tillatelse til å gjøre i organisasjonen i Altinn Studio. Ved behov kan du som eier legge til eller fjerne brukere i team, opprette nye team og endre konfigurasjon på eksisterende team.
 
-[Se oversikt over standard-team og tilgangene de gir](/nb/altinn-studio/v8/reference/access-management/studio/).
+[Se oversikt over standardteamene og tilgangene de gir]({{< relref "/altinn-studio/v9/develop-a-service/reference/administration/access-management/studio" >}}).
 
 ### Legge til bruker i et team
 
