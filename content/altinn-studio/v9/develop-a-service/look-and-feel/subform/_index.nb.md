@@ -92,12 +92,4 @@ PDF-en som appen lager for hovedskjemaet, viser automatisk alle opplysningene i 
 
 Trenger mottakeren en egen PDF for hver oppføring, må utviklerne legge inn et eget steg i prosessen. Les hvordan de gjør det i [PDF-generering for underskjema]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/subform/subform-pdf" >}}).
 
-## Spørsmål du kan stille utviklerne
-
-- Hvor mange oppføringer forventer vi at brukerne legger inn, og har vi testet med så mange?
-- Kontrollerer appen opplysningene i hver oppføring når brukeren sender inn hovedskjemaet?
-- Skal brukeren kunne slette oppføringer, og hva skjer med opplysningene da?
-- Trenger mottakeren én PDF for hver oppføring?
-- Viser tabellen nok opplysninger til at brukeren kjenner igjen hver oppføring?
-
 {{<children />}}
