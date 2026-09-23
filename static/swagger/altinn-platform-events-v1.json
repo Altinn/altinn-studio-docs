@@ -21,6 +21,17 @@
           "App"
         ],
         "summary": "Inserts a new event.",
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "description": "Optional idempotency key (GUID) used to detect and skip duplicate submissions.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -2386,6 +2397,10 @@
           "validated": {
             "type": "boolean",
             "description": "Indicate whether the subscription has been validated to be ok."
+          },
+          "includeSubunits": {
+            "type": "boolean",
+            "description": "Indicates whether events for sub-units of the subject should be included."
           }
         },
         "additionalProperties": false,
@@ -2478,6 +2493,10 @@
             "type": "string",
             "description": "Filter for type. The different sources has different types.",
             "nullable": true
+          },
+          "includeSubunits": {
+            "type": "boolean",
+            "description": "Indicates whether events for sub-units of the subject should be included."
           }
         },
         "additionalProperties": false,
