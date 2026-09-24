@@ -8,6 +8,9 @@ toc: true
 tags: [needsReview]
 ---
 
-En app kan publisere varsler til brukere ved hjelp av [Altinn Varslinger-API-et](/nb/notifications). `Altinn.App.Core` har ferdigbygde grensesnitt for å støtte dette.
+En app kan varsle brukerne gjennom [Altinn Varsling](/nb/notifications), på to måter:
+
+- Du ber om varsel i selve instansieringsforespørselen. Da varsler Altinn instanseieren når appen oppretter instansen, og du trenger ingen egen kode i appen.
+- Du bestiller varsler fra appkoden. `Altinn.App.Core` har ferdigbygde grensesnitt for e-post og SMS.
 
 {{<children />}}
