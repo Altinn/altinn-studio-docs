@@ -4,4 +4,4 @@ headless: true
 hidden: true
 tags: [needsReview]
 ---
-Du kan foreløpig ikke konfigurere kalkulering med uttrykk gjennom Altinn Studio Designer.
+Du kan ennå ikke sette opp kalkulering med uttrykk i Altinn Studio Designer. Du eller utvikleren din må skrive filen selv, slik det står under **Manuelt oppsett**.
