@@ -67,7 +67,7 @@ Eksempel på tekstressurs for filnavn med variabel:
 
 ```json
 {
-  "id": "pdfFileName",
+  "id": "subformPdfFileName",
   "value": "Mitt filnavn {0}",
   "variables": [
     {

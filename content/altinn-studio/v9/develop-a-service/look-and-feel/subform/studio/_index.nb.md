@@ -36,7 +36,11 @@ Klikk på **Utforming** i toppmenyen for å gå dit.
    ![Panelet i Designer der du setter opp kolonnene i tabellen](/nb/altinn-studio/v9/develop-a-service/look-and-feel/subform/studio/add-subform-column-studio.png "Sette opp kolonnene")
 
 {{< notice info >}}
-Vil du bestemme hvor mange oppføringer brukeren må eller kan legge inn, går du til **Datamodell** i toppmenyen og velger datamodellen for underskjemaet i nedtrekkslisten.
-På fanen **Metadata** fyller du ut **Minste mulige antall** og **Største mulige antall**. Fyll ut begge feltene, ellers viser ikke appen feilmelding om antall oppføringer mens brukeren fyller ut skjemaet.
-Klikk på **Generer modell** for å ta i bruk endringene.
+Når du lager en ny datamodell for underskjemaet, setter Designer både minste og største antall oppføringer til 1. Brukeren kan da bare legge inn én oppføring. Slik endrer du antallet:
+
+1. Gå til **Datamodell** i toppmenyen og velg datamodellen for underskjemaet i nedtrekkslisten.
+2. Klikk på navnet til datamodellen øverst i treet.
+3. På fanen **Metadata** fyller du ut **Minste mulige antall** og **Største mulige antall**. Skriver du 0, er det ingen grense.
+
+Designer lagrer endringene automatisk.
 {{< /notice >}}
