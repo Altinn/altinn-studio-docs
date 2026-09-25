@@ -11,7 +11,7 @@ Denne siden beskriver innstillingene du kan sette på komponenten **Tabell for u
 
 ## Innstillinger
 
-| Innstilling                                   | Type   | Påkrevd | Beskrivelse                                                                                                                                                     |
+| Innstilling                                   | Type   | Obligatorisk | Beskrivelse                                                                                                                                                     |
 | --------------------------------------------- | ------ | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | id                                            | string | Ja      | En unik ID, som på andre komponenter. Må være unik på tvers av alle sidene i mappen.                                                                             |
 | type                                          | string | Ja      | Må være `Subform`.                                                                                                                                              |
@@ -43,7 +43,7 @@ Du kan tilpasse disse tekstene i `textResourceBindings`-objektet:
 
 `tableColumns` er en liste med kolonnene i tabellen. Hver kolonne må ha `headerContent` og `cellContent`.
 
-| Innstilling           | Påkrevd | Beskrivelse                                                                                                                         |
+| Innstilling           | Obligatorisk | Beskrivelse                                                                                                                         |
 | --------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | headerContent         | Ja      | Overskriften på kolonnen. Kan være en tekstressurs, men kan ikke hente verdier fra datamodellen.                                    |
 | cellContent.value     | Ja      | Et uttrykk som henter verdien i cellen fra datamodellen til underskjemaet, vanligvis `["dataModel", "feltnavn"]`.                   |

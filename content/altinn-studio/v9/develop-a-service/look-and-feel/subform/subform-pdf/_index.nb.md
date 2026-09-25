@@ -60,8 +60,8 @@ Oppgaven må ha én inngående og én utgående sekvensflyt.
 | Parameter                 | Beskrivelse                                                                                                                                                                                                            |
 |---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `filenameTextResourceKey` | Nøkkel til tekstressursen som definerer filnavnet for den genererte PDF-en. Valgfri. Uten denne får PDF-en et standard filnavn. Kan inneholde variabler. Bruk gjerne en variabel i filnavnet som gjør det enkelt å skille de ulike underskjema-PDF-ene fra hverandre. |
-| `subformComponentId`      | Påkrevd. ID-en til komponenten **Tabell for underskjema** (`Subform`) i hovedskjemaet. Du må også ha en skjult kopi av komponenten med samme ID i layouten til systemoppgaven, se [PdfSubform/layouts/ServiceTask.json](#pdfsubformlayoutsservicetaskjson). |
-| `subformDataTypeId`       | Påkrevd. ID-en til datatypen for underskjemaet. Systemoppgaven lager én PDF for hvert dataelement av denne typen.                                                                                                      |
+| `subformComponentId`      | Obligatorisk. ID-en til komponenten **Tabell for underskjema** (`Subform`) i hovedskjemaet. Du må også ha en skjult kopi av komponenten med samme ID i layouten til systemoppgaven, se [PdfSubform/layouts/ServiceTask.json](#pdfsubformlayoutsservicetaskjson). |
+| `subformDataTypeId`       | Obligatorisk. ID-en til datatypen for underskjemaet. Systemoppgaven lager én PDF for hvert dataelement av denne typen.                                                                                                      |
 
 Eksempel på tekstressurs for filnavn med variabel:
 

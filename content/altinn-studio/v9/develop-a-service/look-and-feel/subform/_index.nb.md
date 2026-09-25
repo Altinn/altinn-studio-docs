@@ -33,7 +33,7 @@ Har hver oppføring bare noen få felter, er en repeterende gruppe ofte enklere,
 
 ## Dette får du fra plattformen
 
-Når du har satt opp underskjemaet, gjør Altinn-plattformen dette uten ekstra arbeid:
+Når du har satt opp underskjemaet, gjør Altinn Studio dette uten ekstra arbeid:
 
 - Tabellen får knapper for å legge til, endre og slette oppføringer.
 - Designer legger automatisk inn en knapp for å lukke underskjemaet på alle sidene i underskjemaet.

@@ -508,7 +508,7 @@ Spesialiserte komponenter for avanserte bruksområder.
 
 ### Tabell for underskjema (`Subform`)
 
-`Subform` viser oppføringene i et underskjema som en tabell i hovedskjemaet. Brukeren kan legge til, endre og slette oppføringer. Les [hvordan du setter opp underskjema]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/subform" >}}).
+`Subform` viser oppføringene i et underskjema som en tabell i hovedskjemaet. Brukeren kan legge til, endre og slette oppføringer. [Slik setter du opp et underskjema]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/subform" >}}).
 
 [Detaljer om komponenten](./Subform.md)
 
