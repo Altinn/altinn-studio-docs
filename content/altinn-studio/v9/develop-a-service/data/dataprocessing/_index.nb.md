@@ -295,7 +295,7 @@ Har du flere prosessorer av samme type, kjører appen dem i den rekkefølgen du 
 
 Rekkefølgen gjelder når du registrerer prosessorene i `RegisterCustomAppServices`, slik malen for `Program.cs` legger opp til. Registrerer du en prosessor etter `AddAltinnAppServices`, kjører den etter kalkuleringen med uttrykk.
 
-Alle prosessorene jobber på det samme modellobjektet. En prosessor ser derfor endringene fra prosessorene som kjørte før den. Siden kalkulering med uttrykk kjører sist, overskriver den felt som prosessorene dine har satt, hvis feltet også har en regel i `calculation.json`. Prosessorene dine ser dessuten verdiene fra forrige utregning, ikke de nye. La derfor bare én regel eller prosessor endre hvert felt.
+Alle prosessorene jobber på det samme modellobjektet. En prosessor ser derfor endringene fra prosessorene som kjørte før den. Registrerer du prosessorene i `RegisterCustomAppServices`, kjører kalkulering med uttrykk sist. Da overskriver kalkuleringen felt som prosessorene dine har satt, hvis feltet også har en regel i `calculation.json`, og prosessorene dine ser verdiene fra forrige utregning, ikke de nye. En prosessor som du registrerer etter `AddAltinnAppServices`, kjører etter kalkuleringen. Den ser de nye verdiene og kan overskrive dem. La derfor bare én regel eller prosessor endre hvert felt.
 
 ## Slik finner appen endringene dine
 
