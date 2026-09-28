@@ -74,6 +74,7 @@ Appen kjører den ikke når
 - brukeren går videre til neste steg i prosessen
 - brukeren klikker på en knapp som kjører en [serverhandling]({{< relref "/altinn-studio/v9/develop-a-service/reference/process/actions/serveraction" >}})
 - appen lager PDF
+- et annet system erstatter et vedlegg som finnes fra før, gjennom API-et til appen
 - appen fyller ut data på forhånd med [forhåndsutfylling]({{< relref "/altinn-studio/v9/develop-a-service/data/prefill" >}}) når et steg i prosessen starter
 
 Trenger du å endre data i disse tilfellene, legger du logikken der det skjer, for eksempel i serverhandlingen.
@@ -278,7 +279,7 @@ services.AddTransient<IDataProcessor, AvsenderProsessor>();
 
 En [stateless app]({{< relref "/altinn-studio/v9/develop-a-service/process/stateless" >}}) viser skjemaet uten å lagre data, for eksempel en kalkulator eller et oppslag. Der er `ProcessDataRead` den eneste dataprosesseringen som kjører. Appen lagrer ingenting, så skriveprosessorer og kalkulering med uttrykk kjører aldri.
 
-Hver gang brukeren endrer noe i skjemaet, sender nettleseren alle dataene til appen. Appen kjører `ProcessDataRead` og sender de oppdaterte dataene tilbake uten å lagre dem.
+Hver gang brukeren endrer noe i skjemaet, sender nettleseren alle dataene til appen. Appen kjører forhåndsutfyllingen på nytt og deretter `ProcessDataRead`, og sender de oppdaterte dataene tilbake uten å lagre dem. Tillater appen anonyme brukere, kjører appen bare `ProcessDataRead`.
 
 Instansen i en stateless app er ikke lagret noe sted. Den har ingen `Id`, bare opplysninger om hvem som eier den (`InstanceOwner`), og `dataId` er `null`. Tillater appen anonyme brukere, mangler også `InstanceOwner`.
 
@@ -291,6 +292,8 @@ Når brukeren lagrer, kjører appen prosessorene i denne rekkefølgen:
 3. Appen regner ut uttrykkene i `calculation.json`.
 
 Har du flere prosessorer av samme type, kjører appen dem i den rekkefølgen du registrerte dem i `Program.cs`.
+
+Rekkefølgen gjelder når du registrerer prosessorene i `RegisterCustomAppServices`, slik malen for `Program.cs` legger opp til. Registrerer du en prosessor etter `AddAltinnAppServices`, kjører den etter kalkuleringen med uttrykk.
 
 Alle prosessorene jobber på det samme modellobjektet. En prosessor ser derfor endringene fra prosessorene som kjørte før den. Siden kalkulering med uttrykk kjører sist, overskriver den felt som prosessorene dine har satt, hvis feltet også har en regel i `calculation.json`. Prosessorene dine ser dessuten verdiene fra forrige utregning, ikke de nye. La derfor bare én regel eller prosessor endre hvert felt.
 

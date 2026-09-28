@@ -14,6 +14,7 @@ Med kalkulering med uttrykk regner appen ut verdien til et felt i datamodellen u
 - Appen regner ut verdiene på serveren hver gang brukeren lagrer, også mens hen fyller ut skjemaet. Brukeren ser de nye verdiene like etter at appen har lagret endringen.
 - Appen regner ut alle skjemadataene i steget brukeren står i, ikke bare dataene brukeren endret.
 - Appen regner også ut felt som er skjult, eller som ligger på en skjult side.
+- Appen hopper over skjemadata som brukeren ikke har lesetilgang til.
 - Appen regner ikke ut verdiene når brukeren åpner skjemaet. Verdiene er derfor ikke oppdatert før brukeren har lagret første gang.
 - Legger brukeren til en ny oppføring i et underskjema, regner appen ut verdiene i oppføringen neste gang brukeren lagrer noe i steget.
 - Oppretter et annet system en instans og sender med skjemadata i samme forespørsel, regner appen ikke ut verdiene i de nye dataene før noen lagrer noe i steget igjen.
