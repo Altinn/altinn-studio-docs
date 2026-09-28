@@ -15,7 +15,8 @@ Med kalkulering med uttrykk regner appen ut verdien til et felt i datamodellen u
 - Appen regner ut alle skjemadataene i steget brukeren står i, ikke bare dataene brukeren endret.
 - Appen regner også ut felt som er skjult, eller som ligger på en skjult side.
 - Appen regner ikke ut verdiene når brukeren åpner skjemaet. Verdiene er derfor ikke oppdatert før brukeren har lagret første gang.
-- Legger brukeren til en ny oppføring i et underskjema, regner appen ut verdiene i oppføringen første gang brukeren lagrer endringer i den.
+- Legger brukeren til en ny oppføring i et underskjema, regner appen ut verdiene i oppføringen neste gang brukeren lagrer noe i steget.
+- Oppretter et annet system en instans og sender med skjemadata i samme forespørsel, regner appen ikke ut verdiene i de nye dataene før noen lagrer noe i steget igjen.
 - Stateless-apper lagrer ingen data og regner derfor ikke ut verdier med uttrykk.
 
 Har appen også egne dataprosessorer i C#, regner appen ut uttrykkene etter at prosessorene har kjørt. Se [Slik kjører appen flere prosessorer]({{< relref "/altinn-studio/v9/develop-a-service/data/dataprocessing" >}}#slik-kjører-appen-flere-prosessorer).

@@ -216,7 +216,7 @@ Endrer metoden dataene, lagrer appen dem. Appen lagrer ikke hvis
 - prosessen er opptatt, for eksempel på vei til neste steg
 - appen henter dataene for å lage PDF
 
-`IDataProcessor` har også metoden `ProcessDataWrite`. Den kjører bare når brukeren endrer skjemadata som finnes fra før, og ikke når brukeren legger til eller sletter dataelementer eller vedlegg. Bruk `IDataWriteProcessor` for logikk som skal kjøre når brukeren lagrer, og la `ProcessDataWrite` i `IDataProcessor` stå tom.
+`IDataProcessor` har også metoden `ProcessDataWrite`. Den kjører bare når brukeren eller et annet system endrer skjemadata som finnes fra før, og ikke når brukeren legger til eller sletter dataelementer eller vedlegg. Bruk `IDataWriteProcessor` for logikk som skal kjøre når brukeren lagrer, og la `ProcessDataWrite` i `IDataProcessor` stå tom.
 
 Se [`IDataProcessor` i kildekoden](https://github.com/Altinn/altinn-studio/blob/main/src/App/backend/src/Altinn.App.Core/Features/IDataProcessor.cs).
 
