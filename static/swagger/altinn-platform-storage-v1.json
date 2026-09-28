@@ -8,7 +8,7 @@
   "servers": [
     {
       "url": "https://platform.tt02.altinn.no/storage/api/v1",
-      "description": "T02"
+      "description": "TT02"
     },
     {
       "url": "https://platform.altinn.no/storage/api/v1",
@@ -2350,6 +2350,7 @@
           "Instances"
         ],
         "summary": "Updates the data values on an instance.",
+        "description": "Applies only the supplied keys, including while the process is processing, without advancing\neither storage version. Optional preconditions check versioned changes; they do not detect\nother standalone data-values updates. Null or empty values remove keys.",
         "parameters": [
           {
             "name": "instanceOwnerPartyId",
@@ -2439,8 +2440,8 @@
               }
             }
           },
-          "409": {
-            "description": "Conflict",
+          "412": {
+            "description": "Precondition Failed",
             "content": {
               "application/json": {
                 "schema": {
