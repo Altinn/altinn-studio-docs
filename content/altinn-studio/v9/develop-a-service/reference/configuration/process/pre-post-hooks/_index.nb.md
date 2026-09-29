@@ -9,7 +9,7 @@ tags: [needsReview]
 
 Du kan skrive egendefinert kode som kjøres når en oppgave i prosessen starter, avsluttes eller avbrytes, eller når hele prosessen er ferdig. De tre oppgave-hookene avgjør selv hvilken oppgave de gjelder for, og bare én hook av hver type kan gjelde for samme oppgave. Hooken som kjører når hele prosessen avsluttes, gjelder alltid for hele instansen, og du kan bare registrere én av dem.
 
-Alle fire hookene kjører som et steg i arbeidsflytmotoren. Hvis det oppstår feil, kan hooken bli forsøkt kjørt på nytt automatisk, så koden din må være idempotent. Det vill si at den må tåle å kjøre flere ganger uten at det gir uønskede dobbeltoppføringer.
+Alle fire hookene kjører som et steg i arbeidsflytmotoren. Hvis det oppstår feil, kan hooken bli forsøkt kjørt på nytt automatisk, så koden din må være idempotent. Det vil si at den må tåle å kjøre flere ganger uten at det gir uønskede dobbeltoppføringer.
 
 ## Kjøre egendefinert kode når en oppgave starter
 
@@ -33,7 +33,7 @@ public class MyTaskStartHandler : IOnTaskStartingHandler
 services.AddTransient<IOnTaskStartingHandler, MyTaskStartHandler>();
 ```
 
-`ShouldRunForTask` avgjør hvilken oppgave hooken gjelder for. Du kan registrere flere klasser som implementerer `IOnTaskStartingHandler`, så lenge `ShouldRunForTask` implementasjonene deres ikke overlapper.
+`ShouldRunForTask` avgjør hvilken oppgave hooken gjelder for. Du kan registrere flere klasser som implementerer `IOnTaskStartingHandler`, så lenge implementasjonene av `ShouldRunForTask` ikke overlapper.
 
 {{% notice warning %}}
 Bare én matchende handler er tillatt per oppgave. Svarer to registrerte `IOnTaskStartingHandler`-implementasjoner `true` for samme oppgave, feiler prosessovergangen permanent.
@@ -83,8 +83,7 @@ public class MyProcessEndHandler : IOnProcessEndingHandler
 services.AddTransient<IOnProcessEndingHandler, MyProcessEndHandler>();
 ```
 
-I motsetning til de tre oppgave hookene over har `IOnProcessEndingHandler` ingen `ShouldRunForTask` — den gjelder alltid for hele prosessen, og du kan bare registrere én implementasjon. `Execute` og `HookResult` fungerer likt som for oppgave hookene, bortsett fra at konteksten (`OnProcessEndingContext`) ikke har noen oppgave id.
-
+I motsetning til de tre oppgave-hookene over har `IOnProcessEndingHandler` ingen `ShouldRunForTask` — den gjelder alltid for hele prosessen, og du kan bare registrere én implementasjon. `Execute` og `HookResult` fungerer likt som for oppgave-hookene, bortsett fra at konteksten (`OnProcessEndingContext`) ikke har noen oppgave-ID.
 
 [Se grensesnittet IOnProcessEndingHandler på GitHub](https://github.com/Altinn/altinn-studio/blob/main/src/App/backend/src/Altinn.App.Core/Features/Process/IOnProcessEndingHandler.cs)
 
