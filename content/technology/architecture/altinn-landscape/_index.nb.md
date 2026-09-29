@@ -2,8 +2,10 @@
 title: Altinn-landskapet
 linktitle: Altinn-landskapet
 description: Detaljerte arkitekturtegninger av Altinn 3, produkt for produkt, med lenker til kildekoden.
-weight: 10
+weight: 1
 toc: true
+aliases:
+ - /authorization/reference/system/altinn-landscape/
 ---
 
 Tegningene på denne siden viser hvordan Altinn 3 er bygd, produkt for produkt. Hver ramme er én applikasjon eller tjeneste. Kolonnene er delmodulene, og radene er lagene fra API ned til lagring. Under kolonnene ligger felt for integrasjonsklienter, bakgrunnsjobber, tverrgående funksjoner og datalagre.
