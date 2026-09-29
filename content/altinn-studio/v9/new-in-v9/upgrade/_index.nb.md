@@ -169,7 +169,7 @@ Svarverdiene må du skrive om selv. `ServiceTaskErrorHandling` og `ServiceTaskEr
 | `FailedContinueProcessNext("reject")` | `Success("reject")`. Oppgaven er ferdig, og prosessen går videre med handlingen du oppgir. |
 | `Failed(new ServiceTaskErrorHandling(...))` | Velg blant svarene over, ut fra hva strategien din faktisk skulle oppnå. |
 
-I tillegg kjører plattformen systemoppgaver på en ny måte i v9. I v8 kjørte oppgaven én gang, som en del av `process/next`. Nå kjører den for seg: plattformen prøver på nytt hvis noe utenfor appen svikter, og kan parkere prosessen mens oppgaven venter på svar. Det stiller et nytt krav til koden: oppgaven må tåle å kjøre flere ganger uten å sende samme melding eller opprette samme sak to ganger.
+I tillegg kjører plattformen systemoppgaver på en ny måte i v9. I v8 kjørte oppgaven én gang, som en del av `process/next`. Nå kjører den for seg: plattformen prøver på nytt hvis noe utenfor appen svikter, og kan holde prosessen i steget mens oppgaven venter på svar. Det stiller et nytt krav til koden: oppgaven må tåle å kjøre flere ganger uten å sende samme melding eller opprette samme sak to ganger.
 
 Se [Lage en egendefinert systemoppgave]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}) for hele oppsettet, og [Systemoppgaver med flere steg]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg" >}}) hvis oppgaven sender noe og venter på svar.
 
