@@ -63,15 +63,15 @@ Altinn Studio inserts a service task into `process.bpmn`. The result may differ 
 
 {{% /expandlarge %}}
 
-{{% expandlarge id="custom-pdf-layout" header="Custom PDF with its own layout-set" %}}
+{{% expandlarge id="custom-pdf-layout" header="Custom PDF with custom content" %}}
 
-If you select this option, you can determine the content of the PDF yourself by defining your own layout set for the PDF service task.
+If you select this option, you can determine the content of the PDF yourself by defining your own layout files for the PDF service task.
 
-You first provide a name for the layout set and then choose a data model as the default model for the set. You can, for example, choose the model of one of the tasks included in the PDF.
+You first provide a name for the PDF service task and then choose a data model as the default model. You can, for example, choose the model of one of the tasks included in the PDF.
 
 ![Example setup custom PDF](manual-pdf.png "Example setup custom PDF")
 
-Altinn Studio inserts a service task into `process.bpmn` and generates the layout-set files, but without content in PdfLayout.json.
+Altinn Studio inserts a service task into `process.bpmn` and generates the task's layout files, but without content in PdfLayout.json.
 
 {{< code-title >}}
   App/config/process/process.bpmn
@@ -95,9 +95,9 @@ Altinn Studio inserts a service task into `process.bpmn` and generates the layou
 </bpmn:serviceTask>
 ```
 
-### Layout-set
+### Folder structure and files
 
-The PDF service task needs its own layout set to define the content. If you use the Arbeidsflyt-editor, Altinn Studio generates this automatically. You then only need to edit the content in `PdfLayout.json`.
+The PDF service task needs its own folder of layout files to define the content. If you use the Arbeidsflyt editor, Altinn Studio generates this automatically. You then only need to edit the content in `PdfLayout.json`.
 
 The files and folder structure should look approximately like this:
 
@@ -144,7 +144,7 @@ App/ui/
 
 #### PdfLayout.json
 
-In this file, you define the content of the PDF. You typically use the Summary2 component, either against individual components or against entire pages and layout sets.
+In this file, you define the content of the PDF. You typically use the Summary2 component, either against individual components or against entire pages and process tasks.
 
 {{< code-title >}}
   App/ui/Pdf/layouts/PdfLayout.json
@@ -174,9 +174,9 @@ In this file, you define the content of the PDF. You typically use the Summary2 
 
 #### ServiceTask.json
 
-This layout file shows content to the user if PDF generation fails, such as error messages or instructions. Feel free to customise.
+While the PDF is being generated, the app shows its built-in waiting view, and if generation fails, it shows its own failure page with a **Try again** button. This page is there because a service task with its own folder of layout files must have at least one page. It uses the same text keys as the built-in waiting view, so any text you override applies to both. See [What the user sees while a service task runs](/nb/altinn-studio/v9/develop-a-service/process/service-tasks/visning/) (documentation available in Norwegian only).
 
-If you want to allow the user to abort the service task, for example to go back to the previous task, you must add the `reject` action to the process definition (see the XML examples above) and grant rights to the action in the app's access policy. Where the user is redirected depends on the sequence flows in the BPMN process.
+To let the user go back from the failure page, the task must have the `reject` action in the process definition (see the XML examples above), and the user must be granted the action in the app's access policy. Where the user is redirected depends on the sequence flows in the BPMN process.
 
 {{< code-title >}}
   App/ui/Pdf/layouts/ServiceTask.json
@@ -189,49 +189,18 @@ If you want to allow the user to abort the service task, for example to go back 
     "layout": [
       {
         "size": "L",
-        "id": "service-task-title",
-        "type": "Header",
+        "id": "service-task-waiting-title",
+        "type": "Heading",
         "textResourceBindings": {
-          "title": "service_task_custom_pdf_default.title"
+          "title": "service_task.waiting_title"
         }
       },
       {
-        "id": "service-task-body",
+        "id": "service-task-waiting-body",
         "type": "Paragraph",
         "textResourceBindings": {
-          "title": "service_task_custom_pdf_default.body"
+          "title": "service_task.waiting_body"
         }
-      },
-      {
-        "id": "service-task-help-text",
-        "type": "Paragraph",
-        "textResourceBindings": {
-          "title": "service_task_custom_pdf_default.help_text"
-        }
-      },
-      {
-        "id": "service-task-button-group",
-        "type": "ButtonGroup",
-        "children": [
-          "service-task-retry-button",
-          "service-task-back-button"
-        ]
-      },
-      {
-        "id": "service-task-retry-button",
-        "type": "Button",
-        "textResourceBindings": {
-          "title": "service_task_custom_pdf_default.retry_button"
-        }
-      },
-      {
-        "id": "service-task-back-button",
-        "type": "ActionButton",
-        "textResourceBindings": {
-          "title": "service_task_custom_pdf_default.back_button"
-        },
-        "action": "reject",
-        "buttonStyle": "secondary"
       }
     ]
   }

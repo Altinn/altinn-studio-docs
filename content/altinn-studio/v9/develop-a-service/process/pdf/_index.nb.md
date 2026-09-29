@@ -170,9 +170,9 @@ I denne filen definerer du innholdet i PDF-en. Du bruker typisk Summary2-kompone
 
 #### ServiceTask.json
 
-Denne layout-filen viser innhold til brukeren dersom PDF-genereringen feiler, for eksempel feilmeldinger eller instruksjoner. Tilpass gjerne.
+Mens PDF-en lages, viser appen sin innebygde ventevisning, og feiler PDF-genereringen, viser den sin egen feilside med **Prøv igjen**. Denne siden er med fordi en systemoppgave med egen mappe med layoutfiler må ha minst én side. Den bruker de samme tekstnøklene som den innebygde ventevisningen, så tekster du overstyrer, gjelder begge steder. Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}).
 
-Dersom du vil la brukeren avbryte systemoppgaven, f.eks. for å gå tilbake til forrige oppgave, må du legge til `reject`-handlingen i prosessdefinisjonen (se XML-eksemplene over) og gi rettigheter til handlingen i appens tilgangspolicy. Hvor brukeren sendes videre, avhenger av sekvensflytene i BPMN-prosessen.
+Skal brukeren kunne gå tilbake fra feilsiden, må oppgaven ha `reject`-handlingen i prosessdefinisjonen (se XML-eksemplene over), og brukeren må ha tilgang til handlingen i appens tilgangspolicy. Hvor brukeren sendes videre, avhenger av sekvensflytene i BPMN-prosessen.
 
 {{< code-title >}}
   App/ui/Pdf/layouts/ServiceTask.json
@@ -185,49 +185,18 @@ Dersom du vil la brukeren avbryte systemoppgaven, f.eks. for å gå tilbake til 
     "layout": [
       {
         "size": "L",
-        "id": "service-task-title",
-        "type": "Header",
+        "id": "service-task-waiting-title",
+        "type": "Heading",
         "textResourceBindings": {
-          "title": "service_task_custom_pdf_default.title"
+          "title": "service_task.waiting_title"
         }
       },
       {
-        "id": "service-task-body",
+        "id": "service-task-waiting-body",
         "type": "Paragraph",
         "textResourceBindings": {
-          "title": "service_task_custom_pdf_default.body"
+          "title": "service_task.waiting_body"
         }
-      },
-      {
-        "id": "service-task-help-text",
-        "type": "Paragraph",
-        "textResourceBindings": {
-          "title": "service_task_custom_pdf_default.help_text"
-        }
-      },
-      {
-        "id": "service-task-button-group",
-        "type": "ButtonGroup",
-        "children": [
-          "service-task-retry-button",
-          "service-task-back-button"
-        ]
-      },
-      {
-        "id": "service-task-retry-button",
-        "type": "Button",
-        "textResourceBindings": {
-          "title": "service_task_custom_pdf_default.retry_button"
-        }
-      },
-      {
-        "id": "service-task-back-button",
-        "type": "ActionButton",
-        "textResourceBindings": {
-          "title": "service_task_custom_pdf_default.back_button"
-        },
-        "action": "reject",
-        "buttonStyle": "secondary"
       }
     ]
   }
