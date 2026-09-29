@@ -22,12 +22,6 @@ Filene er draw.io-SVG-er og kan åpnes og redigeres i [draw.io](https://app.diag
 
 <a href="./altinn_overview.drawio.svg" target="_blank" rel="noopener"><img src="./altinn_overview.drawio.svg" alt="Oversikt over Altinn 3" style="width:100%;height:auto;display:block;cursor:zoom-in;" /></a>
 
-## Helheten i detalj
-
-Alle produktene i én detaljert tegning, med autorisasjon øverst og de andre produktene under.
-
-<a href="./altinn_super_detailed.drawio.svg" target="_blank" rel="noopener"><img src="./altinn_super_detailed.drawio.svg" alt="Altinn 3 med alle produkter" style="width:100%;height:auto;display:block;cursor:zoom-in;" /></a>
-
 ## Autorisasjon
 
 Access Management-frontenden, API Management, Access Management, Authorization, PEP-pakken, Ressursregisteret, Authentication og Register, med Folkeregisteret, Enhetsregisteret, SIRE og Altinn 2 som eksterne kilder.
