@@ -41,9 +41,6 @@ Altinn Studio setter inn en systemoppgave i `process.bpmn`. Resultatet kan avvik
     <bpmn:extensionElements>
         <altinn:taskExtension>
             <altinn:taskType>pdf</altinn:taskType>
-            <altinn:actions>
-              <altinn:action>reject</altinn:action> <!-- Legges til via Handlinger, dersom man skal kunne f.eks. gå tilbake. -->
-            </altinn:actions>
             <altinn:pdfConfig>
                 <altinn:filenameTextResourceKey>pdfFileName</altinn:filenameTextResourceKey>
                 <altinn:autoPdfTaskIds>
@@ -78,9 +75,6 @@ Altinn Studio setter inn en systemoppgave i `process.bpmn` og genererer layoutfi
     <bpmn:extensionElements>
         <altinn:taskExtension>
         <altinn:taskType>pdf</altinn:taskType>
-        <altinn:actions>
-          <altinn:action>reject</altinn:action> <!-- Legges til via Handlinger, dersom man skal kunne f.eks. gå tilbake. -->
-        </altinn:actions>
         <altinn:pdfConfig>
             <altinn:filenameTextResourceKey>pdfFileName</altinn:filenameTextResourceKey>
         </altinn:pdfConfig>
@@ -170,9 +164,7 @@ I denne filen definerer du innholdet i PDF-en. Du bruker typisk Summary2-kompone
 
 #### ServiceTask.json
 
-Denne layout-filen viser innhold til brukeren dersom PDF-genereringen feiler, for eksempel feilmeldinger eller instruksjoner. Tilpass gjerne.
-
-Dersom du vil la brukeren avbryte systemoppgaven, f.eks. for å gå tilbake til forrige oppgave, må du legge til `reject`-handlingen i prosessdefinisjonen (se XML-eksemplene over) og gi rettigheter til handlingen i appens tilgangspolicy. Hvor brukeren sendes videre, avhenger av sekvensflytene i BPMN-prosessen.
+En systemoppgave med egen mappe med layoutfiler må ha minst én side, og Altinn Studio lager derfor denne. Brukeren ser den normalt ikke: mens PDF-en lages, viser appen den vanlige lastevisningen, og feiler PDF-genereringen, viser appen sin egen feilside med **Prøv igjen**. Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}).
 
 {{< code-title >}}
   App/ui/Pdf/layouts/ServiceTask.json
@@ -185,49 +177,18 @@ Dersom du vil la brukeren avbryte systemoppgaven, f.eks. for å gå tilbake til 
     "layout": [
       {
         "size": "L",
-        "id": "service-task-title",
-        "type": "Header",
+        "id": "service-task-waiting-title",
+        "type": "Heading",
         "textResourceBindings": {
-          "title": "service_task_custom_pdf_default.title"
+          "title": "service_task.waiting_title"
         }
       },
       {
-        "id": "service-task-body",
+        "id": "service-task-waiting-body",
         "type": "Paragraph",
         "textResourceBindings": {
-          "title": "service_task_custom_pdf_default.body"
+          "title": "service_task.waiting_body"
         }
-      },
-      {
-        "id": "service-task-help-text",
-        "type": "Paragraph",
-        "textResourceBindings": {
-          "title": "service_task_custom_pdf_default.help_text"
-        }
-      },
-      {
-        "id": "service-task-button-group",
-        "type": "ButtonGroup",
-        "children": [
-          "service-task-retry-button",
-          "service-task-back-button"
-        ]
-      },
-      {
-        "id": "service-task-retry-button",
-        "type": "Button",
-        "textResourceBindings": {
-          "title": "service_task_custom_pdf_default.retry_button"
-        }
-      },
-      {
-        "id": "service-task-back-button",
-        "type": "ActionButton",
-        "textResourceBindings": {
-          "title": "service_task_custom_pdf_default.back_button"
-        },
-        "action": "reject",
-        "buttonStyle": "secondary"
       }
     ]
   }
