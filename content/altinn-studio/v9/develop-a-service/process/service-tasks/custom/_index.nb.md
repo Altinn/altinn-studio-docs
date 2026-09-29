@@ -96,7 +96,7 @@ App/config/process/process.bpmn
 
 Når plattformen flytter prosessen ut av en systemoppgave, gjør den det som tjenesteeier, ikke som brukeren. Kaller en bruker eller et annet system `process/next` selv, kontrollerer appen i tillegg at den som kaller, har handlingen for oppgaven den står på.
 
-Tjenesteeieren må derfor ha tilgang til handlingen som hører til oppgavetypen. Mangler den, feiler overgangen ut av steget. Plattformen prøver på nytt i opptil ett døgn mens brukeren ser ventesiden, og loggen forteller hvilken rettighet tjenesteeieren mangler.
+Tjenesteeieren må derfor ha tilgang til handlingen som hører til oppgavetypen. Mangler den, feiler overgangen ut av steget. Plattformen prøver på nytt i opptil ett døgn mens brukeren ser lastevisningen, og loggen forteller hvilken rettighet tjenesteeieren mangler.
 
 Tilgangsfilen fra appmalen gir tjenesteeieren de grunnleggende handlingene, blant annet `read`, `write`, `instantiate` og `complete`. Den gir ingen egendefinert handling, så en egen oppgavetype må du åpne selv.
 

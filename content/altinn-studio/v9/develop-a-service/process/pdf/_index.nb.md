@@ -41,9 +41,6 @@ Altinn Studio setter inn en systemoppgave i `process.bpmn`. Resultatet kan avvik
     <bpmn:extensionElements>
         <altinn:taskExtension>
             <altinn:taskType>pdf</altinn:taskType>
-            <altinn:actions>
-              <altinn:action>reject</altinn:action> <!-- Legges til via Handlinger, dersom man skal kunne f.eks. gå tilbake. -->
-            </altinn:actions>
             <altinn:pdfConfig>
                 <altinn:filenameTextResourceKey>pdfFileName</altinn:filenameTextResourceKey>
                 <altinn:autoPdfTaskIds>
@@ -78,9 +75,6 @@ Altinn Studio setter inn en systemoppgave i `process.bpmn` og genererer layoutfi
     <bpmn:extensionElements>
         <altinn:taskExtension>
         <altinn:taskType>pdf</altinn:taskType>
-        <altinn:actions>
-          <altinn:action>reject</altinn:action> <!-- Legges til via Handlinger, dersom man skal kunne f.eks. gå tilbake. -->
-        </altinn:actions>
         <altinn:pdfConfig>
             <altinn:filenameTextResourceKey>pdfFileName</altinn:filenameTextResourceKey>
         </altinn:pdfConfig>
@@ -170,9 +164,7 @@ I denne filen definerer du innholdet i PDF-en. Du bruker typisk Summary2-kompone
 
 #### ServiceTask.json
 
-Mens PDF-en lages, viser appen sin innebygde ventevisning, og feiler PDF-genereringen, viser den sin egen feilside med **Prøv igjen**. Denne siden er med fordi en systemoppgave med egen mappe med layoutfiler må ha minst én side. Den bruker de samme tekstnøklene som den innebygde ventevisningen, så tekster du overstyrer, gjelder begge steder. Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}).
-
-Skal brukeren kunne gå tilbake fra feilsiden, må oppgaven ha `reject`-handlingen i prosessdefinisjonen (se XML-eksemplene over), og brukeren må ha tilgang til handlingen i appens tilgangspolicy. Hvor brukeren sendes videre, avhenger av sekvensflytene i BPMN-prosessen.
+En systemoppgave med egen mappe med layoutfiler må ha minst én side, og Altinn Studio lager derfor denne. Brukeren ser den normalt ikke: mens PDF-en lages, viser appen den vanlige lastevisningen, og feiler PDF-genereringen, viser appen sin egen feilside med **Prøv igjen**. Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}).
 
 {{< code-title >}}
   App/ui/Pdf/layouts/ServiceTask.json

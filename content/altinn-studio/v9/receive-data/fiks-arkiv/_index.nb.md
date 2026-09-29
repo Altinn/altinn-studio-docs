@@ -59,7 +59,7 @@ Slik går det steg for steg:
 3. **Lytteren sender svaret videre.** Appen lytter på Fiks IO-kontoen sin, leser `klientKorrelasjonsId` fra hver melding og leverer den til postkassen som venter. Meldinger uten korrelasjons-id blir logget og forkastet, siden ingen oppgave venter på dem.
 4. **Oppgaven konkluderer.** Mottaksbekreftelsen holder oppgaven ventende. Kvitteringen lagres på instansen som datatypen i `Receipt.ConfirmationRecord`, instansen markeres som fullført med mindre du har slått det av, og prosessen går videre med handlingen i `SuccessHandling.Action`, som standard langs standardflyten. En feilmelding fra arkivet sender prosessen videre med handlingen i `ErrorHandling.Action`, som standard `reject`. Gatewayen etter oppgaven skiller de to veiene. Kommer det ingen kvittering på 7 døgn, feiler oppgaven.
 
-Mens oppgaven venter, ser brukeren ventesiden. Ingen bruker eller tjenesteeier trenger å gjøre noe, og ingenting spør arkivet om status. Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}) for hvordan du tilpasser ventesiden og feilsiden.
+Mens oppgaven venter, ser brukeren lastevisningen. Ingen bruker eller tjenesteeier trenger å gjøre noe, og ingenting spør arkivet om status. Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}) for hvordan du tilpasser ventingen og feilsiden.
 
 ## Sette opp Fiks Arkiv i appen {#oppsett}
 

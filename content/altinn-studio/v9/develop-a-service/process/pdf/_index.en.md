@@ -45,9 +45,6 @@ Altinn Studio inserts a service task into `process.bpmn`. The result may differ 
     <bpmn:extensionElements>
         <altinn:taskExtension>
             <altinn:taskType>pdf</altinn:taskType>
-            <altinn:actions>
-              <altinn:action>reject</altinn:action> <!-- Added using "Handlinger", if the user should be able, for instance, go backwards in the process. -->
-            </altinn:actions>
             <altinn:pdfConfig>
                 <altinn:filenameTextResourceKey>pdfFileName</altinn:filenameTextResourceKey>
                 <altinn:autoPdfTaskIds>
@@ -82,9 +79,6 @@ Altinn Studio inserts a service task into `process.bpmn` and generates the task'
     <bpmn:extensionElements>
         <altinn:taskExtension>
         <altinn:taskType>pdf</altinn:taskType>
-        <altinn:actions>
-          <altinn:action>reject</altinn:action> <!-- Added using "Handlinger", if the user should be able, for instance, go backwards in the process. -->
-        </altinn:actions>
         <altinn:pdfConfig>
             <altinn:filenameTextResourceKey>pdfFileName</altinn:filenameTextResourceKey>
         </altinn:pdfConfig>
@@ -174,9 +168,7 @@ In this file, you define the content of the PDF. You typically use the Summary2 
 
 #### ServiceTask.json
 
-While the PDF is being generated, the app shows its built-in waiting view, and if generation fails, it shows its own failure page with a **Try again** button. This page is there because a service task with its own folder of layout files must have at least one page. It uses the same text keys as the built-in waiting view, so any text you override applies to both. See [What the user sees while a service task runs](/nb/altinn-studio/v9/develop-a-service/process/service-tasks/visning/) (documentation available in Norwegian only).
-
-To let the user go back from the failure page, the task must have the `reject` action in the process definition (see the XML examples above), and the user must be granted the action in the app's access policy. Where the user is redirected depends on the sequence flows in the BPMN process.
+A service task with its own folder of layout files must have at least one page, so Altinn Studio creates this one. The user does not normally see it: while the PDF is being generated, the app shows its ordinary loading view, and if generation fails, it shows its own failure page with a **Try again** button. See [What the user sees while a service task runs](/nb/altinn-studio/v9/develop-a-service/process/service-tasks/visning/) (documentation available in Norwegian only).
 
 {{< code-title >}}
   App/ui/Pdf/layouts/ServiceTask.json

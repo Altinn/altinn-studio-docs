@@ -141,7 +141,7 @@ Dette må du se på selv:
 - **Sendingen kan være slått av.** Var `EnableEFormidling` ikke slått på i noe miljø, sendte appen aldri noe. Den nye oppgaven er da slått av med `<altinn:disabled>`. Fjern elementet når du vil begynne å sende.
 - **`serviceId` forsvinner.** Den har ingen erstatning i v9. Tjenesten hentes fra mottakerens kapabiliteter.
 - **Kode som bruker de gamle grensesnittene.** Oppgraderingen lister opp kall til `SendEFormidlingShipment(instance)` og kode som leser `EnableEFormidling`, men skriver dem ikke om.
-- **Et tilbakemeldingssteg etter systemoppgaven.** I v8 la noen apper til en `feedback`-oppgave etter eFormidling for å vente på svar. I v9 viser appen en venteside selv mens en systemoppgave jobber eller venter. Oppgraderingen lister opp slike `feedback`-oppgaver, men fjerner dem ikke. Fjern oppgaven hvis den bare var der for å vente.
+- **Et tilbakemeldingssteg etter systemoppgaven.** I v8 la noen apper til en `feedback`-oppgave etter eFormidling for å vente på svar. I v9 viser appen en lastevisning selv mens en systemoppgave jobber eller venter. Oppgraderingen lister opp slike `feedback`-oppgaver, men fjerner dem ikke. Fjern oppgaven hvis den bare var der for å vente.
 
 Mangler `sendAfterTaskId`, eller klarer ikke oppgraderingen å sette inn oppgaven, lar den `applicationmetadata.json` stå urørt og ber deg legge til oppgaven selv. Se [veiledningen for eFormidling]({{< relref "/altinn-studio/v9/receive-data/eFormidling" >}}) for hele oppsettet.
 

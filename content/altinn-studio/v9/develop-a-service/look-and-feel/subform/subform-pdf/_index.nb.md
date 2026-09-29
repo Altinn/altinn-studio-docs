@@ -45,9 +45,6 @@ Dette sikrer at sekvensflyter og diagrammet blir korrekt.
     <bpmn:extensionElements>
         <altinn:taskExtension>
             <altinn:taskType>subformPdf</altinn:taskType>
-            <altinn:actions>
-              <altinn:action>reject</altinn:action> <!-- Legges til via Handlinger hvis du vil at brukeren skal kunne gå tilbake. -->
-            </altinn:actions>
             <altinn:subformPdfConfig>
                 <altinn:filenameTextResourceKey>subformPdfFileName</altinn:filenameTextResourceKey>
                 <altinn:subformComponentId>mySubformComponentId</altinn:subformComponentId>
@@ -184,11 +181,9 @@ ui/PdfSubform/Settings.json
 ```
 #### PdfSubform/layouts/ServiceTask.json
 
-Denne layout-filen viser innhold til brukeren hvis PDF-genereringen feiler, for eksempel feilmeldinger eller instruksjoner.
+En systemoppgave med egen mappe med layoutfiler må ha minst én side. Brukeren ser den normalt ikke: mens PDF-ene lages, viser appen den vanlige lastevisningen, og feiler PDF-genereringen, viser appen sin egen feilside med **Prøv igjen**. Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}).
 
-Hvis du vil la brukeren avbryte systemoppgaven, for eksempel for å gå tilbake til forrige oppgave, må du legge til `reject`-handlingen i prosessdefinisjonen (se XML-eksempelet over) og gi rettigheter til handlingen i appens tilgangspolicy. Hvor brukeren sendes videre, avhenger av sekvensflytene i BPMN-prosessen.
-
-**OBS:** Du må også legge til en skjult kopi av underskjemakomponenten i denne layouten for at PDF-genereringen skal fungere korrekt. Se `mySubformComponentId` nedenfor. Vi håper å kunne fjerne dette kravet i en fremtidig versjon, men foreløpig er det påkrevd.
+**OBS:** Du må legge til en skjult kopi av underskjemakomponenten i denne layouten for at PDF-genereringen skal fungere korrekt. Se `mySubformComponentId` nedenfor. Vi håper å kunne fjerne dette kravet i en fremtidig versjon, men foreløpig er det påkrevd.
 
 {{< code-title >}}
 ui/PdfSubform/layouts/ServiceTask.json
@@ -199,52 +194,6 @@ ui/PdfSubform/layouts/ServiceTask.json
    "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
    "data": {
       "layout": [
-         {
-            "size": "L",
-            "id": "service-task-title",
-            "type": "Header",
-            "textResourceBindings": {
-               "title": "service_task.title"
-            }
-         },
-         {
-            "id": "service-task-body",
-            "type": "Paragraph",
-            "textResourceBindings": {
-               "title": "service_task.body"
-            }
-         },
-         {
-            "id": "service-task-help-text",
-            "type": "Paragraph",
-            "textResourceBindings": {
-               "title": "service_task.help_text"
-            }
-         },
-         {
-            "id": "service-task-button-group",
-            "type": "ButtonGroup",
-            "children": [
-               "service-task-retry-button",
-               "service-task-back-button"
-            ]
-         },
-         {
-            "id": "service-task-retry-button",
-            "type": "Button",
-            "textResourceBindings": {
-               "title": "service_task.retry_button"
-            }
-         },
-         {
-            "id": "service-task-back-button",
-            "type": "ActionButton",
-            "textResourceBindings": {
-               "title": "service_task.back_button"
-            },
-            "action": "reject",
-            "buttonStyle": "secondary"
-         },
          {
             "id": "mySubformComponentId",
             "type": "Subform",
