@@ -22,12 +22,6 @@ One box per application with its main modules and datastores, grouped by product
 
 <a href="./altinn_overview.drawio.svg" target="_blank" rel="noopener"><img src="./altinn_overview.drawio.svg" alt="Overview of Altinn 3" style="width:100%;height:auto;display:block;cursor:zoom-in;" /></a>
 
-## The whole picture in detail
-
-All products in one detailed drawing, with authorization at the top and the other products below.
-
-<a href="./altinn_super_detailed.drawio.svg" target="_blank" rel="noopener"><img src="./altinn_super_detailed.drawio.svg" alt="Altinn 3 with all products" style="width:100%;height:auto;display:block;cursor:zoom-in;" /></a>
-
 ## Authorization
 
 The Access Management frontend, API Management, Access Management, Authorization, the PEP package, Resource Registry, Authentication and Register, with the National Population Register, the Central Coordinating Register for Legal Entities, SIRE and Altinn 2 as external sources.
