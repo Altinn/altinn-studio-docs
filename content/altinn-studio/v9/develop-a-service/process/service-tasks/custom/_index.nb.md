@@ -96,7 +96,7 @@ App/config/process/process.bpmn
 
 Når plattformen flytter prosessen ut av en systemoppgave, gjør den det som tjenesteeier, ikke som brukeren. Kaller en bruker eller et annet system `process/next` selv, kontrollerer appen i tillegg at den som kaller, har handlingen for oppgaven den står på.
 
-Tjenesteeieren må derfor ha tilgang til handlingen som hører til oppgavetypen. Mangler den, feiler overgangen ut av steget. Plattformen prøver på nytt i opptil ett døgn mens brukeren ser ventesiden, og loggen forteller hvilken rettighet tjenesteeieren mangler.
+Tjenesteeieren må derfor ha tilgang til handlingen som hører til oppgavetypen. Mangler den, feiler overgangen ut av steget. Plattformen prøver på nytt i opptil ett døgn mens brukeren ser lastevisningen, og loggen forteller hvilken rettighet tjenesteeieren mangler.
 
 Tilgangsfilen fra appmalen gir tjenesteeieren de grunnleggende handlingene, blant annet `read`, `write`, `instantiate` og `complete`. Den gir ingen egendefinert handling, så en egen oppgavetype må du åpne selv.
 
@@ -110,7 +110,7 @@ Tilgangsfilen fra appmalen gir tjenesteeieren de grunnleggende handlingene, blan
 | `confirmation` | `confirm` |
 | Egendefinert oppgavetype | Handling med samme navn som oppgavetypen |
 
-Har oppgaven en `reject`-flyt ut av seg, trenger tjenesteeieren `reject` i tillegg. Det gjelder når du bruker `Success("reject")`, eller når brukeren skal kunne gå tilbake fra en oppgave som feilet. Plattformen autoriserer en avbrytende overgang med `reject`, uansett hvilken type oppgaven har.
+Har oppgaven en `reject`-flyt ut av seg, trenger tjenesteeieren `reject` i tillegg. Det gjelder når du bruker `Success("reject")`. Plattformen autoriserer en avbrytende overgang med `reject`, uansett hvilken type oppgaven har.
 
 Oppgraderingen fra v8 legger inn de grunnleggende reglene for tjenesteeieren, men gir ikke tilgang til egendefinerte oppgavetyper automatisk. Den leser prosessen og sier fra om handlingene du må legge inn selv. Appen kontrollerer det samme når du bygger, gjennom regelen `ALTINNAPP0800`.
 
@@ -168,9 +168,9 @@ App/config/authorization/policy.xml
 
 Se [tilgangsregler]({{< relref "/altinn-studio/v9/develop-a-service/configuration/authorization" >}}) for mer om filen.
 
-### Når brukeren også skal kunne flytte prosessen
+### Når brukeren skal kunne prøve igjen
 
-Skal en person kunne flytte prosessen forbi oppgaven selv, eller kunne trykke **Prøv igjen** på en oppgave som har feilet, trenger brukeren den samme handlingen. Legg den på samme sted som de andre handlingene brukeren skal ha tilgang til.
+Skal brukeren kunne trykke **Prøv igjen** på en oppgave som har feilet, trenger brukeren den samme handlingen. Legg den på samme sted som de andre handlingene brukeren skal ha tilgang til.
 
 ```xml
 <xacml:AllOf>
@@ -181,34 +181,19 @@ Skal en person kunne flytte prosessen forbi oppgaven selv, eller kunne trykke **
 </xacml:AllOf>
 ```
 
-{{% notice warning %}}
-En oppgave som er parkert med `SuccessWithoutAutoAdvance()`, er bare beskyttet av tilgangsreglene. Alle som har handlingen, kan flytte prosessen forbi ventingen med et kall til `process/next`. Skal ikke sluttbrukeren kunne det, gi bare tjenesteeieren tilgang.
-
-En oppgave som venter med `Defer` eller på en postkasse, kan ingen hoppe over. Plattformen svarer 409 så lenge oppgaven fortsatt jobber.
-{{% /notice %}}
-
-### Slippe prosessen videre fra et annet system
-
-Parkerer oppgaven prosessen med `SuccessWithoutAutoAdvance()`, går prosessen videre først når noen kaller
-
-```http
-PUT /{org}/{app}/instances/{instanceOwnerPartyId}/{instanceGuid}/process/next
-```
-
-Vanligvis er det det andre systemet som kaller, med et Maskinporten-token for tjenesteeieren. Da holder det med regelen tjenesteeieren trenger, som står over: den dekker både kallet og lagringen etterpå.
+Handlingen gir ikke brukeren mulighet til å hoppe over oppgaven. Så lenge oppgaven jobber eller venter, svarer plattformen 409 på `process/next`, og når den er ferdig, flytter plattformen prosessen videre selv.
 
 ## Hva oppgaven kan svare
 
-`Execute` svarer alltid med et `ServiceTaskResult`. Svaret bestemmer hva plattformen gjør videre:
+`Execute` svarer alltid med et `ServiceTaskResult`. Svaret bestemmer hva plattformen gjør videre. Et svar som sier at oppgaven er ferdig, flytter alltid prosessen videre:
 
 | Svar | Dette skjer |
 | --- | --- |
 | `ServiceTaskResult.Success()` | Oppgaven er ferdig, og prosessen går videre langs standardflyten. |
 | `ServiceTaskResult.Success("reject")` | Oppgaven er ferdig, og prosessen går videre med handlingen `reject` — for eksempel tilbake til utfylling. |
-| `ServiceTaskResult.SuccessWithoutAutoAdvance()` | Oppgaven er ferdig, men prosessen står i steget til noen flytter den videre. |
 | `ServiceTaskResult.FailedRetryable("melding")` | Noe gikk galt, men det kan gå bedre om litt. Plattformen kjører oppgaven på nytt med økende pause mellom forsøkene. |
 | `ServiceTaskResult.FailedPermanent("melding")` | Noe gikk galt som ikke retter seg selv. Plattformen gir opp med en gang, og steget står som feilet. |
-| `ServiceTaskResult.Defer(TimeSpan.FromMinutes(5), "venter på svar fra fagsystemet")` | Oppgaven gikk bra, men svaret den venter på har ikke kommet. Plattformen parkerer prosessen og kjører oppgaven på nytt om fem minutter. |
+| `ServiceTaskResult.Defer(TimeSpan.FromMinutes(5), "venter på svar fra fagsystemet")` | Oppgaven gikk bra, men svaret den venter på har ikke kommet. Prosessen står på steget, og plattformen kjører oppgaven på nytt om fem minutter. |
 
 Kaster koden en feil du ikke håndterer selv, tolker plattformen det som en feil den kan prøve på nytt. Skriv derfor `FailedPermanent` selv når du vet at nye forsøk er nytteløse. Da slipper du en lang rekke forsøk som likevel ikke fører noe sted.
 
@@ -218,7 +203,7 @@ Et forsøk som venter (`Defer`), lagrer ingenting. Endrer oppgaven data og vente
 
 Venter oppgaven på et annet system, har du to mekanismer å velge mellom. Valget kommer an på om det andre systemet kan si fra selv, eller om oppgaven må gå og se etter.
 
-**Parkere prosessen.** Svar `SuccessWithoutAutoAdvance()`. Oppgaven er ferdig, men prosessen står på steget til noen driver den videre med et autorisert kall til `process/next`. Dette passer når det andre systemet kan kalle tilbake til appen. Ingenting driver prosessen videre av seg selv, så kommer kallet aldri, står instansen på oppgaven i det uendelige.
+**Få svaret som en melding.** Oppgaven åpner en postkasse, sender adressen til postkassen med forespørselen, og venter på meldingen som kommer tilbake. Dette passer når det andre systemet kan svare. Prosessen står på steget til oppgaven har konkludert ut fra svaret, eller til fristen i `MailboxOptions.Timeout` går ut. En postkasse krever en oppgave med flere arbeidssteg. Se [Få svaret som en melding]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg" >}}#få-svaret-som-en-melding).
 
 **Sjekke selv.** Svar `Defer(delay, reason)`. Prosessen står på steget, og plattformen kjører oppgaven på nytt etter pausen du oppgir, så mange ganger som den trenger. Dette passer når ingenting kan kalle tilbake. `WaitBudget` setter tak på ventetiden til sammen, og steget feiler når taket er nådd. Bruk `context.Wait.IsFinalCheck` til å gi din egen forklaring på hva som aldri kom, i stedet for et generisk tidsavbrudd.
 
@@ -226,7 +211,7 @@ Et forsøk som venter, lagrer ingenting, og oppgaven kjører fra starten hver ga
 
 eFormidling-oppgaven er det innebygde eksempelet: den sender meldingen i ett arbeidssteg, og venter deretter til integrasjonspunktet bekrefter at meldingen er levert.
 
-Uansett hvilken av dem du velger, ser brukeren en side som venter, og appen sender brukeren videre av seg selv. Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}).
+Uansett hvilken av dem du velger, kan ingen hoppe over ventingen. Brukeren ser lastevisningen eller din egen side, og appen sender brukeren videre av seg selv når oppgaven er ferdig. Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}).
 
 ## Gjøre oppgaven trygg å kjøre om igjen
 

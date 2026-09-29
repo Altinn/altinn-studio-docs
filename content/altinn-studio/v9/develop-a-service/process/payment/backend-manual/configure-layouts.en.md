@@ -49,7 +49,7 @@ Here is a minimal example:
 }
 ```
 
-Update your layout set Settings.json file, specifying your receipt layout in the `pdfLayoutName` field:
+Update the `Settings.json` file in the payment task's UI folder (`App/ui/<taskId>/Settings.json`), specifying your receipt layout in the `pdfLayoutName` field:
 
 ```json
 {
@@ -58,7 +58,7 @@ Update your layout set Settings.json file, specifying your receipt layout in the
     "order": [
       "payment"
     ],
-    "pdfLayoutName": "paymentReceipt", 
+    "pdfLayoutName": "receiptLayout",
     "showProgress": true,
     "showLanguageSelector": true
   }

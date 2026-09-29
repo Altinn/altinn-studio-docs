@@ -88,11 +88,11 @@ Et arbeidssteg svarer med `ServiceTaskStageResult`:
 | Svar | Dette skjer |
 | --- | --- |
 | `Completed()` | Arbeidssteget er ferdig, og oppgaven går videre til neste. Plattformen lagrer dataendringene, og senere arbeidssteg ser dem. Et ferdig arbeidssteg kjører aldri om igjen. |
-| `Defer(delay, reason)` | Arbeidssteget gikk bra, men svaret det venter på har ikke kommet. Plattformen parkerer prosessen og kjører arbeidssteget på nytt etter `delay`. |
+| `Defer(delay, reason)` | Arbeidssteget gikk bra, men svaret det venter på har ikke kommet. Prosessen står på steget, og plattformen kjører arbeidssteget på nytt etter `delay`. |
 | `FailedRetryable("melding")` | Noe gikk galt som kan gå bedre om litt. Plattformen prøver arbeidssteget på nytt. |
 | `FailedPermanent("melding")` | Noe gikk galt som ikke retter seg selv. Plattformen gir opp. |
 
-Bare avslutningen kan si at hele oppgaven er ferdig og at prosessen skal gå videre. Derfor svarer `Finally` med `ServiceTaskResult`, som i tillegg har `Success(action)` og `SuccessWithoutAutoAdvance()`.
+Bare avslutningen kan si at hele oppgaven er ferdig og at prosessen skal gå videre. Derfor svarer `Finally` med `ServiceTaskResult`, som i tillegg har `Success(action)`. `Success` flytter alltid prosessen videre.
 
 ## Vente på svar
 
