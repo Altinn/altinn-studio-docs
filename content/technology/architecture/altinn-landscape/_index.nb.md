@@ -14,7 +14,7 @@ Tegningene er laget fra kildekoden på `main` i de aktuelle repoene. Hver boks l
 
 Klikk på en tegning for å åpne den i full størrelse i en ny fane. Lenkene i tegningen virker bare når den er åpnet på denne måten.
 
-Filene er draw.io-SVG-er og kan åpnes og redigeres i [draw.io](https://app.diagrams.net/).
+Filene er draw.io-SVG-er og kan åpnes i [draw.io](https://app.diagrams.net/). Et skript i dette repoet lager tegningene fra kildekoden, så skriptet overskriver endringer du gjør for hånd neste gang noen kjører det. Se [README for skriptet](https://github.com/Altinn/altinn-studio-docs/blob/master/scripts/altinn-landscape/README.md) for hvordan du lager tegningene på nytt.
 
 ## Oversikt
 
@@ -36,7 +36,7 @@ Arbeidsflate (React-app og BFF), API Management, Dialogporten og adapteren som s
 
 ## Apps
 
-App-frontenden som lastes fra altinncdn.no, app-backend (app-lib), API Management og Storage.
+App-frontenden som lastes fra altinncdn.no, app-backend (app-lib, som nå ligger i altinn-studio-repoet), API Management og Storage.
 
 <a href="./altinn_apps_detailed.drawio.svg" target="_blank" rel="noopener"><img src="./altinn_apps_detailed.drawio.svg" alt="Produktet Apps" style="width:100%;height:auto;display:block;cursor:zoom-in;" /></a>
 
