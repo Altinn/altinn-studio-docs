@@ -14,7 +14,7 @@ The drawings are made from the source code on `main` in each repository. Every b
 
 Click a drawing to open it in full size in a new tab. The links in a drawing only work when it is opened this way.
 
-The files are draw.io SVGs and can be opened and edited in [draw.io](https://app.diagrams.net/).
+The files are draw.io SVGs and can be opened in [draw.io](https://app.diagrams.net/). A script in this repository generates the drawings from the source code, so changes made by hand are overwritten the next time someone runs it. See the [README for the script](https://github.com/Altinn/altinn-studio-docs/blob/master/scripts/altinn-landscape/README.md) for how to regenerate the drawings.
 
 ## Overview
 
@@ -36,7 +36,7 @@ Arbeidsflate (React app and BFF), API Management, Dialogporten and the adapter t
 
 ## Apps
 
-The app frontend loaded from altinncdn.no, the app backend (app-lib), API Management and Storage.
+The app frontend loaded from altinncdn.no, the app backend (app-lib, which now lives in the altinn-studio repository), API Management and Storage.
 
 <a href="./altinn_apps_detailed.drawio.svg" target="_blank" rel="noopener"><img src="./altinn_apps_detailed.drawio.svg" alt="The Apps product" style="width:100%;height:auto;display:block;cursor:zoom-in;" /></a>
 
