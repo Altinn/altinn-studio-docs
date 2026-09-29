@@ -2,8 +2,10 @@
 title: The Altinn landscape
 linktitle: Altinn landscape
 description: Detailed architecture drawings of Altinn 3, product by product, with links to the source code.
-weight: 10
+weight: 1
 toc: true
+aliases:
+ - /authorization/reference/system/altinn-landscape/
 ---
 
 The drawings on this page show how Altinn 3 is built, product by product. Each frame is one application or service. The columns are its sub-modules and the rows are its layers, from the API down to storage. Below the columns are bars for integration clients, background jobs, cross-cutting concerns and datastores.
