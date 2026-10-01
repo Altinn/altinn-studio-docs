@@ -82,9 +82,7 @@
         },
         "security": [
           {
-            "bearerAuth": [
-              "ComposedEmailCreateScope"
-            ]
+            "bearerAuth": []
           }
         ]
       }
@@ -146,9 +144,7 @@
         "deprecated": true,
         "security": [
           {
-            "bearerAuth": [
-              "CreateScopeOrPlatfomAccessToken"
-            ]
+            "bearerAuth": []
           }
         ]
       }
@@ -196,9 +192,7 @@
         "deprecated": true,
         "security": [
           {
-            "bearerAuth": [
-              "CreateScopeOrPlatfomAccessToken"
-            ]
+            "bearerAuth": []
           }
         ]
       }
@@ -280,9 +274,7 @@
         },
         "security": [
           {
-            "bearerAuth": [
-              "CreateScopeOrPlatfomAccessToken"
-            ]
+            "bearerAuth": []
           }
         ]
       }
@@ -354,9 +346,7 @@
         "deprecated": true,
         "security": [
           {
-            "bearerAuth": [
-              "CreateScopeOrPlatfomAccessToken"
-            ]
+            "bearerAuth": []
           }
         ]
       }
@@ -427,9 +417,7 @@
         },
         "security": [
           {
-            "bearerAuth": [
-              "CreateScopeOrPlatfomAccessToken"
-            ]
+            "bearerAuth": []
           }
         ]
       }
@@ -500,9 +488,7 @@
         },
         "security": [
           {
-            "bearerAuth": [
-              "CreateScopeOrPlatfomAccessToken"
-            ]
+            "bearerAuth": []
           }
         ]
       }
@@ -578,9 +564,7 @@
         "deprecated": true,
         "security": [
           {
-            "bearerAuth": [
-              "CreateScopeOrPlatfomAccessToken"
-            ]
+            "bearerAuth": []
           }
         ]
       }
@@ -656,9 +640,7 @@
         },
         "security": [
           {
-            "bearerAuth": [
-              "EndUserAccess"
-            ]
+            "bearerAuth": []
           }
         ]
       }
@@ -706,9 +688,7 @@
         "deprecated": true,
         "security": [
           {
-            "bearerAuth": [
-              "CreateScopeOrPlatfomAccessToken"
-            ]
+            "bearerAuth": []
           }
         ]
       }
@@ -751,9 +731,7 @@
         "deprecated": true,
         "security": [
           {
-            "bearerAuth": [
-              "CreateScopeOrPlatfomAccessToken"
-            ]
+            "bearerAuth": []
           }
         ]
       },
@@ -813,9 +791,7 @@
         "deprecated": true,
         "security": [
           {
-            "bearerAuth": [
-              "CreateScopeOrPlatfomAccessToken"
-            ]
+            "bearerAuth": []
           }
         ]
       }
@@ -863,9 +839,7 @@
         "deprecated": true,
         "security": [
           {
-            "bearerAuth": [
-              "CreateScopeOrPlatfomAccessToken"
-            ]
+            "bearerAuth": []
           }
         ]
       }
@@ -916,9 +890,7 @@
         "deprecated": true,
         "security": [
           {
-            "bearerAuth": [
-              "CreateScopeOrPlatfomAccessToken"
-            ]
+            "bearerAuth": []
           }
         ]
       }
@@ -981,9 +953,7 @@
         },
         "security": [
           {
-            "bearerAuth": [
-              "CreateScopeOrPlatfomAccessToken"
-            ]
+            "bearerAuth": []
           }
         ]
       }
@@ -1045,9 +1015,7 @@
         "deprecated": true,
         "security": [
           {
-            "bearerAuth": [
-              "CreateScopeOrPlatfomAccessToken"
-            ]
+            "bearerAuth": []
           }
         ]
       }
@@ -1095,9 +1063,7 @@
         "deprecated": true,
         "security": [
           {
-            "bearerAuth": [
-              "CreateScopeOrPlatfomAccessToken"
-            ]
+            "bearerAuth": []
           }
         ]
       }
@@ -1176,9 +1142,7 @@
         },
         "security": [
           {
-            "bearerAuth": [
-              "CreateScopeOrPlatfomAccessToken"
-            ]
+            "bearerAuth": []
           }
         ]
       }

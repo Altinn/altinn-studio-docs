@@ -64,7 +64,7 @@ criteria, an empty list is returned.
     "type": "Notification",
     "channel": "Email",
     "destination": "recipient@example.com",
-    "status": "Email_Delivered",
+    "status": "Delivered",
     "requestedSendTime": "2026-08-05T10:00:00Z",
     "lastUpdateTime": "2026-08-05T10:02:30Z"
   }
@@ -192,7 +192,7 @@ From the response above, you can see:
 
 ```bash
 curl -X GET \
-  'https://platform.altinn.no/notifications/api/v1/future/enduser/log' \
+  'https://platform.altinn.no/notifications/api/v1/future/enduser/log?dialogId=01a0ae3d-df1d-790d-8343-sasdasdasd' \
   -H 'Authorization: ******'
 ```
 
