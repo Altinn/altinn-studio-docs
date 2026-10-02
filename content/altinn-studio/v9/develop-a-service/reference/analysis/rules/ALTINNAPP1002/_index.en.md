@@ -1,16 +1,16 @@
 ---
 draft: true
-title: "ALTINNAPP1002: PDF-systemoppgaven tar med en oppgave uten UI-mappe"
-description: "autoPdfTaskIds lister en oppgave som ikke har noen UI-mappe"
+title: "ALTINNAPP1002: PDF service task includes a task without a UI folder"
+description: "autoPdfTaskIds lists a task that has no UI folder"
 weight: 102
 ---
 
-Denne diagnostikken meldes når en PDF-systemoppgave lister en oppgave i `autoPdfTaskIds`, men
-appen ikke har noen UI-mappe `ui/<oppgave-id>` for den oppgaven. PDF-en får da ikke noe innhold
-fra den oppgaven. Meldingen navngir PDF-oppgaven og oppgaven den lister.
+This diagnostic is reported when a PDF service task lists a task in `autoPdfTaskIds`, but the
+app has no UI folder `ui/<task-id>` for that task. The PDF then gets no content from that task.
+The message names the PDF task and the task it lists.
 
-Kategori `Process`, alvorlighetsgrad **advarsel**.
+Category `Process`, severity **warning**.
 
-Kontroller at oppgave-id-en er riktig. Den vanligste årsaken er en skrivefeil.
+Check that the task id is correct. The most common cause is a typo.
 
-Se [veiledningen for PDF i appen]({{< relref "/altinn-studio/v9/develop-a-service/process/pdf" >}}).
+See the [guide to PDFs in the app]({{< relref "/altinn-studio/v9/develop-a-service/process/pdf" >}}).

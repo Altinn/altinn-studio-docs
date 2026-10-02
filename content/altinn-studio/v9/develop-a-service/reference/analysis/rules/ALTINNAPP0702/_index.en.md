@@ -1,23 +1,23 @@
 ---
 draft: true
-title: "ALTINNAPP0702: postkassen er besvart to ganger"
-description: "Samme postkasse blir besvart av mer enn én behandler"
+title: "ALTINNAPP0702: mailbox answered twice"
+description: "The same mailbox is answered by more than one handler"
 weight: 72
 ---
 
-Denne diagnostikken meldes når en systemoppgave med flere arbeidssteg åpner en postkasse, og
-den samme `MailboxHandle` blir sendt både til `HandleReplies` og til `ConcludeOnReplies`, eller
-til en av dem to ganger. Meldingen navngir variabelen postkassen ble åpnet i.
+This diagnostic is reported when a service task with several stages opens a mailbox, and the
+same `MailboxHandle` is passed both to `HandleReplies` and to `ConcludeOnReplies`, or to one of
+them twice. The message names the variable the mailbox was opened into.
 
-Hver postkasse skal besvares nøyaktig én gang: med `HandleReplies` for å fortsette etterpå, eller
-med `ConcludeOnReplies` for å avslutte der. En behandler nummer to ville aldri kjørt.
+Each mailbox must be answered exactly once: with `HandleReplies` to carry on afterwards, or with
+`ConcludeOnReplies` to end there. A second handler would never run.
 
-Kategori `Contracts`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
+Category `Contracts`, severity **error**. The rule therefore fails the build.
 
-Fjern den ene behandleren.
+Remove one of the handlers.
 
-Regelen melder bare det den kan bevise: håndtaket ligger i variabelen som `out`-parameteren til
-`Stage` deklarerer, og begge svarene kjører helt sikkert. Lagrer du håndtaket et annet sted eller
-sender det videre, kontrollerer appen det samme når den starter, og feiler der i stedet.
+The rule only reports what it can prove: the handle is in the variable that the `out` parameter
+of `Stage` declares, and both answers are certain to run. If you store the handle elsewhere or
+pass it on, the app checks the same thing when it starts, and fails there instead.
 
-Se [Få svaret som en melding](/nb/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg/#få-svaret-som-en-melding).
+See [Få svaret som en melding](/nb/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg/#få-svaret-som-en-melding) (documentation available in Norwegian only).

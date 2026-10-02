@@ -1,22 +1,21 @@
 ---
 draft: true
-title: "ALTINNAPP0703: postkassen blir aldri besvart"
-description: "En postkasse blir åpnet, men ingen behandler tar imot svarene"
+title: "ALTINNAPP0703: mailbox never answered"
+description: "A mailbox is opened, but no handler receives the replies"
 weight: 73
 ---
 
-Denne diagnostikken meldes når et arbeidssteg åpner en postkasse med
-`Stage(..., out MailboxHandle svar)`, men håndtaket ikke blir brukt noe sted. Meldingene som
-kommer tilbake, ville da ikke hatt noen behandler. Meldingen navngir variabelen postkassen ble
-åpnet i.
+This diagnostic is reported when a stage opens a mailbox with
+`Stage(..., out MailboxHandle reply)`, but the handle is never used. The messages that come back
+would then have no handler. The message names the variable the mailbox was opened into.
 
-Kategori `Contracts`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
+Category `Contracts`, severity **error**. The rule therefore fails the build.
 
-Besvar postkassen før sammensetningen slutter: med `HandleReplies` for å fortsette etterpå, eller
-med `ConcludeOnReplies` for å avslutte der.
+Answer the mailbox before the pipeline ends: with `HandleReplies` to carry on afterwards, or with
+`ConcludeOnReplies` to end there.
 
-Regelen melder bare et håndtak som ikke er brukt i det hele tatt. Forkaster du håndtaket med
-`out _`, eller bruker du det uten å besvare postkassen, melder ikke regelen noe, men appen feiler
-når den starter.
+The rule only reports a handle that is not used at all. If you discard the handle with `out _`,
+or use it without answering the mailbox, the rule reports nothing, but the app fails when it
+starts.
 
-Se [Få svaret som en melding](/nb/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg/#få-svaret-som-en-melding).
+See [Få svaret som en melding](/nb/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg/#få-svaret-som-en-melding) (documentation available in Norwegian only).
