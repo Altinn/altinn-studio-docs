@@ -292,7 +292,7 @@ Du bruker egenskapen `validationOnNavigation` på globalt nivå, per prosessteg 
 | --- | --- |
 | `"Required"` | Påkrevde felter som ikke er fylt ut. |
 | `"Schema"` | JSON Schema-feil på feltverdier. |
-| `"Invalid"` | Verdier som appen ikke kan lagre, for eksempel tekst i et tallfelt. |
+| `"Invalid"` | Verdier som appen ikke kan lagre, for eksempel tekst i et tallfelt. Kan ikke brukes i `App/ui/Settings.json` (globalt nivå). |
 | `"Component"` | Komponentspesifikk validering (for eksempel ugyldig format). |
 | `"Expression"` | Egendefinerte valideringsuttrykk. |
 | `"CustomBackend"` | Egendefinerte backendvalideringer. |
@@ -317,6 +317,10 @@ Gjelder for alle prosessteg i appen. Konfigurer direkte i roten av `App/ui/Setti
 ```
 
 #### 2. Per prosessteg
+
+{{% notice warning %}}
+Dette nivået virker ikke i v9 ennå. Appen leser ikke `validationOnNavigation` fra `Settings.json` i oppgavemappen. Bruk globalt nivå eller sidenivå i stedet.
+{{% /notice %}}
 
 Overstyrer det globale nivået for ett prosessteg. Konfigurer under `pages` i prosesstegets `Settings.json`.
 

@@ -28,7 +28,7 @@ Eksempel:
 ...
 <bpmn:exclusiveGateway id="Gateway_1">
     <bpmn:incoming>Flow_t1_g1</bpmn:incoming>
-    <bpmn:incoming>Flow_g1_t2</bpmn:incoming>
+    <bpmn:outgoing>Flow_g1_t2</bpmn:outgoing>
     <bpmn:outgoing>Flow_g1_end</bpmn:outgoing>
     <bpmn:extensionElements>
         <altinn:gatewayExtension>
@@ -44,7 +44,7 @@ I eksempelet ovenfor legger gatewayen til formdata som er lagret i datatype _Sch
 
 Når gatewayen er koblet til en datatype, kan du bruke uttrykkspråket for å definere om flytene ut av gatewayen er tilgjengelige.
 
-MERK: Bare én flyt må være tilgjengelig etter filtrering av flyter, med mindre det er en standardflyt som er en del av de mulige flytene ut av gatewayen.
+MERK: Nøyaktig én flyt må være gyldig etter at uttrykkene er evaluert. Hvis ingen eller flere flyter er gyldige, stopper prosessen med en feil. En flyt uten uttrykk regnes alltid som gyldig.
 
 Nå må du definere disse uttrykkene i de utgående flytene fra gatewayen. I gateway-eksempelet har vi to utgående flyter: _Flow_g1_t2_ og _Flow_g1_end_
 
@@ -86,7 +86,7 @@ Hvis en applikasjonsprosess har et bekreftelsessteg kan du avvise dataene og sen
 </bpmn:task>
 <bpmn:exclusiveGateway id="Gateway_1">
     <bpmn:incoming>Flow_t2_g1</bpmn:incoming>
-    <bpmn:incoming>Flow_g1_t1</bpmn:incoming>
+    <bpmn:outgoing>Flow_g1_t1</bpmn:outgoing>
     <bpmn:outgoing>Flow_g1_end</bpmn:outgoing>
 </bpmn:exclusiveGateway>
 <bpmn:sequenceFlow id="Flow_g1_t1" sourceRef="Gateway_1" targetRef="Task_1" />

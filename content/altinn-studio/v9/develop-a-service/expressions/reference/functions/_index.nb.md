@@ -79,7 +79,7 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`instanceContext`](#func-instancecontext)     | Streng                           | Streng                     | ✅       | ✅      |
 | [`frontendSettings`](#func-frontendsettings)   | Streng                           | Streng                     | ✅       | ✅      |
 | [`countDataElements`](#func-countDataElements) | Streng                           | Tall                       | ✅       | ✅      |
-| [`dataModel`](#func-datamodel)                 | Streng                           | Streng, liste eller objekt | ✅       | ✅      |
+| [`dataModel`](#func-datamodel)                 | Streng, valgfri streng           | Streng, liste eller objekt | ✅       | ✅      |
 | [`component`](#func-component)                 | Streng                           | Streng, liste eller objekt | ✅       | ✅      |
 | [`linkToPage`](#func-linkToPage)               | Streng, Streng, Boolsk (valgfri) | Streng                     | ✅       | ❌      |
 | [`linkToComponent`](#func-linkToComponent)     | Streng, Streng, Boolsk (valgfri) | Streng                     | ✅       | ❌      |
