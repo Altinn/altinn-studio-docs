@@ -8,11 +8,12 @@ hidden: true
 App/Program.cs
 {{< /code-title >}}
 
-{{< highlight csharp "linenos=false,hl_lines=5" >}}
+{{< highlight csharp "linenos=false,hl_lines=5-6" >}}
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
   // ...
 
-  services.AddTransient<RestrictedDataHelper>();
+  services.AddTransient<IOnTaskStartingHandler, RestrictedDataTaskStartHandler>();
+  services.AddTransient<IDataWriteProcessor, DataWriteHandler>();
 }
 {{< /highlight >}}
