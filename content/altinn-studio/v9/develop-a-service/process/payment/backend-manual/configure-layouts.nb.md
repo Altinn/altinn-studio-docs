@@ -4,7 +4,7 @@ hidden: true
 tags: [needsReview]
 ---
 
-### Legge til OrderDetails-komponenten i skjemaet ditt
+### Legge til PaymentDetails-komponenten i skjemaet ditt
 
 Dette viser en tabell som viser elementene brukeren må betale for.
 Du kan plassere dette hvor som helst i appen din, men vi anbefaler å sette det på den siste siden før brukeren blir bedt om å betale.
@@ -53,6 +53,7 @@ Oppdater `Settings.json` i UI-mappen til betalingsoppgaven (`App/ui/<taskId>/Set
 ```json
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+  "defaultDataType": "model",
   "pages": {
     "order": [
       "payment"

@@ -296,7 +296,7 @@ App/ui/CustomReceipt/layouts/side1.json
         "id": "fa796d12-49fc-457a-9d9a-d153998d55de",
         "type": "Image",
         "textResourceBindings": {
-          "title": "Bilde"
+          "altTextImg": "Bilde"
         },
         "image": {
           "src": {

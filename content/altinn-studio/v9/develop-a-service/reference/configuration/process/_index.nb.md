@@ -13,11 +13,11 @@ En tjeneste har en definert prosess som styrer flyten. Prosessen er definert som
 
 Du angir typen til en oppgave i `<altinn:taskType>` inne i `<altinn:taskExtension>` på oppgaven i `process.bpmn`.
 
-Oppgaver som brukeren utfører:
+Oppgaver der brukeren er involvert:
 
 - `data`: Brukeren fyller ut et skjema (tilsvarer utfyllingssteg i Altinn II).
 - `confirmation`: Brukeren bekrefter før prosessen går videre.
-- `feedback`: Appen venter på at et system hos tjenesteeieren oppdaterer instansen.
+- `feedback`: Brukeren venter mens et system hos tjenesteeieren oppdaterer instansen.
 - `signing`: Brukeren signerer. Se [signering]({{< relref "/altinn-studio/v9/develop-a-service/process/signing" >}}).
 - `payment`: Brukeren betaler. Se [betaling]({{< relref "/altinn-studio/v9/develop-a-service/process/payment" >}}).
 
@@ -27,6 +27,8 @@ Oppgaver som brukeren utfører:
 - `subformPdf`: Appen lager en PDF for hvert underskjema.
 - `eFormidling`: Appen sender data videre med [eFormidling]({{< relref "/altinn-studio/v9/receive-data/eFormidling" >}}).
 - `fiksArkiv`: Appen sender data til arkivet med [Fiks Arkiv]({{< relref "/altinn-studio/v9/receive-data/fiks-arkiv" >}}).
+
+Utviklerne kan også lage egne systemoppgaver med egen type. Se [systemoppgaver]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks" >}}).
 
 ## Endre prosessen
 

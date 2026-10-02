@@ -292,6 +292,7 @@ Du bruker egenskapen `validationOnNavigation` på globalt nivå, per prosessteg 
 | --- | --- |
 | `"Required"` | Påkrevde felter som ikke er fylt ut. |
 | `"Schema"` | JSON Schema-feil på feltverdier. |
+| `"Invalid"` | Verdier som appen ikke kan lagre, for eksempel tekst i et tallfelt. |
 | `"Component"` | Komponentspesifikk validering (for eksempel ugyldig format). |
 | `"Expression"` | Egendefinerte valideringsuttrykk. |
 | `"CustomBackend"` | Egendefinerte backendvalideringer. |

@@ -154,6 +154,9 @@ Hvis du ikke kan oppfylle kravene for gatewayen din gjennom uttrykk, kan du skri
       <bpmn:extensionElements>
         <altinn:taskExtension>
             <altinn:taskType>confirmation</altinn:taskType>
+            <altinn:actions>
+              <altinn:action>confirm</altinn:action>
+            </altinn:actions>
         </altinn:taskExtension>
       </bpmn:extensionElements>
     </bpmn:task>

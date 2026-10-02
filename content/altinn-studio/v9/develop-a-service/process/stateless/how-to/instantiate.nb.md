@@ -80,9 +80,13 @@ public class InstantiationProcessor : IInstantiationProcessor
 }
 ```
 
-Husk å registrere klassen i metoden `RegisterCustomAppServices` i `Program.cs`:
+Husk å registrere klassen i metoden `RegisterCustomAppServices` i `Program.cs`, og legg til `using` for navnerommet til klassen øverst i filen:
 
 ```c#
+using Altinn.App.Logic;
+
+// ...
+
 services.AddTransient<IInstantiationProcessor, InstantiationProcessor>();
 ```
 

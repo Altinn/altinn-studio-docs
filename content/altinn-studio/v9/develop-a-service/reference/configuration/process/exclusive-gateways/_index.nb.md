@@ -47,6 +47,9 @@ Funksjonaliteten beskrevet på denne siden krever minimum versjon 7.1.0 av Altin
       <bpmn:extensionElements>
         <altinn:taskExtension>
           <altinn:taskType>confirmation</altinn:taskType>
+          <altinn:actions>
+            <altinn:action>confirm</altinn:action>
+          </altinn:actions>
         </altinn:taskExtension>
       </bpmn:extensionElements>
       <bpmn:incoming>Flow_g1_t2</bpmn:incoming>
