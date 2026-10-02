@@ -16,7 +16,7 @@ Denne funksjonaliteten er tilgjengelig fra versjon `8.11.0` av `Altinn.App.Api` 
 
 Det er lagt til et nytt felt, `notification`, i request-bodyen til `POST /instances/create` og `POST /instances` (multipart). Dette feltet lar deg spesifisere hvilken kanal varselet skal sendes på, eventuelt egendefinerte tekster, planlagt sendetid og påminnelser.
 
-Varselet bestilles etter at instansen er opprettet. Hvis bestillingen feiler, blir instansen likevel opprettet, og appen logger feilen.
+Varselet bestilles etter at instansen er opprettet. Hvis bestillingen mislykkes, blir instansen likevel opprettet, og appen logger feilen. Et ugyldig `notification`-objekt avviser hele forespørselen.
 
 ## Slik fungerer det
 
@@ -155,7 +155,7 @@ Egendefinerte tekster støtter følgende tokens som erstattes dynamisk:
 
 | Token | Beskrivelse |
 |---|---|
-| `$appName$` | Appens tittel fra app-metadata, på mottakerens språk. Faller tilbake til appnavnet. |
+| `$appName$` | Appens navn, fra app-ID-en (`{org}/{app}`) |
 | `$instanceOwnerName$` | Navn på instanseier |
 | `$serviceOwnerName$` | Navn på tjenesteeier fra Altinn CDN |
 | `$orgNumber$` | Organisasjonsnummer (hvis instanseier er org) |

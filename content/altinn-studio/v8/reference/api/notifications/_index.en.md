@@ -16,7 +16,7 @@ This functionality is available from version `8.11.0` of `Altinn.App.Api` and `A
 
 A new field, `notification`, has been added to the request body of `POST /instances/create` and `POST /instances` (multipart). This field allows you to specify which channel the notification should be sent on, and optionally provide custom texts, a scheduled send time, and reminders.
 
-The notification is ordered after the instance has been created. If ordering it fails, the instance is still created and the error is logged by the app.
+The notification is ordered after the instance has been created. If ordering it fails, the instance is still created and the error is logged by the app. An invalid `notification` object rejects the whole request.
 
 ## How it works
 
@@ -155,7 +155,7 @@ Custom texts support the following tokens, which are replaced dynamically:
 
 | Token | Description |
 |---|---|
-| `$appName$` | The title of the app from the app metadata, in the recipient's language. Falls back to the app name. |
+| `$appName$` | The name of the app, from its app ID (`{org}/{app}`) |
 | `$instanceOwnerName$` | The name of the instance owner |
 | `$serviceOwnerName$` | The name of the service owner, as defined in the Altinn CDN |
 | `$orgNumber$` | The organization number of the instance owner, if the instance owner is an organization |
