@@ -1,22 +1,22 @@
 ---
 draft: true
-title: "ALTINNAPP0002: feil i applicationmetadata.json"
-description: "applicationmetadata.json mangler, finnes i flere eksemplarer eller kan ikke leses"
+title: "ALTINNAPP0002: error in applicationmetadata.json"
+description: "applicationmetadata.json is missing, duplicated or cannot be read"
 weight: 2
 ---
 
-Denne diagnostikken meldes når `applicationmetadata.json` ikke kan leses slik
-analysen trenger den. Meldingen inneholder årsaken. Tilfellene som rapporteres er:
+This diagnostic is reported when `applicationmetadata.json` cannot be read the way the analysis
+needs. The message contains the cause. The cases reported are:
 
-- filen finnes ikke (`No applicationmetadata.json file found`)
-- filen finnes i flere eksemplarer (`Multiple applicationmetadata.json file found`)
-- datamodellklassen som er oppgitt i filen finnes ikke i kompileringen
+- the file does not exist (`No applicationmetadata.json file found`)
+- there is more than one copy of the file (`Multiple applicationmetadata.json file found`)
+- the data model class named in the file does not exist in the compilation
   (`Could not find class ... in the compilation`)
 
-Strukturelle feil og ugyldig JSON rapporteres også her, og ikke av
-deprecation-reglene, som er tause når filen ikke lar seg tolke.
+Structural errors and invalid JSON are also reported here, and not by the deprecation rules,
+which stay silent when the file cannot be parsed.
 
-Kategori `Metadata`, alvorlighetsgrad **advarsel**.
+Category `Metadata`, severity **warning**.
 
-Rett filen slik at det finnes nøyaktig én `applicationmetadata.json`, at den er gyldig
-JSON, og at klassen den viser til finnes i prosjektet.
+Fix the file so that there is exactly one `applicationmetadata.json`, that it is valid JSON, and
+that the class it refers to exists in the project.

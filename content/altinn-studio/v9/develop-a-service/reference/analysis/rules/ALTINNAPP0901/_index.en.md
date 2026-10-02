@@ -1,19 +1,19 @@
 ---
 draft: true
-title: "ALTINNAPP0901: feltet peker på en ukjent datatype"
-description: "En oppføring i presentationFields eller dataFields har en dataTypeId appen ikke har deklarert"
+title: "ALTINNAPP0901: field points to an unknown data type"
+description: "An entry in presentationFields or dataFields has a dataTypeId the app has not declared"
 weight: 91
 ---
 
-Denne diagnostikken meldes når en oppføring i `presentationFields` eller `dataFields` i
-`applicationmetadata.json` har en `dataTypeId` som ikke finnes blant `dataTypes` i samme
-fil. Meldingen navngir egenskapen, id-en til oppføringen og datatypen den peker på.
+This diagnostic is reported when an entry in `presentationFields` or `dataFields` in
+`applicationmetadata.json` has a `dataTypeId` that is not among the `dataTypes` in the same
+file. The message names the property, the id of the entry and the data type it points to.
 
-Appen regner bare ut feltet for datatypen oppføringen navngir. Peker den på en datatype som
-ikke finnes, blir verdien aldri regnet ut, og feltet står tomt på instansen. Appen kjører
-som normalt, men feltet kan aldri få en verdi. Den vanligste årsaken er en skrivefeil i
+The app only computes the field for the data type the entry names. If it points to a data type
+that does not exist, the value is never computed, and the field stays empty on the instance. The
+app runs as normal, but the field can never get a value. The most common cause is a typo in
 `dataTypeId`.
 
-Kategori `Metadata`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
+Category `Metadata`, severity **error**. The rule therefore fails the build.
 
-Rett `dataTypeId` til en datatype appen deklarerer, eller fjern oppføringen.
+Correct `dataTypeId` to a data type the app declares, or remove the entry.

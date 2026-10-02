@@ -1,16 +1,16 @@
 ---
 draft: true
-title: "ALTINNAPP0600: enablePdfCreation støttes ikke"
-description: "enablePdfCreation på en dataType er ikke lenger støttet"
+title: "ALTINNAPP0600: enablePdfCreation is not supported"
+description: "enablePdfCreation on a dataType is no longer supported"
 weight: 60
 ---
 
-Denne diagnostikken meldes når en `dataType` i `applicationmetadata.json` har
-`enablePdfCreation` satt til `true`. Egenskapen er ikke lenger støttet av denne versjonen
-av app-backend. Meldingen navngir hvilken `dataType` det gjelder.
+This diagnostic is reported when a `dataType` in `applicationmetadata.json` has
+`enablePdfCreation` set to `true`. This version of the app backend no longer supports the
+property. The message names the `dataType` concerned.
 
-Kategori `Deprecation`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
+Category `Deprecation`, severity **error**. The rule therefore fails the build.
 
-Generer PDF med en PDF-systemoppgave i prosessen i stedet.
+Generate the PDF with a PDF service task in the process instead.
 
-Se [veiledningen for PDF i appen]({{< relref "/altinn-studio/v9/develop-a-service/process/pdf" >}}).
+See the [guide to PDFs in the app]({{< relref "/altinn-studio/v9/develop-a-service/process/pdf" >}}).

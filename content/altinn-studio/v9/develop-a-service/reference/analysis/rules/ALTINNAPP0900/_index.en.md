@@ -1,25 +1,25 @@
 ---
 draft: true
-title: "ALTINNAPP0900: to felt deler samme id"
-description: "To oppføringer i presentationFields eller dataFields har samme id for samme dataTypeId"
+title: "ALTINNAPP0900: two fields share the same id"
+description: "Two entries in presentationFields or dataFields have the same id for the same dataTypeId"
 weight: 90
 ---
 
-Denne diagnostikken meldes når to oppføringer i `presentationFields` eller `dataFields` i
-`applicationmetadata.json` har samme `id` og samtidig peker på samme `dataTypeId`.
-Meldingen navngir hvilken av de to egenskapene det gjelder, id-en, datatypen og begge
-`path`-verdiene.
+This diagnostic is reported when two entries in `presentationFields` or `dataFields` in
+`applicationmetadata.json` have the same `id` and also point to the same `dataTypeId`. The
+message names which of the two properties is affected, the id, the data type and both `path`
+values.
 
-Id-en er nøkkelen verdien lagres under på instansen: `presentationTexts` for
-presentasjonsfelt og `dataValues` for datafelt. Verdiene for én datatype regnes ut samlet,
-og samme nøkkel kan ikke lagres to ganger. Appen feiler derfor i stedet for å regne ut noen
-av dem, og både instansiering og lagring av den datatypen stopper.
+The id is the key the value is stored under on the instance: `presentationTexts` for
+presentation fields and `dataValues` for data fields. The values for one data type are computed
+together, and the same key cannot be stored twice. The app therefore fails instead of computing
+either of them, and both instantiation and saving of that data type stop.
 
-Kategori `Metadata`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
+Category `Metadata`, severity **error**. The rule therefore fails the build.
 
-Gi hver oppføring sin egen `id`.
+Give each entry its own `id`.
 
-Å bruke samme `id` på *ulike* datatyper er fortsatt lov. Da gjelder verdien fra den
-datatypen som ble lagret sist, og noen apper bruker dette bevisst for å fylle samme
-presentasjonsfelt fra den modellen instansen har. Regelen melder bare oppføringer som deler
-både `id` og `dataTypeId`.
+Using the same `id` on *different* data types is still allowed. The value from the data type
+saved last then applies, and some apps use this deliberately to fill the same presentation field
+from whichever model the instance has. The rule only reports entries that share both `id` and
+`dataTypeId`.

@@ -1,27 +1,28 @@
 ---
 draft: true
-title: "ALTINNAPP0800: tjenesteeier mangler nødvendig autorisasjon"
-description: "policy.xml gir ikke apporganisasjonen rettighetene appen bruker på egne vegne"
+title: "ALTINNAPP0800: service owner lacks required authorisation"
+description: "policy.xml does not grant the app owner the rights the app uses on its own behalf"
 weight: 80
 ---
 
-Denne diagnostikken meldes når `config/authorization/policy.xml` ikke gir
-apporganisasjonen (org) de handlingene appen utfører mot Storage som tjenesteeier.
+This diagnostic is reported when `config/authorization/policy.xml` does not grant the app owner
+organisation (org) the actions the app performs against Storage as the service owner.
 
-Appen lagrer instansdata og prosessoverganger som tjenesteeier, ikke som sluttbruker.
-Storage autoriserer de kallene mot appens egen policy, med `urn:altinn:org` som subjekt.
-En policy som bare gir sluttbrukeren rettigheter — den vanlige formen i v8 — gjør at appen
-ikke får flyttet sin egen prosess videre. Feilen viser seg ellers først når en innbygger
-sender inn.
+The app stores instance data and process transitions as the service owner, not as the end user.
+Storage authorises those calls against the app's own policy, with `urn:altinn:org` as the
+subject. A policy that grants rights only to the end user — the usual form in v8 — leaves the
+app unable to move its own process forward. Without the rule, the error only shows when a
+citizen submits.
 
-Hvilke handlinger som kreves følger av oppgavetypene i prosessen: `write` for data,
-`pay` eller `write` for betaling, `confirm` for bekreftelse, `sign` eller `write` for
-signering, `complete` der en systemoppgave markerer instansen som fullført, og `delete`
-der instansen slettes ved prosessens slutt.
+The actions required follow from the task types in the process: `write` for data, `pay` or
+`write` for payment, `confirm` for confirmation, `sign` or `write` for signing, `complete` where
+a service task marks the instance as completed, and `delete` where the instance is deleted at
+the end of the process.
 
-Kategori `Authorization`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
+Category `Authorization`, severity **error**. The rule therefore fails the build.
 
-Gi handlingene til org-subjektet i `config/authorization/policy.xml`, eller kjør
-oppgraderingen fra v8 til v9, som setter inn regelen.
+Grant the actions to the org subject in `config/authorization/policy.xml`, or run the upgrade
+from v8 to v9, which inserts the rule.
 
-Se [regelbiblioteket](/nb/altinn-studio/v9/develop-a-service/reference/configuration/authorization/rules/) for hvordan du skriver en regel for org-subjektet.
+See the [rule library](/nb/altinn-studio/v9/develop-a-service/reference/configuration/authorization/rules/) (documentation available in Norwegian only) for how to write a
+rule for the org subject.

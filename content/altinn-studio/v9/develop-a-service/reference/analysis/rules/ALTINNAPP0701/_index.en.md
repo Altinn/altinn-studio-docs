@@ -1,22 +1,22 @@
 ---
 draft: true
-title: "ALTINNAPP0701: ufullstendig registrering forkastes"
-description: "Resultatet av et builder-kall forkastes, men er ikke en brukbar registrering alene"
+title: "ALTINNAPP0701: incomplete registration discarded"
+description: "The result of a builder call is discarded, but it is not a usable registration on its own"
 weight: 71
 ---
 
-Denne diagnostikken meldes når resultatet av et kall forkastes, og returtypen er et
-builder-trinn som ikke er en fullstendig registrering i seg selv. Et eksempel er
-`services.AddEFormidling();`, som registrerer alt bortsett fra den ene implementasjonen
-appen selv må levere.
+This diagnostic is reported when the result of a call is discarded, and its return type is a
+builder step that is not a complete registration in itself. One example is
+`services.AddEFormidling();`, which registers everything except the one implementation the app
+must supply itself.
 
-Regelen ser kun på kall der resultatet forkastes helt — der kallet utgjør hele setningen.
-Et builder-objekt som lagres i en variabel eller sendes videre, rapporteres ikke.
+The rule only looks at calls whose result is discarded entirely — where the call is the whole
+statement. A builder object stored in a variable or passed on is not reported.
 
-Kategori `Contracts`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
+Category `Contracts`, severity **error**. The rule therefore fails the build.
 
-Fullfør registreringen, for eksempel med `.WithMetadata<T>()`. Ønsker du bevisst kun det
-inngangspunktet registrerer, skriv en eksplisitt forkastning — `_ = services.AddEFormidling();`
-— som ikke rapporteres.
+Complete the registration, for example with `.WithMetadata<T>()`. If you deliberately want only
+what the entry point registers, write an explicit discard — `_ = services.AddEFormidling();` —
+which is not reported.
 
-Se [veiledningen for eFormidling-systemoppgaven]({{< relref "/altinn-studio/v9/receive-data/eFormidling" >}}).
+See the [guide to the eFormidling service task]({{< relref "/altinn-studio/v9/receive-data/eFormidling" >}}).

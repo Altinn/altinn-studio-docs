@@ -1,21 +1,19 @@
 ---
 draft: true
-title: "ALTINNAPP0700: forseglet standardimplementasjon er erstattet"
-description: "En klasse erstatter et grensesnittmedlem hvis standardimplementasjon er forseglet"
+title: "ALTINNAPP0700: sealed default implementation replaced"
+description: "A class replaces an interface member whose default implementation is sealed"
 weight: 70
 ---
 
-Denne diagnostikken meldes når en klasse implementerer et grensesnittmedlem som
-allerede har en standardimplementasjon merket som forseglet, og klassens egen
-implementasjon dermed erstatter den.
+This diagnostic is reported when a class implements an interface member that already has a
+default implementation marked as sealed, so that the class's own implementation replaces it.
 
-Et konkret tilfelle: `IServiceTask` har en standardimplementasjon av
-`IPipelineServiceTask.Define` som videresender til `Execute`. En klasse som implementerer
-`IServiceTask` og selv definerer `Define`, erstatter den videresendingen — og da kjører
-`Execute` aldri.
+A concrete case: `IServiceTask` has a default implementation of `IPipelineServiceTask.Define`
+that forwards to `Execute`. A class that implements `IServiceTask` and defines `Define` itself
+replaces that forwarding — and then `Execute` never runs.
 
-Kategori `Contracts`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
+Category `Contracts`, severity **error**. The rule therefore fails the build.
 
-Meldingen navngir klassen, medlemmet som erstattes og typen standardimplementasjonen
-ligger på, og avsluttes med veiledningsteksten som er knyttet til det aktuelle medlemmet.
-For tilfellet over er løsningen å implementere `IPipelineServiceTask` direkte.
+The message names the class, the member being replaced and the type the default implementation
+is on, and ends with the guidance attached to that member. In the case above, the fix is to
+implement `IPipelineServiceTask` directly.
