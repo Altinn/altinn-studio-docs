@@ -25,8 +25,7 @@ Du legger navigasjonsknappene i alle layoutfilene der du trenger dem. Vil du vis
   "textResourceBindings": {
     "next": "next",
     "back": "back"
-  },
-  "showBackButton": true
+  }
 }
 ```
 
@@ -39,7 +38,7 @@ Du legger navigasjonsknappene i alle layoutfilene der du trenger dem. Vil du vis
 | id | Unik ID for komponenten. |
 | type | Må være «NavigationButtons». |
 | textResourceBindings | Lar deg overstyre standardtekstene på knappene med egne tekster. |
-| showBackButton | Valgfritt. Viser knappene Forrige og Neste i stedet for bare Neste-knappen. |
+| showBackButton | Valgfritt. Viser knappene Forrige og Neste i stedet for bare Neste-knappen. Standardverdien er `true`. Sett den til `false` hvis du bare vil vise Neste-knappen. |
 
 ## Vise en sidemeny med rekkefølgen på sidene
 
@@ -75,7 +74,6 @@ Du kan gruppere sidene og vise dem i en sidemeny som alternativ til tradisjonell
       {
         "name": "group.form",
         "markWhenCompleted": true,
-        "expandedByDefault": true,
         "order": ["side1", "side2", "side3"]
       },
       {
@@ -93,7 +91,7 @@ Du kan gruppere sidene og vise dem i en sidemeny som alternativ til tradisjonell
 | name | Tekstressurs som angir navnet på sidegruppen. Må være med hvis gruppen inneholder mer enn én side. |
 | type | Valgfritt. Bruk «info» eller «default». |
 | markWhenCompleted | Valgfritt. Markerer sider som ferdig utfylt når brukeren har rettet alle valideringsfeil og sett siden. |
-| expandedByDefault | Valgfritt. Viser sidene i gruppen i sidenavigasjonen fra start. Som standard skjuler appen sidene under gruppenavnet til brukeren åpner gruppen. |
+| expandedByDefault | Virker ikke i v9. Appen tar ikke med feltet fra `Settings.json` i oppgavemappen. En gruppe er åpen når den inneholder siden brukeren står på, ellers er den lukket til brukeren åpner den. |
 | order | Angir hvilke sider som inngår i gruppen. |
 
 ![Sidemeny med grupperte sider](./grouped-navigation.png "Sidemeny med grupperte sider")
@@ -293,6 +291,7 @@ Du bruker egenskapen `validationOnNavigation` på globalt nivå, per prosessteg 
 | --- | --- |
 | `"Required"` | Påkrevde felter som ikke er fylt ut. |
 | `"Schema"` | JSON Schema-feil på feltverdier. |
+| `"Invalid"` | Verdier som appen ikke kan lagre, for eksempel tekst i et tallfelt. Kan ikke brukes i `App/ui/Settings.json` (globalt nivå). |
 | `"Component"` | Komponentspesifikk validering (for eksempel ugyldig format). |
 | `"Expression"` | Egendefinerte valideringsuttrykk. |
 | `"CustomBackend"` | Egendefinerte backendvalideringer. |
@@ -316,11 +315,11 @@ Gjelder for alle prosessteg i appen. Konfigurer direkte i roten av `App/ui/Setti
 }
 ```
 
-{{% notice info %}}
-Denne plasseringen følger samme mønster som andre globale innstillinger (se {{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/sider" >}}), men er ikke bekreftet av en utvikler ennå. Sjekk med utvikler før du følger dette eksempelet.
-{{% /notice %}}
-
 #### 2. Per prosessteg
+
+{{% notice warning %}}
+Dette nivået virker ikke i v9. Appen tar ikke med `validationOnNavigation` fra `Settings.json` i oppgavemappen. Bruk globalt nivå eller sidenivå i stedet.
+{{% /notice %}}
 
 Overstyrer det globale nivået for ett prosessteg. Konfigurer under `pages` i prosesstegets `Settings.json`.
 

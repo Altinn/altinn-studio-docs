@@ -11,7 +11,7 @@ En applikasjon har en prosess som brukeren følger. Avhengig av hvilken type ste
 
 ## Data (tilsvarer utfyllingssteg i Altinn II)
 
-I denne oppgavetypen viser applikasjonen et skjema som kan fylles ut. Du kan redigere skjemaet i Altinn Studio Designer eller ved å endre `FormLayout.json` direkte.
+I denne oppgavetypen viser applikasjonen et skjema som kan fylles ut. Du kan redigere skjemaet i Altinn Studio Designer eller ved å endre layoutfilene i `App/ui/{oppgave-ID}/layouts/` direkte.
 
 ## Bekreftelse
 
@@ -286,20 +286,18 @@ App/ui/CustomReceipt/layouts/side1.json
     "layout": [
       {
         "id": "ReceiptHeader",
-        "type": "Header",
+        "type": "Heading",
         "textResourceBindings": {
           "title": "receipt.title"
         },
-        "dataModelBindings": {},
         "size": "h2"
       },
       {
         "id": "fa796d12-49fc-457a-9d9a-d153998d55de",
         "type": "Image",
         "textResourceBindings": {
-          "title": "Bilde"
+          "altTextImg": "Bilde"
         },
-        "dataModelBindings": {},
         "image": {
           "src": {
             "nb": "https://docs.altinn.studio/altinn-studio/getting-started/app-dev-course/modul2/kommune-logo.png"
@@ -330,7 +328,7 @@ App/ui/CustomReceipt/layouts/side1.json
       },
       {
         "id": "ReceiptHeaderSubmitted",
-        "type": "Header",
+        "type": "Heading",
         "textResourceBindings": {
           "title": "receipt.title_submitted"
         },
@@ -339,8 +337,7 @@ App/ui/CustomReceipt/layouts/side1.json
       {
         "id": "ReceiptAttachmentList",
         "type": "AttachmentList",
-        "dataTypeIds": ["ref-data-as-pdf"],
-        "includePDF": true
+        "dataTypeIds": ["ref-data-as-pdf"]
       }
     ]
   }

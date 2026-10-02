@@ -137,14 +137,14 @@ Det er verdt å merke seg at hvis et oppslag på `IsPrefill` gir resultatet `nul
 ```json
 {
   "id": "repeatingAddressGroup",
-  "type": "Group",
+  "type": "RepeatingGroup",
   "children": ["field-id-one", "field-id-two"],
   "dataModelBindings": {
     "group": "Citizen.FormerAdresses"
   },
   "maxCount": 10,
   "textResourceBindings": {
-    "edit_button_open": [
+    "editButtonOpen": [
       "if",
       ["dataModel", "Citizen.FormerAdresses.IsPrefill"],
       "View",
