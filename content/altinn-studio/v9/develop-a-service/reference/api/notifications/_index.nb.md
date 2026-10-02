@@ -1,18 +1,19 @@
 ---
-title: Varsling
-description: Hvordan ta i bruk varsling ved instansiering
-weight: 50
+draft: true
+title: Varsling ved instansiering
+linktitle: Varsling
+description: Slik varsler du instanseieren når du oppretter en instans gjennom API-et
+toc: true
+tags: [needsReview]
 ---
 
-Dette dokumentet beskriver sending av varsler til instanseier når en instans opprettes. Her er en oversikt over funksjonaliteten og hvordan du kan prøve den ut.
+Når du oppretter en instans gjennom API-et, kan du be appen varsle instanseieren på e-post eller SMS. Denne siden beskriver hvordan du bestiller varselet, og hvordan appen avbestiller det når det ikke lenger trengs.
 
-{{% notice warning %}}
-Denne funksjonaliteten er tilgjengelig fra versjon `8.11.0` av `Altinn.App.Api` og `Altinn.App.Core`.
-{{% /notice %}}
+## Oversikt
 
-## Hva er nytt?
+Du bestiller varselet med feltet `notification` i request-bodyen til `POST /instances/create` og `POST /instances` (multipart). Der velger du hvilken kanal varselet skal sendes på, og eventuelt egendefinerte tekster, planlagt sendetid og påminnelser.
 
-Det er lagt til et nytt felt, `notification`, i request-bodyen til `POST /instances/create` og `POST /instances` (multipart). Dette feltet lar deg spesifisere hvilken kanal varselet skal sendes på, eventuelt egendefinerte tekster, planlagt sendetid og påminnelser.
+Varselet bestilles etter at instansen er opprettet. Hvis bestillingen mislykkes, blir instansen likevel opprettet, og appen logger feilen. Et ugyldig `notification`-objekt avviser hele forespørselen.
 
 ## Slik fungerer det
 
@@ -56,10 +57,6 @@ OBS! Dersom avsendernavnet `senderName` er (eller i fremtiden blir) beskyttet me
 
 #### reminders (liste av påminnelsesobjekter)
 
-{{% notice warning %}}
-Maskinporten kreves for å kunne kansellere påminnelser
-{{% /notice %}}
-
 Hvert objekt i `reminders`-listen kan inneholde følgende felter:
 
 | Felt | Type | Påkrevd | Beskrivelse |
@@ -73,6 +70,8 @@ Hvis verken `requestedSendTime` eller `sendAfterDays` er satt, sendes påminnels
 
 Hvis ingen egendefinerte tekster er oppgitt på påminnelsen, arves tekstene fra hovedvarselet.
 
+Påminnelser avbestilles på samme måte som hovedvarselet, se [Avbestilling av varsler](#avbestilling-av-varsler).
+
 ### Kanalvalg (notificationChannel)
 
 Merk at `notificationChannel` er en integer-enum, ikke en streng. Gyldige verdier er:
@@ -85,26 +84,37 @@ Merk at `notificationChannel` er en integer-enum, ikke en streng. Gyldige verdie
 | 3 | SmsPreferred | SMS først, e-post som fallback hvis mottaker mangler telefonnummer |
 | 4 | EmailAndSms | Både e-post og SMS sendes samtidig (standard) |
 
+For selvidentifiserte brukere (instanseier med `externalIdentifier`) brukes alltid `EmailPreferred`.
+
 ### Språk
 
-For privatpersoner hentes språket automatisk fra profilen deres i Altinn.
-For organisasjoner brukes språket oppgitt i instansieringsforespørselen (`language`-feltet i `notification`-objektet), med norsk bokmål som fallback.
+- For privatpersoner hentes språket automatisk fra profilen deres i Altinn, med norsk bokmål som fallback.
+- For selvidentifiserte brukere hentes språket fra profilen deres i Altinn, med engelsk som fallback.
+- For organisasjoner brukes språket oppgitt i instansieringsforespørselen (`language`-feltet i `notification`-objektet), med norsk bokmål som fallback.
 
 ### Sendetidspunkt
 
-Som standard sendes varsler kun i arbeidstiden. Hvis du ønsker å tillate utsending når som helst på døgnet, kan du sette `allowSendingAfterWorkHours` til `true`. Dette gjelder både e-post og SMS.
+Som standard sendes SMS-varsler kun i arbeidstiden. Hvis du ønsker å tillate utsending når som helst på døgnet, kan du sette `allowSendingAfterWorkHours` til `true`. E-post sendes uavhengig av tidspunkt.
 
 ### Planlagt sendetid
 
-Hvis `requestedSendTime` er satt, vil varselet ikke sendes før dette tidspunktet. I tillegg vil Altinn Notifications kalle tilbake til appen rett før utsending for å bekrefte at varselet fortsatt er relevant. Appen kan da avvise utsendingen dersom tilstanden har endret seg — for eksempel hvis instansen allerede er innsendt.
+Hvis `requestedSendTime` er satt, vil varselet ikke sendes før dette tidspunktet.
 
 Hvis `requestedSendTime` ikke er satt, sendes varselet så snart som mulig (typisk innen noen minutter).
 
+### Avbestilling av varsler
+
+Før hovedvarselet og hver påminnelse sendes, spør Altinn Notifications appen om varselet fortsatt skal sendes, ved hjelp av en [sendebetingelse](/nb/notifications/explanation/send-condition/). Appen svarer nei hvis instansen er slettet, eller – som standard – hvis prosessen er avsluttet.
+
+Appen leser instansen som tjenesteeier med [den innebygde Maskinporten-klienten]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten" >}}). Scopene den trenger, `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write`, får alle v9-apper automatisk, så du trenger ikke sette opp noe.
+
+Hvis appen ikke får lest instansen, for eksempel på grunn av en midlertidig feil, prøver Altinn Notifications én gang til. Mislykkes også det forsøket, blir varselet sendt.
+
 ### Egendefinert avbestillingslogikk
 
-Når `requestedSendTime` er satt, vil Altinn Notifications kalle tilbake til appen før hvert varsel og hver påminnelse sendes. Som standard sendes varselet kun hvis prosessen ikke er avsluttet — det vil si at instansen fortsatt er aktiv og venter på svar fra bruker.
+Som standard sendes varselet bare så lenge prosessen ikke er avsluttet. Det er ikke nødvendigvis det samme som at skjemaet er sendt inn: Hvis prosessen har flere steg etter at brukeren er ferdig, kan varselet fortsatt bli sendt mens disse stegene pågår.
 
-Du kan overstyre denne oppførselen ved å implementere `ICancelInstantiationNotification`-grensesnittet og registrere det i DI-containeren:
+Du kan overstyre denne oppførselen ved å implementere `ICancelInstantiationNotification`-grensesnittet og registrere det i DI-containeren. Implementasjonen kalles bare for instanser som finnes og ikke er slettet:
 
 ```csharp
 public class MyNotificationCancellation : ICancelInstantiationNotification
@@ -126,7 +136,7 @@ services.AddTransient<ICancelInstantiationNotification, MyNotificationCancellati
 
 ### Standardtekster
 
-Hvis du ikke oppgir egendefinerte tekster, brukes standardtekster.
+Hvis du ikke oppgir egendefinerte tekster, brukes standardtekster. Standardteksten for SMS er den samme som brødteksten i standard-e-posten.
 
 Eksempel på mottatt e-post med standardtekst:
 
@@ -140,12 +150,12 @@ Egendefinerte tekster støtter følgende tokens som erstattes dynamisk:
 
 | Token | Beskrivelse |
 |---|---|
-| `$appName$`| Appens navn fra app-metadata |
+| `$appName$` | Appens navn, fra app-ID-en (`{org}/{app}`) |
 | `$instanceOwnerName$` | Navn på instanseier |
 | `$serviceOwnerName$` | Navn på tjenesteeier fra Altinn CDN |
 | `$orgNumber$` | Organisasjonsnummer (hvis instanseier er org) |
-| `$socialSecurityNumber$` | Fødselsnummer (hvis instanseier er person) |
-| `$dueDate$` | Frist for instansen (format: `dd-MM-yyyy HH:mm:ss`) |
+| `$personNumber$` | Fødselsnummer (hvis instanseier er person). `$socialSecurityNumber$` fungerer også. |
+| `$dueDate$` | Frist for instansen, i norsk tid (format: `dd-MM-yyyy HH:mm:ss`) |
 
 ### Hvordan utledes mottakeradresse(r)?
 
@@ -160,7 +170,7 @@ For test av SMS i et testmiljø må nummeret hvitelistes. Ta kontakt dersom dett
 Hvert eksempel nedenfor vises for begge endepunktene:
 
 - **`POST /{org}/{app}/instances/create`** — forenklet endepunkt. Hele bodyen er ett JSON-objekt.
-- **`POST /{org}/{app}/instances`** — multipart-endepunkt. `notification` må sendes som en egen multipart-part med `name="notification"` og `Content-Type: application/json`. Hvis `notification` sendes som et felt inni instance-template-parten, blir det stille ignorert.
+- **`POST /{org}/{app}/instances`** — multipart-endepunkt. `notification` må sendes som en egen multipart-part med `name="notification"` og `Content-Type: application/json`. En `notification`-part uten `Content-Type: application/json`, eller et `notification`-felt inni instance-template-parten, blir stille ignorert.
 
 ### Enkelt eksempel på en instansopprettelse med varsel
 
