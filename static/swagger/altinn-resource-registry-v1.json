@@ -2376,7 +2376,7 @@
         "tags": [
           "ResourceV2"
         ],
-        "summary": "Returns a list of rights for a resource in V2 version with new model. A right is a combination of resource and action.\r\nResponse is grouped by right.",
+        "summary": "Returns a list of rights for a resource in V2 version with new model. A right is a combination of resource and action.\r\nResponse is a flat list with one entry per right.",
         "parameters": [
           {
             "name": "id",
@@ -2409,7 +2409,10 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ResourceDecomposedDto"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/RightDto"
+                  }
                 }
               }
             }
@@ -3493,24 +3496,6 @@
         "type": "integer",
         "format": "int32"
       },
-      "ResourceDecomposedDto": {
-        "required": [
-          "rights"
-        ],
-        "type": "object",
-        "properties": {
-          "rights": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/RightDecomposedDto"
-            },
-            "description": "Actions for which access is being checked on the resource.",
-            "nullable": true
-          }
-        },
-        "additionalProperties": false,
-        "description": "Decompose model for a resource"
-      },
       "ResourceIdentifier": {
         "type": "object",
         "additionalProperties": false
@@ -3569,19 +3554,6 @@
         ],
         "type": "integer",
         "format": "int32"
-      },
-      "RightDecomposedDto": {
-        "required": [
-          "right"
-        ],
-        "type": "object",
-        "properties": {
-          "right": {
-            "$ref": "#/components/schemas/RightDto"
-          }
-        },
-        "additionalProperties": false,
-        "description": "Dto for response of Resource decomposed"
       },
       "RightDto": {
         "type": "object",

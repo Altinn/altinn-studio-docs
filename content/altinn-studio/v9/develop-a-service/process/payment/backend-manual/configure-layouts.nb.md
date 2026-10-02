@@ -48,7 +48,7 @@ Her er et minimalt eksempel:
 }
 ```
 
-Oppdater din layoutSet-settings.json-fil, og spesifiser din kvitteringslayout i `pdfLayoutName`-feltet:
+Oppdater `Settings.json` i UI-mappen til betalingsoppgaven (`App/ui/<taskId>/Settings.json`), og angi kvitteringslayouten din i feltet `pdfLayoutName`:
 
 ```json
 {
@@ -57,7 +57,7 @@ Oppdater din layoutSet-settings.json-fil, og spesifiser din kvitteringslayout i 
     "order": [
       "payment"
     ],
-    "pdfLayoutName": "paymentReceipt", 
+    "pdfLayoutName": "receiptLayout",
     "showProgress": true,
     "showLanguageSelector": true
   }

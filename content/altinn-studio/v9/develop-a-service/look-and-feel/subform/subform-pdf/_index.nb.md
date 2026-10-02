@@ -175,6 +175,8 @@ ui/PdfSubform/Settings.json
 ```
 #### PdfSubform/layouts/ServiceTask.json
 
+En systemoppgave med egen mappe med layoutfiler må ha minst én side. Brukeren ser den normalt ikke: Mens appen lager PDF-ene, viser den den vanlige lastevisningen. Les mer i [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}).
+
 Denne layouten trenger bare en skjult kopi av komponenten **Tabell for underskjema**, med samme ID som i `subformComponentId`. Uten den fungerer ikke PDF-genereringen. Vi håper å fjerne dette kravet i en senere versjon.
 
 {{% notice info %}}
