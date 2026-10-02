@@ -56,10 +56,6 @@ OBS! Dersom avsendernavnet `senderName` er (eller i fremtiden blir) beskyttet me
 
 #### reminders (liste av påminnelsesobjekter)
 
-{{% notice warning %}}
-Maskinporten kreves for å kunne kansellere påminnelser
-{{% /notice %}}
-
 Hvert objekt i `reminders`-listen kan inneholde følgende felter:
 
 | Felt | Type | Påkrevd | Beskrivelse |
@@ -72,6 +68,8 @@ Hvert objekt i `reminders`-listen kan inneholde følgende felter:
 Hvis verken `requestedSendTime` eller `sendAfterDays` er satt, sendes påminnelsen så snart som mulig etter at hovedvarselet er behandlet.
 
 Hvis ingen egendefinerte tekster er oppgitt på påminnelsen, arves tekstene fra hovedvarselet.
+
+Påminnelser avbestilles på samme måte som hovedvarselet, se [Avbestilling av varsler](#avbestilling-av-varsler).
 
 ### Kanalvalg (notificationChannel)
 
@@ -92,19 +90,29 @@ For organisasjoner brukes språket oppgitt i instansieringsforespørselen (`lang
 
 ### Sendetidspunkt
 
-Som standard sendes varsler kun i arbeidstiden. Hvis du ønsker å tillate utsending når som helst på døgnet, kan du sette `allowSendingAfterWorkHours` til `true`. Dette gjelder både e-post og SMS.
+Som standard sendes SMS-varsler kun i arbeidstiden. Hvis du ønsker å tillate utsending når som helst på døgnet, kan du sette `allowSendingAfterWorkHours` til `true`. E-post sendes uavhengig av tidspunkt.
 
 ### Planlagt sendetid
 
-Hvis `requestedSendTime` er satt, vil varselet ikke sendes før dette tidspunktet. I tillegg vil Altinn Notifications kalle tilbake til appen rett før utsending for å bekrefte at varselet fortsatt er relevant. Appen kan da avvise utsendingen dersom tilstanden har endret seg — for eksempel hvis instansen allerede er innsendt.
+Hvis `requestedSendTime` er satt, vil varselet ikke sendes før dette tidspunktet.
 
 Hvis `requestedSendTime` ikke er satt, sendes varselet så snart som mulig (typisk innen noen minutter).
 
+### Avbestilling av varsler
+
+Før hovedvarselet og hver påminnelse sendes, spør Altinn Notifications appen om varselet fortsatt skal sendes. Appen svarer nei hvis instansen er slettet, eller hvis prosessen er avsluttet.
+
+{{% notice warning %}}
+Avbestilling av varsler krever Maskinporten. Appen leser instansen som tjenesteeier, og trenger derfor en Maskinporten-klient med scopene `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write`. Se [veiledningen for Maskinporten-integrasjon](/nb/altinn-studio/v8/guides/integration/maskinporten/). Uten dette kan ikke appen lese instansen, og alle varsler og påminnelser blir sendt.
+{{% /notice %}}
+
+Hvis appen ikke får lest instansen, for eksempel på grunn av en midlertidig feil, prøver Altinn Notifications én gang til, og sender varselet hvis heller ikke det lykkes.
+
 ### Egendefinert avbestillingslogikk
 
-Når `requestedSendTime` er satt, vil Altinn Notifications kalle tilbake til appen før hvert varsel og hver påminnelse sendes. Som standard sendes varselet kun hvis prosessen ikke er avsluttet — det vil si at instansen fortsatt er aktiv og venter på svar fra bruker.
+Som standard sendes varselet bare til prosessen er avsluttet. Det er ikke nødvendigvis det samme som at skjemaet er sendt inn: Hvis prosessen har flere steg etter at brukeren er ferdig, kan varselet fortsatt bli sendt mens disse stegene pågår.
 
-Du kan overstyre denne oppførselen ved å implementere `ICancelInstantiationNotification`-grensesnittet og registrere det i DI-containeren:
+Du kan overstyre denne oppførselen ved å implementere `ICancelInstantiationNotification`-grensesnittet og registrere det i DI-containeren. Det blir bare spurt om instanser som finnes og ikke er slettet:
 
 ```csharp
 public class MyNotificationCancellation : ICancelInstantiationNotification

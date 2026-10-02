@@ -56,10 +56,6 @@ NOTE: If the sender name `senderName` is (or in the future will be) protected by
 
 **`reminders` (list of reminder objects)**
 
-{{% notice warning %}}
-Maskinporten is required for cancelling reminders
-{{% /notice %}}
-
 Each object in the `reminders` list may contain the following fields:
 
 | Field | Type | Required | Description |
@@ -72,6 +68,8 @@ Each object in the `reminders` list may contain the following fields:
 If neither `requestedSendTime` nor `sendAfterDays` is set, the reminder is sent as soon as possible after the initial notification has been processed.
 
 If no custom texts are provided on the reminder, the texts from the initial notification are inherited.
+
+Reminders are cancelled the same way as the initial notification, see [Cancelling notifications](#cancelling-notifications).
 
 ### Channel selection (`notificationChannel`)
 
@@ -92,19 +90,29 @@ Note that `notificationChannel` is an integer enum, not a string. Valid values a
 
 ### Send time
 
-By default, notifications are only sent during working hours. To allow sending at any time of day, set `allowSendingAfterWorkHours` to `true`. This applies to both email and SMS.
+By default, SMS notifications are only sent during working hours. To allow sending at any time of day, set `allowSendingAfterWorkHours` to `true`. Email is sent regardless of time of day.
 
 ### Scheduled send time
 
-If `requestedSendTime` is set, the notification will not be sent before that time. In addition, Altinn Notifications will call back to the app just before sending to confirm that the notification is still relevant. The app can then reject the send if the state has changed — for example if the instance has already been submitted.
+If `requestedSendTime` is set, the notification will not be sent before that time.
 
 If `requestedSendTime` is not set, the notification is sent as soon as possible (typically within a few minutes).
 
+### Cancelling notifications
+
+Before the notification and each reminder is sent, Altinn Notifications asks the app whether it should still be sent. The app answers that it should not when the instance has been deleted, or when its process has ended.
+
+{{% notice warning %}}
+Cancelling notifications requires Maskinporten. The app reads the instance as the service owner, so it needs a Maskinporten client with the scopes `altinn:serviceowner/instances.read` and `altinn:serviceowner/instances.write`. See the [Maskinporten integration guide](/en/altinn-studio/v8/guides/integration/maskinporten/). Without it, the app can't read the instance, and every notification and reminder is sent.
+{{% /notice %}}
+
+If the app can't read the instance, for example because of a temporary error, Altinn Notifications tries once more and sends the notification if that attempt fails too.
+
 ### Custom cancellation logic
 
-When `requestedSendTime` is set, Altinn Notifications will call back to the app before each notification and reminder is sent. By default, the notification is only sent if the process has not yet ended — that is, the instance is still active and awaiting a response from the user.
+By default, the notification is only sent until the process has ended. This is not necessarily when the form is submitted: if the process has more steps after the user is done, the notification can still be sent while those steps run.
 
-You can override this behaviour by implementing the `ICancelInstantiationNotification` interface and registering it in the DI container:
+You can override this behaviour by implementing the `ICancelInstantiationNotification` interface and registering it in the DI container. It is only asked about instances that exist and are not deleted:
 
 ```csharp
 public class MyNotificationCancellation : ICancelInstantiationNotification
