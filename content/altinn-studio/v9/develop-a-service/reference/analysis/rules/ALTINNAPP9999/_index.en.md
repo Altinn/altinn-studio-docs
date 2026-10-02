@@ -2,7 +2,7 @@
 draft: true
 title: "ALTINNAPP9999: unknown analysis error"
 description: "The analysis failed with an unexpected error"
-weight: 99
+weight: 999
 ---
 
 This diagnostic is reported when the analysis itself fails with an unexpected error. The message
