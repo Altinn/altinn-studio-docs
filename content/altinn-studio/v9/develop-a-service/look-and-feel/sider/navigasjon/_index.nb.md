@@ -74,7 +74,6 @@ Du kan gruppere sidene og vise dem i en sidemeny som alternativ til tradisjonell
       {
         "name": "group.form",
         "markWhenCompleted": true,
-        "expandedByDefault": true,
         "order": ["side1", "side2", "side3"]
       },
       {
@@ -92,7 +91,7 @@ Du kan gruppere sidene og vise dem i en sidemeny som alternativ til tradisjonell
 | name | Tekstressurs som angir navnet på sidegruppen. Må være med hvis gruppen inneholder mer enn én side. |
 | type | Valgfritt. Bruk «info» eller «default». |
 | markWhenCompleted | Valgfritt. Markerer sider som ferdig utfylt når brukeren har rettet alle valideringsfeil og sett siden. |
-| expandedByDefault | Valgfritt. Viser sidene i gruppen i sidenavigasjonen fra start. Som standard skjuler appen sidene under gruppenavnet til brukeren åpner gruppen. |
+| expandedByDefault | Virker ikke i v9. Appen tar ikke med feltet fra `Settings.json` i oppgavemappen. En gruppe er åpen når den inneholder siden brukeren står på, ellers er den lukket til brukeren åpner den. |
 | order | Angir hvilke sider som inngår i gruppen. |
 
 ![Sidemeny med grupperte sider](./grouped-navigation.png "Sidemeny med grupperte sider")
@@ -319,7 +318,7 @@ Gjelder for alle prosessteg i appen. Konfigurer direkte i roten av `App/ui/Setti
 #### 2. Per prosessteg
 
 {{% notice warning %}}
-Dette nivået virker ikke i v9 ennå. Appen leser ikke `validationOnNavigation` fra `Settings.json` i oppgavemappen. Bruk globalt nivå eller sidenivå i stedet.
+Dette nivået virker ikke i v9. Appen tar ikke med `validationOnNavigation` fra `Settings.json` i oppgavemappen. Bruk globalt nivå eller sidenivå i stedet.
 {{% /notice %}}
 
 Overstyrer det globale nivået for ett prosessteg. Konfigurer under `pages` i prosesstegets `Settings.json`.
