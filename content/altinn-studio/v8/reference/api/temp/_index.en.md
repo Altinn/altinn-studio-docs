@@ -10,6 +10,31 @@ This document describes sending notification(s) to the instance owner when an in
 This functionality is available from version `8.11.0` of `Altinn.App.Api` and `Altinn.App.Core`.
 {{% /notice %}}
 
+## Prerequisites
+
+The app must have timezone support in its container image. The `aspnet:8.0-alpine` base image does not
+include timezone data, and without it the notification can fail silently: the instance is created as
+normal and the API returns `201 Created`, but no notification is sent. The only trace is an error in
+the app log.
+
+This affects notifications where the instance has a due date (`dueBefore`) and the notification uses
+custom texts (`customEmail` or `customSms`). The due date is converted to Norwegian local time before
+it replaces the `$dueDate$` token, and that conversion needs timezone data. The same missing timezone
+data also gives wrong timestamps elsewhere in the app, for example in generated PDFs.
+
+Apps created from the current app template already have this support. Older apps must add the
+following lines to the `Dockerfile`:
+
+```Dockerfile
+  # Add globalization timezone support
+  RUN apk add --no-cache icu-libs icu-data-full tzdata
+  ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
+```
+
+The lines must be added after the "FROM" section ending with "AS final". See the
+[Dockerfile in the app template](https://github.com/Altinn/altinn-studio/blob/main/src/App/template/v8/src/Dockerfile)
+for a complete example.
+
 ## What's new?
 
 A new field, `notification`, has been added to the request body of `POST /instances/create` and `POST /instances` (multipart). This field allows you to specify which channel the notification should be sent on, and optionally provide custom texts, a scheduled send time, and reminders.
@@ -146,6 +171,11 @@ Custom texts support the following tokens, which are replaced dynamically:
 | `$orgNumber$` | The organization number of the instance owner, if the instance owner is an organization |
 | `$socialSecurityNumber$` | The social security number of the instance owner, if the instance owner is an individual |
 | `$dueDate$` | The due date of the instance, if set (format: `dd-MM-yyyy HH:mm:ss`) |
+
+{{% notice warning %}}
+Custom texts combined with a due date (`dueBefore`) on the instance require timezone support in the
+container image. Without it, no notification is sent. See [Prerequisites](#prerequisites).
+{{% /notice %}}
 
 ### How are recipient addresses determined?
 

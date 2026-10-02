@@ -10,6 +10,31 @@ Dette dokumentet beskriver sending av varsler til instanseier når en instans op
 Denne funksjonaliteten er tilgjengelig fra versjon `8.11.0` av `Altinn.App.Api` og `Altinn.App.Core`.
 {{% /notice %}}
 
+## Forutsetninger
+
+Appen må ha støtte for tidssoner i containerbildet. Baseimaget `aspnet:8.0-alpine` inneholder ikke
+tidssonedata, og uten disse dataene kan varselet feile stille: appen oppretter instansen som normalt
+og API-et svarer `201 Created`, men varselet går aldri ut. Det eneste sporet er en feilmelding i
+apploggen.
+
+Dette gjelder varsler der instansen har en frist (`dueBefore`) og varselet bruker egendefinerte
+tekster (`customEmail` eller `customSms`). Appen konverterer fristen til norsk lokaltid før den
+erstatter `$dueDate$`-tokenet, og den konverteringen trenger tidssonedata. Manglende tidssonedata gir
+også feil tidsstempler andre steder i appen, for eksempel i genererte PDF-er.
+
+Apper som du har opprettet fra dagens appmal, har allerede denne støtten. I eldre apper må du legge
+til disse linjene i `Dockerfile`:
+
+```Dockerfile
+  # Add globalization timezone support
+  RUN apk add --no-cache icu-libs icu-data-full tzdata
+  ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=false
+```
+
+Linjene må ligge etter "FROM"-seksjonen som ender på "AS final". Se
+[Dockerfile i appmalen](https://github.com/Altinn/altinn-studio/blob/main/src/App/template/v8/src/Dockerfile)
+for et komplett eksempel.
+
 ## Hva er nytt?
 
 Det er lagt til et nytt felt, `notification`, i request-bodyen til `POST /instances/create` og `POST /instances` (multipart). Dette feltet lar deg spesifisere hvilken kanal varselet skal sendes på, eventuelt egendefinerte tekster, planlagt sendetid og påminnelser.
@@ -146,6 +171,11 @@ Egendefinerte tekster støtter følgende tokens som erstattes dynamisk:
 | `$orgNumber$` | Organisasjonsnummer (hvis instanseier er org) |
 | `$socialSecurityNumber$` | Fødselsnummer (hvis instanseier er person) |
 | `$dueDate$` | Frist for instansen (format: `dd-MM-yyyy HH:mm:ss`) |
+
+{{% notice warning %}}
+Egendefinerte tekster kombinert med en frist (`dueBefore`) på instansen krever at containerbildet har
+støtte for tidssoner. Uten denne støtten går ingen varsler ut. Se [Forutsetninger](#forutsetninger).
+{{% /notice %}}
 
 ### Hvordan utledes mottakeradresse(r)?
 
