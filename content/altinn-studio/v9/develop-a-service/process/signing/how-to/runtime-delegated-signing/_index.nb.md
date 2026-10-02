@@ -56,7 +56,7 @@ Følg trinnene under for å sette opp en slik app.
 
 {{</content-version-selector>}}
 
-## 2. Legg til layout-set for signering
+## 2. Legg til sider for signeringssteget
 
 {{<content-version-selector classes="border-box">}}
 

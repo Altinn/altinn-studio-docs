@@ -11,7 +11,7 @@ hidden: true
     "layout": [
       {
         "id": "headerSigningFounders",
-        "type": "Header",
+        "type": "Heading",
         "size": "M",
         "textResourceBindings": {
           "title": "Her kan man ha en overskrift"

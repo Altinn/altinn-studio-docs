@@ -11,7 +11,7 @@ En applikasjon har en prosess som brukeren følger. Avhengig av hvilken type ste
 
 ## Data (tilsvarer utfyllingssteg i Altinn II)
 
-I denne oppgavetypen viser applikasjonen et skjema som kan fylles ut. Du kan redigere skjemaet i Altinn Studio Designer eller ved å endre `FormLayout.json` direkte.
+I denne oppgavetypen viser applikasjonen et skjema som kan fylles ut. Du kan redigere skjemaet i Altinn Studio Designer eller ved å endre layoutfilene i `App/ui/{oppgave-ID}/layouts/` direkte.
 
 ## Bekreftelse
 
@@ -286,7 +286,7 @@ App/ui/CustomReceipt/layouts/side1.json
     "layout": [
       {
         "id": "ReceiptHeader",
-        "type": "Header",
+        "type": "Heading",
         "textResourceBindings": {
           "title": "receipt.title"
         },
@@ -330,7 +330,7 @@ App/ui/CustomReceipt/layouts/side1.json
       },
       {
         "id": "ReceiptHeaderSubmitted",
-        "type": "Header",
+        "type": "Heading",
         "textResourceBindings": {
           "title": "receipt.title_submitted"
         },

@@ -9,7 +9,7 @@ tags: [needsReview]
 Dette viser en tabell som viser elementene brukeren må betale for.
 Du kan plassere dette hvor som helst i appen din, men vi anbefaler å sette det på den siste siden før brukeren blir bedt om å betale.
 
-For å oppdatere ordrelinjene etter hvert som data som systemet bruker til å beregne ordrelinjer endres, må du legge til en mapping til datafeltene som systemet bruker til å beregne ordrelinjene.
+For å oppdatere ordrelinjene etter hvert som data som systemet bruker til å beregne ordrelinjer endres, må du legge til datafeltene som systemet bruker til å beregne ordrelinjene, i `refetchDependencies`. Hver verdi er et uttrykk som peker på et felt i datamodellen. Navnet på nøkkelen kan du velge fritt, og verdiene sendes ikke til serveren.
 
 ```json
 {
@@ -19,8 +19,8 @@ For å oppdatere ordrelinjene etter hvert som data som systemet bruker til å be
     "title": "Oversikt over betaling",
     "description": "Her er en oversikt over hva du skal betale for."
   },
-  "mapping": {
-    "GoodsAndServicesProperties.Inventory.InventoryProperties": "paymentDetails"
+  "refetchDependencies": {
+    "inventory": ["dataModel", "GoodsAndServicesProperties.Inventory.InventoryProperties"]
   }
 }
 ```

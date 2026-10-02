@@ -20,7 +20,7 @@ Hvis appen skal sende signeringskvittering til innboksen til den som signerer, m
 ## Sette opp signering
 
 [Se veiledningene for å sette opp signering](/nb/altinn-studio/v9/develop-a-service/process/signing/).
-API-basert signering har samme krav til oppsett, bortsett fra at layout-set for signeringssteget kan gjøres enklere.
+API-basert signering har samme krav til oppsett, bortsett fra at sidene for signeringssteget kan være enklere.
 
 ## De sentrale API-kallene
 

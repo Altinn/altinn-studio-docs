@@ -81,7 +81,7 @@ Egenskapene `label`, `description` og `helpText` støtter også [dynamiske uttry
     "label": "checkboxes.label",
     "description": "checkboxes.description",
     "helpText": [
-      "if", ["equals", ["dataModel.someField"], "someValue"],
+      "if", ["equals", ["dataModel", "someField"], "someValue"],
         "checkboxes.helpText1",
       "else",
         "checkboxes.helpText2"

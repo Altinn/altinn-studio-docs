@@ -25,8 +25,7 @@ Du legger navigasjonsknappene i alle layoutfilene der du trenger dem. Vil du vis
   "textResourceBindings": {
     "next": "next",
     "back": "back"
-  },
-  "showBackButton": true
+  }
 }
 ```
 
@@ -39,7 +38,7 @@ Du legger navigasjonsknappene i alle layoutfilene der du trenger dem. Vil du vis
 | id | Unik ID for komponenten. |
 | type | Må være «NavigationButtons». |
 | textResourceBindings | Lar deg overstyre standardtekstene på knappene med egne tekster. |
-| showBackButton | Valgfritt. Viser knappene Forrige og Neste i stedet for bare Neste-knappen. |
+| showBackButton | Valgfritt. Viser knappene Forrige og Neste i stedet for bare Neste-knappen. Standardverdien er `true`. Sett den til `false` hvis du bare vil vise Neste-knappen. |
 
 ## Vise en sidemeny med rekkefølgen på sidene
 
@@ -315,10 +314,6 @@ Gjelder for alle prosessteg i appen. Konfigurer direkte i roten av `App/ui/Setti
   }
 }
 ```
-
-{{% notice info %}}
-Denne plasseringen følger samme mønster som andre globale innstillinger (se {{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/sider" >}}), men er ikke bekreftet av en utvikler ennå. Sjekk med utvikler før du følger dette eksempelet.
-{{% /notice %}}
 
 #### 2. Per prosessteg
 
