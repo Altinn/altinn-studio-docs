@@ -46,7 +46,7 @@ Du kan tilpasse disse tekstene i `textResourceBindings`-objektet:
 | Innstilling           | Obligatorisk | Beskrivelse                                                                                                                         |
 | --------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | headerContent         | Ja      | Overskriften på kolonnen. Kan være en tekstressurs, men kan ikke hente verdier fra datamodellen.                                    |
-| cellContent.value     | Ja      | Et uttrykk som henter verdien i cellen fra datamodellen til underskjemaet, vanligvis `["dataModel", "feltnavn"]`.                   |
+| cellContent.value     | Ja      | Et uttrykk som henter verdien i cellen fra datamodellen til underskjemaet, vanligvis `["dataModel", "feltnavn"]`. Eldre apper kan bruke `query` i stedet, se under. |
 | cellContent.default   | Nei     | Teksten appen viser hvis `value` ikke gir noe resultat. Kan være en tekstressurs.                                                   |
 
 ```json

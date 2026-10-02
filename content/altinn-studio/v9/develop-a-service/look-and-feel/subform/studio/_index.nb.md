@@ -40,7 +40,7 @@ Når du lager en ny datamodell for underskjemaet, setter Designer både minste o
 
 1. Gå til **Datamodell** i toppmenyen og velg datamodellen for underskjemaet i nedtrekkslisten.
 2. Klikk på navnet til datamodellen øverst i treet.
-3. På fanen **Metadata** fyller du ut **Minste mulige antall** og **Største mulige antall**. Skriver du 0, er det ingen grense.
+3. På fanen **Metadata** fyller du ut **Minste mulige antall** og **Største mulige antall**. Med 0 som minste antall trenger ikke brukeren legge inn noen oppføringer. Med 0 som største antall er det ingen øvre grense.
 
 Designer lagrer endringene automatisk.
 {{< /notice >}}
