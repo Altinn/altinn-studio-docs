@@ -76,16 +76,15 @@ Bruk `UseMaskinportenAuthorization` mot API-er som tar imot Maskinporten-token d
 
 Trenger du tokenet til noe annet enn en HTTP-klient, kan du bruke `IMaskinportenClient` fra [dependency injection](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection) direkte i tjenesten din.
 
-{{< highlight csharp "linenos=false,hl_lines=7-8" >}}
+{{< highlight csharp "linenos=false,hl_lines=6-8" >}}
 public class Eksempel(IMaskinportenClient maskinporten)
-  : IProcessTaskEnd
 {
-  public async Task End(string taskId, Instance instance)
+  public async Task HentData(CancellationToken cancellationToken)
   {
     string[] scopes = ["scope1", "scope2"];
-    var token = await maskinporten.GetAccessToken(scopes);
+    var token = await maskinporten.GetAccessToken(scopes, cancellationToken);
     var altinnToken = await maskinporten
-      .GetAltinnExchangedToken(scopes);
+      .GetAltinnExchangedToken(scopes, cancellationToken);
 
     // ...
   }
