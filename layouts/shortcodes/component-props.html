@@ -1,0 +1,18 @@
+{{- $component := .Get 0 -}}
+{{- $locale := .Page.Language.Lang -}}
+{{- if not (in (slice "en" "nb") $locale) -}}
+  {{- errorf "The component-props shortcode does not support language %q in %s" $locale .Page.Path -}}
+{{- end -}}
+{{- $fileName := printf "%s.properties.%s.generated.md" $component $locale -}}
+{{- $baseURL := strings.TrimSuffix "/" .Site.Params.componentPropertiesBaseURL -}}
+{{- $url := printf "%s/%s" $baseURL $fileName -}}
+{{- $remote := try (resources.GetRemote $url) -}}
+{{- with $remote.Err -}}
+  {{- errorf "Could not retrieve generated component properties for %s from %s: %s" $component $url . -}}
+{{- else with $remote.Value -}}
+  <div class="component-properties component-properties--{{ $locale }}">
+    {{- .Content | safeHTML -}}
+  </div>
+{{- else -}}
+  {{- errorf "Could not retrieve generated component properties for %s from %s" $component $url -}}
+{{- end -}}
