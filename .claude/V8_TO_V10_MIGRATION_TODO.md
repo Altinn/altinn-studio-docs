@@ -48,6 +48,11 @@ Dette dokumentet holder oversikt over innhold som må migreres fra v8 til v10.
 
 ## Fullførte migreringer
 
+### 🟢 Varsling ved instansiering
+**v8-sti:** `/nb/altinn-studio/v8/reference/api/temp/`
+**v10-sti:** `/nb/altinn-studio/v9/develop-a-service/integration/notifications/instansiering/`
+**Status:** Migrert og språkvasket. Siden lå i `reference/api/temp/` i v8, altså utenfor API-referansen som allerede er migrert. I v9 hører den hjemme under Varsling, sammen med e-post og SMS.
+
 ### 🟢 API-referanse
 **v8-sti:** `/nb/altinn-studio/v8/reference/api/`
 **v10-sti:** `/nb/altinn-studio/v9/develop-a-service/reference/api/`
