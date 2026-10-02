@@ -100,19 +100,19 @@ If `requestedSendTime` is not set, the notification is sent as soon as possible 
 
 ### Cancelling notifications
 
-Before the notification and each reminder is sent, Altinn Notifications asks the app whether it should still be sent. The app answers that it should not when the instance has been deleted, or when its process has ended.
+Before the notification and each reminder are sent, Altinn Notifications asks the app whether they should still be sent, using a [send condition](/en/notifications/explanation/send-condition/). The app answers that they should not when the instance has been deleted or, by default, when its process has ended.
 
 {{% notice warning %}}
 Cancelling notifications requires Maskinporten. The app reads the instance as the service owner, so it needs a Maskinporten client with the scopes `altinn:serviceowner/instances.read` and `altinn:serviceowner/instances.write`. See the [Maskinporten integration guide](/en/altinn-studio/v8/guides/integration/maskinporten/). Without it, the app can't read the instance, and every notification and reminder is sent.
 {{% /notice %}}
 
-If the app can't read the instance, for example because of a temporary error, Altinn Notifications tries once more and sends the notification if that attempt fails too.
+If the app can't read the instance, for example because of a temporary error, Altinn Notifications tries once more. If that attempt fails too, the notification is sent.
 
 ### Custom cancellation logic
 
-By default, the notification is only sent until the process has ended. This is not necessarily when the form is submitted: if the process has more steps after the user is done, the notification can still be sent while those steps run.
+By default, the notification is only sent while the process has not ended. This is not necessarily when the form is submitted: if the process has more steps after the user is done, the notification can still be sent while those steps run.
 
-You can override this behaviour by implementing the `ICancelInstantiationNotification` interface and registering it in the DI container. It is only asked about instances that exist and are not deleted:
+You can override this behaviour by implementing the `ICancelInstantiationNotification` interface and registering it in the DI container. Your implementation is only called for instances that exist and are not deleted:
 
 ```csharp
 public class MyNotificationCancellation : ICancelInstantiationNotification

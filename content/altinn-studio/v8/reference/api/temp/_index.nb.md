@@ -100,19 +100,19 @@ Hvis `requestedSendTime` ikke er satt, sendes varselet så snart som mulig (typi
 
 ### Avbestilling av varsler
 
-Før hovedvarselet og hver påminnelse sendes, spør Altinn Notifications appen om varselet fortsatt skal sendes. Appen svarer nei hvis instansen er slettet, eller hvis prosessen er avsluttet.
+Før hovedvarselet og hver påminnelse sendes, spør Altinn Notifications appen om varselet fortsatt skal sendes, ved hjelp av en [sendebetingelse](/nb/notifications/explanation/send-condition/). Appen svarer nei hvis instansen er slettet, eller – som standard – hvis prosessen er avsluttet.
 
 {{% notice warning %}}
 Avbestilling av varsler krever Maskinporten. Appen leser instansen som tjenesteeier, og trenger derfor en Maskinporten-klient med scopene `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write`. Se [veiledningen for Maskinporten-integrasjon](/nb/altinn-studio/v8/guides/integration/maskinporten/). Uten dette kan ikke appen lese instansen, og alle varsler og påminnelser blir sendt.
 {{% /notice %}}
 
-Hvis appen ikke får lest instansen, for eksempel på grunn av en midlertidig feil, prøver Altinn Notifications én gang til, og sender varselet hvis heller ikke det lykkes.
+Hvis appen ikke får lest instansen, for eksempel på grunn av en midlertidig feil, prøver Altinn Notifications én gang til. Mislykkes også det forsøket, blir varselet sendt.
 
 ### Egendefinert avbestillingslogikk
 
-Som standard sendes varselet bare til prosessen er avsluttet. Det er ikke nødvendigvis det samme som at skjemaet er sendt inn: Hvis prosessen har flere steg etter at brukeren er ferdig, kan varselet fortsatt bli sendt mens disse stegene pågår.
+Som standard sendes varselet bare så lenge prosessen ikke er avsluttet. Det er ikke nødvendigvis det samme som at skjemaet er sendt inn: Hvis prosessen har flere steg etter at brukeren er ferdig, kan varselet fortsatt bli sendt mens disse stegene pågår.
 
-Du kan overstyre denne oppførselen ved å implementere `ICancelInstantiationNotification`-grensesnittet og registrere det i DI-containeren. Det blir bare spurt om instanser som finnes og ikke er slettet:
+Du kan overstyre denne oppførselen ved å implementere `ICancelInstantiationNotification`-grensesnittet og registrere det i DI-containeren. Implementasjonen kalles bare for instanser som finnes og ikke er slettet:
 
 ```csharp
 public class MyNotificationCancellation : ICancelInstantiationNotification
