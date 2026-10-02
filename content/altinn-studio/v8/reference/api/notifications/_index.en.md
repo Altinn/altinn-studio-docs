@@ -1,6 +1,8 @@
 ---
 title: Notifications
 description: How to use notifications on instantiation
+aliases:
+    - "/altinn-studio/v8/reference/api/temp/"
 weight: 50
 ---
 

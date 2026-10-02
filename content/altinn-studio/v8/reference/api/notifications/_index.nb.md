@@ -1,6 +1,8 @@
 ---
 title: Varsling
 description: Hvordan ta i bruk varsling ved instansiering
+aliases:
+    - "/altinn-studio/v8/reference/api/temp/"
 weight: 50
 ---
 
