@@ -1,6 +1,6 @@
 ---
+draft: true
 title: "ALTINNAPP0002: feil i applicationmetadata.json"
-tags: [needstranslation]
 description: "applicationmetadata.json mangler, finnes i flere eksemplarer eller kan ikke leses"
 weight: 2
 ---

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "ALTINNAPP0700: forseglet standardimplementasjon er erstattet"
 description: "En klasse erstatter et grensesnittmedlem hvis standardimplementasjon er forseglet"
 weight: 70

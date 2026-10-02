@@ -1,6 +1,6 @@
 ---
+draft: true
 title: "ALTINNAPP9999: ukjent analysefeil"
-tags: [needstranslation]
 description: "Analysen feilet med en uventet feil"
 weight: 99
 ---

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "ALTINNAPP0801: tjenesteeiers autorisasjon kunne ikke verifiseres"
 description: "Analysen kunne ikke avgjøre statisk om apporganisasjonen har de nødvendige rettighetene"
 weight: 81

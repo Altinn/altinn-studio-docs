@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "ALTINNAPP0901: feltet peker på en ukjent datatype"
 description: "En oppføring i presentationFields eller dataFields har en dataTypeId appen ikke har deklarert"
 weight: 91

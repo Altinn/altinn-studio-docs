@@ -1,6 +1,6 @@
 ---
+draft: true
 title: "ALTINNAPP0600: enablePdfCreation støttes ikke"
-tags: [needstranslation]
 description: "enablePdfCreation på en dataType er ikke lenger støttet"
 weight: 60
 ---
@@ -11,7 +11,6 @@ av app-backend. Meldingen navngir hvilken `dataType` det gjelder.
 
 Kategori `Deprecation`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
 
-Generer PDF med en PDF-tjenesteoppgave i prosessen i stedet.
+Generer PDF med en PDF-systemoppgave i prosessen i stedet.
 
-Se veiledningen for PDF i appen her: 
-https://docs.altinn.studio/en/altinn-studio/v8/guides/development/pdf/
+Se [veiledningen for PDF i appen]({{< relref "/altinn-studio/v9/develop-a-service/process/pdf" >}}).

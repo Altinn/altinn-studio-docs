@@ -1,6 +1,6 @@
 ---
+draft: true
 title: "ALTINNAPP0800: tjenesteeier mangler nødvendig autorisasjon"
-tags: [needstranslation]
 description: "policy.xml gir ikke apporganisasjonen rettighetene appen bruker på egne vegne"
 weight: 80
 ---
@@ -16,7 +16,7 @@ sender inn.
 
 Hvilke handlinger som kreves følger av oppgavetypene i prosessen: `write` for data,
 `pay` eller `write` for betaling, `confirm` for bekreftelse, `sign` eller `write` for
-signering, `complete` der en tjenesteoppgave markerer instansen som fullført, og `delete`
+signering, `complete` der en systemoppgave markerer instansen som fullført, og `delete`
 der instansen slettes ved prosessens slutt.
 
 Kategori `Authorization`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
@@ -24,5 +24,4 @@ Kategori `Authorization`, alvorlighetsgrad **feil**. Regelen stopper altså bygg
 Gi handlingene til org-subjektet i `config/authorization/policy.xml`, eller kjør
 oppgraderingen fra v8 til v9, som setter inn regelen.
 
-Se regelbiblioteket for hvordan en regel for org-subjektet skrives her: 
-https://docs.altinn.studio/en/altinn-studio/v8/reference/configuration/authorization/rules/
+Se [regelbiblioteket](/nb/altinn-studio/v9/develop-a-service/reference/configuration/authorization/rules/) for hvordan du skriver en regel for org-subjektet.

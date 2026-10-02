@@ -1,6 +1,6 @@
 ---
+draft: true
 title: "ALTINNAPP0701: ufullstendig registrering forkastes"
-tags: [needstranslation]
 description: "Resultatet av et builder-kall forkastes, men er ikke en brukbar registrering alene"
 weight: 71
 ---
@@ -19,5 +19,4 @@ Fullfør registreringen, for eksempel med `.WithMetadata<T>()`. Ønsker du bevis
 inngangspunktet registrerer, skriv en eksplisitt forkastning — `_ = services.AddEFormidling();`
 — som ikke rapporteres.
 
-Se veiledningen for eFormidling-tjenesteoppgaven her: 
-https://docs.altinn.studio/en/altinn-studio/v8/guides/development/eformidling/service-task/
+Se [veiledningen for eFormidling-systemoppgaven]({{< relref "/altinn-studio/v9/receive-data/eFormidling" >}}).
