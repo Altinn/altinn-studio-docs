@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "ALTINNAPP0002: feil i applicationmetadata.json"
 description: "applicationmetadata.json mangler, finnes i flere eksemplarer eller kan ikke leses"
 weight: 2
@@ -11,6 +12,9 @@ analysen trenger den. Meldingen inneholder årsaken. Tilfellene som rapporteres 
 - filen finnes i flere eksemplarer (`Multiple applicationmetadata.json file found`)
 - datamodellklassen som er oppgitt i filen finnes ikke i kompileringen
   (`Could not find class ... in the compilation`)
+
+Strukturelle feil og ugyldig JSON rapporteres også her, og ikke av
+deprecation-reglene, som er tause når filen ikke lar seg tolke.
 
 Kategori `Metadata`, alvorlighetsgrad **advarsel**.
 

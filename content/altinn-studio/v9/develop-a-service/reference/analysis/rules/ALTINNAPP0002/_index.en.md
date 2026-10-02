@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "ALTINNAPP0002: error in applicationmetadata.json"
 description: "applicationmetadata.json is missing, duplicated or cannot be read"
 weight: 2
@@ -11,6 +12,9 @@ needs. The message contains the cause. The cases reported are:
 - there is more than one copy of the file (`Multiple applicationmetadata.json file found`)
 - the data model class named in the file does not exist in the compilation
   (`Could not find class ... in the compilation`)
+
+Structural errors and invalid JSON are also reported here, and not by the deprecation rules,
+which stay silent when the file cannot be parsed.
 
 Category `Metadata`, severity **warning**.
 
