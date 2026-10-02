@@ -16,11 +16,13 @@ This functionality is available from version `8.11.0` of `Altinn.App.Api` and `A
 
 A new field, `notification`, has been added to the request body of `POST /instances/create` and `POST /instances` (multipart). This field allows you to specify which channel the notification should be sent on, and optionally provide custom texts, a scheduled send time, and reminders.
 
+The notification is ordered after the instance has been created. If ordering it fails, the instance is still created and the error is logged by the app.
+
 ## How it works
 
 ### Fields in the `notification` object
 
-### InstantiationNotification
+#### InstantiationNotification
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -32,7 +34,7 @@ A new field, `notification`, has been added to the request body of `POST /instan
 | `customEmail` | object | No | Custom email subject and body. If not set, default text is used. |
 | `reminders` | list | No | List of reminders that can be sent after the initial notification. |
 
-**`customSms`**
+#### `customSms`
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -41,14 +43,14 @@ A new field, `notification`, has been added to the request body of `POST /instan
 
 NOTE: If the sender name `senderName` is (or in the future will be) protected by a third party product such as SenderID, you must allow Altinn/Digitaliseringsdirektoratet as message producer.
 
-**`customEmail`**
+#### `customEmail`
 
 | Field | Type | Required | Description |
 |---|---|---|---|
 | `subject` | CustomText | Yes | Custom subject in nb, nn and en. |
 | `body` | CustomText | Yes | Custom body text in nb, nn and en. |
 
-**`CustomText`**
+#### `CustomText`
 
 | Field | Type | Required | Description |
 |---|---|---|---|
@@ -56,7 +58,7 @@ NOTE: If the sender name `senderName` is (or in the future will be) protected by
 | `nn` | string | Yes | Text in Norwegian Nynorsk. |
 | `en` | string | Yes | Text in English. |
 
-**`reminders` (list of reminder objects)**
+#### `reminders` (list of reminder objects)
 
 Each object in the `reminders` list may contain the following fields:
 
@@ -85,9 +87,12 @@ Note that `notificationChannel` is an integer enum, not a string. Valid values a
 | `3` | SmsPreferred | SMS first, email as fallback if the recipient has no phone number |
 | `4` | EmailAndSms | Both email and SMS are sent simultaneously (default) |
 
+For self-identified users (instance owner with `externalIdentifier`), `EmailPreferred` is always used.
+
 ### Language
 
-- For individuals, the language is automatically retrieved from their Altinn profile.
+- For individuals, the language is automatically retrieved from their Altinn profile, with Norwegian Bokmål as fallback.
+- For self-identified users, the language is retrieved from their Altinn profile, with English as fallback.
 - For organizations, the language specified in the instantiation request (`language` field in the `notification` object) is used, with Norwegian Bokmål as fallback.
 
 ### Send time
@@ -105,7 +110,7 @@ If `requestedSendTime` is not set, the notification is sent as soon as possible 
 Before the notification and each reminder are sent, Altinn Notifications asks the app whether they should still be sent, using a [send condition](/en/notifications/explanation/send-condition/). The app answers that they should not when the instance has been deleted or, by default, when its process has ended.
 
 {{% notice warning %}}
-Cancelling notifications requires Maskinporten. The app reads the instance as the service owner, so it needs a Maskinporten client with the scopes `altinn:serviceowner/instances.read` and `altinn:serviceowner/instances.write`. See the [Maskinporten integration guide](/en/altinn-studio/v8/guides/integration/maskinporten/). Without it, the app can't read the instance, and every notification and reminder is sent.
+Cancelling notifications requires Maskinporten. The app reads the instance as the service owner, so it needs a Maskinporten client with the scopes `altinn:serviceowner/instances.read` and `altinn:serviceowner/instances.write`. See the [Maskinporten integration guide](/en/altinn-studio/v8/guides/integration/maskinporten/). Without it, the app can't read the instance, and every notification and reminder is sent. Ordering notifications works without Maskinporten, so a missing client only shows when a notification that should have been cancelled is sent.
 {{% /notice %}}
 
 If the app can't read the instance, for example because of a temporary error, Altinn Notifications tries once more. If that attempt fails too, the notification is sent.
@@ -136,7 +141,7 @@ services.AddTransient<ICancelInstantiationNotification, MyNotificationCancellati
 
 ### Default texts
 
-If you do not provide custom texts, default texts will be used.
+If you do not provide custom texts, default texts will be used. The default SMS text is the same as the body of the default email.
 
 Example of a received email with default text:
 
@@ -150,12 +155,12 @@ Custom texts support the following tokens, which are replaced dynamically:
 
 | Token | Description |
 |---|---|
-| `$appName$` | The name of the app, as defined in the app metadata |
+| `$appName$` | The title of the app from the app metadata, in the recipient's language. Falls back to the app name. |
 | `$instanceOwnerName$` | The name of the instance owner |
 | `$serviceOwnerName$` | The name of the service owner, as defined in the Altinn CDN |
 | `$orgNumber$` | The organization number of the instance owner, if the instance owner is an organization |
-| `$socialSecurityNumber$` | The social security number of the instance owner, if the instance owner is an individual |
-| `$dueDate$` | The due date of the instance, if set (format: `dd-MM-yyyy HH:mm:ss`) |
+| `$personNumber$` | The national identity number of the instance owner, if the instance owner is an individual. `$socialSecurityNumber$` also works. |
+| `$dueDate$` | The due date of the instance, if set, in Norwegian time (format: `dd-MM-yyyy HH:mm:ss`) |
 
 ### How are recipient addresses determined?
 
@@ -170,7 +175,7 @@ For SMS testing in a test environment, the phone number must be whitelisted. Ple
 Each example below is shown for both endpoints:
 
 - **`POST /{org}/{app}/instances/create`** — simplified endpoint. The entire body is a single JSON object.
-- **`POST /{org}/{app}/instances`** — multipart endpoint. The `notification` must be sent as a separate multipart part with `name="notification"` and `Content-Type: application/json`. Sending `notification` as a field inside the instance template part will be silently ignored.
+- **`POST /{org}/{app}/instances`** — multipart endpoint. The `notification` must be sent as a separate multipart part with `name="notification"` and `Content-Type: application/json`. A `notification` part without `Content-Type: application/json`, or a `notification` field inside the instance template part, is silently ignored.
 
 ### Simple example of instance creation with notification
 

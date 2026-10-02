@@ -16,6 +16,8 @@ Denne funksjonaliteten er tilgjengelig fra versjon `8.11.0` av `Altinn.App.Api` 
 
 Det er lagt til et nytt felt, `notification`, i request-bodyen til `POST /instances/create` og `POST /instances` (multipart). Dette feltet lar deg spesifisere hvilken kanal varselet skal sendes på, eventuelt egendefinerte tekster, planlagt sendetid og påminnelser.
 
+Varselet bestilles etter at instansen er opprettet. Hvis bestillingen feiler, blir instansen likevel opprettet, og appen logger feilen.
+
 ## Slik fungerer det
 
 ### Felter i notification-objektet
@@ -85,10 +87,13 @@ Merk at `notificationChannel` er en integer-enum, ikke en streng. Gyldige verdie
 | 3 | SmsPreferred | SMS først, e-post som fallback hvis mottaker mangler telefonnummer |
 | 4 | EmailAndSms | Både e-post og SMS sendes samtidig (standard) |
 
+For selvidentifiserte brukere (instanseier med `externalIdentifier`) brukes alltid `EmailPreferred`.
+
 ### Språk
 
-For privatpersoner hentes språket automatisk fra profilen deres i Altinn.
-For organisasjoner brukes språket oppgitt i instansieringsforespørselen (`language`-feltet i `notification`-objektet), med norsk bokmål som fallback.
+- For privatpersoner hentes språket automatisk fra profilen deres i Altinn, med norsk bokmål som fallback.
+- For selvidentifiserte brukere hentes språket fra profilen deres i Altinn, med engelsk som fallback.
+- For organisasjoner brukes språket oppgitt i instansieringsforespørselen (`language`-feltet i `notification`-objektet), med norsk bokmål som fallback.
 
 ### Sendetidspunkt
 
@@ -105,7 +110,7 @@ Hvis `requestedSendTime` ikke er satt, sendes varselet så snart som mulig (typi
 Før hovedvarselet og hver påminnelse sendes, spør Altinn Notifications appen om varselet fortsatt skal sendes, ved hjelp av en [sendebetingelse](/nb/notifications/explanation/send-condition/). Appen svarer nei hvis instansen er slettet, eller – som standard – hvis prosessen er avsluttet.
 
 {{% notice warning %}}
-Avbestilling av varsler krever Maskinporten. Appen leser instansen som tjenesteeier, og trenger derfor en Maskinporten-klient med scopene `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write`. Se [veiledningen for Maskinporten-integrasjon](/nb/altinn-studio/v8/guides/integration/maskinporten/). Uten dette kan ikke appen lese instansen, og alle varsler og påminnelser blir sendt.
+Avbestilling av varsler krever Maskinporten. Appen leser instansen som tjenesteeier, og trenger derfor en Maskinporten-klient med scopene `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write`. Se [veiledningen for Maskinporten-integrasjon](/nb/altinn-studio/v8/guides/integration/maskinporten/). Uten dette kan ikke appen lese instansen, og alle varsler og påminnelser blir sendt. Bestilling av varsler fungerer uten Maskinporten, så en manglende klient merkes først når et varsel som skulle vært avbestilt, blir sendt.
 {{% /notice %}}
 
 Hvis appen ikke får lest instansen, for eksempel på grunn av en midlertidig feil, prøver Altinn Notifications én gang til. Mislykkes også det forsøket, blir varselet sendt.
@@ -136,7 +141,7 @@ services.AddTransient<ICancelInstantiationNotification, MyNotificationCancellati
 
 ### Standardtekster
 
-Hvis du ikke oppgir egendefinerte tekster, brukes standardtekster.
+Hvis du ikke oppgir egendefinerte tekster, brukes standardtekster. Standardteksten for SMS er den samme som brødteksten i standard-e-posten.
 
 Eksempel på mottatt e-post med standardtekst:
 
@@ -150,12 +155,12 @@ Egendefinerte tekster støtter følgende tokens som erstattes dynamisk:
 
 | Token | Beskrivelse |
 |---|---|
-| `$appName$`| Appens navn fra app-metadata |
+| `$appName$` | Appens tittel fra app-metadata, på mottakerens språk. Faller tilbake til appnavnet. |
 | `$instanceOwnerName$` | Navn på instanseier |
 | `$serviceOwnerName$` | Navn på tjenesteeier fra Altinn CDN |
 | `$orgNumber$` | Organisasjonsnummer (hvis instanseier er org) |
-| `$socialSecurityNumber$` | Fødselsnummer (hvis instanseier er person) |
-| `$dueDate$` | Frist for instansen (format: `dd-MM-yyyy HH:mm:ss`) |
+| `$personNumber$` | Fødselsnummer (hvis instanseier er person). `$socialSecurityNumber$` fungerer også. |
+| `$dueDate$` | Frist for instansen, i norsk tid (format: `dd-MM-yyyy HH:mm:ss`) |
 
 ### Hvordan utledes mottakeradresse(r)?
 
@@ -170,7 +175,7 @@ For test av SMS i et testmiljø må nummeret hvitelistes. Ta kontakt dersom dett
 Hvert eksempel nedenfor vises for begge endepunktene:
 
 - **`POST /{org}/{app}/instances/create`** — forenklet endepunkt. Hele bodyen er ett JSON-objekt.
-- **`POST /{org}/{app}/instances`** — multipart-endepunkt. `notification` må sendes som en egen multipart-part med `name="notification"` og `Content-Type: application/json`. Hvis `notification` sendes som et felt inni instance-template-parten, blir det stille ignorert.
+- **`POST /{org}/{app}/instances`** — multipart-endepunkt. `notification` må sendes som en egen multipart-part med `name="notification"` og `Content-Type: application/json`. En `notification`-part uten `Content-Type: application/json`, eller et `notification`-felt inni instance-template-parten, blir stille ignorert.
 
 ### Enkelt eksempel på en instansopprettelse med varsel
 
