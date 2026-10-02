@@ -2,7 +2,7 @@
 draft: true
 title: "ALTINNAPP9999: ukjent analysefeil"
 description: "Analysen feilet med en uventet feil"
-weight: 99
+weight: 999
 ---
 
 Denne diagnostikken meldes når analysen selv feiler med en uventet feil. Meldingen
