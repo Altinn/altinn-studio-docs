@@ -1,28 +1,29 @@
 ---
 draft: true
-title: "ALTINNAPP1003: oppgaven bruker feil BPMN-element"
-description: "En oppgave i process.bpmn er et annet BPMN-element enn oppgavetypen krever"
+title: "ALTINNAPP1003: task uses the wrong BPMN element"
+description: "A task in process.bpmn is a different BPMN element from the one its task type requires"
 weight: 103
 ---
 
-Denne diagnostikken meldes når en oppgave i `config/process/process.bpmn` er et annet
-BPMN-element enn `<altinn:taskType>` krever. En systemoppgave må være et
-`<bpmn:serviceTask>`-element, og alle andre oppgaver et `<bpmn:task>`-element. Meldingen
-navngir oppgaven, oppgavetypen, elementet oppgaven er, og elementet den skal være.
+This diagnostic is reported when a task in `config/process/process.bpmn` is a different BPMN
+element from the one its `<altinn:taskType>` requires. A service task must be a
+`<bpmn:serviceTask>` element, and every other task a `<bpmn:task>` element. The message names
+the task, the task type, the element the task is, and the element it should be.
 
-Regelen kjenner disse oppgavetypene:
+The rule knows these task types:
 
-- de innebygde systemoppgavene `pdf`, `subformPdf`, `eFormidling` og `fiksArkiv`
-- de innebygde brukeroppgavene `data`, `confirmation`, `feedback`, `signing` og `payment`
-- appens egne `IServiceTask`, `IPipelineServiceTask` og `IProcessTask`, når `Type` returnerer
-  en konstant
+- the built-in service tasks `pdf`, `subformPdf`, `eFormidling` and `fiksArkiv`
+- the built-in user tasks `data`, `confirmation`, `feedback`, `signing` and `payment`
+- the app's own `IServiceTask`, `IPipelineServiceTask` and `IProcessTask`, when `Type` returns
+  a constant
 
-En oppgavetype regelen ikke kan avgjøre ved bygging, for eksempel en som kommer fra en pakke,
-melder den ikke noe om. Appen kontrollerer det samme når den starter, og starter ikke hvis en
-oppgave bruker feil element.
+The rule reports nothing about a task type it cannot settle at build time, such as one that
+comes from a package. The app checks the same thing when it starts, and does not start if a task
+uses the wrong element.
 
-Kategori `Process`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
+Category `Process`, severity **error**. The rule therefore fails the build.
 
-Endre oppgaven til elementet meldingen oppgir.
+Change the task to the element the message gives.
 
-Se [oppgavetypene og elementene de bruker](/nb/altinn-studio/v9/develop-a-service/process/reference/task-types/).
+See [the task types and the elements they use](/nb/altinn-studio/v9/develop-a-service/process/reference/task-types/) (documentation available in
+Norwegian only).
