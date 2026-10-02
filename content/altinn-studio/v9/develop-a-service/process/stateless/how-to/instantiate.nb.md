@@ -49,11 +49,16 @@ Når brukeren velger å starte en instans, henter app-frontend ut feltene `some.
 
 ```
 
-Du kan bruke prefill-verdiene i metoden `DataCreation` i en klasse som implementerer `IInstantiationProcessor`. Der fyller du ut feltene du trenger i datamodellen til innsendingsdelen av appen. Eksempel:
+Hvis nøklene i `queryParameters` er stier til felt i datamodellen til innsendingsdelen, for eksempel `"Sender.Name"`, fyller appen ut feltene automatisk når instansen starter. Da trenger du ikke å skrive kode.
+
+Hvis du trenger mer kontroll, kan du bruke prefill-verdiene i metoden `DataCreation` i en klasse som implementerer `IInstantiationProcessor`. Der fyller du ut feltene du trenger i datamodellen til innsendingsdelen av appen. Eksempel:
 
 ```c#
 using Altinn.App.Core.Features;
+using Altinn.App.Models; // Navnerommet til datamodellen din
 using Altinn.Platform.Storage.Interface.Models;
+
+namespace Altinn.App.Logic;
 
 public class InstantiationProcessor : IInstantiationProcessor
 {
@@ -75,7 +80,7 @@ public class InstantiationProcessor : IInstantiationProcessor
 }
 ```
 
-Husk å registrere klassen i `Program.cs`:
+Husk å registrere klassen i metoden `RegisterCustomAppServices` i `Program.cs`:
 
 ```c#
 services.AddTransient<IInstantiationProcessor, InstantiationProcessor>();

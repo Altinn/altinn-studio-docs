@@ -8,7 +8,7 @@ tags: [needsReview]
 ---
 
 Du kan sette opp felter i skjemaet slik at de blir del av en _gruppe_. Dette kan du for eksempel bruke til å sette opp dynamikk på en enkelt gruppe av felter,
-i stedet for på hvert enkelt felt. I tillegg må feltene kunne grupperes for å støtte [repeterende grupper](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/repeatinggroup/) i skjemaet.
+i stedet for på hvert enkelt felt.
 
 Du setter opp en gruppe i layoutfilen til siden, sammen med de andre komponentene i skjemaet. Layoutfilene ligger i `App/ui/{oppgave-ID}/layouts/`. Du kan enten redigere filen direkte eller bruke komponenten **Gruppe** i Altinn Studio Designer.
 

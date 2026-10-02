@@ -294,6 +294,7 @@ Under ser du et eksempel på en layoutfil uten hjelpetekster.
       {
         "id": "616071dc-90b1-4ce5-8d18-492844828a41",
         "type": "Heading",
+        "size": "L",
         "textResourceBindings": {
           "title": "appName"
         }
@@ -329,13 +330,14 @@ Vil du legge til hjelpetekst på en av disse skjemakomponentene, gjør du dette:
 
 Slik ser hele filen ut etter at du har lagt til en hjelpetekst:
 
-```json {linenos=false,hl_lines=[20]}
+```json {linenos=false,hl_lines=[18]}
 {
   "data": {
     "layout": [
       {
         "id": "616071dc-90b1-4ce5-8d18-492844828a41",
         "type": "Heading",
+        "size": "L",
         "textResourceBindings": {
           "title": "appName"
         }

@@ -290,7 +290,6 @@ App/ui/CustomReceipt/layouts/side1.json
         "textResourceBindings": {
           "title": "receipt.title"
         },
-        "dataModelBindings": {},
         "size": "h2"
       },
       {
@@ -299,7 +298,6 @@ App/ui/CustomReceipt/layouts/side1.json
         "textResourceBindings": {
           "title": "Bilde"
         },
-        "dataModelBindings": {},
         "image": {
           "src": {
             "nb": "https://docs.altinn.studio/altinn-studio/getting-started/app-dev-course/modul2/kommune-logo.png"
@@ -339,8 +337,7 @@ App/ui/CustomReceipt/layouts/side1.json
       {
         "id": "ReceiptAttachmentList",
         "type": "AttachmentList",
-        "dataTypeIds": ["ref-data-as-pdf"],
-        "includePDF": true
+        "dataTypeIds": ["ref-data-as-pdf"]
       }
     ]
   }

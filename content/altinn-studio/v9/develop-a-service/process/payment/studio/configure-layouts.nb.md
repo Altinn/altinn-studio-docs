@@ -8,7 +8,7 @@ tags: [needsReview]
 
 ### Slik viser du betalingsinformasjon i skjemaet
 
-> Du skal gjøre dette steget i oppgaven som er selve skjemaet. Du kan bytte mellom oppgaver i nedtrekkslisten øverst til venstre på **Utforming**-siden. Skjemaoppgaven som følger med appen når du oppretter den, har ID-en `Task_1`. Hvis du har lagt til andre skjemaoppgaver i prosessen, velger du oppgaven med samme ID som i prosessen.
+> Du skal gjøre dette steget i oppgaven som er selve skjemaet. Gå til **Oversikt** på **Utforming**-siden, og klikk på **Utform** på kortet for oppgaven. Skjemaoppgaven som følger med appen når du oppretter den, har ID-en `Task_1`. Hvis du har lagt til andre skjemaoppgaver i prosessen, velger du kortet med samme ID som oppgaven i prosessen.
 
 - Dra komponenten **Betalingsdetaljer** inn i skjemaet. Denne komponenten viser en tabell som viser elementene brukeren må betale for.
   - Komponenten ligger nederst i **Avansert** i komponentkolonnen til venstre på siden.

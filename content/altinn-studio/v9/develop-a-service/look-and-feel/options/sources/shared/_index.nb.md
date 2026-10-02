@@ -46,7 +46,7 @@ Følgende kodelister er tilgjengelige fra ulike kilder:
 ### 1. Legg til referanse til [Altinn.Codelists NuGet-pakken](https://www.nuget.org/packages/Altinn.Codelists)
    
 {{% notice warning %}}
-Apper på v9 må bruke versjon 9 av Altinn.Codelists. Versjon 8 virker bare sammen med versjon 8 av Altinn-pakkene (`Altinn.App.Core`). Når du oppgraderer en app til v9, oppdaterer oppgraderingen også Altinn.Codelists.
+Apper på v9 må bruke versjon 9 av Altinn.Codelists, som bygger på versjon 9 av Altinn-pakkene (`Altinn.App.Core`). Apper på v8 skal bruke versjon 8. Oppgraderingen til v9 oppdaterer ikke Altinn.Codelists, så du må oppdatere pakken selv.
 {{% /notice %}}
 
 Åpne kommandolinjen til repoet for applikasjonen din og naviger til App-mappen der App.csproj-filen ligger, og kjør følgende kommando:

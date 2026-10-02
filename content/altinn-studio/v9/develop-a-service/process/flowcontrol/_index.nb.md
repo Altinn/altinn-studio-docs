@@ -76,7 +76,7 @@ Hvis en applikasjonsprosess har et bekreftelsessteg kan du avvise dataene og sen
     <bpmn:outgoing>Flow_t2_g1</bpmn:outgoing>
     <bpmn:extensionElements>
         <altinn:taskExtension>
-          <altinn:taskType>confirmation</altinn:taskType>
+            <altinn:taskType>confirmation</altinn:taskType>
             <altinn:actions>
                 <altinn:action>confirm</altinn:action>
                 <altinn:action>reject</altinn:action>
@@ -125,7 +125,7 @@ Hvis du ikke kan oppfylle kravene for gatewayen din gjennom uttrykk, kan du skri
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:altinn="http://altinn.no" id="Altinn_SingleDataTask_Process_Definition" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="10.2.0">
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:altinn="http://altinn.no/process" id="Altinn_SingleDataTask_Process_Definition" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="10.2.0">
   <bpmn:process id="SingleDataTask" isExecutable="false">
     <bpmn:startEvent id="StartEvent_1">
       <bpmn:outgoing>Flow_s_t1</bpmn:outgoing>
@@ -136,7 +136,7 @@ Hvis du ikke kan oppfylle kravene for gatewayen din gjennom uttrykk, kan du skri
       <bpmn:outgoing>Flow_t1_g1</bpmn:outgoing>
       <bpmn:extensionElements>
         <altinn:taskExtension>
-          <altinn:taskType>data</altinn:taskType>
+            <altinn:taskType>data</altinn:taskType>
         </altinn:taskExtension>
       </bpmn:extensionElements>
     </bpmn:task>
@@ -153,7 +153,7 @@ Hvis du ikke kan oppfylle kravene for gatewayen din gjennom uttrykk, kan du skri
       <bpmn:outgoing>Flow_t2_g2</bpmn:outgoing>
       <bpmn:extensionElements>
         <altinn:taskExtension>
-          <altinn:taskType>confirmation</altinn:taskType>
+            <altinn:taskType>confirmation</altinn:taskType>
         </altinn:taskExtension>
       </bpmn:extensionElements>
     </bpmn:task>

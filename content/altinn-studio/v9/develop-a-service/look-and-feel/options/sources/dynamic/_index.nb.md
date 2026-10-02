@@ -207,7 +207,7 @@ Når komponenten ligger i en repeterende gruppe, trenger du ikke å oppgi indeks
 ```
 
 {{%notice info%}}
-Egenskapen `mapping` er fjernet i v9. Når du oppgraderer en app til v9, skriver oppgraderingen om `mapping` til `queryParameters` for deg.
+Egenskapen `mapping` er fjernet i v9. Når du oppgraderer en app til v9, skriver oppgraderingen om `mapping` til `queryParameters` for deg. Hvis oppgraderingen ikke klarer det, for eksempel fordi komponenten allerede har en parameter med samme navn, får du beskjed om å gjøre det selv.
 {{% /notice%}}
 
 For et komplett eksempel kan du se vår [demo app.](https://altinn.studio/repos/ttd/dynamic-options-rep)
