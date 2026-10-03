@@ -48,15 +48,12 @@ I listen med ekskluderte felter kan du angi navnene på felter du ikke ønsker �
 
 ### Kopiere svarfrist, dataverdier og presentasjonstekster
 
-{{%notice warning%}}Kopiering av svarfrist, dataverdier og presentasjonstekster krever versjon 8.13.0 eller nyere av `Altinn.App`-bibliotekene.{{% /notice%}}
 
 Som standard får den nye instansen ingen svarfrist, og bare dataverdier og presentasjonstekster som er utledet fra `dataFields` og `presentationFields` i applikasjonsmetadataen blir satt på den nye instansen (de beregnes på nytt fra de kopierte skjemadataene).
 
 Sett `includeDueBefore` til `true` for å kopiere `dueBefore` fra originalinstansen. Når en kopi lages gjennom det forenklede instansieringsendepunktet, har en `dueBefore` som er angitt eksplisitt i forespørselen forrang.
 
 Bruk `includedDataValues` og `includedPresentationTexts` til å angi hvilke nøkler som skal kopieres fra originalinstansen til den nye instansen. Nøkler som ikke finnes på originalinstansen, blir ignorert. Hvis en nøkkel også er utledet fra `dataFields` eller `presentationFields`, brukes verdien som beregnes på nytt fra de kopierte skjemadataene. Dette er nyttig for dataverdier som settes av applikasjonskoden, for eksempel en verdi som `ICopyInstanceValidator` sjekker, og som ellers ville manglet når en kopi kopieres på nytt.
-
-De kopierte presentasjonstekstene sendes til Storage når den nye instansen opprettes, og eldre versjoner av localtest ignorerer dem. Når du tester lokalt, starter du testplattformen på nytt med `studioctl env down` og `studioctl env up` for å få nyeste versjon av localtest.
 
 ## Eksempler
 
