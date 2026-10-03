@@ -55,6 +55,8 @@ Set `includeDueBefore` to `true` to copy `dueBefore` from the source instance. W
 
 Use `includedDataValues` and `includedPresentationTexts` to list the keys that should be copied from the source instance to the new instance. Keys that do not exist on the source instance are ignored. If a key is also derived from `dataFields` or `presentationFields`, the value recalculated from the copied form data is used. This is useful for data values set by application code, for example a value that `ICopyInstanceValidator` checks, which otherwise would be missing when a copy is copied again.
 
+The copied presentation texts are sent to Storage when the new instance is created, and older versions of localtest ignore them. When you test locally, restart the test platform with `studioctl env down` and `studioctl env up` to get the newest version of localtest. If you still use the old app-localtest repository, pull the latest version and restart it.
+
 ## Examples
 
 Configuration for turning the *Create new copy* feature on and off.

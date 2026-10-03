@@ -55,6 +55,8 @@ Sett `includeDueBefore` til `true` for å kopiere `dueBefore` fra originalinstan
 
 Bruk `includedDataValues` og `includedPresentationTexts` til å angi hvilke nøkler som skal kopieres fra originalinstansen til den nye instansen. Nøkler som ikke finnes på originalinstansen, blir ignorert. Hvis en nøkkel også er utledet fra `dataFields` eller `presentationFields`, brukes verdien som beregnes på nytt fra de kopierte skjemadataene. Dette er nyttig for dataverdier som settes av applikasjonskoden, for eksempel en verdi som `ICopyInstanceValidator` sjekker, og som ellers ville manglet når en kopi kopieres på nytt.
 
+De kopierte presentasjonstekstene sendes til Storage når den nye instansen opprettes, og eldre versjoner av localtest ignorerer dem. Når du tester lokalt, starter du testplattformen på nytt med `studioctl env down` og `studioctl env up` for å få nyeste versjon av localtest. Hvis du fortsatt bruker det gamle app-localtest-repoet, henter du siste versjon og starter det på nytt.
+
 ## Eksempler
 
 Konfigurasjon for å skru på *Lag ny kopi* uten ekskluderinger. Disse endringene gjøres i applicationmetadata.json.
