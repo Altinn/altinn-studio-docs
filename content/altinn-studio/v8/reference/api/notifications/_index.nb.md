@@ -320,7 +320,7 @@ Content-Type: application/json
     "personNumber": "54928201018"
   },
   "notification": {
-    "notificationChannel": 0,
+    "notificationChannel": 1,
     "requestedSendTime": "2025-12-01T09:00:00Z",
     "allowSendingAfterWorkHours": true
   }
@@ -348,7 +348,7 @@ Content-Disposition: form-data; name="notification"
 Content-Type: application/json
 
 {
-  "notificationChannel": 0,
+  "notificationChannel": 1,
   "requestedSendTime": "2025-12-01T09:00:00Z",
   "allowSendingAfterWorkHours": true
 }
