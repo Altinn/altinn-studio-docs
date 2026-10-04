@@ -177,6 +177,8 @@ Hvert eksempel nedenfor vises for begge endepunktene:
 - **`POST /{org}/{app}/instances/create`** — forenklet endepunkt. Hele bodyen er ett JSON-objekt.
 - **`POST /{org}/{app}/instances`** — multipart-endepunkt. `notification` må sendes som en egen multipart-part med `name="notification"` og `Content-Type: application/json`. En `notification`-part uten `Content-Type: application/json`, eller et `notification`-felt inni instance-template-parten, blir stille ignorert.
 
+Datoene i eksemplene er bare eksempler. `requestedSendTime` må ligge fram i tid, og høyst 30 dager fram.
+
 ### Enkelt eksempel på en instansopprettelse med varsel
 
 {{<content-version-selector classes="border-box">}}

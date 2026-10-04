@@ -11,9 +11,9 @@ Når du oppretter en instans gjennom API-et, kan du be appen varsle instanseiere
 
 ## Oversikt
 
-Du bestiller varselet med feltet `notification` i request-bodyen til `POST /instances/create` og `POST /instances` (multipart). Der velger du hvilken kanal varselet skal sendes på, og eventuelt egendefinerte tekster, planlagt sendetid og påminnelser.
+Du bestiller varselet med feltet `notification` i forespørselen til `POST /instances/create` og `POST /instances` (multipart). Der velger du hvilken kanal varselet skal sendes på, og eventuelt egendefinerte tekster, planlagt sendetid og påminnelser.
 
-Varselet bestilles etter at instansen er opprettet. Hvis bestillingen mislykkes, blir instansen likevel opprettet, og appen logger feilen. Et ugyldig `notification`-objekt avviser hele forespørselen.
+Appen bestiller varselet i bakgrunnen etter at instansen er opprettet. Mislykkes bestillingen, prøver appen på nytt, og instansen påvirkes ikke. Et ugyldig `notification`-objekt avviser hele forespørselen.
 
 ## Slik fungerer det
 
@@ -38,7 +38,7 @@ Varselet bestilles etter at instansen er opprettet. Hvis bestillingen mislykkes,
 | senderName | string | Ja | Avsendernavn som vises i SMS-en. Maks 11 tegn. |
 | text | CustomText | Ja | Egendefinert SMS-tekst på nb, nn og en. |
 
-OBS! Dersom avsendernavnet `senderName` er (eller i fremtiden blir) beskyttet med tredjepartsprodukter som SenderID, må du sørge for å godkjenne Altinn/Digitaliseringsdirektoratet som meldingsprodusent.
+Hvis avsendernavnet er beskyttet med en tjeneste som SenderID, må du godkjenne Digitaliseringsdirektoratet som meldingsprodusent.
 
 #### customEmail
 
@@ -74,7 +74,7 @@ Påminnelser avbestilles på samme måte som hovedvarselet, se [Avbestilling av 
 
 ### Kanalvalg (notificationChannel)
 
-Merk at `notificationChannel` er en integer-enum, ikke en streng. Gyldige verdier er:
+`notificationChannel` er et tall, ikke en streng. Gyldige verdier er:
 
 | Verdi | Kanal | Beskrivelse |
 |---|---|---|
@@ -94,11 +94,11 @@ For selvidentifiserte brukere (instanseier med `externalIdentifier`) brukes allt
 
 ### Sendetidspunkt
 
-Som standard sendes SMS-varsler kun i arbeidstiden. Hvis du ønsker å tillate utsending når som helst på døgnet, kan du sette `allowSendingAfterWorkHours` til `true`. E-post sendes uavhengig av tidspunkt.
+Som standard sendes SMS-varsler kun i arbeidstiden. Vil du tillate utsending hele døgnet, setter du `allowSendingAfterWorkHours` til `true`. E-post sendes uavhengig av tidspunkt.
 
 ### Planlagt sendetid
 
-Hvis `requestedSendTime` er satt, vil varselet ikke sendes før dette tidspunktet.
+Hvis `requestedSendTime` er satt, sendes ikke varselet før dette tidspunktet.
 
 Hvis `requestedSendTime` ikke er satt, sendes varselet så snart som mulig (typisk innen noen minutter).
 
@@ -106,7 +106,7 @@ Hvis `requestedSendTime` ikke er satt, sendes varselet så snart som mulig (typi
 
 Før hovedvarselet og hver påminnelse sendes, spør Altinn Notifications appen om varselet fortsatt skal sendes, ved hjelp av en [sendebetingelse](/nb/notifications/explanation/send-condition/). Appen svarer nei hvis instansen er slettet, eller – som standard – hvis prosessen er avsluttet.
 
-Appen leser instansen som tjenesteeier med [den innebygde Maskinporten-klienten]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten" >}}). Scopene den trenger, `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write`, får alle v9-apper automatisk, så du trenger ikke sette opp noe.
+Appen leser instansen som tjenesteeier med [den innebygde Maskinporten-klienten]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten" >}}). Scopene den trenger, `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write`, får alle v9-apper automatisk når du publiserer appen. Autorisasjonspolicyen må også gi tjenesteeieren `read` og `write`. Regelen finnes i appmalen.
 
 Hvis appen ikke får lest instansen, for eksempel på grunn av en midlertidig feil, prøver Altinn Notifications én gang til. Mislykkes også det forsøket, blir varselet sendt.
 
@@ -114,7 +114,7 @@ Hvis appen ikke får lest instansen, for eksempel på grunn av en midlertidig fe
 
 Som standard sendes varselet bare så lenge prosessen ikke er avsluttet. Det er ikke nødvendigvis det samme som at skjemaet er sendt inn: Hvis prosessen har flere steg etter at brukeren er ferdig, kan varselet fortsatt bli sendt mens disse stegene pågår.
 
-Du kan overstyre denne oppførselen ved å implementere `ICancelInstantiationNotification`-grensesnittet og registrere det i DI-containeren. Implementasjonen kalles bare for instanser som finnes og ikke er slettet:
+Du kan overstyre denne oppførselen ved å implementere grensesnittet `ICancelInstantiationNotification`. Implementasjonen kalles bare for instanser som finnes og ikke er slettet:
 
 ```csharp
 public class MyNotificationCancellation : ICancelInstantiationNotification
@@ -130,8 +130,16 @@ public class MyNotificationCancellation : ICancelInstantiationNotification
 
 Registrer implementasjonen i `Program.cs`:
 
-```csharp
-services.AddTransient<ICancelInstantiationNotification, MyNotificationCancellation>();
+```csharp file=Program.cs
+using Altinn.App.Core.Features.Notifications.Cancellation;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+    services.AddTransient<ICancelInstantiationNotification, MyNotificationCancellation>();
+}
 ```
 
 ### Standardtekster
@@ -157,20 +165,22 @@ Egendefinerte tekster støtter følgende tokens som erstattes dynamisk:
 | `$personNumber$` | Fødselsnummer (hvis instanseier er person). `$socialSecurityNumber$` fungerer også. |
 | `$dueDate$` | Frist for instansen, i norsk tid (format: `dd-MM-yyyy HH:mm:ss`) |
 
-### Hvordan utledes mottakeradresse(r)?
+### Slik finner Altinn Notifications mottakeren
 
-Altinn Notifications tar seg av dette basert på Altinn Profil for enkeltpersoner og register for organisasjoner.
+Altinn Notifications henter kontaktopplysningene selv, fra Altinn Profil for privatpersoner og fra registeret for organisasjoner.
 
 I testmiljøer kan kontaktopplysninger endres for testing på <https://tt02.altinn.no/ui/Profile>.
 
-For test av SMS i et testmiljø må nummeret hvitelistes. Ta kontakt dersom dette er ønskelig.
+For å teste SMS i et testmiljø må nummeret hvitelistes. Ta kontakt hvis du trenger det.
 
 ## Eksempler
 
 Hvert eksempel nedenfor vises for begge endepunktene:
 
-- **`POST /{org}/{app}/instances/create`** — forenklet endepunkt. Hele bodyen er ett JSON-objekt.
-- **`POST /{org}/{app}/instances`** — multipart-endepunkt. `notification` må sendes som en egen multipart-part med `name="notification"` og `Content-Type: application/json`. En `notification`-part uten `Content-Type: application/json`, eller et `notification`-felt inni instance-template-parten, blir stille ignorert.
+- **`POST /{org}/{app}/instances/create`** — forenklet endepunkt. Hele forespørselen er ett JSON-objekt.
+- **`POST /{org}/{app}/instances`** — multipart-endepunkt. `notification` må sendes som en egen multipart-part med `name="notification"` og `Content-Type: application/json`. Appen ignorerer uten feilmelding en `notification`-part uten `Content-Type: application/json`, og et `notification`-felt inni instance-template-parten.
+
+Datoene i eksemplene er bare eksempler. `requestedSendTime` må ligge fram i tid, og høyst 30 dager fram.
 
 ### Enkelt eksempel på en instansopprettelse med varsel
 

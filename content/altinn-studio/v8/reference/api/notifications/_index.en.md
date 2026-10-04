@@ -177,6 +177,8 @@ Each example below is shown for both endpoints:
 - **`POST /{org}/{app}/instances/create`** — simplified endpoint. The entire body is a single JSON object.
 - **`POST /{org}/{app}/instances`** — multipart endpoint. The `notification` must be sent as a separate multipart part with `name="notification"` and `Content-Type: application/json`. A `notification` part without `Content-Type: application/json`, or a `notification` field inside the instance template part, is silently ignored.
 
+The dates in the examples are only examples. `requestedSendTime` must be in the future, and at most 30 days ahead.
+
 ### Simple example of instance creation with notification
 
 {{<content-version-selector classes="border-box">}}
