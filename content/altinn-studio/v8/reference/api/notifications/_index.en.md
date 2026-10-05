@@ -107,10 +107,10 @@ If `requestedSendTime` is not set, the notification is sent as soon as possible 
 
 ### Cancelling notifications
 
-Before the notification and each reminder are sent, Altinn Notifications asks the app whether they should still be sent, using a [send condition](/en/notifications/explanation/send-condition/). The app answers that they should not when the instance has been deleted or, by default, when its process has ended.
+Before sending the notification or a reminder, Altinn Notifications uses a [send condition](/en/notifications/explanation/send-condition/) to ask the app whether to go ahead. The app says no when the instance has been deleted or, by default, when its process has ended.
 
 {{% notice warning %}}
-Cancelling notifications requires Maskinporten. The app reads the instance as the service owner, so it needs a Maskinporten client with the scopes `altinn:serviceowner/instances.read` and `altinn:serviceowner/instances.write`. See the [Maskinporten integration guide](/en/altinn-studio/v8/guides/integration/maskinporten/). Without it, the app can't read the instance, and every notification and reminder is sent. Ordering notifications works without Maskinporten, so a missing client only shows when a notification that should have been cancelled is sent.
+Cancelling notifications requires Maskinporten. The app reads the instance with a service owner token, which always asks for both `altinn:serviceowner/instances.read` and `altinn:serviceowner/instances.write`, so its Maskinporten client must have both scopes. See the [Maskinporten integration guide](/en/altinn-studio/v8/guides/integration/maskinporten/). Without it, the app can't read the instance, and every notification and reminder is sent. Ordering notifications works without Maskinporten, so a missing client only shows when a notification that should have been cancelled is sent.
 {{% /notice %}}
 
 If the app can't read the instance, for example because of a temporary error, Altinn Notifications tries once more. If that attempt fails too, the notification is sent.
