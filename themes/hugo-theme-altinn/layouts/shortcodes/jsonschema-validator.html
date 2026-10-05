@@ -53,7 +53,11 @@
 
     let schema;
     try {
-      const res = await fetch(schemaUrl, { cache: "no-store" });
+      const resolved = new URL(schemaUrl, window.location.origin);
+      if (resolved.origin !== window.location.origin) {
+        throw new Error("schemaUrl must be a same-origin path.");
+      }
+      const res = await fetch(resolved.href, { cache: "no-store" });
       if (!res.ok) throw new Error(`Failed to fetch schema (${res.status})`);
       schema = await res.json();
     } catch (e) {
