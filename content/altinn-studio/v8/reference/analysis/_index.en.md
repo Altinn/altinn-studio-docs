@@ -1,10 +1,9 @@
 ---
-title: Analyse
-tags: [needstranslation]
+title: Analysis
 description: |
-    I appen blir det gjort analyse av kode for å rapportere på kvalitet og feil som kan føre til bugs og hendelser.
-    Analysen er implementert som en Roslyn analyzer og pakkes sammen med Altinn.App.Core.
-    Analysene er tilgjengelig fra v8.6.
+    The app's code is analysed to report on quality and on errors that can lead to bugs and incidents.
+    The analysis is implemented as a Roslyn analyzer and is packaged with Altinn.App.Core.
+    The analysis is available from v8.6.
 weight: 50
 ---
 

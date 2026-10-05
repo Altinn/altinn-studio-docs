@@ -92,19 +92,136 @@ Legg til seksjoner dersom de er relevante:
 
 ## Egenskaper
 
-Følgende er en liste over tilgjengelige egenskaper for {{% title %}}. Listen er automatisk generert basert på komponentens JSON schema (se link).
+Følgende er en liste over tilgjengelige egenskaper for {{% title %}}.
 
 {{% notice warning %}}
 Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over egenskaper kan derfor være noe unøyaktig.
 {{% /notice %}}
 
-<!-- Shortkoden `component-props` genererer automatisk en liste over komponentegenskaper fra komponentens JSON schema.
-Komponentnavnet kan gis eksplisitt som argument (f.eks. `component-props "Grid"`).
-Hvis ingen argument gis, henter shortkoden komponentnavnet fra 'schemaname' i frontmatter.
-Hvis komponenten ikke har JSON schema, kommenter ut tekst og shortcode i denne delen og lag evt. tabell manuelt med de viktigste egenskapene (kolonner: Egenskap, Type, Beskrivelse).
- -->
-
-{{% component-props %}}
+<p><strong>Required properties: </strong><code>id</code>,<code>type</code>,<code>dataModelBindings</code></p><div class="adocs-property-table">
+<table>
+<tr>
+<th><strong>Property</strong></th>
+<th><strong>Type</strong></th>
+<th><strong>Description</strong></th>
+</tr><tr class="main-prop">
+<td><h4><code>id</code></h4></td>
+<td>string</td>
+<td>The component ID. Must be unique within all layouts/pages in a layout-set. Cannot end with &lt;dash&gt;&lt;number&gt;.<br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>type</code></h4></td>
+    <td>string</td>
+    <td>The component type.<br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>dataModelBindings</code></h4></td>
+    <td>object</td>
+    <td>Data model bindings for component<br></td>
+</tr><tr class="sub-prop">
+    <td><code>dataModelBindings.simpleBinding</code></td>
+    <td>string</td>
+    <td>Data model binding for components connection to a single field in the data model<br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>textResourceBindings</code></h4></td>
+    <td>object</td>
+    <td>Text resource bindings for a component.<br></td>
+</tr><tr class="sub-prop">
+    <td><code>textResourceBindings.description</code></td>
+    <td>string</td>
+    <td>The description text for the component<br></td>
+</tr><tr class="sub-prop">
+    <td><code>textResourceBindings.help</code></td>
+    <td>string</td>
+    <td>The help text for the component<br></td>
+</tr><tr class="sub-prop">
+    <td><code>textResourceBindings.title</code></td>
+    <td>string</td>
+    <td>The title/label text for the component<br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>required</code></h4></td>
+    <td>boolean</td>
+    <td>Boolean or expression indicating if the component is required when filling in the form. Defaults to false.<br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>readOnly</code></h4></td>
+    <td>boolean</td>
+    <td>Boolean or expression indicating if the component should be presented as read only. Defaults to false.<br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>autocomplete</code></h4></td>
+    <td>string</td>
+    <td>The HTML autocomplete attribute lets web developers specify what if any permission the user agent has to provide automated assistance in filling out form field values, as well as guidance to the browser as to the type of information expected in the field.<br><strong>Enum: </strong>[on, off, name, honorific-prefix, given-name, additional-name, family-name, honorific-suffix, nickname, email, username, new-password, current-password, one-time-code, organization-title, organization, street-address, address-line1, address-line2, address-line3, address-level4, address-level3, address-level2, address-level1, country, country-name, postal-code, cc-name, cc-given-name, cc-additional-name, cc-family-name, cc-number, cc-exp, cc-exp-month, cc-exp-year, cc-csc, cc-type, transaction-currency, transaction-amount, language, bday, bday-day, bday-month, bday-year, sex, tel, tel-country-code, tel-national, tel-area-code, tel-local, tel-extension, url, photo]<br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>formatting</code></h4></td>
+    <td>object</td>
+    <td>Set of options for formatting input fields.<br></td>
+</tr><tr class="sub-prop">
+    <td><code>formatting.align</code></td>
+    <td>string</td>
+    <td>The alignment for Input field (eg. right aligning a series of numbers).<br><strong>Enum: </strong>[left, center, right]<br></td>
+</tr><tr class="sub-prop">
+    <td><code>formatting.currency</code></td>
+    <td>string</td>
+    <td>Enables currency along with thousand and decimal separators to be language sensitive based on selected app language. They are configured in number property. Note: parts that already exist in number property are not overridden by this prop.<br><strong>Enum: </strong>[AED, AFN, ALL, AMD, ANG, AOA, ARS, AUD, AWG, AZN, BAM, BBD, BDT, BGN, BHD, BIF, BMD, BND, BOB, BOV, BRL, BSD, BTN, BWP, BYN, BZD, CAD, CDF, CHE, CHF, CHW, CLF, CLP, CNY, COP, COU, CRC, CUC, CUP, CVE, CZK, DJF, DKK, DOP, DZD, EGP, ERN, ETB, EUR, FJD, FKP, GBP, GEL, GHS, GIP, GMD, GNF, GTQ, GYD, HKD, HNL, HTG, HUF, IDR, ILS, INR, IQD, IRR, ISK, JMD, JOD, JPY, KES, KGS, KHR, KMF, KPW, KRW, KWD, KYD, KZT, LAK, LBP, LKR, LRD, LSL, LYD, MAD, MDL, MGA, MKD, MMK, MNT, MOP, MRU, MUR, MVR, MWK, MXN, MXV, MYR, MZN, NAD, NGN, NIO, NOK, NPR, NZD, OMR, PAB, PEN, PGK, PHP, PKR, PLN, PYG, QAR, RON, RSD, RUB, RWF, SAR, SBD, SCR, SDG, SEK, SGD, SHP, SLE, SLL, SOS, SRD, SSP, STN, SVC, SYP, SZL, THB, TJS, TMT, TND, TOP, TRY, TTD, TWD, TZS, UAH, UGX, USD, USN, UYI, UYU, UYW, UZS, VED, VES, VND, VUV, WST, XAF, XCD, XDR, XOF, XPF, XSU, XUA, YER, ZAR, ZMW, ZWL]<br></td>
+</tr><tr class="sub-prop">
+    <td><code>formatting.position</code></td>
+    <td>string</td>
+    <td>Display the unit as prefix or suffix. Default is prefix<br><strong>Enum: </strong>[prefix, suffix]<br></td>
+</tr><tr class="sub-prop">
+    <td><code>formatting.unit</code></td>
+    <td>string</td>
+    <td>Enables unit along with thousand and decimal separators to be language sensitive based on selected app language. They are configured in number property. Note: parts that already exist in number property are not overridden by this prop.<br><strong>Enum: </strong>[celsius, centimeter, day, degree, foot, gram, hectare, hour, inch, kilogram, kilometer, liter, meter, milliliter, millimeter, millisecond, minute, month, percent, second, week, year]<br></td>
+</tr><tr class="sub-prop">
+    <td><code>gridSettings.innerGrid</code></td>
+    <td>gridProps</td>
+    <td>Optional grid for inner component content like input field or dropdown. Used to avoid inner content filling the component width.<br><strong>Example(s): </strong><code>{xs: 12}</code><br><strong>See</strong>: <a href="/nb/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
+</tr><tr class="sub-prop">
+    <td><code>gridSettings.labelGrid</code></td>
+    <td>gridProps</td>
+    <td>Optional grid for the component label. Used in combination with innerGrid to align labels on the side.<br><strong>Example(s): </strong><code>{xs: 12}</code><br><strong>See</strong>: <a href="/nb/altinn-studio/v8/reference/ux/components/commondefs#gridProps">gridProps</a><br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>hidden</code></h4></td>
+    <td>boolean</td>
+    <td>Boolean value or expression indicating if the component should be hidden. Defaults to false.<br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>labelSettings</code></h4></td>
+    <td>object</td>
+    <td>A collection of settings for how the component label should be rendered.<br></td>
+</tr><tr class="sub-prop">
+    <td><code>labelSettings.optionalIndicator</code></td>
+    <td>boolean</td>
+    <td>Controls whether the text that is indicating that a field is optional should be displayed.<br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>maxLength</code></h4></td>
+    <td>number</td>
+    <td>Maximum length of input field<br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>pageBreak</code></h4></td>
+    <td>object</td>
+    <td><br></td>
+</tr><tr class="sub-prop">
+    <td><code>pageBreak.breakAfter</code></td>
+    <td>string</td>
+    <td>PDF only: Value or expression indicating whether a page break should be added after the component. Can be either: &#39;auto&#39; (default), &#39;always&#39;, or &#39;avoid&#39;.<br><strong>Example(s): </strong><code>auto</code>,<code>always</code>,<code>avoid</code><br></td>
+</tr><tr class="sub-prop">
+    <td><code>pageBreak.breakBefore</code></td>
+    <td>string</td>
+    <td>PDF only: Value or expression indicating whether a page break should be added before the component. Can be either: &#39;auto&#39; (default), &#39;always&#39;, or &#39;avoid&#39;.<br><strong>Example(s): </strong><code>auto</code>,<code>always</code>,<code>avoid</code><br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>renderAsSummary</code></h4></td>
+    <td>boolean</td>
+    <td>Boolean or expression indicating if the component should be rendered as a summary. Defaults to false.<br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>saveWhileTyping</code></h4></td>
+    <td></td>
+    <td>Boolean or number. True = feature on (default), false = feature off (saves on focus blur), number = timeout in milliseconds (400 by default)<br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>triggers</code></h4></td>
+    <td>array</td>
+    <td>An array of actions that should be triggered when data connected to this component changes.<br></td>
+</tr><tr class="main-prop">
+    <td><h4><code>variant</code></h4></td>
+    <td>string</td>
+    <td>An enum to choose if the inputfield it is a normal textfield or a searchbar<br><strong>Enum: </strong>[text, search]<br></td>
+</tr></table>
+    </div>
 
 ## Konfigurering
 
