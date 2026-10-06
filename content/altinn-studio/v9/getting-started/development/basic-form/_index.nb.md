@@ -95,7 +95,8 @@ Vi skal starte med å lage en informasjonsside, som skal inneholde bilde og teks
 2. Klikk på "Utform" på kortet for oppgaven "Task_1" for å utforme første del av skjemaet.
 
 #### Om Utforming-siden
-Utforming er satt opp med tre kolonner:
+Utforming er satt opp med fire kolonner:
+- Komponentlisten, der du finner komponentene du kan legge til. Du kan lukke denne kolonnen.
 - Selve skjema-oppsettet, der du legger inn sider og komponenter.
 - Konfigurasjonskolonnen, der du kan konfigurere valgt side/komponent.
 - Forhåndsvisningen, der du ser det du har satt opp.
@@ -193,7 +194,7 @@ Nå skal du bygge opp skjemaet. Dette er veldig likt det du gjorde for infosiden
 Gå til "Utforming" i toppmenyen, og klikk på "Utform" på kortet for oppgaven "Task_1".
 
 #### Lag en ny side
-1. Klikk på "Legg til side".
+1. Klikk på "Legg til ny side".
 2. Endre navnet på siden til "om-innflytter". Lagre endringen.
 3. Klikk på "Visningsnavn" og legg inn en visningstekst for siden, f.eks. "Om innflytter". Lagre endringen.
 

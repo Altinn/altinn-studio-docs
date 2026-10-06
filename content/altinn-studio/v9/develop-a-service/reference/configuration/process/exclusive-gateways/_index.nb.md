@@ -84,7 +84,7 @@ Du bruker `GatewayId` for å identifisere gatewayen i prosessen som koden er kob
 
 I eksempelet over vil en implementasjon ha propertien satt til `Gateway_1`, siden dette er verdien på attributtet _id_ i gatewayen vi ønsker å skrive logikk for (den eneste med to sequenceflows ut av seg).
 
-I metoden FilterAsync skriver du koden som skal filtrere og returnere gyldige sequenceflow(er) ut av gatewayen basert på instansens data.
+I metoden FilterAsync skriver du koden som velger hvilken sequenceflow prosessen skal følge ut av gatewayen, basert på instansens data. Metoden må returnere nøyaktig én flyt. Returnerer den ingen eller flere flyter, går ikke prosessen videre.
 
 For mer dokumentasjon av grensesnittet, se xml-dokumentasjonen [her](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Features/IProcessExclusiveGateway.cs).
 

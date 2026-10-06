@@ -55,7 +55,7 @@ Hvis du trenger mer kontroll, kan du bruke verdiene for forhåndsutfylling i met
 
 ```c#
 using Altinn.App.Core.Features;
-using Altinn.App.Models; // Navnerommet til datamodellen din
+using Altinn.App.Models.model; // Navnerommet til datamodellen din, vanligvis Altinn.App.Models.<modellnavn>
 using Altinn.Platform.Storage.Interface.Models;
 
 namespace Altinn.App.Logic;

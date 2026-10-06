@@ -66,13 +66,13 @@ For bekreftelsessteget kan du som apputvikler definere egne layouts og andre kon
 
 Dette gjør det mulig å styre innholdet på bekreftelsessiden helt fritt, og du kan bruke komponentene du ellers har tilgjengelig i Altinn Studio.
 
-Siden bekreftelsessteget ikke er ment brukt når du skal skrive data, anbefaler vi å bruke statiske komponenter (header, paragraph) og sette komponenter utover dette som `readOnly`.
+Siden bekreftelsessteget ikke er ment brukt når du skal skrive data, anbefaler vi å bruke statiske komponenter (`Heading`, `Paragraph`) og sette komponenter utover dette som `readOnly`.
 
 Opprett mappen `App/ui/Task_2` for bekreftelsessteget. Mappen må ha samme navn som ID-en til oppgaven i `process.bpmn`. Legg til `Settings.json`, og bruk datatypen fra datasteget som `defaultDataType`:
 
 ```json
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
   "defaultDataType": "simple",
   "pages": {
     "order": ["formLayout"]

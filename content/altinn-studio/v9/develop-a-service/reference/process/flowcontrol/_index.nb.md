@@ -45,7 +45,7 @@ I eksempelet ovenfor legger gatewayen til formdata som er lagret i datatype _Sch
 
 Når gatewayen er koblet til en datatype, kan du bruke uttrykkspråket for å definere om flytene ut av gatewayen er tilgjengelige.
 
-MERK: Nøyaktig én flyt må være gyldig etter at uttrykkene er evaluert. Hvis ingen eller flere flyter er gyldige, stopper prosessen med en feil. En flyt uten uttrykk regnes alltid som gyldig.
+MERK: Nøyaktig én flyt må være gyldig etter at uttrykkene er evaluert. Hvis ingen eller flere flyter er gyldige, går ikke prosessen videre, og brukeren får en feil. En flyt uten uttrykk regnes alltid som gyldig.
 
 Nå må du definere disse uttrykkene i de utgående flytene fra gatewayen. I gateway-eksempelet har vi to utgående flyter: _Flow_g1_t2_ og _Flow_g1_end_
 

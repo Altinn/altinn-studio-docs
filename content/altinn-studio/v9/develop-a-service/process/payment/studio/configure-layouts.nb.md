@@ -11,11 +11,11 @@ tags: [needsReview]
 > Du skal gjøre dette steget i oppgaven som er selve skjemaet. Gå til **Oversikt** på **Utforming**-siden, og klikk på **Utform** på kortet for oppgaven. Skjemaoppgaven som følger med appen når du oppretter den, har ID-en `Task_1`. Hvis du har lagt til andre skjemaoppgaver i prosessen, velger du kortet med samme ID som oppgaven i prosessen.
 
 - Dra komponenten **Betalingsdetaljer** inn i skjemaet. Denne komponenten viser en tabell som viser elementene brukeren må betale for.
-  - Komponenten ligger nederst i **Avansert** i komponentkolonnen til venstre på siden.
+  - Komponenten ligger i **Avansert** i komponentkolonnen til venstre på siden.
 
   Du kan plassere denne komponenten hvor som helst i skjemaet ditt, men vi anbefaler å sette den på den siste siden før brukeren blir bedt om å betale.
 
-- For å oppdatere ordrelinjene etter hvert som data som systemet bruker til å beregne ordrelinjer endres, må du legge til datafeltene som systemet bruker til å beregne ordrelinjene, i `refetchDependencies`. Hver verdi er et uttrykk som peker på et felt i datamodellen. Navnet på nøkkelen kan du velge fritt, og verdiene sendes ikke til serveren. Du gjør dette foreløpig manuelt, direkte i layoutfilene:
+- Systemet beregner ordrelinjene ut fra data i skjemaet. Når brukeren endrer disse dataene, må appen hente ordrelinjene på nytt. Derfor legger du til datafeltene som systemet bruker i beregningen, i `refetchDependencies`. Hver verdi er et uttrykk som peker på et felt i datamodellen. Navnet på nøkkelen kan du velge fritt, og verdiene sendes ikke til serveren. Dette gjør du manuelt, direkte i layoutfilene:
 
 ```json
 {

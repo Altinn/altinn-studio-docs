@@ -11,7 +11,7 @@ tags: [needsReview]
 
    ```json
    {
-     "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+     "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
      "defaultDataType": "model",
      "pages": {
        "order": ["signing"]
