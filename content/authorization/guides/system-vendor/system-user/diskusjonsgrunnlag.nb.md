@@ -12,9 +12,11 @@ build:
 
 ## Valg av modell for nye oppsett
 
-Diskusjonsgrunnlag · 5. oktober 2026
+Diskusjonsgrunnlag · Oppdatert 6. oktober 2026
 
 **Målet:** Lande hvordan vi støtter vedtatte behov, og hva vi må avklare før implementering.
+
+[Åpne beslutningstreet over valgene](../beslutningstre/)
 
 ---
 ## Behovet for endring
@@ -49,6 +51,20 @@ Den skal kunne få delegert både tilgangspakker og enkeltrettigheter:
 Delegering skjer via standard brukergrensesnitt. Sletting av videredelegeringer følger rettighetsgrunnlaget, uavhengig av systembrukertype.
 
 > Dette er en beslutning om det nye oppsettet. Endelig navn og hvordan «fri» representeres teknisk er fortsatt åpne valg.
+
+---
+## Vedtatt: API for forespørsel om fri systembruker
+
+**Vi bruker standard API for å be om en «fri» systembruker.**
+
+Dette er vedtatt. Hvordan standard requesten markerer «fri», er fortsatt et åpent valg dersom vi beholder dagens enum-verdier.
+
+---
+## Vedtatt: Krav for å akseptere fri systembruker
+
+**Den som aksepterer forespørselen, må ha tilgangsstyringspakken.**
+
+Dette er kravet for å akseptere en «fri» systembruker. Rettighetene systembrukeren senere får delegert, håndteres separat.
 
 ---
 ## Dagens Standard og Agent
@@ -92,14 +108,14 @@ Sletting av videredelegeringer bestemmes av hvordan eiervirksomheten har fått r
 ---
 ## Valg 2: Eksplisitt eller implisitt deteksjon av «fri»
 
-**Skal «fri» uttrykkes med en egenskap, eller utledes fra forespørselens innhold?**
+**Hvis vi beholder dagens to enum-verdier: Skal standard requesten markere «fri» eksplisitt eller implisitt?**
 
 | Alternativ | Regel | Fordel / ulempe |
 |---|---|---|
-| Eksplisitt egenskap | Forespørselen angir at systembrukeren skal være fri | Tydelig hensikt; krever et eget felt og regler for samsvar med tilgangslistene |
-| Implisitt deteksjon | Forespørselen inneholder ingen tilgangspakker eller enkeltrettigheter → fri systembruker | Ingen egen egenskap; fravær av tilganger får en betydning alle konsumenter må forstå |
+| Eksplisitt flagg | Et nytt flagg på standard requesten angir «fri» | Tydelig hensikt; krever et nytt felt og regler for samsvar med tilgangslistene |
+| Implisitt deteksjon | Listene for tilgangspakker og enkeltrettigheter er tomme → fri systembruker | Ingen nytt flagg; tomme lister får en betydning alle konsumenter må forstå |
 
-**Vi skal lande:** Eksplisitt egenskap eller implisitt deteksjon. Dette er separat fra valget om nye enum-verdier.
+**Vi skal lande:** Nytt flagg eller implisitt deteksjon fra tomme lister, hvis Nei til nye typer velges i valg 1. Standard API er allerede vedtatt.
 
 GUI må kunne identifisere oppsettet også etter at rettigheter er delegert. Faktisk delegerte rettigheter må ikke utilsiktet endre klassifiseringen.
 
