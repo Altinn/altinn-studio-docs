@@ -14,7 +14,7 @@ build:
 
 Diskusjonsgrunnlag · Oppdatert 6. oktober 2026
 
-**Målet:** Lande hvordan vi støtter vedtatte behov, og hva vi må avklare før implementering.
+**Målet:** Bestemme hvordan vi støtter de vedtatte behovene, og hva vi må avklare før vi bygger løsningen.
 
 [Åpne beslutningstreet over valgene](../beslutningstre/)
 
@@ -28,7 +28,7 @@ Diskusjonsgrunnlag · Oppdatert 6. oktober 2026
 Dagens dokumenterte oppsett for egenutviklede systemer krever registrering i systemregisteret.
 
 ---
-## Hva vi har landet
+## Hva vi har bestemt
 
 **Begge behovene skal støttes.**
 
@@ -43,10 +43,10 @@ Dagens dokumenterte oppsett for egenutviklede systemer krever registrering i sys
 
 **Systembruker for eget system skal være «fri».**
 
-Den skal kunne få delegert både tilgangspakker og enkeltrettigheter:
+Den skal kunne få delegert både tilgangspakker og enkeltrettigheter
 
-- For egen virksomhet.
-- For klienter.
+- for egen virksomhet
+- for klienter
 
 Delegering skjer via standard brukergrensesnitt. Sletting av videredelegeringer følger rettighetsgrunnlaget, uavhengig av systembrukertype.
 
@@ -57,7 +57,7 @@ Delegering skjer via standard brukergrensesnitt. Sletting av videredelegeringer 
 
 **Vi bruker standard API for å be om en «fri» systembruker.**
 
-Dette er vedtatt. Hvordan standard requesten markerer «fri», er fortsatt et åpent valg dersom vi beholder dagens enum-verdier.
+Dette er vedtatt. Hvordan standardforespørselen markerer «fri», er fortsatt et åpent valg hvis vi beholder dagens enum-verdier.
 
 ---
 ## Vedtatt: Krav for å akseptere fri systembruker
@@ -79,7 +79,7 @@ Dette er kravet for å akseptere en «fri» systembruker. Rettighetene systembru
 Sletting av videredelegeringer bestemmes av hvordan eiervirksomheten har fått rettigheten, uavhengig av systembrukertype. Hvis grunnlaget er en delegering fra en klient og denne slettes, skal tilhørende videredelegeringer også slettes.
 
 ---
-## Tilgang og sletting av videredelegeringer
+## Tilgang og hvordan videredelegeringer slettes
 
 **Avklart for de nye oppsettene:** Både enkeltrettigheter og tilgangspakker skal støttes.
 
@@ -98,48 +98,48 @@ Sletting av videredelegeringer bestemmes av hvordan eiervirksomheten har fått r
 
 | | A: Opprette nye typer | B: Beholde dagens to enum-verdier |
 |---|---|---|
-| Enum | Standard og Agent beholdes; nye verdier legges til for de nye oppsettene | Enum består fortsatt bare av Standard og Agent |
+| Enum | Vi beholder Standard og Agent og legger til nye verdier for de nye oppsettene | Enum består fortsatt bare av Standard og Agent |
 | Hvordan nye oppsett beskrives | Nye typer får egne regler | Egenskaper eller andre data beskriver forskjellene |
 | Fordel | Typen kan uttrykke det nye oppsettet direkte | Ingen nye enum-verdier som konsumenter må håndtere |
-| Ulempe | Flere typer og typegrener i API, GUI og backend | Standard/Agent er ikke nok til å avgjøre oppførsel; eksisterende antakelser må endres |
+| Ulempe | Flere typer og typegrener i API, GUI og backend | Standard/Agent er ikke nok til å avgjøre oppførsel, og eksisterende antakelser må endres |
 
-**Vi skal lande:** Utvide enumen, eller beholde de to verdiene. Navn og antall nye typer er ikke bestemt.
+**Vi må bestemme** om vi skal utvide enumen eller beholde de to verdiene. Navn og antall nye typer er ikke bestemt.
 
 ---
-## Valg 2: Eksplisitt eller implisitt deteksjon av «fri»
+## Valg 2: Markere «fri» eksplisitt eller implisitt
 
-**Hvis vi beholder dagens to enum-verdier: Skal standard requesten markere «fri» eksplisitt eller implisitt?**
+**Hvis vi beholder dagens to enum-verdier: Skal standardforespørselen markere «fri» eksplisitt eller implisitt?**
 
 | Alternativ | Regel | Fordel / ulempe |
 |---|---|---|
-| Eksplisitt flagg | Et nytt flagg på standard requesten angir «fri» | Tydelig hensikt; krever et nytt felt og regler for samsvar med tilgangslistene |
-| Implisitt deteksjon | Listene for tilgangspakker og enkeltrettigheter er tomme → fri systembruker | Ingen nytt flagg; tomme lister får en betydning alle konsumenter må forstå |
+| Eksplisitt flagg | Et nytt flagg på standardforespørselen angir «fri» | Tydelig hensikt, men krever et nytt felt og regler for samsvar med tilgangslistene |
+| Implisitt gjenkjenning | Listene for tilgangspakker og enkeltrettigheter er tomme → fri systembruker | Ingen nytt flagg, men tomme lister får en betydning som alle konsumenter må forstå |
 
-**Vi skal lande:** Nytt flagg eller implisitt deteksjon fra tomme lister, hvis Nei til nye typer velges i valg 1. Standard API er allerede vedtatt.
+**Vi må bestemme** om vi skal bruke et nytt flagg eller implisitt gjenkjenning fra tomme lister, hvis vi svarer Nei til nye typer i valg 1. Standard API er allerede vedtatt.
 
 GUI må kunne identifisere oppsettet også etter at rettigheter er delegert. Faktisk delegerte rettigheter må ikke utilsiktet endre klassifiseringen.
 
 ---
 ## Valg 3: Hva «ingen tilganger i forespørselen» betyr
 
-**Hvis implisitt deteksjon velges: Hvilke representasjoner skal bety fri?**
+**Hvis vi velger implisitt gjenkjenning: Hvilke representasjoner skal bety fri?**
 
-**Begge lister må være eksplisitt tomme:** Innsender må sende tomme lister for både tilgangspakker og enkeltrettigheter. Utelatte felter er ikke en markering av fri.
+**Begge listene må være eksplisitt tomme:** Innsenderen må sende tomme lister for både tilgangspakker og enkeltrettigheter. Utelatte felter markerer ikke fri.
 
 **Utelatte felter regnes også som ingen tilganger:** En forespørsel uten tilgangspakker og enkeltrettigheter tolkes som fri, også uten eksplisitte tomme lister. Manglende data kan dermed utløse klassifiseringen.
 
-**Vi skal lande:** Én regel for tomme og utelatte lister, inkludert hvordan null behandles. Ingen forhåndsdefinerte tilganger må skilles fra faktisk delegerte tilganger.
+**Vi må bestemme** én regel for tomme og utelatte lister, også for hvordan vi behandler null. Vi må kunne skille fravær av forhåndsdefinerte tilganger fra faktisk delegerte tilganger.
 
 ---
 ## Valg 4: Fri delegering med registrert system
 
 **Skal et system i systemregisteret også kunne brukes med kundestyrte rettigheter?**
 
-**Ja:** Tilknytning og tilgangsmodell kan velges uavhengig. Flere kombinasjoner må beskrives og støttes.
+**Ja:** Tilknytning og tilgangsmodell kan velges uavhengig. Vi må beskrive og støtte flere kombinasjoner.
 
 **Nei:** Færre kombinasjoner, men fri delegering blir bundet til oppsett uten systemregisteret.
 
-**Vi skal lande:** Om denne kombinasjonen skal støttes. Begge hovedbehovene er allerede vedtatt.
+**Vi må bestemme** om vi skal støtte denne kombinasjonen. Begge hovedbehovene er allerede vedtatt.
 
 ---
 ## Valg 5: Fri og Standard/Agent på samme system
@@ -152,7 +152,7 @@ GUI må kunne identifisere oppsettet også etter at rettigheter er delegert. Fak
 
 **Konsekvens av Nei:** Leverandøren må administrere separate klienter for de to oppsettene, selv om de brukes av samme programvare.
 
-**Vi skal lande:** Om blandede oppsett skal være tillatt på samme system. Dette valget er relevant hvis fri delegering støttes for registrerte systemer.
+**Vi må bestemme** om vi skal tillate blandede oppsett på samme system. Dette valget er relevant hvis vi støtter fri delegering for registrerte systemer.
 
 > «Fri» er en tilgangsmodell og et arbeidsnavn. Dette valget avgjør ikke om enumen skal få nye verdier.
 
@@ -167,10 +167,10 @@ GUI må kunne identifisere oppsettet også etter at rettigheter er delegert. Fak
 
 **Validere når tilgangen delegeres:** Identiteten opprettes først. Feil i oppgitte tilganger oppdages senere.
 
-**Vi skal lande:** Når oppgitte tilganger kontrolleres. Ved Ja i valg 5 kan valideringen ikke kreve at alle forespørsler inneholder systemets forhåndsdefinerte tilganger. Faktisk tildeling av tilgang må kontrolleres når den skjer.
+**Vi må bestemme** når vi kontrollerer oppgitte tilganger. Ved Ja i valg 5 kan ikke valideringen kreve at alle forespørsler inneholder systemets forhåndsdefinerte tilganger. Vi må kontrollere den faktiske tildelingen av tilgang når den skjer.
 
 ---
-## Valg 7: Endring av tilgangsmodell
+## Valg 7: Endre tilgangsmodellen
 
 **Skal et oppsett som kan ha forhåndsdefinerte tilganger kunne endres til eller fra fri?**
 
@@ -178,18 +178,18 @@ GUI må kunne identifisere oppsettet også etter at rettigheter er delegert. Fak
 
 **Krev ny systembruker:** Modellen er stabil gjennom levetiden, men kunden må opprette og konfigurere på nytt.
 
-**Vi skal lande:** Om endringen skal være tillatt for oppsett der begge modeller støttes. Systembruker for eget system skal være fri. Ved implisitt deteksjon må endringer i forhåndsdefinerte lister følge den valgte regelen.
+**Vi må bestemme** om vi skal tillate endringen for oppsett der begge modeller støttes. Systembruker for eget system skal være fri. Ved implisitt gjenkjenning må endringer i forhåndsdefinerte lister følge den valgte regelen.
 
 ---
 ## Valg 8: Eksisterende brukere med tomme lister
 
-**Hvis implisitt deteksjon velges: Skal eksisterende brukere uten forhåndsdefinerte tilganger bli tolket som fri?**
+**Hvis vi velger implisitt gjenkjenning: Skal vi tolke eksisterende brukere uten forhåndsdefinerte tilganger som fri?**
 
 **Ja, automatisk:** Én regel for gamle og nye brukere, men eksisterende brukere kan få en ny betydning.
 
 **Nei, bare etter eksplisitt overgang:** Bevarer tidligere betydning, men krever at gamle og nye oppsett kan skilles.
 
-**Vi skal lande:** Om tolkningen skal gjelde eksisterende data. Kartlegg først om slike brukere finnes og hva tomme lister betyr i dag.
+**Vi må bestemme** om tolkningen skal gjelde eksisterende data. Først må vi kartlegge om slike brukere finnes og hva tomme lister betyr i dag.
 
 ---
 ## Valg 9: API-overgang
@@ -200,7 +200,7 @@ GUI må kunne identifisere oppsettet også etter at rettigheter er delegert. Fak
 
 **Ny kontrakt eller versjon:** Skiller ny betydning tydelig fra gammel, men krever parallelle kontrakter og en overgangsplan.
 
-**Vi skal lande:** Overgangsstrategi etter at modell og konsumentenes antakelser er kartlagt.
+**Vi må bestemme** overgangsstrategien etter at vi har kartlagt modellen og antakelsene til konsumentene.
 
 ---
 ## Valg 10: Navn på brukerne
@@ -211,9 +211,9 @@ GUI må kunne identifisere oppsettet også etter at rettigheter er delegert. Fak
 |---|---|---|
 | Fri systembruker | Kort | Uklart hva «fri» gjelder |
 | Ubegrenset systembruker | Uttrykker fravær av forhåndsdefinert liste | Kan tolkes som ubegrenset tilgang |
-| Systembruker med kundestyrte rettigheter | Beskriver hvem som bestemmer rettighetene | Langt; «kunden» må være entydig i klientforhold |
+| Systembruker med kundestyrte rettigheter | Beskriver hvem som bestemmer rettighetene | Langt, og «kunden» må være entydig i klientforhold |
 
-**Vi skal lande:** Ett navn. «Fri» er foreløpig bare arbeidsnavn.
+**Vi må bestemme** ett navn. «Fri» er foreløpig bare et arbeidsnavn.
 
 ---
 ## Valg 11: Begreper i standard GUI
@@ -224,10 +224,10 @@ GUI må kunne identifisere oppsettet også etter at rettigheter er delegert. Fak
 
 **Vis konkrete handlinger:** For eksempel «Knytt Maskinporten-klient» og «Gi tilgang». Mindre begrepslæring, men forskjellen må forklares der den påvirker brukeren.
 
-**Vi skal lande:** Om kategorien skal være et eksplisitt GUI-valg. Interne enum-verdier trenger ikke bli synlige begreper.
+**Vi må bestemme** om kategorien skal være et eksplisitt GUI-valg. Interne enum-verdier trenger ikke bli synlige begreper.
 
 ---
-## Valg 12: Bytte av Maskinporten-klient
+## Valg 12: Bytte Maskinporten-klient
 
 **Skal klienttilknytningen kunne byttes på en eksisterende systembruker?**
 
@@ -235,7 +235,7 @@ GUI må kunne identifisere oppsettet også etter at rettigheter er delegert. Fak
 
 **Krev ny systembruker:** Stabil klienttilknytning, men tilgangene må etableres på nytt.
 
-**Vi skal lande:** Om bytte skal støttes. Maskinportens tekniske rammer og krav til eierskapskontroll må undersøkes først.
+**Vi må bestemme** om vi skal støtte bytte. Først må vi undersøke de tekniske rammene til Maskinporten og kravene til eierskapskontroll.
 
 ---
 ## Informasjonsbehov: Rettighetsgrunnlag i standard GUI
@@ -253,7 +253,7 @@ Direkte klienttilknytning uten systemregisteret er vedtatt.
 
 Vi trenger teknisk bekreftelse på eierskapskontroll, håndtering av slettet klient og tokeninnhold når system_id fra registeret mangler.
 
-Funnene må brukes til å konkretisere klienttilknytningen og vurdere valget om klientbytte.
+Vi må bruke funnene til å konkretisere klienttilknytningen og vurdere valget om klientbytte.
 
 ---
 ## Informasjonsbehov: Dagens validering
@@ -271,7 +271,7 @@ For hvert valg noterer vi **valgt alternativ og begrunnelse** før vi går vider
 
 Hvis vi mangler grunnlag, noterer vi hva som må undersøkes og hvem som følger det opp. Valget forblir åpent til informasjonen foreligger.
 
-Ingen av modellalternativene eller navnene er vedtatt i dette decket.
+Ingen av modellalternativene eller navnene er vedtatt i dette diskusjonsgrunnlaget.
 
 ---
 ## Kilder og status
@@ -284,4 +284,4 @@ Avklarte behov: samtalen med RUNLAR. Alternativene og konsekvensvurderingene er 
 - [Frontend: systembruker-API](https://github.com/Altinn/altinn-access-management-frontend/blob/main/src/rtk/features/systemUserApi.ts)
 - [Auth: entitetsvarianter](https://github.com/Altinn/altinn-auth/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Constants/EntityVariantConstants.cs)
 
-Kodefunn er fra lokale arbeidskopier lest 5. oktober 2026. Lenker til `main` kan endres. Utkast laget med Codex; skal gjennomgås av deltakerne.
+Kodefunn er fra lokale arbeidskopier lest 5. oktober 2026. Lenker til `main` kan endres. Utkast laget med Codex. Deltakerne skal gjennomgå det.
