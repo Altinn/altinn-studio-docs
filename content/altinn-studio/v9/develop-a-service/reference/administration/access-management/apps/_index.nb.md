@@ -7,13 +7,13 @@ tags: [needsReview]
 toc: true
 ---
 
-Som tjenesteeier kan du bestille fire roller for ressursene dine. To roller gjelder testmiljøet TT02, og to gjelder produksjonsmiljøet. Altinn-plattformen definerer rollene i Azure. De gir tilgang til loggene og hemmelighetene til appene dine.
+Som tjenesteeier kan du bestille fire roller for ressursene dine. To roller gjelder testmiljøet TT02, og to gjelder produksjonsmiljøet. Altinn-plattformen definerer rollene i Azure. De gir tilgang til telemetrien og hemmelighetene til appene dine.
 
 ## Roller og tilganger
 
 ### Test Developer
 
-Gir tilgang til loggene til appene dine i TT02. Loggene ligger i Application Insights.
+Gir tilgang til telemetrien til appene dine i TT02 (logger, sporing og målinger). Telemetrien ligger i Application Insights.
 
 ### Test Operations
 
@@ -21,7 +21,7 @@ Gir tilgang til å laste opp hemmeligheter i TT02, for eksempel sertifikater, pa
 
 ### Prod Developer
 
-Gir tilgang til loggene til appene dine i produksjon. Loggene ligger i Application Insights.
+Gir tilgang til telemetrien til appene dine i produksjon (logger, sporing og målinger). Telemetrien ligger i Application Insights.
 
 ### Prod Operations
 
