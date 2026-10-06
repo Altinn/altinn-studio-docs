@@ -64,19 +64,6 @@ Legg til følgende seksjoner dersom de er relevante:
 | `openByDefault`              | boolean  | Åpent eller stengt modus på accordion fra start                                              |
 | `headingLevel`               | integer  | Størrelse på header. Standard er `"2"`. **Enum:** `"2" \| "3" \| "4" \| "5" \| "6"`          |
 
-<!-- Følgende er en liste over tilgjengelige egenskaper for {{% title %}}. Listen er automatisk generert basert på komponentens JSON schema (se link).
-
-{{% notice warning %}}
-Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over egenskaper kan derfor være noe unøyaktig.
-{{% /notice %}}
-
-<!-- Shortkoden `component-props` genererer automatisk en liste over komponentegenskaper fra komponentens JSON schema.
-Komponentnavnet kan gis eksplisitt som argument (f.eks. `component-props "Grid"`).
-Hvis ingen argument gis, henter shortkoden komponentnavnet fra 'schemaname' i frontmatter.
-
-{{% component-props %}}
--->
-
 ## Konfigurering
 
 ### Legg til komponent

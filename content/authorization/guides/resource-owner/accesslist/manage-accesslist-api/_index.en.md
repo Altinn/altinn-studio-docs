@@ -16,8 +16,8 @@ In Altinn 3, this functionality is handled by the Resource Rights Registry (RRR)
 
 You need a client defined in Maskinporten with the following scopes:
 
-- altinn:resourceregistry/access-list.read
-- altinn:resourceregistry/access-list.write
+- altinn:resourceregistry/accesslist.read
+- altinn:resourceregistry/accesslist.write
 - altinn:resourceregistry/resource.write
 
 See the [full Swagger documentation](https://docs.altinn.studio/api/resourceregistry/spec/#/).

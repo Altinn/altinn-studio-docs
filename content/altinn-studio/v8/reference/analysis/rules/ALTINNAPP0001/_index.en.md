@@ -1,15 +1,14 @@
 ---
-title: "ALTINNAPP0001: Altinn-appprosjektet ble ikke funnet"
-tags: [needstranslation]
-description: "Analysen fant ikke prosjektkatalogen og ble ikke kjørt"
+title: "ALTINNAPP0001: Altinn app project not found"
+description: "The analysis could not find the project directory and did not run"
 weight: 1
 ---
 
-Denne diagnostikken meldes når analysen starter, men ikke finner katalogen til
-appprosjektet. Analysen kjører da ikke, og de øvrige reglene sier ingenting om appen —
-fraværet av andre advarsler betyr i dette tilfellet ikke at alt er i orden.
+This diagnostic is reported when the analysis starts but cannot find the directory of the app
+project. The analysis then does not run, and the other rules say nothing about the app — in this
+case, the absence of other warnings does not mean that everything is fine.
 
-Kategori `General`, alvorlighetsgrad **advarsel**.
+Category `General`, severity **warning**.
 
-Meldingen ber deg kontakte support. Det er riktig respons: dette er ikke noe som rettes i
-appkoden.
+The message asks you to contact support. That is the right response: this is not something you
+fix in the app code.

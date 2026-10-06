@@ -118,7 +118,7 @@ Dynamiske uttrykk er tilgjengelig for bruk i disse egenskapene:
 | [Kodelistebaserte komponenter](/nb/altinn-studio/v9/develop-a-service/look-and-feel/options/functionality/filtering/)                     | `optionFilter`                | Streng       | ✅       | ❌      |
 | Alle                                                                                                            | `textResourceBindings.[*]` \* | Streng       | ✅       | ❌      |
 
-\* = Hvilke verdier du kan overstyre med textResourceBindings, varierer fra komponent til komponent, men fungerer på alle steder der det brukes. TextResourceBindings for repeterende grupper finner du [mer informasjon om her](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/repeatinggroup#text-resource-bindings-textresourcebindings)
+\* = Hvilke verdier du kan overstyre med textResourceBindings, varierer fra komponent til komponent, men fungerer på alle steder der det brukes. TextResourceBindings for repeterende grupper finner du [mer informasjon om her](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/repeatinggroup#properties)
 
 
 ## Testing, feilsøking og utvikling av uttrykk
@@ -216,4 +216,3 @@ Hva blir resultatet i de forskjellige eksemplene? Her er svarene:
 3. I siste eksempel har vi spesifisert andre rad i den repeterende gruppen ved å evaluere i kontekst av `navn-1`. Her finner vi den nærmeste `alder`-komponenten `alder-1`, som er _36_, Karis alder.
 
 {{% /expandlarge %}}
-
