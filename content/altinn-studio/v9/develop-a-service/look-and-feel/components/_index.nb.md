@@ -69,13 +69,13 @@ Komponenter for datainnsamling.
 
 Komponenter for å vise tekst og informasjon.
 
-### Tittel (`Header`)
+### Tittel (`Heading`)
 
-`Header` brukes til å strukturere innhold og skape hierarki på siden.
+`Heading` brukes til å strukturere innhold og skape hierarki på siden.
 
-![Header](./Header.png)
+![Heading](./Heading.png)
 
-[Detaljer om komponenten](./Header)
+[Detaljer om komponenten](./Heading)
 
 ---
 
@@ -508,6 +508,8 @@ Spesialiserte komponenter for avanserte bruksområder.
 
 ### Tabell for underskjema (`Subform`)
 
-[Detaljer om komponenten]()
+`Subform` viser oppføringene i et underskjema som en tabell i hovedskjemaet. Brukeren kan legge til, endre og slette oppføringer. [Slik setter du opp et underskjema]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/subform" >}}).
+
+[Detaljer om komponenten](./Subform.md)
 
 ---
