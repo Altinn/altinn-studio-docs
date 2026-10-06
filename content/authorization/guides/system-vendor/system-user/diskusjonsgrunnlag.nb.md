@@ -16,6 +16,8 @@ Diskusjonsgrunnlag · Oppdatert 6. oktober 2026
 
 **Målet:** Lande hvordan vi støtter vedtatte behov, og hva vi må avklare før implementering.
 
+[Åpne beslutningstreet over valgene](../beslutningstre/)
+
 ---
 ## Behovet for endring
 
