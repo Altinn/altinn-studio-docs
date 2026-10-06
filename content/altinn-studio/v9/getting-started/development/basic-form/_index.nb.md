@@ -94,7 +94,7 @@ Vi skal starte med å lage en informasjonsside, som skal inneholde bilde og teks
 1. Klikk på "Utforming" i toppmenyen.
 2. Klikk på "Utform" på kortet for oppgaven "Task_1" for å utforme første del av skjemaet.
 
-#### Om utformings-siden
+#### Om Utforming-siden
 Utforming er satt opp med tre kolonner:
 - Selve skjema-oppsettet, der du legger inn sider og komponenter.
 - Konfigurasjonskolonnen, der du kan konfigurere valgt side/komponent.
@@ -190,7 +190,7 @@ Når du er ferdig med datamodellen, klikk på "Generer modeller" for å lage all
 
 Nå skal du bygge opp skjemaet. Dette er veldig likt det du gjorde for infosiden.
 
-Naviger til "Utforming" i toppmenyen, og klikk på "Utform" på kortet for oppgaven "Task_1".
+Gå til "Utforming" i toppmenyen, og klikk på "Utform" på kortet for oppgaven "Task_1".
 
 #### Lag en ny side
 1. Klikk på "Legg til side".

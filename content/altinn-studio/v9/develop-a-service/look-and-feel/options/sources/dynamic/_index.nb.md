@@ -184,7 +184,7 @@ I eksempelet over vil systemet alltid sende parameteret `loyvetype=garanti` med 
 
 Flere eksempler på uttrykk finner du i [dokumentasjonen for dynamikk]({{< relref "../../../dynamics" >}}), og den fullstendige oversikten over tilgjengelige funksjoner finner du i [referanseoversikten over uttrykk]({{< relref "/altinn-studio/v9/develop-a-service/expressions/reference" >}}).
 
-Når en verdi i datamodellen som et uttrykk viser til endrer seg, henter appen kodelisten på nytt. På denne måten kan du dynamisk styre hvilke valg systemet viser basert på informasjon gitt av sluttbrukeren.
+Når en verdi i datamodellen som et uttrykk viser til endrer seg, henter appen kodelisten på nytt. På denne måten kan du dynamisk styre hvilke valg systemet viser, ut fra den informasjonen sluttbrukeren gir.
 
 Når komponenten ligger i en repeterende gruppe, trenger du ikke å oppgi indeksen til raden i uttrykket. Uttrykket finner selv riktig rad, også i nøstede repeterende grupper:
 

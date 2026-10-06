@@ -24,7 +24,7 @@ Legg til følgende linje i `App/config/applicationmetadata.json`:
 ```
 
 {{% notice info %}}
-Her forteller vi appen hvilken mappe under `App/ui` den skal vise sidene fra, i stedet for å starte en prosessflyt. I denne guiden kaller vi mappen `stateless`. Du lager mappen i steg 2.
+Her forteller du appen hvilken mappe under `App/ui` den skal vise sidene fra, i stedet for å starte en prosessflyt. I denne veiledningen kaller du mappen `stateless`. Du lager mappen i steg 2.
 {{% /notice %}}
 
 Eksempel på konfigurasjon:

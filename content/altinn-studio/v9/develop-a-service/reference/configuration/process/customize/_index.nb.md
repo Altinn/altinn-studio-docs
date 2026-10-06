@@ -11,7 +11,7 @@ En applikasjon har en prosess som brukeren følger. Avhengig av hvilken type ste
 
 ## Data (tilsvarer utfyllingssteg i Altinn II)
 
-I denne oppgavetypen viser applikasjonen et skjema som kan fylles ut. Du kan redigere skjemaet i Altinn Studio Designer eller ved å endre layoutfilene i `App/ui/{oppgave-ID}/layouts/` direkte.
+I denne oppgavetypen viser appen et skjema som kan fylles ut. Du kan redigere skjemaet i Altinn Studio Designer eller ved å endre layoutfilene i `App/ui/{oppgave-ID}/layouts/` direkte.
 
 ## Bekreftelse
 

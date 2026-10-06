@@ -434,7 +434,7 @@ Når brukeren velger å starte en instans, henter app-frontend ut feltene `some.
 
 Hvis nøklene i `queryParameters` er stier til felt i datamodellen til innsendingsdelen, for eksempel `"Sender.Name"`, fyller appen ut feltene automatisk når instansen starter. Da trenger du ikke å skrive kode.
 
-Hvis du trenger mer kontroll, kan du bruke prefill-verdiene i metoden `DataCreation` i en klasse som implementerer `IInstantiationProcessor`. Der fyller du ut feltene du trenger i datamodellen til innsendingsdelen av appen. Eksempel:
+Hvis du trenger mer kontroll, kan du bruke verdiene for forhåndsutfylling i metoden `DataCreation` i en klasse som implementerer `IInstantiationProcessor`. Der fyller du ut feltene du trenger i datamodellen til innsendingsdelen av appen. Eksempel:
 
 ```c#
 using Altinn.App.Core.Features;

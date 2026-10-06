@@ -49,7 +49,7 @@ Du kan legge til ulike nøkler i textResourceBindings:
 
 - `title` - Setter tittelen på gruppen. Hvis du ikke setter denne, vises komponentene i gruppen som om de ikke var en del av en gruppe (uten tittel over)
 - `description` - Setter en beskrivelsestekst. Denne vises under tittelen, og over komponentene i gruppen.
-- `help` - Setter en hjelpetekst som vises når brukeren klikker på hjelpeknappen.
+- `help` - Setter en hjelpetekst som vises når brukeren klikker på spørsmålstegnet (hjelpeikonet).
 
 ## Visuell gruppering av komponenter
 
