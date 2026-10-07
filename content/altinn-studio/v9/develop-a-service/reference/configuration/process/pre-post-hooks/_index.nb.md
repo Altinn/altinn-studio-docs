@@ -2,14 +2,14 @@
 draft: true
 title: Definere egne prosess-hooks
 linktitle: Prosess-hooks
-description: Slik skriver du kode som skal kjøres når en oppgave starter, avsluttes eller avbrytes, eller når hele prosessen avsluttes.
+description: Slik skriver du kode som skal kjøres når en oppgave starter, avsluttes eller avbrytes, og når hele prosessen avsluttes.
 toc: true
 tags: [needsReview]
 ---
 
-Du kan skrive egendefinert kode som kjøres når en oppgave i prosessen starter, avsluttes eller avbrytes, eller når hele prosessen er ferdig. De tre oppgave-hookene avgjør selv hvilken oppgave de gjelder for, og bare én hook av hver type kan gjelde for samme oppgave. Hooken som kjører når hele prosessen avsluttes, gjelder alltid for hele instansen, og du kan bare registrere én av dem.
+Du kan skrive egendefinert kode som kjøres når en oppgave i prosessen starter, avsluttes eller avbrytes, og når hele prosessen avsluttes, enten før eller etter at avslutningen er lagret. De tre oppgave-hookene avgjør selv hvilken oppgave de gjelder for, og bare én hook av hver type kan gjelde for samme oppgave. De to hookene for slutten av prosessen gjelder alltid for hele instansen, og du kan bare registrere én av hver.
 
-Alle fire hookene kjører som et steg i arbeidsflytmotoren. Hvis det oppstår feil, kan hooken bli forsøkt kjørt på nytt automatisk, så koden din må være idempotent. Det vil si at den må tåle å kjøre flere ganger uten at det gir uønskede dobbeltoppføringer.
+Alle fem hookene kjører som et steg i arbeidsflytmotoren. Hvis det oppstår feil, kan hooken bli forsøkt kjørt på nytt automatisk, så koden din må være idempotent. Det vil si at den må tåle å kjøre flere ganger uten at det gir uønskede dobbeltoppføringer.
 
 ## Kjøre egendefinert kode når en oppgave starter
 
@@ -67,7 +67,7 @@ services.AddTransient<IOnTaskAbandonHandler, MyTaskAbandonHandler>();
 
 ## Kjøre egendefinert kode når hele prosessen avsluttes
 
-Opprett en klasse som implementerer `Altinn.App.Core.Features.Process.IOnProcessEndingHandler`, og registrer den som en transient tjeneste. Den kjører når prosessen når et `endEvent` i BPMN-modellen — altså for hele instansen, ikke for en enkelt oppgave.
+Opprett en klasse som implementerer `Altinn.App.Core.Features.Process.IOnProcessEndingHandler`, og registrer den som en transient tjeneste. Den kjører når prosessen når et `endEvent` i BPMN-modellen — altså for hele instansen, ikke for en enkelt oppgave. Hooken kjører før avslutningen er lagret, så feiler den, blir prosessen ikke avsluttet.
 
 ```csharp
 public class MyProcessEndHandler : IOnProcessEndingHandler
@@ -89,9 +89,37 @@ I motsetning til de tre oppgave-hookene over har `IOnProcessEndingHandler` ingen
 
 [Se grensesnittet IOnProcessEndingHandler på GitHub](https://github.com/Altinn/altinn-studio/blob/main/src/App/backend/src/Altinn.App.Core/Features/Process/IOnProcessEndingHandler.cs)
 
+## Kjøre egendefinert kode etter at prosessen er avsluttet
+
+Opprett en klasse som implementerer `Altinn.App.Core.Features.Process.IOnProcessEndedHandler`, og registrer den som en transient tjeneste. Den kjører etter at den avsluttede prosessen er lagret, og før datatyper med `autoDeleteOnProcessEnd` blir slettet og instansen er ferdig behandlet. Bruk den når koden skal kjøre først når avslutningen er lagret, for eksempel for å varsle et eksternt system.
+
+```csharp
+public class MyProcessEndedHandler : IOnProcessEndedHandler
+{
+    public async Task<HookResult> Execute(OnProcessEndedContext context)
+    {
+        // Egendefinert logikk her, f.eks. context.InstanceDataMutator
+
+        return HookResult.Success();
+    }
+}
+```
+
+```csharp
+services.AddTransient<IOnProcessEndedHandler, MyProcessEndedHandler>();
+```
+
+Hooken fungerer som `IOnProcessEndingHandler`: den gjelder hele prosessen, du kan bare registrere én implementasjon, og `Execute` kan lese og endre instansdata gjennom `context.InstanceDataMutator`. Forskjellen er hva som skjer når den feiler. Prosessen er da allerede avsluttet, men instansen blir værende under behandling til noen starter arbeidsflyten på nytt.
+
+[Se grensesnittet IOnProcessEndedHandler på GitHub](https://github.com/Altinn/altinn-studio/blob/main/src/App/backend/src/Altinn.App.Core/Features/Process/IOnProcessEndedHandler.cs)
+
+{{% notice info %}}
+`IProcessEnd` fra v8 finnes ikke i v9. Flytt koden til `IOnProcessEndedHandler`, eller til `IOnProcessEndingHandler` hvis den skal kjøre før avslutningen er lagret. `studioctl app upgrade v9` viser hvilke klasser og registreringer du må flytte.
+{{% /notice %}}
+
 ## Overstyre tidsavbrudd og gjenforsøksstrategi
 
-Alle fire hook-typene implementerer `IProcessStepConfigurable`, som gjør at du kan velge å overstyre arbeidsflytmotorens standard tidsavbrudd og gjenforsøksstrategi for steget, med egenskapen `StepOptions`.
+Alle fem hook-typene implementerer `IProcessStepConfigurable`, som gjør at du kan velge å overstyre arbeidsflytmotorens standard tidsavbrudd og gjenforsøksstrategi for steget, med egenskapen `StepOptions`.
 
 Setter du ikke `StepOptions`, bruker hooken standardverdiene i plattformen. De kan avvike mellom miljøene:
 
