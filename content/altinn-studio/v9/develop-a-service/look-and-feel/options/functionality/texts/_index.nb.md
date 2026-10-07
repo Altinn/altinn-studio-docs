@@ -82,7 +82,7 @@ Legg merke til at egenskapene `label`, `description` og `helpText` også kan væ
     "label": "checkboxes.label",
     "description": "checkboxes.description",
     "helpText": [
-      "if", ["equals", ["dataModel.someField"], "someValue"],
+      "if", ["equals", ["dataModel", "some.group.someField"], "someValue"],
         "checkboxes.helpText1",
       "else",
         "checkboxes.helpText2"

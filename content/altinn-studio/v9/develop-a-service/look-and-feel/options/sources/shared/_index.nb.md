@@ -13,7 +13,7 @@ aliases:
 ## Hva er felles standard kodelister?
 Felles standard kodelister er lister som land, fylker, kommuner, kjønn, sivilstatus etc som du kan bruke i applikasjonen din uten at du selv trenger å vedlikeholde disse kodelistene.
 
-Kodelistene er laget som en egen [nuget-pakke](https://www.nuget.org/packages/Altinn.Codelists) som du kan importere inn i applikasjonen din. Dette er gjort for å holde kjernen i en Altinn 3-applikasjon så liten som mulig og for å kunne publisere nye utgaver og ta i bruk nye kodelister uten å være avhengig av å måtte oppgradere applikasjonen (utover versjon 7.8.0).
+Kodelistene er laget som en egen [nuget-pakke](https://www.nuget.org/packages/Altinn.Codelists) som du kan importere til applikasjonen din. Dette er gjort for å holde kjernen i en Altinn 3-applikasjon så liten som mulig, og for å kunne publisere nye utgaver og ta i bruk nye kodelister uten å være avhengig av å måtte oppgradere applikasjonen.
 
 ## Tilgjengelige kodelister
 
@@ -45,18 +45,22 @@ Følgende kodelister er tilgjengelige fra ulike kilder:
 ## Slik legger du til felles standard kodelister i applikasjonen
 ### 1. Legg til referanse til [Altinn.Codelists NuGet-pakken](https://www.nuget.org/packages/Altinn.Codelists)
    
+{{% notice warning %}}
+Apper på v9 må bruke versjon 9 av Altinn.Codelists, som bygger på versjon 9 av Altinn-pakkene (`Altinn.App.Core`). Apper på v8 skal bruke versjon 8. Oppgraderingen til v9 oppdaterer ikke Altinn.Codelists, så du må oppdatere pakken selv.
+{{% /notice %}}
+
 Åpne kommandolinjen til repoet for applikasjonen din og naviger til App-mappen der App.csproj-filen ligger, og kjør følgende kommando:
 
 ```shell
-dotnet add package Altinn.Codelists
+dotnet add package Altinn.Codelists --version 9.0.0-preview.1
 ```
-Dette vil legge til den nyeste stabile versjonen av pakken i løsningen din.
 
-Som et alternativ kan du redigere applikasjonens App.csproj-fil direkte ved å legge til referansen nedenfor i `<itemgroup>` der du har pakke-referanser:
+Du må oppgi versjonen, fordi kommandoen ellers henter den nyeste stabile versjonen, som foreløpig er versjon 8. Se [Altinn.Codelists på NuGet](https://www.nuget.org/packages/Altinn.Codelists) for den nyeste versjonen av 9.
+
+Som et alternativ kan du redigere applikasjonens App.csproj-fil direkte ved å legge til referansen nedenfor i `<ItemGroup>` der du har pakkereferanser:
 ```xml
-<PackageReference Include="Altinn.Codelists" Version="8.0.1" />
+<PackageReference Include="Altinn.Codelists" Version="9.0.0-preview.1" />
 ```
-Merk at du da må angi versjonen du ønsker eksplisitt. Se lenken i trinn én for tilgjengelige versjoner.
 
 ### 2. Registrer kodelistene i appens DI-kontainer
 

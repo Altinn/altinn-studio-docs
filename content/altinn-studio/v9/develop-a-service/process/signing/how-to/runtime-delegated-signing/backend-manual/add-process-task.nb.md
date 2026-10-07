@@ -43,7 +43,7 @@ Et signeringssteg kan se omtrent slik ut:
 
         <!-- Denne ID-en angir hvilken implementasjon av C# interface-et -->
         <!-- ISigneeProvider som skal benyttes for dette signeringssteget. -->
-        <altinn:signeeProviderId>signees</altinn:signeeProviderId>
+        <altinn:signeeProviderId>founders</altinn:signeeProviderId>
 
         <!-- Her oppgis en meldingsressurs, som brukes for å si fra til de som skal signere -->
         <!-- om at de må inn og signere, samt signeringskvittering. Påkrevd. -->

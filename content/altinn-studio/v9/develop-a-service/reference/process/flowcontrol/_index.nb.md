@@ -29,7 +29,7 @@ Eksempel:
 ...
 <bpmn:exclusiveGateway id="Gateway_1">
     <bpmn:incoming>Flow_t1_g1</bpmn:incoming>
-    <bpmn:incoming>Flow_g1_t2</bpmn:incoming>
+    <bpmn:outgoing>Flow_g1_t2</bpmn:outgoing>
     <bpmn:outgoing>Flow_g1_end</bpmn:outgoing>
     <bpmn:extensionElements>
         <altinn:gatewayExtension>
@@ -45,7 +45,7 @@ I eksempelet ovenfor legger gatewayen til formdata som er lagret i datatype _Sch
 
 Når gatewayen er koblet til en datatype, kan du bruke uttrykkspråket for å definere om flytene ut av gatewayen er tilgjengelige.
 
-MERK: Bare én flyt må være tilgjengelig etter filtrering av flyter, med mindre det er en standardflyt som er en del av de mulige flytene ut av gatewayen.
+MERK: Nøyaktig én flyt må være gyldig etter at uttrykkene er evaluert. Hvis ingen eller flere flyter er gyldige, går ikke prosessen videre, og brukeren får en feil. En flyt uten uttrykk regnes alltid som gyldig.
 
 Nå må du definere disse uttrykkene i de utgående flytene fra gatewayen. I gateway-eksempelet har vi to utgående flyter: _Flow_g1_t2_ og _Flow_g1_end_
 
@@ -87,7 +87,7 @@ Hvis en applikasjonsprosess har et bekreftelsessteg kan du avvise dataene og sen
 </bpmn:task>
 <bpmn:exclusiveGateway id="Gateway_1">
     <bpmn:incoming>Flow_t2_g1</bpmn:incoming>
-    <bpmn:incoming>Flow_g1_t1</bpmn:incoming>
+    <bpmn:outgoing>Flow_g1_t1</bpmn:outgoing>
     <bpmn:outgoing>Flow_g1_end</bpmn:outgoing>
 </bpmn:exclusiveGateway>
 <bpmn:sequenceFlow id="Flow_g1_t1" sourceRef="Gateway_1" targetRef="Task_1" />
@@ -124,53 +124,9 @@ Hvis du ikke kan oppfylle kravene for gatewayen din gjennom uttrykk, kan du skri
 
 ### Eksempelprosess med eksklusive gateways
 
-{{<content-version-selector classes="border-box">}}
-
-{{<content-version-container version-label="v7">}}
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:altinn="http://altinn.no" id="Altinn_SingleDataTask_Process_Definition" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="10.2.0">
-  <bpmn:process id="SingleDataTask" isExecutable="false">
-    <bpmn:startEvent id="StartEvent_1">
-      <bpmn:outgoing>Flow_s_t1</bpmn:outgoing>
-    </bpmn:startEvent>
-    <bpmn:sequenceFlow id="Flow_s_t1" sourceRef="StartEvent_1" targetRef="Task_1" />
-    <bpmn:task id="Task_1" name="Utfylling" altinn:tasktype="data">
-      <bpmn:incoming>Flow_s_t1</bpmn:incoming>
-      <bpmn:outgoing>Flow_t1_g1</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:sequenceFlow id="Flow_t1_g1" sourceRef="Task_1" targetRef="Gateway_1" />
-    <bpmn:exclusiveGateway id="Gateway_1">
-      <bpmn:incoming>Flow_t1_g1</bpmn:incoming>
-      <bpmn:outgoing>Flow_g1_g2</bpmn:outgoing>
-      <bpmn:outgoing>Flow_g1_t2</bpmn:outgoing>
-    </bpmn:exclusiveGateway>
-    <bpmn:sequenceFlow id="Flow_g1_g2" sourceRef="Gateway_1" targetRef="Gateway_2" />
-    <bpmn:sequenceFlow id="Flow_g1_t2" sourceRef="Gateway_1" targetRef="Task_2" />
-    <bpmn:task id="Task_2" name="Bekreftelse" altinn:tasktype="confirmation">
-      <bpmn:incoming>Flow_g1_t2</bpmn:incoming>
-      <bpmn:outgoing>Flow_t2_g2</bpmn:outgoing>
-    </bpmn:task>
-    <bpmn:sequenceFlow id="Flow_t2_g2" sourceRef="Task_2" targetRef="Gateway_2" />
-    <bpmn:exclusiveGateway id="Gateway_2">
-      <bpmn:incoming>Flow_g1_g2</bpmn:incoming>
-      <bpmn:incoming>Flow_t2_g2</bpmn:incoming>
-      <bpmn:outgoing>Flow_g2_end</bpmn:outgoing>
-    </bpmn:exclusiveGateway>
-    <bpmn:sequenceFlow id="Flow_g2_end" sourceRef="Gateway_2" targetRef="EndEvent_1" />
-    <bpmn:endEvent id="EndEvent_1">
-      <bpmn:incoming>Flow_g2_end</bpmn:incoming>
-    </bpmn:endEvent>
-  </bpmn:process>
-  <!-- BPMN Diagram part is omitted for brevity -->
-</bpmn:definitions>
-```
-{{</content-version-container>}}
-
-{{<content-version-container version-label="v8">}}
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:altinn="http://altinn.no" id="Altinn_SingleDataTask_Process_Definition" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="10.2.0">
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:altinn="http://altinn.no/process" id="Altinn_SingleDataTask_Process_Definition" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="10.2.0">
   <bpmn:process id="SingleDataTask" isExecutable="false">
     <bpmn:startEvent id="StartEvent_1">
       <bpmn:outgoing>Flow_s_t1</bpmn:outgoing>
@@ -199,6 +155,9 @@ Hvis du ikke kan oppfylle kravene for gatewayen din gjennom uttrykk, kan du skri
       <bpmn:extensionElements>
         <altinn:taskExtension>
             <altinn:taskType>confirmation</altinn:taskType>
+            <altinn:actions>
+              <altinn:action>confirm</altinn:action>
+            </altinn:actions>
         </altinn:taskExtension>
       </bpmn:extensionElements>
     </bpmn:task>
@@ -217,8 +176,6 @@ Hvis du ikke kan oppfylle kravene for gatewayen din gjennom uttrykk, kan du skri
 </bpmn:definitions>
 ```
 
-{{</content-version-container>}}
-{{</content-version-selector>}}
 
 Visuell representasjon av BPMN-definisjonen
 

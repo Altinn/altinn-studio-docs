@@ -158,12 +158,6 @@ Kodeliste-endepunktet du lager støtter spørringsparametre. Systemet sender par
 
 Tenk deg et skjema med to `Dropdown`-komponenter som er knyttet sammen. Den første lar brukeren velge et fylke, og den andre lar brukeren velge en kommune. Kommunene som vises i den andre komponenten skal være filtrert basert på fylket som er valgt i den første komponenten. Du løser dette ved å sende med fylket som et spørringsparameter til kodelisten for kommuner.
 
-### Basert på uttrykk
-
-{{%notice info%}}
-Dynamiske parametre basert på uttrykk er tilgjengelig fra app-frontend versjon 4.9.0 eller høyere. Hvis appen din bruker den rullerende utgivelsen av hovedversjon 4, er dette allerede tilgjengelig.
-{{% /notice%}}
-
 Du kan legge til både statiske og dynamiske parametre ved å sette opp `queryParameters` på den aktuelle komponenten:
 
 ```json {hl_lines=["12-16"]}
@@ -190,40 +184,11 @@ I eksempelet over vil systemet alltid sende parameteret `loyvetype=garanti` med 
 
 Flere eksempler på uttrykk finner du i [dokumentasjonen for dynamikk]({{< relref "../../../dynamics" >}}), og den fullstendige oversikten over tilgjengelige funksjoner finner du i [referanseoversikten over uttrykk]({{< relref "/altinn-studio/v9/develop-a-service/expressions/reference" >}}).
 
-### Basert på datamodellen
+Når en verdi i datamodellen som et uttrykk viser til endrer seg, henter appen kodelisten på nytt. På denne måten kan du dynamisk styre hvilke valg systemet viser, ut fra den informasjonen sluttbrukeren gir.
 
-{{%notice warning%}}
-Vi fraråder denne tilnærmingen. Fra og med app-frontend versjon 4.9.0 kan du bruke `queryParameters`-egenskapen i stedet. Som beskrevet ovenfor, lar denne egenskapen deg legge til både statiske og dynamiske spørringsparametre ved hjelp av uttrykk - noe som gjør dem mer fleksible enn `mapping`.
-
-`mapping`-egenskapen blir fjernet på et tidspunkt, men når det skjer vil du få verktøy for å migrere eksisterende konfigurasjoner til å bruke `queryParameters` i stedet.
-{{% /notice%}}
-
-Du kan legge til dynamiske parametre ved å sette opp `mapping` på den aktuelle komponenten:
+Når komponenten ligger i en repeterende gruppe, trenger du ikke å oppgi indeksen til raden i uttrykket. Uttrykket finner selv riktig rad, også i nøstede repeterende grupper:
 
 ```json {hl_lines=["12-14"]}
-{
-  "id": "dropdown-komponent",
-  "type": "Dropdown",
-  "textResourceBindings": {
-    "title": "NyGarantiLoyvetype"
-  },
-  "dataModelBindings": {
-    "simpleBinding": "soknad.nyGaranti.loyvetype"
-  },
-  "required": true,
-  "optionsId": "loyvetyper",
-  "mapping": {
-    "soknad.transportorOrgnummer": "orgnummer"
-  }
-}
-```
-
-I eksempelet over sender systemet parameteren `orgnummer={nr}` med. `{nr}` er verdien på feltet `soknad.transportorOrgnummer`.
-Når du setter opp en kobling til et datafelt og dette feltet endrer seg, henter appen kodelisten på nytt. På denne måten kan du dynamisk styre hvilke valg systemet viser basert på informasjon gitt av sluttbrukeren.
-
-Når du sender med parametre fra repeterende grupper, legger du ved en indeks-indikator for de relevante gruppene. Eksempel:
-
-```json {hl_lines=[13]}
 {
   "id": "dropdown-group",
   "type": "Dropdown",
@@ -235,31 +200,15 @@ Når du sender med parametre fra repeterende grupper, legger du ved en indeks-in
   },
   "required": true,
   "optionsId": "cities",
-  "mapping": {
-    "Group[{0}].Country": "country"
+  "queryParameters": {
+    "country": ["dataModel", "Group.Country"]
   }
 }
 ```
 
-For nøstede repeterende grupper følger du det samme mønsteret, men med en ekstra indikator for den nøstede gruppa:
-
-```json {hl_lines=[13]}
-{
-  "id": "dropdown-nested-group",
-  "type": "Dropdown",
-  "textResourceBindings": {
-    "title": "Select city"
-  },
-  "dataModelBindings": {
-    "simpleBinding": "Group.SubGroup.City"
-  },
-  "required": true,
-  "optionsId": "cities",
-  "mapping": {
-    "Group[{0}].SubGroup[{1}].Country": "country"
-  }
-}
-```
+{{%notice info%}}
+Egenskapen `mapping` er fjernet i v9. Når du oppgraderer en app til v9, skriver oppgraderingen om `mapping` til `queryParameters` for deg. Hvis oppgraderingen ikke klarer det, for eksempel fordi komponenten allerede har en parameter med samme navn, får du beskjed om å gjøre det selv.
+{{% /notice%}}
 
 For et komplett eksempel kan du se vår [demo app.](https://altinn.studio/repos/ttd/dynamic-options-rep)
 

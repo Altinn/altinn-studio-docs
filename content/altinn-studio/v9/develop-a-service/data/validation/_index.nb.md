@@ -557,84 +557,18 @@ Du kan også overstyre tittelen på meldingene ved å legge til nøklene `soft_v
 Du kan kjøre valideringer på en repeterende gruppe når brukeren lagrer en rad.
 Hvis det er valideringsfeil i raden, kan ikke brukeren lukke raden før feilene er fikset.
 
-{{< content-version-selector classes="border-box" >}}
-{{< content-version-container version-label="v4 (App Frontend)" >}}
-
 ```json {hl_lines=[7]}
 {
   "id": "demo-gruppe",
-  "type": "Group",
+  "type": "RepeatingGroup",
   "children": [...],
   "maxCount": 9,
   "dataModelBindings": {...},
-  "validateOnSaveRow": ["All"],
+  "validateOnSaveRow": ["All"]
 }
 ```
 
 `validateOnSaveRow` inneholder et sett med valideringstyper som skal sjekkes:
-`Schema`, `Component`, `Expression`, `CustomBackend`, `Required`, `AllExceptRequired` eller `All`.
-
-{{< /content-version-container >}}
-{{< content-version-container version-label="v3 (App Frontend)" >}}
-
-```json {hl_lines=[7]}
-{
-  "id": "demo-gruppe",
-  "type": "Group",
-  "children": [...],
-  "maxCount": 9,
-  "dataModelBindings": {...},
-  "triggers": ["validateRow"]
-}
-```
-
-Hvis du legger til validering på gruppe-komponenten, går det også et kall mot valideringen i backend med en header som spesifiserer hvilken komponent som trigget valideringen: `ComponentId`.
-I tillegg er radindeksen for raden som blir lagret tilgjengelig i headeren `RowIndex`. Hvis gruppen er en nøstet gruppe, er verdien en kommaseparert liste med indekser, ellers er indeksen ett enkelt tall.
-Du skriver valideringer i C#, i `ValidationHandler.cs`-filen i applikasjonsmalen. I valideringen kan du så hente ut komponent-ID-en og skreddersy eventuelle valideringer som skal gjøres i backend, eksempel:
-
-```cs
-public async Task ValidateData(object data, ModelStateDictionary validationResults)
-{
-    if (data is flyttemelding model)
-    {
-        _httpContextAccessor.HttpContext
-            .Request.Headers
-            .TryGetValue("ComponentId", out StringValues compIdValues);
-
-        _httpContextAccessor.HttpContext
-            .Request.Headers
-            .TryGetValue("RowIndex", out StringValues rowIndexValues);
-
-        string componentId = compIdValues.FirstOrDefault(string.Empty);
-
-        switch (componentId)
-        {
-            case "top-level-group":
-                // kjør valideringer spesifikke til gruppen
-
-                // Hent rad-indeksen for en ikke-nøstet gruppe
-                int rowIndex = int
-                    .Parse(rowIndexValues.FirstOrDefault(string.Empty));
-
-                break;
-              case "nested-group":
-                // Hent alle rad-indekser for en nøstet gruppe
-                int[] rowIndices = rowIndexValues
-                    .FirstOrDefault(string.Empty)
-                    .Split(",", StringSplitOptions.RemoveEmptyEntries)
-                    .Select(s => int.Parse(s))
-                    .ToArray();
-
-                break;
-            default:
-                // kjør valideringene i sin helhet
-                break;
-        }
-    }
-}
-```
-
-{{< /content-version-container >}}
-{{< /content-version-selector >}}
+`Schema`, `Invalid`, `Component`, `Expression`, `CustomBackend`, `Required`, `AllExceptRequired` eller `All`.
 
 For tips til hvordan du løser komplekse valideringer, se eksemplene under [enkeltfeltvalidering](#enkeltfeltvalidering).
