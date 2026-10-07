@@ -37,7 +37,7 @@ public class EmailOnStart(ILogger<EmailOnStart> logger, IEmailNotificationClient
         var order = new EmailNotification
         {
             Subject = "Skjema startet",
-            Body = "Du har startet innfylling av skjema",
+            Body = "Du har begynt å fylle ut skjemaet",
             SendersReference = "<min-skjema-ref>",
             Recipients = [new("navn.navnesen@epost.no")],
         };
