@@ -7,10 +7,6 @@ toc: false
 tags: [needsReview]
 ---
 
-{{% notice info %}}
-Bruk versjon 9 eller nyere av Altinn.FileAnalyzers-pakken. Versjon 8 av pakken virker bare med v8-apper.
-{{% /notice %}}
-
 {{% notice warning %}}
 Ved å aktivere denne funksjonen endrer du formatet på svaret i HTTP-responsen fra streng til JSON. Du får fremdeles samme HTTP-statuskode, men kroppen inneholder en rekke JSON-objekter som beskriver feilen.
 {{% /notice %}}
