@@ -1,15 +1,15 @@
 ---
 draft: true
-title: Hva kan du lage med Altinn Studio
+title: Hva kan du lage med Altinn Studio?
 description: En oversikt over de ulike bruksområdene for apper utviklet med Altinn Studio
 weight: 30
-tags: [needsReview]
+tags: [Reviewed]
 ---
 
-Med Altinn Studio kan du lage mange ulike typer digitale tjenester. Her er en oversikt over hovedkategoriene, som kan brukes hver for seg eller kombineres:
+Med Altinn Studio kan du lage mange ulike typer digitale tjenester. Her er en oversikt over hovedkategoriene. Du kan bruke dem hver for seg eller kombinere dem:
 
 ## 1. Skjematjenester
-Det klassiske: brukere fyller inn og sender inn data på vegne av seg selv, andre personer eller sin bedrift. Disse tjenestene støtter:
+Det klassiske: brukerne fyller ut og sender inn data på vegne av seg selv, andre personer eller bedriften sin. Disse tjenestene støtter:
 - Strukturert datainnsamling
 - Automatisk validering og kontroll
 - Forhåndsutfylte data fra offentlige registre
@@ -37,18 +37,18 @@ Tjenester som gir brukere tilgang til eksisterende data uten at de trenger å se
 
 ## 3. Veiledningstjenester
 Interaktive tjenester som veileder brukeren gjennom prosesser for å gi skreddersydde svar eller anbefalinger. Disse tjenestene kan:
-- Fungere uten pålogging for allmenne spørsmål
-- Gi tilpassede svar basert på brukerens situasjon
+- Fungere uten innlogging for allmenne spørsmål
+- Gi tilpassede svar ut fra situasjonen til brukeren
 - Lede brukeren til riktige tjenester eller ressurser
 - Forenkle komplekse regelverk
 
 **Eksempler på veiledningstjenester:**
 - Veiviser for byggesøknader
-- Guide for valg av riktig søknadsskjema
+- Veiviser for valg av riktig søknadsskjema
 - Kalkulator for beregning av avgifter eller støtteordninger
 
 ## 4. Betalingstjenester
-Apper som inkluderer betalingsfunksjonalitet for gebyrer, avgifter eller andre offentlige tjenester:
+Apper med betaling av gebyrer, avgifter eller andre offentlige tjenester:
 - Integrert betalingsløsning
 - Automatisk beregning av beløp
 - Kvittering og dokumentasjon
@@ -68,7 +68,7 @@ Tjenester som krever elektronisk signatur for juridisk gyldige dokumenter:
 
 **Eksempler på signeringstjenester:**
 - Signering av årsregnskap
-- Underskrift på søknader med flere parter
+- Signering av søknader med flere parter
 - Godkjenning av juridiske avtaler
 
 ## 6. Sammenhengende tjenester
@@ -85,9 +85,9 @@ Komplekse tjenester som består av flere skjemaer, delprosesser og involverer fl
 
 ## 7. API-baserte tjenester
 Tjenester som tilbyr både brukergrensesnitt og programmatisk tilgang:
-- REST API for maskin-til-maskin-kommunikasjon
+- REST-API for maskin-til-maskin-kommunikasjon
 - Støtte for store datamengder
-- Samme datamodell og valideringer som webgrensesnitt
+- Samme datamodell og valideringer som i webgrensesnittet
 - Automatisert dataoverføring
 
 **Eksempler på API-baserte tjenester:**
@@ -100,28 +100,28 @@ Apper som samler inn data for statistikk og analyse:
 - Periodiske rapporter
 - Datainnsamling for forskning
 - Kvalitetssikring og oppfølging
-- Dashboards og visualiseringer
+- Dashbord og visualiseringer
 
 **Eksempler på rapporterings- og analysetjenester:**
 - Innrapportering av miljødata
-- Statistikkskjemaer for næringsliv
+- Statistikkskjemaer for næringslivet
 - Periodiske rapporter om virksomhetsaktivitet
 
-## 9. Skreddersydde applikasjoner
-Siden hver Altinn Studio-app er en fullverdig ASP.NET Core-applikasjon, kan den tilpasses for spesielle behov:
+## 9. Skreddersydde apper
+Siden hver Altinn Studio-app er en fullverdig ASP.NET Core-app, kan du tilpasse den til spesielle behov:
 - Integrasjoner med organisasjonens egne systemer
 - Spesialtilpasset brukergrensesnitt
 - Avansert forretningslogikk
 - Tilkobling til eksterne databaser og tjenester
 
-**Eksempler på skreddersydde applikasjoner:**
+**Eksempler på skreddersydde apper:**
 - Portal med sanntidsdata fra eksterne kilder
 - Komplekse kalkulatorer med spesialtilpasset logikk
 - Tjenester med avansert tilgangsstyring og rollebasert funksjonalitet
 
 ## Tekniske muligheter
 
-Alle disse bruksområdene drar nytte av Altinn Studios innebygde funksjoner:
+I alle disse bruksområdene får du de innebygde funksjonene i Altinn Studio:
 - **Tilgjengelighet**: WCAG- og ELMER 3-standarder
 - **Sikkerhet**: Integrert med ID-porten og Maskinporten
 - **Integrasjoner**: eFormidling, nasjonale registre, data.altinn.no
