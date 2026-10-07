@@ -81,13 +81,12 @@ Det er også mulig å vise en oppsummering av et helt layoutSet. I dette tilfell
         "id": "MySummary2ID",
         "type": "Summary2",
         "target": {
-          "type": "layoutSet",
-          "id": "MyLayoutSet"
+          "type": "layoutSet"
         }
 }
 ```
 
-I dette tilfellet må du ha et layoutSet kalt ```MyLayoutSet``` i prosjektet ditt. Dette vil vise en oppsummering av alle sidene og komponentene i  layoutSet-et du peker på.
+Dette vil vise en oppsummering av alle sidene og komponentene i layoutSet-et til gjeldende oppgave. Vil du vise layoutSet-et til en annen oppgave, spesifiserer du ```target.taskId```.
 
 ### Vise oppsummeringer av tidligere oppgaver
 

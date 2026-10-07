@@ -81,14 +81,12 @@ It is also possible to render a summary of an entire layoutSet. In this case, yo
         "id": "MySummary2ID",
         "type": "Summary2",
         "target": {
-          "type": "layoutSet",
-          "id": "MyLayoutSet"
+          "type": "layoutSet"
         }
 }
 ```
 
-In this case, you would have a layoutSet called ```MyLayoutSet``` in your project.
-This would render a summary of all the pages and components in the layoutSet.
+This will render a summary of all the pages and components in the layoutSet belonging to the current task. If you want to render the layoutSet belonging to a different task, specify ```target.taskId```.
 
 ### Rendering summaries of previous tasks
 
