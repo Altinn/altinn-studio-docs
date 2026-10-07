@@ -76,19 +76,47 @@ Bruk `UseMaskinportenAuthorization` mot API-er som tar imot Maskinporten-token d
 
 Trenger du tokenet til noe annet enn en HTTP-klient, kan du bruke `IMaskinportenClient` fra [dependency injection](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection) direkte i tjenesten din.
 
-{{< highlight csharp "linenos=false,hl_lines=7-8" >}}
-public class Eksempel(IMaskinportenClient maskinporten)
-  : IProcessTaskEnd
+Eksempelet under henter tokenene når appen avslutter oppgaven `Task_1`, i en [prosess-hook](/nb/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks/) som implementerer `IOnTaskEndingHandler`.
+
+{{< code-title >}}
+App/logic/HentTokenVedOppgaveslutt.cs
+{{< /code-title >}}
+
+{{< highlight csharp "linenos=false,hl_lines=8-11" >}}
+public class HentTokenVedOppgaveslutt(IMaskinportenClient maskinporten)
+  : IOnTaskEndingHandler
 {
-  public async Task End(string taskId, Instance instance)
+  public bool ShouldRunForTask(string taskId) => taskId == "Task_1";
+
+  public async Task<HookResult> Execute(OnTaskEndingContext context)
   {
     string[] scopes = ["scope1", "scope2"];
-    var token = await maskinporten.GetAccessToken(scopes);
+    var token = await maskinporten.GetAccessToken(scopes, context.CancellationToken);
     var altinnToken = await maskinporten
-      .GetAltinnExchangedToken(scopes);
+      .GetAltinnExchangedToken(scopes, context.CancellationToken);
 
     // ...
+
+    return HookResult.Success();
   }
+}
+{{< / highlight >}}
+
+Registrer hooken i `Program.cs`:
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
+{{< highlight csharp "linenos=false,hl_lines=8" >}}
+void RegisterCustomAppServices(
+  IServiceCollection services,
+  IConfiguration config,
+  IWebHostEnvironment env
+)
+{
+  // ...
+  services.AddTransient<IOnTaskEndingHandler, HentTokenVedOppgaveslutt>();
 }
 {{< / highlight >}}
 
