@@ -17,13 +17,13 @@ Click the app you want to open.
 
 If you want to go to the repository for the app whilst working in the designer, you can go to the three dots at the top right and select **Repositorium**.
 
-![The three-dots menu in Designer](designer-profile-menu.png "Link to the repository")
+![The three-dots menu in Designer](./designer-three-dots-menu.png "Link to the repository")
 
 ## Edit an App
 
 Use the top menu to build and modify your app. In the top menu, you select the areas of the app you want to work on.
 
-![The top menu in Altinn Studio Designer](nav-menus.png "The top menu in Altinn Studio Designer")
+![The top menu in Altinn Studio Designer](./nav-menus.png "The top menu in Altinn Studio Designer")
 
 - **Hjem**: Here you get an overview of your app. You can see which environments the app is published in, and recent activity. From here you can also go directly to the other tools in Designer, and find help and news.
 - **Utforming**: Here you choose which components you want to include, for example in a form you are creating. You set up, amongst other things, the order and criteria for how the fields in the form should be displayed and behave for end users.

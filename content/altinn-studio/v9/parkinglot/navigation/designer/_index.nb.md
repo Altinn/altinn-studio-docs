@@ -16,13 +16,13 @@ Klikk på appen du vil åpne.
 
 Hvis du vil gå til repositoriet for appen mens du jobber i designeren, kan du gå til de tre prikkene øverst til høyre og velge __Repositorium__.
 
-![Menyen med de tre prikkene i Designer](designer-profile-menu.png "Lenke til repositoriet")
+![Menyen med de tre prikkene i Designer](./designer-three-dots-menu.png "Lenke til repositoriet")
 
 ## Redigere en app
 
 Bruk toppmenyen til å bygge og endre appen din. I toppmenyen velger du de områdene i appen du vil jobbe med.
 
-![Toppmenyen i Altinn Studio Designer](nav-menus.png "Toppmenyen i Altinn Studio Designer")
+![Toppmenyen i Altinn Studio Designer](./nav-menus.png "Toppmenyen i Altinn Studio Designer")
 
 - **Hjem**: Her får du en oversikt over appen din. Du ser hvilke miljøer appen er publisert i, og siste aktivitet. Herfra kan du også gå direkte til de andre verktøyene i Designer, og finne hjelp og nyheter.
 - **Utforming**: Her velger du hvilke komponenter du vil ha med, for eksempel i et skjema du skal lage. Du setter blant annet opp rekkefølgen og kriteriene for hvordan feltene i skjemaet skal vises og oppføre seg for sluttbrukerne.
