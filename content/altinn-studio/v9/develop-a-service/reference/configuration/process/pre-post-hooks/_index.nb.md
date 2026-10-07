@@ -41,6 +41,8 @@ Bare én matchende handler er tillatt per oppgave. Svarer to registrerte `IOnTas
 
 `Execute` får et kontekstobjekt med oppgavens id, en `IInstanceDataMutator` for å lese og endre instansdata, og en cancellation token. Endringer du gjør gjennom mutatoren, lagres automatisk hvis hooken fullfører uten feil. Returner `HookResult.Success()` ved suksess, `HookResult.FailedRetryable("melding")` for en forbigående feil du vil at plattformen skal forsøke på nytt, eller `HookResult.FailedPermanent("melding")` for en feil som trenger en rettelse før den kan lykkes.
 
+Kaster `Execute` et unntak som koden din ikke håndterer, fanger arbeidsflytmotoren det og behandler det som `FailedRetryable`. Hooken blir da kjørt på nytt etter gjenforsøksstrategien for steget. Returnerer du `FailedPermanent`, prøver ikke motoren på nytt. Se [Overstyre tidsavbrudd og gjenforsøksstrategi](#overstyre-tidsavbrudd-og-gjenforsøksstrategi) for standardverdiene og hvordan du endrer dem.
+
 [Se grensesnittet IOnTaskStartingHandler på GitHub](https://github.com/Altinn/altinn-studio/blob/main/src/App/backend/src/Altinn.App.Core/Features/Process/IOnTaskStartingHandler.cs)
 
 ## Kjøre egendefinert kode når en oppgave avsluttes
@@ -90,3 +92,46 @@ I motsetning til de tre oppgave-hookene over har `IOnProcessEndingHandler` ingen
 ## Overstyre tidsavbrudd og gjenforsøksstrategi
 
 Alle fire hook-typene implementerer `IProcessStepConfigurable`, som gjør at du kan velge å overstyre arbeidsflytmotorens standard tidsavbrudd og gjenforsøksstrategi for steget, med egenskapen `StepOptions`.
+
+Setter du ikke `StepOptions`, bruker hooken standardverdiene i plattformen. De kan avvike mellom miljøene:
+
+| Verdi | Standard | Grense |
+| --- | --- | --- |
+| `MaxExecutionTime` for en hook | 100 sekunder | 2 timer |
+| Nye forsøk etter `FailedRetryable` eller et uhåndtert unntak | økende pause fra ett sekund, maks fem minutter mellom forsøkene, i opptil ett døgn | — |
+
+Eksempelet under gir hooken to minutter per forsøk, og prøver på nytt opptil fem ganger med økende pause:
+
+```csharp
+public class MyTaskStartHandler : IOnTaskStartingHandler
+{
+    public ProcessStepOptions? StepOptions =>
+        new()
+        {
+            MaxExecutionTime = TimeSpan.FromMinutes(2),
+            RetryStrategy = ProcessStepRetryStrategy.Exponential(
+                baseInterval: TimeSpan.FromSeconds(5),
+                maxRetries: 5,
+                maxDelay: TimeSpan.FromMinutes(1)
+            ),
+        };
+
+    public bool ShouldRunForTask(string taskId) => taskId == "Task_1";
+
+    public async Task<HookResult> Execute(OnTaskStartingContext context)
+    {
+        // Egendefinert logikk her
+
+        return HookResult.Success();
+    }
+}
+```
+
+Feltene betyr dette:
+
+- `MaxExecutionTime` er hvor lenge ett forsøk får bruke før plattformen avbryter det og regner forsøket som feilet.
+- `RetryStrategy` styrer hvor mange nye forsøk plattformen gjør, og hvor lang pausen mellom dem er. Du kan velge `Exponential`, `Linear` eller `Constant`. `ProcessStepRetryStrategy.None()` slår av nye forsøk.
+
+Felt du ikke setter, får standardverdien.
+
+Systemoppgaver bruker den samme egenskapen, men har et lengre standard tidsavbrudd. Se [Lage en egendefinert systemoppgave]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}#styre-tidsbruk-og-nye-forsøk).
