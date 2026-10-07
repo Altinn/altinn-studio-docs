@@ -164,7 +164,7 @@ Eksempel på en fil i mappen, for eksempel `minehemmeligheter.json`:
 
 Endrer du en fil som fantes da appen startet, leser appen endringen uten omstart. Samme forbehold om `IOptions<T>` gjelder som for Key Vault. Legger du til en ny fil, må du starte appen på nytt.
 
-Studioctl lager selv filene `maskinporten-settings.json` og `app-codes.json` i mappen. Ikke endre dem. Appen leser dem ikke som vanlig konfigurasjon.
+Studioctl legger selv filen `app-codes.json` i mappen, og `maskinporten-settings.json` hvis du setter opp en Maskinporten-klient med `studioctl app maskinporten set`. Ikke endre disse filene. Appen leser dem ikke som vanlig konfigurasjon.
 
 ### Med brukerhemmeligheter i .NET (user secrets)
 
@@ -179,7 +179,7 @@ Verdiene blir en del av konfigurasjonen. `ISecretsClient` finner dem også, så 
 
 ### Med `secrets.json` (alternativ 2)
 
-Lokalt ser `ISecretsClient` først etter hemmeligheten i filen `secrets.json` i mappen appen kjører fra, og deretter i konfigurasjonen til appen. Med `studioctl app run` er det mappen `App`. Har du en hemmelighet med navnet `secretId` i Key Vault, ser `App/secrets.json` slik ut:
+Lokalt ser `ISecretsClient` først etter hemmeligheten i filen `secrets.json` i mappen appen kjører fra, og deretter i konfigurasjonen til appen. Når du starter appen med `studioctl app run` eller `dotnet run`, er det mappen `App`. Har du en hemmelighet med navnet `secretId` i Key Vault, ser `App/secrets.json` slik ut:
 
 ```json
 {
