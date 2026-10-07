@@ -13,7 +13,7 @@ Plattformen tar seg selv av hemmelighetene til Maskinporten-klienten som Altinn 
 
 ## Få tilgang til Key Vault
 
-Du administrerer selv hemmelighetene som appen bruker, i Azure Key Vault. Slik bestiller du tilgang til ressursene til virksomheten din: [Tilgangsstyring for apper]({{< relref "/altinn-studio/v9/develop-a-service/reference/administration/access-management/apps" >}}).
+Du administrerer selv hemmelighetene som appen bruker, i Azure Key Vault. [Les hvordan du bestiller tilgang til hemmelighetene for appene til virksomheten din]({{< relref "/altinn-studio/v9/manage-a-service/access-management/apps" >}}).
 
 ## Gi appen tilgang til hemmelighetene
 
@@ -82,9 +82,13 @@ WebApplication app = builder.Build();
 
 Metoden ligger i navnerommet `Altinn.App.Api.Extensions`, som malen allerede tar med i `Program.cs`.
 
+Navnet på hemmeligheten i Key Vault bestemmer hvilken innstilling den blir. Key Vault tillater ikke kolon i navn, så du skriver to bindestreker der innstillingen har kolon. Hemmeligheten `MinTjeneste--ApiKey` i Key Vault blir innstillingen `MinTjeneste:ApiKey` i appen.
+
 Rekkefølgen avgjør hvilken verdi som gjelder når samme innstilling finnes flere steder. `ConfigureWebHostBuilder` legger til andre konfigurasjonskilder, for eksempel miljøvariabler og `appsettings.Local.json`. Når du kaller `AddAzureKeyVaultAsConfigProvider` etterpå, er det verdiene fra Key Vault som gjelder.
 
-Appen henter verdiene fra Key Vault på nytt hvert femte minutt. Mangler innstillingene for å koble seg til Key Vault, starter ikke appen. Det skjer for eksempel hvis du har glemt endringen i `values.yaml`.
+Appen henter verdiene fra Key Vault på nytt hvert femte minutt. Om en endret verdi tar effekt uten at du starter appen på nytt, avhenger av hvordan koden leser den. Kode som leser innstillingen med `IOptions<T>`, ser bare verdien fra da appen startet.
+
+Mangler innstillingene for å koble seg til Key Vault, starter ikke appen. Det skjer for eksempel hvis du har glemt endringen i `values.yaml`.
 
 ### Alternativ 2: `ISecretsClient`
 
@@ -135,9 +139,11 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 Når du kjører appen på egen maskin, kobler den seg ikke til Key Vault. Du legger i stedet inn testverdier lokalt. Bruk aldri ekte hemmeligheter fra produksjon.
 
-### Med studioctl
+I v9 får appen oppsettet for lokal kjøring fra studioctl. Det gjelder både når du starter appen med `studioctl app run`, og når du starter den med `dotnet run` eller fra et utviklingsverktøy, så lenge studioctl er installert. Du kan legge inn testverdiene på tre måter.
 
-Kjører du appen med studioctl, leser appen alle JSON-filer i hemmelighetsmappen som studioctl bruker for appen. Verdiene blir en del av konfigurasjonen, slik at begge alternativene over virker. Mappen ligger her:
+### I hemmelighetsmappen til studioctl
+
+Appen leser JSON-filene i hemmelighetsmappen som studioctl bruker for appen, og verdiene blir en del av konfigurasjonen. Det virker for begge alternativene over. Mappen ligger her:
 
 - macOS: `~/Library/Application Support/altinn-studio/apps/{org}/{app}/secrets`
 - Linux: `~/.config/altinn-studio/apps/{org}/{app}/secrets`
@@ -149,27 +155,31 @@ Eksempel på en fil i mappen, for eksempel `minehemmeligheter.json`:
 
 ```json
 {
-  "NetsPaymentSettings": {
-    "SecretApiKey": "test-secret-key-used-for-documentation"
+  "MinTjeneste": {
+    "ApiKey": "lokal testverdi"
   },
   "secretId": "lokal testverdi"
 }
 ```
 
-Appen leser endringer i filene uten at du må starte den på nytt.
+Endrer du en fil som fantes da appen startet, leser appen endringen uten omstart. Samme forbehold om `IOptions<T>` gjelder som for Key Vault. Legger du til en ny fil, må du starte appen på nytt.
 
-### Med user secrets (alternativ 1)
+Studioctl lager selv filene `maskinporten-settings.json` og `app-codes.json` i mappen. Ikke endre dem. Appen leser dem ikke som vanlig konfigurasjon.
 
-Du kan også bruke [user secrets](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets) i .NET. Kjør kommandoene i mappen `App`:
+### Med brukerhemmeligheter i .NET (user secrets)
+
+Du kan også bruke [brukerhemmeligheter i .NET](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets). Kjør kommandoene i mappen `App`:
 
 ```bash
 dotnet user-secrets init
-dotnet user-secrets set "NetsPaymentSettings:SecretApiKey" "test-secret-key-used-for-documentation"
+dotnet user-secrets set "MinTjeneste:ApiKey" "lokal testverdi"
 ```
+
+Verdiene blir en del av konfigurasjonen. `ISecretsClient` finner dem også, så lenge navnet er det samme som navnet du sender til `GetSecretAsync`.
 
 ### Med `secrets.json` (alternativ 2)
 
-Lokalt ser `ISecretsClient` først etter hemmeligheten i filen `App/secrets.json`, og deretter i konfigurasjonen til appen. Har du en hemmelighet med navnet `secretId` i Key Vault, ser filen slik ut:
+Lokalt ser `ISecretsClient` først etter hemmeligheten i filen `secrets.json` i mappen appen kjører fra, og deretter i konfigurasjonen til appen. Med `studioctl app run` er det mappen `App`. Har du en hemmelighet med navnet `secretId` i Key Vault, ser `App/secrets.json` slik ut:
 
 ```json
 {
@@ -178,5 +188,5 @@ Lokalt ser `ISecretsClient` først etter hemmeligheten i filen `App/secrets.json
 ```
 
 {{% notice warning %}}
-App-malen hindrer ikke at `secrets.json` blir lagret i app-repoet. Legg til `secrets.json` i `.gitignore`, slik at filen ikke blir med når du lagrer endringene dine.
+App-malen hindrer ikke at `secrets.json` blir lagret i app-repoet. Legg til `secrets.json` i `.gitignore`, slik at filen ikke blir med når du lagrer endringene dine. Blir filen lagret i app-repoet, blir den også med i appen når du publiserer den.
 {{% /notice %}}
