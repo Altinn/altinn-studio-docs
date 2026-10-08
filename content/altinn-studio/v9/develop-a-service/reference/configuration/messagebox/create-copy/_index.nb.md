@@ -55,6 +55,23 @@ Sett `includeDueBefore` til `true` for å kopiere `dueBefore` fra originalinstan
 
 Bruk `includedDataValues` og `includedPresentationTexts` til å angi hvilke nøkler som skal kopieres fra originalinstansen til den nye instansen. Nøkler som ikke finnes på originalinstansen, blir ignorert. Hvis en nøkkel også er utledet fra `dataFields` eller `presentationFields`, brukes verdien som beregnes på nytt fra de kopierte skjemadataene. Dette er nyttig for dataverdier som settes av applikasjonskoden, for eksempel en verdi som `ICopyInstanceValidator` sjekker, og som ellers ville manglet når en kopi kopieres på nytt.
 
+### Referanse til originalinstansen
+
+{{%notice warning%}}Referansen til originalinstansen krever versjon 8.13.0 eller nyere av `Altinn.App`-bibliotekene.{{% /notice%}}
+
+Den nye instansen får dataverdien `copy.sourceInstanceId` med id-en til instansen den ble kopiert fra, på formatet `{instanceOwnerPartyId}/{instanceGuid}`. I applikasjonskoden bruker du konstanten `DataValueKeys.CopySourceInstanceId` fra `Altinn.App.Core.Constants` i stedet for å skrive nøkkelen selv.
+
+Når en kopi kopieres på nytt, peker verdien som standard på instansen som ble kopiert direkte. Hvis du legger til `copy.sourceInstanceId` i `includedDataValues`, kopieres verdien fra originalinstansen i stedet, slik at alle kopier i en kjede peker på den første instansen. Hvis originalinstansen ikke har en slik verdi, brukes id-en til originalinstansen.
+
+```json
+"copyInstanceSettings": {
+    "enabled": true,
+    "includedDataValues": [
+        "copy.sourceInstanceId"
+    ]
+}
+```
+
 ## Eksempler
 
 Konfigurasjon for å slå på **Lag ny kopi** uten ekskluderinger. Disse endringene gjøres i `applicationmetadata.json`.

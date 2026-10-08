@@ -57,6 +57,23 @@ Use `includedDataValues` and `includedPresentationTexts` to list the keys that s
 
 The copied presentation texts are sent to Storage when the new instance is created, and older versions of localtest ignore them. When you test locally, restart the test platform with `studioctl env down` and `studioctl env up` to get the newest version of localtest. If you still use the old app-localtest repository, pull the latest version and restart it.
 
+### Reference to the source instance
+
+{{%notice warning%}}The reference to the source instance requires version 8.13.0 or newer of the `Altinn.App` libraries.{{% /notice%}}
+
+The new instance gets the data value `copy.sourceInstanceId` with the id of the instance it was copied from, in the format `{instanceOwnerPartyId}/{instanceGuid}`. In application code, use the constant `DataValueKeys.CopySourceInstanceId` from `Altinn.App.Core.Constants` instead of writing the key.
+
+When a copy is copied again, the value by default points to the instance that was copied directly. If you add `copy.sourceInstanceId` to `includedDataValues`, the value is copied from the source instance instead, so that all copies in a chain point to the first instance. If the source instance has no such value, the id of the source instance is used.
+
+```json
+"copyInstanceSettings": {
+    "enabled": true,
+    "includedDataValues": [
+        "copy.sourceInstanceId"
+    ]
+}
+```
+
 ## Examples
 
 Configuration for turning the *Create new copy* feature on and off.
