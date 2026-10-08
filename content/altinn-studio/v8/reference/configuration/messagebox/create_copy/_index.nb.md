@@ -47,7 +47,7 @@ I listen med ekskluderte felter kan man angi navnene på felter man ikke ønsker
 
 ### Kopiere svarfrist, dataverdier og presentasjonstekster
 
-{{%notice warning%}}Kopiering av svarfrist, dataverdier og presentasjonstekster krever versjon 8.13.0 eller nyere av `Altinn.App`-bibliotekene.{{% /notice%}}
+{{%notice warning%}}Kopiering av svarfrist, dataverdier og presentasjonstekster krever versjon 8.12.12 eller nyere av `Altinn.App`-bibliotekene.{{% /notice%}}
 
 Som standard får den nye instansen ingen svarfrist, og bare dataverdier og presentasjonstekster som er utledet fra `dataFields` og `presentationFields` i applikasjonsmetadataen blir satt på den nye instansen (de beregnes på nytt fra de kopierte skjemadataene).
 
@@ -59,7 +59,7 @@ De kopierte presentasjonstekstene sendes til Storage når den nye instansen oppr
 
 ### Referanse til originalinstansen
 
-{{%notice warning%}}Referansen til originalinstansen krever versjon 8.13.0 eller nyere av `Altinn.App`-bibliotekene.{{% /notice%}}
+{{%notice warning%}}Referansen til originalinstansen krever versjon 8.12.12 eller nyere av `Altinn.App`-bibliotekene.{{% /notice%}}
 
 Den nye instansen får dataverdien `copy.sourceInstanceId` med id-en til instansen den ble kopiert fra, på formatet `{instanceOwnerPartyId}/{instanceGuid}`. I applikasjonskoden bruker du konstanten `DataValueKeys.CopySourceInstanceId` fra `Altinn.App.Core.Constants` i stedet for å skrive nøkkelen selv.
 

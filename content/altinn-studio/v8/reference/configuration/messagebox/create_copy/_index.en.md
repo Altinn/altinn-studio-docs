@@ -47,7 +47,7 @@ The list of excluded fields can be used to indicate which fields you don't want 
 
 ### Copying due date, data values and presentation texts
 
-{{%notice warning%}}Copying due date, data values and presentation texts requires version 8.13.0 or newer of the `Altinn.App` libraries.{{% /notice%}}
+{{%notice warning%}}Copying due date, data values and presentation texts requires version 8.12.12 or newer of the `Altinn.App` libraries.{{% /notice%}}
 
 By default the new instance gets no due date, and only the data values and presentation texts derived from `dataFields` and `presentationFields` in the application metadata are set on the new instance (they are recalculated from the copied form data).
 
@@ -59,7 +59,7 @@ The copied presentation texts are sent to Storage when the new instance is creat
 
 ### Reference to the source instance
 
-{{%notice warning%}}The reference to the source instance requires version 8.13.0 or newer of the `Altinn.App` libraries.{{% /notice%}}
+{{%notice warning%}}The reference to the source instance requires version 8.12.12 or newer of the `Altinn.App` libraries.{{% /notice%}}
 
 The new instance gets the data value `copy.sourceInstanceId` with the id of the instance it was copied from, in the format `{instanceOwnerPartyId}/{instanceGuid}`. In application code, use the constant `DataValueKeys.CopySourceInstanceId` from `Altinn.App.Core.Constants` instead of writing the key.
 

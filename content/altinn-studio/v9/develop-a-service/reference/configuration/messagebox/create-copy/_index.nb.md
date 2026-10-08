@@ -57,7 +57,7 @@ Bruk `includedDataValues` og `includedPresentationTexts` til å angi hvilke nøk
 
 ### Referanse til originalinstansen
 
-{{%notice warning%}}Referansen til originalinstansen krever versjon 8.13.0 eller nyere av `Altinn.App`-bibliotekene.{{% /notice%}}
+{{%notice warning%}}Referansen til originalinstansen krever versjon 8.12.12 eller nyere av `Altinn.App`-bibliotekene.{{% /notice%}}
 
 Den nye instansen får dataverdien `copy.sourceInstanceId` med id-en til instansen den ble kopiert fra, på formatet `{instanceOwnerPartyId}/{instanceGuid}`. I applikasjonskoden bruker du konstanten `DataValueKeys.CopySourceInstanceId` fra `Altinn.App.Core.Constants` i stedet for å skrive nøkkelen selv.
 
