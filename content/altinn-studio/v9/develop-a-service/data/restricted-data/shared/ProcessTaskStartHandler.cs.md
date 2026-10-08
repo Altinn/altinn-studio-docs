@@ -5,41 +5,44 @@ hidden: true
 ---
 
 {{< code-title >}}
-App/logic/ProcessTaskStartHandler.cs
+App/logic/RestrictedDataTaskStartHandler.cs
 {{< /code-title >}}
 
-{{< highlight csharp "linenos=false, hl_lines=27-31" >}}
-public class ProcessTaskStartHandler(
-  RestrictedDataHelper restrictedDataHelper,
-  ISomeTaxService someTaxService
-) : IProcessTaskStart
+{{< highlight csharp "linenos=false, hl_lines=5 22-32" >}}
+public class RestrictedDataTaskStartHandler(ISomeTaxService someTaxService) : IOnTaskStartingHandler
 {
+  private const string RestrictedDataTypeId = "restrictedDataModel";
 
-  /// <summary>
-  /// This method will execute when the process enters task step "Task_1"
-  /// </summary>
-  public async Task Start(string taskId, Instance instance, Dictionary<string, string> prefill)
+  public bool ShouldRunForTask(string taskId) => taskId == "Task_1";
+
+  public async Task<HookResult> Execute(OnTaskStartingContext context)
   {
-    if (taskId != "Task_1")
-      return;
+    var mutator = context.InstanceDataMutator;
+    var taxPrefill = await someTaxService.GetTaxPrefillData(mutator.Instance);
 
-    var taxPrefill = await someTaxService.GetTaxPrefillData(instance);
-    var restrictedData = new RestrictedDataModel
+    var spouse = new Spouse
     {
-      Spouse = new Spouse
-      {
-        Name = taxPrefill.Spouse?.Name,
-        NationalIdentityNumber = taxPrefill.Spouse?.NationalIdentityNumber,
-        GrossIncome = taxPrefill.Spouse?.Income,
-        GrossDebt = taxPrefill.Spouse?.Debt,
-      }
+      Name = taxPrefill.Spouse?.Name,
+      NationalIdentityNumber = taxPrefill.Spouse?.NationalIdentityNumber,
+      GrossIncome = taxPrefill.Spouse?.Income,
+      GrossDebt = taxPrefill.Spouse?.Debt,
     };
 
-    await restrictedDataHelper.UpdateOrCreateData(
-        restrictedData,
-        "restrictedDataModel",
-        instance
-    );
+    // Hooken kan bli kjørt på nytt. Finnes dataelementet allerede, oppdaterer du det
+    // i stedet for å opprette et nytt.
+    var dataType = mutator.GetDataType(RestrictedDataTypeId);
+    var existing = await mutator.GetFormData<RestrictedDataModel>(dataType);
+
+    if (existing is null)
+    {
+      mutator.AddFormDataElement(dataType, new RestrictedDataModel { Spouse = spouse });
+    }
+    else
+    {
+      existing.Spouse = spouse;
+    }
+
+    return HookResult.Success();
   }
 }
 {{< /highlight >}}

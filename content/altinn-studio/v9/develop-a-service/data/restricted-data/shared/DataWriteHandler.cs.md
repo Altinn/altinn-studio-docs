@@ -8,15 +8,11 @@ hidden: true
 App/logic/DataWriteHandler.cs
 {{< /code-title >}}
 
-{{< highlight csharp "linenos=false, hl_lines=30-33" >}}
-public class DataWriteHandler(
-  RestrictedDataHelper restrictedDataHelper,
-  ISomeTaxService someTaxService
-) : IDataWriteProcessor
+{{< highlight csharp "linenos=false, hl_lines=26-33" >}}
+public class DataWriteHandler(ISomeTaxService someTaxService) : IDataWriteProcessor
 {
-
   /// <summary>
-  /// This method will execute when the user updates the income portion of the form
+  /// Appen kjører denne metoden når brukeren lagrer endringer i skjemaet.
   /// </summary>
   public async Task ProcessDataWrite(
     IInstanceDataMutator instanceDataMutator,
@@ -38,10 +34,17 @@ public class DataWriteHandler(
     if (currentData is null || currentData.Income.Equals(previousData?.Income))
       return;
 
-    var (restrictedData, _) = await restrictedDataHelper.GetOrCreateData<RestrictedDataModel>(
-      "restrictedDataModel",
-      instanceDataMutator.Instance
+    // Brukeren har ikke tilgang til de beskyttede dataene,
+    // så appen må lese dem som tjenesteeier.
+    var restrictedDataType = instanceDataMutator.GetDataType("restrictedDataModel");
+    instanceDataMutator.OverrideAuthenticationMethod(
+      restrictedDataType,
+      StorageAuthenticationMethod.ServiceOwner()
     );
+    var restrictedData = await instanceDataMutator.GetFormData<RestrictedDataModel>(restrictedDataType);
+
+    if (restrictedData is null)
+      return;
 
     var taxRate = await someTaxService.GetTaxRateForHousehold(
       currentData.Income,
