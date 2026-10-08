@@ -46,9 +46,7 @@ Du kan registrere denne tjenesten i `Program.cs` og bruke den med [dependency in
 ### Skriv data
 Som nevnt tidligere, må du manuelt opprette dataelementet når appen går inn i prosessteget `Task_1`.
 
-For å gjøre dette bruker du metoden `UpdateOrCreateData` fra [RestrictedDataHelper-tjenesten](#lag-en-hjelpetjeneste).
-
-Eksempelet under bruker denne logikken i `IProcessTaskStart`-grensesnittet, der du henter informasjon fra et fiktivt API og lagrer det i den beskyttede datamodellen. Denne informasjonen er ikke tilgjengelig for brukeren, men appen kan hente den senere.
+Eksempelet under gjør dette i en [prosess-hook]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks" >}}) som implementerer `IOnTaskStartingHandler`. Den henter informasjon fra et fiktivt API og lagrer den i den beskyttede datamodellen. Hooken skriver gjennom `context.InstanceDataMutator`, som plattformen lagrer når hooken er ferdig, så du trenger ikke `RestrictedDataHelper` her. Informasjonen er ikke tilgjengelig for brukeren, men appen kan hente den senere.
 
 {{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/ProcessTaskStartHandler.cs.md" %}}
 

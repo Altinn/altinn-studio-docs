@@ -233,6 +233,21 @@ De nye hookene gjør også at du kan velge å overstyre arbeidsflytmotorens stan
 Bare én matchende handler er tillatt per oppgave. Svarer to registrerte handlere av samme type (for eksempel to `IOnTaskStartingHandler`) `true` for samme oppgave, feiler prosessovergangen permanent. Hadde du før flere handler-klasser rettet mot ulike oppgaver, pass på at `ShouldRunForTask`-implementasjonene deres ikke overlapper — virket to av dine gamle handlere på samme oppgave, slå dem sammen til én.
 {{% /notice %}}
 
+### Vi har fjernet `IProcessEnd`
+
+Hvis appen din har en klasse som implementerer `IProcessEnd`, må du flytte koden til en av disse hookene i `Altinn.App.Core.Features.Process`:
+
+| Når koden skal kjøre | Nytt grensesnitt |
+| --- | --- |
+| etter at prosessen er avsluttet og lagret | `IOnProcessEndedHandler` |
+| før prosessen avsluttes, slik at en feil kan stoppe avslutningen | `IOnTaskEndingHandler` for den siste oppgaven |
+
+`studioctl app upgrade v9` viser hvilke klasser og registreringer du må flytte, men gjør ikke om koden for deg.
+
+Hookene fungerer som oppgave-hookene over. `Execute` får et kontekstobjekt i stedet for `Instance` og listen med hendelser, og du leser og endrer data gjennom `context.InstanceDataMutator` i stedet for `IDataClient` eller `IInstanceClient`. Koden kjører i arbeidsflytmotoren, ikke i forespørselen fra brukeren, så `HttpContext` gir deg ikke brukerens språk eller pålogging. Du kan bare registrere én `IOnProcessEndedHandler`.
+
+Se [Prosess-hooks]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks" >}}) for detaljene.
+
 ### Mindre endringer
 
 Oppgraderingen ordner disse endringene uten at du trenger å gjøre noe, men det er greit å kjenne til dem:
