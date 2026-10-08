@@ -1,28 +1,29 @@
 ---
 draft: true
 title: Flytkontroll
-description: Kontroller prosessflyt
-tags: [altinn-apps, process, bpmn, gateway]
-
+description: Slik styrer du hvilken vei prosessen følger med gateways, uttrykk og tilpasset kode.
+tags: [altinn-apps, process, bpmn, gateway, needsReview]
 toc: true
 ---
 
 ## Eksklusive gateways
 
-Eksklusive gateways lar deg velge en annen vei i prosessen basert på direkte brukerinndata, data eller andre aspekter tilgjengelig fra koden.
+Med en eksklusiv gateway velger du hvilken vei prosessen følger videre. Valget kan bygge på det brukeren fyller ut, på andre data eller på tilpasset kode.
 
 ## Gateways som kontrollerer flyten med uttrykk
 
 ### Forutsetninger
 
-* Applikasjonen din bruker versjon 8.0.0 eller nyere av Altinn-pakkene.
-* Applikasjon med en prosess som inneholder en eksklusiv gateway.
+Du trenger
 
-### Kontrollere flyten ut av en gateway basert på data levert av brukeren ved hjelp av uttrykk
+- en app som bruker versjon 8.0.0 eller nyere av Altinn-pakkene
+- en prosess som inneholder en eksklusiv gateway
 
-Du kan kontrollere hvilken flyt som velges ut av en gateway basert på data som brukeren leverte i en tidligere oppgave. Du bruker samme uttrykkspråk som du bruker til å skjule/vise elementer i brukergrensesnittet.
+### Slik styrer du flyten ut av en gateway med data fra brukeren
 
-For å oppnå dette må du først definere hvilke formdata som skal leveres som kontekst til uttrykket.
+Du kan la data som brukeren leverte i en tidligere oppgave avgjøre hvilken flyt som går ut av gatewayen. Du bruker samme uttrykksspråk som når du skjuler eller viser elementer i brukergrensesnittet.
+
+Først må du bestemme hvilke skjemadata uttrykkene skal kunne bruke.
 
 Eksempel:
 ```xml {hl_lines=["6-10"]}
@@ -41,17 +42,19 @@ Eksempel:
 <bpmn:sequenceFlow id="Flow_g1_end" sourceRef="Gateway_1" targetRef="EndEvent" />
 ...
 ```
-I eksempelet ovenfor legger gatewayen til formdata som er lagret i datatype _Schema_ som kontekst til uttrykkene. Du definerer formdata og datatyper i filen _applicationmetadata.json_.
+I eksempelet ovenfor bruker gatewayen skjemadata fra datatypen _Schema_ i uttrykkene. Du definerer skjemadata og datatyper i filen _applicationmetadata.json_.
 
-Når gatewayen er koblet til en datatype, kan du bruke uttrykkspråket for å definere om flytene ut av gatewayen er tilgjengelige.
+Når gatewayen er koblet til en datatype, kan du bruke uttrykksspråket til å avgjøre hvilke flyter ut av gatewayen som er tilgjengelige.
 
-MERK: Nøyaktig én flyt må være gyldig etter at uttrykkene er evaluert. Hvis ingen eller flere flyter er gyldige, går ikke prosessen videre, og brukeren får en feil. En flyt uten uttrykk regnes alltid som gyldig.
+{{% notice warning %}}
+Nøyaktig én flyt må være gyldig når uttrykkene er regnet ut. Hvis ingen eller flere flyter er gyldige, går ikke prosessen videre, og brukeren får en feil. Systemet regner en flyt uten uttrykk alltid som gyldig.
+{{% /notice %}}
 
-Nå må du definere disse uttrykkene i de utgående flytene fra gatewayen. I gateway-eksempelet har vi to utgående flyter: _Flow_g1_t2_ og _Flow_g1_end_
+Nå må du skrive uttrykkene i de utgående flytene fra gatewayen. Eksempelet har to utgående flyter: _Flow_g1_t2_ og _Flow_g1_end_.
 
-Prosessen skal følge _Flow_g1_t2_ hvis feltet Amount i formdata er større enn eller lik 1000, eller _Flow_g1_end_ hvis det er mindre enn 1000.
+Prosessen skal følge _Flow_g1_t2_ hvis feltet _Amount_ i skjemadataene er større enn eller lik 1000, og _Flow_g1_end_ hvis det er mindre enn 1000.
 
-For å oppnå dette må du legge til betingelsesuttrykk (conditionExpressions) til de utgående flytene.
+Du gjør dette ved å legge til betingelsesuttrykk (`conditionExpression`) i de utgående flytene.
 
 ```xml {hl_lines=[2,5]}
 <bpmn:sequenceFlow id="Flow_g1_t2" sourceRef="Gateway_1" targetRef="Task_2">
@@ -61,15 +64,15 @@ For å oppnå dette må du legge til betingelsesuttrykk (conditionExpressions) t
     <bpmn:conditionExpression>["lessThan", ["dataModel", "Amount"], 1000]</bpmn:conditionExpression>
 </bpmn:sequenceFlow>
 ```
-Hvis brukeren har sendt inn en Amount på 1000, evaluerer uttrykkene i sekvensflyten _Flow_g1_end_ til falsk. Systemet fjerner da flyten fra de mulige flytene å velge mellom. Den eneste tilgjengelige flyten er _Flow_g1_t2_, og derfor velger systemet den.
+Hvis brukeren har sendt inn en _Amount_ på 1000, blir uttrykket i sekvensflyten _Flow_g1_end_ usant. Systemet fjerner da denne flyten fra dem det kan velge mellom. Den eneste tilgjengelige flyten er _Flow_g1_t2_, og derfor velger systemet den.
 
-For å se flere muligheter med uttrykk, se [Uttrykk]({{< relref "/altinn-studio/v9/develop-a-service/expressions" >}})
+Du finner flere muligheter på siden om [uttrykk]({{< relref "/altinn-studio/v9/develop-a-service/expressions" >}}).
 
-### Kontrollere flyten ut av en gateway basert på brukerhandling utført ved hjelp av uttrykk
+### Slik styrer du flyten ut av en gateway med brukerhandlingen
 
-I tillegg til å bruke uttrykk mot datamodellen kan du også ta beslutninger basert på handlingen som brukeren/systemet utførte i oppgaven før gatewayen i et prosessbetingelsesuttrykk.
+Du kan også la handlingen som brukeren eller systemet utførte i oppgaven før gatewayen, avgjøre hvilken flyt prosessen følger. Da skriver du et betingelsesuttrykk i prosessen, i tillegg til uttrykkene mot datamodellen.
 
-Hvis en applikasjonsprosess har et bekreftelsessteg kan du avvise dataene og sende instansen tilbake til forrige steg (Task_1) hvis sluttbrukeren utfører avvisningshandlingen.
+Hvis appen har et bekreftelsessteg, kan du la sluttbrukeren avvise dataene. Prosessen sender da instansen tilbake til forrige oppgave (_Task_1_).
 
 ```xml
 <bpmn:task id="Task_2" name="Person">
@@ -94,11 +97,11 @@ Hvis en applikasjonsprosess har et bekreftelsessteg kan du avvise dataene og sen
 <bpmn:sequenceFlow id="Flow_g1_end" sourceRef="Gateway_1" targetRef="EndEvent" />
 ```
 
-I eksempelet ovenfor er det definert to handlinger i _Task_2_: `confirm` og `reject`. [Les mer om handlinger](/nb/altinn-studio/v9/develop-a-service/reference/process/tasks/)
+I eksempelet ovenfor har _Task_2_ to handlinger: `confirm` og `reject`. Du kan [lese mer om handlinger]({{< relref "/altinn-studio/v9/develop-a-service/reference/process/actions" >}}).
 
-Prosessmotoren skal velge _Flow_g1_t1_ hvis brukeren utfører handlingen _reject_ og _Flow_g1_end_ hvis handlingen var _confirm_.
+Prosessen skal følge _Flow_g1_t1_ hvis brukeren utfører handlingen _reject_, og _Flow_g1_end_ hvis handlingen var _confirm_.
 
-For å gjøre dette bruker du uttrykksfunksjonen _gatewayAction_
+Du gjør dette med uttrykksfunksjonen _gatewayAction_:
 
 ```xml {hl_lines=[2,5]}
 <bpmn:sequenceFlow id="Flow_g1_t1" sourceRef="Gateway_1" targetRef="Task_1">
@@ -109,18 +112,20 @@ For å gjøre dette bruker du uttrykksfunksjonen _gatewayAction_
 </bpmn:sequenceFlow>
 ```
 
-Uttrykksfunksjonen _gatewayAction_ returnerer handlingen som ble utført i oppgaven som prosessen nettopp forlot. I eksempelet ovenfor er forrige oppgave _Task_2_.
+Uttrykksfunksjonen _gatewayAction_ gir deg handlingen som brukeren utførte i oppgaven prosessen nettopp forlot. I eksempelet ovenfor er det _Task_2_.
 
-Du kan kombinere funksjonen _gatewayAction_ med alle de andre funksjonene i [uttrykk]({{< relref "/altinn-studio/v9/develop-a-service/expressions" >}})
+Du kan kombinere _gatewayAction_ med alle de andre funksjonene i [uttrykksspråket]({{< relref "/altinn-studio/v9/develop-a-service/expressions" >}}).
 
 ## Komplekse gateways som krever tilpasset kode
 
-Hvis du ikke kan oppfylle kravene for gatewayen din gjennom uttrykk, kan du skrive tilpasset kode som tar beslutningene for flyten.
+Hvis uttrykk ikke er nok til å styre gatewayen din, kan du skrive tilpasset kode som tar valget om hvilken flyt prosessen skal følge.
 
 ### Forutsetninger
 
-* Applikasjonen din bruker versjon 7.1.0 eller nyere av Altinn-pakkene.
-* Applikasjon med en prosess som inneholder en eksklusiv gateway.
+Du trenger
+
+- en app som bruker versjon 7.1.0 eller nyere av Altinn-pakkene
+- en prosess som inneholder en eksklusiv gateway
 
 ### Eksempelprosess med eksklusive gateways
 
@@ -177,27 +182,27 @@ Hvis du ikke kan oppfylle kravene for gatewayen din gjennom uttrykk, kan du skri
 ```
 
 
-Visuell representasjon av BPMN-definisjonen
+Diagrammet viser BPMN-definisjonen:
 
-![BPMN definisjonsdiagram](process-definition.svg "BPMN definisjonsdiagram")
+![Diagram over BPMN-definisjonen med to eksklusive gateways](process-definition.svg "Diagram over BPMN-definisjonen")
 
-### Implementering og injisering av tilpasset gateway-kode
+### Skrive og registrere tilpasset kode for gatewayen
 
-For å velge riktig sekvensflyt ut av den eksklusive gatewayen basert på instansdata, må du opprette en klasse som implementerer `Altinn.App.Core.Features.IProcessExclusiveGateway` og registrere den som en tjeneste i avhengighetsinjeksjonen.
+For at systemet skal velge riktig sekvensflyt ut av den eksklusive gatewayen basert på instansdata, må du opprette en klasse som implementerer `Altinn.App.Core.Features.IProcessExclusiveGateway`. Du må også registrere klassen som en tjeneste i avhengighetsinjeksjonen.
 
 Grensesnittet har en strengegenskap `GatewayId` og en metode `FilterAsync`.
 
 Du bruker `GatewayId` til å identifisere gatewayen i prosessdefinisjonen den er tilknyttet.
 
-I vårt eksempel har en implementering for den første gatewayen (Gateway_1) denne egenskapen satt til `Gateway_1`, da dette er verdien for attributtet `id` for den eksklusive gatewayen i prosessdefinisjonen.
+I eksempelet setter du `GatewayId` til `Gateway_1` for den første gatewayen, fordi det er verdien i attributtet `id` på den eksklusive gatewayen i prosessdefinisjonen.
 
-I metoden `FilterAsync` implementerer du din tilpassede logikk for å filtrere de tilgjengelige sekvensflytene ut av gatewayen basert på instansdataene.
+I metoden `FilterAsync` skriver du den tilpassede logikken som filtrerer sekvensflytene ut av gatewayen, basert på instansdataene.
 
-Les mer om grensesnittet i XML-dokumentasjonen
+Du finner mer om grensesnittet i XML-dokumentasjonen:
 
 https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Features/IProcessExclusiveGateway.cs
 
-Etter at du har skrevet din tilpassede implementering, registrerer du den i `Program.cs` i `RegisterCustomAppServices`-metoden.
+Når du har skrevet den tilpassede koden, registrerer du den i `Program.cs`, i metoden `RegisterCustomAppServices`.
 
 Eksempel:
 
