@@ -57,6 +57,7 @@ Dette dokumentet holder oversikt over innhold som må migreres fra v8 til v10.
 - Konsumere eksterne API-er (consume/)
 - Eksponere egne API-er (expose/)
 - Instans-API (instance/)
+- Varsling ved instansiering (notifications/, i v8 tidligere temp/)
 
 ### 🟢 Underskjema konfigurasjon
 **v8-sti:** `/nb/altinn-studio/v8/guides/development/subform/config-options/`

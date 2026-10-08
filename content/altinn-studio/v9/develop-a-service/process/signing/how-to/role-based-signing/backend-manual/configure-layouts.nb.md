@@ -11,7 +11,7 @@ tags: [needsReview]
 
    ```json
    {
-     "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+     "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
      "defaultDataType": "model",
      "pages": {
        "order": ["signing"]
@@ -25,9 +25,9 @@ tags: [needsReview]
 
    - **SigningDocumentList**: Lister ut dataene som blir signert på, for eksempel vedlegg, xml-data eller PDF-oppsummering fra tidligere steg.
    - **SigneeList**: Lister ut de som skal signere (signatarer) og tilhørende signeringsstatus. Per nå støtter ikke denne listen å vise roller som skal signere, kun personer som har fått brukerstyrt delegert tilgang. Men i det øyeblikket en person utfører en signering vil de dukke opp, så vi kan bruke den som en **Signaturer**-liste.
-   - **SigningStatusPanel**: Utleder status for signeringssteget og viser relevante knapper til sluttbruker, for eksempel **Signer**-knappen.
+   - **SigningActions**: Utleder status for signeringssteget og viser relevante knapper til sluttbruker, for eksempel **Signer**-knappen.
 
-   Hvis du ikke bruker `SigningStatusPanel` for å vise **Signer**-knappen, må du legge til en egen handlingsknapp med action "sign", for å la sluttbruker signere.
+   Hvis du ikke bruker `SigningActions` for å vise **Signer**-knappen, må du legge til en egen handlingsknapp med action "sign", for å la sluttbruker signere.
 
    Eksempler på hvordan du kan bruke komponentene:
 
@@ -38,7 +38,7 @@ tags: [needsReview]
        "layout": [
          {
            "id": "headerSigningFounders",
-           "type": "Header",
+           "type": "Heading",
            "size": "L",
            "textResourceBindings": {
              "title": "Her kan man ha en overskrift"

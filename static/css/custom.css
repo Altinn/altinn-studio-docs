@@ -291,6 +291,207 @@ ul.connected-bullets li::after {
     border: 1px solid #eaeaea;
 }
 
+.component-properties {
+    max-width: 100%;
+    margin-bottom: 2em;
+}
+
+.component-property-name,
+.component-property-value {
+    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+}
+
+.component-property-list {
+    border-bottom: 1px solid #BCC7CC;
+}
+
+.component-property-group {
+    margin: 1.4rem 0;
+    border: 1px solid #9DB7C8;
+    border-radius: 3px;
+    background: #F5F8FA;
+}
+
+.component-property-group > .component-property-summary {
+    padding: 0.7rem 0.75rem;
+    background: #E6F0F5;
+}
+
+.component-property-group > .component-property-summary:hover {
+    background: #DCEAF1;
+}
+
+.component-property-group > .component-property-summary .component-property-name {
+    font-size: 1.65rem;
+}
+
+.component-property-group[open] > .component-property-summary {
+    border-bottom: 1px solid #9DB7C8;
+}
+
+.component-property-group-content {
+    padding: 0 0.75rem 0.75rem;
+}
+
+.component-property-group-content > .component-property-details {
+    margin: 0.75rem 0;
+}
+
+.component-property-group-content > .component-property-list {
+    background: #FFF;
+    border: 1px solid #BCC7CC;
+}
+
+.component-property-list .component-property {
+    border-top: 1px solid #BCC7CC;
+    margin: 0;
+    padding: 0;
+}
+
+.component-property-list .component-property:last-child {
+    border-bottom: 0;
+}
+
+.component-property > .component-property-summary,
+.component-property-group > .component-property-summary {
+    display: grid;
+    grid-template-columns: 1.5rem minmax(0, 1fr);
+    align-items: center;
+    column-gap: 0.75rem;
+    row-gap: 0.1rem;
+    min-height: 3.4rem;
+    padding: 0.35rem 0.25rem;
+    cursor: pointer;
+    list-style: none;
+}
+
+.component-property > summary.component-property-summary::-webkit-details-marker,
+.component-property-group > summary.component-property-summary::-webkit-details-marker {
+    display: none;
+}
+
+.component-property > summary.component-property-summary:hover {
+    background: #f5f8fa;
+}
+
+.component-property--static > .component-property-summary {
+    cursor: default;
+    grid-template-columns: minmax(0, 1fr);
+    padding-left: 2.5rem;
+}
+
+.component-property--static .component-property-name,
+.component-property--static .component-property-summary-meta {
+    grid-column: 1;
+}
+
+.component-property-chevron {
+    flex: 0 0 auto;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 1px solid #0062BA;
+    border-radius: 50%;
+    position: relative;
+}
+
+.component-property-chevron::after {
+    content: "";
+    position: absolute;
+    top: 0.38rem;
+    left: 0.48rem;
+    width: 0.38rem;
+    height: 0.38rem;
+    border-right: 2px solid #0062BA;
+    border-bottom: 2px solid #0062BA;
+    transform: rotate(45deg);
+    transition: transform 150ms ease;
+}
+
+.component-property[open] > .component-property-summary .component-property-chevron::after,
+.component-property-group[open] > .component-property-summary .component-property-chevron::after {
+    top: 0.52rem;
+    transform: rotate(225deg);
+}
+
+.component-property-name {
+    grid-column: 2;
+    min-width: 0;
+    overflow: hidden;
+    color: #022F51;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.component-property-summary-meta {
+    display: flex;
+    grid-column: 2;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0;
+    min-width: 0;
+    color: #52606b;
+    font-size: 1.35rem;
+    line-height: 1.3;
+    white-space: nowrap;
+}
+
+.component-property-required + .component-property-default::before,
+.component-property-required + .component-property-type::before,
+.component-property-default + .component-property-type::before {
+    content: "·";
+    margin: 0 0.65rem;
+    color: #52606b;
+    font-weight: 400;
+}
+
+.component-property-type,
+.component-property-default {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.component-property-type {
+    flex: 0 1 auto;
+    max-width: 58%;
+}
+
+.component-property-required {
+    flex: 0 0 auto;
+}
+
+.component-property-required.is-required {
+    color: #8b1e13;
+    font-weight: 600;
+}
+
+.component-property-default {
+    flex: 0 1 auto;
+}
+
+.component-property-details {
+    margin: 0 0 0.4rem 2.25rem;
+    padding: 0.65rem 1rem;
+    background: #f5f8fa;
+    border-left: 3px solid #1eaef7;
+}
+
+.component-property-description {
+    overflow-wrap: anywhere;
+}
+
+.component-property-description:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 767px) {
+    .component-property-type,
+    .component-property-default {
+        display: none;
+    }
+}
+
 /* Avoid large margin for images in tables */
 #body td a > img {
     margin: 0 auto !important;

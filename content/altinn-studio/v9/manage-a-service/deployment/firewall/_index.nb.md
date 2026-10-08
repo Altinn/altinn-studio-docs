@@ -25,7 +25,7 @@ Du kan se gjeldende utgående IP-adresser for din applikasjon via følgende dash
 * **Produksjon:**  
   `https://<org>.apps.altinn.no/monitor/`
 
-Du trenger en [ai-dev bruker](https://docs.altinn.studio/nb/altinn-studio/guides/administration/access-management/apps/) for å få tilgang til dashboardene.
+Du trenger en [ai-dev bruker]({{< relref "/altinn-studio/v9/manage-a-service/access-management/apps" >}}) for å få tilgang til dashboardene.
 
 Gå til:
 `Dashboards → Altinn → PublicIPs`

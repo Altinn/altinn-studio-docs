@@ -124,6 +124,27 @@ Standardoppsettet lager en PDF som oppsummerer skjemautfyllingen, ut fra skjemao
 V9 støtter i tillegg egenskapen `pageBreak` på `Summary2`-komponenter. Det gjorde ikke app-frontend v4. Se etter om PDF-en har fått flere sideskift enn du ønsker.
 {{% /notice %}}
 
+### eFormidling har fått sitt eget steg i prosessen
+
+Tidligere sendte appen eFormidling-meldingen når prosessen gikk ut av oppgaven i `sendAfterTaskId`. Oppsettet lå i `eFormidling`-seksjonen i `applicationmetadata.json`, og flagget `EnableEFormidling` i `appsettings` slo sendingen av og på. I v9 er sendingen en egen systemoppgave i prosessen, og all konfigurasjonen ligger på den oppgaven.
+
+Oppgraderingen gjør dette for deg:
+
+- Den legger til en eFormidling-oppgave rett etter oppgaven i `sendAfterTaskId`, med konfigurasjonen fra `applicationmetadata.json`.
+- Den gjør `EnableEFormidling` om til `<altinn:disabled>` på oppgaven. Var flagget ulikt i ulike miljøer, får oppgaven ett `<altinn:disabled env="…">` for hvert miljø der sendingen var slått av.
+- Den fjerner `eFormidling`-seksjonen fra `applicationmetadata.json` og `EnableEFormidling` fra `appsettings`-filene.
+- Den skriver om registreringen i `Program.cs` fra `AddEFormidlingServices<...>(config)` til `AddEFormidling().WithMetadata<...>()`, med `WithReceivers<...>()` hvis appen har sin egen mottakerklasse.
+- Den gir `GetEFormidlingReceivers` i mottakerklassen den nye parameteren `receiverFromConfig`, som er mottakeren fra `<altinn:receiver>` på oppgaven.
+
+Dette må du se på selv:
+
+- **Sendingen kan være slått av.** Var `EnableEFormidling` ikke slått på i noe miljø, sendte appen aldri noe. Den nye oppgaven er da slått av med `<altinn:disabled>`. Fjern elementet når du vil begynne å sende.
+- **`serviceId` forsvinner.** Den har ingen erstatning i v9. Tjenesten hentes fra mottakerens kapabiliteter.
+- **Kode som bruker de gamle grensesnittene.** Oppgraderingen lister opp kall til `SendEFormidlingShipment(instance)` og kode som leser `EnableEFormidling`, men skriver dem ikke om.
+- **Et tilbakemeldingssteg etter systemoppgaven.** I v8 la noen apper til en `feedback`-oppgave etter eFormidling for å vente på svar. I v9 viser appen en lastevisning selv mens en systemoppgave jobber eller venter. Oppgraderingen lister opp slike `feedback`-oppgaver, men fjerner dem ikke. Fjern oppgaven hvis den bare var der for å vente.
+
+Mangler `sendAfterTaskId`, eller klarer ikke oppgraderingen å sette inn oppgaven, lar den `applicationmetadata.json` stå urørt og ber deg legge til oppgaven selv. Se [veiledningen for eFormidling]({{< relref "/altinn-studio/v9/receive-data/eFormidling" >}}) for hele oppsettet.
+
 ### Regelfilene forsvinner
 
 Vi har lenge anbefalt å sette opp dynamikk i skjemaer med dynamiske uttrykk i JSON-filene, men vi har fortsatt støttet de eldre reglene som er skrevet i JavaScript. Den støtten forsvinner i v9.
@@ -148,7 +169,7 @@ Svarverdiene må du skrive om selv. `ServiceTaskErrorHandling` og `ServiceTaskEr
 | `FailedContinueProcessNext("reject")` | `Success("reject")`. Oppgaven er ferdig, og prosessen går videre med handlingen du oppgir. |
 | `Failed(new ServiceTaskErrorHandling(...))` | Velg blant svarene over, ut fra hva strategien din faktisk skulle oppnå. |
 
-I tillegg kjører plattformen systemoppgaver på en ny måte i v9. I v8 kjørte oppgaven én gang, som en del av `process/next`. Nå kjører den for seg: plattformen prøver på nytt hvis noe utenfor appen svikter, og kan parkere prosessen mens oppgaven venter på svar. Det stiller et nytt krav til koden: oppgaven må tåle å kjøre flere ganger uten å sende samme melding eller opprette samme sak to ganger.
+I tillegg kjører plattformen systemoppgaver på en ny måte i v9. I v8 kjørte oppgaven én gang, som en del av `process/next`. Nå kjører den for seg: plattformen prøver på nytt hvis noe utenfor appen svikter, og kan holde prosessen i steget mens oppgaven venter på svar. Det stiller et nytt krav til koden: oppgaven må tåle å kjøre flere ganger uten å sende samme melding eller opprette samme sak to ganger.
 
 Se [Lage en egendefinert systemoppgave]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}) for hele oppsettet, og [Systemoppgaver med flere steg]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/flere-steg" >}}) hvis oppgaven sender noe og venter på svar.
 

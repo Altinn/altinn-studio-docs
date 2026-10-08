@@ -79,7 +79,7 @@ Disse funksjonene er tilgjengelige for bruk i uttrykk:
 | [`instanceContext`](#func-instancecontext)     | Streng                           | Streng                     | ✅       | ✅      |
 | [`frontendSettings`](#func-frontendsettings)   | Streng                           | Streng                     | ✅       | ✅      |
 | [`countDataElements`](#func-countDataElements) | Streng                           | Tall                       | ✅       | ✅      |
-| [`dataModel`](#func-datamodel)                 | Streng                           | Streng, liste eller objekt | ✅       | ✅      |
+| [`dataModel`](#func-datamodel)                 | Streng, valgfri streng           | Streng, liste eller objekt | ✅       | ✅      |
 | [`component`](#func-component)                 | Streng                           | Streng, liste eller objekt | ✅       | ✅      |
 | [`linkToPage`](#func-linkToPage)               | Streng, Streng, Boolsk (valgfri) | Streng                     | ✅       | ❌      |
 | [`linkToComponent`](#func-linkToComponent)     | Streng, Streng, Boolsk (valgfri) | Streng                     | ✅       | ❌      |
@@ -552,7 +552,7 @@ Eksempel:
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-datamodel" header="dataModel (oppslag)" %}}
-Denne oppslagsfunksjonen gjør det mulig å hente verdier direkte fra gjeldende datamodell. Første og eneste argument må peke et sted i datamodellen, og bruker det samme punktum-separerte formatet som brukt i `dataModelBindings`. Ved bruk inne i [repeterende grupper](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/repeatinggroup/) trenger du _ikke_ bruke plassholdere for indekser til gruppen - uttrykket finner selv den relative plasseringen i kontekst av en repeterende gruppe.
+Denne oppslagsfunksjonen gjør det mulig å hente verdier direkte fra gjeldende datamodell. Første argument må peke et sted i datamodellen, og bruker det samme punktum-separerte formatet som brukt i `dataModelBindings`. Hvis appen har flere datamodeller, kan du oppgi datatypen til datamodellen som andre argument, for eksempel `["dataModel", "Ansatte.Navn", "personalmodell"]`. Datatypen må være en fast tekst, ikke et uttrykk. Uten andre argument slår funksjonen opp i standarddatamodellen (`defaultDataType`). Ved bruk inne i [repeterende grupper](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/repeatinggroup/) trenger du _ikke_ bruke plassholdere for indekser til gruppen - uttrykket finner selv den relative plasseringen i kontekst av en repeterende gruppe.
 
 Eksempel på oppslag i repeterende gruppe:
 
@@ -560,7 +560,7 @@ Eksempel på oppslag i repeterende gruppe:
 [
    {
       "id": "ansatte",
-      "type": "Group",
+      "type": "RepeatingGroup",
       "textResourceBindings": {
          "title": "Ansatte i selskapet"
       },
@@ -591,7 +591,7 @@ Eksempel på oppslag i repeterende gruppe:
       },
       "dataModelBindings": {
          "simpleBinding": "Ansatte.Alder"
-      }
+      },
       "hidden": ["equals",
         ["dataModel", "Ansatte[0].Navn"],
         "Ola Nordmann"]

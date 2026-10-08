@@ -26,5 +26,6 @@ Altinn Autorisasjon knytter sammen identitet, part, ressurs, rettighet og kontek
 - [Integrasjoner og avhengigheter](integrations/) beskriver systemgrensene mot andre Altinn-team og eksterne fellesløsninger.
 - [Sikkerhet og tillit](security/) beskriver tillitsgrenser og sentrale sikkerhetsprinsipper.
 - [Drift og observabilitet](operations/) beskriver runtime, hendelser og feilsøking på tvers av komponentene.
+- [Altinn-landskapet](/nb/technology/architecture/altinn-landscape/) viser detaljerte arkitekturtegninger av hele Altinn 3, produkt for produkt.
 
 {{<children />}}

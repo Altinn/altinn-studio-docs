@@ -86,7 +86,7 @@ Når appen henter svaralternativer, spesielt [felles kodelister](../../sources/s
 
 Dette kan konfigureres ved å sette `metadata`-egenskapen på komponentens `dataModelBinding`-egenskap til et felt i datamodellen som inneholder en `string`-verdi:
 
-```json {hl_lines=["9"]}
+```json {hl_lines=["6"]}
 {
   "id": "some-dropdown-component",
   "type": "Dropdown",
@@ -96,8 +96,8 @@ Dette kan konfigureres ved å sette `metadata`-egenskapen på komponentens `data
   },
   "required": true,
   "optionsId": "loyvetyper",
-  "mapping": {
-    "soknad.transportorOrgnummer": "orgnummer"
+  "queryParameters": {
+    "orgnummer": ["dataModel", "soknad.transportorOrgnummer"]
   }
 }
 ```

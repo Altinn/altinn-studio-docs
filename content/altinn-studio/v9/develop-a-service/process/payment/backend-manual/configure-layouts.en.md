@@ -8,8 +8,7 @@ hidden: true
 This will display a table showing the items the user will need to pay for.
 You can put this anywhere in your app, but we recommend at the very least putting it on the last page before the user is prompted to pay.
 
-In order to update the order lines as the data used to calculate the order lines changes, you need to add a mapping to
-the data fields used to calculate the order lines.
+To update the order lines when the data used to calculate them changes, add those data fields to `refetchDependencies`. Each value is an expression that points to a field in the data model. You can choose the key names freely, and the values are not sent to the server.
 
 ```json
 {
@@ -19,8 +18,8 @@ the data fields used to calculate the order lines.
     "title": "Oversikt over betaling",
     "description": "Her er en oversikt over hva du skal betale for."
   },
-  "mapping": {
-    "GoodsAndServicesProperties.Inventory.InventoryProperties": "paymentDetails"
+  "refetchDependencies": {
+    "inventory": ["dataModel", "GoodsAndServicesProperties.Inventory.InventoryProperties"]
   }
 }
 ```
@@ -49,7 +48,7 @@ Here is a minimal example:
 }
 ```
 
-Update your layout set Settings.json file, specifying your receipt layout in the `pdfLayoutName` field:
+Update the `Settings.json` file in the payment task's UI folder (`App/ui/<taskId>/Settings.json`), specifying your receipt layout in the `pdfLayoutName` field:
 
 ```json
 {
@@ -58,7 +57,7 @@ Update your layout set Settings.json file, specifying your receipt layout in the
     "order": [
       "payment"
     ],
-    "pdfLayoutName": "paymentReceipt", 
+    "pdfLayoutName": "receiptLayout",
     "showProgress": true,
     "showLanguageSelector": true
   }

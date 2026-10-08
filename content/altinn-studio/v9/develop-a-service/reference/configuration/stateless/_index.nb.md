@@ -217,7 +217,7 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
 
 
     {{< code-title >}}
-    App/ui/layouts/{page}.json
+    App/ui/stateless/layouts/{page}.json
     {{< /code-title >}}
 
     ```json
@@ -403,7 +403,7 @@ Det er laget en eksempelapp som er satt opp som en innsynstjeneste hvor brukeren
 
 Et bruksområde for å starte en instans fra en stateless visning kan være at du først ønsker at appen skal oppføre seg som en innsynstjeneste der brukeren blir presentert for aktuelle data. Fra disse dataene kan brukeren velge å gå videre, og appen går da over til en vanlig innsendingstjeneste.
 
-For å få til en slik flyt må du først sette opp appen som en stateless app som beskrevet under [konfigurasjon](#konfigurasjon). Når dette er gjort, kan du utvide stateless-visningen til å inkludere `InstantiationButton`, som starter en ny instans når brukeren klikker på knappen. Standard oppførsel for denne knappen er å sende inn hele datamodellen som brukeren har brukt, som en del av instansieringen under feltet `prefill`. Hvis du ønsker å velge ut deler av datamodellen som er brukt i det stateless-steget, kan du også gjøre det ved å legge til `mapping` på `InstantiationButton`-komponenten. For eksempel:
+For å få til en slik flyt må du først sette opp appen som en stateless app som beskrevet under [konfigurasjon](#konfigurasjon). Når dette er gjort, kan du utvide stateless-visningen til å inkludere `InstantiationButton`, som starter en ny instans når brukeren klikker på knappen. Knappen sender bare med data til den nye instansen hvis du ber om det. Du velger ut feltene fra datamodellen i stateless-steget ved å legge til `queryParameters` på `InstantiationButton`-komponenten. Hver verdi er et uttrykk. For eksempel:
 
 ```json
  {
@@ -412,14 +412,14 @@ For å få til en slik flyt må du først sette opp appen som en stateless app s
     "textResourceBindings": {
       "title": "Start instans"
     },
-    "mapping": {
-      "some.source.field": "name",
-      "some.other.field": "id"
+    "queryParameters": {
+      "name": ["dataModel", "some.source.field"],
+      "id": ["dataModel", "some.other.field"]
     }
   }
 ```
 
-Når brukeren velger å starte en instans, henter app-frontend ut feltene `some.source.field` og `some.other.field` fra datamodellen i det stateless-steget, og mapper disse mot feltene `name` og `id` som sendes med i instansieringskallet for appen. Eksempel på request som går mot backend, som du kan mappe over datamodellen du bruker i innsendingsdelen av appen:
+Når brukeren velger å starte en instans, henter app-frontend ut feltene `some.source.field` og `some.other.field` fra datamodellen i stateless-steget, og sender dem med som `name` og `id` i feltet `prefill` i instansieringskallet. Eksempel på request som går mot backend:
 
 ```json
 {
@@ -432,32 +432,50 @@ Når brukeren velger å starte en instans, henter app-frontend ut feltene `some.
 
 ```
 
-Denne verdien kan du bruke i metoden `DataCreation` i `InstantiationHandler.cs` for å mappe mot feltene du trenger som en del av innsendingsdelen av appen under instansieringen. Eksempel:
+Hvis nøklene i `queryParameters` er stier til felt i datamodellen til innsendingsdelen, for eksempel `"Sender.Name"`, fyller appen ut feltene automatisk når instansen starter. Da trenger du ikke å skrive kode.
+
+Hvis du trenger mer kontroll, kan du bruke verdiene for forhåndsutfylling i metoden `DataCreation` i en klasse som implementerer `IInstantiationProcessor`. Der fyller du ut feltene du trenger i datamodellen til innsendingsdelen av appen. Eksempel:
 
 ```c#
-public async Task DataCreation(Instance instance, object data, Dictionary<string, string> prefill)
-  {
-      if (data.GetType() == typeof(MessageV1))
-      {
-          string name = "";
-          string id = "";
-          if (prefill.ContainsKey("name")) {
-              name = prefill["name"];
-          }
-          if (prefill.ContainsKey("id")) {
-              id = prefill["id"];
-          }
-          MessageV1 skjema = (MessageV1)data;
-          skjema.Sender = name;
-          skjema.Reference = id;
-      }            
-      await Task.CompletedTask;
-  }
+using Altinn.App.Core.Features;
+using Altinn.App.Models.model; // Navnerommet til datamodellen din, vanligvis Altinn.App.Models.<modellnavn>
+using Altinn.Platform.Storage.Interface.Models;
+
+namespace Altinn.App.Logic;
+
+public class InstantiationProcessor : IInstantiationProcessor
+{
+    public async Task DataCreation(Instance instance, object data, Dictionary<string, string>? prefill)
+    {
+        if (data is MessageV1 skjema && prefill is not null)
+        {
+            if (prefill.TryGetValue("name", out var name))
+            {
+                skjema.Sender = name;
+            }
+            if (prefill.TryGetValue("id", out var id))
+            {
+                skjema.Reference = id;
+            }
+        }
+        await Task.CompletedTask;
+    }
+}
+```
+
+Husk å registrere klassen i metoden `RegisterCustomAppServices` i `Program.cs`, og legg til `using` for navnerommet til klassen øverst i filen:
+
+```c#
+using Altinn.App.Logic;
+
+// ...
+
+services.AddTransient<IInstantiationProcessor, InstantiationProcessor>();
 ```
 
 #### Instansiere fra en repeterende gruppe
 
-Hvis du i det stateless-steget ønsker at brukeren for eksempel velger et element fra en repeterende gruppe og jobber videre på et gitt element, kan du sette opp `InstantiationButton`-komponenten som en del av den repeterende gruppen. Her kan du konfigurere instansieringsknappen til å mappe felter fra den gitte indeksen brukeren velger å starte en instans fra. Dette krever at du setter opp mapping-feltene med en indeks på den aktuelle gruppen. Eksempel:
+Hvis du i stateless-steget ønsker at brukeren for eksempel velger et element fra en repeterende gruppe og jobber videre på et gitt element, kan du sette opp `InstantiationButton`-komponenten som en del av den repeterende gruppen. Uttrykkene i `queryParameters` henter da verdiene fra raden brukeren starter instansen fra. Du trenger ikke å oppgi indeksen til raden. Eksempel:
 
 ```json
  {
@@ -466,11 +484,9 @@ Hvis du i det stateless-steget ønsker at brukeren for eksempel velger et elemen
     "textResourceBindings": {
       "title": "Start ny instans"
     },
-    "mapping": {
-      "people[{0}].name": "name",
-      "people[{0}].age": "age"
+    "queryParameters": {
+      "name": ["dataModel", "people.name"],
+      "age": ["dataModel", "people.age"]
     }
   }
 ```
-
-I den repeterende gruppen blir `{0}` erstattet med den aktuelle indeksen på gruppen brukeren ønsker å starte fra.

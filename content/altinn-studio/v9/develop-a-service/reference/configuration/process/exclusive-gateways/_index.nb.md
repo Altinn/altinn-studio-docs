@@ -20,13 +20,18 @@ Funksjonaliteten beskrevet på denne siden krever minimum versjon 7.1.0 av Altin
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:altinn="http://altinn.no" id="Altinn_SingleDataTask_Process_Definition" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="10.2.0">
+<bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:altinn="http://altinn.no/process" id="Altinn_SingleDataTask_Process_Definition" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="10.2.0">
   <bpmn:process id="SingleDataTask" isExecutable="false">
     <bpmn:startEvent id="StartEvent_1">
       <bpmn:outgoing>Flow_s_t1</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="Flow_s_t1" sourceRef="StartEvent_1" targetRef="Task_1" />
-    <bpmn:task id="Task_1" name="Utfylling" altinn:tasktype="data">
+    <bpmn:task id="Task_1" name="Utfylling">
+      <bpmn:extensionElements>
+        <altinn:taskExtension>
+          <altinn:taskType>data</altinn:taskType>
+        </altinn:taskExtension>
+      </bpmn:extensionElements>
       <bpmn:incoming>Flow_s_t1</bpmn:incoming>
       <bpmn:outgoing>Flow_t1_g1</bpmn:outgoing>
     </bpmn:task>
@@ -38,7 +43,15 @@ Funksjonaliteten beskrevet på denne siden krever minimum versjon 7.1.0 av Altin
     </bpmn:exclusiveGateway>
     <bpmn:sequenceFlow id="Flow_g1_g2" sourceRef="Gateway_1" targetRef="Gateway_2" />
     <bpmn:sequenceFlow id="Flow_g1_t2" sourceRef="Gateway_1" targetRef="Task_2" />
-    <bpmn:task id="Task_2" name="Bekreftelse" altinn:tasktype="confirmation">
+    <bpmn:task id="Task_2" name="Bekreftelse">
+      <bpmn:extensionElements>
+        <altinn:taskExtension>
+          <altinn:taskType>confirmation</altinn:taskType>
+          <altinn:actions>
+            <altinn:action>confirm</altinn:action>
+          </altinn:actions>
+        </altinn:taskExtension>
+      </bpmn:extensionElements>
       <bpmn:incoming>Flow_g1_t2</bpmn:incoming>
       <bpmn:outgoing>Flow_t2_g2</bpmn:outgoing>
     </bpmn:task>
@@ -71,7 +84,7 @@ Du bruker `GatewayId` for å identifisere gatewayen i prosessen som koden er kob
 
 I eksempelet over vil en implementasjon ha propertien satt til `Gateway_1`, siden dette er verdien på attributtet _id_ i gatewayen vi ønsker å skrive logikk for (den eneste med to sequenceflows ut av seg).
 
-I metoden FilterAsync skriver du koden som skal filtrere og returnere gyldige sequenceflow(er) ut av gatewayen basert på instansens data.
+I metoden FilterAsync skriver du koden som velger hvilken sequenceflow prosessen skal følge ut av gatewayen, basert på instansens data. Metoden må returnere nøyaktig én flyt. Returnerer den ingen eller flere flyter, går ikke prosessen videre.
 
 For mer dokumentasjon av grensesnittet, se xml-dokumentasjonen [her](https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Features/IProcessExclusiveGateway.cs).
 

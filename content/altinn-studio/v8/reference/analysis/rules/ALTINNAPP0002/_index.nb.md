@@ -12,9 +12,6 @@ analysen trenger den. Meldingen inneholder årsaken. Tilfellene som rapporteres 
 - datamodellklassen som er oppgitt i filen finnes ikke i kompileringen
   (`Could not find class ... in the compilation`)
 
-Strukturelle feil og ugyldig JSON rapporteres også her, og ikke av
-deprecation-reglene, som er tause når filen ikke lar seg tolke.
-
 Kategori `Metadata`, alvorlighetsgrad **advarsel**.
 
 Rett filen slik at det finnes nøyaktig én `applicationmetadata.json`, at den er gyldig

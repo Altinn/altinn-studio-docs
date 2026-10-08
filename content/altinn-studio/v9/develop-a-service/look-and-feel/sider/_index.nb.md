@@ -99,7 +99,7 @@ Dette er innstillingene du har tilgjengelig:
 | showLanguageSelector  | Boolean | Om appen skal vise språkvelgeren. Lar brukeren bytte språk etter at utfyllingen er startet.                                    |
 | showExpandWidthButton | Boolean | Om appen skal vise knappen for å utvide bredden. Lar brukeren utvide siden slik at den fyller hele nettleservinduet.           |
 | showProgress          | Boolean | Se [Navigasjon]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/sider/navigasjon" >}}#vise-en-fremdriftsindikator)                               |
-| pdfLayoutName         | String  | Se [PDF](/nb/altinn-studio/v8/reference/ux/pdf/#egendefinert-konfigurasjon)                                                     |
+| pdfLayoutName         | String  | Se [PDF]({{< relref "/altinn-studio/v9/develop-a-service/process/pdf" >}}#custom-pdf-layout)                                     |
 | order                 | Array   | Se [Navigasjon]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/sider/navigasjon" >}}#vise-en-sidemeny-med-rekkefølgen-på-sidene)         |
 | groups                | Array   | Se [Navigasjon]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/sider/navigasjon" >}}#gruppere-sider)                                            |
 | excludeFromPdf        | Array   | Se [PDF](/nb/altinn-studio/v8/reference/ux/pdf/#automatisk-konfigurasjon)                                                       |

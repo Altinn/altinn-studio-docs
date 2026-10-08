@@ -56,7 +56,7 @@ Følg trinnene under for å sette opp en slik app.
 
 {{</content-version-selector>}}
 
-## 2. Legg til layout-set for signering
+## 2. Legg til sider for signeringssteget
 
 {{<content-version-selector classes="border-box">}}
 
@@ -156,29 +156,38 @@ Disse standardverdiene brukes hvis du ikke endrer kommunikasjonstekstene:
 `CommunicationConfig` er valgfritt. Her kan du endre standardtekstene som brukes i kommunikasjon med de som skal signere, som beskrevet i forrige punkt. Du kan også endre e-postadresse og telefonnummer for de som skal signere.
 
 {{% notice info %}}
-Hvis du ikke endrer disse innstillingene, sendes en melding til innboksen i Altinn med en lenke til applikasjonsinstansen. En notifikasjon sendes også på e-postadresse.
+Hvis `CommunicationConfig` ikke er satt, sendes en melding til innboksen i Altinn med en lenke til applikasjonsinstansen,
+og et varsel sendes bare på e-post, med Altinns generiske varslingsmal.
+{{% /notice %}}
+
+{{% notice warning %}}
+Vil du varsle på SMS, eller bruke standardtekstene for SMS og e-post fra forrige punkt, må du sette `CommunicationConfig.NotificationChoice`.
+Hvis den ikke er satt, avgjøres kanalen av `Notification.Email.EmailAddress` og `Notification.Sms.MobileNumber`,
+og når ingen av dem har verdi, sendes bare den generiske e-posten. Det holder å sette `NotificationChoice` for å bruke standardtekstene
+og den registrerte kontaktinformasjonen.
 {{% /notice %}}
 
 Hvis du ikke endrer e-postadresser og telefonnumre, hentes de som beskrevet i [Recipient lookup](/nb/notifications/explanation/recipient-lookup/) og [Address lookup](/nb/notifications/explanation/address-lookup/).
 
 Dette kan du endre i kommunikasjonen med de som skal signere:
 
-| Property                                                      | Description                                         | Type                              |
-| ------------------------------------------------------------- | --------------------------------------------------- | --------------------------------- |
-| CommunicationConfig                                           | Objektet for kommunikasjonskonfigurasjon            | Object                            |
-| CommunicationConfig.InboxMessage                              | Objektet for innboksmeldingskonfigurasjon           | Object                            |
-| CommunicationConfig.InboxMessage.TitleTextResourceKey         | Tekstressursnøkkelen for innboksmeldingstittel      | String                            |
-| CommunicationConfig.InboxMessage.SummaryTextResourceKey       | Tekstressursnøkkelen for innboksmeldingssammendrag  | String                            |
-| CommunicationConfig.InboxMessage.BodyTextResourceKey          | Tekstressursnøkkelen for innboksmeldingsinnhold     | String                            |
-| CommunicationConfig.Notification                              | Objektet for varslingskonfigurasjon                 | Object                            |
-| CommunicationConfig.Notification.Email                        | Objektet for e-postmeldingsvarsling                 | Object                            |
-| CommunicationConfig.Notification.Email.EmailAddress           | Tekstressursnøkkelen for e-postadresse              | String                            |
-| CommunicationConfig.Notification.Email.SubjectTextResourceKey | Tekstressursnøkkelen for e-postemne                 | String                            |
-| CommunicationConfig.Notification.Email.BodyTextResourceKey    | Tekstressursnøkkelen for e-postinnhold              | String                            |
-| CommunicationConfig.Notification.Sms                          | Objektet for SMS-varslingskonfigurasjon             | Object                            |
-| CommunicationConfig.Notification.Sms.MobileNumber             | Tekstressursnøkkelen for mobilnummer                | String                            |
-| CommunicationConfig.Notification.Sms.BodyTextResourceKey      | Tekstressursnøkkelen for SMS-innhold                | String                            |
-| CommunicationConfig.Notification.NotificationChoice           | Varslingspreferansevalget                           | NotificationChoice enum (String)  |
+| Property                                                      | Description                                                                                                  | Type                    |
+| ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ----------------------- |
+| CommunicationConfig                                           | Objektet for kommunikasjonskonfigurasjon                                                                     | Object                  |
+| CommunicationConfig.NotificationChoice                        | Hvilken kanal det varsles på: `Email`, `Sms`, `SmsAndEmail`, `SmsPreferred` eller `EmailPreferred`           | NotificationChoice enum |
+| CommunicationConfig.InboxMessage                              | Objektet for innboksmeldingskonfigurasjon                                                                    | Object                  |
+| CommunicationConfig.InboxMessage.TitleTextResourceKey         | Tekstressursnøkkelen for innboksmeldingstittel                                                               | String                  |
+| CommunicationConfig.InboxMessage.SummaryTextResourceKey       | Tekstressursnøkkelen for innboksmeldingssammendrag                                                           | String                  |
+| CommunicationConfig.InboxMessage.BodyTextResourceKey          | Tekstressursnøkkelen for innboksmeldingsinnhold                                                              | String                  |
+| CommunicationConfig.Notification                              | Objektet for varslingskonfigurasjon                                                                          | Object                  |
+| CommunicationConfig.Notification.Email                        | Objektet for e-postvarsling                                                                                  | Object                  |
+| CommunicationConfig.Notification.Email.EmailAddress           | Overstyrer e-postadressen. Hvis den ikke er satt, brukes registrert kontaktinformasjon                       | String                  |
+| CommunicationConfig.Notification.Email.SubjectTextResourceKey | Tekstressursnøkkelen for e-postemne                                                                          | String                  |
+| CommunicationConfig.Notification.Email.BodyTextResourceKey    | Tekstressursnøkkelen for e-postinnhold                                                                       | String                  |
+| CommunicationConfig.Notification.Sms                          | Objektet for SMS-varsling                                                                                    | Object                  |
+| CommunicationConfig.Notification.Sms.MobileNumber             | Overstyrer mobilnummeret. Hvis det ikke er satt, brukes registrert kontaktinformasjon                        | String                  |
+| CommunicationConfig.Notification.Sms.BodyTextResourceKey      | Tekstressursnøkkelen for SMS-innhold                                                                         | String                  |
+| CommunicationConfig.ReminderNotification                      | Hvis satt, sendes en påminnelse til de som ikke har signert. Samme struktur som `Notification`, men bare tekstressursnøklene brukes | Object |
 
 {{<content-version-selector classes="border-box">}}
 

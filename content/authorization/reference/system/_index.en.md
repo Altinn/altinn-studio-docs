@@ -26,5 +26,6 @@ Altinn Authorization combines identity, party, resource, rights and context to d
 - [Integrations and dependencies](integrations/) describes boundaries towards other Altinn teams and shared national services.
 - [Security and trust](security/) describes trust boundaries and security principles.
 - [Operations and observability](operations/) describes runtime, events and cross-component troubleshooting.
+- [Altinn landscape](/en/technology/architecture/altinn-landscape/) shows detailed architecture drawings of all of Altinn 3, product by product.
 
 {{<children />}}
