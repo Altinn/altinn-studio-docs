@@ -667,7 +667,7 @@ The following list is some of the namespaces that have changed that we think wil
 * `Altinn.App.Common.Models` namespace is moved to `Altinn.App.Core.Models`
 * `Altinn.App.PlatformServices.Interface.ICustomPdfHandler` interface is moved and renamed to: `Altinn.App.Core.Features.Pdf.IPdfFormatter`
 
-## Recomended plugin for Visual Studio Code
+## Recommended plugin for Visual Studio Code
 There are a lot of changes to namespaces so we strongly recommend using Visual Studio Code with the C# plugin installed. This will give you code help for importing and locating new or changed interfaces.
 
 Plugin information:<br/>

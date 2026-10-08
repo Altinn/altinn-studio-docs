@@ -23,7 +23,7 @@ The functionality provided within the template is:
 [Subscring to events is descibed here](subscribing) 
 
 ### Validate subscriptions
-Once the application succesfully have created a subscription, the Event Service will sende a ping event. It's a regular event with a specific type `platform.events.validatesubscription`. There is already a handler for this type registered and the validation should be done without further action required.
+Once the application successfully have created a subscription, the Event Service will sende a ping event. It's a regular event with a specific type `platform.events.validatesubscription`. There is already a handler for this type registered and the validation should be done without further action required.
 
 ### Run custom code when receiving events
 All inbound events are received through the EventsReceiverController on the route `/{org}/{app}/api/v1/eventsreceiver`. The controller uses `IEventHandlerResolver` interface to resolve the the class that should handle the event based on mapping the incoming event type to the EventType property on registered implementations of `IEventHandler`.
