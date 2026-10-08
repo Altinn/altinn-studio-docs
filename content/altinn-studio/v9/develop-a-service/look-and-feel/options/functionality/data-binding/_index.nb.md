@@ -66,7 +66,8 @@ Legg merke til at verdien for hvert svaralternativ må være unik, og hvis du br
 
 Komponenter som bruker svaralternativer lagrer vanligvis bare verdien av det valgte alternativet i datamodellen. Dette er ofte tilstrekkelig, men i noen tilfeller kan det være nyttig å lagre ledeteksten til det valgte alternativet også. Dette kan for eksempel være nyttig hvis du trenger å vise det valgte alternativet i en enkel tekstvisning senere, uten å måtte gjøre ytterligere oppslag. Det kan også være nyttig å huske hvilken ledetekst brukeren faktisk valgte i tilfelle den endres over tid. Når du lagrer ledeteksten i datamodellen, følger systemet brukerens valgte språk, slår opp teksten i tekstressursene og lagrer den endelige verdien i datamodellen.
 
-Dette konfigureres ved å ha en separat binding med nøkkelen `label`. Denne bindingen må peke på et felt i datamodellen av typen `string`:
+Legg til en separat binding med nøkkelen `label`. For enkeltvalgskomponenter som `Dropdown` og `RadioButtons`
+må denne bindingen peke på et felt av typen `string`:
 
 ```json {hl_lines=["6"]}
 {
@@ -79,6 +80,31 @@ Dette konfigureres ved å ha en separat binding med nøkkelen `label`. Denne bin
   "optionsId": "kommuner"
 }
 ```
+
+For flervalgskomponenter som `Checkboxes` og `MultipleSelect` må `label`-bindingen peke på en liste med
+strenger, `string[]`. `simpleBinding` peker fortsatt på et `string`-felt med kommaseparerte verdier.
+Ledetekstene trenger en liste fordi selve teksten kan inneholde komma.
+
+Legg for eksempel til denne bindingen i kjæledyrkomponenten over:
+
+```json
+"dataModelBindings": {
+  "simpleBinding": "Submitter.Pets",
+  "label": "Submitter.PetLabels"
+}
+```
+
+Angi `Submitter.PetLabels` som en liste med strenger i datamodellens JSON Schema:
+
+```json
+"PetLabels": {
+  "type": "array",
+  "items": { "type": "string" }
+}
+```
+
+Hvis du bruker `group`-bindingen til å lagre valgene i en repeterende struktur, lagrer hver rad sin egen verdi
+og ledetekst. Da må `label` peke på et `string`-felt inne i raden, i stedet for en separat liste med ledetekster.
 
 ## Slik lagrer du metadata
 

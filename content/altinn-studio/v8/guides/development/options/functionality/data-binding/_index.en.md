@@ -75,8 +75,8 @@ you have a requirement to remember the label the user actually picked in case it
 the label in the data model, it will respect the user's chosen language, look up the actual text from the text resources
 and store the final value in the data model.
 
-This is configured by having a separate binding with the key `label`. The `label` binding should point to a field in the
-data model of type `string`:
+Add a separate binding with the key `label`. For single-choice components such as `Dropdown` and `RadioButtons`,
+this binding must point to a field of type `string`:
 
 ```json {hl_lines=["6"]}
 {
@@ -89,6 +89,31 @@ data model of type `string`:
   "optionsId": "municipalities"
 }
 ```
+
+For multi-choice components such as `Checkboxes` and `MultipleSelect`, the `label` binding must point to a list of
+strings, `string[]`. The `simpleBinding` still points to a `string` containing comma-separated values. Labels use a
+list because the label text itself can contain commas.
+
+For example, add the following binding to the pets component above:
+
+```json
+"dataModelBindings": {
+  "simpleBinding": "Submitter.Pets",
+  "label": "Submitter.PetLabels"
+}
+```
+
+Define `Submitter.PetLabels` as an array with string items in the data model's JSON Schema:
+
+```json
+"PetLabels": {
+  "type": "array",
+  "items": { "type": "string" }
+}
+```
+
+If you use the `group` binding to store choices in a repeating structure, each row stores its own value and label.
+In that case, `label` must point to a `string` field inside the row, rather than a separate list of labels.
 
 ### Storing metadata
 

@@ -75,8 +75,8 @@ uten å måtte gjøre ytterligere oppslag. Det kan også være nyttig å huske h
 tilfelle den endres over tid. Når ledeteksten lagres i datamodellen, vil den følge brukerens valgte språk, slå opp
 teksten i tekstressursene og lagre den endelige verdien i datamodellen.
 
-Dette konfigureres ved å ha en separat binding med nøkkelen `label`. Denne bindingen må peke på et felt i
-datamodellen av typen `string`:
+Legg til en separat binding med nøkkelen `label`. For enkeltvalgskomponenter som `Dropdown` og `RadioButtons`
+må denne bindingen peke på et felt av typen `string`:
 
 ```json {hl_lines=["6"]}
 {
@@ -89,6 +89,31 @@ datamodellen av typen `string`:
   "optionsId": "kommuner"
 }
 ```
+
+For flervalgskomponenter som `Checkboxes` og `MultipleSelect` må `label`-bindingen peke på en liste med
+strenger, `string[]`. `simpleBinding` peker fortsatt på et `string`-felt med kommaseparerte verdier.
+Ledetekstene trenger en liste fordi selve teksten kan inneholde komma.
+
+Legg for eksempel til denne bindingen i kjæledyrkomponenten over:
+
+```json
+"dataModelBindings": {
+  "simpleBinding": "Submitter.Pets",
+  "label": "Submitter.PetLabels"
+}
+```
+
+Angi `Submitter.PetLabels` som en liste med strenger i datamodellens JSON Schema:
+
+```json
+"PetLabels": {
+  "type": "array",
+  "items": { "type": "string" }
+}
+```
+
+Hvis du bruker `group`-bindingen til å lagre valgene i en repeterende struktur, lagrer hver rad sin egen verdi
+og ledetekst. Da må `label` peke på et `string`-felt inne i raden, i stedet for en separat liste med ledetekster.
 
 ### Lagring av metadata
 
