@@ -60,7 +60,7 @@ autoscaling:
 
 - `replicas.min` og `replicas.max` er det laveste og det høyeste antallet kopier appen kan ha.
 - `avgCpuUtilization` er hvor mange prosent av CPU-reservasjonen (`resources.requests.cpu`) kopiene i snitt skal bruke før Kubernetes starter flere.
-- `behavior` styrer hvor raskt antallet endrer seg. Med standardverdiene starter Kubernetes én ny kopi hvert 15. sekund så lenge belastningen er høy. Når belastningen går ned, venter Kubernetes fem minutter og stopper deretter én kopi i minuttet.
+- `behavior` styrer hvor raskt antallet endrer seg. Med standardverdiene starter Kubernetes høyst én ny kopi hvert 15. sekund så lenge belastningen er høy. Når belastningen går ned, venter Kubernetes fem minutter og stopper deretter høyst én kopi i minuttet.
 
 Det tar tid å starte en ny kopi, og enda lengre tid hvis clusteret må starte en ny maskin først. Sett derfor `avgCpuUtilization` så lavt at appen tåler belastningen til de nye kopiene er klare.
 
