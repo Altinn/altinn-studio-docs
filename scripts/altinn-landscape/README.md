@@ -6,6 +6,7 @@ Tegningene havner i `content/technology/architecture/altinn-landscape/`:
 
 | Fil | Innhold |
 |---|---|
+| `altinn_explained_nb.drawio.svg`, `altinn_explained_en.drawio.svg` | Altinn forklart: en pedagogisk tegning for nye, på bokmål og engelsk |
 | `altinn_overview.drawio.svg` | Oversikten: én boks per applikasjon, gruppert per produkt |
 | `altinn_authorization_detailed.drawio.svg` | Autorisasjon |
 | `altinn_dialogporten_detailed.drawio.svg` | Dialogporten |
@@ -78,7 +79,7 @@ Hver ramme er en liste med kolonner. Hver kolonne er en delmodul med bokser i la
 
 Under kolonnene har hver ramme felt for integrasjonsklienter, bakgrunnsjobber, tverrgående funksjoner og datalagre. De ligger i listene som slutter på `_BARS`.
 
-Skriptet lager oversiktstegningen til slutt. Den bruker kolonnenavnene fra de detaljerte rammene som punktliste i hver applikasjonsboks, så oversikten og detaljtegningene holder seg like.
+Skriptet lager oversiktstegningen og den pedagogiske tegningen til slutt. Tekstene i den pedagogiske tegningen står i objektet `T` i seksjonen `Altinn explained`, med én oversettelse for `nb` og én for `en`. Oversiktstegningen bruker kolonnenavnene fra de detaljerte rammene som punktliste i hver applikasjonsboks, så oversikten og detaljtegningene holder seg like.
 
 ## Endringer i draw.io
 
