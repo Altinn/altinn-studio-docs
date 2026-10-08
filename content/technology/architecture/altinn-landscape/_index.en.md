@@ -1,20 +1,28 @@
 ---
 title: The Altinn landscape
 linktitle: Altinn landscape
-description: Detailed architecture drawings of Altinn 3, product by product, with links to the source code.
+description: "Drawings of Altinn 3 at three levels: an explanation for newcomers, an overview and detailed drawings per product with links to the source code."
 weight: 1
 toc: true
 aliases:
  - /authorization/reference/system/altinn-landscape/
 ---
 
-The drawings on this page show how Altinn 3 is built, product by product. Each frame is one application or service. The columns are its sub-modules and the rows are its layers, from the API down to storage. Below the columns are bars for integration clients, background jobs, cross-cutting concerns and datastores.
+The drawings on this page show Altinn 3 at three levels:
 
-The drawings are made from the source code on `main` in each repository. Every box links to the file or folder it describes.
+- [Altinn explained](#altinn-explained) is for newcomers. It shows who uses Altinn, what the services do and how they fit together, without technical detail.
+- [The overview](#overview) shows one box per application, grouped by product.
+- The detailed drawings show each product with its sub-modules, layers and datastores. Every box links to the file or folder it describes in the source code.
 
 Click a drawing to open it in full size in a new tab. The links in a drawing only work when it is opened this way.
 
-The files are draw.io SVGs and can be opened in [draw.io](https://app.diagrams.net/). A script in this repository generates the drawings from the source code, so changes made by hand are overwritten the next time someone runs it. See the [README for the script](https://github.com/Altinn/altinn-studio-docs/blob/master/scripts/altinn-landscape/README.md) for how to regenerate the drawings.
+A script in this repository generates all the drawings from the source code on `main` in the Altinn repositories. The files are draw.io SVGs and can be opened in [draw.io](https://app.diagrams.net/), but the script overwrites changes made by hand the next time someone runs it. See the [README for the script](https://github.com/Altinn/altinn-studio-docs/blob/master/scripts/altinn-landscape/README.md) for how to regenerate the drawings.
+
+## Altinn explained
+
+Who uses Altinn, what do the services do, and how do they fit together? The drawing follows Kari, who applies for a licence to serve alcohol at her restaurant. The numbers in the drawing show which service does what along the way.
+
+<a href="./altinn_explained_en.drawio.svg" target="_blank" rel="noopener"><img src="./altinn_explained_en.drawio.svg" alt="Altinn 3 explained: the users, the services and the foundation" style="width:100%;height:auto;display:block;cursor:zoom-in;" /></a>
 
 ## Overview
 
