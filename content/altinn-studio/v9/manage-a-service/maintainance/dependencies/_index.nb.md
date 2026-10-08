@@ -81,35 +81,6 @@ F.eks.:
 {{</content-version-selector>}}
 
 
-## Deployment
+## Publisering
 
-Deployment utføres ved hjelp av helm charts. Standard deployment oppsett for apps hentes fra altinn-studio sitt helm repository.
-
-Er du i tvil om du benytter siste deployment strategi kan du følge migreringsguiden [her](/nb/community/changelog/deployment/migration/)
-
-For å finne siste versjon av helm-charten kan du enten sjekke releases av charten deployment [her](https://github.com/Altinn/altinn-studio-charts/releases)
-eller legge inn [helm](https://helm.sh/) repoet lokalt og søke i dette på følgende måte:
-
-```shell
-# Legg til helm altinn-studio helm repo
-helm repo add altinn-studio https://charts.altinn.studio
-
-# Søk for versjoner av altinn-studio/deployment charten
-helm search repo -l altinn-studio/deployment
-```
-
-Hvis det er ny versjon av helm charten sjekk [changelog](/nb/community/changelog/deployment/) for å se hva som er oppdatert i versjonen.
-
-For å ta i bruk en ny versjon oppdater versjon under dependencies i `deployment/Chart.yaml`
-
-```yaml {hl_lines=[9]}
-apiVersion: v1
-description: A Helm chart for Kubernetes
-name: deployment
-version: 1.1.0
-
-dependencies:
-- name: deployment
-  repository: https://charts.altinn.studio/
-  version: 2.8.0                                <--- Oppdater her
-```
+Altinn publiserer alle apper med et felles Helm-chart og velger selv hvilken versjon av chartet appen bruker. Publiseringen bruker ikke `deployment/Chart.yaml` i app-repoet, så denne avhengigheten trenger du ikke oppdatere. Innstillingene du kan endre, ligger i `deployment/values.yaml`. Se [innstillinger for publisering]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/deployment" >}}).
