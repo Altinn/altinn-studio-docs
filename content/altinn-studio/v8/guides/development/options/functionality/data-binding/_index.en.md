@@ -112,6 +112,14 @@ Define `Submitter.PetLabels` as an array with string items in the data model's J
 }
 ```
 
+The labels follow the order of the stored values. If `Submitter.Pets` contains `"fish,cat"`,
+`Submitter.PetLabels` contains `["Fish", "Cat"]`. Each label corresponds to the value at the same position.
+
+{{<notice info>}}
+The order guarantee applies from app-frontend v4.35.0. In earlier versions, labels follow the order of the
+options, so values and labels may not correspond by position.
+{{</notice>}}
+
 If you use the `group` binding to store choices in a repeating structure, each row stores its own value and label.
 In that case, `label` must point to a `string` field inside the row, rather than a separate list of labels.
 

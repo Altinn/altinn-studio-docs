@@ -112,6 +112,14 @@ Angi `Submitter.PetLabels` som en liste med strenger i datamodellens JSON Schema
 }
 ```
 
+Ledetekstene følger rekkefølgen til de lagrede verdiene. Hvis `Submitter.Pets` inneholder `"fish,cat"`,
+inneholder `Submitter.PetLabels` `["Fisk", "Katt"]`. Hver ledetekst hører til verdien på samme plass.
+
+{{<notice info>}}
+Garantien om samme rekkefølge gjelder fra app-frontend v4.35.0. I eldre versjoner følger ledetekstene
+rekkefølgen til svaralternativene. Verdier og ledetekster kan derfor ha ulik rekkefølge.
+{{</notice>}}
+
 Hvis du bruker `group`-bindingen til å lagre valgene i en repeterende struktur, lagrer hver rad sin egen verdi
 og ledetekst. Da må `label` peke på et `string`-felt inne i raden, i stedet for en separat liste med ledetekster.
 
