@@ -2,18 +2,45 @@
 draft: true
 title: Definere egne prosess-hooks
 linktitle: Prosess-hooks
-description: Slik skriver du kode som skal kjøres når en oppgave starter, avsluttes eller avbrytes, og når hele prosessen avsluttes.
+description: Slik kjører du egen kode når en oppgave starter, avsluttes eller avbrytes, og etter at prosessen er avsluttet.
 toc: true
 tags: [needsReview]
 ---
 
-Du kan skrive egendefinert kode som kjøres når en oppgave i prosessen starter, avsluttes eller avbrytes, og når hele prosessen avsluttes, enten før eller etter at avslutningen er lagret. De tre oppgave-hookene avgjør selv hvilken oppgave de gjelder for, og bare én hook av hver type kan gjelde for samme oppgave. De to hookene for slutten av prosessen gjelder alltid for hele instansen, og du kan bare registrere én av hver.
+Med prosess-hooks kan appen kjøre egen kode på faste punkter i prosessen. Det finnes fire:
 
-Alle fem hookene kjører som et steg i arbeidsflytmotoren. Hvis det oppstår feil, kan hooken bli forsøkt kjørt på nytt automatisk, så koden din må være idempotent. Det vil si at den må tåle å kjøre flere ganger uten at det gir uønskede dobbeltoppføringer.
+| Hook | Kjører | Gjelder |
+| --- | --- | --- |
+| `IOnTaskStartingHandler` | når en oppgave starter | oppgavene du velger |
+| `IOnTaskEndingHandler` | når en oppgave avsluttes, før prosessen går videre | oppgavene du velger |
+| `IOnTaskAbandonHandler` | når en oppgave avbrytes, for eksempel når brukeren avviser | oppgavene du velger |
+| `IOnProcessEndedHandler` | etter at prosessen er avsluttet og lagret | hele instansen |
 
-## Kjøre egendefinert kode når en oppgave starter
+Alle grensesnittene ligger i `Altinn.App.Core.Features.Process`.
 
-Opprett en klasse som implementerer `Altinn.App.Core.Features.Process.IOnTaskStartingHandler`, og registrer den som en transient tjeneste.
+## Slik fungerer hookene
+
+Du lager en klasse som implementerer grensesnittet, og registrerer den som en transient tjeneste i `Program.cs`. Hver hook kjører som et eget steg i arbeidsflytmotoren, og metoden `Execute` får et kontekstobjekt med:
+
+- en `IInstanceDataMutator` som du leser og endrer instansdata med
+- en `CancellationToken`
+- id-en til oppgaven, for de tre oppgave-hookene
+
+Endringer du gjør gjennom `context.InstanceDataMutator`, blir lagret når hooken er ferdig uten feil. Skriv alle endringer gjennom den. Mens arbeidsflyten behandler instansen, avviser Storage endringer som kommer direkte gjennom `IDataClient` eller `IInstanceClient`.
+
+`Execute` returnerer et `HookResult`:
+
+- `HookResult.Success()` når alt gikk bra.
+- `HookResult.FailedRetryable("melding")` når feilen er forbigående, for eksempel at en ekstern tjeneste ikke svarer. Plattformen prøver steget på nytt.
+- `HookResult.FailedPermanent("melding")` når feilen ikke går over av seg selv. Plattformen prøver ikke på nytt.
+
+Kaster `Execute` et unntak som koden din ikke håndterer, regnes det som `FailedRetryable`. Hvor ofte og hvor lenge plattformen prøver på nytt, står i [Overstyre tidsavbrudd og gjenforsøksstrategi](#overstyre-tidsavbrudd-og-gjenforsøksstrategi).
+
+Fordi en hook kan bli kjørt flere ganger, må koden tåle det. Den skal gi samme resultat hver gang, og for eksempel ikke sende den samme e-posten eller opprette de samme dataene to ganger.
+
+## Kjøre kode når en oppgave starter
+
+Implementer `IOnTaskStartingHandler`. `ShouldRunForTask` bestemmer hvilke oppgaver hooken gjelder for, og `Execute` inneholder koden.
 
 ```csharp
 public class MyTaskStartHandler : IOnTaskStartingHandler
@@ -22,7 +49,7 @@ public class MyTaskStartHandler : IOnTaskStartingHandler
 
     public async Task<HookResult> Execute(OnTaskStartingContext context)
     {
-        // Egendefinert logikk her, f.eks. context.InstanceDataMutator
+        // Les og endre data gjennom context.InstanceDataMutator
 
         return HookResult.Success();
     }
@@ -33,72 +60,48 @@ public class MyTaskStartHandler : IOnTaskStartingHandler
 services.AddTransient<IOnTaskStartingHandler, MyTaskStartHandler>();
 ```
 
-`ShouldRunForTask` avgjør hvilken oppgave hooken gjelder for. Du kan registrere flere klasser som implementerer `IOnTaskStartingHandler`, så lenge implementasjonene av `ShouldRunForTask` ikke overlapper.
+Du kan registrere flere klasser for samme hook, så lenge de gjelder for ulike oppgaver.
 
 {{% notice warning %}}
-Bare én matchende handler er tillatt per oppgave. Svarer to registrerte `IOnTaskStartingHandler`-implementasjoner `true` for samme oppgave, feiler prosessovergangen permanent.
+Bare én hook av hver type kan gjelde for samme oppgave. Svarer to registrerte `IOnTaskStartingHandler` `true` for samme oppgave, feiler prosessovergangen permanent. Det samme gjelder `IOnTaskEndingHandler` og `IOnTaskAbandonHandler`.
 {{% /notice %}}
-
-`Execute` får et kontekstobjekt med oppgavens id, en `IInstanceDataMutator` for å lese og endre instansdata, og en cancellation token. Endringer du gjør gjennom mutatoren, lagres automatisk hvis hooken fullfører uten feil. Returner `HookResult.Success()` ved suksess, `HookResult.FailedRetryable("melding")` for en forbigående feil du vil at plattformen skal forsøke på nytt, eller `HookResult.FailedPermanent("melding")` for en feil som trenger en rettelse før den kan lykkes.
-
-Kaster `Execute` et unntak som koden din ikke håndterer, fanger arbeidsflytmotoren det og behandler det som `FailedRetryable`. Hooken blir da kjørt på nytt etter gjenforsøksstrategien for steget. Returnerer du `FailedPermanent`, prøver ikke motoren på nytt. Se [Overstyre tidsavbrudd og gjenforsøksstrategi](#overstyre-tidsavbrudd-og-gjenforsøksstrategi) for standardverdiene og hvordan du endrer dem.
 
 [Se grensesnittet IOnTaskStartingHandler på GitHub](https://github.com/Altinn/altinn-studio/blob/main/src/App/backend/src/Altinn.App.Core/Features/Process/IOnTaskStartingHandler.cs)
 
-## Kjøre egendefinert kode når en oppgave avsluttes
+## Kjøre kode når en oppgave avsluttes
 
-Opprett en klasse som implementerer `Altinn.App.Core.Features.Process.IOnTaskEndingHandler`, og registrer den som en transient tjeneste. Grensesnittet følger samme mønster som `IOnTaskStartingHandler` over, med `Execute(OnTaskEndingContext context)`.
+Implementer `IOnTaskEndingHandler`. Den følger samme mønster som `IOnTaskStartingHandler`, med `Execute(OnTaskEndingContext context)`.
 
 ```csharp
 services.AddTransient<IOnTaskEndingHandler, MyTaskEndHandler>();
 ```
 
+Hooken kjører før dataene i oppgaven blir låst, så det er siste mulighet til å endre dem. Er oppgaven den siste i prosessen, kjører hooken også før prosessen avsluttes. Feiler den, blir ikke prosessen avsluttet. Kode som skal kunne stoppe avslutningen, hører derfor hjemme her.
+
 [Se grensesnittet IOnTaskEndingHandler på GitHub](https://github.com/Altinn/altinn-studio/blob/main/src/App/backend/src/Altinn.App.Core/Features/Process/IOnTaskEndingHandler.cs)
 
-## Kjøre egendefinert kode når en oppgave avbrytes
+## Kjøre kode når en oppgave avbrytes
 
-Opprett en klasse som implementerer `Altinn.App.Core.Features.Process.IOnTaskAbandonHandler`, og registrer den som en transient tjeneste. Grensesnittet følger samme mønster som `IOnTaskStartingHandler` over, med `Execute(OnTaskAbandonContext context)`.
+Implementer `IOnTaskAbandonHandler`. Den følger samme mønster, med `Execute(OnTaskAbandonContext context)`.
 
 ```csharp
 services.AddTransient<IOnTaskAbandonHandler, MyTaskAbandonHandler>();
 ```
 
+Når brukeren avviser en oppgave, kjører denne hooken i stedet for `IOnTaskEndingHandler`. Kan avvisningen føre til slutten av prosessen, trenger du begge hookene for å fange alle måter oppgaven kan forlates på.
+
 [Se grensesnittet IOnTaskAbandonHandler på GitHub](https://github.com/Altinn/altinn-studio/blob/main/src/App/backend/src/Altinn.App.Core/Features/Process/IOnTaskAbandonHandler.cs)
 
-## Kjøre egendefinert kode når hele prosessen avsluttes
+## Kjøre kode etter at prosessen er avsluttet
 
-Opprett en klasse som implementerer `Altinn.App.Core.Features.Process.IOnProcessEndingHandler`, og registrer den som en transient tjeneste. Den kjører når prosessen når et `endEvent` i BPMN-modellen — altså for hele instansen, ikke for en enkelt oppgave. Hooken kjører før avslutningen er lagret, så feiler den, blir prosessen ikke avsluttet.
-
-```csharp
-public class MyProcessEndHandler : IOnProcessEndingHandler
-{
-    public async Task<HookResult> Execute(OnProcessEndingContext context)
-    {
-        // Egendefinert logikk her, f.eks. context.InstanceDataMutator
-
-        return HookResult.Success();
-    }
-}
-```
-
-```csharp
-services.AddTransient<IOnProcessEndingHandler, MyProcessEndHandler>();
-```
-
-I motsetning til de tre oppgave-hookene over har `IOnProcessEndingHandler` ingen `ShouldRunForTask` — den gjelder alltid for hele prosessen, og du kan bare registrere én implementasjon. `Execute` og `HookResult` fungerer likt som for oppgave-hookene, bortsett fra at konteksten (`OnProcessEndingContext`) ikke har noen oppgave-ID.
-
-[Se grensesnittet IOnProcessEndingHandler på GitHub](https://github.com/Altinn/altinn-studio/blob/main/src/App/backend/src/Altinn.App.Core/Features/Process/IOnProcessEndingHandler.cs)
-
-## Kjøre egendefinert kode etter at prosessen er avsluttet
-
-Opprett en klasse som implementerer `Altinn.App.Core.Features.Process.IOnProcessEndedHandler`, og registrer den som en transient tjeneste. Den kjører etter at den avsluttede prosessen er lagret, og før datatyper med `autoDeleteOnProcessEnd` blir slettet og instansen er ferdig behandlet. Bruk den når koden skal kjøre først når avslutningen er lagret, for eksempel for å varsle et eksternt system.
+Implementer `IOnProcessEndedHandler`. Hooken kjører én gang for hele instansen, når prosessen har nådd en sluttilstand (`endEvent`) og dette er lagret. Den kjører uansett hvilken vei prosessen tok til slutten. Bruk den til kode som først skal kjøre når avslutningen er lagret, for eksempel for å varsle et eksternt system.
 
 ```csharp
 public class MyProcessEndedHandler : IOnProcessEndedHandler
 {
     public async Task<HookResult> Execute(OnProcessEndedContext context)
     {
-        // Egendefinert logikk her, f.eks. context.InstanceDataMutator
+        // Les og endre data gjennom context.InstanceDataMutator
 
         return HookResult.Success();
     }
@@ -109,19 +112,21 @@ public class MyProcessEndedHandler : IOnProcessEndedHandler
 services.AddTransient<IOnProcessEndedHandler, MyProcessEndedHandler>();
 ```
 
-Hooken fungerer som `IOnProcessEndingHandler`: den gjelder hele prosessen, du kan bare registrere én implementasjon, og `Execute` kan lese og endre instansdata gjennom `context.InstanceDataMutator`. Forskjellen er hva som skjer når den feiler. Prosessen er da allerede avsluttet, men instansen blir værende under behandling til noen starter arbeidsflyten på nytt.
+Du kan bare registrere én `IOnProcessEndedHandler`. Hooken har ingen `ShouldRunForTask`, og konteksten har ingen oppgave-id. Hvilken sluttilstand prosessen nådde, finner du i `context.InstanceDataMutator.Instance.Process.EndEvent`.
+
+Hooken kjører før datatyper med `autoDeleteOnProcessEnd` blir slettet, så den ser alle dataene. Er `autoDeleteOnProcessEnd` slått på for hele appen, blir instansen slettet etter at hooken er ferdig.
+
+Feiler hooken, er prosessen likevel avsluttet. Instansen blir værende under behandling til arbeidsflyten blir startet på nytt fra arbeidsflytmotoren. Skal en feil kunne stoppe avslutningen, bruk `IOnTaskEndingHandler` for den siste oppgaven i stedet.
 
 [Se grensesnittet IOnProcessEndedHandler på GitHub](https://github.com/Altinn/altinn-studio/blob/main/src/App/backend/src/Altinn.App.Core/Features/Process/IOnProcessEndedHandler.cs)
 
 {{% notice info %}}
-`IProcessEnd` fra v8 finnes ikke i v9. Flytt koden til `IOnProcessEndedHandler`, eller til `IOnProcessEndingHandler` hvis den skal kjøre før avslutningen er lagret. `studioctl app upgrade v9` viser hvilke klasser og registreringer du må flytte.
+`IProcessEnd` fra v8 finnes ikke i v9. Flytt koden til `IOnProcessEndedHandler`, eller til en `IOnTaskEndingHandler` for den siste oppgaven hvis den skal kjøre før avslutningen er lagret. `studioctl app upgrade v9` viser hvilke klasser og registreringer du må flytte.
 {{% /notice %}}
 
 ## Overstyre tidsavbrudd og gjenforsøksstrategi
 
-Alle fem hook-typene implementerer `IProcessStepConfigurable`, som gjør at du kan velge å overstyre arbeidsflytmotorens standard tidsavbrudd og gjenforsøksstrategi for steget, med egenskapen `StepOptions`.
-
-Setter du ikke `StepOptions`, bruker hooken standardverdiene i plattformen. De kan avvike mellom miljøene:
+Alle fire hookene kan overstyre standard tidsavbrudd og gjenforsøk for steget sitt med egenskapen `StepOptions`. Setter du den ikke, gjelder standardverdiene i plattformen. De kan avvike mellom miljøene:
 
 | Verdi | Standard | Grense |
 | --- | --- | --- |
@@ -155,9 +160,7 @@ public class MyTaskStartHandler : IOnTaskStartingHandler
 }
 ```
 
-Feltene betyr dette:
-
-- `MaxExecutionTime` er hvor lenge ett forsøk får bruke før plattformen avbryter det og regner forsøket som feilet.
+- `MaxExecutionTime` er hvor lenge ett forsøk får bruke før plattformen avbryter det og regner det som feilet.
 - `RetryStrategy` styrer hvor mange nye forsøk plattformen gjør, og hvor lang pausen mellom dem er. Du kan velge `Exponential`, `Linear` eller `Constant`. `ProcessStepRetryStrategy.None()` slår av nye forsøk.
 
 Felt du ikke setter, får standardverdien.
