@@ -4,7 +4,7 @@ linktitle: Konsepter og begreper
 description: Altinn 3 Formidling grunnleggende konsepter og begreper.
 tags: []
 toc: true
-weight: 10
+weight: 20
 ---
 
 ## Kontekstoversikt - aktører og informasjonsflyt {#context-overview}
