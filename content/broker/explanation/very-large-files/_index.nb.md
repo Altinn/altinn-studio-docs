@@ -4,7 +4,7 @@ linktitle: Store filer
 description: Hvordan støtte filer over 50GB
 tags: []
 toc: true
-weight: 10
+weight: 30
 ---
 
 Broker er i utgangspunktet begrenset til filer opp til 50GB. Dette skyldes begrensninger med viruskanningen. Du kan allikevel sende større filer hvis tjenesteressursen har deaktivert viruskanning. For å kontrollere potensielle juridiske risikoer krever vi at ressurser som deaktiverer viruskanning blir forhåndsgodkjent av oss. Vi har verifisert at opp til 1TB fungerer med TUS.

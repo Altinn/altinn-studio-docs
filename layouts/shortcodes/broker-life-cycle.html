@@ -1,0 +1,128 @@
+{{ $diagram := `
+    flowchart TD
+    Start([Start]) --> Init[Initialize File Transfer<br/>Status: Initialized<br/>Schedule purge at TTL<br/>default 30d · max 365d]
+
+    Init --> Auth{Sender authenticated?}
+    Auth -->|No| Unauth[End: 401 Unauthorized]
+    Auth -->|Yes| UploadPath{Upload method}
+
+    %% Legacy stream
+    UploadPath -->|Legacy stream| LegacyStart[Status: UploadStarted]
+    LegacyStart --> LegacyBody[Stream body to storage]
+    LegacyBody -->|OK| ProcessingGate
+    LegacyBody -->|Error| FailUpload[Status: Failed<br/>UploadFailed event]
+
+    %% TUS
+    UploadPath -->|TUS| TusCreate[TUS POST create<br/>Status: UploadStarted<br/>Single or partial Location]
+    TusCreate --> TusKind{Upload shape}
+
+    TusKind -->|Single file| TusPatch[TUS PATCH chunks<br/>withCredentials + CSRF]
+    TusKind -->|Concatenation| TusPartials[Create partials<br/>Upload-Concat: partial]
+    TusPartials --> TusPartialPatch[PATCH partials in parallel]
+    TusPartialPatch --> TusFinal[POST final<br/>Upload-Concat: final; …]
+    TusFinal --> OnComplete[OnFileComplete<br/>Enqueue finalize / concat]
+
+    TusPatch --> TusActive{{Active TUS window<br/>Sliding UploadExpiration = 24h<br/>renewed on HEAD / PATCH / progress<br/>Stuck job: Failed after 24h idle<br/>if no activity in last 1h}}
+
+    TusActive --> AuthGrace{{Auth during long upload<br/>Altinn JWT ~2 min · cookie 60 min sliding<br/>ID-Porten auth ~2h hard cap<br/>Expired bearer/cookie accepted for<br/>this fileTransferId while upload session<br/>active ≤ UploadExpiration}}
+
+    AuthGrace -->|Client aborts / idle > 24h| TusExpired{{Upload no longer resumable<br/>Incomplete upload expired<br/>Awaiting stuck job}}
+    AuthGrace -->|Upload complete| OnComplete
+
+    OnComplete --> ConcatQ{Final concat?}
+    ConcatQ -->|Yes| ConcatJob[Hangfire concat chain<br/>May set UploadProcessing early<br/>Retry delay 5s · locks 30m–2h]
+    ConcatQ -->|No| PublishPrep
+    ConcatJob -->|OK| PublishPrep[TusPublishUploadHandler<br/>Finalize staging blob]
+    ConcatJob -->|Error| FailUpload
+
+    PublishPrep --> ProcessingGate{Checksum or virus scan needed?}
+
+    ProcessingGate -->|Yes| Proc[Status: UploadProcessing]
+    ProcessingGate -->|No| PubDirect[Status: Published]
+
+    Proc --> Checksum[Deferred checksum validation]
+    Checksum -->|Mismatch| FailChecksum[Status: Failed<br/>Delete blob]
+    Checksum -->|OK · no scan| PubFromProc[Status: Published]
+    Checksum -->|OK · virus scan| ScanWait[Wait for malware scan result<br/>Altinn3Azure · max scan size 50 GB]
+
+    ScanWait -->|No threats found| PubFromProc
+    ScanWait -->|Malware / not clean| FailMalware[Status: Failed<br/>Delete storage<br/>Does not set Purged]
+
+    PubDirect --> Published[Status: Published<br/>Ready for download]
+    PubFromProc --> Published
+
+    %% Recipient phase
+    Published --> Recip{Recipient actions}
+
+    Recip -->|GET download| DlStart[Actor: DownloadStarted<br/>Ranged: debounce 5 min]
+    Recip -->|Confirm without download| ConfirmBlocked[400 · DownloadStarted required]
+
+    DlStart --> AfterDl{Next}
+    AfterDl -->|Confirm download| Confirmed[Actor: DownloadConfirmed]
+    AfterDl -->|More downloads| DlStart
+
+    Confirmed --> AllCheck{All recipients confirmed?}
+    AllCheck -->|No| WaitOthers[Wait for remaining recipients]
+    WaitOthers --> Recip
+    AllCheck -->|Yes| AllDone[Status: AllConfirmedDownloaded]
+
+    AllDone --> Grace{Purge after all confirmed?}
+    Grace -->|Yes · default| GraceWait[Wait purge grace<br/>default PT2H · max PT24H]
+    Grace -->|No| HoldUntilTTL[Keep until file TTL]
+
+    GraceWait --> Purge[Status: Purged<br/>Delete storage · FilePurged event]
+    HoldUntilTTL --> TTL[File TTL reached]
+    TTL --> Purge
+
+    Published -.->|TTL while published| TTL
+
+    FailUpload --> EndFail([End: Failed])
+    FailChecksum --> EndFail
+    FailMalware --> EndFail
+    Unauth --> EndAuth([End])
+    ConfirmBlocked --> Recip
+    Purge --> EndOk([End: Purged])
+
+    %% Stuck monitoring (side path)
+    Stuck([Stuck job every 30 min]) -.->|UploadStarted > 24h<br/>no TUS activity 1h| FailUpload
+    TusExpired -.-> Stuck
+    Stuck -.->|UploadProcessing > 15 min| SlackProc[Slack alert only]
+    Stuck -.->|Initialized but upload started<br/>> 15 min| SlackInit[Slack alert only]
+
+    %% Styles — success / terminal / wait / error / auth
+    style Start fill:#f9f,stroke:#333,stroke-width:2px
+    style EndOk fill:#f9f,stroke:#333,stroke-width:2px
+    style EndFail fill:#f9f,stroke:#333,stroke-width:2px
+    style EndAuth fill:#f9f,stroke:#333,stroke-width:2px
+
+    style Init fill:#99ff99,stroke:#333,stroke-width:2px
+    style LegacyStart fill:#99ff99,stroke:#333,stroke-width:2px
+    style TusCreate fill:#99ff99,stroke:#333,stroke-width:2px
+    style Proc fill:#99ff99,stroke:#333,stroke-width:2px
+    style Published fill:#99ff99,stroke:#333,stroke-width:2px
+    style PubDirect fill:#99ff99,stroke:#333,stroke-width:2px
+    style PubFromProc fill:#99ff99,stroke:#333,stroke-width:2px
+    style DlStart fill:#99ff99,stroke:#333,stroke-width:2px
+    style Confirmed fill:#99ff99,stroke:#333,stroke-width:2px
+    style AllDone fill:#99ff99,stroke:#333,stroke-width:2px
+    style Purge fill:#87ceeb,stroke:#333,stroke-width:2px
+
+    style TusActive fill:#99ccff,stroke:#333,stroke-width:2px
+    style AuthGrace fill:#99ccff,stroke:#333,stroke-width:2px
+    style GraceWait fill:#99ccff,stroke:#333,stroke-width:2px
+    style ScanWait fill:#99ccff,stroke:#333,stroke-width:2px
+    style HoldUntilTTL fill:#99ccff,stroke:#333,stroke-width:2px
+    style TusExpired fill:#99ccff,stroke:#333,stroke-width:2px
+
+    style FailUpload fill:#ff9999,stroke:#333,stroke-width:2px
+    style FailChecksum fill:#ff9999,stroke:#333,stroke-width:2px
+    style FailMalware fill:#ff9999,stroke:#333,stroke-width:2px
+    style Unauth fill:#ff9999,stroke:#333,stroke-width:2px
+    style ConfirmBlocked fill:#ffcc99,stroke:#333,stroke-width:2px
+    style SlackProc fill:#ffcc99,stroke:#333,stroke-width:2px
+    style SlackInit fill:#ffcc99,stroke:#333,stroke-width:2px
+` }}
+
+<div class="mermaid">
+    {{ $diagram }}
+</div>
