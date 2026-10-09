@@ -110,4 +110,4 @@ Nedenfor finner du et eksempel på en slik policy. For at denne koden skal funge
 
 Gi `signature-access` til tjenesteeier. Dette gjør at appen (via Maskinporten) kan skrive og lese data i signaturdokumentene. Du kan også lese og sjekke signaturer når du måtte ønske det.
 
-[Les om begrenset tilgang til data](/nb/altinn-studio/v9/this-is-as/explanations/data-model/restricted-data/).
+[Les om beskyttede data](/nb/altinn-studio/v9/develop-a-service/data/restricted-data/).

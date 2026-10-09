@@ -8,52 +8,60 @@ tags: [needsReview]
 
 {{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/style.css.md" %}}
 
-Beskyttede data er informasjon som krever ekstra tilgangskontroll, for eksempel personopplysninger eller konfidensiell/klassifisert informasjon. Les mer om [konseptet beskyttede data](/nb/altinn-studio/v9/this-is-as/explanations/data-model/restricted-data/).
+Beskyttede data er informasjon som krever ekstra tilgangskontroll, for eksempel personopplysninger om andre enn brukeren, eller konfidensiell informasjon. Appen kan lagre slike data i en egen datatype som brukeren ikke kan lese eller endre. Bare den som har tilgang til bestemte handlinger, vanligvis tjenesteeieren, kan lese og skrive dataene.
+
+Prøver brukeren å lese eller skrive dataene uten tilgang til handlingen, avviser appen forespørselen med `403 Forbidden`.
+
+Du setter dette opp i koden til appen. Altinn Studio Designer har ikke innstillinger for beskyttede data.
 
 ## Sett opp Maskinporten
-Du må sette opp Maskinporten for at appen skal kunne utføre handlinger på vegne av tjenesteeier. Se [integrere en Altinn-app med Maskinporten](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/).
+
+Appen må kunne utføre handlinger på vegne av tjenesteeieren. Da må du sette opp Maskinporten. Se [integrere en Altinn-app med Maskinporten]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten" >}}).
 
 ## Sett opp datatyper
-Filen `applicationmetadata.json` definerer alle [datatyper](/nb/api/models/app-metadata/#datatype) (kun på engelsk foreløpig) i en app. Her angir du hvilke [handlinger](/nb/altinn-studio/v9/develop-a-service/reference/configuration/authorization/#action-attributter) som kreves for den beskyttede datatypen.
 
-I dette eksempelet setter du opp en ny datatype der du angir egenskapene `actionRequiredToRead` og `actionRequiredToWrite`, og deaktiverer `autoCreate`. Du bruker identifikatoren `restrictedDataModel`, men navnet i seg selv er ikke viktig.
+Filen `applicationmetadata.json` inneholder alle [datatypene](/nb/api/models/app-metadata/#datatype) (kun på engelsk foreløpig) i appen. Her angir du hvilke [handlinger]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/authorization#action-attributter" >}}) som kreves for å lese og skrive den beskyttede datatypen.
+
+I eksempelet legger du til en ny datatype med egenskapene `actionRequiredToRead` og `actionRequiredToWrite`, og slår av `autoCreate`. Datatypen heter `restrictedDataModel`, men du kan velge et annet navn.
 
 {{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/Applicationmetadata.json.md" %}}
 
 {{% notice warning %}}
-Du deaktiverer auto-create fordi den [oppdaterte autorisasjonspolicyen](#sett-opp-autorisasjonspolicy) ikke gir lese- eller skrivetilgang til brukere. Hvis du prøver å opprette et dataelement av typen `restrictedDataModel` med en brukers autorisasjonstoken, får du en 403-Forbidden-feil.
+Du slår av `autoCreate` fordi [autorisasjonspolicyen](#sett-opp-autorisasjonspolicy) ikke gir brukerne lese- eller skrivetilgang. Prøver appen å opprette et dataelement av typen `restrictedDataModel` med brukerens token, får den feilen `403 Forbidden`.
 {{% /notice %}}
 
 ## Sett opp autorisasjonspolicy
-Ta utgangspunkt i [standard policy.xml-fil](/nb/altinn-studio/v9/develop-a-service/reference/configuration/authorization/), og endre regel #2 for å gi tjenesteeieren tilgang til de nye handlingene.
+
+Ta utgangspunkt i [standardfilen `policy.xml`]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/authorization" >}}), og endre regel 2 slik at tjenesteeieren får tilgang til de nye handlingene.
 
 {{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/Policy.xml.md" %}}
 
-## Interaksjon med beskyttede data
-Siden `restrictedDataModel` ikke opprettes automatisk eller er knyttet til brukerens normale dataflyt, må du skrive all relevant logikk manuelt.
+## Lese og skrive beskyttede data
 
-I denne delen oppretter du en tjeneste som hjelper deg å samhandle med beskyttede data, før du ser hvordan du kan opprette, endre og lese beskyttede dataelementer i en vanlig prosessflyt.
+Appen oppretter ikke `restrictedDataModel` automatisk, og datatypen er ikke en del av skjemaet brukeren fyller ut. Derfor må du skrive koden som leser og skriver dataene selv.
 
-### Lag en hjelpetjeneste
-For å forenkle autorisasjon og samhandling med den beskyttede datamodellen, kan du opprette en hjelpetjeneste som håndterer denne kompleksiteten.
+Appen bruker brukerens token som standard. For å lese og skrive den beskyttede datatypen kaller du `OverrideAuthenticationMethod` med `StorageAuthenticationMethod.ServiceOwner()`. Da bruker appen tjenesteeierens token for akkurat denne datatypen.
 
-{{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/RestrictedDataHelper.cs.md" %}}
+{{% notice warning %}}
+Appen kan ikke lagre endringer med brukerens token og tjenesteeierens token samtidig. Endrer du både skjemadataene til brukeren og de beskyttede dataene i samme kode, får du en feil når appen lagrer. Les gjerne de beskyttede dataene når brukeren endrer skjemaet, men endre dem bare i kode som ikke samtidig endrer brukerens data, for eksempel når en oppgave starter.
+{{% /notice %}}
 
-Du kan registrere denne tjenesten i `Program.cs` og bruke den med [dependency injection](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection) der du trenger den.
+### Skrive data
 
-{{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/Program.cs.md" %}}
+Eksempelet under lagrer data i den beskyttede datatypen når prosessen går inn i oppgaven `Task_1`. Det bruker en [prosess-hook]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks" >}}) som implementerer `IOnTaskStartingHandler`. Koden henter informasjon fra et tenkt API og lagrer den i `restrictedDataModel`. Brukeren kan ikke se informasjonen, men appen kan hente den senere.
 
-### Skriv data
-Som nevnt tidligere, må du manuelt opprette dataelementet når appen går inn i prosessteget `Task_1`.
+Hooken kan kjøre flere ganger hvis noe feiler underveis. Derfor oppdaterer koden dataelementet hvis det allerede finnes, i stedet for å lage et nytt.
 
-For å gjøre dette bruker du metoden `UpdateOrCreateData` fra [RestrictedDataHelper-tjenesten](#lag-en-hjelpetjeneste).
+{{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/RestrictedDataOnTaskStart.cs.md" %}}
 
-Eksempelet under bruker denne logikken i `IProcessTaskStart`-grensesnittet, der du henter informasjon fra et fiktivt API og lagrer det i den beskyttede datamodellen. Denne informasjonen er ikke tilgjengelig for brukeren, men appen kan hente den senere.
+### Lese data
 
-{{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/ProcessTaskStartHandler.cs.md" %}}
-
-### Les data
-I koden under lager du en implementasjon av `IDataWriteProcessor`-grensesnittet, der du utfører en fiktiv skatteberegning. Denne beregningen krever informasjon du tidligere har lagret i den beskyttede datamodellen, så du bruker [RestrictedDataHelper.GetOrCreateData](#lag-en-hjelpetjeneste) for å hente den.
+Eksempelet under implementerer `IDataWriteProcessor` og gjør en tenkt skatteberegning når brukeren endrer inntekten i skjemaet. Beregningen trenger informasjon som appen har lagret i den beskyttede datatypen. Koden leser den med tjenesteeierens token, men endrer den ikke.
 
 {{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/DataWriteHandler.cs.md" %}}
-  
+
+### Registrere klassene
+
+Til slutt registrerer du klassene i `Program.cs`.
+
+{{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/Program.cs.md" %}}
