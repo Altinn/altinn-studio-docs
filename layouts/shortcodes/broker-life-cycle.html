@@ -17,16 +17,17 @@
     TusCreate --> TusKind{Upload shape}
 
     TusKind -->|Single file| TusPatch[TUS PATCH chunks<br/>withCredentials + CSRF]
-    TusKind -->|Concatenation| TusPartials[Upload partials in parallel<br/>Upload-Concat: partial]
-    TusPartials --> TusFinal[POST final<br/>Upload-Concat: final; …]
-    TusFinal --> TusPatch
+    TusKind -->|Concatenation| TusPartials[Create partials<br/>Upload-Concat: partial]
+    TusPartials --> TusPartialPatch[PATCH partials in parallel]
+    TusPartialPatch --> TusFinal[POST final<br/>Upload-Concat: final; …]
+    TusFinal --> OnComplete[OnFileComplete<br/>Enqueue finalize / concat]
 
     TusPatch --> TusActive{{Active TUS window<br/>Sliding UploadExpiration = 24h<br/>renewed on HEAD / PATCH / progress<br/>Stuck job: Failed after 24h idle<br/>if no activity in last 1h}}
 
     TusActive --> AuthGrace{{Auth during long upload<br/>Altinn JWT ~2 min · cookie 60 min sliding<br/>ID-Porten auth ~2h hard cap<br/>Expired bearer/cookie accepted for<br/>this fileTransferId while upload session<br/>active ≤ UploadExpiration}}
 
-    AuthGrace -->|Client aborts / idle > 24h| TusExpired[Upload no longer resumable<br/>May become Failed via stuck job]
-    AuthGrace -->|Upload complete| OnComplete[OnFileComplete<br/>Enqueue finalize / concat]
+    AuthGrace -->|Client aborts / idle > 24h| TusExpired{{Upload no longer resumable<br/>Incomplete upload expired<br/>Awaiting stuck job}}
+    AuthGrace -->|Upload complete| OnComplete
 
     OnComplete --> ConcatQ{Final concat?}
     ConcatQ -->|Yes| ConcatJob[Hangfire concat chain<br/>May set UploadProcessing early<br/>Retry delay 5s · locks 30m–2h]
@@ -78,13 +79,13 @@
     FailUpload --> EndFail([End: Failed])
     FailChecksum --> EndFail
     FailMalware --> EndFail
-    TusExpired --> EndFail
     Unauth --> EndAuth([End])
     ConfirmBlocked --> Recip
     Purge --> EndOk([End: Purged])
 
     %% Stuck monitoring (side path)
     Stuck([Stuck job every 30 min]) -.->|UploadStarted > 24h<br/>no TUS activity 1h| FailUpload
+    TusExpired -.-> Stuck
     Stuck -.->|UploadProcessing > 15 min| SlackProc[Slack alert only]
     Stuck -.->|Initialized but upload started<br/>> 15 min| SlackInit[Slack alert only]
 
@@ -111,11 +112,11 @@
     style GraceWait fill:#99ccff,stroke:#333,stroke-width:2px
     style ScanWait fill:#99ccff,stroke:#333,stroke-width:2px
     style HoldUntilTTL fill:#99ccff,stroke:#333,stroke-width:2px
+    style TusExpired fill:#99ccff,stroke:#333,stroke-width:2px
 
     style FailUpload fill:#ff9999,stroke:#333,stroke-width:2px
     style FailChecksum fill:#ff9999,stroke:#333,stroke-width:2px
     style FailMalware fill:#ff9999,stroke:#333,stroke-width:2px
-    style TusExpired fill:#ff9999,stroke:#333,stroke-width:2px
     style Unauth fill:#ff9999,stroke:#333,stroke-width:2px
     style ConfirmBlocked fill:#ffcc99,stroke:#333,stroke-width:2px
     style SlackProc fill:#ffcc99,stroke:#333,stroke-width:2px
