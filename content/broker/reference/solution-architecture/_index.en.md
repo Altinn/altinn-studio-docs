@@ -113,49 +113,6 @@ The most relevant solutions are highlighted in bold.
 
 ![Digdir Solution Resources for Altinn 3 Broker](digdir-solution-resources-for-altinn3-broker.en.png "Digdir Solution Resources for Altinn 3 Broker")
 
-
-
-## Transition Architecture - Altinn 2 to Altinn 3
-
-### General
-Two migration options are supported for migration of Altinn Broker services - 
-_hard shift_ and _soft switch_.
-
-### Hard shift from Altinn 2 to Altinn 3 for all users of a service
-
- With the _Hard shift_ option, all users and End User Systems make a coordinated shift to Altinn 3. 
-
-This option is recommended in cases where such a   coordinated shift is feasible. No transition solution is needed and all features of Altinn 3 may be used 
-as soon as the shift has been made.
-
-Uploaded files are stored om Altinn 2 Broker File Storage up until the shift. 
-
-![Altinn 3 Broker Migration Option - Hard Shift](altinn3-broker-migration-option-hardshift.en.png "Altinn 3 Broker Migration Option - Hard Shift")
-
-_Note: In this case, it is assumed that Altinn 2 Broker files have been purged 
-and are not needed in Altinn 3 Broker. 
-However, if required, it will be possible to move files from Altinn 2 to Altinn 3 Broker File Storage after the transition._
-
-### Soft shift from Altinn 2 to Altinn 3
-
-With the _Soft shift_ option, users and End User Systems shift to Altinn 3 on an
-individual basis, when ready. 
-The transition solution bridges between Altinn 2 and Altinn 3.
-
-During the transition period, uploaded files will always be stored on Altinn 3 Broker Storage.
-
-![Altinn 3 Broker Migration Option - Soft Shift](altinn3-broker-migration-option-softshift.en.png "Altinn 3 Broker Migration Option - Soft Shift")
-
-<!--
-### Solution Details
-
-#### Solution for uploading to Altinn 3 via Altinn 2
-TBD by Ragnar?
-
-#### Solution for downloading Altinn 3 files to Altinn 2
-TBD by Ragnar?
--->
-
 ## File storage
 
 Broker File Storage is based MS Azure Blob Storage, and isolated to a storage account per Service Owner.
