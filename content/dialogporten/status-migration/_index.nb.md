@@ -40,7 +40,7 @@ Alle endringer gjort direkte gjennom Dialogportens API er tilgjengelige umiddelb
 Brukes typisk der tjenesteeier enten har egen plattform, eller håndterer dialoger utenfor standardfunksjonaliteten til Altinn Melding eller Altinn Studio/apper.
 
 ### ✔ A2 Melding - Historisk
-Alle meldinger er migrerte.
+Alle meldinger er migrert.
 
 Se [migrering av meldingsdata](https://docs.altinn.studio/nb/correspondence/transition/data-migration/) for detaljer om migreringsprosessen.
 
