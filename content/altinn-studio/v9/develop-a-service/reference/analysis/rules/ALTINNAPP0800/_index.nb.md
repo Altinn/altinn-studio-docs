@@ -8,16 +8,18 @@ weight: 80
 Denne diagnostikken meldes når `config/authorization/policy.xml` ikke gir
 apporganisasjonen (org) de handlingene appen utfører mot Storage som tjenesteeier.
 
-Appen lagrer instansdata og prosessoverganger som tjenesteeier, ikke som sluttbruker.
-Storage autoriserer de kallene mot appens egen policy, med `urn:altinn:org` som subjekt.
+Appen leser og skriver instansdata som tjenesteeier når den flytter prosessen videre, ikke
+som sluttbruker. Storage autoriserer de kallene mot appens egen policy, med `urn:altinn:org`
+som subjekt.
 En policy som bare gir sluttbrukeren rettigheter — den vanlige formen i v8 — gjør at appen
 ikke får flyttet sin egen prosess videre. Feilen viser seg ellers først når en innbygger
 sender inn.
 
-Hvilke handlinger som kreves følger av oppgavetypene i prosessen: `write` for data,
-`pay` eller `write` for betaling, `confirm` for bekreftelse, `sign` eller `write` for
-signering, `complete` der en systemoppgave markerer instansen som fullført, og `delete`
-der instansen slettes ved prosessens slutt.
+Apporganisasjonen trenger alltid `read` og `write`. I tillegg trenger den `complete` der en
+systemoppgave markerer instansen som fullført, og `delete` der instansen slettes ved
+prosessens slutt. Den trenger ingen handling knyttet til en oppgavetype, som `confirm`,
+`reject` eller navnet på en egendefinert oppgavetype: Storage lar alltid apporganisasjonen
+lagre en prosessovergang.
 
 Kategori `Authorization`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
 

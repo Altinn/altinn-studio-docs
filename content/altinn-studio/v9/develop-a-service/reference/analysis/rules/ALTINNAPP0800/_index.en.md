@@ -8,16 +8,16 @@ weight: 80
 This diagnostic is reported when `config/authorization/policy.xml` does not grant the app owner
 organisation (org) the actions the app performs against Storage as the service owner.
 
-The app stores instance data and process transitions as the service owner, not as the end user.
-Storage authorises those calls against the app's own policy, with `urn:altinn:org` as the
-subject. A policy that grants rights only to the end user — the usual form in v8 — leaves the
+The app reads and writes instance data as the service owner while it moves the process on, not
+as the end user. Storage authorises those calls against the app's own policy, with
+`urn:altinn:org` as the subject. A policy that grants rights only to the end user — the usual form in v8 — leaves the
 app unable to move its own process forward. Without the rule, the error only shows when a
 citizen submits.
 
-The actions required follow from the task types in the process: `write` for data, `pay` or
-`write` for payment, `confirm` for confirmation, `sign` or `write` for signing, `complete` where
-a service task marks the instance as completed, and `delete` where the instance is deleted at
-the end of the process.
+The app owner always needs `read` and `write`. It also needs `complete` where a service task
+marks the instance as completed, and `delete` where the instance is deleted at the end of the
+process. It needs no action tied to a task type, such as `confirm`, `reject` or the name of a
+custom task type: Storage always lets the app owner commit a process transition.
 
 Category `Authorization`, severity **error**. The rule therefore fails the build.
 
