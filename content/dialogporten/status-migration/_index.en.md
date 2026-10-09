@@ -9,17 +9,15 @@ cascade:
 
 ## Status
 
-Live sync: All changes[^1] (forms, messages) show up in Dialogporten.
-
-[^1]: Except for app instances from Altinn 2 which are not completed (e.g. started filling out a form, but not completed)
+Live sync: All changes (forms, messages) show up in Dialogporten.
 
 ### Historic data
 
-All historic data have been migrated. Quality control is ongoing.
+All historic data have been migrated.
 
 | Source | Migrated back to |
 |----------|----------|
-| A2-Correspondence | 17.06.2006 |
+| A2-Correspondence | 13.09.2005 |
 | A2 archived forms / A3-app instances | 28.11.2003 |
 
 ## Goals and plans
@@ -41,36 +39,39 @@ All changes made directly through Dialogporten's API are available immediately.
 
 Typically used where the service owner either has their own platform, or handle dialogs outside the default functionality of Altinn Correspondence or Altinn Studio/apps.
 
-### ⚠ A2 Correspondence - Historic
-Migration of historic correspondence is ongoing. See the status at the top of the page and the changelog at the bottom of the page for details.
-
-Manual process. Historic correspondence is migrated from Altinn 2 correspondence to Altinn 3 correspondence. The correspondences are then migrated to Dialogporten in a separate process.
+### ✔ A2 Correspondence - Historic
+All correspondence has been migrated.
 
 See [correspondence data-migration](https://docs.altinn.studio/en/correspondence/transition/data-migration/) for details on the migration process.
 
 ### ✔ A2 Correspondence - Live
 New messages created in Altinn 2 correspondence are migrated to Dialogporten in near real-time (every 5 minutes).
 Live sync is active for both tt02 and prod.
+
 See [correspondence data-migration](https://docs.altinn.studio/en/correspondence/transition/data-migration/#synchronization-of-status-changes-between-altinn-2-and-3) for details on the synchronization process.
 
 ### ✔ A3 Correspondence
 All new messages created in Altinn 3 correspondence are available in Dialogporten immediately. No migration needed.
 
-### ⚠ A3 App instances - Historic
-Migrated back to [date indicated above](#historic-data). Older app instances will be migrated later.
+### ✔ A3 App instances - Historic
+All historic data have been migrated.
 
 ### ✔ A3 App instances - Live
 New app instances created in Altinn 3 are available in Dialogporten immediately. Changes are synced in real-time.
 
-### ⚠ A2 Archived forms - Historic
-Migrated back to [date indicated above](#historic-data). Older archived forms will be migrated later.
+### ✔ A2 Archived forms - Historic
+All historic data have been migrated.
 
 ### ✔ A2 Archived forms - Live
 Newly archived app instances created in Altinn 2 are migrated in batches every 5 minutes.
 Forms that are still being filled out are not migrated until they are archived.
 
 ## Changelog
-16.06.2026: Correspondence completed migration on 6th of June. Oldest correspondence is from 17.06.2006. Archived forms completed migration 12th of June. Oldest migrated form is from 28.11.2023. Quality control is ongoing.
+01.08.2026: Quality assurance and verification completed.
+
+18.06.2026: All data have been migrated.
+
+16.06.2026: Correspondence completed migration on 6th of June. Oldest correspondence is from 13.09.2005. Archived forms completed migration 12th of June. Oldest migrated form is from 28.11.2003. Quality control is ongoing.
 
 02.06.2026: Correspondence migrated back to 13.04.2014. Archived forms back to 01.07.2015.
 
@@ -93,7 +94,7 @@ Forms that are still being filled out are not migrated until they are archived.
 24.02.2026: Migration of 2024 completed.
 
 20.12.2025:
-- A2 archived form og A3 app-instances migrated back to 01.12.2024 (was 01.01.2025). 
+- A2 archived forms and A3 app instances migrated back to 01.12.2024 (was 01.01.2025). 
 
 01.12.2025:
 - Problems with historic A2-correspondence have been resolved. Both missing messages and wrong dates have been corrected.
