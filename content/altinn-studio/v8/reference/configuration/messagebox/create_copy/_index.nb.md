@@ -21,12 +21,15 @@ Konfigurasjonen har tilbakevirkende kraft på tidligere arkiverte instanser.
 
 I tillegg til at funksjonaliteten kan skrues av og på, er det mulig å velge om vedlegg skal kopieres og å ekskludere datatyper og datafelter fra kopien.
 
-| Navn               | Beskrivelse                                                                                              |
-| ------------------ | -------------------------------------------------------------------------------------------------------- |
-| enabled            | true/false for å indikere om funksjonaliteten er skrudd på eller ikke. Standardverdi er av (false).       |
-| excludedDataTypes  | Liste med navn på datatyper som ikke skal kopieres over. Gjelder både skjemadata og vedlegg.              |
-| excludedDataFields | Liste med navn på felter som ikke skal kopieres over.                                                    |
-| includeAttachments | true/false for å indikere om vedlegg skal kopieres over. Standardverdi er av (false).                     |
+| Navn                      | Beskrivelse                                                                                              |
+| ------------------------- | -------------------------------------------------------------------------------------------------------- |
+| enabled                   | true/false for å indikere om funksjonaliteten er skrudd på eller ikke. Standardverdi er av (false).      |
+| excludedDataTypes         | Liste med navn på datatyper som ikke skal kopieres over. Gjelder både skjemadata og vedlegg.             |
+| excludedDataFields        | Liste med navn på felter som ikke skal kopieres over.                                                    |
+| includeAttachments        | true/false for å indikere om vedlegg skal kopieres over. Standardverdi er av (false).                    |
+| includeDueBefore          | true/false for å indikere om svarfristen (`dueBefore`) skal kopieres over. Standardverdi er av (false).  |
+| includedDataValues        | Liste med nøkler i `dataValues` som skal kopieres over fra originalinstansen.                            |
+| includedPresentationTexts | Liste med nøkler i `presentationTexts` som skal kopieres over fra originalinstansen.                     |
 
 ### Ekskludering av data typer
 
@@ -41,6 +44,35 @@ Vedlegg kopieres bare når `includeAttachments` er satt til `true`. Hvis innstil
 ### Ekskludering av felter
 
 I listen med ekskluderte felter kan man angi navnene på felter man ikke ønsker å kopiere over i ny instans. Hensikten med denne funksjonaliteten er å få tømt data i felter man vet må variere fra en innsending til en annen. Det kan for eksempel være et felt som indikerer hvilke kvartal i året den nye innsendingen skal gjelde for. Her må apputvikler vurdere behovene og hva slags type bruk som blir mest vanlig. Felter angis ved hjelp av dot-notasjon på samme måte som man gjør ved data binding i layout filer.
+
+### Kopiere svarfrist, dataverdier og presentasjonstekster
+
+{{%notice warning%}}Kopiering av svarfrist, dataverdier og presentasjonstekster krever versjon 8.12.12 eller nyere av `Altinn.App`-bibliotekene.{{% /notice%}}
+
+Som standard får den nye instansen ingen svarfrist, og bare dataverdier og presentasjonstekster som er utledet fra `dataFields` og `presentationFields` i applikasjonsmetadataen blir satt på den nye instansen (de beregnes på nytt fra de kopierte skjemadataene).
+
+Sett `includeDueBefore` til `true` for å kopiere `dueBefore` fra originalinstansen. Når en kopi lages gjennom det forenklede instansieringsendepunktet, har en `dueBefore` som er angitt eksplisitt i forespørselen forrang.
+
+Bruk `includedDataValues` og `includedPresentationTexts` til å angi hvilke nøkler som skal kopieres fra originalinstansen til den nye instansen. Nøkler som ikke finnes på originalinstansen, blir ignorert. Hvis en nøkkel også er utledet fra `dataFields` eller `presentationFields`, brukes verdien som beregnes på nytt fra de kopierte skjemadataene. Dette er nyttig for dataverdier som settes av applikasjonskoden, for eksempel en verdi som `ICopyInstanceValidator` sjekker, og som ellers ville manglet når en kopi kopieres på nytt.
+
+De kopierte presentasjonstekstene sendes til Storage når den nye instansen opprettes, og eldre versjoner av localtest ignorerer dem. Når du tester lokalt, starter du testplattformen på nytt med `studioctl env down` og `studioctl env up` for å få nyeste versjon av localtest. Hvis du fortsatt bruker det gamle app-localtest-repoet, henter du siste versjon og starter det på nytt.
+
+### Referanse til originalinstansen
+
+{{%notice warning%}}Referansen til originalinstansen krever versjon 8.12.12 eller nyere av `Altinn.App`-bibliotekene.{{% /notice%}}
+
+Den nye instansen får dataverdien `copy.sourceInstanceId` med id-en til instansen den ble kopiert fra, på formatet `{instanceOwnerPartyId}/{instanceGuid}`. I applikasjonskoden bruker du konstanten `DataValueKeys.CopySourceInstanceId` fra `Altinn.App.Core.Constants` i stedet for å skrive nøkkelen selv.
+
+Når en kopi kopieres på nytt, peker verdien som standard på instansen som ble kopiert direkte. Hvis du legger til `copy.sourceInstanceId` i `includedDataValues`, kopieres verdien fra originalinstansen i stedet, slik at alle kopier i en kjede peker på den første instansen. Hvis originalinstansen ikke har en slik verdi, brukes id-en til originalinstansen.
+
+```json
+"copyInstanceSettings": {
+    "enabled": true,
+    "includedDataValues": [
+        "copy.sourceInstanceId"
+    ]
+}
+```
 
 ## Eksempler
 
@@ -83,6 +115,26 @@ applicationmetadata.json
 "copyInstanceSettings": {
     "enabled": true,
     "includeAttachments": true
+}
+```
+
+Konfigurasjon hvor svarfristen og utvalgte dataverdier og presentasjonstekster kopieres til den nye instansen.
+
+{{< code-title >}}
+applicationmetadata.json
+{{< /code-title >}}
+
+```json
+"copyInstanceSettings": {
+    "enabled": true,
+    "includeDueBefore": true,
+    "includedDataValues": [
+        "appVersion",
+        "customerId"
+    ],
+    "includedPresentationTexts": [
+        "name"
+    ]
 }
 ```
 
