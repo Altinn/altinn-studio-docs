@@ -5,62 +5,62 @@ description: How to set up additional data protections for an app
 
 ---
 
-{{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/style.css.md" %}} 
+{{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/style.css.md" %}}
 
-{{% notice info %}}
-Available from [v8.7.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v8.7.0)
-{{% /notice %}}
+Restricted data is information that requires additional access control, such as personal data about people other than the user, or confidential information. The app can store such data in a separate data type that the user cannot read or change. Only those with access to specific actions, usually the service owner, can read and write the data.
 
-## Introduction
-Restricted data refers to information requiring additional protection, such as personal, confidential, or classified data.
+If the user tries to read or write the data without access to the action, the app rejects the request with `403 Forbidden`.
 
-You can read more about the concept [here](/en/altinn-studio/v8/concepts/data-model/restricted-data/).
+You set this up in the app's code. Altinn Studio Designer has no settings for restricted data.
 
 ## Configuring Maskinporten
-You must configure Maskinporten to allow the app to perform actions on behalf of the service owner.
 
-You can find a detailed guide on that setup in the [Maskinporten integration guide](/en/altinn-studio/v9/develop-a-service/integration/maskinporten/).
+The app must be able to perform actions on behalf of the service owner, so you need to set up Maskinporten. See [integrating an Altinn app with Maskinporten](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/) (in Norwegian).
 
 ## Configuring the data types
-The [applicationmetadata.json](https://github.com/Altinn/altinn-studio/blob/main/src/App/app-template-dotnet/src/App/config/applicationmetadata.json) file defines all [data types](/en/api/models/app-metadata/#datatype) in an application. Here, you specify which [actions](/en/altinn-studio/v8/reference/configuration/authorization/#action-attributes) are required for your restricted data type.
 
-In this example, we configure a new data type, specifying the `actionRequiredToRead` and `actionRequiredToWrite` properties, and disabling `autoCreate`. We use the identifier `restrictedDataModel`, though the name itself is not significant.
+The `applicationmetadata.json` file contains all [data types](/en/api/models/app-metadata/#datatype) in the app. Here, you specify which [actions](/nb/altinn-studio/v9/develop-a-service/reference/configuration/authorization/#action-attributter) (in Norwegian) are required to read and write the restricted data type.
+
+In the example, you add a new data type with the properties `actionRequiredToRead` and `actionRequiredToWrite`, and disable `autoCreate`. The data type is called `restrictedDataModel`, but you can choose another name.
 
 {{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/Applicationmetadata.json.md" %}}
 
 {{% notice warning %}}
-We disable auto-create because our [updated authorization policy](#configuring-the-authorization-policy) does not grant read or write access to end-users. Attempting to create a `restrictedDataModel` data element with a user's authorization token will result in a 403-Forbidden error.
+You disable `autoCreate` because the [authorisation policy](#configuring-the-authorisation-policy) does not give users read or write access. If the app tries to create a data element of type `restrictedDataModel` with the user's token, it gets a `403 Forbidden` error.
 {{% /notice %}}
 
-## Configuring the authorization policy
-Using the [default policy.xml file](https://github.com/Altinn/altinn-studio/blob/main/src/App/app-template-dotnet/src/App/config/authorization/policy.xml) as a starting point, modify rule #2 to grant the new custom actions to bearers of a service owner token.
+## Configuring the authorisation policy
+
+Start from the [default `policy.xml` file](/nb/altinn-studio/v9/develop-a-service/reference/configuration/authorization/) (in Norwegian), and change rule 2 to give the service owner access to the new actions.
 
 {{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/Policy.xml.md" %}}
 
-## Interacting with the restricted data
-Since the `restrictedDataModel` is not automatically created or attached to the user's normal data flow, you must implement all relevant logic manually.
+## Reading and writing restricted data
 
-In this section we'll create a service that helps us interact with the restricted data, before demonstrating how we can create, modify, and read restricted data elements in a normal app flow.
+The app does not create `restrictedDataModel` automatically, and the data type is not part of the form the user fills in. You therefore need to write the code that reads and writes the data yourself.
 
-### Helper service
-To simplify authorization and interaction with the restricted data model, we can create a helper service to handle this complexity.
+By default, the app uses the user's token. To read and write the restricted data type, call `OverrideAuthenticationMethod` with `StorageAuthenticationMethod.ServiceOwner()`. The app then uses the service owner's token for that data type only.
 
-{{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/RestrictedDataHelper.cs.md" %}}
-
-This service can then be registered in `Program.cs` and [injected](https://learn.microsoft.com/en-us/dotnet/core/extensions/dependency-injection) wherever you need it.
-
-{{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/Program.cs.md" %}}
+{{% notice warning %}}
+The app cannot save changes with the user's token and the service owner's token at the same time. If you change both the user's form data and the restricted data in the same code, you get an error when the app saves. You can read the restricted data when the user changes the form, but only change it in code that does not also change the user's data, for example when a task starts.
+{{% /notice %}}
 
 ### Writing data
-As mentioned, we need to manually create the data element when the application enters the `Task_1` process step.
 
-To do this, use the `UpdateOrCreateData` method from the [RestrictedDataHelper service](#helper-service).
+The example below stores data in the restricted data type when the process enters the task `Task_1`. It uses a [process hook](/nb/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks/) (in Norwegian) that implements `IOnTaskStartingHandler`. The code fetches information from a fictional API and stores it in `restrictedDataModel`. The user cannot see the information, but the app can retrieve it later.
 
-The following example implements this logic in the `IProcessTaskStart` interface, fetching information from a fictional API and storing it in the restricted data model. This information remains unavailable to the user but can be retrieved later by the app.
+The hook may run more than once if something fails along the way. The code therefore updates the data element if it already exists, instead of creating a new one.
 
-{{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/ProcessTaskStartHandler.cs.md" %}}
+{{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/RestrictedDataOnTaskStart.cs.md" %}}
 
 ### Reading data
-In the following code, we have created an implementation of the `IDataWriteProcessor` interface, where we perform a fictional tax calculation. This calculation requires information we previously stored in the restricted data model, so we use [RestrictedDataHelper.GetOrCreateData](#helper-service) to retrieve it.
+
+The example below implements `IDataWriteProcessor` and performs a fictional tax calculation when the user changes their income in the form. The calculation needs information the app has stored in the restricted data type. The code reads it with the service owner's token, but does not change it.
 
 {{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/DataWriteHandler.cs.md" %}}
+
+### Registering the classes
+
+Finally, register the classes in `Program.cs`.
+
+{{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/Program.cs.md" %}}
