@@ -7,10 +7,6 @@ toc: false
 tags: [needsReview]
 ---
 
-{{% notice info %}}
-Denne funksjonaliteten krever at appen bruker minst [versjon 7.10.0](https://github.com/Altinn/app-lib-dotnet/releases/tag/v7.10.0) av Altinn.App.Core og Altinn.App.Api NuGet-pakkene.
-{{% /notice %}}
-
 {{% notice warning %}}
 Ved å aktivere denne funksjonen endrer du formatet på svaret i HTTP-responsen fra streng til JSON. Du får fremdeles samme HTTP-statuskode, men kroppen inneholder en rekke JSON-objekter som beskriver feilen.
 {{% /notice %}}
@@ -28,7 +24,7 @@ Standardsjekkene kontrollerer om
 
 Utvidet filvalidering gir deg mulighet til å analysere bytestrømmen til de opplastede filene før systemet lagrer dem, og returnere feilmeldinger til klienten hvis det er noe galt. Som standard følger det med en MIME-typekontroller som skanner filen for å se om den er av den typen den hevder å være. Du kan lage og legge til egenutviklede valideringer for å validere ulike typer filer og metadata. Du kan for eksempel skrive en analyse som sjekker om en PNG-fil har en minimumsoppløsning før systemet godtar den, eller om en PDF-fil er av en bestemt versjon.
 
-Altinn.App.Core NuGet-pakken definerer grensesnittene som kreves, i tillegg til å sikre at systemet kaller koden. Analyseimplementeringene er tilgjengelige som en separat [NuGet-pakke](https://www.nuget.org/packages/Altinn.FileAnalyzers) som du kan importere i appen din. Grunnen til denne separasjonen er å holde kjernen til en Altinn 3-applikasjon så liten som mulig, og å kunne lansere og bruke nye analyser uten å måtte oppgradere appen (utover v7.10.0).
+Altinn.App.Core NuGet-pakken definerer grensesnittene som kreves, i tillegg til å sikre at systemet kaller koden. Analyseimplementeringene er tilgjengelige som en separat [NuGet-pakke](https://www.nuget.org/packages/Altinn.FileAnalyzers) som du kan importere i appen din. Grunnen til denne separasjonen er å holde kjernen til en Altinn 3-applikasjon så liten som mulig, og å kunne lansere og bruke nye analyser uten å måtte oppgradere appen.
 
 
 ## Konfigurer og aktiver standard MIME-type-validering i appen din
@@ -66,19 +62,19 @@ Altinn.App.Core NuGet-pakken definerer grensesnittene som kreves, i tillegg til 
 
 ## Skriv din egen analyse
 
-Hvis du vil skrive din egen validator, må du implementere to grensesnitt: `IFileAnalyser` og `IFileValidator`. `IFileAnalyser` analyserer filen for eventuelle metadata du vil validere på og returnerer disse i en `FileAnalysisResult`. Systemet sender deretter resultatet til valideringslogikken. Resultatet inneholder noen navngitte egenskaper som filnavn, MIME-type og ID-en til analysatoren som opprettet resultatet. Du sender eventuelle tilleggsmetadata som nøkkel/verdi-par i Metadata-propertyen. Denne separasjonen gjør det mulig å gjenbruke analysatoren for å ekstrahere metadata om filen for andre formål.
+Hvis du vil skrive din egen validator, må du implementere to grensesnitt: `IFileAnalyzer` og `IFileValidator`. `IFileAnalyzer` analyserer filen for eventuelle metadata du vil validere på og returnerer disse i en `FileAnalysisResult`. Systemet sender deretter resultatet til valideringslogikken. Resultatet inneholder noen navngitte egenskaper som filnavn, MIME-type og ID-en til analysatoren som opprettet resultatet. Du sender eventuelle tilleggsmetadata som nøkkel/verdi-par i Metadata-propertyen. Denne separasjonen gjør det mulig å gjenbruke analysatoren for å ekstrahere metadata om filen for andre formål.
 
-1. **Implementer grensesnittet `IFileAnalyser`**
-   Grensesnittet har en egenskap `Id` og en metode `Analyse` som du må implementere.
+1. **Implementer grensesnittet `IFileAnalyzer`**
+   Grensesnittet har en egenskap `Id` og en metode `Analyze` som du må implementere.
     `Id`-egenskapen skal være unik og brukes når du konfigurerer analysatoren i filen `applicationmetadata.json`. Dette er hvordan implementasjonen din blir valgt når appen bestemmer hvilken analyse som skal kjøres for en gitt datatype.
     Eksempel fra standardimplementeringen av MIME-type-analysatoren:
     ```csharp
     public string Id { get; private set; } = "mimeTypeAnalyser";
     ```
-    Metoden `Analyse` får bytestrømmen som representerer filen og et filnavn hvis tilgjengelig (vanligvis er det tilgjengelig). Strømmen er allerede satt til posisjon 0 og kan leses direkte.
+    Metoden `Analyze` får bytestrømmen som representerer filen og et filnavn hvis tilgjengelig (vanligvis er det tilgjengelig). Strømmen er allerede satt til posisjon 0 og kan leses direkte.
     Eksempel fra standardimplementeringen av MIME-type-analysatoren:
     ```csharp
-      public async Task<FileAnalysisResult> Analyse(Stream stream, string? filename = null)
+      public Task<FileAnalysisResult> Analyze(Stream stream, string? filename = null)
         {
             var results = _inspector.Inspect(stream);
 
@@ -94,7 +90,7 @@ Hvis du vil skrive din egen validator, må du implementere to grensesnitt: `IFil
                 fileAnalysisResult.Metadata.Add("key", "value"); //Dette viser bare hvordan du legger til egendefinerte metadata.
             }
 
-            return fileAnalysisResult;
+            return Task.FromResult(fileAnalysisResult);
         }
       ```
 2. **Implementer grensesnittet `IFileValidator`**
@@ -136,7 +132,7 @@ Hvis du vil skrive din egen validator, må du implementere to grensesnitt: `IFil
 3. **Registrer implementasjonen i appens DI-kontainer**
    Når koden din er på plass, må du registrere implementasjonen for at koden skal kjøre når brukeren laster opp filer.
    ```csharp
-    services.AddTransient<IFileAnalyser, YourAnalyserImplementation>();
+    services.AddTransient<IFileAnalyzer, YourAnalyzerImplementation>();
     services.AddTransient<IFileValidator, YourValidatorImplementation>();
    ```
 4. **Konfigurer analysen og validatoren**
