@@ -111,49 +111,6 @@ i løsningsarkitekturen for Altinn Formidling.
 
 ![Relaterte løsninger](digdir-solution-resources-for-altinn3-broker.nb.png "Relaterte løsninger")
 
-## Overgangsarkitektur - Altinn 2 til Altinn 3
-
-### Generelt
-To migreringsalternativer støttes for migrering av Altinn Formidlingstjenester -
-_hard overgang_ og _myk overgang_.
-
-### Hard overgang fra Altinn 2 til Altinn 3 for alle brukere av en tjeneste
-
-Med alternativet _Hard overgang_ må alle brukere og sluttbrukersystemer gjøre en koordinert og samtidig overgang til Altinn 3.
-
-Dette alternativet anbefales i tilfeller hvor en slik koordinert overgang er gjennomførbar. 
-Ingen overgangsløsning er nødvendig, 
-og alle funksjoner i Altinn 3 kan brukes så snart overgangen er gjennomført.
-
-Opplastede filer lagres i Altinn 2 Formidling Fillager frem til overgangen.
-
-![Altinn 3 Formidling migreringsopsjon - hard overgang](altinn3-broker-migration-option-hardshift.nb.png "Altinn 3 Formidling migreringsopsjon - hard overgang")
-
-_Merk: I dette tilfellet antas det at filer fra Altinn 2 Formidling er slettet
-og ikke behøves i Altinn 3 Formidling.
-Hvis nødvendig, vil det likevel være mulig å flytte filer 
-fra Altinn 2 til Altinn 3 Formidling Fillager etter overgangen._
-
-### Myk overgang fra Altinn 2 til Altinn 3
-
-Med alternativet _Myk_ overgang gjør brukere og sluttbrukersystemer 
-overgangen til Altinn 3 på individuell basis, når de er klare.
-Overgangsløsningen fungerer som en bro mellom Altinn 2 og Altinn 3.
-
-I overgangsperioden vil opplastede filer alltid lagres i Altinn 3 Formidling Fillager.
-
-![Altinn 3 Formidling migreringsopsjon - myk overgang](altinn3-broker-migration-option-softshift.nb.png "Altinn 3 Formidling migreringsopsjon - myk overgang")
-
-<!--
-### Solution Details
-
-#### Solution for uploading to Altinn 3 via Altinn 2
-TBD by Ragnar?
-
-#### Solution for downloading Altinn 3 files to Altinn 2
-TBD by Ragnar?
--->
-
 ## Fillager
 
 Altinn 3 Formidling Fillager er basert på Microsoft Azure Blob Storage.
