@@ -196,7 +196,7 @@ Plattformen flytter prosessen ut av oppgaven som tjenesteeier. Oppgavetypen `fik
 
 ### Steg 6: Konfigurer appen {#oppsett-konfigurasjon}
 
-Legg konfigurasjonen i `appsettings.json`, og legg alle sensitive verdier i Azure Key Vault i stedet for å sjekke dem inn. Appen leser secrets ved oppstart, så endrer du dem etter publisering, må du publisere appen på nytt. Se [secrets-dokumentasjonen](/nb/altinn-studio/v8/reference/configuration/secrets/) for hvordan appen leser fra Key Vault.
+Legg konfigurasjonen i `appsettings.json`, og legg alle sensitive verdier i Azure Key Vault i stedet for å sjekke dem inn. Appen må ha Key Vault som konfigurasjonskilde. Se [siden om hemmeligheter]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/secrets" >}}) for hvordan du setter det opp. Endrer du hemmelighetene for Fiks IO i Key Vault etter publisering, henter appen de nye verdiene innen fem minutter og kobler seg til Fiks IO på nytt. Du trenger ikke publisere appen på nytt.
 
 {{% expandlarge id="guide-fiks-io-settings" header="Oversikt over FiksIOSettings" %}}
 
