@@ -14,7 +14,10 @@ Altinn lagrer instansene og dataene til appen i lagringstjenesten Altinn Storage
 
 ## Velge format for skjemadata
 
-Appen lagrer skjemadata som XML hvis du ikke velger noe annet. Nye apper har bare `application/xml` i `allowedContentTypes`. Appen kan selv lese både XML og JSON, så formatet har bare betydning for systemer som henter dataene direkte fra Altinn Storage, for eksempel et fagsystem.
+Appen lagrer skjemadata som XML hvis du ikke velger noe annet. Nye apper har bare `application/xml` i `allowedContentTypes`. Appen kan selv lese både XML og JSON. Formatet har betydning for alle som får skjemadataene slik de er lagret:
+
+- systemer som henter dataene direkte fra Altinn Storage, for eksempel et fagsystem
+- mottakere som får dataene fra appen via eFormidling eller Fiks Arkiv
 
 Vil du lagre skjemadataene som JSON, setter du `application/json` først i `allowedContentTypes` for datatypen:
 
@@ -37,7 +40,7 @@ Appen bruker det formatet av `application/json` og `application/xml` som står f
 Endringen gjelder bare data appen lagrer etter at du har publisert endringen. Data som allerede er lagret, beholder formatet sitt.
 
 {{% notice warning %}}
-Har appen allerede instanser i Altinn Storage, må `application/xml` fortsatt stå i listen. Ellers får instansene med XML-data en valideringsfeil, og brukerne kan ikke sende dem inn.
+Har appen instanser som brukerne ikke har sendt inn ennå, må `application/xml` fortsatt stå i listen. Ellers får instansene med XML-data en valideringsfeil, og brukerne kan ikke sende dem inn.
 {{% /notice %}}
 
 ## Hindre at instanser blir slettet
