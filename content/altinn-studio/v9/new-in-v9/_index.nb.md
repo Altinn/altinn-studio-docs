@@ -5,7 +5,7 @@ linktitle: Nytt i v9
 description: Bakgrunnen for v9, og hva den nye versjonen betyr for deg som eier eller utvikler en Altinn-app.
 weight: 2
 toc: true
-tags: [needsReview]
+tags: [Reviewed]
 ---
 
 Altinn har bak seg mange år med høyt utviklingstempo og mange leveranser. Nå er plattformen i full drift for alle innbyggere og bedrifter i Norge, og da endrer behovene seg. Vi må stabilisere plattformen og gjøre den klar for mer trafikk og videre utvikling.
