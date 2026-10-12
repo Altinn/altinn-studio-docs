@@ -79,18 +79,18 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 }
 {{< / highlight >}}
 
-Ved direkte eksport til Azure kan du konfigurere sampling i `RegisterCustomAppServices` med
-innstillingene beskrevet under. Et egendefinert `SetSampler`-kall i denne funksjonen blir overstyrt når Azure
-registreres etterpå. Rettingen av standardverdiene løser ikke denne eksisterende begrensningen.
-
-Hvis du trenger en egendefinert OTel-sampler, legger du registreringen rett etter det eksisterende
-`AddAltinnAppServices`-kallet i `ConfigureServices` i `Program.cs`, som vist under.
+For å bruke en egendefinert OTel-sampler ved direkte eksport til Azure legger du følgende i den eksisterende
+funksjonen `RegisterCustomAppServices`. Azures standardsampler konfigureres først, så din sampler får forrang.
+Dette krever den kommende telemetrifiksen for v8 ([app-lib-dotnet#1889](https://github.com/Altinn/app-lib-dotnet/pull/1889)).
 
 {{< highlight csharp "linenos=false" >}}
-services.AddAltinnAppServices(config, builder.Environment);
 services.ConfigureOpenTelemetryTracerProvider(telemetry =>
     telemetry.SetSampler(new ParentBasedSampler(new AlwaysOnSampler())));
 {{< / highlight >}}
+
+Med denne fiksen kjøres Azures trace-prosessorer før prosessorer som legges til i `RegisterCustomAppServices`.
+Sett trace-attributter og status før aktiviteten avsluttes, for eksempel i instrumenteringen eller i prosessorens `OnStart`.
+Endringer i `OnEnd` i en egendefinert prosessor skjer etter at Azure har beregnet forespørselsmetrikk, og kan komme for sent til eksport av traces.
 
 For å lære mer om hva som kan konfigureres og hvordan, se de respektive dokumentene i opentelemetry-dotnet repo:
 
@@ -144,7 +144,7 @@ Eksportøren støtter disse miljøvariablene for sampling:
 
 Begge variablene må settes. Standardnavn i OTel, som `always_off` og `traceidratio`, styrer ikke
 sampling ved direkte eksport til Azure: Azure setter sin egen sampler. For en egendefinert OTel-sampler bruker du
-`ConfigureOpenTelemetryTracerProvider` etter `AddAltinnAppServices`, som vist over.
+`ConfigureOpenTelemetryTracerProvider` i `RegisterCustomAppServices`, som vist over.
 
 Se [kildekoden for Azure-eksportørens konfigurasjon](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.OpenTelemetry.Exporter_1.9.0/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/src/DefaultAzureMonitorExporterOptions.cs)
 for støttede innstillinger og miljøvariabler.

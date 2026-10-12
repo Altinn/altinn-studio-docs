@@ -78,18 +78,18 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 }
 {{< / highlight >}}
 
-For direct Azure export, use the exporter options described below to configure sampling in
-`RegisterCustomAppServices`. A custom `SetSampler` call in that function is overwritten by Azure's later
-registration. The telemetry defaults fix does not resolve this existing limitation.
-
-If you need a custom OTel sampler, add its registration immediately after the existing
-`AddAltinnAppServices` call inside `ConfigureServices` in `Program.cs`, as shown below.
+To use a custom OTel sampler for direct Azure export, add the following to the existing
+`RegisterCustomAppServices` function. Azure's default sampler is configured first, so your sampler takes precedence.
+This requires the forthcoming v8 telemetry fix ([app-lib-dotnet#1889](https://github.com/Altinn/app-lib-dotnet/pull/1889)).
 
 {{< highlight csharp "linenos=false" >}}
-services.AddAltinnAppServices(config, builder.Environment);
 services.ConfigureOpenTelemetryTracerProvider(telemetry =>
     telemetry.SetSampler(new ParentBasedSampler(new AlwaysOnSampler())));
 {{< / highlight >}}
+
+With this fix, Azure's trace processors run before processors added in `RegisterCustomAppServices`.
+Set trace attributes and status before the activity ends, for example in instrumentation or a processor's `OnStart`.
+Changes made in an owner processor's `OnEnd` happen after Azure's request metric extraction and may be too late for trace export.
 
 To learn more about what can be configured, read the respective docs on the opentelemetry-dotnet repo:
 
@@ -143,7 +143,7 @@ It supports these sampler environment variables:
 
 Both variables are required. Standard OTel sampler names such as `always_off` and `traceidratio` do not
 control the direct Azure exporter path: Azure installs its own sampler. For a custom OTel sampler, use
-`ConfigureOpenTelemetryTracerProvider` after `AddAltinnAppServices`, as shown above.
+`ConfigureOpenTelemetryTracerProvider` in `RegisterCustomAppServices`, as shown above.
 
 See the [Azure exporter configuration source](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.OpenTelemetry.Exporter_1.9.0/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/src/DefaultAzureMonitorExporterOptions.cs)
 for the supported configuration and environment settings.
