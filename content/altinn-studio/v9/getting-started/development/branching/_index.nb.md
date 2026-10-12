@@ -23,12 +23,16 @@ Du finner grenvelgeren øverst til høyre i Altinn Studio. Den viser navnet på 
 
 1. Klikk på grenvelgeren.
 2. Klikk på **Ny gren**.
-3. Skriv et navn på grenen, for eksempel `feature/betaling`. Navnet kan ha bokstaver, tall, bindestreker og skråstreker.
+3. Skriv et navn på grenen, for eksempel `feature/betaling`. Navnet kan ha bokstavene a–z (ikke æ, ø og å), tall, bindestreker og skråstreker. Det må begynne med en bokstav eller et tall.
 4. Klikk på **Opprett gren**.
 
 Altinn Studio bytter til den nye grenen.
 
-Den nye grenen tar alltid utgangspunkt i `master` slik den ligger i Gitea. Det gjelder også når du står i en annen gren. Endringer du ikke har delt, blir ikke med.
+Den nye grenen tar alltid utgangspunkt i `master` slik den ligger i Gitea. Det gjelder også når du står i en annen gren, selv om dialogboksen sier at grenen er basert på grenen du står i. Endringer du ikke har delt, blir ikke med.
+
+{{% notice info %}}
+Del endringene dine med **Del dine endringer**, eller slett dem, før du lager en ny gren. Har du endringer du ikke har delt, lager Altinn Studio grenen, men du blir stående i grenen du var i. Du får da spørsmål om du vil slette endringene og bytte gren.
+{{% /notice %}}
 
 ## Bytte gren
 
@@ -59,6 +63,8 @@ Du fletter grenen inn i `master` i Gitea, med en trekkforespørsel (pull request
 ### Flette trekkforespørselen
 
 Du kan flette trekkforespørselen selv, eller be en kollega se over den først. Det avhenger av hvordan teamet ditt jobber.
+
+Gitea kan vise flere måter å flette på, avhengig av innstillingene for repoet. Her beskriver vi to av dem.
 
 1. Velg hvordan du vil flette:
    - **Create merge commit** beholder alle endringene i grenen som egne punkter i historikken.
