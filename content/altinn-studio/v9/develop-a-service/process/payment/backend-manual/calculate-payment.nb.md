@@ -21,7 +21,7 @@ Returverdien fra metoden `CalculateOrderDetails` angir
 
 Fyll ut `Nets Easy` som betalingsbehandler for å bruke standardimplementasjonen for Nets Easy. Du gjør egne betalingsbehandlere tilgjengelige ved å implementere grensesnittet `IPaymentProcessor` og registrere dem som `transient` i `Program.cs`.
 
-Detaljer om betaleren sender du med hvis du vil fylle ut denne informasjonen på forhånd hos Nets Easy. Du kan bruke dette sammen med flagget `MerchantHandlesConsumerData` fra Nets Easy, som du setter i `appsettings.json` under `NetsPaymentSettings.MerchantHandlesConsumerData`. Hvis du setter det til `true`, må du sende med detaljer om betaleren. Ellers feiler betalingen.
+Send med detaljer om betaleren hvis du vil fylle ut denne informasjonen på forhånd hos Nets Easy. Du kan bruke dette sammen med flagget `MerchantHandlesConsumerData` fra Nets Easy, som du setter i `appsettings.json` under `NetsPaymentSettings.MerchantHandlesConsumerData`. Hvis du setter det til `true`, må du sende med detaljer om betaleren. Ellers feiler betalingen.
 
 I dette eksempelet regner appen ut ordrelinjene basert på skjemadata:
 

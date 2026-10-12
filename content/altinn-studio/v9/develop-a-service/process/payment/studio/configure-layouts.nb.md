@@ -4,7 +4,7 @@ hidden: true
 tags: [needsReview]
 ---
 
->Du gjør oppsettet i denne seksjonen fra **Utforming**-siden i appens arbeidsflate. Du kommer dit ved å klikke på **Utforming** i toppmenyen i arbeidsflaten for appen.
+> Du gjør oppsettet i denne seksjonen på siden **Utforming** i arbeidsflaten for appen. Du kommer dit ved å klikke på **Utforming** i toppmenyen i arbeidsflaten for appen.
 
 ### Slik viser du betalingsinformasjon i skjemaet
 
