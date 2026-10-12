@@ -8,7 +8,7 @@ hidden: true
 App/logic/RestrictedDataOnTaskStart.cs
 {{< /code-title >}}
 
-{{< highlight csharp "linenos=false, hl_lines=1-2 22-31" >}}
+{{< highlight csharp "linenos=false, hl_lines=1-2 4 6 8 10 22-31 33" >}}
 using Altinn.App.Core.Features.Process;
 using Altinn.App.Models;
 

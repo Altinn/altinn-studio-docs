@@ -8,8 +8,10 @@ hidden: true
 App/Program.cs
 {{< /code-title >}}
 
-{{< highlight csharp "linenos=false,hl_lines=1 7-8" >}}
+{{< highlight csharp "linenos=false,hl_lines=1 9-10" >}}
 using Altinn.App.Core.Features.Process;
+
+// ...
 
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
