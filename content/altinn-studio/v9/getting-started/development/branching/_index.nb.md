@@ -23,7 +23,7 @@ Du finner grenvelgeren øverst til høyre i Altinn Studio. Den viser navnet på 
 
 1. Klikk på grenvelgeren.
 2. Klikk på **Ny gren**.
-3. Skriv et navn på grenen, for eksempel `feature/betaling`. Navnet kan ha bokstavene a–z (ikke æ, ø og å), tall, bindestreker og skråstreker. Det må begynne med en bokstav eller et tall.
+3. Skriv et navn på grenen, for eksempel `feature/betaling`.
 4. Klikk på **Opprett gren**.
 
 Altinn Studio bytter til den nye grenen.
