@@ -2,7 +2,7 @@
 draft: true
 title: Payment
 linktitle: Payment
-description: Follow these steps to implement Payment in your App
+description: Follow these steps to implement payment in your app
 tags: [payment, needsReview]
 ---
 
@@ -83,12 +83,12 @@ Altinn Studio automatically adds the standard Maskinporten scopes for service ow
 
 The built-in Nets Easy integration registers a webhook when it creates a payment. When Nets reports a completed payment, the app verifies the payment status with Nets, updates the payment information, and advances the payment task if the status is `Paid`. This happens on the server and does not depend on the user returning to the app after payment.
 
-Only the payment task is completed automatically. If the next process element is an end event, the instance is also completed. Otherwise, the instance advances to the next process task.
+The app completes only the payment task automatically. If the next process element is an end event, the app also completes the instance. Otherwise, the instance advances to the next process task.
 
 For automatic advancement to work:
 
 - Configure the service owner permissions described in [step 3](#3-authorise-the-payer-and-the-service-owner).
 - Build and deploy the app again after changing the configuration.
-- Start a new payment after deployment. The webhook is registered when the payment is created, so payments created before the change do not receive the new callback.
+- Start a new payment after deployment. The app registers the webhook when it creates the payment, so payments created before the change do not receive the new notification.
 
-The webhook is not registered during local development. Test this flow in a deployed test environment.
+The app does not register the webhook when you develop locally. Test this flow in a deployed test environment.

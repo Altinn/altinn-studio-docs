@@ -13,11 +13,15 @@ Du kan for eksempel hente skjemadata, legge til obligatoriske avgifter eller bar
 
 Returverdien fra metoden `CalculateOrderDetails` angir
 
-- betalingsbehandleren som ordren skal bruke. Du gjør egne betalingsbehandlere tilgjengelige ved å implementere grensesnittet `IPaymentProcessor` og registrere dem som `transient` i `program.cs`. Fyll ut `Nets Easy` for å bruke standardimplementasjonen for Nets Easy.
-- valuta
-- ordrelinjer
+- betalingsbehandleren som ordren skal bruke
+- valutaen
+- ordrelinjene
 - detaljer om betalingsmottakeren, som appen bruker i kvitteringen
-- detaljer om betaleren (valgfritt), hvis du vil fylle ut denne informasjonen på forhånd hos Nets Easy. Du kan bruke dette sammen med flagget `MerchantHandlesConsumerData` fra Nets Easy, som du setter i `appsettings.json` under `NetsPaymentSettings.MerchantHandlesConsumerData`. Hvis du setter det til `true`, må du sende med detaljer om betaleren, ellers feiler betalingen.
+- detaljer om betaleren (valgfritt)
+
+Fyll ut `Nets Easy` som betalingsbehandler for å bruke standardimplementasjonen for Nets Easy. Du gjør egne betalingsbehandlere tilgjengelige ved å implementere grensesnittet `IPaymentProcessor` og registrere dem som `transient` i `Program.cs`.
+
+Detaljer om betaleren sender du med hvis du vil fylle ut denne informasjonen på forhånd hos Nets Easy. Du kan bruke dette sammen med flagget `MerchantHandlesConsumerData` fra Nets Easy, som du setter i `appsettings.json` under `NetsPaymentSettings.MerchantHandlesConsumerData`. Hvis du setter det til `true`, må du sende med detaljer om betaleren. Ellers feiler betalingen.
 
 I dette eksempelet regner appen ut ordrelinjene basert på skjemadata:
 
@@ -66,7 +70,7 @@ public class OrderDetailsCalculator : IOrderDetailsCalculator
 
 `GetLocalizedName`, `GetPriceForInventoryItem`, `GetReceiverDetails` og `GetPayerDetails` er hjelpemetoder du lager selv. Eksempelet sender med `Payer` fordi eksempelet på `appsettings.json` i steg 6 setter `MerchantHandlesConsumerData` til `true`.
 
-Registrer `IOrderDetailsCalculator`-implementasjonen i `program.cs`:
+Registrer `IOrderDetailsCalculator`-implementasjonen i `Program.cs`:
 ```c#
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {

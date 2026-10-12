@@ -41,9 +41,9 @@ Systemet bruker den andre datatypen for å lagre PDF-kvittering for betalingen. 
 }
 ```
 
-Det er viktig å sette `allowedContributors` til `"app:owned"`. Det gjør at du ikke kan redigere disse dataene via appens API, men bare via appen selv.
+Det er viktig å sette `allowedContributors` til `"app:owned"`. Det gjør at du ikke kan redigere disse dataene via API-et til appen, men bare via appen selv.
 
-ID-ene kan settes til noe annet, men de må være de samme som ID-ene du legger inn i `paymentDataType` og `paymentReceiptPdfDataType` i prosessteget, som vist i punktet under.
+Du kan bruke andre ID-er, men de må være de samme som ID-ene du legger inn i `paymentDataType` og `paymentReceiptPdfDataType` i prosessteget, som vist i punktet under.
 
 ### Utvide app-prosessen med payment task
 

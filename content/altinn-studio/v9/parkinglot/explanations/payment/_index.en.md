@@ -28,7 +28,7 @@ As a service owner, you must handle the storage of payment information in accord
 
 ### Nets Easy
 
-Support for Nets Easy as a payment provider comes with the application. You can find a guide in [how to set up payment in the app]({{< relref "../../../develop-a-service/process/payment" >}}).
+Support for Nets Easy as a payment provider comes with the application. See the [payment setup guide]({{< relref "../../../develop-a-service/process/payment" >}}).
 
 To use Nets Easy, the service owner must have an agreement with Nets Easy. You can find information about how to create the agreement here:
 [payments.nets.eu](https://payments.nets.eu/en-GB/checkout).

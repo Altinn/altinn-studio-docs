@@ -13,11 +13,15 @@ For example, you can add order lines based on form data, add mandatory fees, or 
 
 The return value from the `CalculateOrderDetails` method specifies
 
-- the payment processor to use for the order. You make your own payment processors available by implementing the `IPaymentProcessor` interface and registering them as `transient` in `program.cs`. Fill in `Nets Easy` to use the default implementation for Nets Easy.
+- the payment processor to use for the order
 - the currency
 - the order lines
 - details about the payment receiver, which the app uses in the receipt
-- details about the payer (optional), if you want to prefill this information with Nets Easy. You can use this together with the Nets Easy flag `MerchantHandlesConsumerData`, which you set in `appsettings.json` under `NetsPaymentSettings.MerchantHandlesConsumerData`. If you set it to `true`, you must send payer details, otherwise the payment fails.
+- details about the payer (optional)
+
+Fill in `Nets Easy` as the payment processor to use the default implementation for Nets Easy. You make your own payment processors available by implementing the `IPaymentProcessor` interface and registering them as `transient` in `Program.cs`.
+
+Send payer details if you want to prefill this information with Nets Easy. You can use this together with the Nets Easy flag `MerchantHandlesConsumerData`, which you set in `appsettings.json` under `NetsPaymentSettings.MerchantHandlesConsumerData`. If you set it to `true`, you must send payer details; otherwise, the payment fails.
 
 In this example, the app calculates the order lines based on form data:
 
@@ -66,7 +70,7 @@ public class OrderDetailsCalculator : IOrderDetailsCalculator
 
 `GetLocalizedName`, `GetPriceForInventoryItem`, `GetReceiverDetails` and `GetPayerDetails` are helper methods you write yourself. The example includes `Payer` because the `appsettings.json` example in step 6 sets `MerchantHandlesConsumerData` to `true`.
 
-Register the `IOrderDetailsCalculator` implementation in `program.cs`:
+Register the `IOrderDetailsCalculator` implementation in `Program.cs`:
 ```c#
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {

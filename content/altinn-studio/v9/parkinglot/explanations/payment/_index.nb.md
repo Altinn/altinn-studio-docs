@@ -28,7 +28,7 @@ Som tjenesteeier må du håndtere oppbevaring av betalingsinformasjon i henhold 
 
 ### Nets Easy
 
-Støtte for Nets Easy som betalingsleverandør følger med applikasjonen. Du finner en veiledning i [slik setter du opp betaling i appen]({{< relref "../../../develop-a-service/process/payment" >}}).
+Støtte for Nets Easy som betalingsleverandør følger med applikasjonen. Se [Slik setter du opp betaling i appen]({{< relref "../../../develop-a-service/process/payment" >}}).
 
 For å bruke Nets Easy må tjenesteeier ha avtale med Nets Easy. Du finner informasjon om hvordan du oppretter avtalen her:
 [payments.nets.eu](https://payments.nets.eu/nb-NO/checkout).

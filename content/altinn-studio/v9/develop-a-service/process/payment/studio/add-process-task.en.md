@@ -20,8 +20,8 @@ Altinn Studio then sets up the following automatically:
 
 The gateway should have two outgoing sequence flows:
 
-- One pointing forwards in the process.
-- One pointing back to the previous task in the process (before payment).
+- one pointing forwards in the process
+- one pointing back to the previous task in the process (before payment)
 
 ### 3. Set up rules for the sequence flows
 
