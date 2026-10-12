@@ -23,8 +23,10 @@ Det nye oppsettet for monitorering og instrumenterting kan aktiveres ved å sett
 Med denne instillingen blir OpenTelemetry konfigurert i stedet for den klassiske Application Insights SDK.
 All telemetri blir så eksportert til det lokale monitoreringsoppsettet ved lokal kjøring,
 og til Azure monotipr ved kjøring i miljø.
-Eventuelt kan en oppgi instrumenteringsnøkkel eller Application Insights connection string til Appsettings eller miljø lokalt,
-og da vil Altinn.App ekspoertere til Azure monitor.
+Altinn har ansvar for tilkoblingskonfigurasjonen til Application Insights for deployede apper.
+For å sende telemetri til Azure Monitor lokalt setter du `ApplicationInsights:ConnectionString` i lokal konfigurasjon
+eller miljøvariabelen `APPLICATIONINSIGHTS_CONNECTION_STRING`. Bruk hele tilkoblingsstrengen fra
+Application Insights-ressursen, inkludert `IngestionEndpoint`. En instrumenteringsnøkkel alene kan gi manglende telemetri med nyere eksportører.
 Når appen kjøres med `UseOpenTelemetry` så vil det følge med auto-intrumentert telemtri for HTTP (traces og metrikk),
 pluss domenespesifikke trace og metrikk for Altinn.App. 
 
@@ -49,14 +51,23 @@ Først oppdaterer vi `App.csproj`-fila:
         <PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.9.0" />
 {{< / highlight >}}
 
-Deretter må vi oppdatere konfigurasjonen i `Program.cs`:
+Legg deretter til funksjonen under i `Program.cs`. Kall den rett etter `AddAltinnAppServices`
+i `ConfigureServices`, slik at en egendefinert sampler overstyrer Azure Monitor sin sampler:
+
+{{< highlight csharp "linenos=false" >}}
+services.AddAltinnAppServices(config, builder.Environment);
+OverrideAltinnAppServices(services, config, builder.Environment);
+{{< / highlight >}}
+
+Hvis appen allerede har en `OverrideAltinnAppServices`-funksjon, legger du konfigurasjonen der
+og sjekker at funksjonen kalles etter `AddAltinnAppServices`.
 
 {{< highlight csharp "linenos=false,hl_lines=1-3 7-25" >}}
 using OpenTelemetry.Logs;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Trace;
 
-void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+void OverrideAltinnAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
     // Konfigurer eksport for telemetrien (metrics, traces, logs).
     // Her bruker vi konsoll-eksport som eksempel.
@@ -86,6 +97,57 @@ For å lære mer om hva som kan konfigureres og hvordan, se de respektive dokume
 * [Customizing OpenTelemetry .NET SDK for Tracing](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/trace/customizing-the-sdk#customizing-opentelemetry-net-sdk-for-tracing)
 * [Customizing OpenTelemetry .NET SDK for Logs](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/logs/customizing-the-sdk#customizing-opentelemetry-net-sdk-for-logs)
 * [Customizing OpenTelemetry .NET SDK for Metrics](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/metrics/customizing-the-sdk#customizing-opentelemetry-net-sdk-for-metrics)
+
+### Sampling og logger i Azure Monitor
+
+{{% notice info %}}
+Standardverdiene og de felles eksportørinnstillingene under krever den kommende telemetrifiksen for v8 ([app-lib-dotnet#1889](https://github.com/Altinn/app-lib-dotnet/pull/1889)).
+Tidligere v8-versjoner kan ha andre standardverdier.
+{{% /notice %}}
+
+Ved direkte eksport til Azure Monitor setter Altinn.App disse standardverdiene:
+
+| Innstilling | Standardverdi | Virkning |
+| --- | --- | --- |
+| `SamplingRatio` | `1.0F` | Behold 100 % av traces. |
+| `TracesPerSecond` | `null` | Ingen frekvensgrense for sampling av traces. |
+| `EnableTraceBasedLogsSampler` | `false` | Eksporter logger uavhengig av sampling av traces. Filtrering på loggnivå gjelder fortsatt. |
+
+Tjenesteeiere kan endre innstillingene. Legg for eksempel dette i `OverrideAltinnAppServices` for å beholde 25 % av traces:
+Bruk det i stedet for `SetSampler`-kallet over. En egendefinert sampler overstyrer eksportørens samplinginnstillinger.
+
+{{< highlight csharp "linenos=false" >}}
+// Legg til using Azure.Monitor.OpenTelemetry.Exporter; øverst i Program.cs.
+services.Configure<AzureMonitorExporterOptions>(options =>
+{
+    options.TracesPerSecond = null;
+    options.SamplingRatio = 0.25F;
+});
+{{< / highlight >}}
+
+`TracesPerSecond` overstyrer `SamplingRatio` når den har en verdi.
+Bruk `services.PostConfigure<AzureMonitorExporterOptions>(...)` i stedet for `Configure` hvis verdiene skal
+overstyre alle konfigurasjonsfunksjonene i SDK-et, inkludert behandlingen av miljøvariabler og konfigurasjon.
+Innstillingene gjelder Azure-eksportørene for traces, metrikk og logger. De endrer ikke eksport via en OTLP-collector.
+
+Hvis du setter `EnableTraceBasedLogsSampler = true`, forkastes logger knyttet til traces som sampleren ikke beholder.
+Dette gjelder også `Error`- og `Critical`-logger. Logger uten trace-kontekst eksporteres fortsatt.
+
+Azure-eksportøren leser også seksjonen `AzureMonitorExporter` i `appsettings.json` eller tilsvarende konfigurasjon.
+For eksempel velger `"AzureMonitorExporter": { "SamplingRatio": 0.25 }` sampling med en fast prosentandel.
+Eksportøren støtter disse miljøvariablene for sampling:
+
+| `OTEL_TRACES_SAMPLER` | Eksempel på `OTEL_TRACES_SAMPLER_ARG` | Virkning |
+| --- | --- | --- |
+| `microsoft.fixed_percentage` | `0.25` | Behold 25 % av traces. |
+| `microsoft.rate_limited` | `5` | Sikt mot fem traces per sekund. |
+
+Begge variablene må settes. Standardnavn i OTel, som `always_off` og `traceidratio`, styrer ikke
+sampling ved direkte eksport til Azure: Azure setter sin egen sampler. For en egendefinert OTel-sampler bruker du
+`ConfigureOpenTelemetryTracerProvider` etter `AddAltinnAppServices`, som vist over.
+
+Se [kildekoden for Azure-eksportørens konfigurasjon](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.OpenTelemetry.Exporter_1.9.0/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/src/DefaultAzureMonitorExporterOptions.cs)
+for støttede innstillinger og miljøvariabler.
 
 ## Migrering fra classic Application Insights SDK
 

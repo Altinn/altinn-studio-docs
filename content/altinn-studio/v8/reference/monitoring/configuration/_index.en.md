@@ -23,8 +23,10 @@ The new monitoring and instrumentation setup is enabled by setting `UseOpenTelem
 When this flag is enabled, OTel is configured as opposed to the classic Application Insights SDK.
 All the telemetry is then shipped by default to the local monitoring setup with running locally,
 and to Azure Monitor when the app is deployed in an environment.
-Optionally, if an instrumentation key or Application Insights connection string is added to *AppSettings* or environment locally,
-Altinn.App will ship the telemetry to Azure Monitor.
+Altinn manages the Application Insights connection configuration for deployed apps.
+To send telemetry to Azure Monitor locally, set `ApplicationInsights:ConnectionString` in local configuration
+or the `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable. Use the full connection string from the
+Application Insights resource, including `IngestionEndpoint`; an instrumentation key alone can fail with newer exporters.
 When the app is run, you will both get auto-instrumentation based on HTTP (traces and metrics),
 but also manual trace spans and metrics that are domain specific.
 
@@ -48,14 +50,23 @@ First, we update the `App.csproj` file:
         <PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.9.0" />
 {{< / highlight >}}
 
-Then we update the configuration code in `Program.cs`:
+Then add the following function to `Program.cs`. Call it immediately after `AddAltinnAppServices`
+in `ConfigureServices`, so that a custom sampler takes precedence over Azure Monitor's sampler:
+
+{{< highlight csharp "linenos=false" >}}
+services.AddAltinnAppServices(config, builder.Environment);
+OverrideAltinnAppServices(services, config, builder.Environment);
+{{< / highlight >}}
+
+If your app already has an `OverrideAltinnAppServices` function, add the configuration to that function
+and verify that its call comes after `AddAltinnAppServices`.
 
 {{< highlight csharp "linenos=false,hl_lines=1-3 7-25" >}}
 using OpenTelemetry.Logs;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Trace;
 
-void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+void OverrideAltinnAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
     // Configure exporters for telemetry signals (metrics, traces and logging). 
     // Here console exporters are used for demonstration purposes.
@@ -85,6 +96,57 @@ To learn more about what can be configured, read the respective docs on the open
 * [Customizing OpenTelemetry .NET SDK for Tracing](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/trace/customizing-the-sdk#customizing-opentelemetry-net-sdk-for-tracing)
 * [Customizing OpenTelemetry .NET SDK for Logs](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/logs/customizing-the-sdk#customizing-opentelemetry-net-sdk-for-logs)
 * [Customizing OpenTelemetry .NET SDK for Metrics](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/metrics/customizing-the-sdk#customizing-opentelemetry-net-sdk-for-metrics)
+
+### Azure Monitor sampling and logs
+
+{{% notice info %}}
+The defaults and shared exporter options below require the forthcoming v8 telemetry fix ([app-lib-dotnet#1889](https://github.com/Altinn/app-lib-dotnet/pull/1889)).
+Earlier v8 releases may use different defaults.
+{{% /notice %}}
+
+When exporting directly to Azure Monitor, Altinn.App sets these defaults:
+
+| Option | Default | Behavior |
+| --- | --- | --- |
+| `SamplingRatio` | `1.0F` | Sample 100% of traces. |
+| `TracesPerSecond` | `null` | No rate limit on trace sampling. |
+| `EnableTraceBasedLogsSampler` | `false` | Export logs independently of trace sampling. Logging level filters still apply. |
+
+Service owners can change these options. For example, put this in `OverrideAltinnAppServices` to sample 25% of traces:
+Use it instead of the `SetSampler` call above; an explicit custom sampler overrides exporter sampling settings.
+
+{{< highlight csharp "linenos=false" >}}
+// Add using Azure.Monitor.OpenTelemetry.Exporter; at the top of Program.cs.
+services.Configure<AzureMonitorExporterOptions>(options =>
+{
+    options.TracesPerSecond = null;
+    options.SamplingRatio = 0.25F;
+});
+{{< / highlight >}}
+
+`TracesPerSecond` takes precedence over `SamplingRatio` when it has a value.
+Use `services.PostConfigure<AzureMonitorExporterOptions>(...)` instead of `Configure` if the values must
+take precedence over all SDK configuration callbacks, including environment and configuration processing.
+The options apply to the Azure trace, metric and log exporters. They do not change the OTLP collector path.
+
+Setting `EnableTraceBasedLogsSampler = true` opts into dropping logs associated with unsampled traces,
+including `Error` and `Critical` logs. Logs without trace context are still exported.
+
+The Azure exporter also reads the `AzureMonitorExporter` section in `appsettings.json` or equivalent configuration.
+For example, `"AzureMonitorExporter": { "SamplingRatio": 0.25 }` selects fixed-percentage sampling.
+It supports these sampler environment variables:
+
+| `OTEL_TRACES_SAMPLER` | `OTEL_TRACES_SAMPLER_ARG` example | Behavior |
+| --- | --- | --- |
+| `microsoft.fixed_percentage` | `0.25` | Sample 25% of traces. |
+| `microsoft.rate_limited` | `5` | Target five traces per second. |
+
+Both variables are required. Standard OTel sampler names such as `always_off` and `traceidratio` do not
+control the direct Azure exporter path: Azure installs its own sampler. For a custom OTel sampler, use
+`ConfigureOpenTelemetryTracerProvider` after `AddAltinnAppServices`, as shown above.
+
+See the [Azure exporter configuration source](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.OpenTelemetry.Exporter_1.9.0/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/src/DefaultAzureMonitorExporterOptions.cs)
+for the supported configuration and environment settings.
 
 ## Migration from classic Application Insights SDK
 
