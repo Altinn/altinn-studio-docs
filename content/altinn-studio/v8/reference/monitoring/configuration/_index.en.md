@@ -50,23 +50,16 @@ First, we update the `App.csproj` file:
         <PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.9.0" />
 {{< / highlight >}}
 
-Then add the following function to `Program.cs`. Call it immediately after `AddAltinnAppServices`
-in `ConfigureServices`, so that a custom sampler takes precedence over Azure Monitor's sampler:
+Add the following configuration to the existing `RegisterCustomAppServices` function in `Program.cs`.
+The [v8 template](https://github.com/Altinn/altinn-studio/blob/main/src/App/template/v8/src/App/Program.cs)
+calls this function before `AddAltinnAppServices`. Keep that registration order.
 
 {{< highlight csharp "linenos=false" >}}
-services.AddAltinnAppServices(config, builder.Environment);
-OverrideAltinnAppServices(services, config, builder.Environment);
-{{< / highlight >}}
-
-If your app already has an `OverrideAltinnAppServices` function, add the configuration to that function
-and verify that its call comes after `AddAltinnAppServices`.
-
-{{< highlight csharp "linenos=false,hl_lines=1-3 7-25" >}}
 using OpenTelemetry.Logs;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Trace;
 
-void OverrideAltinnAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
     // Configure exporters for telemetry signals (metrics, traces and logging). 
     // Here console exporters are used for demonstration purposes.
@@ -81,14 +74,23 @@ void OverrideAltinnAppServices(IServiceCollection services, IConfiguration confi
             }
         )
     );
-    services.ConfigureOpenTelemetryTracerProvider(builder =>
-    {
-        // Customize sampling
-        builder.SetSampler(new ParentBasedSampler(new AlwaysOnSampler()));
-        builder.AddConsoleExporter();
-    });
+    services.ConfigureOpenTelemetryTracerProvider(builder => builder.AddConsoleExporter());
     services.ConfigureOpenTelemetryLoggerProvider(builder => builder.AddConsoleExporter());
 }
+{{< / highlight >}}
+
+For direct Azure export, use the exporter options described below to configure sampling in
+`RegisterCustomAppServices`. A custom `SetSampler` call in that function is overwritten by Azure's later
+registration. The telemetry defaults fix does not resolve this existing limitation.
+
+If you need a custom OTel sampler, add its registration immediately after the existing
+`AddAltinnAppServices` call inside `ConfigureServices`, as shown below. This requires editing the generated
+startup code beyond the standard `RegisterCustomAppServices` hook; no extra helper function is provided by the template.
+
+{{< highlight csharp "linenos=false" >}}
+services.AddAltinnAppServices(config, builder.Environment);
+services.ConfigureOpenTelemetryTracerProvider(telemetry =>
+    telemetry.SetSampler(new ParentBasedSampler(new AlwaysOnSampler())));
 {{< / highlight >}}
 
 To learn more about what can be configured, read the respective docs on the opentelemetry-dotnet repo:
@@ -112,7 +114,7 @@ When exporting directly to Azure Monitor, Altinn.App sets these defaults:
 | `TracesPerSecond` | `null` | No rate limit on trace sampling. |
 | `EnableTraceBasedLogsSampler` | `false` | Export logs independently of trace sampling. Logging level filters still apply. |
 
-Service owners can change these options. For example, put this in `OverrideAltinnAppServices` to sample 25% of traces:
+Service owners can change these options. For example, put this in `RegisterCustomAppServices` to sample 25% of traces:
 Use it instead of the `SetSampler` call above; an explicit custom sampler overrides exporter sampling settings.
 
 {{< highlight csharp "linenos=false" >}}
