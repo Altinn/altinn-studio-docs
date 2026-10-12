@@ -51,8 +51,7 @@ First, we update the `App.csproj` file:
 {{< / highlight >}}
 
 Add the following configuration to the existing `RegisterCustomAppServices` function in `Program.cs`.
-The [v8 template](https://github.com/Altinn/altinn-studio/blob/main/src/App/template/v8/src/App/Program.cs)
-calls this function before `AddAltinnAppServices`. Keep that registration order.
+In `ConfigureServices`, this function is called before `AddAltinnAppServices`. Keep that registration order.
 
 {{< highlight csharp "linenos=false" >}}
 using OpenTelemetry.Logs;
@@ -84,8 +83,7 @@ For direct Azure export, use the exporter options described below to configure s
 registration. The telemetry defaults fix does not resolve this existing limitation.
 
 If you need a custom OTel sampler, add its registration immediately after the existing
-`AddAltinnAppServices` call inside `ConfigureServices`, as shown below. This requires editing the generated
-startup code beyond the standard `RegisterCustomAppServices` hook; no extra helper function is provided by the template.
+`AddAltinnAppServices` call inside `ConfigureServices` in `Program.cs`, as shown below.
 
 {{< highlight csharp "linenos=false" >}}
 services.AddAltinnAppServices(config, builder.Environment);

@@ -52,8 +52,7 @@ Først oppdaterer vi `App.csproj`-fila:
 {{< / highlight >}}
 
 Legg konfigurasjonen under i den eksisterende funksjonen `RegisterCustomAppServices` i `Program.cs`.
-[v8-malen](https://github.com/Altinn/altinn-studio/blob/main/src/App/template/v8/src/App/Program.cs)
-kaller denne funksjonen før `AddAltinnAppServices`. Behold denne rekkefølgen.
+I `ConfigureServices` kalles denne funksjonen før `AddAltinnAppServices`. Behold denne rekkefølgen.
 
 {{< highlight csharp "linenos=false" >}}
 using OpenTelemetry.Logs;
@@ -85,8 +84,7 @@ innstillingene beskrevet under. Et egendefinert `SetSampler`-kall i denne funksj
 registreres etterpå. Rettingen av standardverdiene løser ikke denne eksisterende begrensningen.
 
 Hvis du trenger en egendefinert OTel-sampler, legger du registreringen rett etter det eksisterende
-`AddAltinnAppServices`-kallet i `ConfigureServices`, som vist under. Dette krever at du endrer den genererte
-oppstartskoden utenfor `RegisterCustomAppServices`. Malen har ingen egen hjelpefunksjon for dette.
+`AddAltinnAppServices`-kallet i `ConfigureServices` i `Program.cs`, som vist under.
 
 {{< highlight csharp "linenos=false" >}}
 services.AddAltinnAppServices(config, builder.Environment);
