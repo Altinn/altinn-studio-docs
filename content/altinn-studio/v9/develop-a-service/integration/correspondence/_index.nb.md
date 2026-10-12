@@ -24,7 +24,9 @@ Policyen til ressursen må tillate disse handlingene:
 - `read`, slik at mottakerne kan åpne og lese meldingen
 - `subscribe`, hvis du skal abonnere på hendelser for ressursen i Altinn Events
 
-Mottakerne gir du tilgang med [rollekoder](https://github.com/Altinn/altinn-cdn/blob/master/authorization/subjectoptions.json) eller [tilgangspakker](/nb/authorization/what-do-you-get/accesspackages/business/). Sender du meldinger til personer, bruker du rollekoden `priv` (Privatperson). Sender du til virksomheter, velger du rollene eller tilgangspakkene som passer best for mottakeren. Tilgangspakker erstatter de gamle Altinn-rollene, og fra 1. januar 2027 gir de gamle rollene ikke lenger tilgang. Se [Altinn Autorisasjon – detaljert konsept]({{< relref "/authorization/about/detailed" >}}).
+Mottakerne gir du tilgang med [rollekoder](https://github.com/Altinn/altinn-cdn/blob/master/authorization/subjectoptions.json) eller [tilgangspakker](/nb/authorization/what-do-you-get/accesspackages/business/). Sender du meldinger til personer, bruker du rollekoden `priv`. Det er [rollen Privatperson]({{< relref "/authorization/what-do-you-get/accesspackages/citizens/privatperson" >}}), som alle innbyggere har fra Folkeregisteret.
+
+Sender du til virksomheter, velger du rollene eller tilgangspakkene som passer best for mottakeren. De gamle Altinn-rollene fra Altinn 2 gir ikke lenger tilgang fra 1. januar 2027, så bruk tilgangspakker for virksomheter. Roller fra Folkeregisteret, som Privatperson, er ikke Altinn 2-roller. Se [Altinn Autorisasjon – detaljert konsept]({{< relref "/authorization/about/detailed" >}}).
 
 Eier virksomheten din ressursen, trenger policyen ingen `write`-regel for at appen skal kunne sende. Meldingstjenesten slipper gjennom tjenesteeieren som eier ressursen, og appens token viser hvilken virksomhet appen tilhører. Bruker du en ressurs en annen virksomhet eier, må policyen gi virksomheten din `write`.
 {{</notice>}}
