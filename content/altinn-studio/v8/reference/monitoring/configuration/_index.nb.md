@@ -90,53 +90,29 @@ For å lære mer om hva som kan konfigureres og hvordan, se de respektive dokume
 ### Sampling og logger i Azure Monitor
 
 {{% notice info %}}
-Standardverdiene og de felles eksportørinnstillingene under krever den kommende telemetrifiksen for v8 ([app-lib-dotnet#1889](https://github.com/Altinn/app-lib-dotnet/pull/1889)).
+Krever den kommende telemetrifiksen for v8 ([app-lib-dotnet#1889](https://github.com/Altinn/app-lib-dotnet/pull/1889)).
 Tidligere v8-versjoner kan ha andre standardverdier.
 {{% /notice %}}
 
-Ved direkte eksport til Azure Monitor setter Altinn.App disse standardverdiene:
+Ved direkte eksport til Azure Monitor bruker Altinn.App disse standardverdiene:
 
 | Innstilling | Standardverdi | Virkning |
 | --- | --- | --- |
-| `SamplingRatio` | `1.0F` | Behold 100 % av traces. |
-| `TracesPerSecond` | `null` | Ingen frekvensgrense for sampling av traces. |
-| `EnableTraceBasedLogsSampler` | `false` | Eksporter logger uavhengig av sampling av traces. Filtrering på loggnivå gjelder fortsatt. |
+| `SamplingRatio` | `1.0F` | Behold alle traces. |
+| `TracesPerSecond` | `null` | Ingen frekvensgrense. Når den har en verdi, overstyrer den `SamplingRatio`. |
+| `EnableTraceBasedLogsSampler` | `false` | Eksporter logger uavhengig av sampling av traces. `true` forkaster logger, også feil, knyttet til traces som ikke beholdes. |
 
-Tjenesteeiere kan endre innstillingene. Legg for eksempel dette i `RegisterCustomAppServices` for å beholde 25 % av traces:
+Konfigurer `AzureMonitorExporterOptions` i `RegisterCustomAppServices` for å endre innstillingene. For eksempel beholder dette 25 % av traces:
 
 {{< highlight csharp "linenos=false" >}}
 // Legg til using Azure.Monitor.OpenTelemetry.Exporter; øverst i Program.cs.
-services.Configure<AzureMonitorExporterOptions>(options =>
-{
-    options.TracesPerSecond = null;
-    options.SamplingRatio = 0.25F;
-});
+services.Configure<AzureMonitorExporterOptions>(options => options.SamplingRatio = 0.25F);
 {{< / highlight >}}
 
-`TracesPerSecond` overstyrer `SamplingRatio` når den har en verdi.
-Bruk `services.PostConfigure<AzureMonitorExporterOptions>(...)` i stedet for `Configure` hvis verdiene skal
-overstyre alle konfigurasjonsfunksjonene i SDK-et, inkludert behandlingen av miljøvariabler og konfigurasjon.
-Innstillingene gjelder Azure-eksportørene for traces, metrikk og logger. De endrer ikke eksport via en OTLP-collector.
-
-Hvis du setter `EnableTraceBasedLogsSampler = true`, forkastes logger knyttet til traces som sampleren ikke beholder.
-Dette gjelder også `Error`- og `Critical`-logger. Logger uten trace-kontekst eksporteres fortsatt.
-
-Azure-eksportøren leser også seksjonen `AzureMonitorExporter` i `appsettings.json` eller tilsvarende konfigurasjon.
-For eksempel velger `"AzureMonitorExporter": { "SamplingRatio": 0.25 }` sampling med en fast prosentandel.
-Eksportøren støtter disse miljøvariablene for sampling:
-
-| `OTEL_TRACES_SAMPLER` | Eksempel på `OTEL_TRACES_SAMPLER_ARG` | Virkning |
-| --- | --- | --- |
-| `microsoft.fixed_percentage` | `0.25` | Behold 25 % av traces. |
-| `microsoft.rate_limited` | `5` | Sikt mot fem traces per sekund. |
-
-Begge variablene må settes. Azure-eksportøren setter sin egen sampler. Standardnavn i OTel, som `always_off` og
-`traceidratio`, styrer derfor ikke sampling ved direkte eksport til Azure. Det gjør heller ikke samplere satt med
-`SetSampler` i `RegisterCustomAppServices`. Bruk innstillingene over i stedet. Egendefinerte samplere gjelder
-fortsatt ved eksport via en OTLP-collector.
-
-Se [kildekoden for Azure-eksportørens konfigurasjon](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.OpenTelemetry.Exporter_1.9.0/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/src/DefaultAzureMonitorExporterOptions.cs)
-for støttede innstillinger og miljøvariabler.
+Innstillingene gjelder eksport av traces, metrikk og logger til Azure, ikke eksport via en OTLP-collector. Azure-eksportøren
+bruker sin egen sampler, så `SetSampler` og standardverdier for `OTEL_TRACES_SAMPLER` gjelder ikke ved direkte eksport
+til Azure. Den støtter likevel `OTEL_TRACES_SAMPLER=microsoft.fixed_percentage` eller `microsoft.rate_limited` med
+`OTEL_TRACES_SAMPLER_ARG`.
 
 ## Migrering fra classic Application Insights SDK
 

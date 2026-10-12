@@ -89,53 +89,28 @@ To learn more about what can be configured, read the respective docs on the open
 ### Azure Monitor sampling and logs
 
 {{% notice info %}}
-The defaults and shared exporter options below require the forthcoming v8 telemetry fix ([app-lib-dotnet#1889](https://github.com/Altinn/app-lib-dotnet/pull/1889)).
+Requires the forthcoming v8 telemetry fix ([app-lib-dotnet#1889](https://github.com/Altinn/app-lib-dotnet/pull/1889)).
 Earlier v8 releases may use different defaults.
 {{% /notice %}}
 
-When exporting directly to Azure Monitor, Altinn.App sets these defaults:
+When exporting directly to Azure Monitor, Altinn.App uses these defaults:
 
 | Option | Default | Behavior |
 | --- | --- | --- |
-| `SamplingRatio` | `1.0F` | Sample 100% of traces. |
-| `TracesPerSecond` | `null` | No rate limit on trace sampling. |
-| `EnableTraceBasedLogsSampler` | `false` | Export logs independently of trace sampling. Logging level filters still apply. |
+| `SamplingRatio` | `1.0F` | Sample all traces. |
+| `TracesPerSecond` | `null` | No rate limit. When set, it takes precedence over `SamplingRatio`. |
+| `EnableTraceBasedLogsSampler` | `false` | Export logs regardless of trace sampling. `true` drops logs, including errors, attached to unsampled traces. |
 
-Service owners can change these options. For example, put this in `RegisterCustomAppServices` to sample 25% of traces:
+To change them, configure `AzureMonitorExporterOptions` in `RegisterCustomAppServices`. For example, to sample 25% of traces:
 
 {{< highlight csharp "linenos=false" >}}
 // Add using Azure.Monitor.OpenTelemetry.Exporter; at the top of Program.cs.
-services.Configure<AzureMonitorExporterOptions>(options =>
-{
-    options.TracesPerSecond = null;
-    options.SamplingRatio = 0.25F;
-});
+services.Configure<AzureMonitorExporterOptions>(options => options.SamplingRatio = 0.25F);
 {{< / highlight >}}
 
-`TracesPerSecond` takes precedence over `SamplingRatio` when it has a value.
-Use `services.PostConfigure<AzureMonitorExporterOptions>(...)` instead of `Configure` if the values must
-take precedence over all SDK configuration callbacks, including environment and configuration processing.
-The options apply to the Azure trace, metric and log exporters. They do not change the OTLP collector path.
-
-Setting `EnableTraceBasedLogsSampler = true` opts into dropping logs associated with unsampled traces,
-including `Error` and `Critical` logs. Logs without trace context are still exported.
-
-The Azure exporter also reads the `AzureMonitorExporter` section in `appsettings.json` or equivalent configuration.
-For example, `"AzureMonitorExporter": { "SamplingRatio": 0.25 }` selects fixed-percentage sampling.
-It supports these sampler environment variables:
-
-| `OTEL_TRACES_SAMPLER` | `OTEL_TRACES_SAMPLER_ARG` example | Behavior |
-| --- | --- | --- |
-| `microsoft.fixed_percentage` | `0.25` | Sample 25% of traces. |
-| `microsoft.rate_limited` | `5` | Target five traces per second. |
-
-Both variables are required. The Azure exporter installs its own sampler, so standard OTel sampler names such as
-`always_off` and `traceidratio`, and samplers set with `SetSampler` in `RegisterCustomAppServices`, do not control
-the direct Azure exporter path. Use the options above instead. Custom samplers still apply when exporting through
-the OTLP collector.
-
-See the [Azure exporter configuration source](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.OpenTelemetry.Exporter_1.9.0/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/src/DefaultAzureMonitorExporterOptions.cs)
-for the supported configuration and environment settings.
+The options apply to Azure trace, metric and log export, not to the OTLP collector path. The Azure exporter uses its own
+sampler, so `SetSampler` and standard `OTEL_TRACES_SAMPLER` values do not apply on this path. It does support
+`OTEL_TRACES_SAMPLER=microsoft.fixed_percentage` or `microsoft.rate_limited` with `OTEL_TRACES_SAMPLER_ARG`.
 
 ## Migration from classic Application Insights SDK
 
