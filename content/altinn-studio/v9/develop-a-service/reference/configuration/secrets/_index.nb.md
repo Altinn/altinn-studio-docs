@@ -139,14 +139,14 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 Når du kjører appen på egen maskin, kobler den seg ikke til Key Vault. Du legger i stedet inn testverdier lokalt. Bruk aldri ekte hemmeligheter fra produksjon.
 
-I v9 får appen oppsettet for lokal kjøring fra studioctl. Det gjelder både når du starter appen med `studioctl app run`, og når du starter den med `dotnet run` eller fra et utviklingsverktøy, så lenge studioctl er installert. Du kan legge inn testverdiene på tre måter.
+I v9 får appen oppsettet for lokal kjøring fra studioctl. Det gjelder både når du starter appen med `studioctl app run`, og når du starter den med `dotnet run` eller fra et utviklingsverktøy. Starter du appen uten `studioctl app run`, må appen kjøre i miljøet `Development`, og studioctl må være installert slik at kommandoen `studioctl` virker i terminalen. App-malen kjører appen i `Development` som standard. Du kan legge inn testverdiene på tre måter.
 
 ### I hemmelighetsmappen til studioctl
 
 Appen leser JSON-filene i hemmelighetsmappen som studioctl bruker for appen, og verdiene blir en del av konfigurasjonen. Det virker for begge alternativene over. Mappen ligger her:
 
 - macOS: `~/Library/Application Support/altinn-studio/apps/{org}/{app}/secrets`
-- Linux: `~/.config/altinn-studio/apps/{org}/{app}/secrets`
+- Linux: `~/.config/altinn-studio/apps/{org}/{app}/secrets` (eller under `$XDG_CONFIG_HOME/altinn-studio` hvis du har satt miljøvariabelen `XDG_CONFIG_HOME`)
 - Windows: `%APPDATA%\altinn-studio\apps\{org}\{app}\secrets`
 
 Hvis du har satt miljøvariabelen `STUDIOCTL_HOME`, ligger mappen under den i stedet.

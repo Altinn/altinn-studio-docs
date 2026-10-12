@@ -16,13 +16,15 @@ Altinn velger hvilken versjon av chartet appen bruker når du publiserer den. Du
 
 ## Endre innstillingene for appen
 
-Du endrer innstillingene i filen `deployment/values.yaml` i app-repoet. Legg innstillingene under `deployment`. Det du skriver der, overstyrer standardverdien i chartet. Innstillinger du ikke skriver, beholder standardverdien.
+Du endrer innstillingene i filen `deployment/values.yaml`, som ligger i rotmappen til app-repoet. Det du skriver der, overstyrer standardverdien i chartet. Innstillinger du ikke skriver, beholder standardverdien.
+
+Vi anbefaler at du legger innstillingene under `deployment`, slik app-malen gjør. Publiseringen godtar også at innstillingene ligger på toppnivå i filen, slik de gjør i chartet.
 
 {{% notice warning %}}
-I chartet ligger innstillingene på toppnivå. I `values.yaml` i app-repoet legger du dem under `deployment`. Pass også på innrykkene: YAML krever mellomrom, ikke tabulator.
+Standardverdiene fra chartet på denne siden står på toppnivå. Eksemplene for app-repoet følger app-malen og har innstillingene under `deployment`. Pass også på innrykkene: YAML krever mellomrom, ikke tabulator.
 {{% /notice %}}
 
-Appen kan ikke ha egne Helm-maler. Har app-repoet filer i mappen `deployment/templates`, feiler publiseringen.
+Appen kan ikke ha egne Helm-maler. Har app-repoet filer som ligger direkte i mappen `deployment/templates`, feiler publiseringen.
 
 ## Skalering
 
@@ -67,7 +69,7 @@ Det tar tid å starte en ny kopi, og enda lengre tid hvis clusteret må starte e
 Slik setter du for eksempel det høyeste antallet kopier til 10:
 
 {{< code-title >}}
-App/deployment/values.yaml
+deployment/values.yaml
 {{< /code-title >}}
 
 ```yaml {hl_lines=["3-5"]}
@@ -83,7 +85,7 @@ deployment:
 `replicaCount` bestemmer antallet kopier når autoskalering er slått av. Standardverdien er 2. Så lenge autoskalering er slått på, bruker Kubernetes ikke `replicaCount`.
 
 {{< code-title >}}
-App/deployment/values.yaml
+deployment/values.yaml
 {{< /code-title >}}
 
 ```yaml {hl_lines=["3-5"]}
@@ -114,7 +116,7 @@ resources:
 Eksempel på egne verdier. Verdiene er bare et eksempel, ikke en anbefaling:
 
 {{< code-title >}}
-App/deployment/values.yaml
+deployment/values.yaml
 {{< /code-title >}}
 
 ```yaml
@@ -188,7 +190,7 @@ service:
 App-malen svarer på port 5005. Har du endret porten i appen, setter du `internalPort` til samme port:
 
 {{< code-title >}}
-App/deployment/values.yaml
+deployment/values.yaml
 {{< /code-title >}}
 
 ```yaml
@@ -206,7 +208,14 @@ Ikke endre `externalPort`.
 
 Altinn setter disse innstillingene når du publiserer appen:
 
-- `image`
+- `image.repository`, `image.tag` og `image.pullSecrets`
+- `image.envFrom` og `image.environment`
+- `service.name`
+- `altinn.studio/deployment-id` under `podAnnotations`
 - `ingressRoute`
 
-Ikke endre dem i `values.yaml`.
+Verdiene fra Altinn går foran verdiene i `values.yaml`. Ikke endre dem i `values.yaml`.
+
+{{% notice warning %}}
+`image.environment` og `image.envFrom` er lister. Altinn erstatter hele listen når du publiserer appen. Legger du inn egne miljøvariabler under `image.environment` eller `image.envFrom` i `values.yaml`, forsvinner de.
+{{% /notice %}}
