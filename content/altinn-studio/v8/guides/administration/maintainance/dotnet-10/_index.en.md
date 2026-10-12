@@ -5,7 +5,7 @@ description: How to upgrade a v8 app from .NET 8 to .NET 10.
 toc: true
 ---
 
-When you upgrade the app to a new major version, such as v9, it also gets a newer version of .NET. If you need to change the .NET version before then, you can move a v8 app to .NET 10 as described below. This may be relevant now, because .NET 8 and .NET 9 will not get security updates after 10 November 2026.
+When you upgrade the app to a new major version, such as v9, it also gets a newer version of .NET. If you need to change the .NET version before then, you can move a v8 app to .NET 10 as described below. This may be relevant when the .NET version the app uses no longer gets security updates from Microsoft. You can find the dates in [Microsoft's .NET support policy](https://dotnet.microsoft.com/en-us/platform/support/policy/dotnet-core).
 
 The app must use Altinn.App 8.12.9 or later. That is the first v8 version that supports .NET 10.
 
