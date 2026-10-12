@@ -44,14 +44,14 @@ Har appen instanser som brukerne ikke har sendt inn ennå, må `application/xml`
 {{% /notice %}}
 
 {{% notice warning %}}
-Sender appen skjemadataene via eFormidling, får filen med skjemadataene et navn etter datatypen som alltid slutter på `.xml`, for eksempel `model.xml`, også når innholdet er JSON. Mottakerne får altså JSON i en fil som slutter på `.xml`. Avklar med mottakerne før du bytter til JSON.
+Sender appen skjemadataene via eFormidling, får filen med skjemadataene et navn som bygger på datatypen og alltid slutter på `.xml`, for eksempel `model.xml`, også når innholdet er JSON. Mottakerne får altså JSON i en fil som slutter på `.xml`. Avklar med mottakerne før du bytter til JSON.
 {{% /notice %}}
 
 Har appen egen kode som leser eller lagrer skjemadata, kan du spørre utviklerne: «Bruker egen kode i appen utdaterte metoder for å lese eller lagre skjemadata?» Noen eldre metoder virker ikke når `application/json` står i listen, og appen stopper med en feil når den bruker dem.
 
 ## Hindre at instanser blir slettet
 
-Med `preventInstanceDeletionForDays` bestemmer du hvor mange dager ingen kan slette en instans etter at prosessen er avsluttet. Perioden begynner først når prosessen er avsluttet, det vil si når det siste steget i prosessen er ferdig, for eksempel signering eller betaling. Sperren gjelder både brukerne og tjenesteeieren.
+Med `preventInstanceDeletionForDays` bestemmer du hvor mange dager ingen kan slette en instans etter at prosessen er avsluttet, det vil si når det siste steget i prosessen er ferdig. Det siste steget kan for eksempel være signering eller betaling. Sperren gjelder både brukerne og tjenesteeieren.
 
 Eksempelet hindrer sletting i 30 dager:
 
