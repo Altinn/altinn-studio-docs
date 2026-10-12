@@ -102,7 +102,6 @@ When exporting directly to Azure Monitor, Altinn.App sets these defaults:
 | `EnableTraceBasedLogsSampler` | `false` | Export logs independently of trace sampling. Logging level filters still apply. |
 
 Service owners can change these options. For example, put this in `RegisterCustomAppServices` to sample 25% of traces:
-Use it instead of the `SetSampler` call above; an explicit custom sampler overrides exporter sampling settings.
 
 {{< highlight csharp "linenos=false" >}}
 // Add using Azure.Monitor.OpenTelemetry.Exporter; at the top of Program.cs.
@@ -130,9 +129,10 @@ It supports these sampler environment variables:
 | `microsoft.fixed_percentage` | `0.25` | Sample 25% of traces. |
 | `microsoft.rate_limited` | `5` | Target five traces per second. |
 
-Both variables are required. Standard OTel sampler names such as `always_off` and `traceidratio` do not
-control the direct Azure exporter path: Azure installs its own sampler. For a custom OTel sampler, use
-`ConfigureOpenTelemetryTracerProvider` in `RegisterCustomAppServices`, as shown above.
+Both variables are required. The Azure exporter installs its own sampler, so standard OTel sampler names such as
+`always_off` and `traceidratio`, and samplers set with `SetSampler` in `RegisterCustomAppServices`, do not control
+the direct Azure exporter path. Use the options above instead. Custom samplers still apply when exporting through
+the OTLP collector.
 
 See the [Azure exporter configuration source](https://github.com/Azure/azure-sdk-for-net/blob/Azure.Monitor.OpenTelemetry.Exporter_1.9.0/sdk/monitor/Azure.Monitor.OpenTelemetry.Exporter/src/DefaultAzureMonitorExporterOptions.cs)
 for the supported configuration and environment settings.
