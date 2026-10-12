@@ -98,7 +98,7 @@ En dialogpart har ofte flere mellommenn som opptrer for den - regnskapsbyråer, 
 }
 ```
 
-En forsendelse ment for et annet regnskapsbyrå oppgir det byrået i `viaParty` i stedet. Ansatte i det ene byrået ser da aldri det andre byråets forsendelser, selv om begge har tilgang til dialogens part.
+En forsendelse ment for et annet regnskapsbyrå oppgir det byrået i `viaParty` i stedet. En ansatt som bare har tilgang til dialogens part gjennom det ene byrået, ser da ikke det andre byråets forsendelser, selv om begge byråene opptrer for den samme parten. Sjekkene kombineres likevel med ELLER: den som har klientdelegeringer gjennom begge byråene, eller tilgang som oppfyller `DirectAndHierarchy`-sjekken, ser forsendelsene for begge.
 
 Hver sjekk kan også angi sin egen `serviceResource` og `action`. Det er nyttig når en bredere rettighet skal gi tilgang uansett hvordan den er oppnådd - for eksempel at alle med `readall` på dialogens ressurs ser alle forsendelser, mens andre bare ser dem som er ment for dem:
 

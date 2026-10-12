@@ -97,7 +97,7 @@ A dialog party often has several intermediaries acting for it - accounting firms
 }
 ```
 
-A transmission meant for a different accounting firm names that firm in `viaParty` instead. Employees of one firm then never see the other firm's transmissions, even though both have access to the dialog's party.
+A transmission meant for a different accounting firm names that firm in `viaParty` instead. An employee whose only access to the dialog's party comes through one firm then doesn't see the other firm's transmissions, even though both firms act for the same party. Checks are combined with OR, though: someone with client delegations through both firms, or with access that satisfies the `DirectAndHierarchy` check, sees the transmissions for both.
 
 Each check can also name its own `serviceResource` and `action`. This is useful when a broader right should grant access regardless of how it was obtained - for example, letting anyone with `readall` on the dialog's resource see every transmission, while others only see the ones meant for them:
 
