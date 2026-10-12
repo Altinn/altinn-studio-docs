@@ -7,9 +7,9 @@ toc: true
 weight: 10
 ---
 
-Broker is restricted to files up to 50 GB by default. This is due to restriction with the virus scan. You can still send files larger than this if the resource has disabled virus scan. To mitigate potential legal risk we require resources that disable virus scan get pre-approved by us. Up to 1TB has been verified to work when using TUS.
+Broker is restricted to files up to 50 GB by default. This is due to restriction with the virus scan. You can still send files larger than this if the resource has disabled virus scan. 
 
-For large files that take a long time to transfer, we recommend [TUS uploads](/en/broker/reference/tus/). TUS splits the upload into short requests and lets you resume after network interruptions.
+For large files that take a long time to transfer, we recommend [TUS uploads](/en/broker/reference/tus/). TUS splits the upload into short requests and lets you resume after network interruptions. Up to 1TB has been verified to work when using TUS.
 
 # How to break the 50GB limit
 
