@@ -16,7 +16,7 @@ Før du starter, må du ha satt opp en [Altinn-ressurs]({{< relref "/altinn-stud
 
 Appens Maskinporten-klient må ha scopet `altinn:correspondence.write`.
 
-1. Legg til `altinn:correspondence.write` i Altinn Studio. Se [Legge til Maskinporten-scopes]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten/add-scopes" >}}).
+1. Legg til `altinn:correspondence.write` i Altinn Studio. Se [Legge til Maskinporten-scopes]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten/add-scopes" >}}). Dialogen viser bare scopes virksomheten har tilgang til. Finner du ikke `altinn:correspondence.write`, må virksomheten først få tilgang til scopet.
 2. Bygg en ny versjon av appen, og publiser den. Scopene blir med i versjonen når du bygger den. Publiserer du en eldre versjon på nytt, får den ikke det nye scopet.
 {.floating-bullet-numbers}
 
@@ -59,8 +59,8 @@ internal sealed class CorrespondenceClientDemo(
 {
   public async Task<SendCorrespondenceResponse> SendMessage()
   {
-    // Ikke lukk strømmen selv. Klienten lukker den når opplastingen er ferdig.
-    Stream attachmentData = File.OpenRead("path/to/attachment.txt");
+    // await using lukker strømmen hvis sendingen feiler før opplastingen.
+    await using Stream attachmentData = File.OpenRead("path/to/attachment.txt");
 
     CorrespondenceRequest request = CorrespondenceRequestBuilder
       .Create()
@@ -114,11 +114,19 @@ Når `Send` er ferdig, har meldingstjenesten godtatt meldingen, men den er ikke 
 
 Du gir vedlegget til `WithData` som en `Stream`, for eksempel rett fra en fil. Da holder ikke appen hele vedlegget i minnet, noe som er viktig for store vedlegg. Har du vedlegget som en byte-array, pakker du den inn selv med `WithData(new MemoryStream(bytes))`.
 
-Klienten overtar strømmen og lukker den når opplastingen er ferdig. Du skal ikke lukke den selv.
+Klienten lukker strømmen når den har lastet opp vedlegget. Feiler sendingen før det, for eksempel når appen ikke får token, lukker ikke klienten strømmen. Da må du lukke den selv, for eksempel med `await using` som i eksempelet. Det gjør ingenting om strømmen allerede er lukket.
+
+Prøver du å sende på nytt, må du lage både meldingen og strømmen på nytt. Strømmen fra et tidligere forsøk kan allerede være lukket.
 
 ### Hindre at meldingen blir sendt to ganger
 
-Hvis koden din prøver å sende på nytt etter en feil, kan meldingen bli sendt to ganger. Det gjelder for eksempel kode i en prosess-hook, som kan kjøre flere ganger. Gi meldingen en fast nøkkel med `WithIdempotentKey(Guid)`, og bruk den samme nøkkelen hver gang du prøver på nytt. Lag nøkkelen ut fra noe som ikke endrer seg, for eksempel instansen og hva meldingen gjelder. En ny `Guid.NewGuid()` for hvert forsøk hindrer ingenting. Finnes meldingen allerede, får du en `CorrespondenceRequestException` med statuskoden `409 Conflict`. Da vet du at meldingen allerede er sendt.
+Hvis koden din prøver å sende på nytt etter en feil, kan meldingen bli sendt to ganger. Det gjelder for eksempel kode i en prosess-hook, som kan kjøre flere ganger. Gi meldingen en fast nøkkel med `WithIdempotentKey(Guid)`, og bruk den samme nøkkelen hver gang du prøver på nytt. En ny `Guid.NewGuid()` for hvert forsøk hindrer ingenting.
+
+Nøkkelen må være unik i hele meldingstjenesten, ikke bare i appen din. Lag den derfor ut fra noe som er unikt og ikke endrer seg, for eksempel instans-ID-en og hva meldingen gjelder.
+
+Finnes det allerede en melding med samme nøkkel, får du en `CorrespondenceRequestException` med statuskoden `409 Conflict`. Det betyr bare at meldingstjenesten har tatt imot en melding med denne nøkkelen tidligere, ikke at den er publisert. Vil du vite om meldingen er publisert, bruker du `GetStatus`.
+
+Klienten laster opp vedleggene før den oppretter meldingen. Prøver du på nytt, laster den derfor opp vedleggene en gang til, også når du får `409 Conflict`. Disse vedleggene hører ikke til noen melding.
 
 Du kan ikke bruke nøkkelen når meldingen har flere mottakere.
 
@@ -143,7 +151,9 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 `CorrespondenceAuthenticationMethod.Default()` passer for de fleste. Trenger du å hente tokenet på en annen måte, for eksempel med en egen Maskinporten-klient, kan du bruke `CorrespondenceAuthenticationMethod.Custom` med en delegat som returnerer tokenet.
 
-Delegaten skal returnere et tjenesteeiertoken fra Altinn med scopet `altinn:correspondence.write`. Appen bruker tokenet til alle kallene den gjør mot meldingstjenesten for meldingen, også når den laster opp vedlegg.
+Delegaten skal returnere et tjenesteeiertoken fra Altinn med scopene `altinn:serviceowner` og `altinn:correspondence.write`. Mangler tokenet `altinn:serviceowner`, må policyen til ressursen gi virksomheten din `write`, også når virksomheten din eier ressursen.
+
+Appen kaller delegaten før hvert kall til meldingstjenesten. For en melding med vedlegg kan det bli mange kall, fordi appen sjekker status for hvert vedlegg opptil 60 ganger. Lagre derfor tokenet i delegaten, og hent et nytt først når det gamle er i ferd med å utløpe.
 
 ```cs
 new SendCorrespondencePayload(
@@ -161,17 +171,20 @@ new SendCorrespondencePayload(
 
 ## Kommer du fra v8?
 
-Dette er endret fra v8:
+De viktigste endringene fra v8:
 
 - **`CorrespondenceAuthorisation` finnes ikke lenger.** Bruk `CorrespondenceAuthenticationMethod.Default()` i stedet for `CorrespondenceAuthorisation.Maskinporten`.
 - **Payloadene tar ikke lenger imot en delegat direkte.** Pakk delegaten inn i `CorrespondenceAuthenticationMethod.Custom(...)`.
 - **`WithData(ReadOnlyMemory<byte>)` finnes ikke lenger.** Bruk `WithData(Stream)`. Har du en byte-array, bruker du `WithData(new MemoryStream(bytes))`.
 - **`CorrespondenceAuthenticationMethod.Default()` ber også om scopene `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write`.** Appens Maskinporten-klient må derfor ha dem. Altinn Studio legger dem til automatisk når du bygger en v9-app.
+- **`ConfigureMaskinportenClient` finnes ikke lenger, og `MaskinportenSettings` er ikke lenger offentlig.** Du kan ikke lenger peke appens innebygde Maskinporten-klient mot egne innstillinger. Med `Default()` bruker meldingsklienten denne klienten, så `altinn:correspondence.write` må ligge på den.
+- **Noen builder-metoder finnes ikke lenger:** `WithSender`, `WithRequestedSendTime`, `WithAllowSystemDeleteAfter`, `WithDataLocationType` og `WithRecipientToOverride`.
+- **`CustomRecipient` heter nå `CustomRecipients`** og er en liste.
 
 `studioctl app upgrade v9` skriver om noen av disse kallene for deg og lister opp hver endring, slik at du kan se over dem:
 
 - `CorrespondenceAuthorisation.Maskinporten` blir til `CorrespondenceAuthenticationMethod.Default()` når verdien står rett i kallet til payload-konstruktøren.
-- En delegat som står rett i kallet, blir pakket inn i `CorrespondenceAuthenticationMethod.Custom(...)`.
+- Et lambdauttrykk som står rett i kallet, blir pakket inn i `CorrespondenceAuthenticationMethod.Custom(...)`. Er delegaten en metode eller en variabel, sier verktøyet bare fra om kallet.
 - `WithData` med en byte-array blir til `WithData(new MemoryStream(...))` når verktøyet kan se at det er en byte-array.
 
 Kall verktøyet ikke kan skrive om trygt, for eksempel når `CorrespondenceAuthorisation` ligger i en egen variabel, sier det fra om. Dem retter du selv.

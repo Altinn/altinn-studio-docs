@@ -28,7 +28,7 @@ Mottakerne gir du tilgang med [rollekoder](https://github.com/Altinn/altinn-cdn/
 
 Sender du til virksomheter, velger du rollene eller tilgangspakkene som passer best for mottakeren. De gamle Altinn-rollene fra Altinn 2 gir ikke lenger tilgang fra 1. januar 2027, så bruk tilgangspakker for virksomheter. Roller fra Folkeregisteret, som Privatperson, er ikke Altinn 2-roller. Se [Altinn Autorisasjon – detaljert konsept]({{< relref "/authorization/about/detailed" >}}).
 
-Eier virksomheten din ressursen, trenger policyen ingen `write`-regel for at appen skal kunne sende. Meldingstjenesten slipper gjennom tjenesteeieren som eier ressursen, og appens token viser hvilken virksomhet appen tilhører. Bruker du en ressurs en annen virksomhet eier, må policyen gi virksomheten din `write`.
+Eier virksomheten din ressursen, trenger policyen ingen `write`-regel for at appen skal kunne sende. Meldingstjenesten slipper gjennom tjenesteeieren som eier ressursen. Det gjelder når appen bruker `CorrespondenceAuthenticationMethod.Default()`, fordi tokenet da har scopet `altinn:serviceowner` og viser hvilken virksomhet appen tilhører. Bruker du en ressurs en annen virksomhet eier, må policyen gi virksomheten din `write`.
 {{</notice>}}
 
 ## Sende meldinger fra appen
