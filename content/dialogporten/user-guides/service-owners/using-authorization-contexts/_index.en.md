@@ -30,7 +30,7 @@ The like-for-like replacement for a legacy authorization attribute that narrows 
         // the task, exactly like the old, automatically-derived "transmissionread" used to.
         "action": "elementread",
         "additionalResourceAttribute": "urn:altinn:task:Task_1",
-        "includeDialogParty": true,
+        "dialogPartyChecks": [{ "accessRestriction": "None" }],
         "unauthorizedPresentation": "Disabled"
       }
     }
@@ -50,14 +50,13 @@ The capability a legacy authorization attribute could not express at all: exposi
       "sender": { "actorType": "ServiceOwner" },
       "content": { /* ... */ },
       "authorizationContext": {
-        // Access is evaluated ONLY for these parties - the dialog's own party is excluded
-        // because includeDialogParty is false. OR semantics: any one permitted party grants
-        // access. Maximum 3 entries.
+        // Access is evaluated ONLY for these parties - the dialog's own party is not evaluated,
+        // because there are no "dialogPartyChecks". OR semantics: any one permitted party grants
+        // access. "parties" cannot contain the dialog's own party.
         "parties": [
           "urn:altinn:organization:identifier-no:912345678",
           "urn:altinn:person:identifier-no:12018212345"
         ],
-        "includeDialogParty": false,
         // The transmission leaves the "transmissions" array for everyone else, and only its id and
         // creation time appear in "excludedTransmissions" beside it.
         "unauthorizedPresentation": "Excluded"
@@ -68,6 +67,48 @@ The capability a legacy authorization attribute could not express at all: exposi
 ```
 
 Because no `serviceResource` or `additionalResourceAttribute` is set, the check evaluates a plain `read` against the dialog's own resource, for the listed parties only.
+
+## Restricting by how the end user got access to the dialog's party
+
+A dialog party often has several intermediaries acting for it - accounting firms, auditors, lawyers - each through a client delegation. With `dialogPartyChecks`, a transmission can require not only that the end user has access to the dialog's party, but also *how* they got it. This lets one dialog, on one service resource, show each intermediary only the transmissions meant for it:
+
+```jsonc
+{
+  "transmissions": [
+    {
+      "type": "Information",
+      "sender": { "actorType": "ServiceOwner" },
+      "content": { /* ... */ },
+      "authorizationContext": {
+        "dialogPartyChecks": [
+          // The dialog party's own people: direct rights, ER roles and access inherited
+          // from the main unit - but not access obtained through a client delegation
+          { "accessRestriction": "DirectAndHierarchy" },
+          // Whoever acts for the dialog party through this accounting firm's client delegation
+          {
+            "accessRestriction": "ClientDelegation",
+            "viaParty": "urn:altinn:organization:identifier-no:912345678"
+          }
+        ],
+        "unauthorizedPresentation": "Excluded"
+      }
+    }
+  ]
+}
+```
+
+A transmission meant for a different accounting firm names that firm in `viaParty` instead. Employees of one firm then never see the other firm's transmissions, even though both have access to the dialog's party.
+
+Each check can also name its own `serviceResource` and `action`. This is useful when a broader right should grant access regardless of how it was obtained - for example, letting anyone with `readall` on the dialog's resource see every transmission, while others only see the ones meant for them:
+
+```jsonc
+"dialogPartyChecks": [
+  { "accessRestriction": "None", "action": "readall" },
+  { "accessRestriction": "ClientDelegation", "viaParty": "urn:altinn:organization:identifier-no:912345678" }
+]
+```
+
+Don't add the dialog's own party to `parties` to achieve the same thing - it's rejected, because an unrestricted check of the dialog's party would make every restricted check meaningless. Use a check with `accessRestriction: "None"` instead. See the [field reference]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}#dialogpartychecks) for the exact meaning of each restriction and the rules for combining checks.
 
 ## Pointing at another service's policy
 
@@ -88,7 +129,7 @@ Attachments and navigational actions carry the same authorization context shape 
       "urls": [{ "url": "https://example.com/files/auditor-report.pdf", "consumerType": "Gui" }],
       "authorizationContext": {
         "additionalResourceAttribute": "urn:altinn:subresource:auditor-documents",
-        "includeDialogParty": true,
+        "dialogPartyChecks": [{ "accessRestriction": "None" }],
         "unauthorizedPresentation": "Excluded"
       }
     }
@@ -119,7 +160,7 @@ End-user systems send the ordinary [dialog token]({{< relref "/dialogporten/refe
       "urls": [{ "url": "https://example.com/files/auditor-report.pdf", "consumerType": "Gui" }],
       "authorizationContext": {
         "additionalResourceAttribute": "urn:altinn:subresource:auditor-documents",
-        "includeDialogParty": true,
+        "dialogPartyChecks": [{ "accessRestriction": "None" }],
         // Listed in the dialog token's "e" claim instead of the attachment's id, so the receiving
         // service can recognize the grant without knowing Dialogporten's entity ids. Max 50 characters.
         "tokenRef": "auditor-report-2026",
@@ -142,6 +183,7 @@ While Dialogporten will check authorization and mask or exclude the entity when 
 
 - Remove the entity's `authorizationAttribute`, and on API/GUI actions the top-level `action` as well - use `authorizationContext.action` instead.
 - If the attribute you're migrating narrowed a transmission to a subresource or task, don't leave `authorizationContext.action` unset - it defaults to `read`, which a broad `read` rule on the main resource will still match. Name your own `action` (see the example above) and update your policy to key on it, or the migrated entity will end up more broadly visible than it was before.
+- Replace a legacy attribute with `dialogPartyChecks: [{ "accessRestriction": "None" }]` - the dialog's own party, without any restriction - to keep the same audience.
 - Coordinate with whoever validates the dialog token on the receiving side first: the moment an entity gains a context, its grant disappears from the token's authorized actions (`a`) and the entity is instead listed in the `e` claim, by id or `tokenRef`.
 - Double-check policies that combine several distinct actions across entities in the same dialog - a defect in the legacy authorization check that used to grant broader access than intended has been fixed, and while it does not affect any known production policy today, it's worth verifying against your own.
 

@@ -31,7 +31,7 @@ Den direkte erstatningen for et gammelt autorisasjonsattributt som avgrenser til
         // utledede "transmissionread" gjorde.
         "action": "elementread",
         "additionalResourceAttribute": "urn:altinn:task:Task_1",
-        "includeDialogParty": true,
+        "dialogPartyChecks": [{ "accessRestriction": "None" }],
         "unauthorizedPresentation": "Disabled"
       }
     }
@@ -51,13 +51,13 @@ Muligheten et gammelt autorisasjonsattributt ikke kunne uttrykke i det hele tatt
       "sender": { "actorType": "ServiceOwner" },
       "content": { /* ... */ },
       "authorizationContext": {
-        // Tilgang evalueres KUN for disse partene - dialogens egen part er utelatt fordi
-        // includeDialogParty er false. ELLER-semantikk: én tillatt part er nok. Maks 3 stk.
+        // Tilgang evalueres KUN for disse partene - dialogens egen part evalueres ikke, fordi
+        // det ikke finnes noen "dialogPartyChecks". ELLER-semantikk: én tillatt part er nok.
+        // "parties" kan ikke inneholde dialogens egen part.
         "parties": [
           "urn:altinn:organization:identifier-no:912345678",
           "urn:altinn:person:identifier-no:12018212345"
         ],
-        "includeDialogParty": false,
         // Forsendelsen forsvinner ut av "transmissions"-listen for alle andre, og bare ID-en og
         // opprettelsestidspunktet vises i "excludedTransmissions" ved siden av.
         "unauthorizedPresentation": "Excluded"
@@ -68,6 +68,48 @@ Muligheten et gammelt autorisasjonsattributt ikke kunne uttrykke i det hele tatt
 ```
 
 Siden verken `serviceResource` eller `additionalResourceAttribute` er satt, evaluerer sjekken en ren `read` mot dialogens egen ressurs, bare for partene i listen.
+
+## Begrense ut fra hvordan sluttbrukeren fikk tilgang til dialogens part
+
+En dialogpart har ofte flere mellommenn som opptrer for den - regnskapsbyråer, revisorer, advokater - hver gjennom en klientdelegering. Med `dialogPartyChecks` kan en forsendelse kreve ikke bare at sluttbrukeren har tilgang til dialogens part, men også *hvordan* tilgangen er oppnådd. Slik kan én dialog, på én tjenesteressurs, vise hver mellommann bare de forsendelsene som er ment for den:
+
+```jsonc
+{
+  "transmissions": [
+    {
+      "type": "Information",
+      "sender": { "actorType": "ServiceOwner" },
+      "content": { /* ... */ },
+      "authorizationContext": {
+        "dialogPartyChecks": [
+          // Dialogpartens egne folk: direkte rettigheter, ER-roller og tilgang arvet fra
+          // hovedenheten - men ikke tilgang oppnådd gjennom en klientdelegering
+          { "accessRestriction": "DirectAndHierarchy" },
+          // Den som opptrer for dialogparten gjennom dette regnskapsbyråets klientdelegering
+          {
+            "accessRestriction": "ClientDelegation",
+            "viaParty": "urn:altinn:organization:identifier-no:912345678"
+          }
+        ],
+        "unauthorizedPresentation": "Excluded"
+      }
+    }
+  ]
+}
+```
+
+En forsendelse ment for et annet regnskapsbyrå oppgir det byrået i `viaParty` i stedet. Ansatte i det ene byrået ser da aldri det andre byråets forsendelser, selv om begge har tilgang til dialogens part.
+
+Hver sjekk kan også angi sin egen `serviceResource` og `action`. Det er nyttig når en bredere rettighet skal gi tilgang uansett hvordan den er oppnådd - for eksempel at alle med `readall` på dialogens ressurs ser alle forsendelser, mens andre bare ser dem som er ment for dem:
+
+```jsonc
+"dialogPartyChecks": [
+  { "accessRestriction": "None", "action": "readall" },
+  { "accessRestriction": "ClientDelegation", "viaParty": "urn:altinn:organization:identifier-no:912345678" }
+]
+```
+
+Ikke legg dialogens egen part i `parties` for å oppnå det samme - det avvises, fordi en ubegrenset sjekk av dialogens part ville gjort alle begrensede sjekker meningsløse. Bruk en sjekk med `accessRestriction: "None"` i stedet. Se [feltreferansen]({{< relref "/dialogporten/reference/authorization/authorization-contexts" >}}#dialogpartychecks) for nøyaktig betydning av hver begrensning og reglene for å kombinere sjekker.
 
 ## Peke på en annen tjenestes policy
 
@@ -88,7 +130,7 @@ Vedlegg og navigasjonshandlinger har samme autorisasjonskontekst-form som alle a
       "urls": [{ "url": "https://example.com/files/revisorrapport.pdf", "consumerType": "Gui" }],
       "authorizationContext": {
         "additionalResourceAttribute": "urn:altinn:subresource:auditor-documents",
-        "includeDialogParty": true,
+        "dialogPartyChecks": [{ "accessRestriction": "None" }],
         "unauthorizedPresentation": "Excluded"
       }
     }
@@ -119,7 +161,7 @@ Sluttbrukersystemer sender det vanlige [dialogtokenet]({{< relref "/dialogporten
       "urls": [{ "url": "https://example.com/files/revisorrapport.pdf", "consumerType": "Gui" }],
       "authorizationContext": {
         "additionalResourceAttribute": "urn:altinn:subresource:revisordokumenter",
-        "includeDialogParty": true,
+        "dialogPartyChecks": [{ "accessRestriction": "None" }],
         // Listes opp i dialogtokenets "e"-claim i stedet for vedleggets ID, slik at den mottakende
         // tjenesten kan gjenkjenne rettigheten uten å kjenne Dialogportens entitets-ID-er. Maks 50 tegn.
         "tokenRef": "revisorrapport-2026",
@@ -142,6 +184,7 @@ Selv om Dialogporten sjekker autorisasjon og maskerer eller utelukker entiteten 
 
 - Fjern entitetens `authorizationAttribute`, og på API-/GUI-handlinger også det øverste `action`-feltet - bruk `authorizationContext.action` i stedet.
 - Hvis attributtet du migrerer avgrenset en forsendelse til en underressurs eller oppgave, la ikke `authorizationContext.action` stå usatt - da blir den `read`, og en bred `read`-regel på hovedressursen vil fortsatt treffe den. Gi handlingen et eget navn (se eksempelet ovenfor) og la policyen matche på det, ellers ender den migrerte entiteten opp mer synlig enn den var før.
+- Erstatt et gammelt attributt med `dialogPartyChecks: [{ "accessRestriction": "None" }]` - dialogens egen part, uten begrensning - for å beholde den samme målgruppen.
 - Avstem med den som validerer dialogtokenet på mottakersiden først: så snart en entitet får en kontekst, forsvinner rettigheten fra tokenets autoriserte handlinger (`a`), og entiteten listes i stedet opp i `e`-claimet, ved ID eller `tokenRef`.
 - Dobbeltsjekk policyer som kombinerer flere ulike handlinger på tvers av entiteter i samme dialog - en feil i den gamle autorisasjonssjekken, som tidligere kunne gi bredere tilgang enn tiltenkt, er nå rettet. Feilen påvirker ingen kjent policy i produksjon i dag, men det er verdt å dobbeltsjekke din egen.
 

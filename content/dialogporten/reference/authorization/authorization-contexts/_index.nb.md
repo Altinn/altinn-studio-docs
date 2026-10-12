@@ -41,6 +41,21 @@ Dette gjelder både endepunktene for opprettelse og oppdatering av dialoger, og 
 
 GraphQL følger samme mønster: det eksponerer `isAuthorized` og `excluded*`-listene på sluttbrukerentitetene, men ikke selve autorisasjonskonteksten.
 
+## Uten autorisasjonskontekst
+
+`authorizationContext` er valgfritt på alle delene. Utelates den, følger entiteten dialogens egen tilgang, evaluert på vegne av dialogens egen part, akkurat som før autorisasjonskontekster fantes:
+
+| Del | Uten `authorizationContext` |
+|---|---|
+| API- og GUI-handlinger | Det øverste `action`-feltet (påkrevd i dette tilfellet) evalueres mot dialogens hovedressurs, eller mot `authorizationAttribute` hvis det er satt. |
+| Forsendelser | `read` evalueres mot `authorizationAttribute` hvis det er satt. Ellers følger forsendelsen dialogens egen tilgang. |
+| Dialogvedlegg | Følger dialogens egen tilgang. |
+| Forsendelsesvedlegg og navigasjonshandlinger | Følger forsendelsen de tilhører. |
+
+En slik entitet er ikke oppført i `e`-claimet i dialogtokenet; handlinger uttrykkes i `a`-claimet, som før.
+
+Merk forskjellen på å utelate konteksten og en kontekst med bare `parties`: utelates den, gis samme tilgang som til dialogen, mens en kontekst med bare `parties` evaluerer kun de oppgitte partene, og utelukker dialogpartens egne folk med mindre en oppføring i [`dialogPartyChecks`](#dialogpartychecks) tar dem med.
+
 ## Felt
 
 ### `serviceResource`
@@ -67,22 +82,75 @@ Må ikke starte med `urn:altinn:resource:` - bruk `serviceResource` til det. Det
 
 Type liste av `string`, valgfritt.
 
-Partene sjekken evalueres på vegne av, i tillegg til (eller i stedet for) dialogens egen part - se `includeDialogParty` nedenfor. Tilgang gis hvis PDP-en tillater **minst én** av de oppgitte partene (ELLER-semantikk), ikke alle sammen.
+Andre parter enn dialogens egen som sjekken evalueres på vegne av, hver på sin egen part og uten tilgangsbegrensning. Tilgang gis hvis PDP-en tillater **minst én** av de oppgitte partene, eller minst én av [`dialogPartyChecks`](#dialogpartychecks) (ELLER-semantikk), ikke alle sammen.
 
-- Maks 3 oppføringer. Med `includeDialogParty: true` er det effektive maksimale antallet parter som evalueres per entitet, 4.
+- Sammen med `dialogPartyChecks` minst 1 og maks 4 oppføringer.
 - Oppføringene må være unike.
-- Må inneholde minst én oppføring med mindre `includeDialogParty` er `true`.
+- Kan ikke inneholde dialogens egen part. Bruk en oppføring i `dialogPartyChecks` med `accessRestriction: "None"` til det - den evaluerer nøyaktig det samme, og samler dialogens part på ett sted, der en tilgangsbegrensning kan gjelde for den.
 - Hver oppføring må være en gyldig partsidentifikator: `urn:altinn:organization:identifier-no:{orgnr}`, `urn:altinn:person:identifier-no:{fnr/dnr}`, `urn:altinn:party-identifier:username:{username}`, eller en ID-porten-e-postidentifikator.
 
-En autorisasjonssjekk uten parter å evaluere kan aldri bli autorisert - den feiler lukket i stedet for å gi tilgang implisitt.
+En autorisasjonssjekk uten parter eller dialogpartssjekker å evaluere kan aldri bli autorisert - den feiler lukket i stedet for å gi tilgang implisitt.
 
-### `includeDialogParty`
+### `dialogPartyChecks`
 
-Type `boolean`, standardverdi `false`.
+Type liste av objekter, valgfritt.
 
-Når feltet er `true`, legges dialogens egen part til i settet med parter som evalueres, i tillegg til eventuelle parter i `parties`.
+Sjekker som evalueres på vegne av dialogens egen part. Hver sjekk kan kreve at sluttbrukerens tilgang til dialogens part er oppnådd på en bestemt måte, og kan angi sin egen ressurs og handling. Tilgang gis hvis **minst én** sjekk, eller minst én oppføring i `parties`, tillater det. Utelates feltet, eller er listen tom, evalueres ikke dialogens egen part i det hele tatt – da gis tilgang bare gjennom partene i `parties`. Skal dialogpartens folk ha tilgang, må konteksten ha en sjekk, for eksempel `{ "accessRestriction": "None" }`.
 
-`includeDialogParty: true` kombinert med `additionalResourceAttribute` er den direkte erstatningen for et gammelt underressursattributt - samme part, avgrenset til en underressurs. `includeDialogParty: false` kombinert med en eksplisitt `parties`-liste er den nye muligheten: å gi tilgang til en del av dialogen for en annen part enn dialogens egen.
+Hver sjekk har disse feltene:
+
+| Felt | Type | Beskrivelse |
+|---|---|---|
+| `accessRestriction` | `string`-enum, **påkrevd** | Hvordan sluttbrukerens tilgang hos dialogens part må være oppnådd for at sjekken skal gi tilgang. Se tabellen nedenfor. |
+| `viaParty` | `string` | Organisasjonen sluttbrukerens tilgang må være klientdelegert gjennom, som `urn:altinn:organization:identifier-no:{orgnr}`. Påkrevd når `accessRestriction` er `ClientDelegation`, og ikke tillatt ellers. Kan ikke være dialogens egen part. |
+| `serviceResource` | `string` | En tjenesteressurs som evalueres i stedet for kontekstens. Faller tilbake til kontekstens `serviceResource`, og deretter til dialogens egen ressurs. Samme regler som kontekstens [`serviceResource`](#serviceresource), også at du må eie den. |
+| `action` | `string` | Handlingen som evalueres i stedet for kontekstens. Faller tilbake til kontekstens `action`, og deretter til `read`. |
+
+Kontekstens `additionalResourceAttribute`, hvis satt, legges oppå den effektive ressursen til hver sjekk.
+
+| `accessRestriction` | Gir tilgang når sluttbrukeren har tilgang hos dialogens part ... |
+|---|---|
+| `None` | ... på hvilken som helst måte. Slik har dialogens egen part alltid blitt evaluert, og dette erstatter det tidligere `includeDialogParty: true`. |
+| `DirectAndHierarchy` | ... som ikke går gjennom en annen organisasjon: rettigheter gitt direkte hos dialogens part, ER-roller hos dialogens part og rettighetene de gir, og tilgang arvet fra hovedenheten. Tilgang sluttbrukeren har gjennom en klientdelegering, for eksempel som ansatt i et regnskapsbyrå, teller ikke. |
+| `ClientDelegation` | ... bare gjennom en klientdelegering gjort gjennom organisasjonen i `viaParty`. Tilgang sluttbrukeren har direkte, eller gjennom en annen mellommann, teller ikke. |
+
+Begrensningen evalueres av Altinn Authorization i den samme beslutningsforespørselen, så en sjekk med begrensning koster én evaluering, akkurat som en uten.
+
+Et typisk bruksområde er en dialog der flere mellommenn opptrer for den samme parten, og hver mellommann bare skal se «sine» forsendelser:
+
+```jsonc
+{
+  "transmissions": [
+    {
+      // Synlig for dialogpartens egne folk, og for den som opptrer for den gjennom regnskapsbyrå 1
+      "authorizationContext": {
+        "dialogPartyChecks": [
+          { "accessRestriction": "DirectAndHierarchy" },
+          { "accessRestriction": "ClientDelegation", "viaParty": "urn:altinn:organization:identifier-no:912345678" }
+        ],
+        "unauthorizedPresentation": "Excluded"
+      }
+    },
+    {
+      // Synlig for dialogpartens egne folk, og for den som opptrer for den gjennom regnskapsbyrå 2
+      "authorizationContext": {
+        "dialogPartyChecks": [
+          { "accessRestriction": "DirectAndHierarchy" },
+          { "accessRestriction": "ClientDelegation", "viaParty": "urn:altinn:organization:identifier-no:987654321" }
+        ],
+        "unauthorizedPresentation": "Excluded"
+      }
+    }
+  ]
+}
+```
+
+Regler for listen som helhet:
+
+- To sjekker kan ikke evaluere det samme: sjekker med samme `accessRestriction`, `viaParty`, effektive `serviceResource` og effektive `action` avvises som duplikater. Ved sammenligningen faller en sjekks `serviceResource` og `action` tilbake til kontekstens, og `action` videre til `read`. Dialogens egen ressurs fylles ikke inn, fordi en sjekk som navngir den eksplisitt evalueres uten dialogens instansreferanse, og dermed er en annen forespørsel (se [`serviceResource`](#serviceresource)).
+- En `DirectAndHierarchy`- eller `ClientDelegation`-sjekk avvises hvis det også finnes en `None`-sjekk for den samme effektive ressursen og handlingen, siden `None`-sjekken allerede gir alt den begrensede ville gitt.
+
+`includeDialogParty: true` kombinert med `additionalResourceAttribute` var tidligere den direkte erstatningen for et gammelt underressursattributt; det tilsvarende er nå `dialogPartyChecks: [{ "accessRestriction": "None" }]` kombinert med `additionalResourceAttribute`.
 
 ### `action`
 
@@ -210,8 +278,9 @@ Hvis den som spør ikke kan lese dialogens hovedressurs i det hele tatt, feiler 
 
 ## Evaluering med flere parter
 
-- Tilgang til en sjekk gis hvis **minst én** av de tillatte partene er gitt tilgang - ELLER-semantikk på tvers av parter, samme som innad i `parties`.
-- Hver sjekk evalueres én gang per part den er knyttet til. Like kombinasjoner av ressurs og handling på tvers av parter slås sammen til én evaluering, men partsgrensen (3, eller 4 med `includeDialogParty`) er likevel en reell kostnadskontroll: hver distinkte kombinasjon av ressurs, handling og part er én evaluering mot Altinn Authorization, og en dialog med mange autorisasjonskontekster øker dette raskt.
+- Tilgang til en sjekk gis hvis **minst én** av evalueringene tillater det - ELLER-semantikk på tvers av både `parties` og `dialogPartyChecks`.
+- Hver oppføring i `parties` og hver dialogpartssjekk er én evaluering. Like evalueringer, innenfor eller på tvers av entiteter, slås sammen til én, men grensen på 4 oppføringer per kontekst er likevel en reell kostnadskontroll: hver distinkte kombinasjon av ressurs, handling, part og tilgangsbegrensning er én evaluering mot Altinn Authorization, og en dialog med mange autorisasjonskontekster øker dette raskt.
+- En tilgangsbegrensning gjelder bare evalueringen den er satt på. Siden evalueringene kombineres med ELLER, ville en ubegrenset evaluering av dialogens egen part ved siden av en begrenset gjort begrensningen meningsløs - derfor kan ikke `parties` inneholde dialogens egen part, og derfor kan ikke en begrenset sjekk kombineres med en `None`-sjekk for den samme rettigheten.
 - Hvis samsvaret mellom forespurte sjekker og returnerte beslutninger av en eller annen grunn ikke stemmer, nektes alle sjekker for den berørte forespørselen - systemet feiler lukket i stedet for å gjette.
 - En systembrukers *egen* part evalueres med systembrukerens egen identitet; parter som er navngitt direkte i en konteksts `parties`-liste evalueres som seg selv og vil rett og slett bli nektet hvis PDP-en ikke anerkjenner dem som delegerbare til den som kaller - en systembruker kan ikke representere en vilkårlig part ved å navngi den i en kontekst.
 
@@ -229,12 +298,12 @@ De samme reglene gjelder på oppdateringsendepunktene og på de egne endepunkten
 
 | Gammelt `authorizationAttribute` | Gammel utledet handling | Tilsvarende `authorizationContext` |
 |---|---|---|
-| `urn:altinn:subresource:foo` (forsendelse) | `read` | `{ "action": "elementread", "additionalResourceAttribute": "urn:altinn:subresource:foo", "includeDialogParty": true, "unauthorizedPresentation": "Disabled" }` |
-| `urn:altinn:task:Task_1` (forsendelse) | `read` | `{ "action": "elementread", "additionalResourceAttribute": "urn:altinn:task:Task_1", "includeDialogParty": true, "unauthorizedPresentation": "Disabled" }` |
-| `urn:altinn:resource:other` (forsendelse) | `read` | `{ "serviceResource": "urn:altinn:resource:other", "includeDialogParty": true, "unauthorizedPresentation": "Disabled" }` |
-| `foo` (bart, forsendelse) | `read` | `{ "action": "elementread", "additionalResourceAttribute": "urn:altinn:subresource:foo", "includeDialogParty": true, "unauthorizedPresentation": "Disabled" }` |
-| Handling `sign` + attributt `urn:altinn:task:Task_1` (GUI-/API-handling) | `sign` på det attributtet | `{ "action": "sign", "additionalResourceAttribute": "urn:altinn:task:Task_1", "includeDialogParty": true, "unauthorizedPresentation": "Disabled" }` - fjern det øverste `action`-feltet |
-| Handling `write`, uten attributt (GUI-/API-handling) | `write` på hovedressursen | `{ "action": "write", "includeDialogParty": true, "unauthorizedPresentation": "Disabled" }` |
+| `urn:altinn:subresource:foo` (forsendelse) | `read` | `{ "action": "elementread", "additionalResourceAttribute": "urn:altinn:subresource:foo", "dialogPartyChecks": [{ "accessRestriction": "None" }], "unauthorizedPresentation": "Disabled" }` |
+| `urn:altinn:task:Task_1` (forsendelse) | `read` | `{ "action": "elementread", "additionalResourceAttribute": "urn:altinn:task:Task_1", "dialogPartyChecks": [{ "accessRestriction": "None" }], "unauthorizedPresentation": "Disabled" }` |
+| `urn:altinn:resource:other` (forsendelse) | `read` | `{ "serviceResource": "urn:altinn:resource:other", "dialogPartyChecks": [{ "accessRestriction": "None" }], "unauthorizedPresentation": "Disabled" }` |
+| `foo` (bart, forsendelse) | `read` | `{ "action": "elementread", "additionalResourceAttribute": "urn:altinn:subresource:foo", "dialogPartyChecks": [{ "accessRestriction": "None" }], "unauthorizedPresentation": "Disabled" }` |
+| Handling `sign` + attributt `urn:altinn:task:Task_1` (GUI-/API-handling) | `sign` på det attributtet | `{ "action": "sign", "additionalResourceAttribute": "urn:altinn:task:Task_1", "dialogPartyChecks": [{ "accessRestriction": "None" }], "unauthorizedPresentation": "Disabled" }` - fjern det øverste `action`-feltet |
+| Handling `write`, uten attributt (GUI-/API-handling) | `write` på hovedressursen | `{ "action": "write", "dialogPartyChecks": [{ "accessRestriction": "None" }], "unauthorizedPresentation": "Disabled" }` |
 
 `action: "elementread"` på rad én, to og fire er et eksempel på et selvvalgt navn, ikke et fast navn - se neste punkt.
 
@@ -250,9 +319,16 @@ Fem ting du bør være klar over ved migrering:
 
 | Problem med forespørselen | Melding |
 |---|---|
-| Mer enn 3 oppføringer i `parties` | `'Parties' cannot contain more than 3 parties.` |
+| Ingen oppføringer, eller flere enn 4, i `parties` og `dialogPartyChecks` til sammen | `'Parties' and 'DialogPartyChecks' must together contain at least 1 and at most 4 entries.` |
 | Samme part oppført to ganger i `parties` | `Can not contain duplicate items: [...].` |
-| `parties: []` med `includeDialogParty: false` | `'Parties' must contain at least one party when 'IncludeDialogParty' is false.` |
+| Dialogens egen part i `parties` | `'Parties' cannot contain the dialog's own party ('...'); use a 'DialogPartyChecks' entry with 'AccessRestriction' 'None' instead.` |
+| `accessRestriction` utelatt eller ukjent | `'AccessRestriction' is required and must be one of 'None', 'DirectAndHierarchy' or 'ClientDelegation'.` |
+| `viaParty` utelatt med `ClientDelegation` | `'ViaParty' is required when 'AccessRestriction' is 'ClientDelegation'.` |
+| `viaParty` satt med en annen `accessRestriction` | `'ViaParty' is only allowed when 'AccessRestriction' is 'ClientDelegation'.` |
+| `viaParty` er ikke en organisasjonsidentifikator | `'ViaParty' must be on format 'urn:altinn:organization:identifier-no:{norwegian org-nr}' with a valid organization number.` |
+| `viaParty` er dialogens egen part | `'ViaParty' cannot be the dialog's own party ('...').` |
+| To sjekker som evaluerer det samme | `'DialogPartyChecks' cannot contain duplicate checks (same access restriction, via party, effective service resource and effective action).` |
+| En begrenset sjekk ved siden av en `None`-sjekk for den samme rettigheten | `'DialogPartyChecks' cannot contain a 'DirectAndHierarchy' or 'ClientDelegation' check for the same effective service resource and action as a 'None' check, which already covers it.` |
 | `additionalResourceAttribute` som starter med `urn:altinn:resource:` | `'AdditionalResourceAttribute' cannot contain a service resource reference ('urn:altinn:resource:...'); use 'ServiceResource' instead.` |
 | `additionalResourceAttribute` som refererer til en app | `'AdditionalResourceAttribute' cannot reference an app (the 'urn:altinn:app:' namespace, or a value expanding into an 'app_{org}_{appId}' identifier); 'ServiceResource' already carries the resource-registry entry for an app, and there is no equivalent per-app override for this field.` |
 | `additionalResourceAttribute` som refererer til en organisasjon | `'AdditionalResourceAttribute' cannot reference an organization (the 'urn:altinn:org:' namespace); the organization owning the effective resource is derived from the resource itself.` |
@@ -261,12 +337,16 @@ Fem ting du bør være klar over ved migrering:
 | Øverste `action`-felt kombinert med `authorizationContext` på en GUI- eller API-handling | `'Action' cannot be combined with 'AuthorizationContext'; use 'AuthorizationContext.Action' instead.` |
 | Øverste `action`-felt utelatt på en GUI- eller API-handling uten `authorizationContext` | `'Action' must not be empty when 'AuthorizationContext' is not supplied.` |
 | `authorizationAttribute` kombinert med `authorizationContext` | `'AuthorizationAttribute' cannot be combined with 'AuthorizationContext'.` |
-| `serviceResource` som refererer til en ressurs den som kaller ikke eier | `403 Forbidden`, `Not allowed to reference the following unowned resources: [...]` |
+| `serviceResource`, på konteksten eller på en dialogpartssjekk, som refererer til en ressurs den som kaller ikke eier | `403 Forbidden`, `Not allowed to reference the following unowned resources: [...]` |
 | `additionalResourceAttribute` som refererer til en app den som kaller ikke eier | `403 Forbidden`, `Not allowed to reference the following unowned apps: [...]` |
 
 ## Kontraktreferanse
 
 {{<swaggerdisplayentity "V1CommonAuthorizationContexts_AuthorizationContext">}}
+
+Én oppføring i `dialogPartyChecks`:
+
+{{<swaggerdisplayentity "V1CommonAuthorizationContexts_DialogPartyCheck">}}
 
 Stubben som brukes i de seks `excluded*`-listene i sluttbruker-API-et:
 
