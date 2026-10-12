@@ -4,7 +4,7 @@ linktitle: Large Files
 description: How to enable files above 50GB 
 tags: []
 toc: true
-weight: 10
+weight: 30
 ---
 
 Broker is restricted to files up to 50 GB by default. This is due to restriction with the virus scan. You can still send files larger than this if the resource has disabled virus scan. 
