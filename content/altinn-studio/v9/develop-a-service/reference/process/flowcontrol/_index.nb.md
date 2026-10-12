@@ -14,10 +14,7 @@ Med en eksklusiv gateway velger du hvilken vei prosessen følger videre. Valget 
 
 ### Forutsetninger
 
-Du trenger
-
-- en app som bruker versjon 8.0.0 eller nyere av Altinn-pakkene
-- en prosess som inneholder en eksklusiv gateway
+Du trenger en prosess som inneholder en eksklusiv gateway.
 
 ### Slik styrer du flyten ut av en gateway med data fra brukeren
 
@@ -122,10 +119,7 @@ Hvis uttrykk ikke er nok til å styre gatewayen din, kan du skrive tilpasset kod
 
 ### Forutsetninger
 
-Du trenger
-
-- en app som bruker versjon 7.1.0 eller nyere av Altinn-pakkene
-- en prosess som inneholder en eksklusiv gateway
+Du trenger en prosess som inneholder en eksklusiv gateway.
 
 ### Eksempelprosess med eksklusive gateways
 
