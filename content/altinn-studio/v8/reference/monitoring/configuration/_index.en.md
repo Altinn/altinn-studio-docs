@@ -23,10 +23,8 @@ The new monitoring and instrumentation setup is enabled by setting `UseOpenTelem
 When this flag is enabled, OTel is configured as opposed to the classic Application Insights SDK.
 All the telemetry is then shipped by default to the local monitoring setup with running locally,
 and to Azure Monitor when the app is deployed in an environment.
-Altinn manages the Application Insights connection configuration for deployed apps.
-To send telemetry to Azure Monitor locally, set `ApplicationInsights:ConnectionString` in local configuration
-or the `APPLICATIONINSIGHTS_CONNECTION_STRING` environment variable. Use the full connection string from the
-Application Insights resource, including `IngestionEndpoint`; an instrumentation key alone can fail with newer exporters.
+Optionally, if an instrumentation key or Application Insights connection string is added to *AppSettings* or environment locally,
+Altinn.App will ship the telemetry to Azure Monitor.
 When the app is run, you will both get auto-instrumentation based on HTTP (traces and metrics),
 but also manual trace spans and metrics that are domain specific.
 
@@ -50,10 +48,9 @@ First, we update the `App.csproj` file:
         <PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.9.0" />
 {{< / highlight >}}
 
-Add the following configuration to the existing `RegisterCustomAppServices` function in `Program.cs`.
-In `ConfigureServices`, this function is called before `AddAltinnAppServices`. Keep that registration order.
+Then we update the configuration code in `Program.cs`:
 
-{{< highlight csharp "linenos=false" >}}
+{{< highlight csharp "linenos=false,hl_lines=1-3 7-25" >}}
 using OpenTelemetry.Logs;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Trace;
@@ -73,23 +70,15 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
             }
         )
     );
-    services.ConfigureOpenTelemetryTracerProvider(builder => builder.AddConsoleExporter());
+    services.ConfigureOpenTelemetryTracerProvider(builder =>
+    {
+        // Customize sampling
+        builder.SetSampler(new ParentBasedSampler(new AlwaysOnSampler()));
+        builder.AddConsoleExporter();
+    });
     services.ConfigureOpenTelemetryLoggerProvider(builder => builder.AddConsoleExporter());
 }
 {{< / highlight >}}
-
-To use a custom OTel sampler for direct Azure export, add the following to the existing
-`RegisterCustomAppServices` function. Azure's default sampler is configured first, so your sampler takes precedence.
-This requires the forthcoming v8 telemetry fix ([app-lib-dotnet#1889](https://github.com/Altinn/app-lib-dotnet/pull/1889)).
-
-{{< highlight csharp "linenos=false" >}}
-services.ConfigureOpenTelemetryTracerProvider(telemetry =>
-    telemetry.SetSampler(new ParentBasedSampler(new AlwaysOnSampler())));
-{{< / highlight >}}
-
-With this fix, Azure's trace processors run before processors added in `RegisterCustomAppServices`.
-Set trace attributes and status before the activity ends, for example in instrumentation or a processor's `OnStart`.
-Changes made in an owner processor's `OnEnd` happen after Azure's request metric extraction and may be too late for trace export.
 
 To learn more about what can be configured, read the respective docs on the opentelemetry-dotnet repo:
 
