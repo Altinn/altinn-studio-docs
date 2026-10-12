@@ -112,7 +112,7 @@ Du gjør dette med uttrykksfunksjonen _gatewayAction_:
 </bpmn:sequenceFlow>
 ```
 
-Uttrykksfunksjonen _gatewayAction_ gir deg handlingen som brukeren utførte i oppgaven prosessen nettopp forlot. I eksempelet ovenfor er det _Task_2_.
+Uttrykksfunksjonen _gatewayAction_ gir deg handlingen som ble utført i oppgaven prosessen nettopp forlot. I eksempelet ovenfor er det _Task_2_.
 
 Du kan kombinere _gatewayAction_ med alle de andre funksjonene i [uttrykksspråket]({{< relref "/altinn-studio/v9/develop-a-service/expressions" >}}).
 
