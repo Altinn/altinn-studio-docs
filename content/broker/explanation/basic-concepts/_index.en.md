@@ -4,7 +4,7 @@ linktitle: Basic Concepts
 description: Altinn 3 Broker terminology and basic concepts.
 tags: []
 toc: true
-weight: 10
+weight: 20
 ---
 
 ## Context overview {#context-overview}
