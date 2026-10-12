@@ -2,72 +2,51 @@
 draft: true
 title: Sende meldinger med Maskinporten-autorisasjon
 linktitle: Med Maskinporten
+description: Slik sender du meldinger fra appen med appens Maskinporten-klient
 weight: 100
 toc: true
 tags: [needsReview]
 ---
 
-På [forrige side](/nb/altinn-studio/v9/develop-a-service/integration/correspondence/) gikk vi gjennom hvordan du setter opp en [ressurs](/nb/altinn-studio/v9/develop-a-service/integration/correspondence/#altinn-ressurs) og versjonskravene for meldingsklienten.
+Appen sender meldinger på vegne av tjenesteeieren, ikke på vegne av brukeren som er logget inn. Derfor bruker appen Maskinporten når den snakker med meldingstjenesten.
 
-Nå kan du gå videre til [oppsett av Maskinporten](#maskinporten) og [app-kode](#app-kode).
+Før du starter, må du ha satt opp en [Altinn-ressurs]({{< relref "/altinn-studio/v9/develop-a-service/integration/correspondence#altinn-ressurs" >}}) for meldingene.
 
-## Maskinporten
+## Legg til scopet for meldingstjenesten
 
-For å bruke [meldingstjenesten](/nb/correspondence/) trenger du en [Maskinporten](/nb/authorization/getting-started/authentication/maskinporten/)-klient med tilgang til følgende scopes:
+Appens Maskinporten-klient må ha scopet `altinn:correspondence.write`.
 
-- `altinn:serviceowner`
-- `altinn:correspondence.read`
-- `altinn:correspondence.write`
-{.correspondence-custom-list}
+1. Legg til `altinn:correspondence.write` i Altinn Studio. Se [Legge til Maskinporten-scopes]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten/add-scopes" >}}).
+2. Publiser appen. Endringen trer i kraft neste gang du publiserer.
+{.floating-bullet-numbers}
 
-`altinn:serviceowner` har alle v9-apper allerede, så det er de to meldingsscopene du legger til i Altinn Studio. Se [veiledningen for å legge til Maskinporten-scopes](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/add-scopes/) for fremgangsmåten. Når du publiserer appen, oppretter Altinn Studio Maskinporten-klienten og legger klientdetaljene inn i appen.
+Standardscopene for tjenesteeier, som `altinn:serviceowner`, har alle v9-apper allerede. Dem trenger du ikke legge til.
 
-Meldingsklienten bruker appens innebygde Maskinporten-klient automatisk. Appen har én Maskinporten-identitet, og den konfigurerer du ikke selv. Se [Integrere Altinn-app med Maskinporten](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/) for hva det innebærer.
+Meldingsklienten bruker appens innebygde Maskinporten-klient. Du konfigurerer ikke noe i koden for å få et token. Se [Integrere Altinn-app med Maskinporten]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten" >}}) for hvordan appens Maskinporten-identitet fungerer.
 
-## App-kode
+## Sende en melding fra appkoden
 
-Ved å bruke avhengighetsinjeksjon i .NET, kan du registrere at tjenesten din trenger en `ICorrespondenceClient`.
-Du kan deretter bruke denne klienten til å sende meldinger, og den vil automatisk håndtere Maskinporten-autorisering.
+Appen har meldingsklienten `ICorrespondenceClient` innebygd. Du trenger ikke registrere den selv, bare be om den i konstruktøren til klassen din.
 
-Når du skal sende en melding, finnes det veldig mange tilgjengelige parametere. Selv om bare et fåtall er nødvendige,
-kan det å bygge forespørselen være litt komplisert. For å hjelpe med dette, er det et `CorrespondenceRequestBuilder`-grensesnitt tilgjengelig.
+En melding har mange mulige innstillinger, men bare noen få er påkrevd. `CorrespondenceRequestBuilder` hjelper deg å bygge meldingen steg for steg. Eksempelet under bygger en melding med
 
-Eksempelet nedenfor bruker dette grensesnittet til å bygge en meldingsforespørsel med de vanligste alternativene:
-selve meldingen, en varsling til mottakeren, og et vedlegg.
+- selve meldingsteksten
+- et varsel til mottakeren på e-post eller SMS
+- et vedlegg
 
-Du finner alle tilgjengelige alternativer og tilhørende dokumentasjon via IntelliSense i din foretrukne kodeeditor.
+Du finner alle innstillingene og forklaringen til dem via IntelliSense i kodeeditoren din.
 
-{{<notice info>}}
-Du kan oppgi vedleggsdata enten som en `Stream` med `WithData(Stream)` eller som en byte-array med `WithData(ReadOnlyMemory<byte>)`. Klienten laster opp vedlegget til meldingstjenesten som en strøm i begge tilfeller, men vi anbefaler at du sender en `Stream` (slik eksempelet nedenfor viser): da kan du strømme dataene hele veien, for eksempel direkte fra en fil, uten å holde hele vedlegget i minnet. Dette er viktig for store vedlegg.
-
-Når du sender en `Stream`, overtar klienten ansvaret for den og lukker den når opplastingen er fullført, så du skal ikke lukke den selv.
-{{</notice>}}
-
-### Tjenesteregistrering
-
-{{< code-title >}}
-App/Program.cs
-{{< /code-title >}}
-
-{{<highlight csharp "linenos=false,hl_lines=5">}}
-void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
-{
-  // ...
-
-  services.AddTransient<ITheInterfaceYouAreImplementing, CorrespondenceClientDemo>();
-}
-{{</highlight>}}
-
-### Implementere korrespondanseklienten
+Når du sender meldingen, angir du hvordan appen skal hente token. Med `CorrespondenceAuthenticationMethod.Default()` henter appen et tjenesteeiertoken med scopet `altinn:correspondence.write` fra Maskinporten.
 
 {{< code-title >}}
 App/CorrespondenceClientDemo.cs
 {{< /code-title >}}
 
-```cs
+{{< highlight csharp "linenos=false,hl_lines=50 59" >}}
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using Altinn.App.Core.Features;
 using Altinn.App.Core.Features.Correspondence;
 using Altinn.App.Core.Features.Correspondence.Builder;
 using Altinn.App.Core.Features.Correspondence.Models;
@@ -80,10 +59,7 @@ internal sealed class CorrespondenceClientDemo(
 {
   public async Task<SendCorrespondenceResponse> SendMessage()
   {
-    CorrespondenceAuthorisation authorisation = CorrespondenceAuthorisation.Maskinporten;
-
-    // Klienten strømmer vedleggsdataene til meldingstjenesten.
-    // Ikke lukk strømmen selv: klienten overtar ansvaret og lukker den når opplastingen er fullført.
+    // Ikke lukk strømmen selv. Klienten lukker den når opplastingen er ferdig.
     Stream attachmentData = File.OpenRead("path/to/attachment.txt");
 
     CorrespondenceRequest request = CorrespondenceRequestBuilder
@@ -102,9 +78,7 @@ internal sealed class CorrespondenceClientDemo(
           .Create()
           .WithNotificationTemplate(CorrespondenceNotificationTemplate.CustomMessage)
           .WithEmailSubject("New Altinn message")
-          .WithEmailBody(
-            "You have a new message in your Altinn inbox, log in to see what's new."
-          )
+          .WithEmailBody("You have a new message in your Altinn inbox, log in to see what's new.")
           .WithSmsBody("Got 📨 in Altinn")
           .WithNotificationChannel(CorrespondenceNotificationChannel.EmailPreferred)
       )
@@ -118,7 +92,7 @@ internal sealed class CorrespondenceClientDemo(
       .Build();
 
     return await correspondenceClient.Send(
-      new SendCorrespondencePayload(request, authorisation)
+      new SendCorrespondencePayload(request, CorrespondenceAuthenticationMethod.Default())
     );
   }
 
@@ -127,45 +101,71 @@ internal sealed class CorrespondenceClientDemo(
     return await correspondenceClient.GetStatus(
       new GetCorrespondenceStatusPayload(
         correspondenceId,
-        CorrespondenceAuthorisation.Maskinporten
+        CorrespondenceAuthenticationMethod.Default()
       )
     );
   }
 }
-```
+{{< / highlight >}}
 
-### Notater om autorisering
+Når `Send` er ferdig, har meldingstjenesten godtatt meldingen, men den er ikke nødvendigvis levert til mottakeren ennå. Med `GetStatus` kan du sjekke om meldingen er publisert.
 
-I eksempelet ovenfor bruker vi enum-verdien `CorrespondenceAuthorisation.Maskinporten` for å indikere at autorisering automatisk
-skal håndteres internt med Maskinporten. Dette er den enkleste og mest praktiske metoden for autorisasjon, men det er ikke den eneste tilgjengelige.
+### Legge ved filer
 
-Hvis du trenger tilpasset autoriseringslogikk i forbindelse med sending av meldinger, kan du bruke din egen delegat til dette formålet.
+Du gir vedlegget til `WithData` som en `Stream`, for eksempel rett fra en fil. Da holder ikke appen hele vedlegget i minnet, noe som er viktig for store vedlegg. Har du vedlegget som en byte-array, pakker du den inn selv med `WithData(new MemoryStream(bytes))`.
 
-Et eksempel på dette kan være hvis du av diverse årsaker foretrekker å bruke den [eksterne Maskinporten-klienten](https://github.com/Altinn/altinn-apiclient-maskinporten).
+Klienten overtar strømmen og lukker den når opplastingen er ferdig. Du skal ikke lukke den selv.
 
-Både `SendCorrespondencePayload` og `GetCorrespondenceStatusPayload` aksepterer et delegatparameter. Implementasjonen kan se slik ut:
+### Hindre at meldingen blir sendt to ganger
+
+Hvis koden din prøver å sende på nytt etter en feil, kan meldingen bli sendt to ganger. Det gjelder for eksempel kode i en prosess-hook, som kan kjøre flere ganger. Gi meldingen en fast nøkkel med `WithIdempotentKey(Guid)`, og bruk den samme nøkkelen hver gang du prøver på nytt. Finnes meldingen allerede, får du en `CorrespondenceRequestException` med statuskoden `409 Conflict`. Da vet du at meldingen allerede er sendt.
+
+Du kan ikke bruke nøkkelen når meldingen har flere mottakere.
+
+### Registrere klassen
+
+Registrer klassen din i `Program.cs`. I eksempelet heter grensesnittet `ITheInterfaceYouAreImplementing`. Bytt det ut med grensesnittet klassen din faktisk implementerer.
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
+{{< highlight csharp "linenos=false,hl_lines=5" >}}
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+  // ...
+
+  services.AddTransient<ITheInterfaceYouAreImplementing, CorrespondenceClientDemo>();
+}
+{{< / highlight >}}
+
+## Bruke et eget token
+
+`CorrespondenceAuthenticationMethod.Default()` passer for de fleste. Trenger du å hente tokenet på en annen måte, for eksempel med en egen Maskinporten-klient, kan du bruke `CorrespondenceAuthenticationMethod.Custom` med en delegat som returnerer tokenet.
+
+Tokenet må være et tjenesteeiertoken fra Altinn med scopet `altinn:correspondence.write`. Et rent Maskinporten-token må du altså veksle inn hos Altinn først. Appen bruker tokenet til alle kallene den gjør mot meldingstjenesten for meldingen, også når den laster opp vedlegg.
 
 ```cs
-// ...
-
 new SendCorrespondencePayload(
   request,
-  async () =>
+  CorrespondenceAuthenticationMethod.Custom(async () =>
   {
-    TokenResponse maskinportenResponse = await maskinportenService.GetToken(
-      base64EncodedJwk: "...",
-      environment: "test|prod",
-      clientId: "the client id",
-      scope: "altinn:serviceowner altinn:correspondence.write",
-      resource: null
-    );
-
-    TokenResponse altinnResponse = await maskinportenService.ExchangeToAltinnToken(
-      maskinportenResponse,
-      "test|prod"
-    );
-
-    return JwtToken.Parse(altinnResponse.AccessToken);
-  }
+    // Hent et Altinn-token med scopet altinn:correspondence.write
+    string accessToken = await GetTokenFromYourOwnClient();
+    return JwtToken.Parse(accessToken);
+  })
 );
 ```
+
+`JwtToken` ligger i navnerommet `Altinn.App.Core.Models`. `GetCorrespondenceStatusPayload` tar imot `CorrespondenceAuthenticationMethod.Custom` på samme måte.
+
+## Kommer du fra v8?
+
+Dette er endret fra v8:
+
+- **`CorrespondenceAuthorisation` finnes ikke lenger.** Bruk `CorrespondenceAuthenticationMethod.Default()` i stedet for `CorrespondenceAuthorisation.Maskinporten`.
+- **Payloadene tar ikke lenger imot en delegat direkte.** Pakk delegaten inn i `CorrespondenceAuthenticationMethod.Custom(...)`.
+- **`WithData(ReadOnlyMemory<byte>)` finnes ikke lenger.** Bruk `WithData(Stream)`. Har du en byte-array, bruker du `WithData(new MemoryStream(bytes))`.
+- **`CorrespondenceAuthenticationMethod.Default()` ber også om scopene `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write`.** Appens Maskinporten-klient må derfor ha dem. Alle v9-apper har dem automatisk.
+
+`studioctl app upgrade v9` skriver om de to payload-konstruktørene og `WithData`-kall med byte-array for deg, og lister opp hver endring slik at du kan se over dem. Kall verktøyet ikke kan skrive om trygt, sier det fra om.

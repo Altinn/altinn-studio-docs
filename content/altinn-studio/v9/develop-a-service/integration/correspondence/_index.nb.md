@@ -11,8 +11,8 @@ tags: [needsReview]
 Slik integrerer du [meldingstjenesten](/nb/correspondence/) med en Altinn-app. Med en slik integrasjon kan appen sende digitale meldinger og vedlegg sikkert til både organisasjoner og enkeltpersoner.
 
 ## Forutsetninger
-- En [Altinn-ressurs](#altinn-ressurs)
-- [Altinn.App.Api](https://www.nuget.org/packages/Altinn.App.Api) og [Altinn.App.Core](https://www.nuget.org/packages/Altinn.App.Core) _v8.12.2_ eller nyere
+
+Du trenger en [Altinn-ressurs](#altinn-ressurs). Meldingsklienten er innebygd i alle v9-apper, så du trenger ikke installere eller registrere noe.
 
 ### Altinn-ressurs
 Når du sender en korrespondanse må du knytte den til en Altinn-ressurs. Ressursen bestemmer tilgangen til meldingene. Altinn evaluerer om både avsendere og mottakere har tilgang.
@@ -32,10 +32,6 @@ Når du sender en melding til en person, bruker du koden `priv`. Når du sender 
 som best beskriver din tiltenkte mottaker.
 {{</notice>}}
 
-## Implementasjon og bruk
+## Sende meldinger fra appen
 
-For å bruke meldingstjenesten må du autorisere forespørselen med en passende bearer-token og en abonnementnøkkel.
-
-Under finner du veiledninger for hvordan du setter opp dette:
-
-- [Sende meldinger ved hjelp av Maskinporten](maskinporten)
+Appen sender meldinger på vegne av tjenesteeieren og henter tokenet fra Maskinporten. Se [Sende meldinger med Maskinporten-autorisasjon]({{< relref "/altinn-studio/v9/develop-a-service/integration/correspondence/maskinporten" >}}) for hvordan du setter det opp og skriver koden.
