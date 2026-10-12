@@ -153,7 +153,7 @@ Deretter kan du be om `MinTjenesteKlient` i konstruktøren til klassen som skal 
 
 Når du kjører appen på egen maskin, kobler den seg ikke til Key Vault. Du legger i stedet inn testverdier lokalt. Bruk aldri ekte hemmeligheter fra produksjon.
 
-I v9 får appen oppsettet for lokal kjøring fra `studioctl`. [Les hvordan du installerer og bruker `studioctl`]({{< relref "/altinn-studio/v9/getting-started/development/localtest/local-dev" >}}). Det gjelder både når du starter appen med `studioctl app run`, og når du starter den med `dotnet run` eller fra et utviklingsverktøy. Starter du appen uten `studioctl app run`, må appen kjøre i miljøet `Development`, og `studioctl` må være installert slik at kommandoen `studioctl` virker i terminalen. App-malen kjører appen i `Development` som standard. Du kan legge inn testverdiene på tre måter.
+I v9 får appen oppsettet for lokal kjøring fra `studioctl`. Det gjelder både når du starter appen med `studioctl app run`, og når du starter den med `dotnet run` eller fra et utviklingsverktøy. Starter du appen uten `studioctl app run`, må appen kjøre i miljøet `Development`, og `studioctl` må være installert slik at kommandoen `studioctl` virker i terminalen. App-malen kjører appen i `Development` som standard. [Les hvordan du installerer og bruker `studioctl`]({{< relref "/altinn-studio/v9/getting-started/development/localtest/local-dev" >}}). Du kan legge inn testverdiene på tre måter.
 
 ### I hemmelighetsmappen til `studioctl`
 

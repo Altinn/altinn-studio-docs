@@ -8,9 +8,9 @@ toc: true
 
 Appen er avhengig av støttebiblioteker som ligger utenfor selve appen. Bibliotekene har funksjonalitet som er felles for alle apper.
 
-Appen henter en bestemt _versjon_ av hvert bibliotek. Når Altinn forbedrer bibliotekene, kommer de i en ny _versjon_. En ny versjon kommer ofte med ny funksjonalitet eller forbedringer. For at appen skal kunne ta dette i bruk, må du oppdatere hvilken versjon appen henter.
+Appen henter en bestemt _versjon_ av hvert bibliotek. Når Altinn forbedrer bibliotekene, kommer de i en ny versjon. En ny versjon kommer ofte med ny funksjonalitet eller forbedringer. For at appen skal kunne ta dette i bruk, må du oppdatere hvilken versjon appen henter.
 
-Helm-chartet som Altinn bruker når du publiserer appen, trenger du ikke oppdatere selv. Se [Publisering](#publisering).
+Helm-chartet som Altinn bruker når du publiserer appen, trenger du ikke oppdatere selv. [Les mer om publisering og Helm-chartet lenger ned på siden](#publisering).
 
 ## Nuget
 _Nuget er .NET sin package manager, hvor vi publiserer kodebibliotek som brukes av alle appene._
