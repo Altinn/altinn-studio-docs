@@ -16,7 +16,7 @@ You make the changes in the app's repository.
 1. Open `App/App.csproj` and update `Altinn.App.Api` and `Altinn.App.Core` to the latest 8.x version. You can find the versions on [NuGet](https://www.nuget.org/packages/Altinn.App.Core).
 2. Set `TargetFramework` to `net10.0` in the same file. If the app has a test project, make the same change there.
 3. Delete the lines for packages that Altinn.App already includes, such as `Swashbuckle.AspNetCore`, to avoid error NU1605 ("Detected package downgrade").
-4. Open `Dockerfile` and replace `8.0` with `10.0` in both `FROM` lines. If the version is followed by `@sha256:` and a long code, delete that part.
+4. Open `Dockerfile` and replace `8.0` with `10.0` in both `FROM` lines. If the version is followed by `@sha256:` and a long code, delete that part. If you want to keep such a code, use the one for .NET 10 and update it every month, or the app will not get security updates.
 5. Build the app, for example with `dotnet build App/App.csproj`.
 6. Publish the app to TT02 and test the whole process before you publish it to production.
 
