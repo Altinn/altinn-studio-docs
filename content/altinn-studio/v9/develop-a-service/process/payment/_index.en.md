@@ -3,10 +3,7 @@ draft: true
 title: Payment
 linktitle: Payment
 description: Follow these steps to implement Payment in your App
-tags: [payment]
-
-aliases:
-- /altinn-studio/v8/guides/payment/
+tags: [payment, needsReview]
 ---
 
 ## 1. Before you begin
@@ -38,9 +35,9 @@ Create Nets Easy agreement here: [payments.nets.eu](https://payments.nets.eu/nb-
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-When Nets notifies the app that the payment is complete, the app updates the payment information and advances the process on behalf of the service owner. In `App/config/authorization/policy.xml`, `[org]` must therefore have the `read` and `write` actions for the app and the `confirm` action for the payment task.
+When Nets notifies the app that the payment is complete, the app updates the payment information and advances the process on behalf of the service owner. In `App/config/authorization/policy.xml`, `[org]` must therefore have the `read` and `write` actions for the app and the `confirm` action for the payment task. The default policy that comes with the app gives `[org]` `read` and `write`, but not `confirm`. You must therefore add `confirm` for `[org]` on the payment task yourself.
 
-Altinn Studio automatically adds the standard Maskinporten scopes for service owners to apps that use Altinn App v9. However, you must still verify that the authorisation policy grants the required actions to the service owner. See [integrating with Maskinporten](/en/altinn-studio/v9/develop-a-service/integration/maskinporten/). Build and deploy the app again after changing the scopes or the authorisation policy.
+Altinn Studio automatically adds the standard Maskinporten scopes for service owners to apps that use Altinn App v9. However, you must still verify that the authorisation policy grants the required actions to the service owner. See [integrating with Maskinporten (in Norwegian)](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/). Build and deploy the app again after changing the scopes or the authorisation policy.
 
 
 <!--Konfigurer visning av betalingsinformasjon-->

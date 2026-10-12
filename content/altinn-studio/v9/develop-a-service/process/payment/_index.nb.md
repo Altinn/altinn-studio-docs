@@ -4,9 +4,6 @@ title: Slik setter du opp betaling i appen
 linktitle: Betaling
 description: Slik integrerer du betaling i Altinn-appen din.
 tags: [betaling, needsReview]
-
-aliases:
-- /nb/altinn-studio/v8/guides/payment/
 ---
 
 <!-- Før du starter -->
@@ -42,7 +39,7 @@ Du finner informasjon om hvordan du oppretter avtalen her:
 {{</content-version-container>}}
 {{</content-version-selector>}}
 
-Når Nets varsler appen om at betalingen er fullført, oppdaterer appen betalingsinformasjonen og fører prosessen videre på vegne av tjenesteeieren. I `App/config/authorization/policy.xml` må `[org]` derfor ha handlingene `read` og `write` for appen og `confirm` for betalingsoppgaven.
+Når Nets varsler appen om at betalingen er fullført, oppdaterer appen betalingsinformasjonen og fører prosessen videre på vegne av tjenesteeieren. I `App/config/authorization/policy.xml` må `[org]` derfor ha handlingene `read` og `write` for appen og `confirm` for betalingsoppgaven. Standardpolicyen som følger med appen, gir `[org]` `read` og `write`, men ikke `confirm`. Du må derfor legge til `confirm` for `[org]` på betalingsoppgaven selv.
 
 Altinn Studio legger automatisk til standardscopene for tjenesteeier i Maskinporten for apper som bruker Altinn App v9. Kontroller likevel at autorisasjonspolicyen gir tjenesteeieren de nødvendige handlingene. Se [integrasjon med Maskinporten](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/). Bygg og publiser appen på nytt etter at du har endret scopene eller autorisasjonspolicyen.
 

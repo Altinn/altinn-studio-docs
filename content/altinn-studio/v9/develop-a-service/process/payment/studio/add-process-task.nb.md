@@ -5,34 +5,38 @@ tags: [needsReview]
 ---
 
 
->Du gjør oppsettet i denne seksjonen fra **Prosess**-siden i appens arbeidsflate. Naviger dit ved å klikke på **Prosess** i toppmenyen fra appens arbeidsflate.
+> Du gjør oppsettet i denne seksjonen fra **Arbeidsflyt**-siden i arbeidsflaten for appen. Gå dit ved å klikke på **Arbeidsflyt** i toppmenyen.
 
-### 1. Legg til betalingsoppgave
+### 1. Legge til en betalingsoppgave
 
-Legg til en betalingsoppgave i prosessen ved å velge betalingsoppgave fra menyen til venstre i prosess-editoren og dra den inn i prosessen. 
+Legg til en betalingsoppgave i prosessen ved å velge betalingsoppgave fra menyen til venstre i prosessverktøyet og dra den inn i prosessen.
 
-Systemet oppdaterer følgende konfigurasjoner automatisk:
-- Systemet legger til to datatyper knyttet til betaling (én for data om betaling, én for betalingskvittering).
-- Systemet legger til sider for betalingsoppgaven, med en ferdig oppsatt side.
-- Systemet legger til en ny regel for tilgangsstyring knyttet til betalingsoppgaven – du må konfigurere denne senere.
+Altinn Studio setter da opp dette automatisk:
 
-### 2. Legg til gateway etter betalingssteget
+- Altinn Studio legger til to datatyper knyttet til betaling (én for data om betalingen, én for betalingskvitteringen).
+- Altinn Studio legger til sider for betalingsoppgaven, med en ferdig oppsatt side.
+- Altinn Studio legger til en ny regel for tilgangsstyring knyttet til betalingsoppgaven. Du må gjøre ferdig denne regelen senere.
+
+### 2. Legge til en gateway etter betalingssteget
 
 Gatewayen bør ha to sekvensflyter ut:
+
 - Én som peker videre i prosessen.
 - Én som peker tilbake til forrige oppgave i prosessen (før betaling).
 
-### 3. Sett opp regler for sekvensflytene
+### 3. Sette opp regler for sekvensflytene
 
 **For sekvensflyten som går videre:**
+
 1. Klikk på sekvensflyten som går _videre_ i prosessen.
-2. I panelet til høyre klikker du på **Legg til en ny logikkregel**. Systemet setter da denne opp med aksjonen **Avvise** (`reject`) som utgangspunkt.
-3. Klikk på **Endre** og endre fra **Avvise** til **Bekreft**. 
+2. I panelet til høyre klikker du på **Lag en ny logikkregel**. Altinn Studio setter da opp regelen med handlingen **Avvise** (`reject`) som utgangspunkt.
+3. Klikk på **Endre**, og endre handlingen fra **Avvise** til **Bekrefte** (`confirm`).
 4. Klikk på **Lagre og lukk** for å lagre regelen.
 
 **For sekvensflyten som går tilbake:**
-1. Klikk på sekvensflyten som går _tilbake_ i prosessen. 
-2. Gjenta stegene over, men denne gangen trenger du ikke å endre det oppsettet som legges til – aksjon skal være **Avvise**.
 
-    
+1. Klikk på sekvensflyten som går _tilbake_ i prosessen.
+2. Gjenta stegene over, men denne gangen beholder du regelen slik Altinn Studio setter den opp. Handlingen skal være **Avvise**.
+
+
 ![Eksempel på en prosess med utfylling etterfulgt av betaling](./process-data-payment.png "Eksempel på en prosess med utfylling etterfulgt av betaling")

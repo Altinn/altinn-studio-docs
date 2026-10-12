@@ -4,13 +4,18 @@ hidden: true
 tags: [needsReview]
 ---
 
-> Dette steget foregår i appens prosessverktøy. Naviger til appens arbeidsflate, og velg **Prosess** fra toppmenyen.
+> Dette steget foregår i prosessverktøyet. Gå til arbeidsflaten for appen, og velg **Arbeidsflyt** fra toppmenyen.
 
-1. Velg betalingsoppgaven i prosessverktøyet ved å klikke på den.
-   - Sjekk at konfigurasjonspanelet på høyre side oppdateres med detaljer fra oppgaven.
-2. Klikk på **Tilganger**-seksjonen for å ekspandere den, og velg **Gå til Tilganger**.
-3. Rull ned til bunnen av modalen, og se at systemet har markert en regel i rødt.
-4. Legg til rollen(e) som skal ha tilgang til betalingsoppgaven, i regelen som systemet har markert i rødt.
-   - Når du har lagt til rolle, er regelen gyldig og systemet markerer den ikke lenger i rødt.
-5. Lukk **Innstillinger**-modalen ved å klikke på X-en øverst til høyre.
+Da du la til betalingsoppgaven, laget Altinn Studio en tilgangsregel for oppgaven. Regelen gir handlingene `read`, `pay`, `confirm` og `reject` på betalingsoppgaven, men den mangler hvem som skal ha tilgangen. Slik gjør du regelen ferdig:
 
+1. Klikk på betalingsoppgaven i prosessverktøyet.
+   - Sjekk at konfigurasjonspanelet på høyre side viser detaljer om oppgaven.
+2. Klikk på **Tilganger** i panelet for å åpne seksjonen, og klikk på **Gå til Tilganger**.
+   - Siden **Innstillinger** åpner seg med fanen **Tilganger**.
+3. Velg fanen **Regler**. Siden viser først fanen **Oversikt**.
+4. Finn regelen for betalingsoppgaven. Den viser feilmeldingen «Du må velge minst én rolle eller tilgangspakke.».
+5. Velg én eller flere roller eller tilgangspakker under **Hvem skal ha disse rettighetene?**.
+   - Når du har valgt minst én rolle eller tilgangspakke, er regelen gyldig, og feilmeldingen forsvinner.
+6. Klikk på **Til Arbeidsflyt** øverst på siden for å gå tilbake til prosessverktøyet.
+
+Den som betaler, trenger også handlingen **Skriv** (`write`) på betalingsoppgaven, fordi appen lagrer betalingsinformasjonen med tilgangene til brukeren. Standardpolicyen som følger med appen, gir rollene Privatperson (PRIV) og Daglig leder (DAGL) **Skriv** for hele appen. Hvis du velger andre roller eller tilgangspakker i regelen, legger du også til **Skriv** under **Hvilke rettigheter skal gis?**.

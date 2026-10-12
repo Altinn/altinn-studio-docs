@@ -1,6 +1,7 @@
 ---
 draft: true
 hidden: true
+tags: [needsReview]
 ---
 
 > This is a description of how to set up a payment task in the app process. This involves several manual steps in multiple
@@ -22,7 +23,7 @@ This data type is used to store information and status about the payment. Put it
       "app:owned"
     ],
     "maxCount": 1,
-    "minCount": 0,
+    "minCount": 0
 }
 ```
 
@@ -38,13 +39,13 @@ This data type is used to store the PDF-receipt for the payment. Configure it ne
       "app:owned"
     ],
     "maxCount": 1,
-    "minCount": 0,
+    "minCount": 0
 }
 ```
 
-It is important to set `allowedContributors` to `"app:owned"`. This ensures that these data items cannot be edited via the app’s API but only by the app itself. Before version 8.6, this was misspelled `allowedContributers`.
+It is important to set `allowedContributors` to `"app:owned"`. This ensures that these data items cannot be edited via the app’s API but only by the app itself.
 
-The IDs can be set to something else, but they must match the IDs entered in `paymentDataType` and `paymentReceiptPdfDataType` in the process step, as shown in step 2.
+The IDs can be set to something else, but they must match the IDs entered in `paymentDataType` and `paymentReceiptPdfDataType` in the process step, as shown in the next section.
 
 ### Extend the app process with payment task:
 
@@ -123,7 +124,7 @@ Add `Settings.json` to the folder. Set `defaultDataType` to the data model used 
 
 ```json
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "$schema": "https://altinn.studio/designer/app-dist/9.0.0-preview.7/schemas/json/layout/layoutSettings.schema.v1.json",
   "defaultDataType": "model",
   "pages": {
     "order": ["payment"]
@@ -135,7 +136,7 @@ Create `App/ui/Task_2/layouts`, then add `payment.json` with the following layou
 
 ```json
 {
-  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinn.studio/designer/app-dist/9.0.0-preview.7/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       {
