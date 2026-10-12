@@ -10,7 +10,7 @@ tags: [needsReview]
 Altinn lagrer instansene og dataene til appen i lagringstjenesten Altinn Storage. Du kan styre to ting ved lagringen i filen `App/config/applicationmetadata.json`:
 
 - hvilket format skjemadataene får
-- hvor lenge ingen kan slette en instans etter at den er sendt inn
+- hvor lenge ingen kan slette en instans etter at prosessen er avsluttet
 
 ## Velge format for skjemadata
 
@@ -35,17 +35,23 @@ Vil du lagre skjemadataene som JSON, setter du `application/json` først i `allo
 }
 ```
 
-Appen bruker det formatet av `application/json` og `application/xml` som står først i listen. Står ingen av dem i listen, lagrer appen som XML.
+Appen bruker det formatet av `application/json` og `application/xml` som står først i listen. Har datatypen ingen liste, lagrer appen som XML. Står bare andre formater i listen, for eksempel `application/pdf`, lagrer appen også som XML, men skjemadataene får en valideringsfeil, og brukerne kan ikke sende dem inn.
 
-Endringen gjelder bare data appen lagrer etter at du har publisert endringen. Data som allerede er lagret, beholder formatet sitt.
+Endringen gjelder bare nye skjemadata appen lager etter at du har publisert endringen, i praksis nye instanser. Skjemadata som allerede finnes, beholder formatet sitt, også når brukerne endrer dem.
 
 {{% notice warning %}}
 Har appen instanser som brukerne ikke har sendt inn ennå, må `application/xml` fortsatt stå i listen. Ellers får instansene med XML-data en valideringsfeil, og brukerne kan ikke sende dem inn.
 {{% /notice %}}
 
+{{% notice warning %}}
+Sender appen skjemadataene via eFormidling, får filen med skjemadataene alltid ID-en til datatypen og `.xml` som navn, for eksempel `model.xml`, også når innholdet er JSON. Mottakerne får altså JSON i en fil som slutter på `.xml`. Avklar med mottakerne før du bytter til JSON.
+{{% /notice %}}
+
+Har appen egen kode som leser eller lagrer skjemadata, kan du spørre utviklerne: «Bruker egen kode i appen utdaterte metoder for å lese eller lagre skjemadata?» Noen eldre metoder virker ikke når `application/json` står i listen, og appen stopper med en feil når den bruker dem.
+
 ## Hindre at instanser blir slettet
 
-Med `preventInstanceDeletionForDays` bestemmer du hvor mange dager ingen kan slette en instans etter at den er sendt inn. Sperren gjelder både brukerne og tjenesteeieren.
+Med `preventInstanceDeletionForDays` bestemmer du hvor mange dager ingen kan slette en instans etter at prosessen er avsluttet. Har appen steg etter innsendingen, for eksempel signering eller betaling, begynner perioden først når det siste steget er ferdig. Sperren gjelder både brukerne og tjenesteeieren.
 
 Eksempelet hindrer sletting i 30 dager:
 
@@ -60,3 +66,8 @@ Slik fungerer sperren:
 - Altinn regner dagene fra instansen ble arkivert, det vil si da prosessen ble avsluttet.
 - Sperren gjelder ikke før instansen er arkivert. Brukerne kan for eksempel fortsatt slette utkast.
 - Prøver noen å slette instansen i perioden, avviser Altinn Storage slettingen.
+- Sperren gjelder bare instansen, ikke de enkelte dataelementene. Har en datatype `autoDeleteOnProcessEnd: true`, sletter appen disse dataene når prosessen er avsluttet, uansett sperre.
+
+{{% notice warning %}}
+Ikke kombiner `preventInstanceDeletionForDays` med `autoDeleteOnProcessEnd: true` for hele appen. Da sletter appen instansen i samme øyeblikk som prosessen blir avsluttet, før sperren gjelder.
+{{% /notice %}}
