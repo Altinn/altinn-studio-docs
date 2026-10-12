@@ -34,4 +34,4 @@ som best beskriver din tiltenkte mottaker.
 
 ## Sende meldinger fra appen
 
-Appen sender meldinger på vegne av tjenesteeieren og henter tokenet fra Maskinporten. Se [Sende meldinger med Maskinporten-autorisasjon]({{< relref "/altinn-studio/v9/develop-a-service/integration/correspondence/maskinporten" >}}) for hvordan du setter det opp og skriver koden.
+Appen sender meldinger på vegne av tjenesteeieren og henter tokenet via Maskinporten. Se [Sende meldinger med Maskinporten-autorisasjon]({{< relref "/altinn-studio/v9/develop-a-service/integration/correspondence/maskinporten" >}}) for hvordan du setter det opp og skriver koden.

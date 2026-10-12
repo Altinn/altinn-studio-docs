@@ -36,7 +36,7 @@ En melding har mange mulige innstillinger, men bare noen få er påkrevd. `Corre
 
 Du finner alle innstillingene og forklaringen til dem via IntelliSense i kodeeditoren din.
 
-Når du sender meldingen, angir du hvordan appen skal hente token. Med `CorrespondenceAuthenticationMethod.Default()` henter appen et tjenesteeiertoken med scopet `altinn:correspondence.write` fra Maskinporten.
+Når du sender meldingen, angir du hvordan appen skal hente token. Med `CorrespondenceAuthenticationMethod.Default()` henter appen et token fra Maskinporten og veksler det inn i et tjenesteeiertoken fra Altinn med scopet `altinn:correspondence.write`.
 
 {{< code-title >}}
 App/CorrespondenceClientDemo.cs
@@ -118,7 +118,7 @@ Klienten overtar strømmen og lukker den når opplastingen er ferdig. Du skal ik
 
 ### Hindre at meldingen blir sendt to ganger
 
-Hvis koden din prøver å sende på nytt etter en feil, kan meldingen bli sendt to ganger. Det gjelder for eksempel kode i en prosess-hook, som kan kjøre flere ganger. Gi meldingen en fast nøkkel med `WithIdempotentKey(Guid)`, og bruk den samme nøkkelen hver gang du prøver på nytt. Finnes meldingen allerede, får du en `CorrespondenceRequestException` med statuskoden `409 Conflict`. Da vet du at meldingen allerede er sendt.
+Hvis koden din prøver å sende på nytt etter en feil, kan meldingen bli sendt to ganger. Det gjelder for eksempel kode i en prosess-hook, som kan kjøre flere ganger. Gi meldingen en fast nøkkel med `WithIdempotentKey(Guid)`, og bruk den samme nøkkelen hver gang du prøver på nytt. Lag nøkkelen ut fra noe som ikke endrer seg, for eksempel instansen og hva meldingen gjelder. En ny `Guid.NewGuid()` for hvert forsøk hindrer ingenting. Finnes meldingen allerede, får du en `CorrespondenceRequestException` med statuskoden `409 Conflict`. Da vet du at meldingen allerede er sendt.
 
 Du kan ikke bruke nøkkelen når meldingen har flere mottakere.
 
@@ -143,7 +143,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 `CorrespondenceAuthenticationMethod.Default()` passer for de fleste. Trenger du å hente tokenet på en annen måte, for eksempel med en egen Maskinporten-klient, kan du bruke `CorrespondenceAuthenticationMethod.Custom` med en delegat som returnerer tokenet.
 
-Tokenet må være et tjenesteeiertoken fra Altinn med scopet `altinn:correspondence.write`. Et rent Maskinporten-token må du altså veksle inn hos Altinn først. Appen bruker tokenet til alle kallene den gjør mot meldingstjenesten for meldingen, også når den laster opp vedlegg.
+Delegaten skal returnere et tjenesteeiertoken fra Altinn med scopet `altinn:correspondence.write`. Appen bruker tokenet til alle kallene den gjør mot meldingstjenesten for meldingen, også når den laster opp vedlegg.
 
 ```cs
 new SendCorrespondencePayload(
@@ -168,4 +168,10 @@ Dette er endret fra v8:
 - **`WithData(ReadOnlyMemory<byte>)` finnes ikke lenger.** Bruk `WithData(Stream)`. Har du en byte-array, bruker du `WithData(new MemoryStream(bytes))`.
 - **`CorrespondenceAuthenticationMethod.Default()` ber også om scopene `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write`.** Appens Maskinporten-klient må derfor ha dem. Alle v9-apper har dem automatisk.
 
-`studioctl app upgrade v9` skriver om de to payload-konstruktørene og `WithData`-kall med byte-array for deg, og lister opp hver endring slik at du kan se over dem. Kall verktøyet ikke kan skrive om trygt, sier det fra om.
+`studioctl app upgrade v9` skriver om noen av disse kallene for deg og lister opp hver endring, slik at du kan se over dem:
+
+- `CorrespondenceAuthorisation.Maskinporten` blir til `CorrespondenceAuthenticationMethod.Default()` når verdien står rett i kallet til payload-konstruktøren.
+- En delegat som står rett i kallet, blir pakket inn i `CorrespondenceAuthenticationMethod.Custom(...)`.
+- `WithData` med en byte-array blir til `WithData(new MemoryStream(...))` når verktøyet kan se at det er en byte-array.
+
+Kall verktøyet ikke kan skrive om trygt, for eksempel når `CorrespondenceAuthorisation` ligger i en egen variabel, sier det fra om. Dem retter du selv.
