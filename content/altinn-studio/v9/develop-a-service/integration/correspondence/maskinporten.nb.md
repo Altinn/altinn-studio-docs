@@ -2,7 +2,7 @@
 draft: true
 title: Sende meldinger med Maskinporten-autorisasjon
 linktitle: Med Maskinporten
-description: Slik sender du meldinger fra appen med appens Maskinporten-klient
+description: Slik sender du meldinger fra appen med appens Maskinporten-klient.
 weight: 100
 toc: true
 tags: [needsReview]
@@ -12,7 +12,7 @@ Appen sender meldinger på vegne av tjenesteeieren, ikke på vegne av brukeren s
 
 Før du starter, må du ha satt opp en [Altinn-ressurs]({{< relref "/altinn-studio/v9/develop-a-service/integration/correspondence#altinn-ressurs" >}}) for meldingene.
 
-## Legg til scopet for meldingstjenesten
+## Legge til scopet for meldingstjenesten
 
 Appens Maskinporten-klient må ha scopet `altinn:correspondence.write`.
 
@@ -36,7 +36,7 @@ En melding har mange mulige innstillinger, men bare noen få er påkrevd. `Corre
 
 Du finner alle innstillingene og forklaringen til dem via IntelliSense i kodeeditoren din.
 
-Når du sender meldingen, angir du hvordan appen skal hente token. Med `CorrespondenceAuthenticationMethod.Default()` henter appen et token fra Maskinporten og veksler det inn i et tjenesteeiertoken fra Altinn med scopet `altinn:correspondence.write`.
+Når du sender meldingen, angir du hvordan appen skal hente tokenet. Med `CorrespondenceAuthenticationMethod.Default()` henter appen et token fra Maskinporten og veksler det inn i et tjenesteeiertoken fra Altinn med scopet `altinn:correspondence.write`.
 
 {{< code-title >}}
 App/CorrespondenceClientDemo.cs
@@ -122,9 +122,9 @@ Prøver du å sende på nytt, må du lage både meldingen og strømmen på nytt.
 
 Hvis koden din prøver å sende på nytt etter en feil, kan meldingen bli sendt to ganger. Det gjelder for eksempel kode i en prosess-hook, som kan kjøre flere ganger. Gi meldingen en fast nøkkel med `WithIdempotentKey(Guid)`, og bruk den samme nøkkelen hver gang du prøver på nytt. En ny `Guid.NewGuid()` for hvert forsøk hindrer ingenting.
 
-Nøkkelen må være unik i hele meldingstjenesten, ikke bare i appen din. Lag den derfor ut fra noe som er unikt og ikke endrer seg, for eksempel instans-ID-en og hva meldingen gjelder.
+Nøkkelen må være unik i hele meldingstjenesten, ikke bare i appen din, og den må være den samme hver gang du prøver på nytt. Sender du meldingen fra en systemoppgave, kan du bruke `context.StepId` som nøkkel. Se [Gjøre oppgaven trygg å kjøre om igjen]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom#gjøre-oppgaven-trygg-å-kjøre-om-igjen" >}}). Sender appen bare én melding per instans, kan du bruke GUID-en til instansen.
 
-Finnes det allerede en melding med samme nøkkel, får du en `CorrespondenceRequestException` med statuskoden `409 Conflict`. Det betyr bare at meldingstjenesten har tatt imot en melding med denne nøkkelen tidligere, ikke at den er publisert. Vil du vite om meldingen er publisert, bruker du `GetStatus`.
+Finnes det allerede en melding med samme nøkkel, får du en `CorrespondenceRequestException` med statuskoden `409 Conflict`. Det betyr bare at meldingstjenesten har tatt imot en melding med denne nøkkelen tidligere, ikke at den er publisert. Svaret inneholder ikke ID-en til meldingen. Vil du sjekke status, må du ha lagret meldings-ID-en (`CorrespondenceId`) fra svaret på det første forsøket, og kalle `GetStatus` med den. Meldingsklienten i appen kan ikke slå opp en melding ut fra nøkkelen.
 
 Klienten laster opp vedleggene før den oppretter meldingen. Prøver du på nytt, laster den derfor opp vedleggene en gang til, også når du får `409 Conflict`. Disse vedleggene hører ikke til noen melding.
 
@@ -151,16 +151,17 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 `CorrespondenceAuthenticationMethod.Default()` passer for de fleste. Trenger du å hente tokenet på en annen måte, for eksempel med en egen Maskinporten-klient, kan du bruke `CorrespondenceAuthenticationMethod.Custom` med en delegat som returnerer tokenet.
 
-Delegaten skal returnere et tjenesteeiertoken fra Altinn med scopene `altinn:serviceowner` og `altinn:correspondence.write`. Mangler tokenet `altinn:serviceowner`, må policyen til ressursen gi virksomheten din `write`, også når virksomheten din eier ressursen.
+Delegaten skal returnere et tjenesteeiertoken fra Altinn. Tokenet må ha scopet `altinn:correspondence.write`, og bør ha `altinn:serviceowner`. Mangler tokenet `altinn:serviceowner`, må policyen til ressursen gi virksomheten din `write`, også når virksomheten din eier ressursen.
 
-Appen kaller delegaten før hvert kall til meldingstjenesten. For en melding med vedlegg kan det bli mange kall, fordi appen sjekker status for hvert vedlegg opptil 60 ganger. Lagre derfor tokenet i delegaten, og hent et nytt først når det gamle er i ferd med å utløpe.
+Appen kaller delegaten før hvert kall til meldingstjenesten. For en melding med vedlegg kan det bli mange kall, fordi appen sjekker status for hvert vedlegg opptil 60 ganger. Lagre derfor tokenet mellom kallene, og hent et nytt først når det er i ferd med å gå ut.
 
 ```cs
 new SendCorrespondencePayload(
   request,
   CorrespondenceAuthenticationMethod.Custom(async () =>
   {
-    // Hent et Altinn-token med scopet altinn:correspondence.write
+    // Hent et Altinn-token med scopene altinn:serviceowner og altinn:correspondence.write.
+    // Gjenbruk tokenet til det er i ferd med å gå ut.
     string accessToken = await GetTokenFromYourOwnClient();
     return JwtToken.Parse(accessToken);
   })
@@ -186,5 +187,6 @@ De viktigste endringene fra v8:
 - `CorrespondenceAuthorisation.Maskinporten` blir til `CorrespondenceAuthenticationMethod.Default()` når verdien står rett i kallet til payload-konstruktøren.
 - Et lambdauttrykk som står rett i kallet, blir pakket inn i `CorrespondenceAuthenticationMethod.Custom(...)`. Er delegaten en metode eller en variabel, sier verktøyet bare fra om kallet.
 - `WithData` med en byte-array blir til `WithData(new MemoryStream(...))` når verktøyet kan se at det er en byte-array.
+- Verktøyet fjerner kall til `WithSender`, `WithRequestedSendTime`, `WithAllowSystemDeleteAfter` og `WithDataLocationType`. v8 brukte ikke verdiene, så meldingen blir den samme. `CustomRecipient` blir til listen `CustomRecipients`, og `ICorrespondenceRequestBuilderSender` blir til `ICorrespondenceRequestBuilderSendersReference`. Kall til `WithRecipientToOverride` skriver ikke verktøyet om. Det sier bare fra om dem.
 
-Kall verktøyet ikke kan skrive om trygt, for eksempel når `CorrespondenceAuthorisation` ligger i en egen variabel, sier det fra om. Dem retter du selv.
+Verktøyet sier fra om kall det ikke trygt kan skrive om, for eksempel når `CorrespondenceAuthorisation` ligger i en egen variabel. Dem retter du selv.
