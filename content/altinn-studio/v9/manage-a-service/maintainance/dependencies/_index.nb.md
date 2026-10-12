@@ -6,12 +6,11 @@ description: Hvordan oppdatere avhengigheter i en app.
 toc: true
 ---
 
-Appen er avhengig av flere ressurser som ligger utenfor selve appen.
-Dette inkluderer støttebiblioteker med felles funksjonalitet for alle apper og Helm-diagrammet som brukes ved utrulling.
+Appen er avhengig av støttebiblioteker som ligger utenfor selve appen. Bibliotekene har funksjonalitet som er felles for alle apper.
 
-Disse avhengighetene er definert noen forskjellige steder i appen, og hver avhengighet refereres til med en spesifikk _versjon_.
-Når ressursene oppdateres, publiseres de på nytt som en ny _versjon_. En ny versjon kommer ofte med ny funksjonalitet eller forbedringer.
-For at appen skal kunne ta dette i bruk, må man oppdatere hvilken versjon av ressursene appen henter. 
+Appen henter en bestemt _versjon_ av hvert bibliotek. Når Altinn forbedrer bibliotekene, kommer de i en ny _versjon_. En ny versjon kommer ofte med ny funksjonalitet eller forbedringer. For at appen skal kunne ta dette i bruk, må du oppdatere hvilken versjon appen henter.
+
+Helm-chartet som Altinn bruker når du publiserer appen, trenger du ikke oppdatere selv. Se [Publisering](#publisering).
 
 ## Nuget
 _Nuget er .NET sin package manager, hvor vi publiserer kodebibliotek som brukes av alle appene._

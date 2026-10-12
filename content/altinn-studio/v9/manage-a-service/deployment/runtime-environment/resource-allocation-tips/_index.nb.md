@@ -9,7 +9,7 @@ Du styrer CPU og minne for appen i filen `deployment/values.yaml` i app-repoet. 
 
 ## Tips 1 - Ha et aktivt forhold til hva applikasjonen krever av minne og CPU
 
-Altinn kommer med en standard på 50m CPU og 256 Mi minne. Bare du som utvikler en applikasjon vet hva den faktisk krever. Hvis du cacher mye data krever det mye minne. Hvis du har tunge operasjoner krever det mye CPU. Du bør gjenspeile de faktiske kravene i `values.yaml` hvis de avviker fra standarden.
+Altinn kommer med en standard på 50m CPU og 256Mi minne. Bare du som utvikler en applikasjon vet hva den faktisk krever. Hvis du cacher mye data krever det mye minne. Hvis du har tunge operasjoner krever det mye CPU. Du bør gjenspeile de faktiske kravene i `values.yaml` hvis de avviker fra standarden.
 
 ## Tips 2 - Reduser antall instanser i testmiljø
 

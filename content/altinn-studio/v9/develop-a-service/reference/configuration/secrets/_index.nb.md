@@ -17,9 +17,13 @@ Du administrerer selv hemmelighetene som appen bruker, i Azure Key Vault. [Les h
 
 ## Gi appen tilgang til hemmelighetene
 
-Appen trenger innstillingene for å koble seg til Key Vault. Disse ligger i en egen fil, og appen får bare tilgang til den hvis du legger den til i filen `deployment/values.yaml` i app-repoet. Det gjelder begge måtene å hente hemmeligheter på, som du finner lenger ned på siden.
+Appen trenger innstillingene for å koble seg til Key Vault. Disse ligger i en egen fil, og appen får bare tilgang til den hvis du kobler den til appen i `deployment/values.yaml` i app-repoet. Det gjelder begge måtene å hente hemmeligheter på, som du finner lenger ned på siden.
 
 Legg til `altinn-appsettings-secret` under både `volumeMounts` og `volumes`. Når du er ferdig, ser filen omtrent slik ut:
+
+{{< code-title >}}
+deployment/values.yaml
+{{< /code-title >}}
 
 ```yaml {hl_lines=[8,9,18,19,20]}
 deployment:
@@ -94,56 +98,66 @@ Mangler innstillingene for å koble seg til Key Vault, starter ikke appen. Det s
 
 `ISecretsClient` henter én hemmelighet om gangen fra Key Vault. Du ber om tjenesten i konstruktøren til klassen der du trenger den, og kaller `GetSecretAsync` med navnet på hemmeligheten i Key Vault.
 
-Eksempelet under fyller ut et felt i datamodellen med en hemmelighet når brukeren starter en ny instans:
+Eksempelet under henter en API-nøkkel fra Key Vault og sender den med når appen henter data fra et eksternt system. Nøkkelen havner bare i forespørselen til det eksterne systemet, ikke i dataene i appen:
 
-```csharp
+```csharp {hl_lines=[18,21]}
 using Altinn.App.Core.Internal.Secrets;
-using Altinn.App.Models.model; // Navnerommet til datamodellen din, vanligvis Altinn.App.Models.<modellnavn>
-using Altinn.Platform.Storage.Interface.Models;
 
 namespace Altinn.App.Logic;
 
-public class InstantiationProcessor : IInstantiationProcessor
+public class MinTjenesteKlient
 {
+    private readonly HttpClient _httpClient;
     private readonly ISecretsClient _secretsClient;
 
-    public InstantiationProcessor(ISecretsClient secretsClient)
+    public MinTjenesteKlient(HttpClient httpClient, ISecretsClient secretsClient)
     {
+        _httpClient = httpClient;
         _secretsClient = secretsClient;
     }
 
-    public async Task DataCreation(Instance instance, object data, Dictionary<string, string>? prefill)
+    public async Task<string> HentStatus()
     {
-        if (data is Skjema model)
-        {
-            model.etatid = await _secretsClient.GetSecretAsync("secretId");
-        }
+        string apiKey = await _secretsClient.GetSecretAsync("secretId");
+
+        using var request = new HttpRequestMessage(HttpMethod.Get, "https://api.eksempel.no/status");
+        request.Headers.Add("X-Api-Key", apiKey);
+
+        using HttpResponseMessage response = await _httpClient.SendAsync(request);
+        response.EnsureSuccessStatusCode();
+        return await response.Content.ReadAsStringAsync();
     }
 }
 ```
 
-`secretId` er navnet på hemmeligheten i Key Vault. `Skjema` og `etatid` er eksempler. Bytt dem ut med klassen og feltet i datamodellen din.
+`secretId` er navnet på hemmeligheten i Key Vault. Adressen og `X-Api-Key` er eksempler. Bruk adressen og formatet som systemet du kobler deg til, krever.
 
-Registrer klassen i `RegisterCustomAppServices` i `App/Program.cs`:
+{{% notice warning %}}
+Ikke legg hemmeligheter i datamodellen. Det som står i datamodellen, kan brukeren se, og Altinn lagrer det sammen med instansen.
+{{% /notice %}}
+
+Registrer klassen i `RegisterCustomAppServices` i `App/Program.cs`. `AddHttpClient` gir klassen en egen `HttpClient`:
 
 ```csharp
 using Altinn.App.Logic;
 
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
-    services.AddTransient<IInstantiationProcessor, InstantiationProcessor>();
+    services.AddHttpClient<MinTjenesteKlient>();
 }
 ```
+
+Deretter kan du be om `MinTjenesteKlient` i konstruktøren til klassen som skal bruke dataene fra det eksterne systemet.
 
 ## Kjøre appen lokalt
 
 Når du kjører appen på egen maskin, kobler den seg ikke til Key Vault. Du legger i stedet inn testverdier lokalt. Bruk aldri ekte hemmeligheter fra produksjon.
 
-I v9 får appen oppsettet for lokal kjøring fra studioctl. Det gjelder både når du starter appen med `studioctl app run`, og når du starter den med `dotnet run` eller fra et utviklingsverktøy. Starter du appen uten `studioctl app run`, må appen kjøre i miljøet `Development`, og studioctl må være installert slik at kommandoen `studioctl` virker i terminalen. App-malen kjører appen i `Development` som standard. Du kan legge inn testverdiene på tre måter.
+I v9 får appen oppsettet for lokal kjøring fra `studioctl`. [Les hvordan du installerer og bruker `studioctl`]({{< relref "/altinn-studio/v9/getting-started/development/localtest/local-dev" >}}). Det gjelder både når du starter appen med `studioctl app run`, og når du starter den med `dotnet run` eller fra et utviklingsverktøy. Starter du appen uten `studioctl app run`, må appen kjøre i miljøet `Development`, og `studioctl` må være installert slik at kommandoen `studioctl` virker i terminalen. App-malen kjører appen i `Development` som standard. Du kan legge inn testverdiene på tre måter.
 
-### I hemmelighetsmappen til studioctl
+### I hemmelighetsmappen til `studioctl`
 
-Appen leser JSON-filene i hemmelighetsmappen som studioctl bruker for appen, og verdiene blir en del av konfigurasjonen. Det virker for begge alternativene over. Mappen ligger her:
+Appen leser JSON-filene i hemmelighetsmappen som `studioctl` bruker for appen, og verdiene blir en del av konfigurasjonen. Det virker for begge alternativene over. Mappen ligger her:
 
 - macOS: `~/Library/Application Support/altinn-studio/apps/{org}/{app}/secrets`
 - Linux: `~/.config/altinn-studio/apps/{org}/{app}/secrets` (eller under `$XDG_CONFIG_HOME/altinn-studio` hvis du har satt miljøvariabelen `XDG_CONFIG_HOME`)
@@ -164,7 +178,7 @@ Eksempel på en fil i mappen, for eksempel `minehemmeligheter.json`:
 
 Endrer du en fil som fantes da appen startet, leser appen endringen uten omstart. Samme forbehold om `IOptions<T>` gjelder som for Key Vault. Legger du til en ny fil, må du starte appen på nytt.
 
-Studioctl legger selv filen `app-codes.json` i mappen, og `maskinporten-settings.json` hvis du setter opp en Maskinporten-klient med `studioctl app maskinporten set`. Ikke endre disse filene. Appen leser dem ikke som vanlig konfigurasjon.
+`studioctl` legger selv filen `app-codes.json` i mappen, og `maskinporten-settings.json` hvis du setter opp en Maskinporten-klient med `studioctl app maskinporten set`. Ikke endre disse filene. Appen leser dem ikke som vanlig konfigurasjon.
 
 ### Med brukerhemmeligheter i .NET (user secrets)
 

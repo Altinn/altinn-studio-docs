@@ -159,6 +159,10 @@ Autoskaleringen regner også ut fra `requests`. Se `avgCpuUtilization` over.
 
 Alle apper er med i [Linkerd](https://linkerd.io/), som krypterer trafikken mellom tjenestene i clusteret. Standardverdien i chartet er:
 
+{{< code-title >}}
+altinn-studio-charts/charts/deployment/values.yaml
+{{< /code-title >}}
+
 ```yaml
 linkerd:
   enabled: true
@@ -170,15 +174,19 @@ Ikke slå av Linkerd. Det er Linkerd som krypterer trafikken mellom appen og de 
 
 ## Volumer
 
-`volumes` og `volumeMounts` kobler filer og lagring til filsystemet i appen. `volumes` beskriver hva som skal kobles til, og `volumeMounts` sier hvor i filsystemet det havner.
+`volumes` og `volumeMounts` kobler filer og lagring til filsystemet i appen. `volumes` beskriver hva du kobler til, og `volumeMounts` sier hvor i filsystemet det havner.
 
 `values.yaml` fra app-malen har allerede de to volumene appen trenger for å kommunisere med Altinn-plattformen, `datakeys` og `accesstoken`. Behold dem, og legg eventuelle nye volumer under dem.
 
-Det vanligste du legger til volumer for, er hemmeligheter fra Azure Key Vault. Les mer på siden om [hemmeligheter]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/secrets" >}}).
+Det vanligste du legger til volumer for, er innstillingene appen trenger for å koble seg til Azure Key Vault og hente hemmeligheter derfra. Les mer på siden om [hemmeligheter]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/secrets" >}}).
 
 ## Port
 
 `service` bestemmer hvilken port appen svarer på inne i clusteret. Standardverdiene i chartet er:
+
+{{< code-title >}}
+altinn-studio-charts/charts/deployment/values.yaml
+{{< /code-title >}}
 
 ```yaml
 service:
@@ -214,7 +222,7 @@ Altinn setter disse innstillingene når du publiserer appen:
 - `altinn.studio/deployment-id` under `podAnnotations`
 - `ingressRoute`
 
-Verdiene fra Altinn går foran verdiene i `values.yaml`. Ikke endre dem i `values.yaml`.
+Verdiene fra Altinn går foran verdiene i `values.yaml`. Ikke sett dem i `values.yaml`.
 
 {{% notice warning %}}
 `image.environment` og `image.envFrom` er lister. Altinn erstatter hele listen når du publiserer appen. Legger du inn egne miljøvariabler under `image.environment` eller `image.envFrom` i `values.yaml`, forsvinner de.
