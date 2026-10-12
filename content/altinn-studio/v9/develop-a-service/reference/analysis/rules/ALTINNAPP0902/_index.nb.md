@@ -6,10 +6,10 @@ weight: 92
 ---
 
 Denne diagnostikken meldes når `applicationmetadata.json` setter `autoDeleteOnProcessEnd` til
-`true` og `preventInstanceDeletionForDays` til et antall dager. Meldingen navngir antallet dager.
+`true` og `preventInstanceDeletionForDays` til et positivt antall dager. Meldingen navngir antallet dager.
 
 `autoDeleteOnProcessEnd` sletter instansen når prosessen er avsluttet. `preventInstanceDeletionForDays`
-forbyr at instansen slettes så mange dager etter at den er arkivert, og instansen blir arkivert når
+forbyr at instansen slettes i så mange dager etter at den er arkivert, og instansen blir arkivert når
 prosessen avsluttes. De to innstillingene ber om motsatte ting i samme øyeblikk, så appen kan ikke
 følge begge.
 

@@ -6,8 +6,8 @@ weight: 92
 ---
 
 This diagnostic is reported when `applicationmetadata.json` sets `autoDeleteOnProcessEnd` to
-`true` and `preventInstanceDeletionForDays` to a number of days. The message names the number of
-days.
+`true` and `preventInstanceDeletionForDays` to a positive number of days. The message names the
+number of days.
 
 `autoDeleteOnProcessEnd` deletes the instance when its process ends. `preventInstanceDeletionForDays`
 forbids deleting the instance for that many days after it is archived, and the instance is archived
