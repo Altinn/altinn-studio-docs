@@ -41,8 +41,8 @@ Her er en oversikt over hvordan du kommer i gang med lokal utvikling.
 2. Klikk på **Kode**, og kopier lenken under **HTTPS** med kopieringsknappen (markert med rød sirkel).
     ![Kopier lenken til repositoriet i Gitea](./copy-repo-link.png "Kopier lenken til repositoriet")
 3. Åpne en terminal i det lokale utviklingsmiljøet ditt, gå til mappen der du vil ha appen, og kjør `git clone` med lenken du kopierte:
-    ```cmd
-    $ git clone https://altinn.studio/repos/<org>/<app-name>.git
+    ```bash
+    git clone https://altinn.studio/repos/<org>/<app-name>.git
     ```
     Du logger inn i Altinn Studio med Ansattporten og har derfor ikke et eget passord. Hvis Git spør om passord, bruker du et [personlig tilgangstoken fra Gitea](https://altinn.studio/repos/user/settings/applications) i stedet.
 

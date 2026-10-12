@@ -33,8 +33,8 @@ Here is an overview of how to get started with local development.
 2. Click **Kode**, and copy the link under **HTTPS** with the copy button (marked with a red circle).
     ![Copy the repository link in Gitea](./copy-repo-link.png "Copy the repository link")
 3. Open a terminal in your local development environment, go to the folder where you want the app, and run `git clone` with the link you copied:
-    ```cmd
-    $ git clone https://altinn.studio/repos/<org>/<app-name>.git
+    ```bash
+    git clone https://altinn.studio/repos/<org>/<app-name>.git
     ```
     You log in to Altinn Studio with Ansattporten, so you don't have a separate password. If Git asks for a password, use a [personal access token from Gitea](https://altinn.studio/repos/user/settings/applications) instead.
 
