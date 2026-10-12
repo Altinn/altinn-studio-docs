@@ -2,7 +2,7 @@
 draft: true
 title: Utforme en god tjeneste
 weight: 1
-tags: [needsReview]
+tags: [Reviewed]
 ---
 
 Tenk på brukerens reise gjennom skjemaet ditt og selve skjemaoppsettet, slik at tjenesten fungerer godt fra start til slutt.
@@ -12,11 +12,11 @@ Tenk på brukerens reise gjennom skjemaet ditt og selve skjemaoppsettet, slik at
 - Gi brukeren en tydelig inngang til tjenesten, gjerne en direkte lenke til skjemaet.
 - Unngå mellomliggende sider som kan skape usikkerhet eller få brukeren til å tro at de har kommet feil.
 - Gjør det klart at brukeren «kommer inn» i Altinn-tjenesten når de starter tjenesten.
-  - Hvis tjenesten skal ligge i Altinn tjenestekatalog, må du huske på å lage en god og informativ "Om skjemaet"-side.
+  - Beskriv tjenesten godt under **Innstillinger** → **Om appen** i Altinn Studio. Beskrivelsen blir registrert i Altinn når du publiserer appen, og hjelper brukerne å forstå hva tjenesten er til, og når de kan bruke den. Les mer om [hvordan du beskriver tjenesten]({{< relref "/altinn-studio/v9/develop-a-service/configuration/tjenestebeskrivelser" >}}).
   - Hvis tjenesten tar i bruk Arbeidsflate, må du passe på at meldingsteksten som dukker opp i innboksen samsvarer med innholdet i tjenesten din, slik at brukerne får en helhetlig opplevelse.
 
 {{% notice info %}}
-**Kommer:** Bildeksempel på Altinn innboks og Tjenesteeieres nettsted.
+**Kommer:** Bildeeksempel på Altinn innboks og Tjenesteeieres nettsted.
 {{% /notice %}}
 
 ## 2. Gi brukeren en god og trygg opplevelse
@@ -35,7 +35,7 @@ Tenk på brukerens reise gjennom skjemaet ditt og selve skjemaoppsettet, slik at
 
 ## 3. Strukturer skjemaet slik at det oppleves enkelt
 
-- Del opp skjema i flere korte sideinndelinger, fremfor én lang side. Begrens antall felt per side til 4–6 felt per side, hvis mulig, og plasser feltene i én kolonne. Noen ganger kan vi sidestille felter som et unntak. Det gjelder for eksempel hvis feltene er korte og det gir mening å plassere dem i en kontekst (for eksempel når du bruker Adresse-komponenten der postnummer og by er sidestilte felter). (kilde [designsystem.gov.scot](https://designsystem.gov.scot/guidance/forms/form-structure) og [designsystem.gov.scot](https://designsystem.gov.scot/guidance/forms/form-design))
+- Del opp skjemaet i flere korte sider fremfor én lang side. Begrens antall felt til 4–6 per side, hvis mulig, og plasser feltene i én kolonne. Noen ganger kan vi sidestille felter som et unntak. Det gjelder for eksempel hvis feltene er korte og det gir mening å plassere dem i en kontekst (for eksempel når du bruker Adresse-komponenten der postnummer og by er sidestilte felter). (kilde [designsystem.gov.scot](https://designsystem.gov.scot/guidance/forms/form-structure) og [designsystem.gov.scot](https://designsystem.gov.scot/guidance/forms/form-design))
 
 **Gjør slik:**
 
@@ -79,5 +79,5 @@ Tenk på brukerens reise gjennom skjemaet ditt og selve skjemaoppsettet, slik at
 
 ## 5. Test tjenesten før du publiserer den
 
-- Test skjemaet med faktiske brukere, for å sjekke at innholdet er korrekt, at flyten fungerer, og at brukeropplevelsen er god. [Tips for brukertesting finner du her](../user-testing/).
+- Test skjemaet med faktiske brukere, for å sjekke at innholdet er korrekt, at flyten fungerer, og at brukeropplevelsen er god. Les [tips for brukertesting](../user-testing/).
 - Du kan publisere tjenesten i testmiljøet vårt (TT02), for å dele tjenesten med andre.

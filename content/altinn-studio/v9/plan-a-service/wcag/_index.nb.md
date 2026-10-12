@@ -2,7 +2,8 @@
 draft: true
 title: Sikre tilgjengelighet i Altinn-tjenester
 description: Slik sikrer du tilgjengelighet i tjenesten din
-tags: [needsReview]
+weight: 3
+tags: [Reviewed]
 ---
 
 ## Altinn Studio – en trygg og inkluderende plattform
@@ -17,13 +18,13 @@ Hvis du har spørsmål eller ønsker å dele erfaringer, kan du enkelt ta kontak
 
 **Husk:** God tilgjengelighet gjør at alle, uansett funksjonsevne, kan bruke tjenesten din.
 
-## Dette får du automatisk med Altinn
+### Dette får du automatisk med Altinn
 
 - Mange tilgjengelighetskrav er allerede løst for deg.
 - Tjenesten virker på ulike skjermstørrelser.
 - Du får et godt utgangspunkt, men er selv ansvarlig for innhold, tekster og tilgjengelighetserklæring.
 
-## Slik gjør du tjenesten enda mer tilgjengelig
+### Slik gjør du tjenesten enda mer tilgjengelig
 
 1. **Tekst og språk**
    - Bruk korte og enkle ord på titler og knapper.
