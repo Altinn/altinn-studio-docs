@@ -15,9 +15,10 @@ Du gjør endringene i repositoriet til appen.
 
 1. Åpne `App/App.csproj`, og oppdater `Altinn.App.Api` og `Altinn.App.Core` til siste 8.x-versjon. Du finner versjonene på [NuGet](https://www.nuget.org/packages/Altinn.App.Core).
 2. Sett `TargetFramework` til `net10.0` i den samme filen. Har appen et testprosjekt, gjør du den samme endringen der.
-3. Åpne `Dockerfile`, og bytt ut `8.0` med `10.0` i de to `FROM`-linjene. Står det `@sha256:` og en lang kode etter versjonen, sletter du den delen.
-4. Bygg appen, for eksempel med `dotnet build App/App.csproj`. Stopper bygget med feilen NU1605, se [neste avsnitt](#hvis-bygget-stopper-med-nu1605).
-5. Publiser appen til TT02, og test hele prosessen før du publiserer den i produksjon.
+3. Slett linjene for pakker som Altinn.App allerede har med, for eksempel `Swashbuckle.AspNetCore`, så slipper du feilen NU1605 («Detected package downgrade»).
+4. Åpne `Dockerfile`, og bytt ut `8.0` med `10.0` i de to `FROM`-linjene. Står det `@sha256:` og en lang kode etter versjonen, sletter du den delen.
+5. Bygg appen, for eksempel med `dotnet build App/App.csproj`.
+6. Publiser appen til TT02, og test hele prosessen før du publiserer den i produksjon.
 
 Slik ser `App/App.csproj` ut etter endringene:
 
@@ -39,18 +40,6 @@ FROM mcr.microsoft.com/dotnet/aspnet:10.0-alpine AS final
 ```
 
 Har appen mye egen kode, bør du sjekke hvilke endringer i [.NET 9](https://learn.microsoft.com/en-us/dotnet/core/compatibility/9.0) og [.NET 10](https://learn.microsoft.com/en-us/dotnet/core/compatibility/10) som ikke er bakoverkompatible.
-
-## Hvis bygget stopper med NU1605
-
-Feilen betyr at appen refererer direkte til en eldre versjon av en pakke som Altinn.App også bruker. Slett linjen med pakken i `App/App.csproj`. Da får appen pakken gjennom Altinn.App, i den versjonen Altinn.App trenger. Det gjelder ofte `Swashbuckle.AspNetCore` eller `Azure.Extensions.AspNetCore.Configuration.Secrets`.
-
-```text
-error NU1605: Warning As Error: Detected package downgrade: Swashbuckle.AspNetCore from 9.0.6 to 9.0.4.
-```
-
-Her sletter du linjen med `Swashbuckle.AspNetCore`.
-
-Vi anbefaler at appen ikke refererer direkte til pakker som Altinn.App allerede har med. Da bestemmer Altinn.App versjonen, og du slipper denne feilen neste gang du oppdaterer. Koden i appen kan fortsatt bruke pakken. Du ser hvilke pakker Altinn.App har med under **Dependencies** på NuGet for [Altinn.App.Api](https://www.nuget.org/packages/Altinn.App.Api#dependencies-body-tab) og [Altinn.App.Core](https://www.nuget.org/packages/Altinn.App.Core#dependencies-body-tab).
 
 ## Nye advarsler etter oppgraderingen
 

@@ -15,9 +15,10 @@ You make the changes in the app's repository.
 
 1. Open `App/App.csproj` and update `Altinn.App.Api` and `Altinn.App.Core` to the latest 8.x version. You can find the versions on [NuGet](https://www.nuget.org/packages/Altinn.App.Core).
 2. Set `TargetFramework` to `net10.0` in the same file. If the app has a test project, make the same change there.
-3. Open `Dockerfile` and replace `8.0` with `10.0` in both `FROM` lines. If the version is followed by `@sha256:` and a long code, delete that part.
-4. Build the app, for example with `dotnet build App/App.csproj`. If the build stops with error NU1605, see the [next section](#if-the-build-stops-with-nu1605).
-5. Publish the app to TT02 and test the whole process before you publish it to production.
+3. Delete the lines for packages that Altinn.App already includes, such as `Swashbuckle.AspNetCore`, to avoid error NU1605 ("Detected package downgrade").
+4. Open `Dockerfile` and replace `8.0` with `10.0` in both `FROM` lines. If the version is followed by `@sha256:` and a long code, delete that part.
+5. Build the app, for example with `dotnet build App/App.csproj`.
+6. Publish the app to TT02 and test the whole process before you publish it to production.
 
 This is how `App/App.csproj` looks after the changes:
 
@@ -39,18 +40,6 @@ FROM mcr.microsoft.com/dotnet/aspnet:10.0-alpine AS final
 ```
 
 If the app has a lot of custom code, read Microsoft's lists of breaking changes in [.NET 9](https://learn.microsoft.com/en-us/dotnet/core/compatibility/9.0) and [.NET 10](https://learn.microsoft.com/en-us/dotnet/core/compatibility/10).
-
-## If the build stops with NU1605
-
-The error means the app references an older version of a package that Altinn.App also uses. Delete the line with the package in `App/App.csproj`. The app then gets the package through Altinn.App, in the version Altinn.App needs. This often applies to `Swashbuckle.AspNetCore` or `Azure.Extensions.AspNetCore.Configuration.Secrets`.
-
-```text
-error NU1605: Warning As Error: Detected package downgrade: Swashbuckle.AspNetCore from 9.0.6 to 9.0.4.
-```
-
-Here, you delete the line with `Swashbuckle.AspNetCore`.
-
-We recommend that the app does not reference packages that Altinn.App already includes. Altinn.App then controls the version, and you avoid this error the next time you upgrade. The app's code can still use the package. You can see which packages Altinn.App includes under **Dependencies** on NuGet for [Altinn.App.Api](https://www.nuget.org/packages/Altinn.App.Api#dependencies-body-tab) and [Altinn.App.Core](https://www.nuget.org/packages/Altinn.App.Core#dependencies-body-tab).
 
 ## New warnings after the upgrade
 

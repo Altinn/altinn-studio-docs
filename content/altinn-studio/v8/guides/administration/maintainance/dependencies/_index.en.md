@@ -47,7 +47,7 @@ Example.:
 - Update the reference to the latest version and save the file.
 - Check if there is any [breaking changes](/en/community/changelog/app-nuget/) with the new version,
   make necessary changes if there are any issues.
-- Remove references to packages that Altinn.App already includes, such as `Swashbuckle.AspNetCore`. Altinn.App then controls the version, and you avoid error NU1605 ("Detected package downgrade") when you upgrade.
+- Remove references to packages that Altinn.App already includes, such as `Swashbuckle.AspNetCore`, to avoid error NU1605 ("Detected package downgrade").
 - Build and deploy a new version of your app.
 {{</content-version-container>}}
 
