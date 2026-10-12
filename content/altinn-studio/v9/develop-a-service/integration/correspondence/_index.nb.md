@@ -27,7 +27,7 @@ Policyen til ressursen må tillate
 
 Mottakerne gir du tilgang med [rollekoder](https://github.com/Altinn/altinn-cdn/blob/master/authorization/subjectoptions.json) eller [tilgangspakker](/nb/authorization/what-do-you-get/accesspackages/business/). Sender du meldinger til personer, bruker du rollekoden `priv`. Det er [rollen Privatperson]({{< relref "/authorization/what-do-you-get/accesspackages/citizens/privatperson" >}}), som alle innbyggere har fra Folkeregisteret.
 
-Sender du til virksomheter, velger du tilgangspakkene eller rollene som passer best for mottakeren. De gamle Altinn 2-rollene slutter å gi tilgang 1. januar 2027. Bruk derfor tilgangspakker, eller roller fra Enhetsregisteret eller Folkeregisteret, ikke Altinn 2-roller. Daglig leder er et eksempel på en rolle fra Enhetsregisteret, og Privatperson er en rolle fra Folkeregisteret. Se [Altinn Autorisasjon – detaljert konsept]({{< relref "/authorization/about/detailed" >}}).
+Sender du til virksomheter, velger du tilgangspakkene eller rollene som passer best for mottakeren. De gamle Altinn 2-rollene slutter å gi tilgang 1. januar 2027. Bruk derfor tilgangspakker eller roller fra Enhetsregisteret, for eksempel daglig leder. Se [Altinn Autorisasjon – detaljert konsept]({{< relref "/authorization/about/detailed" >}}).
 
 Eier virksomheten din ressursen, trenger policyen ingen `write`-regel for at appen skal kunne sende. Meldingstjenesten slipper gjennom tjenesteeieren som eier ressursen. Det gjelder når appen bruker `CorrespondenceAuthenticationMethod.Default()`, fordi tokenet da har scopet `altinn:serviceowner` og viser hvilken virksomhet appen tilhører. Bruker du en ressurs en annen virksomhet eier, må policyen gi virksomheten din `write`.
 {{</notice>}}
