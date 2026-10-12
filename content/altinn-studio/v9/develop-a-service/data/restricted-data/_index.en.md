@@ -13,9 +13,7 @@ If the user tries to read or write the data without access to the action, the ap
 
 You set this up in the app's code. Altinn Studio Designer has no settings for restricted data.
 
-## Configuring Maskinporten
-
-The app must be able to perform actions on behalf of the service owner, so you need to set up Maskinporten. See [integrating an Altinn app with Maskinporten](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/) (in Norwegian).
+The app reads and writes the restricted data with the service owner's token. To get the token, the app needs the default service owner scopes in Maskinporten. Altinn Studio adds these automatically when you build a v9 app, so you do not need to set up Maskinporten yourself. Read more about [how to integrate an Altinn app with Maskinporten](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/) (in Norwegian).
 
 ## Configuring the data types
 
@@ -25,8 +23,8 @@ In the example, you add a new data type with the properties `actionRequiredToRea
 
 {{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/Applicationmetadata.json.md" %}}
 
-{{% notice warning %}}
-You disable `autoCreate` because the [authorisation policy](#configuring-the-authorisation-policy) does not give users read or write access. If the app tries to create a data element of type `restrictedDataModel` with the user's token, it gets a `403 Forbidden` error.
+{{% notice info %}}
+You disable `autoCreate` because the app would otherwise create an empty data element of type `restrictedDataModel` when the task starts. In the example below, the code creates the data element itself, with the right content.
 {{% /notice %}}
 
 ## Configuring the authorisation policy
@@ -39,23 +37,34 @@ Start from the [default `policy.xml` file](/nb/altinn-studio/v9/develop-a-servic
 
 The app does not create `restrictedDataModel` automatically, and the data type is not part of the form the user fills in. You therefore need to write the code that reads and writes the data yourself.
 
-By default, the app uses the user's token. To read and write the restricted data type, call `OverrideAuthenticationMethod` with `StorageAuthenticationMethod.ServiceOwner()`. The app then uses the service owner's token for that data type only.
+Which token the app uses depends on where the code runs:
+
+- In code that runs when the user does something, such as changing the form, the app uses the user's token. Here, you call `OverrideAuthenticationMethod` with `StorageAuthenticationMethod.ServiceOwner()`. The app then uses the service owner's token for that data type only.
+- In hooks that run in the process, such as `IOnTaskStartingHandler`, the app already uses the service owner's token for all data types. Here, you do not need to call `OverrideAuthenticationMethod`.
 
 {{% notice warning %}}
-The app cannot save changes with the user's token and the service owner's token at the same time. If you change both the user's form data and the restricted data in the same code, you get an error when the app saves. You can read the restricted data when the user changes the form, but only change it in code that does not also change the user's data, for example when a task starts.
+In code that runs when the user does something, such as `IDataWriteProcessor`, the app cannot save changes with the user's token and the service owner's token at the same time. If you change both the user's form data and the restricted data in the same code, you get an error when the app saves. Only the data you change counts, so you can safely read the restricted data here. If you want to change it, do so in a hook in the process. There, the app uses the service owner's token for all data types, and you can change both.
+{{% /notice %}}
+
+{{% notice warning %}}
+If you have enabled XSD validation (`XsdValidation` under `AppSettings`) and there is an XSD file for `restrictedDataModel`, the validation also reads the restricted data with the user's token. The user may then get a `403 Forbidden` error.
 {{% /notice %}}
 
 ### Writing data
 
-The example below stores data in the restricted data type when the process enters the task `Task_1`. It uses a [process hook](/nb/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks/) (in Norwegian) that implements `IOnTaskStartingHandler`. The code fetches information from a fictional API and stores it in `restrictedDataModel`. The user cannot see the information, but the app can retrieve it later.
+The example below stores data in the restricted data type when the process enters the task `Task_1`. It uses a hook in the process that implements `IOnTaskStartingHandler`. Read more about `IOnTaskStartingHandler` in the [guide to upgrading from v8 to v9](/nb/altinn-studio/v9/new-in-v9/upgrade/#vi-har-flyttet-egendefinerte-oppgave-hooker-og-de-har-fått-ny-funksjonsmåte) (in Norwegian). The code fetches information from a fictional API and stores it in `restrictedDataModel`. The user cannot see the information, but the app can retrieve it later.
 
-The hook may run more than once if something fails along the way. The code therefore updates the data element if it already exists, instead of creating a new one.
+The hook must handle running more than once, for example when the process returns to the task. The code therefore updates the data element if it already exists, instead of creating a new one.
+
+{{% notice warning %}}
+You can only have one `IOnTaskStartingHandler` per task. If the app already has such a hook for `Task_1`, add the code to it. If more than one hook returns `true` from `ShouldRunForTask` for the same task, the process fails when it tries to enter the task, and the app does not try again.
+{{% /notice %}}
 
 {{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/RestrictedDataOnTaskStart.cs.md" %}}
 
 ### Reading data
 
-The example below implements `IDataWriteProcessor` and performs a fictional tax calculation when the user changes their income in the form. The calculation needs information the app has stored in the restricted data type. The code reads it with the service owner's token, but does not change it.
+The example below implements `IDataWriteProcessor` and performs a fictional tax calculation when the user changes their income in the form. The calculation needs information the app has stored in the restricted data type. The code runs when the user changes the form, so it must call `OverrideAuthenticationMethod` to read the data with the service owner's token. The code does not change the restricted data.
 
 {{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/DataWriteHandler.cs.md" %}}
 

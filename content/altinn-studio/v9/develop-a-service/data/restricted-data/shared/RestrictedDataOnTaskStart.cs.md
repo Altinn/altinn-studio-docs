@@ -8,7 +8,10 @@ hidden: true
 App/logic/RestrictedDataOnTaskStart.cs
 {{< /code-title >}}
 
-{{< highlight csharp "linenos=false, hl_lines=10-11 22-31" >}}
+{{< highlight csharp "linenos=false, hl_lines=1-2 22-31" >}}
+using Altinn.App.Core.Features.Process;
+using Altinn.App.Models;
+
 public class RestrictedDataOnTaskStart(ISomeTaxService someTaxService) : IOnTaskStartingHandler
 {
   public bool ShouldRunForTask(string taskId) => taskId == "Task_1";
@@ -17,9 +20,6 @@ public class RestrictedDataOnTaskStart(ISomeTaxService someTaxService) : IOnTask
   {
     var dataMutator = context.InstanceDataMutator;
     var dataType = dataMutator.GetDataType("restrictedDataModel");
-
-    // Read and write the restricted data type with the service owner token
-    dataMutator.OverrideAuthenticationMethod(dataType, StorageAuthenticationMethod.ServiceOwner());
 
     var taxPrefill = await someTaxService.GetTaxPrefillData(dataMutator.Instance);
     var spouse = new Spouse

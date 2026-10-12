@@ -8,7 +8,10 @@ hidden: true
 App/logic/DataWriteHandler.cs
 {{< /code-title >}}
 
-{{< highlight csharp "linenos=false, hl_lines=21-25" >}}
+{{< highlight csharp "linenos=false, hl_lines=1-2 24-28" >}}
+using Altinn.App.Core.Models;
+using Altinn.App.Models;
+
 public class DataWriteHandler(ISomeTaxService someTaxService) : IDataWriteProcessor
 {
   public async Task ProcessDataWrite(
