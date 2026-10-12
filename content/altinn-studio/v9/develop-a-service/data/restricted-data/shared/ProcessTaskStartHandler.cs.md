@@ -36,7 +36,7 @@ public class ProcessTaskStartHandler(ISomeTaxService someTaxService) : IOnTaskSt
     }
     else
     {
-      var restrictedData = (RestrictedDataModel)await dataMutator.GetFormData(existing);
+      var restrictedData = await dataMutator.GetFormData<RestrictedDataModel>(existing);
       restrictedData.Spouse = spouse;
     }
 

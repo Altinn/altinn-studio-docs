@@ -177,7 +177,7 @@ Se [Lage en egendefinert systemoppgave]({{< relref "/altinn-studio/v9/develop-a-
 
 ### Vi har flyttet egendefinerte oppgave-hooker og de har fått ny funksjonsmåte
 
-Hvis appen din har en klasse som implementerer `IProcessTaskStart`, `IProcessTaskEnd` eller `IProcessTaskAbandon`, det vil si kode som kjører når en oppgave starter, avsluttes eller forlates, må du migrere den manuelt. Systemoppgavene over er med i oppgraderingen, men for disse tre oppgavene har vi fjernet grensesnittene uten en overgangsperiode med kompileringsadvarsler. Koden slutter rett og slett å kompilere til du har gjort om på den.
+Hvis appen din har en klasse som implementerer `IProcessTaskStart`, `IProcessTaskEnd` eller `IProcessTaskAbandon`, det vil si kode som kjører når en oppgave starter, avsluttes eller forlates, må du migrere den manuelt. Systemoppgavene over er med i oppgraderingen, men disse tre grensesnittene har vi fjernet uten en overgangsperiode med kompileringsadvarsler. Koden slutter rett og slett å kompilere til du har gjort om på den.
 
 Bruk de nye grensesnittene i `Altinn.App.Core.Features.Process` i stedet:
 
@@ -230,7 +230,7 @@ public class MyTaskStartHandler : IOnTaskStartingHandler
 De nye hookene gjør også at du kan velge å overstyre arbeidsflytmotorens standard tidsavbrudd og strategi for å prøve igjen for steget, med egenskapen `StepOptions`. Det er en ny mulighet, uten noe tilsvarende i versjon 8, så det er ikke noe du trenger å sette for å migrere.
 
 {{% notice warning %}}
-Bare én matchende handler er tillatt per oppgave. Svarer to registrerte handlere av samme type (for eksempel to `IOnTaskStartingHandler`) `true` for samme oppgave, feiler prosessovergangen permanent. Hadde du før flere handler-klasser rettet mot ulike oppgaver, pass på at `ShouldRunForTask`-implementasjonene deres ikke overlapper — virket to av dine gamle handlere på samme oppgave, slå dem sammen til én.
+Bare én matchende handler er tillatt per oppgave. Svarer to registrerte handlere av samme type (for eksempel to `IOnTaskStartingHandler`) `true` for samme oppgave i `process.bpmn`, starter ikke appen. Hadde du før flere handler-klasser rettet mot ulike oppgaver, pass på at `ShouldRunForTask`-implementasjonene deres ikke overlapper — virket to av dine gamle handlere på samme oppgave, slå dem sammen til én.
 {{% /notice %}}
 
 ### Vi har fjernet `IProcessEnd`
@@ -244,7 +244,7 @@ Hvis appen din har en klasse som implementerer `IProcessEnd`, må du flytte kode
 
 `studioctl app upgrade v9` viser hvilke klasser og registreringer du må flytte, men gjør ikke om koden for deg.
 
-Hookene fungerer som oppgave-hookene over. `Execute` får et kontekstobjekt i stedet for `Instance` og listen med hendelser, og du leser og endrer data gjennom `context.InstanceDataMutator` i stedet for `IDataClient` eller `IInstanceClient`. Koden kjører i arbeidsflytmotoren, ikke i forespørselen fra brukeren, så `HttpContext` gir deg ikke brukerens språk eller pålogging. Du kan bare registrere én `IOnProcessEndedHandler`.
+`IOnProcessEndedHandler` har samme `Execute` og `HookResult` som oppgave-hookene over, men kjører én gang for hele instansen. Den har ingen `ShouldRunForTask`, og konteksten har ingen oppgave-ID. `Execute` får et kontekstobjekt i stedet for `Instance` og listen med hendelser, og du leser og endrer data gjennom `context.InstanceDataMutator` i stedet for `IDataClient` eller `IInstanceClient`. Koden kjører i arbeidsflytmotoren, ikke i forespørselen fra brukeren, så `HttpContext` gir deg ikke brukerens språk eller pålogging. Du kan bare registrere én `IOnProcessEndedHandler`. Med flere starter ikke appen.
 
 Se [Prosess-hooks]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks" >}}) for detaljene.
 

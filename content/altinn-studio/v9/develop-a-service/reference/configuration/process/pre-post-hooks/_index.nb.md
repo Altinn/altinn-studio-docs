@@ -24,7 +24,7 @@ Du lager en klasse som implementerer grensesnittet, og registrerer den som en tr
 
 - en `IInstanceDataMutator` som du leser og endrer instansdata med
 - en `CancellationToken`
-- id-en til oppgaven, for de tre oppgave-hookene
+- ID-en til oppgaven, for de tre oppgave-hookene
 
 Endringer du gjør gjennom `context.InstanceDataMutator`, blir lagret når hooken er ferdig uten feil. Skriv alle endringer gjennom den. Mens arbeidsflyten behandler instansen, avviser Storage endringer som kommer direkte gjennom `IDataClient` eller `IInstanceClient`.
 
@@ -63,7 +63,7 @@ services.AddTransient<IOnTaskStartingHandler, MyTaskStartHandler>();
 Du kan registrere flere klasser for samme hook, så lenge de gjelder for ulike oppgaver.
 
 {{% notice warning %}}
-Bare én hook av hver type kan gjelde for samme oppgave. Svarer to registrerte `IOnTaskStartingHandler` `true` for samme oppgave, feiler prosessovergangen permanent. Det samme gjelder `IOnTaskEndingHandler` og `IOnTaskAbandonHandler`.
+Bare én hook av hver type kan gjelde for samme oppgave. Svarer to registrerte `IOnTaskStartingHandler` `true` for samme oppgave i `process.bpmn`, starter ikke appen. Det samme gjelder `IOnTaskEndingHandler` og `IOnTaskAbandonHandler`.
 {{% /notice %}}
 
 [Se grensesnittet IOnTaskStartingHandler på GitHub](https://github.com/Altinn/altinn-studio/blob/main/src/App/backend/src/Altinn.App.Core/Features/Process/IOnTaskStartingHandler.cs)
@@ -112,7 +112,7 @@ public class MyProcessEndedHandler : IOnProcessEndedHandler
 services.AddTransient<IOnProcessEndedHandler, MyProcessEndedHandler>();
 ```
 
-Du kan bare registrere én `IOnProcessEndedHandler`. Hooken har ingen `ShouldRunForTask`, og konteksten har ingen oppgave-id. Hvilken sluttilstand prosessen nådde, finner du i `context.InstanceDataMutator.Instance.Process.EndEvent`.
+Du kan bare registrere én `IOnProcessEndedHandler`. Med flere starter ikke appen. Hooken har ingen `ShouldRunForTask`, og konteksten har ingen oppgave-ID. Hvilken sluttilstand prosessen nådde, finner du i `context.InstanceDataMutator.Instance.Process.EndEvent`.
 
 Hooken kjører før datatyper med `autoDeleteOnProcessEnd` blir slettet, så den ser alle dataene. Er `autoDeleteOnProcessEnd` slått på for hele appen, blir instansen slettet etter at hooken er ferdig.
 
