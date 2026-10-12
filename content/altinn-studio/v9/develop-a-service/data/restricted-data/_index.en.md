@@ -24,7 +24,7 @@ In the example, you add a new data type with the properties `actionRequiredToRea
 {{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/Applicationmetadata.json.md" %}}
 
 {{% notice info %}}
-You disable `autoCreate` because the code in the example below creates the data element itself, with the right content. Your code is therefore responsible for creating the data element.
+You disable `autoCreate` because the code in the example below creates the data element itself, with the right content. With `autoCreate` disabled, your code is responsible for creating the data element.
 {{% /notice %}}
 
 ## Configuring the authorisation policy

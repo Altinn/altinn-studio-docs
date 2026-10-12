@@ -18,14 +18,14 @@ Appen leser og skriver de beskyttede dataene med tjenesteeierens token. For å h
 
 ## Sette opp datatypene
 
-Filen `applicationmetadata.json` inneholder alle datatypene i appen (se [datatyper]({{< relref "/api/models/app-metadata#datatype" >}}), kun på engelsk foreløpig). Her angir du hvilke [handlinger]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/authorization#action-attributter" >}}) brukeren eller tjenesteeieren må ha tilgang til for å lese og skrive den beskyttede datatypen.
+Filen `applicationmetadata.json` inneholder alle datatypene i appen ([les om datatyper i app-metadata]({{< relref "/api/models/app-metadata#datatype" >}}), kun på engelsk). Her angir du hvilke [handlinger]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/authorization#action-attributter" >}}) brukeren eller tjenesteeieren må ha tilgang til for å lese og skrive den beskyttede datatypen.
 
 I eksempelet legger du til en ny datatype med egenskapene `actionRequiredToRead` og `actionRequiredToWrite`, og slår av `autoCreate`. Datatypen heter `restrictedDataModel`, men du kan velge et annet navn.
 
 {{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/Applicationmetadata.json.md" %}}
 
 {{% notice info %}}
-Du slår av `autoCreate` fordi koden i eksempelet under oppretter dataelementet selv, med riktig innhold. Koden din har dermed ansvaret for å opprette dataelementet.
+Du slår av `autoCreate` fordi koden i eksempelet under oppretter dataelementet selv, med riktig innhold. Når `autoCreate` er slått av, har koden din ansvaret for å opprette dataelementet.
 {{% /notice %}}
 
 ## Sette opp autorisasjonspolicyen
