@@ -42,13 +42,15 @@ If the app has a lot of custom code, read Microsoft's lists of breaking changes 
 
 ## If the build stops with NU1605
 
-The error means the app references an older version of a package that Altinn.App also uses. Raise the version in `App/App.csproj` to the one Altinn.App needs. It comes first in the error message. This often applies to `Swashbuckle.AspNetCore` or `Azure.Extensions.AspNetCore.Configuration.Secrets`.
+The error means the app references an older version of a package that Altinn.App also uses. Delete the line with the package in `App/App.csproj`. The app then gets the package through Altinn.App, in the version Altinn.App needs. This often applies to `Swashbuckle.AspNetCore` or `Azure.Extensions.AspNetCore.Configuration.Secrets`.
 
 ```text
 error NU1605: Warning As Error: Detected package downgrade: Swashbuckle.AspNetCore from 9.0.6 to 9.0.4.
 ```
 
-Here, you set `Swashbuckle.AspNetCore` to 9.0.6.
+Here, you delete the line with `Swashbuckle.AspNetCore`.
+
+We recommend that the app does not reference packages that Altinn.App already includes. Altinn.App then controls the version, and you avoid this error the next time you upgrade. The app's code can still use the package. You can see which packages Altinn.App includes under **Dependencies** on NuGet for [Altinn.App.Api](https://www.nuget.org/packages/Altinn.App.Api#dependencies-body-tab) and [Altinn.App.Core](https://www.nuget.org/packages/Altinn.App.Core#dependencies-body-tab).
 
 ## New warnings after the upgrade
 

@@ -47,8 +47,8 @@ F.eks.:
 - Sjekk om det er noen [breaking changes](/nb/community/changelog/app-nuget/) ifm endringer i bibliotekene,
   og gjør ev. endringer som beskrives for å løse ev. problemer. Dette gjelder når det er _major_-versjonen (det første 
   tallet i versjonen) som er oppdatert.
+- Fjern referanser til pakker som Altinn.App allerede har med, for eksempel `Swashbuckle.AspNetCore`. Da bestemmer Altinn.App versjonen, og du slipper feilen NU1605 («Detected package downgrade») når du oppdaterer.
 - Bygg og deploy appen på nytt.
-- (Når du oppdaterer forbi 8.6.0 vil du få en feil som fikses med å fjerne linjen <PackageReference Include="Swashbuckle.AspNetCore")
 
 {{</content-version-container>}}
 
