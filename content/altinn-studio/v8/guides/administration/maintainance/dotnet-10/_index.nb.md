@@ -5,7 +5,7 @@ description: Slik oppgraderer du en app på v8 fra .NET 8 til .NET 10.
 toc: true
 ---
 
-10. november 2026 slutter Microsoft å gi sikkerhetsoppdateringer til .NET 8 og .NET 9. Du kan flytte appen til .NET 10 uten å oppgradere den til v9. .NET 10 har support til november 2028.
+Appen din kjører på .NET fra Microsoft. Fra 10. november 2026 får .NET 8 og .NET 9 ikke lenger sikkerhetsoppdateringer. Flytt derfor appen til .NET 10, som får oppdateringer til november 2028. Du trenger ikke å vente på v9.
 
 Appen må bruke Altinn.App 8.12.9 eller nyere. Det er den første versjonen av v8 som støtter .NET 10.
 
