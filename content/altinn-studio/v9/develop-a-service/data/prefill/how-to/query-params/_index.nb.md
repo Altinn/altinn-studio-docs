@@ -10,8 +10,6 @@ toc: false
 
 Altinn-apper støtter forhåndsutfylling basert på spørringsparametere.
 
-Merk: Krever minimum versjon v4.18.0 av frontend, v8.6.0 av backend.
-
 ## 1. Konfigurer <stateless_datamodel>.prefill.json
 
 I din models-mappe oppretter du en fil kalt <stateless_datamodel>.prefill.json (hvis navnet på modellen din er tax_return, skal filen hete tax_return.prefill.json).
@@ -37,23 +35,23 @@ Legg også merke til at bare spørringsparametere som er definert i ```<stateles
 
 ## 2. Konfigurer InstantiationProcessor og InstantiationButton
 
-Følg stegene her: [Start instans fra et stateless skjema](/nb/altinn-studio/v9/develop-a-service/stateless#starte-instans-fra-et-stateless-skjema)
+Følg stegene her: [Start instans fra et stateless skjema](/nb/altinn-studio/v9/develop-a-service/reference/configuration/stateless/#starte-instans-fra-et-stateless-skjema)
 
 ## 3. (Valgfritt, men sterkt anbefalt) Valider verdier for spørringsparametere
 
-For å validere spørringsparametere implementerer du i /logic-mappen din. Her er et enkelt eksempel:
+For å validere spørringsparametere lager du en klasse som implementerer `IValidateQueryParamPrefill`, for eksempel i mappen `logic`. Returner `null` når verdiene er gyldige. Returnerer du en `ValidationIssue`, svarer appen med feilkoden 400 Bad Request og bruker ikke verdiene. Her er et enkelt eksempel:
 
 ```c# 
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Altinn.App.Core.Features;
+using Altinn.App.Core.Models.Validation;
 
 namespace Altinn.App.AppLogic.DataProcessing
 {
     public class ValidateQueryParamPrefill : IValidateQueryParamPrefill
     {
-        public async Task PrefillFromQueryParamsIsValid(Dictionary<string, string> prefill)
+        public Task<ValidationIssue?> PrefillFromQueryParamsIsValid(Dictionary<string, string> prefill)
         {
             // For example, only "Developer", "Manager", or "Tester" are allowed for JobTitle
             if (prefill.TryGetValue("JobTitle", out var jobTitle))
@@ -61,13 +59,28 @@ namespace Altinn.App.AppLogic.DataProcessing
                 var allowedJobTitles = new HashSet<string> { "Developer", "Manager", "Tester" };
                 if (!allowedJobTitles.Contains(jobTitle))
                 {
-                    throw new Exception($"Invalid JobTitle '{jobTitle}'.");
+                    return Task.FromResult<ValidationIssue?>(
+                        new ValidationIssue
+                        {
+                            Severity = ValidationIssueSeverity.Error,
+                            Description = $"Invalid JobTitle '{jobTitle}'.",
+                        }
+                    );
                 }
             }
 
             // No issues found
-            await Task.CompletedTask;
+            return Task.FromResult<ValidationIssue?>(null);
         }
     }
+}
+```
+
+Registrer klassen i `Program.cs`:
+
+```c#
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+    services.AddTransient<IValidateQueryParamPrefill, ValidateQueryParamPrefill>();
 }
 ```
