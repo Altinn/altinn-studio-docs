@@ -2,7 +2,7 @@
 draft: true
 title: Sikre tilgjengelighet i Altinn-tjenester
 description: Slik sikrer du tilgjengelighet i tjenesten din
-weight: 3
+weight: 10
 tags: [Reviewed]
 ---
 
