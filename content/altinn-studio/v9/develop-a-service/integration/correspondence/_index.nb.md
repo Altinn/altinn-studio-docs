@@ -15,21 +15,18 @@ Slik integrerer du [meldingstjenesten](/nb/correspondence/) med en Altinn-app. M
 Du trenger en [Altinn-ressurs](#altinn-ressurs). Meldingsklienten er innebygd i alle v9-apper, så du trenger ikke installere eller registrere noe.
 
 ### Altinn-ressurs
-Når du sender en korrespondanse må du knytte den til en Altinn-ressurs. Ressursen bestemmer tilgangen til meldingene. Altinn evaluerer om både avsendere og mottakere har tilgang.
+Hver melding du sender, må høre til en Altinn-ressurs. Policyen til ressursen bestemmer hvem som får lese meldingene.
 
-Se [veiledningen for ressursregistrering](/nb/correspondence/getting-started/developer-guides/serviceowner/#registeraresourceinaltinnresourceregistry) for mer informasjon om oppsett og opprettelse.
+Se [veiledningen for ressursregistrering](/nb/correspondence/getting-started/developer-guides/serviceowner/#registeraresourceinaltinnresourceregistry) for hvordan du oppretter ressursen.
 
 {{<notice info notice-paragraph-fix>}}
-Policyen til ressursen må tillate handlingene:
-- `read`, slik at mottakere kan åpne og lese meldingen
-- `write`, slik at avsendere kan sende meldingen
-- `subscribe`, for å registrere hendelsesabonnement i Altinn Events
+Policyen til ressursen må tillate disse handlingene:
+- `read`, slik at mottakerne kan åpne og lese meldingen
+- `subscribe`, hvis du skal abonnere på hendelser for ressursen i Altinn Events
 
-Ressursen må tillate sender-tilgang for [din organisasjon](https://github.com/Altinn/altinn-cdn/blob/master/orgs/altinn-orgs.json)
-og mottaker-tilgang for ønskelige [rollekoder](https://github.com/Altinn/altinn-cdn/blob/master/authorization/subjectoptions.json) eller [tilgangspakker](https://docs.altinn.studio/nb/authorization/what-do-you-get/accesspackages/business/). Tilgangspakker erstatter etter hvert de tradisjonelle Altinn-rollene, men rollekoder fungerer fortsatt som et unntak fram til 1. januar 2027.
+Mottakerne gir du tilgang med [rollekoder](https://github.com/Altinn/altinn-cdn/blob/master/authorization/subjectoptions.json) eller [tilgangspakker](/nb/authorization/what-do-you-get/accesspackages/business/). Sender du meldinger til personer, bruker du rollekoden `priv` (Privatperson). Sender du til virksomheter, velger du rollene eller tilgangspakkene som passer best for mottakeren. Tilgangspakker erstatter de gamle Altinn-rollene, og fra 1. januar 2027 gir de gamle rollene ikke lenger tilgang. Se [Altinn Autorisasjon – detaljert konsept]({{< relref "/authorization/about/detailed" >}}).
 
-Når du sender en melding til en person, bruker du koden `priv`. Når du sender en melding til en organisasjon, bruker du rollene eller tilgangspakkene
-som best beskriver din tiltenkte mottaker.
+Eier virksomheten din ressursen, trenger policyen ingen `write`-regel for at appen skal kunne sende. Meldingstjenesten slipper gjennom tjenesteeieren som eier ressursen, og appens token viser hvilken virksomhet appen tilhører. Bruker du en ressurs en annen virksomhet eier, må policyen gi virksomheten din `write`.
 {{</notice>}}
 
 ## Sende meldinger fra appen

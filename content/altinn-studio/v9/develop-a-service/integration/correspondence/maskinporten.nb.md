@@ -17,12 +17,12 @@ Før du starter, må du ha satt opp en [Altinn-ressurs]({{< relref "/altinn-stud
 Appens Maskinporten-klient må ha scopet `altinn:correspondence.write`.
 
 1. Legg til `altinn:correspondence.write` i Altinn Studio. Se [Legge til Maskinporten-scopes]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten/add-scopes" >}}).
-2. Publiser appen. Endringen trer i kraft neste gang du publiserer.
+2. Bygg en ny versjon av appen, og publiser den. Scopene blir med i versjonen når du bygger den. Publiserer du en eldre versjon på nytt, får den ikke det nye scopet.
 {.floating-bullet-numbers}
 
-Standardscopene for tjenesteeier, som `altinn:serviceowner`, har alle v9-apper allerede. Dem trenger du ikke legge til.
+Standardscopene for tjenesteeier, som `altinn:serviceowner`, legger Altinn Studio til automatisk når du bygger en v9-app. Dem trenger du ikke legge til.
 
-Meldingsklienten bruker appens innebygde Maskinporten-klient. Du konfigurerer ikke noe i koden for å få et token. Se [Integrere Altinn-app med Maskinporten]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten" >}}) for hvordan appens Maskinporten-identitet fungerer.
+Med `CorrespondenceAuthenticationMethod.Default()` bruker meldingsklienten appens innebygde Maskinporten-klient. Du konfigurerer ikke noe i koden for å få et token. Se [Integrere Altinn-app med Maskinporten]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten" >}}) for hvordan appens Maskinporten-identitet fungerer.
 
 ## Sende en melding fra appkoden
 
@@ -166,7 +166,7 @@ Dette er endret fra v8:
 - **`CorrespondenceAuthorisation` finnes ikke lenger.** Bruk `CorrespondenceAuthenticationMethod.Default()` i stedet for `CorrespondenceAuthorisation.Maskinporten`.
 - **Payloadene tar ikke lenger imot en delegat direkte.** Pakk delegaten inn i `CorrespondenceAuthenticationMethod.Custom(...)`.
 - **`WithData(ReadOnlyMemory<byte>)` finnes ikke lenger.** Bruk `WithData(Stream)`. Har du en byte-array, bruker du `WithData(new MemoryStream(bytes))`.
-- **`CorrespondenceAuthenticationMethod.Default()` ber også om scopene `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write`.** Appens Maskinporten-klient må derfor ha dem. Alle v9-apper har dem automatisk.
+- **`CorrespondenceAuthenticationMethod.Default()` ber også om scopene `altinn:serviceowner/instances.read` og `altinn:serviceowner/instances.write`.** Appens Maskinporten-klient må derfor ha dem. Altinn Studio legger dem til automatisk når du bygger en v9-app.
 
 `studioctl app upgrade v9` skriver om noen av disse kallene for deg og lister opp hver endring, slik at du kan se over dem:
 
