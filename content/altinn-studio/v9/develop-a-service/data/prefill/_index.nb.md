@@ -23,7 +23,7 @@ Når noen starter skjemaet, fyller systemet automatisk ut feltene du velger med 
 
 ### Når bør jeg bruke dette?
 Hvis du skal forhåndsutfylle data fra en av kildene listet over. Det er et begrenset sett med felter som er tilgjengelige. 
-Se [fullstendig liste over tilgjengelige datafelt for alle kildene](/nb/altinn-studio/v9/develop-a-service/prefill/reference/sources).
+Se [fullstendig liste over tilgjengelige datafelt for alle kildene]({{< relref "/altinn-studio/v9/develop-a-service/data/prefill/reference/sources" >}}).
 
 ## Egendefinert kode
 ### Hva gjør denne funksjonen?

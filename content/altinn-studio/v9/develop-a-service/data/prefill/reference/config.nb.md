@@ -13,15 +13,15 @@ redigerer filen lokalt.
 
 ## `allowOverwrite`
 `allowOverwrite` avgjør om forhåndsutfylling definert i denne filen kan overskrive et felt i datamodellen hvis det 
-allerede har en verdi.
+allerede har en verdi. Standardverdien er `false`, så appen overskriver ikke felt som har en verdi hvis du ikke setter den til `true`.
 
 ## `ER`
 `ER` - her legger du inn felter fra datamodellen som skal forhåndsutfylles med data fra Enhetsregisteret. Felter som 
-forhåndsutfylles med ER-data får kun en verdi hvis du starter appen på vegne av en organisasjon. Det vil feile hvis du forsøker å forhåndsutfylle ER-data, men ikke har en organisasjon tilgjengelig.
+forhåndsutfylles med ER-data får kun en verdi hvis du starter appen på vegne av en organisasjon. Hvis appen ikke har en organisasjon, hopper den over feltene fra ER og skriver en feilmelding i loggen.
 
 ## `DSF`
 `DSF` - her legger du inn felter fra datamodellen som skal forhåndsutfylles med data fra Folkeregisteret. Felter som 
-forhåndsutfylles med DSF-data får kun en verdi hvis du starter appen på vegne av en person. Det vil feile hvis du forsøker å forhåndsutfylle DSF-data, men ikke har en person tilgjengelig.
+forhåndsutfylles med DSF-data får kun en verdi hvis du starter appen på vegne av en person. Hvis appen ikke har en person, hopper den over feltene fra DSF og skriver en feilmelding i loggen.
 
 ## `UserProfile`
 `UserProfile` - her legger du inn felter fra datamodellen som skal forhåndsutfylles med data fra brukerens profil i 

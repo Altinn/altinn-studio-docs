@@ -7,16 +7,37 @@ tags: [needsReview]
 toc: false
 ---
 
-## 1. Opprett en ny fil
+Du kan sette opp forhåndsutfylling i Designer eller skrive konfigurasjonsfilen selv. Begge deler gir den samme filen i appen.
 
-   Gå til mappen  `App/models` i appen din og opprett en ny fil med navn `[datamodellnavn].prefill.json`
+## Sett opp forhåndsutfylling i Designer
+
+1. Åpne appen i Designer, og gå til **Datamodell**.
+2. Velg feltet du vil fylle ut automatisk.
+   - Du kan bare forhåndsutfylle enkeltfelt. Objekter og lister har ikke denne innstillingen.
+3. Velg hvor dataene skal komme fra i **Kilde** under **Forhåndsutfylling**:
+   - **Brukerprofil**
+   - **Enhetsregisteret (ER)**
+   - **Folkeregisteret (DSF)**
+   - **Spørringsparameter**
+4. Velg hvilket felt fra kilden du vil bruke, i **Felt**.
+   - Har du valgt **Spørringsparameter**, skriver du navnet på parameteren i **Navn på spørreparameter** i stedet.
+
+Designer lagrer valgene dine i filen `App/models/{datamodell}.prefill.json`. Designer har ingen innstilling for `allowOverwrite`. Står den ikke i filen, overskriver forhåndsutfyllingen ikke felt som allerede har en verdi. Vil du endre det, legger du til `"allowOverwrite": true` i filen selv.
+
+## Skrive konfigurasjonsfilen selv
+
+Du kan også lage og redigere filen selv, for eksempel hvis du jobber i app-repoet på egen maskin.
+
+### 1. Opprett en ny fil
+
+   Gå til mappen `App/models` i appen din og opprett en ny fil med navn `{datatype-ID}.prefill.json`. Datatype-ID-en er `id` for datatypen i `applicationmetadata.json`. I apper du har laget i Studio, er den det samme som navnet på datamodellen.
 
    Hvis datamodellen din heter _appModel_ skal du ha disse filene:
    - `appModel.cs` 
    - `appModel.schema.json` 
    - `appModel.prefill.json`  &larr; *den nye filen*
 
-## 2. Legg til grunnkonfigurasjon
+### 2. Legg til grunnkonfigurasjon
 
    Kopier denne konfigurasjonskoden inn i den nye filen:
 
@@ -30,7 +51,7 @@ toc: false
    }
    ```
 
-## 3. Konfigurer hvilke data som skal fylles ut automatisk
+### 3. Konfigurer hvilke data som skal fylles ut automatisk
 
    De tre gruppene i koden speiler de tre kildene som er tilgjengelige:
    - `ER` - Enhetsregisteret
@@ -47,7 +68,7 @@ toc: false
    - `datafelt` er navnet på feltet _fra kilden_
    - `skjemafelt` er navnet på feltet i skjemaets datamodell.
 
-   Se [fullstendig liste over tilgjengelige datafelt for alle kildene](/nb/altinn-studio/v9/develop-a-service/prefill/reference/sources).
+   Se [fullstendig liste over tilgjengelige datafelt for alle kildene]({{< relref "/altinn-studio/v9/develop-a-service/data/prefill/reference/sources" >}}).
 
 ## Eksempler
 
