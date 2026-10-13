@@ -47,7 +47,7 @@ Har appen instanser som brukerne ikke har sendt inn ennå, må `application/xml`
 Sender appen skjemadataene via eFormidling, får filen med skjemadataene et navn som bygger på datatypen og alltid slutter på `.xml`, for eksempel `model.xml`, også når innholdet er JSON. Mottakerne får altså JSON i en fil som slutter på `.xml`. Avklar med mottakerne før du bytter til JSON.
 {{% /notice %}}
 
-Har appen egen kode som leser eller lagrer skjemadata, kan du spørre utviklerne: «Bruker egen kode i appen utdaterte metoder for å lese eller lagre skjemadata?» Noen eldre metoder virker ikke når `application/json` står i listen, og appen stopper med en feil når den bruker dem.
+Har appen egen kode som leser eller lagrer skjemadata, kan du spørre utviklerne: «Bruker koden dere har skrevet selv i appen utdaterte metoder for å lese eller lagre skjemadata?» Noen eldre metoder virker ikke når `application/json` står i listen, og appen stopper med en feil når den bruker dem.
 
 ## Hindre at instanser blir slettet
 
