@@ -69,5 +69,5 @@ Slik fungerer sperren:
 - Sperren gjelder bare instansen, ikke de enkelte dataelementene. Står `autoDeleteOnProcessEnd: true` under `appLogic` for en datatype, sletter appen dataene av denne typen når prosessen er avsluttet, uansett sperre.
 
 {{% notice warning %}}
-Ikke kombiner `preventInstanceDeletionForDays` med `autoDeleteOnProcessEnd: true` på øverste nivå i `applicationmetadata.json`, det vil si for hele appen. Da sletter appen hele instansen i samme øyeblikk som prosessen slutter, før sperren gjelder.
+Ikke kombiner `preventInstanceDeletionForDays` med `autoDeleteOnProcessEnd: true` på øverste nivå i `applicationmetadata.json`, det vil si for hele appen. Den ene innstillingen ber Altinn ta vare på instansen, og den andre ber appen slette den når prosessen er avsluttet. Velg én av dem.
 {{% /notice %}}
