@@ -86,6 +86,32 @@ To learn more about what can be configured, read the respective docs on the open
 * [Customizing OpenTelemetry .NET SDK for Logs](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/logs/customizing-the-sdk#customizing-opentelemetry-net-sdk-for-logs)
 * [Customizing OpenTelemetry .NET SDK for Metrics](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/metrics/customizing-the-sdk#customizing-opentelemetry-net-sdk-for-metrics)
 
+### Azure Monitor sampling and logs
+
+{{% notice info %}}
+Requires the forthcoming v8 telemetry fix ([app-lib-dotnet#1889](https://github.com/Altinn/app-lib-dotnet/pull/1889)).
+Earlier v8 releases may use different defaults.
+{{% /notice %}}
+
+When exporting directly to Azure Monitor, Altinn.App uses these defaults:
+
+| Option | Default | Behavior |
+| --- | --- | --- |
+| `SamplingRatio` | `1.0F` | Sample all traces. |
+| `TracesPerSecond` | `null` | No rate limit. When set, it takes precedence over `SamplingRatio`. |
+| `EnableTraceBasedLogsSampler` | `false` | Export logs regardless of trace sampling. `true` drops logs, including errors, attached to unsampled traces. |
+
+To change them, configure `AzureMonitorExporterOptions` in `RegisterCustomAppServices`. For example, to sample 25% of traces:
+
+{{< highlight csharp "linenos=false" >}}
+// Add using Azure.Monitor.OpenTelemetry.Exporter; at the top of Program.cs.
+services.Configure<AzureMonitorExporterOptions>(options => options.SamplingRatio = 0.25F);
+{{< / highlight >}}
+
+The options apply to Azure trace, metric and log export, not to the OTLP collector path. The Azure exporter uses its own
+sampler, so `SetSampler` and standard `OTEL_TRACES_SAMPLER` values do not apply on this path. It does support
+`OTEL_TRACES_SAMPLER=microsoft.fixed_percentage` or `microsoft.rate_limited` with `OTEL_TRACES_SAMPLER_ARG`.
+
 ## Migration from classic Application Insights SDK
 
 Microsoft [have documented that](https://github.com/MicrosoftDocs/azure-docs/commit/25d58a0c1e5a1d5740d99fd68d89a9372042838e)

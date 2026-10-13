@@ -87,6 +87,33 @@ For å lære mer om hva som kan konfigureres og hvordan, se de respektive dokume
 * [Customizing OpenTelemetry .NET SDK for Logs](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/logs/customizing-the-sdk#customizing-opentelemetry-net-sdk-for-logs)
 * [Customizing OpenTelemetry .NET SDK for Metrics](https://github.com/open-telemetry/opentelemetry-dotnet/tree/main/docs/metrics/customizing-the-sdk#customizing-opentelemetry-net-sdk-for-metrics)
 
+### Sampling og logger i Azure Monitor
+
+{{% notice info %}}
+Krever den kommende telemetrifiksen for v8 ([app-lib-dotnet#1889](https://github.com/Altinn/app-lib-dotnet/pull/1889)).
+Tidligere v8-versjoner kan ha andre standardverdier.
+{{% /notice %}}
+
+Ved direkte eksport til Azure Monitor bruker Altinn.App disse standardverdiene:
+
+| Innstilling | Standardverdi | Virkning |
+| --- | --- | --- |
+| `SamplingRatio` | `1.0F` | Behold alle traces. |
+| `TracesPerSecond` | `null` | Ingen frekvensgrense. Når den har en verdi, overstyrer den `SamplingRatio`. |
+| `EnableTraceBasedLogsSampler` | `false` | Eksporter logger uavhengig av sampling av traces. `true` forkaster logger, også feil, knyttet til traces som ikke beholdes. |
+
+Konfigurer `AzureMonitorExporterOptions` i `RegisterCustomAppServices` for å endre innstillingene. For eksempel beholder dette 25 % av traces:
+
+{{< highlight csharp "linenos=false" >}}
+// Legg til using Azure.Monitor.OpenTelemetry.Exporter; øverst i Program.cs.
+services.Configure<AzureMonitorExporterOptions>(options => options.SamplingRatio = 0.25F);
+{{< / highlight >}}
+
+Innstillingene gjelder eksport av traces, metrikk og logger til Azure, ikke eksport via en OTLP-collector. Azure-eksportøren
+bruker sin egen sampler, så `SetSampler` og standardverdier for `OTEL_TRACES_SAMPLER` gjelder ikke ved direkte eksport
+til Azure. Den støtter likevel `OTEL_TRACES_SAMPLER=microsoft.fixed_percentage` eller `microsoft.rate_limited` med
+`OTEL_TRACES_SAMPLER_ARG`.
+
 ## Migrering fra classic Application Insights SDK
 
 Microsoft [har dokumentert at](https://github.com/MicrosoftDocs/azure-docs/commit/25d58a0c1e5a1d5740d99fd68d89a9372042838e)
