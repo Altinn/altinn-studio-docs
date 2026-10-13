@@ -56,7 +56,10 @@ liste av valgte verdier i datamodellen.
 }
 ```
 
-I eksempelet over vil komponenten lagre en kommaseparert liste av valgte kjæledyr i feltet `Submitter.Pets` i datamodellen. Hvis du velger "Katt" og "Fisk", vil feltet få verdien `"cat,fish"`. Rekkefølgen på valgene er ikke garantert å være den samme som rekkefølgen på svaralternativene, ei heller den rekkefølgen brukeren valgte dem i.
+I eksempelet over lagrer komponenten valgte kjæledyr i feltet `Submitter.Pets` i datamodellen.
+Hvis du først krysser av "Katt" og deretter "Fisk", får feltet verdien `"cat,fish"`.
+Hvis du krysser av i motsatt rekkefølge, får feltet verdien `"fish,cat"`.
+Rekkefølgen på de lagrede verdiene kan altså være forskjellig fra rekkefølgen på svaralternativene i skjemaet.
 
 {{<notice warning>}}
 Legg merke til at verdien for hvert svaralternativ må være unik, og hvis du bruker flervalgskomponenter kan ingen av verdiene inneholde et komma.
@@ -85,26 +88,69 @@ For flervalgskomponenter som `Checkboxes` og `MultipleSelect` må `label`-bindin
 strenger, `string[]`. `simpleBinding` peker fortsatt på et `string`-felt med kommaseparerte verdier.
 Ledetekstene trenger en liste fordi selve teksten kan inneholde komma.
 
-Legg for eksempel til denne bindingen i kjæledyrkomponenten over:
+{{<notice info>}}
+Eksempelet under viser endringen i app-frontend v4.35.0. Samme endring må overføres til v9-frontenden
+før du kan bruke indeks til å koble lagrede verdier og ledetekster i v9.
+{{</notice>}}
+
+### Eksempel på rekkefølge i lagrede data
+
+I en søknad velger brukeren hvilke kommuner virksomheten har aktivitet i. Komponenten under viser
+kommunene alfabetisk med `sortOrder: "asc"`. `label` lagrer teksten ved de valgte svaralternativene i
+datamodellen. Dette er teksten brukeren ser ved hver avkrysningsboks, for eksempel "Stavanger".
 
 ```json
-"dataModelBindings": {
-  "simpleBinding": "Submitter.Pets",
-  "label": "Submitter.PetLabels"
+{
+  "id": "municipalities",
+  "type": "Checkboxes",
+  "textResourceBindings": {
+    "title": "Hvilke kommuner har virksomheten aktivitet i?"
+  },
+  "dataModelBindings": {
+    "simpleBinding": "Business.Municipalities",
+    "label": "Business.MunicipalityLabels"
+  },
+  "sortOrder": "asc",
+  "options": [
+    { "value": "1103", "label": "Stavanger" },
+    { "value": "1108", "label": "Sandnes" },
+    { "value": "1124", "label": "Sola" }
+  ]
 }
 ```
 
-Angi `Submitter.PetLabels` som en liste med strenger i datamodellens JSON Schema:
+Definer feltene under `Business` i datamodellens JSON Schema slik:
 
 ```json
-"PetLabels": {
+"Municipalities": {
+  "type": "string"
+},
+"MunicipalityLabels": {
   "type": "array",
   "items": { "type": "string" }
 }
 ```
 
-Ledetekstene følger rekkefølgen til de lagrede verdiene. Hvis `Submitter.Pets` inneholder `"fish,cat"`,
-inneholder `Submitter.PetLabels` `["Fisk", "Katt"]`. Hver ledetekst hører til verdien på samme plass.
+Brukeren ser alternativene i rekkefølgen **Sandnes, Sola, Stavanger**, men krysser først av **Stavanger**,
+deretter **Sandnes** og til slutt **Sola**. `Checkboxes` lagrer da kommunenumrene i valgrekkefølgen,
+`"1103,1108,1124"`.
+
+Før app-frontend v4.35.0 fulgte de lagrede ledetekstene visningsrekkefølgen til svaralternativene.
+Fra v4.35.0 følger de rekkefølgen til de lagrede verdiene:
+
+| Felt i datamodellen | Før app-frontend v4.35.0 | Fra app-frontend v4.35.0 |
+| --- | --- | --- |
+| `Business.Municipalities` | `"1103,1108,1124"` | `"1103,1108,1124"` |
+| `Business.MunicipalityLabels` | `["Sandnes", "Sola", "Stavanger"]` | `["Stavanger", "Sandnes", "Sola"]` |
+
+Fra app-frontend v4.35.0 følger de lagrede ledetekstene rekkefølgen til de lagrede verdiene.
+Når du deler `Business.Municipalities` på komma, hører hver verdi til ledeteksten på samme indeks i
+`Business.MunicipalityLabels`. For eksempel hører den første verdien, `1103`, til den første ledeteksten,
+`"Stavanger"`. I eldre versjoner kunne samme indeks gi feil kommune, som `1103` og `"Sandnes"` i eksempelet.
+
+Endringen gjelder bare rekkefølgen på ledetekstene som lagres i datamodellen. Brukeren ser fortsatt
+alternativene i rekkefølgen **Sandnes, Sola, Stavanger**. Hvis du endrer sorteringen av svaralternativene,
+følger de lagrede ledetekstene fortsatt rekkefølgen til de lagrede verdiene.
 
 Hvis du bruker `group`-bindingen til å lagre valgene i en repeterende struktur, lagrer hver rad sin egen verdi
 og ledetekst. Da må `label` peke på et `string`-felt inne i raden, i stedet for en separat liste med ledetekster.
