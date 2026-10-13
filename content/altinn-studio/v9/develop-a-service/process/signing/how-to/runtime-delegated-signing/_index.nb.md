@@ -92,7 +92,7 @@ Følg trinnene under for å sette opp en slik app.
 
 Denne seksjonen er bare relevant hvis du vil endre standardtekstene som brukes når vi kommuniserer med de som skal signere.
 
-Disse standardverdiene brukes hvis du ikke endrer kommunikasjonstekstene. I tabellene står `\n\n` for to linjeskift, altså en tom linje mellom avsnittene. Innboksmeldingen inneholder en Markdown-lenke til skjemaet.
+Appen bruker disse standardverdiene hvis du ikke endrer kommunikasjonstekstene. I tabellene står `\n\n` for to linjeskift, altså en tom linje mellom avsnittene. Kvitteringstekstene bruker `<br /><br />` til det samme. Innboksmeldingen inneholder en Markdown-lenke til skjemaet.
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Standardtekster bokmål">}}

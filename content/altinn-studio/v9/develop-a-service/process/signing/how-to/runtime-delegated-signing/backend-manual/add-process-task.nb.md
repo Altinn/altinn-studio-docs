@@ -110,4 +110,6 @@ Nedenfor finner du et eksempel på en slik policy. For at denne koden skal funge
 
 Gi `signature-access` til tjenesteeier. Dette gjør at appen (via Maskinporten) kan skrive og lese data i signaturdokumentene. Du kan også lese og sjekke signaturer når du måtte ønske det.
 
+Oppgaven i eksempelet har handlingen `reject`. Derfor må tjenesteeieren (`[org]`) også ha `reject` på oppgaven. Ellers stopper bygget med feilen `ALTINNAPP0800`.
+
 [Les om beskyttede data](/nb/altinn-studio/v9/develop-a-service/data/restricted-data/).

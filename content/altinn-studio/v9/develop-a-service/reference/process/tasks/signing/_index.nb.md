@@ -141,7 +141,7 @@ Signeringssteget trenger en layout som bestemmer hva som skal vises til brukeren
 
 Opprett en mappe i `App/ui/` med et navn som er nøyaktig likt prosesstegets ID, for eksempel `Task_2`. I denne mappen oppretter du filen `Settings.json` og en mappe med navn `layouts`. I `Settings.json` setter du `defaultDataType` til datatypen som sidene skal bruke. Uten `defaultDataType` får du feil når appen skal vise signeringssteget.
 
-I `layouts`-mappen oppretter du filene som bestemmer hvordan sidene skal se ut. En signering-layout må ha en komponent som lar brukeren signere: enten `SigningActions`, som viser **Signer**-knappen selv, eller en `ActionButton` med `"action": "sign"`. Når brukeren klikker på knappen, utfører brukeren handlingen `sign`, og prosessen går videre.
+I `layouts`-mappen oppretter du filene som bestemmer hvordan sidene skal se ut. En signering-layout må ha en komponent som lar brukeren signere: enten `SigningActions`, som viser **Signer**-knappen selv, eller en `ActionButton` med `"action": "sign"`. Med `ActionButton` går prosessen videre med en gang brukeren signerer. Med `SigningActions` signerer brukeren først, og prosessen går videre når noen med `write` klikker på **Send inn skjemaet** etter at alle har signert.
 
 Eksempel på en enkel layout med et read only-tekstfelt og en signeringsknapp kan se sånn her ut:
 
@@ -298,6 +298,8 @@ I tillegg har `Task_3` sitt `<altinn:signatureConfig>` sagt at den skal være un
 Hvis du vil at signereren skal kunne avslå å signere og for eksempel sende instansen tilbake til forrige steg, kan du legge til en `reject`-handling på dette prosesssteget.
 
 Du legger også handlingen til i autorisasjonsregelen. Hvis layouten bruker `SigningActions`, viser komponenten da en egen **Avbryt signering**-knapp. Bruker du ikke `SigningActions`, må du legge til en `ActionButton` med `"action": "reject"`.
+
+Har oppgaven handlingen `reject`, må også tjenesteeieren (`[org]`) ha `reject` på oppgaven. Ellers stopper bygget med feilen `ALTINNAPP0800`.
 
 Se [Slik styrer du prosessflyten](/nb/altinn-studio/v9/develop-a-service/reference/process/flowcontrol/) for mer informasjon.
 

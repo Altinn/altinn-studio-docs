@@ -143,7 +143,7 @@ The signing step requires a layout that defines what should be displayed to the 
 
 Create a folder in `App/ui/` with a name that exactly matches the ID of the process step, for example `Task_2`. In this folder, create the file `Settings.json` and a folder named `layouts`. In `Settings.json`, set `defaultDataType` to the data type the pages should use. Without `defaultDataType`, the app shows an error when it displays the signing step.
 
-In the `layouts` folder, create the files that define how the pages should look. A signing layout must have a component that lets the user sign: either [`SigningActions`](/en/altinn-studio/v9/develop-a-service/look-and-feel/components/signingactions/), which shows the **Signer** button itself, or an [`ActionButton`](/en/altinn-studio/v9/develop-a-service/look-and-feel/components/actionbutton/) with `"action": "sign"`. When the user clicks the button, they perform the sign action, and the process moves on.
+In the `layouts` folder, create the files that define how the pages should look. A signing layout must have a component that lets the user sign: either [`SigningActions`](/en/altinn-studio/v9/develop-a-service/look-and-feel/components/signingactions/), which shows the **Signer** button itself, or an [`ActionButton`](/en/altinn-studio/v9/develop-a-service/look-and-feel/components/actionbutton/) with `"action": "sign"`. With `ActionButton`, the process moves on as soon as the user signs. With `SigningActions`, the user signs first, and the process moves on when someone with `write` clicks **Send inn skjemaet** after everyone has signed.
 
 An example of a simple layout with a read-only text field and a signing button may look like this:
 
@@ -180,7 +180,7 @@ An example of a simple layout with a read-only text field and a signing button m
 
 To allow users to sign, a rule must be defined in `App/config/authorization/policy.xml` that grants users the rights to sign in the given process step.
 
-Users who should sign need `read` and `sign` on the step. The user who submits the form after signing also needs `write`.
+Users who will sign need `read` and `sign` on the step. The user who submits the form after signing also needs `write`.
 
 An example of an authorization rule granting these permissions for the _DAGL_ role on the process step with the ID _Task_2_ could look like this:
 
@@ -302,7 +302,9 @@ If it should be possible to decline signing and, for example send the instance b
 
 You also add the action to the authorization rule. If the layout uses `SigningActions`, the component then shows its own **Avbryt signering** button. If you do not use `SigningActions`, you must add an `ActionButton` with `"action": "reject"`.
 
-See [Controlling process flow](/nb/altinn-studio/v9/develop-a-service/reference/process/flowcontrol/) for more information.
+If the task has the `reject` action, the service owner (`[org]`) must also have `reject` on the task. Otherwise the build stops with the error `ALTINNAPP0800`.
+
+See [Controlling process flow](/nb/altinn-studio/v9/develop-a-service/reference/process/flowcontrol/) (in Norwegian) for more information.
 
 
 ### Signing object stored when user signs

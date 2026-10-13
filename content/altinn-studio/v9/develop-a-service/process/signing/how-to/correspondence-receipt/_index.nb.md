@@ -37,7 +37,7 @@ Hvis du allerede bruker maskinporten i appen trenger du ikke å utføre dette st
 tilgang til nødvendige scopes før du går videre.
 {{% /notice %}}
 
-Følg [veiledningen for å ta i bruk Maskinporten i appen]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten" >}}) for å ta i bruk 
+Følg [veiledningen for Maskinporten i appen]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten" >}}) for å ta i bruk Maskinporten-klienten din.
 maskinporten-klienten din i appen.
 
 ## 3. Legg til en meldingsressurs
@@ -49,7 +49,7 @@ I Designer finner du feltet **Oppgi en ressurs for å sende ut meldinger** bare 
 
 1. Naviger til appen din, og gå til **Arbeidsflyt** i toppmenyen.
 2. Klikk på signeringsoppgaven i prosess-visningen og se at du får opp konfigurasjonsmuligheter i panelet på høyre side.
-3. Klikk på "Oppgi en ressurs for å sende ut meldinger"
+3. Klikk på **Oppgi en ressurs for å sende ut meldinger**.
 4. Legg inn navnet på meldingstjenesten i feltet
 5. Klikk på "Del dine endringer" og knappen "Del endringer". 
 6. Publiser tjenesten til testmiljø og verifiser at kvitteringen sendes.
