@@ -47,7 +47,7 @@ Som med bekreftelsesoppgaver må du sette opp de tilgjengelige handlingene. For 
 </altinn:actions>
 ```
 
-Handlingen `sign` kan være det eneste alternativet eller kombinert med andre handlinger som `bekreft` eller `avvis`, avhengig av behovene til hver app.
+Handlingen `sign` kan være det eneste alternativet eller kombinert med andre handlinger som `reject` (avvis) eller `confirm` (bekreft), avhengig av behovene til hver app.
 
 ### Velg hvilke dataelementer som skal signeres
 
@@ -114,6 +114,7 @@ Eksempel på en applicationmetadata.json-fil med en signaturdatatype kalt "signa
       "allowedContentTypes": [
         "application/json"
       ],
+      "allowedContributors": ["app:owned"],
       "taskId": "Task_2",
       "maxSize": 25,
       "maxCount": 1,
@@ -176,7 +177,7 @@ Eksempel på en enkel layout med et read only-tekstfelt og en signeringsknapp ka
 
 For at brukere skal få lov til å signere, må du sette opp en regel i `App/config/authorization/policy.xml` som gir brukerne rettigheter til å signere på det nye prosesssteget.
 
-Regelen må si at brukerne som skal kunne signere har rettighetene _read_, _write_ og _sign_ på steget der signering skal utføres.
+De som skal signere, trenger `read` og `sign` på steget der signeringen skjer. Den som skal sende inn skjemaet etter signeringen, trenger i tillegg `write`.
 
 Eksempel på en autorisasjonsregel som gir disse tilgangene for _DAGL_-rollen på prosesssteg med id _Task_2_:
 
@@ -296,7 +297,7 @@ I tillegg har `Task_3` sitt `<altinn:signatureConfig>` sagt at den skal være un
 
 Hvis du vil at signereren skal kunne avslå å signere og for eksempel sende instansen tilbake til forrige steg, kan du legge til en `reject`-handling på dette prosesssteget.
 
-Du legger denne til i autorisasjonsregelen og setter opp en egen ActionButton som knyttes til handlingen `reject`.
+Du legger også handlingen til i autorisasjonsregelen. Hvis layouten bruker `SigningActions`, viser komponenten da en egen **Avbryt signering**-knapp. Bruker du ikke `SigningActions`, må du legge til en `ActionButton` med `"action": "reject"`.
 
 Se [Slik styrer du prosessflyten](/nb/altinn-studio/v9/develop-a-service/reference/process/flowcontrol/) for mer informasjon.
 

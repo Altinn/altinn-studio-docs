@@ -19,9 +19,9 @@ tags: [needsReview]
 
    Det finnes et sett med ferdige komponenter for å bygge opp layout for et signeringssteg. Vi anbefaler å bruke disse, men de er ikke obligatoriske:
 
-   - **SigneeList**: Lister ut de som skal signere og tilhørende signeringsstatus. [Les om SigneeList-komponenten](/nb/altinn-studio/v9/reference/ux/components/signeelist/).
-   - **SigningDocumentList**: Lister ut dataene som blir signert på, for eksempel vedlegg, xml-data eller PDF-oppsummering fra tidligere steg. [Les om SigningDocumentList-komponenten](/nb/altinn-studio/v9/reference/ux/components/signingdocumentlist/).
-   - **SigningActions**: Sjekker status for signeringssteget og viser relevante knapper til sluttbruker, for eksempel **Signer**-knappen. [Les om SigningActions-komponenten](/nb/altinn-studio/v9/reference/ux/components/signingactions/).
+   - **SigneeList**: Lister ut de som skal signere og tilhørende signeringsstatus. [Les om SigneeList-komponenten](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/signeelist/).
+   - **SigningDocumentList**: Lister ut dataene som blir signert på, for eksempel vedlegg, xml-data eller PDF-oppsummering fra tidligere steg. [Les om SigningDocumentList-komponenten](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/signingdocumentlist/).
+   - **SigningActions**: Sjekker status for signeringssteget og viser relevante knapper til sluttbruker, for eksempel **Signer**-knappen. [Les om SigningActions-komponenten](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/signingactions/).
 
    Hvis du ikke bruker `SigningActions` for å vise **Signer**-knappen, må du legge til en egen action button med action "sign" for å la sluttbruker signere.
 

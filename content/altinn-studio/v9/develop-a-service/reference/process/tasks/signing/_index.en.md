@@ -49,7 +49,7 @@ As for confirmation steps we need to define the actions available, to generate a
 </altinn:actions>
 ```
 
-The sign action can be the only option or in combination with other actions like confirm and/or reject, based on the needs of each application.
+The sign action can be the only option or in combination with other actions like `confirm` and/or `reject`, based on the needs of each application.
 
 ### Configure what dataelements to sign
 
@@ -116,6 +116,7 @@ Example of a applicationmetadata.json with a signature datatype named signature:
       "allowedContentTypes": [
         "application/json"
       ],
+      "allowedContributors": ["app:owned"],
       "taskId": "Task_2",
       "maxSize": 25,
       "maxCount": 1,
@@ -138,13 +139,11 @@ Example of a applicationmetadata.json with a signature datatype named signature:
 
 ### Design layout for the signing step
 
-The signing step requires a layout that defines what should be displayed to the user. This is done through a separate layout set, which in turn is associated with the signing process step (`Task_2` in our example).
+The signing step requires a layout that defines what should be displayed to the user. You create it in the folder for the signing process step (`Task_2` in our example).
 
-If you have a v3 application without a layout set, see [Pages](/en/altinn-studio/v8/reference/ux/pages/#setup) for how to set this up.
+Create a folder in `App/ui/` with a name that exactly matches the ID of the process step, for example `Task_2`. In this folder, create the file `Settings.json` and a folder named `layouts`. In `Settings.json`, set `defaultDataType` to the data type the pages should use. Without `defaultDataType`, the app shows an error when it displays the signing step.
 
-Create a new folder in `App/ui/` with a name that describes this layout set, for example, _signing_. In this folder, create the file `Settings.json` and a folder named `layouts`.
-
-In the `layouts` folder, create files that define how pages in this layout set should look. The only component that a signing layout must have is an [`ActionButton`](/en/altinn-studio/v8/reference/ux/components/actionbutton/) with `"action": "sign"`, which defines that when the user presses this, they perform the sign action, advancing the process.
+In the `layouts` folder, create the files that define how the pages should look. A signing layout must have a component that lets the user sign: either [`SigningActions`](/en/altinn-studio/v9/develop-a-service/look-and-feel/components/signingactions/), which shows the **Signer** button itself, or an [`ActionButton`](/en/altinn-studio/v9/develop-a-service/look-and-feel/components/actionbutton/) with `"action": "sign"`. When the user clicks the button, they perform the sign action, and the process moves on.
 
 An example of a simple layout with a read-only text field and a signing button may look like this:
 
@@ -181,7 +180,7 @@ An example of a simple layout with a read-only text field and a signing button m
 
 To allow users to sign, a rule must be defined in `App/config/authorization/policy.xml` that grants users the rights to sign in the given process step.
 
-This rule must specify that users who should be able to sign have the permission rights: _read_, _write_, and _sign_ on the step.
+Users who should sign need `read` and `sign` on the step. The user who submits the form after signing also needs `write`.
 
 An example of an authorization rule granting these permissions for the _DAGL_ role on the process step with the ID _Task_2_ could look like this:
 
@@ -301,9 +300,9 @@ In addition Task_3s `<altinn:signatureConfig>` has defined that it should be uni
 
 If it should be possible to decline signing and, for example send the instance back to the previous step, this can be done by adding a `reject` action to this process step.
 
-This is then added to the authorization rule, and a separate `ActionButton` is defined that is associated with the `reject` action.
+You also add the action to the authorization rule. If the layout uses `SigningActions`, the component then shows its own **Avbryt signering** button. If you do not use `SigningActions`, you must add an `ActionButton` with `"action": "reject"`.
 
-See [Controlling process flow](/en/altinn-studio/v9/develop-a-service/reference/process/flowcontrol/) for more information.
+See [Controlling process flow](/nb/altinn-studio/v9/develop-a-service/reference/process/flowcontrol/) for more information.
 
 
 ### Signing object stored when user signs

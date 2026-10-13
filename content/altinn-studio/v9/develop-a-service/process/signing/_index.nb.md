@@ -4,10 +4,6 @@ title: Signering
 linktitle: Signering
 description: Om signering i en Altinn-app
 tags: [signering, needsReview]
-
-aliases:
-- /nb/altinn-studio/guides/signing/
-- /nb/altinn-studio/v8/concepts/signing/
 ---
 
 Elektronisk signatur handler om sporbarhet. Det vil si at du i ettertid kan dokumentere at en bestemt person utførte en 

@@ -37,7 +37,7 @@ Hvis du allerede bruker maskinporten i appen trenger du ikke å utføre dette st
 tilgang til nødvendige scopes før du går videre.
 {{% /notice %}}
 
-Følg [denne guiden](<relref "altinn-studio/v9/develop-a-service/integration/maskinporten/">) for å ta i bruk 
+Følg [veiledningen for å ta i bruk Maskinporten i appen]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten" >}}) for å ta i bruk 
 maskinporten-klienten din i appen.
 
 ## 3. Legg til en meldingsressurs
@@ -45,6 +45,8 @@ maskinporten-klienten din i appen.
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
+I Designer finner du feltet **Oppgi en ressurs for å sende ut meldinger** bare for brukerstyrt signering. For andre signeringsoppgaver legger du inn meldingsressursen som beskrevet under **Manuelt oppsett**.
+
 1. Naviger til appen din, og gå til **Arbeidsflyt** i toppmenyen.
 2. Klikk på signeringsoppgaven i prosess-visningen og se at du får opp konfigurasjonsmuligheter i panelet på høyre side.
 3. Klikk på "Oppgi en ressurs for å sende ut meldinger"
@@ -56,7 +58,7 @@ maskinporten-klienten din i appen.
 {{<content-version-container version-label="Manuelt oppsett">}}
 1. Legg inn `altinn:correspondenceResource` under `altinn:signatureConfig` på signeringsoppgaven (i filen `App/config/process/process.bpmn`) Se eksempel under:
 
-    ```xml {hl_lines=[20,21,22]}
+    ```xml {hl_lines=[20,21,22,23]}
     <bpmn:task id="SigningTask" name="Signering">
     <bpmn:extensionElements>
         <altinn:taskExtension>
@@ -77,7 +79,8 @@ maskinporten-klienten din i appen.
             <!-- ... ev. annen konfigurasjon knyttet til signering her -->
 
             <!-- Her oppgis en meldingsressurs, som brukes for å si fra til de som skal signere -->
-            <!-- om at de må inn og signere, samt signeringskvittering. Påkrevd. -->
+            <!-- om at de må inn og signere, samt signeringskvittering. -->
+            <!-- Påkrevd for brukerstyrt signering i testmiljø og produksjon. -->
             <altinn:correspondenceResource>app-correspondence-resource</altinn:correspondenceResource>
 
         </altinn:signatureConfig>
