@@ -35,10 +35,10 @@ Målet er å kunne gjøre mest mulig med lavkode, men beholde muligheten for tra
 ## Prinsipper for Altinn Studio
 Dette er noen av prinsippene som ligger til grunn når vi utvikler Altinn Studio:
 
-- **Fri og åpen kildekode**: Vi tror at åpenhet og mulighet for andre til å bidra er veien å gå når offentlig sektor utvikler tjenester.
+- **Fri og åpen kildekode**: Vi tror at åpen kildekode og mulighet for andre til å bidra, er veien å gå når offentlig sektor skal utvikle tjenester.
 - **Basert på åpne standarder**: Lukket kode binder deg til én leverandør og gir ofte ekstra kostnader.
 - **Skybasert infrastruktur**: Vi bruker løse koblinger og binder oss ikke til én skyleverandør.
-- **Bygget på moderne og populære rammeverk**: Det gjør det lettere både for oss og kundene våre å skaffe teknisk kompetanse, og det er noe folk ønsker å jobbe med og lære.
+- **Bygget på moderne og populære rammeverk**: Det gjør det lettere både for oss og kundene våre å skaffe teknisk kompetanse, og det er noe folk ønsker å jobbe med og lære fra.
 - **Innebygd sikkerhet**: Hvert lag i arkitekturen autoriserer bruken uavhengig av hvor kallene kommer fra.
 - **Isolasjon**: Hver tjenesteeier får sine egne miljøer for test og produksjon.
 

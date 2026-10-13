@@ -35,9 +35,9 @@ The goal is to be able to do as much as possible with low-code, but retain the p
 ## Principles for Altinn Studio
 These are some of the principles that guide how we develop Altinn Studio:
 
-- **Free and open source**: We believe that openness and the opportunity for others to contribute is the way forward when the public sector develops services.
+- **Free and open source**: We believe that open source and giving others the opportunity for others to contribute is the way forward for developing public sector services.
 - **Based on open standards**: Closed code ties you to a single vendor and often adds costs.
-- **Cloud-based infrastructure**: We use loose coupling and do not tie ourselves to a single cloud provider.
+- **Cloud-based infrastructure**: We use loose couplings and are not tied to one single cloud provider.
 - **Built on modern and popular frameworks**: It makes it easier for both us and our customers to find technical expertise, and it is something people want to work with and learn.
 - **Built-in security**: Each layer in the architecture authorises use independently of where the calls come from.
 - **Isolation**: Each service owner gets their own environments for testing and production.
