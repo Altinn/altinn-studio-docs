@@ -76,7 +76,7 @@ Tekstene i ressursfilen:
 }
 ```
 
-Da blir valideringsmeldingen `"Du må fylle ut Fornavn"`.
+Da blir valideringsmeldingen `"Du må fylle ut fornavn"`.
 
 ### Eksempel: Felt med `shortName`
 
