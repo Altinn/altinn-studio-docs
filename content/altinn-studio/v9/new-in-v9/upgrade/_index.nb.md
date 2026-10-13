@@ -5,7 +5,7 @@ linktitle: Oppgradere fra v8
 description: Slik oppgraderer du en Altinn-app fra v8 til v9 med studioctl.
 weight: 10
 toc: true
-tags: [needsReview]
+tags: [Reviewed]
 ---
 
 `studioctl app upgrade` gjør mesteparten av jobben for deg. Verktøyet går gjennom appen og endrer de filene som trenger det.
@@ -149,7 +149,7 @@ Mangler `sendAfterTaskId`, eller klarer ikke oppgraderingen å sette inn oppgave
 
 Vi har lenge anbefalt å sette opp dynamikk i skjemaer med dynamiske uttrykk i JSON-filene, men vi har fortsatt støttet de eldre reglene som er skrevet i JavaScript. Den støtten forsvinner i v9.
 
-Oppgraderingen sletter regelfilene og forsøker samtidig å skrive reglene om til dynamiske uttrykk eller C#-kode. Noen ganger klarer den ikke å konvertere en regel automatisk. Da må du bygge dynamikken selv. Se [introduksjonen til uttrykksspråket]({{< relref "/altinn-studio/v9/develop-a-service/expressions" >}}) hvis du trenger å skrive om en regel.
+Oppgraderingen skriver reglene om til dynamiske uttrykk eller C#-kode og sletter regelfilene der det lykkes. Klarer den ikke å konvertere en regel, beholder den regelfilene og sier fra, og da må du bygge dynamikken selv. Se [introduksjonen til uttrykksspråket]({{< relref "/altinn-studio/v9/develop-a-service/expressions" >}}) hvis du trenger å skrive om en regel.
 
 {{% notice warning %}}
 Gå gjennom uttrykkene oppgraderingen har laget, og test at dynamikken i skjemaet virker som den skal.
@@ -175,7 +175,7 @@ Se [Lage en egendefinert systemoppgave]({{< relref "/altinn-studio/v9/develop-a-
 
 ## Breaking changes
 
-### Vi har flyttet egendefinerte oppgave-hooker og de har fått ny funksjonsmåte
+### Vi har flyttet egendefinerte oppgave-hooker, og de har fått ny funksjonsmåte
 
 Hvis appen din har en klasse som implementerer `IProcessTaskStart`, `IProcessTaskEnd` eller `IProcessTaskAbandon`, det vil si kode som kjører når en oppgave starter, avsluttes eller forlates, må du migrere den manuelt. Systemoppgavene over er med i oppgraderingen, men for disse tre oppgavene har vi fjernet grensesnittene uten en overgangsperiode med kompileringsadvarsler. Koden slutter rett og slett å kompilere til du har gjort om på den.
 
@@ -190,7 +190,7 @@ Bruk de nye grensesnittene i `Altinn.App.Core.Features.Process` i stedet:
 Utover navnet er det tre praktiske forskjeller du må kode mot:
 
 - **Hooken avgjør selv hvilken oppgave den gjelder for.** Før kjørte hver registrerte handler for *alle* oppgaver i prosessen, og koden måtte selv sjekke `taskId`. Nå implementerer hooken `ShouldRunForTask(string taskId)`, og kjører bare handleren(e) som svarer `true` for gjeldende oppgave.
-- **Hooken kjører som et steg i arbeidsflytmotoren**, akkurat som systemoppgavene over. Hvis det oppstår feil, kan det kan hende at den blir forsøkt kjørt på nytt automatisk — implementasjonen må altså være idempotent. I stedet for å kaste unntak ved feil returnerer du et `HookResult` (et eget resultat for hooker, ikke å forveksle med `ServiceTaskResult` som brukes av systemoppgaver): `HookResult.Success()`, `HookResult.FailedRetryable("melding")` for en forbigående feil, eller `HookResult.FailedPermanent("melding")` for en feil som trenger en rettelse.
+- **Hooken kjører som et steg i arbeidsflytmotoren**, akkurat som systemoppgavene over. Hvis det oppstår feil, kan det hende at den blir forsøkt kjørt på nytt automatisk — implementasjonen må altså være idempotent. I stedet for å kaste unntak ved feil returnerer du et `HookResult` (et eget resultat for hooker, ikke å forveksle med `ServiceTaskResult` som brukes av systemoppgaver): `HookResult.Success()`, `HookResult.FailedRetryable("melding")` for en forbigående feil, eller `HookResult.FailedPermanent("melding")` for en feil som trenger en rettelse.
 - **Instansdata leses og endres via `IInstanceDataMutator`** i stedet for et rått `Instance`-objekt. Kontekstobjektet hooken mottar (`OnTaskStartingContext` og tilsvarende for de to andre) gir deg både instansen og en mutator — endringer du gjør gjennom den, lagres automatisk når hooken fullfører uten feil.
 
 I tillegg mister start-hooken `prefill`-parameteren. Hvis du tidligere har brukt prefill-data i `IProcessTaskStart.Start`, må du flytte den logikken til `IInstantiationProcessor.DataCreation`, som fortsatt mottar prefill og er upåvirket av denne endringen.
@@ -237,7 +237,7 @@ Bare én matchende handler er tillatt per oppgave. Svarer to registrerte handler
 
 Oppgraderingen ordner disse endringene uten at du trenger å gjøre noe, men det er greit å kjenne til dem:
 
-- Komponenten `NavigationButtons` viser nå tilbake-knappen som standard. Tidligere måtte du slå den på selv. Vil du skjule knappen, setter du `"showBackButton": false`.
+- Komponenten `NavigationButtons` viser nå tilbake-knappen som standard. Tidligere måtte du slå den på selv. Oppgraderingen legger ikke til `"showBackButton": false` for deg, så vil du skjule knappen, må du sette det selv.
 - Komponenten `OrganisationLookup` heter nå `OrganizationLookup`.
 - Komponenten `Header` heter nå `Heading`.
 
