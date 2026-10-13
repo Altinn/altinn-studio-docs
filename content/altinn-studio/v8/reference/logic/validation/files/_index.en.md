@@ -3,7 +3,7 @@ title: File validation
 description: How to do extended file validation?
 toc: false
 tags: []
-weight: 10
+weight: 40
 ---
 
 {{%notice info%}}

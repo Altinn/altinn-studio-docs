@@ -3,7 +3,7 @@ title: Utvidet filvalidering
 description: Hvordan utføre utvidet filvalidering?
 toc: false
 tags: []
-weight: 10
+weight: 40
 ---
 
 {{%notice info%}}
