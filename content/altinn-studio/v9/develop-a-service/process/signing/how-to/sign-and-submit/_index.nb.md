@@ -63,7 +63,7 @@ Steget fungerer fortsatt som et vanlig datasteg, men brukeren kan i tillegg sign
 3. Angi hvilke data som skal signeres i `<altinn:dataTypesToSign>`, for eksempel skjemadataene i datamodellen.
 5. Oppgi en datatype i `<altinn:signatureDataType>`. Hvordan den bør se ut, finner du nedenfor.
 
-Ferdig konvertert eksempel i `process.xml`:
+Ferdig konvertert eksempel i `process.bpmn`:
 
 ```xml
 <bpmn:task id="Task_1" name="Fyll ut og signer">

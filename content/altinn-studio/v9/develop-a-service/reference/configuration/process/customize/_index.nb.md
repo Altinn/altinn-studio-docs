@@ -32,7 +32,7 @@ Du kan overstyre tekstene ved å legge inn tekstnøkkel som hører til hver teks
 | 5                         | confirm.attachments |
 | 6                         | confirm.button_text |
 
-Eksempel på overstyrte tekster i filen `resources.nb.json`:
+Eksempel på overstyrte tekster i filen `resource.nb.json`:
 
 ```json
 {
@@ -162,7 +162,7 @@ Du kan overstyre tekstene på siden ved å legge inn tekstnøkler som hører til
 | 1                         | feedback.title |
 | 2                         | feedback.body  |
 
-Eksempel på overstyrte tekster i filen `resources.nb.json`:
+Eksempel på overstyrte tekster i filen `resource.nb.json`:
 
 ```json
 {
@@ -195,7 +195,7 @@ Hvis den reelle mottakeren av skjemaet er en annen organisasjon enn organisasjon
 | 4                         | receipt.body            |
 | 5                         | receipt.title_submitted |
 
-Eksempel på overstyrte tekster i filen `resources.nb.json`:
+Eksempel på overstyrte tekster i filen `resource.nb.json`:
 
 ```json
 {
@@ -365,7 +365,7 @@ Du kan også overstyre tekstene i denne kvitteringen ved å manuelt legge til hv
 | 2                       | receipt.title       |
 | 3                       | receipt.body_simple |
 
-Eksempel på overstyrte tekster i filen `resources.nb.json`:
+Eksempel på overstyrte tekster i filen `resource.nb.json`:
 
 ```json
 {
