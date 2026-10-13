@@ -52,6 +52,3 @@ Using the ID of the resource you created in step 3, call the API operation to [c
 
 Systemuser is the typical authentication method used with the Broker service. [Consult the systemuser documentation for how to set this up](/en/authorization/guides/system-vendor/system-user/). You can follow the steps in the [Bruno collection](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru) to set up and configure a system in the System Register.
 
-## How to migrate from Altinn 2 to Altinn 3 {#how-to-migrate-from-Altinn-2-to-Altinn-3}
-
-If you have an existing solution in Altinn 2 you wish to migrate, you can either create a new independent Altinn Broker service in Altinn 3, or use the transition solution, [described here](/en/broker/broker-transition/).
