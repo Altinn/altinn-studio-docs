@@ -143,6 +143,10 @@ Du kan gjøre den samme autoriseringen globalt ved hjelp av ASP.NET Core-mellomv
 Merk at denne varianten også blokkerer uautentiserte forespørsler.
 {{% /notice %}}
 
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```csharp
 WebApplication app = builder.Build();
 
@@ -182,6 +186,10 @@ I dette eksempelet tillater vi bare forespørsler fra systembrukere:
 Merk at denne varianten også blokkerer uautentiserte forespørsler.
 {{% /notice %}}
 
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```csharp
 WebApplication app = builder.Build();
 
@@ -220,6 +228,10 @@ I dette eksempelet sperrer vi ute virksomhetsbrukere fra Altinn 2:
 {{% notice info %}}
 Disse tokenene vil kunne eksistere frem til Altinn 2 er fullstendig faset ut.
 {{% /notice %}}
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
 ```csharp
 WebApplication app = builder.Build();

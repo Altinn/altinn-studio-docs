@@ -29,6 +29,10 @@ Du kan fortsatt oppleve at det mangler en eller to kodelister i Altinn 3 sammenl
 For en oversikt over tilgjengelige kodelister i Altinn 2, kan du bruke [apiet](https://altinn.github.io/docs/api/rest/metadata/#hente-oversikt-over-kodelister)
 Du registrerer listene du ønsker å bruke i applikasjonens `Program.cs`, og du kan oppdatere kodelisten gjennom TUL.
 
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```C#
 using Altinn.App.Core.Features.Options;
 ...
@@ -43,6 +47,10 @@ services.AddAltinn2CodeList(
 Det eneste som er påkrevd er `id` for hva kodelisten heter i Altinn 2, og `transform` for å fortelle hvilke kolonner du ønsker å bruke som `Value` og `Label`. Oversetting fungerer automatisk. Etter versjon `v7.2.0` vil systemet bruke `nb` om listen mangler språket brukeren har valgt. Om du ønsker to ulike transformasjoner av samme liste, bruker systemet `id` som navnet i Altinn 3 og bruker `metadataApiId` i oppslaget mot Altinn 2.
 
 Bruken er som alle andre kodelister der `id` kommer igjen som `optionsId` i komponenten.
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 {

@@ -105,6 +105,10 @@ Du kan for eksempel:
 
 Det finnes et [JsonSchema](https://altinncdn.no/schemas/json/test-users/test-users.schema.v1.json) som hjelper deg å skrive en `testData.json`-fil i verktøy som VSCode. En full versjon av brukerne som ligger i TestData-mappen er tilgjengelig i [testData.json](testData.json)
 
+{{< code-title >}}
+App/wwwroot/testData.json
+{{< /code-title >}}
+
 ```json
 {
   "$schema": "https://altinncdn.no/schemas/json/test-users/test-users.schema.v1.json",

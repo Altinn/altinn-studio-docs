@@ -516,6 +516,10 @@ Innstillingene under `Recipient` og `Metadata` kan oppgis på to måter:
 
 1. **Fast verdi**
 
+   {{< code-title >}}
+   App/appsettings.json
+   {{< /code-title >}}
+
    ```json
    "JournalEntryTitle": {
      "Value": "Søknad om skjenkebevilling"
@@ -523,6 +527,10 @@ Innstillingene under `Recipient` og `Metadata` kan oppgis på to måter:
    ```
 
 2. **Verdi fra datamodellen**
+
+   {{< code-title >}}
+   App/appsettings.json
+   {{< /code-title >}}
 
    ```json
    "CaseFileTitle": {

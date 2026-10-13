@@ -201,6 +201,10 @@ En systemoppgave med egen mappe med layoutfiler må ha minst én side, og Altinn
 
 Det er valgfritt å inkludere `<altinn:filenameTextResourceKey>`. Her oppgir du en tekstressursnøkkel som brukes som filnavn, med støtte for språk og variabler. Utelater du den, får PDF-en applikasjonens navn som filnavn.
 
+{{< code-title >}}
+App/config/texts/resource.{language}.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "pdfFileName",

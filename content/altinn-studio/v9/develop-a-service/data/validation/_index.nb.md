@@ -31,6 +31,10 @@ Du kan gjøre endringer i JSON Schema direkte for å tilpasse valideringen ved b
 
 Et eksempel på hvordan du kan definere et felt i JSON Schema datamodellen:
 
+{{< code-title >}}
+App/models/{model}.schema.json
+{{< /code-title >}}
+
 ```json
 "someField": {
   "type": "string",
@@ -69,6 +73,10 @@ Systemet finner feltnavn på følgende måte:
 
 #### Eksempel: Felt med kun `title`
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "fornavn",
@@ -81,6 +89,10 @@ Systemet finner feltnavn på følgende måte:
 ```
 
 Og tekster i ressursfil:
+
+{{< code-title >}}
+App/config/texts/resource.{language}.json
+{{< /code-title >}}
 
 ```json
 ...
@@ -97,6 +109,10 @@ Da blir valideringsmeldingen `"Du må fylle ut Fornavn"`.
 Hvis feltets ledetekst er lang eller ikke egner seg til bruk i valideringsmeldingen, kan du legge til en `shortName`-tekst som brukes i stedet.
 _Merk at dette kun gjelder for denne spesifikke valideringsmeldingen – `shortName`-teksten brukes ikke ellers i løsningen._
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "fornavn",
@@ -110,6 +126,10 @@ _Merk at dette kun gjelder for denne spesifikke valideringsmeldingen – `shortN
 ```
 
 Og tekster i ressursfil:
+
+{{< code-title >}}
+App/config/texts/resource.{language}.json
+{{< /code-title >}}
 
 ```json
 ...
@@ -134,6 +154,10 @@ tekstnøkkelen `requiredValidation` i komponentens `textResourceBindings`-objekt
 for obligatoriske felt. Teksten kan være en [tekstnøkkel for en tekst som er definert i ressursfilene]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/options/functionality/texts" >}})
 for flerspråklig støtte.
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "firstName",
@@ -153,6 +177,10 @@ feltet er definert i JSON Schema. JSON Schema-filen ligger i mappen `App/models`
 
 Du kan for eksempel utvide eksempelet over:
 
+{{< code-title >}}
+App/models/{model}.schema.json
+{{< /code-title >}}
+
 ```json {hl_lines=[4]}
 "someField": {
   "type": "string",
@@ -165,6 +193,10 @@ Du kan skrive ønsket tekst direkte inn her, eller bruke en tekstnøkkel for en 
 
 Legg merke til at hvis du har en referanse til en definisjon, må feilmeldingen ligge på `property`-feltet, ikke på referansen/definisjonen.
 Eksempel:
+
+{{< code-title >}}
+App/models/{model}.schema.json
+{{< /code-title >}}
 
 ```json {hl_lines=[5]}
 {
@@ -219,6 +251,11 @@ Dette erstatter den tidligere metoden med overstyring i `ValidationHandler.cs`.
 1. Opprett en klasse som implementerer `IInstanceValidator`-grensesnittet som ligger i `Altinn.App.Core.Features.Validation`-navnerommet.
    Du kan navngi og plassere filene i den mappestrukturen du selv ønsker i prosjektet ditt. Vi anbefaler at du bruker meningsfulle navnerom som i et hvilket som helst annet .NET-prosjekt.
 2. Registrer implementeringen din i _Program.cs_-klassen
+
+   {{< code-title >}}
+   App/Program.cs
+   {{< /code-title >}}
+
    ```C#
    services.AddTransient<IInstanceValidator, InstanceValidator>();
    ```
@@ -297,6 +334,10 @@ Enkeltfeltvalidering vises umiddelbart når brukeren har fylt ut et felt.
 
 Ved å sette `showValidations`-egenskapen på en komponent gjør du valideringsfeil synlige umiddelbart når de oppstår.
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json {hl_lines=[6]}
 {
   "id": "some-input-field",
@@ -320,6 +361,10 @@ Det er foreløpig ikke støtte for å sette opp trigger for validering av enkelt
 {{% /notice %}}
 
 Merk at i versjon 3 av app frontend kjører JSON Schema og komponentspesifikk validering automatisk som standard. Å legge til en valideringstrigger fører til at custom backend-validering kjører i tillegg.
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json {hl_lines=[6]}
 {
@@ -556,6 +601,10 @@ Du kan også overstyre tittelen på meldingene ved å legge til nøklene `soft_v
 
 Du kan kjøre valideringer på en repeterende gruppe når brukeren lagrer en rad.
 Hvis det er valideringsfeil i raden, kan ikke brukeren lukke raden før feilene er fikset.
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json {hl_lines=[7]}
 {

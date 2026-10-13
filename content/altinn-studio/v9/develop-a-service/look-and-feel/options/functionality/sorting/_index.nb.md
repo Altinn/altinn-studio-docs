@@ -22,6 +22,10 @@ Egenskapen `sortOrder` er valgfri, og du kan sette den til en av følgende verdi
 
 Eksempel-konfigurasjon:
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json {hl_lines=[10]}
 {
   "id": "sort-example",

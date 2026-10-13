@@ -39,11 +39,21 @@ Altinn.App.Core NuGet-pakken definerer grensesnittene som kreves, i tillegg til 
    nuget install Altinn.FileAnalyzers
    ```
 2. **Registrer tjenesten for MIME-type-valideringen slik at den blir tilgjengelig**
+
+   {{< code-title >}}
+   App/Program.cs
+   {{< /code-title >}}
+
    ```csharp
    services.AddMimeTypeValidation();
    ```
 3. **Konfigurer validatoren for den datatypen den skal brukes for**
    Konfigurer validatoren per datatype. Den kjører bare mot den konfigurerte datatypen. Eksempelet nedenfor konfigurerer MIME-type-analysen og den tilhørende valideringskomponenten.
+
+   {{< code-title >}}
+   App/config/applicationmetadata.json
+   {{< /code-title >}}
+
    ```json
       {
          "id": "08112113-cc3a-4d35-a8d2-bfba53a1ddfd",
@@ -58,6 +68,11 @@ Altinn.App.Core NuGet-pakken definerer grensesnittene som kreves, i tillegg til 
    ```
 4. **Legg til støtte for JSON-objekter i dataresponsen**
     Dette forteller frontend at den skal se etter JSON i svaret for å gi en feilmelding til brukeren.
+
+    {{< code-title >}}
+    App/appsettings.json
+    {{< /code-title >}}
+
     ```json
       "FeatureManagement": {
         "JsonObjectInDataResponse": true
@@ -135,12 +150,22 @@ Hvis du vil skrive din egen validator, må du implementere to grensesnitt: `IFil
    ```
 3. **Registrer implementasjonen i appens DI-kontainer**
    Når koden din er på plass, må du registrere implementasjonen for at koden skal kjøre når brukeren laster opp filer.
+
+   {{< code-title >}}
+   App/Program.cs
+   {{< /code-title >}}
+
    ```csharp
     services.AddTransient<IFileAnalyser, YourAnalyserImplementation>();
     services.AddTransient<IFileValidator, YourValidatorImplementation>();
    ```
 4. **Konfigurer analysen og validatoren**
    Når du har implementert analysatoren og valideringslogikken, må du konfigurere dem i filen _applicationmetadata.json_. I konfigurasjonen av datatypen må du legge til analysatoren og valideringskomponenten med riktig ID.
+
+   {{< code-title >}}
+   App/config/applicationmetadata.json
+   {{< /code-title >}}
+
    ```json
        {
       "id": "08112113-cc3a-4d35-a8d2-bfba53a1ddfd",

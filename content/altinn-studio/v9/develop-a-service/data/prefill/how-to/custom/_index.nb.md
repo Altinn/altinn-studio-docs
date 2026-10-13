@@ -28,6 +28,10 @@ Se under for eksempler.
 
 Åpne `Program.cs` og legg til denne linjen:
 
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```csharp
 services.AddTransient<IInstantiationProcessor, MinUtfylling>();
 ```

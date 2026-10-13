@@ -143,6 +143,10 @@ Disse to funksjonene sammenligner to strenger for å sjekke om de er like (`equa
 
 Eksempler:
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "lastName",
@@ -168,6 +172,10 @@ Se også tips og triks under [_Streng eller mindre streng sammenligning?_](/nb/a
 Denne funksjonen tar inn en boolsk verdi eller noe som kan konverteres til en boolsk verdi, og returnerer den motsatte boolske verdien. Sann konverteres til usann, usann konverteres til sann.
 
 Funksjonen kan være nyttig hvis du vil _snu_ et uttrykk. I stedet for å tenke at du skal skrive et uttrykk som _skjuler_ en komponent gitt noen forutsetninger, kan du pakke uttrykket inn i `not` og skrive uttrykket ut fra hva som skal til for å _vise_ komponenten:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 {
@@ -269,6 +277,10 @@ Hvis du ønsker flere betingelser og mulige returverdier, kan du nøste flere ka
 Funksjonen `language` returnerer brukerens valgte språkkode.
 
 Eksempel:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 {
@@ -389,6 +401,10 @@ Disse to funksjonene sjekker om streng A inkluderer eller ikke inkluderer streng
 
 Eksempel:
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json
 {
    "id": "lastName",
@@ -415,6 +431,10 @@ Hvis du vil sjekke om verdier finnes i en kommaseparert liste, kan du bruke funk
 Funksjonen commaContains tar imot to argumenter. Det første argumentet er en kommaseparert streng, og det andre argumentet er strengen du vil sjekke om er blant de kommaseparerte verdiene i første argument.
 
 Eksempel:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 {
@@ -555,6 +575,10 @@ Eksempel:
 Denne oppslagsfunksjonen gjør det mulig å hente verdier direkte fra gjeldende datamodell. Første argument må peke et sted i datamodellen, og bruker det samme punktum-separerte formatet som brukt i `dataModelBindings`. Hvis appen har flere datamodeller, kan du oppgi datatypen til datamodellen som andre argument, for eksempel `["dataModel", "Ansatte.Navn", "personalmodell"]`. Datatypen må være en fast tekst, ikke et uttrykk. Uten andre argument slår funksjonen opp i standarddatamodellen (`defaultDataType`). Ved bruk inne i [repeterende grupper](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/repeatinggroup/) trenger du _ikke_ bruke plassholdere for indekser til gruppen - uttrykket finner selv den relative plasseringen i kontekst av en repeterende gruppe.
 
 Eksempel på oppslag i repeterende gruppe:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json {linenos=false,hl_lines=[11,21,23,24,25,34,36,37,38]}
 [

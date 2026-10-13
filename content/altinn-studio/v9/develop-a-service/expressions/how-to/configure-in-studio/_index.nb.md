@@ -130,6 +130,10 @@ For å tillate lagring av et uttrykk i layoutfilen, viser Studio bare **Lagre**-
 
 Når disse betingelsene er oppfylt, kan du lagre uttrykket uten å fylle inn noen av verdiene. Dette legger til et uttrykk som ser slik ut i det gitte komponentfeltet:
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json
 "[KOMPONENTEGENSKAP]": [
 "[FUNKSJON]",

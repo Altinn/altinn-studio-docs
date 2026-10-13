@@ -8,6 +8,10 @@ toc: true
 
 Bruk `App/ui/Settings.json` til innstillinger som skal gjelde på tvers av oppgaver. Egenskapene ligger direkte i objektet:
 
+{{< code-title >}}
+App/ui/Settings.json
+{{< /code-title >}}
+
 ```json
 {
   "showLanguageSelector": true,
@@ -19,6 +23,10 @@ Bruk `App/ui/Settings.json` til innstillinger som skal gjelde på tvers av oppga
 ## Overstyr innstillinger for en oppgave
 
 I `App/ui/<TaskId>/Settings.json` ligger sideinnstillingene under `pages`. `defaultDataType` ligger på toppnivå og viser til ID-en til datatypen i appens metadata:
+
+{{< code-title >}}
+App/ui/{taskId}/Settings.json
+{{< /code-title >}}
 
 ```json
 {

@@ -10,6 +10,10 @@ tags: [needsReview]
 
 Den vanligste tekstegenskapen for svaralternativer er `label` (ledetekst). Dette er teksten systemet viser for brukeren i brukergrensesnittet (i motsetning til `value`, som er [verdien som lagres i datamodellen](../data-binding/)). Både `label` og `value` er påkrevde egenskaper for et svaralternativ.
 
+{{< code-title >}}
+App/options/{optionsId}.json eller App/ui/{taskId}/layouts/{page}.json (options)
+{{< /code-title >}}
+
 ```json
 [
   { "value": "norway", "label": "Norge" },
@@ -30,6 +34,11 @@ Du kan spesifisere beskrivelser og hjelpetekster på samme måte som en ledeteks
 Klikk på overskriftene nedenfor for å utvide eksemplene.
 
 {{% expandlarge id="static" header="Statisk JSON-fil eller komponentkonfigurasjon" %}}
+
+{{< code-title >}}
+App/options/{optionsId}.json eller App/ui/{taskId}/layouts/{page}.json (options)
+{{< /code-title >}}
+
 ```json
 [
   {
@@ -71,6 +80,10 @@ var options = new AppOptions
 
 {{% expandlarge id="from-data-model" header="Svaralternativer basert på repeterende strukturer i datamodellen" %}}
 Legg merke til at egenskapene `label`, `description` og `helpText` også kan være [dynamiske uttrykk]({{< relref "../../../dynamics" >}}) i denne modusen.
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 {

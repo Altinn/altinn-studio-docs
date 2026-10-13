@@ -66,6 +66,10 @@ I eksempelet går prosessen videre selv om bestillingen feiler. Skal prosessen h
 
 Deretter må du registrere klassen `EmailOnStart` som `IOnTaskStartingHandler` i `Program.cs`.
 
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```csharp file=Program.cs
 using Altinn.App;
 using Altinn.App.Core.Features.Process;

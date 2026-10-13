@@ -196,6 +196,10 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
 
     I tillegg til et felt for inndata fra brukeren og et felt for å vise resultatet, har vi i dette eksempelet et felt for å holde på informasjon om hvorvidt brukeren er autentisert, og et felt for å holde på en dynamisk feilmelding.
 
+    {{< code-title >}}
+    App/models/{model}.xsd
+    {{< /code-title >}}
+
     ```xml
     <xs:sequence>
         <xs:element name="searchString" type="xs:string" />
@@ -279,6 +283,10 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
    I tillegg til navnet på tjenesten er det lagt inn tre tekstressurser.
 
    Tekstressursen for feilmelding inneholder en plassholder for navnet på brukeren. Variabelen `errorMessage` legges inn i datamodellen når det registreres at en bruker ikke er autorisert til å bruke tjenesten.
+
+    {{< code-title >}}
+    App/config/texts/resource.{language}.json
+    {{< /code-title >}}
 
     ```json
      {
@@ -405,6 +413,10 @@ Et bruksområde for å starte en instans fra en stateless visning kan være at d
 
 For å få til en slik flyt må du først sette opp appen som en stateless app som beskrevet under [konfigurasjon](#konfigurasjon). Når dette er gjort, kan du utvide stateless-visningen til å inkludere `InstantiationButton`, som starter en ny instans når brukeren klikker på knappen. Knappen sender bare med data til den nye instansen hvis du ber om det. Du velger ut feltene fra datamodellen i stateless-steget ved å legge til `queryParameters` på `InstantiationButton`-komponenten. Hver verdi er et uttrykk. For eksempel:
 
+{{< code-title >}}
+App/ui/stateless/layouts/{page}.json
+{{< /code-title >}}
+
 ```json
  {
     "id": "instantiation-button",
@@ -465,6 +477,10 @@ public class InstantiationProcessor : IInstantiationProcessor
 
 Husk å registrere klassen i metoden `RegisterCustomAppServices` i `Program.cs`, og legg til `using` for navnerommet til klassen øverst i filen:
 
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```c#
 using Altinn.App.Logic;
 
@@ -476,6 +492,10 @@ services.AddTransient<IInstantiationProcessor, InstantiationProcessor>();
 #### Instansiere fra en repeterende gruppe
 
 Hvis du i stateless-steget ønsker at brukeren for eksempel velger et element fra en repeterende gruppe og jobber videre på et gitt element, kan du sette opp `InstantiationButton`-komponenten som en del av den repeterende gruppen. Uttrykkene i `queryParameters` henter da verdiene fra raden brukeren starter instansen fra. Du trenger ikke å oppgi indeksen til raden. Eksempel:
+
+{{< code-title >}}
+App/ui/stateless/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
  {

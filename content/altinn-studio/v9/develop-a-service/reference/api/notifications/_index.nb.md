@@ -130,6 +130,10 @@ public class MyNotificationCancellation : ICancelInstantiationNotification
 
 Registrer implementasjonen i `Program.cs`:
 
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```csharp file=Program.cs
 using Altinn.App.Core.Features.Notifications.Cancellation;
 using Microsoft.AspNetCore.Hosting;

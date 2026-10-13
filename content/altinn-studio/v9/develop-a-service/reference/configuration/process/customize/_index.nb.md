@@ -34,6 +34,10 @@ Du kan overstyre tekstene ved å legge inn tekstnøkkel som hører til hver teks
 
 Eksempel på overstyrte tekster i filen `resource.nb.json`:
 
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "confirm.title",
@@ -70,6 +74,10 @@ Siden bekreftelsessteget ikke er ment brukt når du skal skrive data, anbefaler 
 
 Opprett mappen `App/ui/Task_2` for bekreftelsessteget. Mappen må ha samme navn som ID-en til oppgaven i `process.bpmn`. Legg til `Settings.json`, og bruk datatypen fra datasteget som `defaultDataType`:
 
+{{< code-title >}}
+App/ui/Task_2/Settings.json
+{{< /code-title >}}
+
 ```json
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
@@ -83,6 +91,10 @@ Opprett mappen `App/ui/Task_2` for bekreftelsessteget. Mappen må ha samme navn 
 Legg merke til at `Settings.json` for `Task_2` refererer til datatypen til `Task_1`.
 
 Eksempel `formLayout.json` som presenterer data som brukeren fylte ut i data-steget.
+
+{{< code-title >}}
+App/ui/Task_2/layouts/formLayout.json
+{{< /code-title >}}
 
 ```json
 {
@@ -164,6 +176,10 @@ Du kan overstyre tekstene på siden ved å legge inn tekstnøkler som hører til
 
 Eksempel på overstyrte tekster i filen `resource.nb.json`:
 
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "feedback.title",
@@ -196,6 +212,10 @@ Hvis den reelle mottakeren av skjemaet er en annen organisasjon enn organisasjon
 | 5                         | receipt.title_submitted |
 
 Eksempel på overstyrte tekster i filen `resource.nb.json`:
+
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
 
 ```json
 {
@@ -366,6 +386,10 @@ Du kan også overstyre tekstene i denne kvitteringen ved å manuelt legge til hv
 | 3                       | receipt.body_simple |
 
 Eksempel på overstyrte tekster i filen `resource.nb.json`:
+
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
 
 ```json
 {

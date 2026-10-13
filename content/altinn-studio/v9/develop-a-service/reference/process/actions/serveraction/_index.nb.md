@@ -24,6 +24,10 @@ For å registrere hvilke serverhandlinger som er tilgjengelige for en prosessopp
 
 Eksempel på en prosessoppgave med en serverhandling kalt `myServerAction`:
 
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <!-- Beginning of process definition omitted for brevity -->
         <bpmn:task id="Task_1" name="Utfylling">
@@ -46,6 +50,10 @@ Eksempel på en prosessoppgave med en serverhandling kalt `myServerAction`:
 For å tillate brukere å utløse serverhandlingen må du legge til autorisasjonspolicyer i policy.xml-filen.
 
 Eksempel på en tilgangspolicyregel som gir brukere med rollen `DAGL` tilgang til å utløse serverhandlingen `myServerAction` når prosessen er i `Task_1`:
+
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
 
 ```xml
 <!-- Beginning of policy.xml definition omitted for brevity -->

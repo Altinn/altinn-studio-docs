@@ -57,11 +57,19 @@ namespace Altinn.App.Core
 
 Registrer implementasjonen i `Program.cs` slik at applikasjonen plukker den opp:
 
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```C#
 services.AddTransient<IAppOptionsProvider, CountryAppOptionsProvider>();
 ```
 
 Systemet gjør implementasjonen tilgjengelig på endepunktet `{org}/{app}/api/options/countries`. Du kan bruke identifikatoren i komponenter. For å bruke kodelisten i en `Dropdown`-komponent, setter du `optionsId` som i følgende eksempel:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json {hl_lines=[10]}
 {
@@ -131,11 +139,19 @@ namespace Altinn.App.Core
 
 Registrer implementasjonen i `Program.cs` slik at applikasjonen plukker den opp:
 
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```C#
 services.AddTransient<IInstanceAppOptionsProvider, ChildrenAppOptionsProvider>();
 ```
 
 Systemet gjør implementasjonen tilgjengelig på endepunktet `{org}/{app}/instances/{instanceOwnerId}/{instanceGUID}/options/children`. Du kan bruke identifikatoren i komponenter. For å bruke kodelisten i en `Dropdown`-komponent, setter du `optionsId` som i følgende eksempel. Husk også å sette `secure`-egenskapen til `true` for å indikere at dette er en sikret kodeliste.
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json {hl_lines=["10-11"]}
 {
@@ -159,6 +175,10 @@ Kodeliste-endepunktet du lager støtter spørringsparametre. Systemet sender par
 Tenk deg et skjema med to `Dropdown`-komponenter som er knyttet sammen. Den første lar brukeren velge et fylke, og den andre lar brukeren velge en kommune. Kommunene som vises i den andre komponenten skal være filtrert basert på fylket som er valgt i den første komponenten. Du løser dette ved å sende med fylket som et spørringsparameter til kodelisten for kommuner.
 
 Du kan legge til både statiske og dynamiske parametre ved å sette opp `queryParameters` på den aktuelle komponenten:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json {hl_lines=["12-16"]}
 {
@@ -187,6 +207,10 @@ Flere eksempler på uttrykk finner du i [dokumentasjonen for dynamikk]({{< relre
 Når en verdi i datamodellen som et uttrykk viser til endrer seg, henter appen kodelisten på nytt. På denne måten kan du dynamisk styre hvilke valg systemet viser, ut fra den informasjonen sluttbrukeren gir.
 
 Når komponenten ligger i en repeterende gruppe, trenger du ikke å oppgi indeksen til raden i uttrykket. Uttrykket finner selv riktig rad, også i nøstede repeterende grupper:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json {hl_lines=["12-14"]}
 {
