@@ -59,6 +59,3 @@ For detaljerte instruksjoner om hvordan du konfigurerer ressursen i Formidling, 
 
 Systembruker er den typiske autentiseringsmetoden man bruker for formidlingstjenesten. [Se systembrukerdokumentasjon for hvordan dette settes opp](/nb/authorization/guides/system-vendor/system-user/). Du kan følge stegene i [Bruno-pakken](https://github.com/Altinn/altinn-broker/blob/main/.bruno/collection.bru) for å sette opp og konfigurere system i systemregisteret.
 
-## Hvordan migrere fra Altinn 2 til Altinn 3 {#how-to-migrate-from-Altinn-2-to-Altinn-3}
-
-Hvis du har en eksisterende løsning i Altinn 2 du ønsker å migrere, kan du enten opprette en ny uavhengig Altinn Formidlingstjeneste i Altinn 3, eller bruke overgangsløsningen, [beskrevet her](/nb/broker/broker-transition/).
