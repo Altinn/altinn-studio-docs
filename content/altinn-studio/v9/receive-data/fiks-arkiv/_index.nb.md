@@ -190,7 +190,7 @@ App/config/process/process.bpmn
 </bpmn:sequenceFlow>
 ```
 
-`Flow_4` tas når handlingen ikke er `reject`, altså når arkivet har bekreftet saken. `Flow_5` tas når handlingen er `reject`, og fører her til en oppgave der noen kan følge opp saken. Hva den oppgaven gjør, bestemmer du. All konfigurasjon av selve meldingen ligger i `appsettings.json`, ikke i prosessen. Se [flytkontroll]({{< relref "/altinn-studio/v9/develop-a-service/reference/process/flowcontrol" >}}) for mer om gatewayer og `gatewayAction`.
+`Flow_4` tas når handlingen ikke er `reject`. Med standardinnstillingene betyr det at arkivet har bekreftet saken. `Flow_5` tas når handlingen er `reject`, og fører her til en oppgave der noen kan følge opp saken. Hva den oppgaven gjør, bestemmer du. Endrer du `SuccessHandling.Action` eller `ErrorHandling.Action`, må uttrykkene i gatewayen endres tilsvarende. All konfigurasjon av selve meldingen ligger i `appsettings.json`, ikke i prosessen. Se [flytkontroll]({{< relref "/altinn-studio/v9/develop-a-service/reference/process/flowcontrol" >}}) for mer om gatewayer og `gatewayAction`.
 
 ### Steg 5: Gi tjenesteeieren tilgang {#oppsett-tilgang}
 
