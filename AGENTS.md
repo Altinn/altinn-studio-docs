@@ -1,4 +1,4 @@
-# Claude Code - Altinn Studio Dokumentasjon
+# Altinn Studio-dokumentasjon
 
 ## Prosjektoversikt
 
@@ -34,9 +34,9 @@ cd <repo-root> && hugo server
 
 ### Før du starter en oppgave
 
-**For brukeren**: Be Claude hente fra master og lage ny branch ved øktstart.
+**For brukeren**: Be agenten hente fra master og lage ny branch ved øktstart.
 
-**For Claude**: Ved øktstart, hent oppdatert master og lag ny branch:
+**For agenten**: Ved øktstart, hent oppdatert master og lag ny branch:
 
 1. **Hent og bytt til master:**
    ```bash
