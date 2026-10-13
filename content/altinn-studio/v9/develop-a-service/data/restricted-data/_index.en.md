@@ -57,7 +57,7 @@ The example below stores data in the restricted data type when the process enter
 The hook must handle running more than once, for example when the process returns to the task. The code therefore updates the data element if it already exists, instead of creating a new one.
 
 {{% notice warning %}}
-You can only have one `IOnTaskStartingHandler` per task. If the app already has such a hook for `Task_1`, add the code to it. If more than one hook returns `true` from `ShouldRunForTask` for the same task, the process fails when it tries to enter the task, and the app does not try again.
+You can only have one `IOnTaskStartingHandler` per task. If the app already has such a hook for `Task_1`, add the code to it.
 {{% /notice %}}
 
 {{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/RestrictedDataOnTaskStart.cs.md" %}}

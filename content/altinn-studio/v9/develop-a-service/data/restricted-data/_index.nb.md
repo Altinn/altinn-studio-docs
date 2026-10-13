@@ -58,7 +58,7 @@ Eksempelet under lagrer data i den beskyttede datatypen når prosessen går inn 
 Hooken må tåle å kjøre flere ganger, for eksempel når prosessen går tilbake til oppgaven. Derfor oppdaterer koden dataelementet hvis det allerede finnes, i stedet for å lage et nytt.
 
 {{% notice warning %}}
-Du kan bare ha én `IOnTaskStartingHandler` per oppgave. Har appen allerede en slik hook for `Task_1`, legger du koden inn i den. Svarer flere hooker `true` i `ShouldRunForTask` for samme oppgave, feiler prosessen når den skal gå inn i oppgaven, og appen prøver ikke på nytt.
+Du kan bare ha én `IOnTaskStartingHandler` per oppgave. Har appen allerede en slik hook for `Task_1`, legger du koden inn i den.
 {{% /notice %}}
 
 {{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/RestrictedDataOnTaskStart.cs.md" %}}
