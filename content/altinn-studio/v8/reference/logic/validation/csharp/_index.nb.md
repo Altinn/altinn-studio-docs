@@ -202,6 +202,10 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 Du bestemmer selv hva klassene skal hete, og hvor filene skal ligge. Vi anbefaler mappen `App/logic/Validation`.
 
+{{% notice info %}}
+I v9 har app-malen implisitte `using`-direktiver og nullable slått på. Da trenger du ikke `using`-linjene for `System`-navnerommene, og `language` er `string?`.
+{{% /notice %}}
+
 ## Lage valideringsmeldinger
 
 En valideringsmelding er et `ValidationIssue`-objekt. Disse egenskapene er de viktigste:
@@ -239,6 +243,10 @@ For at appen skal vise meldingen ved riktig komponent, må `Field` være nøyakt
 - du bruker navnene fra `dataModelBindings`, ikke navnene på C#-egenskapene, hvis de er forskjellige
 
 Med `GenericFormDataValidator<T>` og `CreateValidationIssue` lager appen stien for deg. Med `IValidator` bør du også sette `DataElementId`. Uten den knytter appen meldingen til datamodellen som er standard for steget.
+
+{{% notice info %}}
+I v9 viser ikke appen meldinger som har `Field`, men mangler `DataElementId`. Sett derfor alltid `DataElementId` i `IValidator`, så virker validatoren også etter oppgradering.
+{{% /notice %}}
 
 Feil uten `Field`, eller med et felt som ikke har noen synlig komponent, ser brukeren bare i feiloppsummeringen etter et mislykket forsøk på å gå videre. Gjelder feltet en skjult komponent, stopper feilen likevel innsendingen. Se [Slik er valideringen bygget opp](#slik-er-valideringen-bygget-opp).
 

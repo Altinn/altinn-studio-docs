@@ -127,3 +127,7 @@ If you want a completely different error message for a field, add `requiredValid
 ## Required fields on the server
 
 The app can also check required fields on the server when the user moves on in the process. The check is off by default, and you turn it on with the `RequiredValidation` setting. We recommend turning it on, so that data other systems submit through the API is also checked. The server only checks components that are visible to the user, in tasks that have a layout set. See [Validation on the server]({{< relref "/altinn-studio/v8/reference/logic/validation" >}}#validation-on-the-server).
+
+{{% notice info %}}
+In v9, `RequiredValidation` is turned on by default.
+{{% /notice %}}

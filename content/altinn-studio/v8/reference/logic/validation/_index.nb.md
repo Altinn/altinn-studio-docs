@@ -48,6 +48,10 @@ Vanligvis lar du derfor `required` sjekke om et felt er fylt ut, og lar de andre
 
 Når brukeren prøver å sende inn, viser appen alle feilene som stopper hen. Feilene står ved feltene og i en feiloppsummering nederst på siden. Feiloppsummeringen viser appen også ellers når det finnes feil som brukeren kan se, for eksempel feil fra datamodellen allerede når skjemaet åpnes.
 
+{{% notice info %}}
+I v9 viser appen feiloppsummeringen først når brukeren har prøvd å sende inn eller bytte side.
+{{% /notice %}}
+
 Bare feil stopper brukeren. Advarsler, informasjon og bekreftelser kan brukeren lese og likevel gå videre.
 
 Noen feil ser brukeren først når hen prøver å sende inn:
@@ -112,6 +116,10 @@ Du bruker de samme valideringstypene i `showValidations`, `validateOnSaveRow` og
 | `AllExceptRequired` | Alle typene unntatt `Required` |
 | `All` | Alle typene |
 
+{{% notice info %}}
+I v9 finnes også typen `Invalid`, for verdier appen ikke kan lagre i datamodellen, for eksempel tekst i et tallfelt.
+{{% /notice %}}
+
 Validatorer i C# som bare kjører ved innsending, er ikke med i noen av typene. Feil fra dem viser appen først når brukeren prøver å sende inn.
 
 ## Myke valideringer
@@ -131,6 +139,10 @@ Slik ser de tre typene ut:
 ## Validering på serveren
 
 Appen kjører valideringene på serveren før brukeren får gå videre i prosessen. Derfor kan ingen sende inn data som bryter reglene, heller ikke andre systemer som bruker API-et til appen. Påkrevde felt og validering med uttrykk sjekker serveren likevel bare hvis du har slått dem på. Vi anbefaler å slå på begge.
+
+{{% notice info %}}
+I v9 er `RequiredValidation` og `ExpressionValidation` slått på som standard.
+{{% /notice %}}
 
 ### Innebygde valideringer
 

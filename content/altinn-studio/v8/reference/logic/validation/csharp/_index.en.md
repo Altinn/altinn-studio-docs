@@ -202,6 +202,10 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 You decide what the classes are called and where the files are. We recommend the `App/logic/Validation` folder.
 
+{{% notice info %}}
+In v9, the app template has implicit `using` directives and nullable turned on. You then do not need the `using` lines for the `System` namespaces, and `language` is `string?`.
+{{% /notice %}}
+
 ## Creating validation messages
 
 A validation message is a `ValidationIssue` object. These are the most important properties:
@@ -239,6 +243,10 @@ For the app to show the message next to the right component, `Field` must be exa
 - you use the names from `dataModelBindings`, not the names of the C# properties, if they differ
 
 With `GenericFormDataValidator<T>` and `CreateValidationIssue`, the app builds the path for you. With `IValidator`, you should also set `DataElementId`. Without it, the app links the message to the default data model for the task.
+
+{{% notice info %}}
+In v9, the app does not show messages that have `Field` but no `DataElementId`. Always set `DataElementId` in `IValidator`, so the validator keeps working after an upgrade.
+{{% /notice %}}
 
 The user only sees errors without `Field`, or with a field that has no visible component, in the error summary after a failed attempt to move on. If the field belongs to a hidden component, the error still stops the submission. See [How validation is structured](#how-validation-is-structured).
 

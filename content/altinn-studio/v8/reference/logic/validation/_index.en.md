@@ -48,6 +48,10 @@ That is why you usually let `required` check whether a field is filled in, and l
 
 When the user tries to submit, the app shows all the errors that stop them. The errors appear next to the fields and in an error summary at the bottom of the page. The app also shows the error summary at other times when there are errors the user can see, for example errors from the data model as soon as the form opens.
 
+{{% notice info %}}
+In v9, the app shows the error summary only after the user has tried to submit or change page.
+{{% /notice %}}
+
 Only errors stop the user. The user can read warnings, information and confirmations and still move on.
 
 Some errors the user only sees when they try to submit:
@@ -112,6 +116,10 @@ You use the same validation types in `showValidations`, `validateOnSaveRow` and 
 | `AllExceptRequired` | All types except `Required` |
 | `All` | All types |
 
+{{% notice info %}}
+v9 also has the `Invalid` type, for values the app cannot store in the data model, for example text in a number field.
+{{% /notice %}}
+
 C# validators that only run on submission are not included in any of the types. The app shows errors from them only when the user tries to submit.
 
 ## Soft validations
@@ -131,6 +139,10 @@ This is what the three types look like:
 ## Validation on the server
 
 The app runs the validations on the server before the user can move on in the process. That way nobody can submit data that breaks the rules, not even other systems that use the app's API. However, the server only checks required fields and validation using expressions if you have turned them on. We recommend turning on both.
+
+{{% notice info %}}
+In v9, `RequiredValidation` and `ExpressionValidation` are turned on by default.
+{{% /notice %}}
 
 ### Built-in validations
 
