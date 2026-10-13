@@ -13,13 +13,13 @@ Du kan sette opp forhåndsutfylling i Designer eller skrive konfigurasjonsfilen 
 
 1. Åpne appen i Designer, og gå til **Datamodell**.
 2. Velg feltet du vil fylle ut automatisk.
-   - Du kan bare forhåndsutfylle enkeltfelt. Objekter og lister har ikke denne innstillingen.
+   - Du kan bare forhåndsutfylle enkeltfelt. Objekter, lister og typer har ikke denne innstillingen.
 3. Velg hvor dataene skal komme fra i **Kilde** under **Forhåndsutfylling**:
-   - **Brukerprofil**
    - **Enhetsregisteret (ER)**
    - **Folkeregisteret (DSF)**
+   - **Brukerprofil**
    - **Spørringsparameter**
-4. Velg hvilket felt fra kilden du vil bruke, i **Felt**.
+4. I **Felt** velger du hvilket felt fra kilden du vil bruke.
    - Har du valgt **Spørringsparameter**, skriver du navnet på parameteren i **Navn på spørreparameter** i stedet.
 
 Designer lagrer valgene dine i filen `App/models/{datamodell}.prefill.json`. Designer har ingen innstilling for `allowOverwrite`. Står den ikke i filen, overskriver forhåndsutfyllingen ikke felt som allerede har en verdi. Vil du endre det, legger du til `"allowOverwrite": true` i filen selv.
@@ -57,6 +57,8 @@ Du kan også lage og redigere filen selv, for eksempel hvis du jobber i app-repo
    - `ER` - Enhetsregisteret
    - `DSF` - Folkeregisteret
    - `UserProfile` - Brukerens Altinn-profil
+
+   Velger du **Spørringsparameter** i Designer, legger Designer også til gruppen `QueryParameters` i filen. Les mer i [veiledningen om spørringsparametere]({{< relref "/altinn-studio/v9/develop-a-service/data/prefill/how-to/query-params" >}}).
 
    Du velger hvilke av kildene du ønsker å bruke. Hvis en (eller flere) av kildene ikke skal brukes, lar du dem stå tomme.
 

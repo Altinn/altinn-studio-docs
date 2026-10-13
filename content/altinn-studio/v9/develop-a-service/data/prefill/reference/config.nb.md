@@ -17,11 +17,11 @@ allerede har en verdi. Standardverdien er `false`, så appen overskriver ikke fe
 
 ## `ER`
 `ER` - her legger du inn felter fra datamodellen som skal forhåndsutfylles med data fra Enhetsregisteret. Felter som 
-forhåndsutfylles med ER-data får kun en verdi hvis du starter appen på vegne av en organisasjon. Hvis appen ikke har en organisasjon, hopper den over feltene fra ER og skriver en feilmelding i loggen.
+forhåndsutfylles med ER-data får kun en verdi hvis du starter appen på vegne av en organisasjon. Starter du appen på vegne av en person, hopper appen over feltene fra ER og skriver en feilmelding i loggen.
 
 ## `DSF`
 `DSF` - her legger du inn felter fra datamodellen som skal forhåndsutfylles med data fra Folkeregisteret. Felter som 
-forhåndsutfylles med DSF-data får kun en verdi hvis du starter appen på vegne av en person. Hvis appen ikke har en person, hopper den over feltene fra DSF og skriver en feilmelding i loggen.
+forhåndsutfylles med DSF-data får kun en verdi hvis du starter appen på vegne av en person. Starter du appen på vegne av en organisasjon, hopper appen over feltene fra DSF og skriver en feilmelding i loggen.
 
 ## `UserProfile`
 `UserProfile` - her legger du inn felter fra datamodellen som skal forhåndsutfylles med data fra brukerens profil i 
