@@ -16,7 +16,7 @@ Med prosess-hooks kan appen kjøre egen kode på faste punkter i prosessen. Det 
 | `IOnTaskAbandonHandler` | når en oppgave avbrytes, for eksempel når brukeren avviser | oppgavene du velger |
 | `IOnProcessEndedHandler` | etter at prosessen er avsluttet og lagret | hele instansen |
 
-Alle grensesnittene ligger i `Altinn.App.Core.Features.Process`.
+Alle grensesnittene ligger i `Altinn.App.Core.Features.Process`. Andre steder appen kan kjøre egen kode, for eksempel i gateways, systemoppgaver og handlinger, finner du i [Grensesnitt for egen kode]({{< relref "/altinn-studio/v9/develop-a-service/reference/extension-points" >}}).
 
 ## Slik fungerer hookene
 
@@ -27,6 +27,8 @@ Du lager en klasse som implementerer grensesnittet, og registrerer den som en tr
 - ID-en til oppgaven, for de tre oppgave-hookene
 
 Endringer du gjør gjennom `context.InstanceDataMutator`, blir lagret når hooken er ferdig uten feil. Skriv alle endringer gjennom den. Mens arbeidsflyten behandler instansen, avviser Storage endringer som kommer direkte gjennom `IDataClient` eller `IInstanceClient`.
+
+Hooken kjører i arbeidsflytmotoren, ikke i forespørselen fra brukeren. `IAuthenticationContext.Current` er derfor appen selv, ikke brukeren som sendte inn, og `HttpContext` gir deg ikke brukerens språk eller pålogging.
 
 `Execute` returnerer et `HookResult`:
 
@@ -88,7 +90,7 @@ Implementer `IOnTaskAbandonHandler`. Den følger samme mønster, med `Execute(On
 services.AddTransient<IOnTaskAbandonHandler, MyTaskAbandonHandler>();
 ```
 
-Når brukeren avviser en oppgave, kjører denne hooken i stedet for `IOnTaskEndingHandler`. Kan avvisningen føre til slutten av prosessen, trenger du begge hookene for å fange alle måter oppgaven kan forlates på.
+Når brukeren avviser en oppgave, kjører denne hooken i stedet for `IOnTaskEndingHandler`. Skal koden kjøre uansett om oppgaven blir sendt videre eller avvist, trenger du begge hookene.
 
 [Se grensesnittet IOnTaskAbandonHandler på GitHub](https://github.com/Altinn/altinn-studio/blob/main/src/App/backend/src/Altinn.App.Core/Features/Process/IOnTaskAbandonHandler.cs)
 
@@ -116,7 +118,7 @@ Du kan bare registrere én `IOnProcessEndedHandler`. Med flere starter ikke appe
 
 Hooken kjører før datatyper med `autoDeleteOnProcessEnd` blir slettet, så den ser alle dataene. Er `autoDeleteOnProcessEnd` slått på for hele appen, blir instansen slettet etter at hooken er ferdig.
 
-Feiler hooken, er prosessen likevel avsluttet. Instansen blir værende under behandling til arbeidsflyten blir startet på nytt fra arbeidsflytmotoren. Skal en feil kunne stoppe avslutningen, bruk `IOnTaskEndingHandler` for den siste oppgaven i stedet.
+Feiler hooken, er prosessen likevel avsluttet. Instansen blir værende under behandling til arbeidsflyten blir startet på nytt fra arbeidsflytmotoren. Skal en feil kunne stoppe avslutningen, bruk `IOnTaskEndingHandler` for den siste oppgaven i stedet. Avslutter en avvisning prosessen, kjører `IOnTaskAbandonHandler` for oppgaven i stedet.
 
 [Se grensesnittet IOnProcessEndedHandler på GitHub](https://github.com/Altinn/altinn-studio/blob/main/src/App/backend/src/Altinn.App.Core/Features/Process/IOnProcessEndedHandler.cs)
 

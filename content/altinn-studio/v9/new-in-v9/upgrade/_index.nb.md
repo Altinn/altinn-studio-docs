@@ -189,9 +189,9 @@ Bruk de nye grensesnittene i `Altinn.App.Core.Features.Process` i stedet:
 
 Utover navnet er det tre praktiske forskjeller du må kode mot:
 
-- **Hooken avgjør selv hvilken oppgave den gjelder for.** Før kjørte hver registrerte handler for *alle* oppgaver i prosessen, og koden måtte selv sjekke `taskId`. Nå implementerer hooken `ShouldRunForTask(string taskId)`, og kjører bare handleren(e) som svarer `true` for gjeldende oppgave.
+- **Hooken avgjør selv hvilken oppgave den gjelder for.** Før kjørte hver registrerte handler for *alle* oppgaver i prosessen, og koden måtte selv sjekke `taskId`. Nå implementerer hooken `ShouldRunForTask(string taskId)`, og bare handleren som svarer `true` for gjeldende oppgave, kjører.
 - **Hooken kjører som et steg i arbeidsflytmotoren**, akkurat som systemoppgavene over. Hvis det oppstår feil, kan det hende at den blir forsøkt kjørt på nytt automatisk — implementasjonen må altså være idempotent. I stedet for å kaste unntak ved feil returnerer du et `HookResult` (et eget resultat for hooker, ikke å forveksle med `ServiceTaskResult` som brukes av systemoppgaver): `HookResult.Success()`, `HookResult.FailedRetryable("melding")` for en forbigående feil, eller `HookResult.FailedPermanent("melding")` for en feil som trenger en rettelse.
-- **Instansdata leses og endres via `IInstanceDataMutator`** i stedet for et rått `Instance`-objekt. Kontekstobjektet hooken mottar (`OnTaskStartingContext` og tilsvarende for de to andre) gir deg både instansen og en mutator — endringer du gjør gjennom den, lagres automatisk når hooken fullfører uten feil.
+- **Instansdata leses og endres via `IInstanceDataMutator`** i stedet for et rått `Instance`-objekt. Kontekstobjektet hooken mottar (`OnTaskStartingContext` og tilsvarende for de to andre) gir deg oppgave-ID-en og en mutator. Instansen finner du i `context.InstanceDataMutator.Instance`, og endringer du gjør gjennom mutatoren, lagres automatisk når hooken fullfører uten feil.
 
 I tillegg mister start-hooken `prefill`-parameteren. Hvis du tidligere har brukt prefill-data i `IProcessTaskStart.Start`, må du flytte den logikken til `IInstantiationProcessor.DataCreation`, som fortsatt mottar prefill og er upåvirket av denne endringen.
 ```csharp
