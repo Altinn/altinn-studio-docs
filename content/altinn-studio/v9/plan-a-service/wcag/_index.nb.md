@@ -2,7 +2,6 @@
 draft: true
 title: Sikre tilgjengelighet i Altinn-tjenester
 description: Slik sikrer du tilgjengelighet i tjenesten din
-weight: 10
 tags: [Reviewed]
 ---
 
@@ -75,7 +74,7 @@ Ofte skyldes feil at du bruker en eldre versjon av løsningen. Oppdater til sist
 Her finner du de viktigste tingene du selv må følge opp. UU-tilsynet har full oversikt.
 
 **Trenger du hjelp?**
-- Bruk testlab for universell utforming i Oslo.
+- Bruk den fysiske testlaben for universell utforming i Digdirs lokaler på Økern Portal i Oslo.
 - Kontakt oss gjerne hvis du vil ha hjelp til å gjennomgå en tjeneste du har laget.
 
 ## Nyttige verktøy og veiledninger
