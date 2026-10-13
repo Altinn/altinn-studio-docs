@@ -13,7 +13,8 @@ For a setting that can differ by environment, it also names the environments whe
 The rule checks these settings for the built-in task types:
 
 - `signing`: `<altinn:signatureDataType>`; at least one data type in
-  `<altinn:dataTypesToSign>`; `<altinn:signeeProviderId>` and `<altinn:signeeStatesDataTypeId>`,
+  `<altinn:dataTypesToSign>`, when an instance can reach the task and it lists the `sign`
+  action; `<altinn:signeeProviderId>` and `<altinn:signeeStatesDataTypeId>`,
   both or neither; and, when `<altinn:signeeProviderId>` is set, an
   `<altinn:correspondenceResource>` for Staging and Production
 - `payment`: `<altinn:paymentDataType>` and `<altinn:paymentReceiptPdfDataType>`

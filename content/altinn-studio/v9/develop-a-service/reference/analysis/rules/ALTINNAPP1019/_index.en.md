@@ -17,6 +17,8 @@ without naming a data type fails when an instance leaves the gateway. The rule i
 warning, since the connected data type matters only to such conditions and to your own code for
 the gateway.
 
+The rule checks only gateways an instance can reach from a start event.
+
 Category `Process`, severity **warning**.
 
 Correct the id, or add the data type.

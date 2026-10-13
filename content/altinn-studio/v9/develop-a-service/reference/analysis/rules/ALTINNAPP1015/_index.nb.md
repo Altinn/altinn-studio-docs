@@ -24,6 +24,9 @@ signeringsstatusene. Altinn Storage godtar dessuten en signatur bare i en dataty
 er tom eller er signeringsoppgaven. Da feiler lagringen hver gang oppgaven lagrer de dataene, og
 for signaturer betyr det at ingen kan signere i oppgaven.
 
+Regelen kontrollerer bare oppgaver en instans kan nå fra en starthendelse, og kravet til
+`taskId` på signaturdatatypen bare når oppgaven har handlingen `sign` i `<altinn:actions>`.
+
 Kategori `Process`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
 
 Gjør det meldingen sier: fjern `appLogic.classRef` eller bruk en annen datatype, legg til

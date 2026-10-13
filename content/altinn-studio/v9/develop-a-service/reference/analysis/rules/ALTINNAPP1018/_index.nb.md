@@ -26,6 +26,9 @@ Regelen melder:
 En tom oppføring teller som en oppføring som ikke navngir noen datatype. Navngir ingen av
 oppføringene i `dataTypesToSign` en datatype, meldes det av ALTINNAPP1013 i stedet.
 
+Regelen kontrollerer bare oppgaver en instans kan nå fra en starthendelse, og oppføringene for
+signering bare når oppgaven har handlingen `sign` i `<altinn:actions>`.
+
 Kategori `Process`, alvorlighetsgrad **advarsel**.
 
 Rett id-en slik at den stemmer nøyaktig med datatypen, eller legg til datatypen.

@@ -24,6 +24,9 @@ Storage also accepts a signature only in a data type whose `taskId` is empty or 
 task. Storing then fails every time the task stores that data, and for signatures this means
 that no one can sign in the task.
 
+The rule checks only tasks an instance can reach from a start event, and the `taskId` of the
+signature data type only when the task lists the `sign` action in `<altinn:actions>`.
+
 Category `Process`, severity **error**. The rule therefore fails the build.
 
 Do what the message says: remove the `appLogic.classRef` or use another data type, add the

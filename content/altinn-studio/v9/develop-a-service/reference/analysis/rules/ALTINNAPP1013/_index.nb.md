@@ -28,6 +28,11 @@ Avhengig av innstillingen starter ikke appen, signerings- eller betalingshandlin
 eller oppgaven feiler når en instans kommer dit, ofte etter at brukeren har signert eller
 betalt.
 
+Regelen kontrollerer bare oppgaver en instans kan nå fra en starthendelse. Unntakene er
+`dataTypes` i `<altinn:eFormidlingConfig>` på en `eFormidling`-oppgave og `subformDataTypeId` på
+en `subformPdf`-oppgave, som appen kontrollerer når den starter. `dataTypesToSign` kontrollerer
+regelen bare når oppgaven har handlingen `sign` i `<altinn:actions>`.
+
 Kategori `Process`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
 
 Rett id-en, eller legg til datatypen i `applicationmetadata.json`. Innstillinger der appen

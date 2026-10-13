@@ -25,6 +25,9 @@ The rule reports:
 An empty entry counts as one that names no data type. When no entry in `dataTypesToSign` names
 a data type, ALTINNAPP1013 reports it instead.
 
+The rule checks only tasks an instance can reach from a start event, and the signing entries
+only when the task lists the `sign` action in `<altinn:actions>`.
+
 Category `Process`, severity **warning**.
 
 Correct the id so it matches the data type exactly, or add the data type.

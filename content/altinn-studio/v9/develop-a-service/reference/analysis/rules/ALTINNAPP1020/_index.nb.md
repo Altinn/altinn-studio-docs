@@ -13,7 +13,8 @@ miljøene der den feiler.
 
 Regelen kontrollerer disse innstillingene for de innebygde oppgavetypene:
 
-- `signing`: `<altinn:signatureDataType>`, minst én datatype i `<altinn:dataTypesToSign>`, både
+- `signing`: `<altinn:signatureDataType>`, minst én datatype i `<altinn:dataTypesToSign>` når en
+  instans kan nå oppgaven og den har handlingen `sign`, både
   `<altinn:signeeProviderId>` og `<altinn:signeeStatesDataTypeId>` eller ingen av dem, og en
   `<altinn:correspondenceResource>` for Staging og Production når `<altinn:signeeProviderId>` er
   satt

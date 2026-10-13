@@ -27,6 +27,11 @@ action ignores case when it reads `dataTypesToSign`. Depending on the setting, t
 start, the sign or payment action fails, or the task fails when an instance reaches it, often
 after the user has signed or paid.
 
+The rule checks only tasks an instance can reach from a start event, except `dataTypes` in
+`<altinn:eFormidlingConfig>` on an `eFormidling` task and `subformDataTypeId` on a `subformPdf`
+task, which the app checks when it starts. It checks `dataTypesToSign` only when the task lists
+the `sign` action in `<altinn:actions>`.
+
 Category `Process`, severity **error**. The rule therefore fails the build.
 
 Correct the id, or add the data type to `applicationmetadata.json`. Settings where the app

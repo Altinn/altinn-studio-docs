@@ -16,6 +16,8 @@ task generates the PDF and then fails to store it. A `pdf` task fails every time
 task only when its `subformDataTypeId` names a data type the app has. ALTINNAPP1013 reports an
 unknown one.
 
+The rule checks only tasks an instance can reach from a start event.
+
 Category `Process`, severity **error**. The rule therefore fails the build.
 
 Add the data type to `dataTypes` in `applicationmetadata.json`:
