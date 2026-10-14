@@ -13,7 +13,7 @@ redigerer filen lokalt.
 
 ## `allowOverwrite`
 `allowOverwrite` avgjør om forhåndsutfylling definert i denne filen kan overskrive et felt i datamodellen hvis det 
-allerede har en verdi. Standardverdien er `false`, så appen overskriver ikke felt som har en verdi hvis du ikke setter den til `true`.
+allerede har en verdi. Standardverdien er `false`, så appen overskriver ikke felt som har en verdi, hvis du ikke setter den til `true`.
 
 ## `ER`
 `ER` - her legger du inn felter fra datamodellen som skal forhåndsutfylles med data fra Enhetsregisteret. Felter som 

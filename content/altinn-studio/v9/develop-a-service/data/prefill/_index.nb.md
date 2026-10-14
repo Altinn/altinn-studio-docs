@@ -14,10 +14,10 @@ for å gjøre dette, og disse kan brukes sammen eller hver for seg.
 
 ## Konfigurasjonsbasert oppsett
 ### Hva gjør denne funksjonen?
-Altinn-appen din kan automatisk fylle ut deler av skjemaet før brukeren begynner. Du kan hente dataene fra:
+Altinn-appen din kan automatisk fylle ut deler av skjemaet før brukeren begynner. Du kan hente dataene fra
 - Enhetsregisteret (for bedriftsinformasjon)
 - Folkeregisteret (for personinformasjon)
-- Brukerens Altinn-profil
+- brukerens Altinn-profil
 
 Når noen starter skjemaet, fyller systemet automatisk ut feltene du velger med riktige data.
 
@@ -28,10 +28,10 @@ Se [fullstendig liste over tilgjengelige datafelt for alle kildene]({{< relref "
 ## Egendefinert kode
 ### Hva gjør denne funksjonen?
 
-Du kan lage din egen kode for å fylle ut deler av skjemaet automatisk før brukeren begynner. Dette gir deg mer fleksibilitet enn den vanlige konfigurasjonsfilen. Du kan for eksempel:
-- Hente data fra et API
-- Gjøre beregninger
-- Bruke annen logikk du selv bestemmer
+Du kan lage din egen kode for å fylle ut deler av skjemaet automatisk før brukeren begynner. Dette gir deg mer fleksibilitet enn den vanlige konfigurasjonsfilen. Du kan for eksempel
+- hente data fra et API
+- gjøre beregninger
+- bruke annen logikk du selv bestemmer
 
 ### Når bør jeg bruke dette?
 Hvis du har behov for kilder utover de som er tilgjengelige via konfigurasjonsbasert oppsett, eller har behov for annen logikk som del av forhåndsutfyllingen.

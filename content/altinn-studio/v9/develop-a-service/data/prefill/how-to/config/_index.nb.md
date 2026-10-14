@@ -2,7 +2,7 @@
 draft: true
 title: Slik forhåndsutfyller du data med konfigurasjonsbasert oppsett
 linktitle: Konfigurasjonsbasert oppsett
-description: Følg denne guiden for å sette opp forhåndsutfylling gjennom standard konfigurasjonsbasert oppsett
+description: Denne veiledningen hjelper deg med å sette opp forhåndsutfylling ved hjelp av standard konfigurasjonsbasert oppsett
 tags: [needsReview]
 toc: false
 ---
@@ -62,13 +62,13 @@ Du kan også lage og redigere filen selv, for eksempel hvis du jobber i app-repo
 
    Du velger hvilke av kildene du ønsker å bruke. Hvis en (eller flere) av kildene ikke skal brukes, lar du dem stå tomme.
 
-   Inne i gruppen for den aktuelle kilden legger du til linjer som forteller:
-   - Hvilket felt (fra kilden) du vil hente data fra
-   - Hvilket felt i skjemaet som skal fylles ut
+   Inne i gruppen for den aktuelle kilden legger du til linjer som forteller
+   - hvilket felt (fra kilden) du vil hente data fra
+   - hvilket felt i skjemaet som skal fylles ut
 
-   Formatet er `"datafelt": "skjemafelt"`, der:
+   Formatet er `"datafelt": "skjemafelt"`, der
    - `datafelt` er navnet på feltet _fra kilden_
-   - `skjemafelt` er navnet på feltet i skjemaets datamodell.
+   - `skjemafelt` er navnet på feltet i skjemaets datamodell
 
    Se [fullstendig liste over tilgjengelige datafelt for alle kildene]({{< relref "/altinn-studio/v9/develop-a-service/data/prefill/reference/sources" >}}).
 
