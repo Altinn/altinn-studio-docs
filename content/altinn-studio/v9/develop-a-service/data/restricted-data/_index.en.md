@@ -29,7 +29,7 @@ You disable `autoCreate` because the code in the example below creates the data 
 
 ## Configuring the authorisation policy
 
-Start from the [default `policy.xml` file](/nb/altinn-studio/v9/develop-a-service/reference/configuration/authorization/) (in Norwegian), and change rule 2 to give the service owner access to the new actions.
+Start from the [default `policy.xml` file](/nb/altinn-studio/v9/develop-a-service/reference/configuration/authorization/) (in Norwegian) and change rule 2 to give the service owner access to the new actions.
 
 {{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/Policy.xml.md" %}}
 
@@ -39,8 +39,8 @@ The app does not create `restrictedDataModel` automatically, and the data type i
 
 Which token the app uses depends on where the code runs:
 
-- In code that runs when the user does something, such as changing the form, the app uses the user's token. Here, you call `OverrideAuthenticationMethod` with `StorageAuthenticationMethod.ServiceOwner()`. The app then uses the service owner's token for that data type only.
-- In hooks that run in the process, such as `IOnTaskStartingHandler`, the app already uses the service owner's token for all data types. Here, you do not need to call `OverrideAuthenticationMethod`.
+- In code that runs when the user does something, such as changing the form, the app uses the user's token. You call `OverrideAuthenticationMethod` with `StorageAuthenticationMethod.ServiceOwner()`. The app then uses the service owner's token for that data type only.
+- In hooks that run in the process, such as `IOnTaskStartingHandler`, the app already uses the service owner's token for all data types. You do not need to call `OverrideAuthenticationMethod`.
 
 {{% notice warning %}}
 The app cannot save changes with the user's token and the service owner's token at the same time. When the user changes the form, the app saves the changes to the form data with the user's token. You can therefore never change the restricted data in `IDataWriteProcessor`. If you do, you get an error when the app saves. You can only read the restricted data there. If you want to change it, do so in a hook in the process, where the app uses the service owner's token for all data types.

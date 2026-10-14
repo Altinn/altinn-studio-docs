@@ -30,7 +30,7 @@ Du slår av `autoCreate` fordi koden i eksempelet under oppretter dataelementet 
 
 ## Sette opp autorisasjonspolicyen
 
-Ta utgangspunkt i [standardfilen `policy.xml`]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/authorization" >}}), og endre regel 2 slik at tjenesteeieren får tilgang til de nye handlingene.
+Ta utgangspunkt i [standardfilen `policy.xml`]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/authorization" >}}) og endre regel 2, slik at tjenesteeieren får tilgang til de nye handlingene.
 
 {{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/Policy.xml.md" %}}
 
@@ -40,8 +40,8 @@ Appen oppretter ikke `restrictedDataModel` automatisk, og datatypen er ikke en d
 
 Hvilket token appen bruker, avhenger av hvor koden kjører:
 
-- I kode som kjører når brukeren gjør noe, for eksempel endrer skjemaet, bruker appen brukerens token. Her kaller du `OverrideAuthenticationMethod` med `StorageAuthenticationMethod.ServiceOwner()`. Da bruker appen tjenesteeierens token for akkurat denne datatypen.
-- I hooker som kjører i prosessen, for eksempel `IOnTaskStartingHandler`, bruker appen allerede tjenesteeierens token for alle datatyper. Her trenger du ikke å kalle `OverrideAuthenticationMethod`.
+- I kode som kjører når brukeren gjør noe, for eksempel endrer skjemaet, bruker appen brukerens token. Du kaller `OverrideAuthenticationMethod` med `StorageAuthenticationMethod.ServiceOwner()`. Da bruker appen tjenesteeierens token for akkurat denne datatypen.
+- I hooker som kjører i prosessen, for eksempel `IOnTaskStartingHandler`, bruker appen allerede tjenesteeierens token for alle datatyper. Du trenger ikke å kalle `OverrideAuthenticationMethod`.
 
 {{% notice warning %}}
 Appen kan ikke lagre endringer med brukerens token og tjenesteeierens token samtidig. Når brukeren endrer skjemaet, lagrer appen endringene i skjemadataene med brukerens token. Derfor kan du aldri endre de beskyttede dataene i `IDataWriteProcessor`. Gjør du det, får du en feil når appen lagrer. Du kan bare lese de beskyttede dataene der. Vil du endre dem, gjør du det i en hook i prosessen, der appen bruker tjenesteeierens token for alle datatyper.
