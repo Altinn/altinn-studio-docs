@@ -5,7 +5,7 @@ linktitle: Med Maskinporten
 description: Slik sender du meldinger fra appen med appens Maskinporten-klient.
 weight: 100
 toc: true
-tags: [needsReview]
+tags: [Reviewed]
 ---
 
 Appen sender meldinger på vegne av tjenesteeieren, ikke på vegne av brukeren som er logget inn. Derfor bruker appen Maskinporten når den snakker med meldingstjenesten.
@@ -20,7 +20,7 @@ Appens Maskinporten-klient må ha scopet `altinn:correspondence.write`.
 2. Bygg en ny versjon av appen, og publiser den. Scopene blir med i versjonen når du bygger den. Publiserer du en eldre versjon på nytt, får den ikke det nye scopet.
 {.floating-bullet-numbers}
 
-Standardscopene for tjenesteeier, som `altinn:serviceowner`, legger Altinn Studio til automatisk når du bygger en v9-app. Dem trenger du ikke legge til.
+Standardscopene for tjenesteeier, som `altinn:serviceowner`, legger Altinn Studio til automatisk når du bygger en v9-app. De trenger du ikke å legge til.
 
 Med `CorrespondenceAuthenticationMethod.Default()` bruker meldingsklienten appens innebygde Maskinporten-klient. Du konfigurerer ikke noe i koden for å få et token. Se [Integrere Altinn-app med Maskinporten]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten" >}}) for hvordan appens Maskinporten-identitet fungerer.
 
@@ -112,7 +112,7 @@ Når `Send` er ferdig, har meldingstjenesten godtatt meldingen, men den er ikke 
 
 ### Legge ved filer
 
-Du gir vedlegget til `WithData` som en `Stream`, for eksempel rett fra en fil. Da holder ikke appen hele vedlegget i minnet, noe som er viktig for store vedlegg. Har du vedlegget som en byte-array, pakker du den inn selv med `WithData(new MemoryStream(bytes))`.
+Du gir vedlegget til `WithData` som en `Stream`, for eksempel rett fra en fil. Da holder ikke appen hele vedlegget i minnet, noe som er viktig for store vedlegg. Har du vedlegget som en byte-array, pakker du det inn selv med `WithData(new MemoryStream(bytes))`.
 
 Klienten lukker strømmen når den har lastet opp vedlegget. Feiler sendingen før det, for eksempel når appen ikke får token, lukker ikke klienten strømmen. Da må du lukke den selv, for eksempel med `await using` som i eksempelet. Det gjør ingenting om strømmen allerede er lukket.
 
@@ -189,4 +189,4 @@ De viktigste endringene fra v8:
 - `WithData` med en byte-array blir til `WithData(new MemoryStream(...))` når verktøyet kan se at det er en byte-array.
 - Verktøyet fjerner kall til `WithSender`, `WithRequestedSendTime`, `WithAllowSystemDeleteAfter` og `WithDataLocationType`. Siden v8 ikke brukte verdiene, blir meldingen den samme. `CustomRecipient` blir til listen `CustomRecipients`, og `ICorrespondenceRequestBuilderSender` blir til `ICorrespondenceRequestBuilderSendersReference`.
 
-Verktøyet sier fra om kall det ikke trygt kan skrive om, for eksempel når `CorrespondenceAuthorisation` ligger i en egen variabel, eller kall til `WithRecipientToOverride`. Dem retter du selv.
+Verktøyet sier fra om kall det ikke kan skrive om på en trygg måte, for eksempel når `CorrespondenceAuthorisation` ligger i en egen variabel, eller kall til `WithRecipientToOverride`. De retter du selv.

@@ -5,7 +5,7 @@ linktitle: Meldingstjenesten
 description: Slik integrerer du en Altinn-app med Meldingstjenesten.
 weight: 100
 toc: true
-tags: [needsReview]
+tags: [Reviewed]
 ---
 
 Slik integrerer du [meldingstjenesten](/nb/correspondence/) med en Altinn-app. Med en slik integrasjon kan appen sende digitale meldinger og vedlegg sikkert til både organisasjoner og enkeltpersoner.
