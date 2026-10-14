@@ -51,7 +51,7 @@ Knappenavn bør ha ett til tre ord, helst ikke mer.
 
 ### Plasser teksten rett
 
-Som hovedregel plasserer du mikroteksten foran feltet der brukeren skal gjøre noe. Dette sikrer en logisk rekkefølge for folk som bruker tastaturnavigasjon eller skjermleser. Utviklere kan også styre rekkefølgen på felter i koden.
+Som hovedregel plasserer du mikroteksten foran feltet der brukeren skal gjøre noe. Dette sikrer en logisk rekkefølge for folk som bruker tastaturnavigasjon eller skjermleser. Legg teksten i feltene **Ledetekst**, **Beskrivelse** eller **Hjelpetekst** på komponenten, ikke i en egen tekstkomponent ved siden av. Da kobler appen teksten til feltet, og skjermlesere leser den opp når brukeren kommer til feltet. Utviklere kan også styre rekkefølgen på felter i koden.
 
 Plasser aldri viktig informasjon under en bekreftelsesknapp. Hvis du vil at brukerne skal akseptere betingelser før de bekrefter, må teksten eller avmerkingsboksen komme før knappen. Ellers går folk som bruker skjermleser glipp av viktig informasjon.
 
