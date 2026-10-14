@@ -154,7 +154,7 @@ App/config/applicationmetadata.json
 Når du bruker en stateless datatype, kan du fylle ut datamodellen når app-frontend henter skjemadataen.
 
 Første gang frontend henter data (GET), skjer dette i to steg:
-1. [Forhåndsutfylling](/nb/altinn-studio/v9/develop-a-service/reference/data/prefill/)
+1. [Forhåndsutfylling]({{< relref "/altinn-studio/v9/develop-a-service/data/prefill" >}})
 2. [Dataprosessering](/nb/altinn-studio/v9/develop-a-service/data/dataprocessing/)
 
 På påfølgende oppdateringer av samme skjemadata (POST) kjøres ikke forhåndsutfyllingen på nytt, men kalkuleringen trigges. Dette gjør det mulig å endre dataene basert på det brukeren skriver inn, selv i en stateless tilstand.
