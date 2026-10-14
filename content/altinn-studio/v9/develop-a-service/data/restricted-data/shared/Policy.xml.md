@@ -10,7 +10,7 @@ App/config/authorization/policy.xml
 
 {{< highlight xml "linenos=false, hl_lines=37-48" >}}
 <xacml:Rule RuleId="urn:altinn:resource:app_[ORG]_[APP]:policyid:1:ruleid:2" Effect="Permit">
-  <xacml:Description>Regel for tjenesteeier: Gir rettighetene Les, Skriv, Start, Bekreft mottatt tjenesteeier til organisasjonen som eier tjenesten ([org]).</xacml:Description>
+  <xacml:Description>Regel for tjenesteeier: Gir rettighetene Les, Skriv, customActionRead, customActionWrite, Start og Bekreft mottatt tjenesteeier til organisasjonen som eier tjenesten ([org]).</xacml:Description>
   <xacml:Target>
     <xacml:AnyOf>
       <xacml:AllOf>
