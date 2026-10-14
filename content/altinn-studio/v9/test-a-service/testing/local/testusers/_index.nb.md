@@ -2,29 +2,29 @@
 draft: true
 title: Bruke testbrukere lokalt
 linktitle: Testbrukere
-description: Slik bruker du testbrukere til lokal test.
+description: Slik bruker du testbrukere når du tester appen lokalt.
 toc: true
-tags: [needsReview]
+tags: [Reviewed]
 ---
 
-## Velg app og testbruker
+## Velge app og testbruker
 
-Åpne lokaltest og velg appen under **Select app to test**. Dette valget vises også når du kjører én app. Velg deretter bruker under **Select test users** og autentiseringsnivå under **Select your authentication level**. Klikk **Proceed to app** for å åpne appen som testbrukeren.
+Åpne localtest på [local.altinn.cloud:8000](http://local.altinn.cloud:8000), og velg appen under **Select app to test**. Du ser dette valget også når du kjører bare én app. Velg deretter bruker under **Select test users** og autentiseringsnivå under **Select your authentication level**. Klikk på **Proceed to app** for å åpne appen som testbrukeren.
+
+![Forsiden i localtest med valg av app, testbruker og autentiseringsnivå](./userselection.png "Forsiden i localtest")
 
 ## Standardbrukere
 
-Disse kan du velge når du logger inn i lokal test.
-
-![testbrukere](userselection.png "Velge testbrukere")
+Disse testbrukerne kan du velge i localtest.
 
 ### Sophie Salt
 
-Sophie er en svært driftig dame som bor i Oslo. Hun har startet en kjede med treningssentre som heter DDG Fitness og til nå er det startet tre underenheter i Oslo, Bergen og Trondheim.
+Sophie er en svært driftig dame som bor i Oslo. Hun har startet en kjede med treningssentre som heter DDG Fitness, og til nå har hun startet tre underenheter i Oslo, Bergen og Trondheim.
 Sophie har rollen DAGL og underrollene for DDG Fitness AS og underenhetene.
 
-I tillegg er hun ekspert på helse og har startet eget konsulentfirma for helsetjenester. Sophie har rollen LEDE + tilknyttede roller for EAS Health Consulting.
+I tillegg er hun ekspert på helse og har startet sitt eget konsulentfirma for helsetjenester. Sophie har rollen LEDE og tilknyttede roller for EAS Health Consulting.
 
-Hun er også styremedlem i borettslaget der hun bor. "Oslos Vakreste Borettslag". Sophie har rollen MEDL + tilknyttede roller for "Oslos Vakreste Borettslag".
+Hun er også styremedlem i borettslaget der hun bor, Oslos Vakreste Borettslag. Sophie har rollen MEDL og tilknyttede roller for borettslaget.
 
 #### Avgivere
 
@@ -37,8 +37,6 @@ Hun er også styremedlem i borettslaget der hun bor. "Oslos Vakreste Borettslag"
 | [897069653 DDG Fitness Trondheim](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/Register/Org/897069653.json)     | [Daglig leder + knytninger](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/authorization/roles/User_1337/party_500003/roles.json) |
 | [897069631 EAS Health Consulting](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/Register/Org/897069631.json)     | [Styreleder + knytninger](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/authorization/roles/User_1337/party_500600/roles.json)   |
 | [950474084 Oslos Vakreste Borettslag](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/Register/Org/950474084.json) | [Styremedlem + knytninger](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/authorization/roles/User_1337/party_500700/roles.json)  |
-
-![testbrukere](selectparty.png "Avgiver valg Sophie Salt")
 
 ### Pengelens Partner
 
@@ -64,46 +62,54 @@ Gjentagende Forelder er revisor for selskapet DDG Fitness AS.
 
 ### Ola Nordmann
 
-Ola Nordmann er en privatperson som kun kan representere seg selv.
+Ola Nordmann er en privatperson som bare kan representere seg selv.
 Han er bosatt på Stokmarknes.
 
 #### Avgivere
 
 - [01017512345 Ola Nordmann](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/Register/Person/01017512345.json)
 
+### MultiParty Prompt
+
+MultiParty Prompt får spørsmål om hvem brukeren vil sende inn for, når appen starter. De andre standardbrukerne går rett inn i appen. Bruk MultiParty Prompt når du vil teste aktørvalget.
+
+![Aktørvalget «Hvem vil du sende inn for?» for MultiParty Prompt](./selectparty.png "Velge aktør")
+
 ### Andre brukere
 
-For å teste skjemaer relatert til barn og oppvekst (barnehage og skole) er det lagt til noen spesifikke brukere.
+For å teste skjemaer om barn og oppvekst, for eksempel barnehage og skole, har vi lagt til noen egne brukere.
 
 | Avgiver                          | Barn | Inntekt |
 | -------------------------------- | ---- | ------- |
 | 01899699552 Pengelens Partner    | 0    | Lav     |
 | 17858296439 Gjentagende Forelder | 3    | Middels |
-| 29917097109 Rik forelder         | 2    | Høy     |
+| 08829698278 Rik forelder         | 2    | Høy     |
 
 **Merk:** Disse er fra Tenors testdatasett, men ligger der med andre navn.
 
 ### Systemer og systembrukere
 
-Med nyere versjon av localtest kan du teste apper med systembrukere lokalt.
-Det er lagt ved et innebygget system og en systembruker knyttet til 950474084 Oslos Vakreste Borettslag.
-Du kan hente ut token ved hjelp av `/Home/GetTestSystemUserToken` i localtest eller besøke nettsiden `/Home/Tokens`.
+Med nyere versjoner av localtest kan du teste apper med systembrukere lokalt.
+Localtest har et innebygd system og en systembruker som er knyttet til 950474084 Oslos Vakreste Borettslag.
+Du kan hente et token med `/Home/GetTestSystemUserToken` i localtest, eller åpne siden **Tokens** (`/Home/Tokens`).
 
 ### Instansdelegering
 
-Den siste versjonen av localtest støtter instansdelegering. Brukere og avgivere du delegerer fra og til må ha en `partyUuid` knyttet til seg. Se eksempelfil under.
+Den siste versjonen av localtest støtter instansdelegering. Brukere og avgivere du delegerer fra og til må ha en `partyUuid` knyttet til seg. Se eksempelfilen nedenfor.
 
 ## App-spesifikke brukere
 
-Hvis standardsettet med brukere ikke passer for å teste appen din lokalt, kan du sørge for at appen din svarer med et JSON-dokument på URL `/[org]/[appId]/testData.json`. Den enkleste måten er å legge filen på `App/wwwroot/testData.json`.
+Hvis standardsettet med brukere ikke passer for å teste appen din lokalt, kan du sørge for at appen din svarer med et JSON-dokument på adressen `/[org]/[appId]/testData.json`. Den enkleste måten er å legge filen på `App/wwwroot/testData.json`.
 
 Du kan for eksempel:
 - Bruke andre organisasjonsnummer eller fødselsnummer, slik at oppslag i API-er som appen er avhengig av fungerer.
 - Teste autorisasjonsreglene med andre roller enn det standardbrukerne har.
 
+Vil du bruke flere testpersoner eller virksomheter, for eksempel de samme som i TT02, kan du hente dem fra Tenor testdata og velge dem på siden **User administration** i localtest. Der kan du laste dem ned som `testData.json`.
+
 ### JSON-struktur
 
-Det finnes et [JsonSchema](https://altinncdn.no/schemas/json/test-users/test-users.schema.v1.json) som hjelper deg å skrive en `testData.json`-fil i verktøy som VSCode. En full versjon av brukerne som ligger i TestData-mappen er tilgjengelig i [testData.json](testData.json)
+Det finnes et [JSON-skjema](https://altinncdn.no/schemas/json/test-users/test-users.schema.v1.json) som hjelper deg å skrive en `testData.json`-fil i verktøy som Visual Studio Code. Du finner alle standardbrukerne i localtest i filen [testData.json](./testData.json).
 
 ```json
 {
