@@ -36,7 +36,7 @@ Feltet er valgfritt og har standardverdien `false`. Videresending er derfor bare
 ### Begrensninger
 
 - Meldinger kan videresendes på e-post både med og uten vedlegg. Den samlede størrelsen på alle vedlegg kan likevel ikke overstige 10 MB. Hvis grensen overskrides, kan brukeren fortsatt videresende selve meldingen, men vedleggene blir ikke med på grunn av begrensninger i e-posttjenesten.
-- Meldinger som sendes på tjenester som bruker tilgangspakken *post-til-virksomhet-med-taushetsbelagt-innhold*, kan ikke videresendes på e-post.
+- Meldinger som sendes på tjenester som bruker tilgangspakken *post-til-virksomheten-med-taushetsbelagt-innhold*, kan ikke videresendes på e-post.
 
 ### Sikkerhetsmessige konsekvenser
 

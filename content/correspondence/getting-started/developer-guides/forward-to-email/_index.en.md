@@ -36,7 +36,7 @@ The field is optional and defaults to `false`. Forwarding is therefore only poss
 ### Constraints
 
 - Correspondences can be forwarded by email both with and without attachments. However, the total size of all attachments must not exceed 10 MB. If it does, the user can still forward the correspondence itself, but the attachments will not be included because of limitations in the email service.
-- Correspondences sent on services that use the access package *post-til-virksomhet-med-taushetsbelagt-innhold* cannot be forwarded by email.
+- Correspondences sent on services that use the access package *post-til-virksomheten-med-taushetsbelagt-innhold* cannot be forwarded by email.
 
 ### Security implications
 
