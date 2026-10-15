@@ -63,6 +63,6 @@ App/config/applicationmetadata.json
     }
   ],
   ...
-  "onEntry": { "show": "form" } 
+  "onEntry": { "show": "stateless" } 
 }
 ```

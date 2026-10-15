@@ -19,8 +19,8 @@ hidden: true
   You can place this component anywhere you like in your form. We recommend that you place it on the last page the user 
   is shown before moving on to the payment task.
 
-- To update the order details when the user enters data in the form, you need to map which data fields are used to 
-  calculate the order. This is a manual process for now, and is done directly in the layout-files. See example below.
+- To update the order details when the user enters data in the form, you need to add the data fields used to 
+  calculate the order to `refetchDependencies`. You do this manually, directly in the layout-files. See example below.
 
 ```json {linenos=false,hl_lines=[8,9,10]}
 {
@@ -30,8 +30,8 @@ hidden: true
     "title": "Oversikt over betaling",
     "description": "Her er en oversikt over hva du skal betale for."
   },
-  "mapping": {
-    "GoodsAndServicesProperties.Inventory.InventoryProperties": "paymentDetails"
+  "refetchDependencies": {
+    "inventory": ["dataModel", "GoodsAndServicesProperties.Inventory.InventoryProperties"]
   }
 }
 ```

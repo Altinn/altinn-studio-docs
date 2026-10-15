@@ -283,9 +283,9 @@ Du kan fritt kombinere variabler fra felt i en repeterende gruppe med variabler 
 
 Hjelpetekster er korte tekstsnutter som gir en kort og presis beskrivelse av hva sluttbrukeren skal fylle ut i feltet teksten hører til.
 
-Du definerer nøklene for hjelpeteksten i `FormLayout.json`, som du finner under `App/ui/` i repoet.
+Du definerer nøklene for hjelpeteksten i layoutfilen til siden. Layoutfilene ligger i `App/ui/{oppgave-ID}/layouts/`, for eksempel `App/ui/Task_1/layouts/Side1.json`.
 
-Under ser du et eksempel på en `FormLayout.json`-fil uten hjelpetekster.
+Under ser du et eksempel på en layoutfil uten hjelpetekster.
 
 ```json
 {
@@ -293,7 +293,8 @@ Under ser du et eksempel på en `FormLayout.json`-fil uten hjelpetekster.
     "layout": [
       {
         "id": "616071dc-90b1-4ce5-8d18-492844828a41",
-        "type": "Header",
+        "type": "Heading",
+        "size": "L",
         "textResourceBindings": {
           "title": "appName"
         }
@@ -324,18 +325,19 @@ Under ser du et eksempel på en `FormLayout.json`-fil uten hjelpetekster.
 Vil du legge til hjelpetekst på en av disse skjemakomponentene, gjør du dette:
 
 1. Legg til hjelpeteksten i tekstressursfilen, som beskrevet [her](#legge-til-og-endre-tekster-i-en-app).
-2. Åpne `FormLayout.json`-filen.
+2. Åpne layoutfilen til siden.
 3. Legg til en binding til den nye hjelpeteksten, med nøkkelen `"help"` og verdi lik nøkkelen til tekstressursen.
 
 Slik ser hele filen ut etter at du har lagt til en hjelpetekst:
 
-```json {linenos=false,hl_lines=[20]}
+```json {linenos=false,hl_lines=[18]}
 {
   "data": {
     "layout": [
       {
         "id": "616071dc-90b1-4ce5-8d18-492844828a41",
-        "type": "Header",
+        "type": "Heading",
+        "size": "L",
         "textResourceBindings": {
           "title": "appName"
         }

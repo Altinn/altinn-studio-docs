@@ -11,7 +11,7 @@ En applikasjon har en prosess som brukeren følger. Avhengig av hvilken type ste
 
 ## Data (tilsvarer utfyllingssteg i Altinn II)
 
-I denne oppgavetypen viser applikasjonen et skjema som kan fylles ut. Du kan redigere skjemaet i Altinn Studio Designer eller ved å endre `FormLayout.json` direkte.
+I denne oppgavetypen viser appen et skjema som kan fylles ut. Du kan redigere skjemaet i Altinn Studio Designer eller ved å endre layoutfilene i `App/ui/{oppgave-ID}/layouts/` direkte.
 
 ## Bekreftelse
 
@@ -66,13 +66,13 @@ For bekreftelsessteget kan du som apputvikler definere egne layouts og andre kon
 
 Dette gjør det mulig å styre innholdet på bekreftelsessiden helt fritt, og du kan bruke komponentene du ellers har tilgjengelig i Altinn Studio.
 
-Siden bekreftelsessteget ikke er ment brukt når du skal skrive data, anbefaler vi å bruke statiske komponenter (header, paragraph) og sette komponenter utover dette som `readOnly`.
+Siden bekreftelsessteget ikke er ment brukt når du skal skrive data, anbefaler vi å bruke statiske komponenter (`Heading`, `Paragraph`) og sette komponenter utover dette som `readOnly`.
 
 Opprett mappen `App/ui/Task_2` for bekreftelsessteget. Mappen må ha samme navn som ID-en til oppgaven i `process.bpmn`. Legg til `Settings.json`, og bruk datatypen fra datasteget som `defaultDataType`:
 
 ```json
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
   "defaultDataType": "simple",
   "pages": {
     "order": ["formLayout"]
@@ -286,20 +286,18 @@ App/ui/CustomReceipt/layouts/side1.json
     "layout": [
       {
         "id": "ReceiptHeader",
-        "type": "Header",
+        "type": "Heading",
         "textResourceBindings": {
           "title": "receipt.title"
         },
-        "dataModelBindings": {},
         "size": "h2"
       },
       {
         "id": "fa796d12-49fc-457a-9d9a-d153998d55de",
         "type": "Image",
         "textResourceBindings": {
-          "title": "Bilde"
+          "altTextImg": "Bilde"
         },
-        "dataModelBindings": {},
         "image": {
           "src": {
             "nb": "https://docs.altinn.studio/altinn-studio/getting-started/app-dev-course/modul2/kommune-logo.png"
@@ -330,7 +328,7 @@ App/ui/CustomReceipt/layouts/side1.json
       },
       {
         "id": "ReceiptHeaderSubmitted",
-        "type": "Header",
+        "type": "Heading",
         "textResourceBindings": {
           "title": "receipt.title_submitted"
         },
@@ -339,8 +337,7 @@ App/ui/CustomReceipt/layouts/side1.json
       {
         "id": "ReceiptAttachmentList",
         "type": "AttachmentList",
-        "dataTypeIds": ["ref-data-as-pdf"],
-        "includePDF": true
+        "dataTypeIds": ["ref-data-as-pdf"]
       }
     ]
   }

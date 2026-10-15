@@ -1,53 +1,57 @@
 ---
-title: Notification Log API endpoint
+title: Notification Log API for end users logged in to the portal
 linktitle: Notification Log
-description: Reference for the notification log retrieval endpoint in Altinn Notifications
+description: Overview of the end user API for retrieving the notification log of a dialog.
 weight: 35
 toc: true
 ---
 
-The Notification Log API provides an endpoint to retrieve historical log entries for notifications sent through Altinn Notifications. This allows you to audit, troubleshoot, and track delivery by querying with Dialogporten identifiers.
+The Notification service keeps track of an association between dialogs and notifications that are registered. This
+makes it possible to later retrieve a list of all the notification addresses that received a notification related to
+a dialog. The log also includes any failed attempts to send a notification, so that a user can discover errors, for
+example with an email account.
+
+The API is used by the portal at altinn.no when opening the activity log of a dialog.
+
+{{% notice warning %}}
+This is currently only available for users logged in with ID-porten. Work will continue to make the feature
+available for end user systems with system user authentication.
+{{% /notice %}}
 
 ## Endpoint
 
 ```http
-GET /notifications/api/v1/future/log
+GET /notifications/api/v1/future/enduser/log
 ```
 
 ## Query parameters
 
-At least one of the following query parameters must be provided and non-empty (whitespace-only values are rejected):
+Searching the notification log requires a dialog ID, while the transmission ID is optional.
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `dialogId` | string | No* | Dialogporten dialog identifier to filter by |
-| `transmissionId` | string | No* | Dialogporten transmission identifier to filter by |
+| `dialogId` | string | Yes | Dialogporten dialog identifier to filter by |
+| `transmissionId` | string | No | Dialogporten transmission identifier to filter by |
 
-*At least one parameter must be provided and non-empty.
 
 ## Request examples
 
 ### Query by dialog ID
 
 ```http
-GET /notifications/api/v1/future/log?dialogId=550e8400-e29b-41d4-a716-446655440000
+GET /notifications/api/v1/future/enduser/log?dialogId=550e8400-e29b-41d4-a716-446655440000
 ```
 
-### Query by transmission ID
+### Query by both dialog and transmission identifiers
 
 ```http
-GET /notifications/api/v1/future/log?transmissionId=550e8400-e29b-41d4-a716-446655440001
-```
-
-### Query by both identifiers
-
-```http
-GET /notifications/api/v1/future/log?dialogId=550e8400-e29b-41d4-a716-446655440000&transmissionId=550e8400-e29b-41d4-a716-446655440001
+GET /notifications/api/v1/future/enduser/log?dialogId=550e8400-e29b-41d4-a716-446655440000&transmissionId=550e8400-e29b-41d4-a716-446655440001
 ```
 
 ## Response
 
-Returns an array of notification log summary entries matching the provided filter(s). An empty array is returned when no matching entries are found.
+Returns an array of log entries for notifications that match the specified filters. If no entries match the
+criteria, an empty list is returned.
 
 ### Response schema
 
@@ -60,7 +64,7 @@ Returns an array of notification log summary entries matching the provided filte
     "type": "Notification",
     "channel": "Email",
     "destination": "recipient@example.com",
-    "status": "Email_Delivered",
+    "status": "Delivered",
     "requestedSendTime": "2026-08-05T10:00:00Z",
     "lastUpdateTime": "2026-08-05T10:02:30Z"
   }
@@ -71,38 +75,42 @@ Returns an array of notification log summary entries matching the provided filte
 
 | Field | Type | Nullable | Description |
 |-------|------|----------|-------------|
-| `notificationId` | UUID | No | Unique ID for the email or SMS notification this log entry comes from |
-| `dialogId` | string | Yes | Dialogporten dialog identifier, or null if no association |
-| `transmissionId` | string | Yes | Dialogporten transmission identifier, or null if no association |
-| `type` | string | No | Notification order type: `Notification` (standard), `Reminder` (reminder), `Instant` (immediate send), or `Composed` (with file attachments). See [Composed Email](/en/notifications/guides/composed-email/) and [Instant Notifications](/en/notifications/guides/instant-notifications/) guides. |
+| `notificationId` | UUID | No | Unique identifier for the email or SMS notification this log entry is derived from |
+| `dialogId` | string | Yes | Dialogporten dialog identifier |
+| `transmissionId` | string | Yes | Dialogporten transmission identifier, or null if there is no transmission association |
+| `type` | string | No | Notification order type: `Notification` (standard), `Reminder` (reminder), `Instant` (immediate send), or `Composed` (with attachments). See [Composed Email](/en/notifications/guides/composed-email/) and [Instant Notifications](/en/notifications/guides/instant-notifications/). |
 | `channel` | string | No | Delivery channel: `Email` or `Sms` |
 | `destination` | string | No | Email address or phone number the notification was sent to |
-| `status` | string | No | Delivery result (see [status values reference](/en/notifications/reference/notification-status/)) |
-| `requestedSendTime` | DateTime | No | UTC timestamp when the order requested the notification be sent |
-| `lastUpdateTime` | DateTime | No | UTC timestamp when the delivery provider (email or SMS service) reported the delivery result |
+| `status` | string | No | Delivery result status (see [status values reference](/en/notifications/reference/notification-status/)) |
+| `requestedSendTime` | DateTime | No | UTC timestamp when the sender requested the notification be sent |
+| `lastUpdateTime` | DateTime | No | UTC timestamp when the provider (email or SMS service) reported the delivery result |
 
 ## Status codes
 
 | Status | Meaning | Description |
 |--------|---------|-------------|
-| `200` | OK | Notification log entries matching the filter were retrieved successfully. Returns empty array if no entries match. |
-| `400` | Bad Request | One or more query parameters are invalid. At least one of `dialogId` or `transmissionId` must be provided and non-empty. |
+| `200` | OK | Log entries matching the filter were retrieved. Returns an empty array if no entries match. |
+| `400` | Bad Request | One or more parameters are invalid. `dialogId` is a required field and must be a valid UUID. |
 | `401` | Unauthorized | The request did not include valid authentication credentials. |
-| `403` | Forbidden | The caller is not authorized to access notification logs. |
+| `403` | Forbidden | The caller is not authorized to access the notification log for the specified dialog. |
 | `499` | Request Terminated | The client disconnected or cancelled the request. |
 
 ## Error responses
 
-When a validation error occurs (missing or invalid query parameters), the API returns a standard validation problem response:
+When a validation error occurs (missing or invalid query parameters), the API returns a standard validation response:
 
 ```json
 {
-  "type": "https://altinn.no/problems/validation-error",
+  "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
   "title": "One or more validation errors occurred.",
   "status": 400,
-  "detail": "At least one of 'dialogId' or 'transmissionId' must be provided.",
-  "instance": "/notifications/api/v1/future/log",
-  "traceId": "0HMVH5K9A0O5E:00000001"
+  "errors": {
+    "dialogId": [
+      "The value '01a0ae3d-df1d-790d-8343-sasdasdasd' is not valid for dialogId.",
+      "A value for the 'dialogId' parameter or property was not provided."
+    ]
+  },
+  "traceId": "00-057e1d5fdfa49d63834136fc4f5a47d9-039d9fc51942fcf4-01"
 }
 ```
 
@@ -115,12 +123,12 @@ When a request is terminated by the client (499), the API returns an error with 
   "status": 499,
   "code": "NOT-00002",
   "detail": "The client disconnected or cancelled the request before the server could complete processing",
-  "instance": "/notifications/api/v1/future/log",
+  "instance": "/notifications/api/v1/future/enduser/log",
   "traceId": "0HMVH5K9A0O5E:00000002"
 }
 ```
 
-For complete error code reference, see [Error Codes](/en/notifications/reference/error-codes/).
+For the complete error code reference, see [Error Codes](/en/notifications/reference/error-codes/).
 
 ## Example: Complete workflow
 
@@ -128,8 +136,8 @@ For complete error code reference, see [Error Codes](/en/notifications/reference
 
 ```bash
 curl -X GET \
-  'https://platform.altinn.no/notifications/api/v1/future/log?dialogId=550e8400-e29b-41d4-a716-446655440000' \
-  -H 'Authorization: Bearer {altinn_token}'
+  'https://platform.altinn.no/notifications/api/v1/future/enduser/log?dialogId=550e8400-e29b-41d4-a716-446655440000' \
+  -H 'Authorization: ******'
 ```
 
 **Response:**
@@ -143,7 +151,7 @@ curl -X GET \
     "type": "Notification",
     "channel": "Email",
     "destination": "john.doe@example.com",
-    "status": "Email_Delivered",
+    "status": "Delivered",
     "requestedSendTime": "2026-08-05T10:00:00Z",
     "lastUpdateTime": "2026-08-05T10:02:30Z"
   },
@@ -154,45 +162,61 @@ curl -X GET \
     "type": "Notification",
     "channel": "Sms",
     "destination": "+4798765432",
-    "status": "SMS_Accepted",
+    "status": "Delivered",
     "requestedSendTime": "2026-08-05T10:00:00Z",
     "lastUpdateTime": "2026-08-05T10:01:15Z"
+  },
+  {
+    "notificationId": "550e8400-e29b-41d4-a716-446655440002",
+    "dialogId": "550e8400-e29b-41d4-a716-446655440000",
+    "transmissionId": "550e8400-e29b-41d4-a716-446655440001",
+    "type": "Notification",
+    "channel": "Email",
+    "destination": "jane.smith@example.com",
+    "status": "Failed_Bounced",
+    "requestedSendTime": "2026-08-05T10:00:00Z",
+    "lastUpdateTime": "2026-08-05T11:14:32Z"
   }
 ]
 ```
 
-### 2. Inspect log entry for troubleshooting
+### 2. Inspect log entries for troubleshooting
 
 From the response above, you can see:
-- The email was successfully delivered (`Email_Delivered`)
-- The SMS was accepted by the provider (`SMS_Accepted`)
-- Both notifications were requested at the same time but delivery reports were received at different times
+- The first email was delivered (`Delivered`)
+- The SMS was delivered (`Delivered`)
+- The second email was rejected by the email server (`Failed_Bounced`)
+- All notifications were requested at the same time, but the delivery results were reported at different times
 
-### 3. Query with validation error
+### 3. Query with a validation error
 
 ```bash
 curl -X GET \
-  'https://platform.altinn.no/notifications/api/v1/future/log' \
-  -H 'Authorization: Bearer {altinn_token}'
+  'https://platform.altinn.no/notifications/api/v1/future/enduser/log?dialogId=01a0ae3d-df1d-790d-8343-sasdasdasd' \
+  -H 'Authorization: ******'
 ```
 
 **Response (400 Bad Request):**
 
 ```json
 {
-  "type": "https://altinn.no/problems/validation-error",
+  "type": "https://tools.ietf.org/html/rfc9110#section-15.5.1",
   "title": "One or more validation errors occurred.",
   "status": 400,
-  "detail": "At least one of 'dialogId' or 'transmissionId' must be provided.",
-  "instance": "/notifications/api/v1/future/log",
-  "traceId": "0HMVH5K9A0O5E:00000002"
+  "errors": {
+    "dialogId": [
+      "The value '01a0ae3d-df1d-790d-8343-sasdasdasd' is not valid for dialogId.",
+      "A value for the 'dialogId' parameter or property was not provided."
+    ]
+  },
+  "traceId": "00-057e1d5fdfa49d63834136fc4f5a47d9-039d9fc51942fcf4-01"
 }
 ```
 
 ## Notes and limitations
 
-- Query parameters are case-sensitive and must match exact Dialogporten identifiers.
-- Whitespace-only values for `dialogId` or `transmissionId` are treated as missing parameters.
+- Query parameters are case-sensitive and must exactly match Dialogporten identifiers.
+- Whitespace-only values for `dialogId` or `transmissionId` are treated as missing.
 
 ## See also
 

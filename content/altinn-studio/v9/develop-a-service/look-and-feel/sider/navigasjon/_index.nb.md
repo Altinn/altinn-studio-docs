@@ -25,8 +25,7 @@ Du legger navigasjonsknappene i alle layoutfilene der du trenger dem. Vil du vis
   "textResourceBindings": {
     "next": "next",
     "back": "back"
-  },
-  "showBackButton": true
+  }
 }
 ```
 
@@ -39,11 +38,11 @@ Du legger navigasjonsknappene i alle layoutfilene der du trenger dem. Vil du vis
 | id | Unik ID for komponenten. |
 | type | Må være «NavigationButtons». |
 | textResourceBindings | Lar deg overstyre standardtekstene på knappene med egne tekster. |
-| showBackButton | Valgfritt. Viser knappene Forrige og Neste i stedet for bare Neste-knappen. |
+| showBackButton | Valgfritt. Viser knappene Forrige og Neste i stedet for bare Neste-knappen. Standardverdien er `true`. Sett den til `false` hvis du bare vil vise Neste-knappen. |
 
 ## Vise en sidemeny med rekkefølgen på sidene
 
-Du definerer rekkefølgen på sidene i `Settings.json`-fila til prosesstegmappen.
+Du definerer rekkefølgen på sidene i `Settings.json`-filen til prosesstegmappen.
 
 **Filplassering:** `App/ui/Task_1/Settings.json` (bytt ut `Task_1` med prosesstegets egen ID)
 
@@ -75,7 +74,6 @@ Du kan gruppere sidene og vise dem i en sidemeny som alternativ til tradisjonell
       {
         "name": "group.form",
         "markWhenCompleted": true,
-        "expandedByDefault": true,
         "order": ["side1", "side2", "side3"]
       },
       {
@@ -93,7 +91,7 @@ Du kan gruppere sidene og vise dem i en sidemeny som alternativ til tradisjonell
 | name | Tekstressurs som angir navnet på sidegruppen. Må være med hvis gruppen inneholder mer enn én side. |
 | type | Valgfritt. Bruk «info» eller «default». |
 | markWhenCompleted | Valgfritt. Markerer sider som ferdig utfylt når brukeren har rettet alle valideringsfeil og sett siden. |
-| expandedByDefault | Valgfritt. Viser sidene i gruppen i sidenavigasjonen fra start. Som standard skjuler appen sidene under gruppenavnet til brukeren åpner gruppen. |
+| expandedByDefault | Virker ikke i v9. Appen tar ikke med feltet fra `Settings.json` i oppgavemappen. En gruppe er åpen når den inneholder siden brukeren står på, ellers er den lukket til brukeren åpner den. |
 | order | Angir hvilke sider som inngår i gruppen. |
 
 ![Sidemeny med grupperte sider](./grouped-navigation.png "Sidemeny med grupperte sider")
@@ -104,7 +102,7 @@ Du kan gruppere sidene og vise dem i en sidemeny som alternativ til tradisjonell
 
 Du kan vise hele arbeidsflyten i navigasjonsmenyen på to måter i koden:
 
-- **For hele appen:** i `App/ui/Settings.json` med `taskNavigation` direkte i roten av fila (ikke i et eget objekt).
+- **For hele appen:** i `App/ui/Settings.json` med `taskNavigation` direkte i roten av filen (ikke i et eget objekt).
 - **Per prosessteg:** i prosesstegets `Settings.json` med `pages.taskNavigation`.
 
 #### Eksempel for hele appen
@@ -244,7 +242,7 @@ Knappene i navigasjonsfeltet henter navnet sitt fra filnavnet til siden, uten fi
 
 **Slik endrer du tekstene:**
 
-Legg til tekster i `resource.XX.json`, der `id` er navnet på fila uten filutvidelsen:
+Legg til tekster i `resource.XX.json`, der `id` er navnet på filen uten filutvidelsen:
 
 ```json
 {
@@ -266,11 +264,11 @@ Legg til tekster i `resource.XX.json`, der `id` er navnet på fila uten filutvid
 
 Du kan legge inn kode for å sjekke om det finnes valideringsfeil når brukeren prøver å navigere mellom sider. Valideringsfeil kan for eksempel bety at brukeren har glemt å fylle ut et felt, eller har fylt det ut med feil format på informasjonen. Hvis det er feil, stopper appen navigeringen.
 
-Du kan konfigurere dette på tre nivåer med ulik prioritet: globalt for hele appen, per prosessteg og per side. I tillegg kan du konfigurere NavigationButtons, CustomButton og NavigationBar på komponentnivå.
+Du kan konfigurere dette på to nivåer med ulik prioritet: globalt for hele appen og per side. Du kan ikke sette det per prosessteg i `Settings.json` i oppgavemappen, fordi appen ikke tar med `validationOnNavigation` derfra. I tillegg kan du konfigurere NavigationButtons, CustomButton og NavigationBar på komponentnivå.
 
 ### `validationOnNavigation`-objektet
 
-Du bruker egenskapen `validationOnNavigation` på globalt nivå, per prosessteg og per side. Den har to egenskaper. På komponentnivå bruker du tilsvarende objekt, men via egenskapene `validateOnNext` og `validateOnPrevious` (NavigationButtons) eller `validateOnForward` og `validateOnBackward` (NavigationBar).
+Du bruker egenskapen `validationOnNavigation` på globalt nivå og per side. Den har to egenskaper. På komponentnivå bruker du tilsvarende objekt, men via egenskapene `validateOnNext` og `validateOnPrevious` (NavigationButtons) eller `validateOnForward` og `validateOnBackward` (NavigationBar).
 
 ```json
 {
@@ -293,6 +291,7 @@ Du bruker egenskapen `validationOnNavigation` på globalt nivå, per prosessteg 
 | --- | --- |
 | `"Required"` | Påkrevde felter som ikke er fylt ut. |
 | `"Schema"` | JSON Schema-feil på feltverdier. |
+| `"Invalid"` | Verdier som appen ikke kan lagre, for eksempel tekst i et tallfelt. Bruker du denne i `App/ui/Settings.json` (globalt nivå), får du feil når appen starter. |
 | `"Component"` | Komponentspesifikk validering (for eksempel ugyldig format). |
 | `"Expression"` | Egendefinerte valideringsuttrykk. |
 | `"CustomBackend"` | Egendefinerte backendvalideringer. |
@@ -316,31 +315,9 @@ Gjelder for alle prosessteg i appen. Konfigurer direkte i roten av `App/ui/Setti
 }
 ```
 
-{{% notice info %}}
-Denne plasseringen følger samme mønster som andre globale innstillinger (se {{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/sider" >}}), men er ikke bekreftet av en utvikler ennå. Sjekk med utvikler før du følger dette eksempelet.
-{{% /notice %}}
+#### 2. Per side
 
-#### 2. Per prosessteg
-
-Overstyrer det globale nivået for ett prosessteg. Konfigurer under `pages` i prosesstegets `Settings.json`.
-
-**Filplassering:** `App/ui/Task_1/Settings.json`
-
-```json
-{
-  "pages": {
-    "order": ["personalia", "kontakt", "oppsummering"],
-    "validationOnNavigation": {
-      "page": "current",
-      "show": ["Required"]
-    }
-  }
-}
-```
-
-#### 3. Per side
-
-Overstyrer prosesstegets innstilling for én enkelt side. Konfigurer direkte på `data`-objektet i layoutfila.
+Overstyrer det globale nivået for én enkelt side. Konfigurer direkte på `data`-objektet i layoutfilen.
 
 **Filplassering:** `App/ui/Task_1/layouts/side1.json`
 
@@ -356,7 +333,7 @@ Overstyrer prosesstegets innstilling for én enkelt side. Konfigurer direkte på
 }
 ```
 
-#### 4. Komponentnivå (NavigationButtons, CustomButton, NavigationBar)
+#### 3. Komponentnivå (NavigationButtons, CustomButton, NavigationBar)
 
 Har du ikke konfigurert noen av de høyere nivåene, kan du konfigurere validering direkte på komponenten. For NavigationButtons bruker du `validateOnNext` og `validateOnPrevious`:
 
@@ -371,14 +348,14 @@ Har du ikke konfigurert noen av de høyere nivåene, kan du konfigurere valideri
 }
 ```
 
-**Merk:** Setter du `validationOnNavigation` på side-, prosessteg- eller globalt nivå, overstyrer denne konfigurasjonen komponentnivået:
+**Merk:** Setter du `validationOnNavigation` på side- eller globalt nivå, overstyrer denne konfigurasjonen komponentnivået:
 
 - Den erstatter `validateOnNext`.
 - Den slår av `validateOnPrevious` helt.
 
 ### Prioritetsrekkefølge
 
-Side → Prosessteg → Globalt → Komponent
+Side → Globalt → Komponent
 
 Sidenivå har høyest prioritet og overstyrer alt annet. Komponentnivåkonfigurasjonen gjelder bare når du ikke har konfigurert noen høyere nivåer.
 

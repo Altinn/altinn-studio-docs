@@ -2,6 +2,7 @@
 draft: true
 title: "ALTINNAPP0500: farlig bruk av IHttpContextAccessor"
 description: "IHttpContextAccessor.HttpContext bør ikke brukes i konstruktører"
+weight: 50
 
 ---
 
@@ -11,5 +12,3 @@ i konstruktører. Denne typen misbruk har ført til lekking av persondata i tidl
 Se mer veiledning fra Microsoft her:
 
 https://learn.microsoft.com/en-us/aspnet/core/fundamentals/use-http-context?view=aspnetcore-8.0#httpcontext-isnt-thread-safe
-
-Tilgjengelig fra **v8.6**.

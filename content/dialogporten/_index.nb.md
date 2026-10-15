@@ -9,10 +9,6 @@ cascade:
     product: product_dialogporten
 ---
 
-{{<notice warning>}}
-Vi migrerer gamle data fra Altinn 2 og Altinn 3 til Dialogporten. Se [Status migrering](./status-migration/) siden for siste status.
-{{</notice>}}
-
 
 {{<figure src="media/basic-diagram.png" alt="Diagram over Dialogporten">}}
 {{<center>}}_Dialogporten oversiktsdiagram som viser hvordan den samhandler med brukere, tjenesteplattformer og fellesfunksjonalitet i Altinn_{{</center>}}

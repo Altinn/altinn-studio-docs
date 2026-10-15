@@ -81,7 +81,7 @@ Egenskapene `label`, `description` og `helpText` støtter også [dynamiske uttry
     "label": "checkboxes.label",
     "description": "checkboxes.description",
     "helpText": [
-      "if", ["equals", ["dataModel.someField"], "someValue"],
+      "if", ["equals", ["dataModel", "some.group.someField"], "someValue"],
         "checkboxes.helpText1",
       "else",
         "checkboxes.helpText2"
@@ -90,5 +90,5 @@ Egenskapene `label`, `description` og `helpText` støtter også [dynamiske uttry
   }
 ```
 
-I eksempelet over er `helpText` satt opp til å vise forskjellige hjelpetekster basert på verdien av `someField` i datamodellen.
+I eksempelet over er `helpText` satt opp til å vise forskjellige hjelpetekster basert på verdien av `someField` i hver rad i gruppen. Uttrykket finner selv riktig rad, så du trenger ikke å oppgi indeksen.
 Hvis `someField` er lik `someValue`, vil hjelpeteksten være `checkboxes.helpText1`, ellers vil den være `checkboxes.helpText2`.

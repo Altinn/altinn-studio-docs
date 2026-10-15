@@ -30,6 +30,6 @@ Hvis appen din er [konfigurert til å sende signaturkvitteringer](#legg-til-sign
 
 {{% insert "content/altinn-studio/v9/develop-a-service/process/signing/how-to/role-based-signing/backend-manual/add-process-task.nb.md" %}}
 
-## 2. Legg til layout-set for signering
+## 2. Legg til sider for signeringssteget
 
 {{% insert "content/altinn-studio/v9/develop-a-service/process/signing/how-to/role-based-signing/backend-manual/configure-layouts.nb.md" %}}

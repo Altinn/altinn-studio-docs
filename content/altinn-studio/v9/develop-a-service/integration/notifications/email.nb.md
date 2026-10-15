@@ -13,41 +13,38 @@ Grensesnittet definerer en metode du bruker til å bestille en e-postvarsling fr
 
 ### Kodeeksempel
 
-Under ser du et eksempel der du prøver å sende en e-postvarsling når brukeren har begynt å fylle ut skjemaet, ved hjelp av grensesnittet `IProcessTaskStart`.
+Under ser du et eksempel der appen sender en e-postvarsling når brukeren har begynt å fylle ut skjemaet. Eksempelet bruker en [prosess-hook](/nb/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks/) som implementerer `IOnTaskStartingHandler`.
+
+Hooken kan bli kjørt på nytt hvis den feiler. Bestill derfor e-posten som det siste hooken gjør, slik at et nytt forsøk ikke sender den samme e-posten to ganger.
 
 ```csharp file=EmailOnStart.cs
-using System;
-using System.Collections.Generic;
-using System.Threading;
 using System.Threading.Tasks;
 using Altinn.App.Core.Features;
-using Altinn.App.Core.Internal.Notifications.Email;
+using Altinn.App.Core.Features.Process;
 using Altinn.App.Core.Models.Notifications.Email;
-using Altinn.Platform.Storage.Interface.Models;
 using Microsoft.Extensions.Logging;
 
-namespace Altinn.App.Core;
+namespace Altinn.App;
 
 public class EmailOnStart(ILogger<EmailOnStart> logger, IEmailNotificationClient emailNotificationClient)
-    : IProcessTaskStart
+    : IOnTaskStartingHandler
 {
-    public async Task Start(string taskId, Instance instance, Dictionary<string, string> prefill)
+    // "Task_1" er id-en til skjemasteget i BPMN-prosessen
+    public bool ShouldRunForTask(string taskId) => taskId == "Task_1";
+
+    public async Task<HookResult> Execute(OnTaskStartingContext context)
     {
-        // "Task_1" er navnet på skjema-steget i bpmn-prosessen
-        if (taskId != "Task_1")
-            return;
+        var order = new EmailNotification
+        {
+            Subject = "Skjema startet",
+            Body = "Du har begynt å fylle ut skjemaet",
+            SendersReference = "<min-skjema-ref>",
+            Recipients = [new("navn.navnesen@epost.no")],
+        };
 
         try
         {
-            var order = new EmailNotification
-            {
-                Subject = "Skjema startet",
-                Body = "Du har startet innfylling av skjema",
-                SendersReference = "<min-skjema-ref>",
-                Recipients = [new("navn.navnesen@epost.no")],
-            };
-            using var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10));
-            var orderResult = await emailNotificationClient.Order(order, cts.Token);
+            var orderResult = await emailNotificationClient.Order(order, context.CancellationToken);
             logger.LogInformation(
                 "Task started, email sent to {EmailAddress} - OrderId={OrderId}",
                 order.Recipients[0].EmailAddress,
@@ -56,23 +53,25 @@ public class EmailOnStart(ILogger<EmailOnStart> logger, IEmailNotificationClient
         }
         catch (EmailNotificationException e)
         {
+            // Prosessen går videre selv om e-posten ikke ble sendt
             logger.LogError(e, "Error sending email on task start");
         }
+
+        return HookResult.Success();
     }
 }
 ```
 
-Deretter må du registrere klassen `EmailOnStart` som `IProcessTaskStart` i `Program.cs`.
+I eksempelet går prosessen videre selv om bestillingen feiler. Skal prosessen heller vente og prøve på nytt, returnerer du `HookResult.FailedRetryable("melding")` i `catch`-blokken. Da venter prosessen til bestillingen lykkes, og den stopper hvis alle forsøkene feiler.
+
+Deretter må du registrere klassen `EmailOnStart` som `IOnTaskStartingHandler` i `Program.cs`.
 
 ```csharp file=Program.cs
-using Altinn.App.Core;
-using Altinn.App.Core.Features;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+using Altinn.App;
+using Altinn.App.Core.Features.Process;
 
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
-    services.AddSingleton<IProcessTaskStart, EmailOnStart>();
+    services.AddTransient<IOnTaskStartingHandler, EmailOnStart>();
 }
 ```

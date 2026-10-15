@@ -118,7 +118,7 @@ const COLS = [
     evt: [],
     data: ['Connection (read model)', 'EntityLookup', 'delegation.delegationchanges'] },
   { name: 'Instance & Legacy Rights', home: 'SingleRightsService.cs',
-    api: ['ResourceOwner · AppsInstanceDelegation', 'Legacy host · PolicyInformationPoint', 'Internal · Bff/IdPortenAuthorization'],
+    api: ['ResourceOwner · AppsInstanceDelegation', 'Internal · PolicyInformation/PolicyInformationPoint', 'Internal · Bff/IdPortenAuthorization'],
     svc: ['AppsInstanceDelegationService', 'SingleRightsService', 'PAP · PIP · PRP', 'ContextRetrievalService', 'ResourceAdministrationPoint', 'IdPortenAuthorizationService'],
     evt: ['InstanceAdded / Removed'],
     data: ['AssignmentInstance', 'delegation.delegationchanges', 'delegation.ResourceRegistryDelegationChanges', 'Blob · XACML policies'] },
@@ -2053,6 +2053,223 @@ y += 44;
   fs.writeFileSync(OVFILE, o, 'utf8');
   console.log('altinn_overview.drawio.svg', cells.length, 'cells', Math.round(o.length / 1024) + ' KB', w + 'x' + h);
 }
+}
+
+// ================= Altinn explained: a pedagogical drawing for people who are new to Altinn =================
+// No classes or tables: who uses Altinn, what the services do in plain language, the shared foundation,
+// and one example journey whose steps are numbered on the cards. Written in Norwegian and English.
+{
+  const T = {
+    nb: {
+      file: 'altinn_explained_nb.drawio.svg', page: 'Altinn forklart',
+      title: 'Altinn 3 forklart',
+      subtitle: 'Hvem bruker Altinn, hva de ulike tjenestene gjør, og hvordan de henger sammen. Klikk på en tjeneste for å se den tekniske tegningen.',
+      actorsHead: 'Hvem bruker Altinn?', servicesHead: 'Hva gjør Altinn?', foundationHead: 'Grunnmuren Altinn bygger på',
+      example: 'Eksempel', techLabel: 'Teknisk navn',
+      actors: [
+        ['Innbygger', 'Leser brev fra det offentlige, sender søknader og gir andre fullmakt.'],
+        ['Daglig leder og ansatte', 'Handler på vegne av en virksomhet og gir tilgang videre til kolleger og rådgivere.'],
+        ['Regnskapsfører og revisor', 'Gjør oppgaver for mange kunder, med tilgang som kundene har gitt dem.'],
+        ['Tjenesteeier', 'Offentlig virksomhet som lager tjenester og sender meldinger, for eksempel en kommune eller et direktorat.'],
+        ['Systemleverandør', 'Lager fagsystemer som snakker direkte med Altinn, uten at et menneske logger inn.'],
+      ],
+      groups: [
+        ['Kommunisere', '#e8f1fb', '#6c8ebf', [
+          ['Innboksen', 'Arbeidsflate og Dialogporten', 'Samler alt brukeren har sendt og fått, uansett hvilken etat som eier tjenesten.', 'Kari ser søknaden sin og svaret fra kommunen på samme sted.', './altinn_dialogporten_detailed.drawio.svg', [4]],
+          ['Melding', 'Correspondence', 'Tjenesteeieren sender brev og vedlegg til innbyggere og virksomheter.', 'Kommunen sender vedtaket om bevillingen.', './altinn_correspondence_broker_detailed.drawio.svg', [6]],
+          ['Formidling', 'Broker', 'Virksomheter sender store filer trygt til hverandre gjennom Altinn.', 'En bank sender rapporter til et tilsyn.', './altinn_correspondence_broker_detailed.drawio.svg', []],
+          ['Varsling', 'Notifications', 'Sender e-post og SMS når noe nytt har kommet.', 'Kari får en SMS om at svaret er klart.', './altinn_events_notifications_detailed.drawio.svg', [6]],
+        ]],
+        ['Søke og rapportere', '#fff6dd', '#d6b656', [
+          ['Skjema', 'Apps og Storage', 'Digitale skjema som tjenesteeiere har laget i Altinn Studio. Brukeren fyller ut, signerer og sender inn, og Altinn tar vare på skjemaet til tjenesteeieren henter det.', 'Kari søker om skjenkebevilling for restauranten sin.', './altinn_apps_detailed.drawio.svg', [3]],
+        ]],
+        ['Tilgang og tillit', '#eef7ec', '#82b366', [
+          ['Innlogging', 'Authentication', 'Kontrollerer hvem du er når du logger inn med ID-porten, eller hvilket fagsystem som kobler til med Maskinporten.', 'Kari logger inn med BankID.', './altinn_authorization_detailed.drawio.svg', [1]],
+          ['Tilgangsstyring', 'Access Management', 'Lar brukere gi andre tilgang til å handle på vegne av seg selv eller virksomheten: roller, tilgangspakker, systembrukere og samtykke.', 'Daglig leder gir regnskapsføreren tilgang til regnskap og skatt.', './altinn_authorization_detailed.drawio.svg', []],
+          ['Autorisasjon', 'Authorization (PDP)', 'Svarer ja eller nei hver gang noen prøver å åpne, lese eller sende noe.', 'Får Kari åpne søknadsskjemaet for restauranten?', './altinn_authorization_detailed.drawio.svg', [2]],
+          ['Personer og virksomheter', 'Register og Profile', 'Vet hvem personer og virksomheter er, hvem som har roller i dem, og hvordan de vil bli varslet.', 'Kari er daglig leder i restauranten.', './altinn_profile_detailed.drawio.svg', [2]],
+          ['Tjenestekatalogen', 'Resource Registry', 'Oversikt over alle tjenestene og reglene for hvem som får bruke dem.', 'Skjenkesøknaden krever rollen daglig leder.', './altinn_authorization_detailed.drawio.svg', []],
+        ]],
+        ['Lage og koble til', '#f3eef7', '#9673a6', [
+          ['Altinn Studio', 'Studio Designer', 'Verktøyet tjenesteeiere bruker til å lage skjema, prosess og regler, og til å publisere tjenesten i Altinn.', 'Kommunen lager skjenkesøknaden i Studio.', './altinn_studio_detailed.drawio.svg', []],
+          ['Hendelser', 'Events', 'Gir fagsystemer beskjed når noe skjer, så de slipper å spørre hele tiden.', 'Kommunens fagsystem får beskjed om den nye søknaden.', './altinn_events_notifications_detailed.drawio.svg', [5]],
+          ['API-er', 'APIM', 'Alt over kan også brukes av fagsystemer gjennom API-er, ikke bare av mennesker i nettleseren.', 'Et regnskapssystem sender inn på vegne av mange kunder.', './altinn_overview.drawio.svg', []],
+        ]],
+      ],
+      foundation: [
+        ['ID-porten', 'innlogging for personer'], ['Maskinporten', 'innlogging for fagsystemer'], ['Folkeregisteret', 'hvem personer er'],
+        ['Enhetsregisteret', 'virksomheter og roller'], ['Kontaktregisteret (KRR)', 'e-post og mobilnummer'], ['Altinn 2', 'eldre tjenester som fortsatt er i bruk'],
+      ],
+      journeyHead: 'Slik henger det sammen',
+      journeyIntro: 'Kari søker om skjenkebevilling for restauranten sin. Tallene viser hvilken tjeneste som gjør hva.',
+      journey: [
+        'Kari logger inn med ID-porten.',
+        'Altinn ser at Kari er daglig leder i restauranten, og at rollen gir tilgang til skjemaet.',
+        'Kari fyller ut skjemaet og sender det.',
+        'Søknaden ligger i innboksen hennes.',
+        'Kommunens fagsystem får beskjed og henter søknaden.',
+        'Kommunen sender svaret som en melding, og Kari får en SMS.',
+      ],
+    },
+    en: {
+      file: 'altinn_explained_en.drawio.svg', page: 'Altinn explained',
+      title: 'Altinn 3 explained',
+      subtitle: 'Who uses Altinn, what the services do, and how they fit together. Click a service to see its technical drawing.',
+      actorsHead: 'Who uses Altinn?', servicesHead: 'What does Altinn do?', foundationHead: 'The foundation Altinn builds on',
+      example: 'Example', techLabel: 'Technical name',
+      actors: [
+        ['Citizen', 'Reads letters from the public sector, sends applications and gives others power of attorney.'],
+        ['Managers and employees', 'Act on behalf of an organisation and give access to colleagues and advisers.'],
+        ['Accountants and auditors', 'Do tasks for many clients, with access the clients have given them.'],
+        ['Service owner', 'Public body that builds services and sends messages, for example a municipality or a directorate.'],
+        ['System vendor', 'Builds business systems that talk to Altinn directly, without a person logging in.'],
+      ],
+      groups: [
+        ['Communicate', '#e8f1fb', '#6c8ebf', [
+          ['The inbox', 'Arbeidsflate and Dialogporten', 'Gathers everything the user has sent and received, whichever agency owns the service.', 'Kari sees her application and the municipality\'s answer in one place.', './altinn_dialogporten_detailed.drawio.svg', [4]],
+          ['Correspondence', 'Correspondence', 'The service owner sends letters and attachments to citizens and organisations.', 'The municipality sends its decision on the licence.', './altinn_correspondence_broker_detailed.drawio.svg', [6]],
+          ['File transfer', 'Broker', 'Organisations send large files securely to each other through Altinn.', 'A bank sends reports to a supervisory authority.', './altinn_correspondence_broker_detailed.drawio.svg', []],
+          ['Notifications', 'Notifications', 'Sends email and SMS when something new has arrived.', 'Kari gets a text message saying the answer is ready.', './altinn_events_notifications_detailed.drawio.svg', [6]],
+        ]],
+        ['Apply and report', '#fff6dd', '#d6b656', [
+          ['Forms', 'Apps and Storage', 'Digital forms that service owners build in Altinn Studio. The user fills in, signs and submits, and Altinn keeps the form until the service owner collects it.', 'Kari applies for a licence to serve alcohol at her restaurant.', './altinn_apps_detailed.drawio.svg', [3]],
+        ]],
+        ['Access and trust', '#eef7ec', '#82b366', [
+          ['Login', 'Authentication', 'Checks who you are when you log in with ID-porten, or which business system connects with Maskinporten.', 'Kari logs in with BankID.', './altinn_authorization_detailed.drawio.svg', [1]],
+          ['Access management', 'Access Management', 'Lets users give others access to act on behalf of themselves or their organisation: roles, access packages, system users and consent.', 'The manager gives the accountant access to accounting and tax.', './altinn_authorization_detailed.drawio.svg', []],
+          ['Authorisation', 'Authorization (PDP)', 'Answers yes or no every time someone tries to open, read or send something.', 'May Kari open the application form for the restaurant?', './altinn_authorization_detailed.drawio.svg', [2]],
+          ['People and organisations', 'Register and Profile', 'Knows who people and organisations are, who holds roles in them, and how they want to be notified.', 'Kari is the general manager of the restaurant.', './altinn_profile_detailed.drawio.svg', [2]],
+          ['Service catalogue', 'Resource Registry', 'Lists all services and the rules for who may use them.', 'The licence application requires the general manager role.', './altinn_authorization_detailed.drawio.svg', []],
+        ]],
+        ['Build and connect', '#f3eef7', '#9673a6', [
+          ['Altinn Studio', 'Studio Designer', 'The tool service owners use to build forms, processes and rules, and to publish the service in Altinn.', 'The municipality builds the licence application in Studio.', './altinn_studio_detailed.drawio.svg', []],
+          ['Events', 'Events', 'Tells business systems when something happens, so they do not have to keep asking.', 'The municipality\'s case system is told about the new application.', './altinn_events_notifications_detailed.drawio.svg', [5]],
+          ['APIs', 'APIM', 'Everything above can also be used by business systems through APIs, not only by people in a browser.', 'An accounting system submits on behalf of many clients.', './altinn_overview.drawio.svg', []],
+        ]],
+      ],
+      foundation: [
+        ['ID-porten', 'login for people'], ['Maskinporten', 'login for business systems'], ['National Population Register', 'who people are'],
+        ['Central Coordinating Register', 'organisations and roles'], ['Contact register (KRR)', 'email and mobile number'], ['Altinn 2', 'older services still in use'],
+      ],
+      journeyHead: 'How it fits together',
+      journeyIntro: 'Kari applies for a licence to serve alcohol at her restaurant. The numbers show which service does what.',
+      journey: [
+        'Kari logs in with ID-porten.',
+        'Altinn sees that Kari is the general manager of the restaurant, and that the role gives access to the form.',
+        'Kari fills in the form and submits it.',
+        'The application appears in her inbox.',
+        'The municipality\'s case system is notified and collects the application.',
+        'The municipality sends its answer as a message, and Kari gets a text message.',
+      ],
+    },
+  };
+
+  // wrap text into lines that fit a width (approximate character width, same as the box renderer)
+  const wrap = (text, width, font) => {
+    const max = Math.max(8, Math.floor((width - 12) / (font * 0.52))); // stricter than the box renderer, so it never re-wraps
+    const out = []; let line = '';
+    for (const w of text.split(' ')) {
+      if ((line + ' ' + w).trim().length > max && line) { out.push(line); line = w; } else line = (line + ' ' + w).trim();
+    }
+    if (line) out.push(line);
+    return out;
+  };
+  const text = (x, y, w, lines, font, opts = {}) => {
+    const h = Math.ceil(lines.length * font * 1.25 + 6);
+    box({ x, y, w, h, value: lines.join('\n'), font, bold: !!opts.bold, align: 'left',
+      style: `text;whiteSpace=wrap;html=1;align=left;verticalAlign=top;fontSize=${font};${opts.bold ? 'fontStyle=1;' : ''}${opts.color ? 'fontColor=' + opts.color + ';' : ''}spacing=0;`,
+      noFill: true, noStroke: true, href: opts.href });
+    if (opts.color) svg[svg.length - 1] = svg[svg.length - 1].replace(/fill="#000000"/g, `fill="${opts.color}"`);
+    return h;
+  };
+  const badge = (x, y, n) => {
+    cells.push(`<mxCell id="ex-b${nextId++}" value="${n}" style="ellipse;whiteSpace=wrap;html=1;fillColor=#c0392b;strokeColor=none;fontColor=#ffffff;fontStyle=1;fontSize=12;" vertex="1" parent="1"><mxGeometry x="${x}" y="${y}" width="24" height="24" as="geometry"/></mxCell>`);
+    svg.push(`<circle cx="${x + 12}" cy="${y + 12}" r="12" fill="#c0392b"/><text x="${x + 12}" y="${y + 16}" font-family="Helvetica" font-size="12px" font-weight="bold" text-anchor="middle" fill="#ffffff">${n}</text>`);
+  };
+  const person = (x, y, color) => {
+    cells.push(`<mxCell id="ex-p${nextId++}" value="" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=${color};strokeColor=#4d4d4d;" vertex="1" parent="1"><mxGeometry x="${x}" y="${y}" width="22" height="40" as="geometry"/></mxCell>`);
+    svg.push(`<g fill="${color}" stroke="#4d4d4d"><circle cx="${x + 11}" cy="${y + 6}" r="6"/><path d="M${x + 11},${y + 12} L${x + 11},${y + 28} M${x},${y + 18} L${x + 22},${y + 18} M${x + 11},${y + 28} L${x + 1},${y + 40} M${x + 11},${y + 28} L${x + 21},${y + 40}" fill="none"/></g>`);
+  };
+
+  for (const [lang, L] of Object.entries(T)) {
+    cells.length = 0; svg.length = 0;
+    const X0 = 40, Y0 = 40, MAINW = 1880, GAP = 20, SIDEW = 420;
+    let y = Y0;
+    text(X0, y, 1400, [L.title], 30, { bold: true }); y += 48;
+    y += text(X0, y, MAINW, wrap(L.subtitle, MAINW, 13), 13, { color: '#555555' }) + 16;
+
+    // 1. actors
+    const section = (head, yy) => text(X0, yy, 800, [head], 18, { bold: true, color: '#333333' });
+    y += section(L.actorsHead, y) + 6;
+    const aw = (MAINW - GAP * (L.actors.length - 1)) / L.actors.length;
+    const aLines = L.actors.map(([, d]) => wrap(d, aw - 70, 11));
+    const ah = Math.max(...aLines.map(l => l.length)) * 14 + 46;
+    L.actors.forEach(([name, d], i) => {
+      const x = X0 + i * (aw + GAP);
+      box({ x, y, w: aw, h: ah, rounded: true, fill: '#fafafa', stroke: '#999999', style: st({ rounded: 1, whiteSpace: 'wrap', html: 1, fillColor: '#fafafa', strokeColor: '#999999', arcSize: 6 }) });
+      person(x + 16, y + 14, '#dae8fc');
+      text(x + 56, y + 10, aw - 66, [name], 13, { bold: true });
+      text(x + 56, y + 30, aw - 66, aLines[i], 11);
+    });
+    y += ah + 34;
+
+    // 2. services, four groups side by side
+    y += section(L.servicesHead, y) + 6;
+    const gw = (MAINW - GAP * (L.groups.length - 1)) / L.groups.length, cw = gw - 24;
+    const cardH = c => 26 + 16 + wrap(c[2], cw - 20, 11).length * 14 + 8 + wrap(L.example + ': ' + c[3], cw - 20, 10).length * 13 + 14;
+    const gh = Math.max(...L.groups.map(([, , , cards]) => 40 + cards.reduce((s, c) => s + cardH(c) + 12, 0)));
+    L.groups.forEach(([name, band, stroke, cards], gi) => {
+      const gx = X0 + gi * (gw + GAP);
+      box({ x: gx, y, w: gw, h: gh, fill: band, stroke, style: st({ rounded: 0, whiteSpace: 'wrap', html: 1, fillColor: band, strokeColor: stroke }) });
+      text(gx + 12, y + 10, gw - 24, [name], 15, { bold: true });
+      let cy = y + 40;
+      for (const c of cards) {
+        const [title, tech, desc, ex, href, steps] = c, h = cardH(c);
+        box({ x: gx + 12, y: cy, w: cw, h, rounded: true, fill: '#ffffff', stroke, href,
+          style: st({ rounded: 1, whiteSpace: 'wrap', html: 1, fillColor: '#ffffff', strokeColor: stroke, arcSize: 6 }) });
+        text(gx + 22, cy + 8, cw - 60, [title + '  ›'], 14, { bold: true, href });
+        text(gx + 22, cy + 28, cw - 20, [tech], 9, { color: '#777777' });
+        let ty = cy + 42;
+        ty += text(gx + 22, ty, cw - 20, wrap(desc, cw - 20, 11), 11) + 2;
+        text(gx + 22, ty, cw - 20, wrap(L.example + ': ' + ex, cw - 20, 10), 10, { color: '#555555' });
+        steps.forEach((n, k) => badge(gx + 12 + cw - 32 - k * 28, cy + 8, n));
+        cy += h + 12;
+      }
+    });
+    y += gh + 34;
+
+    // 3. foundation
+    y += section(L.foundationHead, y) + 6;
+    const fw = (MAINW - GAP * (L.foundation.length - 1)) / L.foundation.length;
+    L.foundation.forEach(([n, d], i) => {
+      const x = X0 + i * (fw + GAP);
+      box({ x, y, w: fw, h: 56, value: `${n}\n${d}`, font: 11, rounded: true, fill: '#e0e0e0', stroke: '#4d4d4d', dashed: true,
+        style: st({ rounded: 1, whiteSpace: 'wrap', html: 1, fontSize: 11, fillColor: '#e0e0e0', strokeColor: '#4d4d4d', dashed: 1 }) });
+    });
+    y += 56;
+
+    // example journey in a side panel
+    const sx = X0 + MAINW + 40, sy = Y0 + 48;
+    let jy = sy + 16;
+    const jLines = L.journey.map(s => wrap(s, SIDEW - 70, 12));
+    const th = (n, font) => Math.ceil(n * font * 1.25 + 6); // same height as text()
+    const jh = 16 + th(1, 17) + 4 + th(wrap(L.journeyIntro, SIDEW - 32, 11).length, 11) + 12 + jLines.reduce((s, l) => s + Math.max(26, th(l.length, 12)) + 10, 0) + 10;
+    box({ x: sx, y: sy, w: SIDEW, h: jh, rounded: true, fill: '#fdf2f0', stroke: '#c0392b',
+      style: st({ rounded: 1, whiteSpace: 'wrap', html: 1, fillColor: '#fdf2f0', strokeColor: '#c0392b', arcSize: 4 }) });
+    jy += text(sx + 16, jy, SIDEW - 32, [L.journeyHead], 17, { bold: true }) + 4;
+    jy += text(sx + 16, jy, SIDEW - 32, wrap(L.journeyIntro, SIDEW - 32, 11), 11, { color: '#555555' }) + 12;
+    L.journey.forEach((s, i) => {
+      badge(sx + 16, jy, i + 1);
+      jy += Math.max(26, text(sx + 52, jy + 3, SIDEW - 70, jLines[i], 12)) + 10;
+    });
+
+    const W = sx + SIDEW - X0 + 41, H = Math.max(y, sy + jh) - Y0 + 41;
+    const m = '<mxGraphModel dx="1637" dy="867" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0"><root><mxCell id="0"/><mxCell id="1" parent="0"/>' + cells.join('') + '</root></mxGraphModel>';
+    const mf = `<mxfile><diagram id="altinn-explained-${lang}" name="${L.page}">${m}</diagram></mxfile>`;
+    const o = `<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="${W}px" height="${H}px" viewBox="${X0 - 20.5} ${Y0 - 20.5} ${W} ${H}" style="background-color: #ffffff;" content="${esc(mf)}"><defs/><g>${svg.join('')}</g></svg>`;
+    fs.writeFileSync(path.join(path.dirname(OUT), L.file), o, 'utf8');
+    console.log(L.file, cells.length, 'cells', Math.round(o.length / 1024) + ' KB', W + 'x' + H);
+  }
 }
 
 if (unresolved.length) {

@@ -19,7 +19,7 @@
         {{- .Content -}}
     
     {{- else -}}
-    {{- $content := partial "component-props/get-content.html" . -}}
+    {{- $content := partial "property-docs/get-content.html" . -}}
 
     {{- with index $content "intro" -}}
     {{- . | markdownify -}}
@@ -33,7 +33,7 @@
     {{- $.Scratch.Set "code" . -}}
     {{- end -}}
 
-    {{- partial "component-props/tabs.html" $ -}}
+    {{- partial "property-docs/tabs.html" $ -}}
 
     {{- with index $content "more" -}}
     {{- . | markdownify -}}

@@ -13,7 +13,7 @@ Legg til en betalingsoppgave i prosessen ved å velge betalingsoppgave fra menye
 
 Systemet oppdaterer følgende konfigurasjoner automatisk:
 - Systemet legger til to datatyper knyttet til betaling (én for data om betaling, én for betalingskvittering).
-- Systemet legger til en ny sidegruppe tilknyttet betaling, med en ferdig oppsatt side.
+- Systemet legger til sider for betalingsoppgaven, med en ferdig oppsatt side.
 - Systemet legger til en ny regel for tilgangsstyring knyttet til betalingsoppgaven – du må konfigurere denne senere.
 
 ### 2. Legg til gateway etter betalingssteget

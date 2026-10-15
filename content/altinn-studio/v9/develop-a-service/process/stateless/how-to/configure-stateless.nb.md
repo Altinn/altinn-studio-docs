@@ -20,12 +20,11 @@ Dette gjør du i filen `applicationmetadata.json`.
 Legg til følgende linje i `App/config/applicationmetadata.json`:
 
 ```json
-"onEntry": { "show": "form" }
+"onEntry": { "show": "stateless" }
 ```
 
 {{% notice info %}}
-Her forteller vi appen hvilket sideoppsett vi ønsker at den skal vise i stedet for å starte en prosessflyt. Appen kommer 
-med et ferdig sideoppsett som heter `form`, som vi bruker her. 
+Her forteller du appen hvilken mappe under `App/ui` den skal vise sidene fra, i stedet for å starte en prosessflyt. I denne veiledningen kaller du mappen `stateless`. Du lager mappen i steg 2.
 {{% /notice %}}
 
 Eksempel på konfigurasjon:
@@ -64,11 +63,30 @@ App/config/applicationmetadata.json
     }
   ],
   ...
-  "onEntry": { "show": "form" }
+  "onEntry": { "show": "stateless" }
 }
 ```
 
 ## 2. Utform visningen
+
+Opprett mappen `App/ui/stateless`, og legg til `Settings.json`. Sett `defaultDataType` til datamodellen som stateless-visningen skal bruke:
+
+{{< code-title >}}
+App/ui/stateless/Settings.json
+{{< /code-title >}}
+
+```json
+{
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+  "defaultDataType": "model",
+  "pages": {
+    "order": ["Side1"]
+  }
+}
+```
+
+Sidene legger du i `App/ui/stateless/layouts/`, for eksempel `App/ui/stateless/layouts/Side1.json`.
+
 Du kan utforme siden(e) som skal vises på vanlig måte, f.eks. i utformingsverktøyet i Altinn Studio.
 Se [Kom i gang]({{<relref "/altinn-studio/v9/getting-started" >}}) hvis du er usikker på hvordan dette gjøres.
 Stateless visning støtter alle komponenter, med unntak av
