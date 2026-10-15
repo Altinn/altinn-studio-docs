@@ -2,69 +2,69 @@
 draft: true
 title: Altinn Studio-tilganger
 linktitle: Studio
-description: Slik konfigurerer du tilganger for team i Altinn Studio.
-tags: [needsReview]
+description: Slik styrer du hvem som har tilgang til organisasjonen og appene i Altinn Studio.
+tags: [Reviewed]
 toc: true
 weight: 200
 aliases:
 - /nb/altinn-studio/guides/administration/access-management/studio/
 ---
 
-## Tilgangsstyring for organisasjonen
+## Styre tilganger i organisasjonen
 
-Som eier av en organisasjon i Altinn Studio kan du konfigurere tilgangene til de øvrige brukerne som er knyttet til organisasjonen.
+Som eier av en organisasjon i Altinn Studio kan du styre hva de andre brukerne i organisasjonen har tilgang til.
 
-Gå til `https://altinn.studio/repos/org/{org}/teams/` (erstatt `{org}` med din organisasjonskode).
+Gå til `https://altinn.studio/repos/org/{org}/teams/` (erstatt `{org}` med organisasjonskoden din).
 
-Det er definert fire standard-team som legger føringer for hva en bruker har tillatelse til å gjøre i organisasjonen i Altinn Studio. Ved behov kan du som eier legge til eller fjerne brukere i team, opprette nye team og endre konfigurasjon på eksisterende team.
+Altinn Studio har fire standardteam som bestemmer hva en bruker har lov til å gjøre i organisasjonen. Ved behov kan du som eier legge til eller fjerne brukere i team, opprette nye team og endre innstillingene for eksisterende team.
 
 [Se oversikt over standardteamene og tilgangene de gir]({{< relref "/altinn-studio/v9/develop-a-service/reference/administration/access-management/studio" >}}).
 
-### Legge til bruker i et team
+### Legge til en bruker i et team
 
-Disse stegene må gjøres av en bruker som er lagt inn som eier av organisasjonen.
+Du må være eier av organisasjonen for å gjøre dette.
 
-1. Gå til `https://altinn.studio/repos/org/{org}/teams/` (erstatt `{org}` med din organisasjonskode).
-2. Åpne ønsket team ved å klikke på navnet eller på knappen **View**.
-3. Skriv inn brukerens Altinn Studio-brukernavn i tekstfeltet over listen av eksisterende brukere i teamet.
-4. Velg bruker fra listen som dukker opp når du skriver.
-5. Klikk på knappen **Add Team Member**.
+1. Gå til `https://altinn.studio/repos/org/{org}/teams/` (erstatt `{org}` med organisasjonskoden din).
+2. Klikk på navnet til teamet.
+3. Skriv inn Altinn Studio-brukernavnet til brukeren i feltet **Søk i brukere**.
+4. Velg brukeren fra listen som dukker opp når du skriver.
+5. Klikk på **Legg til team-medlem**.
 
 Brukeren er nå lagt til i teamet.
 
 ![Legg til bruker i et team](./access-management-team.png "Legg til bruker i et team")
 
-## Tilgangsstyring for et enkelt repositorium
+## Styre tilgangen til ett repositorium
 
-Som administrator for organisasjonen kan du også styre hvem som har tilgang til det enkelte repositoriet. Du kan gi tilgang til både hele team og til enkeltbrukere.
+Som eier av organisasjonen kan du også styre hvem som har tilgang til det enkelte repositoriet. Du kan gi tilgang til både hele team og til enkeltbrukere.
 
-1. Gå til det aktuelle repositoriet: `https://altinn.studio/repos/{org}/{app}/` (erstatt `{org}` og `{app}` med din organisasjonskode og appnavn).
+1. Gå til det aktuelle repositoriet: `https://altinn.studio/repos/{org}/{app}/` (erstatt `{org}` og `{app}` med organisasjonskoden og app-navnet).
    - Alternativt: Gå til `https://altinn.studio/repos/explore/repos` og søk etter appen din.
-2. Klikk på **Innstillinger** på høyre side av toppmenyen for repositoriet.
-3. Velg **Collaboration** i venstremenyen.
-4. Gi tilgang til en spesifikk bruker i «Collaboration»-seksjonen ved å skrive inn brukernavn og klikke på **Add Collaborator**.
-5. Gi tilgang til spesifikke grupper i «Teams»-seksjonen ved å skrive inn navnet på en gruppe og klikke på **Add Team**.
+2. Klikk på **Innstillinger** til høyre i menyen til repositoriet (ikke i menyen til organisasjonen).
+3. Velg **Collaborators** i menyen til venstre.
+4. Hvis du vil gi tilgang til én bruker, skriver du brukernavnet i feltet **Søk i brukere** under **Collaborators** og klikker på **Add Collaborator**.
+5. Hvis du vil gi tilgang til et team, skriver du navnet på teamet under **Team** og klikker på **Legg til team**.
 
-For å holde oversikt anbefaler vi primært å sette opp team for tilgangsstyring.
+Vi anbefaler at du bruker team til å styre tilganger, fordi det gir bedre oversikt.
 
-![Styre tilgang på repositorium](access-management-repository.png "Styre tilgang til et enkelt repositorium")
+![Innstillinger for et repositorium med feltene Collaborators og Team](./access-management-repository.png "Gi tilgang til ett repositorium")
 
 ## Fjerne en bruker fra et team
 
 Du trenger brukernavnet til brukeren du vil fjerne.
 
-1. Gå til teamene for din organisasjon: `https://altinn.studio/repos/org/{org}/teams/` (erstatt `{org}` med din organisasjonskode).
-2. Velg teamet du skal fjerne brukeren fra ved å klikke på **View**.
-3. Velg brukeren fra listen over medlemmer og velg **Remove**.
+1. Gå til teamene i organisasjonen din: `https://altinn.studio/repos/org/{org}/teams/` (erstatt `{org}` med organisasjonskoden din).
+2. Klikk på navnet til teamet du skal fjerne brukeren fra.
+3. Klikk på **Fjern** ved siden av brukeren i listen over medlemmer.
 
-Merk at en bruker selv kan forlate et team ved å gå til samme visning og klikke på **Leave**-knappen øverst til venstre ved siden av teamnavnet.
+En bruker kan også forlate et team selv ved å klikke på **Forlat** øverst til høyre på teamet.
 
 ## Fjerne en bruker fra organisasjonen
 
 Du trenger brukernavnet til brukeren du vil fjerne. Se beskrivelsen over for hvordan du fjerner en bruker fra enkeltteam.
 
-1. Gå til teamene for din organisasjon: `https://altinn.studio/repos/org/{org}/teams/` (erstatt `{org}` med din organisasjonskode).
-2. Fjern brukeren fra teamene brukeren er medlem i for din organisasjon.
-   - Typiske team er `devs` for skrivetilgang til tjenestene, `Deploy-<miljø>` for publiseringstilgang for tjenestene, og `Resources-Publish-<miljø>` for tilgang til å publisere ressurser.
-   - Hvis organisasjonen din har satt opp en annen team-struktur, må du sjekke alle team brukeren kan være medlem av.
-3. Sjekk at brukeren ikke lenger tilhører organisasjonen din ved å gå til `https://altinn.studio/repos/{brukernavn}` og kontroller at organisasjonen din (med logo) ikke lenger vises under brukerens profilbilde på venstre side.
+1. Gå til teamene i organisasjonen din: `https://altinn.studio/repos/org/{org}/teams/` (erstatt `{org}` med organisasjonskoden din).
+2. Fjern brukeren fra teamene brukeren er medlem av i organisasjonen din.
+   - Typiske team er `Devs` for skrivetilgang til appene, `Deploy-<miljø>` for publiseringstilgang for appene, og `Resources-Publish-<miljø>` for tilgang til å publisere ressurser.
+   - Hvis organisasjonen din har satt opp en annen teamstruktur, må du sjekke alle team brukeren kan være medlem av.
+3. Sjekk at brukeren ikke lenger tilhører organisasjonen din ved å gå til `https://altinn.studio/repos/{brukernavn}` og kontrollere at organisasjonen din (med logo) ikke lenger vises under brukerens profilbilde på venstre side.
