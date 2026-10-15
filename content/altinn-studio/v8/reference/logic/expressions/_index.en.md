@@ -618,18 +618,20 @@ rolling release.
 {{% /notice %}}
 
 The function `stringSlice` takes a string as the first argument (the subject string) and one or two numbers as the
-second and third arguments (the start index and optional length). It returns a substring of the subject string starting
-at the index given in the second argument. If a third argument is provided, the substring will be of the length given in
-the third argument.
+second and third arguments (the start index and optional end index). It returns a substring of the subject string starting
+at the start index. If an end index is provided, the substring stops before the character at that index, so the
+character at the start index is included, while the character at the end index is not. Indexes start at 0, and a
+negative index counts from the end of the string. Note that the third argument is an end index, not a length.
 
 Example:
 
 ```json
-["stringSlice", ["dataModel", "My.Model.FullName"], 5, 3]
+["stringSlice", ["dataModel", "My.Model.FullName"], 5, 8]
 ```
 
-This example returns a substring of the full name starting at the 5th character and with a length of 3. If the full name
-is "John Doe", the function will return "Doe".
+This example returns a substring of the full name from index 5 up to, but not including, index 8. If the full name is
+"John Doe", the function will return "Doe". To get two characters starting at index 6, use `6, 8` (not `6, 2`), so
+`["stringSlice", "12345678901", 6, 8]` returns "78".
 
 {{% /expandlarge %}}
 
