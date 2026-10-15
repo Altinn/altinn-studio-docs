@@ -86,8 +86,9 @@ Det finnes ingen innebygd konfigurasjon for å begrense tilgang basert på auten
 Det vil si at ASP.NET Core-mellomvaren for autentisering må ha kjørt for at du skal få riktig informasjon.
 Mellomvaren for autentisering legges til i `UseAltinnAppCommonConfiguration`. Så hvis du skal bruke `IAuthenticationContext.Current`
 i en ASP.NET Core-mellomvare, må denne legges til **etter** at `UseAltinnAppCommonConfiguration` har blitt kalt.
-Alle grensesnitt som implementeres i en app, slik som `IInstantiationValidator` i eksempelet under, kjører på et tidspunkt
-hvor autentiseringsinformasjonen er tilgjengelig, så der er det trygt.
+Grensesnitt som kjører i forespørselen fra brukeren, slik som `IInstantiationValidator` i eksempelet under, kjører på et tidspunkt
+hvor autentiseringsinformasjonen er tilgjengelig, så der er det trygt. Prosess-hooks og systemoppgaver kjører i arbeidsflytmotoren,
+og der er `IAuthenticationContext.Current` appen selv, ikke brukeren.
 {{% /notice %}}
 
 ### ✅ Altinn-portalbrukere
