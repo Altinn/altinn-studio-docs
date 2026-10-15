@@ -1,6 +1,6 @@
 ---
-title: Videresende melding til e-post
-linktitle: Videresende melding til e-post
+title: Videresende melding på e-post
+linktitle: Videresende melding på e-post
 description: Hvordan tillate sluttbrukere å videresende meldinger til en e-postadresse
 tags: [Correspondence, videresending, epost, guide]
 toc: true
@@ -19,7 +19,7 @@ Denne funksjonaliteten er under utvikling og er foreløpig ikke tilgjengelig for
 
 ### Kom i gang
 
-Når du initialiserer en melding kan du legge til feltet `allowForwarding`,for å markere meldingen som trygg å videresende på e-post.
+Når du oppretter en melding, kan du legge til feltet `allowForwarding` for å markere meldingen som trygg å videresende på e-post.
 For å aktivere videresending på epost setter du `allowForwarding` til `true`:
 
 ```json
@@ -35,8 +35,9 @@ Feltet er valgfritt og har standardverdien `false`. Videresending er derfor bare
 
 ### Begrensninger
 
-- Meldinger kan videresendes på e-post både med og uten vedlegg. Den samlede størrelsen på alle vedlegg kan likevel ikke overstige 10 MB. Hvis grensen overskrides, kan brukeren fortsatt videresende selve meldingen, men vedleggene blir ikke med på grunn av begrensninger i e-posttjenesten.
+- Meldinger både med og uten vedlegg kan videresendes på e-post. Den samlede størrelsen på alle vedlegg kan likevel ikke overstige 10 MB. Hvis grensen overskrides, kan brukeren fortsatt videresende selve meldingen, men vedleggene blir ikke med på grunn av begrensninger i e-posttjenesten.
 - Meldinger som sendes på tjenester som bruker tilgangspakken *post-til-virksomheten-med-taushetsbelagt-innhold*, kan ikke videresendes på e-post.
+- Dersom du ikke er autorisert til å se vedlegget, kan du heller ikke videresende det. 
 
 ### Sikkerhetsmessige konsekvenser
 
