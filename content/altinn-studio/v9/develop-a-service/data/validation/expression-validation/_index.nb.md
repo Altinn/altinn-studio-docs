@@ -3,6 +3,7 @@ draft: true
 title: Validering med uttrykk
 description: Slik konfigurerer du valideringer ved hjelp av dynamiske uttrykk.
 toc: true
+weight: 30
 tags: [needsReview]
 ---
 
