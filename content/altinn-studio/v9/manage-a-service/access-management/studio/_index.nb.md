@@ -67,4 +67,5 @@ Du trenger brukernavnet til brukeren du vil fjerne. Se beskrivelsen over for hvo
 2. Fjern brukeren fra teamene brukeren er medlem av i organisasjonen din.
    - Typiske team er `Devs` for skrivetilgang til appene, `Deploy-<miljø>` for publiseringstilgang for appene, og `Resources-Publish-<miljø>` for tilgang til å publisere ressurser.
    - Hvis organisasjonen din har satt opp en annen teamstruktur, må du sjekke alle team brukeren kan være medlem av.
-3. Sjekk at brukeren ikke lenger tilhører organisasjonen din ved å gå til `https://altinn.studio/repos/{brukernavn}` og kontrollere at organisasjonen din (med logo) ikke lenger vises under brukerens profilbilde på venstre side.
+3. Hvis brukeren har fått tilgang til enkelte repositorier direkte, må du også fjerne den tilgangen. Gå til **Innstillinger** → **Collaborators** i repositoriet, og klikk på **Fjern** ved siden av brukeren.
+4. Sjekk at brukeren ikke lenger tilhører organisasjonen din ved å gå til `https://altinn.studio/repos/{brukernavn}` og kontrollere at organisasjonen din (med logo) ikke lenger vises under brukerens profilbilde på venstre side.
