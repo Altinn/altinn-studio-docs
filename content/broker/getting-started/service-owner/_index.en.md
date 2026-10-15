@@ -15,6 +15,8 @@ This process will be simplified through a future update in Altinn Studio.
 Particularly Steps 4-6 will be performed through GUI instead of requiring direct API Calls.
 {{% /notice %}}
 
+When senders and recipients use the browser, follow [Set up a broker service for the browser](/en/broker/getting-started/web-app/service-owner/). The steps below apply when a system calls the API.
+
 ## 1. Get started as service owner in Altinn {#get-started-as-service-owner-in-altinn}
 
 To get started with Altinn Broker, your enterprise must be registered as a service owner in Altinn. For a step-by-step guide , see the
