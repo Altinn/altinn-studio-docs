@@ -4,8 +4,18 @@
     "title": "Altinn.AccessManagement.Api.Systemuser",
     "version": "1.0"
   },
+  "servers": [
+    {
+      "url": "https://platform.tt02.altinn.no/accessmanagement/api/v1",
+      "description": "Integration Test"
+    },
+    {
+      "url": "https://platform.altinn.no/accessmanagement/api/v1",
+      "description": "Production"
+    }
+  ],
   "paths": {
-    "/accessmanagement/api/v1/systemuser/request/package": {
+    "/systemuser/request/package": {
       "post": {
         "tags": [
           "SystemUserRequest"
@@ -103,7 +113,7 @@
         ]
       }
     },
-    "/accessmanagement/api/v1/systemuser/request/sent": {
+    "/systemuser/request/sent": {
       "get": {
         "tags": [
           "SystemUserRequest"
@@ -205,7 +215,7 @@
         ]
       }
     },
-    "/accessmanagement/api/v1/systemuser/request/sent/withdraw": {
+    "/systemuser/request/sent/withdraw": {
       "put": {
         "tags": [
           "SystemUserRequest"
