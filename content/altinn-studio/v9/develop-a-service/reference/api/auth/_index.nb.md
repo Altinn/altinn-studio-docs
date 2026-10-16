@@ -38,21 +38,16 @@ Altinn Autorisasjon støtter ulike typer brukere. Dette er viktig å vite om nå
   - Leverandøren har Maskinporten-klienten og autentiserer seg. Konseptet lar systemet opptre på vegne av systembrukeren (inkludert rettigheter systembrukeren har fått delegert fra kunden).
   - Appens API aksepterer bare Maskinporten-tokens som har blitt innvekslet til Altinn-token (i fremtiden vil vi støtte Maskinporten-tokens direkte).
 
-{{% notice warning %}}
-Virksomhetsbrukere fra Altinn 2 er bare delvis støttet i Altinn 3. Autentisering og autorisasjon vil fungere, men det kan være
-mangler i andre deler av plattformen. Virksomhetsbrukere klassifiseres som `Organisasjon` fra listen over.
-Det finnes ingen innebygd sperrefunksjon for disse brukerne. Hvis du ønsker å blokkere forespørsler fra virksomhetsbrukere i appen,
-må du gjøre dette manuelt, for eksempel ved hjelp av ASP.NET Core-mellomvare.
+{{% notice info %}}
+Virksomhetsbrukere fra Altinn 2 kan ikke lenger logge inn. De er erstattet av [systembruker](/nb/authorization/what-do-you-get/systemuser/).
 {{% /notice %}}
 
 ## Informasjon i appen
 
 `Altinn.App.Core`-biblioteket har grensesnitt for å hente ut informasjon om innlogget bruker.
 Som standard er det ingen begrensninger på hvilke brukertyper en app tar imot, men du kan begrense dette selv i en mellomvare eller en validator.
-Før `v8.6` av app-bibliotekene var det vanlig å f.eks. hente bruker-ID direkte fra `HttpContext`,
-men dette kan gi uventet resultat hvis innkommende forespørsel er autentisert med f.eks. systembruker.
-
-Fra `v8.6` av `Altinn.App.Core` finnes `IAuthenticationContext`- og `Authenticated`-typene:
+Hent ikke bruker-ID direkte fra `HttpContext`. Det kan gi uventet resultat hvis forespørselen er autentisert med for eksempel systembruker.
+Bruk i stedet `IAuthenticationContext` og `Authenticated`-typene i `Altinn.App.Core`:
 
 ```csharp
 namespace Altinn.App.Core.Features.Auth;
@@ -66,8 +61,10 @@ public interface IAuthenticationContext
 
 public abstract class Authenticated
 {
-    public sealed class User : Authenticated { ... }
-    public sealed class SelfIdentifiedUser : Authenticated { ... }
+    public sealed class None : Authenticated { ... }         // ikke autentisert
+    public sealed class Unknown : Authenticated { ... }      // autentisert, men ukjent type
+    public sealed class App : Authenticated { ... }          // appen selv, for eksempel kall fra arbeidsflytmotoren
+    public sealed class User : Authenticated { ... }         // også selvidentifiserte brukere, se IsSelfIdentified
     public sealed class Org : Authenticated { ... }
     public sealed class ServiceOwner : Authenticated { ... }
     public sealed class SystemUser : Authenticated { ... }
@@ -75,6 +72,8 @@ public abstract class Authenticated
 ```
 
 Grensesnittet `IAuthenticationContext` kan brukes i egendefinert kode til å sjekke hva slags bruker som er logget inn, og hvilken informasjon som er knyttet til denne.
+
+Selvidentifiserte brukere har ikke en egen type. De er `Authenticated.User` der `IsSelfIdentified` er `true`.
 
 ## Begrens tilgang
 
@@ -103,7 +102,7 @@ using Altinn.App.Core.Features.Auth;
 using Altinn.App.Core.Models.Validation;
 using Altinn.Platform.Storage.Interface.Models;
 
-namespace Altinn.App.Core;
+namespace Altinn.App;
 
 internal sealed class ValidateInstantiation(IAuthenticationContext authenticationContext) : IInstantiationValidator
 {
@@ -203,45 +202,6 @@ app.Use(
                 {
                     Title = "Ikke tillatt",
                     Detail = "Denne appen kan bare brukes som systembruker",
-                    Status = StatusCodes.Status403Forbidden
-                }
-            );
-            return;
-        }
-
-        await next(context);
-    }
-);
-```
-
-### ❌ Virksomhetsbrukere
-
-I dette eksempelet sperrer vi ute virksomhetsbrukere fra Altinn 2:
-
-{{% notice info %}}
-Disse tokenene vil kunne eksistere frem til Altinn 2 er fullstendig faset ut.
-{{% /notice %}}
-
-```csharp
-WebApplication app = builder.Build();
-
-...
-
-app.UseAltinnAppCommonConfiguration();
-
-app.Use(
-    async (context, next) =>
-    {
-        var authenticationContext = context.RequestServices.GetRequiredService<IAuthenticationContext>();
-        var authenticated = authenticationContext.Current;
-        if (authenticated is Authenticated.Org)
-        {
-            context.Response.StatusCode = StatusCodes.Status403Forbidden;
-            await context.Response.WriteAsJsonAsync(
-                new ProblemDetails
-                {
-                    Title = "Ikke tillatt",
-                    Detail = "Virksomhetsbrukere er ikke tillatt i denne appen",
                     Status = StatusCodes.Status403Forbidden
                 }
             );
