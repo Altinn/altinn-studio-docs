@@ -92,7 +92,7 @@ Følg trinnene under for å sette opp en slik app.
 
 Denne seksjonen er bare relevant hvis du vil endre standardtekstene som brukes når vi kommuniserer med de som skal signere.
 
-Disse standardverdiene brukes hvis du ikke endrer kommunikasjonstekstene:
+Appen bruker disse standardverdiene hvis du ikke endrer kommunikasjonstekstene. I tabellene står `\n\n` for to linjeskift, altså en tom linje mellom avsnittene. Kvitteringstekstene bruker `<br /><br />` til det samme. Innboksmeldingen inneholder en Markdown-lenke til skjemaet.
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Standardtekster bokmål">}}
@@ -100,10 +100,13 @@ Disse standardverdiene brukes hvis du ikke endrer kommunikasjonstekstene:
 | ---------------------------------------- | ------------- |
 | Innboksmelding til den som signerer - tittel     | "{appName}: Oppgave til signering" |
 | Innboksmelding til den som signerer - undertittel | "Din signatur ventes for {appName}." |
-| Innboksmelding til den som signerer - innhold    | "Du har en oppgave som venter på din signatur. <a href=\"{instanceUrl}\">Klikk her for å åpne applikasjonen</a>.<br /><br />Hvis du lurer på noe, kan du kontakte {appOwner}." |
+| Innboksmelding til den som signerer - innhold    | `"Du har en oppgave som venter på din signatur. [Klikk her for å åpne skjema]({instanceUrl})\n\nHvis du lurer på noe, kan du kontakte {appOwner}."` |
 | Sms til den som signerer - innhold               | "Din signatur ventes for {appName}. Åpne Altinn-innboksen din for å fortsette." |
 | E-post til den som signerer - emne               | "{appName}: Oppgave til signering" |
-| E-post til den som signerer - innhold            | "Din signatur ventes for {appName}. Åpne Altinn-innboksen din for å fortsette.<br /><br />Hvis du lurer på noe, kan du kontakte {appOwner}." |
+| E-post til den som signerer - innhold            | `"Din signatur ventes for {appName}. Åpne Altinn-innboksen din for å fortsette.\n\nHvis du lurer på noe, kan du kontakte {appOwner}."` |
+| Påminnelse på sms - innhold                      | "Påminnelse: Din signatur ventes for {appName}. Åpne Altinn-innboksen din for å fortsette." |
+| Påminnelse på e-post - emne                      | "{appName}: Påminnelse om oppgave til signering" |
+| Påminnelse på e-post - innhold                   | `"Påminnelse: Din signatur ventes for {appName}. Åpne Altinn-innboksen din for å fortsette.\n\nHvis du lurer på noe, kan du kontakte {appOwner}."` |
 | Kvittering til den som signerer - tittel         | "{appName}: Signeringen er bekreftet" |
 | Kvittering til den som signerer - undertittel     | "Du har signert for {appName}." |
 | Kvittering til den som signerer - innhold        | "Dokumentene du har signert er vedlagt. Disse kan lastes ned om ønskelig. <br /><br />Hvis du lurer på noe, kan du kontakte {appOwner}." |
@@ -113,10 +116,13 @@ Disse standardverdiene brukes hvis du ikke endrer kommunikasjonstekstene:
 | ---------------------------------------- | ------------- |
 | Innboksmelding til den som signerer - tittel     | "{appName}: Oppgåve til signering" |
 | Innboksmelding til den som signerer - undertittel | "Signaturen din vert venta for {appName}." |
-| Innboksmelding til den som signerer - innhold    | "Du har ei oppgåve som ventar på signaturen din. <a href=\"{instanceUrl}\">Klikk her for å opne applikasjonen</a>.<br /><br />Om du lurer på noko, kan du kontakte {appOwner}." |
+| Innboksmelding til den som signerer - innhold    | `"Du har ei oppgåve som ventar på signaturen din. [Klikk her for å opne skjema]({instanceUrl})\n\nOm du lurer på noko, kan du kontakte {appOwner}."` |
 | Sms til den som signerer - innhold               | "Signaturen din vert venta for {appName}. Opne Altinn-innboksen din for å gå vidare." |
 | E-post til den som signerer - emne               | "{appName}: Oppgåve til signering" |
-| E-post til den som signerer - innhold            | "Signaturen din vert venta for {appName}. Opne Altinn-innboksen din for å gå vidare.<br /><br />Om du lurer på noko, kan du kontakte {appOwner}." |
+| E-post til den som signerer - innhold            | `"Signaturen din vert venta for {appName}. Opne Altinn-innboksen din for å gå vidare.\n\nOm du lurer på noko, kan du kontakte {appOwner}."` |
+| Påminnelse på sms - innhold                      | "Påminning: Signaturen din vert venta for {appName}. Opne Altinn-innboksen din for å gå vidare." |
+| Påminnelse på e-post - emne                      | "{appName}: Påminning om oppgåve til signering" |
+| Påminnelse på e-post - innhold                   | `"Påminning: Signaturen din vert venta for {appName}. Opne Altinn-innboksen din for å gå vidare.\n\nOm du lurer på noko, kan du kontakte {appOwner}."` |
 | Kvittering til den som signerer - tittel         | "{appName}: Signeringa er stadfesta" |
 | Kvittering til den som signerer - undertittel     | "Du har signert for {appName}." |
 | Kvittering til den som signerer - innhold        | "Dokumenta du har signert er vedlagde. Dei kan lastast ned om ønskeleg. <br /><br />Om du lurer på noko, kan du kontakte {appOwner}." |
@@ -126,10 +132,13 @@ Disse standardverdiene brukes hvis du ikke endrer kommunikasjonstekstene:
 | ---------------------------------------- | ------------- |
 | Innboksmelding til den som signerer - tittel     | "{appName}: Task for signing" |
 | Innboksmelding til den som signerer - undertittel | "Your signature is requested for {appName}." |
-| Innboksmelding til den som signerer - innhold    | "You have a task waiting for your signature. <a href=\"{instanceUrl}\">Click here to open the application</a>.<br /><br />If you have any questions, you can contact {appOwner}." |
+| Innboksmelding til den som signerer - innhold    | `"You have a task waiting for your signature. [Click here to open the form]({instanceUrl})\n\nIf you have any questions, you can contact {appOwner}."` |
 | Sms til den som signerer - innhold               | "Your signature is requested for {appName}. Open your Altinn inbox to proceed." |
 | E-post til den som signerer - emne               | "{appName}: Task for signing" |
-| E-post til den som signerer - innhold            | "Your signature is requested for {appName}. Open your Altinn inbox to proceed.<br /><br />If you have any questions, you can contact {appOwner}." |
+| E-post til den som signerer - innhold            | `"Your signature is requested for {appName}. Open your Altinn inbox to proceed.\n\nIf you have any questions, you can contact {appOwner}."` |
+| Påminnelse på sms - innhold                      | "Reminder: Your signature is requested for {appName}. Open your Altinn inbox to proceed." |
+| Påminnelse på e-post - emne                      | "{appName}: Reminder for task for signing" |
+| Påminnelse på e-post - innhold                   | `"Reminder: Your signature is requested for {appName}. Open your Altinn inbox to proceed.\n\nIf you have any questions, you can contact {appOwner}."` |
 | Kvittering til den som signerer - tittel         | "{appName}: Signature confirmed" |
 | Kvittering til den som signerer - undertittel     | "Your signature has been registered for {appName}." |
 | Kvittering til den som signerer - innhold        | "The signed documents are attached. They may be downloaded. <br /><br />If you have any questions, you can contact {appOwner}." |

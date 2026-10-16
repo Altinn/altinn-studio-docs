@@ -4,9 +4,6 @@ title: Signer og send inn
 linktitle: Signer og send inn
 description: Slik setter du opp signering og innsending i ett steg i appen din.
 tags: [signering, needsReview]
-
-aliases:
-- /nb/altinn-studio/guides/signing/sign-and-submit
 ---
 
 {{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/style.css.md" %}}
@@ -61,9 +58,9 @@ Steget fungerer fortsatt som et vanlig datasteg, men brukeren kan i tillegg sign
 1. Endre `taskType` på datasteget til `signing`.
 2. Legg til `sign`-action som en mulig handling.
 3. Angi hvilke data som skal signeres i `<altinn:dataTypesToSign>`, for eksempel skjemadataene i datamodellen.
-5. Oppgi en datatype i `<altinn:signatureDataType>`. Hvordan den bør se ut, finner du nedenfor.
+4. Oppgi en datatype i `<altinn:signatureDataType>`. Hvordan den bør se ut, finner du nedenfor.
 
-Ferdig konvertert eksempel i `process.xml`:
+Ferdig konvertert eksempel i `process.bpmn`:
 
 ```xml
 <bpmn:task id="Task_1" name="Fyll ut og signer">
@@ -80,7 +77,7 @@ Ferdig konvertert eksempel i `process.xml`:
         <altinn:signatureDataType>signatures</altinn:signatureDataType>
 
         <!-- Vi har laget en standard validator som kan slås på her. -->
-        <!-- Den validerer at påkrevd antall signaturer (minCount på signatur-datatypen) er oppfylt. -->
+        <!-- Den kontrollerer at alle som skal signere, har signert, og at antallet signaturer er minst minCount på signaturdatatypen. -->
         <!-- Om denne ikke slås på, bør du skrive en egen validator som validerer signaturer. -->
         <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
 

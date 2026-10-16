@@ -4,9 +4,6 @@ title: API-basert signering
 linktitle: API-basert signering
 description: Slik setter du opp signering via API.
 tags: [signering, needsReview]
-
-aliases:
-- /nb/altinn-studio/guides/signing/api-signing
 ---
 
 ## Hva er API-basert signering?
@@ -64,7 +61,7 @@ Eksempel på respons før signering er utført, der en person og en virksomhet s
   "signeeStates": [
     {
       "name": "BØYLEHEST MATT",
-      "organisation": null,
+      "organization": null,
       "delegationSuccessful": true,
       "notificationStatus": "Sent",
       "partyId": 51281269,
@@ -72,7 +69,7 @@ Eksempel på respons før signering er utført, der en person og en virksomhet s
     },
     {
       "name": null,
-      "organisation": "LYDIG VENNLIG KATT KJERNE",
+      "organization": "LYDIG VENNLIG KATT KJERNE",
       "delegationSuccessful": true,
       "notificationStatus": "Sent",
       "partyId": 51843877,
@@ -89,7 +86,7 @@ Etter signering (her har Bøylehest Matt signert på vegne av seg selv, og Fisk 
   "signeeStates": [
     {
       "name": "BØYLEHEST MATT",
-      "organisation": null,
+      "organization": null,
       "delegationSuccessful": true,
       "notificationStatus": "Sent",
       "partyId": 51281269,
@@ -98,7 +95,7 @@ Etter signering (her har Bøylehest Matt signert på vegne av seg selv, og Fisk 
 
     {
       "name": "FISK KUNSTIG",
-      "organisation": "LYDIG VENNLIG KATT KJERNE",
+      "organization": "LYDIG VENNLIG KATT KJERNE",
       "delegationSuccessful": true,
       "notificationStatus": "Sent",
       "partyId": 51843877,
