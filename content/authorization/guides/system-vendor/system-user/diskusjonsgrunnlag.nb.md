@@ -1,6 +1,6 @@
 ---
-title: "Systembruker – valg av modell"
-description: "Diskusjonsgrunnlag om nye typer, egenskaper og delegering."
+title: "Systembruker – vedtak og videre avklaringer"
+description: "Vedtak fra møtet 16. oktober 2026, illustrasjoner og gjenstående valg."
 type: systemuser-discussion
 hidden: true
 outputs: [HTML]
@@ -10,278 +10,246 @@ build:
 ---
 # Systembruker
 
-## Valg av modell for nye oppsett
+## Vedtak og videre avklaringer
 
-Diskusjonsgrunnlag · Oppdatert 6. oktober 2026
+Oppdatert etter møtet 16. oktober 2026
 
-**Målet:** Bestemme hvordan vi støtter de vedtatte behovene, og hva vi må avklare før vi bygger løsningen.
+Én forespørsel for egen virksomhet og klienter. Tilgangsstyring på de vanlige bruker- og klientflatene.
 
-[Åpne beslutningstreet over valgene](../beslutningstre/)
-
----
-## Behovet for endring
-
-- Virksomheter med egenutviklet system skal kunne bruke systembruker uten å forholde seg til systemregisteret.
-- En eksisterende Maskinporten-klient skal kunne knyttes direkte til systembrukeren.
-- Systembrukeren skal kunne opprettes uten forhåndsdefinerte tilgangspakker eller enkeltrettigheter. Tilgang gis senere via GUI i Altinn.
-
-Dagens dokumenterte oppsett for egenutviklede systemer krever registrering i systemregisteret.
+[Åpne beslutningstreet og reglene](../beslutningstre/)
 
 ---
-## Hva vi har bestemt
+## Behovene som ligger til grunn
 
-**Begge behovene skal støttes.**
+- Egenutviklede systemer skal kunne knytte en Maskinporten-klient direkte til en systembruker uten å bruke systemregisteret.
+- Virksomheter skal kunne delegere pakker og enkeltrettigheter uten forhåndsdefinerte tilgangslister.
+- Systembrukere skal kunne brukes for både egen virksomhet og klienter.
 
-- Behovene gjelder bruk som i dag dekkes av både Standard og Agent.
-- Standard/Agent oppleves ikke som en meningsfull inndeling for de nye oppsettene.
-- Klientdelegering for de nye oppsettene skal skje via standard brukergrensesnitt.
-
-> Dette er avklart i samtalen. Modell, validering og nye begreper er fortsatt åpne.
+Direkte klienttilknytning er fortsatt et eget behov. Utvidelsen av forespørselsendepunktet beskrives her med registrert system som utgangspunkt.
 
 ---
-## Vedtatt: Systembruker for eget system
+## Vedtatt: Eget system uten systemregisteret
 
-**Systembruker for eget system skal være «fri».**
+**Systembruker for eget system skal være uten forhåndsdefinerte rettigheter.**
 
-Den skal kunne få delegert både tilgangspakker og enkeltrettigheter
+Virksomheten skal kunne knytte sin Maskinporten-klient direkte til systembrukeren og gi pakker og enkeltrettigheter for både egen virksomhet og klienter.
 
-- for egen virksomhet
-- for klienter
-
-Delegering skjer via standard brukergrensesnitt. Sletting av videredelegeringer følger rettighetsgrunnlaget, uavhengig av systembrukertype.
-
-> Dette er en beslutning om det nye oppsettet. Endelig navn og hvordan «fri» representeres teknisk er fortsatt åpne valg.
+Med den nye flaggregelen betyr dette `withoutPredefinedRights=true` og fire tomme tilgangslister. Den tekniske flyten for direkte klienttilknytning må fortsatt beskrives.
 
 ---
-## Vedtatt: API for forespørsel om fri systembruker
+## Vedtatt: Vi kaller det systembruker
 
-**Vi bruker standard API for å be om en «fri» systembruker.**
+**Vi utvider dagens endepunkt for forespørsel om opprettelse.**
 
-Dette er vedtatt. Hvordan standardforespørselen markerer «fri», er fortsatt et åpent valg hvis vi beholder dagens enum-verdier.
+```http
+POST /authentication/api/v1/systemuser/request/vendor
+```
+
+Vi omtaler brukeren som **systembruker**. Rettigheter for egen virksomhet og klienter beskrives i samme forespørsel.
+
+Autentiseringskoden ligger nå under `src/apps/Altinn.Authentication` i `altinn-auth`.
 
 ---
-## Vedtatt: Krav for å akseptere fri systembruker
+## Vedtatt: Fire tilgangslister
 
-**Den som aksepterer forespørselen, må ha tilgangsstyringspakken.**
+| Liste | Hva den beskriver |
+|---|---|
+| `rights` | Enkeltrettigheter for egen virksomhet |
+| `accessPackages` | Tilgangspakker for egen virksomhet |
+| `clientRights`* | Enkeltrettigheter som kan delegeres for klienter |
+| `clientAccessPackages`* | Tilgangspakker som kan delegeres for klienter |
 
-Dette er kravet for å akseptere en «fri» systembruker. Rettighetene systembrukeren senere får delegert, håndteres separat.
+Klientlistene setter rammen for senere klientdelegering.
+
+*Feltnavnene for klientlistene er forslag. Egne lister for begge rettighetstyper er vedtatt.*
 
 ---
-## Dagens Standard og Agent
+## Vedtatt: Tilganger ved aksept
 
-| | Standard | Agent |
+**Ved aksept opprettes systembrukeren, og de forespurte tilgangene for egen virksomhet delegeres.**
+
+Klientlistene tildeler ingen klienttilgang på dette tidspunktet. De definerer hvilke tilganger som kan delegeres senere.
+
+For systembruker uten forhåndsdefinerte rettigheter krever aksept tilgangsstyringspakken. Tilgangene gis senere gjennom GUI.
+
+---
+## Vedtatt: Tilganger når klienten knyttes til
+
+**Klientrettighetene delegeres når klienten knyttes til systembrukeren.**
+
+For forhåndsdefinerte klienttilganger gjelder hele settet av klientpakker og enkeltrettigheter samlet. Tildelingen må være innenfor eiervirksomhetens fullmakter for den aktuelle klienten.
+
+Hvis klientens delegering til eiervirksomheten slettes, skal tilhørende videredelegeringer slettes. Avhengigheten følger rettighetsgrunnlaget, uavhengig av type og flagg.
+
+---
+## Vedtatt: Eksplisitt flagg for fri delegering
+
+```json
+{ "withoutPredefinedRights": true }
+```
+
+Flagget sier at eiervirksomheten kan delegere pakker og enkeltrettigheter uten forhåndsdefinerte tilgangslister.
+
+**Ett flagg gjelder både egen virksomhet og klienter.** Virksomhetens delegeringsmyndighet og fullmakter gjelder fortsatt.
+
+Vi bruker navnet `withoutPredefinedRights` i kontraktsforslaget. Tomme lister alene markerer ikke fri delegering.
+
+---
+## Vedtatt: Validering av flagg og lister
+
+| Flagget | Innhold i de fire listene samlet | Resultat |
 |---|---|---|
-| Dokumentert bruk | Egen virksomhet | Klienter |
-| Tilganger | Pakker og enkeltrettigheter | Kun pakker |
-| Opprettelse | Bruker- eller leverandørstyrt | Leverandørstyrt |
-| Klientfullmakter | Ingen klientflyt i denne modellen | Videredelegering fra virksomhetens fullmakter |
+| Ikke satt / `false` | Minst én pakke eller enkeltrettighet på minst én liste | Gyldig kombinasjon |
+| Ikke satt / `false` | Alle lister tomme | Valideringsfeil |
+| `true` | Alle lister tomme | Gyldig kombinasjon |
+| `true` | Innhold på én eller flere lister | Valideringsfeil |
 
-Sletting av videredelegeringer bestemmes av hvordan eiervirksomheten har fått rettigheten, uavhengig av systembrukertype. Hvis grunnlaget er en delegering fra en klient og denne slettes, skal tilhørende videredelegeringer også slettes.
-
----
-## Tilgang og hvordan videredelegeringer slettes
-
-**Avklart for de nye oppsettene:** Både enkeltrettigheter og tilgangspakker skal støttes.
-
-**Sletting følger rettighetsgrunnlaget, ikke systembrukertypen.**
-
-1. En klient delegerer tilgang til virksomheten som eier systembrukeren.
-2. Eiervirksomheten videredelegerer tilgangen til systembrukeren via standard GUI.
-3. Når klientens delegering til eiervirksomheten slettes, skal tilhørende videredelegeringer til systembrukeren også slettes.
-
-> Avhengigheten ligger i delegeringskjeden. Den skal ikke modelleres som en særregel for en systembrukertype. Den tekniske løsningen er fortsatt åpen.
+«Gyldig kombinasjon» gjelder flagget og listene. Øvrig validering og autorisasjon må fortsatt bestås. Detaljer for utelatte lister og `null` må beskrives i kontrakten.
 
 ---
-## Valg 1: Nye typer eller dagens to enum-verdier
+## Vedtatt: Alle systembrukere vises i oversiktene
 
-**Skal enumen få flere verdier enn Standard og Agent?**
+**Synlighet er uavhengig av `withoutPredefinedRights`.**
 
-| | A: Opprette nye typer | B: Beholde dagens to enum-verdier |
-|---|---|---|
-| Enum | Vi beholder Standard og Agent og legger til nye verdier for de nye oppsettene | Enum består fortsatt bare av Standard og Agent |
-| Hvordan nye oppsett beskrives | Nye typer får egne regler | Egenskaper eller andre data beskriver forskjellene |
-| Fordel | Typen kan uttrykke det nye oppsettet direkte | Ingen nye enum-verdier som konsumenter må håndtere |
-| Ulempe | Flere typer og typegrener i API, GUI og backend | Standard/Agent er ikke nok til å avgjøre oppførsel, og eksisterende antakelser må endres |
+Alle systembrukere skal vises i den vanlige brukeroversikten og i den relevante klientdelegeringsoversikten, også når de har forhåndsdefinerte rettigheter.
 
-**Vi må bestemme** om vi skal utvide enumen eller beholde de to verdiene. Navn og antall nye typer er ikke bestemt.
+Flagget styrer handlingsrommet for delegering. Det er ikke et filter for hvilke systembrukere brukeren får se.
 
 ---
-## Valg 2: Markere «fri» eksplisitt eller implisitt
+## Illustrasjon: Felles brukeroversikt
 
-**Hvis vi beholder dagens to enum-verdier: Skal standardforespørselen markere «fri» eksplisitt eller implisitt?**
-
-| Alternativ | Regel | Fordel / ulempe |
-|---|---|---|
-| Eksplisitt flagg | Et nytt flagg på standardforespørselen angir «fri» | Tydelig hensikt, men krever et nytt felt og regler for samsvar med tilgangslistene |
-| Implisitt gjenkjenning | Listene for tilgangspakker og enkeltrettigheter er tomme → fri systembruker | Ingen nytt flagg, men tomme lister får en betydning som alle konsumenter må forstå |
-
-**Vi må bestemme** om vi skal bruke et nytt flagg eller implisitt gjenkjenning fra tomme lister, hvis vi svarer Nei til nye typer i valg 1. Standard API er allerede vedtatt.
-
-GUI må kunne identifisere oppsettet også etter at rettigheter er delegert. Faktisk delegerte rettigheter må ikke utilsiktet endre klassifiseringen.
+{{< systemuser-ui "overview" >}}
 
 ---
-## Valg 3: Hva «ingen tilganger i forespørselen» betyr
+## Vedtatt: Klientdelegering på én felles side
 
-**Hvis vi velger implisitt gjenkjenning: Hvilke representasjoner skal bety fri?**
+**Den særskilte klientdelegeringssiden for systembrukere med forhåndsdefinerte klientrettigheter fjernes.**
 
-**Begge listene må være eksplisitt tomme:** Innsenderen må sende tomme lister for både tilgangspakker og enkeltrettigheter. Utelatte felter markerer ikke fri.
+Disse systembrukerne åpnes og håndteres på den vanlige klientdelegeringssiden.
 
-**Utelatte felter regnes også som ingen tilganger:** En forespørsel uten tilgangspakker og enkeltrettigheter tolkes som fri, også uten eksplisitte tomme lister. Manglende data kan dermed utløse klassifiseringen.
-
-**Vi må bestemme** én regel for tomme og utelatte lister, også for hvordan vi behandler null. Vi må kunne skille fravær av forhåndsdefinerte tilganger fra faktisk delegerte tilganger.
+Begrunnelsen er at brukeren skal slippe å administrere denne delegeringen et eget sted.
 
 ---
-## Valg 4: Fri delegering med registrert system
+## Vedtatt: Hele klientsettet eller ingen
 
-**Skal et system i systemregisteret også kunne brukes med kundestyrte rettigheter?**
+**Forhåndsdefinerte klientpakker og enkeltrettigheter er forhåndsvalgt.**
 
-**Ja:** Tilknytning og tilgangsmodell kan velges uavhengig. Vi må beskrive og støtte flere kombinasjoner.
+- Hele settet delegeres samlet, eller ingen av tilgangene delegeres.
+- Man kan ikke velge en delmengde av settet.
+- Man kan ikke utvide det med pakker eller rettigheter utenfor klientlistene.
 
-**Nei:** Færre kombinasjoner, men fri delegering blir bundet til oppsett uten systemregisteret.
-
-**Vi må bestemme** om vi skal støtte denne kombinasjonen. Begge hovedbehovene er allerede vedtatt.
-
----
-## Valg 5: Fri og Standard/Agent på samme system
-
-**Skal ett registrert system kunne ha både frie systembrukere og dagens Standard/Agent-brukere samtidig?**
-
-**Ja, begge oppsett kan brukes på samme system:** Kunden kan velge fri delegering eller dagens oppsett per systembruker. GUI og API må skille oppsettene, og tokenoppslaget må finne riktig systembruker.
-
-**Nei, systemet bruker én modell om gangen:** Et system har enten frie brukere eller dagens Standard/Agent-oppsett. En leverandør som skal støtte begge oppsettene må bruke to forskjellige Maskinporten-klienter, én for hvert oppsett.
-
-**Konsekvens av Nei:** Leverandøren må administrere separate klienter for de to oppsettene, selv om de brukes av samme programvare.
-
-**Vi må bestemme** om vi skal tillate blandede oppsett på samme system. Dette valget er relevant hvis vi støtter fri delegering for registrerte systemer.
-
-> «Fri» er en tilgangsmodell og et arbeidsnavn. Dette valget avgjør ikke om enumen skal få nye verdier.
+Dette gjelder per klient. Brukere uten forhåndsdefinerte rettigheter kan få tilganger valgt innenfor virksomhetens fullmakter.
 
 ---
-## Valg 6: Validering av oppgitte tilganger
+## Illustrasjon: Klienttilganger som ett sett
 
-**Skal tilgangspakker og enkeltrettigheter som er oppgitt i forespørselen valideres ved opprettelse?**
-
-**Avhengighet til valg 5:** Hvis samme system kan ha både frie og Standard/Agent-brukere, må en forespørsel uten pakker eller enkeltrettigheter kunne aksepteres for å opprette en fri bruker – også når systemet har forhåndsdefinerte tilganger.
-
-**Validere oppgitte tilganger ved opprettelse:** Feil oppdages tidlig. En forespørsel uten tilganger må fortsatt aksepteres for det frie oppsettet.
-
-**Validere når tilgangen delegeres:** Identiteten opprettes først. Feil i oppgitte tilganger oppdages senere.
-
-**Vi må bestemme** når vi kontrollerer oppgitte tilganger. Ved Ja i valg 5 kan ikke valideringen kreve at alle forespørsler inneholder systemets forhåndsdefinerte tilganger. Vi må kontrollere den faktiske tildelingen av tilgang når den skjer.
+{{< systemuser-ui "preset-client" >}}
 
 ---
-## Valg 7: Endre tilgangsmodellen
+## Vedtatt: Forhåndsdefinerte tilganger på brukersiden
 
-**Skal et oppsett som kan ha forhåndsdefinerte tilganger kunne endres til eller fra fri?**
+**Systembrukeren kan åpnes fra den vanlige brukersiden.**
 
-**Tillat endring:** Samme identitet kan beholdes, men eksisterende delegeringer må håndteres når modellen endres.
+For forhåndsdefinerte rettigheter for egen virksomhet er eneste endringshandling å slette systembrukeren med alle tilhørende rettigheter samlet.
 
-**Krev ny systembruker:** Modellen er stabil gjennom levetiden, men kunden må opprette og konfigurere på nytt.
-
-**Vi må bestemme** om vi skal tillate endringen for oppsett der begge modeller støttes. Systembruker for eget system skal være fri. Ved implisitt gjenkjenning må endringer i forhåndsdefinerte lister følge den valgte regelen.
+Man kan ikke fjerne en enkelt tilgangspakke eller enkeltrettighet separat på denne siden.
 
 ---
-## Valg 8: Eksisterende brukere med tomme lister
+## Illustrasjon: Samlet sletting fra brukersiden
 
-**Hvis vi velger implisitt gjenkjenning: Skal vi tolke eksisterende brukere uten forhåndsdefinerte tilganger som fri?**
-
-**Ja, automatisk:** Én regel for gamle og nye brukere, men eksisterende brukere kan få en ny betydning.
-
-**Nei, bare etter eksplisitt overgang:** Bevarer tidligere betydning, men krever at gamle og nye oppsett kan skilles.
-
-**Vi må bestemme** om tolkningen skal gjelde eksisterende data. Først må vi kartlegge om slike brukere finnes og hva tomme lister betyr i dag.
+{{< systemuser-ui "preset-own" >}}
 
 ---
-## Valg 9: API-overgang
+## Illustrasjon: Uten forhåndsdefinerte rettigheter
 
-**Skal de nye oppsettene innføres i dagens kontrakt eller i en ny versjon?**
-
-**Utvid dagens kontrakt:** Færre parallelle API-er, men gamle konsumenter må tåle nye felter, verdier og regler.
-
-**Ny kontrakt eller versjon:** Skiller ny betydning tydelig fra gammel, men krever parallelle kontrakter og en overgangsplan.
-
-**Vi må bestemme** overgangsstrategien etter at vi har kartlagt modellen og antakelsene til konsumentene.
+{{< systemuser-ui "free" >}}
 
 ---
-## Valg 10: Navn på brukerne
+## Åpent valg: Klienttilganger i systemregisteret
 
-**Hva skal vi kalle systembrukere uten leverandørdefinerte tilganger?**
+**Skal klientlistene valideres mot dagens registrerte tilganger, eller mot egne klientlister i systemregisteret?**
 
-| Navn | Fordel | Ulempe |
-|---|---|---|
-| Fri systembruker | Kort | Uklart hva «fri» gjelder |
-| Ubegrenset systembruker | Uttrykker fravær av forhåndsdefinert liste | Kan tolkes som ubegrenset tilgang |
-| Systembruker med kundestyrte rettigheter | Beskriver hvem som bestemmer rettighetene | Langt, og «kunden» må være entydig i klientforhold |
+**Dagens lister:** Gjenbruker systemets definisjon, men skiller ikke formålet i registeret.
 
-**Vi må bestemme** ett navn. «Fri» er foreløpig bare et arbeidsnavn.
+**Egne klientlister:** Gjør skillet tydelig i registeret, men utvider også registreringskontrakten og administrasjonen.
+
+Dette er fortsatt uavklart i samtalen.
 
 ---
-## Valg 11: Begreper i standard GUI
+## Åpent valg: Kombinasjoner på samme system
 
-**Må brukeren velge en navngitt kategori?**
+**Skal samme registrerte system kunne ha brukere med og uten forhåndsdefinerte rettigheter samtidig?**
 
-**Vis kategorien som et valg:** Gjør forskjellen tydelig, men krever at eksterne lærer begrepet før opprettelse.
+**Ja:** Fleksibilitet per systembruker. Oppslag og GUI må håndtere begge oppsett på samme system.
 
-**Vis konkrete handlinger:** For eksempel «Knytt Maskinporten-klient» og «Gi tilgang». Mindre begrepslæring, men forskjellen må forklares der den påvirker brukeren.
+**Nei:** Separate oppsett. Som avklart tidligere vil en leverandør som støtter begge, trenge to forskjellige Maskinporten-klienter.
 
-**Vi må bestemme** om kategorien skal være et eksplisitt GUI-valg. Interne enum-verdier trenger ikke bli synlige begreper.
-
----
-## Valg 12: Bytte Maskinporten-klient
-
-**Skal klienttilknytningen kunne byttes på en eksisterende systembruker?**
-
-**Tillat bytte:** Bevarer identitet og delegeringer, men krever kontroll av den nye tilknytningen og at den gamle ikke lenger kan brukes.
-
-**Krev ny systembruker:** Stabil klienttilknytning, men tilgangene må etableres på nytt.
-
-**Vi må bestemme** om vi skal støtte bytte. Først må vi undersøke de tekniske rammene til Maskinporten og kravene til eierskapskontroll.
+Felles brukeroversikt er vedtatt. Samtidige oppsett på samme system er ikke uttrykkelig avklart i møtereferatet her.
 
 ---
-## Informasjonsbehov: Rettighetsgrunnlag i standard GUI
+## Åpent valg: Endre tilgangsmodell etter opprettelse
 
-**Regelen er vedtatt:** Når klientens delegering til eiervirksomheten slettes, skal tilhørende videredelegeringer slettes, for både pakker og enkeltrettigheter.
+**Skal flagget kunne endres på en eksisterende systembruker?**
 
-Vi trenger en beskrivelse av hvordan standard GUI og backend sporer delegeringskjeden og finner videredelegeringene som skal slettes.
+**Tillat endring:** Beholder identiteten, men må håndtere forhåndsdefinerte lister og eksisterende delegeringer.
 
-Dette er en teknisk avklaring. Det er ikke et nytt valg om systembrukertype eller om sletting skal skje.
+**Krev ny systembruker:** Stabil modell gjennom levetiden, men nytt oppsett må etableres.
 
----
-## Informasjonsbehov: Maskinporten og token
-
-Direkte klienttilknytning uten systemregisteret er vedtatt.
-
-Vi trenger teknisk bekreftelse på eierskapskontroll, håndtering av slettet klient og tokeninnhold når system_id fra registeret mangler.
-
-Vi må bruke funnene til å konkretisere klienttilknytningen og vurdere valget om klientbytte.
+Samlet sletting på brukersiden for forhåndsdefinerte rettigheter er vedtatt. En eventuell egen flyt for endring av modellen er fortsatt uavklart.
 
 ---
-## Informasjonsbehov: Dagens validering
+## Åpent valg: Eksisterende Agent-brukere
 
-Den undersøkte valideringen i Authentication sammenligner forespurte tilganger med registrert systems liste.
+**Skal eksisterende Agent-brukere videreføres som de er eller overføres til den utvidede modellen?**
 
-Veiledningen beskriver andre krav til isAssignable enn den undersøkte ValidateAccessPackages-metoden. Lokal kode og dokumentasjon alene fastslår ikke produksjonsoppførsel.
+**Viderefør:** Bevarer dagens kontrakter og lagrede brukere, men krever kompatibilitet i de felles flatene.
 
-Vi trenger en bekreftet beskrivelse av reglene i GUI, API og produksjon før vi bestemmer den nye valideringen.
+**Overfør:** Samler behandlingen, men krever mapping av klientpakker, typer og eksisterende delegeringer.
+
+Én ekstern betegnelse «systembruker» avgjør ikke alene intern enum, lagringsformat eller utfasing av Agent-endepunktet.
 
 ---
-## Beslutningslogg
+## Åpent valg: Bytte Maskinporten-klient
 
-For hvert valg noterer vi **valgt alternativ og begrunnelse** før vi går videre.
+**Skal en eksisterende systembruker kunne få en annen Maskinporten-klient?**
 
-Hvis vi mangler grunnlag, noterer vi hva som må undersøkes og hvem som følger det opp. Valget forblir åpent til informasjonen foreligger.
+**Tillat bytte:** Bevarer identiteten og tilgangene. Ny tilknytning må verifiseres og gammel tilknytning avsluttes.
 
-Ingen av modellalternativene eller navnene er vedtatt i dette diskusjonsgrunnlaget.
+**Krev ny systembruker:** Stabil tilknytning, men kunden må etablere oppsettet på nytt.
+
+Dette må vurderes mot Maskinportens tekniske rammer.
+
+---
+## Teknisk avklaring: Valideringskontrakten
+
+De vedtatte reglene for flagg og tomme lister må gjennomføres i opprettelsesflyten.
+
+Vi må fortsatt beskrive:
+
+- Hvordan utelatte lister og `null` behandles.
+- Hvilke regler som gjelder for innholdet i egen- og klientlistene, inkludert validering ved aksept.
+- Hva som skjer når samme eksterne referanse sendes på nytt med endrede lister.
+
+Dette er kontraktsdetaljer som fortsatt trenger avklaring.
+
+---
+## Teknisk avklaring: Gjennomføring i kode og GUI
+
+Forespørsel, lagring, svarmodeller og godkjenningsbilde må bevare skillet mellom egen- og klienttilganger.
+
+Standard GUI må håndtere rettighetssettet samlet for klienter, samlet sletting for egen virksomhet og fri delegering når flagget er satt.
+
+Direkte klienttilknytning, tokeninnhold uten registertilknytning og sporing av rettighetsgrunnlag må beskrives videre.
 
 ---
 ## Kilder og status
 
-Avklarte behov: samtalen med RUNLAR. Alternativene og konsekvensvurderingene er forslag til diskusjon.
+Vedtakene bygger på avklaringene med RUNLAR etter møtet 16. oktober 2026. Åpne valg er beholdt som åpne.
 
-- [Systembrukerveiledning](../) og [brukerscenarier](../userscenarios/)
-- [Opprettelse](../systemuserrequest/) og [token](../usetoken/)
-- [Authentication: typer](https://github.com/Altinn/altinn-authentication/blob/main/src/Core/Enums/SystemUserType.cs), [validering](https://github.com/Altinn/altinn-authentication/blob/main/src/Authentication/Services/SystemUserService.cs) og [mapping](https://github.com/Altinn/altinn-authentication/blob/main/src/Integration/AccessManagement/AccessManagementClient.cs)
-- [Frontend: systembruker-API](https://github.com/Altinn/altinn-access-management-frontend/blob/main/src/rtk/features/systemUserApi.ts)
-- [Auth: entitetsvarianter](https://github.com/Altinn/altinn-auth/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Constants/EntityVariantConstants.cs)
+- [Opprettelsesendepunktet i altinn-auth](https://github.com/Altinn/altinn-auth/blob/1c63f782017566768c637337f7571a3b20b0d594/src/apps/Altinn.Authentication/src/Altinn.Platform.Authentication/Controllers/RequestSystemUserController.cs)
+- [Request-modell](https://github.com/Altinn/altinn-auth/blob/1c63f782017566768c637337f7571a3b20b0d594/src/apps/Altinn.Authentication/src/Altinn.Platform.Authentication.Core/Models/SystemUsers/CreateRequestSystemUser.cs) og [opprettelsesflyt](https://github.com/Altinn/altinn-auth/blob/1c63f782017566768c637337f7571a3b20b0d594/src/apps/Altinn.Authentication/src/Altinn.Platform.Authentication/Services/SystemUserService.cs)
+- Frontend-referanser: `UsersList`, `ClientAdministrationPageContent`, `AgentDetails` og `DelegationModal` i [access-management-frontend](https://github.com/Altinn/altinn-access-management-frontend).
 
-Kodefunn er fra lokale arbeidskopier lest 5. oktober 2026. Lenker til `main` kan endres. Utkast laget med Codex. Deltakerne skal gjennomgå det.
+Illustrasjonene bruker dagens flater som visuell referanse. De viser foreslåtte UI-detaljer for vedtatt oppførsel, med fiktive eksempler. De dokumenterer ikke en implementert løsning.
+
+Oppdatert med Codex. Innhold og utforming skal gjennomgås av teamet.

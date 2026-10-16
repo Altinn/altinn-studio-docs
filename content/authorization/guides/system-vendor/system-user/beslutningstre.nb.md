@@ -1,6 +1,6 @@
 ---
 title: "Beslutningstre for systembruker"
-description: "Avhengigheter og alternativer for de 12 valgene i diskusjonsgrunnlaget."
+description: "Vedtatte regler for forespørsel og delegering, og gjenstående valg etter møtet 16. oktober 2026."
 hidden: true
 disablePagefind: true
 toc: true
@@ -9,93 +9,94 @@ build:
   list: never
   render: always
 ---
+Dette beslutningstreet er oppdatert etter møtet 16. oktober 2026. [Åpne presentasjonen med UI-illustrasjoner](../diskusjonsgrunnlag/).
 
-Dette beslutningstreet supplerer [diskusjonsgrunnlaget](../diskusjonsgrunnlag/). Numrene viser til valgene i diskusjonsgrunnlaget. Alle grener er alternativer, og ingen åpne valg er markert som vedtatt.
+Trærne under «Vedtatt» viser regler, ikke åpne alternativer. Punktene under «Fortsatt åpent» er ikke besluttet. Tidligere valg om implisitt deteksjon er erstattet av et eksplisitt flagg.
 
-Trærne er delt opp for lesbarhet. En heltrukken pil viser hvilken gren som følger av et svar. En stiplet pil viser en avhengighet som må tas med i et annet valg. Valg under «uavhengige valg» kan tas hver for seg.
+## Vedtatt: Forespørsel og validering
 
-## Vedtatte rammer
+Vi utvider `POST /authentication/api/v1/systemuser/request/vendor` og kaller brukeren systembruker. Autentisering ligger nå i `altinn-auth`.
 
-- Systembruker for eget system skal være fri og kunne få tilgang for egen virksomhet og klienter.
-- Både tilgangspakker og enkeltrettigheter skal støttes. Klientdelegering skjer via standard GUI.
-- Vi bruker standard API for å be om en fri bruker. Aksept krever tilgangsstyringspakken.
-- Sletting av videredelegeringer følger virksomhetens rettighetsgrunnlag, uavhengig av systembrukertype.
+Forespørselen har fire lister: pakker og enkeltrettigheter for egen virksomhet, og pakker og enkeltrettigheter for klienter. Navnene på de nye klientfeltene er ikke endelig fastsatt.
 
-## Modell og gjenkjenning av fri
+Systembruker for eget system uten systemregisteret skal være uten forhåndsdefinerte rettigheter, og kunne brukes for både egen virksomhet og klienter. Den skal dermed ha flagget satt og fire tomme lister. Direkte Maskinporten-tilknytning er fortsatt et eget teknisk arbeidspunkt.
 
 {{< mermaid >}}
 graph TD
-  V1{"Valg 1: Nye enum-verdier?"}
-  V1 -->|Ja| NEW["Legg til nye typer utover Standard og Agent"]
-  V1 -->|Nei| V2{"Valg 2: Hvordan markere fri på standardforespørselen?"}
-  V2 -->|Eksplisitt| FLAG["Nytt flagg angir fri"]
-  V2 -->|Implisitt| EMPTY["Tomme tilgangslister betyr fri"]
-  EMPTY --> V3{"Valg 3: Hvilke representasjoner betyr ingen tilganger?"}
-  V3 -->|Kun eksplisitt tomme| BOTH["Begge listene må sendes tomme"]
-  V3 -->|Også utelatte| OMIT["Utelatte lister tolkes også som ingen tilganger"]
-  BOTH --> V8{"Valg 8: Skal eksisterende brukere uten tilganger tolkes som fri?"}
-  OMIT --> V8
-  V8 -->|Ja| AUTO["Bruk samme tolkning på eksisterende data"]
-  V8 -->|Nei| MIGRATE["Krev eksplisitt overgang for eksisterende brukere"]
+  REQUEST["Forespørsel om systembruker: fire tilgangslister"] --> FLAG{"withoutPredefinedRights satt?"}
+  FLAG -->|Ja| EMPTY{"Er alle fire lister tomme?"}
+  EMPTY -->|Ja| FREE["Gyldig kombinasjon: uten forhåndsdefinerte rettigheter"]
+  EMPTY -->|Nei| ERROR1["Valideringsfeil: flagg og listeinnhold kan ikke kombineres"]
+  FLAG -->|Nei| CONTENT{"Minst én pakke eller rettighet på minst én liste?"}
+  CONTENT -->|Ja| PRESET["Gyldig kombinasjon: forhåndsdefinerte rettigheter"]
+  CONTENT -->|Nei| ERROR2["Valideringsfeil: mangler tilganger"]
 {{< /mermaid >}}
 
-Valg 2 er relevant hvis dagens enum-verdier beholdes. Ved implisitt gjenkjenning må null håndteres entydig i valg 3. Vi må kartlegge eksisterende data før vi bestemmer valg 8. GUI må skille forhåndsdefinerte lister fra faktisk delegerte rettigheter.
+Gyldig kombinasjon betyr at reglene for flagg og lister er oppfylt. Øvrig validering og autorisasjon gjelder fortsatt. Behandling av `null` og utelatte lister må beskrives i kontrakten.
 
-## Registrerte systemer og validering
+## Vedtatt: Aksept og senere klientdelegering
 
 {{< mermaid >}}
 graph TD
-  V4{"Valg 4: Fri delegering med registrert system?"}
-  V4 -->|Nei| DIRECT["Fri delegering bruker oppsett uten systemregisteret"]
-  V4 -->|Ja| V5{"Valg 5: Fri og Standard/Agent på samme system samtidig?"}
-  V5 -->|Ja| MIX["Begge oppsett på samme system"]
-  V5 -->|Nei| SPLIT["Separate oppsett: to Maskinporten-klienter for leverandør som støtter begge"]
-  MIX --> REQUIRED["Forespørsel uten pakker eller enkeltrettigheter må aksepteres for fri"]
-  REQUIRED -.-> V6{"Valg 6: Validere oppgitte tilganger ved opprettelse?"}
-  V6 -->|Ja| EARLY["Kontroller oppgitte tilganger tidlig, og tom forespørsel må fortsatt støttes"]
-  V6 -->|Nei| LATER["Kontroller når tilgang delegeres"]
+  APPROVE["Forespørselen aksepteres"] --> CREATE["Systembrukeren opprettes"]
+  CREATE --> OWN["Forespurte tilganger for egen virksomhet delegeres"]
+  CREATE --> CLIENTCONFIG["Klientlistene lagres som ramme for senere delegering"]
+  CLIENTCONFIG --> LINK["En klient knyttes til systembrukeren"]
+  LINK --> CHECK["Kontroller fullmakter for klienten"]
+  CHECK --> DELEGATE["Deleger klienttilgangene innenfor oppsettet"]
 {{< /mermaid >}}
 
-Valg 5 er relevant hvis valg 4 er Ja. Valg 6 må avklares uansett modell. Ja i valg 5 legger et krav på valideringen. Vi må kontrollere den faktiske tildelingen av tilgang når den skjer, også hvis den skjer under opprettelsen.
+Ved `withoutPredefinedRights=true` er alle listene tomme. Aksept krever tilgangsstyringspakken, og pakker og enkeltrettigheter gis senere i GUI. Flagget gjelder både egen virksomhet og klienter.
 
-## Uavhengige valg: Endringer og API
+## Vedtatt: Vanlige bruker- og klientflater
 
-Disse valgene er ikke én sekvens. Hvert spørsmål har egne alternativer.
+Alle systembrukere vises i brukeroversikten og den relevante klientdelegeringsoversikten, uavhengig av flagget.
 
 {{< mermaid >}}
 graph TD
-  ROOT["Endringer og kompatibilitet"]
-  ROOT --- V7{"Valg 7: Endre tilgangsmodell på eksisterende bruker?"}
-  V7 -->|Tillat| CHANGE["Behold identitet og håndter eksisterende delegeringer"]
-  V7 -->|Ikke tillat| RECREATE["Opprett ny systembruker"]
-  ROOT --- V9{"Valg 9: API-overgang?"}
-  V9 -->|Dagens kontrakt| EXTEND["Utvid dagens kontrakt"]
-  V9 -->|Ny kontrakt| VERSION["Innfør ny kontrakt eller versjon"]
-  ROOT --- V12{"Valg 12: Bytte Maskinporten-klient?"}
-  V12 -->|Tillat| REPLACE["Behold bruker, kontroller ny og avslutt gammel tilknytning"]
-  V12 -->|Ikke tillat| NEWUSER["Opprett ny systembruker"]
+  OPEN["Åpne systembrukeren på vanlig bruker- eller klientflate"] --> MODE{"withoutPredefinedRights?"}
+  MODE -->|Ja| CHOOSE["Velg pakker og enkeltrettigheter innenfor virksomhetens fullmakter"]
+  MODE -->|Nei| CONTEXT{"Hvilke forhåndsdefinerte tilganger håndteres?"}
+  CONTEXT -->|Klient| SET["Hele klientsettet er forhåndsvalgt på vanlig klientdelegeringsside"]
+  SET --> ALL["Deleger hele settet samlet"]
+  SET --> NONE["Velg ingen av tilgangene"]
+  CONTEXT -->|Egen virksomhet| VIEW["Se forhåndsdefinerte tilganger på vanlig brukerside"]
+  VIEW --> DELETE["Eneste endringshandling her: slett bruker og rettigheter samlet"]
 {{< /mermaid >}}
 
-Valg 7 gjelder oppsett der begge tilgangsmodellene støttes. Eget system skal være fri. Valg 9 gjelder kontraktsstrategien, og standard API for forespørsel er allerede vedtatt. Valg 12 trenger teknisk avklaring med Maskinporten før vi bestemmer oss.
+Klientsettet omfatter både pakker og enkeltrettigheter. Det kan ikke deles opp eller utvides. Den særskilte klientdelegeringssiden for disse systembrukerne fjernes, slik at delegeringen håndteres ett sted.
 
-## Uavhengige valg: Navn og GUI
+For forhåndsdefinerte tilganger for egen virksomhet kan enkeltpakker eller enkeltrettigheter ikke fjernes separat på brukersiden.
+
+## Vedtatt: Tilbakekalling følger rettighetsgrunnlaget
 
 {{< mermaid >}}
 graph TD
-  ROOT["Begreper for eksterne"]
-  ROOT --- V10{"Valg 10: Navn?"}
-  V10 --> FREE["Fri systembruker"]
-  V10 --> UNLIMITED["Ubegrenset systembruker"]
-  V10 --> CUSTOMER["Systembruker med kundestyrte rettigheter"]
-  ROOT --- V11{"Valg 11: Må brukeren velge en kategori i GUI?"}
-  V11 -->|Ja| CATEGORY["Vis kategorien som et eksplisitt valg"]
-  V11 -->|Nei| ACTIONS["Vis konkrete handlinger og forklar forskjellen der den har betydning"]
+  CLIENT["Klient delegerer til eiervirksomheten"] --> FORWARD["Eiervirksomheten videredelegerer til systembrukeren"]
+  FORWARD --> REVOKE["Klientens delegering til eiervirksomheten slettes"]
+  REVOKE --> CASCADE["Tilhørende videredelegeringer slettes"]
 {{< /mermaid >}}
 
-Vi kan velge navnet uavhengig av enum-verdier og gjenkjenning. Fri betyr ikke at systembrukeren har tilgang før rettigheter er delegert, eller at delegeringsreglene oppheves.
+Dette gjelder både enkeltrettigheter og tilgangspakker, uavhengig av systembrukertype og flagg.
 
-## Informasjon som må innhentes
+## Fortsatt åpent: Ett valg om gangen
 
-Før vi bestemmer de relevante valgene, trenger vi bekreftet informasjon om eksisterende data og API-konsumenter, valideringsreglene i produksjon, Maskinporten-tilknytning og tokeninnhold. Vi trenger også å vite hvordan standard GUI og backend sporer rettighetsgrunnlaget.
+| Valg | Alternativer som må avklares |
+|---|---|
+| Klienttilganger i systemregisteret | Dagens registrerte lister eller egne klientlister |
+| Kombinasjoner på samme system | Tillate eller avvise samtidig bruk med og uten forhåndsdefinerte rettigheter |
+| Endre tilgangsmodell | Endre flagget på eksisterende bruker eller kreve ny bruker |
+| Eksisterende Agent-brukere | Videreføre med kompatibilitet eller overføre til utvidet modell |
+| Bytte Maskinporten-klient | Tillate bytte eller kreve ny bruker |
 
-Oppdatert 6. oktober 2026 med Codex, basert på samme avklaringer som diskusjonsgrunnlaget. Trærne viser diskusjonsalternativer, og teamet skal gjennomgå dem.
+Presentasjonen har ett åpent valg per lysbilde. Ingen av disse alternativene er markert som vedtatt.
+
+## Tekniske detaljer som må beskrives videre
+
+- Behandling av utelatte lister og `null`, og endrede forespørsler med samme eksterne referanse.
+- Innholdsvalidering av egen- og klientlister ved forespørsel og aksept.
+- Lagring, svarmodeller, godkjenningsbilde og kobling til standard bruker- og klientflater.
+- Direkte Maskinporten-tilknytning, tokeninnhold og sporing av rettighetsgrunnlaget.
+- Intern enum og kompatibilitet: betegnelsen systembruker avgjør ikke alene den tekniske migreringen.
+
+Vedtak: avklaringer med RUNLAR etter møtet 16. oktober 2026. Oppdatert med Codex; teamet skal gjennomgå innholdet. UI-detaljene i presentasjonen er illustrasjoner, ikke dokumentasjon av implementert produkt.
