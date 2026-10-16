@@ -37,6 +37,10 @@ Ressursattributtene til regler beskriver hvilken app eller hvilken del av appen 
 
 Eksempelet nedenfor viser en del av XACML 3.0-policyen der en ressurs er definert.
 
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
+
 ```xml {linenos=false,hl_lines=[3,7,11]}
 <xacml:AllOf>
   <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
@@ -71,6 +75,10 @@ En fullstendig liste over rolletyper finner du [her](https://www.altinn.no/api/m
 
 Eksempel med rollekode:
 
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
+
 ```xml {linenos=false,hl_lines=[3]}
 <xacml:AllOf>
   <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
@@ -81,6 +89,10 @@ Eksempel med rollekode:
 ```
 
 Eksempel med org:
+
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
 
 ```xml {linenos=false,hl_lines=[3]}
 <xacml:AllOf>
@@ -101,6 +113,10 @@ Action-attributtene beskriver hvilken operasjon regelen gjelder for.
 
 Eksempel med read-operasjon:
 
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
+
 ```xml {linenos=false,hl_lines=[2]}
 <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
     <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">read</xacml:AttributeValue>
@@ -117,6 +133,10 @@ Hvis nødvendig autentiseringsnivå er satt til 4, må du definere at tjenesteei
 Dette fordi Maskinporten er definert som nivå 3. Se regelbiblioteket for eksempler.
 
 Eksempel med autentiseringsnivå 2:
+
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
 
 ```xml {linenos=false,hl_lines=[4]}
 <xacml:ObligationExpressions>

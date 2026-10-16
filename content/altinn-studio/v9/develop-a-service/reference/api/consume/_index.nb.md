@@ -276,6 +276,10 @@ Når grensesnitt og klient er implementert, kan du registrere den i _App/Program
 I `Program.cs`-klassen legger du til kodelinjen nedenfor.
 I tillegg må du legge til `using Altinn.App.clients;` og `using Altinn.App.AppLogic.DataProcessing;` øverst i filen.
 
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```C#
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {

@@ -20,6 +20,10 @@ Hvis appen bruker Altinn-brukergrensesnittet, vil handlingene ovenfor bli kalt v
 
 Et signeringssteg kan se omtrent slik ut:
 
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <bpmn:task id="SigningTask" name="Signering">
   <bpmn:extensionElements>

@@ -14,6 +14,10 @@ Under følger noen eksempler på oppsett av dataknytning for komponenter som bru
 
 Du må sette opp komponenter som bruker svaralternativer til å lagre valgte alternativer i datamodellen. Vanligvis vil komponenten lagre verdien av det valgte alternativet i datamodellen mot et felt av typen `string`, satt opp i komponentens konfigurasjon med nøkkelen `simpleBinding`:
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json {hl_lines=["8"]}
 {
   "id": "single-choice-component",
@@ -37,6 +41,10 @@ Dette feltet får verdien `y` om brukeren velger "Ja" og `n` om brukeren velger 
 For flervalgskomponenter som f.eks. [`Checkboxes`](/nb/altinn-studio/v8/reference/ux/components/checkboxes/) og
 [`MultipleSelect`](/nb/altinn-studio/v8/reference/ux/components/multipleselect/), vil komponenten lagre en kommaseparert
 liste av valgte verdier i datamodellen.
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 {
@@ -72,6 +80,10 @@ Komponenter som bruker svaralternativer lagrer vanligvis bare verdien av det val
 Legg til en separat binding med nøkkelen `label`. For enkeltvalgskomponenter som `Dropdown` og `RadioButtons`
 må denne bindingen peke på et felt av typen `string`:
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json {hl_lines=["6"]}
 {
   "id": "dropdown-component",
@@ -99,6 +111,10 @@ I en søknad velger brukeren hvilke kommuner virksomheten har aktivitet i. Kompo
 kommunene alfabetisk med `sortOrder: "asc"`. `label` lagrer teksten ved de valgte svaralternativene i
 datamodellen. Dette er teksten brukeren ser ved hver avkrysningsboks, for eksempel "Stavanger".
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "municipalities",
@@ -120,6 +136,10 @@ datamodellen. Dette er teksten brukeren ser ved hver avkrysningsboks, for eksemp
 ```
 
 Definer feltene under `Business` i datamodellens JSON Schema slik:
+
+{{< code-title >}}
+App/models/{model}.schema.json
+{{< /code-title >}}
 
 ```json
 "Municipalities": {
@@ -160,6 +180,10 @@ og ledetekst. Da må `label` peke på et `string`-felt inne i raden, i stedet fo
 Når appen henter svaralternativer, spesielt [felles kodelister](../../sources/shared/), kan det være nyttig å lagre noen metadata som beskriver hvordan systemet hentet svaralternativene. Dette kan være nyttig for å rekonstruere svaralternativene etter at skjemaet er sendt inn, samt for logging.
 
 Dette kan konfigureres ved å sette `metadata`-egenskapen på komponentens `dataModelBinding`-egenskap til et felt i datamodellen som inneholder en `string`-verdi:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json {hl_lines=["6"]}
 {

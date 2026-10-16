@@ -16,6 +16,10 @@ Signering består av to brukerhandlinger (user actions). Hvis appen bruker Altin
 - `sign`: Selve signeringshandlingen.
 - `reject`: Hvis det skal være mulig å avbryte signeringssteget, må du også legge til en gateway som styrer hvor prosessen skal gå videre.
 
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <bpmn:task id="SigningTask" name="Signering">
   <bpmn:extensionElements>
@@ -53,6 +57,10 @@ Hvis du har valgt å sende signeringskvitteringer ved å spesifisere en correspo
 Legg til denne datatypen i `dataTypes` i `App/config/applicationmetadata.json`.
 
 Signeringssteget bruker den til å lagre de faktiske signaturene som blir generert når brukeren utfører signeringshandlingen.
+
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
 
 ```json
 {

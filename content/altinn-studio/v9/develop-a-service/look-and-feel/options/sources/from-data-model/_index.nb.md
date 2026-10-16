@@ -21,6 +21,10 @@ Du trenger ikke en `RepeatingGroup`-komponent for å bruke denne funksjonalitete
 
 For å sette opp kodelister som hentes ut fra datamodellen, bruker du egenskapen `source`. I dette objektet definerer du feltene `group`, `label` og `value`. Eksempel:
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json {hl_lines=["5-9"]}
 {
   "id": "dropdown-component-id",
@@ -44,6 +48,10 @@ Forklaring:
 Verdien hentet ut fra `value` må være unik for hvert repeterende element. Hvis du ikke har et felt som er unikt per rad, anbefaler vi at du legger på et ekstra felt i datamodellen som kan brukes som identifikator. For eksempel en GUID eller liknende. Hvis verdien ikke er unik, filtrerer systemet den bort fra alle kodelister, og antallet svaralternativer tilgjengelige for brukeren kan da være noen færre enn forventet ut fra det som ligger i datamodellen.
 
 For `label`-feltet må vi definere en tekstressurs som systemet kan bruke som ledetekst for hvert svaralternativ. I eksempelet under, brukes andre verdier fra den repeterende strukturen i ledeteksten via [variabler i tekst]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/tekster" >}}#variabler-i-tekster):
+
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
 
 ```json
 {
@@ -70,6 +78,10 @@ For `label`-feltet må vi definere en tekstressurs som systemet kan bruke som le
 ### Støtte for uttrykk
 
 Egenskapene `label`, `description` og `helpText` støtter også [dynamiske uttrykk]({{< relref "../../../dynamics" >}}) i denne modusen.
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json {hl_lines=["9-14"]}
 {

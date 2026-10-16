@@ -22,6 +22,10 @@ hidden: true
 - To update the order details when the user enters data in the form, you need to add the data fields used to 
   calculate the order to `refetchDependencies`. You do this manually, directly in the layout-files. See example below.
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json {linenos=false,hl_lines=[8,9,10]}
 {
   "id": "paymentDetails",

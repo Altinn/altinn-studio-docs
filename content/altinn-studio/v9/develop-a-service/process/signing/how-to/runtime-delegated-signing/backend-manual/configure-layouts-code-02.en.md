@@ -4,6 +4,10 @@ headless: true
 hidden: true
 ---
 
+{{< code-title >}}
+App/ui/SigningTask/layouts/signing.json
+{{< /code-title >}}
+
 ```json
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",

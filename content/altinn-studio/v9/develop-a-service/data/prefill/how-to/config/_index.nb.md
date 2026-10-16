@@ -41,6 +41,10 @@ Du kan også lage og redigere filen selv, for eksempel hvis du jobber i app-repo
 
    Kopier denne konfigurasjonskoden inn i den nye filen:
 
+   {{< code-title >}}
+   App/models/appModel.prefill.json
+   {{< /code-title >}}
+
    ```json
    {
       "$schema": "https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json",
@@ -83,6 +87,10 @@ Alle eksemplene tar utgangspunkt i datamodellen vist under:
 Dette fyller ut feltet `Organisasjon.Orgnr` med organisasjonsnummeret fra 
 Enhetsregisteret:
 
+{{< code-title >}}
+App/models/appModel.prefill.json
+{{< /code-title >}}
+
 ```json
 "ER": {
   "OrgNumber": "Organisasjon.Orgnr"
@@ -93,6 +101,10 @@ Enhetsregisteret:
 
 Dette fyller ut feltet `Person.Personnr` med personnummer fra Folkeregistret.
 
+ {{< code-title >}}
+ App/models/appModel.prefill.json
+ {{< /code-title >}}
+
  ```json
 "DSF": {
   "SSN": "Person.Personnr"
@@ -102,6 +114,10 @@ Dette fyller ut feltet `Person.Personnr` med personnummer fra Folkeregistret.
 ### Eksempel: Hent e-post fra brukerens Altinn-profil
 
 Dette fyller ut feltet `Bruker.Epost` med e-post hentet fra brukerens Altinn-profil.
+
+{{< code-title >}}
+App/models/appModel.prefill.json
+{{< /code-title >}}
 
 ```json
 "UserProfile": {

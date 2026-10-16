@@ -58,6 +58,11 @@ public class OrderDetailsCalculator : IOrderDetailsCalculator
 ```
 
 Registrer `IOrderDetailsCalculator`-implementasjonen i `program.cs`:
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```c#
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {

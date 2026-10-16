@@ -30,6 +30,10 @@ Legg til en ny seksjon med navn `messageBoxConfig` med følgende underfelt: `hid
 
 Konfigurasjonen til en app der instanser skal skjules på `Task_1` og `Task_3`, men være synlige på alle andre prosess-steg:
 
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
+
 ```json
 "messageBoxConfig": {
   "hideSettings": {
@@ -39,6 +43,10 @@ Konfigurasjonen til en app der instanser skal skjules på `Task_1` og `Task_3`, 
 ```
 
 Konfigurasjonen til en app der instanser aldri skal vises i meldingsboksen:
+
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
 
 ```json
 "messageBoxConfig": {

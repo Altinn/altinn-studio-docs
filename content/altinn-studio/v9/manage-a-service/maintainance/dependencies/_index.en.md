@@ -35,6 +35,10 @@ With this extension you can view what the latest version of all dependencies whe
 
 Example.:
 
+{{< code-title >}}
+App/App.csproj
+{{< /code-title >}}
+
 ```xml
 <ItemGroup>
   <PackageReference Include="Altinn.App.Api" Version="7.15.1" />
@@ -56,6 +60,10 @@ Example.:
 - Locate the references to the libraries used in your app. The references are located in `App/App.csproj`. 
 
 Example.:
+
+{{< code-title >}}
+App/App.csproj
+{{< /code-title >}}
 
 ```xml
 <ItemGroup>
@@ -99,6 +107,10 @@ helm search repo -l altinn-studio/deployment
 If there is a new version of the helm chart check the [changelog](/en/community/changelog/deployment/) to see what's new in this release.
 
 To update to the new version update the dependency reference in `deployment/Chart.yaml`
+
+{{< code-title >}}
+deployment/Chart.yaml
+{{< /code-title >}}
 
 ```yaml {hl_lines=[9]}
 apiVersion: v1

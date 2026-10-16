@@ -16,6 +16,10 @@ En gruppe _må_ ha `"type": "Group"`. Repeterende grupper har en egen komponentt
 
 Slik definerer du en gruppe som inneholder tre felter:
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json {hl_lines=[3,"7-11"]}
 {
   "id": "<unik-id>",

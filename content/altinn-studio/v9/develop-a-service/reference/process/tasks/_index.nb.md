@@ -18,6 +18,11 @@ Datavalidering er en del av standardlogikken i malen. Applikasjonsutviklere kan 
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="v8">}}
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <bpmn:task id="Task_1" name="Utfylling">
     <bpmn:incoming>Flow1</bpmn:incoming>
@@ -31,6 +36,11 @@ Datavalidering er en del av standardlogikken i malen. Applikasjonsutviklere kan 
 ```
 {{</content-version-container>}}
 {{<content-version-container version-label="v7">}}
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <bpmn:task id="Task_1" name="Utfylling" dataType="data">
     <bpmn:incoming>Flow1</bpmn:incoming>
@@ -50,6 +60,11 @@ Eksempel på en bekreftelsesoppgave:
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="v8">}}
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <bpmn:task id="Task_2" name="Bekreftelse">
     <bpmn:incoming>Flow1</bpmn:incoming>
@@ -66,6 +81,11 @@ Eksempel på en bekreftelsesoppgave:
 ```
 {{</content-version-container>}}
 {{<content-version-container version-label="v7">}}
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <bpmn:task id="Task_2" name="Bekreftelse" dataType="confirmation">
     <bpmn:incoming>Flow1</bpmn:incoming>
@@ -82,6 +102,10 @@ En signeringsoppgave er der sluttbrukeren som bruker applikasjonen gjennom nettl
 Når en bruker utfører en signering genererer systemet et signaturobjekt som inneholder brukerinformasjonen og en hash av dataelementene du har definert i prosessoppgaven. Samtidig oppretter systemet en hendelseslogg for instansen som detaljerer at bruker/system X har signert.
 
 Eksempel på en signeringsoppgave (bare tilgjengelig fra versjon 8):
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
 
 ```xml
 <bpmn:task id="Task_1">
@@ -117,6 +141,11 @@ Eksempel på en tilbakemeldingsoppgave:
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="v8">}}
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <bpmn:task id="Task_2" name="Bekreftelse">
     <bpmn:incoming>Flow1</bpmn:incoming>
@@ -130,6 +159,11 @@ Eksempel på en tilbakemeldingsoppgave:
 ```
 {{</content-version-container>}}
 {{<content-version-container version-label="v7">}}
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <bpmn:task id="Task_2" name="Bekreftelse" dataType="feedback">
     <bpmn:incoming>Flow1</bpmn:incoming>

@@ -205,6 +205,10 @@ A service task with its own folder of layout files must have at least one page, 
 
 Including `<altinn:filenameTextResourceKey>` is optional. Here you specify a text resource key to use as the filename, with support for languages and variables. If you omit it, the PDF uses the application name as the filename.
 
+{{< code-title >}}
+App/config/texts/resource.{language}.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "pdfFileName",

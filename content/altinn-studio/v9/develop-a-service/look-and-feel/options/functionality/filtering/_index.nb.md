@@ -22,6 +22,10 @@ I eksempelet under er `optionFilter`-egenskapen satt til et dynamisk uttrykk som
 
 Uttrykket evalueres for hvert svaralternativ, og hvis det returnerer `true`, beholdes alternativet. Systemet fjerner alle andre alternativer.
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json {hl_lines=["10"]}
 {
   "id": "dropdown-component-id",
@@ -55,6 +59,10 @@ Hvis det finnes en `RepeatingGroup`-komponent knyttet til denne repeterende stru
 
 Et eksempel på denne kombinasjonen:
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json {hl_lines=["10-15"]}
 {
    "id": "choose-pet",
@@ -87,6 +95,10 @@ I animasjonen under er en `RepeatingGroup`-komponent satt opp med en `Dropdown`-
 ![Filtrering av alternativer i en repeterende gruppe](filtering.gif)
 
 Konfigurasjonen for dette eksempelet er som følger:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json {hl_lines=["11-17"]}
 {

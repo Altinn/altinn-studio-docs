@@ -19,6 +19,10 @@ The existing Application Insights SDK setup is obsolete and will be removed in v
 The new monitoring and instrumentation setup based on OpenTelemetry is enabled simply by setting 
 `UseOpenTelemetry` to `true` in *appsettings.json* or equivalent.
 
+{{< code-title >}}
+App/appsettings.json
+{{< /code-title >}}
+
 {{< highlight json "linenos=false,hl_lines=3" >}}
 {
   "AppSettings": {
@@ -91,6 +95,10 @@ sealed class StartupService(ILogger<StartupService> logger, Telemetry telemetry)
 
 Now we can register this class in the .NET dependency injection container, which will ensure
 that *StartAsync* is called when the process starts up.
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
 ```csharp
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
