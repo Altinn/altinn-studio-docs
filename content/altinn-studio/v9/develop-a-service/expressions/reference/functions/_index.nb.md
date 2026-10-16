@@ -360,7 +360,7 @@ Eksempel:
 ["stringSlice", ["dataModel", "My.Model.FullName"], 5, 8]
 ```
 
-Dette eksempelet returnerer en delstreng av fullt navn som fra og med indeks 5 til, men ikke med, indeks 8. Hvis fullt navn er "John Doe", returnerer funksjonen "Doe". For å hente to tegn fra indeks 6 bruker du `6, 8` (ikke `6, 2`), slik at `["stringSlice", "12345678901", 6, 8]` gir "78".
+Dette eksempelet returnerer en delstreng av det fulle navnet, fra og med indeks 5 til, men ikke med, indeks 8. Hvis det fulle navnet er "John Doe", returnerer funksjonen "Doe". For å hente to tegn fra indeks 6 bruker du `6, 8` (ikke `6, 2`), slik at `["stringSlice", "12345678901", 6, 8]` gir "78".
 
 {{% /expandlarge %}}
 

@@ -628,7 +628,7 @@ Eksempel:
 ["stringSlice", ["dataModel", "My.Model.FullName"], 5, 8]
 ```
 
-Dette eksempelet returnerer en delstreng av fullt navn som fra og med indeks 5 til, men ikke med, indeks 8. Om fullt navn
+Dette eksempelet returnerer en delstreng av det fulle navnet, fra og med indeks 5 til, men ikke med, indeks 8. Om det fulle navnet
 er "John Doe", vil funksjonen returnere "Doe". For å hente to tegn fra indeks 6 bruker du `6, 8` (ikke `6, 2`), slik at
 `["stringSlice", "12345678901", 6, 8]` gir "78".
 
