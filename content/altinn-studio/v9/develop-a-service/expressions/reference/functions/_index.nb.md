@@ -352,15 +352,15 @@ versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelig
 rullerende versjonen av v4.
 {{% /notice %}}
 
-Funksjonen `stringSlice` tar imot en streng som første argument (den originale strengen) og ett eller to tall som andre og tredje argument (startindeksen og valgfri lengde). Den returnerer en delstreng av den originale strengen som starter på indeksen gitt i andre argument. Hvis et tredje argument er gitt, har delstrengen lengden gitt i tredje argument.
+Funksjonen `stringSlice` tar imot en streng som første argument (den originale strengen) og ett eller to tall som andre og tredje argument (startindeksen og valgfri sluttindeks). Den returnerer en delstreng av den originale strengen som starter på startindeksen. Hvis en sluttindeks er gitt, stopper delstrengen før tegnet på den indeksen. Tegnet på startindeksen er altså med, mens tegnet på sluttindeksen ikke er det. Indeksene starter på 0, og en negativ indeks telles fra slutten av strengen. Merk at tredje argument er en sluttindeks, ikke en lengde.
 
 Eksempel:
 
 ```json
-["stringSlice", ["dataModel", "My.Model.FullName"], 5, 3]
+["stringSlice", ["dataModel", "My.Model.FullName"], 5, 8]
 ```
 
-Dette eksempelet returnerer en delstreng av fullt navn som starter på den femte bokstaven og med en lengde på tre. Hvis fullt navn er "John Doe", returnerer funksjonen "Doe".
+Dette eksempelet returnerer en delstreng av det fulle navnet, fra og med indeks 5 til, men ikke med, indeks 8. Hvis det fulle navnet er "John Doe", returnerer funksjonen "Doe". For å hente to tegn fra indeks 6 bruker du `6, 8` (ikke `6, 2`), slik at `["stringSlice", "12345678901", 6, 8]` gir "78".
 
 {{% /expandlarge %}}
 
