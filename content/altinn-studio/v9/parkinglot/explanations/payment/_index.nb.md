@@ -22,13 +22,13 @@ Når brukeren kommer til betalingssteget i appen, skjer følgende:
 
 ### Hva lagres om betalingen?
 
-Appen lagrer ordregrunnlag og detaljer om betalingen i et dataelement som JSON (paymentInformation.json). Du kan laste ned denne informasjonen via API etter at brukeren har sendt inn skjemaet. Appen genererer også en PDF-kvittering.
+Appen lagrer ordregrunnlag og detaljer om betalingen i et JSON-dataelement. Du kan laste ned denne informasjonen via API etter at brukeren har sendt inn skjemaet. Når betalingen er gjennomført, lager appen også en PDF-kvittering med filnavnet `Betalingskvittering.pdf`.
 
 Som tjenesteeier må du håndtere oppbevaring av betalingsinformasjon i henhold til bokføringsloven.
 
 ### Nets Easy
 
-Støtte for Nets Easy som betalingsleverandør følger med applikasjonen. Du finner guide for oppsett av Nets Easy {{< relref "../../../develop-a-service/process/payment" >}}.
+Støtte for Nets Easy som betalingsleverandør følger med applikasjonen. Se [Slik setter du opp betaling i appen]({{< relref "../../../develop-a-service/process/payment" >}}).
 
 For å bruke Nets Easy må tjenesteeier ha avtale med Nets Easy. Du finner informasjon om hvordan du oppretter avtalen her:
 [payments.nets.eu](https://payments.nets.eu/nb-NO/checkout).

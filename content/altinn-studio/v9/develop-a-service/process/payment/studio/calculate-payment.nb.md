@@ -5,4 +5,4 @@ tags: [needsReview]
 ---
 
 > Du må gjøre dette steget i kode.
-> Se **Manuelt oppsett**-fanen for denne seksjonen for veiledning.
+> Se fanen **Manuelt oppsett** i denne seksjonen.

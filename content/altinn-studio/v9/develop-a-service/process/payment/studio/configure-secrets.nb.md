@@ -4,5 +4,5 @@ hidden: true
 tags: [needsReview]
 ---
 
-> Du må gjøre dette steget manuelt. Støtte for konfigurasjon i Altinn Studio kommer i løpet av høsten 2024.
-> Se **Manuelt oppsett**-fanen for denne seksjonen for veiledning.
+> Altinn Studio Designer har ikke støtte for dette steget. Du gjør det manuelt i koden til appen.
+> Se fanen **Manuelt oppsett** i denne seksjonen.
