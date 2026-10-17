@@ -79,6 +79,18 @@ cd <repo-root> && hugo server
 - Test lenker underveis
 - **ALDRI commit genererte filer** (`public/`, `.html`-filer)
 
+### Ukjent informasjon: bruk plassholder
+
+Hvis du trenger informasjon du ikke har (versjonsnummer, dato, lenke, beslutning, tall osv.), ikke gjett.
+Skriv en plassholder på formen `[[FIX BEFORE MERGE: kort beskrivelse av hva som skal inn]]` på akkurat det stedet,
+for eksempel `Funksjonen er tilgjengelig fra versjon [[FIX BEFORE MERGE: første versjon med støtte]].`
+
+- Beskrivelsen er valgfri: `[[FIX BEFORE MERGE]]` alene er også gyldig, men en beskrivelse er å foretrekke.
+- Bruk nøyaktig denne syntaksen. En GitHub Action stopper PR-er som inneholder den i `content/`.
+- Ikke bruk `TODO` eller `TBD` i stedet.
+- List alle plassholdere i PR-beskrivelsen, så den som skal fylle dem inn ser dem.
+- Fjern alle plassholdere før PR-en merges.
+
 ### Før commit
 
 Verifiser kun `.md`-filer (og evt. bilder) committes:
