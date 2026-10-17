@@ -2,10 +2,10 @@
 draft: true
 title: Tekster i tjenesten
 weight: 5
-tags: [needsReview]
+tags: [Reviewed]
 ---
 
-De små tekstene i en tjeneste som oppfordrer brukerne til å gjøre noe, kalles mikrotekster. Det kan være ledetekster i skjema, knappetekster, hjelpetekster og feilmeldinger. Mikrotekster er viktige fordi de veileder brukerne godt og raskt gjennom tjenesten.
+De små tekstene i en tjeneste som oppfordrer brukerne til å gjøre noe, kaller vi mikrotekster. Det kan være ledetekster i skjema, knappetekster, hjelpetekster og feilmeldinger. Mikrotekster er viktige fordi de veileder brukerne godt og raskt gjennom tjenesten.
 
 ## Slik skriver du gode mikrotekster
 
@@ -32,8 +32,8 @@ Veiledningstekster som viser brukeren hvor langt de har kommet, gjør tjenesten 
 
 Ledetekster i skjema skal være korte og tydelige. Hvis brukeren trenger informasjon om formatet, kan du enten
 
-- samle ledetekst og format-informasjon: «Fødselsnummer, 11 siffer:»
-- bruke en beskrivelse i komponenten: Ledetekst «Fødselsnummer:» med beskrivelse «11 siffer»
+- samle ledetekst og formatinformasjon: «Fødselsnummer, 11 siffer:»
+- bruke feltet **Beskrivelse** i komponenten: ledeteksten «Fødselsnummer:» med beskrivelsen «11 siffer»
 
 ## Skriv så det ikke kan misforstås
 
@@ -51,9 +51,9 @@ Knappenavn bør ha ett til tre ord, helst ikke mer.
 
 ### Plasser teksten rett
 
-Som hovedregel bør mikroteksten plasseres foran feltet der brukeren skal gjøre noe. Dette sikrer en logisk rekkefølge for folk som bruker tastaturnavigasjon eller skjermleser. Utviklere kan også styre rekkefølgen på felter i koden.
+Som hovedregel plasserer du mikroteksten foran feltet der brukeren skal gjøre noe. Dette sikrer en logisk rekkefølge for folk som bruker tastaturnavigasjon eller skjermleser. Legg teksten i feltene **Ledetekst**, **Beskrivelse** eller **Hjelpetekst** på komponenten, ikke i en egen tekstkomponent ved siden av. Da kobler appen teksten til feltet, og skjermlesere leser den opp når brukeren kommer til feltet. Utviklere kan også styre rekkefølgen på felter i koden.
 
-Plasser aldri viktig informasjon under en bekreftelsesknapp. Hvis du vil at brukerne skal akseptere betingelser før de bekrefter, må teksten eller avkryssingsboksen komme før knappen. Ellers går folk som bruker skjermleser glipp av viktig informasjon.
+Plasser aldri viktig informasjon under en bekreftelsesknapp. Hvis du vil at brukerne skal akseptere betingelser før de bekrefter, må teksten eller avmerkingsboksen komme før knappen. Ellers går folk som bruker skjermleser glipp av viktig informasjon.
 
 ### Vær tydelig fremfor morsom
 
