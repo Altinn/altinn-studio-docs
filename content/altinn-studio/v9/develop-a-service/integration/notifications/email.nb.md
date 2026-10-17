@@ -1,21 +1,21 @@
 ---
 title: E-post
-description: Slik oppretter du egendefinerte e-postvarslinger for apper.
+description: Slik sender du e-post til brukere fra appen din.
 draft: true
 weight: 10
-tags: [needsReview]
+tags: [Reviewed]
 ---
 
 ## Aktivere e-postvarsling i appen din
 
-Appen inkluderer automatisk e-postklienten. For å bruke den, sett inn grensesnittet `IEmailNotificationClient` i konstruktøren.
-Grensesnittet definerer en metode du bruker til å bestille en e-postvarsling fra API-et til [Altinn Notifications](https://github.com/Altinn/altinn-notifications).
+E-postklienten er allerede registrert i appen. Du bruker den ved å ta inn grensesnittet `IEmailNotificationClient` i konstruktøren til klassen din.
+Grensesnittet definerer en metode du bruker til å bestille en e-postvarsling fra [Altinn Varslinger-API-et]({{< relref "/notifications" >}}).
 
 ### Kodeeksempel
 
-Under ser du et eksempel der appen sender en e-postvarsling når brukeren har begynt å fylle ut skjemaet. Eksempelet bruker en [prosess-hook](/nb/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks/) som implementerer `IOnTaskStartingHandler`.
+Nedenfor ser du et eksempel der appen sender en e-postvarsling når brukeren har begynt å fylle ut skjemaet. Eksempelet bruker en [prosess-hook]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks" >}}) som implementerer `IOnTaskStartingHandler`.
 
-Hooken kan bli kjørt på nytt hvis den feiler. Bestill derfor e-posten som det siste hooken gjør, slik at et nytt forsøk ikke sender den samme e-posten to ganger.
+Prosessen kan kjøre hooken på nytt hvis den feiler. Bestill derfor e-posten som det siste hooken gjør, slik at et nytt forsøk ikke sender den samme e-posten to ganger.
 
 ```csharp file=EmailOnStart.cs
 using System.Threading.Tasks;
