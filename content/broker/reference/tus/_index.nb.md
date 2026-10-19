@@ -33,7 +33,7 @@ Mange TUS-klientbiblioteker støtter concatenation direkte, for eksempel [tus-js
 
 TUS-opplasting bruker samme autorisasjon som andre avsenderoperasjoner. Du trenger et Maskinporten-token med scope `altinn:broker.write`.
 
-Før opplasting må du [initialisere filoverføringen](/nb/broker/getting-started/developer-guides/send-files/#operation-initialize-filetransfer). Angi filstørrelse, sjekksum, mottakere og annen metadata i det kallet — på samme måte som for strømmeopplasting.
+Før opplasting må du [initialisere filoverføringen](/nb/broker/getting-started/developer-guides/send-files/#operation-initialize-filetransfer). Angi filstørrelse, sjekksum, `checksumAlgorithm`, mottakere og annen metadata i det kallet — på samme måte som for strømmeopplasting. Se [Sjekksum](/nb/broker/explanation/checksum/).
 
 ## Opplastingsflyt
 
@@ -102,7 +102,7 @@ https://github.com/Altinn/altinn-broker/tree/main/.bruno
 ## Begrensninger
 
 - **Upload-Length må angis ved opprettelse.** Utsatt lengde (`Upload-Defer-Length`) støttes ikke.
-- **Sjekksum MD5-sjekksum** kontrolleres når opplastingen er fullført (angis ved initialisering). Opplastningen settes til UploadProcessing mens dette blir gjort asynkront.
+- **Filsjekksum** er valgfri og settes ved initialisering (`checksum` og `checksumAlgorithm`: `MD5` eller `SHA256`). Se [Sjekksum](/nb/broker/explanation/checksum/). Når opplastingen er fullført, beregner Broker sjekksummen av den ferdige filen. Hvis den ikke stemmer, feiler overføringen. 
 - **Nedlasting** er ikke tilgjengelig via TUS. Mottakere laster ned filer via [standard nedlastingsendepunkt](/nb/broker/getting-started/developer-guides/receive-files/).
 - **Ufullstendige opplastinger** fjernes etter 24 timer uten aktivitet.
 
