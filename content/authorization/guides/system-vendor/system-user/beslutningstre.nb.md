@@ -23,7 +23,7 @@ Systembruker for eget system uten systemregisteret skal være uten forhåndsdefi
 
 {{< mermaid >}}
 graph TD
-  REQUEST["Forespørsel om systembruker: fire tilgangslister"] --> FLAG{"withoutPredefinedRights satt?"}
+  REQUEST["Forespørsel om systembruker: fire lister over påkrevde rettigheter"] --> FLAG{"withoutPredefinedRights satt?"}
   FLAG -->|Ja| EMPTY{"Er alle fire lister tomme?"}
   EMPTY -->|Ja| FREE["Gyldig kombinasjon: uten forhåndsdefinerte rettigheter"]
   EMPTY -->|Nei| ERROR1["Valideringsfeil: flagg og listeinnhold kan ikke kombineres"]
