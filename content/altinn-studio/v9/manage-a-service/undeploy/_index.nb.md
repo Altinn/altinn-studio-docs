@@ -12,7 +12,7 @@ tags: [Reviewed]
 
 Når du avpubliserer en app i Altinn Studio, gjør du appen utilgjengelig for brukere ved å ta den bort fra et miljø. 
 Det kan være nyttig å avpublisere når en app er utdatert og ikke skal brukes lenger. I denne artikkelen går vi gjennom 
-hva som skjer når du avpubliserer, hva du bør vurdere før og etter prosessen, og hva du eventuelt heller kan velge å gjøre. Se [guiden for å avpublisere en app]({{< relref "/altinn-studio/v9/manage-a-service/undeploy/how-to" >}}) for stegene i Altinn Studio.
+hva som skjer når du avpubliserer, hva du bør vurdere før og etter prosessen, og hva du eventuelt heller kan velge å gjøre. Se [veiledningen for å avpublisere en app]({{< relref "/altinn-studio/v9/manage-a-service/undeploy/how-to" >}}) for stegene i Altinn Studio.
 
 ### Hva skjer når du avpubliserer en app?
 
