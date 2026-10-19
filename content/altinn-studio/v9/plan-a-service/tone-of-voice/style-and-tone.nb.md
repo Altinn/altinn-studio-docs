@@ -41,6 +41,6 @@ tags: [Reviewed]
 
 Bruk disse tommelfingerreglene:
 
-- **Overskrifter**: høyst åtte ord.
-- **Setninger**: helst under 25 ord.
-- **Avsnitt**: to til fire setninger.
+- **Overskrifter**: Ikke mer enn åtte ord.
+- **Setninger**: Helst under 25 ord.
+- **Avsnitt**: To til fire setninger.

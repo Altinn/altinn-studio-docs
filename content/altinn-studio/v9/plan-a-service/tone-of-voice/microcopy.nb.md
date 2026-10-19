@@ -32,7 +32,7 @@ Veiledningstekster som viser brukeren hvor langt de har kommet, gjør tjenesten 
 
 Ledetekster i skjema skal være korte og tydelige. Hvis brukeren trenger informasjon om formatet, kan du enten
 
-- samle ledetekst og formatinformasjon: «Fødselsnummer, 11 siffer:»
+- samle ledetekst og formatinformasjon: «Fødselsnummer, 11 siffer:», eller
 - bruke feltet **Beskrivelse** i komponenten: ledeteksten «Fødselsnummer:» med beskrivelsen «11 siffer»
 
 ## Skriv så det ikke kan misforstås

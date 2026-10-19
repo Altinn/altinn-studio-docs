@@ -8,14 +8,14 @@ tags: [Reviewed]
 
 Når du deler opp tall på riktig måte, blir det lettere for brukerne å lese og forstå dem. Det hjelper også brukerne å skille mellom ulike typer nummer.
 
-**Viktig:** Bruk aldri punktum som tusenskille i tall – bare mellomrom.
+**Viktig:** Bruk aldri punktum som tusenskilletegn i tall – bare mellomrom.
 
 ## Dele opp tall
 
 - Del opp **organisasjonsnummer** i tre og tre: 123 456 789.
 - Del opp **kontonummer** i fire, to og fem: 1234 56 78901.
 - Del opp **fødselsnummer** i seks og fem: 123456 78901.
-- Del opp **fasttelefonnummer** i to og to: 22 33 44 55.
+- Del opp både **fasttelefonnummer** og **mobilnummer** i to og to: 22 33 44 55 og 94 32 76 55.
 
 
 **Tips til utviklere:** Legg inn formatering i koden, så tallene automatisk får riktig format. Da slipper brukerne å tenke på
