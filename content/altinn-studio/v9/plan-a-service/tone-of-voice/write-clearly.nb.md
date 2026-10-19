@@ -1,9 +1,9 @@
 ---
 draft: true
 title: Skriv lettfattelig
-description: Bruk disse triksene for å gjøre teksten din lettere å forstå.
+description: Slik gjør du teksten lettere å forstå.
 weight: 3
-tags: [needsReview]
+tags: [Reviewed]
 ---
 
 ## Plasser verbet tidlig i setningen
@@ -17,15 +17,15 @@ Prøv å få verbet så tidlig som mulig i setningen og så nært subjektet (den
 - ❌ Arbeidstaker har en del plikter som må oppfylles
 - ✅ Arbeidstaker må oppfylle en del plikter
 
-## Bruk verb fremfor substantiv
+## Bruk verb fremfor substantiver
 
 Når vi lager substantiv av verb, blir teksten tung å lese. Det høres kanskje formelt ut, men det gjør teksten vanskeligere å forstå.
 
 **Eksempler på ord som er laget av verb:**
 
-- avtaleinngå**elsen** (laget av "inngå")
-- henvend**else** (laget av "henvende")
-- innmeld**ing** (laget av "melde inn")
+- avtaleinngå**elsen** (laget av «inngå»)
+- henvend**else** (laget av «henvende»)
+- innmeld**ing** (laget av «melde inn»)
 
 **Skriv heller slik:**
 
@@ -33,8 +33,8 @@ Når vi lager substantiv av verb, blir teksten tung å lese. Det høres kanskje 
 - ❌ Ny henvend**else** → ✅ Kontakt oss
 - ❌ Innmeld**ing** av feil → ✅ Meld inn feil
 
-Mange ord som slutter på **-ing** og **-else** er laget av verb. Når du ser slike ord, spør deg selv: Kan jeg bruke verbet i stedet?
-Teksten blir mer konkret når vi bruker verbene i stedet.
+Mange ord som slutter på **-ing** og **-else**, er laget av verb. Når du ser slike ord, spør deg selv: Kan jeg bruke verbet i stedet?
+Teksten blir mer konkret med verb.
 
 ## Skriv aktivt, ikke passivt
 
@@ -42,8 +42,8 @@ I lovspråk blir det ofte skrevet at noe skal gjøres, uten å si hvem som skal 
 
 **Hva betyr aktivt og passivt?**
 
-- **Passivt**: "Forberedelser må gjennomføres" (vi sier ikke hvem som skal gjøre det)
-- **Aktivt**: "Gjør forberedelser" (vi snakker direkte til den som skal gjøre det)
+- **Passivt**: «Forberedelser må gjennomføres» (vi sier ikke hvem som skal gjøre det)
+- **Aktivt**: «Gjør forberedelser» (vi snakker direkte til den som skal gjøre det)
 
 **Eksempel:**
 

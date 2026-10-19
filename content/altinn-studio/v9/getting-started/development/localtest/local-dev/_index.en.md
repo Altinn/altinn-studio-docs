@@ -28,7 +28,7 @@ Here is an overview of how to get started with local development.
 1. Go to the repository for the app. You can do this in two ways:
     - On the dashboard in Altinn Studio, click the repository icon next to the app.
       ![The repository icon next to the app on the dashboard](./find-app-in-dashboard.png "The repository icon on the dashboard")
-    - Inside the app, click the three dots at the top right and select **Repositorium**.
+    - Inside the app, click the three dots in the top right corner and select **Repositorium**.
       ![The three-dots menu with the Repositorium option](./three-dots-repository.png "Repositorium in the three-dots menu")
 2. Click **Kode**, and copy the link under **HTTPS** with the copy button (marked with a red circle).
     ![Copy the repository link in Gitea](./copy-repo-link.png "Copy the repository link")
