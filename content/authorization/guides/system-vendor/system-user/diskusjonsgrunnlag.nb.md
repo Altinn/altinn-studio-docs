@@ -22,7 +22,7 @@ Oppdatert etter møtet 16. oktober 2026
 ## Behovene som ligger til grunn
 
 - Egenutviklede systemer skal kunne knytte en Maskinporten-klient direkte til en systembruker uten å bruke systemregisteret.
-- Virksomheter skal kunne delegere pakker og enkeltrettigheter uten forhåndsdefinerte tilgangslister.
+- Virksomheter skal kunne delegere pakker og enkeltrettigheter uten forhåndsdefinerte rettighetskrav.
 - Systembrukere skal kunne brukes for både egen virksomhet og klienter.
 
 Direkte klienttilknytning er fortsatt et eget behov. Utvidelsen av forespørselsendepunktet beskrives her med registrert system som utgangspunkt.
@@ -34,7 +34,7 @@ Direkte klienttilknytning er fortsatt et eget behov. Utvidelsen av forespørsels
 
 Virksomheten skal kunne knytte sin Maskinporten-klient direkte til systembrukeren og gi pakker og enkeltrettigheter for både egen virksomhet og klienter.
 
-Med den nye flaggregelen betyr dette `withoutPredefinedRights=true` og fire tomme tilgangslister. Den tekniske flyten for direkte klienttilknytning må fortsatt beskrives.
+Med den nye flaggregelen betyr dette `withoutPredefinedRights=true` og fire tomme lister over påkrevde rettigheter. Den tekniske flyten for direkte klienttilknytning må fortsatt beskrives.
 
 ---
 ## Vedtatt: Vi kaller det systembruker
@@ -50,7 +50,7 @@ Vi omtaler brukeren som **systembruker**. Rettigheter for egen virksomhet og kli
 Autentiseringskoden ligger nå under `src/apps/Altinn.Authentication` i `altinn-auth`.
 
 ---
-## Vedtatt: Fire tilgangslister
+## Vedtatt: Fire lister over påkrevde rettigheter
 
 | Liste | Hva den beskriver |
 |---|---|
@@ -88,7 +88,7 @@ Hvis klientens delegering til eiervirksomheten slettes, skal tilhørende videred
 { "withoutPredefinedRights": true }
 ```
 
-Flagget sier at eiervirksomheten kan delegere pakker og enkeltrettigheter uten forhåndsdefinerte tilgangslister.
+Flagget sier at eiervirksomheten kan delegere pakker og enkeltrettigheter uten forhåndsdefinerte rettighetskrav.
 
 **Ett flagg gjelder både egen virksomhet og klienter.** Virksomhetens delegeringsmyndighet og fullmakter gjelder fortsatt.
 
@@ -191,7 +191,7 @@ Felles brukeroversikt er vedtatt. Samtidige oppsett på samme system er ikke utt
 
 **Skal flagget kunne endres på en eksisterende systembruker?**
 
-**Tillat endring:** Beholder identiteten, men må håndtere forhåndsdefinerte lister og eksisterende delegeringer.
+**Tillat endring:** Beholder identiteten, men må håndtere lister over påkrevde rettigheter og eksisterende delegeringer.
 
 **Krev ny systembruker:** Stabil modell gjennom levetiden, men nytt oppsett må etableres.
 
