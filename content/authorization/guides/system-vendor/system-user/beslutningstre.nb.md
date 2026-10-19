@@ -1,6 +1,6 @@
 ---
 title: "Beslutningstre for systembruker"
-description: "Vedtatte regler for forespørsel og delegering, og gjenstående valg etter møtet 16. oktober 2026."
+description: "Vedtatte regler for opprettelse, forespørsel og delegering, med avklaringer til og med 19. oktober 2026."
 hidden: true
 disablePagefind: true
 toc: true
@@ -9,9 +9,26 @@ build:
   list: never
   render: always
 ---
-Dette beslutningstreet er oppdatert etter møtet 16. oktober 2026. [Åpne presentasjonen med UI-illustrasjoner](../diskusjonsgrunnlag/).
+Dette beslutningstreet er oppdatert 19. oktober 2026 etter møtet 16. oktober. [Åpne presentasjonen med UI-illustrasjoner](../diskusjonsgrunnlag/).
 
 Trærne under «Vedtatt» viser regler, ikke åpne alternativer. Punktene under «Fortsatt åpent» er ikke besluttet. Tidligere valg om implisitt deteksjon er erstattet av et eksplisitt flagg.
+
+## Vedtatt: Hvor rettighetskravene kommer fra
+
+{{< mermaid >}}
+graph TD
+  START["Opprette systembruker"] --> FLOW{"Hvordan starter opprettelsen?"}
+  FLOW -->|Leverandørforespørsel| REQUESTLISTS["Bruk forespørselens fire lister for egen virksomhet og klienter"]
+  REQUESTLISTS --> INDEPENDENT["Ingen utfylling eller begrensning fra systemets rettighetskrav"]
+  FLOW -->|Brukeren oppretter selv| VISIBLE["Velg et synlig system i systemregisteret"]
+  VISIBLE --> REGISTERLISTS["Bruk rettighetskravene på det valgte systemet"]
+{{< /mermaid >}}
+
+Listene på systemet i systemregisteret gjelder bare når brukeren selv oppretter systembruker for et synlig system. I forespørselsflyten angir leverandøren alle fire lister uavhengig av systemets lister. Forespørselens lister trenger ikke være en delmengde av disse.
+
+Ved aksept og senere delegering gjelder de lagrede kravene fra forespørselen, også hvis systemets lister er tomme eller endres. Kontroll av gyldige rettigheter, systemeierskap og delegeringsmyndighet gjelder fortsatt. Systemregisteret er fortsatt kilde til systemets identitet og annen relevant metadata.
+
+Synlig system i opprettelsesvalget er et annet begrep enn synlighet for opprettede systembrukere i bruker- og klientoversiktene.
 
 ## Vedtatt: Forespørsel og validering
 
@@ -83,7 +100,6 @@ Dette gjelder både enkeltrettigheter og tilgangspakker, uavhengig av systembruk
 
 | Valg | Alternativer som må avklares |
 |---|---|
-| Klienttilganger i systemregisteret | Dagens registrerte lister eller egne klientlister |
 | Kombinasjoner på samme system | Tillate eller avvise samtidig bruk med og uten forhåndsdefinerte rettigheter |
 | Endre tilgangsmodell | Endre flagget på eksisterende bruker eller kreve ny bruker |
 | Eksisterende Agent-brukere | Videreføre med kompatibilitet eller overføre til utvidet modell |
@@ -94,9 +110,9 @@ Presentasjonen har ett åpent valg per lysbilde. Ingen av disse alternativene er
 ## Tekniske detaljer som må beskrives videre
 
 - Behandling av utelatte lister og `null`, og endrede forespørsler med samme eksterne referanse.
-- Innholdsvalidering av egen- og klientlister ved forespørsel og aksept.
+- Innholdsvalidering av egen- og klientlister ved forespørsel og aksept, uten sammenligning mot systemets rettighetskrav.
 - Lagring, svarmodeller, godkjenningsbilde og kobling til standard bruker- og klientflater.
 - Direkte Maskinporten-tilknytning, tokeninnhold og sporing av rettighetsgrunnlaget.
 - Intern enum og kompatibilitet: betegnelsen systembruker avgjør ikke alene den tekniske migreringen.
 
-Vedtak: avklaringer med RUNLAR etter møtet 16. oktober 2026. Oppdatert med Codex; teamet skal gjennomgå innholdet. UI-detaljene i presentasjonen er illustrasjoner, ikke dokumentasjon av implementert produkt.
+Vedtak: avklaringer med RUNLAR etter møtet 16. oktober og oppfølgingen 19. oktober 2026. Oppdatert med Codex; teamet skal gjennomgå innholdet. UI-detaljene i presentasjonen er illustrasjoner, ikke dokumentasjon av implementert produkt.

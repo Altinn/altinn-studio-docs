@@ -1,6 +1,6 @@
 ---
 title: "Systembruker – vedtak og videre avklaringer"
-description: "Vedtak fra møtet 16. oktober 2026, illustrasjoner og gjenstående valg."
+description: "Vedtak fra møtet 16. oktober og avklaringer 19. oktober 2026, illustrasjoner og gjenstående valg."
 type: systemuser-discussion
 hidden: true
 outputs: [HTML]
@@ -12,7 +12,7 @@ build:
 
 ## Vedtak og videre avklaringer
 
-Oppdatert etter møtet 16. oktober 2026
+Oppdatert 19. oktober 2026 etter møtet 16. oktober
 
 Én forespørsel for egen virksomhet og klienter. Tilgangsstyring på de vanlige bruker- og klientflatene.
 
@@ -59,7 +59,7 @@ Autentiseringskoden ligger nå under `src/apps/Altinn.Authentication` i `altinn-
 | `clientRights`* | Enkeltrettigheter som kan delegeres for klienter |
 | `clientAccessPackages`* | Tilgangspakker som kan delegeres for klienter |
 
-Klientlistene setter rammen for senere klientdelegering.
+Leverandøren angir alle fire lister i forespørselen, uavhengig av rettighetskravene på systemet i systemregisteret. Klientlistene setter rammen for senere klientdelegering.
 
 *Feltnavnene for klientlistene er forslag. Egne lister for begge rettighetstyper er vedtatt.*
 
@@ -165,15 +165,16 @@ Man kan ikke fjerne en enkelt tilgangspakke eller enkeltrettighet separat på de
 {{< systemuser-ui "free" >}}
 
 ---
-## Åpent valg: Klienttilganger i systemregisteret
+## Vedtatt: Rettighetskrav følger opprettelsesflyten
 
-**Skal klientlistene valideres mot dagens registrerte tilganger, eller mot egne klientlister i systemregisteret?**
+| Hvordan starter opprettelsen? | Hvor kommer rettighetskravene fra? |
+|---|---|
+| Leverandøren sender en forespørsel | De fire listene i forespørselen |
+| Brukeren oppretter selv fra et synlig system | Listene på systemet i systemregisteret |
 
-**Dagens lister:** Gjenbruker systemets definisjon, men skiller ikke formålet i registeret.
+Forespørselens lister skal verken fylles fra eller begrenses av listene i systemregisteret. Dette gjelder pakker og enkeltrettigheter for både egen virksomhet og klienter.
 
-**Egne klientlister:** Gjør skillet tydelig i registeret, men utvider også registreringskontrakten og administrasjonen.
-
-Dette er fortsatt uavklart i samtalen.
+Kontroll av gyldige rettigheter, systemeierskap og delegeringsmyndighet gjelder fortsatt. At et system er synlig ved opprettelse, er noe annet enn at alle opprettede systembrukere skal vises i brukeroversikten.
 
 ---
 ## Åpent valg: Kombinasjoner på samme system
@@ -230,12 +231,12 @@ Vi må fortsatt beskrive:
 - Hvilke regler som gjelder for innholdet i egen- og klientlistene, inkludert validering ved aksept.
 - Hva som skjer når samme eksterne referanse sendes på nytt med endrede lister.
 
-Dette er kontraktsdetaljer som fortsatt trenger avklaring.
+Rettighetskravene i systemregisteret inngår ikke i innholdsvalideringen av forespørselens lister. Det skillet er vedtatt.
 
 ---
 ## Teknisk avklaring: Gjennomføring i kode og GUI
 
-Forespørsel, lagring, svarmodeller og godkjenningsbilde må bevare skillet mellom egen- og klienttilganger.
+Forespørsel, lagring, svarmodeller og godkjenningsbilde må bevare skillet mellom egen- og klienttilganger. Aksept og senere delegering må bruke kravene fra forespørselen, også når systemets lister er tomme eller endres.
 
 Standard GUI må håndtere rettighetssettet samlet for klienter, samlet sletting for egen virksomhet og fri delegering når flagget er satt.
 
@@ -244,7 +245,7 @@ Direkte klienttilknytning, tokeninnhold uten registertilknytning og sporing av r
 ---
 ## Kilder og status
 
-Vedtakene bygger på avklaringene med RUNLAR etter møtet 16. oktober 2026. Åpne valg er beholdt som åpne.
+Vedtakene bygger på avklaringene med RUNLAR etter møtet 16. oktober og oppfølgingen 19. oktober 2026. Åpne valg er beholdt som åpne.
 
 - [Opprettelsesendepunktet i altinn-auth](https://github.com/Altinn/altinn-auth/blob/1c63f782017566768c637337f7571a3b20b0d594/src/apps/Altinn.Authentication/src/Altinn.Platform.Authentication/Controllers/RequestSystemUserController.cs)
 - [Request-modell](https://github.com/Altinn/altinn-auth/blob/1c63f782017566768c637337f7571a3b20b0d594/src/apps/Altinn.Authentication/src/Altinn.Platform.Authentication.Core/Models/SystemUsers/CreateRequestSystemUser.cs) og [opprettelsesflyt](https://github.com/Altinn/altinn-auth/blob/1c63f782017566768c637337f7571a3b20b0d594/src/apps/Altinn.Authentication/src/Altinn.Platform.Authentication/Services/SystemUserService.cs)
