@@ -71,7 +71,7 @@ Han er bosatt på Stokmarknes.
 
 ### MultiParty Prompt
 
-MultiParty Prompt får spørsmål om hvem brukeren vil sende inn for, når appen starter. De andre standardbrukerne går rett inn i appen. Bruk MultiParty Prompt når du vil teste aktørvalget.
+Når du starter appen med testbrukeren MultiParty Prompt, får du spørsmål om hvem du vil sende inn for. Med de andre standardbrukerne går du rett inn i appen. Bruk MultiParty Prompt når du vil teste aktørvalget.
 
 ![Aktørvalget «Hvem vil du sende inn for?» for MultiParty Prompt](./selectparty.png "Velge aktør")
 
