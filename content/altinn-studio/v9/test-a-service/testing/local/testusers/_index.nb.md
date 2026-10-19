@@ -26,9 +26,9 @@ I tillegg er hun ekspert på helse og har startet sitt eget konsulentfirma for h
 
 Hun er også styremedlem i borettslaget der hun bor, Oslos Vakreste Borettslag. Sophie har rollen MEDL og tilknyttede roller for borettslaget.
 
-#### Avgivere
+#### Aktører
 
-| Avgiver                                                                                                                       | Roller                                                                                                                                        |
+| Aktør                                                                                                                         | Roller                                                                                                                                        |
 | ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | [01039012345 Sophie Salt](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/Register/Person/01039012345.json)        | [Privatperson](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/authorization/roles/User_1337/party_501337/roles.json)              |
 | [897069650 DDG Fitness AS](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/Register/Org/897069650.json)            | [Daglig leder + knytninger](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/authorization/roles/User_1337/party_500000/roles.json) |
@@ -42,9 +42,9 @@ Hun er også styremedlem i borettslaget der hun bor, Oslos Vakreste Borettslag. 
 
 Pengelens Partner er regnskapsføreren for selskapet DDG Fitness AS.
 
-#### Avgivere
+#### Aktører
 
-| Avgiver                                                                                                                      | Roller                                                                                                                             |
+| Aktør                                                                                                                        | Roller                                                                                                                             |
 | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | [01899699552 Pengelens Partner](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/Register/Person/01899699552.json) | [Privatperson](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/authorization/roles/User_1001/party_510001/roles.json)   |
 | [897069650 DDG Fitness AS](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/Register/Org/897069650.json)           | [Regnskapsfører](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/authorization/roles/User_1001/party_500000/roles.json) |
@@ -53,9 +53,9 @@ Pengelens Partner er regnskapsføreren for selskapet DDG Fitness AS.
 
 Gjentagende Forelder er revisor for selskapet DDG Fitness AS.
 
-#### Avgivere
+#### Aktører
 
-| Avgiver                                                                                                                         | Roller                                                                                                                           |
+| Aktør                                                                                                                           | Roller                                                                                                                           |
 | ------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | [17858296439 Gjentagende Forelder](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/Register/Person/17858296439.json) | [Privatperson](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/authorization/roles/User_1002/party_510002/roles.json) |
 | [897069650 DDG Fitness AS](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/Register/Org/897069650.json)              | [Revisor](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/authorization/roles/User_1002/party_500000/roles.json)      |
@@ -65,7 +65,7 @@ Gjentagende Forelder er revisor for selskapet DDG Fitness AS.
 Ola Nordmann er en privatperson som bare kan representere seg selv.
 Han er bosatt på Stokmarknes.
 
-#### Avgivere
+#### Aktører
 
 - [01017512345 Ola Nordmann](https://github.com/Altinn/altinn-studio/blob/main/src/Runtime/localtest/testdata/Register/Person/01017512345.json)
 
@@ -79,7 +79,7 @@ MultiParty Prompt får spørsmål om hvem brukeren vil sende inn for, når appen
 
 For å teste skjemaer om barn og oppvekst, for eksempel barnehage og skole, har vi lagt til noen egne brukere.
 
-| Avgiver                          | Barn | Inntekt |
+| Aktør                            | Barn | Inntekt |
 | -------------------------------- | ---- | ------- |
 | 01899699552 Pengelens Partner    | 0    | Lav     |
 | 17858296439 Gjentagende Forelder | 3    | Middels |
@@ -95,7 +95,7 @@ Du kan hente et token med `/Home/GetTestSystemUserToken` i localtest, eller åpn
 
 ### Instansdelegering
 
-Den siste versjonen av localtest støtter instansdelegering. Brukere og avgivere du delegerer fra og til må ha en `partyUuid` knyttet til seg. Se eksempelfilen nedenfor.
+Den siste versjonen av localtest støtter instansdelegering. Brukere og aktører du delegerer fra og til må ha en `partyUuid` knyttet til seg. Se eksempelfilen nedenfor.
 
 ## App-spesifikke brukere
 
