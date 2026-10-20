@@ -138,7 +138,7 @@ public class MyServerAction(ILogger<MyServerAction> logger) : IUserAction
 }
 ```
 
-`context.UserId` er bare satt når en person utfører handlingen. Hvis handlingen utføres av for eksempel en systembruker, er den `null`. Bruk `context.Authentication` hvis du trenger å vite hvem som utførte handlingen.
+`context.UserId` er bare satt når en person utfører handlingen. Hvis for eksempel en systembruker utfører handlingen, er den `null`. Bruk `context.Authentication` hvis du trenger å vite hvem som utførte handlingen.
 
 Registrer klassen som `IUserAction` i `Program.cs`:
 
@@ -160,8 +160,8 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 `HandleAction` returnerer en `UserActionResult`. Bruk en av disse metodene for å lage resultatet:
 
-- `UserActionResult.SuccessResult()`: handlingen lyktes.
-- `UserActionResult.FailureResult(new ActionError { Message = "..." })`: handlingen feilet, og API-et returnerer en feil til brukeren. Statuskoden styres av `errorType`, for eksempel `ProcessErrorType.BadRequest` for 400. Standard er 500.
-- `UserActionResult.RedirectResult(uri)`: brukeren sendes videre til en annen URL.
+- `UserActionResult.SuccessResult()`: Handlingen lyktes.
+- `UserActionResult.FailureResult(new ActionError { Message = "..." })`: Handlingen mislyktes, og API-et returnerer en feil til brukeren. `errorType` bestemmer statuskoden, for eksempel `ProcessErrorType.BadRequest` for 400. Standard er 500.
+- `UserActionResult.RedirectResult(uri)`: Appen sender brukeren videre til en annen URL.
 
-I motsetning til prosesshandlinger flytter serverhandlinger **ikke** prosessen til neste oppgave. Hvis prosessen skal gå videre, bruker du en [prosesshandling](/nb/altinn-studio/v9/develop-a-service/reference/process/actions/process-actions/) i stedet.
+I motsetning til prosesshandlinger flytter serverhandlinger **ikke** prosessen til neste oppgave. Hvis prosessen skal gå videre, bruker du en [prosesshandling]({{< relref "/altinn-studio/v9/develop-a-service/reference/process/actions/process-actions" >}}) i stedet.
