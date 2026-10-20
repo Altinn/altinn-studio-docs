@@ -47,7 +47,7 @@ App/ui/{taskId}/layouts/{page}.json
 | [`openByDefault`](#openbydefault) | `false` | Nei            | Om appen skal åpne en rad automatisk når brukeren kommer til siden.                                     |
 | [`multiPage`](#multipage) | `false`    | Nei                 | Om brukeren skal fylle ut en rad over flere sider.                                                      |
 
-Når en innstilling kan være et uttrykk, kan du bruke et [dynamisk uttrykk]({{< relref "/altinn-studio/v9/develop-a-service/expressions" >}}) i stedet for `true` eller `false`. For `editButton` og `deleteButton` vurderer appen uttrykket for hver rad. Du kan altså skjule knappene på bare noen av radene.
+Når en innstilling kan være et uttrykk, kan du bruke et [dynamisk uttrykk]({{< relref "/altinn-studio/v9/develop-a-service/expressions" >}}) i stedet for `true` eller `false`. Appen vurderer uttrykket for hver rad for alle disse innstillingene unntatt `addButton`. Du kan altså for eksempel skjule **Slett**-knappen på bare noen av radene.
 
 ## mode
 
@@ -106,6 +106,8 @@ Med `deleteButton` bestemmer du om brukeren skal se **Slett**-knappen. Standard 
 ## alertOnDelete
 
 Med `alertOnDelete` ber appen brukeren bekrefte før den sletter en rad. Det er lurt hvis en rad inneholder mye data, slik at brukeren ikke mister dataene ved en feil. Standard er at appen sletter raden uten å spørre.
+
+Bekreftelsen gjelder **Slett**-knappen i tabellen. Med `"mode": "showAll"` sletter knappen raden uten å spørre, også når `alertOnDelete` er `true`.
 
 {{< code-title >}}
 App/ui/{taskId}/layouts/{page}.json

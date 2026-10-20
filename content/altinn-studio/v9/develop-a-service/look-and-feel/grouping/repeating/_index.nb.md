@@ -146,7 +146,7 @@ Tabellen viser de viktigste egenskapene. [Komponentsiden for `RepeatingGroup`]({
 | [`stickyHeader`]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating/table#feste-overskriftene-i-tabellen" >}})        | Nei     | Fester overskriftene i tabellen øverst mens brukeren ruller nedover.                                                                                         |
 | [`pagination`](#dele-radene-inn-i-sider)                        | Nei     | Deler radene inn i sider.                                                                                                                                    |
 | [`hiddenRow`](#skjule-rader)                                    | Nei     | Skjuler rader. Kan være `true`, `false` eller et uttrykk som appen vurderer for hver rad.                                                                     |
-| [`showValidations`](#kontrollere-radene)                        | Nei     | Valideringstypene appen viser med en gang de oppstår.                                                                                                       |
+| [`showValidations`](#kontrollere-radene)                        | Nei     | Feilene på selve gruppen appen viser med en gang de oppstår.                                                                                                |
 | [`validateOnSaveRow`](#kontrollere-radene)                      | Nei     | Valideringstypene appen skal sjekke når brukeren lagrer en rad.                                                                                             |
 
 ## Tekster
@@ -155,7 +155,7 @@ Med `textResourceBindings` kan du gi gruppen en tittel og overstyre standardteks
 
 | Nøkkel                   | Hva teksten er til                                                                                                                  |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------------------------|
-| `title`                  | Tittelen over gruppen. Appen viser den også over hver rad i oppsummeringen.                                                         |
+| `title`                  | Tittelen over gruppen. Appen viser den også i oppsummeringen.                                                                       |
 | `description`            | Beskrivelsen under tittelen.                                                                                                         |
 | `help`                   | Hjelpeteksten brukeren får opp ved å klikke på hjelpeknappen ved siden av tittelen.                                                |
 | `summaryTitle`           | Tittelen i oppsummeringen. Overstyrer `title` der.                                                                                   |
@@ -172,7 +172,7 @@ Med `textResourceBindings` kan du gi gruppen en tittel og overstyre standardteks
 | `multipageBackButton`    | Teksten på **Tilbake**-knappen når redigeringen av en rad går over [flere sider]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating/multipage" >}}).                                        |
 
 {{% notice info %}}
-Nøklene har nye navn i v9. De heter nå `addButton`, `addButtonFull`, `saveButton`, `saveAndNextButton`, `editButtonOpen` og `editButtonClose`. I v8 het de `add_button`, `add_button_full`, `save_button`, `save_and_next_button`, `edit_button_open` og `edit_button_close`. Når du oppgraderer appen med `studioctl app upgrade v9`, gir verktøyet nøklene de nye navnene.
+Nøklene for knappene har nye navn i v9. I v8 het de for eksempel `add_button`, `save_and_next_button` og `pagination_next_button`. Nå heter de `addButton`, `saveAndNextButton` og `paginationNextButton`. Når du oppgraderer appen med `studioctl app upgrade v9`, gir verktøyet alle de ti knappenøklene i tabellen de nye navnene.
 {{% /notice %}}
 
 ## Skjule rader
@@ -237,9 +237,11 @@ Du kan endre tekstene på knappene med `paginationNextButton` og `paginationBack
 
 Du kan kontrollere radene i gruppen på tre måter:
 
-- Med `minCount` bestemmer du hvor mange rader brukeren må legge til. Gruppen viser en valideringsfeil hvis den har for få rader.
-- Med `validateOnSaveRow` kontrollerer appen raden når brukeren lagrer den. Hvis raden har valideringsfeil, må brukeren rette feilene før det går an å lukke raden. Se [gruppevalidering]({{< relref "/altinn-studio/v9/develop-a-service/data/validation#gruppevalidering" >}}).
-- Med `showValidations` viser appen valideringsfeil med en gang de oppstår. Appen venter ikke til brukeren går videre. Se [enkeltfeltvalidering]({{< relref "/altinn-studio/v9/develop-a-service/data/validation#enkeltfeltvalidering" >}}).
+- Med `minCount` bestemmer du hvor mange rader brukeren må legge til. Skjulte rader teller ikke med. Gruppen viser en valideringsfeil hvis den har for få rader. Appen viser feilen på samme tidspunkt som feil for påkrevde felter.
+- Med `validateOnSaveRow` kontrollerer appen raden før brukeren forlater den. Det skjer når brukeren lukker raden, åpner en annen rad, legger til en ny rad eller bytter side. Hvis raden har valideringsfeil, må brukeren rette dem først. Se [gruppevalidering]({{< relref "/altinn-studio/v9/develop-a-service/data/validation#gruppevalidering" >}}).
+- Med `showValidations` bestemmer du hvilke feil på selve gruppen appen viser med en gang. Innstillingen gjelder ikke feltene i radene. Vil du vise feilen for for få rader med en gang, tar du med `Required`. Se [enkeltfeltvalidering]({{< relref "/altinn-studio/v9/develop-a-service/data/validation#enkeltfeltvalidering" >}}).
+
+`validateOnSaveRow` har ingen virkning med `"mode": "showAll"` eller `"mode": "onlyTable"`, fordi brukeren ikke åpner og lukker rader i de modusene.
 
 {{< code-title >}}
 App/ui/{taskId}/layouts/{page}.json

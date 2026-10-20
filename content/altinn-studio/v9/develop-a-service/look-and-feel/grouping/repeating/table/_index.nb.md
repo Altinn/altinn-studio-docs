@@ -59,7 +59,7 @@ Med `tableColumns` kan du sette egenskaper for hver kolonne. Nøkkelen er ID-en 
 - `width` er bredden på kolonnen i prosent, for eksempel `"25%"`, eller `"auto"`. Standardverdien er `"auto"`.
 - `alignText` plasserer teksten i cellene til venstre (`"left"`), i midten (`"center"`) eller til høyre (`"right"`). Standard er venstre for tekst og høyre for tall.
 - `textOverflow` bestemmer hva som skjer når teksten er for lang for cellen:
-  - `lineWrap` slår tekstbryting av eller på. Standardverdien er `true`.
+  - `lineWrap` bestemmer om appen skal korte ned lang tekst. Med `false` viser appen hele teksten. Standardverdien er `true`.
   - `maxHeight` er antallet linjer appen viser før den kutter resten av teksten og setter inn tre prikker (…). Standardverdien er `2`. Med `0` viser appen hele teksten.
 - `hidden` skjuler kolonnen, se [Skjule kolonner](#skjule-kolonner).
 - `editInTable` lar brukeren redigere komponenten direkte i tabellen. Standardverdien er `false`. Se [Redigere direkte i tabellen](#redigere-direkte-i-tabellen).
@@ -223,7 +223,11 @@ En celle kan være
 
 Komponentene i cellene må være komponenter som virker i en tabell, se listen under [Redigere direkte i tabellen](#redigere-direkte-i-tabellen).
 
-De faste radene følger de samme kolonnene som resten av tabellen. Hvis du skjuler en kolonne, skjuler appen den også i de faste radene.
+Dette gjelder for de faste radene:
+
+- De følger de samme kolonnene som resten av tabellen. Hvis du skjuler en kolonne i `tableColumns`, skjuler appen den også i de faste radene.
+- Appen viser dem ikke når gruppen er tom.
+- På mobil og nettbrett viser appen bare komponentene i de faste radene, ikke tekstcellene.
 
 {{< code-title >}}
 App/ui/{taskId}/layouts/{page}.json
@@ -284,9 +288,11 @@ App/ui/{taskId}/layouts/{page}.json
 
 ### Slå sammen celler og skjule kolonner i de faste radene
 
-En celle i en fast rad kan strekke seg over flere kolonner. Det gjør du med `cellStyle.colSpan`. Cellene som den sammenslåtte cellen dekker, må du fjerne eller sette til `null`.
+En celle i en fast rad kan strekke seg over flere kolonner. Det gjør du med `cellStyle.colSpan`. Cellene som den sammenslåtte cellen dekker, må du fjerne fra listen. Hvis du setter dem til `null`, blir de tomme celler i en ekstra kolonne.
 
-Hvis du vil skjule en kolonne i de faste radene, setter du `columnOptions.hidden` på cellen i en overskriftsrad (`"header": true`).
+Hvis du vil skjule en kolonne bare i de faste radene, setter du `columnOptions.hidden` på cellen i den første overskriftsraden (`"header": true`) i `rowsBefore` eller `rowsAfter`. Innstillingen gjelder bare radene i samme liste. Du kan bruke `true` eller et uttrykk.
+
+Eksempelet under hører til tabellen med kolonnene `kategori`, `belop` og `bekreftet`. Raden i `rowsBefore` har en celle som dekker de to første kolonnene. I `rowsAfter` skjuler appen den siste kolonnen:
 
 {{< code-title >}}
 App/ui/{taskId}/layouts/{page}.json
@@ -298,10 +304,8 @@ App/ui/{taskId}/layouts/{page}.json
     {
       "header": true,
       "cells": [
-        {},
-        { "text": "oppsummering-for", "cellStyle": { "colSpan": 2 } },
-        null,
-        { "text": "skjult-for", "columnOptions": { "hidden": true } }
+        { "text": "oppsummering", "cellStyle": { "colSpan": 2 } },
+        { "text": "status" }
       ]
     }
   ],
@@ -310,9 +314,8 @@ App/ui/{taskId}/layouts/{page}.json
       "header": true,
       "cells": [
         {},
-        { "text": "alle-endringer", "cellStyle": { "colSpan": 2 } },
-        null,
-        { "text": "skjult-etter", "columnOptions": { "hidden": true } }
+        { "text": "sum-belop" },
+        { "text": "sum-status", "columnOptions": { "hidden": true } }
       ]
     }
   ]
@@ -320,5 +323,5 @@ App/ui/{taskId}/layouts/{page}.json
 ```
 
 {{% notice warning %}}
-Unngå å la en sammenslått celle dekke en skjult kolonne. Appen viser fortsatt tabellen, men oppsettet blir kanskje ikke slik du venter. Appen skriver da en advarsel i konsollen i nettleseren som forteller hvilken celle som dekker en skjult kolonne.
+Unngå å la en sammenslått celle dekke en skjult kolonne. Appen viser fortsatt tabellen, men oppsettet blir kanskje ikke slik du venter. Appen skriver da en advarsel i loggen i utviklerverktøyene (DevTools) som forteller hvilken celle som dekker en skjult kolonne.
 {{% /notice %}}
