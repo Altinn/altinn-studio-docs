@@ -101,8 +101,8 @@ Du ser typene i datamodellen i panelet til venstre. Du kan åpne trevisning av d
 
 Nedtrekkslisten har to kategorier:
 
+- **JSONSchema**: Datamodeller i JSON schema-format, både modeller du har laget i verktøyet og modeller Altinn Studio har laget fra opplastede XSD-filer.
 - **XSD**: Viser XSD-modeller uten tilhørende JSON schema-modellfil. Når du velger en modell fra XSD-listen, importerer verktøyet den automatisk og lager en JSON schema-fil. Deretter kan du jobbe videre med modellen i verktøyet.
-- **JSON Schema**: Modeller som Altinn Studio har laget fra opplastede XSD-filer.
 
 {{% notice info %}}
 Nedtrekkslisten viser bare datamodeller som ligger i `App/models` i repositoriet.
