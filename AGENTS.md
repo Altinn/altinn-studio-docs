@@ -174,6 +174,9 @@ Rett småfeil (ofte grammatikk) raskt - tar vanligvis 5-10 min.
 - **Bruk etterstilte pronomen** på norsk
   - ❌ Feil: "ditt system", "din tjeneste", "dine data"
   - ✅ Riktig: "systemet ditt", "tjenesten din", "dataene dine"
+- **Skriv "brukeren" eller flertall når du omtaler sluttbrukeren**. Trenger du et pronomen, bruk "de"
+  - ❌ Feil: "hen", "han", "hun"
+  - ✅ Riktig: "Brukerne får en feilmelding hvis de prøver å laste opp en annen filtype"
 - **Bruk bestemt form** når du snakker om spesifikke ting
   - ❌ Feil: "flyt", "prosess", "kode", "applikasjon"
   - ✅ Riktig: "flyten", "prosessen", "koden", "applikasjonen"
