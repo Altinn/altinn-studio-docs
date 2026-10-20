@@ -6,7 +6,7 @@ toc: true
 
 Med validering kontrollerer appen at dataene brukeren fyller inn, er gyldige. Brukeren ser en melding ved feltet som er feil, og får ikke sende inn før feilene er rettet.
 
-Appen validerer både i nettleseren og på serveren. I nettleseren får brukeren raske tilbakemeldinger mens hen fyller ut. På serveren kjører appen valideringene før brukeren får gå videre i prosessen. Det gjelder også når et annet system sender data rett til API-et til appen, uten å gå gjennom nettleseren. Noen av valideringene på serveren må du slå på selv. Se [Validering på serveren](#validering-på-serveren).
+Appen validerer både i nettleseren og på serveren. I nettleseren får brukerne raske tilbakemeldinger mens de fyller ut. På serveren kjører appen valideringene før brukeren får gå videre i prosessen. Det gjelder også når et sluttbrukersystem sender data rett til API-et til appen, uten å gå gjennom nettleseren. Noen av valideringene på serveren må du slå på selv. Se [Validering på serveren](#validering-på-serveren).
 
 ## Velge fremgangsmåte
 
@@ -27,7 +27,7 @@ Valideringsreglene bestemmer hva brukeren får lov til å sende inn. Som tjenest
 
 - Hvilke regler stopper innsendingen, og hvilke er bare advarsler eller informasjon?
 - Finnes feilmeldingene på alle språkene tjenesten støtter?
-- Ser brukeren feilen ved feltet hen må rette, eller bare i oppsummeringen når hen prøver å sende inn?
+- Ser brukerne feilen ved feltet de må rette, eller bare i oppsummeringen når de prøver å sende inn?
 - Forklarer feilmeldingene hva som er feil, og hvordan brukeren retter det?
 - Henter appen opplysninger fra andre systemer for å validere? Hva skjer hvis systemet ikke svarer – kan brukeren da bli stående uten å få sendt inn?
 - Har dere testet reglene med repeterende grupper og innsending gjennom API-et? Kan et felt som er skjult for brukeren, stoppe innsendingen?
@@ -38,15 +38,15 @@ Brukeren ser valideringsmeldingene ved feltet meldingen gjelder, og i en feilopp
 
 ### Mens brukeren fyller ut
 
-Appen viser de fleste meldingene ved feltet med en gang, både når brukeren åpner skjemaet og like etter at hen har endret noe. Det gjelder både feil, advarsler og informasjon.
+Appen viser de fleste meldingene ved feltet med en gang, både når brukeren åpner skjemaet og like etter at brukeren har endret noe. Det gjelder både feil, advarsler og informasjon.
 
-Feil om [påkrevde felt]({{< relref "/altinn-studio/v8/reference/logic/validation/required" >}}) viser appen først når brukeren prøver å sende inn, eller å bytte side hvis appen er satt opp til å sjekke ved sidebytte. Da slipper brukeren å se feil for felt hen ikke har kommet til ennå. Du kan endre hvilke meldinger appen viser med en gang. Se [Velge hvilke meldinger appen viser med en gang](#velge-hvilke-meldinger-appen-viser-med-en-gang).
+Feil om [påkrevde felt]({{< relref "/altinn-studio/v8/reference/logic/validation/required" >}}) viser appen først når brukeren prøver å sende inn, eller å bytte side hvis appen er satt opp til å sjekke ved sidebytte. Da slipper brukeren å se feil for felt brukeren ikke har kommet til ennå. Du kan endre hvilke meldinger appen viser med en gang. Se [Velge hvilke meldinger appen viser med en gang](#velge-hvilke-meldinger-appen-viser-med-en-gang).
 
-Vanligvis lar du derfor `required` sjekke om et felt er fylt ut, og lar de andre reglene godta tomme felt. Da ser brukeren en feil først når hen har fylt ut noe som er feil, eller når hen prøver å gå videre uten å ha fylt ut et påkrevd felt. En regel som slår til på et tomt felt, viser feilen før brukeren har rukket å fylle ut noe.
+Vanligvis lar du derfor `required` sjekke om et felt er fylt ut, og lar de andre reglene godta tomme felt. Da ser brukeren en feil først når brukeren har fylt ut noe som er feil, eller når brukeren prøver å gå videre uten å ha fylt ut et påkrevd felt. En regel som slår til på et tomt felt, viser feilen før brukeren har rukket å fylle ut noe.
 
 ### Når brukeren prøver å gå videre
 
-Når brukeren prøver å sende inn, viser appen alle feilene som stopper hen. Feilene står ved feltene og i en feiloppsummering nederst på siden. Feiloppsummeringen viser appen også ellers når det finnes feil som brukeren kan se, for eksempel feil fra datamodellen allerede når skjemaet åpnes.
+Når brukeren prøver å sende inn, viser appen alle feilene som stopper brukeren. Feilene står ved feltene og i en feiloppsummering nederst på siden. Feiloppsummeringen viser appen også ellers når det finnes feil som brukeren kan se, for eksempel feil fra datamodellen allerede når skjemaet åpnes.
 
 {{% notice info %}}
 I v9 viser appen feiloppsummeringen først når brukeren har prøvd å sende inn eller bytte side.
@@ -54,11 +54,11 @@ I v9 viser appen feiloppsummeringen først når brukeren har prøvd å sende inn
 
 Bare feil stopper brukeren. Advarsler, informasjon og bekreftelser kan brukeren lese og likevel gå videre.
 
-Noen feil ser brukeren først når hen prøver å sende inn:
+Disse feilene vises først når brukeren prøver å sende inn:
 
-- feil fra regler som bare kjører ved innsending, fordi de er tunge å kjøre eller sjekker hele steget
-- feil som ikke gjelder et bestemt felt, for eksempel at en frist har gått ut
-- feil i felt som er skjult for brukeren
+- Feil fra regler som bare kjører ved innsending, fordi de er tunge å kjøre eller sjekker hele oppgaven.
+- Feil som ikke gjelder et bestemt felt, for eksempel at en frist har gått ut.
+- Feil i felt som er skjult for brukeren.
 
 De to siste viser appen bare i feiloppsummeringen, fordi det ikke finnes noe synlig felt å vise dem ved.
 
@@ -124,7 +124,7 @@ Validatorer i C# som bare kjører ved innsending, er ikke med i noen av typene. 
 
 ## Myke valideringer
 
-Myke valideringer er valideringsmeldinger som ikke stopper brukeren fra å sende inn eller gå videre til neste steg i prosessen. Du kan bruke dem til å be brukeren dobbeltsjekke en verdi som virker feil, men som ikke er ugyldig, eller til å gi nyttig informasjon for resten av utfyllingen.
+Myke valideringer stopper ikke brukeren fra å sende inn eller gå videre til neste oppgave i prosessen. Du kan bruke dem til å be brukeren kontrollere en verdi som virker feil, men som ikke er ugyldig, eller til å gi nyttig informasjon for resten av utfyllingen.
 
 Det finnes tre typer myke valideringer: advarsel, informasjon og bekreftelse. Du lager dem ved å sette alvorlighetsgraden på valideringen, enten i [validering med uttrykk]({{< relref "/altinn-studio/v8/reference/logic/validation/expression-validation" >}}) eller i [en validator i C#]({{< relref "/altinn-studio/v8/reference/logic/validation/csharp" >}}#alvorlighetsgrad).
 
@@ -138,7 +138,7 @@ Slik ser de tre typene ut:
 
 ## Validering på serveren
 
-Appen kjører valideringene på serveren før brukeren får gå videre i prosessen. Derfor kan ingen sende inn data som bryter reglene, heller ikke andre systemer som bruker API-et til appen. Påkrevde felt og validering med uttrykk sjekker serveren likevel bare hvis du har slått dem på. Vi anbefaler å slå på begge. Serveren sjekker påkrevde felt bare i steg som har et layoutsett.
+Appen kjører valideringene på serveren før brukeren får gå videre i prosessen. Derfor kan ingen sende inn data som bryter reglene, heller ikke sluttbrukersystemer som bruker API-et til appen. Serveren sjekker likevel påkrevde felt og validering med uttrykk bare hvis du har slått dem på. Vi anbefaler å slå på begge. Serveren sjekker påkrevde felt bare i oppgaver som har et layoutsett.
 
 {{% notice info %}}
 I v9 er `RequiredValidation` og `ExpressionValidation` slått på som standard.
@@ -150,16 +150,16 @@ Appen har disse valideringene innebygd:
 
 | Validering | Hva den sjekker | Slår du den av eller på? |
 | --- | --- | --- |
-| [Påkrevde felt]({{< relref "/altinn-studio/v8/reference/logic/validation/required" >}}) | At synlige komponenter med `required` har en verdi, i steg som har et layoutsett | `RequiredValidation` (av som standard) |
+| [Påkrevde felt]({{< relref "/altinn-studio/v8/reference/logic/validation/required" >}}) | At synlige komponenter med `required` har en verdi, i oppgaver som har et layoutsett | `RequiredValidation` (av som standard) |
 | [Validering med uttrykk]({{< relref "/altinn-studio/v8/reference/logic/validation/expression-validation" >}}) | Reglene i `models/[datatype-ID].validation.json` | `ExpressionValidation` (av som standard) |
 | [Datamodell]({{< relref "/altinn-studio/v8/reference/logic/validation/data-model" >}}) | Attributter på C#-modellen, for eksempel `[Range]` og `[RegularExpression]` | Alltid på |
 | XSD | At skjemadataene er gyldige mot `models/[datatype-ID].xsd` | `XsdValidation` (av som standard) |
 | Vedlegg og andre dataelementer | Filtype (`allowedContentTypes`), filstørrelse (`maxSize`) og virusskanning (`enableFileScan`) | Innstillinger på datatypen |
-| Antall dataelementer | `minCount` og `maxCount` for datatypene i steget | Innstillinger på datatypen |
-| Signering | At alle som skal signere, har signert | `runDefaultValidator` i signeringssteget |
-| Signerte data | At dataene ikke er endret etter at brukeren signerte | Alltid på i signeringssteg |
+| Antall dataelementer | `minCount` og `maxCount` for datatypene i oppgaven | Innstillinger på datatypen |
+| Signering | At alle som skal signere, har signert | `runDefaultValidator` i signeringsoppgaven |
+| Signerte data | At dataene ikke er endret etter at brukeren signerte | Alltid på i signeringsoppgaver |
 
-Påkrevde felt, validering med uttrykk og datamodellen sjekker nettleseren også mens brukeren fyller ut. De andre innebygde valideringene kjører bare på serveren når brukeren går videre i prosessen. Feil fra dem ser brukeren derfor først når hen prøver å sende inn. Unntaket er filtype, filstørrelse og største antall filer (`maxCount`), som appen også sjekker når brukeren laster opp en fil. Minste antall filer (`minCount`) sjekker appen først når brukeren går videre.
+Nettleseren sjekker også påkrevde felt, validering med uttrykk og datamodellen mens brukeren fyller ut. De andre innebygde valideringene kjører bare på serveren når brukeren går videre i prosessen. Brukeren ser derfor feil fra dem først når brukeren prøver å sende inn. Unntaket er filtype, filstørrelse og største antall filer (`maxCount`), som appen også sjekker når brukeren laster opp en fil. Minste antall filer (`minCount`) sjekker appen først når brukeren går videre.
 
 Du slår valideringene på under `AppSettings` i `App/appsettings.json`:
 
@@ -183,6 +183,6 @@ Trenger du regler som de innebygde valideringene og validering med uttrykk ikke 
 
 - sjekke innholdet i vedlegg, for eksempel at en PDF har riktig antall sider
 - slå opp i andre systemer, som å sjekke at et organisasjonsnummer finnes
-- sjekke data på tvers av flere datamodeller i samme steg
+- sjekke data på tvers av flere datamodeller i samme oppgave
 
 [Slik lager du validatorer i C#]({{< relref "/altinn-studio/v8/reference/logic/validation/csharp" >}}).

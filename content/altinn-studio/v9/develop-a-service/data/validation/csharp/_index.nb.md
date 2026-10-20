@@ -17,13 +17,13 @@ En validator er en klasse i C# som tar i bruk et av valideringsgrensesnittene ti
 Appen validerer på to måter:
 
 - **Ved hver lagring** kjører appen bare validatorene som kan ha fått et nytt resultat. Nettleseren lagrer endringene fortløpende mens brukeren fyller ut, så dette skjer ofte. Vi kaller det _inkrementell validering_.
-- **Når brukeren går videre i prosessen**, eller når et system ber om det, kjører appen alle validatorene for steget.
+- **Når brukeren går videre i prosessen**, eller når et sluttbrukersystem ber om det, kjører appen alle validatorene for oppgaven.
 
-Hver validator har en `ValidationSource`, som er et unikt navn på validatoren. Appen merker alle meldingene fra validatoren med dette navnet. Nettleseren holder en liste med meldinger for hver `ValidationSource`. Når en validator kjører på nytt, erstatter nettleseren hele listen fra den validatoren med de nye meldingene. Meldinger fra validatorer som ikke kjørte, beholder nettleseren som de var. Standardverdien er det fulle klassenavnet sammen med steget eller datatypen, og den trenger du sjelden å endre. Har to validatorer samme `ValidationSource`, blander meldingene deres seg.
+Hver validator har en `ValidationSource`, som er et unikt navn på validatoren. Appen merker alle meldingene fra validatoren med dette navnet. Nettleseren holder en liste med meldinger for hver `ValidationSource`. Når en validator kjører på nytt, erstatter nettleseren hele listen fra den validatoren med de nye meldingene. Meldinger fra validatorer som ikke kjørte, beholder nettleseren som de var. Standardverdien er hele klassenavnet sammen med oppgaven eller datatypen, og den trenger du sjelden å endre. Har to validatorer samme `ValidationSource`, blander meldingene deres seg.
 
 Ved hver lagring spør appen hver validator om den trenger å kjøre, med metoden `HasRelevantChanges`. Appen sender med endringene i lagringen. Svarer validatoren nei, kjører appen den ikke, og nettleseren beholder meldingene fra forrige gang.
 
-Er validatoren treg, for eksempel fordi den kaller andre systemer, er det viktig at `HasRelevantChanges` er så presis som mulig. Da slipper appen å kjøre validatoren når resultatet ikke kan ha endret seg. Gjør validatoren bare enkle sjekker, kan `HasRelevantChanges` godt alltid svare ja:
+Er validatoren treg, for eksempel fordi den kaller andre systemer, bør `HasRelevantChanges` være så presis som mulig. Da slipper appen å kjøre validatoren når resultatet ikke kan ha endret seg. Gjør validatoren bare enkle sjekker, kan `HasRelevantChanges` godt alltid svare ja:
 
 ```csharp
 protected override bool HasRelevantChanges(Soknad current, Soknad previous) => true;
@@ -35,8 +35,8 @@ Noen egenskaper på validatoren styrer hvordan appen kjører den:
 
 | Egenskap | Standard | Betydning |
 | --- | --- | --- |
-| `TaskId` eller `DataType` | Ingen | Hvilket steg eller hvilken datatype validatoren gjelder. Med `"*"` gjelder den alle. |
-| `NoIncrementalValidation` | `false` | Med `true` kjører appen ikke validatoren ved lagring, bare når brukeren går videre eller et system ber om validering. Brukeren ser da feilene først når hen prøver å sende inn. |
+| `TaskId` eller `DataType` | Ingen | Hvilken oppgave eller hvilken datatype validatoren gjelder. Med `"*"` gjelder den alle. |
+| `NoIncrementalValidation` | `false` | Med `true` kjører appen ikke validatoren ved lagring, bare når brukeren går videre eller et sluttbrukersystem ber om validering. Brukeren ser da feilene først når brukeren prøver å sende inn. |
 | `ShouldRunAfterRemovingHiddenData` | `false` | Med `true` får validatoren dataene uten felt som er skjult for brukeren. Da stopper ikke skjulte felt innsendingen. |
 
 Som standard validerer appen også felt som er skjult for brukeren. Vil du at validatoren bare skal se synlige data, overstyrer du `ShouldRunAfterRemovingHiddenData`:
@@ -55,7 +55,7 @@ Appen kjører validatorene samtidig. En validator skal bare lese dataene, ikke e
 
 Du har to valg:
 
-- `IValidator` er hovedgrensesnittet for validering. Validatoren får tilgang til alle dataene i steget, og du bestemmer selv hvilke endringer som gjør at den skal kjøre. Bruk den når regelen trenger data fra flere datamodeller, eller når du vil ha full kontroll.
+- `IValidator` er hovedgrensesnittet for validering. Validatoren får tilgang til alle dataene i oppgaven, og du bestemmer selv hvilke endringer som gjør at den skal kjøre. Bruk den når regelen trenger data fra flere datamodeller, eller når du vil ha full kontroll.
 - `GenericFormDataValidator<T>` er en ferdig klasse som gjør det enklere å validere én datamodell. Appen gir deg dataene som riktig modelltype og lager feltstien til meldingene for deg.
 
 Appen har også eldre grensesnitt som fortsatt virker. Se [Eldre valideringsgrensesnitt](#eldre-valideringsgrensesnitt).
@@ -64,7 +64,7 @@ Appen har også eldre grensesnitt som fortsatt virker. Se [Eldre valideringsgren
 
 `IValidator` får tilgang til alle dataene i instansen gjennom `dataAccessor`.
 
-Eksempelet under sjekker at summen i budsjettet ikke er høyere enn beløpet brukeren søker om. Budsjettet og søknaden er to datatyper i samme steg:
+Eksempelet under sjekker at summen i budsjettet ikke er høyere enn beløpet brukeren søker om. Budsjettet og søknaden er to datatyper i samme oppgave:
 
 ```csharp
 using Altinn.App.Core.Features;
@@ -77,7 +77,7 @@ namespace Altinn.App.Logic.Validation;
 
 public class BudsjettValidator : IValidator
 {
-    // ID-en til steget validatoren skal kjøre i. Bruk "*" for å kjøre i alle steg.
+    // ID-en til oppgaven validatoren skal kjøre i. Bruk "*" for å kjøre i alle oppgaver.
     public string TaskId => "Task_1";
 
     // language er språket brukeren har valgt. Du trenger den bare hvis du lager
@@ -143,7 +143,7 @@ using Altinn.Platform.Storage.Interface.Models;
 namespace Altinn.App.Logic.Validation;
 
 // "soknad" er ID-en til datatypen i applicationmetadata.json.
-// Validatoren kjører bare i steget datatypen hører til.
+// Validatoren kjører bare i oppgaven datatypen hører til.
 public class PeriodeValidator() : GenericFormDataValidator<Soknad>("soknad")
 {
     // Sjekken er rask, så validatoren kan kjøre ved hver lagring.
@@ -212,7 +212,7 @@ En valideringsmelding er et `ValidationIssue`-objekt. Disse egenskapene er de vi
 | `Field` | Feltstien i datamodellen som meldingen gjelder |
 | `DataElementId` | ID-en til dataelementet som meldingen gjelder |
 | `Code` | En kort, fast kode for typen feil, for eksempel `FristUtlopt`. Brukeren ser den ikke. |
-| `Description` | En tekst som appen bruker hvis du ikke har satt `CustomTextKey` (om den ikke settes, brukes oversettelses systemet automatisk) |
+| `Description` | En tekst som appen bruker hvis du ikke har satt `CustomTextKey`. |
 
 Appen setter `Source` selv. Du skal ikke sette den.
 
@@ -225,7 +225,7 @@ Appen setter `Source` selv. Du skal ikke sette den.
 | `Informational` | En informasjonsmelding | Nei |
 | `Success` | En bekreftelse | Nei |
 
-Advarsler, informasjon og bekreftelser er [_myke valideringer_]({{< relref "/altinn-studio/v9/develop-a-service/data/validation" >}}#myke-valideringer). Bruk dem for å be brukeren dobbeltsjekke en verdi som virker feil, men som ikke er ugyldig. Appen viser myke valideringer bare ved et felt, så de må ha `Field`, og med `IValidator` også `DataElementId`.
+Advarsler, informasjon og bekreftelser er [_myke valideringer_]({{< relref "/altinn-studio/v9/develop-a-service/data/validation" >}}#myke-valideringer). Bruk dem for å be brukeren kontrollere en verdi som virker feil, men som ikke er ugyldig. Appen viser myke valideringer bare ved et felt, så de må ha `Field`, og med `IValidator` også `DataElementId`.
 
 ### Knytte meldingen til et felt
 
@@ -255,7 +255,7 @@ App/config/texts/resource.nb.json
 }
 ```
 
-Vil du sette inn verdier i teksten, legger du dem i `CustomTextParameters` og bruker `variables` med `"dataSource": "customTextParameters"` i tekstressursen. Variablene setter du inn med `{0}`, `{1}` og så videre, i samme rekkefølge som i `variables`:
+Vil du sette inn verdier i teksten, legger du dem i `CustomTextParameters`. Bruk deretter `variables` med `"dataSource": "customTextParameters"` i tekstressursen. Variablene setter du inn med `{0}`, `{1}` og så videre, i samme rekkefølge som i `variables`:
 
 ```csharp
 CustomTextKey = "validering.budsjett.over-sokt-belop",
@@ -276,7 +276,7 @@ App/config/texts/resource.nb.json
 }
 ```
 
-Hvilke datakilder  (`dataSource`) som er støttet vil kunne variere med stedet teksten vises. `Description` blir automatisk oversatt (om du ikke selv har satt den til noe annet enn `null`). 
+Hvilke datakilder (`dataSource`) du kan bruke, avhenger av hvor teksten vises. Appen oversetter `Description` automatisk, med mindre du selv har satt den til noe annet enn `null`.
 
 ## Når appen kjører validatorene
 
@@ -284,24 +284,24 @@ Hvilke datakilder  (`dataSource`) som er støttet vil kunne variere med stedet t
 
 Når brukeren åpner skjemaet, kjører appen de samme validatorene som ved lagring, slik at brukeren ser meldingene med en gang.
 
-Påkrevde felt, validering med uttrykk og datamodellen sjekker nettleseren selv mens brukeren fyller ut, så ved lagring hopper serveren over dem. Serveren kjører dem når brukeren går videre i prosessen. Gir nettleseren og serveren ulikt svar, kan brukeren få en feil ved innsending som hen ikke så mens hen fylte ut.
+Nettleseren sjekker selv påkrevde felt, validering med uttrykk og datamodellen mens brukeren fyller ut, så serveren hopper over dem ved lagring. Serveren kjører dem når brukeren går videre i prosessen. Gir nettleseren og serveren ulikt svar, kan brukeren få en feil ved innsending som brukeren ikke så under utfyllingen.
 
 ### Når brukeren går videre i prosessen
 
-Når brukeren går til neste steg, kjører appen alle validatorene for steget. Hvis minst én validator gir en feil med alvorlighetsgrad `Error`, får ikke brukeren gå videre.
+Når brukeren går til neste oppgave, kjører appen alle validatorene for oppgaven. Hvis minst én validator gir en feil med alvorlighetsgrad `Error`, får ikke brukeren gå videre.
 
 Appen hopper over valideringen når
 
-- brukeren avviser steget med handlingen `reject`, og avvisning er tillatt for steget i prosessen
-- steget er en [systemoppgave]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks" >}}) som appen kjører uten bruker
+- brukeren avviser oppgaven med handlingen `reject`, og avvisning er tillatt for oppgaven i prosessen
+- prosessen er i en [systemoppgave]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks" >}}) som appen kjører uten bruker
 
-Appen kjører valideringen _etter_ en eventuell handling brukeren har valgt, for eksempel `sign` eller `confirm`, fordi resultatet av handlingen kan avgjøre om valideringen går gjennom. Feiler valideringen, har handlingen likevel skjedd. Brukeren har for eksempel signert, men kommer ikke videre før hen har rettet feilene.
+Appen kjører valideringen _etter_ en eventuell handling brukeren har valgt, for eksempel `sign` eller `confirm`, fordi resultatet av handlingen kan avgjøre om valideringen går gjennom. Feiler valideringen, har handlingen likevel skjedd. Brukeren har for eksempel signert, men kommer ikke videre før brukeren har rettet feilene.
 
-### Når andre sluttbrukersystemer bruker API-et
+### Når sluttbrukersystemer bruker API-et
 
-For enkelte skjema vil regnskapssystem eller annen programvare ha utviklet en direkte integrasjon for å kunne sende inn skjema på vegne av bruker. Et slikt system kan be appen om å validere instansen med [validerings-API-et]({{< relref "/api/apps/validation" >}}). Appen kjører da alle validatorene for steget instansen står i. Når systemet ber appen gå videre i prosessen, validerer appen på samme måte som når en bruker gjør det.
+Noen regnskapssystemer og annen programvare har en egen integrasjon som sender inn skjema på vegne av brukeren. Et slikt sluttbrukersystem kan be appen om å validere instansen med [validerings-API-et]({{< relref "/api/apps/validation" >}}). Appen kjører da alle validatorene for oppgaven instansen står i. Når sluttbrukersystemet ber appen gå videre i prosessen, validerer appen på samme måte som når en bruker gjør det.
 
-Når systemet lagrer data, får det ikke alltid valideringsresultatet tilbake. Bruk validerings-API-et for å få alle meldingene.
+Når sluttbrukersystemet lagrer data, får det ikke alltid valideringsresultatet tilbake. Bruk validerings-API-et for å få alle meldingene.
 
 ## Eldre valideringsgrensesnitt
 
@@ -315,13 +315,13 @@ Appen støtter fortsatt grensesnittene `IDataElementValidator` og `ITaskValidato
 
 Du registrerer dem på samme måte som andre validatorer, med grensesnittet som type, for eksempel `services.AddTransient<ITaskValidator, FristValidator>();`. Appen setter `DataElementId` for deg i `IDataElementValidator` og `IFormDataValidator`, men ikke i `IValidator`.
 
-`IDataElementValidator` og `ITaskValidator` har `NoIncrementalValidation` satt til `true` som standard. Appen kjører dem da ikke ved lagring, bare når brukeren går videre i prosessen eller et system ber om validering, og brukeren ser feilene først når hen prøver å sende inn. Du kan overstyre egenskapen i klassen din:
+`IDataElementValidator` og `ITaskValidator` har `NoIncrementalValidation` satt til `true` som standard. Appen kjører dem da ikke ved lagring, bare når brukeren går videre i prosessen eller et sluttbrukersystem ber om validering, og brukeren ser feilene først når brukeren prøver å sende inn. Du kan overstyre egenskapen i klassen din:
 
 ```csharp
 public bool NoIncrementalValidation => false;
 ```
 
-Da kjører appen validatoren ved hver lagring, og brukeren ser meldinger med `Field` ved feltet med en gang. Meldinger uten `Field` viser appen uansett ikke før brukeren prøver å sende inn. Disse grensesnittene har ingen `HasRelevantChanges`, så appen kjører validatoren hver gang, uansett hva brukeren har endret. Gjør den derfor bare dette for validatorer som er raske.
+Da kjører appen validatoren ved hver lagring, og brukeren ser meldinger med `Field` ved feltet med en gang. Meldinger uten `Field` viser appen uansett ikke før brukeren prøver å sende inn. Disse grensesnittene har ingen `HasRelevantChanges`, så appen kjører validatoren hver gang, uansett hva brukeren har endret. Gjør derfor dette bare for validatorer som er raske.
 
 ## Gå over fra IInstanceValidator
 
@@ -344,12 +344,12 @@ Tekstnøklene `soft_validation.info_title`, `soft_validation.warning_title` og `
 | Problem | Mulig årsak |
 | --- | --- |
 | Validatoren kjører ikke | Validatoren er ikke registrert i `Program.cs`, eller den er registrert uten grensesnittet som type. Appen finner bare validatorer som er registrert med grensesnittet.<br>Feil: `services.AddTransient<BudsjettValidator>();`<br>Riktig: `services.AddTransient<IValidator, BudsjettValidator>();`<br>Feil: `services.AddTransient<PeriodeValidator>();`<br>Riktig: `services.AddTransient<IFormDataValidator, PeriodeValidator>();` |
-| Validatoren kjører ikke i steget brukeren står i | `TaskId` eller `DataType` hører til et annet steg |
+| Validatoren kjører ikke i oppgaven brukeren står i | `TaskId` eller `DataType` hører til en annen oppgave |
 | Appen svarer med en serverfeil når brukeren lagrer eller sender inn | `DataType` på validatoren finnes ikke i `applicationmetadata.json`, eller validatoren kaster et unntak |
 | Meldingen vises ikke ved feltet | `Field` stemmer ikke nøyaktig med `dataModelBindings`, eller `DataElementId` mangler |
 | Meldingen vises først når brukeren prøver å sende inn | Validatoren har `NoIncrementalValidation = true`, som er standard for de eldre grensesnittene `ITaskValidator` og `IDataElementValidator`, eller meldingen mangler `Field` |
 | Brukeren ser tekstnøkkelen i stedet for teksten | Tekstnøkkelen mangler i tekstressursene for språket brukeren har valgt |
 | Meldingen begynner med `*WARNING*` eller et annet prefiks | Prefiksene virker bare i `IInstanceValidator`. Sett `Severity` i stedet. |
-| Brukeren ser feil for felt hen ikke har fylt ut ennå | En validator slår til på tomme verdier. Vanligvis lar du validatoren godta `null` og `""`, og bruker `required` for å sjekke at feltet er fylt ut. |
+| Brukeren ser feil for felt brukeren ikke har fylt ut ennå | En validator slår til på tomme verdier. Vanligvis lar du validatoren godta `null` og `""`, og bruker `required` for å sjekke at feltet er fylt ut. |
 | Meldinger fra to validatorer blander seg eller forsvinner | To validatorer har samme `ValidationSource`, for eksempel fordi samme klasse er registrert to ganger |
 | En skjult komponent stopper innsendingen | Validatoren sjekker skjulte felt. Se [Slik er valideringen bygget opp](#slik-er-valideringen-bygget-opp). |
