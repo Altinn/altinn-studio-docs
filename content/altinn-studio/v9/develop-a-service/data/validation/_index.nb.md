@@ -129,7 +129,7 @@ Validatorer i C# som bare kjører ved innsending, er ikke med i noen av typene. 
 
 ## Myke valideringer
 
-Myke valideringer er valideringsmeldinger som ikke stopper brukeren fra å sende inn eller gå videre til neste oppgave i prosessen. Du kan bruke dem til å be brukeren dobbeltsjekke en verdi som virker feil, men som ikke er ugyldig, eller til å gi nyttig informasjon for resten av utfyllingen.
+Myke valideringer er valideringsmeldinger som ikke stopper brukeren fra å sende inn eller gå videre til neste oppgave i prosessen. Du kan bruke dem til å be brukeren kontrollere en verdi som virker feil, men som ikke er ugyldig, eller til å gi nyttig informasjon for resten av utfyllingen.
 
 Det finnes tre typer myke valideringer: advarsel, informasjon og bekreftelse. Du lager dem ved å sette alvorlighetsgraden på valideringen, enten i [validering med uttrykk]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/expression-validation" >}}) eller i [en validator i C#]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/csharp" >}}#alvorlighetsgrad).
 

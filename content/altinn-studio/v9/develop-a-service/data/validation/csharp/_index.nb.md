@@ -225,7 +225,7 @@ Appen setter `Source` selv. Du skal ikke sette den.
 | `Informational` | En informasjonsmelding | Nei |
 | `Success` | En bekreftelse | Nei |
 
-Advarsler, informasjon og bekreftelser er [_myke valideringer_]({{< relref "/altinn-studio/v9/develop-a-service/data/validation" >}}#myke-valideringer). Bruk dem for å be brukeren dobbeltsjekke en verdi som virker feil, men som ikke er ugyldig. Appen viser myke valideringer bare ved et felt, så de må ha `Field`, og med `IValidator` også `DataElementId`.
+Advarsler, informasjon og bekreftelser er [_myke valideringer_]({{< relref "/altinn-studio/v9/develop-a-service/data/validation" >}}#myke-valideringer). Bruk dem for å be brukeren kontrollere en verdi som virker feil, men som ikke er ugyldig. Appen viser myke valideringer bare ved et felt, så de må ha `Field`, og med `IValidator` også `DataElementId`.
 
 ### Knytte meldingen til et felt
 
