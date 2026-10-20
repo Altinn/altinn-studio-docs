@@ -6,7 +6,7 @@ toc: true
 
 Med validering kontrollerer appen at dataene brukeren fyller inn, er gyldige. Brukeren ser en melding ved feltet som er feil, og får ikke sende inn før feilene er rettet.
 
-Appen validerer både i nettleseren og på serveren. I nettleseren får brukerne raske tilbakemeldinger mens de fyller ut. På serveren kjører appen valideringene før brukeren får gå videre i prosessen. Det gjelder også når et annet system sender data rett til API-et til appen, uten å gå gjennom nettleseren. Noen av valideringene på serveren må du slå på selv. Se [Validering på serveren](#validering-på-serveren).
+Appen validerer både i nettleseren og på serveren. I nettleseren får brukerne raske tilbakemeldinger mens de fyller ut. På serveren kjører appen valideringene før brukeren får gå videre i prosessen. Det gjelder også når et sluttbrukersystem sender data rett til API-et til appen, uten å gå gjennom nettleseren. Noen av valideringene på serveren må du slå på selv. Se [Validering på serveren](#validering-på-serveren).
 
 ## Velge fremgangsmåte
 
@@ -138,7 +138,7 @@ Slik ser de tre typene ut:
 
 ## Validering på serveren
 
-Appen kjører valideringene på serveren før brukeren får gå videre i prosessen. Derfor kan ingen sende inn data som bryter reglene, heller ikke andre systemer som bruker API-et til appen. Påkrevde felt og validering med uttrykk sjekker serveren likevel bare hvis du har slått dem på. Vi anbefaler å slå på begge. Serveren sjekker påkrevde felt bare i oppgaver som har et layoutsett.
+Appen kjører valideringene på serveren før brukeren får gå videre i prosessen. Derfor kan ingen sende inn data som bryter reglene, heller ikke sluttbrukersystemer som bruker API-et til appen. Påkrevde felt og validering med uttrykk sjekker serveren likevel bare hvis du har slått dem på. Vi anbefaler å slå på begge. Serveren sjekker påkrevde felt bare i oppgaver som har et layoutsett.
 
 {{% notice info %}}
 I v9 er `RequiredValidation` og `ExpressionValidation` slått på som standard.

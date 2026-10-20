@@ -8,7 +8,7 @@ tags: [needsReview]
 
 Med validering kontrollerer appen at dataene brukeren fyller inn, er gyldige. Brukeren ser en melding ved feltet som er feil, og får ikke sende inn før feilene er rettet.
 
-Appen validerer både i nettleseren og på serveren. I nettleseren får brukerne raske tilbakemeldinger mens de fyller ut. På serveren kjører appen alle valideringene før brukeren får gå videre i prosessen. Det gjelder også når et annet system sender data rett til API-et til appen, uten å gå gjennom nettleseren.
+Appen validerer både i nettleseren og på serveren. I nettleseren får brukerne raske tilbakemeldinger mens de fyller ut. På serveren kjører appen alle valideringene før brukeren får gå videre i prosessen. Det gjelder også når et sluttbrukersystem sender data rett til API-et til appen, uten å gå gjennom nettleseren.
 
 ## Velge fremgangsmåte
 
@@ -143,7 +143,7 @@ Slik ser de tre typene ut:
 
 ## Validering på serveren
 
-Appen kjører alltid valideringene på serveren før brukeren får gå videre i prosessen. Derfor kan ingen sende inn data som bryter reglene, heller ikke andre systemer som bruker API-et til appen.
+Appen kjører alltid valideringene på serveren før brukeren får gå videre i prosessen. Derfor kan ingen sende inn data som bryter reglene, heller ikke sluttbrukersystemer som bruker API-et til appen.
 
 ### Innebygde valideringer
 

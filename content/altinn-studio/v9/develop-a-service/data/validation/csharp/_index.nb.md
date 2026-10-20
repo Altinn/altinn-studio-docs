@@ -17,7 +17,7 @@ En validator er en klasse i C# som tar i bruk et av valideringsgrensesnittene ti
 Appen validerer på to måter:
 
 - **Ved hver lagring** kjører appen bare validatorene som kan ha fått et nytt resultat. Nettleseren lagrer endringene fortløpende mens brukeren fyller ut, så dette skjer ofte. Vi kaller det _inkrementell validering_.
-- **Når brukeren går videre i prosessen**, eller når et system ber om det, kjører appen alle validatorene for oppgaven.
+- **Når brukeren går videre i prosessen**, eller når et sluttbrukersystem ber om det, kjører appen alle validatorene for oppgaven.
 
 Hver validator har en `ValidationSource`, som er et unikt navn på validatoren. Appen merker alle meldingene fra validatoren med dette navnet. Nettleseren holder en liste med meldinger for hver `ValidationSource`. Når en validator kjører på nytt, erstatter nettleseren hele listen fra den validatoren med de nye meldingene. Meldinger fra validatorer som ikke kjørte, beholder nettleseren som de var. Standardverdien er det fulle klassenavnet sammen med oppgaven eller datatypen, og den trenger du sjelden å endre. Har to validatorer samme `ValidationSource`, blander meldingene deres seg.
 
@@ -36,7 +36,7 @@ Noen egenskaper på validatoren styrer hvordan appen kjører den:
 | Egenskap | Standard | Betydning |
 | --- | --- | --- |
 | `TaskId` eller `DataType` | Ingen | Hvilken oppgave eller hvilken datatype validatoren gjelder. Med `"*"` gjelder den alle. |
-| `NoIncrementalValidation` | `false` | Med `true` kjører appen ikke validatoren ved lagring, bare når brukeren går videre eller et system ber om validering. Brukeren ser da feilene først når brukeren prøver å sende inn. |
+| `NoIncrementalValidation` | `false` | Med `true` kjører appen ikke validatoren ved lagring, bare når brukeren går videre eller et sluttbrukersystem ber om validering. Brukeren ser da feilene først når brukeren prøver å sende inn. |
 | `ShouldRunAfterRemovingHiddenData` | `false` | Med `true` får validatoren dataene uten felt som er skjult for brukeren. Da stopper ikke skjulte felt innsendingen. |
 
 Som standard validerer appen også felt som er skjult for brukeren. Vil du at validatoren bare skal se synlige data, overstyrer du `ShouldRunAfterRemovingHiddenData`:
@@ -297,11 +297,11 @@ Appen hopper over valideringen når
 
 Appen kjører valideringen _etter_ en eventuell handling brukeren har valgt, for eksempel `sign` eller `confirm`, fordi resultatet av handlingen kan avgjøre om valideringen går gjennom. Feiler valideringen, har handlingen likevel skjedd. Brukeren har for eksempel signert, men kommer ikke videre før brukeren har rettet feilene.
 
-### Når andre sluttbrukersystemer bruker API-et
+### Når sluttbrukersystemer bruker API-et
 
-For enkelte skjema vil regnskapssystem eller annen programvare ha utviklet en direkte integrasjon for å kunne sende inn skjema på vegne av bruker. Et slikt system kan be appen om å validere instansen med [validerings-API-et]({{< relref "/api/apps/validation" >}}). Appen kjører da alle validatorene for oppgaven instansen står i. Når systemet ber appen gå videre i prosessen, validerer appen på samme måte som når en bruker gjør det.
+For enkelte skjema vil regnskapssystem eller annen programvare ha utviklet en direkte integrasjon for å kunne sende inn skjema på vegne av bruker. Et slikt sluttbrukersystem kan be appen om å validere instansen med [validerings-API-et]({{< relref "/api/apps/validation" >}}). Appen kjører da alle validatorene for oppgaven instansen står i. Når sluttbrukersystemet ber appen gå videre i prosessen, validerer appen på samme måte som når en bruker gjør det.
 
-Når systemet lagrer data, får det ikke alltid valideringsresultatet tilbake. Bruk validerings-API-et for å få alle meldingene.
+Når sluttbrukersystemet lagrer data, får det ikke alltid valideringsresultatet tilbake. Bruk validerings-API-et for å få alle meldingene.
 
 ## Eldre valideringsgrensesnitt
 
@@ -315,7 +315,7 @@ Appen støtter fortsatt grensesnittene `IDataElementValidator` og `ITaskValidato
 
 Du registrerer dem på samme måte som andre validatorer, med grensesnittet som type, for eksempel `services.AddTransient<ITaskValidator, FristValidator>();`. Appen setter `DataElementId` for deg i `IDataElementValidator` og `IFormDataValidator`, men ikke i `IValidator`.
 
-`IDataElementValidator` og `ITaskValidator` har `NoIncrementalValidation` satt til `true` som standard. Appen kjører dem da ikke ved lagring, bare når brukeren går videre i prosessen eller et system ber om validering, og brukeren ser feilene først når brukeren prøver å sende inn. Du kan overstyre egenskapen i klassen din:
+`IDataElementValidator` og `ITaskValidator` har `NoIncrementalValidation` satt til `true` som standard. Appen kjører dem da ikke ved lagring, bare når brukeren går videre i prosessen eller et sluttbrukersystem ber om validering, og brukeren ser feilene først når brukeren prøver å sende inn. Du kan overstyre egenskapen i klassen din:
 
 ```csharp
 public bool NoIncrementalValidation => false;

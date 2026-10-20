@@ -15,7 +15,7 @@ A validator is a C# class that implements one of the app's validation interfaces
 The app validates in two ways:
 
 - **On every save**, the app only runs the validators that may have a new result. The browser saves changes continuously while the user fills in the form, so this happens often. We call this _incremental validation_.
-- **When the user moves on in the process**, or when a system asks for it, the app runs all the validators for the task.
+- **When the user moves on in the process**, or when an end user system asks for it, the app runs all the validators for the task.
 
 Each validator has a `ValidationSource`, which is a unique name for the validator. The app labels all messages from the validator with this name. The browser keeps a list of messages for each `ValidationSource`. When a validator runs again, the browser replaces the whole list from that validator with the new messages. The browser keeps the messages from validators that did not run as they were. The default value is the full class name together with the task or data type, and you rarely need to change it. If two validators have the same `ValidationSource`, their messages get mixed up.
 
@@ -34,7 +34,7 @@ Some properties on the validator control how the app runs it:
 | Property | Default | Meaning |
 | --- | --- | --- |
 | `TaskId` or `DataType` | None | Which task or data type the validator applies to. With `"*"` it applies to all. |
-| `NoIncrementalValidation` | `false` | With `true`, the app does not run the validator on save, only when the user moves on or a system asks for validation. The user then sees the errors only when they try to submit. |
+| `NoIncrementalValidation` | `false` | With `true`, the app does not run the validator on save, only when the user moves on or an end user system asks for validation. The user then sees the errors only when they try to submit. |
 | `ShouldRunAfterRemovingHiddenData` | `false` | With `true`, the validator gets the data without fields that are hidden from the user. Hidden fields then do not stop the submission. |
 
 By default, the app also validates fields that are hidden from the user. If you want the validator to see only visible data, override `ShouldRunAfterRemovingHiddenData`:
@@ -307,11 +307,11 @@ The app skips validation when
 
 The app runs the validation _after_ any action the user has chosen, for example `sign` or `confirm`, because the result of the action can decide whether the validation passes. If the validation fails, the action has still happened. For example, the user has signed but cannot move on until they have fixed the errors.
 
-### When other end-user systems use the API
+### When end user systems use the API
 
-For some forms, accounting systems or other software have a direct integration that submits the form on behalf of the user. Such a system can ask the app to validate the instance with the [validation API]({{< relref "/api/apps/validation" >}}). The app then runs all the validators for the task the instance is in. When the system asks the app to move on in the process, the app validates in the same way as when a user does it.
+For some forms, accounting systems or other software have a direct integration that submits the form on behalf of the user. Such an end user system can ask the app to validate the instance with the [validation API]({{< relref "/api/apps/validation" >}}). The app then runs all the validators for the task the instance is in. When the end user system asks the app to move on in the process, the app validates in the same way as when a user does it.
 
-When the system saves data, it does not always get the validation result back. Use the validation API to get all the messages.
+When the end user system saves data, it does not always get the validation result back. Use the validation API to get all the messages.
 
 ## Older validation interfaces
 
@@ -325,7 +325,7 @@ The app still supports the `IDataElementValidator` and `ITaskValidator` interfac
 
 You register them in the same way as other validators, with the interface as the type, for example `services.AddTransient<ITaskValidator, DeadlineValidator>();`. The app sets `DataElementId` for you in `IDataElementValidator` and `IFormDataValidator`, but not in `IValidator`.
 
-`IDataElementValidator` and `ITaskValidator` have `NoIncrementalValidation` set to `true` by default. The app then does not run them on save, only when the user moves on in the process or a system asks for validation, and the user sees the errors only when they try to submit. You can override the property in your class:
+`IDataElementValidator` and `ITaskValidator` have `NoIncrementalValidation` set to `true` by default. The app then does not run them on save, only when the user moves on in the process or an end user system asks for validation, and the user sees the errors only when they try to submit. You can override the property in your class:
 
 ```csharp
 public bool NoIncrementalValidation => false;

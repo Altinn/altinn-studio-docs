@@ -6,7 +6,7 @@ toc: true
 
 With validation, the app checks that the data the user fills in is valid. The user sees a message next to the field that is wrong, and cannot submit until the errors are fixed.
 
-The app validates both in the browser and on the server. In the browser, the user gets quick feedback while filling in the form. On the server, the app runs the validations before the user can move on in the process. This also applies when another system sends data straight to the app's API, without going through the browser. Some of the validations on the server must be turned on. See [Validation on the server](#validation-on-the-server).
+The app validates both in the browser and on the server. In the browser, the user gets quick feedback while filling in the form. On the server, the app runs the validations before the user can move on in the process. This also applies when an end user system sends data straight to the app's API, without going through the browser. Some of the validations on the server must be turned on. See [Validation on the server](#validation-on-the-server).
 
 ## Choosing an approach
 
@@ -138,7 +138,7 @@ This is what the three types look like:
 
 ## Validation on the server
 
-The app runs the validations on the server before the user can move on in the process. That way nobody can submit data that breaks the rules, not even other systems that use the app's API. However, the server only checks required fields and validation using expressions if you have turned them on. We recommend turning on both. The server only checks required fields in tasks that have a layout set.
+The app runs the validations on the server before the user can move on in the process. That way nobody can submit data that breaks the rules, not even end user systems that use the app's API. However, the server only checks required fields and validation using expressions if you have turned them on. We recommend turning on both. The server only checks required fields in tasks that have a layout set.
 
 {{% notice info %}}
 In v9, `RequiredValidation` and `ExpressionValidation` are turned on by default.
