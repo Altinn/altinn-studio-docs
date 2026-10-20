@@ -16,7 +16,7 @@ Du kan bruke begge måtene i samme app. Det er ingen grense for hvor mange vedle
 
 Hver vedleggstype er en datatype i filen `App/config/applicationmetadata.json`. Datatypen bestemmer blant annet hvilke filtyper appen godtar, hvor store filene kan være og hvor mange filer brukeren kan laste opp. Skal brukerne laste opp i skjemaet, lager Altinn Studio Designer datatypen for deg når du legger til komponenten.
 
-Denne siden handler om å sette opp vedlegg, bestemme hvem som kan laste opp og slå på virusskanning. Du finner kontroll av filtyper, filstørrelser og innholdet i filene på siden om [utvidet filvalidering]({{< relref "../validation/files" >}}).
+Her får du vite hvordan du setter opp vedlegg, bestemmer hvem som kan laste opp og slår på virusskanning. Hvordan appen kontrollerer filtyper, filstørrelser og innholdet i filene, står på siden [Utvidet filvalidering]({{< relref "../validation/files" >}}).
 
 ## Ta imot vedlegg i skjemaet
 
@@ -24,10 +24,10 @@ Du legger til komponenten `FileUpload` i Designer. Du kan bruke flere vedleggsko
 
 Her er de viktigste valgene:
 
-- **Filtyper:** Du kan begrense hvilke filtyper brukerne kan laste opp. Brukeren får en feilmelding hvis de prøver å laste opp en annen filtype.
-- **Antall filer:** Du setter hvor mange filer brukeren minst og maks kan laste opp.
-- **Filstørrelse:** Du setter største filstørrelse i MB.
-- **Merking:** Du kan la brukeren merke hver fil, for eksempel med dokumenttype, ved hjelp av en nedtrekksliste. Du setter opp merkingen med egenskapen `tagTitle` på `FileUpload` og en kodeliste med valgene.
+- **Filtyper:** Du kan begrense hvilke filtyper brukerne kan laste opp. Brukeren får en feilmelding hvis brukeren prøver å laste opp en annen filtype.
+- **Antall filer:** Du bestemmer det minste og det største antallet filer brukeren skal laste opp.
+- **Filstørrelse:** Du bestemmer hvor store filene kan være, målt i MB.
+- **Merking:** Du kan la brukeren merke hver fil, for eksempel med dokumenttype, med en nedtrekksliste. Du setter opp merkingen med egenskapen `tagTitle` på `FileUpload` og en kodeliste med valgene.
 - **Varsel ved sletting:** Med `alertOnDelete` åpner appen et varsel når brukeren klikker på **Slett**. Appen viser ikke varsel hvis du ikke setter egenskapen.
 
 [[FIX BEFORE MERGE: skjermbilde av innstillingene for FileUpload i Designer, med filtyper, antall filer og filstørrelse synlige. Filnavn: fileupload-innstillinger.png. Alt-tekst: Innstillinger for vedleggskomponenten i Altinn Studio Designer]]
@@ -61,7 +61,7 @@ App/ui/{taskId}/layouts/{page}.json
 
 ### Endre id-en til datatypen
 
-Når du bruker Designer, får datatypen en tilfeldig id (GUID). Vil du bruke et navn som er lettere å lese, må du endre id-en to steder: i `App/config/applicationmetadata.json` og i layoutfilen der komponenten ligger.
+Når du bruker Designer, får datatypen en tilfeldig kode som id (en GUID). Vil du bruke et navn som er lettere å lese, må du endre id-en to steder: i `App/config/applicationmetadata.json` og i layoutfilen der komponenten ligger.
 
 ## Ta imot vedlegg via API
 
@@ -90,7 +90,7 @@ App/config/applicationmetadata.json
 }
 ```
 
-Appen kontrollerer at datatypen hører til prosessteget (taskId) som instansen står i. Laster et system opp til en datatype som hører til et annet prosessteg, svarer appen med feilkoden 409. Kontrollen er slått på som standard.
+Appen kontrollerer at datatypen hører til prosessteget (taskId) som instansen står i. Laster et system opp til en datatype som hører til et annet prosessteg, svarer appen med feilkoden 409. Appen gjør denne kontrollen som standard.
 
 ### Egenskaper på datatypen
 
@@ -103,7 +103,7 @@ Appen kontrollerer at datatypen hører til prosessteget (taskId) som instansen s
 | `minCount`            | Laveste antall vedlegg av denne typen per instans. Er verdien 0, er det ikke obligatorisk å laste opp.                                                                                        |
 | `allowedContentTypes` | Hvilke filtyper appen godtar, oppgitt som MIME-typer, for eksempel `application/pdf`, `text/xml` og `image/jpeg`. Setter du ingen verdi, godtar appen alle filtyper.                          |
 | `allowedContributors` | Hvem som kan opprette og endre vedlegg av denne typen. Se [Bestemme hvem som kan laste opp](#bestemme-hvem-som-kan-laste-opp).                                                                 |
-| `grouping`            | Valgfritt navn på en gruppe. Vedlegg med samme gruppe havner i samme liste når du viser dem med komponenten [`AttachmentList`]({{< relref "../../look-and-feel/components/AttachmentList" >}}). Du kan bruke en tekstnøkkel hvis appen skal støtte flere språk. |
+| `grouping`            | Valgfritt navn på en gruppe. Vedlegg med samme gruppe kommer i samme liste når du viser dem med komponenten [`AttachmentList`]({{< relref "../../look-and-feel/components/AttachmentList" >}}). Du kan bruke en tekstnøkkel hvis appen skal støtte flere språk. |
 
 Du kan lese mer om MIME-typer i [oversikten fra MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
 
@@ -123,7 +123,8 @@ Før versjon 8.6 het egenskapen `allowedContributers` (med feil stavemåte). Den
 
 ## Slå på virusskanning
 
-Altinn kan skanne opplastede filer for virus. Skanningen starter rett etter at filen er lastet opp til lagringstjenesten Altinn Storage. Altinn lagrer resultatet på dataelementet litt senere, og alle som har tilgang til instansen, kan se det.
+Altinn kan skanne opplastede filer for virus. Skanningen starter rett etter at filen er lastet opp til lagringstjenesten Altinn Storage. Altinn lagrer resultatet sammen med opplysningene om filen litt senere, og alle som har tilgang til instansen, kan se det.
+
 Når du bruker Designer til å lage datatyper for vedleggskomponenter, slår Designer på virusskanning som standard. Lager du datatypene selv, for eksempel for opplasting via API, må du slå på skanningen selv.
 
 Du slår på skanningen per datatype med `enableFileScan`. Finner skanningen virus før prosessen er ferdig, får brukeren en valideringsfeil og kan ikke gå videre.
@@ -178,5 +179,5 @@ Altinn sletter ikke infiserte filer. Filen blir liggende på instansen, og bruke
 - Hvilke vedleggstyper har tjenesten, og er filtyper, filstørrelser og antall filer riktige for hver av dem?
 - Hvilke systemer skal laste opp via API, og står de i `allowedContributors`?
 - Er virusskanning slått på for alle vedleggstypene, også de vi har laget uten Designer?
-- Skal brukeren vente på skanningen før innsending (`validationErrorOnPendingFileScan`)?
+- Skal brukeren vente på at skanningen blir ferdig før brukeren kan sende inn (`validationErrorOnPendingFileScan`)?
 - Er opplasting obligatorisk der den skal være det? Bruker vi `minNumberOfAttachments`, ikke `required`?
