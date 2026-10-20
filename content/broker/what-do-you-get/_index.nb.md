@@ -35,7 +35,7 @@ Avsender bestemmer hvor lenge filen vil kunne lastes ned av mottaker. Etter denn
 - 'FileTransferTimeToLive': Hvor lenge en fil er tilgjengelig for nedlastning (default er 30 dager, maks er ett år).
 
 ### API-tilgang
-Både avsender og mottaker får tilgang til alle funksjoner via API-er. Dette gir mulighet til å integrere Altinn Formidling i egne systemer, slik at du kan automatisere dine prosesser.
+Både avsender og mottaker får tilgang til alle funksjoner via API-er. Dette gir mulighet til å integrere Altinn Formidling i egne systemer, slik at du kan automatisere dine prosesser. Personer kan også sende og motta filer i nettleseren. Se [Slik bruker du Formidling i nettleseren](/nb/broker/getting-started/web-app/).
 
 ### Integrasjoner og sky-støtte 
 Altinn Formidling søker å tilby mest mulig standardiserte integrasjoner mot andre fellesløsninger, noe som letter integrasjonen med eksisterende systemer. Løsningen tilbyr også mellomlagring for å håndtere store datamengder. Løsningen kan konfigureres til å bruke egen skyløsning for lagring, dersom dere har krav om dette. 
