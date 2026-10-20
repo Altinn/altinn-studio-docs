@@ -8,7 +8,7 @@ tags: [needsReview]
 weight: 50
 ---
 
-Denne siden er for utviklere som skriver egne valideringsregler i C#. Når brukeren ser valideringsmeldingene, står på siden [Validering]({{< relref "/altinn-studio/v9/develop-a-service/data/validation" >}}#når-brukeren-ser-valideringsmeldingene).
+Denne siden er for utviklere som skriver egne valideringsregler i C#. Hvor og når brukeren ser meldingene, finner du på siden [Validering]({{< relref "/altinn-studio/v9/develop-a-service/data/validation" >}}#når-brukeren-ser-valideringsmeldingene).
 
 En validator er en klasse i C# som tar i bruk et av valideringsgrensesnittene til appen. Et grensesnitt er en fast oppskrift på hvilke metoder klassen skal ha, slik at appen vet hvordan den skal kalle den.
 
@@ -160,7 +160,7 @@ public class PeriodeValidator() : GenericFormDataValidator<Soknad>("soknad")
         // komponenten som sjekker om feltet er fylt ut.
         if (data.Periode?.Start is { } start
             && data.Periode?.Slutt is { } slutt
-            && slutt < start)
+            && slutt <= start)
         {
             // Det første argumentet peker på feltet, og appen lager feltstien for deg.
             // Det andre argumentet er tekstnøkkelen til feilmeldingen.
@@ -208,7 +208,7 @@ En valideringsmelding er et `ValidationIssue`-objekt. Disse egenskapene er de vi
 | `Field` | Feltstien i datamodellen som meldingen gjelder |
 | `DataElementId` | ID-en til dataelementet som meldingen gjelder |
 | `Code` | En kort, fast kode for typen feil, for eksempel `FristUtlopt`. Brukeren ser den ikke. |
-| `Description` | En tekst som appen bruker hvis du ikke har satt `CustomTextKey` |
+| `Description` | En tekst som appen bruker hvis du ikke har satt `CustomTextKey` (om den ikke settes, brukes oversettelses systemet automatisk) |
 
 Appen setter `Source` selv. Du skal ikke sette den.
 
@@ -268,9 +268,7 @@ CustomTextParameters = new() { ["belop"] = $"{soknad.SoktBelop}" },
 }
 ```
 
-I nettleseren virker også variabler med andre datakilder, for eksempel `dataModel.*`. Serveren lager i tillegg en ferdig tekst i `Description` for systemer som bruker API-et, og der virker bare `customTextParameters`. Skal meldingen være riktig også for andre systemer, legger du verdiene i `CustomTextParameters`.
-
-Finner ikke appen tekstnøkkelen, ser brukeren selve nøkkelen, også hvis du har satt `Description`. Sjekk derfor at nøkkelen finnes i alle språkfilene.
+Hvilke datakilder  (`dataSource`) som er støttet vil kunne variere med stedet teksten vises. `Description` blir automatisk oversatt (om du ikke selv har satt den til noe annet enn `null`). 
 
 ## Når appen kjører validatorene
 
@@ -287,13 +285,13 @@ Når brukeren går til neste steg, kjører appen alle validatorene for steget. H
 Appen hopper over valideringen når
 
 - brukeren avviser steget med handlingen `reject`, og avvisning er tillatt for steget i prosessen
-- steget er et [tjenestesteg]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks" >}}) som appen kjører uten bruker
+- steget er en [systemoppgave]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks" >}}) som appen kjører uten bruker
 
 Appen kjører valideringen _etter_ en eventuell handling brukeren har valgt, for eksempel `sign` eller `confirm`, fordi resultatet av handlingen kan avgjøre om valideringen går gjennom. Feiler valideringen, har handlingen likevel skjedd. Brukeren har for eksempel signert, men kommer ikke videre før hen har rettet feilene.
 
-### Når andre systemer bruker API-et
+### Når andre sluttbrukersystemer bruker API-et
 
-Et annet system kan be appen om å validere instansen med [validerings-API-et]({{< relref "/api/apps/validation" >}}). Appen kjører da alle validatorene for steget instansen står i. Når systemet ber appen gå videre i prosessen, validerer appen på samme måte som når en bruker gjør det.
+For enkelte skjema vil regnskapssystem eller annen programvare ha utviklet en direkte integrasjon for å kunne sende inn skjema på vegne av bruker. Et slikt system kan be appen om å validere instansen med [validerings-API-et]({{< relref "/api/apps/validation" >}}). Appen kjører da alle validatorene for steget instansen står i. Når systemet ber appen gå videre i prosessen, validerer appen på samme måte som når en bruker gjør det.
 
 Når systemet lagrer data, får det ikke alltid valideringsresultatet tilbake. Bruk validerings-API-et for å få alle meldingene.
 

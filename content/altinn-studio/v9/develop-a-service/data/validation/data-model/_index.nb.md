@@ -23,7 +23,7 @@ Et eksempel på hvordan du kan definere et felt i JSON Schema datamodellen:
 ```json
 "someField": {
   "type": "string",
-  "maxLength": "4"
+  "maxLength": 4
 }
 ```
 
@@ -89,6 +89,6 @@ du skal kunne sette opp egendefinerte feilmeldinger via datamodelleringsverktøy
 
 ## Begrensningene på serveren
 
-Appen sjekker også begrensningene på serveren, gjennom attributtene på C#-modellen, for eksempel `[Range]`, `[MaxLength]` og `[RegularExpression]`. Både C#-modellen og JSON Schema lager Altinn Studio fra XSD-en, så de har vanligvis de samme reglene. Endrer du JSON Schema for hånd, sjekker serveren ikke den endringen.
+Appen sjekker også begrensningene på serveren, gjennom attributtene på C#-modellen, for eksempel `[Range]`, `[MaxLength]` og `[RegularExpression]`. Altinn Studio genererer både C#-modellen og JSON Schema fra XSD-en, så de har vanligvis de samme reglene. Endrer du JSON Schema for hånd, sjekker serveren ikke den endringen.
 
 Vil du at serveren skal sjekke skjemadataene mot hele XSD-en, kan du slå på innstillingen `XsdValidation`. Se [Validering på serveren]({{< relref "/altinn-studio/v9/develop-a-service/data/validation" >}}#validering-på-serveren).
