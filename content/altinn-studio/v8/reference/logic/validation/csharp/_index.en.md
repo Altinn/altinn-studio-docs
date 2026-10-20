@@ -62,11 +62,11 @@ The app also has older interfaces that still work. See [Older validation interfa
 
 `IValidator` has access to all the data in the instance through `dataAccessor`.
 
-The example below checks that the total in the budget is not higher than the amount the user applies for. The budget and the grant application are two data types in the same task:
-
 {{% notice info %}}
 In v9, the app template has implicit `using` directives and nullable turned on. You then do not need the `using` lines for the `System` namespaces, and `language` is `string?`.
 {{% /notice %}}
+
+The example below checks that the total in the budget is not higher than the amount the user applies for. The budget and the grant application are two data types in the same task:
 
 ```csharp
 using System.Collections.Generic;

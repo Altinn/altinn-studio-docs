@@ -62,11 +62,11 @@ Appen har også eldre grensesnitt som fortsatt virker. Se [Eldre valideringsgren
 
 `IValidator` får tilgang til alle dataene i instansen gjennom `dataAccessor`.
 
-Eksempelet under sjekker at summen i budsjettet ikke er høyere enn beløpet brukeren søker om. Budsjettet og søknaden er to datatyper i samme oppgave:
-
 {{% notice info %}}
 I v9 har app-malen implisitte `using`-direktiver og nullable slått på. Da trenger du ikke `using`-linjene for `System`-navnerommene, og `language` er `string?`.
 {{% /notice %}}
+
+Eksempelet under sjekker at summen i budsjettet ikke er høyere enn beløpet brukeren søker om. Budsjettet og søknaden er to datatyper i samme oppgave:
 
 ```csharp
 using System.Collections.Generic;
