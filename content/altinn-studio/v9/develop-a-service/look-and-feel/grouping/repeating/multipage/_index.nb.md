@@ -7,7 +7,9 @@ weight: 3
 tags: [needsReview]
 ---
 
-Hvis hver rad i en repeterende gruppe har mange felter, kan det bli mye rulling og dårlig oversikt for brukeren. Du kan dele feltene i raden inn i flere sider. Under utfyllingen blar brukeren mellom sidene med knappene **Neste** og **Tilbake**. Sidene finnes bare inne i raden. Resten av skjemaet endrer seg ikke når brukeren blar.
+Har hver rad mange felter, må brukeren rulle mye og mister lett oversikten. Da kan du dele feltene i raden inn i flere sider. Brukeren blar mellom sidene med knappene **Neste** og **Tilbake**.
+
+Sidene finnes bare inne i raden. Resten av skjemaet endrer seg ikke når brukeren blar.
 
 ## Del raden inn i sider
 

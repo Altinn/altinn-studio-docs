@@ -8,7 +8,7 @@ toc: true
 tags: [needsReview]
 ---
 
-En repeterende gruppe lar brukeren fylle ut de samme feltene flere ganger i skjemaet. Brukeren kan for eksempel legge til ett familiemedlem om gangen, med navn og adresse for hver person. Hver gang brukeren legger til noe nytt, lager appen en ny _rad_ i gruppen.
+En repeterende gruppe lar brukeren fylle ut de samme feltene flere ganger i skjemaet. Brukeren kan for eksempel legge til ett familiemedlem om gangen, med navn og adresse for hver person. Hver gang brukeren legger til noe nytt, lager appen en ny rad i gruppen.
 
 Brukeren ser radene i en tabell og kan legge til, endre og slette rader. Du bestemmer selv
 
@@ -25,7 +25,7 @@ En repeterende gruppe må være knyttet til en liste i datamodellen. Hvert eleme
 
 I JSON er listen en liste med objekter, der hvert objekt er én rad. I XML er listen et element som kan gjentas, der hvert element er én rad.
 
-## Eksempel
+## Eksempel på et skjema med en repeterende gruppe
 
 Skjemaet under har en repeterende gruppe som
 
@@ -101,7 +101,14 @@ App/ui/{taskId}/layouts/{page}.json
 
 Du kan legge til komponenten **Repeterende gruppe** i Altinn Studio Designer, eller skrive oppsettet direkte i layoutfilen til siden. Layoutfilene ligger i `App/ui/{taskId}/layouts/`.
 
-Den minste mulige repeterende gruppen har en ID, typen `RepeatingGroup`, en liste over komponentene i gruppen og en binding til listen i datamodellen:
+En repeterende gruppe trenger minst
+
+- en ID
+- typen `RepeatingGroup`
+- en liste over komponentene i gruppen
+- en binding til listen i datamodellen
+
+Slik ser det ut:
 
 {{< code-title >}}
 App/ui/{taskId}/layouts/{page}.json
@@ -232,7 +239,7 @@ Du kan kontrollere radene i gruppen på tre måter:
 
 - Med `minCount` bestemmer du hvor mange rader brukeren må legge til. Gruppen viser en valideringsfeil hvis den har for få rader.
 - Med `validateOnSaveRow` kontrollerer appen raden når brukeren lagrer den. Hvis raden har valideringsfeil, må brukeren rette feilene før det går an å lukke raden. Se [gruppevalidering]({{< relref "/altinn-studio/v9/develop-a-service/data/validation#gruppevalidering" >}}).
-- Med `showValidations` viser appen valideringsfeil med en gang de oppstår, i stedet for å vente til brukeren går videre. Se [enkeltfeltvalidering]({{< relref "/altinn-studio/v9/develop-a-service/data/validation#enkeltfeltvalidering" >}}).
+- Med `showValidations` viser appen valideringsfeil med en gang de oppstår. Appen venter ikke til brukeren går videre. Se [enkeltfeltvalidering]({{< relref "/altinn-studio/v9/develop-a-service/data/validation#enkeltfeltvalidering" >}}).
 
 {{< code-title >}}
 App/ui/{taskId}/layouts/{page}.json

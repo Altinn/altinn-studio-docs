@@ -7,9 +7,9 @@ weight: 4
 tags: [needsReview]
 ---
 
-Du kan la brukeren laste opp vedlegg i hver rad i en repeterende gruppe, for eksempel et bilde av hvert familiemedlem. Da må mottakeren kunne se hvilket vedlegg som hører til hvilken rad. Derfor må vedleggskomponenten i gruppen være knyttet til et felt i datamodellen. Appen fyller inn den unike ID-en til vedlegget i feltet og sender den med resten av dataene.
+Brukeren kan laste opp vedlegg i hver rad i en repeterende gruppe, for eksempel et bilde av hvert familiemedlem. Da må mottakeren kunne se hvilket vedlegg som hører til hvilken rad. Derfor må vedleggskomponenten i gruppen være knyttet til et felt i datamodellen. Appen fyller inn den unike ID-en til vedlegget i feltet og sender den med resten av dataene.
 
-Du kan også knytte et vedlegg til datamodellen utenfor en repeterende gruppe, hvis mottakeren skal ha en referanse til vedlegget sammen med skjemadataene.
+Du kan også knytte vedlegg utenfor en repeterende gruppe til datamodellen. Da får mottakeren en referanse til vedlegget sammen med skjemadataene.
 
 ![Vedlegg i en repeterende gruppe med tilhørende datamodell](attachments-demo.gif "Vedlegg i en repeterende gruppe med tilhørende datamodell")
 
@@ -74,7 +74,7 @@ App/ui/{taskId}/layouts/{page}.json
 
 ### Flere filer i samme komponent
 
-Hvis brukeren kan laste opp flere filer i samme vedleggskomponent, må feltet i datamodellen være en liste, og du bruker bindingen `list`:
+Kan brukeren laste opp flere filer i samme vedleggskomponent, må feltet i datamodellen være en liste. Da bruker du bindingen `list`:
 
 {{< code-title >}}
 App/models/{model}.xsd

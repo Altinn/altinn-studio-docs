@@ -130,11 +130,24 @@ Med `"stickyHeader": true` blir overskriftene i tabellen liggende øverst mens b
 
 ## Redigere direkte i tabellen
 
-Du kan la brukeren redigere komponenter direkte i tabellen, uten å åpne raden. Det passer for små komponenter, der det er unødvendig å åpne raden for å endre en verdi. Tabellen kan ligne på [Grid-komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Grid" >}}), men brukeren kan legge til og fjerne rader, og appen lagrer dataene i listen i datamodellen.
+Du kan la brukeren redigere komponenter direkte i tabellen, uten å åpne raden. Det passer for små komponenter, der det er unødvendig å åpne raden for å endre en verdi. Tabellen kan ligne på [Grid-komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Grid" >}}), men brukeren kan legge til og fjerne rader. Appen lagrer dataene i listen i datamodellen.
 
 ![Redigering i tabell](components-in-table.png "Redigering i tabell")
 
-Brukeren kan ikke redigere alle typer komponenter i tabellen. Disse skjemakomponentene virker i tabellen: `Input`, `TextArea`, `Number`, `Dropdown`, `MultipleSelect`, `Checkboxes`, `RadioButtons`, `Datepicker`, `TimePicker` og `ImageUpload`. Andre komponenter, for eksempel `Address` og `FileUpload`, viser bare verdien i tabellen. Brukeren må da åpne raden for å endre dem.
+Brukeren kan ikke redigere alle typer komponenter i tabellen. Disse skjemakomponentene virker i tabellen:
+
+- `Input`
+- `TextArea`
+- `Number`
+- `Dropdown`
+- `MultipleSelect`
+- `Checkboxes`
+- `RadioButtons`
+- `Datepicker`
+- `TimePicker`
+- `ImageUpload`
+
+Andre komponenter, for eksempel `Address` og `FileUpload`, viser bare verdien i tabellen. Brukeren må da åpne raden for å endre dem.
 
 ### Redigere alle felter i tabellen
 

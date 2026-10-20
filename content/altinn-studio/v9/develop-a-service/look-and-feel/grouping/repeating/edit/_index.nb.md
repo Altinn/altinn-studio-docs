@@ -47,7 +47,7 @@ App/ui/{taskId}/layouts/{page}.json
 | [`openByDefault`](#openbydefault) | `false` | Nei            | Om appen skal åpne en rad automatisk når brukeren kommer til siden.                                     |
 | [`multiPage`](#multipage) | `false`    | Nei                 | Om brukeren skal fylle ut en rad over flere sider.                                                      |
 
-Når en innstilling kan være et uttrykk, kan du bruke et [dynamisk uttrykk]({{< relref "/altinn-studio/v9/develop-a-service/expressions" >}}) i stedet for `true` eller `false`. For `editButton` og `deleteButton` vurderer appen uttrykket for hver rad, slik at du kan skjule knappene bare på noen rader.
+Når en innstilling kan være et uttrykk, kan du bruke et [dynamisk uttrykk]({{< relref "/altinn-studio/v9/develop-a-service/expressions" >}}) i stedet for `true` eller `false`. For `editButton` og `deleteButton` vurderer appen uttrykket for hver rad. Du kan altså skjule knappene på bare noen av radene.
 
 ## mode
 
@@ -70,14 +70,14 @@ Du kan endre utseendet på knappen med egenskapen `addButton` på selve gruppen,
 
 ## alwaysShowAddButton
 
-Vanligvis skjuler appen **Legg til ny**-knappen mens en rad er åpen. Med `"alwaysShowAddButton": true` ser brukeren knappen også da, slik at brukeren kan legge til flere rader uten å lagre og lukke raden først.
+Vanligvis skjuler appen **Legg til ny**-knappen mens en rad er åpen. Med `"alwaysShowAddButton": true` ser brukeren knappen også da. Brukeren kan da legge til flere rader uten å lagre og lukke raden først.
 
 Brukeren ser bare knappen hvis
 
 - `addButton` ikke er satt til `false`
 - gruppen har færre rader enn `maxCount`
 
-Innstillingen er spesielt nyttig sammen med [`openByDefault`](#openbydefault). Når appen åpner en rad automatisk, er det ikke alltid tydelig for brukeren at det går an å legge til flere.
+Innstillingen er spesielt nyttig sammen med [`openByDefault`](#openbydefault). Når appen åpner en rad automatisk, skjønner ikke alltid brukeren at det går an å legge til flere.
 
 ## editButton
 
@@ -168,7 +168,7 @@ Med `openByDefault` åpner appen en rad automatisk når brukeren kommer til side
 | `true`    | Hvis gruppen er tom, legger appen til en ny rad og åpner den. Hvis gruppen har rader fra før, åpner appen ingen rad.               |
 | `false`   | Standardverdien. Appen åpner ingen rad.                                                                                            |
 
-Med `"mode": "showAll"` er alle radene åpne fra før. Hvis gruppen er tom, legger appen likevel til en tom rad når du har satt `openByDefault` til `true`, `"first"` eller `"last"`.
+Med `"mode": "showAll"` er alle radene åpne fra før. Har du satt `openByDefault` til `true`, `"first"` eller `"last"`, legger appen likevel til en tom rad i en tom gruppe.
 
 Appen legger ikke til en ny rad hvis du har skjult **Legg til ny**-knappen med `addButton`.
 
