@@ -7,7 +7,7 @@ tags: [needsReview]
 weight: 10
 ---
 
-Et påkrevd felt er et felt brukeren må fylle ut før hen kan gå videre. Du gjør et felt påkrevd i innstillingene for komponenten i Altinn Studio Designer. I layoutfilen blir det lagret som `required` på komponenten:
+Et påkrevd felt er et felt brukeren må fylle ut før brukeren kan gå videre. Du gjør et felt påkrevd i innstillingene for komponenten i Altinn Studio Designer. I layoutfilen blir det lagret som `required` på komponenten:
 
 {{< code-title >}}
 App/ui/{taskId}/layouts/{page}.json
@@ -27,7 +27,7 @@ Verdien kan også være et [dynamisk uttrykk]({{< relref "/altinn-studio/v9/deve
 
 ## Når brukeren ser feilen
 
-Brukeren ser ikke feil for tomme påkrevde felt mens hen fyller ut skjemaet. Appen viser feilen først når brukeren prøver å sende inn, lagre en rad i en repeterende gruppe eller bytte side, hvis appen er satt opp til å sjekke ved lagring av rad eller sidebytte. Se [Når brukeren ser valideringsmeldingene]({{< relref "/altinn-studio/v9/develop-a-service/data/validation" >}}#når-brukeren-ser-valideringsmeldingene).
+Brukeren ser ikke feil for tomme påkrevde felt mens brukeren fyller ut skjemaet. Appen viser feilen først når brukeren prøver å sende inn, lagre en rad i en repeterende gruppe eller bytte side, hvis appen er satt opp til å sjekke ved lagring av rad eller sidebytte. Se [Når brukeren ser valideringsmeldingene]({{< relref "/altinn-studio/v9/develop-a-service/data/validation" >}}#når-brukeren-ser-valideringsmeldingene).
 
 Alle andre valideringer viser appen med en gang. Vanligvis lar du derfor `required` sjekke om et felt er fylt ut, og lar de andre reglene godta tomme felt.
 

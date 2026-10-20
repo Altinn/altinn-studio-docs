@@ -8,7 +8,7 @@ tags: [needsReview]
 
 Med validering kontrollerer appen at dataene brukeren fyller inn, er gyldige. Brukeren ser en melding ved feltet som er feil, og får ikke sende inn før feilene er rettet.
 
-Appen validerer både i nettleseren og på serveren. I nettleseren får brukeren raske tilbakemeldinger mens hen fyller ut. På serveren kjører appen alle valideringene før brukeren får gå videre i prosessen. Det gjelder også når et annet system sender data rett til API-et til appen, uten å gå gjennom nettleseren.
+Appen validerer både i nettleseren og på serveren. I nettleseren får brukerne raske tilbakemeldinger mens de fyller ut. På serveren kjører appen alle valideringene før brukeren får gå videre i prosessen. Det gjelder også når et annet system sender data rett til API-et til appen, uten å gå gjennom nettleseren.
 
 ## Velge fremgangsmåte
 
@@ -29,7 +29,7 @@ Valideringsreglene bestemmer hva brukeren får lov til å sende inn. Som tjenest
 
 - Hvilke regler stopper innsendingen, og hvilke er bare advarsler eller informasjon?
 - Finnes feilmeldingene på alle språkene tjenesten støtter?
-- Ser brukeren feilen ved feltet hen må rette, eller bare i oppsummeringen når hen prøver å sende inn?
+- Ser brukerne feilen ved feltet de må rette, eller bare i oppsummeringen når de prøver å sende inn?
 - Forklarer feilmeldingene hva som er feil, og hvordan brukeren retter det?
 - Henter appen opplysninger fra andre systemer for å validere? Hva skjer hvis systemet ikke svarer – kan brukeren da bli stående uten å få sendt inn?
 - Har dere testet reglene med repeterende grupper og innsending gjennom API-et? Kan et felt som er skjult for brukeren, stoppe innsendingen?
@@ -40,19 +40,19 @@ Brukeren ser valideringsmeldingene ved feltet meldingen gjelder, og i en feilopp
 
 ### Mens brukeren fyller ut
 
-Appen viser de fleste meldingene ved feltet med en gang, både når brukeren åpner skjemaet og like etter at hen har endret noe. Det gjelder både feil, advarsler og informasjon.
+Appen viser de fleste meldingene ved feltet med en gang, både når brukeren åpner skjemaet og like etter at brukeren har endret noe. Det gjelder både feil, advarsler og informasjon.
 
-Feil om [påkrevde felt]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/required" >}}) viser appen først når brukeren prøver å sende inn, eller å bytte side hvis appen er satt opp til å sjekke ved sidebytte. Da slipper brukeren å se feil for felt hen ikke har kommet til ennå. Du kan endre hvilke meldinger appen viser med en gang. Se [Velge hvilke meldinger appen viser med en gang](#velge-hvilke-meldinger-appen-viser-med-en-gang).
+Feil om [påkrevde felt]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/required" >}}) viser appen først når brukeren prøver å sende inn, eller å bytte side hvis appen er satt opp til å sjekke ved sidebytte. Da slipper brukeren å se feil for felt brukeren ikke har kommet til ennå. Du kan endre hvilke meldinger appen viser med en gang. Se [Velge hvilke meldinger appen viser med en gang](#velge-hvilke-meldinger-appen-viser-med-en-gang).
 
-Vanligvis lar du derfor `required` sjekke om et felt er fylt ut, og lar de andre reglene godta tomme felt. Da ser brukeren en feil først når hen har fylt ut noe som er feil, eller når hen prøver å gå videre uten å ha fylt ut et påkrevd felt. En regel som slår til på et tomt felt, viser feilen før brukeren har rukket å fylle ut noe.
+Vanligvis lar du derfor `required` sjekke om et felt er fylt ut, og lar de andre reglene godta tomme felt. Da ser brukeren en feil først når brukeren har fylt ut noe som er feil, eller når brukeren prøver å gå videre uten å ha fylt ut et påkrevd felt. En regel som slår til på et tomt felt, viser feilen før brukeren har rukket å fylle ut noe.
 
 ### Når brukeren prøver å gå videre
 
-Når brukeren prøver å sende inn, viser appen alle feilene som stopper hen. Feilene står ved feltene og i en feiloppsummering nederst på siden.
+Når brukeren prøver å sende inn, viser appen alle feilene som stopper brukeren. Feilene står ved feltene og i en feiloppsummering nederst på siden.
 
 Bare feil stopper brukeren. Advarsler, informasjon og bekreftelser kan brukeren lese og likevel gå videre.
 
-Noen feil ser brukeren først når hen prøver å sende inn:
+Noen feil kommer først når brukeren prøver å sende inn:
 
 - feil fra regler som bare kjører ved innsending, fordi de er tunge å kjøre eller sjekker hele steget
 - feil som ikke gjelder et bestemt felt, for eksempel at en frist har gått ut
@@ -160,7 +160,7 @@ Appen har disse valideringene innebygd:
 | Signering | At alle som skal signere, har signert | `runDefaultValidator` i signeringssteget |
 | Signerte data | At dataene ikke er endret etter at brukeren signerte | Alltid på i signeringssteg |
 
-Påkrevde felt, validering med uttrykk og datamodellen sjekker nettleseren også mens brukeren fyller ut. De andre innebygde valideringene kjører bare på serveren når brukeren går videre i prosessen. Feil fra dem ser brukeren derfor først når hen prøver å sende inn. Unntaket er filtype og filstørrelse, som appen også sjekker når brukeren laster opp en fil.
+Påkrevde felt, validering med uttrykk og datamodellen sjekker nettleseren også mens brukeren fyller ut. De andre innebygde valideringene kjører bare på serveren når brukeren går videre i prosessen. Feil fra dem ser brukeren derfor først når brukeren prøver å sende inn. Unntaket er filtype og filstørrelse, som appen også sjekker når brukeren laster opp en fil.
 
 Du slår valideringene av og på under `AppSettings` i `App/appsettings.json`:
 

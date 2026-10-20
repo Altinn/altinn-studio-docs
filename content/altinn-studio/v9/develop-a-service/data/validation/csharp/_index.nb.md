@@ -36,7 +36,7 @@ Noen egenskaper på validatoren styrer hvordan appen kjører den:
 | Egenskap | Standard | Betydning |
 | --- | --- | --- |
 | `TaskId` eller `DataType` | Ingen | Hvilket steg eller hvilken datatype validatoren gjelder. Med `"*"` gjelder den alle. |
-| `NoIncrementalValidation` | `false` | Med `true` kjører appen ikke validatoren ved lagring, bare når brukeren går videre eller et system ber om validering. Brukeren ser da feilene først når hen prøver å sende inn. |
+| `NoIncrementalValidation` | `false` | Med `true` kjører appen ikke validatoren ved lagring, bare når brukeren går videre eller et system ber om validering. Brukeren ser da feilene først når brukeren prøver å sende inn. |
 | `ShouldRunAfterRemovingHiddenData` | `false` | Med `true` får validatoren dataene uten felt som er skjult for brukeren. Da stopper ikke skjulte felt innsendingen. |
 
 Som standard validerer appen også felt som er skjult for brukeren. Vil du at validatoren bare skal se synlige data, overstyrer du `ShouldRunAfterRemovingHiddenData`:
@@ -284,7 +284,7 @@ Hvilke datakilder  (`dataSource`) som er støttet vil kunne variere med stedet t
 
 Når brukeren åpner skjemaet, kjører appen de samme validatorene som ved lagring, slik at brukeren ser meldingene med en gang.
 
-Påkrevde felt, validering med uttrykk og datamodellen sjekker nettleseren selv mens brukeren fyller ut, så ved lagring hopper serveren over dem. Serveren kjører dem når brukeren går videre i prosessen. Gir nettleseren og serveren ulikt svar, kan brukeren få en feil ved innsending som hen ikke så mens hen fylte ut.
+Påkrevde felt, validering med uttrykk og datamodellen sjekker nettleseren selv mens brukeren fyller ut, så ved lagring hopper serveren over dem. Serveren kjører dem når brukeren går videre i prosessen. Gir nettleseren og serveren ulikt svar, kan brukeren få en feil ved innsending som brukeren ikke så under utfyllingen.
 
 ### Når brukeren går videre i prosessen
 
@@ -295,7 +295,7 @@ Appen hopper over valideringen når
 - brukeren avviser steget med handlingen `reject`, og avvisning er tillatt for steget i prosessen
 - steget er en [systemoppgave]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks" >}}) som appen kjører uten bruker
 
-Appen kjører valideringen _etter_ en eventuell handling brukeren har valgt, for eksempel `sign` eller `confirm`, fordi resultatet av handlingen kan avgjøre om valideringen går gjennom. Feiler valideringen, har handlingen likevel skjedd. Brukeren har for eksempel signert, men kommer ikke videre før hen har rettet feilene.
+Appen kjører valideringen _etter_ en eventuell handling brukeren har valgt, for eksempel `sign` eller `confirm`, fordi resultatet av handlingen kan avgjøre om valideringen går gjennom. Feiler valideringen, har handlingen likevel skjedd. Brukeren har for eksempel signert, men kommer ikke videre før brukeren har rettet feilene.
 
 ### Når andre sluttbrukersystemer bruker API-et
 
@@ -315,7 +315,7 @@ Appen støtter fortsatt grensesnittene `IDataElementValidator` og `ITaskValidato
 
 Du registrerer dem på samme måte som andre validatorer, med grensesnittet som type, for eksempel `services.AddTransient<ITaskValidator, FristValidator>();`. Appen setter `DataElementId` for deg i `IDataElementValidator` og `IFormDataValidator`, men ikke i `IValidator`.
 
-`IDataElementValidator` og `ITaskValidator` har `NoIncrementalValidation` satt til `true` som standard. Appen kjører dem da ikke ved lagring, bare når brukeren går videre i prosessen eller et system ber om validering, og brukeren ser feilene først når hen prøver å sende inn. Du kan overstyre egenskapen i klassen din:
+`IDataElementValidator` og `ITaskValidator` har `NoIncrementalValidation` satt til `true` som standard. Appen kjører dem da ikke ved lagring, bare når brukeren går videre i prosessen eller et system ber om validering, og brukeren ser feilene først når brukeren prøver å sende inn. Du kan overstyre egenskapen i klassen din:
 
 ```csharp
 public bool NoIncrementalValidation => false;
@@ -350,6 +350,6 @@ Tekstnøklene `soft_validation.info_title`, `soft_validation.warning_title` og `
 | Meldingen vises først når brukeren prøver å sende inn | Validatoren har `NoIncrementalValidation = true`, som er standard for de eldre grensesnittene `ITaskValidator` og `IDataElementValidator`, eller meldingen mangler `Field` |
 | Brukeren ser tekstnøkkelen i stedet for teksten | Tekstnøkkelen mangler i tekstressursene for språket brukeren har valgt |
 | Meldingen begynner med `*WARNING*` eller et annet prefiks | Prefiksene virker bare i `IInstanceValidator`. Sett `Severity` i stedet. |
-| Brukeren ser feil for felt hen ikke har fylt ut ennå | En validator slår til på tomme verdier. Vanligvis lar du validatoren godta `null` og `""`, og bruker `required` for å sjekke at feltet er fylt ut. |
+| Brukeren ser feil for felt brukeren ikke har fylt ut ennå | En validator slår til på tomme verdier. Vanligvis lar du validatoren godta `null` og `""`, og bruker `required` for å sjekke at feltet er fylt ut. |
 | Meldinger fra to validatorer blander seg eller forsvinner | To validatorer har samme `ValidationSource`, for eksempel fordi samme klasse er registrert to ganger |
 | En skjult komponent stopper innsendingen | Validatoren sjekker skjulte felt. Se [Slik er valideringen bygget opp](#slik-er-valideringen-bygget-opp). |
