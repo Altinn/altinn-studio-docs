@@ -13,7 +13,7 @@ Når alternativene i en kodeliste endrer seg ofte basert på data i datamodellen
 
 - **Dynamiske kodelister med spørringsparametre** (beskrevet under [Dynamiske kodelister](../dynamic/)): Du skriver kode på backend for å generere kodelisten og sender verdier fra datamodellen til backend via [spørringsparametre](../dynamic/#spørringsparametre). Ulempen er at denne fremgangsmåten skalerer dårlig når kodelisten endrer alternativene ofte.
 
-- **Kodelister fra repeterende strukturer** (anbefalt): Du setter opp en kodeliste basert direkte på en repeterende struktur i datamodellen. Datamodellen blir da selve kilden til alternativene. Dette er spesielt nyttig i kombinasjon med [RepeatingGroup](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/)-komponenten, da brukeren kan legge til og fjerne elementer fra listen, og systemet oppdaterer alternativene automatisk.
+- **Kodelister fra repeterende strukturer** (anbefalt): Du setter opp en kodeliste basert direkte på en repeterende struktur i datamodellen. Datamodellen blir da selve kilden til alternativene. Dette er spesielt nyttig i kombinasjon med [RepeatingGroup]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating" >}})-komponenten, da brukeren kan legge til og fjerne elementer fra listen, og systemet oppdaterer alternativene automatisk.
 
 Du trenger ikke en `RepeatingGroup`-komponent for å bruke denne funksjonaliteten, men datamodellen må inneholde en repeterende struktur.
 

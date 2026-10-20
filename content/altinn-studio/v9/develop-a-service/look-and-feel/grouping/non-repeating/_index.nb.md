@@ -12,7 +12,7 @@ i stedet for på hvert enkelt felt.
 
 Du setter opp en gruppe i layoutfilen til siden, sammen med de andre komponentene i skjemaet. Layoutfilene ligger i `App/ui/{oppgave-ID}/layouts/`. Du kan enten redigere filen direkte eller bruke komponenten **Gruppe** i Altinn Studio Designer.
 
-En gruppe _må_ ha `"type": "Group"`. Repeterende grupper har en egen komponenttype, [`RepeatingGroup`](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/repeatinggroup/).
+En gruppe _må_ ha `"type": "Group"`. Repeterende grupper har en egen komponenttype, [`RepeatingGroup`]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating" >}}).
 
 Slik definerer du en gruppe som inneholder tre felter:
 
