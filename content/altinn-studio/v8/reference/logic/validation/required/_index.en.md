@@ -56,11 +56,11 @@ The error message for required fields is _"You have to fill out {0}"_. The app r
 
 The app finds the name of the field like this:
 
-- If the component has a `shortName` text, the app uses it. You set up `shortName` per component, in the same way as the label (`title`). _For now, the app only uses this text in the error message for required fields._
+- If the component has a `shortName` text, the app uses it. You set up `shortName` per component, in the same way as the label (`title`).
 - Otherwise, the app uses the label (`title`), starting with a lower-case letter unless the text looks like an abbreviation.
 - For components with several fields, such as Address, the app uses the default texts for each field.
 
-### Example: Field with only `title`
+### Field with only `title`
 
 {{< code-title >}}
 App/ui/{taskId}/layouts/{page}.json
@@ -92,7 +92,7 @@ App/config/texts/resource.{language}.json
 
 The validation message is then `"You have to fill out first name"`.
 
-### Example: Field with `shortName`
+### Field with `shortName`
 
 If the label is long, or does not fit well in the error message, you can add a `shortName` text that the app uses instead.
 _The app only uses the `shortName` text in this error message, not anywhere else._
