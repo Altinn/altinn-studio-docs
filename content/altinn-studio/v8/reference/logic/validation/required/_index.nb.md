@@ -159,7 +159,7 @@ App/ui/{taskId}/layouts/{page}.json
 
 ## Påkrevde felt på serveren
 
-Appen kan også sjekke påkrevde felt på serveren når brukeren går videre i prosessen. Sjekken er av som standard, og du slår den på med innstillingen `RequiredValidation`. Vi anbefaler å slå den på, slik at også data som andre systemer sender inn gjennom API-et, blir sjekket. Serveren sjekker bare komponenter som er synlige for brukeren, i steg som har et layoutsett. Se [Validering på serveren]({{< relref "/altinn-studio/v8/reference/logic/validation" >}}#validering-på-serveren).
+Appen kan også sjekke påkrevde felt på serveren når brukeren går videre i prosessen. Sjekken er av som standard, og du slår den på med innstillingen `RequiredValidation`. Vi anbefaler å slå den på, slik at også data som andre systemer sender inn gjennom API-et, blir sjekket. Serveren sjekker bare komponenter som er synlige for brukeren, i oppgaver som har et layoutsett. Se [Validering på serveren]({{< relref "/altinn-studio/v8/reference/logic/validation" >}}#validering-på-serveren).
 
 {{% notice info %}}
 I v9 er `RequiredValidation` slått på som standard.

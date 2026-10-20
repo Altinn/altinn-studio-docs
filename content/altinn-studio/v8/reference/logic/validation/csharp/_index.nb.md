@@ -15,9 +15,9 @@ En validator er en klasse i C# som tar i bruk et av valideringsgrensesnittene ti
 Appen validerer på to måter:
 
 - **Ved hver lagring** kjører appen bare validatorene som kan ha fått et nytt resultat. Nettleseren lagrer endringene fortløpende mens brukeren fyller ut, så dette skjer ofte. Vi kaller det _inkrementell validering_.
-- **Når brukeren går videre i prosessen**, eller når et system ber om det, kjører appen alle validatorene for steget.
+- **Når brukeren går videre i prosessen**, eller når et system ber om det, kjører appen alle validatorene for oppgaven.
 
-Hver validator har en `ValidationSource`, som er et unikt navn på validatoren. Appen merker alle meldingene fra validatoren med dette navnet. Nettleseren holder en liste med meldinger for hver `ValidationSource`. Når en validator kjører på nytt, erstatter nettleseren hele listen fra den validatoren med de nye meldingene. Meldinger fra validatorer som ikke kjørte, beholder nettleseren som de var. Standardverdien er det fulle klassenavnet sammen med steget eller datatypen, og den trenger du sjelden å endre. Har to validatorer samme `ValidationSource`, blander meldingene deres seg.
+Hver validator har en `ValidationSource`, som er et unikt navn på validatoren. Appen merker alle meldingene fra validatoren med dette navnet. Nettleseren holder en liste med meldinger for hver `ValidationSource`. Når en validator kjører på nytt, erstatter nettleseren hele listen fra den validatoren med de nye meldingene. Meldinger fra validatorer som ikke kjørte, beholder nettleseren som de var. Standardverdien er det fulle klassenavnet sammen med oppgaven eller datatypen, og den trenger du sjelden å endre. Har to validatorer samme `ValidationSource`, blander meldingene deres seg.
 
 Ved hver lagring spør appen hver validator om den trenger å kjøre, med metoden `HasRelevantChanges`. Appen sender med endringene i lagringen. Svarer validatoren nei, kjører appen den ikke, og nettleseren beholder meldingene fra forrige gang.
 
@@ -33,7 +33,7 @@ Noen egenskaper på validatoren styrer hvordan appen kjører den:
 
 | Egenskap | Standard | Betydning |
 | --- | --- | --- |
-| `TaskId` eller `DataType` | Ingen | Hvilket steg eller hvilken datatype validatoren gjelder. Med `"*"` gjelder den alle. |
+| `TaskId` eller `DataType` | Ingen | Hvilken oppgave eller hvilken datatype validatoren gjelder. Med `"*"` gjelder den alle. |
 | `NoIncrementalValidation` | `false` | Med `true` kjører appen ikke validatoren ved lagring, bare når brukeren går videre eller et system ber om validering. Brukeren ser da feilene først når brukeren prøver å sende inn. |
 | `ShouldRunAfterRemovingHiddenData` | `false` | Med `true` får validatoren dataene uten felt som er skjult for brukeren. Da stopper ikke skjulte felt innsendingen. |
 
@@ -53,7 +53,7 @@ Appen kjører validatorene samtidig. En validator skal bare lese dataene, ikke e
 
 Du har to valg:
 
-- `IValidator` er hovedgrensesnittet for validering. Validatoren får tilgang til alle dataene i steget, og du bestemmer selv hvilke endringer som gjør at den skal kjøre. Bruk den når regelen trenger data fra flere datamodeller, eller når du vil ha full kontroll.
+- `IValidator` er hovedgrensesnittet for validering. Validatoren får tilgang til alle dataene i oppgaven, og du bestemmer selv hvilke endringer som gjør at den skal kjøre. Bruk den når regelen trenger data fra flere datamodeller, eller når du vil ha full kontroll.
 - `GenericFormDataValidator<T>` er en ferdig klasse som gjør det enklere å validere én datamodell. Appen gir deg dataene som riktig modelltype og lager feltstien til meldingene for deg.
 
 Appen har også eldre grensesnitt som fortsatt virker. Se [Eldre valideringsgrensesnitt](#eldre-valideringsgrensesnitt).
@@ -62,7 +62,7 @@ Appen har også eldre grensesnitt som fortsatt virker. Se [Eldre valideringsgren
 
 `IValidator` får tilgang til alle dataene i instansen gjennom `dataAccessor`.
 
-Eksempelet under sjekker at summen i budsjettet ikke er høyere enn beløpet brukeren søker om. Budsjettet og søknaden er to datatyper i samme steg:
+Eksempelet under sjekker at summen i budsjettet ikke er høyere enn beløpet brukeren søker om. Budsjettet og søknaden er to datatyper i samme oppgave:
 
 {{% notice info %}}
 I v9 har app-malen implisitte `using`-direktiver og nullable slått på. Da trenger du ikke `using`-linjene for `System`-navnerommene, og `language` er `string?`.
@@ -82,7 +82,7 @@ namespace Altinn.App.Logic.Validation;
 
 public class BudsjettValidator : IValidator
 {
-    // ID-en til steget validatoren skal kjøre i. Bruk "*" for å kjøre i alle steg.
+    // ID-en til oppgaven validatoren skal kjøre i. Bruk "*" for å kjøre i alle oppgaver.
     public string TaskId => "Task_1";
 
     // language er språket brukeren har valgt. Du trenger den bare hvis du lager
@@ -114,7 +114,7 @@ public class BudsjettValidator : IValidator
                 {
                     Severity = ValidationIssueSeverity.Error,
                     // Uten DataElementId knytter appen meldingen til datamodellen som er
-                    // standard for steget. Sett den alltid, så havner meldingen ved riktig felt.
+                    // standard for oppgaven. Sett den alltid, så havner meldingen ved riktig felt.
                     DataElementId = budsjettElement.Id,
                     // Stien til feltet, slik den står i dataModelBindings.
                     Field = "Sum",
@@ -150,7 +150,7 @@ using Altinn.Platform.Storage.Interface.Models;
 namespace Altinn.App.Logic.Validation;
 
 // "soknad" er ID-en til datatypen i applicationmetadata.json.
-// Validatoren kjører bare i steget datatypen hører til.
+// Validatoren kjører bare i oppgaven datatypen hører til.
 public class PeriodeValidator() : GenericFormDataValidator<Soknad>("soknad")
 {
     // Sjekken er rask, så validatoren kan kjøre ved hver lagring.
@@ -246,7 +246,7 @@ For at appen skal vise meldingen ved riktig komponent, må `Field` være nøyakt
 - store og små bokstaver må stemme
 - du bruker navnene fra `dataModelBindings`, ikke navnene på C#-egenskapene, hvis de er forskjellige
 
-Med `GenericFormDataValidator<T>` og `CreateValidationIssue` lager appen stien for deg. Med `IValidator` bør du også sette `DataElementId`. Uten den knytter appen meldingen til datamodellen som er standard for steget.
+Med `GenericFormDataValidator<T>` og `CreateValidationIssue` lager appen stien for deg. Med `IValidator` bør du også sette `DataElementId`. Uten den knytter appen meldingen til datamodellen som er standard for oppgaven.
 
 {{% notice info %}}
 I v9 viser ikke appen meldinger som har `Field`, men mangler `DataElementId`. Sett derfor alltid `DataElementId` i `IValidator`, så virker validatoren også etter oppgradering.
@@ -298,18 +298,18 @@ Påkrevde felt, validering med uttrykk og datamodellen sjekker nettleseren selv 
 
 ### Når brukeren går videre i prosessen
 
-Når brukeren går til neste steg, kjører appen alle validatorene for steget. Hvis minst én validator gir en feil med alvorlighetsgrad `Error`, får ikke brukeren gå videre.
+Når brukeren går til neste oppgave, kjører appen alle validatorene for oppgaven. Hvis minst én validator gir en feil med alvorlighetsgrad `Error`, får ikke brukeren gå videre.
 
 Appen hopper over valideringen når
 
-- brukeren avviser steget med handlingen `reject`, og avvisning er tillatt for steget i prosessen
-- steget er en [systemoppgave]({{< relref "/altinn-studio/v8/guides/development/service-tasks" >}}) som appen kjører uten bruker
+- brukeren avviser oppgaven med handlingen `reject`, og avvisning er tillatt for oppgaven i prosessen
+- prosessen er i en [systemoppgave]({{< relref "/altinn-studio/v8/guides/development/service-tasks" >}}) som appen kjører uten bruker
 
 Appen kjører valideringen _etter_ en eventuell handling brukeren har valgt, for eksempel `sign` eller `confirm`, fordi resultatet av handlingen kan avgjøre om valideringen går gjennom. Feiler valideringen, har handlingen likevel skjedd. Brukeren har for eksempel signert, men kommer ikke videre før brukeren har rettet feilene.
 
 ### Når andre sluttbrukersystemer bruker API-et
 
-For enkelte skjema vil regnskapssystem eller annen programvare ha utviklet en direkte integrasjon for å kunne sende inn skjema på vegne av bruker. Et slikt system kan be appen om å validere instansen med [validerings-API-et]({{< relref "/api/apps/validation" >}}). Appen kjører da alle validatorene for steget instansen står i. Når systemet ber appen gå videre i prosessen, validerer appen på samme måte som når en bruker gjør det.
+For enkelte skjema vil regnskapssystem eller annen programvare ha utviklet en direkte integrasjon for å kunne sende inn skjema på vegne av bruker. Et slikt system kan be appen om å validere instansen med [validerings-API-et]({{< relref "/api/apps/validation" >}}). Appen kjører da alle validatorene for oppgaven instansen står i. Når systemet ber appen gå videre i prosessen, validerer appen på samme måte som når en bruker gjør det.
 
 Når systemet lagrer data, får det ikke alltid valideringsresultatet tilbake. Bruk validerings-API-et for å få alle meldingene.
 
@@ -354,9 +354,9 @@ Tekstnøklene `soft_validation.info_title`, `soft_validation.warning_title` og `
 | Problem | Mulig årsak |
 | --- | --- |
 | Validatoren kjører ikke | Validatoren er ikke registrert i `Program.cs`, eller den er registrert uten grensesnittet som type. Appen finner bare validatorer som er registrert med grensesnittet.<br>Feil: `services.AddTransient<BudsjettValidator>();`<br>Riktig: `services.AddTransient<IValidator, BudsjettValidator>();`<br>Feil: `services.AddTransient<PeriodeValidator>();`<br>Riktig: `services.AddTransient<IFormDataValidator, PeriodeValidator>();` |
-| Validatoren kjører ikke i steget brukeren står i | `TaskId` eller `DataType` hører til et annet steg |
+| Validatoren kjører ikke i oppgaven brukeren står i | `TaskId` eller `DataType` hører til en annen oppgave |
 | Appen svarer med en serverfeil når brukeren lagrer eller sender inn | `DataType` på validatoren finnes ikke i `applicationmetadata.json`, eller validatoren kaster et unntak |
-| Meldingen vises ikke ved feltet | `Field` stemmer ikke nøyaktig med `dataModelBindings`, eller `DataElementId` mangler og feltet ligger i en annen datamodell enn den som er standard for steget |
+| Meldingen vises ikke ved feltet | `Field` stemmer ikke nøyaktig med `dataModelBindings`, eller `DataElementId` mangler og feltet ligger i en annen datamodell enn den som er standard for oppgaven |
 | Meldingen vises først når brukeren prøver å sende inn | Validatoren har `NoIncrementalValidation = true`, som er standard for de eldre grensesnittene `ITaskValidator` og `IDataElementValidator`, eller meldingen mangler `Field` |
 | Brukeren ser tekstnøkkelen i stedet for teksten | Tekstnøkkelen mangler i tekstressursene for språket brukeren har valgt |
 | Meldingen begynner med `*WARNING*` eller et annet prefiks | Prefiksene virker bare i `IInstanceValidator`. Sett `Severity` i stedet. |

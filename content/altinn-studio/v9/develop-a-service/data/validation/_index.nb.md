@@ -54,7 +54,7 @@ Bare feil stopper brukeren. Advarsler, informasjon og bekreftelser kan brukeren 
 
 Noen feil kommer først når brukeren prøver å sende inn:
 
-- feil fra regler som bare kjører ved innsending, fordi de er tunge å kjøre eller sjekker hele steget
+- feil fra regler som bare kjører ved innsending, fordi de er tunge å kjøre eller sjekker hele oppgaven
 - feil som ikke gjelder et bestemt felt, for eksempel at en frist har gått ut
 - feil i felt som er skjult for brukeren
 
@@ -129,7 +129,7 @@ Validatorer i C# som bare kjører ved innsending, er ikke med i noen av typene. 
 
 ## Myke valideringer
 
-Myke valideringer er valideringsmeldinger som ikke stopper brukeren fra å sende inn eller gå videre til neste steg i prosessen. Du kan bruke dem til å be brukeren dobbeltsjekke en verdi som virker feil, men som ikke er ugyldig, eller til å gi nyttig informasjon for resten av utfyllingen.
+Myke valideringer er valideringsmeldinger som ikke stopper brukeren fra å sende inn eller gå videre til neste oppgave i prosessen. Du kan bruke dem til å be brukeren dobbeltsjekke en verdi som virker feil, men som ikke er ugyldig, eller til å gi nyttig informasjon for resten av utfyllingen.
 
 Det finnes tre typer myke valideringer: advarsel, informasjon og bekreftelse. Du lager dem ved å sette alvorlighetsgraden på valideringen, enten i [validering med uttrykk]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/expression-validation" >}}) eller i [en validator i C#]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/csharp" >}}#alvorlighetsgrad).
 
@@ -156,9 +156,9 @@ Appen har disse valideringene innebygd:
 | [Datamodell]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/data-model" >}}) | Attributter på C#-modellen, for eksempel `[Range]` og `[RegularExpression]` | Alltid på |
 | XSD | At skjemadataene er gyldige mot `models/[datatype-ID].xsd` | `XsdValidation` (av som standard) |
 | Vedlegg og andre dataelementer | Filtype (`allowedContentTypes`), filstørrelse (`maxSize`) og virusskanning (`enableFileScan`) | Innstillinger på datatypen |
-| Antall dataelementer | `minCount` og `maxCount` for datatypene i steget | Innstillinger på datatypen |
-| Signering | At alle som skal signere, har signert | `runDefaultValidator` i signeringssteget |
-| Signerte data | At dataene ikke er endret etter at brukeren signerte | Alltid på i signeringssteg |
+| Antall dataelementer | `minCount` og `maxCount` for datatypene i oppgaven | Innstillinger på datatypen |
+| Signering | At alle som skal signere, har signert | `runDefaultValidator` i signeringsoppgaven |
+| Signerte data | At dataene ikke er endret etter at brukeren signerte | Alltid på i signeringsoppgaver |
 
 Påkrevde felt, validering med uttrykk og datamodellen sjekker nettleseren også mens brukeren fyller ut. De andre innebygde valideringene kjører bare på serveren når brukeren går videre i prosessen. Feil fra dem ser brukeren derfor først når brukeren prøver å sende inn. Unntaket er filtype og filstørrelse, som appen også sjekker når brukeren laster opp en fil.
 
@@ -188,6 +188,6 @@ Trenger du regler som de innebygde valideringene og validering med uttrykk ikke 
 
 - sjekke innholdet i vedlegg, for eksempel at en PDF har riktig antall sider
 - slå opp i andre systemer, som å sjekke at et organisasjonsnummer finnes
-- sjekke data på tvers av flere datamodeller i samme steg
+- sjekke data på tvers av flere datamodeller i samme oppgave
 
 [Slik lager du validatorer i C#]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/csharp" >}}).
