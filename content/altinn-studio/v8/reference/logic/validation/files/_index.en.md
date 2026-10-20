@@ -3,7 +3,7 @@ title: File validation
 description: How to do extended file validation?
 toc: false
 tags: []
-weight: 10
+weight: 40
 ---
 
 {{%notice info%}}
@@ -60,6 +60,10 @@ The Altinn.App.Core NuGet package only defines the interfaces required in additi
       }
     ```
 ## How to write your own analyser
+{{% notice info %}}
+In v9, the interface is called `IFileAnalyzer`, and the method is called `Analyze`.
+{{% /notice %}}
+
 If you would like to write your own analyser you need to implement two interfaces: `IFileAnalyser` and `IFileValidator`. The analyser analyses the file for any metadata you would like to extract and returns this in a `FileAnalysisResult` which in turn is passed into the validator implementation. The validator then only validates based on the extracted metadata. The result contains a few fixed metadata properties - filename, mimetype and the id of the analyser used to create the result. Any additional metadata is passed as key/value pairs in the Metadata property. This separation is primarily done to allow for the re-use of the analyser to extract metadata about the file for other usage.
 
 1. **Implement the `IFileAnalyser` interface**  
