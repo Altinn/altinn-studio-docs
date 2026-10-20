@@ -93,13 +93,20 @@ App/models/{model}.xsd
 App/ui/{taskId}/layouts/{page}.json
 {{< /code-title >}}
 
-```json {hl_lines=[5]}
+```json {hl_lines=[8]}
 {
   "id": "bilder",
   "type": "FileUpload",
+  "textResourceBindings": {
+    "title": "bilder.tittel"
+  },
   "dataModelBindings": {
     "list": "FamilieMedlem.Bilder"
-  }
+  },
+  "maxFileSizeInMB": 25,
+  "maxNumberOfAttachments": 5,
+  "minNumberOfAttachments": 1,
+  "displayMode": "list"
 }
 ```
 

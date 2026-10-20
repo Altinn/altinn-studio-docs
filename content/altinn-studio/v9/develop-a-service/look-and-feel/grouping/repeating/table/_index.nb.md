@@ -151,7 +151,7 @@ Andre komponenter, for eksempel `Address` og `FileUpload`, viser bare verdien i 
 
 ### Redigere alle felter i tabellen
 
-Hvis brukeren skal redigere alle feltene i tabellen, setter du [`edit.mode` til `"onlyTable"`]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating/edit#mode" >}}). Da blir alle feltene i tabellen redigerbare, og **Rediger**-knappen forsvinner. Hvis det er én kolonne brukeren ikke skal redigere, setter du `editInTable` til `false` for den kolonnen i `tableColumns`.
+Hvis brukeren skal redigere alle feltene i tabellen, setter du [`edit.mode` til `"onlyTable"`]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating/edit#mode" >}}). Da kan brukeren redigere alle feltene i tabellen som er av en type som støtter det, og **Rediger**-knappen forsvinner. De andre feltene viser bare verdien. Hvis det er én kolonne brukeren ikke skal redigere, setter du `editInTable` til `false` for den kolonnen i `tableColumns`.
 
 ![Redigering av alle felter i tabellen](only-editing-in-table.gif "Redigering av alle felter i tabellen")
 
