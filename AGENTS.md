@@ -91,6 +91,9 @@ for eksempel `Funksjonen er tilgjengelig fra versjon [[FIX BEFORE MERGE: første
 - List alle plassholdere i PR-beskrivelsen, så den som skal fylle dem inn ser dem.
 - Fjern alle plassholdere før PR-en merges.
 
+### Språkvask før commit
+
+Når du har skrevet eller endret norsk tekst på en side i `content/`, kjør skillen `tekstforfatter-altinn-docs` over siden og rett funnene før du committer. Gjør det uten at noen ber om det, også når du har skrevet teksten selv. Hvis skillen ikke er tilgjengelig, sjekk teksten mot reglene under «Språk og stil», «Overskriftsregler» og «Listeregler».
 ### Før commit
 
 Verifiser kun `.md`-filer (og evt. bilder) committes:
