@@ -18,6 +18,10 @@ This page will walk you through what you need to configure and how that is conne
 
 A signing task in its simples format looks something like this:
 
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <bpmn:task id="Task_2" name="Signing">
     <bpmn:incoming>Flow_1enq1lu</bpmn:incoming>
@@ -43,6 +47,10 @@ A signing task in its simples format looks something like this:
 
 As for confirmation steps we need to define the actions available, to generate a signing object the user needs to be able to perform the sign action:
 
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <altinn:actions>
     <altinn:action>sign</altinn:action>
@@ -63,6 +71,10 @@ The example signing task above defines that alle dataelements connected to the d
 
 If the application also has a datatype with attachments  named `attachments` where the user provides additional files that the developer wants to be a part of the signature object the `<altinn:signatureConfig>` should look like this:
 
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <altinn:signatureConfig>
     <altinn:dataTypesToSign>
@@ -78,6 +90,10 @@ If the application also has a datatype with attachments  named `attachments` whe
 A signature object also requires a dataType where it should be stored once generated. This is defined in the `<altinn:signatureDataType>` and also needs to be defined in `App/config/applicationmetadata.json`
 
 Example of a applicationmetadata.json with a signature datatype named signature:
+
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
 
 ```json
 {
@@ -149,6 +165,10 @@ In the `layouts` folder, create files that define how pages in this layout set s
 An example of a simple layout with a read-only text field and a signing button may look like this:
 
 
+{{< code-title >}}
+App/ui/Task_2/layouts/{page}.json
+{{< /code-title >}}
+
 ```json
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
@@ -184,6 +204,10 @@ To allow users to sign, a rule must be defined in `App/config/authorization/poli
 This rule must specify that users who should be able to sign have the permission rights: _read_, _write_, and _sign_ on the step.
 
 An example of an authorization rule granting these permissions for the _DAGL_ role on the process step with the ID _Task_2_ could look like this:
+
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
 
 ```xml
 <xacml:Rule RuleId="urn:altinn:example:ruleid:7" Effect="Permit">
@@ -245,6 +269,10 @@ Example if two members of the board should sign, but the same person cannot perf
 
 To configure this we need to add the first signature dataobject to the list in `<altinn:uniqueFromSignaturesInDataTypes>` for signing task two
 
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <bpmn:task id="Task_2" name="Signing">
     <bpmn:incoming>Flow_1enq1lu</bpmn:incoming>
@@ -290,6 +318,10 @@ To configure this we need to add the first signature dataobject to the list in `
 In the example the signing object for Task_2 is stored in the dataType signature, and in signature2 for Task_3. 
 
 In addition Task_3s `<altinn:signatureConfig>` has defined that it should be unique from all signature objects stored in dataType `signature`.
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
 
 ```xml
 <altinn:uniqueFromSignaturesInDataTypes>

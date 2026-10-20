@@ -70,6 +70,10 @@ Du legger til mellomvare for autentisering i `UseAltinnAppCommonConfiguration`. 
 
 Tjenesteeier kan deretter lage en mellomvare som gjør ekstra autorisasjon basert på den autentiserte brukeren. Eksempel:
 
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```csharp
 WebApplication app = builder.Build();
 
@@ -106,6 +110,10 @@ Du kan også bruke scope fra token som attributt i XACML.
 Matcheren `urn:oasis:names:tc:xacml:1.0:function:string-is-in` gjør eksakt medlemskapssjekking. 
 Scopet `annentest:app.a` vil IKKE matche `test:app.a` fordi det er eksakt sammenligning, ikke substring-matching.
 {{% /notice %}}
+
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
 
 ```xml
 <xacml:Rule RuleId="urn:altinn:example:ruleid:1" Effect="Permit">
@@ -365,6 +373,10 @@ Siden systembrukeren får delegert de samme rettighetene som godkjenneren har (i
 
 Eksempel:
 
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
+
 ```xml
 <xacml:Rule RuleId="urn:altinn:example:ruleid:1" Effect="Permit">
   <xacml:Description>Gives DAGL instantiate and read for the app</xacml:Description>
@@ -489,6 +501,10 @@ Som eksemplifisert lenger opp, kan du bruke `IAuthenticationContext` til å gjø
 Det betyr at ASP.NET Core-mellomvaren for autentisering må ha kjørt før du kan få riktig informasjon.
 Du legger til mellomvare for autentisering i `UseAltinnAppCommonConfiguration`. Hvis du trenger å få tilgang til `IAuthenticationContext.Current` i en mellomvare, må du legge den til **etter** at `UseAltinnAppCommonConfiguration` er kalt.
 {{% /notice %}}
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
 ```csharp
 WebApplication app = builder.Build();

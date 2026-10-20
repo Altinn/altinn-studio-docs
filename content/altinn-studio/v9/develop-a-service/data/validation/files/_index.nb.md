@@ -40,11 +40,21 @@ Altinn.App.Core NuGet-pakken definerer grensesnittene som kreves, i tillegg til 
    nuget install Altinn.FileAnalyzers
    ```
 2. **Registrer tjenesten for MIME-type-valideringen slik at den blir tilgjengelig**
+
+   {{< code-title >}}
+   App/Program.cs
+   {{< /code-title >}}
+
    ```csharp
    services.AddMimeTypeValidation();
    ```
 3. **Konfigurer validatoren for den datatypen den skal brukes for**
    Konfigurer validatoren per datatype. Den kjører bare mot den konfigurerte datatypen. Eksempelet nedenfor konfigurerer MIME-type-analysen og den tilhørende valideringskomponenten.
+
+   {{< code-title >}}
+   App/config/applicationmetadata.json
+   {{< /code-title >}}
+
    ```json
       {
          "id": "08112113-cc3a-4d35-a8d2-bfba53a1ddfd",
@@ -59,6 +69,11 @@ Altinn.App.Core NuGet-pakken definerer grensesnittene som kreves, i tillegg til 
    ```
 4. **Legg til støtte for JSON-objekter i dataresponsen**
     Dette forteller frontend at den skal se etter JSON i svaret for å gi en feilmelding til brukeren.
+
+    {{< code-title >}}
+    App/appsettings.json
+    {{< /code-title >}}
+
     ```json
       "FeatureManagement": {
         "JsonObjectInDataResponse": true
@@ -67,9 +82,9 @@ Altinn.App.Core NuGet-pakken definerer grensesnittene som kreves, i tillegg til 
 
 ## Skriv din egen analyse
 
-Hvis du vil skrive din egen validator, må du implementere to grensesnitt: `IFileAnalyser` og `IFileValidator`. `IFileAnalyser` analyserer filen for eventuelle metadata du vil validere på og returnerer disse i en `FileAnalysisResult`. Systemet sender deretter resultatet til valideringslogikken. Resultatet inneholder noen navngitte egenskaper som filnavn, MIME-type og ID-en til analysatoren som opprettet resultatet. Du sender eventuelle tilleggsmetadata som nøkkel/verdi-par i Metadata-propertyen. Denne separasjonen gjør det mulig å gjenbruke analysatoren for å ekstrahere metadata om filen for andre formål.
+Hvis du vil skrive din egen validator, må du implementere to grensesnitt: `IFileAnalyzer` og `IFileValidator`. `IFileAnalyzer` analyserer filen for eventuelle metadata du vil validere på og returnerer disse i en `FileAnalysisResult`. Systemet sender deretter resultatet til valideringslogikken. Resultatet inneholder noen navngitte egenskaper som filnavn, MIME-type og ID-en til analysatoren som opprettet resultatet. Du sender eventuelle tilleggsmetadata som nøkkel/verdi-par i Metadata-propertyen. Denne separasjonen gjør det mulig å gjenbruke analysatoren for å ekstrahere metadata om filen for andre formål.
 
-1. **Implementer grensesnittet `IFileAnalyser`**
+1. **Implementer grensesnittet `IFileAnalyzer`**
    Grensesnittet har en egenskap `Id` og en metode `Analyse` som du må implementere.
     `Id`-egenskapen skal være unik og brukes når du konfigurerer analysatoren i filen `applicationmetadata.json`. Dette er hvordan implementasjonen din blir valgt når appen bestemmer hvilken analyse som skal kjøres for en gitt datatype.
     Eksempel fra standardimplementeringen av MIME-type-analysatoren:
@@ -136,12 +151,22 @@ Hvis du vil skrive din egen validator, må du implementere to grensesnitt: `IFil
    ```
 3. **Registrer implementasjonen i appens DI-kontainer**
    Når koden din er på plass, må du registrere implementasjonen for at koden skal kjøre når brukeren laster opp filer.
+
+   {{< code-title >}}
+   App/Program.cs
+   {{< /code-title >}}
+
    ```csharp
-    services.AddTransient<IFileAnalyser, YourAnalyserImplementation>();
+    services.AddTransient<IFileAnalyzer, YourAnalyserImplementation>();
     services.AddTransient<IFileValidator, YourValidatorImplementation>();
    ```
 4. **Konfigurer analysen og validatoren**
    Når du har implementert analysatoren og valideringslogikken, må du konfigurere dem i filen _applicationmetadata.json_. I konfigurasjonen av datatypen må du legge til analysatoren og valideringskomponenten med riktig ID.
+
+   {{< code-title >}}
+   App/config/applicationmetadata.json
+   {{< /code-title >}}
+
    ```json
        {
       "id": "08112113-cc3a-4d35-a8d2-bfba53a1ddfd",

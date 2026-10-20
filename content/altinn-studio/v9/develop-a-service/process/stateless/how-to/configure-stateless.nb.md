@@ -19,6 +19,10 @@ Dette gjør du i filen `applicationmetadata.json`.
 
 Legg til følgende linje i `App/config/applicationmetadata.json`:
 
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
+
 ```json
 "onEntry": { "show": "stateless" }
 ```

@@ -33,6 +33,10 @@ Da kan du automatisk se hva som er nyeste versjon av alle pakker når du åpner 
 
 F.eks.:
 
+{{< code-title >}}
+App/App.csproj
+{{< /code-title >}}
+
 ```xml
 <ItemGroup>
   <PackageReference Include="Altinn.App.Api" Version="7.15.1" />
@@ -56,6 +60,10 @@ F.eks.:
 - Finn fram referansene til bibliotekene i appen. Referansene til biblioteker ligger i filen `App/App.csproj` i appens repo. 
 
 F.eks.:
+
+{{< code-title >}}
+App/App.csproj
+{{< /code-title >}}
 
 ```xml
 <ItemGroup>

@@ -1,4 +1,4 @@
-# Claude Code - Altinn Studio Dokumentasjon
+# Altinn Studio-dokumentasjon
 
 ## Prosjektoversikt
 
@@ -34,9 +34,9 @@ cd <repo-root> && hugo server
 
 ### Før du starter en oppgave
 
-**For brukeren**: Be Claude hente fra master og lage ny branch ved øktstart.
+**For brukeren**: Be agenten hente fra master og lage ny branch ved øktstart.
 
-**For Claude**: Ved øktstart, hent oppdatert master og lag ny branch:
+**For agenten**: Ved øktstart, hent oppdatert master og lag ny branch:
 
 1. **Hent og bytt til master:**
    ```bash
@@ -78,6 +78,18 @@ cd <repo-root> && hugo server
 - Sjekk at sider vises korrekt i Hugo-serveren (http://localhost:1313/)
 - Test lenker underveis
 - **ALDRI commit genererte filer** (`public/`, `.html`-filer)
+
+### Ukjent informasjon: bruk plassholder
+
+Hvis du trenger informasjon du ikke har (versjonsnummer, dato, lenke, beslutning, tall osv.), ikke gjett.
+Skriv en plassholder på formen `[[FIX BEFORE MERGE: kort beskrivelse av hva som skal inn]]` på akkurat det stedet,
+for eksempel `Funksjonen er tilgjengelig fra versjon [[FIX BEFORE MERGE: første versjon med støtte]].`
+
+- Beskrivelsen er valgfri: `[[FIX BEFORE MERGE]]` alene er også gyldig, men en beskrivelse er å foretrekke.
+- Bruk nøyaktig denne syntaksen. En GitHub Action stopper PR-er som inneholder den i `content/`.
+- Ikke bruk `TODO` eller `TBD` i stedet.
+- List alle plassholdere i PR-beskrivelsen, så den som skal fylle dem inn ser dem.
+- Fjern alle plassholdere før PR-en merges.
 
 ### Før commit
 
@@ -354,3 +366,30 @@ Hugo har to typer:
 - Tegnsetting og språkbruk: https://korrekturavdelingen.no/
 - Dokumentasjonsrammeverk: https://diataxis.fr/
 - Designsystemet (skjemadesign og UX): https://designsystemet.no/
+
+---
+
+## Konfigurasjonseksempler
+
+Gi hver kodeblokk som viser konfigurasjon i en fil, en `code-title` som angir hvilken fil konfigurasjonen hører hjemme i. Dette gjelder både hele filer og utdrag, inkludert layoutkomponenter, tekstressurser, JSON/XML/YAML-innstillinger og registrering av tjenester i `Program.cs`.
+
+Bruk den eksisterende kortkoden rett før kodeblokken eller `highlight`-kortkoden:
+
+````markdown
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
+```json
+{
+  "id": "name",
+  "type": "Input"
+}
+```
+````
+
+- Bruk filstien relativt til roten av repositoriet eksempelet gjelder. Ta med `App/` der det er aktuelt. Bruk helst det konkrete filnavnet fra eksempelet. Bruk plassholdere som `{taskId}`, `{page}`, `{model}` eller `{language}` for navn som varierer mellom apper. Hvis eksempelet kan brukes i flere filer, oppgi de aktuelle stiene i tittelen.
+- I v9 hører layoutfiler for en oppgave hjemme i `App/ui/{taskId}/layouts/{page}.json`, oppgaveinnstillinger i `App/ui/{taskId}/Settings.json` og globale UI-innstillinger i `App/ui/Settings.json`. Underskjemaer bruker sin egen mappe under `App/ui`.
+- Hold tittelen innenfor samme listepunkt, fane eller utvidbare seksjon som kodeblokken. Legg titler i delte kodeutdrag, slik at tittelen følger med hver gang du setter inn utdraget. Følg regelen både i norsk og engelsk dokumentasjon.
+- La skallkommandoer, API-forespørsler og -svar, genererte utdata og frittstående uttrykkseksempler stå uten filnavntittel, med mindre de viser innhold som skal inn i en bestemt fil.
+- Hvis det er uklart hvilken fil eksempelet hører hjemme i, oppgi eksempelet og mulige filnavn for gjennomgang i stedet for å gjette.

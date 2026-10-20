@@ -11,6 +11,10 @@ tags: [needsReview]
 
 Betalingssteget bruker den første datatypen for å lagre informasjon og status om betalingen. Legg den i `dataTypes`-arrayen i `App/config/applicationmetadata.json`. 
 
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
+
 ```json
 {
     "id": "paymentInformation",
@@ -26,6 +30,10 @@ Betalingssteget bruker den første datatypen for å lagre informasjon og status 
 ```
 
 Systemet bruker den andre datatypen for å lagre PDF-kvittering for betalingen. Legg den inn på samme sted.
+
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
 
 ```json
 {
@@ -53,6 +61,10 @@ Betaling bruker tre user actions. Hvis appen bruker Altinn-brukergrensesnittet, 
 - `pay`: Setter i gang betalingen, ofte ved å gjøre API-kall til betalingsbehandler. Systemet lagrer informasjon og status om den igangsatte betalingen i en JSON-datatype som du angir i prosesssteget for betaling.
 - `confirm`: Du kaller denne når betalingen er ferdig gjennomført, for å drive prosessen videre til neste steg.
 - `reject`: Hvis sluttbrukeren ser noe feil med ordren, kan vedkommende trykke **Tilbake** i betalingssteget. Da kansellerer systemet betalingen og sletter informasjon om den avbrutte betalingen. En gateway angir hvilket prosessteg du deretter går til, som eksemplifisert nedenfor.
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
 
 ```xml
     <bpmn:startEvent id="StartEvent_1">
@@ -119,6 +131,10 @@ NB: Verdien til noden `<altinn:paymentDataType>paymentInformation</altinn:paymen
 - Legg til en mappe under `App/ui` med samme navn som ID-en til betalingsoppgaven. I eksempelet over er ID-en `Task_2`, så mappen må hete `Task_2`.
 - Legg til `Settings.json` i mappen. Sett `defaultDataType` til datamodellen som betalingssteget skal bruke:
 
+  {{< code-title >}}
+  App/ui/Task_2/Settings.json
+  {{< /code-title >}}
+
   ```json
   {
     "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
@@ -130,6 +146,10 @@ NB: Verdien til noden `<altinn:paymentDataType>paymentInformation</altinn:paymen
   ```
 
 - Opprett mappen `App/ui/Task_2/layouts`, og legg til layout-filen `payment.json` med dette innholdet:
+
+  {{< code-title >}}
+  App/ui/Task_2/layouts/payment.json
+  {{< /code-title >}}
 
   ```json
   {

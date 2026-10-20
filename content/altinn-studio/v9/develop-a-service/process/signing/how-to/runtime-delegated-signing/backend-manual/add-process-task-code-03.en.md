@@ -4,6 +4,10 @@ headless: true
 hidden: true
 ---
 
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
+
 ```xml
 <xacml:Rule RuleId="urn:altinn:org:ttd:signering-brukerstyrt:ruleid:7" Effect="Permit">
   <xacml:Description>

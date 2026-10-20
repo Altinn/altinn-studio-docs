@@ -68,6 +68,10 @@ Når brukeren retter feilene, fjerner appen dem fra oppsummeringen. Oppsummering
 
 Du kan få appen til å sjekke en rad i en repeterende gruppe når brukeren lagrer raden. Hvis det er feil i raden, kan ikke brukeren lukke raden før feilene er rettet.
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json {hl_lines=[6]}
 {
   "id": "demo-gruppe",
@@ -89,6 +93,10 @@ Vil du stoppe en opplasting ut fra egne regler, kan du også [stoppe lagringen i
 ## Velge hvilke meldinger appen viser med en gang
 
 Med `showValidations` på en komponent bestemmer du hvilke valideringsmeldinger appen viser med en gang.
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json {hl_lines=[6]}
 {
@@ -158,6 +166,10 @@ Du slår valideringene av og på under `AppSettings` i `App/appsettings.json`:
 
 {{< code-title >}}
 App/appsettings.json
+{{< /code-title >}}
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
 {{< /code-title >}}
 
 ```json

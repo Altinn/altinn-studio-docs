@@ -115,6 +115,10 @@ Every element in `<altinn:eFormidlingConfig>` supports the optional `env` attrib
 
 For example, to send to a test receiver in TT02 and the real receiver in production (replacing both organisation numbers with your own):
 
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <altinn:receiver env="staging">310075809</altinn:receiver>
 <altinn:receiver>991825827</altinn:receiver>

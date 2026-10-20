@@ -18,6 +18,10 @@ Funksjonaliteten beskrevet på denne siden krever minimum versjon 7.1.0 av Altin
 
 ## Eksempel på prosess med exclusive gateways
 
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:altinn="http://altinn.no/process" id="Altinn_SingleDataTask_Process_Definition" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="10.2.0">
@@ -91,6 +95,10 @@ For mer dokumentasjon av grensesnittet, se xml-dokumentasjonen [her](https://git
 Etter at du har skrevet logikken, må du registrere den i dependency injection-systemet. Du gjør dette i metoden `RegisterCustomAppServices` i filen `Program.cs`.
 
 Eksempel: 
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
 ```csharp
 void RegisterCustomAppServices(

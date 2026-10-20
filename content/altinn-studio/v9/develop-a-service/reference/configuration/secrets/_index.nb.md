@@ -69,6 +69,10 @@ Du kan hente hemmelighetene på to måter:
 
 Kall `AddAzureKeyVaultAsConfigProvider` i `App/Program.cs`, rett etter `ConfigureWebHostBuilder(builder.WebHost)`:
 
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```csharp {hl_lines=["7-10"]}
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -138,6 +142,10 @@ Ikke legg hemmeligheter i datamodellen. Det som står i datamodellen, kan bruker
 
 Registrer klassen i `RegisterCustomAppServices` i `App/Program.cs`. `AddHttpClient` gir klassen en egen `HttpClient`:
 
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```csharp
 using Altinn.App.Logic;
 
@@ -167,6 +175,10 @@ Hvis du har satt miljøvariabelen `STUDIOCTL_HOME`, ligger mappen under den i st
 
 Eksempel på en fil i mappen, for eksempel `minehemmeligheter.json`:
 
+{{< code-title >}}
+{studioctl-home}/apps/{org}/{app}/secrets/minehemmeligheter.json
+{{< /code-title >}}
+
 ```json
 {
   "MinTjeneste": {
@@ -194,6 +206,10 @@ Verdiene blir en del av konfigurasjonen. `ISecretsClient` finner dem også, så 
 ### Med `secrets.json` (alternativ 2)
 
 Lokalt ser `ISecretsClient` først etter hemmeligheten i filen `secrets.json` i mappen appen kjører fra, og deretter i konfigurasjonen til appen. Når du starter appen med `studioctl app run` eller `dotnet run`, er det mappen `App`. Har du en hemmelighet med navnet `secretId` i Key Vault, ser `App/secrets.json` slik ut:
+
+{{< code-title >}}
+App/secrets.json
+{{< /code-title >}}
 
 ```json
 {

@@ -10,6 +10,10 @@ You can put this anywhere in your app, but we recommend at the very least puttin
 
 To update the order lines when the data used to calculate them changes, add those data fields to `refetchDependencies`. Each value is an expression that points to a field in the data model. You can choose the key names freely, and the values are not sent to the server.
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "paymentDetails",
@@ -33,6 +37,10 @@ Add a custom layout file, f ex `receiptLayout.json`.
 
 Here is a minimal example:
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/receiptLayout.json
+{{< /code-title >}}
+
 ```json
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
@@ -49,6 +57,10 @@ Here is a minimal example:
 ```
 
 Update the `Settings.json` file in the payment task's UI folder (`App/ui/<taskId>/Settings.json`), specifying your receipt layout in the `pdfLayoutName` field:
+
+{{< code-title >}}
+App/ui/{taskId}/Settings.json
+{{< /code-title >}}
 
 ```json
 {

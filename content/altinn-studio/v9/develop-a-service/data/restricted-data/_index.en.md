@@ -54,9 +54,7 @@ This service can then be registered in `Program.cs` and [injected](https://learn
 ### Writing data
 As mentioned, we need to manually create the data element when the application enters the `Task_1` process step.
 
-To do this, use the `UpdateOrCreateData` method from the [RestrictedDataHelper service](#helper-service).
-
-The following example implements this logic in the `IProcessTaskStart` interface, fetching information from a fictional API and storing it in the restricted data model. This information remains unavailable to the user but can be retrieved later by the app.
+The following example does this in a [process hook](/nb/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks) that implements `IOnTaskStartingHandler`. It fetches information from a fictional API and stores it in the restricted data model. The hook writes through `context.InstanceDataMutator`, which the platform saves when the hook completes, so `RestrictedDataHelper` is not needed here. This information remains unavailable to the user but can be retrieved later by the app.
 
 {{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/ProcessTaskStartHandler.cs.md" %}}
 

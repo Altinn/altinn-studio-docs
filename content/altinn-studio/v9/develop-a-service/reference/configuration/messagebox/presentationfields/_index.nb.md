@@ -25,6 +25,10 @@ Legg til en ny seksjon med navn `presentationFields` med følgende underfelter:
 
 Konfigurasjonen til en app med to definerte presentasjonsfelter ser slik ut:
 
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
+
 ```json
 "presentationFields": [
   {

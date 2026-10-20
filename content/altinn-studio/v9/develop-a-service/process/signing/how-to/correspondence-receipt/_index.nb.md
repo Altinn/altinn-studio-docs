@@ -56,6 +56,10 @@ maskinporten-klienten din i appen.
 {{<content-version-container version-label="Manuelt oppsett">}}
 1. Legg inn `altinn:correspondenceResource` under `altinn:signatureConfig` på signeringsoppgaven (i filen `App/config/process/process.bpmn`) Se eksempel under:
 
+    {{< code-title >}}
+    App/config/process/process.bpmn
+    {{< /code-title >}}
+
     ```xml {hl_lines=[20,21,22]}
     <bpmn:task id="SigningTask" name="Signering">
     <bpmn:extensionElements>

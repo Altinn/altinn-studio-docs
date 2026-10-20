@@ -1,0 +1,33 @@
+name: Block placeholders
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    branches:
+      - master
+
+permissions:
+  contents: read
+
+jobs:
+  placeholders:
+    runs-on: ubuntu-latest
+    name: No unresolved [[FIX BEFORE MERGE]] placeholders
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Fail on added placeholders
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          # Only inspect lines added by this PR, so the check never fails on existing content.
+          hits=$(git diff --unified=0 --no-color "$BASE_SHA...$HEAD_SHA" -- content \
+            | grep -nE '^\+[^+].*\[\[FIX BEFORE MERGE|^\+\[\[FIX BEFORE MERGE' || true)
+          if [ -n "$hits" ]; then
+            echo "::error::Unresolved placeholders found. Replace every [[FIX BEFORE MERGE]] before merging."
+            echo "$hits"
+            exit 1
+          fi

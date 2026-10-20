@@ -415,6 +415,9 @@
           }
         },
         "responses": {
+          "200": {
+            "description": "OK"
+          },
           "400": {
             "description": "Bad Request",
             "content": {
@@ -434,6 +437,9 @@
                 }
               }
             }
+          },
+          "403": {
+            "description": "Forbidden"
           }
         }
       },
@@ -457,6 +463,7 @@
             "name": "after",
             "in": "query",
             "description": "Retrieve events that were registered after this event Id",
+            "required": true,
             "schema": {
               "type": "string"
             },
