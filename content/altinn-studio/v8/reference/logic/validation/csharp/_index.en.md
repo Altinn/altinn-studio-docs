@@ -21,7 +21,7 @@ Each validator has a `ValidationSource`, which is a unique name for the validato
 
 On every save, the app asks each validator whether it needs to run, using the `HasRelevantChanges` method. The app passes in the changes in the save. If the validator answers no, the app does not run it, and the browser keeps the messages from last time.
 
-If the validator is slow, for example because it calls other systems, it is important that `HasRelevantChanges` is as precise as possible. The app then avoids running the validator when the result cannot have changed. If the validator only does simple checks, `HasRelevantChanges` can simply always answer yes:
+If the validator is slow, for example because it calls other systems, it is important that `HasRelevantChanges` is as precise as possible. The app then avoids running the validator when the result cannot have changed. If the validator only does simple checks, `HasRelevantChanges` can simply always answer yes. In `GenericFormDataValidator<T>` it looks like this. In `IValidator` the method has a different signature, which you see in the example under [Using IValidator](#using-ivalidator):
 
 ```csharp
 protected override bool HasRelevantChanges(GrantApplication current, GrantApplication previous) => true;

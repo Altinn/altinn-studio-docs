@@ -39,7 +39,7 @@ input is a text longer than four characters.
 
 ## Default error messages
 
-Default error messages has been set up for all validations done on the client-side. See the overview below.
+Default error messages have been set up for all validations done on the client-side. See the overview below.
 
 | Rule      | Error message bokmål          | Error message nynorsk         | Error message english                 |
 | --------- | ----------------------------- | ----------------------------- | ------------------------------------- |
@@ -85,7 +85,7 @@ App/models/{model}.schema.json
   "properties": {
     "person": {
         "$ref" : "#/definitions/personDefinition",
-        "errorMessage": "myCustomError",
+        "errorMessage": "myCustomError"
     }
   },
   "definitions": {
@@ -93,13 +93,14 @@ App/models/{model}.schema.json
       "age": {
         "type": "number"
       },
-      ...
+      "...": "..."
+    }
   }
 }
 ```
 
 {{% notice warning %}}
-Note that when the XSD is changed, the custom error messages will de removed from the JSON schema.
+Note that when the XSD is changed, the custom error messages will be removed from the JSON schema.
 In the future, there will be support for setting custom error messages in the data modelling tool in Altinn Studio. But for now, this is a manual job.
 {{% /notice %}}
 

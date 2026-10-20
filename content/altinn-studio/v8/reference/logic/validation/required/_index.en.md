@@ -121,12 +121,17 @@ App/config/texts/resource.{language}.json
 
 ```json
 {
-  "id": "text-first-name",
-  "value": "Enter your first name"
-},
-{
-  "id": "first-name-short",
-  "value": "your first name"
+  "language": "en",
+  "resources": [
+    {
+      "id": "text-first-name",
+      "value": "Enter your first name"
+    },
+    {
+      "id": "first-name-short",
+      "value": "your first name"
+    }
+  ]
 }
 ```
 

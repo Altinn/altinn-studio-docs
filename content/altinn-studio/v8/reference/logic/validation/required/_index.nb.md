@@ -121,12 +121,17 @@ App/config/texts/resource.{language}.json
 
 ```json
 {
-  "id": "tekst-fornavn",
-  "value": "Skriv fornavnet ditt"
-},
-{
-  "id": "fornavn-kort",
-  "value": "fornavnet ditt"
+  "language": "nb",
+  "resources": [
+    {
+      "id": "tekst-fornavn",
+      "value": "Skriv fornavnet ditt"
+    },
+    {
+      "id": "fornavn-kort",
+      "value": "fornavnet ditt"
+    }
+  ]
 }
 ```
 

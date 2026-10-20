@@ -259,7 +259,7 @@ Issue [#6418](https://github.com/Altinn/altinn-studio/issues/6418)
 
 ## 4.9.0 (2021-06-29) - Support for marking a single field validation error as fixed
 It is now possible to mark a previous validation error as fixed by using the prefix `*FIXED*` in front of the original error. 
-[documentation on how to implement the functionality](/nb/altinn-studio/v8/reference/logic/validation/csharp/#gå-over-fra-iinstancevalidator) (in Norwegian )
+[Dokumentasjon på hvordan funksjonaliteten implementeres](/nb/altinn-studio/v8/reference/logic/validation/csharp/#gå-over-fra-iinstancevalidator) (på norsk)
 
 ## 4.8.0 (2021-06-22) - Application version number available in AppSettings
 During app deployment an environment variable with the app version number/name is added to the app runtime environment. This version information can now be retrieved in any controller or service through the AppSettings configuration object. Just add a dependency on `AppSettings` into the class and access the new property called `AppVersion`.

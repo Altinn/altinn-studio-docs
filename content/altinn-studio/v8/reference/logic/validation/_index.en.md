@@ -138,7 +138,7 @@ This is what the three types look like:
 
 ## Validation on the server
 
-The app runs the validations on the server before the user can move on in the process. That way nobody can submit data that breaks the rules, not even other systems that use the app's API. However, the server only checks required fields and validation using expressions if you have turned them on. We recommend turning on both.
+The app runs the validations on the server before the user can move on in the process. That way nobody can submit data that breaks the rules, not even other systems that use the app's API. However, the server only checks required fields and validation using expressions if you have turned them on. We recommend turning on both. The server only checks required fields in tasks that have a layout set.
 
 {{% notice info %}}
 In v9, `RequiredValidation` and `ExpressionValidation` are turned on by default.
@@ -150,7 +150,7 @@ The app has these built-in validations:
 
 | Validation | What it checks | How to turn it on or off |
 | --- | --- | --- |
-| [Required fields]({{< relref "/altinn-studio/v8/reference/logic/validation/required" >}}) | That visible components with `required` have a value | `RequiredValidation` (off by default) |
+| [Required fields]({{< relref "/altinn-studio/v8/reference/logic/validation/required" >}}) | That visible components with `required` have a value, in tasks that have a layout set | `RequiredValidation` (off by default) |
 | [Validation using expressions]({{< relref "/altinn-studio/v8/reference/logic/validation/expression-validation" >}}) | The rules in `models/[data-type-ID].validation.json` | `ExpressionValidation` (off by default) |
 | [Data model]({{< relref "/altinn-studio/v8/reference/logic/validation/data-model" >}}) | Attributes on the C# model, for example `[Range]` and `[RegularExpression]` | Always on |
 | XSD | That the form data is valid against `models/[data-type-ID].xsd` | `XsdValidation` (off by default) |
@@ -159,7 +159,7 @@ The app has these built-in validations:
 | Signing | That everyone who should sign has signed | `runDefaultValidator` in the signing task |
 | Signed data | That the data has not changed after the user signed | Always on in signing tasks |
 
-The browser also checks required fields, validation using expressions and the data model while the user fills in the form. The other built-in validations only run on the server when the user moves on in the process. The user therefore sees errors from them only when they try to submit. The exception is file type and file size, which the app also checks when the user uploads a file.
+The browser also checks required fields, validation using expressions and the data model while the user fills in the form. The other built-in validations only run on the server when the user moves on in the process. The user therefore sees errors from them only when they try to submit. The exception is file type, file size and maximum number of files (`maxCount`), which the app also checks when the user uploads a file. The app checks the minimum number of files (`minCount`) only when the user moves on.
 
 You turn the validations on under `AppSettings` in `App/appsettings.json`:
 

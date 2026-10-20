@@ -138,7 +138,7 @@ Slik ser de tre typene ut:
 
 ## Validering på serveren
 
-Appen kjører valideringene på serveren før brukeren får gå videre i prosessen. Derfor kan ingen sende inn data som bryter reglene, heller ikke andre systemer som bruker API-et til appen. Påkrevde felt og validering med uttrykk sjekker serveren likevel bare hvis du har slått dem på. Vi anbefaler å slå på begge.
+Appen kjører valideringene på serveren før brukeren får gå videre i prosessen. Derfor kan ingen sende inn data som bryter reglene, heller ikke andre systemer som bruker API-et til appen. Påkrevde felt og validering med uttrykk sjekker serveren likevel bare hvis du har slått dem på. Vi anbefaler å slå på begge. Serveren sjekker påkrevde felt bare i steg som har et layoutsett.
 
 {{% notice info %}}
 I v9 er `RequiredValidation` og `ExpressionValidation` slått på som standard.
@@ -150,7 +150,7 @@ Appen har disse valideringene innebygd:
 
 | Validering | Hva den sjekker | Slår du den av eller på? |
 | --- | --- | --- |
-| [Påkrevde felt]({{< relref "/altinn-studio/v8/reference/logic/validation/required" >}}) | At synlige komponenter med `required` har en verdi | `RequiredValidation` (av som standard) |
+| [Påkrevde felt]({{< relref "/altinn-studio/v8/reference/logic/validation/required" >}}) | At synlige komponenter med `required` har en verdi, i steg som har et layoutsett | `RequiredValidation` (av som standard) |
 | [Validering med uttrykk]({{< relref "/altinn-studio/v8/reference/logic/validation/expression-validation" >}}) | Reglene i `models/[datatype-ID].validation.json` | `ExpressionValidation` (av som standard) |
 | [Datamodell]({{< relref "/altinn-studio/v8/reference/logic/validation/data-model" >}}) | Attributter på C#-modellen, for eksempel `[Range]` og `[RegularExpression]` | Alltid på |
 | XSD | At skjemadataene er gyldige mot `models/[datatype-ID].xsd` | `XsdValidation` (av som standard) |
@@ -159,7 +159,7 @@ Appen har disse valideringene innebygd:
 | Signering | At alle som skal signere, har signert | `runDefaultValidator` i signeringssteget |
 | Signerte data | At dataene ikke er endret etter at brukeren signerte | Alltid på i signeringssteg |
 
-Påkrevde felt, validering med uttrykk og datamodellen sjekker nettleseren også mens brukeren fyller ut. De andre innebygde valideringene kjører bare på serveren når brukeren går videre i prosessen. Feil fra dem ser brukeren derfor først når hen prøver å sende inn. Unntaket er filtype og filstørrelse, som appen også sjekker når brukeren laster opp en fil.
+Påkrevde felt, validering med uttrykk og datamodellen sjekker nettleseren også mens brukeren fyller ut. De andre innebygde valideringene kjører bare på serveren når brukeren går videre i prosessen. Feil fra dem ser brukeren derfor først når hen prøver å sende inn. Unntaket er filtype, filstørrelse og største antall filer (`maxCount`), som appen også sjekker når brukeren laster opp en fil. Minste antall filer (`minCount`) sjekker appen først når brukeren går videre.
 
 Du slår valideringene på under `AppSettings` i `App/appsettings.json`:
 

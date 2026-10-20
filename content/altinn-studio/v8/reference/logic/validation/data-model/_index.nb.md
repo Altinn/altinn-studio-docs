@@ -14,7 +14,7 @@ Klientside-validering baserer seg på datamodellen som hører til skjemaet, og b
 Helt konkret brukes JSON Schema utgaven av datamodellen for valideringen. Denne genereres automatisk når man laster opp XSD.
 Det går an å gjøre endringer i JSON schema direkte for å tilpasse valideringen ved behov.
 
-**Merk at dersom man gjør tilpasninger i JSON schema manuelt, for å så oppdatere XSD og laste inn på nytt, vil nytt
+**Merk at dersom man gjør tilpasninger i JSON schema manuelt, for så å oppdatere XSD og laste den inn på nytt, vil nytt
 JSON schema også genereres, og alle manuelle tilpasninger må gjøres på nytt. Derfor er det anbefalt å gjøre endringer i XSD og/eller datamodelleringsverktøyet
 for at disse endringene skal reflekteres i JSON schema.**
 
@@ -83,7 +83,7 @@ App/models/{model}.schema.json
   "properties": {
     "person": {
         "$ref" : "#/definitions/personDefinition",
-        "errorMessage": "myCustomError",
+        "errorMessage": "myCustomError"
     }
   },
   "definitions": {
@@ -91,7 +91,8 @@ App/models/{model}.schema.json
       "age": {
         "type": "number"
       },
-      ...
+      "...": "..."
+    }
   }
 }
 ```

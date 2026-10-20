@@ -21,7 +21,7 @@ Hver validator har en `ValidationSource`, som er et unikt navn på validatoren. 
 
 Ved hver lagring spør appen hver validator om den trenger å kjøre, med metoden `HasRelevantChanges`. Appen sender med endringene i lagringen. Svarer validatoren nei, kjører appen den ikke, og nettleseren beholder meldingene fra forrige gang.
 
-Er validatoren treg, for eksempel fordi den kaller andre systemer, er det viktig at `HasRelevantChanges` er så presis som mulig. Da slipper appen å kjøre validatoren når resultatet ikke kan ha endret seg. Gjør validatoren bare enkle sjekker, kan `HasRelevantChanges` godt alltid svare ja:
+Er validatoren treg, for eksempel fordi den kaller andre systemer, er det viktig at `HasRelevantChanges` er så presis som mulig. Da slipper appen å kjøre validatoren når resultatet ikke kan ha endret seg. Gjør validatoren bare enkle sjekker, kan `HasRelevantChanges` godt alltid svare ja. I `GenericFormDataValidator<T>` ser det slik ut. I `IValidator` har metoden en annen signatur, som du ser i eksempelet under [Bruke IValidator](#bruke-ivalidator):
 
 ```csharp
 protected override bool HasRelevantChanges(Soknad current, Soknad previous) => true;
