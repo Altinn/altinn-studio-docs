@@ -160,7 +160,7 @@ Appen har disse valideringene innebygd:
 | Signering | At alle som skal signere, har signert | `runDefaultValidator` i signeringsoppgaven |
 | Signerte data | At dataene ikke er endret etter at brukeren signerte | Alltid på i signeringsoppgaver |
 
-Påkrevde felt, validering med uttrykk og datamodellen sjekker nettleseren også mens brukeren fyller ut. De andre innebygde valideringene kjører bare på serveren når brukeren går videre i prosessen. Brukeren ser derfor feil fra dem først når brukeren prøver å sende inn. Unntaket er filtype, filstørrelse og største antall filer (`maxCount`), som appen også sjekker når brukeren laster opp en fil. Minste antall filer (`minCount`) sjekker appen først når brukeren går videre.
+Nettleseren sjekker også påkrevde felt, validering med uttrykk og datamodellen mens brukeren fyller ut. De andre innebygde valideringene kjører bare på serveren når brukeren går videre i prosessen. Brukeren ser derfor feil fra dem først når brukeren prøver å sende inn. Unntaket er filtype, filstørrelse og største antall filer (`maxCount`), som appen også sjekker når brukeren laster opp en fil. Minste antall filer (`minCount`) sjekker appen først når brukeren går videre.
 
 Du slår valideringene av og på under `AppSettings` i `App/appsettings.json`:
 

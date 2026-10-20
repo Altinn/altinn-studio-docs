@@ -294,7 +294,7 @@ Hvilke datakilder (`dataSource`) du kan bruke, avhenger av hvor teksten vises. A
 
 Når brukeren åpner skjemaet, kjører appen de samme validatorene som ved lagring, slik at brukeren ser meldingene med en gang.
 
-Påkrevde felt, validering med uttrykk og datamodellen sjekker nettleseren selv mens brukeren fyller ut, så ved lagring hopper serveren over dem. Serveren kjører dem når brukeren går videre i prosessen. Gir nettleseren og serveren ulikt svar, kan brukeren få en feil ved innsending som brukeren ikke så under utfyllingen.
+Nettleseren sjekker selv påkrevde felt, validering med uttrykk og datamodellen mens brukeren fyller ut, så serveren hopper over dem ved lagring. Serveren kjører dem når brukeren går videre i prosessen. Gir nettleseren og serveren ulikt svar, kan brukeren få en feil ved innsending som brukeren ikke så under utfyllingen.
 
 ### Når brukeren går videre i prosessen
 
