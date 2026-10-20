@@ -64,6 +64,10 @@ The app also has older interfaces that still work. See [Older validation interfa
 
 The example below checks that the total in the budget is not higher than the amount the user applies for. The budget and the grant application are two data types in the same task:
 
+{{% notice info %}}
+In v9, the app template has implicit `using` directives and nullable turned on. You then do not need the `using` lines for the `System` namespaces, and `language` is `string?`.
+{{% /notice %}}
+
 ```csharp
 using System.Collections.Generic;
 using System.Linq;
@@ -163,7 +167,7 @@ public class PeriodValidator() : GenericFormDataValidator<GrantApplication>("gra
         // the component checks whether the field is filled in.
         if (data.Period?.Start is { } start
             && data.Period?.End is { } end
-            && end < start)
+            && end <= start)
         {
             // The first argument points to the field, and the app builds the field path for you.
             // The second argument is the text key of the error message.
@@ -185,6 +189,10 @@ You usually let the validator accept empty values, that is `null` and empty text
 
 Register the validator in `RegisterCustomAppServices` in `App/Program.cs`. Add the `using` lines at the top of the file:
 
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```csharp
 using Altinn.App.Core.Features;
 using Altinn.App.Logic.Validation;
@@ -202,10 +210,6 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 You decide what the classes are called and where the files are. We recommend the `App/logic/Validation` folder.
 
-{{% notice info %}}
-In v9, the app template has implicit `using` directives and nullable turned on. You then do not need the `using` lines for the `System` namespaces, and `language` is `string?`.
-{{% /notice %}}
-
 ## Creating validation messages
 
 A validation message is a `ValidationIssue` object. These are the most important properties:
@@ -218,7 +222,7 @@ A validation message is a `ValidationIssue` object. These are the most important
 | `Field` | The field path in the data model that the message is about |
 | `DataElementId` | The ID of the data element that the message is about |
 | `Code` | A short, fixed code for the type of error, for example `DeadlineExpired`. The user does not see it. |
-| `Description` | A text the app uses if you have not set `CustomTextKey` |
+| `Description` | A text the app uses if you have not set `CustomTextKey` (if it is not set, the translation system is used automatically) |
 
 The app sets `Source` itself. Do not set it.
 
@@ -282,9 +286,7 @@ CustomTextParameters = new() { ["amount"] = $"{grantApplication.AmountApplied}" 
 }
 ```
 
-In the browser, variables with other data sources also work, for example `dataModel.*`. The server also creates a ready-made text in `Description` for systems that use the API, and there only `customTextParameters` work. If the message must also be correct for other systems, put the values in `CustomTextParameters`.
-
-If the app cannot find the text key, the user sees the key itself, even if you have set `Description`. Check that the key exists in all the language files.
+Which data sources (`dataSource`) are supported can vary with where the text is shown. `Description` is translated automatically, if you have not set it to something other than `null`.
 
 ## When the app runs the validators
 
@@ -305,9 +307,9 @@ The app skips validation when
 
 The app runs the validation _after_ any action the user has chosen, for example `sign` or `confirm`, because the result of the action can decide whether the validation passes. If the validation fails, the action has still happened. For example, the user has signed but cannot move on until they have fixed the errors.
 
-### When other systems use the API
+### When other end-user systems use the API
 
-Another system can ask the app to validate the instance with the [validation API]({{< relref "/api/apps/validation" >}}). The app then runs all the validators for the task the instance is in. When the system asks the app to move on in the process, the app validates in the same way as when a user does it.
+For some forms, accounting systems or other software have a direct integration that submits the form on behalf of the user. Such a system can ask the app to validate the instance with the [validation API]({{< relref "/api/apps/validation" >}}). The app then runs all the validators for the task the instance is in. When the system asks the app to move on in the process, the app validates in the same way as when a user does it.
 
 When the system saves data, it does not always get the validation result back. Use the validation API to get all the messages.
 

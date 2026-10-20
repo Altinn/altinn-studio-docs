@@ -23,10 +23,14 @@ for these changes to be reflected in the JSON schema.**
 
 An example of how a field can be defined in the JSON schema data model is:
 
+{{< code-title >}}
+App/models/{model}.schema.json
+{{< /code-title >}}
+
 ```json
 "someField": {
   "type": "string",
-  "maxLength": "4"
+  "maxLength": 4
 }
 ```
 
@@ -55,10 +59,14 @@ The JSON schema file is in the folder `App/models` and has a naming patterns as 
 
 An example of how to extend the example previously presented with a custom error message:
 
+{{< code-title >}}
+App/models/{model}.schema.json
+{{< /code-title >}}
+
 ```json {hl_lines=[4]}
 "someField": {
   "type": "string",
-  "maxLength": "4",
+  "maxLength": 4,
   "errorMessage": "myCustomError"
 }
 ```
@@ -67,6 +75,10 @@ The error text can be included directly. To enable language support, add a text 
 
 Notice that if you have a reference to a definition the error message must be added to the `property`-field and not the reference/definition.
 Example:
+
+{{< code-title >}}
+App/models/{model}.schema.json
+{{< /code-title >}}
 
 ```json {hl_lines=[5]}
 {

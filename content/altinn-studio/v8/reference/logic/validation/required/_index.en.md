@@ -7,6 +7,10 @@ weight: 10
 
 A required field is a field the user must fill in before they can move on. You make a field required in the settings for the component in Altinn Studio Designer. In the layout file, this is stored as `required` on the component:
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json {hl_lines=[5]}
 {
   "id": "first-name",
@@ -31,6 +35,10 @@ If the component is hidden from the user, the app does not check whether the fie
 
 You can therefore make a component both required and hidden, so that the field is only required when the user can see it. You can set up both in Designer. In the layout file, it looks like this:
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json {hl_lines=["5-6"]}
 {
   "id": "number-of-children",
@@ -54,6 +62,10 @@ The app finds the name of the field like this:
 
 ### Example: Field with only `title`
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "first-name",
@@ -66,6 +78,10 @@ The app finds the name of the field like this:
 ```
 
 The texts in the resource file:
+
+{{< code-title >}}
+App/config/texts/resource.{language}.json
+{{< /code-title >}}
 
 ```json
 {
@@ -81,6 +97,10 @@ The validation message is then `"You have to fill out first name"`.
 If the label is long, or does not fit well in the error message, you can add a `shortName` text that the app uses instead.
 _The app only uses the `shortName` text in this error message, not anywhere else._
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "first-name",
@@ -94,6 +114,10 @@ _The app only uses the `shortName` text in this error message, not anywhere else
 ```
 
 The texts in the resource file:
+
+{{< code-title >}}
+App/config/texts/resource.{language}.json
+{{< /code-title >}}
 
 ```json
 {
@@ -111,6 +135,10 @@ The validation message is then `"You have to fill out your first name"`.
 ## Replacing the error message completely
 
 If you want a completely different error message for a field, add `requiredValidation` to `textResourceBindings` on the component. The value is a text key from the [text resources]({{< relref "/altinn-studio/v8/reference/ux/texts" >}}), so that the message is available in all the languages the app supports.
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json {hl_lines=[6]}
 {

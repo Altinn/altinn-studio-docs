@@ -84,7 +84,7 @@ You can make the app check a row in a repeating group when the user saves the ro
 
 ### When the user uploads attachments
 
-When the user uploads a file, the app checks the file type, file size and file name against the settings on the data type. If you have set up [extended file validation]({{< relref "/altinn-studio/v8/reference/logic/validation/files" >}}), the app runs it too. If the file does not meet the requirements, the app does not store the file, and the user sees the error straight away.
+When the user uploads a file, the app checks the file type, file size and number of uploaded files against the settings on the data type. If you have set up [extended file validation]({{< relref "/altinn-studio/v8/reference/logic/validation/files" >}}), the app runs it too. If the file does not meet the requirements, the app does not store the file, and the user sees the error straight away.
 
 ## Choosing which messages the app shows straight away
 

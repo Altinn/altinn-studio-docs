@@ -84,7 +84,7 @@ Du kan få appen til å sjekke en rad i en repeterende gruppe når brukeren lagr
 
 ### Når brukeren laster opp vedlegg
 
-Når brukeren laster opp en fil, sjekker appen filtype, filstørrelse og filnavn mot innstillingene på datatypen. Har du satt opp [utvidet filvalidering]({{< relref "/altinn-studio/v8/reference/logic/validation/files" >}}), kjører appen den også. Hvis filen ikke oppfyller kravene, lagrer ikke appen filen, og brukeren ser feilen med en gang.
+Når brukeren laster opp en fil, sjekker appen filtype, filstørrelse og antall opplastede filer mot innstillingene på datatypen. Har du satt opp [utvidet filvalidering]({{< relref "/altinn-studio/v8/reference/logic/validation/files" >}}), kjører appen den også. Hvis filen ikke oppfyller kravene, lagrer ikke appen filen, og brukeren ser feilen med en gang.
 
 ## Velge hvilke meldinger appen viser med en gang
 

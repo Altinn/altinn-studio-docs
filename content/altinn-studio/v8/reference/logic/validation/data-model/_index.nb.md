@@ -20,10 +20,14 @@ for at disse endringene skal reflekteres i JSON schema.**
 
 Et eksempel på hvordan et felt kan defineres i JSON schema datamodellen er:
 
+{{< code-title >}}
+App/models/{model}.schema.json
+{{< /code-title >}}
+
 ```json
 "someField": {
   "type": "string",
-  "maxLength": "4"
+  "maxLength": 4
 }
 ```
 
@@ -53,10 +57,14 @@ hvor feltet er definert i JSON schema. JSON schema filen ligger i mappen `App/mo
 
 F.eks., man kan utvide eksempelet over:
 
+{{< code-title >}}
+App/models/{model}.schema.json
+{{< /code-title >}}
+
 ```json {hl_lines=[4]}
 "someField": {
   "type": "string",
-  "maxLength": "4",
+  "maxLength": 4,
   "errorMessage": "myCustomError"
 }
 ```
@@ -65,6 +73,10 @@ Man kan skrive ønsket tekst direkte inn her, eller bruke en tekstnøkkel for en
 
 Legg merke til at om man har en referanse til en definisjon så må feilmeldingen ligge på `property`-feltet, og ikke på referansen/definisjonen.
 Eksempel:
+
+{{< code-title >}}
+App/models/{model}.schema.json
+{{< /code-title >}}
 
 ```json {hl_lines=[5]}
 {
@@ -86,12 +98,12 @@ Eksempel:
 
 {{% notice warning %}}
 Merk at ved XSD-endringer, så vil ev. egendefinerte feilmeldinger forsvinne da JSON schema filen genereres på nytt fra XSD. På sikt er det tenkt at
-det å sette opp egendefinerte feilmeldinger skal være mulig å gjøre via datamodelleringsverktøyet i Altinn Studio. Per nå må dette gjøres manelt.
+det å sette opp egendefinerte feilmeldinger skal være mulig å gjøre via datamodelleringsverktøyet i Altinn Studio. Per nå må dette gjøres manuelt.
 {{% /notice %}}
 
 
 ## Begrensningene på serveren
 
-Appen sjekker også begrensningene på serveren, gjennom attributtene på C#-modellen, for eksempel `[Range]`, `[MaxLength]` og `[RegularExpression]`. Både C#-modellen og JSON Schema lager Altinn Studio fra XSD-en, så de har vanligvis de samme reglene. Endrer du JSON Schema for hånd, sjekker serveren ikke den endringen.
+Appen sjekker også begrensningene på serveren, gjennom attributtene på C#-modellen, for eksempel `[Range]`, `[MaxLength]` og `[RegularExpression]`. Altinn Studio genererer både C#-modellen og JSON Schema fra XSD-en, så de har vanligvis de samme reglene. Endrer du JSON Schema for hånd, sjekker serveren ikke den endringen.
 
 Vil du at serveren skal sjekke skjemadataene mot hele XSD-en, kan du slå på innstillingen `XsdValidation`. Se [Validering på serveren]({{< relref "/altinn-studio/v8/reference/logic/validation" >}}#validering-på-serveren).
