@@ -9,6 +9,10 @@ weight: 10
 
 Et påkrevd felt er et felt brukeren må fylle ut før hen kan gå videre. Du gjør et felt påkrevd i innstillingene for komponenten i Altinn Studio Designer. I layoutfilen blir det lagret som `required` på komponenten:
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json {hl_lines=[5]}
 {
   "id": "fornavn",
@@ -33,6 +37,10 @@ Er komponenten skjult for brukeren, sjekker ikke appen om feltet er fylt ut, ver
 
 Du kan derfor gjøre en komponent både påkrevd og skjult, slik at feltet bare er påkrevd når brukeren ser det. Begge deler kan du sette opp i Designer. I layoutfilen ser det slik ut:
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json {hl_lines=["5-6"]}
 {
   "id": "antall-barn",
@@ -56,6 +64,10 @@ Appen finner navnet på feltet slik:
 
 ### Eksempel: Felt med kun `title`
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "fornavn",
@@ -68,6 +80,10 @@ Appen finner navnet på feltet slik:
 ```
 
 Tekstene i ressursfilen:
+
+{{< code-title >}}
+App/config/texts/resource.{language}.json
+{{< /code-title >}}
 
 ```json
 {
@@ -83,6 +99,10 @@ Da blir valideringsmeldingen `"Du må fylle ut fornavn"`.
 Er ledeteksten lang, eller passer den dårlig i feilmeldingen, kan du legge til en `shortName`-tekst som appen bruker i stedet.
 _Appen bruker bare `shortName`-teksten i denne feilmeldingen, ikke andre steder._
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "fornavn",
@@ -96,6 +116,10 @@ _Appen bruker bare `shortName`-teksten i denne feilmeldingen, ikke andre steder.
 ```
 
 Tekstene i ressursfilen:
+
+{{< code-title >}}
+App/config/texts/resource.{language}.json
+{{< /code-title >}}
 
 ```json
 {
@@ -113,6 +137,10 @@ Da blir valideringsmeldingen `"Du må fylle ut fornavnet ditt"`.
 ## Erstatte feilmeldingen helt
 
 Vil du bruke en helt annen feilmelding for et felt, legger du til `requiredValidation` i `textResourceBindings` på komponenten. Verdien er en tekstnøkkel fra [tekstressursene]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/tekster" >}}), slik at meldingen finnes på alle språkene appen støtter.
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json {hl_lines=[6]}
 {

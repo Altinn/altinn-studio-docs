@@ -182,6 +182,10 @@ Vanligvis lar du validatoren godta tomme verdier, altså `null` og tom tekst (`"
 
 Registrer validatoren i `RegisterCustomAppServices` i `App/Program.cs`:
 
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```csharp
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
@@ -257,6 +261,10 @@ Vil du sette inn verdier i teksten, legger du dem i `CustomTextParameters` og br
 CustomTextKey = "validering.budsjett.over-sokt-belop",
 CustomTextParameters = new() { ["belop"] = $"{soknad.SoktBelop}" },
 ```
+
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
 
 ```json
 {

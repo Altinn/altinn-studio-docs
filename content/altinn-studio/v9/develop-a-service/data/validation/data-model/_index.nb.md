@@ -20,6 +20,10 @@ Du kan gjøre endringer i JSON Schema direkte for å tilpasse valideringen ved b
 
 Et eksempel på hvordan du kan definere et felt i JSON Schema datamodellen:
 
+{{< code-title >}}
+App/models/{model}.schema.json
+{{< /code-title >}}
+
 ```json
 "someField": {
   "type": "string",
@@ -51,6 +55,10 @@ feltet er definert i JSON Schema. JSON Schema-filen ligger i mappen `App/models`
 
 Du kan for eksempel utvide eksempelet over:
 
+{{< code-title >}}
+App/models/{model}.schema.json
+{{< /code-title >}}
+
 ```json {hl_lines=[4]}
 "someField": {
   "type": "string",
@@ -63,6 +71,10 @@ Du kan skrive ønsket tekst direkte inn her, eller bruke en tekstnøkkel for en 
 
 Legg merke til at hvis du har en referanse til en definisjon, må feilmeldingen ligge på `property`-feltet, ikke på referansen/definisjonen.
 Eksempel:
+
+{{< code-title >}}
+App/models/{model}.schema.json
+{{< /code-title >}}
 
 ```json {hl_lines=[5]}
 {
