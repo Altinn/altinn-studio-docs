@@ -54,11 +54,11 @@ I v9 viser appen feiloppsummeringen først når brukeren har prøvd å sende inn
 
 Bare feil stopper brukeren. Advarsler, informasjon og bekreftelser kan brukeren lese og likevel gå videre.
 
-Noen feil kommer først når brukeren prøver å sende inn:
+Disse feilene vises først når brukeren prøver å sende inn:
 
-- feil fra regler som bare kjører ved innsending, fordi de er tunge å kjøre eller sjekker hele oppgaven
-- feil som ikke gjelder et bestemt felt, for eksempel at en frist har gått ut
-- feil i felt som er skjult for brukeren
+- Feil fra regler som bare kjører ved innsending, fordi de er tunge å kjøre eller sjekker hele oppgaven.
+- Feil som ikke gjelder et bestemt felt, for eksempel at en frist har gått ut.
+- Feil i felt som er skjult for brukeren.
 
 De to siste viser appen bare i feiloppsummeringen, fordi det ikke finnes noe synlig felt å vise dem ved.
 
@@ -124,7 +124,7 @@ Validatorer i C# som bare kjører ved innsending, er ikke med i noen av typene. 
 
 ## Myke valideringer
 
-Myke valideringer er valideringsmeldinger som ikke stopper brukeren fra å sende inn eller gå videre til neste oppgave i prosessen. Du kan bruke dem til å be brukeren kontrollere en verdi som virker feil, men som ikke er ugyldig, eller til å gi nyttig informasjon for resten av utfyllingen.
+Myke valideringer stopper ikke brukeren fra å sende inn eller gå videre til neste oppgave i prosessen. Du kan bruke dem til å be brukeren kontrollere en verdi som virker feil, men som ikke er ugyldig, eller til å gi nyttig informasjon for resten av utfyllingen.
 
 Det finnes tre typer myke valideringer: advarsel, informasjon og bekreftelse. Du lager dem ved å sette alvorlighetsgraden på valideringen, enten i [validering med uttrykk]({{< relref "/altinn-studio/v8/reference/logic/validation/expression-validation" >}}) eller i [en validator i C#]({{< relref "/altinn-studio/v8/reference/logic/validation/csharp" >}}#alvorlighetsgrad).
 
