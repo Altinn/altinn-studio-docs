@@ -4,6 +4,7 @@ title: Utvidet filvalidering
 description: Slik utfører du utvidet filvalidering.
 toc: false
 
+weight: 40
 tags: [needsReview]
 ---
 
