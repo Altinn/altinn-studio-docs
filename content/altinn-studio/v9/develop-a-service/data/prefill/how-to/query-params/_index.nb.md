@@ -27,7 +27,7 @@ Eksempel:
 
 Dette krever at du har et felt kalt JobTitle i datamodellen din, og lar deg forhåndsutfylle dette feltet med en lenke som:
 
-https://ttd.apps.tt02.altinn.no/ttd/stateless-app/set-query-params?jobTitle=designer
+https://ttd.apps.tt02.altinn.no/ttd/stateless-app/set-query-params?jobTitle=Developer
 
 Viktig merknad: Lenken for forhåndsutfylling fungerer bare på stien :org/:app/set-query-params, som i eksemplet ovenfor.
 
@@ -45,6 +45,7 @@ For å validere spørringsparametere lager du en klasse som implementerer `IVali
 App/logic/ValidateQueryParamPrefill.cs
 {{< /code-title >}}
 
+```c#
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Altinn.App.Core.Features;
@@ -85,3 +86,11 @@ Registrer klassen i `Program.cs`:
 App/Program.cs
 {{< /code-title >}}
 
+```c#
+using Altinn.App.AppLogic.DataProcessing;
+
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+    services.AddTransient<IValidateQueryParamPrefill, ValidateQueryParamPrefill>();
+}
+```
