@@ -35,13 +35,16 @@ Legg også merke til at bare spørringsparametere som er definert i ```<stateles
 
 ## 2. Konfigurer InstantiationProcessor og InstantiationButton
 
-Følg stegene her: [Start instans fra et stateless skjema](/nb/altinn-studio/v9/develop-a-service/reference/configuration/stateless/#starte-instans-fra-et-stateless-skjema)
+Følg stegene her: [Start instans fra et stateless skjema]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/stateless#starte-instans-fra-et-stateless-skjema" >}})
 
 ## 3. (Valgfritt, men sterkt anbefalt) Valider verdier for spørringsparametere
 
 For å validere spørringsparametere lager du en klasse som implementerer `IValidateQueryParamPrefill`, for eksempel i mappen `logic`. Returner `null` når verdiene er gyldige. Returnerer du en `ValidationIssue`, svarer appen med feilkoden 400 Bad Request og bruker ikke verdiene. Her er et enkelt eksempel:
 
-```c# 
+{{< code-title >}}
+App/logic/ValidateQueryParamPrefill.cs
+{{< /code-title >}}
+
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Altinn.App.Core.Features;
@@ -78,9 +81,7 @@ namespace Altinn.App.AppLogic.DataProcessing
 
 Registrer klassen i `Program.cs`:
 
-```c#
-void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
-{
-    services.AddTransient<IValidateQueryParamPrefill, ValidateQueryParamPrefill>();
-}
-```
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
