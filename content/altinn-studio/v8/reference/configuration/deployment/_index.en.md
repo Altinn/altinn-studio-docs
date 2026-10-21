@@ -17,7 +17,7 @@ Starting from version [2.0.0](/en/community/changelog/deployment/v2/) of the 'de
 
 ### Custom settings
 
-Custom settings are configured in the `App/deployment/values.yaml` file by adding the desired property under
+Custom settings are configured in the `deployment/values.yaml` file in the app repository root by adding the desired property under
 the `deployment` section.
 These will override corresponding settings in the Helm chart (for exceptions,
 see [here](#settings-overridden-at-deploy-time)).
@@ -25,9 +25,32 @@ See [Initial Scaling](#initial-scaling) for an example.
 
 {{% notice warning %}}
 Please note that the format in `values.yaml` in the central Helm chart differs slightly from `values.yaml` in the
-application; in the Helm chart, the properties are at the top level, while in the app, they must be placed under
+application; in the Helm chart, the properties are at the top level, while in the app, we recommend placing them under
 the `deployment` section.
 {{% /notice %}}
+
+### Environment-specific settings
+
+Add an optional `deployment/values.<environment>.yaml` next to `deployment/values.yaml` in the app repository root. Use the exact environment name: `values.tt02.yaml` for TT02 or `values.production.yaml` for production.
+
+Environment values override shared values. Unspecified settings stay unchanged; lists are replaced, not appended. Platform-generated overrides still take precedence. Both files accept settings under `deployment` or at the top level.
+
+This example limits TT02 to one replica with autoscaling enabled:
+
+{{< code-title >}}
+deployment/values.tt02.yaml
+{{< /code-title >}}
+
+```yaml
+deployment:
+  autoscaling:
+    enabled: true
+    replicas:
+      min: 1
+      max: 1
+```
+
+Without an environment file, deployment behaves as before.
 
 ## Scaling
 
@@ -47,10 +70,10 @@ replicaCount: 2
 ...
 ```
 
-To override the settings in your app, you can add `replicaCount` under `deployment` i `App/deployment/values.yaml`:
+To override the settings in your app, you can add `replicaCount` under `deployment` in `deployment/values.yaml`:
 
 {{% code-title %}}
-App/deployment/values.yaml
+deployment/values.yaml
 {{% /code-title %}}
 
 ```yaml{linenos=false,hl_lines="3"}
@@ -137,7 +160,7 @@ resources:
 Values that are possible to configure (the values below are just an example and by no means definitive):
 
 {{% code-title %}}
-App/deployment/values.yaml
+deployment/values.yaml
 {{% /code-title %}}
 
 ```yaml
@@ -228,7 +251,7 @@ volumes:
 ...
 ```
 
-Custom volumes can be added under the `development` section in `App/deployment/values.yaml`.
+Custom volumes can be added under the `deployment` section in `deployment/values.yaml`.
 
 At the moment, there is only one use case for adding other volumes: [Fetching secrets from Azure Key Vault](/en/altinn-studio/v8/reference/configuration/secrets/).
 
