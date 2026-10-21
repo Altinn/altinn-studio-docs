@@ -1,38 +1,41 @@
 ---
 draft: true
 hidden: true
-tags: [needsReview]
+tags: [Reviewed]
 ---
 
 
->Du gjør oppsettet i denne seksjonen fra **Prosess**-siden i appens arbeidsflate. Naviger dit ved å klikke på **Prosess** i toppmenyen fra appens arbeidsflate.
+>Du gjør oppsettet i denne delen på siden **Arbeidsflyt** i Altinn Studio. Klikk på **Arbeidsflyt** i toppmenyen for å komme dit.
 
-### 1. Legg til betalingsoppgave
+### 1. Legge til en betalingsoppgave
 
-Legg til en betalingsoppgave i prosessen ved å velge betalingsoppgave fra menyen til venstre i prosess-editoren og dra den inn i prosessen. 
+Legg til en betalingsoppgave ved å dra **Lag betalingsoppgave** fra menyen til venstre inn i arbeidsflyten.
 
-Systemet oppdaterer følgende konfigurasjoner automatisk:
-- Systemet legger til to datatyper knyttet til betaling (én for data om betaling, én for betalingskvittering).
-- Systemet legger til sider for betalingsoppgaven, med en ferdig oppsatt side.
-- Systemet legger til en ny regel for tilgangsstyring knyttet til betalingsoppgaven – du må konfigurere denne senere.
+Altinn Studio legger da automatisk til
 
-### 2. Legg til gateway etter betalingssteget
+- to datatyper for betaling (én for betalingsdata og én for betalingskvitteringen)
+- sider for betalingsoppgaven, med én ferdig oppsatt side
+- en regel for tilgangsstyring for betalingsoppgaven, som du setter opp i steget «Gi tilgang til den som skal betale og tjenesteeieren»
 
-Gatewayen bør ha to sekvensflyter ut:
-- Én som peker videre i prosessen.
-- Én som peker tilbake til forrige oppgave i prosessen (før betaling).
+### 2. Legge til en gateway etter betalingsoppgaven
 
-### 3. Sett opp regler for sekvensflytene
+Gatewayen skal ha to piler (sekvensflyter) ut:
 
-**For sekvensflyten som går videre:**
-1. Klikk på sekvensflyten som går _videre_ i prosessen.
-2. I panelet til høyre klikker du på **Legg til en ny logikkregel**. Systemet setter da denne opp med aksjonen **Avvise** (`reject`) som utgangspunkt.
-3. Klikk på **Endre** og endre fra **Avvise** til **Bekreft**. 
+- Én som peker videre i arbeidsflyten.
+- Én som peker tilbake til forrige oppgave i arbeidsflyten (før betaling).
+
+### 3. Sette opp regler for pilene ut av gatewayen
+
+**For pilen som går videre:**
+
+1. Klikk på pilen som går _videre_ i arbeidsflyten.
+2. I panelet til høyre klikker du på **Lag en ny logikkregel**. Regelen får handlingen **Avvise** (`reject`) som utgangspunkt.
+3. Klikk på **Endre**, og bytt handlingen fra **Avvise** til **Bekrefte**.
 4. Klikk på **Lagre og lukk** for å lagre regelen.
 
-**For sekvensflyten som går tilbake:**
-1. Klikk på sekvensflyten som går _tilbake_ i prosessen. 
-2. Gjenta stegene over, men denne gangen trenger du ikke å endre det oppsettet som legges til – aksjon skal være **Avvise**.
+**For pilen som går tilbake:**
 
-    
-![Eksempel på en prosess med utfylling etterfulgt av betaling](./process-data-payment.png "Eksempel på en prosess med utfylling etterfulgt av betaling")
+1. Klikk på pilen som går _tilbake_ i arbeidsflyten.
+2. Gjenta stegene over, men ikke endre handlingen. Den skal være **Avvise**.
+
+![Arbeidsflyt med oppgavene Utfylling og Betaling, og en gateway som enten går videre til slutten eller tilbake til Utfylling](./process-data-payment.png "Arbeidsflyt med betaling")
