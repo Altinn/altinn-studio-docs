@@ -52,6 +52,10 @@ Ligger feltet i en repeterende gruppe, regner appen ut verdien for hver rad. Du 
 
 Eksempelet under gir hver rad i `varer` sin egen `sum`, ut fra prisen og antallet i den samme raden:
 
+{{< code-title >}}
+App/models/skjema.calculation.json
+{{< /code-title >}}
+
 ```json
 {
   "calculations": {

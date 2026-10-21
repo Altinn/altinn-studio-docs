@@ -27,6 +27,10 @@ You still might find a missing code list or two in Altinn 3 compared with Altinn
 For an overview over available code lists in Altinn 2 please use the [api](https://altinn.github.io/docs/api/rest/metadata/#hente-oversikt-over-kodelister)
 You register the lists you want to use in your applications `Program.cs` and you can keep updating the code list trough TUL. 
 
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```C#
 using Altinn.App.Core.Features.Options;
 ...
@@ -45,6 +49,10 @@ for missing languages. If you want two different transformations of the same lis
 name that is used in Altinn 3 and `metadataApiId` is used towards altinn 2.
 
 Usage is as all code lists where `id` is written in the `optionsId` field of the component.
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 {

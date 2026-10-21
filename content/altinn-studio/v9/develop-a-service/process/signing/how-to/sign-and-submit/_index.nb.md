@@ -63,7 +63,11 @@ Steget fungerer fortsatt som et vanlig datasteg, men brukeren kan i tillegg sign
 3. Angi hvilke data som skal signeres i `<altinn:dataTypesToSign>`, for eksempel skjemadataene i datamodellen.
 5. Oppgi en datatype i `<altinn:signatureDataType>`. Hvordan den bør se ut, finner du nedenfor.
 
-Ferdig konvertert eksempel i `process.xml`:
+Ferdig konvertert eksempel i `process.bpmn`:
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
 
 ```xml
 <bpmn:task id="Task_1" name="Fyll ut og signer">
@@ -94,6 +98,10 @@ Ferdig konvertert eksempel i `process.xml`:
 
 Datatypen i `applicationmetadata.json`:
 
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "signatures",
@@ -110,6 +118,10 @@ Det er viktig å sette `allowedContributors` til `"app:owned"`. Det gjør at dis
 Sørg for at den som fyller ut skjemaet har rettighet til å utføre action `sign`.
 
 Du kan for eksempel legge til dette rett ved der vedkommende får `read` og `write`:
+
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
 
 ```xml
 ...

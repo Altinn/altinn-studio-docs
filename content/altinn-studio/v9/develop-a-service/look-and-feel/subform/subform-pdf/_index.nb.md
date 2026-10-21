@@ -36,6 +36,10 @@ Inntil videre anbefaler vi følgende fremgangsmåte:
 
 Slik blir sekvensflytene og diagrammet riktige.
 
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <bpmn:serviceTask id="PdfSubform" name="PDF - underskjema">
     <bpmn:extensionElements>
@@ -65,6 +69,10 @@ Oppgaven må ha én inngående og én utgående sekvensflyt.
 
 Eksempel på tekstressurs for filnavn med variabel:
 
+{{< code-title >}}
+App/config/texts/resource.{language}.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "subformPdfFileName",
@@ -83,6 +91,10 @@ Eksempel på tekstressurs for filnavn med variabel:
 Opprett en mappe under `App/ui` med samme navn som ID-en til systemoppgaven som genererer PDF-en. I dette eksempelet heter oppgaven `PdfSubform`, og mappen må derfor hete `PdfSubform`.
 
 Legg til en `Settings.json`-fil i oppgavemappen. Sett `defaultDataType` til datatypen for underskjemaet:
+
+{{< code-title >}}
+App/ui/PdfSubform/Settings.json
+{{< /code-title >}}
 
 ```json
 {
@@ -112,6 +124,10 @@ App/ui/
 ```
 
 #### underskjema/Settings.json
+
+{{< code-title >}}
+App/ui/underskjema/Settings.json
+{{< /code-title >}}
 
 ```json
 {

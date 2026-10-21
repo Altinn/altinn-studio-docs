@@ -18,6 +18,10 @@ I din models-mappe oppretter du en fil kalt <stateless_datamodel>.prefill.json (
 
 Eksempel:
 
+{{< code-title >}}
+App/models/{stateless_datamodel}.prefill.json
+{{< /code-title >}}
+
 ```json 
 {
   "$schema": "https://altinncdn.no/schemas/json/prefill/prefill.schema.v1.json",

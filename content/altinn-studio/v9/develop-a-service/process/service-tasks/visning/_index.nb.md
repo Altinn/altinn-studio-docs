@@ -12,7 +12,7 @@ En systemoppgave kjører på serveren, men brukeren sitter og venter i nettleser
 
 | Situasjonen | Dette ser brukeren | Slik kan du endre den |
 | --- | --- | --- |
-| Appen flytter prosessen videre, eller oppgaven venter på svar, med `Defer` eller på en melding i en postkasse | Den vanlige lastevisningen, uten tekst. Etter åtte sekunder kommer en beskjed om at det tar uvanlig lang tid, og at brukeren trygt kan lukke siden. Feiler et steg mens plattformen prøver på nytt, kommer det i stedet en advarsel om at appen ikke får behandlet skjemaet akkurat nå. | Tekstene i beskjedene, og din egen side mens oppgaven venter |
+| Appen flytter prosessen videre, eller oppgaven venter på svar, med `Defer` eller på en melding i en postkasse | Den vanlige lastevisningen, uten tekst. Etter åtte sekunder kommer en beskjed om at det tar uvanlig lang tid, og at brukeren trygt kan lukke siden. Feiler et steg mens plattformen prøver på nytt, kommer det i stedet en advarsel om at appen ikke kan behandle skjemaet akkurat nå. | Tekstene i beskjedene, og din egen side mens oppgaven venter |
 | Oppgaven har gitt opp, og feilen hører til denne oppgaven | Siden «Noe gikk galt», med knappen **Prøv igjen** | Bare tekstene. Din egen side kommer ikke frem her. |
 | Noe feilet et sted prosessen ikke kan komme videre fra selv | Siden «Noe gikk galt», med referanser brukeren kan oppgi til brukerservice. Ingen knapper. | Bare tekstene |
 
@@ -33,7 +33,7 @@ Når det tar tid:
 | Nøkkel | Standardtekst |
 | --- | --- |
 | `process_workflow.still_working` | Dette tar uvanlig lang tid. Opplysningene dine er lagret, og arbeidet fortsetter automatisk … |
-| `process_workflow.having_trouble` | Vi får ikke behandlet skjemaet ditt akkurat nå, men vi prøver igjen automatisk … |
+| `process_workflow.having_trouble` | Vi kan ikke behandle skjemaet ditt akkurat nå, men vi prøver igjen automatisk … |
 
 Kan oppgaven din holde brukeren ventende i timer, er `process_workflow.still_working` den viktigste teksten å skrive om. Den er det brukeren leser når ventingen blir lang.
 

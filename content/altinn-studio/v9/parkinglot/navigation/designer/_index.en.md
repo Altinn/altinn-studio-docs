@@ -3,7 +3,7 @@ draft: true
 title: Designer
 description: How to navigate in Altinn Studio Designer.
 toc: true
-tags: [needsReview]
+tags: [Reviewed]
 weight: 100
 ---
 
@@ -12,32 +12,25 @@ https://altinn.studio.
 It is a tool for designing, setting up and publishing apps.
 
 ## Open an App
-You can see all the apps you have access to on the dashboard.
-Click on the app you want to use to open it.
+On the dashboard, you can see all the apps you have access to.
+Click the app you want to open.
 
 If you want to go to the repository for the app whilst working in the designer, you can go to the three dots at the top right and select **Repositorium**.
 
-![Profile menu in Designer](designer-profile-menu.png "Link to repository")
+![The three-dots menu in Designer](./designer-three-dots-menu.png "Link to the repository")
 
 ## Edit an App
 
 Use the top menu to build and modify your app. In the top menu, you select the areas of the app you want to work on.
 
-![Menus in Altinn Studio Designer](nav-menus.png "Menus in Altinn Studio Designer")
+![The top menu in Altinn Studio Designer](./nav-menus.png "The top menu in Altinn Studio Designer")
 
-- _Hjem_
-  - Provides an overview of which apps you have access to and which environments they are running in. You also have direct access to the various functions in the designer from here.
-- _Utforming_
-  - Here you choose which components you want to include, for example in a form you are creating. You set up, amongst other things, the order and criteria for how the fields in the form should be displayed and behave for end users.
-- _Datamodell_
-  - Here you can choose to use existing data models or create new ones.
-- _Språk_
-  - Here you can manage texts in your service and translate them.
-- _Arbeidsflyt_
-  - Workflow gives you an overview of the processes you want to include in your service, for example payment and receipt.
-- _Publiser_
-  - Use Publish to build versions of your app and publish it to an environment.
-- _Bibliotek_
-  - In the library you will find both resources you have saved for your own apps and resources that are shared in the organisation, for example code lists and images.
+- **Hjem**: This is where you get an overview of your app. You can see which environments the app is published in, and recent activity. From here you can also go directly to the other tools in Designer, and find help and news.
+- **Utforming**: In Utforming, you choose which components you want to include, for example in a form you are creating. You set up the order and criteria for how the fields in the form should be displayed and behave for end users.
+- **Datamodell**: Select data models. You can use existing data models or create new ones.
+- **Språk**: In Språk, you can manage texts in your app and translate them.
+- **Arbeidsflyt**: Workflow gives you an overview of the processes you want to include in your app, for example payment and receipt.
+- **Publiser**: Use Publish to build versions of your app and publish it to an environment.
+- **Bibliotek**: In the library you will find both resources you have saved for your apps and resources that are shared in the organisation, for example code lists and images.
 
 {{<children />}}

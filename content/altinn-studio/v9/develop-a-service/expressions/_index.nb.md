@@ -54,6 +54,10 @@ I dette eksempelet kjøres det innerste uttrykket/funksjonskallet `["component",
 
 Hvis du bruker dette uttrykket for `hidden`-egenskapen til en komponent, skjules komponenten hvis du skriver inn "John" i "firstName"-komponenten et annet sted i applikasjonen:
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "lastName",
@@ -134,17 +138,21 @@ Her endrer vi teksten til redigeringsknappen i en repeterende gruppe basert på 
 
 Det er verdt å merke seg at hvis et oppslag på `IsPrefill` gir resultatet `null` (ikke funnet), konverteres resultatet til `false` når det brukes i en `if`. Les mer detaljert om dette i seksjonene [if](/nb/altinn-studio/v9/develop-a-service/expressions/reference/functions/#func-if) og [datatyper](/nb/altinn-studio/v9/develop-a-service/expressions/reference/datatypes/)
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "repeatingAddressGroup",
-  "type": "Group",
+  "type": "RepeatingGroup",
   "children": ["field-id-one", "field-id-two"],
   "dataModelBindings": {
     "group": "Citizen.FormerAdresses"
   },
   "maxCount": 10,
   "textResourceBindings": {
-    "edit_button_open": [
+    "editButtonOpen": [
       "if",
       ["dataModel", "Citizen.FormerAdresses.IsPrefill"],
       "View",
@@ -160,6 +168,10 @@ Det er verdt å merke seg at hvis et oppslag på `IsPrefill` gir resultatet `nul
 {{% expandlarge id="show-hide-pages" header="Vise/skjule hele sider" %}}
 Uttrykk kan brukes til å vise/skjule hele sider. I eksempelet under skjules hele siden hvis en komponent
 (på en av de andre sidene) har verdien _no_ eller ikke er satt.
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 {

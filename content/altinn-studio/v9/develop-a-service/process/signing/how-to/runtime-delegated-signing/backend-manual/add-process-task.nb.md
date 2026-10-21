@@ -20,6 +20,10 @@ Hvis appen bruker Altinn-brukergrensesnittet, vil handlingene ovenfor bli kalt v
 
 Et signeringssteg kan se omtrent slik ut:
 
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <bpmn:task id="SigningTask" name="Signering">
   <bpmn:extensionElements>
@@ -43,7 +47,7 @@ Et signeringssteg kan se omtrent slik ut:
 
         <!-- Denne ID-en angir hvilken implementasjon av C# interface-et -->
         <!-- ISigneeProvider som skal benyttes for dette signeringssteget. -->
-        <altinn:signeeProviderId>signees</altinn:signeeProviderId>
+        <altinn:signeeProviderId>founders</altinn:signeeProviderId>
 
         <!-- Her oppgis en meldingsressurs, som brukes for å si fra til de som skal signere -->
         <!-- om at de må inn og signere, samt signeringskvittering. Påkrevd. -->

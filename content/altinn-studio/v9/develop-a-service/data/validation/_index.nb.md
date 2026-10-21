@@ -1,305 +1,106 @@
 ---
 draft: true
 title: Validering
-description: Slik validerer du skjemadata på klient- og serversiden.
+description: Slik kontrollerer appen at dataene brukeren fyller inn, er gyldige
 toc: true
 tags: [needsReview]
 ---
 
-Valideringer sikrer at brukerens inndata er gyldige i henhold til datamodellen og eventuelle egendefinerte regler du setter opp.
-Du kan kjøre valideringer enten på klientsiden (i nettleseren) eller på serversiden.
+Med validering kontrollerer appen at dataene brukeren fyller inn, er gyldige. Brukeren ser en melding ved feltet som er feil, og får ikke sende inn før feilene er rettet.
 
-Du kan også sette opp validering til å kjøre ved sidebytte.
+Appen validerer både i nettleseren og på serveren. I nettleseren får brukeren raske tilbakemeldinger mens hen fyller ut. På serveren kjører appen alle valideringene før brukeren får gå videre i prosessen. Det gjelder også når et annet system sender data rett til API-et til appen, uten å gå gjennom nettleseren.
 
-## Når vises feiloppsummeringen?
+## Velge fremgangsmåte
 
-Mens brukerne fyller ut et skjema, ser de vanligvis valideringsfeil ved hvert felt. Hvis de overser feilene eller lar være å rette dem, kan du sette opp appen slik at de må rette feilene før de får gå videre i skjemaet. Appen viser da en liste nederst på siden med alle valideringsfeilene som gjenstår å rette.
+Bruk den enkleste fremgangsmåten som løser oppgaven. Regler du kan sette opp uten kode, er enklere å vedlikeholde, og appen kan vise feilen i nettleseren med en gang.
 
-Oppsummeringen vises først når brukeren prøver å gå til en annen side eller sende inn skjemaet, og valideringsfeil stopper handlingen. Hvilke valideringer som kjører ved sidebytte, styres blant annet av `validateOnNext` og `validateOnPrevious` på komponenten [`NavigationButtons`]({{< relref "../../look-and-feel/components/NavigationButtons" >}}).
+| Hva vil du sjekke? | Fremgangsmåte | Trenger du C#? |
+| --- | --- | --- |
+| At brukeren har fylt ut et felt | [Påkrevde felt]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/required" >}}) | Nei |
+| Lengde, format, tallgrenser og liknende for ett felt | [Begrensninger i datamodellen]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/data-model" >}}) | Nei |
+| Regler du kan skrive med verdier fra datamodellen | [Validering med uttrykk]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/expression-validation" >}}) | Nei |
+| Filtype, filstørrelse og antall vedlegg | Innstillinger på datatypen i `applicationmetadata.json` | Nei |
+| Innholdet i en fil før appen lagrer den | [Utvidet filvalidering]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/files" >}}) | Ja |
+| Alt annet, for eksempel oppslag i andre systemer eller regler på tvers av datamodeller | [En egen validator i C#]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/csharp" >}}) | Ja |
 
-Når brukeren retter feilene, blir de fjernet fra oppsummeringen. Oppsummeringen forsvinner når det ikke er flere feil. Hvis en feil oppstår på nytt senere, vises den fortsatt ved feltet slik det er satt i komponentens `showValidations`, men feiloppsummeringen blir ikke vist på nytt før brukeren gjør et nytt forsøk på å bytte side eller sende inn.
+## Dette bør du avklare med utviklerne
 
-## Klientside-validering
+Valideringsreglene bestemmer hva brukeren får lov til å sende inn. Som tjenesteeier bør du vite hvilke regler appen har, og hvorfor. Spør gjerne utviklerne om dette:
 
-Klientside-validering kjører i nettleseren FØR data sendes til serveren for lagring. Dette gjør det mulig å gi raske tilbakemeldinger til brukeren underveis i utfyllingen.
+- Hvilke regler stopper innsendingen, og hvilke er bare advarsler eller informasjon?
+- Finnes feilmeldingene på alle språkene tjenesten støtter?
+- Ser brukeren feilen ved feltet hen må rette, eller bare i oppsummeringen når hen prøver å sende inn?
+- Forklarer feilmeldingene hva som er feil, og hvordan brukeren retter det?
+- Henter appen opplysninger fra andre systemer for å validere? Hva skjer hvis systemet ikke svarer – kan brukeren da bli stående uten å få sendt inn?
+- Har dere testet reglene med repeterende grupper og innsending gjennom API-et? Kan et felt som er skjult for brukeren, stoppe innsendingen?
 
-Klientside-validering baserer seg på datamodellen som hører til skjemaet og bruker denne til å avgjøre hva som er gyldige inndata i et felt.
-Konkret bruker valideringen JSON Schema-utgaven av datamodellen. Systemet oppretter denne automatisk når du laster opp XSD.
-Du kan gjøre endringer i JSON Schema direkte for å tilpasse valideringen ved behov.
+## Når brukeren ser valideringsmeldingene
 
-**Merk at hvis du gjør tilpasninger i JSON Schema manuelt og deretter oppdaterer XSD og laster inn på nytt, oppretter systemet et nytt JSON Schema. Da må du gjøre alle manuelle tilpasninger på nytt. Vi anbefaler derfor å gjøre endringer i XSD eller datamodelleringsverktøyet slik at JSON Schema får med endringene.**
+Brukeren ser valideringsmeldingene ved feltet meldingen gjelder, og i en feiloppsummering nederst på siden.
 
-Et eksempel på hvordan du kan definere et felt i JSON Schema datamodellen:
+### Mens brukeren fyller ut
 
-```json
-"someField": {
-  "type": "string",
-  "maxLength": "4"
-}
-```
+Appen viser de fleste meldingene ved feltet med en gang, både når brukeren åpner skjemaet og like etter at hen har endret noe. Det gjelder både feil, advarsler og informasjon.
 
-Systemet validerer inndata i dette feltet mot begrensningene du har satt opp. Brukeren får en feilmelding hvis inndata ikke oppfyller begrensningene – i dette tilfellet hvis teksten har mer enn fire tegn.
+Feil om [påkrevde felt]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/required" >}}) viser appen først når brukeren prøver å sende inn, eller å bytte side hvis appen er satt opp til å sjekke ved sidebytte. Da slipper brukeren å se feil for felt hen ikke har kommet til ennå. Du kan endre hvilke meldinger appen viser med en gang. Se [Velge hvilke meldinger appen viser med en gang](#velge-hvilke-meldinger-appen-viser-med-en-gang).
 
-### Standard feilmeldinger
+Vanligvis lar du derfor `required` sjekke om et felt er fylt ut, og lar de andre reglene godta tomme felt. Da ser brukeren en feil først når hen har fylt ut noe som er feil, eller når hen prøver å gå videre uten å ha fylt ut et påkrevd felt. En regel som slår til på et tomt felt, viser feilen før brukeren har rukket å fylle ut noe.
 
-Det er satt opp standard feilmeldinger for alle valideringene som kjører på klientsiden:
-
-| Regel     | Feilmelding bokmål            | Feilmelding nynorsk           | Feilmelding engelsk                   |
-| --------- | ----------------------------- | ----------------------------- | ------------------------------------- |
-| minimum   | 'Minste gyldig verdi er {0}'  | 'Minste gyldig verdi er {0}'  | 'Minimum valid value is {0}'          |
-| maximum   | 'Største gyldig verdi er {0}' | 'Største gyldig verdi er {0}' | 'Maximum valid value is {0}'          |
-| minLength | 'Bruk {0} eller flere tegn'   | 'Bruk {0} eller flere tegn'   | 'Use {0} or more characters'          |
-| maxLength | 'Bruk {0} eller færre tegn'   | 'Bruk {0} eller færre tegn'   | 'Use {0} or fewer characters'         |
-| length    | 'Antall tillatte tegn er {0}' | 'Antall tillatte tegn er {0}' | 'Number of characters allowed is {0}' |
-| pattern   | 'Feil format eller verdi'     | 'Feil format eller verdi'     | 'Wrong format or value'               |
-| required  | 'Du må fylle ut {0}'          | 'Du må fylle ut {0}'          | 'You have to fill out {0}'            |
-| enum      | 'Kun verdiene {0} er tillatt' | 'Kun verdiene {0} er tillatt' | 'Only the values {0} are permitted'   |
+### Når brukeren prøver å gå videre
 
-### Standard feilmelding for obligatoriske felter
+Når brukeren prøver å sende inn, viser appen alle feilene som stopper hen. Feilene står ved feltene og i en feiloppsummering nederst på siden.
 
-Brukeren ser ikke feilmeldinger for tomme obligatoriske felter mens de fyller ut skjemaet.
-Feilmeldingene dukker først opp når systemet kjører validering – det vil si ved [enkeltfeltvalidering](#enkeltfeltvalidering), ved [lagring av en rad i en repeterende gruppe](#gruppevalidering) eller ved navigering til en annen side.
-
-Feilmeldingen for obligatoriske felter er _"Du må fylle ut {0}"_. Her erstatter systemet `{0}` med feltet feilmeldingen gjelder.
-Systemet finner feltnavn på følgende måte:
+Bare feil stopper brukeren. Advarsler, informasjon og bekreftelser kan brukeren lese og likevel gå videre.
 
-- Bruker feltets `shortName`-tekst. Dette er en tekst du kan sette opp per komponent på samme måte som ledetekst (`title`). _Denne teksten brukes foreløpig kun i forbindelse med feilmeldingen for obligatoriske felter._
-- Hvis `shortName` ikke er definert, bruker systemet feltets `title`-tekst (ledeteksten for feltet). Teksten gjøres om til en tekst med liten forbokstav (med mindre teksten ser ut som en forkortelse).
-- I noen spesialtilfeller (Adresse-komponenten) der det er flere felter i ett, bruker systemet standardtekstene som er definert for feltene i komponenten.
+Noen feil ser brukeren først når hen prøver å sende inn:
 
-#### Eksempel: Felt med kun `title`
+- feil fra regler som bare kjører ved innsending, fordi de er tunge å kjøre eller sjekker hele steget
+- feil som ikke gjelder et bestemt felt, for eksempel at en frist har gått ut
+- feil i felt som er skjult for brukeren
 
-```json
-{
-  "id": "fornavn",
-  "type": "Input",
-  "textResourceBindings": {
-    "title": "tekst-fornavn"
-  },
-  ... //osv
-}
-```
-
-Og tekster i ressursfil:
-
-```json
-...
-{
-  "id": "tekst-fornavn",
-  "value": "Fornavn"
-}
-```
-
-Da blir valideringsmeldingen `"Du må fylle ut Fornavn"`.
-
-#### Eksempel: Felt med `shortName`
-
-Hvis feltets ledetekst er lang eller ikke egner seg til bruk i valideringsmeldingen, kan du legge til en `shortName`-tekst som brukes i stedet.
-_Merk at dette kun gjelder for denne spesifikke valideringsmeldingen – `shortName`-teksten brukes ikke ellers i løsningen._
-
-```json
-{
-  "id": "fornavn",
-  "type": "Input",
-  "textResourceBindings": {
-    "title": "tekst-fornavn",
-    "shortName": "fornavn-kort"
-  },
-  ... //osv
-}
-```
-
-Og tekster i ressursfil:
-
-```json
-...
-{
-  "id": "tekst-fornavn",
-  "value": "Her kan du skrive ditt fornavn",
-},
-{
-  "id": "fornavn-kort",
-  "value": "fornavnet ditt",
-}
-```
-
-Da blir valideringsmeldingen `"Du må fylle ut fornavnet ditt"`.
-
-[Se hvordan du merker felter i brukergrensesnittet på designsystemet.no.](https://designsystemet.no/no/patterns/required-and-optional-fields)
-
-### Erstatte feilmelding for obligatoriske felter helt
-
-Hvis du ønsker å erstatte standardfeilmeldingen for obligatoriske felt fullstendig, kan du legge til
-tekstnøkkelen `requiredValidation` i komponentens `textResourceBindings`-objekt. Dette erstatter standardfeilmeldingen
-for obligatoriske felt. Teksten kan være en [tekstnøkkel for en tekst som er definert i ressursfilene]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/options/functionality/texts" >}})
-for flerspråklig støtte.
-
-```json
-{
-  "id": "firstName",
-  "type": "Input",
-  "textResourceBindings": {
-    "title": "text-firstName",
-    "requiredValidation": "myCustomRequiredValidation"
-  },
-  ...
-}
-```
+De to siste viser appen bare i feiloppsummeringen, fordi det ikke finnes noe synlig felt å vise dem ved.
 
-### Egendefinerte feilmeldinger
-
-Du kan definere egne feilmeldinger som vises når et felt får valideringsfeil. Dette gjør du ved å legge på en parameter `errorMessage` der
-feltet er definert i JSON Schema. JSON Schema-filen ligger i mappen `App/models` og følger navnestandarden `*.schema.json`.
-
-Du kan for eksempel utvide eksempelet over:
-
-```json {hl_lines=[4]}
-"someField": {
-  "type": "string",
-  "maxLength": "4",
-  "errorMessage": "myCustomError"
-}
-```
-
-Du kan skrive ønsket tekst direkte inn her, eller bruke en tekstnøkkel for en [tekst definert i ressursfilene](/nb/altinn-studio/v9/develop-a-service/look-and-feel/options/functionality/texts/) for språkstøtte.
-
-Legg merke til at hvis du har en referanse til en definisjon, må feilmeldingen ligge på `property`-feltet, ikke på referansen/definisjonen.
-Eksempel:
-
-```json {hl_lines=[5]}
-{
-  "properties": {
-    "person": {
-        "$ref" : "#/definitions/personDefinition",
-        "errorMessage": "myCustomError",
-    }
-  },
-  "definitions": {
-    "personDefinition" : {
-      "age": {
-        "type": "number"
-      },
-      ...
-  }
-}
-```
-
-{{% notice warning %}}
-Merk at ved XSD-endringer forsvinner eventuelle egendefinerte feilmeldinger fordi JSON Schema-filen genereres på nytt fra XSD. På sikt er det planlagt at
-du skal kunne sette opp egendefinerte feilmeldinger via datamodelleringsverktøyet i Altinn Studio. Foreløpig må dette gjøres manuelt.
-{{% /notice %}}
-
-## Serverside-validering
-
-Serverside-validering kan deles i to kategorier:
-
-- **Valideringer mot datamodell** kjører automatisk når brukeren prøver å sende inn skjemadata.
-- **Egendefinerte valideringer** skriver applikasjonsutvikleren selv. De kjører når brukeren prøver å sende inn skjemadata eller flytte prosessen til et nytt steg.
-
-## Legge til egendefinert validering
-
-Egendefinerte valideringer kan deles i to kategorier:
-
-- **Task-validering** kjører hver gang validering trigges, enten manuelt fra appen eller når brukeren prøver å flytte seg fremover i prosessen.
-- **Data-validering** kjører hvis brukeren står på et steg som har definerte dataelementer knyttet til seg.
-
-Validering for flytting til et nytt steg kjører _etter_ eventuell handling som gjøres i flyttingen. Dette er fordi resultatet
-av handlingen kan være avgjørende for at valideringen skal bli godkjent. Hvis validering hadde skjedd før handlingen, ville det
-ført til en programlåsning (soft-lock).
-
-Du skriver valideringer i C#. Avhengig av hvilken versjon av applikasjonsmalen og NuGet-pakkene du bruker, varierer implementeringen litt. I tidligere versjoner er det en forhåndsdefinert fil med metoder der du legger inn logikken. Fra versjon 7 og fremover implementerer du et grensesnitt i en klasse du selv velger. Grensesnittet er tilfeldigvis likt den forhåndsdefinerte filen. Eksemplene som refererer til metoder er derfor de samme for alle versjoner.
-
-{{< content-version-selector classes="border-box" >}}
-
-{{< content-version-container version-label="v7" >}}
-
-Fra versjon 7 bruker vi *dependency injection* for validering.
-Dette erstatter den tidligere metoden med overstyring i `ValidationHandler.cs`.
-
-1. Opprett en klasse som implementerer `IInstanceValidator`-grensesnittet som ligger i `Altinn.App.Core.Features.Validation`-navnerommet.
-   Du kan navngi og plassere filene i den mappestrukturen du selv ønsker i prosjektet ditt. Vi anbefaler at du bruker meningsfulle navnerom som i et hvilket som helst annet .NET-prosjekt.
-2. Registrer implementeringen din i _Program.cs_-klassen
-   ```C#
-   services.AddTransient<IInstanceValidator, InstanceValidator>();
-   ```
-   Dette sørger for at koden din er kjent for appen og at den kjører når den skal.
-{{< /content-version-container >}}
-
-{{< content-version-container version-label="v4, v5, v6" >}}
-
-Legg til valideringer i `ValidationHandler.cs`-filen i applikasjonsmalen.
-Du kan åpne og endre filen i Altinn Studio via logikkmenyen ved å velge **Rediger valideringer**,
-eller direkte i applikasjonsrepoet der filen ligger i `logic/Validation`-mappen.
-
-{{< /content-version-container >}}
-
-{{< /content-version-selector >}}
-
-Fra dette punktet er eksemplene de samme for alle versjoner.
-
-Gjør endringer i `ValidateData`- og `ValidateTask`-metodene.
-Førstnevnte får inn et dataobjekt og sistnevnte får inn instansen og taskId.
-For å legge til en valideringsfeil bruker du `AddModelError`-metoden til `validationResults`-objektet som sendes med i begge metodene.
-
-Et eksempel på en enkel data-validering som sjekker at feltet _FirstName_ ikke inneholder verdien _1337_, når rotelementet til modellen er `Skjema`:
-
-```C# {hl_lines=[12]}
-public void ValidateData(object data, ModelStateDictionary validationResults)
-{
-    if (data.GetType() == typeof(Skjema))
-    {
-        // Cast instance data to model type
-        Skjema model = (Skjema)data;
-
-        // Get value to test - FirstName
-        string firstName = Skjema?.Person?.FirstName;
-
-        // Check if FirstName exists, and contains the value "1337"
-        if (firstName != null && firstName.Contains("1337"))
-        {
-            // Add validation error, with error message and list
-            // of affected fields (in this case Person.FirstName)
-            validationResults.AddModelError(
-            "Person.FirstName",
-            "Error: First name cannot contain the value '1337'."
-            );
-        }
-    }
-}
-```
-
-Se kommentarer i koden over for en forklaring på hva de ulike delene gjør.
-
-I det andre parameteret til metoden `AddModelError`, der det står "_Error: First name cannot contain the value '1337'_", kan du bruke en tekstnøkkel for en [tekst definert i ressursfilene](/nb/altinn-studio/v9/develop-a-service/look-and-feel/options/functionality/texts/) for språkstøtte.
-
-Et eksempel på en enkel task-validering som sjekker hvor lang tid brukeren har brukt på Task_1 og returnerer en feil hvis det har tatt lenger enn tre dager:
-
-```C# {hl_lines=["5-6"]}
-public async Task ValidateTask(Instance instance, string taskId, ModelStateDictionary validationResults)
-{
-  if (taskId.Equals("Task_1"))
-  {
-    DateTime deadline = ((DateTime)instance.Created).AddDays(3);
-    if (DateTime.UtcNow < deadline)
-    {
-      validationResults.AddModelError("Task_1", $"Ferdigstilling av Task_1 har tatt for lang tid. Vennligst start på nytt.");
-    }
-  }
-}
-```
-
-## Enkeltfeltvalidering
-
-Enkeltfeltvalidering vises umiddelbart når brukeren har fylt ut et felt.
-
-{{< content-version-selector classes="border-box" >}}
-{{< content-version-container version-label="v4 (App Frontend)" >}}
-
-Ved å sette `showValidations`-egenskapen på en komponent gjør du valideringsfeil synlige umiddelbart når de oppstår.
+Du kan også sette opp appen til å sjekke feilene når brukeren bytter side. Se [Angi validering ved sidebytte]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/sider/navigasjon" >}}#angi-validering-ved-sidebytte).
+
+Når brukeren retter feilene, fjerner appen dem fra oppsummeringen. Oppsummeringen forsvinner når det ikke er flere feil. Oppstår en feil på nytt senere, viser appen den ved feltet slik `showValidations` er satt på komponenten, men ikke i oppsummeringen før brukeren prøver å bytte side eller sende inn igjen.
+
+### Når brukeren lagrer en rad i en repeterende gruppe
+
+Du kan få appen til å sjekke en rad i en repeterende gruppe når brukeren lagrer raden. Hvis det er feil i raden, kan ikke brukeren lukke raden før feilene er rettet.
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json {hl_lines=[6]}
 {
-  "id": "some-input-field",
+  "id": "demo-gruppe",
+  "type": "RepeatingGroup",
+  "children": [...],
+  "dataModelBindings": {...},
+  "validateOnSaveRow": ["All"]
+}
+```
+
+`validateOnSaveRow` inneholder hvilke typer valideringer appen skal sjekke. Se [Valideringstyper](#valideringstyper).
+
+### Når brukeren laster opp vedlegg
+
+Når brukeren laster opp en fil, sjekker appen filtype, filstørrelse og antall opplastede filer mot innstillingene på datatypen. Har du satt opp [utvidet filvalidering]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/files" >}}), kjører appen den også. Hvis filen ikke oppfyller kravene, lagrer ikke appen filen, og brukeren ser feilen med en gang.
+
+Vil du stoppe en opplasting ut fra egne regler, kan du også [stoppe lagringen i en dataprosessor]({{< relref "/altinn-studio/v9/develop-a-service/data/dataprocessing" >}}#stoppe-en-lagring).
+
+## Velge hvilke meldinger appen viser med en gang
+
+Med `showValidations` på en komponent bestemmer du hvilke valideringsmeldinger appen viser med en gang.
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
+```json {hl_lines=[6]}
+{
+  "id": "fornavn",
   "type": "Input",
   "textResourceBindings": {...},
   "dataModelBindings": {...},
@@ -307,334 +108,86 @@ Ved å sette `showValidations`-egenskapen på en komponent gjør du valideringsf
 }
 ```
 
-`showValidations` inneholder et sett med valideringstyper som skal sjekkes:
-`Schema`, `Component`, `Expression`, `CustomBackend`, `Required`, `AllExceptRequired` eller `All`.
+Er `showValidations` ikke satt, bruker appen `["AllExceptRequired"]`. Vil du ikke vise noen meldinger med en gang, setter du `showValidations` til en tom liste, `[]`.
 
-`"showValidations": ["AllExceptRequired"]` brukes som standard hvis egenskapen ikke er satt.
-For å unngå å vise noen valideringer umiddelbart kan du sette `showValidations` til en tom liste `[]`.
-{{< /content-version-container >}}
-{{< content-version-container version-label="v3 (App Frontend)" >}}
+### Valideringstyper
 
-{{% notice warning %}}
-Det er foreløpig ikke støtte for å sette opp trigger for validering av enkeltfelter for Stateless-apper.
-{{% /notice %}}
+Du bruker de samme valideringstypene i `showValidations`, `validateOnSaveRow` og [`validationOnNavigation`]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/sider/navigasjon" >}}#angi-validering-ved-sidebytte):
 
-Merk at i versjon 3 av app frontend kjører JSON Schema og komponentspesifikk validering automatisk som standard. Å legge til en valideringstrigger fører til at custom backend-validering kjører i tillegg.
+| Type | Betyr |
+| --- | --- |
+| `Schema` | [Begrensninger i datamodellen]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/data-model" >}}) |
+| `Invalid` | Verdier appen ikke kan lagre i datamodellen, for eksempel tekst i et tallfelt |
+| `Component` | Regler i selve komponenten, for eksempel datoformat |
+| `Expression` | [Validering med uttrykk]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/expression-validation" >}}) |
+| `CustomBackend` | [Egne validatorer i C#]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/csharp" >}}) som kjører mens brukeren fyller ut |
+| `Required` | [Påkrevde felt]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/required" >}}) |
+| `AllExceptRequired` | Alle typene unntatt `Required` |
+| `All` | Alle typene |
 
-```json {hl_lines=[6]}
-{
-  "id": "some-input-field",
-  "type": "Input",
-  "textResourceBindings": {...},
-  "dataModelBindings": {...},
-  "triggers": ["validation"]
-}
-```
-
-Konfigurasjonen over fører til at din egendefinerte validering i `ValidationHandler.cs`
-trigges hver gang feltet oppdaterer seg. Hvis du trenger å vite hvilket
-felt som trigget valideringen, er denne tilgjengelig i HTTP-konteksten som en header på requesten ved navn _ValidationTriggerField_.
-
-Et eksempel på en egendefinert validering der headerverdien hentes ut:
-
-```csharp
- public async Task ValidateData(object data, ModelStateDictionary validationResults)
- {
-    _httpContextAccessor.HttpContext
-        .Request.Headers
-        .TryGetValue("ValidationTriggerField", out StringValues triggerValues);
-
-    string triggerField = triggerValues.FirstOrDefault(string.Empty);
-
-    if (triggerField.Equals("kommune"))
-    {
-      // Cast instance data to model type
-      flyttemelding model = (flyttemelding)data;
-
-      // Get value to test - Kommune
-      string kommune = model.kommune;
-
-      if (!kommune.Equals("Oslo"))
-      {
-          validationResults.AddModelError(triggerField, "Dette er ikke en gyldig kommune.");
-      }
-    }
-
-    await Task.CompletedTask;
- }
-```
-
-**OBS** Merk at du bør implementere validering av enkeltfelter slik at det kjører både på trigger og under generell validering.
-Eksempelet som omhandler flere komplekse valideringer viser hvordan du kan implementere dette.
-
-For å få denne kodesnutten til å kjøre har vi gjort følgende:
-
-1. I _ValidationHandler.cs_ inkluderer vi `using Microsoft.Extensions.Primitives;` øverst i filen for å kunne ta i bruk `StringValues`.
-2. I _App.cs_ inkluderer vi `using Microsoft.AspNetCore.Http;` øverst i filen for å kunne ta i bruk `IHttpContextAccessor`.
-3. I _App.cs_ dependency-injecter vi `IHttpContextAccessor` i konstruktøren og sender den med videre til ValidationHandler.
-
-```cs {hl_lines=[10, 14]}
-public App(
-            IAppResources appResourcesService,
-            ILogger<App> logger,
-            IData dataService,
-            IProcess processService,
-            IPDF pdfService,
-            IProfile profileService,
-            IRegister registerService,
-            IPrefill prefillService,
-            IHttpContextAccessor httpContextAccessor // <--- Add this line
-            ) : base(appResourcesService, logger, dataService, processService, pdfService, prefillService)
-        {
-            _logger = logger;
-            _validationHandler = new ValidationHandler(httpContextAccessor);  // <--- Include the new property here
-            _calculationHandler = new CalculationHandler();
-            _instantiationHandler = new InstantiationHandler(profileService, registerService);
-        }
-```
-
-Hvis du har flere komplekse valideringer som er tidkrevende, anbefaler vi å implementere flere private metoder
-for validering av disse og bruke ValidationTriggerField til å avgjøre hvilken privat metode som skal kjøre.
-Du kan for eksempel bruke en _switch statement_ for å oppnå dette.
-
-```cs
-public async Task ValidateData(object data, ModelStateDictionary validationResults)
-{
-    if (data is flyttemelding model)
-    {
-        _httpContextAccessor.HttpContext
-            .Request.Headers
-            .TryGetValue("ValidationTriggerField", out StringValues triggerValues);
-
-        string triggerField = triggerValues.FirstOrDefault(string.Empty);
-
-        switch (triggerField)
-        {
-            case "kommune":
-                ValidateKommune(model, validationResults);
-                break;
-            case "boaddresse":
-                ValidateBoAdresse(model, validationResults);
-                break;
-            default:
-                ValidateKommune(model, validationResults);
-                ValidateBoAdresse(model, validationResults);
-                break;
-        }
-    }
-}
-
-private void ValidateKommune(flyttemelding model, ModelStateDictionary validationResults)
-{
-    if (model.kommune != null && !model.kommune.Equals("Oslo"))
-    {
-        validationResults.AddModelError(
-            nameof(model.kommune),
-            "Dette er ikke en gyldig kommune.");
-    }
-}
-private void ValidateBoAdresse(flyttemelding model, ModelStateDictionary validationResults)
-{
-    if (model.boaddresse != null && model.boaddresse.Length > 150)
-    {
-        validationResults.AddModelError(
-            nameof(model.boaddresse),
-            "Boadresse kan ikke være lengere enn 150 tegn.");
-    }
-}
-```
-
-### Spesifisere at valideringsfeil er fikset
-
-Når validering trigges av et enkelt felt, fjernes alle tidligere valideringer på dette feltet i påvente av svar fra den siste valideringen.
-Hvis et felt trigger validering som oppdaterer/legger til feilmelding på flere felter på en gang, fjernes ikke disse selv om det ikke lenger er noen
-feil i disse feltene. Dette er fordi systemet ikke har noen måte å vite hvilke felter som eventuelt er validert i forbindelse med en enkeltfeltvalidering.
-
-For eksempel: Du har to felter – fornavn og etternavn. Begge feltene trigger enkeltfeltvalidering, og hvis begge feltene har verdi validerer du at fullt navn ikke
-kan være lengre enn 50 tegn. Feilmelding settes da på begge feltene. Hvis du retter opp i dette ved å endre fornavn, vil feilmeldingen fra fornavn-feltet forsvinne,
-men feilmeldingen som vises på etternavn-feltet vises fortsatt selv om valideringen ikke setter noen feilmeldinger på feltene.
-
-```C#
-private void ValidateFullName(Datamodell model, ModelStateDictionary validationResults)
-{
-  if (!string.isNullOrEmpty(model.fornavn) && !string.isNullOrEmpty(model.etternavn)
-    && model.fornavn.Length + model.etternavn.Length > 50)
-  {
-    validationResults.addModelError(nameof(model.fornavn),
-      "Fullt navn kan ikke være lengre enn 50 tegn.");
-    validationResults.addModelError(nameof(model.etternavn),
-      "Fullt navn kan ikke være lengre enn 50 tegn.");
-  }
-}
-```
-
-For å kunne fjerne gamle feilmeldinger i et slikt tilfelle har vi lagt til støtte for å kunne spesifisere at en valideringsfeil er **fikset**. Da
-vil det aktuelle feltet kunne få beskjed om at en spesifikk feilmelding som det viser frem er fikset og skal skjules.
-
-Dette gjør du ved å legge til en valideringsfeil i koden i det tilfellet der det ikke er noen feil i valideringen,
-og sette `*FIXED*` foran selve feilmeldingen. Dette tilsvarer oppsettet for [myk validering](#myke-valideringer).
-Denne prefiksen gjør at feilmeldingen som settes fjernes fra det aktuelle feltet, eller ignoreres (hvis det ikke er noen feilmelding på feltet fra før).
-
-Du kan da utvide eksempelet over for å støtte dette:
-
-```C# {hl_lines=[14,16]}
-private void ValidateFullName(Datamodell model, ModelStateDictionary validationResults)
-{
-  if (!string.isNullOrEmpty(model.fornavn) && !string.isNullOrEmpty(model.etternavn)
-    && model.fornavn.Length + model.etternavn.Length > 50)
-  {
-    validationResults.addModelError(nameof(model.fornavn),
-      "Fullt navn kan ikke være lengre enn 50 tegn.");
-    validationResults.addModelError(nameof(model.etternavn),
-      "Fullt navn kan ikke være lengre enn 50 tegn.");
-  }
-  else
-  {
-    validationResults.addModelError(nameof(model.fornavn),
-      "*FIXED*Fullt navn kan ikke være lengre enn 50 tegn.");
-    validationResults.addModelError(nameof(model.etternavn),
-      "*FIXED*Fullt navn kan ikke være lengre enn 50 tegn.");
-  }
-}
-```
-
-Hvis du har problemer med å få dette til å fungere og ser valideringsmeldinger med `*FIXED*` foran meldingen i stedet for at meldingen forsvinner,
-bør du dobbeltsjekke at du har `"FixedValidationPrefix": "*FIXED*"` satt under `GeneralSettings` i `appsettings.json`.
-{{< /content-version-container >}}
-{{< /content-version-selector >}}
+Validatorer i C# som bare kjører ved innsending, er ikke med i noen av typene. Feil fra dem viser appen først når brukeren prøver å sende inn.
 
 ## Myke valideringer
 
-Myke valideringer er valideringsmeldinger som ikke stopper brukeren fra å sende inn eller gå videre til neste steg i prosessen, men som brukes til å gi brukeren ulike former for informasjon.
-Denne typen valideringer kan du for eksempel bruke til å be brukeren om å verifisere inndata som virker feil eller rart, men som strengt tatt ikke er ugyldige, eller gi nyttig informasjon for videre utfylling.
+Myke valideringer er valideringsmeldinger som ikke stopper brukeren fra å sende inn eller gå videre til neste steg i prosessen. Du kan bruke dem til å be brukeren dobbeltsjekke en verdi som virker feil, men som ikke er ugyldig, eller til å gi nyttig informasjon for resten av utfyllingen.
 
-Meldinger basert på myke valideringer vises én gang, men brukeren kan velge å klikke seg videre uten å utføre endringer.
+Det finnes tre typer myke valideringer: advarsel, informasjon og bekreftelse. Du lager dem ved å sette alvorlighetsgraden på valideringen, enten i [validering med uttrykk]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/expression-validation" >}}) eller i [en validator i C#]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/csharp" >}}#alvorlighetsgrad).
 
-Du legger til myke valideringer fra serversiden i valideringslogikken, på samme måte som vanlige valideringsfeil. Forskjellen er at valideringsmeldingen
-må ha et prefiks med typen validering du ønsker å gi, for eksempel `*WARNING*`. Dette tolkes da som en myk validering. Prefikset `*WARNING*` blir ikke synlig for sluttbruker.
+Slik ser de tre typene ut:
 
-De tilgjengelige typene myke valideringer er `WARNING`, `INFO` og `SUCCESS`.
+![Advarsel](./warning-message.jpeg "Eksempel på advarsel")
 
-**Kodeeksempel**
+![Informasjon](./info-message.jpeg "Eksempel på informasjon")
 
-```csharp
-public async Task ValidateData(object data, ModelStateDictionary modelState)
+![Bekreftelse](./success-message.jpeg "Eksempel på bekreftelse")
+
+## Validering på serveren
+
+Appen kjører alltid valideringene på serveren før brukeren får gå videre i prosessen. Derfor kan ingen sende inn data som bryter reglene, heller ikke andre systemer som bruker API-et til appen.
+
+### Innebygde valideringer
+
+Appen har disse valideringene innebygd:
+
+| Validering | Hva den sjekker | Slår du den av eller på? |
+| --- | --- | --- |
+| [Påkrevde felt]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/required" >}}) | At synlige komponenter med `required` har en verdi | `RequiredValidation` (på som standard) |
+| [Validering med uttrykk]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/expression-validation" >}}) | Reglene i `models/[datatype-ID].validation.json` | `ExpressionValidation` (på som standard) |
+| [Datamodell]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/data-model" >}}) | Attributter på C#-modellen, for eksempel `[Range]` og `[RegularExpression]` | Alltid på |
+| XSD | At skjemadataene er gyldige mot `models/[datatype-ID].xsd` | `XsdValidation` (av som standard) |
+| Vedlegg og andre dataelementer | Filtype (`allowedContentTypes`), filstørrelse (`maxSize`) og virusskanning (`enableFileScan`) | Innstillinger på datatypen |
+| Antall dataelementer | `minCount` og `maxCount` for datatypene i steget | Innstillinger på datatypen |
+| Signering | At alle som skal signere, har signert | `runDefaultValidator` i signeringssteget |
+| Signerte data | At dataene ikke er endret etter at brukeren signerte | Alltid på i signeringssteg |
+
+Påkrevde felt, validering med uttrykk og datamodellen sjekker nettleseren også mens brukeren fyller ut. De andre innebygde valideringene kjører bare på serveren når brukeren går videre i prosessen. Feil fra dem ser brukeren derfor først når hen prøver å sende inn. Unntaket er filtype og filstørrelse, som appen også sjekker når brukeren laster opp en fil.
+
+Du slår valideringene av og på under `AppSettings` i `App/appsettings.json`:
+
+{{< code-title >}}
+App/appsettings.json
+{{< /code-title >}}
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
+```json
 {
-  if (data is TestModel testModel)
-  {
-      string firstName = testModel?.Person?.FirstName;
-      if (firstName != null && firstName.Contains("1337"))
-      {
-        validationResults.AddModelError(
-          "Person.FirstName",
-          "*WARNING*Are you sure your first name contains 1337?");
-      }
-
-      if (firstName != null && firstname.Contains("Altinn"))
-      {
-        validationResults.AddModelError(
-          "Person.FirstName",
-          "*SUCCESS*Altinn is a great name!");
-      }
+  "AppSettings": {
+    "RequiredValidation": true,
+    "ExpressionValidation": true,
+    "XsdValidation": false
   }
-
-  await Task.CompletedTask;
 }
 ```
 
-Eksempler på visning av de ulike valideringene:
+### Egne validatorer
 
-!["Informasjonsmelding"](./info-message.jpeg "Eksempel på informasjonsmelding (*INFO*-prefiks)")
+Trenger du regler som de innebygde valideringene og validering med uttrykk ikke dekker, kan du eller utvikleren din skrive egne validatorer i C#, for eksempel for å
 
-!["Suksessmelding"](./success-message.jpeg "Eksempel på suksessmelding (*SUCCESS*-prefiks)")
+- sjekke innholdet i vedlegg, for eksempel at en PDF har riktig antall sider
+- slå opp i andre systemer, som å sjekke at et organisasjonsnummer finnes
+- sjekke data på tvers av flere datamodeller i samme steg
 
-!["Advarselsmelding"](./warning-message.jpeg "Eksempel på advarselsmelding (*WARNING*-prefiks)")
-
-Du kan også overstyre tittelen på meldingene ved å legge til nøklene `soft_validation.info_title`, `soft_validation.warning_title` og `soft_validation.success_title` i tekstressursene hvis du ønsker å sette egendefinert tittel.
-
-## Gruppevalidering
-
-Du kan kjøre valideringer på en repeterende gruppe når brukeren lagrer en rad.
-Hvis det er valideringsfeil i raden, kan ikke brukeren lukke raden før feilene er fikset.
-
-{{< content-version-selector classes="border-box" >}}
-{{< content-version-container version-label="v4 (App Frontend)" >}}
-
-```json {hl_lines=[7]}
-{
-  "id": "demo-gruppe",
-  "type": "Group",
-  "children": [...],
-  "maxCount": 9,
-  "dataModelBindings": {...},
-  "validateOnSaveRow": ["All"],
-}
-```
-
-`validateOnSaveRow` inneholder et sett med valideringstyper som skal sjekkes:
-`Schema`, `Component`, `Expression`, `CustomBackend`, `Required`, `AllExceptRequired` eller `All`.
-
-{{< /content-version-container >}}
-{{< content-version-container version-label="v3 (App Frontend)" >}}
-
-```json {hl_lines=[7]}
-{
-  "id": "demo-gruppe",
-  "type": "Group",
-  "children": [...],
-  "maxCount": 9,
-  "dataModelBindings": {...},
-  "triggers": ["validateRow"]
-}
-```
-
-Hvis du legger til validering på gruppe-komponenten, går det også et kall mot valideringen i backend med en header som spesifiserer hvilken komponent som trigget valideringen: `ComponentId`.
-I tillegg er radindeksen for raden som blir lagret tilgjengelig i headeren `RowIndex`. Hvis gruppen er en nøstet gruppe, er verdien en kommaseparert liste med indekser, ellers er indeksen ett enkelt tall.
-Du skriver valideringer i C#, i `ValidationHandler.cs`-filen i applikasjonsmalen. I valideringen kan du så hente ut komponent-ID-en og skreddersy eventuelle valideringer som skal gjøres i backend, eksempel:
-
-```cs
-public async Task ValidateData(object data, ModelStateDictionary validationResults)
-{
-    if (data is flyttemelding model)
-    {
-        _httpContextAccessor.HttpContext
-            .Request.Headers
-            .TryGetValue("ComponentId", out StringValues compIdValues);
-
-        _httpContextAccessor.HttpContext
-            .Request.Headers
-            .TryGetValue("RowIndex", out StringValues rowIndexValues);
-
-        string componentId = compIdValues.FirstOrDefault(string.Empty);
-
-        switch (componentId)
-        {
-            case "top-level-group":
-                // kjør valideringer spesifikke til gruppen
-
-                // Hent rad-indeksen for en ikke-nøstet gruppe
-                int rowIndex = int
-                    .Parse(rowIndexValues.FirstOrDefault(string.Empty));
-
-                break;
-              case "nested-group":
-                // Hent alle rad-indekser for en nøstet gruppe
-                int[] rowIndices = rowIndexValues
-                    .FirstOrDefault(string.Empty)
-                    .Split(",", StringSplitOptions.RemoveEmptyEntries)
-                    .Select(s => int.Parse(s))
-                    .ToArray();
-
-                break;
-            default:
-                // kjør valideringene i sin helhet
-                break;
-        }
-    }
-}
-```
-
-{{< /content-version-container >}}
-{{< /content-version-selector >}}
-
-For tips til hvordan du løser komplekse valideringer, se eksemplene under [enkeltfeltvalidering](#enkeltfeltvalidering).
+[Slik lager du validatorer i C#]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/csharp" >}}).

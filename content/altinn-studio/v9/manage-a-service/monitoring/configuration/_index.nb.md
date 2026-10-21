@@ -16,6 +16,10 @@ Det eksisterende Application Insights SDK-oppsettet er utgått, og vil bli fjern
 
 Det nye oppsettet for overvåking og instrumentering aktiveres ved å sette `UseOpenTelemetry` til `true` i *appsettings.json* eller tilsvarende konfigurasjonsfil.
 
+{{< code-title >}}
+App/appsettings.json
+{{< /code-title >}}
+
 {{< highlight json "linenos=false,hl_lines=3" >}}
 {
   "AppSettings": {
@@ -72,11 +76,19 @@ I eksempelet under legger vi til en ekstra eksportør (`ConsoleExporter`) som se
 
 Først oppdaterer vi `App.csproj`-filen:
 
+{{< code-title >}}
+App/App.csproj
+{{< /code-title >}}
+
 {{< highlight csproj "linenos=false" >}}
         <PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.9.0" />
 {{< / highlight >}}
 
 Deretter må vi oppdatere konfigurasjonen i `Program.cs`:
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
 {{< highlight csharp "linenos=false,hl_lines=1-3 7-25" >}}
 using OpenTelemetry.Logs;

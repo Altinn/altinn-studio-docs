@@ -11,28 +11,31 @@ En tjeneste har en definert prosess som styrer flyten. Prosessen er definert som
 
 ## Støttede oppgavetyper
 
-Applikasjonsmalen støtter disse oppgavetypene
+Du angir typen til en oppgave i `<altinn:taskType>` inne i `<altinn:taskExtension>` på oppgaven i `process.bpmn`.
 
-- Data (tilsvarer utfyllingssteg i Altinn II)
-- Bekreftelse
-- Tilbakemelding
+Oppgaver der brukeren er involvert:
 
-## Fremtidige oppgavetyper (tentativ)
+- `data`: Brukeren fyller ut et skjema (tilsvarer utfyllingssteg i Altinn II).
+- `confirmation`: Brukeren bekrefter før prosessen går videre.
+- `feedback`: Brukeren venter mens et system hos tjenesteeieren oppdaterer instansen.
+- `signing`: Brukeren signerer. Se [signering]({{< relref "/altinn-studio/v9/develop-a-service/process/signing" >}}).
+- `payment`: Brukeren betaler. Se [betaling]({{< relref "/altinn-studio/v9/develop-a-service/process/payment" >}}).
 
-- Signering
-- Betaling
-- Parallellsignering
-- Brukerstyrt signering
-- Ekstern validering
+[Systemoppgaver]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks" >}}) som appen utfører uten at brukeren gjør noe:
+
+- `pdf`: Appen lager en PDF. Se [PDF]({{< relref "/altinn-studio/v9/develop-a-service/process/pdf" >}}).
+- `subformPdf`: Appen lager en PDF for hvert underskjema.
+- `eFormidling`: Appen sender data videre med [eFormidling]({{< relref "/altinn-studio/v9/receive-data/eFormidling" >}}).
+- `fiksArkiv`: Appen sender data til arkivet med [Fiks Arkiv]({{< relref "/altinn-studio/v9/receive-data/fiks-arkiv" >}}).
+
+Utviklerne kan også lage egne systemoppgaver med egen type. Se [systemoppgaver]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks" >}}).
 
 ## Endre prosessen
 
-Du kan endre prosessen ved å redigere BPMN-filen med en valgfri XML- eller BPMN-editor. Den ligger lagret i app-lageret som `App/config/process/process.bpmn`.
+Du kan endre prosessen i Altinn Studio Designer, eller ved å redigere BPMN-filen med en valgfri XML- eller BPMN-editor. Den ligger lagret i app-repoet som `App/config/process/process.bpmn`.
 
-## Eksempler på process-filer
+## Eksempel på prosessfil
 
-- [Data_Confirmation_Process.bpmn](/nb/altinn-studio/v8/reference/configuration/process/Data_Confirmation_Process.bpmn)
-- [Data_Data_Data_Process.bpmn](/nb/altinn-studio/v8/reference/configuration/process/Data_Data_Data_Process.bpmn)
-- [Data_Process.bpmn](/nb/altinn-studio/v8/reference/configuration/process/Data_Process.bpmn)
+Se [prosessfilen i app-malen for v9](https://github.com/Altinn/altinn-studio/blob/main/src/App/template/v9/src/App/config/process/process.bpmn). Den har en utfyllingsoppgave (`data`) og en systemoppgave som lager PDF (`pdf`).
 
 {{<children />}}

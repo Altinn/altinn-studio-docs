@@ -72,6 +72,10 @@ public class ArchiveServiceTask : IPipelineServiceTask
 
 Oppgaver med flere arbeidssteg registrerer du på `IPipelineServiceTask`:
 
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```csharp
 services.AddTransient<IArchiveClient, ArchiveClient>();
 services.AddTransient<IPipelineServiceTask, ArchiveServiceTask>();
@@ -106,6 +110,10 @@ Bare avslutningen kan si at hele oppgaven er ferdig og at prosessen skal gå vid
 ## Få svaret som en melding
 
 Kommer svaret som en melding utenfra i stedet for at appen spør igjen, åpner arbeidssteget en **postkasse** (mailbox i koden). Postkassen har en id som er adressen svaret må komme tilbake til, og en frist for hvor lenge den tar imot meldinger.
+
+{{< code-title >}}
+App/logic/ServiceTasks/ArchiveServiceTask.cs
+{{< /code-title >}}
 
 ```csharp
 public ServiceTaskPipeline Define(ServiceTaskPipelineBuilder pipeline) =>

@@ -1,20 +1,28 @@
 ---
 title: Altinn-landskapet
 linktitle: Altinn-landskapet
-description: Detaljerte arkitekturtegninger av Altinn 3, produkt for produkt, med lenker til kildekoden.
+description: "Tegninger av Altinn 3 på tre nivåer: en forklaring for nye, en oversikt og detaljerte tegninger per produkt med lenker til kildekoden."
 weight: 1
 toc: true
 aliases:
  - /authorization/reference/system/altinn-landscape/
 ---
 
-Tegningene på denne siden viser hvordan Altinn 3 er bygd, produkt for produkt. Hver ramme er én applikasjon eller tjeneste. Kolonnene er delmodulene, og radene er lagene fra API ned til lagring. Under kolonnene ligger felt for integrasjonsklienter, bakgrunnsjobber, tverrgående funksjoner og datalagre.
+Tegningene på denne siden viser Altinn 3 på tre nivåer:
 
-Tegningene er laget fra kildekoden på `main` i de aktuelle repoene. Hver boks lenker til filen eller mappen den beskriver.
+- [Altinn forklart](#altinn-forklart) er for deg som er ny. Den viser hvem som bruker Altinn, hva tjenestene gjør, og hvordan de henger sammen, uten tekniske detaljer.
+- [Oversikten](#oversikt) viser én boks per applikasjon, gruppert per produkt.
+- De detaljerte tegningene viser hvert produkt med delmoduler, lag og datalagre. Hver boks lenker til filen eller mappen den beskriver i kildekoden.
 
 Klikk på en tegning for å åpne den i full størrelse i en ny fane. Lenkene i tegningen virker bare når den er åpnet på denne måten.
 
-Filene er draw.io-SVG-er og kan åpnes i [draw.io](https://app.diagrams.net/). Et skript i dette repoet lager tegningene fra kildekoden, så skriptet overskriver endringer du gjør for hånd neste gang noen kjører det. Se [README for skriptet](https://github.com/Altinn/altinn-studio-docs/blob/master/scripts/altinn-landscape/README.md) for hvordan du lager tegningene på nytt.
+Et skript i dette repoet lager alle tegningene fra kildekoden på `main` i Altinn-repoene. Filene er draw.io-SVG-er og kan åpnes i [draw.io](https://app.diagrams.net/), men skriptet overskriver endringer du gjør for hånd neste gang noen kjører det. Se [README for skriptet](https://github.com/Altinn/altinn-studio-docs/blob/master/scripts/altinn-landscape/README.md) for hvordan du lager tegningene på nytt.
+
+## Altinn forklart
+
+Hvem bruker Altinn, hva gjør de ulike tjenestene, og hvordan henger de sammen? Tegningen følger Kari, som søker om skjenkebevilling for restauranten sin. Tallene i tegningen viser hvilken tjeneste som gjør hva underveis.
+
+<a href="./altinn_explained_nb.drawio.svg" target="_blank" rel="noopener"><img src="./altinn_explained_nb.drawio.svg" alt="Altinn 3 forklart: brukerne, tjenestene og grunnmuren" style="width:100%;height:auto;display:block;cursor:zoom-in;" /></a>
 
 ## Oversikt
 

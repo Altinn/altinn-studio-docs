@@ -18,6 +18,10 @@ Du kan også gjøre statiske svaralternativer (litt mer) dynamiske ved å [filtr
 
 I dette eksempelet setter vi opp en Dropdown-komponent med statiske svaralternativer. Egenskapen `options` er en liste med objekter, hvor hvert objekt representerer et svaralternativ. `value` er verdien som lagres i datamodellen når brukeren velger elementet. `label` er ledeteksten som vises til brukeren.
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json {hl_lines=["8-21"]}
 {
   "id": "some-dropdown-component",
@@ -49,6 +53,10 @@ Legg JSON-lister i `options`-mappen i app-repositoriet. Appen leser filene autom
 
 Kodelistene må følge et spesifikt format. Her er et eksempel på en kodeliste som inneholder land (`App/options/land.json`):
 
+{{< code-title >}}
+App/options/land.json
+{{< /code-title >}}
+
 ```json
 [
     {
@@ -69,6 +77,10 @@ Kodelistene må følge et spesifikt format. Her er et eksempel på en kodeliste 
 `label`-feltet kan inneholde en tekstnøkkel til tekstressursene eller ren tekst.
 
 Referer til kodelisten ved å bruke egenskapen `optionsId` i komponentkonfigurasjonen:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json {hl_lines=["8"]}
 {

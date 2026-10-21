@@ -15,6 +15,10 @@ Add bindings to the component's `dataModelBindings` property. The property refer
 
 Write the field path as a string when the field belongs to the layout set's default data model:
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "first-name",
@@ -32,6 +36,10 @@ The default data model is the `defaultDataType` value in `App/ui/<layout-set>/Se
 ## Extended form
 
 Use an object containing `dataType` and `field` when the binding refers to a data model other than the default:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 {
@@ -65,6 +73,10 @@ Some components define their own binding keys. For example, `Address` has separa
 ## Bindings in repeating groups
 
 A `RepeatingGroup` binds to the array it displays. Components in the group bind to fields in each object in that array. If the group binds to `people`, bind a name field in the group to `people.name`:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 [

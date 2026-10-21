@@ -4,14 +4,18 @@ headless: true
 hidden: true
 ---
 
+{{< code-title >}}
+App/ui/SigningTask/layouts/signing.json
+{{< /code-title >}}
+
 ```json
 {
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       {
         "id": "headerSigningFounders",
-        "type": "Header",
+        "type": "Heading",
         "size": "M",
         "textResourceBindings": {
           "title": "Her kan man ha en overskrift"

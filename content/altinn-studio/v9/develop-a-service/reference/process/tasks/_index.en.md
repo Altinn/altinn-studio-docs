@@ -18,6 +18,11 @@ The data validation is part of the standard logic in the template. Application d
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="v8">}}
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <bpmn:task id="Task_1" name="Utfylling">
     <bpmn:incoming>Flow1</bpmn:incoming>
@@ -31,6 +36,11 @@ The data validation is part of the standard logic in the template. Application d
 ```
 {{</content-version-container>}}
 {{<content-version-container version-label="v7">}}
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <bpmn:task id="Task_1" name="Utfylling" dataType="data">
     <bpmn:incoming>Flow1</bpmn:incoming>
@@ -49,6 +59,11 @@ When a user confirms a confirmation task a confirm instance event log is created
 Example of a confirmation task
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="v8">}}
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <bpmn:task id="Task_2" name="Bekreftelse">
     <bpmn:incoming>Flow1</bpmn:incoming>
@@ -65,6 +80,11 @@ Example of a confirmation task
 ```
 {{</content-version-container>}}
 {{<content-version-container version-label="v7">}}
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <bpmn:task id="Task_2" name="Bekreftelse" dataType="confirmation">
     <bpmn:incoming>Flow1</bpmn:incoming>
@@ -81,6 +101,11 @@ A signing task is where the end user accessing the application through the brows
 When a user performs a sign action a signature object containing the user information and a hash of the data elements defined in the process task will be generated along a instance event log detailing that user/system X has signed
 
 Example of a signing task (only supported in v8)
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <bpmn:task id="Task_1">
     <bpmn:incoming>Flow1</bpmn:incoming>
@@ -117,6 +142,11 @@ Example of a feedback task
 
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="v8">}}
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <bpmn:task id="Task_2" name="Bekreftelse">
     <bpmn:incoming>Flow1</bpmn:incoming>
@@ -130,6 +160,11 @@ Example of a feedback task
 ```
 {{</content-version-container>}}
 {{<content-version-container version-label="v7">}}
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <bpmn:task id="Task_2" name="Bekreftelse" dataType="feedback">
     <bpmn:incoming>Flow1</bpmn:incoming>

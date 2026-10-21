@@ -12,6 +12,10 @@ Under ser du et eksempel på norsk og engelsk:
 
 `resource.nb.json`:
 
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
+
 ```json
 {
   "language": "nb",
@@ -33,6 +37,10 @@ Under ser du et eksempel på norsk og engelsk:
 ```
 
 `resource.en.json`:
+
+{{< code-title >}}
+App/config/texts/resource.en.json
+{{< /code-title >}}
 
 ```json
 {
@@ -58,6 +66,10 @@ Under ser du et eksempel på norsk og engelsk:
 
 For at brukeren skal kunne velge språk i appen, setter du `showLanguageSelector` til `true` i `App/ui/Settings.json`. Da viser appen en nedtrekksmeny der brukeren kan velge språk i alle oppgaver:
 
+{{< code-title >}}
+App/ui/Settings.json
+{{< /code-title >}}
+
 ```json
 {
   "showLanguageSelector": true
@@ -65,6 +77,10 @@ For at brukeren skal kunne velge språk i appen, setter du `showLanguageSelector
 ```
 
 Du kan overstyre innstillingen for en oppgave i `App/ui/<TaskId>/Settings.json`. Da legger du `showLanguageSelector` under `pages`:
+
+{{< code-title >}}
+App/ui/{taskId}/Settings.json
+{{< /code-title >}}
 
 ```json
 {

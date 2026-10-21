@@ -24,6 +24,10 @@ For å registrere hvilke serverhandlinger som er tilgjengelige for en prosessopp
 
 Eksempel på en prosessoppgave med en serverhandling kalt `myServerAction`:
 
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <!-- Beginning of process definition omitted for brevity -->
         <bpmn:task id="Task_1" name="Utfylling">
@@ -46,6 +50,10 @@ Eksempel på en prosessoppgave med en serverhandling kalt `myServerAction`:
 For å tillate brukere å utløse serverhandlingen må du legge til autorisasjonspolicyer i policy.xml-filen.
 
 Eksempel på en tilgangspolicyregel som gir brukere med rollen `DAGL` tilgang til å utløse serverhandlingen `myServerAction` når prosessen er i `Task_1`:
+
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
 
 ```xml
 <!-- Beginning of policy.xml definition omitted for brevity -->
@@ -108,11 +116,15 @@ Eksempel på en tilgangspolicyregel som gir brukere med rollen `DAGL` tilgang ti
 
 ### Slik skriver du tilpasset kode og registrerer den som tjeneste
 
-For å skrive tilpasset logikk, opprett en ny klasse som implementerer `Altinn.App.Core.Models.UserAction.IUserAction`.
+For å skrive tilpasset logikk, opprett en ny klasse som implementerer `Altinn.App.Core.Features.IUserAction`.
 
-Dette grensesnittet krever at du definerer en `Id` og en implementasjon av `public async Task<UserActionResult> HandleAction(UserActionContext context)`. Systemet bruker ID-en for å finne riktig C#-implementasjon av handlingen som er definert i prosessfilen.
+Dette grensesnittet krever at du definerer en `Id` og en implementasjon av `Task<UserActionResult> HandleAction(UserActionContext context)`. Systemet bruker ID-en for å finne riktig C#-implementasjon av handlingen som er definert i prosessfilen.
 
 Et enkelt eksempel på serverhandlingen `myServerAction` som logger brukerens bruker-ID og instans-ID:
+
+{{< code-title >}}
+App/logic/MyServerAction.cs
+{{< /code-title >}}
 
 ```csharp
 using System.Threading.Tasks;
@@ -120,28 +132,44 @@ using Altinn.App.Core.Features;
 using Altinn.App.Core.Models.UserAction;
 using Microsoft.Extensions.Logging;
 
-namespace Altinn.App.Actions;
+namespace Altinn.App.Logic;
 
-public class MyServerAction: IUserAction
+public class MyServerAction(ILogger<MyServerAction> logger) : IUserAction
 {
-    private readonly ILogger<MyServerAction> _logger;
-
-    public MyServerAction(ILogger<MyServerAction> logger)
-    {
-        _logger = logger;
-    }
-
     public string Id => "myServerAction";
 
-    public async Task<UserActionResult> HandleAction(UserActionContext context)
+    public Task<UserActionResult> HandleAction(UserActionContext context)
     {
-        await Task.CompletedTask;
-        _logger.LogInformation("UserId: {userId}, InstanceId: {instanceId}", context.UserId, context.Instance.Id);
-        return UserActionResult.SuccessResult();
+        logger.LogInformation("UserId: {UserId}, InstanceId: {InstanceId}", context.UserId, context.Instance.Id);
+        return Task.FromResult(UserActionResult.SuccessResult());
     }
 }
 ```
 
-Hvis handlingen returnerer en `UserActionResult` med feltet "success" satt til true, blir handlingen utført. Ellers returnerer API-en en feil til brukeren.
+`context.UserId` er bare satt når en person utfører handlingen. Hvis for eksempel en systembruker utfører handlingen, er den `null`. Bruk `context.Authentication` hvis du trenger å vite hvem som utførte handlingen.
 
-I motsetning til prosesshandlinger flytter serverhandlinger **ikke** prosessen til neste oppgave automatisk. Hvis du vil flytte prosessen videre, må du returnere `UserActionResult` med `NextAction` satt til et stegnavn eller bruke en separat prosesshandling.
+Registrer klassen som `IUserAction` i `Program.cs`:
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
+```csharp
+using Altinn.App.Core.Features;
+using Altinn.App.Logic;
+
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+    services.AddTransient<IUserAction, MyServerAction>();
+}
+```
+
+### Resultatet av handlingen
+
+`HandleAction` returnerer en `UserActionResult`. Bruk en av disse metodene for å lage resultatet:
+
+- `UserActionResult.SuccessResult()`: Handlingen lyktes.
+- `UserActionResult.FailureResult(new ActionError { Message = "..." })`: Handlingen mislyktes, og API-et returnerer en feil til brukeren. `errorType` bestemmer statuskoden, for eksempel `ProcessErrorType.BadRequest` for 400. Standard er 500.
+- `UserActionResult.RedirectResult(uri)`: Appen sender brukeren videre til en annen URL.
+
+I motsetning til prosesshandlinger flytter serverhandlinger **ikke** prosessen til neste oppgave. Hvis prosessen skal gå videre, bruker du en [prosesshandling]({{< relref "/altinn-studio/v9/develop-a-service/reference/process/actions/process-actions" >}}) i stedet.

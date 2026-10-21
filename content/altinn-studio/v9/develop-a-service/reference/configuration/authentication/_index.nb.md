@@ -22,6 +22,10 @@ De eneste godkjente ID-providerene for øyeblikket er:
 
 Bruk av OIDC-provider angis i `appSettings`:
 
+{{< code-title >}}
+App/appsettings.json
+{{< /code-title >}}
+
 ```json
 "AppOidcProvider": "uidp"
 ```

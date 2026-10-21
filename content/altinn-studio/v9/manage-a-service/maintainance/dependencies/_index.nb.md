@@ -6,12 +6,11 @@ description: Hvordan oppdatere avhengigheter i en app.
 toc: true
 ---
 
-Appen er avhengig av flere ressurser som ligger utenfor selve appen.
-Dette inkluderer støttebiblioteker med felles funksjonalitet for alle apper og Helm-diagrammet som brukes ved utrulling.
+Appen er avhengig av støttebiblioteker som ligger utenfor selve appen. Bibliotekene har funksjonalitet som er felles for alle apper.
 
-Disse avhengighetene er definert noen forskjellige steder i appen, og hver avhengighet refereres til med en spesifikk _versjon_.
-Når ressursene oppdateres, publiseres de på nytt som en ny _versjon_. En ny versjon kommer ofte med ny funksjonalitet eller forbedringer.
-For at appen skal kunne ta dette i bruk, må man oppdatere hvilken versjon av ressursene appen henter. 
+Appen henter en bestemt _versjon_ av hvert bibliotek. Når Altinn forbedrer bibliotekene, kommer de i en ny versjon. En ny versjon kommer ofte med ny funksjonalitet eller forbedringer. For at appen skal kunne ta dette i bruk, må du oppdatere hvilken versjon appen henter.
+
+Helm-chartet som Altinn bruker når du publiserer appen, trenger du ikke oppdatere selv. [Les mer om publisering og Helm-chartet lenger ned på siden](#publisering).
 
 ## Nuget
 _Nuget er .NET sin package manager, hvor vi publiserer kodebibliotek som brukes av alle appene._
@@ -33,6 +32,10 @@ Da kan du automatisk se hva som er nyeste versjon av alle pakker når du åpner 
 - Finn fram referansene til bibliotekene i appen. Referansene til biblioteker ligger i filen `App/App.csproj` i appens repo. 
 
 F.eks.:
+
+{{< code-title >}}
+App/App.csproj
+{{< /code-title >}}
 
 ```xml
 <ItemGroup>
@@ -58,6 +61,10 @@ F.eks.:
 
 F.eks.:
 
+{{< code-title >}}
+App/App.csproj
+{{< /code-title >}}
+
 ```xml
 <ItemGroup>
   <PackageReference Include="Altinn.App.Api" Version="3.0.0" />
@@ -81,35 +88,6 @@ F.eks.:
 {{</content-version-selector>}}
 
 
-## Deployment
+## Publisering
 
-Deployment utføres ved hjelp av helm charts. Standard deployment oppsett for apps hentes fra altinn-studio sitt helm repository.
-
-Er du i tvil om du benytter siste deployment strategi kan du følge migreringsguiden [her](/nb/community/changelog/deployment/migration/)
-
-For å finne siste versjon av helm-charten kan du enten sjekke releases av charten deployment [her](https://github.com/Altinn/altinn-studio-charts/releases)
-eller legge inn [helm](https://helm.sh/) repoet lokalt og søke i dette på følgende måte:
-
-```shell
-# Legg til helm altinn-studio helm repo
-helm repo add altinn-studio https://charts.altinn.studio
-
-# Søk for versjoner av altinn-studio/deployment charten
-helm search repo -l altinn-studio/deployment
-```
-
-Hvis det er ny versjon av helm charten sjekk [changelog](/nb/community/changelog/deployment/) for å se hva som er oppdatert i versjonen.
-
-For å ta i bruk en ny versjon oppdater versjon under dependencies i `deployment/Chart.yaml`
-
-```yaml {hl_lines=[9]}
-apiVersion: v1
-description: A Helm chart for Kubernetes
-name: deployment
-version: 1.1.0
-
-dependencies:
-- name: deployment
-  repository: https://charts.altinn.studio/
-  version: 2.8.0                                <--- Oppdater her
-```
+Altinn publiserer alle apper med et felles Helm-chart og velger selv hvilken versjon av chartet appen bruker. Publiseringen bruker ikke `deployment/Chart.yaml` i app-repoet, så denne avhengigheten trenger du ikke oppdatere. Innstillingene du kan endre, ligger i `deployment/values.yaml`. Se [innstillinger for publisering]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/deployment" >}}).

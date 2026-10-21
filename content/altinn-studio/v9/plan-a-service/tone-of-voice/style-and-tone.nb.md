@@ -1,9 +1,9 @@
 ---
 draft: true
 title: Stil og tone
-description: Skriv personlig, varmt, vennlig og tydelig. Bruk ord som brukerne forstår.
+description: Slik skriver du personlig, vennlig og tydelig til brukerne.
 weight: 2
-tags: [needsReview]
+tags: [Reviewed]
 ---
 
 ## Slik skriver du personlig, varmt og vennlig
@@ -13,32 +13,34 @@ tags: [needsReview]
 
 ## Slik skriver du ubyråkratisk
 
-- Bruk enkle, korte ord som alle forstår. Unngå faguttrykk og fancy ord.
-  - ❌ Fancy: "Orkestrere datautvekslingen mellom systemene"
-  - ✅ Enkelt: "Styre datautvekslingen mellom systemene"
+- Bruk enkle, korte ord som alle forstår. Unngå faguttrykk og fremmedord.
+  - ❌ Vanskelig: «Orkestrere datautvekslingen mellom systemene»
+  - ✅ Enkelt: «Styre datautvekslingen mellom systemene»
 - Bruk korte setninger. Unngå lange, innviklede setninger med mange leddsetninger.
 - Skriv på et nivå som passer for en 12-åring. Dette gjør teksten lettere å forstå for alle.
 - Bruk verb fremfor substantiver (unngå «substantivsjuke»).
-  - ❌ Substantiv: "Gjennomføring av testing"
-  - ✅ Verb: "Test tjenesten"
+  - ❌ Substantiv: «Gjennomføring av testing»
+  - ✅ Verb: «Test tjenesten»
 - Skriv verbene så tidlig som mulig i setningen.
 - Bruk ord og vendinger som folk bruker i dagligtale, men vær fortsatt presis og tydelig.
 
 ## Slik skriver du tydelig
 
 - Pek på konkrete handlinger, og unngå abstrakt språk.
-  - ❌ Abstrakt: "Optimaliser brukeropplevelsen"
-  - ✅ Konkret: "Legg til tydelige feilmeldinger"
+  - ❌ Abstrakt: «Optimaliser brukeropplevelsen»
+  - ✅ Konkret: «Legg til tydelige feilmeldinger»
 - Bruk kulepunkter for å dele opp den viktigste informasjonen.
 - Skriv helst titler og mellomtitler som er hele setninger, slik at leserne lett forstår hva som kommer.
-  - ❌ Vagt: "Planlegg datamodellen"
-  - ✅ Tydelig: "Planlegg datamodellen før du bygger skjemaet"
+  - ❌ Vagt: «Planlegg datamodellen»
+  - ✅ Tydelig: «Planlegg datamodellen før du bygger skjemaet»
 - Unngå metaforer og innforstått jargong.
-  - ❌ Metafor: "Dykk ned i datamodellen"
-  - ✅ Tydelig: "Åpne datamodellen"
+  - ❌ Metafor: «Dykk ned i datamodellen»
+  - ✅ Tydelig: «Åpne datamodellen»
 
 ## Lengde på tekst
 
-- **Overskrifter**: maks. 8 ord
-- **Setninger**: helst under 25 ord
-- **Avsnitt**: 2–4 setninger
+Bruk disse tommelfingerreglene:
+
+- **Overskrifter**: Ikke mer enn åtte ord.
+- **Setninger**: Helst under 25 ord.
+- **Avsnitt**: To til fire setninger.

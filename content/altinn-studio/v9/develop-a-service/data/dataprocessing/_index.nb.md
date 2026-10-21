@@ -142,6 +142,10 @@ Du bestemmer selv hva klassen skal hete og hvor filen skal ligge i prosjektet. V
 
 Registrer prosessoren og eventuelle tjenester den trenger, i `RegisterCustomAppServices` i `App/Program.cs`:
 
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```csharp
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {
@@ -270,6 +274,10 @@ public class AvsenderProsessor(IAltinnPartyClient partyClient) : GenericDataProc
 ### Registrere prosessoren
 
 Registrer prosessoren i `RegisterCustomAppServices` i `App/Program.cs`:
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
 ```csharp
 services.AddTransient<IDataProcessor, AvsenderProsessor>();

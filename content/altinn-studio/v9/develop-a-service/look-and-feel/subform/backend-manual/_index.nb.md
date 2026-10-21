@@ -5,6 +5,11 @@ hidden: true
 
 1. [Lag en datamodell]({{< relref "/altinn-studio/v9/develop-a-service/reference/data/data-modeling" >}}) for underskjemaet. Du får da tre filer under `App/model`: klassen i C#, JSON-skjemaet og XSD-filen.
 2. Kontroller at datatypen for underskjemaet ligger i `App/config/applicationmetadata.json`. Med `minCount` og `maxCount` styrer du hvor mange oppføringer brukeren må og kan legge inn. Sett begge verdiene, ellers viser ikke appen feilmelding om antallet mens brukeren fyller ut skjemaet. `maxCount` satt til `0` betyr at det ikke er noen øvre grense.
+
+   {{< code-title >}}
+   App/config/applicationmetadata.json
+   {{< /code-title >}}
+
    ```json
    {
      "id": "Kjoretoy",
@@ -22,6 +27,11 @@ hidden: true
    Vanligvis må mappenavnet under `App/ui` være likt ID-en til et steg i prosessen. Underskjemaet er et unntak, fordi det ikke er et eget steg. Her velger du mappenavnet selv, og det er dette navnet du bruker i `layoutSet` når du legger til tabellen i hovedskjemaet.
    {{< /notice >}}
 4. Legg til en `Settings.json`-fil og en mappe som heter `layouts` i underskjemamappen. Sett `defaultDataType` til ID-en til datatypen for underskjemaet, og `type` til `subform`. Designer bruker `type` til å kjenne igjen mappen som et underskjema.
+
+   {{< code-title >}}
+   App/ui/kjoretoy/Settings.json
+   {{< /code-title >}}
+
    ```json
    {
      "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
@@ -35,6 +45,11 @@ hidden: true
    Resten av `Settings.json` setter du opp [på samme måte som for andre sider]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/sider" >}}#innstillinger).
 5. Legg til sidene til underskjemaet i `layouts`-mappen, slik du gjør for hovedskjemaet. Se [begrensningene](#begrensninger) for hvilke komponenter du ikke kan bruke i et underskjema.
 6. Legg til en knapp som lukker underskjemaet. Det er en [CustomButton]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/CustomButton" >}}) med handlingen `closeSubform`. Uten egen tekst viser knappen teksten **Ferdig**. Legg til `validation` hvis du vil at appen skal kontrollere opplysningene før brukeren lukker underskjemaet.
+
+   {{< code-title >}}
+   App/ui/kjoretoy/layouts/side1.json
+   {{< /code-title >}}
+
    ```json
    {
      "id": "kjoretoy-ferdig",
@@ -56,6 +71,11 @@ hidden: true
    ```
 7. Gå til layoutfilen for siden i hovedskjemaet der tabellen skal ligge.
 8. Legg til en `Subform`-komponent med [innstillingene du vil ha]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/subform/config-options" >}}). Sett `layoutSet` til navnet på underskjemamappen. Hver kolonne henter verdien sin fra datamodellen til underskjemaet med et `dataModel`-uttrykk i `value`.
+
+   {{< code-title >}}
+   App/ui/{taskId}/layouts/{page}.json
+   {{< /code-title >}}
+
    ```json
    {
      "id": "kjoretoy-tabell",

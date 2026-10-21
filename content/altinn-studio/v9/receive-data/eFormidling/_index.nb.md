@@ -115,6 +115,10 @@ Alle elementene i `<altinn:eFormidlingConfig>` støtter det valgfrie attributtet
 
 For eksempel kan du sende til en testmottaker i TT02 og den reelle mottakeren i produksjon (bytt ut begge organisasjonsnumrene med dine egne):
 
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <altinn:receiver env="staging">310075809</altinn:receiver>
 <altinn:receiver>991825827</altinn:receiver>

@@ -22,6 +22,10 @@ Dette gjør du ved å endre det aktuelle `dataType`-elementet i `applicationMeta
 
 Lim inn følgende i datatypen `model` sin `appLogic`:
 
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
+
 ```json
 "allowAnonymousOnStateless": true
 ```
@@ -63,6 +67,6 @@ App/config/applicationmetadata.json
     }
   ],
   ...
-  "onEntry": { "show": "form" } 
+  "onEntry": { "show": "stateless" } 
 }
 ```

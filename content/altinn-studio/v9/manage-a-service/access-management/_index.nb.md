@@ -1,8 +1,8 @@
 ---
 draft: true
 title: Tilgangsstyring
-description: Slik får du tilganger til Altinn Studio, hemmeligheter og app-logger.
-tags: [needsReview]
+description: Slik får du tilgang til Altinn Studio, hemmeligheter og app-logger.
+tags: [Reviewed]
 weight: 200
 aliases:
 - /nb/app/access-management/

@@ -10,6 +10,10 @@ hidden: true
 3. Add your secret key to Key Vault, with the variable name `NetsPaymentSettings--SecretApiKey`. This way it will override `SecretApiKey` in `appsettings.json`.
 4. Add `NetsPaymentSettings` to your `appsettings.json`.
    
+    {{< code-title >}}
+    App/appsettings.json
+    {{< /code-title >}}
+
     ```json
     {
       "NetsPaymentSettings": {
