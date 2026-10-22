@@ -79,7 +79,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/orders/email": {
@@ -136,7 +141,12 @@
             }
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/orders/{id}/notifications/email": {
@@ -179,7 +189,12 @@
             "description": "No order matching the provided ID was found."
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/future/orders": {
@@ -256,7 +271,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/future/orders/instant": {
@@ -323,7 +343,12 @@
             }
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/future/orders/instant/sms": {
@@ -389,7 +414,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/future/orders/instant/email": {
@@ -455,7 +485,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/future/log": {
@@ -526,7 +561,12 @@
             }
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/future/enduser/log": {
@@ -597,7 +637,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/orders/{id}": {
@@ -640,7 +685,12 @@
             "description": "No order matching the provided ID was found."
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/orders": {
@@ -678,7 +728,12 @@
             }
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       },
       "post": {
         "tags": [
@@ -733,7 +788,12 @@
             }
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/orders/{id}/status": {
@@ -776,7 +836,12 @@
             "description": "No order matching the provided ID was found."
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/orders/{id}/cancel": {
@@ -822,7 +887,12 @@
             "description": "The order cannot be cancelled due to current processing status."
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/future/shipment/{id}": {
@@ -880,7 +950,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/orders/sms": {
@@ -937,7 +1012,12 @@
             }
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/orders/{id}/notifications/sms": {
@@ -980,7 +1060,12 @@
             "description": "No order matching the provided ID was found."
           }
         },
-        "deprecated": true
+        "deprecated": true,
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/future/shipment/feed": {
@@ -1054,7 +1139,12 @@
               }
             }
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     }
   },
@@ -3007,6 +3097,14 @@
           }
         },
         "additionalProperties": {}
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "description": "JWT Authorization header using the Bearer scheme.",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
       }
     }
   },
