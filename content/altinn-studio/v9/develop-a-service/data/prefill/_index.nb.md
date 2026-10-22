@@ -2,15 +2,15 @@
 draft: true
 title: Forhåndsutfylling
 linktitle: Forhåndsutfylling
-description: Forhåndsutfylle data i appen
-tags: [needsReview]
+description: Oversikt over måtene du kan forhåndsutfylle data i appen på.
+tags: [Reviewed]
 
 aliases:
 - /nb/altinn-studio/guides/prefill/
 ---
 
 Altinn-appen din kan automatisk fylle ut deler av skjemaet før brukeren begynner. Det finnes flere forskjellige metoder
-for å gjøre dette, og disse kan brukes sammen eller hver for seg.
+for å gjøre dette, og du kan bruke dem sammen eller hver for seg.
 
 ## Konfigurasjonsbasert oppsett
 ### Hva gjør denne funksjonen?
@@ -19,11 +19,15 @@ Altinn-appen din kan automatisk fylle ut deler av skjemaet før brukeren begynne
 - Folkeregisteret (for personinformasjon)
 - brukerens Altinn-profil
 
-Når noen starter skjemaet, fyller systemet automatisk ut feltene du velger med riktige data.
+Når noen starter skjemaet, fyller appen automatisk ut feltene du velger med riktige data.
 
-### Når bør jeg bruke dette?
-Hvis du skal forhåndsutfylle data fra en av kildene listet over. Det er et begrenset sett med felter som er tilgjengelige. 
+Du kan sette det opp på siden **Datamodell** i Altinn Studio, under **Forhåndsutfylling** i egenskapene til et felt, eller i en konfigurasjonsfil.
+
+### Når bør du bruke dette?
+Når du skal forhåndsutfylle data fra en av kildene over. Du kan bare bruke et begrenset sett med felt.
 Se [fullstendig liste over tilgjengelige datafelt for alle kildene]({{< relref "/altinn-studio/v9/develop-a-service/data/prefill/reference/sources" >}}).
+
+Se [veiledningen for konfigurasjonsbasert oppsett]({{< relref "/altinn-studio/v9/develop-a-service/data/prefill/how-to/config" >}}).
 
 ## Egendefinert kode
 ### Hva gjør denne funksjonen?
@@ -33,48 +37,53 @@ Du kan lage din egen kode for å fylle ut deler av skjemaet automatisk før bruk
 - gjøre beregninger
 - bruke annen logikk du selv bestemmer
 
-### Når bør jeg bruke dette?
+### Når bør du bruke dette?
 Hvis du har behov for kilder utover de som er tilgjengelige via konfigurasjonsbasert oppsett, eller har behov for annen logikk som del av forhåndsutfyllingen.
+
+Se [veiledningen for egendefinert kode]({{< relref "/altinn-studio/v9/develop-a-service/data/prefill/how-to/custom" >}}).
 
 ## HTTP POST
 ### Hva gjør denne funksjonen?
 
-Du kan starte opp en skjema-instans med ferdig utfylte data fra f.eks. eget fagsystem. Dataene sendes som en multipart 
-i HTTP POST-requesten til appen.
+Du kan starte en instans med ferdig utfylte data, for eksempel fra et eget fagsystem. Du sender dataene som multipart
+i HTTP POST-forespørselen til appen.
 
-### Når bør jeg bruke dette?
-Hvis du skal starte opp en skjema-instans på vegne av en bruker, f.eks. hvis du kun sender ut skjema til en gitt liste med
-mottakere, og har noe data tilgjengelig i egne systemer.
+### Når bør du bruke dette?
+Når du skal starte en instans på vegne av en bruker, for eksempel hvis du bare sender ut skjemaet til en bestemt liste med
+mottakere og har noen av dataene i egne systemer.
 
-## Spørringsparametre
+Se [veiledningen for HTTP POST]({{< relref "/altinn-studio/v9/develop-a-service/data/prefill/how-to/instantiation" >}}).
+
+## Spørringsparametere
 ### Hva gjør denne funksjonen?
-Du kan sende med en eller flere spørringsparametre i URL som lenker til tjenesten. Når bruker starter tjenesten via URL som
-bruker spørringsparametre, vil data fra URL'ens spørringsparametre kunne forhåndsutfylles i skjema.
+Du kan sende med én eller flere spørringsparametere i lenken til tjenesten. Når brukeren starter tjenesten med en lenke som
+har spørringsparametere, kan appen forhåndsutfylle data fra spørringsparameterne i skjemaet.
 
 #### Eksempel
 Dette gjør det mulig for brukere å klikke på en lenke som
 https://ttd.apps.tt02.altinn.no/ttd/stateless-app/set-query-params?jobTitle=designer,
 og få ordet "designer" forhåndsutfylt i et datamodellfelt.
 
-Du kan teste det selv ved å klikke på lenken til vår test-app over, og logge inn med TestID. Bytt gjerne ut `designer`
-i URL'en og se resultatet.
+Du kan teste det selv ved å klikke på lenken til test-appen vår over og logge inn med TestID. Bytt gjerne ut `designer`
+i URL-en og se resultatet.
 
-### Når bør jeg bruke dette?
-Hvis bruker selv skal starte skjema-instans, og klikker på lenke for å gjøre dette. Denne funksjonen kan være særlig 
-nyttig f.eks. om det er behov for å forhåndsutfylle forskjellig verdi basert på hvor brukeren startet tjenesten fra 
-(f.eks. forskjellige nettsider).
+### Når bør du bruke dette?
+Når brukeren selv starter skjemaet ved å klikke på en lenke. Funksjonen kan være særlig nyttig hvis du vil forhåndsutfylle
+forskjellige verdier ut fra hvor brukeren startet tjenesten fra, for eksempel fra forskjellige nettsider.
+
+Se [veiledningen for spørringsparametere]({{< relref "/altinn-studio/v9/develop-a-service/data/prefill/how-to/query-params" >}}).
 
 ### Forbehold
 Det er imidlertid noen viktige forbehold knyttet til sikkerhet når du bruker denne tilnærmingen.
 
-1. Du kan bare bruke forhåndsutfylling med spørringsparametere i en stateless-oppgave - dvs. FØR du faktisk oppretter skjema-instansen (og før du lagrer noe data). Dette gjør at brukeren kan se dataene før instansiering, slik at brukeren fortsatt har kontroll over hvilke data systemet lagrer.
+1. Du kan bare bruke forhåndsutfylling med spørringsparametere i en stateless-oppgave, det vil si _før_ appen oppretter instansen (og før den lagrer noen data). Da kan brukeren se dataene før appen oppretter instansen, og brukeren har fortsatt kontroll over hvilke data appen lagrer.
     > Uten dette kravet, ville det vært mulig for en angriper å endre verdien i parameteren og få den 
     > verdien til å dukke opp direkte i mottakerens Altinn-innboks.
 
-2. Vi anbefaler på det sterkeste at du inspiserer verdien av spørringsparametere i applikasjonen din. På denne måten 
-   sikrer du at bare gyldige data kan forhåndsutfylles. Du kan da stoppe en angriper fra å bruke en lenke som
+2. Vi anbefaler på det sterkeste at du kontrollerer verdien av spørringsparameterne i appen din. På denne måten
+   sikrer du at appen bare forhåndsutfyller gyldige data. Du kan da stoppe en angriper fra å bruke en lenke som
     
     `altinn.no/ttd/stateless-app/set-query-params?jobTitle=Im a scammer`
     
-    som kan få teksten "Im a scammer" til å vises i applikasjonen din.
+    som kan få teksten "Im a scammer" til å dukke opp i appen din.
 
