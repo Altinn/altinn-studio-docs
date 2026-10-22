@@ -19,8 +19,6 @@ Altinn kan også skanne vedleggene for virus.
 
 Hvordan appen kontrollerer filtyper, filstørrelser og innholdet i filene, står på siden [Utvidet filvalidering]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/files" >}}).
 
-{{<children />}}
-
 ## Spørsmål du kan stille utviklerne
 
 - Hvilke vedleggstyper har tjenesten, og er filtyper, filstørrelser og antall filer riktige for hver av dem?
@@ -28,3 +26,5 @@ Hvordan appen kontrollerer filtyper, filstørrelser og innholdet i filene, står
 - Er virusskanning slått på for alle vedleggstypene, også de vi har laget uten Designer?
 - Skal brukerne vente til skanningen er ferdig før de kan sende inn (`validationErrorOnPendingFileScan`)?
 - Er opplasting obligatorisk der den skal være det? Bruker vi `minNumberOfAttachments`, ikke `required`?
+
+{{<children />}}

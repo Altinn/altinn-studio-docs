@@ -11,10 +11,10 @@ Du slår på virusskanning per datatype i filen `App/config/applicationmetadata.
 
 ## Egenskaper
 
-| Egenskap                           | Hva den gjør                                                                                                                                   |
-| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| `enableFileScan`                   | Slår på virusskanning for datatypen. Finner skanningen virus før prosessen er ferdig, får brukeren en valideringsfeil.                          |
-| `validationErrorOnPendingFileScan` | Gir en valideringsfeil så lenge skanningen ikke er ferdig. Brukeren kan da ikke sende inn før skanningen er ferdig. |
+| Egenskap                           | Hva den gjør                                                                                                           |
+| ---------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `enableFileScan`                   | Slår på virusskanning for datatypen. Finner skanningen virus før prosessen er ferdig, får brukeren en valideringsfeil. |
+| `validationErrorOnPendingFileScan` | Gir en valideringsfeil så lenge skanningen ikke er ferdig. Brukeren kan da ikke sende inn før skanningen er ferdig.    |
 
 ## Tekstnøkler for feilmeldinger
 

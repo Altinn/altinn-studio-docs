@@ -13,7 +13,7 @@ Systemer kan også laste opp til datatypene som vedleggskomponentene i skjemaet 
 
 ## Legge til en datatype
 
-Du legger til datatypen i listen `dataTypes`. Eksempelet under tar imot én PDF-fil som bare NAV og en navngitt organisasjon kan laste opp.
+Du legger til datatypen i listen `dataTypes`. Eksempelet under viser en datatype med de samme standardverdiene som Designer bruker når du legger til en vedleggskomponent. Den tar imot én fil på opptil 25 MB, og Altinn skanner filen for virus.
 
 {{< code-title >}}
 App/config/applicationmetadata.json
@@ -27,10 +27,11 @@ App/config/applicationmetadata.json
       "taskId": "Task_1",
       "maxSize": 25,
       "maxCount": 1,
-      "minCount": 0,
-      "allowedContentTypes": ["application/pdf"],
-      "allowedContributors": ["org:nav", "orgNo:XXXXXXXXXX"],
-      "grouping": "Attester"
+      "minCount": 1,
+      "enableFileScan": true,
+      "validationErrorOnPendingFileScan": false,
+      "enabledFileAnalysers": [],
+      "enabledFileValidators": []
     }
   ]
 }
@@ -44,7 +45,7 @@ Appen kontrollerer at datatypen hører til prosessteget (taskId) som instansen s
 
 ## Bestemme hvem som kan laste opp
 
-Med `allowedContributors` begrenser du hvem som kan opprette og endre vedlegg av datatypen. Du kan gi tilgang til en tjenesteeier eller en organisasjon, eller du kan sørge for at bare appen selv kan endre vedleggene. Du finner alle verdiene under [Verdier i allowedContributors]({{< relref "/altinn-studio/v9/develop-a-service/data/attachments/reference/datatype" >}}#verdier-i-allowedcontributors).
+Uten `allowedContributors` kan alle som har skrivetilgang til instansen, laste opp vedlegg av datatypen. Med `allowedContributors` begrenser du det til bestemte tjenesteeiere, eller du sørger for at bare appen selv kan endre vedleggene. Du kan ikke gi andre organisasjoner eller systembrukere tilgang med denne egenskapen. Du finner alle verdiene under [Verdier i allowedContributors]({{< relref "/altinn-studio/v9/develop-a-service/data/attachments/reference/datatype" >}}#verdier-i-allowedcontributors).
 
 ## Se også
 

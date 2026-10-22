@@ -11,17 +11,16 @@ Du legger til komponenten `FileUpload` i Designer. Du kan bruke flere vedleggsko
 
 Her er de viktigste valgene:
 
-- **Filtyper:** Du kan begrense hvilke filtyper brukerne kan laste opp. Brukerne får en feilmelding hvis de prøver å laste opp en annen filtype.
+- **Filtyper:** Du kan begrense hvilke filtyper brukerne kan laste opp. Brukerne får en feilmelding hvis de prøver å laste opp en annen filtype. Appen sjekker filendelsen både når brukerne laster opp i skjemaet og når systemer laster opp via API. Endrer noen filendelsen, slipper filen likevel gjennom. Vil du sjekke hva filen faktisk inneholder, se [Utvidet filvalidering]({{< relref "/altinn-studio/v9/develop-a-service/data/validation/files" >}}).
 - **Antall filer:** Du bestemmer det minste og det største antallet filer brukeren skal laste opp.
 - **Filstørrelse:** Du bestemmer hvor store filene kan være, målt i MB.
 - **Merking:** Du kan la brukeren merke hver fil, for eksempel med dokumenttype, med en nedtrekksliste. Du kobler kodelisten til `FileUpload` med `optionsId`. Ledeteksten som brukerne ser når de velger merking, setter du med `textResourceBindings.tagTitle`.
 - **Varsel ved sletting:** Med `alertOnDelete` åpner appen et varsel når brukeren klikker på **Slett**. Appen viser ikke varsel hvis du ikke setter egenskapen.
 
-[[FIX BEFORE MERGE: skjermbilde av innstillingene for FileUpload i Designer, med filtyper, antall filer og filstørrelse synlige. Filnavn: fileupload-innstillinger.png. Alt-tekst: Innstillinger for vedleggskomponenten i Altinn Studio Designer]]
 
-[[FIX BEFORE MERGE: skjermbilde av FileUpload med merking slik den ser ut i Designer. Filnavn: fileupload-merking-designer.png. Alt-tekst: Innstillinger for merking av vedlegg i Altinn Studio Designer]]
+![Innstillinger for vedleggskomponenten i Altinn Studio Designer](fileupload-settings.png "Innstillinger for vedleggskomponenten i Altinn Studio Designer")
 
-[[FIX BEFORE MERGE: skjermbilde av vedleggskomponenten med merking slik brukeren ser den i skjemaet, etter at en fil er lastet opp. Filnavn: fileupload-merking-skjema.png. Alt-tekst: Vedleggskomponenten med nedtrekksliste for merking av en opplastet fil]]
+![Vedleggskomponenten med nedtrekksliste for merking av en opplastet fil](fileupload-tagging-app.png "Vedleggskomponenten med nedtrekksliste for merking av en opplastet fil")
 
 Du finner alle egenskapene på siden om [`FileUpload`]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/FileUpload" >}}).
 
@@ -70,8 +69,12 @@ App/ui/{taskId}/layouts/{page}.json
 
 ## Endre id-en til datatypen
 
-Når du bruker Designer, får datatypen en tilfeldig kode som id (en GUID). Vil du bruke et navn som er lettere å lese, må du endre id-en to steder: i `App/config/applicationmetadata.json` og i layoutfilen der komponenten ligger.
+Datatypen har samme id som vedleggskomponenten. Når du legger til komponenten i Designer, får den en id med en tilfeldig endelse, for eksempel `FileUpload-ab12cd`. Vil du bruke et navn som er lettere å lese, endrer du id-en på komponenten i Designer. Designer endrer da id-en på datatypen i `App/config/applicationmetadata.json` samtidig.
+Endrer du id-en direkte i filene, må du endre den to steder: i `App/config/applicationmetadata.json` og i layoutfilen der komponenten ligger.
 
+{{% notice warning %}}
+Endre id-en før tjenesten har instanser i produksjonsmiljøet. Instanser som ikke er arkivert, viser fortsatt til den gamle id-en. Endrer du den, kan brukerne miste tilgang til vedleggene sine i instanser under utfylling.
+{{% /notice %}}
 ## Se også
 
 - [Slik tar du imot vedlegg via API]({{< relref "/altinn-studio/v9/develop-a-service/data/attachments/how-to/api" >}})
