@@ -15,8 +15,9 @@ default, and takes the default only when none of them holds. It treats a flow wi
 as always true, and fails when more than one flow is true. With one such flow, leaving the
 gateway fails whenever one of the conditions holds, and any default the gateway has is never
 taken. With two or more, those flows are always true together, and leaving the gateway always
-fails. The rule checks only the gateways an instance can reach from a start event, but the app
-does not start if any gateway in the process mixes flows like this.
+fails. The app does not start if any gateway in the process mixes flows like this, so the rule
+checks every gateway, including one no instance can reach, such as a gateway you have placed in
+Studio's process editor but not connected yet.
 
 Category `Process`, severity **error**. The rule therefore fails the build.
 
