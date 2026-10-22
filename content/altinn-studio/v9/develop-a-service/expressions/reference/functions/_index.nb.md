@@ -572,7 +572,7 @@ Eksempel:
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-datamodel" header="dataModel (oppslag)" %}}
-Denne oppslagsfunksjonen gjør det mulig å hente verdier direkte fra gjeldende datamodell. Første argument må peke et sted i datamodellen, og bruker det samme punktum-separerte formatet som brukt i `dataModelBindings`. Hvis appen har flere datamodeller, kan du oppgi datatypen til datamodellen som andre argument, for eksempel `["dataModel", "Ansatte.Navn", "personalmodell"]`. Datatypen må være en fast tekst, ikke et uttrykk. Uten andre argument slår funksjonen opp i standarddatamodellen (`defaultDataType`). Ved bruk inne i [repeterende grupper](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/repeatinggroup/) trenger du _ikke_ bruke plassholdere for indekser til gruppen - uttrykket finner selv den relative plasseringen i kontekst av en repeterende gruppe.
+Denne oppslagsfunksjonen gjør det mulig å hente verdier direkte fra gjeldende datamodell. Første argument må peke et sted i datamodellen, og bruker det samme punktum-separerte formatet som brukt i `dataModelBindings`. Hvis appen har flere datamodeller, kan du oppgi datatypen til datamodellen som andre argument, for eksempel `["dataModel", "Ansatte.Navn", "personalmodell"]`. Datatypen må være en fast tekst, ikke et uttrykk. Uten andre argument slår funksjonen opp i standarddatamodellen (`defaultDataType`). Ved bruk inne i [repeterende grupper]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating" >}}) trenger du _ikke_ bruke plassholdere for indekser til gruppen - uttrykket finner selv den relative plasseringen i kontekst av en repeterende gruppe.
 
 Eksempel på oppslag i repeterende gruppe:
 
@@ -634,7 +634,7 @@ Oppslag direkte på komponent tilsvarer på mange måter et oppslag mot datamode
 
 Oppslag mot en komponent returnerer derimot `null` hvis komponenten du slår opp verdien til er skjult (selv om komponenten ellers har tilknyttet data i datamodellen). Dette gjør det til en viss grad mulig å styre visning av en komponent basert på om en annen komponent er vist eller ikke. Hvis komponenten ble funnet på en helt annen (men skjult) side, gir også oppslaget verdien `null` selv om datamodellen har en verdi tilknyttet komponenten.
 
-I likhet med [`dataModel`](#func-datamodel) vil oppslag mot en komponent-id forsøke å finne komponenten i nærheten av uttrykket i kontekst av [repeterende grupper](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/repeatinggroup/). Det søkes først etter komponenten i gjeldende rad, før det letes oppover i sidestrukturen.
+I likhet med [`dataModel`](#func-datamodel) vil oppslag mot en komponent-id forsøke å finne komponenten i nærheten av uttrykket i kontekst av [repeterende grupper]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating" >}}). Det søkes først etter komponenten i gjeldende rad, før det letes oppover i sidestrukturen.
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-formatDate" header="formatDate" %}}

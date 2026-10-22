@@ -15,7 +15,7 @@ Eksempel: I en søknad skal brukeren oppgi alle kjøretøyene til virksomheten. 
 
 ## Velge mellom underskjema og repeterende gruppe
 
-Både underskjema og [repeterende grupper]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/RepeatingGroup" >}}) lar brukeren legge inn flere oppføringer av samme type. Et underskjema passer best når
+Både underskjema og [repeterende grupper]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating" >}}) lar brukeren legge inn flere oppføringer av samme type. Et underskjema passer best når
 
 - hver oppføring har mange felter eller trenger flere sider
 - du vil gi brukeren en ryddig oversikt i hovedskjemaet, og vise detaljene først når brukeren åpner en oppføring
