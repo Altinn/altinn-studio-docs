@@ -227,7 +227,7 @@ Dette skjer når du deler radene inn i sider:
 
 - Brukeren ser sideknappene først når gruppen har flere rader enn `rowsPerPage`.
 - Skjulte rader teller ikke med.
-- Sideinndelingen virker både i tabellvisningen og når du viser alle radene åpne med `"mode": "showAll"`.
+- Sideinndelingen virker både i tabellvisningen og når du viser alle radene åpne med `"mode": "showAll"` i [`edit`]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating/edit#mode" >}}).
 - Når brukeren åpner en rad som ligger på en annen side, går appen til den siden.
 - Når brukeren bytter side, lukker appen raden som er åpen.
 
@@ -241,7 +241,7 @@ Du kan kontrollere radene i gruppen på tre måter:
 - Med `validateOnSaveRow` kontrollerer appen raden før brukeren forlater den. Det skjer når brukeren lukker raden, åpner en annen rad, legger til en ny rad eller bytter side. Hvis raden har valideringsfeil, må brukeren rette dem først. Se [gruppevalidering]({{< relref "/altinn-studio/v9/develop-a-service/data/validation#gruppevalidering" >}}).
 - Med `showValidations` bestemmer du hvilke feil på selve gruppen appen viser med en gang. Innstillingen gjelder ikke feltene i radene. Vil du vise feilen for for få rader med en gang, tar du med `Required`. Se [enkeltfeltvalidering]({{< relref "/altinn-studio/v9/develop-a-service/data/validation#enkeltfeltvalidering" >}}).
 
-`validateOnSaveRow` har ingen virkning med `"mode": "showAll"` eller `"mode": "onlyTable"`, fordi brukeren ikke åpner og lukker rader i de modusene.
+`validateOnSaveRow` har ingen virkning når [`mode`]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating/edit#mode" >}}) i `edit` er `"showAll"` eller `"onlyTable"`, fordi brukeren ikke åpner og lukker rader i de modusene.
 
 {{< code-title >}}
 App/ui/{taskId}/layouts/{page}.json
