@@ -1,8 +1,8 @@
 ---
 draft: true
 hidden: true
-tags: [needsReview]
+tags: [Reviewed]
 ---
 
-> Du må gjøre dette steget manuelt. Støtte for konfigurasjon i Altinn Studio kommer i løpet av høsten 2024.
-> Se **Manuelt oppsett**-fanen for denne seksjonen for veiledning.
+> Altinn Studio har ikke innstillinger for dette. Du kobler appen til Nets Easy-avtalen manuelt: Du legger den hemmelige nøkkelen fra Nets i Azure Key Vault og legger til innstillingene i `appsettings.json`.
+> Se fanen **Manuelt oppsett** for dette steget.
