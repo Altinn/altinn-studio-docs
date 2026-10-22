@@ -10,10 +10,11 @@ sekvensflyt som gatewayen ikke lister i `<bpmn:outgoing>`. Meldingen navngir gat
 standardflyten.
 
 Appen leter bare etter standardflyten blant flytene gatewayen lister, og ser derfor bort fra
-denne. Det har bare betydning når ingenting annet velger én flyt, altså når gatewayen lister mer
-enn én flyt og verken har betingelser eller en `IProcessExclusiveGateway` som velger mellom dem.
-Da feiler appen når en instans forlater gatewayen. Regelen kontrollerer bare gatewayer en instans
-kan nå fra en starthendelse.
+denne. Det har betydning når ingenting annet velger én flyt: når ingen av betingelsene på
+flytene er oppfylt, når en `IProcessExclusiveGateway` ikke velger noen av dem, eller når
+gatewayen lister mer enn én flyt og verken har betingelser eller en slik
+`IProcessExclusiveGateway`. Da feiler appen når en instans forlater gatewayen. Regelen
+kontrollerer bare gatewayer en instans kan nå fra en starthendelse.
 
 Kategori `Process`, alvorlighetsgrad **advarsel**.
 

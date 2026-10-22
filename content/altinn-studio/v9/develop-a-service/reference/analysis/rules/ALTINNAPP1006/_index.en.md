@@ -10,9 +10,10 @@ sequence flow that the gateway does not list in `<bpmn:outgoing>`. The message n
 and the default.
 
 The app looks for the default only among the flows the gateway lists, so it ignores this one.
-That matters only when nothing else picks a single flow, that is when the gateway lists more than
-one flow and has neither conditions nor an `IProcessExclusiveGateway` that chooses between them.
-Leaving the gateway then fails. The rule checks only the gateways an instance can reach from a
+That matters when nothing else picks a single flow: when none of the conditions on the gateway's
+flows holds, when an `IProcessExclusiveGateway` chooses none of them, or when the gateway lists
+more than one flow and has neither conditions nor such an `IProcessExclusiveGateway`. Leaving
+the gateway then fails. The rule checks only the gateways an instance can reach from a
 start event.
 
 Category `Process`, severity **warning**.

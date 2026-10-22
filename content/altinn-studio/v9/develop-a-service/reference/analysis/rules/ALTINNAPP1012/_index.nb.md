@@ -7,11 +7,11 @@ weight: 112
 
 Denne diagnostikken meldes når en eksklusiv gateway lister en sekvensflyt i `<bpmn:outgoing>` der
 `<bpmn:conditionExpression>` er tom eller bare inneholder mellomrom. Meldingen navngir gatewayen
-og flyten.
+og flyten. En tom betingelse på standardflyten til gatewayen melder ALTINNAPP1023 i stedet.
 
-Appen sjekker betingelsene på alle flytene gatewayen lister, og feiler på en tom betingelse. Appen
-feiler derfor hver gang en instans forlater gatewayen, uansett hvilke data instansen har. Regelen
-kontrollerer bare gatewayer en instans kan nå fra en starthendelse.
+Appen sjekker betingelsene på alle flytene gatewayen lister, unntatt standardflyten, og feiler på
+en tom betingelse. Appen feiler derfor hver gang en instans forlater gatewayen, uansett hvilke
+data instansen har. Regelen kontrollerer bare gatewayer en instans kan nå fra en starthendelse.
 
 Kategori `Process`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
 
@@ -30,6 +30,7 @@ Gi flyten en betingelse, eller fjern den tomme `<bpmn:conditionExpression>`:
 ```
 
 Har de andre flytene fra gatewayen betingelser, blander gatewayen flyter med og uten betingelse
-når du fjerner elementet. Det melder ALTINNAPP1010.
+når du fjerner elementet. Det melder ALTINNAPP1010. Har gatewayen ingen standardflyt, kan du i
+tillegg gjøre flyten til standardflyten.
 
 Se [hvordan du styrer flyten ut av en gateway med uttrykk]({{< relref "/altinn-studio/v9/develop-a-service/reference/process/flowcontrol" >}}).
