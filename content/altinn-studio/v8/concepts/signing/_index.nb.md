@@ -18,7 +18,7 @@ Tekniske guider for oppsett av signering finner du [her](/nb/altinn-studio/v8/gu
 
 ### Hva signeres det på?
 
-Tjenesteeier styrer utvalg av dataelementer som skal signeres og tjenesteeier velger hvilket autentiseringsnivå (identifikasjonsnivå) som sluttbruker må logge inn med før signering (nivå 1-4). Det er mulig med ett eller flere signeringssteg i sekvens.
+Tjenesteeier styrer utvalg av dataelementer som skal signeres og tjenesteeier velger hvilket autentiseringsnivå (identifikasjonsnivå) som sluttbruker må logge inn med før signering. Det er mulig med ett eller flere signeringssteg i sekvens.
 
 ### Signatur
 
