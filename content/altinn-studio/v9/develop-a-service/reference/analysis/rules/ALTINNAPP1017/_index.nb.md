@@ -5,10 +5,10 @@ description: "taskId på en datatype i applicationmetadata.json navngir ingen op
 weight: 117
 ---
 
-Denne diagnostikken meldes når en datatype i `config/applicationmetadata.json` har en `taskId`
-som ikke er id-en til en oppgave i `config/process/process.bpmn`. Meldingen navngir datatypen
-og `taskId`. Hører id-en til noe annet enn en oppgave, for eksempel en gateway, en hendelse
-eller en oppgave inne i en underprosess, som appen ikke kjører, sier meldingen det.
+Denne diagnostikken meldes når en datatype i `config/applicationmetadata.json` har en `taskId` som
+ikke er id-en til en oppgave i `config/process/process.bpmn`. Meldingen navngir datatypen og
+`taskId`. Hører id-en til noe annet enn en oppgave, for eksempel en gateway, en event eller en
+oppgave inne i et `<bpmn:subProcess>`-element, som appen ikke kjører, sier meldingen det.
 
 Bare et `<bpmn:task>`- eller `<bpmn:serviceTask>`-element rett i prosessen teller, og id-en må
 stemme nøyaktig. En tom `taskId` stemmer ikke med noen oppgave. Prosessen stopper aldri ved

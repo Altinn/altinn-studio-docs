@@ -10,11 +10,10 @@ til hverandre uten noen oppgave imellom, eller når en gateway fører tilbake ti
 Meldingen navngir gatewayene i løkken, og regelen melder hver løkke én gang.
 
 Når appen flytter en instans, følger den flytene gjennom gatewayer til den kommer til en oppgave
-eller en slutthendelse. Appen merker ikke når gatewayene går i ring, så en instans som følger
-løkken, får appen til å gå i ring helt til appen krasjer. Regelen teller bare flytene hver
-gateway lister i `<bpmn:outgoing>`, og kontrollerer bare gatewayer en instans kan nå fra en
-starthendelse. Regelen er bare en advarsel, siden betingelsene på flytene kan holde alle
-instanser utenfor løkken.
+eller en end event. Appen merker ikke når gatewayene går i ring, så en instans som følger løkken,
+får appen til å gå i ring helt til appen krasjer. Regelen teller bare flytene hver gateway lister i
+`<bpmn:outgoing>`, og kontrollerer bare gatewayer en instans kan nå. Regelen er bare en advarsel,
+siden betingelsene på flytene kan holde alle instanser utenfor løkken.
 
 Kategori `Process`, alvorlighetsgrad **advarsel**.
 

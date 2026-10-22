@@ -16,7 +16,7 @@ og en `subformPdf`-oppgave hver gang en instans har et underskjema å skrive ut.
 kontrollerer en `subformPdf`-oppgave bare når `subformDataTypeId` navngir en datatype appen
 har. En ukjent datatype der meldes av ALTINNAPP1013.
 
-Regelen kontrollerer bare oppgaver en instans kan nå fra en starthendelse.
+Regelen kontrollerer bare oppgaver en instans kan nå.
 
 Kategori `Process`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
 

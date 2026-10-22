@@ -15,10 +15,10 @@ For hvert miljø bruker appen oppføringen der `env` navngir miljøet, og ellers
 - et `env`-attributt med et navn appen ikke kjenner, slik at oppføringen ikke gjelder i noen av
   miljøene Development, Staging og Production (appen skiller ikke mellom store og små bokstaver,
   men mellomrom rundt navnet gjør det ukjent)
-- et attributt appen ikke leser på grunn av store bokstaver eller et navneromsprefiks, for
-  eksempel `Env` eller `altinn:env`, slik at oppføringen gjelder i alle miljøer
-- et `env`-attributt, med hvilke som helst bokstaver eller prefiks, på et element som ikke tar
-  imot `env`, slik at innstillingen gjelder i alle miljøer
+- et attributt appen ikke leser på grunn av store bokstaver eller et prefiks, for eksempel `Env`
+  eller `altinn:env`, slik at oppføringen gjelder i alle miljøer
+- et `env`-attributt, med hvilke som helst bokstaver eller prefiks, på et element som ikke tar imot
+  `env`, slik at innstillingen gjelder i alle miljøer
 
 Bare `<altinn:correspondenceResource>` i `<altinn:signatureConfig>` og elementene rett under
 `<altinn:eFormidlingConfig>` tar imot `env`. Det gjelder også `<altinn:dataTypes>`, men ikke

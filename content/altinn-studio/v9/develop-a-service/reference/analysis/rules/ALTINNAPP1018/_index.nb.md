@@ -14,20 +14,20 @@ Regelen melder:
 
 - en oppføring i `uniqueFromSignaturesInDataTypes` som ikke navngir noen datatype. Appen hopper
   over den når den kontrollerer at signataren ikke har signert fra før.
-- en oppføring i `dataTypesToSign` som ikke navngir noen datatype, mens andre oppføringer gjør
-  det. Signeringshandlingen tar den ikke med i det brukeren signerer.
-- en oppføring i `dataTypesToSign` som bare skiller seg fra id-en til en datatype i store og
-  små bokstaver. Signeringshandlingen ser bort fra store og små bokstaver og signerer dataene,
-  men signeringsvisningen krever nøyaktig samme id og viser ikke dokumentene.
+- en oppføring i `dataTypesToSign` som ikke navngir noen datatype, mens andre oppføringer gjør det.
+  Signeringshandlingen tar den ikke med i det brukeren signerer.
+- en oppføring i `dataTypesToSign` som bare skiller seg fra id-en til en datatype i store og små
+  bokstaver. Signeringshandlingen ser bort fra store og små bokstaver og signerer dataene, men
+  visningen av dokumentene som skal signeres, krever nøyaktig samme id og viser dem ikke.
 - `subformDataTypeId` i `<altinn:subformPdfConfig>` på en oppgave som ikke er en
-  `subformPdf`-oppgave, når den ikke navngir noen datatype. Oppgaven lager ingen PDF-er for den
-  og fullføres likevel.
+  `subformPdf`-oppgave, når den ikke navngir noen datatype. Oppgaven lager ingen PDF-er for den og
+  fullføres likevel.
 
 En tom oppføring teller som en oppføring som ikke navngir noen datatype. Navngir ingen av
 oppføringene i `dataTypesToSign` en datatype, meldes det av ALTINNAPP1013 i stedet.
 
-Regelen kontrollerer bare oppgaver en instans kan nå fra en starthendelse, og oppføringene for
-signering bare når oppgaven har handlingen `sign` i `<altinn:actions>`.
+Regelen kontrollerer bare oppgaver en instans kan nå, og oppføringene for signering bare når
+oppgaven har handlingen `sign` i `<altinn:actions>`.
 
 Kategori `Process`, alvorlighetsgrad **advarsel**.
 

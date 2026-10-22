@@ -16,8 +16,7 @@ Appen forlater en gateway bare langs flytene gatewayen lister, uansett hva `sour
 første tilfellet kan en instans forlate gatewayen langs en flyt som starter et annet sted i
 diagrammet. I det andre tilfellet viser diagrammet flyten som en av grenene ut fra gatewayen, men
 appen tar den aldri. En id i `<bpmn:outgoing>` som ikke peker på noen sekvensflyt, melder regelen
-ikke, siden appen ser bort fra den. Regelen kontrollerer bare gatewayer en instans kan nå fra en
-starthendelse.
+ikke, siden appen ser bort fra den. Regelen kontrollerer bare gatewayer en instans kan nå.
 
 Kategori `Process`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
 

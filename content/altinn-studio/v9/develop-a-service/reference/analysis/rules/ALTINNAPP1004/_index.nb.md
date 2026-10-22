@@ -11,20 +11,18 @@ instans ikke kan gå. Meldingen navngir flyten og hva som er galt med den:
 - flyten har ingen `targetRef`, eller `targetRef` peker ikke på noe element i prosessen
 - flyten fører til et element appen ikke kjører, for eksempel `<bpmn:parallelGateway>`,
   `<bpmn:subProcess>` eller et element uten BPMN-navnerommet
-- flyten fører til en starthendelse
+- flyten fører til en start event
 
-En instans kan bare gå til oppgavene, systemoppgavene, de eksklusive gatewayene og
-slutthendelsene i prosessen. Appen feiler når en instans forlater et element langs en flyt av de
-to første typene, og en instans som havner på en starthendelse, blir stående uten gjeldende
-oppgave.
+En instans kan bare gå til en oppgave, en systemoppgave, en eksklusiv gateway eller en end event.
+Appen feiler når en instans forlater et element langs en flyt av de to første typene, og en instans
+som havner på en start event, blir stående uten gjeldende oppgave.
 
-Regelen kontrollerer bare flytene appen følger ut fra elementer en instans kan nå fra en
-starthendelse. Ut fra en starthendelse, oppgave eller systemoppgave hopper appen over en flyt av
-de to første typene så lenge en annen flyt fra elementet fører videre. Regelen melder derfor
-slike flyter bare når ingen av flytene fører videre. Ut fra en eksklusiv gateway melder regelen
-alle slike flyter som gatewayen lister i `<bpmn:outgoing>`.
+Regelen kontrollerer bare flytene appen følger ut fra elementer en instans kan nå. Ut fra en start
+event, oppgave eller systemoppgave hopper appen over en flyt av de to første typene så lenge en
+annen flyt fra elementet fører videre. Regelen melder derfor slike flyter bare når ingen av flytene
+fører videre. Ut fra en eksklusiv gateway melder regelen alle slike flyter som gatewayen lister i
+`<bpmn:outgoing>`.
 
 Kategori `Process`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
 
-La flyten føre til en oppgave, systemoppgave, eksklusiv gateway eller slutthendelse, eller fjern
-den.
+La flyten føre til en oppgave, systemoppgave, eksklusiv gateway eller end event, eller fjern den.

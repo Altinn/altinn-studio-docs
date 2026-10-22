@@ -6,11 +6,10 @@ weight: 109
 ---
 
 Denne diagnostikken meldes når mer enn ett element i `config/process/process.bpmn` bruker samme
-`id`. Regelen teller starthendelser, oppgaver, systemoppgaver, eksklusive gatewayer,
-slutthendelser og sekvensflyter under ett, så heller ikke en oppgave og en sekvensflyt kan ha
-samme id. Meldingen navngir id-en og hvor mange elementer som bruker den, og regelen melder den
-én gang, på det andre elementet. Regelen kontrollerer hele prosessen, også elementer ingen
-instans kan nå.
+`id`. Regelen teller start events, oppgaver, systemoppgaver, eksklusive gatewayer, end events og
+sekvensflyter under ett, så heller ikke en oppgave og en sekvensflyt kan ha samme id. Meldingen
+navngir id-en og hvor mange elementer som bruker den, og regelen melder den én gang, på det andre
+elementet. Regelen kontrollerer hele prosessen, også elementer ingen instans kan nå.
 
 BPMN krever at id-er er unike. Når Altinn Studio åpner filen, fjerner den alle elementer som
 har samme id som et element tidligere i filen. Neste gang du lagrer prosessen i Altinn Studio, er

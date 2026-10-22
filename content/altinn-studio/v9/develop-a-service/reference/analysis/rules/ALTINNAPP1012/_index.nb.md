@@ -10,8 +10,8 @@ Denne diagnostikken meldes når en eksklusiv gateway lister en sekvensflyt i `<b
 og flyten. En tom betingelse på standardflyten til gatewayen melder ALTINNAPP1023 i stedet.
 
 Appen sjekker betingelsene på alle flytene gatewayen lister, unntatt standardflyten, og feiler på
-en tom betingelse. Appen feiler derfor hver gang en instans forlater gatewayen, uansett hvilke
-data instansen har. Regelen kontrollerer bare gatewayer en instans kan nå fra en starthendelse.
+en tom betingelse. Appen feiler derfor hver gang en instans forlater gatewayen, uansett hvilke data
+instansen har. Regelen kontrollerer bare gatewayer en instans kan nå.
 
 Kategori `Process`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
 

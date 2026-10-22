@@ -9,12 +9,11 @@ Denne diagnostikken meldes når attributtet `default` på en eksklusiv gateway p
 sekvensflyt som gatewayen ikke lister i `<bpmn:outgoing>`. Meldingen navngir gatewayen og
 standardflyten.
 
-Appen leter bare etter standardflyten blant flytene gatewayen lister, og ser derfor bort fra
-denne. Det har betydning når ingenting annet velger én flyt: når ingen av betingelsene på
-flytene er oppfylt, når en `IProcessExclusiveGateway` ikke velger noen av dem, eller når
-gatewayen lister mer enn én flyt og verken har betingelser eller en slik
-`IProcessExclusiveGateway`. Da feiler appen når en instans forlater gatewayen. Regelen
-kontrollerer bare gatewayer en instans kan nå fra en starthendelse.
+Appen leter bare etter standardflyten blant flytene gatewayen lister, og ser derfor bort fra denne.
+Det har betydning når ingenting annet velger én flyt: når ingen av betingelsene på flytene er
+oppfylt, når en `IProcessExclusiveGateway` ikke velger noen av dem, eller når gatewayen lister mer
+enn én flyt og verken har betingelser eller en slik `IProcessExclusiveGateway`. Da feiler appen når
+en instans forlater gatewayen. Regelen kontrollerer bare gatewayer en instans kan nå.
 
 Kategori `Process`, alvorlighetsgrad **advarsel**.
 

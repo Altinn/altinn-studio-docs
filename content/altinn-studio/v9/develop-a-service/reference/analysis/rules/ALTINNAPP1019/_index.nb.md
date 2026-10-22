@@ -16,7 +16,7 @@ Med en ukjent id finner de ikke noe dataelement, så en betingelse som leser
 Regelen er bare en advarsel, fordi den tilknyttede datatypen bare har betydning for slike
 betingelser og for din egen kode for gatewayen.
 
-Regelen kontrollerer bare gatewayer en instans kan nå fra en starthendelse.
+Regelen kontrollerer bare gatewayer en instans kan nå.
 
 Kategori `Process`, alvorlighetsgrad **advarsel**.
 
