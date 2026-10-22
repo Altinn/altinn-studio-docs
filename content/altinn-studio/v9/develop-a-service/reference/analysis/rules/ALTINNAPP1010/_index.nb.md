@@ -16,8 +16,8 @@ betingelse regner appen alltid som sann, og appen feiler hvis mer enn én flyt e
 slik flyt, feiler appen når en instans forlater gatewayen og en av betingelsene er oppfylt, og
 gatewayen velger aldri en eventuell standardflyt. Er det to eller flere, er de alltid sanne samtidig, og
 appen feiler hver gang. Appen starter ikke hvis noen gateway i prosessen blander flyter på denne
-måten. Regelen kontrollerer derfor alle gatewayer, også en som ingen instans kan nå, for eksempel
-en gateway du har lagt inn i prosesseditoren i Studio, men ikke koblet til ennå.
+måten. Regelen kontrollerer derfor alle gatewayer i prosessen, også gatewayer ingen instans kan
+nå, for eksempel en du ikke har koblet til ennå.
 
 Kategori `Process`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
 

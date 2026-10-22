@@ -12,8 +12,8 @@ og flyten.
 Gatewayen velger standardflyten bare når ingen av betingelsene på de andre flytene er oppfylt, og
 den sjekker aldri betingelsen på selve standardflyten. Betingelsen avgjør derfor ingenting, selv
 om den ser ut til å virke i en test, og appen starter ikke med den. Regelen kontrollerer derfor
-alle gatewayer, også en som ingen instans kan nå, for eksempel en gateway du har lagt inn i
-prosesseditoren i Studio, men ikke koblet til ennå.
+alle gatewayer i prosessen, også gatewayer ingen instans kan nå, for eksempel en du ikke har
+koblet til ennå.
 
 Kategori `Process`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
 

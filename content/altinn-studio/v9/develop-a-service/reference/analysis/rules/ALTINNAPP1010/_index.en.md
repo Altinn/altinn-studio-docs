@@ -16,8 +16,8 @@ as always true, and fails when more than one flow is true. With one such flow, l
 gateway fails whenever one of the conditions holds, and any default the gateway has is never
 taken. With two or more, those flows are always true together, and leaving the gateway always
 fails. The app does not start if any gateway in the process mixes flows like this, so the rule
-checks every gateway, including one no instance can reach, such as a gateway you have placed in
-Studio's process editor but not connected yet.
+checks every gateway in the process, including gateways no instance can reach, such as one you
+have not connected yet.
 
 Category `Process`, severity **error**. The rule therefore fails the build.
 

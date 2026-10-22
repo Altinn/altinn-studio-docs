@@ -12,8 +12,8 @@ gateway and the flow.
 The gateway takes its default only when none of the conditions on its other flows holds, and it
 never evaluates the default's own condition. The condition therefore decides nothing, even when
 it seems to work in a test, and the app does not start with it. The rule therefore checks every
-gateway, including one no instance can reach, such as a gateway you have placed in Studio's
-process editor but not connected yet.
+gateway in the process, including gateways no instance can reach, such as one you have not
+connected yet.
 
 Category `Process`, severity **error**. The rule therefore fails the build.
 
