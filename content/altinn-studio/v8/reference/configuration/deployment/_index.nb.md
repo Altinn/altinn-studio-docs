@@ -19,14 +19,37 @@ Fra versjon [2.0.0](/nb/community/changelog/deployment/v2/) av 'deployment Helm 
 
 ### Egendefinerte verdier
 
-Egne innstillinger konfigureres i filen `App/deployment/valus.yaml` ved å legge til ønsket egenskap under seksjonen `deployment`.
+Du legger egne innstillinger under `deployment` i filen `deployment/values.yaml` i rotmappen til app-repoet.
  Disse innstillingene vil overskrive tilsvarende innstillinger i Helm chart (for unntak, se [her](#innstillinger-som-blir-overskrevet-ved-publisering)).
  Se [Initiell skalering](#initiell-skalering) for et eksempel.
 
 {{% notice warning %}}
 Merk at formatet i `values.yaml` i det sentrale Helm chart skiller seg litt fra formatet i `values.yaml` i applikasjonen;
- i Helm chart ligger egenskapene på toppnivå, mens de i appen må legges under seksjonen `deployment`.
+ i Helm chart ligger egenskapene på toppnivå, mens vi anbefaler at du legger dem under `deployment` i appen.
 {{% /notice %}}
+
+### Innstillinger for hvert miljø
+
+Legg en valgfri `deployment/values.<miljø>.yaml` ved siden av `deployment/values.yaml` i rotmappen til app-repoet. Bruk det nøyaktige miljønavnet: `values.tt02.yaml` for TT02 eller `values.production.yaml` for produksjon.
+
+Miljøfilen overstyrer fellesverdiene. Innstillinger du utelater, beholder verdiene sine. For lister erstatter miljøfilen hele listen. Verdier som Altinn setter ved publisering, går fortsatt foran. Begge filene støtter innstillinger under `deployment` eller på toppnivå.
+
+Dette eksempelet begrenser TT02 til én kopi med autoskalering slått på:
+
+{{< code-title >}}
+deployment/values.tt02.yaml
+{{< /code-title >}}
+
+```yaml
+deployment:
+  autoscaling:
+    enabled: true
+    replicas:
+      min: 1
+      max: 1
+```
+
+Uten en miljøfil fungerer publiseringen som før.
 
 ## Skalering
 
@@ -46,10 +69,10 @@ replicaCount: 2
 ...
 ```
 
-For å overskrive verdien for din app legger du til `replicaCount` under `deployment` i `App/deployment/values.yaml`:
+For å overstyre verdien for appen din legger du til `replicaCount` under `deployment` i `deployment/values.yaml`:
 
 {{% code-title %}}
-App/deployment/values.yaml
+deployment/values.yaml
 {{% /code-title %}}
 
 ```yaml{linenos=false,hl_lines="3"}
@@ -140,7 +163,7 @@ resources:
 Verdier som er mulige å konfigurere (verdiene under er kun som et eksempel og på ingen måte en fasit):
 
 {{% code-title %}}
-App/deployment/values.yaml
+deployment/values.yaml
 {{% /code-title %}}
 
 ```yaml
@@ -236,7 +259,7 @@ volumes:
 ...
 ```
 
-Egendefinerte volumer kan legges til under `development` i `App/deployment/values.yaml`.
+Du legger egne volumer under `deployment` i `deployment/values.yaml`.
 
 På gjeldende tidspunkt er det kun ett bruksområde for å legge til andre volumer: [Hente hemmeligheter fra Azure Key Vault](/nb/altinn-studio/v8/reference/configuration/secrets/).
 
@@ -266,7 +289,7 @@ service:
 Hvis din applikasjon kjører på annen port enn 5005 kan du konfigurere dette i applikasjonens `values.yaml` fil:
 
 {{% code-title %}}
-App/deployment/values.yaml
+deployment/values.yaml
 {{% /code-title %}}
 
 ```yaml

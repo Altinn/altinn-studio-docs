@@ -26,6 +26,29 @@ Standardverdiene fra chartet på denne siden står på toppnivå. Eksemplene for
 
 Appen kan ikke ha egne Helm-maler. Har app-repoet filer som ligger direkte i mappen `deployment/templates`, feiler publiseringen.
 
+## Innstillinger for hvert miljø
+
+Legg en valgfri `deployment/values.<miljø>.yaml` ved siden av `deployment/values.yaml` i rotmappen til app-repoet. Bruk det nøyaktige miljønavnet: `values.tt02.yaml` for TT02 eller `values.production.yaml` for produksjon.
+
+Miljøfilen overstyrer fellesverdiene. Innstillinger du utelater, beholder verdiene sine. For lister erstatter miljøfilen hele listen. Verdier som Altinn setter ved publisering, går fortsatt foran. Begge filene støtter innstillinger under `deployment` eller på toppnivå.
+
+Dette eksempelet begrenser TT02 til én kopi med autoskalering slått på:
+
+{{< code-title >}}
+deployment/values.tt02.yaml
+{{< /code-title >}}
+
+```yaml
+deployment:
+  autoscaling:
+    enabled: true
+    replicas:
+      min: 1
+      max: 1
+```
+
+Uten en miljøfil fungerer publiseringen som før.
+
 ## Skalering
 
 ### Autoskalering
