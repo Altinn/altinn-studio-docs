@@ -158,9 +158,16 @@ control it yourself, depends on which endpoint you use.
 ### Default lifetime of 48 hours
 
 Regular notifications (ordered through `/orders` and `/future/orders`) have a
-fixed lifetime of **48 hours** that service owners **cannot configure**. Altinn
-calculates the expiry time from the requested send time plus 48 hours for both
-email and SMS.
+fixed lifetime of **48 hours** that service owners **cannot configure**. For
+notifications without the `Daytime` sending time policy, Altinn calculates the
+expiry time from the requested send time plus 48 hours for both email and SMS.
+
+For notifications with the `Daytime` sending time policy, the lifetime is still
+48 hours, but it is counted from when sending is first allowed. If the requested
+send time is outside the daytime window, the 48 hours start when the window next
+opens. If it is inside the window, they start at the requested send time. See
+the send window sections for email and SMS in
+[What do you get?](/en/notifications/what-do-you-get/).
 
 Instant notifications (the `/future/orders/instant/*` endpoints) are handled
 differently:
