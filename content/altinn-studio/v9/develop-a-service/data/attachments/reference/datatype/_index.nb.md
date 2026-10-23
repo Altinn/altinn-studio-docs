@@ -24,7 +24,7 @@ Hver vedleggstype er en datatype i listen `dataTypes` i filen `App/config/applic
 
 Du kan lese mer om MIME-typer i [oversikten fra MDN](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types).
 
-![Vedlegg i gruppen Attester vist i samme liste.](attachment-grouping.png "Vedlegg gruppert med grouping")
+![Vedlegg i gruppen Attester vist i samme liste](./attachment-grouping.png "Vedlegg i gruppen Attester vist i samme liste")
 
 ## Verdier i allowedContributors
 

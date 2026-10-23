@@ -43,7 +43,7 @@ Eldre eksempler viser ofte `"enablePdfCreation": true` på datatyper. Appen stø
 
 ## Skrive egne feilmeldinger
 
-Appen har ferdige meldinger på bokmål, nynorsk og engelsk for infisert fil og for ventende skanning. Vil du bruke egne tekster, legger du til tekstressurser med nøklene som står på siden, [Egenskaper og tekstnøkler for virusskanning]({{< relref "/altinn-studio/v9/develop-a-service/data/attachments/reference/virusskanning" >}}).
+Appen har ferdige meldinger på bokmål, nynorsk og engelsk for infisert fil og for ventende skanning. Vil du bruke egne tekster, legger du til tekstressurser med nøklene som står på siden [Egenskaper og tekstnøkler for virusskanning]({{< relref "/altinn-studio/v9/develop-a-service/data/attachments/reference/virusskanning" >}}).
 
 ## Hva skjer med en infisert fil?
 

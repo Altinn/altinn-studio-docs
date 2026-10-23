@@ -17,10 +17,9 @@ Her er de viktigste valgene:
 - **Merking:** Du kan la brukeren merke hver fil, for eksempel med dokumenttype, med en nedtrekksliste. Du kobler kodelisten til `FileUpload` med `optionsId`. Ledeteksten som brukerne ser når de velger merking, setter du med `textResourceBindings.tagTitle`.
 - **Varsel ved sletting:** Med `alertOnDelete` åpner appen et varsel når brukeren klikker på **Slett**. Appen viser ikke varsel hvis du ikke setter egenskapen.
 
+![Innstillinger for vedleggskomponenten i Altinn Studio Designer](./fileupload-settings.png "Innstillinger for vedleggskomponenten i Altinn Studio Designer")
 
-![Innstillinger for vedleggskomponenten i Altinn Studio Designer](fileupload-settings.png "Innstillinger for vedleggskomponenten i Altinn Studio Designer")
-
-![Vedleggskomponenten med nedtrekksliste for merking av en opplastet fil](fileupload-tagging-app.png "Vedleggskomponenten med nedtrekksliste for merking av en opplastet fil")
+![Vedleggskomponenten med nedtrekksliste for merking av en opplastet fil](./fileupload-tagging-app.png "Vedleggskomponenten med nedtrekksliste for merking av en opplastet fil")
 
 Du finner alle egenskapene på siden om [`FileUpload`]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/FileUpload" >}}).
 
@@ -75,6 +74,7 @@ Endrer du id-en direkte i filene, må du endre den to steder: i `App/config/appl
 {{% notice warning %}}
 Endre id-en før tjenesten har instanser i produksjonsmiljøet. Instanser som ikke er arkivert, viser fortsatt til den gamle id-en. Endrer du den, kan brukerne miste tilgang til vedleggene sine i instanser under utfylling.
 {{% /notice %}}
+
 ## Se også
 
 - [Slik tar du imot vedlegg via API]({{< relref "/altinn-studio/v9/develop-a-service/data/attachments/how-to/api" >}})
