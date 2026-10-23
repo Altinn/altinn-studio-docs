@@ -2,7 +2,7 @@
 draft: true
 title: Slik setter du opp betaling i appen
 linktitle: Betaling
-description: Slik integrerer du betaling i Altinn-appen din.
+description: Slik setter du opp betaling med Nets Easy i appen din.
 tags: [betaling, needsReview]
 
 aliases:
@@ -12,8 +12,7 @@ aliases:
 <!-- Før du starter -->
 ## 1. Før du starter
 Organisasjonen du lager appen for, må ha en Nets Easy-avtale.
-Du finner informasjon om hvordan du oppretter avtalen her:
-[payments.nets.eu](https://payments.nets.eu/nb-NO/checkout).
+Les hvordan du oppretter avtalen, på [nettsidene til Nets](https://payments.nets.eu/nb-NO/checkout).
 
 
 <!-- Legg til betalingsoppgave i appens prosess -->
@@ -44,7 +43,7 @@ Du finner informasjon om hvordan du oppretter avtalen her:
 
 Når Nets varsler appen om at betalingen er fullført, oppdaterer appen betalingsinformasjonen og fører prosessen videre på vegne av tjenesteeieren. I `App/config/authorization/policy.xml` må `[org]` derfor ha handlingene `read` og `write` for appen og `confirm` for betalingsoppgaven.
 
-Altinn Studio legger automatisk til standardscopene for tjenesteeier i Maskinporten for apper som bruker Altinn App v9. Kontroller likevel at autorisasjonspolicyen gir tjenesteeieren de nødvendige handlingene. Se [integrasjon med Maskinporten](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/). Bygg og publiser appen på nytt etter at du har endret scopene eller autorisasjonspolicyen.
+Altinn Studio legger automatisk til standardscopene for tjenesteeier i Maskinporten for apper som bruker Altinn App v9. Kontroller likevel at autorisasjonspolicyen gir tjenesteeieren de nødvendige handlingene. Se [integrasjon med Maskinporten]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten" >}}). Bygg og publiser appen på nytt etter at du har endret scopene eller autorisasjonspolicyen.
 
 
 <!--Konfigurer visning av betalingsinformasjon-->
@@ -74,7 +73,7 @@ Altinn Studio legger automatisk til standardscopene for tjenesteeier i Maskinpor
 
 
 <!--Koble appen til NETS Easy avtalen-->
-## 6. Koble appen til NETS Easy-avtalen
+## 6. Koble appen til Nets Easy-avtalen
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 {{% insert "content/altinn-studio/v9/develop-a-service/process/payment/studio/configure-secrets.nb.md" %}}
