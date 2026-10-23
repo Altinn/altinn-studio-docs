@@ -194,12 +194,152 @@ Nå skal du bygge opp skjemaet. Dette er veldig likt det du gjorde for infosiden
 Gå til "Utforming" i toppmenyen, og klikk på "Utform" på kortet for oppgaven "Task_1".
 
 #### Lag en ny side
-1. Klikk på "Legg til ny side".
-2. Endre navnet på siden til "om-innflytter". Lagre endringen.
-3. Klikk på "Visningsnavn" og legg inn en visningstekst for siden, f.eks. "Om innflytter". Lagre endringen.
+1. Klikk på "Legg til ny side". Altinn Studio legger til en ny side med navnet "Side2".
+2. Klikk på "Side-ID" i konfigurasjonskolonnen og endre navnet på siden til "om-innflytter". Klikk på ✓ for å lagre.
+3. Klikk på "Visningsnavn" og legg inn en visningstekst for siden, for eksempel "Om innflytter". Klikk på "Lagre".
 
-#### Legg til den første skjemakomponenten
-1. Påse at du er på siden "om-innflytter". Klikk på "+"-tegnet inne på siden.
-2. Velg "Kort svar" fra komponentlisten.
+Altinn Studio legger automatisk til komponenten "Navigasjonsknapper" på sidene, slik at brukeren kan bla mellom sidene med
+knappene "Neste" og "Forrige".
 
-#### Legg til resten av skjemakomponentene
+---
+
+![Lag en ny side](./Kurs-skjermbilder-Oppgave-Ny-side.jpg)
+
+#### Legge til den første skjemakomponenten
+Den første komponenten skal samle inn navnet til innflytteren. Til det bruker du komponenten "Lite tekstfelt", som lar
+brukeren skrive inn en kort tekst på én linje.
+
+1. Sjekk at du er på siden "Om innflytter". Klikk på "Legg til komponent" inne på siden.
+2. Velg "Lite tekstfelt" fra komponentlisten.
+
+Komponenten er nå lagt til på siden. Den mangler foreløpig en ledetekst og en kobling til datamodellen, og
+forhåndsvisningen viser en feilmelding inntil du har valgt et datamodellfelt for komponenten.
+
+---
+
+![Legg til komponent](./Kurs-skjermbilder-Oppgave-Legg-til-komponent.jpg)
+
+#### Legge inn ledetekst
+Ledeteksten er teksten som står over feltet og forteller brukeren hva de skal fylle inn.
+
+Altinn Studio lagrer alle tekstene i appen i en egen tekstfil, og hver tekst får en unik ID. Komponenten peker på tekstens
+ID, ikke på selve teksten. Det gjør at du kan bruke samme tekst flere steder, endre teksten uten å endre komponenten og
+oversette teksten til nynorsk og engelsk under "Språk" i toppmenyen.
+
+1. Sjekk at komponenten "Lite tekstfelt" er valgt. Klikk på "Ledetekst" i konfigurasjonskolonnen.
+2. Skriv "Fullt navn" i tekstfeltet under "Skriv tekst". Altinn Studio lager en ID for teksten automatisk.
+3. Klikk på "Lagre".
+
+Vil du bruke en tekst som allerede finnes i appen, kan du klikke på "Søk" og velge teksten fra listen i stedet for å
+skrive en ny.
+
+---
+
+![Legg inn ledetekst](./Kurs-skjermbilder-Oppgave-Ledetekst.jpg)
+
+#### Knytte feltet til datamodellen
+Når brukeren fyller ut skjemaet, må appen lagre svaret et sted. Det er datamodellen som bestemmer hvor. Du knytter hvert
+skjemafelt til et felt i datamodellen, slik at svaret brukeren skriver inn havner i riktig felt. Navnet til innflytteren
+skal havne i feltet `fullt_navn` i gruppen `person`.
+
+1. Klikk på "Velg datamodellfelt for Lite tekstfelt" i konfigurasjonskolonnen.
+2. Under "Datamodell" er datamodellen `model` allerede valgt. Under "Datamodellfelt" velger du `person.fullt_navn`.
+3. Klikk på "Lagre".
+
+Feilmeldingen i forhåndsvisningen forsvinner, og du ser feltet med ledeteksten "Fullt navn".
+
+---
+
+![Knytt feltet til datamodellen](./Kurs-skjermbilder-Oppgave-Datamodellfelt.jpg)
+
+---
+
+{{% expandlarge id="name-field-code" header="Slik ser navnefeltet ut i filene til appen" %}}
+Altinn Studio lagrer oppsettet du har laget i filer i appen. Komponenten står i layoutfilen for siden. `textResourceBindings`
+viser hvilken tekst komponenten bruker som ledetekst (`title`), og `dataModelBindings` viser hvilket felt i datamodellen
+appen lagrer svaret i.
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/om-innflytter.json
+{{< /code-title >}}
+
+```json
+{
+  "id": "Input-ECYekc",
+  "type": "Input",
+  "textResourceBindings": {
+    "title": "om-innflytter.Input-ECYekc.title.wu6n"
+  },
+  "dataModelBindings": {
+    "simpleBinding": {
+      "field": "person.fullt_navn",
+      "dataType": "model"
+    }
+  }
+}
+```
+
+Selve teksten ligger i tekstfilen for bokmål, med samme ID som komponenten peker på:
+
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
+
+```json
+{
+  "id": "om-innflytter.Input-ECYekc.title.wu6n",
+  "value": "Fullt navn"
+}
+```
+
+ID-ene slutter med tilfeldige tegn, så ID-ene i appen din blir annerledes.
+{{% /expandlarge %}}
+
+#### Legge til resten av skjemakomponentene
+Du legger til resten av komponentene på samme måte som navnefeltet:
+
+1. Hold musepekeren over komponenten som skal stå foran den nye komponenten, og klikk på "+"-tegnet som dukker opp under den.
+2. Velg komponenttype fra komponentlisten.
+3. Legg inn ledetekst og velg datamodellfelt.
+
+Finner du ikke komponenten du leter etter, klikker du på "Vis alle" og søker etter den.
+
+Legg til disse komponentene på siden "Om innflytter", i denne rekkefølgen:
+
+| Ledetekst     | Komponent      | Datamodellfelt          |
+|---------------|----------------|-------------------------|
+| Alder         | Lite tekstfelt | `person.alder`          |
+| Gateadresse   | Lite tekstfelt | `adresse.gateadresse`   |
+| Postnummer    | Lite tekstfelt | `adresse.postnummer`    |
+| Poststed      | Lite tekstfelt | `adresse.poststed`      |
+| E-postadresse | Lite tekstfelt | `kontaktinfo.epost`     |
+| Telefon       | Lite tekstfelt | `kontaktinfo.telefon`   |
+| Send inn      | Knapp          | Ingen                   |
+
+Komponenten "Knapp" sender inn skjemaet når brukeren klikker på den. Den trenger derfor ingen kobling til datamodellen.
+
+---
+
+![Legg til resten av skjemakomponentene](./Kurs-skjermbilder-Oppgave-Resten-av-skjemaet.jpg)
+
+#### Forhåndsvise skjemaet
+Nå kan du se hvordan skjemaet ser ut for brukeren.
+
+1. Klikk på "Forhåndsvis" i menylinjen.
+2. Forhåndsvisningen starter på infosiden. Klikk på "Neste" for å gå til siden "Om innflytter".
+
+Du kan fylle ut feltene i forhåndsvisningen, men du kan ikke sende inn skjemaet herfra. For å teste hele flyten må du
+publisere appen til et testmiljø.
+
+Klikk på "Til Utforming" for å gå tilbake til utformingen.
+
+---
+
+![Ferdig skjema i forhåndsvisningen](./Kurs-skjermbilder-Oppgave-Forhandsvis-skjema.jpg)
+
+#### Husk å dele endringer!
+
+Del endringene dine til appens sentrale område på samme måte som tidligere. Klikk på "Del dine endringer" i menylinjen,
+beskriv endringene og klikk på "Del endringer".
+
+[Les mer om komponentene du kan bruke i Altinn Studio.]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components" >}})
