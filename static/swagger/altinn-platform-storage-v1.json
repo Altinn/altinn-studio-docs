@@ -432,6 +432,101 @@
         }
       }
     },
+    "/instances/{instanceOwnerPartyId}/{instanceGuid}/data/{dataGuid}/versions/{blobVersionId}": {
+      "get": {
+        "tags": [
+          "Data"
+        ],
+        "summary": "Gets the content of one blob version of a data element, for the instance's own service owner.",
+        "description": "The version may be current, superseded, or belong to a deleted element. Availability is bounded by\nblob retention: detached versions remain readable until orphan cleanup removes them. Reading a version\nrequires the same access to its data type as reading the element, using the application's current metadata.",
+        "parameters": [
+          {
+            "name": "instanceOwnerPartyId",
+            "in": "path",
+            "description": "The party id of the instance owner.",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "instanceGuid",
+            "in": "path",
+            "description": "The id of the instance that the data element is associated with.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "dataGuid",
+            "in": "path",
+            "description": "The id of the data element.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "blobVersionId",
+            "in": "path",
+            "description": "The blob version to retrieve.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/instances/{instanceOwnerPartyId}/{instanceGuid}/dataelements": {
       "get": {
         "tags": [
