@@ -269,7 +269,7 @@ Patching of external dependencies for week  4 av 2022.
 Issue [#7842](https://github.com/Altinn/altinn-studio/issues/7842).
 
 ## 3.25.0 (2022-01-24) - Added more data sources for dynamic texts
-The feature that adds support for variables in texts have recieved two new data sources. The new sources are the current Instance and ApplicationSettings. ApplicationSettings requires version 4.25.0 or newer of the backend NuGet packages.
+The feature that adds support for variables in texts have received two new data sources. The new sources are the current Instance and ApplicationSettings. ApplicationSettings requires version 4.25.0 or newer of the backend NuGet packages.
 
 Related to issue [#7520](https://github.com/Altinn/altinn-studio/issues/7520).
 
