@@ -47,7 +47,7 @@ Alle kan se datamodellene til en organisasjon som standard. For å få tilgang t
 
 Du kan laste opp XSD direkte i [datamodelleringsverktøyet](#laste-opp-og-vise-datamodell).
 
-Hvis du bare skal laste opp XSD for lagring og ikke skal redigere modellen i verktøyet, kan du laste opp XSD-filer direkte til `<org>-datamodels`-repoet:
+Hvis du bare skal laste opp XSD for å lagre, og ikke skal redigere modellen i verktøyet, kan du laste opp XSD-filer direkte til `<org>-datamodels`-repoet:
 
 1. Gå til mappen du vil bruke.
 2. Velg **Add File** → **Last opp fil**.
