@@ -1,16 +1,13 @@
 ---
 draft: true
 hidden: true
-tags: [needsReview]
+tags: [Reviewed]
 ---
 
-> Dette steget foregår i appens prosessverktøy. Naviger til appens arbeidsflate, og velg **Prosess** fra toppmenyen.
+> Du gjør dette steget på siden **Arbeidsflyt** i Altinn Studio. Klikk på **Arbeidsflyt** i toppmenyen for å komme dit.
 
-1. Velg betalingsoppgaven i prosessverktøyet ved å klikke på den.
-   - Sjekk at konfigurasjonspanelet på høyre side oppdateres med detaljer fra oppgaven.
-2. Klikk på **Tilganger**-seksjonen for å ekspandere den, og velg **Gå til Tilganger**.
-3. Rull ned til bunnen av modalen, og se at systemet har markert en regel i rødt.
-4. Legg til rollen(e) som skal ha tilgang til betalingsoppgaven, i regelen som systemet har markert i rødt.
-   - Når du har lagt til rolle, er regelen gyldig og systemet markerer den ikke lenger i rødt.
-5. Lukk **Innstillinger**-modalen ved å klikke på X-en øverst til høyre.
-
+1. Klikk på betalingsoppgaven i arbeidsflyten.
+2. Åpne **Tilganger** i panelet til høyre, og klikk på **Gå til Tilganger**. Siden **Innstillinger** åpner seg med **Tilganger** valgt.
+3. Velg fanen **Regler**. Regelen for betalingsoppgaven er markert med rødt og har feilmeldingen «Du må velge minst én rolle eller tilgangspakke.»
+4. Under **Hvem skal ha disse rettighetene?** legger du til rollene eller tilgangspakkene som skal ha tilgang til betalingsoppgaven, under **For virksomheter** eller **For privatpersoner**. Når du har lagt til minst én, er regelen gyldig og ikke lenger markert med rødt.
+5. Klikk på **Arbeidsflyt** i toppmenyen for å gå tilbake.
