@@ -19,20 +19,19 @@ Fra versjon [2.0.0](/nb/community/changelog/deployment/v2/) av 'deployment Helm 
 
 ### Egendefinerte verdier
 
-Du legger egne innstillinger under `deployment` i filen `deployment/values.yaml` i rotmappen til app-repoet.
+Legg egne innstillinger på toppnivå i `deployment/values.yaml` i rotmappen til app-repoet, slik de gjeldende app-malene gjør.
  Disse innstillingene vil overskrive tilsvarende innstillinger i Helm chart (for unntak, se [her](#innstillinger-som-blir-overskrevet-ved-publisering)).
  Se [Initiell skalering](#initiell-skalering) for et eksempel.
 
-{{% notice warning %}}
-Merk at formatet i `values.yaml` i det sentrale Helm chart skiller seg litt fra formatet i `values.yaml` i applikasjonen;
- i Helm chart ligger egenskapene på toppnivå, mens vi anbefaler at du legger dem under `deployment` i appen.
+{{% notice info %}}
+For eksisterende apper støtter Altinn fortsatt det eldre formatet med innstillinger under `deployment:`, både i fellesfilen og i miljøfilene. Ikke bland dette formatet med innstillinger på toppnivå i samme fil.
 {{% /notice %}}
 
 ### Innstillinger for hvert miljø
 
 Legg en valgfri `deployment/values.<miljø>.yaml` ved siden av `deployment/values.yaml` i rotmappen til app-repoet. Bruk det nøyaktige miljønavnet: `values.tt02.yaml` for TT02 eller `values.production.yaml` for produksjon.
 
-Miljøfilen overstyrer fellesverdiene. Innstillinger du utelater, beholder verdiene sine. For lister erstatter miljøfilen hele listen. Verdier som Altinn setter ved publisering, går fortsatt foran. Begge filene støtter innstillinger under `deployment` eller på toppnivå.
+Miljøfilen overstyrer fellesverdiene. Innstillinger du utelater, beholder verdiene sine. For lister erstatter miljøfilen hele listen. Verdier som Altinn setter ved publisering, går fortsatt foran. Legg innstillingene på toppnivå også i miljøfilen.
 
 Dette eksempelet begrenser TT02 til én kopi med autoskalering slått på:
 
@@ -41,12 +40,11 @@ deployment/values.tt02.yaml
 {{< /code-title >}}
 
 ```yaml
-deployment:
-  autoscaling:
-    enabled: true
-    replicas:
-      min: 1
-      max: 1
+autoscaling:
+  enabled: true
+  replicas:
+    min: 1
+    max: 1
 ```
 
 Uten en miljøfil fungerer publiseringen som før.
@@ -69,16 +67,14 @@ replicaCount: 2
 ...
 ```
 
-For å overstyre verdien for appen din legger du til `replicaCount` under `deployment` i `deployment/values.yaml`:
+For å overstyre verdien for appen din legger du til `replicaCount` på toppnivå i `deployment/values.yaml`:
 
 {{% code-title %}}
 deployment/values.yaml
 {{% /code-title %}}
 
-```yaml{linenos=false,hl_lines="3"}
-deployment:
-
-  replicaCount: 3
+```yaml{linenos=false,hl_lines="1"}
+replicaCount: 3
 
 ...
 ```
@@ -167,20 +163,18 @@ deployment/values.yaml
 {{% /code-title %}}
 
 ```yaml
-deplyoment:
-
-  resources:
-    requests:
-      cpu: 200m
-      memory: 256Mi
-    limits:
-      cpu: 1000m
-      memory: 512Mi
+resources:
+  requests:
+    cpu: 200m
+    memory: 256Mi
+  limits:
+    cpu: 1000m
+    memory: 512Mi
 
 ...
 ``` 
 
-### `deployment.resources.requests`
+### `resources.requests` {#deploymentresourcesrequests}
 
 `requests` fastsetter ressursene som vil bli reservert for hver pod i appen og brukes når Kubernetes-planleggeren bestemmer hvilken node poden skal kjøre på.
  Basert på disse innstillingene beregnes maksimalt antall pods som kan kjøre på en node.
@@ -200,7 +194,7 @@ Gitt et cluster med noder som hver har 2 cores (2000 millicores) og 4Gi minne og
 `requests` begrenser ikke hvor mye CPU eller minne en applikasjon kan bruke dersom mer er tilgjengelig.
  En pod kan imidlertid blir "kastet ut" av noden dersom det er lite tilgjengelige ressurser og poden bruker mer enn angitt i `requests`.
 
-### `deployment.resources.limits`
+### `resources.limits` {#deploymentresourceslimits}
 
 `limits` definerer hvor mye ressurser en pod kan maksimalt bruke.
 
@@ -259,7 +253,7 @@ volumes:
 ...
 ```
 
-Du legger egne volumer under `deployment` i `deployment/values.yaml`.
+Legg egne volumer i listene `volumes` og `volumeMounts` på toppnivå i `deployment/values.yaml`. Behold oppføringene som allerede finnes.
 
 På gjeldende tidspunkt er det kun ett bruksområde for å legge til andre volumer: [Hente hemmeligheter fra Azure Key Vault](/nb/altinn-studio/v8/reference/configuration/secrets/).
 
@@ -286,20 +280,15 @@ service:
 ...
 ```
 
-Hvis din applikasjon kjører på annen port enn 5005 kan du konfigurere dette i applikasjonens `values.yaml` fil:
+Hvis appen din kjører på en annen port enn 5005, setter du `service.internalPort` i `deployment/values.yaml`:
 
 {{% code-title %}}
 deployment/values.yaml
 {{% /code-title %}}
 
 ```yaml
-deployment:
-...
-
-  service:
-    internalPort: 5007
-
-...
+service:
+  internalPort: 5007
 ```
 
 {{% notice warning %}}

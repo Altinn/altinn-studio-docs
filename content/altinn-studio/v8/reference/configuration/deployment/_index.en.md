@@ -17,23 +17,20 @@ Starting from version [2.0.0](/en/community/changelog/deployment/v2/) of the 'de
 
 ### Custom settings
 
-Custom settings are configured in the `deployment/values.yaml` file in the app repository root by adding the desired property under
-the `deployment` section.
+Add custom settings at the top level of `deployment/values.yaml` in the app repository root, as in the current app templates.
 These will override corresponding settings in the Helm chart (for exceptions,
 see [here](#settings-overridden-at-deploy-time)).
 See [Initial Scaling](#initial-scaling) for an example.
 
-{{% notice warning %}}
-Please note that the format in `values.yaml` in the central Helm chart differs slightly from `values.yaml` in the
-application; in the Helm chart, the properties are at the top level, while in the app, we recommend placing them under
-the `deployment` section.
+{{% notice info %}}
+For compatibility with existing apps, the older `deployment:` wrapper remains supported in both shared and environment-specific values files. Do not mix wrapped and top-level settings in the same file.
 {{% /notice %}}
 
 ### Environment-specific settings
 
 Add an optional `deployment/values.<environment>.yaml` next to `deployment/values.yaml` in the app repository root. Use the exact environment name: `values.tt02.yaml` for TT02 or `values.production.yaml` for production.
 
-Environment values override shared values. Unspecified settings stay unchanged; lists are replaced, not appended. Platform-generated overrides still take precedence. Both files accept settings under `deployment` or at the top level.
+Environment values override shared values. Unspecified settings stay unchanged; lists are replaced, not appended. Platform-generated overrides still take precedence. Use top-level settings in the environment file too.
 
 This example limits TT02 to one replica with autoscaling enabled:
 
@@ -42,12 +39,11 @@ deployment/values.tt02.yaml
 {{< /code-title >}}
 
 ```yaml
-deployment:
-  autoscaling:
-    enabled: true
-    replicas:
-      min: 1
-      max: 1
+autoscaling:
+  enabled: true
+  replicas:
+    min: 1
+    max: 1
 ```
 
 Without an environment file, deployment behaves as before.
@@ -70,16 +66,14 @@ replicaCount: 2
 ...
 ```
 
-To override the settings in your app, you can add `replicaCount` under `deployment` in `deployment/values.yaml`:
+To override the settings in your app, add `replicaCount` at the top level of `deployment/values.yaml`:
 
 {{% code-title %}}
 deployment/values.yaml
 {{% /code-title %}}
 
-```yaml{linenos=false,hl_lines="3"}
-deployment:
-
-  replicaCount: 3
+```yaml{linenos=false,hl_lines="1"}
+replicaCount: 3
 
 ...
 ```
@@ -164,20 +158,18 @@ deployment/values.yaml
 {{% /code-title %}}
 
 ```yaml
-deployment:
-
-  resources:
-    requests:
-      cpu: 200m
-      memory: 256Mi
-    limits:
-      cpu: 1000m
-      memory: 512Mi
+resources:
+  requests:
+    cpu: 200m
+    memory: 256Mi
+  limits:
+    cpu: 1000m
+    memory: 512Mi
 
 ...
 ```  
 
-### `deployment.resources.requests`
+### `resources.requests` {#deploymentresourcesrequests}
 The `requests` property defines the resources reserved for each pod in the app and are used when the Kubernetes scheduler determines which node the pod should run on.
  Based on these settings, the maximum number of pods that can run on a node is calculated.
   The maximum number is limited by the setting allowing the fewest pods.
@@ -196,7 +188,7 @@ Given a cluster with nodes, each having 2 cores (2000 milliCores) and 4Gi memory
 The `requests` settings do not limit how much CPU or memory an application can use if there are available resources.
  However, a pod may be "evicted" from the node if there are few available resources and the pod uses more than specified in `requests`.
 
-### `deployment.resources.limits`
+### `resources.limits` {#deploymentresourceslimits}
 `limits` define how much of a resource a pod can use at most.
 
 If a pod tries to use more CPU than what is set as a limit, it will be throttled.
@@ -251,7 +243,7 @@ volumes:
 ...
 ```
 
-Custom volumes can be added under the `deployment` section in `deployment/values.yaml`.
+Add custom volumes to the top-level `volumes` and `volumeMounts` lists in `deployment/values.yaml`. Keep the existing entries.
 
 At the moment, there is only one use case for adding other volumes: [Fetching secrets from Azure Key Vault](/en/altinn-studio/v8/reference/configuration/secrets/).
 
@@ -260,6 +252,10 @@ At the moment, there is only one use case for adding other volumes: [Fetching se
 The `service` configuration defines which port is exposed internally in the cluster and which external port it should be mapped to.
 
 Default settings in the Helm chart:
+
+{{% code-title %}}
+altinn-studio-charts/charts/deployment/values.yaml
+{{% /code-title %}}
 
 ```yaml
 ...
@@ -274,16 +270,15 @@ service:
 ...
 ```
 
-If your application is running on a different port than 5005, you can configure `deployment.service.internalPort` in the application's `values.yaml` file:
+If your application is running on a different port than 5005, configure `service.internalPort` in `deployment/values.yaml`:
+
+{{% code-title %}}
+deployment/values.yaml
+{{% /code-title %}}
 
 ```yaml
-deployment:
-...
-
-  service:
-    internalPort: 5007
-
-...
+service:
+  internalPort: 5007
 ```
 
 {{% notice warning %}}
