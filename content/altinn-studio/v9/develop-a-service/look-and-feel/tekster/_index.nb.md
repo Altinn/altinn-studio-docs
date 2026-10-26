@@ -3,14 +3,14 @@ draft: true
 title: Tekster
 description: Slik redigerer og formaterer du tekster, bruker variabler og legger til hjelpetekster i appen.
 toc: true
-tags: [needsReview, translate]
+tags: [Reviewed, translate]
 ---
 
 Du lagrer tekster i ressursfiler i katalogen `App/config/texts`. Tekstene kan komme fra felles bibliotek, datamodellen, eller du kan legge dem inn manuelt.
 
-Tekstressursene er tilgjengelige når du redigerer komponenter i skjemaet i Altinn Studio Designer, og appen viser dem til sluttbrukeren når skjemaet laster inn i nettleseren.
+Tekstressursene er tilgjengelige når du redigerer komponenter i skjemaet i Altinn Studio Designer, og appen viser dem til brukeren når brukeren åpner skjemaet.
 
-Du lagrer tekstene i JSON-format, med én fil per språk. Filnavnet følger formatet `resource.[språk].json`, for eksempel _resource.nb.json_.
+Tekstene ligger i JSON-filer, én fil per språk. Filnavnet følger formatet `resource.[språk].json`, for eksempel _resource.nb.json_.
 
 Du kan redigere tekstene lokalt, direkte i JSON-filene, eller i teksteditoren i Designer.
 
@@ -18,11 +18,11 @@ Du kan redigere tekstene lokalt, direkte i JSON-filene, eller i teksteditoren i 
 
 Du kan formatere alle tekster med markdown. Under ser du de vanligste formateringene.
 
-Du finner mer utfyllende dokumentasjon og tips til hvordan du kan bruke markdown, i [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
+Se [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) for flere formateringer og tips.
 
 ### Uthevede tekster
 
-Det er svært enkelt å gjøre ord eller setninger fete eller kursive i markdown.
+Slik gjør du ord eller setninger fete eller kursive:
 
 ```markdown
 Dette er en _kursiv tekst_ laget med understrek.
@@ -36,7 +36,7 @@ Dette er også **fet tekst**, men laget med stjerner!
 
 ### Linjeskift
 
-I markdown bruker du `\n` for å markere et linjeskift. Skal det vises som et nytt avsnitt i teksten, må du ha to linjeskift etter hverandre. For eksempel:
+Et enkelt `\n` gir ikke synlig linjeskift. Appen viser teksten på én linje. Vil du at teksten skal fortsette på en ny linje, bruker du to linjeskift etter hverandre (`\n\n`):
 
 ```markdown
 Dette er en tekst.\n\nDette er en tekst på neste linje. 
@@ -55,15 +55,17 @@ For enkle lenker kan du bruke markdown-syntaks:
 Åpne [forsiden av Altinn](https://altinn.no).
 ```
 
-Skal du sette flere egenskaper, kan du bruke HTML-syntaks i stedet:
+Lenker åpner i en ny fane som standard. Vil du at lenken skal åpne i samme fane, bruker du HTML med klassen `same-window`:
 
 ```html
 Gå til <a href="https://altinn.no" class="same-window">forsiden av Altinn</a>.
 ```
 
-Når du velger at lenken skal åpne i samme vindu, forlater brukerne skjemaet idet de klikker på lenken. Appen lagrer tilstanden til skjemaet i instansen, slik at brukerne kan vende tilbake senere.
+Når du velger at lenken skal åpne i samme fane, forlater brukerne skjemaet idet de klikker på lenken. Appen lagrer tilstanden til skjemaet i instansen, slik at brukerne kan vende tilbake senere.
 
 ### Overskrifter
+
+Slik lager du overskrifter:
 
 ```markdown
 # Dette er en stor heading (H1)
@@ -77,7 +79,7 @@ Når du velger at lenken skal åpne i samme vindu, forlater brukerne skjemaet id
 
 ## Legge til og endre tekster i en app
 
-Du har to alternativer når du skal endre tekster i en app: via Altinn Studio Designer, eller direkte i repoet.
+Du har to alternativer når du skal endre tekster i en app: i Altinn Studio Designer eller direkte i repoet.
 
 ### Altinn Studio Designer
 
@@ -85,50 +87,46 @@ Du har to alternativer når du skal endre tekster i en app: via Altinn Studio De
 
 I toppmenyen i Altinn Studio Designer velger du **Språk** for å redigere tekster. Der får du en oversikt over tekstene som allerede er tilgjengelige for appen.
 
-På denne siden kan du redigere eksisterende tekster og legge til nye tekstressurser. Du legger til en ny tekst ved å klikke på **Ny tekst**. Du får da en unik tekstnøkkel automatisk, og kan endre den ved å klikke på blyantikonet ved siden av nøkkelen. Endringer i tekstene lagrer appen underveis.
+På denne siden kan du redigere eksisterende tekster og legge til nye tekstressurser. Du legger til en ny tekst ved å klikke på **Ny tekst**. Altinn Studio lager en unik tekstnøkkel automatisk. Du kan endre den ved å klikke på blyantikonet ved siden av nøkkelen. Altinn Studio lagrer endringene underveis.
 
-Du velger hvilke språk som skal vises i tabellen, for enklere oversettelse. Det gjør du i panelet til høyre. Der kan du også legge til nye språk du vil oversette appen til.
+I panelet til høyre, under **Aktive språk**, velger du hvilke språk tabellen skal vise. Det gjør det enklere å oversette. Under **Legg til språk** kan du legge til nye språk du vil oversette appen til.
 
-![Altinn Studio Designer](./edit-texts-in-designer.png "Redigere tekster i Altinn Studio Designer")
+![Siden Språk i Altinn Studio Designer](./edit-texts-in-designer.png "Redigere tekster i Altinn Studio Designer")
 
 #### Direkte i komponentredigeringen
 
-Når du konfigurerer en komponent i skjemaeditoren (velg **Utforming** i toppmenyen), kan du legge til, redigere og oversette tekster for den enkelte komponenten direkte.
+Når du konfigurerer en komponent på siden **Utforming**, kan du legge til, redigere og oversette tekster for komponenten direkte i panelet til høyre, under **Tekst**.
 
-Legg til en tekst ved å klikke på `+`-ikonet for den aktuelle teksten (Ledetekst eller Beskrivelse).
-![Legge til tekst i skjemaeditoren](./component-text-add.png "Legg til en tekst fra skjemaeditor")
+Legg til en tekst ved å klikke på teksten du vil legge til, for eksempel **Beskrivelse** eller **Hjelpetekst**.
+![Legge til tekst på siden Utforming](./component-text-add.png "Legg til en tekst på siden Utforming")
 
-Rediger en tekst på komponenten ved å holde musepekeren over feltet Ledetekst. Da dukker redigeringsblyanten opp til høyre for navnet, og du kan klikke på den for å redigere teksten.
-![Redigere tekst i skjemaeditoren](./component-text-change.png "Rediger en tekst fra skjemaeditor")
+Rediger en tekst ved å klikke på den, for eksempel **Ledetekst**. Skriv teksten i fanen **Skriv tekst**, og klikk på **Lagre**.
+![Redigere tekst på siden Utforming](./component-text-change.png "Rediger en tekst på siden Utforming")
 
-Legg til en eksisterende tekst på komponenten ved å klikke på fanen **Søk**, og velg blant de tilgjengelige tekstene.
+Bruk en tekst som finnes fra før ved å klikke på fanen **Søk**. Søk etter teksten eller ID-en, velg teksten og klikk på **Lagre**.
 ![Bruke eksisterende tekst for en komponent](./component-text-search.png "Bruk eksisterende tekst for komponent")
 
 ### Legge til og endre tekster i repoet
 
-Skal du endre mange tekster samtidig, anbefaler vi at du redigerer dem direkte i repoet — enten via Altinn Studio Repos, eller i en lokal klone i kodeeditoren du selv velger.
+Skal du endre mange tekster samtidig, anbefaler vi at du redigerer dem direkte i repoet — enten i Gitea eller i en lokal klone i kodeeditoren du selv velger.
 
 Du finner tekstene i `App/config/texts`.
 
-![Altinn Studio Repos](./edit-texts-in-repos.png "Endre tekster i Altinn Studio Repos")
+![Tekstfilen i Gitea](./edit-texts-in-repos.png "Endre tekster i Gitea")
 
 ## Endre standardtekster og feilmeldinger i appen
 
-Du kan endre standardtekster og feilmeldinger som vises i appen.
-Her finner du nøklene med standardverdiene på [engelsk](https://github.com/Altinn/altinn-studio/blob/main/src/common/ts/language/src/texts/en.ts),
+Du kan endre standardtekster og feilmeldinger som appen viser.
+Du finner nøklene og standardverdiene i filene for [engelsk](https://github.com/Altinn/altinn-studio/blob/main/src/common/ts/language/src/texts/en.ts),
 [norsk bokmål](https://github.com/Altinn/altinn-studio/blob/main/src/common/ts/language/src/texts/nb.ts) og [nynorsk](https://github.com/Altinn/altinn-studio/blob/main/src/common/ts/language/src/texts/nn.ts).
 
-Du må håndtere standardtekster som inneholder tall, på en litt annen måte. `file_uploader_validation_error` er et eksempel: den viser en feilmelding hvis appen krever minst ett vedlegg.
-Denne standardfeilmeldingen vises som «For å fortsette må du laste opp 1 vedlegg».
+Noen standardtekster har en plassholder for et tall. Et eksempel er `form_filler.file_uploader_validation_error_file_number`, som appen viser hvis brukeren har lastet opp for få vedlegg: «For å fortsette må du laste opp {0} vedlegg». Appen erstatter `{0}` med minimum antall vedlegg for komponenten.
 
 ![Tekster i appen](./defaultErrorMessageNB.png "Standardtekst i appen")
 
-Denne standardteksten er delt i to strenger: én før tallet, `For å fortsette må du laste opp`, og én tekstressurs etter tallet, `vedlegg`.
-Du kan ikke redigere selve tallet, siden det i dette tilfellet er knyttet til maksimum og minimum antall vedlegg. Men teksten rundt tallet kan du endre.
+Hvis du endrer en slik tekst, fyller ikke appen inn tallet. Skriv derfor hele teksten, inkludert tallet.
 
-![Tekster i appen](./defaultTextsEN.png "Standardtekst og nøkler")
-
-Legg til tekstnøkkelen og den nye verdien i `App/config/texts/resource`. Merk at nøkkelen må vise til den overordnede gruppen, og deretter tekstnøkkelen, atskilt med `.`
+Legg til tekstnøkkelen og den nye verdien i `App/config/texts/resource.{språk}.json`. Bruk hele nøkkelen, inkludert prefikset (for eksempel `form_filler.`).
 
 {{< code-title >}}
 App/config/texts/resource.{language}.json
@@ -136,12 +134,8 @@ App/config/texts/resource.{language}.json
 
 ```json
     {
-      "id": "form_filler.file_uploader_validation_error_file_number_1",
-      "value": "For å fortsette må du laste opp"
-    },
-    {
-      "id": "form_filler.file_uploader_validation_error_file_number_2",
-      "value": "zip-fil som inneholder alle nødvendige filer."
+      "id": "form_filler.file_uploader_validation_error_file_number",
+      "value": "For å fortsette må du laste opp 1 zip-fil som inneholder alle nødvendige filer."
     }
 ```
 
@@ -150,7 +144,7 @@ Dette gir en feilmelding som vist under:
 
 ## Variabler i tekster
 
-Du kan sette inn variabler i tekster ved å følge oppsettet under. Det er viktig at rekkefølgen på variablene er den samme som parameterne i teksten.
+Du kan sette inn variabler i tekster ved å følge oppsettet under. Appen setter inn variablene i samme rekkefølge som plassholderne i teksten. Den første variabelen erstatter `{0}`, den andre `{1}` og så videre.
 
 {{< code-title >}}
 App/config/texts/resource.{language}.json
@@ -186,9 +180,9 @@ App/config/texts/resource.{language}.json
 Du kan hente verdier fra fire ulike datakilder:
 
 1. **Datamodell**  
-   Ved å angi `dataModel.<dataModelNavn>` som datakilde kan du hente verdier fra felt i skjemaet som brukeren fyller ut. Du kan hente data fra felt uavhengig av om de er synlige eller ikke. Endrer brukeren data i et felt en variabel refererer til, oppdaterer appen teksten når brukeren slutter å skrive i feltet.
+   Ved å angi `dataModel.<dataModelNavn>` som datakilde kan du hente verdier fra felt i skjemaet som brukeren fyller ut. Du kan hente data fra felt uavhengig av om de er synlige eller ikke. Endrer brukeren data i et felt en variabel refererer til, oppdaterer appen teksten når brukeren slutter å skrive i feltet. Bruk `dataModel.default` for å hente fra standarddatamodellen til oppgaven.
 2. **Innstillinger**  
-   Ved å angi `applicationSettings` som datakilde kan du hente verdier fra en egen seksjon i `appsettings.{miljø}.json`-filene, kalt `FrontEndSettings`. Dette er en dynamisk liste du kan utvide uten å endre koden. Dermed kan du ha ulike verdier fra miljø til miljø, ved å sette andre verdier i de ulike `appsettings.{miljø}.json`-filene. Legg merke til at `FrontEndSettings` og `applicationSettings` bruker stor forbokstav forskjellig.
+   Ved å angi `applicationSettings` som datakilde kan du hente verdier fra en egen seksjon i `appsettings.{miljø}.json`-filene, kalt `FrontEndSettings`. Du kan legge til nye verdier uten å endre koden, og ha ulike verdier i hvert miljø. Skriv nøkkelen nøyaktig slik den står i `FrontEndSettings`. Legg merke til at `FrontEndSettings` og `applicationSettings` bruker stor forbokstav forskjellig.
 
    {{< code-title >}}
    App/appsettings.json
@@ -201,9 +195,11 @@ Du kan hente verdier fra fire ulike datakilder:
    ```
 3. **Instans**  
    Ved å angi `instanceContext` som datakilde kan du hente enkelte verdier fra den aktive instansen — du har ikke tilgang til hele instansobjektet. Så langt kan du hente disse egenskapene:
-   1. `instanceOwnerPartyId` inneholder avgiverens party-id.
-   2. `instanceId` inneholder id-en til den aktive instansen.
-   3. `appId` inneholder id-en til appen instansen hører til.
+   1. `instanceOwnerPartyId` inneholder aktørens party-ID.
+   2. `instanceId` inneholder ID-en til den aktive instansen.
+   3. `appId` inneholder ID-en til appen instansen hører til.
+   4. `instanceOwnerPartyType` inneholder typen aktør: `org`, `person`, `selfIdentified` eller `unknown`.
+   5. `instanceOwnerName` inneholder navnet på aktøren.
 4. **Egendefinerte tekstparametere**  
    Ved å angi `customTextParameters` som datakilde kan du hente egendefinerte verdier, der du selv setter dem. I dag kan du sette `CustomTextParameters` i `ValidationIssue` og `InstantiationValidationResult`. Eksempel:
    ```cs
@@ -221,9 +217,9 @@ Du kan hente verdier fra fire ulike datakilder:
 
 ### Standardverdi
 
-Finner ikke appen en variabel i datakilden, viser den i stedet stien til feltet i datakilden. Ønsker du å vise noe annet enn denne stien, kan du legge til et standardverdialternativ for hver variabel.
+Finner ikke appen en variabel i datakilden, viser den i stedet stien til feltet i datakilden. Ønsker du å vise noe annet enn denne stien, kan du gi hver variabel en standardverdi med `defaultValue`.
 
-Vil du at appen ikke skal vise teksten i det hele tatt når den ikke finner feltet i datakilden, kan du sette `defaultValue` til en tom streng.
+Vil du at appen ikke skal vise noe for variabelen når den ikke finner feltet, setter du `defaultValue` til en tom streng.
 
 {{< code-title >}}
 App/config/texts/resource.{language}.json
@@ -237,7 +233,7 @@ App/config/texts/resource.{language}.json
     {
       "key": "someField",
       "dataSource": "dataModel.default",
-      "defaultValue": " "
+      "defaultValue": ""
     }
   ]
 }
@@ -256,8 +252,7 @@ App/config/texts/resource.{language}.json
   "variables": [
     {
       "key": "skattepliktig.organisasjonsnavn",
-      "dataSource": "dataModel.default",
-      "dataValue": "Mattilsynet"
+      "dataSource": "dataModel.default"
     },
     {
       "key": "skattepliktig.organisasjonsnummer",
@@ -268,7 +263,7 @@ App/config/texts/resource.{language}.json
       "dataSource": "instanceContext"
     },
     {
-      "key": "homeBaseUrl",
+      "key": "HomeBaseUrl",
       "dataSource": "applicationSettings"
     }
   ]
@@ -277,7 +272,7 @@ App/config/texts/resource.{language}.json
 
 ### Variabler i tekst – repeterende grupper
 
-For at variabler i tekst skal fungere med data i repeterende grupper, må du endre oppsettet ovenfor litt for de aktuelle feltene, slik at du spesifiserer hvilken repeterende gruppe dataene ligger i.
+For at variabler i tekst skal fungere med data i repeterende grupper, må du endre oppsettet ovenfor litt for de aktuelle feltene, slik at du angir hvilken repeterende gruppe dataene ligger i.
 
 Det gjør du ved å legge til `[{0}]` _etter_ den repeterende gruppen når du angir felt i datamodellen i `key`-parameteren. For eksempel:
 
@@ -302,13 +297,15 @@ App/config/texts/resource.{language}.json
 }
 ```
 
-Du kan fritt kombinere variabler fra felt i en repeterende gruppe med variabler fra felt utenfor den repeterende gruppen. Vi anbefaler derimot ikke å kombinere variabler fra felt i _forskjellige_ repeterende grupper, med mindre du er helt sikker på at rekkefølgen på oppføringene i gruppene alltid blir helt lik.
+Du kan fritt kombinere variabler fra felt i en repeterende gruppe med variabler fra felt utenfor den repeterende gruppen. Vi anbefaler ikke å kombinere variabler fra felt i _forskjellige_ repeterende grupper, med mindre du er helt sikker på at rekkefølgen på oppføringene i gruppene alltid blir helt lik.
 
 ## Legge til hjelpetekst
 
-Hjelpetekster er korte tekstsnutter som gir en kort og presis beskrivelse av hva sluttbrukeren skal fylle ut i feltet teksten hører til.
+En hjelpetekst forklarer kort hva brukeren skal fylle ut i et felt.
 
-Du definerer nøklene for hjelpeteksten i layoutfilen til siden. Layoutfilene ligger i `App/ui/{oppgave-ID}/layouts/`, for eksempel `App/ui/Task_1/layouts/Side1.json`.
+I Altinn Studio Designer legger du til en hjelpetekst på siden **Utforming**: Velg komponenten, og klikk på **Hjelpetekst** under **Tekst** i panelet til høyre. Vil du gjøre det i koden, følger du stegene under.
+
+Du kobler hjelpeteksten til komponenten i layoutfilen til siden. Layoutfilene ligger i `App/ui/{oppgave-ID}/layouts/`, for eksempel `App/ui/Task_1/layouts/Side1.json`.
 
 Under ser du et eksempel på en layoutfil uten hjelpetekster.
 
@@ -351,11 +348,11 @@ App/ui/Task_1/layouts/Side1.json
 }
 ```
 
-Vil du legge til hjelpetekst på en av disse skjemakomponentene, gjør du dette:
+Slik legger du til en hjelpetekst på en av komponentene:
 
-1. Legg til hjelpeteksten i tekstressursfilen, som beskrevet [her](#legge-til-og-endre-tekster-i-en-app).
+1. Legg til hjelpeteksten i tekstressursfilen. Se [Legge til og endre tekster i en app](#legge-til-og-endre-tekster-i-en-app).
 2. Åpne layoutfilen til siden.
-3. Legg til en binding til den nye hjelpeteksten, med nøkkelen `"help"` og verdi lik nøkkelen til tekstressursen.
+3. Legg til `"help"` under `textResourceBindings`, med nøkkelen til tekstressursen som verdi.
 
 Slik ser hele filen ut etter at du har lagt til en hjelpetekst:
 
@@ -402,19 +399,17 @@ App/ui/Task_1/layouts/Side1.json
 ## Endre app-tittel
 
 Når du oppretter en app, får du automatisk en tekstressurs med nøkkelen `appName`.
-Dette er tittelen på appen, og den vises flere steder i løsningen — blant annet når sluttbrukeren fyller ut skjemaet, og når elementer vises i meldingsboksen på altinn.no.
+Dette er tittelen på appen. Altinn viser den flere steder, blant annet når brukeren fyller ut skjemaet og i innboksen i Altinn.
 
 Tittelen på appen skal ligge to steder i app-repoet:
 1. I tekstressursene, med nøkkelen `appName`.
 2. I `applicationmetadata.json`, under egenskapen `title`. Denne filen ligger under `App/config/`.
 
-Vi oppfordrer deg til å legge inn tittelen på bokmål, nynorsk og engelsk. Mangler tittelen i tekstressursene, viser appen i stedet lagringsnavnet (navnet på repoet) til sluttbrukeren.
+Legg inn tittelen på bokmål, nynorsk og engelsk. Mangler `appName` i tekstressursene, viser appen tittelen fra `applicationmetadata.json`.
 
-Endrer du `appName` lokalt, er det viktig at du også legger den oppdaterte tittelen inn i `applicationmetadata.json`. Endrer du derimot tittelen på appen i Altinn Studio Designer — enten på siden **Om** eller **Språk** — oppdaterer Designer `applicationmetadata.json` automatisk.
+Endrer du `appName` lokalt, må du også legge den oppdaterte tittelen inn i `applicationmetadata.json`. I Altinn Studio Designer endrer du tittelen to steder: under **Innstillinger** → **Om appen** (`applicationmetadata.json`) og på siden **Språk** (`appName`). Designer synkroniserer ikke disse automatisk, så pass på at tittelen er lik begge steder.
 
 ### Eksempel på korrekt konfigurasjon for app-tittel
-
-I `App/config/applicationmetadata.json`:
 
 {{< code-title >}}
 App/config/applicationmetadata.json
@@ -427,8 +422,6 @@ App/config/applicationmetadata.json
     "en": "Auto deploy application"
   },
 ```
-
-I `App/config/texts/resource.nb.json`:
 
 {{< code-title >}}
 App/config/texts/resource.nb.json
@@ -447,8 +440,6 @@ App/config/texts/resource.nb.json
 }
 ```
 
-I `App/config/texts/resource.nn.json`:
-
 {{< code-title >}}
 App/config/texts/resource.nn.json
 {{< /code-title >}}
@@ -465,8 +456,6 @@ App/config/texts/resource.nn.json
   ]
 }
 ```
-
-I `App/config/texts/resource.en.json`:
 
 {{< code-title >}}
 App/config/texts/resource.en.json
@@ -487,12 +476,12 @@ App/config/texts/resource.en.json
 
 ## Endre app-eiertekst
 
-Appen viser app-navnet og app-eierteksten øverst i skjemaet.
+Appen viser app-tittelen og app-eieren øverst i skjemaet.
 
 ![Tekster i appen](./app-name-app-owner.png "App-navn og app-eiertekster")
 
 Som standard henter appen app-eieren fra tekstene i [altinn-orgs.json](https://github.com/Altinn/altinn-cdn/blob/master/orgs/altinn-orgs.json).
-Vil du endre dette navnet, legger du til nøkkelen `appOwner` i tekstressursene. Den overstyrer da verdien som ligger på CDN-en.
+Vil du endre dette navnet, legger du til nøkkelen `appOwner` i tekstressursene. Teksten din overstyrer da navnet fra `altinn-orgs.json`.
 
 Eksempel:
 
@@ -515,13 +504,13 @@ App/config/texts/resource.en.json
 
 ## Endre tekster på kvitteringssiden for arkiv
 
-Du kan overstyre tekstene på kvitteringssiden ved å legge tekster i appens `config/texts/resource.[språk].json`-fil(er).
+Du kan overstyre tekstene på kvitteringssiden ved å legge til tekstene i `App/config/texts/resource.{språk}.json`.
 
 {{% notice info %}}
 Når du overstyrer tekster i kvitteringen, påvirker det alle kvitteringer for appen. Det betyr at skjemaer som allerede er sendt inn, også får de oppdaterte tekstene på kvitteringssiden. Dette påvirker ikke den genererte PDF-filen.
 {{% /notice %}}
 
-Du kan bruke markdown og variabler i kvitteringstekstene. Du kan derimot bare hente variabler fra `Instance` (se [Datakilder](#datakilder) for detaljer).
+Du kan bruke markdown og variabler i kvitteringstekstene. Variablene kan bare hente verdier fra instansen (`instanceContext`). Se [Datakilder](#datakilder).
 
 Dette er tekstnøklene du kan bruke til å overstyre standardtekstene:
 
@@ -538,7 +527,7 @@ receipt_platform.sent_content
 
 ```
 
-Vil du for eksempel overstyre hjelpeteksten, kan du legge dette til i `config/texts/resource.nb.json`-filen i appen:
+Vil du for eksempel overstyre hjelpeteksten, legger du dette til i `App/config/texts/resource.nb.json`:
 
 {{< code-title >}}
 App/config/texts/resource.nb.json
@@ -561,7 +550,7 @@ Bildet under viser hvilke tekstnøkler som styrer hvilken del av brukergrensesni
 ![Tekster og tekstnøkler](./archive-receipt-texts.png "Tekster og tekstnøkler")
 
 {{% notice info %}}
-**Merk:** Disse tekstendringene er **ikke** synlige når du tester appen din lokalt — de vises bare i et eksternt testmiljø, for eksempel **TT02**. Du ser endringene når du åpner et allerede arkivert skjema fra Arkivet, ved å klikke på knappen **Se innsendt skjema**. De endrede tekstene gjelder bare kvitteringen i arkivet, og påvirker ikke kvitteringen brukeren ser rett etter at skjemaet er sendt inn. Se [kvittering]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/customize" >}}#kvittering) for hvordan du kan tilpasse både tekstene og oppsettet i denne kvitteringen.
+Du ser ikke disse tekstendringene når du tester appen lokalt, bare i et testmiljø som **TT02**. Åpne et arkivert skjema i arkivet, og klikk på **Se innsendt skjema**. Endringene gjelder bare kvitteringen i arkivet, ikke kvitteringen brukeren ser rett etter innsending. Se [Kvittering]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/customize" >}}#kvittering) for hvordan du tilpasser tekstene og oppsettet i kvitteringen i appen.
 {{% /notice %}}
 
 {{<children />}}
