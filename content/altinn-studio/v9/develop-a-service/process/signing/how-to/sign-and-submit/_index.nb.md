@@ -17,7 +17,7 @@ Denne guiden tar utgangspunkt i at du har opprettet en tom app.
 Hvis appen skal sende signeringskvittering til innboksen til den som signerer, må meldingstjenesten i Altinn være satt opp.
 
 ## 1. Slett eksisterende dataoppgave
-Naviger til **Arbeidsflyt** i toppmenyen til appen i Altinn Studio, og slett oppgaven "Utfylling" som ligger i appens prosess.
+Naviger til **Prosess** i toppmenyen til appen i Altinn Studio, og slett oppgaven "Utfylling" som ligger i appens prosess.
 Du har nå en tom prosess med kun start- og slutthendelse.
 
 ## 2. Legg til signeringsoppgave
