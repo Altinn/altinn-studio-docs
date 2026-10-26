@@ -168,6 +168,12 @@ Hvis du verken setter `NotificationChoice` eller noen av kanalene i `Notificatio
 
 Hvis du ikke oppgir e-postadresse eller mobilnummer, sender Altinn varselet til den registrerte kontaktinformasjonen til de som skal signere: Kontakt- og reservasjonsregisteret (KRR) for personer og varslingsadressene for virksomheter. Les mer i [Recipient lookup](/nb/notifications/explanation/recipient-lookup/) og [Address lookup](/nb/notifications/explanation/address-lookup/).
 
+{{% notice warning %}}
+Hvis en person som skal signere, har reservert seg mot digital kommunikasjon i KRR, avviser Altinn meldingen om signeringsoppgaven.
+Personen får da verken melding i innboksen eller varsel, heller ikke når du selv oppgir e-postadresse eller mobilnummer.
+Personen får likevel rettigheter til å signere, og komponenten `SigneeList` viser at varslingen mislyktes.
+{{% /notice %}}
+
 Dette kan du endre i kommunikasjonen med de som skal signere:
 
 | Property                                                      | Description                                                                                                  | Type                    |
