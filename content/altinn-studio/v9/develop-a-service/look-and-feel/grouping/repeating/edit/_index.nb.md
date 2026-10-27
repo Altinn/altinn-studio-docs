@@ -56,7 +56,7 @@ Med `mode` bestemmer du om tabellen med alle radene skal være synlig mens bruke
 | Verdi         | Beskrivelse                                                                                                                                                                       |
 |---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `"showTable"` | Standardverdien. Appen viser tabellen, og raden brukeren redigerer, åpner seg inne i tabellen.                                                                                   |
-| `"hideTable"` | Appen skjuler tabellen mens en rad er åpen. Brukeren ser alltid en knapp for å lagre og lukke raden, også hvis du har skjult **Lagre og lukk**-knappen.                           |
+| `"hideTable"` | Appen skjuler tabellen mens en rad er åpen. Brukeren har alltid en knapp for å komme ut av raden. Hvis du har skjult både **Lagre og lukk** og **Lagre og åpne neste**, viser appen **Lagre og lukk** likevel. |
 | `"showAll"`   | Appen viser ingen tabell, men viser alle radene åpne under hverandre. Brukeren ser ingen knapp for å lagre og lukke en rad, men appen lagrer dataene uansett.                    |
 | `"onlyTable"` | Appen viser tabellen, men brukeren kan aldri åpne en rad. Passer sammen med [redigering direkte i tabellen]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating/table#redigere-direkte-i-tabellen" >}}).             |
 
@@ -70,7 +70,7 @@ Du kan endre utseendet på knappen med egenskapen `addButton` på selve gruppen,
 
 ## alwaysShowAddButton
 
-Vanligvis skjuler appen **Legg til ny**-knappen mens en rad er åpen. Med `"alwaysShowAddButton": true` ser brukeren knappen også da. Brukeren kan da legge til flere rader uten å lagre og lukke raden først.
+Vanligvis skjuler appen **Legg til ny**-knappen mens en rad er åpen. Med `"alwaysShowAddButton": true` ser brukeren knappen også da. Når brukeren klikker på den, lukker appen raden som er åpen, og åpner den nye raden. Hvis du bruker `validateOnSaveRow` og den åpne raden har feil, må brukeren rette dem før appen legger til en ny rad.
 
 Brukeren ser bare knappen hvis
 

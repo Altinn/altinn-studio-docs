@@ -57,7 +57,7 @@ App/ui/{taskId}/layouts/{page}.json
 Med `tableColumns` kan du sette egenskaper for hver kolonne. Nøkkelen er ID-en til komponenten i kolonnen. Du kan bruke disse innstillingene:
 
 - `width` er bredden på kolonnen i prosent, for eksempel `"25%"`, eller `"auto"`. Standardverdien er `"auto"`.
-- `alignText` plasserer teksten i cellene til venstre (`"left"`), i midten (`"center"`) eller til høyre (`"right"`). Standard er venstre for tekst og høyre for tall.
+- `alignText` plasserer teksten i cellene til venstre (`"left"`), i midten (`"center"`) eller til høyre (`"right"`). Standard er venstre. Et `Input`-felt med tallformat (`formatting.number`) står til høyre hvis kolonnen er med i `tableColumns`.
 - `textOverflow` bestemmer hva som skjer når teksten er for lang for cellen:
   - `lineWrap` bestemmer om appen skal korte ned lang tekst. Med `false` viser appen hele teksten. Standardverdien er `true`.
   - `maxHeight` er antallet linjer appen viser før den kutter resten av teksten og setter inn tre prikker (…). Standardverdien er `2`. Med `0` viser appen hele teksten.
@@ -138,7 +138,6 @@ Brukeren kan ikke redigere alle typer komponenter i tabellen. Disse skjemakompon
 
 - `Input`
 - `TextArea`
-- `Number`
 - `Dropdown`
 - `MultipleSelect`
 - `Checkboxes`
@@ -146,6 +145,7 @@ Brukeren kan ikke redigere alle typer komponenter i tabellen. Disse skjemakompon
 - `Datepicker`
 - `TimePicker`
 - `ImageUpload`
+- `Custom`
 
 Andre komponenter, for eksempel `Address` og `FileUpload`, viser bare verdien i tabellen. Brukeren må da åpne raden for å endre dem.
 
@@ -212,7 +212,7 @@ Faste rader passer for innhold som bare hører hjemme i tabellen, for eksempel s
 Radene og cellene har samme oppbygning som i [Grid-komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Grid" >}}). Hver rad har en liste med celler i `cells`, og du kan sette disse egenskapene på raden:
 
 - `header` gjør raden til en overskriftsrad. Standardverdien er `false`.
-- `readOnly` gjør at brukeren ikke kan endre komponentene i raden. Standardverdien er `false`.
+- `readOnly` gir raden grå bakgrunn. Brukeren kan fortsatt endre komponentene i raden. Hvis en komponent ikke skal kunne endres, setter du `readOnly` på selve komponenten. Standardverdien er `false`.
 
 En celle kan være
 
@@ -221,7 +221,7 @@ En celle kan være
 - ledeteksten til en annen komponent, med `{ "labelFrom": "komponent-id" }`
 - tom, med `{}` eller `null`
 
-Komponentene i cellene må være komponenter som virker i en tabell, se listen under [Redigere direkte i tabellen](#redigere-direkte-i-tabellen).
+Komponentene i cellene må være komponenter som kan vises i en tabell. Det gjelder komponentene i listen under [Redigere direkte i tabellen](#redigere-direkte-i-tabellen), og i tillegg komponenter som bare viser innhold, for eksempel `Text`, `Number`, `Date`, `Paragraph`, `Image` og `Button`.
 
 Dette gjelder for de faste radene:
 

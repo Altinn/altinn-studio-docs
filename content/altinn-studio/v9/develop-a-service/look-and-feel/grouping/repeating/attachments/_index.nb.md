@@ -20,7 +20,7 @@ Du kan også knytte vedlegg utenfor en repeterende gruppe til datamodellen. Da f
 3. Åpne **Datamodeller** i egenskapene til komponenten, og velg feltet fra steg 1.
 4. Hvis brukeren skal kunne laste opp flere filer i samme komponent, slår du på **Legg til knytning for flere vedlegg**. Feltet i datamodellen må da være en liste.
 
-Når vedleggskomponenten ligger i en repeterende gruppe, minner Designer deg på at komponenten må ha en knytning til datamodellen. Uten knytningen gir appen en feil.
+Når vedleggskomponenten ligger rett under en repeterende gruppe, minner Designer deg på at komponenten må ha en knytning til datamodellen. Uten knytningen gir appen en feil. Ligger komponenten lenger ned, for eksempel i en gruppe inne i den repeterende gruppen, får du verken påminnelse eller feil. Mottakeren trenger likevel knytningen for å se hvilken rad vedlegget hører til.
 
 ## Sette opp vedlegg i koden
 
@@ -67,8 +67,7 @@ App/ui/{taskId}/layouts/{page}.json
   "maxFileSizeInMB": 25,
   "maxNumberOfAttachments": 1,
   "minNumberOfAttachments": 1,
-  "displayMode": "simple",
-  "required": true
+  "displayMode": "simple"
 }
 ```
 

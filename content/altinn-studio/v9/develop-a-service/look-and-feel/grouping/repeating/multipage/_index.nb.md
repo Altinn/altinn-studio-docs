@@ -14,7 +14,7 @@ Sidene finnes bare inne i raden. Resten av skjemaet endrer seg ikke når brukere
 ## Del raden inn i sider
 
 1. Sett `"multiPage": true` i `edit` på gruppen.
-2. Sett et sidenummer og et kolon foran hver komponent-ID i `children`. Den første siden har nummer `0`, den andre `1` og så videre. En komponent på den første siden skriver du altså som `0:komponent-id`.
+2. Sett et sidenummer og et kolon foran hver komponent-ID i `children`. Appen viser sidene i rekkefølge etter nummeret. Det vanlige er å starte på `0`, slik at den første siden har nummer `0`, den andre `1` og så videre. En komponent på den første siden skriver du altså som `0:komponent-id`.
 
 {{< code-title >}}
 App/ui/{taskId}/layouts/{page}.json
