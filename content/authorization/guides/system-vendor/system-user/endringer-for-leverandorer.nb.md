@@ -26,7 +26,7 @@ Funksjonaliteten er under utvikling og er ikke tilgjengelig ennå. Vi kan endre 
 - **Én systembruker for egen virksomhet og klienter.** Du trenger ikke lenger velge mellom systembruker for eget system og for klientsystem.
 - **Enkeltrettigheter også for klienter.** I dag kan du bare be om tilgangspakker for klientsystem.
 - **Forespørselen bestemmer rettighetene.** Du trenger ikke registrere hver rettighet på systemet først.
-- **Tomme lister for egen virksomhet er lov.** Da trenger kunden bare å være tilgangsstyrer for å godkjenne.
+- **Tomme lister for egen virksomhet er lov.** Forespørselen må da ha klienttilganger eller flagget `ownerControlledAccess`. Kunden trenger bare å være tilgangsstyrer for å godkjenne.
 - **Kunden kan få styre tilgangene selv.** Med det nye flagget `ownerControlledAccess` kan virksomheten justere tilgangene etter at den har godkjent.
 
 ---
@@ -99,7 +99,7 @@ Det nye flagget `ownerControlledAccess` bestemmer hvem som forvalter tilgangene 
 | Kan kunden fjerne én tilgang | Nei, bare slette hele systembrukeren | Ja |
 | Kan kunden legge til tilganger | Nei | Ja, innenfor sine egne fullmakter |
 
-Kunden kan bytte mellom de to måtene etter at systembrukeren er opprettet. Flagget gjelder bare forespørsler du sender selv.
+Det går an å bytte mellom de to måtene etter at systembrukeren er opprettet. Hvem som kan bytte, og hva som skjer med tilgangene, er ikke avklart ennå. Flagget gjelder bare forespørsler du sender selv.
 
 ---
 ## Godkjenningen er lik som i dag
