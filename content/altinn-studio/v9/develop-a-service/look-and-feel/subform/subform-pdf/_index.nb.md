@@ -24,6 +24,10 @@ Appen har ett eller flere underskjemaer. Denne veiledningen forklarer ikke hvord
 1. Åpne arbeidsflyt-editoren og dra inn PDF-systemoppgaven for underskjema der i prosessen du vil lage PDF-ene, ofte rett etter dataoppgaven med underskjemaet.
 2. Velg underskjemaet under **Underskjema** i konfigurasjonspanelet.
 
+Listen viser UI-mappene som har `"type": "subform"` i `Settings.json`, og mappene en **Tabell for underskjema** åpner. Altinn Studio holder valget oppdatert. Gir du underskjemaet et nytt navn, endrer Studio `subformUiFolder`. Sletter du underskjemaet, fjerner Studio innstillingen, og du må velge et underskjema på nytt.
+
+Er oppgaven satt opp med `subformComponentId` fra før, foreslår panelet underskjemaet som komponenten åpner. Velger du det, sletter Altinn Studio mappen den laget for oppgaven, med ventesiden og den skjulte kopien av komponenten. Har du endret noe i mappen, lar Studio den stå.
+
 ### process.bpmn
 
 Altinn Studio skriver oppsettet til `process.bpmn`. Setter du opp oppgaven for hånd, ser den slik ut:
@@ -62,8 +66,9 @@ Bygget stopper hvis
 - `subformUiFolder` ikke er en UI-mappe
 - mappen mangler `defaultDataType`
 - `defaultDataType` ikke finnes i `applicationmetadata.json`
+- `subformUiFolder` er UI-mappen til en oppgave i prosessen, ikke til et underskjema
 
-Regelsiden for [ALTINNAPP1024]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1024" >}}) forklarer hvordan du retter feilen.
+Appen sjekker det samme når den starter, og starter ikke med en slik feil. Regelsiden for [ALTINNAPP1024]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1024" >}}) forklarer hvordan du retter feilen.
 
 Eksempel på tekstressurs for filnavn med variabel:
 
@@ -125,7 +130,11 @@ Denne filen inneholder sidene i underskjemaet, som du allerede har laget.
 
 #### underskjema/layouts/PdfLayout.json
 
-Denne filen bestemmer hvordan PDF-en for hver oppføring ser ut. Du kobler den til med `pdfLayoutName` i `Settings.json` for underskjemaet. Uten denne filen og uten `pdfLayoutName` viser PDF-en alle sidene i underskjemaet. Peker `pdfLayoutName` på en side som ikke finnes, feiler PDF-genereringen. Her bruker du typisk en `Summary2`-komponent som oppsummerer underskjemaet:
+Denne filen bestemmer hvordan PDF-en for hver oppføring ser ut. Du kobler den til med `pdfLayoutName` i `Settings.json` for underskjemaet. Uten denne filen og uten `pdfLayoutName` viser PDF-en alle sidene i underskjemaet. Peker `pdfLayoutName` på en side som ikke finnes, feiler PDF-genereringen.
+
+I Altinn Studio velger du siden i underskjemaet og klikker **Gjør om siden til PDF** under **PDF** i innstillingene for siden. Da setter Studio `pdfLayoutName` for deg.
+
+Her bruker du typisk en `Summary2`-komponent som oppsummerer underskjemaet:
 
 {{< code-title >}}
 App/ui/underskjema/layouts/PdfLayout.json
@@ -151,7 +160,9 @@ App/ui/underskjema/layouts/PdfLayout.json
 
 ### Det brukeren ser
 
-Mens appen lager PDF-ene, ser brukeren den vanlige lastevisningen. Feiler PDF-genereringen, viser appen en standardside med knappen **Prøv igjen**. Vil du vise en egen side mens oppgaven kjører, lager du en UI-mappe med samme navn som ID-en til systemoppgaven. I eksempelet er det `App/ui/PdfSubform`. Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}).
+Mens appen lager PDF-ene, ser brukeren den vanlige lastevisningen. Feiler PDF-genereringen, viser appen en standardside med knappen **Prøv igjen**.
+
+Vil du vise en egen side mens oppgaven kjører, lager du en UI-mappe med samme navn som ID-en til systemoppgaven, og lister minst én side i `pages.order`. I eksempelet er det `App/ui/PdfSubform`. Appen bruker ikke denne mappen når den lager PDF-ene. Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}).
 
 ## Metadata på PDF-ene
 
@@ -164,7 +175,9 @@ Hver PDF får to metadatafelt. Et system som henter PDF-ene, kan bruke dem til �
 
 ## Oppgradere fra v8
 
-V9 støtter ikke `subformComponentId` og `subformDataTypeId` i `subformPdfConfig`, og bygget stopper med [ALTINNAPP0602]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP0602" >}}). `studioctl app upgrade v9` skriver om oppgaven til `subformUiFolder`. Oppgraderingen finner underskjemaet gjennom den skjulte kopien av komponenten **Tabell for underskjema** i UI-mappen til oppgaven. Har oppgaven en UI-mappe med bare ventesiden og komponentkopien Altinn Studio laget, fjerner oppgraderingen mappen. Har mappen noe annet i tillegg, beholder oppgraderingen den og gir en advarsel.
+V9 støtter ikke `subformComponentId` og `subformDataTypeId` i `subformPdfConfig`, og bygget stopper med [ALTINNAPP0602]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP0602" >}}). `studioctl app upgrade v9` skriver om oppgaven til `subformUiFolder`. Oppgraderingen finner underskjemaet gjennom den skjulte kopien av komponenten **Tabell for underskjema** i UI-mappen til oppgaven. Har oppgaven en UI-mappe med bare ventesiden og komponentkopien Altinn Studio laget, fjerner oppgraderingen mappen. Har mappen noe annet i tillegg, beholder oppgraderingen den. Lister mappen sider i `pages.order`, får du en oppgave du må gjøre selv, fordi v9 viser sidene mens oppgaven kjører. Ellers får du en advarsel.
+
+Oppgraderingen gjør også UI-mappen til underskjemaet klar. Mangler `Settings.json` en `type`, legger oppgraderingen til `"type": "subform"`, slik at Altinn Studio finner underskjemaet. Mangler `defaultDataType`, setter den datatypen fra `subformDataTypeId`. Har mappen en annen `defaultDataType` enn `subformDataTypeId`, får du en oppgave du må gjøre selv.
 
 Mangler kopien, finnes den flere ganger, eller peker den ikke på en UI-mappe, lar oppgraderingen oppgaven stå uendret og lister den som en oppgave du må gjøre selv. Da bytter du ut `subformComponentId` og `subformDataTypeId` med `subformUiFolder` for hånd, og fjerner UI-mappen til oppgaven hvis du ikke vil vise sidene i den mens oppgaven kjører.
 
