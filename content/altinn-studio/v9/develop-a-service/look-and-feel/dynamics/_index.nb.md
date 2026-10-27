@@ -45,7 +45,7 @@ En verdi i et underuttrykk. Den kan være
   - _sann/usann_
   - _komponent_: verdi som er satt i en bestemt skjemakomponent
   - _datamodell_: verdi som er satt i et bestemt datamodellfelt
-  - _kontekst for eksemplaret_: verdi som er hentet fra et bestemt felt fra metadata om tjenesten
+  - _kontekst for eksemplaret_: informasjon om eksemplaret (instansen), som app-ID, eksemplar-ID eller ID-en til den som eier eksemplaret
   - _ikke satt_: tomt felt, ingen verdi er satt
 
 {{%/expandsmall%}}
@@ -71,13 +71,10 @@ Før du starter, må du
 - være inne på siden **Utforming** for appen
 - ha åpnet en side i skjemaet og valgt komponenten du vil sette opp dynamikk for
 - ha åpnet **Valg for dynamikk** i panelet til høyre
-- ha koblet en datamodell til oppgaven
-
-Hvis kortet for oppgaven under **Oversikt** viser «Datamodell:» uten navn, er listen over datamodellfelt tom.
 
 ![Valg for dynamikk for knappen Send inn, med knappen Lag en ny logikkregel](./starting-point.png "Utgangspunktet for fremgangsmåten")
 
-Eksempelet nedenfor bruker dette skjemaet:
+Eksempelet nedenfor bruker dette skjemaet. Det bruker feltet **Alder** fra datamodellen, så oppgaven må ha en datamodell. Hvis kortet for oppgaven under **Oversikt** viser «Datamodell:» uten navn, er listen over datamodellfelt tom.
 
 ![Eksempelskjema for oppsett av dynamikk](./example-form.png "Eksempelskjema for oppsett av dynamikk")
 
@@ -113,12 +110,12 @@ Eksempelet nedenfor bruker dette skjemaet:
 
 6. Sett opp et underuttrykk som sjekker om **Alder** er tomt:
    - Klikk på **Legg til underuttrykk**.
-   - Sjekk at **Operator** øverst i regelen står på **Og** (da må begge være oppfylt).
+   - Sjekk at **Operator** øverst i regelen står på **Eller** (da må minst ett være oppfylt).
    - Gjenta stegene i punkt 4, men med disse endringene:
      - I **Operator**: Velg **er lik** i stedet for **er mindre enn**.
      - **Nederst**: Velg **Ikke satt** i **Type**. Ikke sett opp noe mer.
 
-   ![To underuttrykk koblet sammen med Og: property1 er mindre enn 18, og property1 er lik null](./second-sub-expression.png "Gjenta oppsettet for det andre underuttrykket")
+   ![To underuttrykk koblet sammen med Eller: property1 er mindre enn 18, eller property1 er lik null](./second-sub-expression.png "Gjenta oppsettet for det andre underuttrykket")
 
 7. Test dynamikken i forhåndsvisningen:
    - Knappen **Send inn** er skjult når feltet **Alder** er tomt.
