@@ -1,21 +1,24 @@
 ---
 draft: true
 title: "ALTINNAPP1000: PDF-systemoppgaven har ingenting å vise"
-description: "En PDF-systemoppgave har verken autoPdfTaskIds eller en egen UI-mappe"
+description: "En PDF-systemoppgave har verken pdfLayoutName eller autoPdfTaskIds"
 weight: 100
+aliases:
+  - /altinn-studio/v9/develop-a-service/reference/analysis/rules/altinnapp1001/
 ---
 
 Denne diagnostikken meldes når en PDF-systemoppgave i `config/process/process.bpmn` ikke sier
 hva PDF-en skal inneholde. Oppgaven lister ingen oppgaver i
-`<altinn:pdfConfig><altinn:autoPdfTaskIds>`, og appen har ingen UI-mappe `ui/<oppgave-id>` med
-en `Settings.json`. Meldingen navngir oppgaven.
+`<altinn:pdfConfig><altinn:autoPdfTaskIds>`, og den har ingen UI-mappe `ui/<oppgave-id>` med
+`pdfLayoutName` i `Settings.json`. Meldingen navngir oppgaven.
 
-Uten regelen feiler PDF-genereringen først når en instans kommer til oppgaven, og årsaken står
-bare i loggen til PDF-generatoren.
+PDF-en er siden `pdfLayoutName` peker på, eller ellers en automatisk PDF av oppgavene i
+`autoPdfTaskIds`. Sidene i `pages.order` er det brukeren ser mens oppgaven kjører, og blir aldri
+en del av PDF-en. Uten regelen feiler oppgaven først når en instans kommer til den.
 
 Kategori `Process`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
 
-List oppgavene som skal være med i PDF-en, i `autoPdfTaskIds`, eller lag en UI-mappe
-`ui/<oppgave-id>` med en `Settings.json` og design PDF-en selv.
+List oppgavene som skal være med i PDF-en, i `autoPdfTaskIds`, eller sett `pdfLayoutName` i
+`ui/<oppgave-id>/Settings.json` og design PDF-en selv.
 
 Se [veiledningen for PDF i appen]({{< relref "/altinn-studio/v9/develop-a-service/process/pdf" >}}).

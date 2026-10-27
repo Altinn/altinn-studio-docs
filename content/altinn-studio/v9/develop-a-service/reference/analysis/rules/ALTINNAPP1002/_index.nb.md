@@ -5,9 +5,12 @@ description: "autoPdfTaskIds lister en oppgave som ikke har noen UI-mappe"
 weight: 102
 ---
 
-Denne diagnostikken meldes når en PDF-systemoppgave lister en oppgave i `autoPdfTaskIds`, men
-appen ikke har noen UI-mappe `ui/<oppgave-id>` for den oppgaven. PDF-en får da ikke noe innhold
-fra den oppgaven. Meldingen navngir PDF-oppgaven og oppgaven den lister.
+Denne diagnostikken meldes når en PDF-systemoppgave uten `pdfLayoutName` lister en oppgave i
+`autoPdfTaskIds`, men appen ikke har noen UI-mappe `ui/<oppgave-id>` for den oppgaven. PDF-en
+får da ikke noe innhold fra den oppgaven. Meldingen navngir PDF-oppgaven og oppgaven den lister.
+
+Regelen gjelder også når PDF-oppgaven har en egen UI-mappe uten `pdfLayoutName`. Har mappen
+`pdfLayoutName`, ser appen bort fra `autoPdfTaskIds`, og regelen sjekker ingenting.
 
 Kategori `Process`, alvorlighetsgrad **advarsel**.
 

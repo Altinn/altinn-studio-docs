@@ -5,9 +5,12 @@ description: "autoPdfTaskIds lists a task that has no UI folder"
 weight: 102
 ---
 
-This diagnostic is reported when a PDF service task lists a task in `autoPdfTaskIds`, but the
-app has no UI folder `ui/<task-id>` for that task. The PDF then gets no content from that task.
-The message names the PDF task and the task it lists.
+This diagnostic is reported when a PDF service task without `pdfLayoutName` lists a task in
+`autoPdfTaskIds`, but the app has no UI folder `ui/<task-id>` for that task. The PDF then gets
+no content from that task. The message names the PDF task and the task it lists.
+
+The rule also applies when the PDF task has a UI folder of its own without `pdfLayoutName`. If
+the folder sets `pdfLayoutName`, the app ignores `autoPdfTaskIds`, and the rule checks nothing.
 
 Category `Process`, severity **warning**.
 
