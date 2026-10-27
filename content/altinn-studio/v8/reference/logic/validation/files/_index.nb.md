@@ -3,7 +3,7 @@ title: Utvidet filvalidering
 description: Hvordan utføre utvidet filvalidering?
 toc: false
 tags: []
-weight: 10
+weight: 40
 ---
 
 {{%notice info%}}
@@ -60,6 +60,10 @@ Altinn.App.Core NuGet-pakken definerer grensesnittene som kreves i tillegg til �
     ```
 
 ## Hvordan skrive din egen analyse
+{{% notice info %}}
+I v9 heter grensesnittet `IFileAnalyzer`, og metoden heter `Analyze`.
+{{% /notice %}}
+
 Hvis du vil skrive din egen validator, må du implementere to interface: `IFileAnalyser` og `IFileValidator`. `IFileAnalyser` analyserer filen for eventuelle metadata du vil validere på og returnerer disse i en `FileAnalysisResult`. Resultatet sendes deretter til valideringslogikken. Resultatet inneholder noen navngitte egenskaper som filnavn, MIME-type og ID-en til analysatoren som ble brukt for å opprette resultatet. Eventuelle tilleggsmetadata sendes som nøkkel/verdi-par i Metadata propertyen. Denne separasjonen er primært gjort for å tillate gjenbruk av analysatoren for å ekstrahere metadata om filen for andre formål.
 
 1. **Implementer grensesnittet `IFileAnalyser`**  

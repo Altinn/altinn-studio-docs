@@ -18,13 +18,35 @@ Altinn velger hvilken versjon av chartet appen bruker når du publiserer den. Du
 
 Du endrer innstillingene i filen `deployment/values.yaml`, som ligger i rotmappen til app-repoet. Det du skriver der, overstyrer standardverdien i chartet. Innstillinger du ikke skriver, beholder standardverdien.
 
-Vi anbefaler at du legger innstillingene under `deployment`, slik app-malen gjør. Publiseringen godtar også at innstillingene ligger på toppnivå i filen, slik de gjør i chartet.
+Legg innstillingene på toppnivå i filen, slik den gjeldende app-malen og chartet gjør. Bruk mellomrom til innrykk, ikke tabulator.
 
-{{% notice warning %}}
-Standardverdiene fra chartet på denne siden står på toppnivå. Eksemplene for app-repoet følger app-malen og har innstillingene under `deployment`. Pass også på innrykkene: YAML krever mellomrom, ikke tabulator.
+{{% notice info %}}
+For eksisterende apper støtter Altinn fortsatt det eldre formatet med innstillinger under `deployment:`, både i fellesfilen og i miljøfilene. Ikke bland dette formatet med innstillinger på toppnivå i samme fil.
 {{% /notice %}}
 
 Appen kan ikke ha egne Helm-maler. Har app-repoet filer som ligger direkte i mappen `deployment/templates`, feiler publiseringen.
+
+## Innstillinger for hvert miljø
+
+Legg en valgfri `deployment/values.<miljø>.yaml` ved siden av `deployment/values.yaml` i rotmappen til app-repoet. Bruk det nøyaktige miljønavnet: `values.tt02.yaml` for TT02 eller `values.production.yaml` for produksjon.
+
+Miljøfilen overstyrer fellesverdiene. Innstillinger du utelater, beholder verdiene sine. For lister erstatter miljøfilen hele listen. Verdier som Altinn setter ved publisering, går fortsatt foran. Legg innstillingene på toppnivå også i miljøfilen.
+
+Dette eksempelet begrenser TT02 til én kopi med autoskalering slått på:
+
+{{< code-title >}}
+deployment/values.tt02.yaml
+{{< /code-title >}}
+
+```yaml
+autoscaling:
+  enabled: true
+  replicas:
+    min: 1
+    max: 1
+```
+
+Uten en miljøfil fungerer publiseringen som før.
 
 ## Skalering
 
@@ -72,12 +94,10 @@ Slik setter du for eksempel det høyeste antallet kopier til 10:
 deployment/values.yaml
 {{< /code-title >}}
 
-```yaml {hl_lines=["3-5"]}
-deployment:
-
-  autoscaling:
-    replicas:
-      max: 10
+```yaml {hl_lines=["1-3"]}
+autoscaling:
+  replicas:
+    max: 10
 ```
 
 ### Fast antall kopier
@@ -88,12 +108,10 @@ deployment:
 deployment/values.yaml
 {{< /code-title >}}
 
-```yaml {hl_lines=["3-5"]}
-deployment:
-
-  autoscaling:
-    enabled: false
-  replicaCount: 3
+```yaml {hl_lines=["1-3"]}
+autoscaling:
+  enabled: false
+replicaCount: 3
 ```
 
 ## CPU og minne
@@ -120,15 +138,13 @@ deployment/values.yaml
 {{< /code-title >}}
 
 ```yaml
-deployment:
-
-  resources:
-    requests:
-      cpu: 200m
-      memory: 256Mi
-    limits:
-      cpu: 1000m
-      memory: 512Mi
+resources:
+  requests:
+    cpu: 200m
+    memory: 256Mi
+  limits:
+    cpu: 1000m
+    memory: 512Mi
 ```
 
 ### `requests`: det appen får reservert
@@ -202,10 +218,8 @@ deployment/values.yaml
 {{< /code-title >}}
 
 ```yaml
-deployment:
-
-  service:
-    internalPort: 5007
+service:
+  internalPort: 5007
 ```
 
 {{% notice warning %}}
