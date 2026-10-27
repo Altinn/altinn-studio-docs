@@ -42,10 +42,10 @@ Systembruker for eget system uten systemregisteret skal være uten forhåndsdefi
 graph TD
   REQUEST["Forespørsel om systembruker: fire lister over påkrevde rettigheter"] --> FLAG{"ownerControlledAccess satt?"}
   FLAG -->|Ja| EMPTY{"Er alle fire lister tomme?"}
-  EMPTY -->|Ja| FREE["Gyldig: eierstyrt tilgang, ingen tilganger ved aksept"]
-  EMPTY -->|Nei| PROPOSAL["Gyldig: eierstyrt tilgang, listene er initialt forslag og delegeres ved aksept"]
+  EMPTY -->|Ja| FREE["Gyldig: Virksomheten bestemmer, ingen tilganger ved aksept"]
+  EMPTY -->|Nei| PROPOSAL["Gyldig: Virksomheten bestemmer, listene er initialt forslag og delegeres ved aksept"]
   FLAG -->|Nei| CONTENT{"Minst én pakke eller rettighet på minst én liste?"}
-  CONTENT -->|Ja| PRESET["Gyldig: leverandørstyrt tilgang, bindende krav"]
+  CONTENT -->|Ja| PRESET["Gyldig: Leverandøren bestemmer, bindende krav"]
   CONTENT -->|Nei| ERROR2["Valideringsfeil: mangler tilganger"]
 {{< /mermaid >}}
 

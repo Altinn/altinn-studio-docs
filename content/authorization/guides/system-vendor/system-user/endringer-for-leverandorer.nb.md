@@ -38,7 +38,7 @@ Funksjonaliteten er under utvikling og er ikke tilgjengelig ennå. Vi kan endre 
 | Forespørsel om systembruker for klientsystem (`/request/vendor/agent`) | Virker som før. |
 | Endringsforespørsel (`/changerequest/vendor`) | Virker som før. |
 | Klientdelegerings-API-et | Virker som før. |
-| Systembrukere kundene dine allerede har godkjent | Beholder tilgangene og oppførselen sin. Ingen systembruker blir eierstyrt av seg selv. |
+| Systembrukere kundene dine allerede har godkjent | Beholder tilgangene og oppførselen sin. Ingen systembruker går over til «Virksomheten bestemmer» av seg selv. |
 | Brukerstyrt opprettelse fra systemer i systemregisteret | Virker som før, med rettighetene som er registrert på systemet. |
 
 Sender du ikke `ownerControlledAccess`, får du samme oppførsel som i dag.
@@ -89,9 +89,9 @@ Altinn kontrollerer fortsatt at rettighetene finnes, at det går an å delegere 
 ---
 ## Forbedring 4: Kunden kan styre tilgangene selv
 
-Det nye flagget `ownerControlledAccess` bestemmer hvem som forvalter tilgangene etter at kunden har godkjent.
+Det nye flagget `ownerControlledAccess` bestemmer hvem som forvalter tilgangene etter at kunden har godkjent. Vi kaller de to måtene «Leverandøren bestemmer» og «Virksomheten bestemmer».
 
-| | Leverandørstyrt tilgang | Eierstyrt tilgang |
+| | Leverandøren bestemmer | Virksomheten bestemmer |
 |---|---|---|
 | Flagget | `false` eller utelatt, som i dag | `true` |
 | Listene i forespørselen | Bindende krav | Et forslag kunden starter med |
@@ -99,7 +99,7 @@ Det nye flagget `ownerControlledAccess` bestemmer hvem som forvalter tilgangene 
 | Kan kunden fjerne én tilgang | Nei, bare slette hele systembrukeren | Ja |
 | Kan kunden legge til tilganger | Nei | Ja, innenfor sine egne fullmakter |
 
-Kunden kan bytte mellom de to måtene etter at systembrukeren er opprettet.
+Kunden kan bytte mellom de to måtene etter at systembrukeren er opprettet. Flagget gjelder bare forespørsler du sender selv.
 
 ---
 ## Godkjenningen er lik som i dag
@@ -110,7 +110,7 @@ Kunden godkjenner forespørselen på samme måte som nå, med lenken fra `confir
 - **Den som godkjenner, må være tilgangsstyrer for virksomheten.** Det gjelder alle forespørsler, som i dag, og uansett flagg.
 - **Tilganger for egen virksomhet krever myndighet til hver tilgang.** Mangler kunden myndighet til én av dem, kan de ikke godkjenne.
 
-Eventuelle endringer gjør kunden etterpå, og bare når systembrukeren har eierstyrt tilgang.
+Eventuelle endringer gjør kunden etterpå, og bare når virksomheten bestemmer tilgangene.
 
 ---
 ## Hva Altinn kontrollerer når kunden godkjenner
@@ -188,7 +188,7 @@ POST /authentication/api/v1/systemuser/request/vendor
 }
 ```
 
-Uten `ownerControlledAccess` er dette leverandørstyrt tilgang: listene er krav som bare du kan endre.
+Uten `ownerControlledAccess` er dette «Leverandøren bestemmer»: listene er krav som bare du kan endre.
 
 ---
 ## Slik lar du kunden styre tilgangene selv
@@ -213,7 +213,7 @@ POST /authentication/api/v1/systemuser/request/vendor
 Vil kunden gi alle tilganger selv, sender du flagget uten lister.
 
 ---
-## Hva du må tenke på med eierstyrt tilgang
+## Hva du må tenke på når virksomheten bestemmer
 
 Når kunden styrer tilgangene, kan de fjerne noe systemet ditt trenger. Det kan også skje lenge etter godkjenningen.
 
@@ -228,10 +228,10 @@ Vi vurderer et API og varsling slik at du kan se hvilke tilganger systembrukeren
 
 | Situasjon | Anbefaling |
 |---|---|
-| Systemet trenger alltid de samme tilgangene, og bare du skal kunne endre dem | Leverandørstyrt tilgang, som i dag |
-| Kundene trenger ulike tilganger, eller behovet endrer seg ofte | Eierstyrt tilgang med et forslag |
-| Kunden har egen kompetanse på tilgangsstyring og vil bestemme alt selv | Eierstyrt tilgang uten lister |
-| Du vil unngå mange endringsforespørsler for små justeringer | Eierstyrt tilgang med et forslag |
+| Systemet trenger alltid de samme tilgangene, og bare du skal kunne endre dem | Leverandøren bestemmer, som i dag |
+| Kundene trenger ulike tilganger, eller behovet endrer seg ofte | Virksomheten bestemmer, med et forslag |
+| Kunden har egen kompetanse på tilgangsstyring og vil bestemme alt selv | Virksomheten bestemmer, uten lister |
+| Du vil unngå mange endringsforespørsler for små justeringer | Virksomheten bestemmer, med et forslag |
 
 Er du i tvil, fortsett som i dag. Du kan ta i bruk flagget for nye kunder senere.
 
@@ -241,7 +241,6 @@ Er du i tvil, fortsett som i dag. Du kan ta i bruk flagget for nye kunder senere
 De neste lysbildene viser hvordan virksomhetene vil se og forvalte systembrukere i Tilgangsstyring.
 
 - Skjermbildene er forslag til design fra en prototype. Vi kan endre utformingen, men det funksjonelle er vedtatt.
-- I skjermbildene heter de to måtene **Leverandøren bestemmer** og **Virksomheten bestemmer**. Det er det samme som leverandørstyrt og eierstyrt tilgang.
 - De stiplede merkene R1–R25 viser hvilken regel et element oppfyller. Reglene står forklart til slutt i presentasjonen.
 - To ting i skjermbildene er ikke vedtatt: lenken **Endre hvem som bestemmer tilgangene**, og at leverandørens forslag er forhåndsvalgt når virksomheten knytter til en ny klient. Det siste er merket **Designforslag**.
 
@@ -345,23 +344,11 @@ På siden for en klient ser virksomheten hvem som har tilgang, hvem som kan få 
 - Trekker klienten tilbake en fullmakt, fjerner Altinn de tilhørende klientdelegeringene til systembrukeren automatisk. Det gjelder både tilgangspakker og enkeltrettigheter.
 
 ---
-## To begreper som ligner hverandre
-
-Dokumentasjonen bruker allerede «leverandørstyrt opprettelse». Det er noe annet enn «leverandørstyrt tilgang».
-
-| Begrep | Svarer på | Verdier |
-|---|---|---|
-| Opprettelse | Hvem starter opprettelsen av systembrukeren? | Leverandørstyrt (du sender forespørsel) eller brukerstyrt (kunden velger systemet i Altinn) |
-| Tilgang | Hvem forvalter tilgangene etter godkjenning? | Leverandørstyrt (`ownerControlledAccess` er `false`) eller eierstyrt (`true`) |
-
-`ownerControlledAccess` gjelder bare når du sender forespørselen selv.
-
----
 ## Dette er ikke avklart ennå
 
 - Endelige navn på `clientRights` og `clientAccessPackages`.
-- Hvem som kan bytte mellom leverandørstyrt og eierstyrt tilgang, og hva som skjer med tilganger kunden har lagt til hvis de bytter tilbake.
-- Om du kan sende endringsforespørsel til en systembruker med eierstyrt tilgang.
+- Hvem som kan bytte mellom «Leverandøren bestemmer» og «Virksomheten bestemmer», og hva som skjer med tilganger kunden har lagt til hvis de bytter tilbake.
+- Om du kan sende endringsforespørsel til en systembruker der virksomheten bestemmer tilgangene.
 - Hvordan du kan lese hvilke tilganger systembrukeren faktisk har, og få varsel når de endrer seg.
 - Når funksjonaliteten blir tilgjengelig i testmiljøet og i produksjon.
 

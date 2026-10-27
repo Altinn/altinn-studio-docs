@@ -82,7 +82,7 @@ For forhåndsdefinerte klienttilganger gjelder hele settet av klientpakker og en
 Hvis klientens delegering til eiervirksomheten slettes, skal tilhørende videredelegeringer slettes. Avhengigheten følger rettighetsgrunnlaget, uavhengig av type og flagg.
 
 ---
-## Vedtatt: Eksplisitt flagg for eierstyrt tilgang
+## Vedtatt: Eksplisitt flagg for «Virksomheten bestemmer»
 
 ```json
 { "ownerControlledAccess": true }
@@ -92,7 +92,9 @@ Flagget sier at eiervirksomheten styrer tilgangene etter aksept og kan legge til
 
 **Ett flagg gjelder både egen virksomhet og klienter.** Virksomhetens delegeringsmyndighet og fullmakter gjelder fortsatt.
 
-Vi bruker navnet `ownerControlledAccess` i kontraktsforslaget (tidligere `withoutPredefinedRights`). Tomme lister alene markerer ikke eierstyrt tilgang.
+Vi bruker navnet `ownerControlledAccess` i kontraktsforslaget (tidligere `withoutPredefinedRights`). Tomme lister alene betyr ikke at virksomheten bestemmer.
+
+I grensesnittet heter de to måtene «Leverandøren bestemmer» (`false`) og «Virksomheten bestemmer» (`true`). Vedtatt 27. oktober 2026.
 
 Oppdatert 26. oktober 2026: flagget kan kombineres med lister, aksepten er alltid alt eller ingenting på listene, og flagget kan endres i etterkant.
 
@@ -238,7 +240,7 @@ Rettighetskravene i systemregisteret inngår ikke i innholdsvalideringen av fore
 
 Forespørsel, lagring, svarmodeller og godkjenningsbilde må bevare skillet mellom egen- og klienttilganger. Aksept og senere delegering må bruke kravene fra forespørselen, også når systemets lister er tomme eller endres.
 
-Standard GUI må håndtere rettighetssettet samlet for klienter, samlet sletting for egen virksomhet og eierstyrt delegering når flagget er satt.
+Standard GUI må håndtere rettighetssettet samlet for klienter, samlet sletting for egen virksomhet og individuell delegering når virksomheten bestemmer.
 
 Direkte klienttilknytning, tokeninnhold uten registertilknytning og sporing av rettighetsgrunnlag må beskrives videre.
 
