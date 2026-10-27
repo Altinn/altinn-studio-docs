@@ -236,46 +236,106 @@ Vi vurderer et API og varsling slik at du kan se hvilke tilganger systembrukeren
 Er du i tvil, fortsett som i dag. Du kan ta i bruk flagget for nye kunder senere.
 
 ---
-## Virksomhetene finner systembrukerne i de vanlige oversiktene
+## Om skjermbildene
 
-Virksomhetene finner alle systembrukere på de samme sidene som andre brukere, under **Brukere** og **Klientadministrasjon** i Tilgangsstyring. Den egne siden for klientdelegering til systembruker forsvinner.
+De neste lysbildene viser hvordan virksomhetene vil se og forvalte systembrukere i Tilgangsstyring.
 
-{{< systemuser-ui "overview" >}}
+- Skjermbildene er forslag til design fra en prototype. Vi kan endre utformingen, men det funksjonelle er vedtatt.
+- I skjermbildene heter de to måtene **Leverandøren bestemmer** og **Virksomheten bestemmer**. Det er det samme som leverandørstyrt og eierstyrt tilgang.
+- De stiplede merkene R1–R25 viser hvilken regel et element oppfyller. Reglene står forklart til slutt i presentasjonen.
+- To ting i skjermbildene er ikke vedtatt: lenken **Endre hvem som bestemmer tilgangene**, og at leverandørens forslag er forhåndsvalgt når virksomheten knytter til en ny klient. Det siste er merket **Designforslag**.
 
----
-## Brukersiden ved leverandørstyrt tilgang
-
-Virksomheten ser tilgangene på brukersiden. Den eneste endringen de kan gjøre der, er å slette hele systembrukeren med alle tilganger.
-
-{{< systemuser-ui "preset-own" >}}
+Alle navn, organisasjonsnumre og tilganger er fiktive.
 
 ---
-## Klienter ved leverandørstyrt tilgang
+## Virksomhetene finner systembrukerne under Brukere
 
-Når virksomheten knytter en klient til systembrukeren, gir de hele settet med klienttilganger fra forespørselen samtidig. De kan velge hele settet eller ingenting.
+Systembrukerne ligger i en egen gruppe på den vanlige brukersiden. Virksomheten kan filtrere på systembrukere, og ser hvem som bestemmer tilgangene for hver av dem.
 
-{{< systemuser-ui "preset-client" >}}
+[![Brukere-siden for Nordlys Regnskap AS med personen Ada Eksempel og fire systembrukere i en egen gruppe](/images/authorization/systemuser/2026-10-27/brukere-oversikt.webp)](/images/authorization/systemuser/2026-10-27/brukere-oversikt.webp "Åpne skjermbildet i full størrelse")
+
+*Forslag til design. Klikk på bildet for full størrelse.*
 
 ---
-## Brukersiden ved eierstyrt tilgang
+## Klientadministrasjon viser også systembrukerne
 
-Virksomheten ser tilgangene systembrukeren har, både de som kom fra forslaget ditt og de virksomheten har lagt til selv. Hver tilgang har en egen knapp for å fjerne den. Prøv å klikke **Fjern**.
+Fanen **Brukere** i Klientadministrasjon viser personer og systembrukere med klienttilgang, og hvor mange klienter hver av dem har.
 
-{{< systemuser-ui "owner-edit" >}}
+[![Klientadministrasjon, fanen Brukere, med Kari Nordmann og tre systembrukere med klienttilgang, og to brukere uten klienter ennå](/images/authorization/systemuser/2026-10-27/klientadministrasjon-brukere.webp)](/images/authorization/systemuser/2026-10-27/klientadministrasjon-brukere.webp "Åpne skjermbildet i full størrelse")
+
+*Forslag til design. Klikk på bildet for full størrelse.*
+
+---
+## Brukersiden når leverandøren bestemmer
+
+Virksomheten ser tilgangene, men kan ikke fjerne eller legge til enkelttilganger. Den eneste endringen er å slette hele systembrukeren. Siden forklarer at leverandøren endrer tilgangene med en endringsforespørsel.
+
+[![Systembrukeren Regnskap Pluss der leverandøren bestemmer tilgangene, med tilgangspakken Skattegrunnlag uten knapper for å fjerne den](/images/authorization/systemuser/2026-10-27/systembruker-leverandoren-bestemmer.webp)](/images/authorization/systemuser/2026-10-27/systembruker-leverandoren-bestemmer.webp "Åpne skjermbildet i full størrelse")
+
+*Forslag til design. Klikk på bildet for full størrelse.*
+
+---
+## Klienter når leverandøren bestemmer
+
+Øverst står settet systembrukeren får for hver klient. Virksomheten ser hvilke klienter som er knyttet til, hvilke de kan knytte til, og hvilke som mangler noe. Klientene som mangler fullmakter, viser nøyaktig hva som mangler.
+
+[![Regnskap Pluss i Klientadministrasjon med én klient knyttet til og to klienter som mangler enkelttjenesten Innsending av MVA-melding](/images/authorization/systemuser/2026-10-27/klienter-leverandoren-bestemmer.webp)](/images/authorization/systemuser/2026-10-27/klienter-leverandoren-bestemmer.webp "Åpne skjermbildet i full størrelse")
+
+*Forslag til design. Klikk på bildet for full størrelse.*
+
+---
+## Virksomheten knytter til en klient
+
+Når virksomheten knytter til en klient, bekrefter de hele settet samtidig. De kan ikke velge bort deler av det.
+
+[![Bekreftelse: Vil du knytte Havbris Fiskeoppdrett AS til Lønn Direkte? Lønn Direkte får hele settet samtidig](/images/authorization/systemuser/2026-10-27/knytt-klient-hele-settet.webp)](/images/authorization/systemuser/2026-10-27/knytt-klient-hele-settet.webp "Åpne skjermbildet i full størrelse")
+
+*Forslag til design. Klikk på bildet for full størrelse.*
+
+---
+## Brukersiden når virksomheten bestemmer
+
+Hver tilgang har en knapp for å slette fullmakten. Merket viser om tilgangen kom fra leverandørens forslag eller ble lagt til av virksomheten. Virksomheten kan fjerne begge typene.
+
+[![Systembrukeren Egen integrasjon der virksomheten bestemmer, med Skattegrunnlag fra leverandørens forslag og A-ordningen lagt til av virksomheten](/images/authorization/systemuser/2026-10-27/systembruker-virksomheten-bestemmer.webp)](/images/authorization/systemuser/2026-10-27/systembruker-virksomheten-bestemmer.webp "Åpne skjermbildet i full størrelse")
+
+*Forslag til design. Klikk på bildet for full størrelse.*
 
 ---
 ## Virksomheten gir flere tilganger
 
-Med **Gi flere fullmakter** velger virksomheten nye tilgangspakker og enkeltrettigheter én og én. De kan bare gi tilganger de selv har myndighet til å gi.
+Med **Gi fullmakt** velger virksomheten tilgangspakker og enkelttjenester én og én. Det virksomheten ikke har myndighet til å gi, er merket **Kan ikke gis**, med en forklaring.
 
-{{< systemuser-ui "free" >}}
+[![Dialogen Hva skal Egen integrasjon få tilgang til? med tilgangspakker virksomheten kan gi, har gitt og ikke kan gi](/images/authorization/systemuser/2026-10-27/gi-fullmakt-systembruker.webp)](/images/authorization/systemuser/2026-10-27/gi-fullmakt-systembruker.webp "Åpne skjermbildet i full størrelse")
+
+*Forslag til design. Klikk på bildet for full størrelse.*
 
 ---
-## Klienter ved eierstyrt tilgang
+## Systembruker uten tilganger
 
-For hver klient velger virksomheten hvilke av klientens fullmakter systembrukeren skal få. De trenger ikke ta hele settet, og de kan endre valgene senere.
+Sender du flagget uten lister, starter systembrukeren uten tilganger. Virksomheten ser at systemet ikke kan gjøre noe før de gir fullmakt.
 
-{{< systemuser-ui "owner-client" >}}
+[![Systembrukeren Rapportrobot uten tilgangspakker, med knappen Gi fullmakt](/images/authorization/systemuser/2026-10-27/systembruker-uten-tilganger.webp)](/images/authorization/systemuser/2026-10-27/systembruker-uten-tilganger.webp "Åpne skjermbildet i full størrelse")
+
+*Forslag til design. Klikk på bildet for full størrelse.*
+
+---
+## Klienter når virksomheten bestemmer
+
+For hver klient velger virksomheten hvilke av klientens fullmakter systembrukeren skal få. Tjenester klienten har gitt gjennom en tilgangspakke, kan virksomheten ikke gi alene. Varselet øverst viser hva som skjer når en klient trekker tilbake en fullmakt.
+
+[![Egen integrasjon i Klientadministrasjon med valg per klient, et varsel om at Fjordbakeriet AS trakk tilbake en fullmakt, og en ny klient med forhåndsvalg](/images/authorization/systemuser/2026-10-27/klienter-virksomheten-bestemmer.webp)](/images/authorization/systemuser/2026-10-27/klienter-virksomheten-bestemmer.webp "Åpne skjermbildet i full størrelse")
+
+*Forslag til design. Klikk på bildet for full størrelse.*
+
+---
+## Klientens side viser alle systembrukerne
+
+På siden for en klient ser virksomheten hvem som har tilgang, hvem som kan få tilgang, og hvem som ikke kan. Systembrukere står sammen med personene.
+
+[![Klientsiden for Eksempelklient AS med brukere og systembrukere som har tilgang, kan få tilgang og ikke kan få tilgang](/images/authorization/systemuser/2026-10-27/klientside-eksempelklient.webp)](/images/authorization/systemuser/2026-10-27/klientside-eksempelklient.webp "Åpne skjermbildet i full størrelse")
+
+*Forslag til design. Klikk på bildet for full størrelse.*
 
 ---
 ## Dette er likt som i dag for virksomhetene
@@ -316,3 +376,52 @@ Vi oppdaterer veiledningene for systemleverandører og virksomheter før funksjo
 - [Slik godkjenner virksomheten en systembruker](/nb/authorization/guides/end-user/system-user/accept-request/)
 - [Vedtakene og de åpne valgene, presentasjonen for teamet](../diskusjonsgrunnlag/)
 - [Arbeidet på GitHub, epic for systembrukermodellen](https://github.com/Altinn/altinn-auth/issues/4510)
+
+---
+## Reglene bak skjermbildene: synlighet
+
+| Regel | Hva den betyr |
+|---|---|
+| R1 | **Brukere** viser alle systembrukere virksomheten eier, sammen med personer og virksomheter. |
+| R2 | **Klientadministrasjon** og klientens side viser også systembrukere med klienttilganger eller klientkrav. |
+| R3 | Det går fram at raden er en systembruker, hvilket system og hvilken leverandør den tilhører, og hvem som bestemmer tilgangene. |
+| R4 | Virksomheten oppretter ikke systembrukere med **Ny bruker**. De kommer fra en forespørsel fra leverandøren, eller fra siden **Systembrukere** når virksomheten velger et system selv. |
+
+---
+## Reglene bak skjermbildene: leverandøren bestemmer
+
+| Regel | Hva den betyr |
+|---|---|
+| R5 | Siden viser tilgangspakker og enkelttjenester uten knapper for å fjerne eller legge til enkelttilganger. |
+| R6 | Den eneste endringen er å slette hele systembrukeren, med alle tilganger og klientdelegeringer. |
+| R7 | Siden forklarer at leverandøren bestemmer tilgangene, og at endringer kommer som en endringsforespørsel. |
+| R8 | Når virksomheten knytter til en klient, gir de hele klientsettet samtidig. Det er hele settet eller ingenting. |
+| R9 | Virksomheten kan ikke knytte til klienter som ikke har gitt dem hele settet. Siden viser dem likevel, med hva som mangler. |
+| R10 | Virksomheten kan fjerne en klient. Da fjerner de hele settet for den klienten. |
+| R11 | Virksomheten kan knytte til mange klienter samtidig. |
+| R12 | Siden skjuler slettede klienter som standard, med et valg for å vise dem. |
+
+---
+## Reglene bak skjermbildene: virksomheten bestemmer
+
+| Regel | Hva den betyr |
+|---|---|
+| R13 | Virksomheten kan fjerne hver tilgangspakke og enkelttjeneste for seg, med bekreftelse. |
+| R14 | Virksomheten kan gi nye tilganger med den vanlige flyten for å gi fullmakt, men bare det de selv har myndighet til å gi. Siden viser resten med en forklaring. |
+| R15 | Det går fram om en tilgang kom fra leverandørens forslag eller ble lagt til av virksomheten. Virksomheten kan fjerne begge typene. |
+| R16 | En systembruker uten tilganger forklarer at systemet ikke kan gjøre noe ennå, og har en tydelig inngang til å gi fullmakt. |
+| R17 | Virksomheten kan slette hele systembrukeren. |
+| R18 | For hver klient velger virksomheten tilgangspakker og enkelttjenester én og én, blant fullmaktene klienten har gitt. |
+| R19 | Virksomheten kan bare gi en enkelttjeneste videre hvis klienten har gitt den som enkelttjeneste. Handlingene, for eksempel lese og skrive, følger det klienten har gitt. |
+| R20 | Leverandørens forslag kan være forhåndsvalgt når virksomheten knytter til en ny klient. Dette er et designforslag, ikke et vedtak. |
+
+---
+## Reglene bak skjermbildene: felles
+
+| Regel | Hva den betyr |
+|---|---|
+| R21 | Trekker en klient tilbake en fullmakt, forsvinner klientdelegeringene til systembrukeren automatisk, og virksomheten får vite det. |
+| R22 | Bare den som har myndighet, ser handlingene. Den som ikke er tilgangsstyrer eller klientadministrator, ser det samme som i dag. |
+| R23 | Lenker fra siden **Systembrukere** leder til de nye sidene, ikke til den gamle klientsiden. |
+| R24 | Systembrukerens side viser hvem som bestemmer tilgangene. |
+| R25 | Virksomheten kan bytte hvem som bestemmer tilgangene. Reglene for byttet er ikke avklart, så dette er bare et forslag. |
