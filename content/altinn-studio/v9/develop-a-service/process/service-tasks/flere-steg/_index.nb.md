@@ -143,7 +143,7 @@ private async Task<ServiceTaskExchangeResult> HandleAnswer(ServiceTaskContext co
 }
 
 private Task<ServiceTaskResult> HandleClosed(ServiceTaskContext context, MailboxClosedReason reason) =>
-    // Typeargumentet er nødvendig: uten det blir returtypen Task<ServiceTaskFailedResult>, som ikke kompilerer.
+    // Typeargumentet er nødvendig: uten det blir returtypen Task<FailedServiceTaskResult>, som ikke kompilerer.
     Task.FromResult<ServiceTaskResult>(ServiceTaskResult.FailedPermanent("Fikk aldri svar fra samarbeidspartneren."));
 ```
 

@@ -16,7 +16,7 @@ public class ProcessTaskStartHandler(ISomeTaxService someTaxService) : IOnTaskSt
   /// </summary>
   public bool ShouldRunForTask(string taskId) => taskId == "Task_1";
 
-  public async Task<HookResult> Execute(OnTaskStartingContext context)
+  public async Task<HandlerResult> Execute(OnTaskStartingContext context)
   {
     var dataMutator = context.InstanceDataMutator;
     var taxPrefill = await someTaxService.GetTaxPrefillData(dataMutator.Instance);
@@ -40,7 +40,7 @@ public class ProcessTaskStartHandler(ISomeTaxService someTaxService) : IOnTaskSt
       restrictedData.Spouse = spouse;
     }
 
-    return HookResult.Success();
+    return HandlerResult.Success();
   }
 }
 {{< /highlight >}}
