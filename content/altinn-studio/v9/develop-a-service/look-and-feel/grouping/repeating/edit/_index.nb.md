@@ -72,7 +72,7 @@ Du kan endre utseendet på knappen med egenskapen `addButton` på selve gruppen,
 
 Vanligvis skjuler appen **Legg til ny**-knappen mens en rad er åpen. Med `"alwaysShowAddButton": true` ser brukeren knappen også da. Når brukeren klikker på den, lukker appen raden som er åpen, og åpner den nye raden. Hvis du bruker `validateOnSaveRow` og den åpne raden har feil, må brukeren rette dem før appen legger til en ny rad.
 
-Brukeren ser bare knappen hvis
+Også med `alwaysShowAddButton` ser brukeren bare knappen hvis
 
 - `addButton` ikke er satt til `false`
 - gruppen har færre rader enn `maxCount`
