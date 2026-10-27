@@ -80,6 +80,8 @@ button:disabled { opacity: .4; cursor: default; }
 .ui-example [data-selection-mark] { min-width: 16px; }
 .ui-group.is-empty [data-selection-mark] { color: #9aa4b0; }
 .ui-group.is-empty .ui-fixed-rights { color: #68788b; }
+.ui-row.is-removed { background: #f4f6f8; }
+.ui-row.is-removed .ui-row-title, .ui-row.is-removed .ui-row-meta { text-decoration: line-through; color: #68788b; }
 @media (max-width: 760px) {
   .slide { padding: 28px 20px; }
   table { font-size: 16px; }

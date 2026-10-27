@@ -26,6 +26,7 @@ Funksjonaliteten er under utvikling og er ikke tilgjengelig ennå. Vi kan endre 
 - **Én systembruker for egen virksomhet og klienter.** Du trenger ikke lenger velge mellom systembruker for eget system og for klientsystem.
 - **Enkeltrettigheter også for klienter.** I dag kan du bare be om tilgangspakker for klientsystem.
 - **Forespørselen bestemmer rettighetene.** Du trenger ikke registrere hver rettighet på systemet først.
+- **Tomme lister for egen virksomhet er lov.** Da trenger kunden bare å være tilgangsstyrer for å godkjenne.
 - **Kunden kan få styre tilgangene selv.** Med det nye flagget `ownerControlledAccess` kan virksomheten justere tilgangene etter at den har godkjent.
 
 ---
@@ -106,10 +107,25 @@ Kunden kan bytte mellom de to måtene etter at systembrukeren er opprettet.
 Kunden godkjenner forespørselen på samme måte som nå, med lenken fra `confirmUrl`.
 
 - **Alt eller ingenting.** Kunden godkjenner hele forespørselen eller avviser den. Kunden kan ikke fjerne enkelte rettigheter mens de godkjenner.
-- **Kunden må ha myndighet til alt.** Mangler kunden myndighet til én av tilgangene, kan de ikke godkjenne.
-- **Eierstyrt tilgang krever mer.** Når flagget er satt, må den som godkjenner også ha tilgangspakken for tilgangsstyring.
+- **Den som godkjenner, må være tilgangsstyrer for virksomheten.** Det gjelder alle forespørsler, som i dag, og uansett flagg.
+- **Tilganger for egen virksomhet krever myndighet til hver tilgang.** Mangler kunden myndighet til én av dem, kan de ikke godkjenne.
 
 Eventuelle endringer gjør kunden etterpå, og bare når systembrukeren har eierstyrt tilgang.
+
+---
+## Hva Altinn kontrollerer når kunden godkjenner
+
+Du kan nå be om tomme lister for egen virksomhet. Da er det eneste Altinn kontrollerer ved godkjenning, at den som godkjenner er tilgangsstyrer.
+
+| Forespørselen inneholder | Altinn kontrollerer ved godkjenning |
+|---|---|
+| Ingen tilganger, med `ownerControlledAccess` | At den som godkjenner er tilgangsstyrer |
+| Bare tilganger for klienter | At den som godkjenner er tilgangsstyrer |
+| Tilganger for egen virksomhet | At den som godkjenner er tilgangsstyrer, og har myndighet til å gi hver av tilgangene |
+
+Klienttilgangene kontrollerer Altinn først når virksomheten knytter en klient til systembrukeren. Da må virksomheten ha fått fullmakten fra klienten.
+
+Flagget `ownerControlledAccess` endrer ikke hva Altinn kontrollerer ved godkjenning.
 
 ---
 ## Fire kombinasjoner av flagg og lister
@@ -118,7 +134,7 @@ Eventuelle endringer gjør kunden etterpå, og bare når systembrukeren har eier
 |---|---|---|---|
 | `false` eller utelatt | Minst én tilgang | Gyldig. Listene er krav, som i dag. | Systemet trenger et fast sett tilganger. |
 | `true` | Minst én tilgang | Gyldig. Kunden får forslaget ved godkjenning og kan endre etterpå. | Du vet hva de fleste trenger, men behovet varierer. |
-| `true` | Alle tomme | Gyldig. Systembrukeren starter uten tilganger. | Kunden vil gi alle tilganger selv. |
+| `true` | Alle tomme | Gyldig. Systembrukeren starter uten tilganger, og kunden trenger bare å være tilgangsstyrer for å godkjenne. | Kunden vil gi alle tilganger selv. |
 | `false` eller utelatt | Alle tomme | Avvist | – |
 
 Flagget gir aldri tilganger av seg selv. Kunden kan bare gi tilganger de har myndighet til å gi.
@@ -243,9 +259,23 @@ Når virksomheten knytter en klient til systembrukeren, gir de hele settet med k
 ---
 ## Brukersiden ved eierstyrt tilgang
 
-Virksomheten velger tilgangspakker og enkeltrettigheter én og én, både for seg selv og for klientene. De kan bare gi tilganger de selv har myndighet til å gi.
+Virksomheten ser tilgangene systembrukeren har, både de som kom fra forslaget ditt og de virksomheten har lagt til selv. Hver tilgang har en egen knapp for å fjerne den. Prøv å klikke **Fjern**.
+
+{{< systemuser-ui "owner-edit" >}}
+
+---
+## Virksomheten gir flere tilganger
+
+Med **Gi flere fullmakter** velger virksomheten nye tilgangspakker og enkeltrettigheter én og én. De kan bare gi tilganger de selv har myndighet til å gi.
 
 {{< systemuser-ui "free" >}}
+
+---
+## Klienter ved eierstyrt tilgang
+
+For hver klient velger virksomheten hvilke av klientens fullmakter systembrukeren skal få. De trenger ikke ta hele settet, og de kan endre valgene senere.
+
+{{< systemuser-ui "owner-client" >}}
 
 ---
 ## Dette er likt som i dag for virksomhetene

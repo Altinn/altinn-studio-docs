@@ -63,7 +63,7 @@ graph TD
   CHECK --> DELEGATE["Deleger klienttilgangene innenfor oppsettet"]
 {{< /mermaid >}}
 
-Ved `ownerControlledAccess=true` delegeres eventuelle lister ved aksept som initialt forslag. Aksept krever tilgangsstyringspakken og er alt eller ingenting på listene. Pakker og enkeltrettigheter kan deretter legges til og fjernes i GUI. Flagget gjelder både egen virksomhet og klienter.
+Ved `ownerControlledAccess=true` delegeres eventuelle lister ved aksept som initialt forslag. Aksept er alt eller ingenting på listene. Den som godkjenner, må alltid være tilgangsstyrer, uansett flagg. Er listene for egen virksomhet tomme, er det eneste Altinn kontrollerer ved aksept. Pakker og enkeltrettigheter kan deretter legges til og fjernes i GUI. Flagget gjelder både egen virksomhet og klienter.
 
 ## Vedtatt: Vanlige bruker- og klientflater
 

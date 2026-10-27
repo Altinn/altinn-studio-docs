@@ -70,7 +70,7 @@ Leverandøren angir alle fire lister i forespørselen, uavhengig av rettighetskr
 
 Klientlistene tildeler ingen klienttilgang på dette tidspunktet. De definerer hvilke tilganger som kan delegeres senere.
 
-For systembruker uten forhåndsdefinerte rettigheter krever aksept tilgangsstyringspakken. Tilgangene gis senere gjennom GUI.
+Aksept krever alltid at den som godkjenner er tilgangsstyrer, uansett flagg. Tilganger for egen virksomhet krever i tillegg myndighet til hver tilgang. Er listene for egen virksomhet tomme, er tilgangsstyrer det eneste Altinn kontrollerer ved aksept. Med `ownerControlledAccess=true` kan virksomheten gi tilgangene senere i GUI.
 
 ---
 ## Vedtatt: Tilganger når klienten knyttes til

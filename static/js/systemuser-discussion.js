@@ -71,9 +71,27 @@
   document.querySelectorAll('[data-close-dialog]').forEach((button) => {
     button.addEventListener('click', () => button.closest('dialog').close());
   });
+  document.querySelectorAll('[data-owner-remove]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const row = button.closest('[data-owner-row]');
+      const figure = button.closest('figure');
+      const title = row.querySelector('.ui-row-title').textContent;
+      const removed = row.classList.toggle('is-removed');
+      button.textContent = removed ? 'Angre' : 'Fjern';
+      button.setAttribute('aria-label', `${removed ? 'Angre fjerning av' : 'Fjern'} ${title}`);
+      const count = figure.querySelectorAll('[data-owner-row]:not(.is-removed)').length;
+      const total = `Systembrukeren har ${count} ${count === 1 ? 'tilgang' : 'tilganger'}.`;
+      figure.querySelector('[data-owner-status]').textContent = removed
+        ? `${title} er fjernet i illustrasjonen. ${total}`
+        : total;
+    });
+  });
+  // A demo link may list several views; it opens the first one this page has.
   document.querySelectorAll('[data-show-demo]').forEach((button) => {
     button.addEventListener('click', () => {
-      const target = document.querySelector(`[data-demo="${button.dataset.showDemo}"]`);
+      const target = button.dataset.showDemo.split(' ')
+        .map((view) => document.querySelector(`[data-demo="${view}"]`))
+        .find(Boolean);
       if (target) { all = false; go(slides.indexOf(target.closest('.slide'))); }
     });
   });
