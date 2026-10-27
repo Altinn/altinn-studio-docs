@@ -36,7 +36,7 @@ Dette er også **fet tekst**, men laget med stjerner!
 
 ### Linjeskift
 
-Et enkelt `\n` gir ikke synlig linjeskift. Appen viser teksten på én linje. Vil du at teksten skal fortsette på en ny linje, bruker du to linjeskift etter hverandre (`\n\n`):
+Et enkelt `\n` gir ikke synlig linjeskift. Appen viser teksten på én linje. Vil du at teksten skal fortsette på en ny linje, bruker du to linjeskift etter hverandre (`\n\n`). Da lager appen et nytt avsnitt, men uten ekstra mellomrom, så teksten ser ut som den fortsetter på neste linje:
 
 ```markdown
 Dette er en tekst.\n\nDette er en tekst på neste linje. 
@@ -124,7 +124,7 @@ Noen standardtekster har en plassholder for et tall. Et eksempel er `form_filler
 
 ![Tekster i appen](./defaultErrorMessageNB.png "Standardtekst i appen")
 
-Hvis du endrer en slik tekst, fyller ikke appen inn tallet. Skriv derfor hele teksten, inkludert tallet.
+Hvis du endrer en slik tekst, fyller ikke appen inn tallet. Skriv derfor hele teksten, inkludert tallet. Teksten gjelder for alle filopplastingskomponentene i appen, så tallet må passe for alle komponentene som har et minimum antall vedlegg.
 
 Legg til tekstnøkkelen og den nye verdien i `App/config/texts/resource.{språk}.json`. Bruk hele nøkkelen, inkludert prefikset (for eksempel `form_filler.`).
 
