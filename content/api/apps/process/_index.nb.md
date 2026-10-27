@@ -230,7 +230,7 @@ PUT {basePath}/api/v1/instances/347829/41e57962-dfb7-4502-a4dd-8da28b0885fc/proc
 ## Complete the process
 
 {{% notice info %}}
-Apps on version 9 do not have this endpoint. Call `process/next` once per task until the process ends.
+Apps on version 9 do not have this endpoint. Call `process/next` for each user task instead, with the action the task needs, such as `sign` on a signing task or `confirm` on a confirmation task.
 {{% /notice %}}
 
 The complete process method will attempt to complete the process for an instance. Hence, the app will move the process from one task to the next until it reaches an valid end state.
