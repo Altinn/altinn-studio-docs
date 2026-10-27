@@ -15,7 +15,7 @@ Appen kjører egen kode gjennom grensesnitt i applikasjonsbibliotekene. Du lager
 | --- | --- |
 | [`IOnTaskStartingHandler`]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks" >}}#kjøre-kode-når-en-oppgave-starter) | kjøre kode når en oppgave starter |
 | [`IOnTaskEndingHandler`]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks" >}}#kjøre-kode-når-en-oppgave-avsluttes) | kjøre kode når en oppgave avsluttes, før prosessen går videre |
-| [`IOnTaskAbandonHandler`]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks" >}}#kjøre-kode-når-en-oppgave-avbrytes) | kjøre kode når en oppgave avbrytes |
+| [`IOnTaskAbandoningHandler`]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks" >}}#kjøre-kode-når-en-oppgave-avbrytes) | kjøre kode når en oppgave avbrytes |
 | [`IOnProcessEndedHandler`]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks" >}}#kjøre-kode-etter-at-prosessen-er-avsluttet) | kjøre kode etter at prosessen er avsluttet og lagret |
 | [`IProcessExclusiveGateway`]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/exclusive-gateways" >}}) | avgjøre hvilken vei prosessen tar ut av en gateway |
 | [`IServiceTask`]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}) | lage en systemoppgave som gjør én ting |
