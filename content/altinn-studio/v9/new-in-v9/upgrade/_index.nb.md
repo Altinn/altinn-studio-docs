@@ -250,7 +250,7 @@ Se [Prosess-hooks]({{< relref "/altinn-studio/v9/develop-a-service/reference/con
 
 ### Vi har fjernet `process/completeProcess`
 
-Appen har ikke lenger endepunktet `PUT .../process/completeProcess`. Kaller et system det for å fullføre instanser, må det i stedet kalle `PUT .../process/next` for hver brukeroppgave, med handlingen oppgaven trenger, for eksempel `sign` på en signeringsoppgave eller `confirm` på en bekreftelsesoppgave.
+Appen har ikke lenger endepunktet `PUT .../process/completeProcess`. Bruker systemet deres det til å avslutte en tilbakemeldingsoppgave når dere har behandlet innsendingen, kaller dere `PUT .../process/next` i stedet.
 
 ### Mindre endringer
 
