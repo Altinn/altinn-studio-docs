@@ -248,6 +248,10 @@ Hvis appen din har en klasse som implementerer `IProcessEnd`, må du flytte kode
 
 Se [Prosess-hooks]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks" >}}) for detaljene.
 
+### Vi har fjernet `process/completeProcess`
+
+Appen har ikke lenger endepunktet `PUT .../process/completeProcess`. Kaller et system det for å fullføre instanser, må det i stedet kalle `PUT .../process/next` én gang per oppgave til prosessen er avsluttet.
+
 ### Mindre endringer
 
 Oppgraderingen ordner disse endringene uten at du trenger å gjøre noe, men det er greit å kjenne til dem:
