@@ -12,8 +12,8 @@ En systemoppgave kjører på serveren, men brukeren sitter og venter i nettleser
 
 | Situasjonen | Dette ser brukeren | Slik kan du endre den |
 | --- | --- | --- |
-| Oppgaven jobber, venter på svar eller prøver på nytt | Den vanlige lastevisningen, uten tekst. Etter åtte sekunder kommer en beskjed om at det tar uvanlig lang tid, og at brukeren trygt kan lukke siden. Feiler et steg mens plattformen prøver på nytt, kommer det i stedet en advarsel om at appen ikke kan behandle skjemaet akkurat nå. | Tekstene i beskjedene, og din egen side for hele tiden oppgaven kjører |
-| Oppgaven har gitt opp, og feilen hører til denne oppgaven | Siden «Noe gikk galt», med knappen **Prøv igjen** | Bare tekstene. Din egen side kommer ikke frem her. |
+| Oppgaven jobber, venter på svar eller prøver på nytt | Den vanlige lastevisningen, uten tekst. Etter åtte sekunder kommer en beskjed om at det tar uvanlig lang tid, og at brukeren trygt kan lukke siden. Feiler et steg mens plattformen prøver på nytt, kommer det i stedet en advarsel om at appen ikke kan behandle skjemaet akkurat nå. | Tekstene i beskjedene. Du kan også lage en egen side som brukeren ser mens oppgaven kjører. |
+| Oppgaven har gitt opp, og feilen hører til denne oppgaven | Siden «Noe gikk galt», med knappen **Prøv igjen** | Bare tekstene. En egen side for oppgaven kommer ikke frem her. |
 | Noe feilet et sted prosessen ikke kan komme videre fra selv | Siden «Noe gikk galt», med referanser brukeren kan oppgi til brukerservice. Ingen knapper. | Bare tekstene |
 
 Venter oppgaven, er det bare oppgaven selv som kan slippe prosessen videre, og appen sender brukeren videre av seg selv når det skjer. Se [de to måtene å vente på]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}#vente-på-svar-fra-et-annet-system).
@@ -63,7 +63,7 @@ Når feilen krever hjelp fra brukerservice:
 | `process_workflow.failure_kind.timeout` | Behandlingen tok for lang tid |
 | `process_workflow.failure_kind.unknown` | Ukjent årsak |
 
-## Lage din egen side
+## Lage en egen side
 
 Trenger brukeren en forklaring mens oppgaven kjører, kan du lage en egen side for oppgaven. Lag en UI-mappe med samme navn som systemoppgaven i prosessen, og list minst én side i `pages.order`:
 
@@ -102,7 +102,7 @@ Slik oppfører siden seg:
 - **Brukeren ser siden hele tiden oppgaven kjører**, fra prosessen kommer til oppgaven og til neste steg står på skjermen, enten oppgaven jobber, venter på svar eller prøver på nytt. Appen fortsetter å sjekke om prosessen har gått videre, og sender brukeren til neste steg når systemoppgaven er ferdig.
 - **Siden er skrivebeskyttet mens oppgaven kjører.** Appen viser komponenter med egenskapen `readOnly` som skrivebeskyttet, lagrer ingen endringer og slår av knapper som sender inn, utfører en handling eller kaller serveren. Brukeren kan fortsatt bla mellom sidene.
 - **Siden din bestemmer hvordan ventingen ser ut.** Beskjeden om at det tar uvanlig lang tid, hører bare til lastevisningen. Skal brukeren vite at det kan ta tid, skriver du det på siden.
-- **Appen varsler om feil øverst på siden.** Feiler et steg mens plattformen prøver på nytt, viser appen den samme advarselen som i lastevisningen, som et banner øverst på siden din. Banneret forsvinner når et steg lykkes.
+- **Appen varsler om feil øverst på siden.** Feiler et steg mens plattformen prøver på nytt, viser appen den samme advarselen som i lastevisningen. Advarselen står øverst på siden, over innholdet, og blir stående når brukeren blar nedover. Den forsvinner når et steg lykkes.
 - **Feilvisningen går foran siden din.** Har oppgaven gitt opp, ser brukeren «Noe gikk galt» med **Prøv igjen**, ikke siden din. Ellers ville brukeren se en vanlig side uten spor av at noe feilet.
 
 I PDF-oppgaven er sidene i `pages.order` det brukeren ser mens appen lager PDF-en, aldri innholdet i PDF-en. Se [PDF]({{< relref "/altinn-studio/v9/develop-a-service/process/pdf" >}}).

@@ -7,7 +7,7 @@ weight: 62
 
 Denne diagnostikken meldes når en `subformPdf`-oppgave i `config/process/process.bpmn` har
 `<altinn:subformComponentId>` eller `<altinn:subformDataTypeId>` i `<altinn:subformPdfConfig>`.
-Innstillingene er ikke lenger støttet av denne versjonen av app-backend. Meldingen navngir
+Denne versjonen av app-backend støtter ikke lenger innstillingene. Meldingen navngir
 oppgaven og elementet.
 
 Kategori `Deprecation`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.

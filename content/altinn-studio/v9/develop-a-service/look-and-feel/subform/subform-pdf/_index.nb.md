@@ -54,10 +54,16 @@ Oppgaven er et `<bpmn:serviceTask>`-element, og den må ha én inngående og én
 
 | Parameter                 | Beskrivelse |
 |---------------------------|-------------|
-| `subformUiFolder`         | Obligatorisk. Navnet på UI-mappen til underskjemaet, altså mappen under `App/ui` som har sidene i underskjemaet. Systemoppgaven lager én PDF for hvert dataelement av datatypen i `defaultDataType` i `Settings.json` for mappen. |
+| `subformUiFolder`         | Obligatorisk. Navnet på UI-mappen til underskjemaet, altså mappen under `App/ui` som har sidene i underskjemaet. Systemoppgaven lager én PDF for hvert dataelement av datatypen som `defaultDataType` i `Settings.json` for mappen angir. |
 | `filenameTextResourceKey` | Valgfri. Nøkkel til tekstressursen som gir filnavnet til PDF-ene. Uten denne får PDF-ene et standard filnavn. Bruk gjerne en variabel i filnavnet, slik at det er lett å skille PDF-ene fra hverandre. |
 
-Bygget stopper hvis `subformUiFolder` ikke er en UI-mappe, mangler `defaultDataType`, eller har en `defaultDataType` som ikke finnes i `applicationmetadata.json`. Se [ALTINNAPP1024]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1024" >}}).
+Bygget stopper hvis
+
+- `subformUiFolder` ikke er en UI-mappe
+- mappen mangler `defaultDataType`
+- `defaultDataType` ikke finnes i `applicationmetadata.json`
+
+Regelsiden for [ALTINNAPP1024]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1024" >}}) forklarer hvordan du retter feilen.
 
 Eksempel på tekstressurs for filnavn med variabel:
 
@@ -145,11 +151,11 @@ App/ui/underskjema/layouts/PdfLayout.json
 
 ### Det brukeren ser
 
-Mens appen lager PDF-ene, ser brukeren den vanlige lastevisningen. Feiler PDF-genereringen, viser appen en standardside med knappen **Prøv igjen**. Vil du vise en egen side mens oppgaven kjører, lager du en UI-mappe med samme navn som systemoppgaven. Les mer i [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}).
+Mens appen lager PDF-ene, ser brukeren den vanlige lastevisningen. Feiler PDF-genereringen, viser appen en standardside med knappen **Prøv igjen**. Vil du vise en egen side mens oppgaven kjører, lager du en UI-mappe med samme navn som systemoppgaven. Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}).
 
 ## Metadata på PDF-ene
 
-Hver PDF får to metadatafelt, som et system som henter PDF-ene kan bruke til å koble dem til riktig oppføring:
+Hver PDF får to metadatafelt. Et system som henter PDF-ene, kan bruke dem til å koble hver PDF til riktig oppføring.
 
 | Nøkkel                 | Verdi |
 |------------------------|-------|

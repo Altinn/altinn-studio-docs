@@ -16,7 +16,7 @@ PDF-oppgaven henter innholdet fra ett av to steder:
 - Har UI-mappen til oppgaven `pdfLayoutName` i `Settings.json`, blir PDF-en den siden. Da ser appen bort fra `autoPdfTaskIds`.
 - Ellers lager appen PDF-en automatisk av oppgavene du lister i `autoPdfTaskIds`.
 
-Sidene i `pages.order` blir aldri en del av PDF-en. De er en venteside som brukeren ser mens oppgaven kjører. Har oppgaven verken `pdfLayoutName` eller `autoPdfTaskIds`, stopper bygget med [ALTINNAPP1000]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1000" >}}).
+Sidene i `pages.order` blir aldri en del av PDF-en. Brukeren ser dem som en venteside mens oppgaven kjører. Har oppgaven verken `pdfLayoutName` eller `autoPdfTaskIds`, stopper bygget med [ALTINNAPP1000]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1000" >}}).
 
 Skal du generere PDF av underskjema, finnes det en egen systemoppgave for det. Se [PDF-generering for underskjema]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/subform/subform-pdf" >}}).
 
