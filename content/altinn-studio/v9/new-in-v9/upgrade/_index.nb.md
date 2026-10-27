@@ -124,6 +124,12 @@ Standardoppsettet lager en PDF som oppsummerer skjemautfyllingen, ut fra skjemao
 V9 støtter i tillegg egenskapen `pageBreak` på `Summary2`-komponenter. Det gjorde ikke app-frontend v4. Se etter om PDF-en har fått flere sideskift enn du ønsker.
 {{% /notice %}}
 
+### PDF av underskjema bruker UI-mappen til underskjemaet
+
+En `subformPdf`-oppgave peker nå på UI-mappen til underskjemaet med `subformUiFolder`, i stedet for `subformComponentId` og `subformDataTypeId`. Oppgaven trenger ingen UI-mappe selv. Oppgraderingen skriver om oppgaven og fjerner UI-mappen som Altinn Studio laget for den, med ventesiden og den skjulte kopien av komponenten **Tabell for underskjema**. Har du lagt til noe annet i mappen, beholder oppgraderingen den og gir en advarsel.
+
+PDF-ene har metadatafeltet `subformUiFolder` i stedet for `subformComponentId`. Leser et system det gamle feltet, må det lese `subformUiFolder` i stedet. Se [PDF-generering for underskjema]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/subform/subform-pdf" >}}).
+
 ### eFormidling har fått sitt eget steg i prosessen
 
 Tidligere sendte appen eFormidling-meldingen når prosessen gikk ut av oppgaven i `sendAfterTaskId`. Oppsettet lå i `eFormidling`-seksjonen i `applicationmetadata.json`, og flagget `EnableEFormidling` i `appsettings` slo sendingen av og på. I v9 er sendingen en egen systemoppgave i prosessen, og all konfigurasjonen ligger på den oppgaven.

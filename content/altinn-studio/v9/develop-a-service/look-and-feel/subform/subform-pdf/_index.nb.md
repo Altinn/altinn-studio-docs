@@ -7,7 +7,7 @@ tags: [underskjema, pdf, needsReview]
 weight: 16
 ---
 
-Med systemoppgaven for underskjema-PDF kan du lage en egen PDF for hver oppføring i et underskjema.
+Med systemoppgaven for underskjema-PDF kan du lage en egen PDF for hver oppføring i et underskjema. Oppgaven lager PDF-ene fra UI-mappen til underskjemaet, og trenger ingen UI-mappe selv.
 
 {{<notice warning>}}
 Systemoppgaven lager PDF-ene én etter én, i ett og samme steg i prosessen. Steget har en tidsgrense, så med mange oppføringer kan det ta for lang tid. Test med et realistisk antall oppføringer i testmiljøet.
@@ -19,22 +19,14 @@ Appen har ett eller flere underskjemaer. Denne veiledningen forklarer ikke hvord
 
 ## Slik setter du opp PDF-generering
 
+### Legge til oppgaven i Altinn Studio
+
+1. Åpne arbeidsflyt-editoren og dra inn PDF-systemoppgaven for underskjema der i prosessen du vil lage PDF-ene, ofte rett etter dataoppgaven med underskjemaet.
+2. Velg underskjemaet under **Underskjema** i konfigurasjonspanelet.
+
 ### process.bpmn
 
-Du må legge til en `serviceTask` av typen `subformPdf` i prosessen.
-
-{{% notice info %}}
-Du kan foreløpig ikke dra inn underskjema-PDF direkte i arbeidsflyt-editoren i Altinn Studio.
-{{% /notice %}}
-
-Inntil videre anbefaler vi følgende fremgangsmåte:
-
-1. Dra inn en vanlig dataoppgave i arbeidsflyt-editoren.
-2. Del endringene i Studio.
-3. Rediger `process.bpmn` manuelt på egen maskin.
-4. Konverter dataoppgaven til en `bpmn:serviceTask` (se eksempel nedenfor).
-
-Slik blir sekvensflytene og diagrammet riktige.
+Altinn Studio skriver oppsettet til `process.bpmn`. Setter du opp oppgaven for hånd, ser den slik ut:
 
 {{< code-title >}}
 App/config/process/process.bpmn
@@ -47,8 +39,7 @@ App/config/process/process.bpmn
             <altinn:taskType>subformPdf</altinn:taskType>
             <altinn:subformPdfConfig>
                 <altinn:filenameTextResourceKey>subformPdfFileName</altinn:filenameTextResourceKey>
-                <altinn:subformComponentId>mySubformComponentId</altinn:subformComponentId>
-                <altinn:subformDataTypeId>SubformModel</altinn:subformDataTypeId>
+                <altinn:subformUiFolder>underskjema</altinn:subformUiFolder>
             </altinn:subformPdfConfig>
         </altinn:taskExtension>
     </bpmn:extensionElements>
@@ -57,15 +48,16 @@ App/config/process/process.bpmn
 </bpmn:serviceTask>
 ```
 
-Oppgaven må ha én inngående og én utgående sekvensflyt.
+Oppgaven er et `<bpmn:serviceTask>`-element, og den må ha én inngående og én utgående sekvensflyt.
 
 #### Parametere i subformPdfConfig
 
-| Parameter                 | Beskrivelse                                                                                                                                                                                                            |
-|---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `filenameTextResourceKey` | Nøkkel til tekstressursen som definerer filnavnet for den genererte PDF-en. Valgfri. Uten denne får PDF-en et standard filnavn. Kan inneholde variabler. Bruk gjerne en variabel i filnavnet som gjør det enkelt å skille de ulike underskjema-PDF-ene fra hverandre. |
-| `subformComponentId`      | Obligatorisk. ID-en til komponenten **Tabell for underskjema** (`Subform`) i hovedskjemaet. Du må også ha en skjult kopi av komponenten med samme ID i layouten til systemoppgaven, se [PdfSubform/layouts/ServiceTask.json](#pdfsubformlayoutsservicetaskjson). |
-| `subformDataTypeId`       | Obligatorisk. ID-en til datatypen for underskjemaet. Systemoppgaven lager én PDF for hvert dataelement av denne typen.                                                                                                      |
+| Parameter                 | Beskrivelse |
+|---------------------------|-------------|
+| `subformUiFolder`         | Obligatorisk. Navnet på UI-mappen til underskjemaet, altså mappen under `App/ui` som har sidene i underskjemaet. Systemoppgaven lager én PDF for hvert dataelement av datatypen i `defaultDataType` i `Settings.json` for mappen. |
+| `filenameTextResourceKey` | Valgfri. Nøkkel til tekstressursen som gir filnavnet til PDF-ene. Uten denne får PDF-ene et standard filnavn. Bruk gjerne en variabel i filnavnet, slik at det er lett å skille PDF-ene fra hverandre. |
+
+Bygget stopper hvis `subformUiFolder` ikke er en UI-mappe, mangler `defaultDataType`, eller har en `defaultDataType` som ikke finnes i `applicationmetadata.json`. Se [ALTINNAPP1024]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1024" >}}).
 
 Eksempel på tekstressurs for filnavn med variabel:
 
@@ -86,44 +78,22 @@ App/config/texts/resource.{language}.json
 }
 ```
 
-### Oppgavemappe for PDF-generering
-
-Opprett en mappe under `App/ui` med samme navn som ID-en til systemoppgaven som genererer PDF-en. I dette eksempelet heter oppgaven `PdfSubform`, og mappen må derfor hete `PdfSubform`.
-
-Legg til en `Settings.json`-fil i oppgavemappen. Sett `defaultDataType` til datatypen for underskjemaet:
-
-{{< code-title >}}
-App/ui/PdfSubform/Settings.json
-{{< /code-title >}}
-
-```json
-{
-  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
-  "defaultDataType": "SubformModel",
-  "pages": {
-    "order": ["ServiceTask"]
-  }
-}
-```
-
 ### Mappestruktur under App/ui
 
-For hvert underskjema med PDF-generering har du denne mappestrukturen under `App/ui/`. `PdfLayout.json` er valgfri.
+Systemoppgaven bruker bare UI-mappen til underskjemaet. `PdfLayout.json` er valgfri.
 
-```
+```text
 App/ui/
-├── underskjema/
-│   ├── Settings.json
-│   └── layouts/
-│       ├── Underskjema.json
-│       └── PdfLayout.json
-└── PdfSubform/
+└── underskjema/
     ├── Settings.json
     └── layouts/
-        └── ServiceTask.json
+        ├── Underskjema.json
+        └── PdfLayout.json
 ```
 
 #### underskjema/Settings.json
+
+`defaultDataType` er datatypen til underskjemaet. Systemoppgaven lager en PDF for hvert dataelement av denne typen.
 
 {{< code-title >}}
 App/ui/underskjema/Settings.json
@@ -143,7 +113,7 @@ App/ui/underskjema/Settings.json
 
 #### underskjema/layouts/Underskjema.json
 
-```
+```text
 Denne filen inneholder sidene i underskjemaet, som du allerede har laget.
 ```
 
@@ -151,9 +121,8 @@ Denne filen inneholder sidene i underskjemaet, som du allerede har laget.
 
 Denne filen bestemmer hvordan PDF-en for hver oppføring ser ut. Du kobler den til med `pdfLayoutName` i `Settings.json` for underskjemaet. Uten denne filen viser PDF-en alle sidene i underskjemaet. Her bruker du typisk en `Summary2`-komponent som oppsummerer underskjemaet:
 
-
 {{< code-title >}}
-ui/underskjema/layouts/PdfLayout.json
+App/ui/underskjema/layouts/PdfLayout.json
 {{< /code-title >}}
 
 ```json
@@ -174,51 +143,24 @@ ui/underskjema/layouts/PdfLayout.json
 }
 ```
 
-#### PdfSubform/Settings.json
+### Det brukeren ser
 
-{{< code-title >}}
-ui/PdfSubform/Settings.json
-{{< /code-title >}}
+Mens appen lager PDF-ene, ser brukeren den vanlige lastevisningen. Feiler PDF-genereringen, viser appen en standardside med knappen **Prøv igjen**. Vil du vise en egen side mens oppgaven kjører, lager du en UI-mappe med samme navn som systemoppgaven. Les mer i [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}).
 
-```json
-{
-    "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
-    "defaultDataType": "SubformModel",
-    "pages": {
-        "order": ["ServiceTask"]
-    }
-}
-```
-#### PdfSubform/layouts/ServiceTask.json
+## Metadata på PDF-ene
 
-En systemoppgave med egen mappe med layoutfiler må ha minst én side. Brukeren ser den normalt ikke: Mens appen lager PDF-ene, viser den den vanlige lastevisningen. Les mer i [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}).
+Hver PDF får to metadatafelt, som et system som henter PDF-ene kan bruke til å koble dem til riktig oppføring:
 
-Denne layouten trenger bare en skjult kopi av komponenten **Tabell for underskjema**, med samme ID som i `subformComponentId`. Uten den fungerer ikke PDF-genereringen. Vi håper å fjerne dette kravet i en senere versjon.
+| Nøkkel                 | Verdi |
+|------------------------|-------|
+| `subformUiFolder`      | UI-mappen til underskjemaet, som i `subformUiFolder` |
+| `subformDataElementId` | ID-en til dataelementet for oppføringen PDF-en er laget av |
 
-{{% notice info %}}
-Feiler PDF-genereringen, viser appen en standardside med knappen **Prøv igjen**, uansett hva du har lagt inn i denne layouten. Brukeren kan ikke gå tilbake til et tidligere steg fra denne siden.
-{{% /notice %}}
+## Oppgradere fra v8
 
-{{< code-title >}}
-ui/PdfSubform/layouts/ServiceTask.json
-{{< /code-title >}}
+V9 støtter ikke `subformComponentId` og `subformDataTypeId` i `subformPdfConfig`, og bygget stopper med [ALTINNAPP0602]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP0602" >}}). `studioctl app upgrade v9` skriver om oppgaven til `subformUiFolder`. Har oppgaven en UI-mappe med bare ventesiden og den skjulte komponentkopien Altinn Studio laget, fjerner oppgraderingen mappen. Ellers beholder den mappen og gir en advarsel.
 
-```json
-{
-  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
-  "data": {
-    "layout": [
-      {
-        "id": "mySubformComponentId",
-        "type": "Subform",
-        "layoutSet": "underskjema",
-        "hidden": true,
-        "tableColumns": [...]
-      }
-    ]
-  }
-}
-```
+PDF-ene har metadatafeltet `subformUiFolder` i stedet for `subformComponentId`. Leser et system det gamle feltet, må det lese `subformUiFolder` i stedet.
 
 ## Slik tester du PDF-generering
 
