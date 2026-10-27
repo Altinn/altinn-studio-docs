@@ -17,16 +17,16 @@
           <div class="ui-toolbar"><div class="ui-search">⌕ Søk etter bruker</div><span class="ui-toggle-hint">Egne brukere og brukere med klienttilgang</span></div>
           <h4>Andre med fullmakt</h4>
           <div class="ui-row"><span class="ui-avatar ui-avatar-person">A</span><div class="ui-row-body"><span class="ui-row-title">Ada Eksempel</span><span class="ui-row-meta">Person</span></div><span>›</span></div>
-          <div class="ui-row"><span class="ui-avatar">S</span><div class="ui-row-body"><span class="ui-row-title">Økonomisystemet</span><span class="ui-row-meta">Systembruker · forhåndsdefinerte rettigheter</span></div><button class="ui-btn" data-show-demo="preset-own">Åpne bruker</button></div>
-          <div class="ui-row"><span class="ui-avatar">S</span><div class="ui-row-body"><span class="ui-row-title">Egen integrasjon</span><span class="ui-row-meta">Systembruker · uten forhåndsdefinerte rettigheter</span></div><button class="ui-btn" data-show-demo="free">Åpne bruker</button></div>
-          <p class="ui-notice">Begge systembrukerne er synlige. Flagget styrer hvordan tilganger kan gis, uavhengig av synlighet.</p>
+          <div class="ui-row"><span class="ui-avatar">S</span><div class="ui-row-body"><span class="ui-row-title">Økonomisystemet</span><span class="ui-row-meta">Systembruker · leverandørstyrt tilgang</span></div><button class="ui-btn" data-show-demo="preset-own">Åpne bruker</button></div>
+          <div class="ui-row"><span class="ui-avatar">S</span><div class="ui-row-body"><span class="ui-row-title">Egen integrasjon</span><span class="ui-row-meta">Systembruker · eierstyrt tilgang</span></div><button class="ui-btn" data-show-demo="free">Åpne bruker</button></div>
+          <p class="ui-notice">Begge systembrukerne er synlige. Måten tilgangene blir forvaltet på, avgjør hvilke handlinger du får, ikke om du ser systembrukeren.</p>
         {{ else if eq $view "preset-client" }}
           <div class="ui-crumb">Tilgangsstyring / Klientadministrasjon / Økonomisystemet</div>
           <h3>Økonomisystemet</h3><span class="ui-subtitle">Systembruker for Nordlys Regnskap AS</span>
-          <div class="ui-tabs"><span class="ui-tab ui-tab-active">Klienter</span><span class="ui-tab">Forhåndsdefinerte tilganger</span></div>
+          <div class="ui-tabs"><span class="ui-tab ui-tab-active">Klienter</span><span class="ui-tab">Klienttilganger fra forespørselen</span></div>
           <h4>Knytt Eksempelklient AS til systembrukeren</h4>
           <div class="ui-group">
-            <label class="ui-group-label"><input type="checkbox" checked data-preset-toggle> Deleger hele det forhåndsdefinerte settet</label>
+            <label class="ui-group-label"><input type="checkbox" checked data-preset-toggle> Deleger hele settet</label>
             <div class="ui-fixed-rights">
               <div class="ui-fixed-row"><span data-selection-mark>✓</span> Skattegrunnlag <span class="ui-kind">Tilgangspakke</span></div>
               <div class="ui-fixed-row"><span data-selection-mark>✓</span> Innsending av MVA-melding <span class="ui-kind">Enkeltrettighet</span></div>
@@ -38,16 +38,16 @@
           <div class="ui-delete-bar"><span>← Brukere</span><button class="ui-btn ui-danger" data-demo-dialog>Slett systembruker</button></div>
           <h3>Økonomisystemet</h3><span class="ui-subtitle">Systembruker for Nordlys Regnskap AS</span>
           <h4>Tilganger for egen virksomhet</h4>
-          <p class="ui-notice">Tilgangene for egen virksomhet er forhåndsdefinert. De kan bare fjernes ved å slette systembrukeren samlet.</p>
-          <div class="ui-row"><span class="ui-avatar">□</span><div class="ui-row-body"><span class="ui-row-title">Skattegrunnlag</span><span class="ui-row-meta">Forhåndsdefinert tilgangspakke</span></div><span class="ui-chip">Fast del av oppsettet</span></div>
-          <div class="ui-row"><span class="ui-avatar">↳</span><div class="ui-row-body"><span class="ui-row-title">Innsending av MVA-melding</span><span class="ui-row-meta">Forhåndsdefinert enkeltrettighet</span></div><span class="ui-chip">Fast del av oppsettet</span></div>
+          <p class="ui-notice">Systembrukeren har leverandørstyrt tilgang. Du fjerner tilgangene ved å slette hele systembrukeren.</p>
+          <div class="ui-row"><span class="ui-avatar">□</span><div class="ui-row-body"><span class="ui-row-title">Skattegrunnlag</span><span class="ui-row-meta">Tilgangspakke fra forespørselen</span></div><span class="ui-chip">Fast del av oppsettet</span></div>
+          <div class="ui-row"><span class="ui-avatar">↳</span><div class="ui-row-body"><span class="ui-row-title">Innsending av MVA-melding</span><span class="ui-row-meta">Enkeltrettighet fra forespørselen</span></div><span class="ui-chip">Fast del av oppsettet</span></div>
           <p>Ingen handling for å fjerne en enkelt pakke eller rettighet.</p>
           <dialog aria-labelledby="delete-example-title"><h3 id="delete-example-title">Slette systembrukeren?</h3><p>Systembrukeren og alle tilhørende rettigheter slettes samlet.</p><p>Dette er en illustrasjon. Ingen bruker eller rettigheter blir slettet her.</p><button data-close-dialog>Lukk eksempel</button></dialog>
         {{ else if eq $view "free" }}
           <div class="ui-crumb">Tilgangsstyring / Brukere / Egen integrasjon</div>
           <h3>Gi Egen integrasjon fullmakter</h3><span class="ui-subtitle">Systembruker for Nordlys Regnskap AS</span>
           <h4>Velg tilgangspakker og enkeltrettigheter</h4>
-          <p class="ui-notice">Ingen forhåndsdefinerte rettighetskrav. Velg tilganger virksomheten har myndighet til å delegere.</p>
+          <p class="ui-notice">Systembrukeren har eierstyrt tilgang. Velg tilganger virksomheten har myndighet til å delegere.</p>
           <label class="ui-free-option"><input type="checkbox" checked data-free-option> Skattegrunnlag <span class="ui-kind">Tilgangspakke</span></label>
           <label class="ui-free-option"><input type="checkbox" data-free-option> Innsending av MVA-melding <span class="ui-kind">Enkeltrettighet</span></label>
           <div class="ui-state" role="status" aria-live="polite" data-free-status>1 tilgang valgt i illustrasjonen.</div>
