@@ -14,9 +14,16 @@ The app generates PDFs through a **service task** that you add as a step in the 
 The PDF task takes its content from one of two places:
 
 - If the task's UI folder sets `pdfLayoutName` in `Settings.json`, the PDF is that page. The app then ignores `autoPdfTaskIds`.
-- Otherwise, the app generates the PDF automatically from the tasks you list in `autoPdfTaskIds`.
+- Otherwise, the app generates the PDF automatically from the tasks you list in `autoPdfTaskIds`. It skips blank entries, tasks without a UI folder of their own and the PDF task itself.
 
-The pages in `pages.order` are never part of the PDF. They are waiting pages the user sees while the task runs. If the task has neither `pdfLayoutName` nor `autoPdfTaskIds`, the build fails with [ALTINNAPP1000]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1000" >}}).
+The pages in `pages.order` are never part of the PDF. They are waiting pages the user sees while the task runs.
+
+The build checks the setup:
+
+- If the task has neither `pdfLayoutName` nor `autoPdfTaskIds`, the build fails with [ALTINNAPP1000]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1000" >}}).
+- If `pdfLayoutName` names a page that does not exist in the task's UI folder, the build fails with [ALTINNAPP1026]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1026" >}}).
+- If `autoPdfTaskIds` lists a task without a UI folder, the build reports the warning [ALTINNAPP1002]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1002" >}}).
+- If `autoPdfTaskIds` lists the PDF task itself or a blank entry, the build reports the warning [ALTINNAPP1025]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1025" >}}).
 
 To generate PDFs of subforms, there is a separate service task. See [PDF generation for subforms](/nb/altinn-studio/v9/develop-a-service/look-and-feel/subform/subform-pdf/) (documentation available in Norwegian only).
 

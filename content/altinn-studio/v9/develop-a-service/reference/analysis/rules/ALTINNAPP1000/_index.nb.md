@@ -10,7 +10,8 @@ aliases:
 Denne diagnostikken meldes når en PDF-systemoppgave i `config/process/process.bpmn` ikke sier
 hva PDF-en skal inneholde. Oppgaven lister ingen oppgaver i
 `<altinn:pdfConfig><altinn:autoPdfTaskIds>`, og den har ingen UI-mappe `ui/<oppgave-id>` der
-`Settings.json` setter `pdfLayoutName`. Meldingen navngir oppgaven.
+`Settings.json` setter `pdfLayoutName`. Tomme oppføringer i `autoPdfTaskIds` teller ikke.
+Meldingen navngir oppgaven.
 
 PDF-en er siden `pdfLayoutName` peker på. Uten `pdfLayoutName` lager appen en automatisk PDF av
 oppgavene i `autoPdfTaskIds`. Sidene i `pages.order` er det brukeren ser mens oppgaven kjører, og

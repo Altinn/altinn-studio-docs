@@ -14,9 +14,16 @@ Appen genererer PDF gjennom en **systemoppgave** du legger til som et steg i pro
 PDF-oppgaven henter innholdet fra ett av to steder:
 
 - Har UI-mappen til oppgaven `pdfLayoutName` i `Settings.json`, blir PDF-en den siden. Da ser appen bort fra `autoPdfTaskIds`.
-- Ellers lager appen PDF-en automatisk av oppgavene du lister i `autoPdfTaskIds`.
+- Ellers lager appen PDF-en automatisk av oppgavene du lister i `autoPdfTaskIds`. Appen hopper over tomme oppføringer, oppgaver uten egen UI-mappe og PDF-oppgaven selv.
 
-Sidene i `pages.order` blir aldri en del av PDF-en. Brukeren ser dem som en venteside mens oppgaven kjører. Har oppgaven verken `pdfLayoutName` eller `autoPdfTaskIds`, stopper bygget med [ALTINNAPP1000]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1000" >}}).
+Sidene i `pages.order` blir aldri en del av PDF-en. Brukeren ser dem som en venteside mens oppgaven kjører.
+
+Bygget sjekker oppsettet:
+
+- Har oppgaven verken `pdfLayoutName` eller `autoPdfTaskIds`, stopper bygget med [ALTINNAPP1000]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1000" >}}).
+- Peker `pdfLayoutName` på en side som ikke finnes i UI-mappen til oppgaven, stopper bygget med [ALTINNAPP1026]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1026" >}}).
+- Lister `autoPdfTaskIds` en oppgave uten UI-mappe, gir bygget advarselen [ALTINNAPP1002]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1002" >}}).
+- Lister `autoPdfTaskIds` PDF-oppgaven selv eller en tom oppføring, gir bygget advarselen [ALTINNAPP1025]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1025" >}}).
 
 Skal du generere PDF av underskjema, finnes det en egen systemoppgave for det. Se [PDF-generering for underskjema]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/subform/subform-pdf" >}}).
 

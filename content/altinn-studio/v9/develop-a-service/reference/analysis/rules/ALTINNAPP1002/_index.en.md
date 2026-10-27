@@ -11,6 +11,9 @@ no content from that task. The message names the PDF task and the task it lists.
 
 The rule also applies when the PDF task has a UI folder of its own without `pdfLayoutName`. If
 the folder sets `pdfLayoutName`, the app ignores `autoPdfTaskIds`, and the rule checks nothing.
+If `autoPdfTaskIds` lists the PDF task itself, the build reports
+[ALTINNAPP1025]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1025" >}})
+instead.
 
 Category `Process`, severity **warning**.
 

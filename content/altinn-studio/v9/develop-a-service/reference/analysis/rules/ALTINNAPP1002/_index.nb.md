@@ -10,7 +10,10 @@ Denne diagnostikken meldes når en PDF-systemoppgave uten `pdfLayoutName` lister
 får da ikke noe innhold fra den oppgaven. Meldingen navngir PDF-oppgaven og oppgaven den lister.
 
 Regelen gjelder også når PDF-oppgaven har en egen UI-mappe uten `pdfLayoutName`. Har mappen
-`pdfLayoutName`, ser appen bort fra `autoPdfTaskIds`, og regelen sjekker ingenting.
+`pdfLayoutName`, ser appen bort fra `autoPdfTaskIds`, og regelen sjekker ingenting. Lister
+`autoPdfTaskIds` PDF-oppgaven selv, melder bygget
+[ALTINNAPP1025]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1025" >}})
+i stedet.
 
 Kategori `Process`, alvorlighetsgrad **advarsel**.
 
