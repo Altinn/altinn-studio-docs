@@ -126,7 +126,7 @@ V9 støtter i tillegg egenskapen `pageBreak` på `Summary2`-komponenter. Det gjo
 
 ### PDF av underskjema bruker UI-mappen til underskjemaet
 
-En `subformPdf`-oppgave peker nå på UI-mappen til underskjemaet med `subformUiFolder`, i stedet for `subformComponentId` og `subformDataTypeId`. Oppgaven trenger ingen UI-mappe selv. Oppgraderingen skriver om oppgaven og fjerner UI-mappen som Altinn Studio laget for den, med ventesiden og den skjulte kopien av komponenten **Tabell for underskjema**. Har du lagt til noe annet i mappen, beholder oppgraderingen den og gir en advarsel.
+En `subformPdf`-oppgave peker nå på UI-mappen til underskjemaet med `subformUiFolder`, i stedet for `subformComponentId` og `subformDataTypeId`. Oppgaven trenger ingen UI-mappe selv. Oppgraderingen skriver om oppgaven og fjerner UI-mappen som Altinn Studio laget for den, med ventesiden og den skjulte kopien av komponenten **Tabell for underskjema**. Har du lagt til noe annet i mappen, beholder oppgraderingen den og gir en advarsel. Mangler kopien, finnes den flere ganger, eller peker den ikke på en UI-mappe, lar oppgraderingen oppgaven stå uendret og lister den som en oppgave du må gjøre selv. Da bytter du ut innstillingene med `subformUiFolder` for hånd.
 
 PDF-ene har metadatafeltet `subformUiFolder` i stedet for `subformComponentId`. Leser et system det gamle feltet, må det lese `subformUiFolder` i stedet. Se [PDF-generering for underskjema]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/subform/subform-pdf" >}}).
 

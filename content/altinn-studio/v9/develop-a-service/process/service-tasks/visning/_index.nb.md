@@ -18,7 +18,7 @@ En systemoppgave kjører på serveren, men brukeren sitter og venter i nettleser
 
 Venter oppgaven, er det bare oppgaven selv som kan slippe prosessen videre, og appen sender brukeren videre av seg selv når det skjer. Se [de to måtene å vente på]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}#vente-på-svar-fra-et-annet-system).
 
-Advarselen kommer etter det andre mislykkede forsøket, eller etter det første når behandlingen har pågått i 20 sekunder. Et enkelt, raskt feilforsøk går altså forbi uten at brukeren merker det. Advarselen forsvinner når et steg lykkes.
+Advarselen kommer etter det andre mislykkede forsøket, eller etter det første når behandlingen har pågått i 20 sekunder. Et enkelt, raskt feilforsøk går altså forbi uten at brukeren merker det. Advarselen forsvinner når et steg lykkes eller går over til å vente.
 
 **Prøv igjen** kjører steget som feilet på nytt. Knappen er aktiv for brukere med `write`, og for en egendefinert oppgavetype må brukeren i tillegg ha handlingen med samme navn som typen. Har bare tjenesteeieren handlingen, er det driften som må starte oppgaven på nytt, ikke brukeren. Se [tilgang til oppgaven]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}#gi-tilgang-til-oppgaven).
 
@@ -65,7 +65,7 @@ Når feilen krever hjelp fra brukerservice:
 
 ## Lage en egen side
 
-Trenger brukeren en forklaring mens oppgaven kjører, kan du lage en egen side for oppgaven. Lag en UI-mappe med samme navn som systemoppgaven i prosessen, og list minst én side i `pages.order`:
+Trenger brukeren en forklaring mens oppgaven kjører, kan du lage en egen side for oppgaven. Lag en UI-mappe med samme navn som ID-en til systemoppgaven i prosessen, og list minst én side i `pages.order`:
 
 ```text
 App/
@@ -102,7 +102,7 @@ Slik oppfører siden seg:
 - **Brukeren ser siden hele tiden oppgaven kjører**, fra prosessen kommer til oppgaven og til neste steg står på skjermen, enten oppgaven jobber, venter på svar eller prøver på nytt. Appen fortsetter å sjekke om prosessen har gått videre, og sender brukeren til neste steg når systemoppgaven er ferdig.
 - **Siden er skrivebeskyttet mens oppgaven kjører.** Appen viser komponenter med egenskapen `readOnly` som skrivebeskyttet, lagrer ingen endringer og slår av knapper som sender inn, utfører en handling eller kaller serveren. Brukeren kan fortsatt bla mellom sidene.
 - **Siden din bestemmer hvordan ventingen ser ut.** Beskjeden om at det tar uvanlig lang tid, hører bare til lastevisningen. Skal brukeren vite at det kan ta tid, skriver du det på siden.
-- **Appen varsler om feil øverst på siden.** Feiler et steg mens plattformen prøver på nytt, viser appen den samme advarselen som i lastevisningen. Advarselen står øverst på siden, over innholdet, og blir stående når brukeren blar nedover. Den forsvinner når et steg lykkes.
+- **Appen varsler om feil øverst på siden.** Feiler et steg mens plattformen prøver på nytt, viser appen den samme advarselen som i lastevisningen. Advarselen står øverst på siden, over innholdet, og blir stående når brukeren blar nedover. Den forsvinner når et steg lykkes eller går over til å vente, og den kommer aldri med i en PDF.
 - **Feilvisningen går foran siden din.** Har oppgaven gitt opp, ser brukeren «Noe gikk galt» med **Prøv igjen**, ikke siden din. Ellers ville brukeren se en vanlig side uten spor av at noe feilet.
 
 I PDF-oppgaven er sidene i `pages.order` det brukeren ser mens appen lager PDF-en, aldri innholdet i PDF-en. Se [PDF]({{< relref "/altinn-studio/v9/develop-a-service/process/pdf" >}}).

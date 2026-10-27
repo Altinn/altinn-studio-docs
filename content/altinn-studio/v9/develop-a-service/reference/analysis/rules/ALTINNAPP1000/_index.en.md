@@ -9,8 +9,8 @@ aliases:
 
 This diagnostic is reported when a PDF service task in `config/process/process.bpmn` does not
 say what the PDF should contain. The task lists no tasks in
-`<altinn:pdfConfig><altinn:autoPdfTaskIds>`, and it has no UI folder `ui/<task-id>` with
-`pdfLayoutName` in its `Settings.json`. The message names the task.
+`<altinn:pdfConfig><altinn:autoPdfTaskIds>`, and it has no UI folder `ui/<task-id>` whose
+`Settings.json` sets `pdfLayoutName`. The message names the task.
 
 The PDF is the page that `pdfLayoutName` names, or otherwise an automatic PDF of the tasks in
 `autoPdfTaskIds`. The pages in `pages.order` are what the user sees while the task runs, and are

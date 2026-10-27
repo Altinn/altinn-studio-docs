@@ -16,7 +16,7 @@ The PDF task takes its content from one of two places:
 - If the task's UI folder sets `pdfLayoutName` in `Settings.json`, the PDF is that page. The app then ignores `autoPdfTaskIds`.
 - Otherwise, the app generates the PDF automatically from the tasks you list in `autoPdfTaskIds`.
 
-The pages in `pages.order` are never part of the PDF. They are a waiting page the user sees while the task runs. If the task has neither `pdfLayoutName` nor `autoPdfTaskIds`, the build fails with [ALTINNAPP1000]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1000" >}}).
+The pages in `pages.order` are never part of the PDF. They are waiting pages the user sees while the task runs. If the task has neither `pdfLayoutName` nor `autoPdfTaskIds`, the build fails with [ALTINNAPP1000]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1000" >}}).
 
 To generate PDFs of subforms, there is a separate service task. See [PDF generation for subforms](/nb/altinn-studio/v9/develop-a-service/look-and-feel/subform/subform-pdf/) (documentation available in Norwegian only).
 

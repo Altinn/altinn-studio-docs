@@ -86,7 +86,7 @@ App/config/texts/resource.{language}.json
 
 ### Mappestruktur under App/ui
 
-Systemoppgaven bruker bare UI-mappen til underskjemaet. `PdfLayout.json` er valgfri.
+Systemoppgaven bruker bare UI-mappen til underskjemaet. `PdfLayout.json` er valgfri. Lar du den være, må du også fjerne `pdfLayoutName` fra `Settings.json`.
 
 ```text
 App/ui/
@@ -125,7 +125,7 @@ Denne filen inneholder sidene i underskjemaet, som du allerede har laget.
 
 #### underskjema/layouts/PdfLayout.json
 
-Denne filen bestemmer hvordan PDF-en for hver oppføring ser ut. Du kobler den til med `pdfLayoutName` i `Settings.json` for underskjemaet. Uten denne filen viser PDF-en alle sidene i underskjemaet. Her bruker du typisk en `Summary2`-komponent som oppsummerer underskjemaet:
+Denne filen bestemmer hvordan PDF-en for hver oppføring ser ut. Du kobler den til med `pdfLayoutName` i `Settings.json` for underskjemaet. Uten denne filen og uten `pdfLayoutName` viser PDF-en alle sidene i underskjemaet. Peker `pdfLayoutName` på en side som ikke finnes, feiler PDF-genereringen. Her bruker du typisk en `Summary2`-komponent som oppsummerer underskjemaet:
 
 {{< code-title >}}
 App/ui/underskjema/layouts/PdfLayout.json
@@ -151,7 +151,7 @@ App/ui/underskjema/layouts/PdfLayout.json
 
 ### Det brukeren ser
 
-Mens appen lager PDF-ene, ser brukeren den vanlige lastevisningen. Feiler PDF-genereringen, viser appen en standardside med knappen **Prøv igjen**. Vil du vise en egen side mens oppgaven kjører, lager du en UI-mappe med samme navn som systemoppgaven. Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}).
+Mens appen lager PDF-ene, ser brukeren den vanlige lastevisningen. Feiler PDF-genereringen, viser appen en standardside med knappen **Prøv igjen**. Vil du vise en egen side mens oppgaven kjører, lager du en UI-mappe med samme navn som ID-en til systemoppgaven. I eksempelet er det `App/ui/PdfSubform`. Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}).
 
 ## Metadata på PDF-ene
 
@@ -164,7 +164,9 @@ Hver PDF får to metadatafelt. Et system som henter PDF-ene, kan bruke dem til �
 
 ## Oppgradere fra v8
 
-V9 støtter ikke `subformComponentId` og `subformDataTypeId` i `subformPdfConfig`, og bygget stopper med [ALTINNAPP0602]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP0602" >}}). `studioctl app upgrade v9` skriver om oppgaven til `subformUiFolder`. Har oppgaven en UI-mappe med bare ventesiden og den skjulte komponentkopien Altinn Studio laget, fjerner oppgraderingen mappen. Ellers beholder den mappen og gir en advarsel.
+V9 støtter ikke `subformComponentId` og `subformDataTypeId` i `subformPdfConfig`, og bygget stopper med [ALTINNAPP0602]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP0602" >}}). `studioctl app upgrade v9` skriver om oppgaven til `subformUiFolder`. Oppgraderingen finner underskjemaet gjennom den skjulte kopien av komponenten **Tabell for underskjema** i UI-mappen til oppgaven. Har oppgaven en UI-mappe med bare ventesiden og komponentkopien Altinn Studio laget, fjerner oppgraderingen mappen. Har mappen noe annet i tillegg, beholder oppgraderingen den og gir en advarsel.
+
+Mangler kopien, finnes den flere ganger, eller peker den ikke på en UI-mappe, lar oppgraderingen oppgaven stå uendret og lister den som en oppgave du må gjøre selv. Da bytter du ut `subformComponentId` og `subformDataTypeId` med `subformUiFolder` for hånd, og fjerner UI-mappen til oppgaven hvis du ikke vil vise sidene i den mens oppgaven kjører.
 
 PDF-ene har metadatafeltet `subformUiFolder` i stedet for `subformComponentId`. Leser et system det gamle feltet, må det lese `subformUiFolder` i stedet.
 
