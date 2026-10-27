@@ -12,13 +12,13 @@ En systemoppgave kjører på serveren, men brukeren sitter og venter i nettleser
 
 | Situasjonen | Dette ser brukeren | Slik kan du endre den |
 | --- | --- | --- |
-| Appen flytter prosessen videre, eller oppgaven venter på svar, med `Defer` eller på en melding i en postkasse | Den vanlige lastevisningen, uten tekst. Etter åtte sekunder kommer en beskjed om at det tar uvanlig lang tid, og at brukeren trygt kan lukke siden. Feiler et steg mens plattformen prøver på nytt, kommer det i stedet en advarsel om at appen ikke kan behandle skjemaet akkurat nå. | Tekstene i beskjedene, og din egen side mens oppgaven venter |
+| Oppgaven jobber, venter på svar eller prøver på nytt | Den vanlige lastevisningen, uten tekst. Etter åtte sekunder kommer en beskjed om at det tar uvanlig lang tid, og at brukeren trygt kan lukke siden. Feiler et steg mens plattformen prøver på nytt, kommer det i stedet en advarsel om at appen ikke kan behandle skjemaet akkurat nå. | Tekstene i beskjedene, og din egen side for hele tiden oppgaven kjører |
 | Oppgaven har gitt opp, og feilen hører til denne oppgaven | Siden «Noe gikk galt», med knappen **Prøv igjen** | Bare tekstene. Din egen side kommer ikke frem her. |
 | Noe feilet et sted prosessen ikke kan komme videre fra selv | Siden «Noe gikk galt», med referanser brukeren kan oppgi til brukerservice. Ingen knapper. | Bare tekstene |
 
 Venter oppgaven, er det bare oppgaven selv som kan slippe prosessen videre, og appen sender brukeren videre av seg selv når det skjer. Se [de to måtene å vente på]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}#vente-på-svar-fra-et-annet-system).
 
-Advarselen kommer etter det andre mislykkede forsøket, eller etter det første når behandlingen har pågått i 20 sekunder. Et enkelt, raskt feilforsøk går altså forbi uten at brukeren merker det.
+Advarselen kommer etter det andre mislykkede forsøket, eller etter det første når behandlingen har pågått i 20 sekunder. Et enkelt, raskt feilforsøk går altså forbi uten at brukeren merker det. Advarselen forsvinner når et steg lykkes.
 
 **Prøv igjen** kjører steget som feilet på nytt. Knappen er aktiv for brukere med `write`, og for en egendefinert oppgavetype må brukeren i tillegg ha handlingen med samme navn som typen. Har bare tjenesteeieren handlingen, er det driften som må starte oppgaven på nytt, ikke brukeren. Se [tilgang til oppgaven]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}#gi-tilgang-til-oppgaven).
 
@@ -65,7 +65,7 @@ Når feilen krever hjelp fra brukerservice:
 
 ## Lage din egen side
 
-Trenger brukeren en forklaring mens oppgaven venter, kan du lage en helt egen side for ventingen. Lag en UI-mappe med samme navn som systemoppgaven i prosessen:
+Trenger brukeren en forklaring mens oppgaven kjører, kan du lage en egen side for oppgaven. Lag en UI-mappe med samme navn som systemoppgaven i prosessen, og list minst én side i `pages.order`:
 
 ```text
 App/
@@ -76,18 +76,36 @@ App/
       Settings.json
 ```
 
-Da bruker appen sidene dine i stedet for lastevisningen mens oppgaven venter, enten den venter med `Defer` eller på en postkasse. Alt annet virker som før: appen fortsetter å sjekke om prosessen har gått videre, og sender brukeren til neste steg når systemoppgaven er ferdig.
+{{< code-title >}}
+App/ui/Task_Arkivering/Settings.json
+{{< /code-title >}}
+
+```json
+{
+  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+  "defaultDataType": "model",
+  "pages": {
+    "order": ["Side1"]
+  }
+}
+```
+
+Har mappen ingen sider i `pages.order`, har oppgaven ingen egen side, og brukeren ser lastevisningen. Det gjelder alle systemoppgaver, også PDF-oppgaven.
 
 Egen side er nyttig når du vil
 
-- fortelle hva oppgaven venter på, hentet fra dataene i instansen
+- fortelle hva oppgaven gjør eller venter på, hentet fra dataene i instansen
 - gi brukeren noe å gjøre i mellomtiden, for eksempel en lenke til en kvittering eller en veiledning
 
-Tre ting bør du kjenne til:
+Slik oppfører siden seg:
 
-- Feilvisningen går foran siden din. Har oppgaven gitt opp, ser brukeren «Noe gikk galt» med **Prøv igjen**, ikke sidene dine. Det er med vilje: ellers ville brukeren se et vanlig skjema uten spor av at noe feilet.
-- Siden din gjelder bare mens prosessen står på denne oppgaven. Flytter appen prosessen videre til et annet steg, ser brukeren lastevisningen som hører til flyttingen.
-- PDF-oppgaven er et unntak. Den lager PDF-en mens prosessen flytter seg, så brukeren ser lastevisningen og ikke sidene i mappen.
+- **Brukeren ser siden hele tiden oppgaven kjører**, fra prosessen kommer til oppgaven og til neste steg står på skjermen, enten oppgaven jobber, venter på svar eller prøver på nytt. Appen fortsetter å sjekke om prosessen har gått videre, og sender brukeren til neste steg når systemoppgaven er ferdig.
+- **Siden er skrivebeskyttet mens oppgaven kjører.** Appen viser komponenter med egenskapen `readOnly` som skrivebeskyttet, lagrer ingen endringer og slår av knapper som sender inn, utfører en handling eller kaller serveren. Brukeren kan fortsatt bla mellom sidene.
+- **Siden din bestemmer hvordan ventingen ser ut.** Beskjeden om at det tar uvanlig lang tid, hører bare til lastevisningen. Skal brukeren vite at det kan ta tid, skriver du det på siden.
+- **Appen varsler om feil øverst på siden.** Feiler et steg mens plattformen prøver på nytt, viser appen den samme advarselen som i lastevisningen, som et banner øverst på siden din. Banneret forsvinner når et steg lykkes.
+- **Feilvisningen går foran siden din.** Har oppgaven gitt opp, ser brukeren «Noe gikk galt» med **Prøv igjen**, ikke siden din. Ellers ville brukeren se en vanlig side uten spor av at noe feilet.
+
+I PDF-oppgaven er sidene i `pages.order` det brukeren ser mens appen lager PDF-en, aldri innholdet i PDF-en. Se [PDF]({{< relref "/altinn-studio/v9/develop-a-service/process/pdf" >}}).
 
 ## Hvor ofte appen sjekker
 
