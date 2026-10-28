@@ -35,6 +35,7 @@ Slik gjør du appen klar før du oppgraderer:
 - Commit alt du har jobbet med. Oppgraderingen stopper hvis repositoriet har endringer du ikke har committet.
 - Lukk appen i editoren din, for eksempel Visual Studio eller Visual Studio Code.
 - Lag en egen branch, slik at du har et punkt å gå tilbake til hvis du vil angre oppgraderingen.
+- Kontroller at du har .NET SDK 11 eller nyere. Kjør `dotnet --version` i rotmappen til appen. Bruker du en forhåndsversjon av .NET 11, må den være 11.0.100-rc.2 eller nyere. Har appen en `global.json` som velger en eldre versjon, må du endre den. Oppgraderingen stopper og sier fra hvis versjonen er for gammel.
 
 ## 3. Kjør oppgraderingen
 

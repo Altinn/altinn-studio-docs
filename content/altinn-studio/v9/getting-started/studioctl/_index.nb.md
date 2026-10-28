@@ -27,6 +27,8 @@ studioctl virker på Windows, macOS og Linux. På maskinen må du også ha
 - .NET SDK, slik at du kan kjøre appen
 - Docker, Podman eller Colima, slik at du kan starte den lokale testplattformen
 
+Skal du oppgradere appen til v9, trenger du .NET SDK 11 eller nyere. Bruker du en forhåndsversjon av .NET 11, må den være 11.0.100-rc.2 eller nyere.
+
 Når du har installert studioctl, kan du [kontrollere at du har alt du trenger](#kontroller-oppsettet).
 
 ## Installer studioctl
@@ -82,7 +84,7 @@ Kjør denne kommandoen:
 studioctl doctor
 ```
 
-Kommandoen sjekker blant annet at du har en ny nok versjon av .NET SDK, og at du har Docker, Podman eller Colima. Mangler noe, viser den hva det er.
+Kommandoen sjekker blant annet at du har .NET SDK og Docker, Podman eller Colima. Mangler noe, viser den hva det er. Den sjekker ikke om .NET-versjonen er ny nok til å oppgradere til v9. Det sjekker `studioctl app upgrade` selv før den endrer noe i appen.
 
 ## Oppdater studioctl
 
