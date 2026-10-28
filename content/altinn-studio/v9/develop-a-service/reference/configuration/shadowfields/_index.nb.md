@@ -47,7 +47,7 @@ Appen fjerner hjelpefeltene før den lager PDF-en. Trenger PDF-en dataene i hjel
 
 ## Lagre en kopi uten hjelpefelter
 
-Med `saveToDataType` beholder appen dataene som de er, og lagrer en kopi uten hjelpefelter i en annen datatype. Datatypen for kopien må bruke den samme modellen i `classRef`, og den må finnes i `applicationmetadata.json`. Ellers stopper prosessen med en feil.
+Med `saveToDataType` beholder appen dataene som de er, og lagrer en kopi uten hjelpefelter i en annen datatype. Kopi-datatypen må finnes i `applicationmetadata.json` og ha `appLogic` med `classRef`, ellers feiler prosessen. Bruk samme modell som originalen, med en annen modell mister kopien feltene som ikke finnes i den modellen.
 
 {{< code-title >}}
 App/config/applicationmetadata.json
