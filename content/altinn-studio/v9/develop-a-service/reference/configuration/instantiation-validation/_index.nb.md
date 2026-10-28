@@ -14,8 +14,9 @@ I tillegg til å velge aktørtyper under **Innstillinger** → **Oppstartskontro
 Appen kjører regelen
 
 - når brukeren starter appen og appen oppretter en ny instans
-- i en tilstandsløs flyt først når brukeren går videre til en instans
+- når brukeren starter en instans fra en [stateless visning]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/stateless#starte-instans-fra-et-stateless-skjema" >}})
 - når brukeren lager en kopi av en instans fra innboksen
+- når tjenesteeieren eller et system oppretter en instans via API-et
 
 Når brukeren lager en kopi fra innboksen, kontrollerer ikke appen aktørtypene. Appen kjører først regelen din, og deretter [`ICopyInstanceValidator`]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/messagebox/create-copy" >}}) hvis du har registrert den. Stopper en av dem kopien, viser appen meldingen fra den regelen.
 
@@ -87,7 +88,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 ### Eksempel: bare tjenesteeieren
 
-Regelen lar bare tjenesteeieren `ttd` starte appen. Med `IAuthenticationContext` finner du ut hvem som er logget inn.
+Regelen lar bare tjenesteeieren starte appen, for eksempel når tjenesteeieren oppretter instanser via API-et. Bytt ut ttd i eksempelet under med koden til virksomheten din.
 
 {{< code-title >}}
 App/logic/ServiceOwnerOnlyValidator.cs
@@ -160,5 +161,6 @@ Legg inn teksten med samme nøkkel i ressursfilen for hvert språk appen støtte
 ## Hva brukeren ser
 
 - **Når brukeren starter appen direkte**, viser appen en egen feilside med overskriften «Du kan ikke starte denne tjenesten», meldingen din og telefonnummeret til brukerservice i Altinn.
-- **Fra en tilstandsløs flyt** viser appen meldingen i en feilrapport på samme side.
+- **Når brukeren starter en instans fra en stateless visning**, blir brukeren værende på siden, og appen viser meldingen i en feilrapport.
 - **Når brukeren lager en kopi fra innboksen**, viser appen en enkel side med meldingen.
+- **Via API-et** svarer appen med `403 Forbidden` og resultatet fra regelen som JSON.
