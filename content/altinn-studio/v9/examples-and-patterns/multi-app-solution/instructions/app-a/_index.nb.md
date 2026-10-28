@@ -9,214 +9,233 @@ aliases:
   - /app/multi-app-solution/instructions/app-a
 ---
 
-App A er ansvarlig for å utløse opprettelsen av app B og sende data til den.
-Du må følge flere trinn for å oppnå dette.
+App A oppretter en instans av app B og sender data til den. Slik setter du det opp:
 
-1. Utvid appprosessen med et ekstra steg.
-2. Legg til logikk for opprettelse av app B til en hendelsestrigger.
-3. Fyll/hent og send videre relevant data til den nyopprettede instansen av app B.
+1. Legg til en PDF-oppgave i prosessen.
+2. Opprett instansen av app B når prosessen i app A er ferdig.
+3. Hent og send relevante data til den nye instansen av app B.
 
 {{% notice warning %}}
-Denne veilederen forutsetter at du allerede har en grunnleggende Altinn-app. Veilederen fokuserer på de tekniske tilpasningene som er nødvendige for å realisere formålet med flerappsløsningen.
+Denne veilederen forutsetter at du allerede har en grunnleggende Altinn-app. Den tar bare for seg det du må endre for å lage en flerappsløsning.
 {{% /notice %}}
 
-## Legge til steg i prosessen
+## Legge til en PDF-oppgave i prosessen
 
-### Forstå behovet for flere steg
+I de fleste tilfeller må du sende dataene som brukeren har fylt ut i skjemaet, videre til app B.
+Det enkleste er å sende dem som en PDF.
 
-I de fleste tilfeller må du sende dataene som sluttbrukeren har lagt til i skjemaet, videre til app B.
-Disse dataene er bevart i PDF-elementet som lagres som en del av instansobjektet.
-Denne PDF-en genereres bare ved _slutten_ av et steg. Derfor trenger du et ekstra steg for å kunne hente ut PDF-en.
-Du må ha minst to steg, der det siste steget _ikke_ er et datasteg. Steget kan være _confirm_ eller _feedback_.
-Vi anbefaler å bruke stegtypen _confirm_, og det er det denne veilederen bruker.
+I v9 lager appen PDF-en i en egen systemoppgave i prosessen. Legg PDF-oppgaven rett etter dataoppgaven, slik at prosessen ser slik ut:
 
-### Utvide prosessen med flere steg
+```text
+Task_1 (data) → PDF (systemoppgave) → slutt
+```
 
-For å legge til steg og utvide appprosessen, må du oppdatere `process.bpmn` og `policy.xml`.
+Les om [hvordan du setter opp PDF-oppgaven]({{< relref "/altinn-studio/v9/develop-a-service/process/pdf" >}}). Du trenger ikke et ekstra steg av typen _confirm_ eller _feedback_ for å få tak i PDF-en.
 
-1. Du finner eksempler på hvordan du tilpasser filen `process.bpmn`, der appprosessen er definert, i
-   [prosessdokumentasjonen](/nb/altinn-studio/v9/develop-a-service/reference/configuration/process).
-   <br><br>Når du bruker stegtypen _confirm_, må du tillate å gå tilbake til en tidligere stegtype, noe som også betyr
-   at du må bruke _exclusive gateways_. Les mer om exclusive
-   gateways [her](/nb/altinn-studio/v9/develop-a-service/reference/configuration/process/exclusive-gateways).
-2. Filen `policy.xml`, der autorisasjonsreglene er definert, trenger oppdateringer slik at du kan utføre lese- og skriveoperasjoner
-   på det nye steget. <br><br>Se [XACML-policy](/nb/authorization/reference/xacml),
-   [policyredigerer](/nb/altinn-studio/v9/develop-a-service/reference/configuration/authorization)
-   og [Retningslinjer for autorisasjonsregler](/nb/altinn-studio/v8/reference/configuration/authorization/guidelines_authorization)
-   for detaljer. De fleste apper tillater dette som standard med gjeldende mal.
+Hvis du endrer prosessen, må du også sjekke at `policy.xml` gir tilgang til de nye stegene. Les mer om [tilgangsregler for appen]({{< relref "/altinn-studio/v9/develop-a-service/configuration/authorization" >}}).
 
-## Utløse opprettelse av app B
+## Opprette en instans av app B
 
-### Forstå behovet for spesiell tilpasning
+### Forstå hvorfor du trenger egen kode
 
-Det essensielle formålet med en flerappsløsning avhenger av at en instans av en app opprettes av en
-gitt utløserhandling i en annen Altinn-app. Den naturlige måten å opprette en Altinn-app på er ved å
-gjøre en API POST-forespørsel til den kjørende Altinn-appen.
-Det er ingen innebygd måte i Altinn for å utløse denne atferden, noe som betyr at du må utløse API-forespørselen med egendefinert kode i app A.
+I en flerappsløsning oppretter app A en instans av app B. Du oppretter en instans ved å sende en POST-forespørsel til app B.
+Altinn har ingen innebygd måte å gjøre dette på, så du må skrive koden selv i app A.
 
-### Tilpasse app A for å utløse opprettelse av app B
+### Opprette instansen fra app A
 
-Den generelle tilnærmingen for at en Altinn-app skal utføre egendefinerte operasjoner, er å implementere kode på
-visse hooks, som er forhåndsdefinerte funksjoner i app-backend.
-Les om hvordan du legger til denne egendefinerte koden [her](/nb/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks).
+Du oppretter instansen av app B i en [prosess-hook]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks" >}}) som implementerer `IOnProcessEndedHandler`. Den kjører når prosessen i app A er ferdig, altså etter PDF-oppgaven. Da kan ikke brukeren lenger gå tilbake og endre skjemaet. En app kan bare ha én `IOnProcessEndedHandler`, så har appen allerede en, legger du koden inn i den. Grensesnittet ligger i `Altinn.App.Core.Features.Process`, som ikke er med i de globale `using`-linjene i appen. Du må derfor legge til `using Altinn.App.Core.Features.Process;` både i hook-klassen og i `Program.cs`.
 
-1. Hvis filen ikke allerede finnes, opprett en fil for å implementere den egendefinerte koden som kjører på slutten
-   av et steg: `ProcessTaskEnd.cs`. I filen implementerer du koden som oppretter instansobjektet som blir brukt som
-   grunnlag for den nye instansen av app B. Se nedenfor for et eksempel på en mal. Sørg for at
-   instansopprettelsen skjer når steget er fullført, det vil si at du bruker funksjonen `ProcessTaskEnd.End()`.
-   Dette er nødvendig siden brukeren kan gå tilbake til datasteget og gjøre endringer på skjemaet.
-   <br><br>`instanceOwner`-delen av instansobjektet er essensiell, da det er her du spesifiserer instanseieren.
-   Når du definerer det med `OrganisationNumber`, er eieren en organisasjon. Når du definerer det med `PersonNumber`, er eieren en privatperson.
-   <br><br>En naturlig del av instansobjektet er _prefill_-delen, der du legger til ønskede data som den nye instansen av app B skal fylles ut med.
-   Det resulterende instansobjektet vil se omtrent slik ut:
+1. Lag en klient som sender forespørslene til app B, for eksempel `AppInstantiationClient`.
+   Klienten trenger metoden `CreateNewInstance`, som oppretter instansen, og metoden `InsertBinaryData`, som du bruker i [alternativ 3](#kontrollere-data-i-app-b) lenger ned.
+
+   {{< code-title >}}
+   App/logic/AppInstantiationClient.cs
+   {{< /code-title >}}
 
    ```csharp
-   var instanceTemplate = new InstansiationInstance
+   public class AppInstantiationClient(HttpClient client, IOptions<GeneralSettings> settings)
    {
-       InstanceOwner = new InstanceOwner
+       public async Task<Instance> CreateNewInstance(
+           string appOwnerOrgName,
+           string applicationB,
+           InstantiationInstance instanceTemplate,
+           CancellationToken cancellationToken
+       )
        {
-           //OrganisationNumber = [mottakerOrgNr], Eller
-           //PersonNumber = [mottakerSsnNr],
-       },
-       Prefill = new()
+           string url = $"https://{appOwnerOrgName}.apps.{settings.Value.HostName}/{appOwnerOrgName}/{applicationB}/instances/create";
+
+           StringContent content = new(JsonConvert.SerializeObject(instanceTemplate), Encoding.UTF8, "application/json");
+
+           HttpResponseMessage response = await client.PostAsync(url, content, cancellationToken);
+
+           if (response.IsSuccessStatusCode)
+           {
+               return JsonConvert.DeserializeObject<Instance>(
+                   await response.Content.ReadAsStringAsync(cancellationToken)
+               )!;
+           }
+           throw await PlatformHttpException.Create(response, cancellationToken);
+       }
+
+       public async Task InsertBinaryData(
+           string org,
+           string app,
+           string instanceId,
+           string dataType,
+           string contentType,
+           string filename,
+           ReadOnlyMemory<byte> data,
+           CancellationToken cancellationToken
+       )
        {
-           {"noenDataIMottakerDataModell", noenVerdiFraDenneTriggerAppen},
-           {"merDataIMottakerDataModell", noenStatiskVerdi},
-           ...
-       },
-   };
-   ```
+           string url = $"https://{org}.apps.{settings.Value.HostName}/{org}/{app}/instances/{instanceId}/data/type/{dataType}";
 
-2. For å faktisk utføre forespørselen for å opprette instansen, må du legge til en klient. Se
-   [konsumer dokumentasjonen](/nb/altinn-studio/v9/develop-a-service/reference/api/consume#implementere-klienten) for et eksempel på hvordan
-   du kan legge til en slik klient i appen. Et passende navn for klienten som brukes i denne konteksten kan for
-   eksempel være `AppInstantiationClient`. I tillegg til instruksjonene i den refererte dokumentasjonen, trenger
-   konstruktøren ytterligere konfigurasjon for HttpClient. Legg til følgende kode i konstruktøren for å legge til
-   en subscription key i headeren til forespørslene som sendes av http-klienten.
+           ByteArrayContent content = new(data.ToArray());
+           content.Headers.ContentType = MediaTypeHeaderValue.Parse(contentType);
+           content.Headers.ContentDisposition = new ContentDispositionHeaderValue(DispositionTypeNames.Attachment)
+           {
+               FileName = filename,
+               FileNameStar = filename,
+           };
 
-   ```csharp
-       public AppClient(
-            ...
-            HttpClient httpClient,
-            ...
-        {
-            ...
-            httpClient.DefaultRequestHeaders.Add(General.SubscriptionKeyHeaderName, platformSettings.Value.SubscriptionKey);
-            _client = httpClient;
-            ...
-        }
-   ```
+           HttpResponseMessage response = await client.PostAsync(url, content, cancellationToken);
 
-   I stedet for å opprette en funksjon i klienten med navnet `GetCountry`, som i dokumentasjonen nevnt ovenfor,
-   implementer følgende funksjon, `CreateNewInstance`:
-
-   ```csharp
-   public async Task<Instance> CreateNewInstance(string AppOwnerOrgName, string applicationB, InstansiationInstance instanceTemplate)
-   {
-      string apiUrl = $"{AppOwnerOrgName}/{applicationB}/instances/create";
-
-      string envUrl = $"https://{AppOwnerOrgName}.apps.{_settings.HostName}";
-
-      _client.BaseAddress = new Uri(envUrl);
-
-      StringContent content = new StringContent(JsonConvert.SerializeObject(instanceTemplate), Encoding.UTF8, "application/json");
-
-      HttpResponseMessage response = await _client.PostAsync(apiUrl, content);
-
-      if (response.IsSuccessStatusCode)
-      {
-          Instance createdInstance = JsonConvert.DeserializeObject<Instance>(await response.Content.ReadAsStringAsync());
-
-          return createdInstance;
-      }
-      throw await PlatformHttpException.CreateAsync(response);
+           if (!response.IsSuccessStatusCode)
+           {
+               throw await PlatformHttpException.Create(response, cancellationToken);
+           }
+       }
    }
    ```
 
-3. I filen `ProcessTaskEnd.cs` legger du til den nye _AppInstantiationClient_ i klassen `ProcessTaskEnd` på samme måte
-   som _CountryClient_ legges til i klassen `DataProcessingHandler`
-   i [konsumer dokumentasjonen](/nb/altinn-studio/v9/develop-a-service/reference/api/consume#bruke-klient-i-app-logikk).
-   Kall deretter metoden som utløser forespørselen i appInstantiationClient slik:
+2. Lag hooken som oppretter instansen. Instansmalen er en `InstantiationInstance`.
+   <br><br>I `InstanceOwner` oppgir du hvem som skal eie instansen.
+   Med `OrganisationNumber` blir eieren en organisasjon, og med `PersonNumber` blir eieren en privatperson.
+   <br><br>I `Prefill` legger du til data som appen skal fylle ut i den nye instansen av app B.
+
+   {{< code-title >}}
+   App/logic/OpprettInstansIAppB.cs
+   {{< /code-title >}}
 
    ```csharp
-   Instance applicationBInstance = await _appInstantiationClient.CreateNewInstance([AppOwnerOrgName], [applicationB], [instanceTemplate]);
+   public class OpprettInstansIAppB(AppInstantiationClient appInstantiationClient) : IOnProcessEndedHandler
+   {
+       public async Task<HookResult> Execute(OnProcessEndedContext context)
+       {
+           var instanceTemplate = new InstantiationInstance
+           {
+               InstanceOwner = new InstanceOwner
+               {
+                   //OrganisationNumber = [mottakerOrgNr], Eller
+                   //PersonNumber = [mottakerSsnNr],
+               },
+               Prefill = new()
+               {
+                   { "noenDataIMottakerDataModell", "noenVerdiFraDenneTriggerAppen" },
+                   { "merDataIMottakerDataModell", "noenStatiskVerdi" },
+               },
+           };
+
+           Instance instansIAppB = await appInstantiationClient.CreateNewInstance(
+               "[AppOwnerOrgName]",
+               "[applicationB]",
+               instanceTemplate,
+               context.CancellationToken
+           );
+
+           // Send eventuelt data til instansen, se «Levere data til app B» under
+
+           return HookResult.Success();
+       }
+   }
    ```
 
-Hvis klienten skal autentisere seg selv som sluttbruker, heller enn appeieren via Maskinporten, se
-[app-lib klientimplementeringene](https://github.com/Altinn/app-lib-dotnet/tree/main/src/Altinn.App.Core/Infrastructure/Clients)
-for detaljer om hvordan du tilpasser API-forespørselen i AppInstantiationClient for å oppnå dette.
+3. Registrer klienten og hooken i `Program.cs`. Klienten bruker appens innebygde Maskinporten-identitet, slik at appen sender forespørslene til app B på vegne av tjenesteeieren.
+
+   {{< code-title >}}
+   App/Program.cs
+   {{< /code-title >}}
+
+   ```csharp
+   void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+   {
+       services
+           .AddHttpClient<AppInstantiationClient>()
+           .UseMaskinportenAltinnAuthorization(
+               "altinn:serviceowner/instances.read",
+               "altinn:serviceowner/instances.write"
+           );
+
+       services.AddTransient<IOnProcessEndedHandler, OpprettInstansIAppB>();
+   }
+   ```
+
+{{% notice warning %}}
+Appen kan kjøre hooken på nytt hvis noe feiler. Feiler hooken etter at instansen i app B er opprettet, kan et nytt forsøk opprette en instans til. Gjør derfor så lite som mulig etter `CreateNewInstance`, og vurder om koden din må sjekke om instansen allerede finnes.
+{{% /notice %}}
+
+Hooken kjører i arbeidsflytmotoren uten en innlogget bruker, så appen sender alltid forespørslene til app B som tjenesteeier.
 
 ## Levere data til app B
 
-### Forstå hvorfor du manipulerer dataene i app A
+### Forstå hvorfor app A sender data
 
-Det er naturlig å utnytte flerappsløsningen for å kontrollere presentasjonen av informasjon i app
-B dynamisk, avhengig av hvilke data som er lagt inn i en instans av app A.
-Dette betyr at alle tilpasninger på app B som er avhengige av data hentet fra app A, må du gjøre i app A
-og på en eller annen måte levere eller representere i app B.
+Ofte skal det app B viser, avhenge av hva brukeren fylte ut i app A.
+Da må app A sende dataene videre til app B.
 
 ### Hente data fra app A
 
-Før du kan legge til noen datatyper, må du hente dem fra Altinn Storage siden appen ikke har
-direkte tilgang til dette som standard.
 Den mest sannsynlige datatypen å sende videre fra app A til app B er PDF-en som inkluderer all
 informasjonen som er fylt ut i instansen av app A.
-For å hente denne dataen fra app A, må du hente den fra Altinn Storage.
-PDF-en finnes på instansobjektet som en del av `dataTypes`-feltet med navnet `ref-data-as-pdf`.
-Du kan hente dette ved å få tak i instansobjektet og hente dataen direkte på objektet, eller ved å bruke den allerede
-definerte `GetBinaryData`-metoden på dataklienten.
-Se eksempelkode nedenfor for begge deler:
+PDF-en ligger på instansen som et dataelement med datatypen `ref-data-as-pdf`.
+I hooken henter du den gjennom `context.InstanceDataMutator`:
+
+{{< code-title >}}
+App/logic/OpprettInstansIAppB.cs
+{{< /code-title >}}
 
 ```csharp
-// Using the instance object directly with the GetInstance method on the InstanceClient
-Instance updatedInstance = await _instanceClient.GetInstance(innsendingsApp, mutliAppOwner, int.Parse(instance.InstanceOwner.PartyId), instanceGuid);
-DataElement pdf = updatedInstance.Data.FindLast(d => d.DataType == "ref-data-as-pdf");
+var mutator = context.InstanceDataMutator;
+DataElement? pdf = mutator.Instance.Data.FindLast(d => d.DataType == "ref-data-as-pdf");
 
-// Using the GetBinaryData method on the DataClient
-var stream = await _dataClient.GetBinaryData(instance.Org, instance.AppId,int.Parse(instance.InstanceOwner.PartyId), instanceGuid, Guid.Parse(pdf.Id));
+if (pdf is not null)
+{
+    ReadOnlyMemory<byte> pdfBytes = await mutator.GetBinaryData(pdf);
+}
 ```
-
-_NB: For å bruke disse metodene i klassen `ProcessTaskEnd`, må du konfigurere konstruktøren til å bruke
-InstanceClient og/eller DataClient._
 
 <a name="kontrollere-data-i-app-b"></a>
 
-### Kontrollere data i app B fra app A
+### Styre dataene i app B fra app A
 
-Du kan kontrollere visse data i app B på flere måter, der du kan utnytte en eller flere:
+Du kan styre dataene i app B på tre måter, og du kan kombinere dem:
 
 - **Alt 1:** Legg til data som verdier i datamodellen til app B ved å legge til navnet på datamodellfeltet og
-  den tilsvarende verdien i `prefill`-feltet til instansmalen som du opprettet i
-  [Utløs opprettelsen av app B](#utløse-opprettelse-av-app-b)-delen over.
-- **Alt 2:** Hvis intensjonen er å manipulere tekstene i Altinn-innboksen for instanser av app B,
-  bruk [_presentasjonsfelt_](/nb/altinn-studio/v9/develop-a-service/reference/configuration/messagebox/presentationfields/).
+  den tilsvarende verdien i `Prefill`-feltet til instansmalen som du opprettet i
+  delen [Opprette en instans av app B](#opprette-en-instans-av-app-b) over.
+- **Alt 2:** Hvis du vil styre tekstene i Altinn-innboksen for instanser av app B,
+  bruker du [presentasjonsfelt]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/messagebox/presentationfields" >}}).
 
-- **Alt 3:** Legg til data som binære data ved å sende en POST-forespørsel til instansen av app B.
+- **Alt 3:** Legg til data som binære data i instansen av app B med metoden `InsertBinaryData` i klienten over. I hooken kaller du den etter at du har opprettet instansen:
+
+  {{< code-title >}}
+  App/logic/OpprettInstansIAppB.cs
+  {{< /code-title >}}
 
   ```csharp
-  public async Task<DataElement> InsertBinaryData(string org, string app, string instanceId, string contentType, string filename, Stream stream)
+  if (pdf is not null)
   {
-    string envUrl = $"https://{org}.apps.{_settings.HostName}";
-    _client.BaseAddress = new Uri(envUrl);
+      ReadOnlyMemory<byte> pdfBytes = await mutator.GetBinaryData(pdf);
 
-    string apiUrl = $"{org}/{app}/instances/{instanceId}/data?dataType=vedlegg";
-
-    StreamContent content = new(stream);
-    content.Headers.ContentType = MediaTypeHeaderValue.Parse(contentType);
-    if (!string.IsNullOrEmpty(filename))
-    {
-      content.Headers.ContentDisposition = new ContentDispositionHeaderValue(DispositionTypeNames.Attachment)
-      {
-        FileName = filename,
-        FileNameStar = filename
-      };
-    }
-
-    HttpResponseMessage response = await _client.PostAsync(apiUrl, content);
-
-    if (response.IsSuccessStatusCode)
-    {
-      await Task.CompletedTask;
-    }
+      await appInstantiationClient.InsertBinaryData(
+          "[AppOwnerOrgName]",
+          "[applicationB]",
+          instansIAppB.Id,
+          "vedlegg",
+          "application/pdf",
+          "skjema.pdf",
+          pdfBytes,
+          context.CancellationToken
+      );
   }
   ```
