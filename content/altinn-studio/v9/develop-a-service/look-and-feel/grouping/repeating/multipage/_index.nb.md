@@ -40,7 +40,9 @@ App/ui/{taskId}/layouts/{page}.json
 }
 ```
 
-Når `multiPage` er `true`, må alle ID-ene i `children` ha et sidenummer. Hvis én ID mangler sidenummer, gir appen en feil.
+Når `multiPage` er `true`, må alle ID-ene i `children` ha et sidenummer. Sidenummeret kan bare inneholde sifre. Hvis én ID mangler sidenummer, gir appen en feil når den laster skjemaet.
+
+I `tableHeaders` og `tableColumns` skriver du ID-ene uten sidenummer, for eksempel `fornavn` og ikke `1:fornavn`.
 
 Eksempelet bruker også [`"mode": "hideTable"`]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating/edit#mode" >}}), som skjuler tabellen mens brukeren redigerer en rad. Resultatet ser slik ut:
 

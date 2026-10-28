@@ -81,7 +81,14 @@ Innstillingen er spesielt nyttig sammen med [`openByDefault`](#openbydefault). N
 
 ## editButton
 
-Med `editButton` bestemmer du om brukeren skal se **Rediger**-knappen i tabellen. Standard er at brukeren ser knappen.
+Med `editButton` bestemmer du om brukeren kan åpne en rad. Standard er at brukeren kan det.
+
+Er `editButton` `false`, ser brukeren ikke **Rediger**-knappen i tabellen. Appen åpner heller ikke raden på andre måter:
+
+- [`openByDefault`](#openbydefault) åpner ikke raden.
+- Legger brukeren til en rad med **Legg til ny**, legger appen til raden, men åpner den ikke.
+
+Skal brukeren kunne legge til rader når `editButton` er `false`, må brukeren kunne fylle ut feltene [direkte i tabellen]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating/table#redigere-direkte-i-tabellen" >}}), eller `mode` må være `"showAll"`.
 
 Hvis `mode` er `"onlyTable"`, ser brukeren aldri knappen, uansett hva du setter `editButton` til.
 

@@ -8,7 +8,9 @@ toc: true
 tags: [needsReview]
 ---
 
-Når radene i en repeterende gruppe ikke er åpne, viser appen dem i en tabell. Komponentene i gruppen blir kolonner i tabellen. Du bestemmer selv hvilke kolonner brukeren ser, hvor brede de er, og om brukeren kan redigere direkte i tabellen.
+Når radene i en repeterende gruppe ikke er åpne, viser appen dem i en tabell. Med [`edit.mode` satt til `"showAll"`]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating/edit#mode" >}}) viser appen ingen tabell, og innstillingene på denne siden har ingen virkning. Komponentene i gruppen blir kolonner i tabellen. Du bestemmer selv hvilke kolonner brukeren ser, hvor brede de er, og om brukeren kan redigere direkte i tabellen.
+
+På mobil og nettbrett viser appen ingen overskriftsrad. Hver rad blir én celle der verdiene står under hverandre, med tittelen på kolonnen foran. Komponenter brukeren redigerer i tabellen, viser appen som hele komponenter med ledetekst.
 
 ## Velge kolonner
 
@@ -64,6 +66,8 @@ Med `tableColumns` kan du sette egenskaper for hver kolonne. Nøkkelen er ID-en 
 - `hidden` skjuler kolonnen, se [Skjule kolonner](#skjule-kolonner).
 - `editInTable` lar brukeren redigere komponenten direkte i tabellen. Standardverdien er `false`. Se [Redigere direkte i tabellen](#redigere-direkte-i-tabellen).
 - `showInExpandedEdit` bestemmer om komponenten skal være med når brukeren åpner raden. Standardverdien er `true`. Se [Redigere noen felter i tabellen](#redigere-noen-felter-i-tabellen).
+
+Appen korter bare ned tekst i kolonner som er med i `tableColumns`. Overskriftene og felter brukeren redigerer i tabellen, korter den ikke ned.
 
 {{< code-title >}}
 App/ui/{taskId}/layouts/{page}.json
@@ -162,6 +166,8 @@ Du kan også la brukeren redigere noen felter i tabellen og resten når raden er
 - Sett `editInTable` til `true` på komponentene brukeren skal kunne redigere i tabellen.
 - Sett `showInExpandedEdit` til `false` på komponentene som ikke skal være med når brukeren åpner raden.
 
+Setter du `showInExpandedEdit` til `false` uten å sette `editInTable` til `true`, kan brukeren ikke fylle ut komponenten noe sted. Appen regner den da som skjult og kontrollerer den ikke. Dette gjelder ikke når `mode` er `"onlyTable"` eller `"showAll"`.
+
 ![Redigering i både tabellen og raden](mixed-editing.gif "Redigering i både tabellen og raden")
 
 I eksempelet over kan brukeren redigere fornavn og etternavn bare i tabellen. Alder kan brukeren redigere både i tabellen og når raden er åpen. Adressen kan brukeren bare redigere når raden er åpen.
@@ -221,7 +227,7 @@ En celle kan være
 - ledeteksten til en annen komponent, med `{ "labelFrom": "komponent-id" }`
 - tom, med `{}` eller `null`
 
-Komponentene i cellene må være komponenter som kan vises i en tabell. Det gjelder komponentene i listen under [Redigere direkte i tabellen](#redigere-direkte-i-tabellen), og i tillegg komponenter som bare viser innhold, for eksempel `Text`, `Number`, `Date`, `Paragraph`, `Image` og `Button`.
+Komponentene i cellene må være komponenter som kan vises i en tabell. Det gjelder komponentene i listen under [Redigere direkte i tabellen](#redigere-direkte-i-tabellen), og i tillegg blant annet `Text`, `Number`, `Date`, `Paragraph`, `Heading`, `Image`, `Link` og `Button`. Appen viser ikke andre komponenter i cellene.
 
 Dette gjelder for de faste radene:
 

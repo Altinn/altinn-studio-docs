@@ -110,3 +110,7 @@ App/ui/{taskId}/layouts/{page}.json
 ```
 
 Mottakeren får da en liste med én unik ID for hvert vedlegg.
+
+## Slette en rad med vedlegg
+
+Når brukeren sletter en rad, sletter appen også vedleggene brukeren har lastet opp i raden. Det gjelder også vedlegg i grupper inne i raden.
