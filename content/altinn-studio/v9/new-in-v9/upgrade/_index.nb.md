@@ -134,7 +134,7 @@ PDF-ene har metadatafeltet `subformUiFolder` i stedet for `subformComponentId`. 
 
 ### Systemoppgaver viser sidene i UI-mappen mens de kjører
 
-I v9 viser appen sidene i `pages.order` for en systemoppgave fra prosessen kommer til oppgaven og til neste steg står på skjermen. Sidene er skrivebeskyttet. Lister mappen ingen sider, ser brukeren den innebygde lastevisningen. Apper fra v8 kan ha sider i slike mapper som aldri var ment for brukere som venter på oppgaven.
+I v9 viser appen sidene i `pages.order` for en systemoppgave fra prosessen kommer til oppgaven og til neste steg står på skjermen. Sidene er skrivebeskyttet. Feiler oppgaven for godt, for eksempel når den har brukt opp forsøkene eller ventetiden sin, viser appen den innebygde siden **Noe gikk galt** i stedet. Lister mappen ingen sider, ser brukeren den innebygde lastevisningen. Apper fra v8 kan ha sider i slike mapper som aldri var ment for brukere som venter på oppgaven.
 
 Oppgraderingen gjør dette for deg, i UI-mappen til alle systemoppgaver:
 
