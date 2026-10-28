@@ -2,12 +2,12 @@
 draft: true
 title: Hjelpefelter i skjemadata
 linktitle: Hjelpefelter
-description: Slik bruker du hjelpefelter for data som skjemaet trenger underveis, men som ikke skal være med i de innsendte dataene.
+description: Slik bruker du hjelpefelter for data som skjemaet trenger underveis, men som ikke skal være med i de ferdige dataene.
 toc: true
 tags: [needsReview]
 ---
 
-Hjelpefelter er felt i datamodellen som skjemaet bare trenger underveis, for eksempel til dynamikk eller beregninger. Appen fjerner dem når oppgaven er ferdig, slik at de ikke er med når du henter ut dataene.
+Hjelpefelter er felt i datamodellen som skjemaet bare trenger underveis, for eksempel til dynamikk eller beregninger. Appen fjerner dem når oppgaven er ferdig, eller lagrer en kopi uten dem, slik at de ikke er med når du henter ut dataene.
 
 ## Lage hjelpefelter i datamodellen
 
