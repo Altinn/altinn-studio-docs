@@ -6,9 +6,9 @@ description: Slik deler du en systemoppgave i flere arbeidssteg, og lar den vent
 tags: [altinn-apps, process, bpmn, task, service task, systemoppgave, needsReview]
 ---
 
-En systemoppgave som gjør én ting, skriver du med `IServiceTask`. Se [Lage en egendefinert systemoppgave]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}).
+En systemoppgave setter du sammen i `DefineExecute`. En oppgave som gjør én ting, består bare av avslutningen: `pipeline.Finally(Execute)`. Se [Lage en egendefinert systemoppgave]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}).
 
-Skal oppgaven gjøre flere ting etter hverandre, deler du den i **arbeidssteg** (`Stage` i koden) med `IPipelineServiceTask`. Det gjelder når oppgaven sender noe og venter på svar, eller kaller flere systemer i rekkefølge. Plattformen husker hvert arbeidssteg som er ferdig, slik at en feil sent i oppgaven ikke sender bestillingen din på nytt.
+Skal oppgaven gjøre flere ting etter hverandre, deler du den i **arbeidssteg** (`Stage` i koden) foran avslutningen. Det gjelder når oppgaven sender noe og venter på svar, eller kaller flere systemer i rekkefølge. Plattformen husker hvert arbeidssteg som er ferdig, slik at en feil sent i oppgaven ikke sender bestillingen din på nytt.
 
 {{% notice info %}}
 Denne siden gir oversikten. Utviklerne finner alle detaljene i [`docs/service-task-pipelines.md`](https://github.com/Altinn/altinn-studio/blob/main/src/App/backend/docs/service-task-pipelines.md) i kodebasen for app-biblioteket.
@@ -16,18 +16,20 @@ Denne siden gir oversikten. Utviklerne finner alle detaljene i [`docs/service-ta
 
 ## Dele oppgaven i arbeidssteg
 
-Du setter sammen arbeidsstegene i `Define`. Sammensetningen må slutte med én avslutning: `Finally` for arbeid som blir ferdig av seg selv eller ved å spørre igjen, eller `ConcludeOnReplies` for arbeid som en melding svarer på.
+Du setter sammen arbeidsstegene i `DefineExecute`. Sammensetningen må slutte med én avslutning: `Finally` for arbeid som blir ferdig av seg selv eller ved å spørre igjen, eller `ConcludeOnReplies` for arbeid som en melding svarer på.
 
 {{< code-title >}}
 App/logic/ServiceTasks/ArchiveServiceTask.cs
 {{< /code-title >}}
 
 ```csharp
+using Altinn.App.Core.Features;
 using Altinn.App.Core.Features.Process;
+using Altinn.App.Models;
 
 namespace Altinn.App.Logic.ServiceTasks;
 
-public class ArchiveServiceTask : IPipelineServiceTask
+public class ArchiveServiceTask : IServiceTask
 {
     // IArchiveClient er ditt eget grensesnitt mot arkivet, ikke noe plattformen har.
     private readonly IArchiveClient _archive;
@@ -39,23 +41,41 @@ public class ArchiveServiceTask : IPipelineServiceTask
 
     public string Type => "archive";
 
-    public ServiceTaskPipeline Define(ServiceTaskPipelineBuilder pipeline) =>
+    public ServiceTaskPipeline DefineExecute(PipelineBuilder pipeline) =>
         pipeline
             .Stage(SendToArchive)
             .Finally(AwaitConfirmation, new ProcessStepOptions { WaitBudget = TimeSpan.FromHours(6) });
 
-    private async Task<ServiceTaskStageResult> SendToArchive(ServiceTaskContext context)
+    private async Task<StageResult> SendToArchive(StageContext context)
     {
+        Datamodell? skjemadata = await context.InstanceDataMutator.GetFormData<Datamodell>();
+
+        if (skjemadata is null)
+        {
+            return StageResult.FailedPermanent("Instansen mangler skjemadata.");
+        }
+
         // context.StepId er den samme gjennom alle forsøk på dette arbeidssteget.
         // Bruk den som nøkkel, slik at arkivet kjenner igjen en sending det har fått før.
-        await _archive.Send(context.StepId, context.InstanceDataMutator.Instance);
+        string referanse = await _archive.Send(context.StepId, context.InstanceDataMutator.Instance);
 
-        return ServiceTaskStageResult.Completed();
+        // Avslutningen kjører som sitt eget steg, med sin egen StepId. Lagre referansen
+        // fra arkivet i skjemadataene, så finner AwaitConfirmation den igjen.
+        skjemadata.Arkivreferanse = referanse;
+
+        return StageResult.Completed();
     }
 
-    private async Task<ServiceTaskResult> AwaitConfirmation(ServiceTaskContext context)
+    private async Task<ServiceTaskResult> AwaitConfirmation(StageContext context)
     {
-        if (await _archive.IsDelivered(context.StepId))
+        Datamodell? skjemadata = await context.InstanceDataMutator.GetFormData<Datamodell>();
+
+        if (skjemadata?.Arkivreferanse is null)
+        {
+            return ServiceTaskResult.FailedPermanent("Instansen mangler referansen fra arkivet.");
+        }
+
+        if (await _archive.IsDelivered(skjemadata.Arkivreferanse))
         {
             return ServiceTaskResult.Success();
         }
@@ -70,7 +90,7 @@ public class ArchiveServiceTask : IPipelineServiceTask
 }
 ```
 
-Oppgaver med flere arbeidssteg registrerer du på `IPipelineServiceTask`:
+Oppgaven registrerer du på `IServiceTask`, som alle andre systemoppgaver:
 
 {{< code-title >}}
 App/Program.cs
@@ -78,16 +98,18 @@ App/Program.cs
 
 ```csharp
 services.AddTransient<IArchiveClient, ArchiveClient>();
-services.AddTransient<IPipelineServiceTask, ArchiveServiceTask>();
+services.AddTransient<IServiceTask, ArchiveServiceTask>();
 ```
 
-`Define` kjører hver gang plattformen skal finne ut hva som er neste arbeidssteg, og når appen starter. Den skal derfor være billig og forutsigbar, og ikke gjøre noe arbeid selv. Selve arbeidet hører til inne i arbeidsstegene.
+`DefineExecute` kjører hver gang plattformen skal finne ut hva som er neste arbeidssteg, og når appen starter. Den skal derfor være billig og forutsigbar, og ikke gjøre noe arbeid selv. Selve arbeidet hører til inne i arbeidsstegene.
+
+Arbeidsstegene og avslutningen kjører som hvert sitt steg, med hver sin `StepId`. Det et senere steg trenger å vite, lagrer du i instansdataene gjennom `context.InstanceDataMutator`, slik eksempelet gjør med referansen fra arkivet. Plattformen lagrer endringene når arbeidssteget er ferdig, og alle senere steg ser dem.
 
 Setter du sammen noe ugyldig, for eksempel et arbeidssteg uten avslutning eller en postkasse ingen svarer på, feiler appen når den starter. Da får du feilen med en gang, ikke først når en bruker treffer oppgaven.
 
 ## Svare fra et arbeidssteg
 
-Et arbeidssteg svarer med `ServiceTaskStageResult`:
+Et arbeidssteg svarer med `StageResult`:
 
 | Svar | Dette skjer |
 | --- | --- |
@@ -98,11 +120,15 @@ Et arbeidssteg svarer med `ServiceTaskStageResult`:
 
 Bare avslutningen kan si at hele oppgaven er ferdig og at prosessen skal gå videre. Derfor svarer `Finally` med `ServiceTaskResult`, som i tillegg har `Success(action)`. `Success` flytter alltid prosessen videre.
 
+## Gi hvert steg sine egne tidsrammer
+
+Tidsavbrudd, nye forsøk og ventefrist gir du steget der du setter det sammen, som `options`-argumentet til `Stage`, `HandleReplies`, `Finally` eller `ConcludeOnReplies`. Hvert steg får akkurat det kallet oppgir. Et felt du ikke setter, får standardverdien i plattformen, aldri verdien fra et annet steg. Skal flere steg ha de samme valgene, sender du det samme `ProcessStepOptions`-objektet til hvert av dem. Se [Styre tidsbruk og nye forsøk]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}#styre-tidsbruk-og-nye-forsøk) for hva feltene betyr.
+
 ## Vente på svar
 
 `Defer` betyr «alt gikk bra, men svaret er ikke kommet». Plattformen holder ikke serveren opptatt mens oppgaven venter, og kjører oppgaven på nytt etter den pausen du oppgir.
 
-- Ventetiden til sammen har en frist, `WaitBudget`. Sett fristen på avslutningen, ikke på hele oppgaven, slik at arbeidssteg som aldri venter, ikke arver den.
+- Ventetiden til sammen har en frist, `WaitBudget`. Sett fristen på `Finally`, steget som venter.
 - `context.Wait` forteller hvor langt ventingen er kommet: `DeferCount`, `StartedAt`, `Deadline`, `Remaining` og `IsFinalCheck`. Bruk dem til å spørre ofte i starten og sjeldnere etter hvert, og til å avslutte med en melding som sier hva som aldri kom.
 - Teksten du sender med i `reason`, lagrer plattformen på steget, og den følger med i prosessdataene og driftsverktøyene. Ingen av standardvisningene viser den til brukeren, så skal brukeren se den, må du [lage din egen side]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}). Skriv den likevel for et menneske.
 - Et forsøk som venter, lagrer ingenting, og endrer forsøket data mens det venter, avviser plattformen forsøket. Arbeid som skal etterlate et spor, hører til i sitt eget arbeidssteg foran ventingen.
@@ -116,13 +142,13 @@ App/logic/ServiceTasks/ArchiveServiceTask.cs
 {{< /code-title >}}
 
 ```csharp
-public ServiceTaskPipeline Define(ServiceTaskPipelineBuilder pipeline) =>
+public ServiceTaskPipeline DefineExecute(PipelineBuilder pipeline) =>
     pipeline
         .Stage(SendOrder, new MailboxOptions { Timeout = TimeSpan.FromDays(14) }, out MailboxHandle svar)
         .ConcludeOnReplies(svar, onMessage: HandleAnswer, onClosed: HandleClosed);
 
 // _partner, TryLesSvar og Svar er dine egne, på samme måte som IArchiveClient over.
-private async Task<ServiceTaskOpeningStageResult> SendOrder(ServiceTaskContext context, ServiceTaskMailbox mailbox)
+private async Task<ServiceTaskOpeningStageResult> SendOrder(StageContext context, ServiceTaskMailbox mailbox)
 {
     // Send mailbox.Id med bestillingen, i det feltet mottakeren sender tilbake.
     // Uten den finner ikke svaret veien tilbake til oppgaven.
@@ -131,7 +157,7 @@ private async Task<ServiceTaskOpeningStageResult> SendOrder(ServiceTaskContext c
     return ServiceTaskOpeningStageResult.Completed();
 }
 
-private async Task<ServiceTaskExchangeResult> HandleAnswer(ServiceTaskContext context, ServiceTaskReply reply)
+private async Task<ServiceTaskExchangeResult> HandleAnswer(StageContext context, ServiceTaskReply reply)
 {
     // reply.Payload kommer utenfra. Kontroller innholdet før du bruker det.
     if (!TryLesSvar(reply.Payload, out Svar? svar))
@@ -142,7 +168,7 @@ private async Task<ServiceTaskExchangeResult> HandleAnswer(ServiceTaskContext co
     return svar.Ferdig ? ServiceTaskResult.Success() : ServiceTaskExchangeResult.AwaitNextReply();
 }
 
-private Task<ServiceTaskResult> HandleClosed(ServiceTaskContext context, MailboxClosedReason reason) =>
+private Task<ServiceTaskResult> HandleClosed(StageContext context, MailboxClosedReason reason) =>
     // Typeargumentet er nødvendig: uten det blir returtypen Task<FailedServiceTaskResult>, som ikke kompilerer.
     Task.FromResult<ServiceTaskResult>(ServiceTaskResult.FailedPermanent("Fikk aldri svar fra samarbeidspartneren."));
 ```
@@ -158,12 +184,77 @@ Slik henger delene sammen:
 
 Fiks Arkiv er det innebygde eksempelet i plattformen: oppgaven sender id-en til postkassen som `klientKorrelasjonsId`, og lytteren leser den tilbake fra svaret og sender meldingen videre.
 
+## Navn på stegene
+
+Der noen følger med på oppgaven, for eksempel i administrasjonspanelet i Altinn Studio, får hvert steg navnet på metoden du sendte inn som arbeidet, skrevet som ord: `SendToArchive` blir «Send to archive», og `StoreReceipt` blir «Store receipt». Behandleren som svarer på en postkasse, kjører én av to metoder, avhengig av om det kom en melding eller om postkassen ble lukket, og får navnet på begge: «Handle answer / Handle closed». Sender du inn en lambda i stedet for en metode, får steget ikke noe navn. Det får heller ikke `Execute` i en oppgave som bare består av avslutningen, siden navnet ikke sier mer enn oppgavetypen gjør.
+
+Navnet er bare til visning. Bytter du navn på en metode, endrer det ingenting i hvordan steget kjører, heller ikke for instanser som er underveis, fordi plattformen kjenner igjen stegene på plasseringen i rekken.
+
+## Arbeidssteg når en oppgave starter, avsluttes eller avbrytes
+
+Arbeidet en oppgave gjør når den starter, avsluttes eller avbrytes, setter du sammen på samme måte, av de samme arbeidsstegene. Det gjelder alle oppgavetyper: `IProcessTask` har `DefineStart`, `DefineEnd` og `DefineAbandon`, som får den samme `PipelineBuilder`. Hvert arbeidssteg får en `StageContext` og svarer med `StageResult`, akkurat som i en systemoppgave. Sammensetningen slutter med `Build()`, ikke med en avslutning: stegene kjører inne i prosessovergangen, før plattformen lagrer den, og flytter aldri prosessen videre. En postkasse kan du derfor ikke åpne her.
+
+{{< code-title >}}
+App/logic/ProcessTasks/CaseProcessTask.cs
+{{< /code-title >}}
+
+```csharp
+using Altinn.App.Core.Features.Process;
+using Altinn.App.Core.Internal.Process.ProcessTasks;
+
+namespace Altinn.App.Logic.ProcessTasks;
+
+public class CaseProcessTask : IProcessTask
+{
+    // ICaseSystem er ditt eget grensesnitt mot fagsystemet, ikke noe plattformen har.
+    private readonly ICaseSystem _caseSystem;
+
+    public CaseProcessTask(ICaseSystem caseSystem)
+    {
+        _caseSystem = caseSystem;
+    }
+
+    public string Type => "case";
+
+    public ProcessTaskPipeline DefineStart(PipelineBuilder pipeline) =>
+        pipeline
+            .Stage(ReserveCaseNumber)
+            .Stage(NotifyCaseWorker)
+            .Build();
+
+    private async Task<StageResult> ReserveCaseNumber(StageContext context)
+    {
+        await _caseSystem.ReserveCaseNumber(context.StepId, context.InstanceDataMutator.Instance);
+
+        return StageResult.Completed();
+    }
+
+    private async Task<StageResult> NotifyCaseWorker(StageContext context)
+    {
+        await _caseSystem.NotifyCaseWorker(context.StepId, context.InstanceDataMutator.Instance);
+
+        return StageResult.Completed();
+    }
+}
+```
+
+Standardimplementasjonene setter ikke sammen noen arbeidssteg, så du overstyrer bare dem oppgaven trenger. Hvert arbeidssteg kjører som sitt eget steg som lagrer for seg, og feiler et arbeidssteg, prøver plattformen det på nytt uten å kjøre dem foran om igjen. Et arbeidssteg som venter (`Defer`), holder overgangen igjen: instansen står som `processing` til arbeidssteget er ferdig, på samme måte som når en systemoppgave venter.
+
+En systemoppgave er også en oppgavetype, så den kan sette sammen disse i tillegg til `DefineExecute`. Den innebygde signeringsoppgaven gjør det slik: når oppgaven starter, finner den dem som skal signere, delegerer rettigheter til dem og varsler dem, i hvert sitt arbeidssteg.
+
+En egen oppgavetype registrerer du på `IProcessTask`:
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
+```csharp
+services.AddTransient<ICaseSystem, CaseSystemClient>();
+services.AddTransient<IProcessTask, CaseProcessTask>();
+```
+
 ## Endre en oppgave mens instanser er underveis
 
-Formen på oppgaven låser seg når prosessen starter overgangen, og plattformen kjenner igjen arbeidsstegene på plasseringen i rekken. Ruller du ut en ny versjon som setter inn, fjerner eller bytter om på arbeidssteg, mister instansene som er underveis sporet. De feiler, eller de hopper over arbeid uten å feile.
+Formen på oppgaven låser seg når prosessen starter overgangen, og plattformen kjenner igjen arbeidsstegene på plasseringen i rekken. Det gjelder både arbeidsstegene i `DefineExecute` og dem i `DefineStart`, `DefineEnd` og `DefineAbandon`. Ruller du ut en ny versjon som setter inn, fjerner eller bytter om på arbeidssteg, mister instansene som er underveis sporet. De feiler, eller de hopper over arbeid uten å feile.
 
 Dette er samme problem som å endre en BPMN-fil mens instanser er i gang, og det er utviklerne som må håndtere det: la instansene som er underveis, bli ferdige på koden de startet på, eller avslutt dem bevisst før utrullingen.
-
-## Ikke overstyre `Define` i en enkel oppgave
-
-`IServiceTask` er en oppgave med bare én avslutning: plattformen svarer `Finally(Execute)` for deg. Skriver du din egen `Define` i en klasse som implementerer `IServiceTask`, blir `Execute` død kode, og det får du en byggefeil for. Trenger du flere arbeidssteg, bruker du `IPipelineServiceTask` i stedet.

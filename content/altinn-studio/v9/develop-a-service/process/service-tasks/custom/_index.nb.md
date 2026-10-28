@@ -18,7 +18,7 @@ Grensesnittet endret seg mellom v8 og v9. Har du en egendefinert systemoppgave f
 
 ## Skrive systemoppgaven i C\#
 
-Klassen sier hvilken oppgavetype den håndterer, gjennom `Type`-egenskapen, og hva oppgaven skal gjøre, gjennom `Execute`. Verdien du gir `Type`-egenskapen, er navnet du bruker i prosessen og i tilgangsregelen.
+Klassen sier hvilken oppgavetype den håndterer, gjennom `Type`-egenskapen, og hva oppgaven skal gjøre, gjennom `DefineExecute`. Der setter du sammen arbeidet oppgaven gjør. En oppgave som gjør én ting, består bare av avslutningen: `DefineExecute` svarer `pipeline.Finally(Execute)`, og selve arbeidet skriver du i en egen `Execute`-metode. Verdien du gir `Type`-egenskapen, er navnet du bruker i prosessen og i tilgangsregelen.
 
 {{< code-title >}}
 App/logic/ServiceTasks/ExampleServiceTask.cs
@@ -35,7 +35,9 @@ public class ExampleServiceTask : IServiceTask
 {
     public string Type => "exampleServiceTask";
 
-    public async Task<ServiceTaskResult> Execute(ServiceTaskContext context)
+    public ServiceTaskPipeline DefineExecute(PipelineBuilder pipeline) => pipeline.Finally(Execute);
+
+    private async Task<ServiceTaskResult> Execute(StageContext context)
     {
         Datamodell? skjemadata = await context.InstanceDataMutator.GetFormData<Datamodell>();
 
@@ -55,6 +57,8 @@ public class ExampleServiceTask : IServiceTask
 ```
 
 Du leser og endrer data gjennom `context.InstanceDataMutator`. Plattformen lagrer endringene når oppgaven svarer at den gikk bra. Husk at dataelementer fra tidligere oppgaver er låst.
+
+`DefineExecute` kjører når plattformen planlegger oppgaven, foran hvert steg og når appen starter. Den skal bare sette sammen stegene, ikke gjøre noe arbeid selv. Arbeidet hører hjemme i `Execute`.
 
 ## Registrere systemoppgaven
 
@@ -189,7 +193,7 @@ Handlingen gir ikke brukeren mulighet til å hoppe over oppgaven. Så lenge oppg
 
 ## Hva oppgaven kan svare
 
-`Execute` svarer alltid med et `ServiceTaskResult`. Svaret bestemmer hva plattformen gjør videre. Et svar som sier at oppgaven er ferdig, flytter alltid prosessen videre:
+Avslutningen, `Execute` i eksempelet over, svarer alltid med et `ServiceTaskResult`. Svaret bestemmer hva plattformen gjør videre. Et svar som sier at oppgaven er ferdig, flytter alltid prosessen videre:
 
 | Svar | Dette skjer |
 | --- | --- |
@@ -228,20 +232,25 @@ Plattformen kan kjøre oppgaven på nytt etter en feil. Sender oppgaven en meldi
 
 ## Styre tidsbruk og nye forsøk
 
-Trenger oppgaven andre tidsrammer enn standard, overstyrer du `StepOptions`:
+Trenger oppgaven andre tidsrammer enn standard, gir du dem til steget der du setter det sammen, som `options`-argumentet til `Finally`:
 
 {{< code-title >}}
 App/logic/ServiceTasks/ExampleServiceTask.cs
 {{< /code-title >}}
 
 ```csharp
-public ProcessStepOptions? StepOptions =>
-    new()
-    {
-        MaxExecutionTime = TimeSpan.FromMinutes(2),
-        WaitBudget = TimeSpan.FromHours(6),
-    };
+public ServiceTaskPipeline DefineExecute(PipelineBuilder pipeline) =>
+    pipeline.Finally(
+        Execute,
+        new ProcessStepOptions
+        {
+            MaxExecutionTime = TimeSpan.FromMinutes(2),
+            WaitBudget = TimeSpan.FromHours(6),
+        }
+    );
 ```
+
+Valgene gjelder bare det steget du gir dem til. I en oppgave med flere arbeidssteg gir du hvert steg sine egne valg på samme måte, på `Stage`, `HandleReplies`, `Finally` eller `ConcludeOnReplies`. Et steg arver aldri valgene til et annet steg, og det du ikke setter, får standardverdiene.
 
 Feltene betyr dette:
 
