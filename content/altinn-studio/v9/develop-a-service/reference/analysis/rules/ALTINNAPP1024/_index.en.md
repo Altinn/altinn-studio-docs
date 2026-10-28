@@ -16,7 +16,8 @@ from. That is the case when
 
 The message names the task, the folder and what is wrong.
 
-The task generates one PDF for each entry of the `defaultDataType`, from the folder's pages. A
+The task generates one PDF for each entry of the data type that `defaultDataType` names, from the
+folder's pages. A
 task's UI folder shows the task's own form, not the entries of a subform. The app checks the
 same thing when it starts, and does not start with such a task.
 

@@ -181,7 +181,7 @@ Deretter rydder oppgraderingen i UI-mappen til oppgaven, slik den gjør for alle
 
 Oppgraderingen gjør også UI-mappen til underskjemaet klar. Mangler `Settings.json` en `type`, legger oppgraderingen til `"type": "subform"`, slik at Altinn Studio finner underskjemaet. Mangler `defaultDataType`, setter den datatypen fra `subformDataTypeId`. Har mappen en annen `defaultDataType` enn `subformDataTypeId`, får du en oppgave du må gjøre selv.
 
-Mangler kopien, finnes den flere ganger, eller peker den ikke på en UI-mappe, lar oppgraderingen oppgaven stå uendret og lister den som en oppgave du må gjøre selv. Da bytter du ut `subformComponentId` og `subformDataTypeId` med `subformUiFolder` for hånd, og fjerner komponentkopien fra UI-mappen til oppgaven. Lister mappen sider du ikke vil vise mens oppgaven kjører, fjerner du dem også.
+Mangler kopien, finnes den flere ganger, eller peker den ikke på en UI-mappe, lar oppgraderingen oppgaven stå uendret og lister den som en oppgave du må gjøre selv. Da bytter du ut `subformComponentId` og `subformDataTypeId` med `subformUiFolder` for hånd, og fjerner komponentkopien fra UI-mappen til oppgaven. Oppgraderingen gjør heller ikke UI-mappen til underskjemaet klar. Sjekk derfor at `Settings.json` i mappen har `"type": "subform"`, og at `defaultDataType` er datatypen fra `subformDataTypeId`. Lister mappen sider du ikke vil vise mens oppgaven kjører, fjerner du dem også.
 
 PDF-ene har metadatafeltet `subformUiFolder` i stedet for `subformComponentId`. Leser et system det gamle feltet, må det lese `subformUiFolder` i stedet.
 

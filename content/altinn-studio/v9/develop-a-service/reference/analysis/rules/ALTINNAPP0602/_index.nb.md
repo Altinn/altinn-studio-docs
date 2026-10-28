@@ -15,6 +15,8 @@ Kategori `Deprecation`, alvorlighetsgrad **feil**. Regelen stopper altså bygget
 Oppgi UI-mappen til underskjemaet i `<altinn:subformUiFolder>` i stedet. Appen lager PDF-ene fra
 den mappen og henter datatypen fra `defaultDataType` i mappen. `studioctl app upgrade v9` gjør
 endringen for deg. Finner oppgraderingen ikke underskjemaet, lar den oppgaven stå uendret og
-lister den som en oppgave du må gjøre selv. Da gjør du endringen for hånd.
+lister den som en oppgave du må gjøre selv. Da gjør du endringen for hånd. Sjekk også at
+`Settings.json` for underskjemaet har `"type": "subform"`, og den gamle `subformDataTypeId` som
+`defaultDataType`.
 
 Se [veiledningen for PDF-generering for underskjema]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/subform/subform-pdf" >}}).

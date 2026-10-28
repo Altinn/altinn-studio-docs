@@ -20,9 +20,9 @@ Sidene i `pages.order` blir aldri en del av PDF-en. Brukeren ser dem som en vent
 
 Bygget sjekker oppsettet:
 
-- Har oppgaven verken `pdfLayoutName` eller `autoPdfTaskIds`, stopper bygget med [ALTINNAPP1000]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1000" >}}).
+- Har oppgaven verken `pdfLayoutName` eller noen oppgave i `autoPdfTaskIds`, stopper bygget med [ALTINNAPP1000]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1000" >}}). Tomme oppføringer teller ikke.
 - Peker `pdfLayoutName` på en side som ikke finnes i UI-mappen til oppgaven, stopper bygget med [ALTINNAPP1026]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1026" >}}).
-- Lister `autoPdfTaskIds` noe som ikke gir innhold i PDF-en, gir bygget advarselen [ALTINNAPP1002]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1002" >}}). Det gjelder tomme oppføringer, PDF-oppgaven selv og oppgaver uten egen UI-mappe.
+- Lister `autoPdfTaskIds` noe som ikke gir innhold i PDF-en, gir bygget advarselen [ALTINNAPP1002]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1002" >}}). Det gjelder PDF-oppgaven selv, oppgaver uten egen UI-mappe og tomme oppføringer ved siden av andre oppføringer.
 
 Appen sjekker de to feilene også når den starter, og starter ikke med en slik PDF-oppgave.
 

@@ -16,7 +16,8 @@ PDF-er fra. Det gjelder når
 
 Meldingen navngir oppgaven, mappen og hva som er galt.
 
-Oppgaven lager én PDF for hver oppføring av datatypen i `defaultDataType`, fra sidene i mappen.
+Oppgaven lager én PDF for hver oppføring av datatypen som `defaultDataType` peker på, fra sidene
+i mappen.
 UI-mappen til en oppgave viser skjemaet i oppgaven, og ikke oppføringene i et underskjema. Appen
 sjekker det samme når den starter, og starter ikke med en slik oppgave.
 

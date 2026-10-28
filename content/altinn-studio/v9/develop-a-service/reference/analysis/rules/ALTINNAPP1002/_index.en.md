@@ -1,7 +1,7 @@
 ---
 draft: true
 title: "ALTINNAPP1002: PDF service task lists an entry that adds nothing to its PDF"
-description: "autoPdfTaskIds lists a blank entry, the PDF task itself or a task without a UI folder"
+description: "autoPdfTaskIds lists the PDF task itself, a task without a UI folder, or a blank entry next to other entries"
 weight: 102
 ---
 
@@ -16,8 +16,8 @@ the entry
 The message names the PDF task and the entry, and says why the entry adds nothing.
 
 The automatic PDF shows each listed task from that task's own UI folder, and skips every other
-entry. A blank entry names no task. The pages in the PDF task's own UI folder are what the user
-sees while the task runs, and are never part of the PDF. A task without a UI folder has nothing
+entry. A blank entry names no task. The pages in `pages.order` in the PDF task's own UI folder are
+what the user sees while the task runs, and are never part of the PDF. A task without a UI folder has nothing
 to show.
 
 If the PDF task sets `pdfLayoutName`, the app ignores `autoPdfTaskIds`, and the rule checks
@@ -27,6 +27,8 @@ instead.
 
 Category `Process`, severity **warning**.
 
-Remove the entry, or correct the task id. The most common cause is a typo in the task id.
+Remove the entry, or correct the task id. The most common cause is a typo in the task id. If
+the entry is the only one that names a task, list a task that has a UI folder instead, or set
+`pdfLayoutName`: without a task to show, the build reports ALTINNAPP1000.
 
 See the [guide to PDFs in the app]({{< relref "/altinn-studio/v9/develop-a-service/process/pdf" >}}).

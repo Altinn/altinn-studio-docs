@@ -20,9 +20,9 @@ The pages in `pages.order` are never part of the PDF. They are waiting pages the
 
 The build checks the setup:
 
-- If the task has neither `pdfLayoutName` nor `autoPdfTaskIds`, the build fails with [ALTINNAPP1000]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1000" >}}).
+- If the task has no `pdfLayoutName`, and `autoPdfTaskIds` is missing or lists only blank entries, the build fails with [ALTINNAPP1000]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1000" >}}).
 - If `pdfLayoutName` names a page that does not exist in the task's UI folder, the build fails with [ALTINNAPP1026]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1026" >}}).
-- If `autoPdfTaskIds` lists an entry that adds nothing to the PDF, the build reports the warning [ALTINNAPP1002]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1002" >}}). That applies to blank entries, the PDF task itself and tasks without a UI folder of their own.
+- If `autoPdfTaskIds` lists an entry that adds nothing to the PDF, the build reports the warning [ALTINNAPP1002]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1002" >}}). That applies to the PDF task itself, tasks without a UI folder of their own, and blank entries next to other entries.
 
 The app also checks for the two errors when it starts, and does not start with such a PDF task.
 

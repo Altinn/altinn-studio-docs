@@ -128,7 +128,7 @@ V9 støtter i tillegg egenskapen `pageBreak` på `Summary2`-komponenter. Det gjo
 
 En `subformPdf`-oppgave peker nå på UI-mappen til underskjemaet med `subformUiFolder`, i stedet for `subformComponentId` og `subformDataTypeId`. Oppgaven trenger ingen UI-mappe selv. Oppgraderingen skriver om oppgaven og fjerner den skjulte kopien av komponenten **Tabell for underskjema** fra UI-mappen til oppgaven. Resten av mappen rydder den slik den gjør for alle systemoppgaver. Se [Systemoppgaver viser sidene i UI-mappen mens de kjører](#systemoppgaver-viser-sidene-i-ui-mappen-mens-de-kjører).
 
-Oppgraderingen legger også til `"type": "subform"` og en manglende `defaultDataType` i `Settings.json` for underskjemaet. Mangler kopien, finnes den flere ganger, eller peker den ikke på en UI-mappe, lar oppgraderingen oppgaven stå uendret og lister den som en oppgave du må gjøre selv. Da bytter du ut innstillingene med `subformUiFolder` for hånd, og fjerner komponentkopien.
+Oppgraderingen legger også til `"type": "subform"` og en manglende `defaultDataType` i `Settings.json` for underskjemaet. Mangler kopien, finnes den flere ganger, eller peker den ikke på en UI-mappe, lar oppgraderingen oppgaven stå uendret og lister den som en oppgave du må gjøre selv. Da bytter du ut innstillingene med `subformUiFolder` for hånd, og fjerner komponentkopien. Sjekk også at `Settings.json` for underskjemaet har `"type": "subform"`, og at `defaultDataType` er datatypen fra `subformDataTypeId`.
 
 PDF-ene har metadatafeltet `subformUiFolder` i stedet for `subformComponentId`. Leser et system det gamle feltet, må det lese `subformUiFolder` i stedet. Se [PDF-generering for underskjema]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/subform/subform-pdf" >}}).
 
