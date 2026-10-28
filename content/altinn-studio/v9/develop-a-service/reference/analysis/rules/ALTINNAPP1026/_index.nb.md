@@ -12,9 +12,8 @@ noen side `layouts/<pdfLayoutName>.json`. Meldingen navngir oppgaven og verdien 
 
 PDF-en er siden `pdfLayoutName` peker på, og da ser appen bort fra `autoPdfTaskIds`. Finnes ikke
 siden, har appen ingenting å lage PDF-en av. Appen leter etter siden med nøyaktig det navnet du
-oppgir, så store og små bokstaver må stemme. Appen sjekker det samme når en instans kommer til
-oppgaven. Da feiler oppgaven med en gang, i stedet for å vente til PDF-generatoren gir opp. En
-forhåndsvisning av PDF-en feiler på samme måte.
+oppgir, så store og små bokstaver må stemme. Appen sjekker det samme når den starter, og starter
+ikke med en slik oppgave.
 
 Kategori `Process`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
 

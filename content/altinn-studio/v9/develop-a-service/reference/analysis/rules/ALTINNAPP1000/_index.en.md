@@ -15,7 +15,8 @@ message names the task.
 
 The PDF is the page that `pdfLayoutName` names, or otherwise an automatic PDF of the tasks in
 `autoPdfTaskIds`. The pages in `pages.order` are what the user sees while the task runs, and are
-never part of the PDF. Without the rule, the task fails only when an instance reaches it.
+never part of the PDF. The app checks the same thing when it starts, and does not start with such
+a task.
 
 Category `Process`, severity **error**. The rule therefore fails the build.
 

@@ -15,7 +15,8 @@ Meldingen navngir oppgaven.
 
 PDF-en er siden `pdfLayoutName` peker på. Uten `pdfLayoutName` lager appen en automatisk PDF av
 oppgavene i `autoPdfTaskIds`. Sidene i `pages.order` er det brukeren ser mens oppgaven kjører, og
-de blir aldri en del av PDF-en. Uten regelen feiler oppgaven først når en instans kommer til den.
+de blir aldri en del av PDF-en. Appen sjekker det samme når den starter, og starter ikke med en
+slik oppgave.
 
 Kategori `Process`, alvorlighetsgrad **feil**. Regelen stopper altså bygget.
 

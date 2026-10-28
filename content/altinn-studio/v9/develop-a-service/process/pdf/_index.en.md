@@ -22,8 +22,9 @@ The build checks the setup:
 
 - If the task has neither `pdfLayoutName` nor `autoPdfTaskIds`, the build fails with [ALTINNAPP1000]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1000" >}}).
 - If `pdfLayoutName` names a page that does not exist in the task's UI folder, the build fails with [ALTINNAPP1026]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1026" >}}).
-- If `autoPdfTaskIds` lists a task without a UI folder, the build reports the warning [ALTINNAPP1002]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1002" >}}).
-- If `autoPdfTaskIds` lists the PDF task itself or a blank entry, the build reports the warning [ALTINNAPP1025]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1025" >}}).
+- If `autoPdfTaskIds` lists an entry that adds nothing to the PDF, the build reports the warning [ALTINNAPP1002]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1002" >}}). That applies to blank entries, the PDF task itself and tasks without a UI folder of their own.
+
+The app also checks for the two errors when it starts, and does not start with such a PDF task.
 
 To generate PDFs of subforms, there is a separate service task. See [PDF generation for subforms](/nb/altinn-studio/v9/develop-a-service/look-and-feel/subform/subform-pdf/) (documentation available in Norwegian only).
 

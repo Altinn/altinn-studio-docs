@@ -9,7 +9,7 @@ weight: 20
 
 ## Oversikt
 
-Appen genererer PDF gjennom en **systemoppgave** du legger til som et steg i prosessen. Oppgaven definerer hvilket innhold PDF-en skal ha, og hvor i prosessen den genereres.
+Appen genererer PDF gjennom en **systemoppgave** du legger til som et steg i prosessen. Oppgaven bestemmer hvilket innhold PDF-en skal ha, og hvor i prosessen appen lager den.
 
 PDF-oppgaven henter innholdet fra ett av to steder:
 
@@ -22,8 +22,9 @@ Bygget sjekker oppsettet:
 
 - Har oppgaven verken `pdfLayoutName` eller `autoPdfTaskIds`, stopper bygget med [ALTINNAPP1000]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1000" >}}).
 - Peker `pdfLayoutName` på en side som ikke finnes i UI-mappen til oppgaven, stopper bygget med [ALTINNAPP1026]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1026" >}}).
-- Lister `autoPdfTaskIds` en oppgave uten UI-mappe, gir bygget advarselen [ALTINNAPP1002]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1002" >}}).
-- Lister `autoPdfTaskIds` PDF-oppgaven selv eller en tom oppføring, gir bygget advarselen [ALTINNAPP1025]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1025" >}}).
+- Lister `autoPdfTaskIds` noe som ikke gir innhold i PDF-en, gir bygget advarselen [ALTINNAPP1002]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1002" >}}). Det gjelder tomme oppføringer, PDF-oppgaven selv og oppgaver uten egen UI-mappe.
+
+Appen sjekker de to feilene også når den starter, og starter ikke med en slik PDF-oppgave.
 
 Skal du generere PDF av underskjema, finnes det en egen systemoppgave for det. Se [PDF-generering for underskjema]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/subform/subform-pdf" >}}).
 
@@ -181,7 +182,7 @@ Altinn Studio lager ingen venteside. Mens appen lager PDF-en, ser brukeren den v
 
 ## Filnavn
 
-Det er valgfritt å inkludere `<altinn:filenameTextResourceKey>`. Her oppgir du en tekstressursnøkkel som brukes som filnavn, med støtte for språk og variabler. Utelater du den, får PDF-en applikasjonens navn som filnavn.
+Det er valgfritt å inkludere `<altinn:filenameTextResourceKey>`. Her oppgir du en tekstressursnøkkel som appen bruker som filnavn, med støtte for språk og variabler. Utelater du den, får PDF-en applikasjonens navn som filnavn.
 
 {{< code-title >}}
 App/config/texts/resource.{language}.json
@@ -210,4 +211,4 @@ Fyll ut skjemaet og gå videre. Når du når PDF-systemoppgaven i arbeidsflyten,
 
 ## Feilsøking
 
-Dersom du får feilmelding om at systemoppgaven feilet under PDF-generering, kan du åpne skjemaet i appen og legge til query-parameteren `pdf=1`. Da ser du det samme innholdet som PDF-en skulle ha vist, og eventuelle feilmeldinger.
+Hvis du får en feilmelding om at systemoppgaven feilet under PDF-generering, kan du åpne skjemaet i appen og legge til query-parameteren `pdf=1`. Da ser du det samme innholdet som PDF-en skulle ha vist, og eventuelle feilmeldinger.
