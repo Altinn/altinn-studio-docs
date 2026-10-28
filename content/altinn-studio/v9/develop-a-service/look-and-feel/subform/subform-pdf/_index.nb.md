@@ -26,7 +26,7 @@ Appen har ett eller flere underskjemaer. Denne veiledningen forklarer ikke hvord
 
 Listen viser UI-mappene som har `"type": "subform"` i `Settings.json`, og mappene en **Tabell for underskjema** åpner. Altinn Studio holder valget oppdatert. Gir du underskjemaet et nytt navn, endrer Studio `subformUiFolder`. Sletter du underskjemaet, fjerner Studio innstillingen, og du må velge et underskjema på nytt.
 
-Er oppgaven satt opp med `subformComponentId` fra før, foreslår panelet underskjemaet som komponenten åpner. Velger du det, sletter Altinn Studio mappen den laget for oppgaven, med ventesiden og den skjulte kopien av komponenten. Har du endret noe i mappen, lar Studio den stå.
+Er oppgaven satt opp med `subformComponentId` og `subformDataTypeId` fra før, stopper bygget med [ALTINNAPP0602]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP0602" >}}) til de gamle innstillingene er borte. Panelet fjerner dem ikke når du velger et underskjema. Kjør `studioctl app upgrade v9`, som skriver om oppgaven for deg. Se [Oppgradere fra v8](#oppgradere-fra-v8).
 
 ### process.bpmn
 
@@ -175,11 +175,13 @@ Hver PDF får to metadatafelt. Et system som henter PDF-ene, kan bruke dem til �
 
 ## Oppgradere fra v8
 
-V9 støtter ikke `subformComponentId` og `subformDataTypeId` i `subformPdfConfig`, og bygget stopper med [ALTINNAPP0602]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP0602" >}}). `studioctl app upgrade v9` skriver om oppgaven til `subformUiFolder`. Oppgraderingen finner underskjemaet gjennom den skjulte kopien av komponenten **Tabell for underskjema** i UI-mappen til oppgaven. Har oppgaven en UI-mappe med bare ventesiden og komponentkopien Altinn Studio laget, fjerner oppgraderingen mappen. Har mappen noe annet i tillegg, beholder oppgraderingen den. Lister mappen sider i `pages.order`, får du en oppgave du må gjøre selv, fordi v9 viser sidene mens oppgaven kjører. Ellers får du en advarsel.
+V9 støtter ikke `subformComponentId` og `subformDataTypeId` i `subformPdfConfig`, og bygget stopper med [ALTINNAPP0602]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP0602" >}}). `studioctl app upgrade v9` skriver om oppgaven til `subformUiFolder`. Oppgraderingen finner underskjemaet gjennom den skjulte kopien av komponenten **Tabell for underskjema** i UI-mappen til oppgaven, og fjerner kopien når den har skrevet om oppgaven.
+
+Deretter rydder oppgraderingen i UI-mappen til oppgaven, slik den gjør for alle systemoppgaver. Ble en side tom uten kopien, fjerner oppgraderingen siden. Står mappen igjen med bare `Settings.json`, fjerner den hele mappen. Lister mappen andre sider i `pages.order`, får du en oppgave du må gjøre selv, fordi v9 viser sidene mens oppgaven kjører. Se [Systemoppgaver viser sidene i UI-mappen mens de kjører]({{< relref "/altinn-studio/v9/new-in-v9/upgrade#systemoppgaver-viser-sidene-i-ui-mappen-mens-de-kjører" >}}).
 
 Oppgraderingen gjør også UI-mappen til underskjemaet klar. Mangler `Settings.json` en `type`, legger oppgraderingen til `"type": "subform"`, slik at Altinn Studio finner underskjemaet. Mangler `defaultDataType`, setter den datatypen fra `subformDataTypeId`. Har mappen en annen `defaultDataType` enn `subformDataTypeId`, får du en oppgave du må gjøre selv.
 
-Mangler kopien, finnes den flere ganger, eller peker den ikke på en UI-mappe, lar oppgraderingen oppgaven stå uendret og lister den som en oppgave du må gjøre selv. Da bytter du ut `subformComponentId` og `subformDataTypeId` med `subformUiFolder` for hånd, og fjerner UI-mappen til oppgaven hvis du ikke vil vise sidene i den mens oppgaven kjører.
+Mangler kopien, finnes den flere ganger, eller peker den ikke på en UI-mappe, lar oppgraderingen oppgaven stå uendret og lister den som en oppgave du må gjøre selv. Da bytter du ut `subformComponentId` og `subformDataTypeId` med `subformUiFolder` for hånd, og fjerner komponentkopien fra UI-mappen til oppgaven. Lister mappen sider du ikke vil vise mens oppgaven kjører, fjerner du dem også.
 
 PDF-ene har metadatafeltet `subformUiFolder` i stedet for `subformComponentId`. Leser et system det gamle feltet, må det lese `subformUiFolder` i stedet.
 
@@ -189,4 +191,4 @@ Fyll ut hovedskjemaet og legg til én eller flere oppføringer i underskjemaet. 
 
 ## Feilsøking
 
-Hvis du får feilmelding om at systemoppgaven feilet under PDF-generering, kan du åpne underskjemaet i appen og legge til query-parameteren `pdf=1`. Da ser du det samme innholdet som PDF-en skulle ha vist, og eventuelle feilmeldinger.
+Hvis du får en feilmelding om at systemoppgaven feilet under PDF-generering, kan du se PDF-en for én oppføring i nettleseren. Åpne instansen i appen, og legg til query-parameterne `pdf=1`, `subformUiFolder` og `subformDataElementId` i adressen. `subformUiFolder` er navnet på UI-mappen til underskjemaet, og `subformDataElementId` er ID-en til dataelementet for oppføringen. Adressen slutter da for eksempel med `?pdf=1&subformUiFolder=underskjema&subformDataElementId=<ID>`. Du ser det samme innholdet som PDF-en skulle ha vist, og eventuelle feilmeldinger.
