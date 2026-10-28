@@ -41,17 +41,10 @@ Each organisation that is using Altinn Studio will have its own Altinn Apps Kube
 
 See Altinn Apps [application architecture](/nb/technology/architecture/components/application/construction/altinn-apps) or [deployment architecture](/nb/technology/architecture/capabilities/runtime/appdeploy).
 
-## Altinn CLI
-
-The command-line interface for the new APIs in Altinn.  
-Is used by service owners for retrieving data submitted by users, for instantiating and for updating status.
-
-https://github.com/altinn/altinn-cli/
-
 ## Altinn Platform
 
 Altinn Platform contains reusable microservices with functionality that can be used by apps.
-Platform can also be used directly by service owner systems using Altinn CLI and Maskinporten.
+Platform can also be used directly by service owner systems through its APIs.
 
 Currently these microservices are part of Platform: Authorization, Authentication, PDF, Profile, Register, and Storage.
 

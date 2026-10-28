@@ -16,9 +16,11 @@ Hvis du allerede er en etablert tjenesteeier, kan du gå direkte videre til de n
 
 For å kunne ta i bruk Altinn Notifications API, må du ha en Maskinporten-klient med riktig scope.
 
-Scope **altinn:serviceowner/notifications.create** er påkrevd for at klienter skal få tilgang til Varslings-API-et.
+Scopet **altinn:serviceowner/notifications.composedemail.create** er påkrevd for at klienter skal få tilgang til sammensatt Varslings-API-et.
 
-Alle registrerte tjenesteeiere har fått delegert dette scopet av Digdir og skal kunne finne det i sin liste over scopes i Samarbeidsportalen.
+Scopet **altinn:serviceowner/notifications.create** er påkrevd for at klienter skal få tilgang til Varslings-API-et, samt umiddelbare Varslings-API-et.
+
+Alle registrerte tjenesteeiere har fått delegert `altinn:serviceowner/notifications.create` av Digdir og skal kunne finne det i sin liste over scopes i Samarbeidsportalen.
 
 For en veiledning om hvordan du registrerer en ny Maskinporten-integrasjon i Samarbeidsportalen, se [Altinn Autorisasjon](/nb/authorization/getting-started/maskinportenclient/)
 

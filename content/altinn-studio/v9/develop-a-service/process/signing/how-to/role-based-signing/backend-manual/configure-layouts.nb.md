@@ -1,0 +1,90 @@
+---
+draft: true
+headless: true
+hidden: true
+tags: [needsReview]
+---
+
+1. Legg til en ny mappe under `App/ui` for signeringsoppgaven. Mappen må ha samme navn som ID-en til oppgaven i `process.bpmn`, for eksempel `Task_2`.
+
+2. Opprett en `layouts`-mappe og en `Settings.json`-fil i oppgavemappen. Sett `defaultDataType` til datamodellen som signeringsoppgaven skal bruke:
+
+   {{< code-title >}}
+   App/ui/Task_2/Settings.json
+   {{< /code-title >}}
+
+   ```json
+   {
+     "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+     "defaultDataType": "model",
+     "pages": {
+       "order": ["signing"]
+     }
+   }
+   ```
+
+3. Legg til en fil kalt `signing.json` i `layouts`-mappen.
+
+   Det finnes et sett med ferdige komponenter for å bygge opp layout for et signeringssteg. Vi anbefaler å bruke disse, men de er ikke obligatoriske.
+
+   - **SigningDocumentList**: Lister ut dataene som blir signert på, for eksempel vedlegg, xml-data eller PDF-oppsummering fra tidligere steg.
+   - **SigneeList**: Lister ut de som skal signere (signatarer) og tilhørende signeringsstatus. Per nå støtter ikke denne listen å vise roller som skal signere, kun personer som har fått brukerstyrt delegert tilgang. Men i det øyeblikket en person utfører en signering vil de dukke opp, så vi kan bruke den som en **Signaturer**-liste.
+   - **SigningActions**: Utleder status for signeringssteget og viser relevante knapper til sluttbruker, for eksempel **Signer**-knappen.
+
+   Hvis du ikke bruker `SigningActions` for å vise **Signer**-knappen, må du legge til en egen handlingsknapp med action "sign", for å la sluttbruker signere.
+
+   Eksempler på hvordan du kan bruke komponentene:
+
+   {{< code-title >}}
+   App/ui/Task_2/layouts/signing.json
+   {{< /code-title >}}
+
+   ```json
+   {
+     "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+     "data": {
+       "layout": [
+         {
+           "id": "headerSigningFounders",
+           "type": "Heading",
+           "size": "L",
+           "textResourceBindings": {
+             "title": "Her kan man ha en overskrift"
+           }
+         },
+         {
+           "id": "signing-documents",
+           "type": "SigningDocumentList",
+           "textResourceBindings": {
+             "title": "Dokumenter som skal signeres",
+             "description": "Dokumenter som skal signeres beskrivelse"
+           }
+         },
+         {
+           "id": "signee-list",
+           "type": "SigneeList",
+           "textResourceBindings": {
+             "title": "Signaturer"
+           }
+         },
+         {
+           "id": "signing-actions",
+           "type": "SigningActions"
+         }
+       ]
+     }
+   }
+   ```
+
+4. Du kan overstyre teksten som vises når listen er tom, før noen har signert, ved å legge til en tekst for tekstressursnøkkelen `signee_list.no_signees` i tekstressursfilene.
+   
+   {{< code-title >}}
+   App/config/texts/resource.{language}.json
+   {{< /code-title >}}
+
+   ```json
+   {
+     "id": "signee_list.no_signees",
+     "value": "Ingen signaturer enda"
+   }
+   ```

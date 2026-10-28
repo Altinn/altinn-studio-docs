@@ -21,7 +21,7 @@ Before setting up the Fiks Arkiv integration in your app you will need to have t
 
 - **Fiks Protokoll** enabled in Fiks forvaltning portal for your organisation
 - **Samarbeidsportalen** access to administer Maskinporten clients for your organisation. Altinn Studio uses this authorisation when you log in with Ansattporten and add Maskinporten scopes to the app.
-- An **archive system** that integrates with Fiks Arkiv (e.g., Public 360)
+- An **archive system** that integrates with Fiks Arkiv
 
 ## Integration architecture and flow
 
@@ -654,8 +654,8 @@ As Digdir does not offer the archive system or Fiks Arkiv, we do not have extens
 the application developer reference KS Digital's documentation along side the documentation of 
 the archive system provider. 
 
-However, as more application owners make use of the integration we have seen a few common pit falls.
-These along with solutions are listed below, to be used at your convenience. 
+The Fiks Arkiv account that receives the messages is however set up the same way regardless of archive system.
+The steps are described below.
 
 ### Create a Fiks Arkiv account
 {.floating-bullet-numbers-sibling-ol}
@@ -677,15 +677,6 @@ These along with solutions are listed below, to be used at your convenience.
 4. Under the account, navigate to the _Søk etter systemer_ tab and look up the system created to send messages.
 Grant this system permission to send messages to the recipient account by clicking _Gi tilgang_.
     <img src="fiks-system-whitelist.png" alt="Screenshot illustrating how to give access to a system from a Fiks account" width="80%">
-
-### Known issues in configuration of Public 360
-
-#### The encryption key is not documented
-
-The maskinporten token uploaded in P360 is used as the private part of the encryption key
-the Fiks Arkiv account that receives messages should upload the public part of this certificate
-as the encryption key. 
-
 
 ## External documentation 
 

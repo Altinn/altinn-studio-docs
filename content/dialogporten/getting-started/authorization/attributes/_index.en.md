@@ -4,6 +4,10 @@ description: 'Learn how dialogs in Dialogporten implement fine-grained access co
 weight: 20
 ---
 
+{{<notice warning>}}
+Authorization attributes are deprecated in favour of [authorization contexts]({{< relref "/dialogporten/getting-started/authorization/authorization-contexts" >}}), which support the same use cases plus multi-party access and control over what an unauthorized end user sees.
+{{</notice>}}
+
 ## Introduction
 
 Actions and other parts of the dialog, such as references to transmissions, can also specify an additional _authorization attribute_.
@@ -16,5 +20,6 @@ Authorization attributes can also be used on [transmissions](/en/dialogporten/ge
 
 **Read more**
 * [Technical reference for authorization attributes](/en/dialogporten/getting-started/authorization/attributes/../../../reference/authorization/attributes/)
+* {{<link "../authorization-contexts">}}
 
 {{<children />}}

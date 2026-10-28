@@ -69,7 +69,7 @@ Hvis du ikke spesifiserer et *typeFilter*, vil du motta alle forskjellige typer 
 | `no.altinn.correspondence.attachmentuploadfailed` | Vedlegg feilet malware-skanning | Varsel på at vedlegget er avvist |
 | `no.altinn.correspondence.attachmentexpired` | Vedleggets utløpsdato er passert, er ikke lenger tilgjengelig for mottaker og kan ikke brukes i nye meldinger | Bekreftelse på at vedlegg har utløpt |
 | `no.altinn.correspondence.correspondenceinitialized` | Meldingen er opprettet | Bekreftelse på at melding er initialisert |
-| `no.altinn.correspondence.correspondencepublished` | Meldingen er publisert og tilgjengelig for mottaker | Bekreftelse og varsel på at melding er vellykket publisert |
+| `no.altinn.correspondence.correspondencepublished` * | Meldingen er publisert og tilgjengelig for mottaker | Bekreftelse og varsel på at melding er vellykket publisert |
 | `no.altinn.correspondence.correspondencepurged` | Meldingen er enten slettet av mottaker etter publisering eller av tjeneste-eier før publisering | Varsel på at melding er slettet |
 | `no.altinn.correspondence.correspondencepublishfailed` | Publisering feilet | Varsel på at melding feilet før publisering og vil ikke bli tilgjengelig for mottaker |
 | `no.altinn.correspondence.notificationcreated` | Varslingsordre er opprettet i Altinn Notification | Bekreftelse på at varsling er bestilt |
@@ -78,6 +78,15 @@ Hvis du ikke spesifiserer et *typeFilter*, vil du motta alle forskjellige typer 
 | `no.altinn.correspondence.correspondencenotificationallfailed` | Alle varselmottakere for hovedordren feilet (fullstendig feil), ikke inkludert valgfri mottakere | Mottakeren ble ikke vellykket varslet. Vurder oppfølging |
 | `no.altinn.correspondence.correspondencenotificationdelivered` | Initialvarselet er blitt bekreftet levert | Bekreftelse på at mottaker er varslet |
 | `no.altinn.correspondence.correspondencenotificationreminderdelivered` | Påminnelsesvarselet er blitt bekreftet levert | Bekreftelse på at påminnelse er sendt |
+
+`*` Hendelse er foreldet og vil bli fjernet, se tabellen under for en passende erstatning.
+
+
+**Hendelser som er foreldet :**
+
+| Hendelse | Bruk i stedet |
+|-------|------|
+| `no.altinn.correspondence.correspondencepublished` | Bruk correspondencepublished hendelsen som gjelder for mottaker. |
 
 **For hver mottaker:**
 

@@ -57,10 +57,16 @@ fractions = false # disable automatic fraction rendering
 
 [params]
 editURL = "https://github.com/altinn/altinn-studio-docs/blob/master/content/"
+componentPropertiesBaseURL = "https://raw.githubusercontent.com/Altinn/altinn-studio/main/src/common/ts/layout-contract/docs/components"
 noHomeIcon = true # default is false
 noSearch = false # default is false
 showVisitedLinks = false # default is false
 enableMermaid = true # enable Mermaid diagrams
+
+[outputFormats.LLMS]
+baseName = "llms"
+mediaType = "text/plain"
+isPlainText = true
 
 [outputFormats.MD]
 name = "MARKDOWN"
@@ -94,4 +100,4 @@ notAlternative = true
 [outputs]
 page = ["HTML", "MARKDOWN"]
 section = ["HTML", "MARKDOWN"]
-home = ["HTML", "JSON", "LLMSFULL", "SITEMAPMD"] # JSON generates index.json file used by search
+home = ["HTML", "JSON", "LLMS", "LLMSFULL", "SITEMAPMD"] # JSON generates index.json file used by search

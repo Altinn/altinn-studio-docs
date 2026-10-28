@@ -1,0 +1,22 @@
+---
+title: Culture and Volunteering
+linktitle: Culture and Volunteering
+description: This authorization area includes access packages related to culture and volunteering.
+toc: true
+weight: 100
+aliases:
+  - /authorization/what-do-you-get/accessgroups/accessgroups/kulturfrivillighet/
+---
+
+This authorization area includes access packages related to culture and volunteering.
+
+| Access package | Description | URN | For service owners | Contents |
+|---|---|---|---|---|
+| Arts and entertainment | This access package provides authorizations for services related to artistic and entertainment activities. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:kunst-og-underholdning` | Yes | <a href="https://tjenesteoversikten.no/package/kunst-og-underholdning" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Arts and entertainment">View contents ↗</a> |
+| Amusements | This access package provides authorizations for services related to the operation of amusement establishments. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:fornoyelser` | Yes | <a href="https://tjenesteoversikten.no/package/fornoyelser" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Amusements">View contents ↗</a> |
+| Libraries, museums, archives and other culture | This access package provides authorizations for services related to libraries, museums, archives, and other culture such as botanical and zoological gardens, and operation of natural phenomena of historical, cultural or educational interest (e.g., world heritage sites, etc.). In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:biblioteker-museer-arkiver-og-annen-kultur` | Yes | <a href="https://tjenesteoversikten.no/package/biblioteker-museer-arkiver-og-annen-kultur" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Libraries, museums, archives and other culture">View contents ↗</a> |
+| Lottery and games | This access package provides authorizations for services related to lottery and games, such as casinos, bingo halls and video game arcades, as well as gaming activities such as lotteries and betting entered into off-track. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:lotteri-og-spill` | Yes | <a href="https://tjenesteoversikten.no/package/lotteri-og-spill" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Lottery and games">View contents ↗</a> |
+| Politics | This access package provides authorizations for services related to activities in connection with political work. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:politikk` | Yes | <a href="https://tjenesteoversikten.no/package/politikk" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Politics">View contents ↗</a> |
+| Sports and recreation | This access package provides authorizations for services related to sports and recreational activities. In the event of regulatory changes or the introduction of new digital services, there may be changes in the access that the authorization provides. | `urn:altinn:accesspackage:sport-og-fritid` | Yes | <a href="https://tjenesteoversikten.no/package/sport-og-fritid" target="_blank" rel="noopener noreferrer" aria-label="View the contents in Tjenesteoversikten for Sports and recreation">View contents ↗</a> |
+
+Source: [Package definitions in Access Management](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Constants/PackageConstants.cs). Role assignments are defined in [IngestRolePackage.cs](https://github.com/Altinn/altinn-authorization-tmp/blob/main/src/apps/Altinn.AccessManagement/src/Altinn.AccessMgmt.PersistenceEF/Data/IngestRolePackage.cs).

@@ -145,3 +145,9 @@ weight: 15
 
   En _sendebetingelse_ blir evaluert som enten sann eller usann, basert på om betingelsen for å sende varselet er oppfylt.
   Betingelsen blir sjekket av applikasjonen gjennom betingelsesendepunktet som er oppgitt i varslingsordren. 
+
+- #### Varslinglogg
+
+  En _varslinglogg_ fanger uforanderlige øyeblikksbilder av varslingsleveringsstatus som rapportert av e-post- eller SMS-leverandører. Hver loggoppføring registrerer hvordan et enkelt varsel ble behandlet—ikke en fullstendig historie over alle statusendringer. Varslingloggen spørres ved hjelp av Dialogporten-identifikatorer (dialogId og/eller transmissionId) for revisjon og feilsøking av varslingsflyt.
+
+  For mer informasjon, se [Varslinglogg-referansen](/nb/notifications/reference/notification-log/).

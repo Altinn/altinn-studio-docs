@@ -75,6 +75,12 @@ selve meldingen, en varsling til mottakeren, og et vedlegg.
 
 Du finner alle tilgjengelige alternativer og tilhørende dokumentasjon via IntelliSense i din foretrukne kodeeditor.
 
+{{<notice info>}}
+Vedleggsdata kan oppgis enten som en `Stream` med `WithData(Stream)` eller som en byte-array med `WithData(ReadOnlyMemory<byte>)`. Klienten laster opp vedlegget til meldingstjenesten som en strøm i begge tilfeller, men vi anbefaler at du sender en `Stream` (slik eksempelet nedenfor viser): da kan du strømme dataene hele veien, for eksempel direkte fra en fil, uten å holde hele vedlegget i minnet. Dette er viktig for store vedlegg.
+
+Når du sender en `Stream`, overtar klienten ansvaret for den og lukker den når opplastingen er fullført, så du skal ikke lukke den selv.
+{{</notice>}}
+
 ### Tjenesteregistrering
 
 {{< code-title >}}
@@ -98,6 +104,7 @@ App/CorrespondenceClientDemo.cs
 
 ```cs
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using Altinn.App.Core.Features.Correspondence;
 using Altinn.App.Core.Features.Correspondence.Builder;
@@ -112,13 +119,16 @@ internal sealed class CorrespondenceClientDemo(
   public async Task<SendCorrespondenceResponse> SendMessage()
   {
     CorrespondenceAuthorisation authorisation = CorrespondenceAuthorisation.Maskinporten;
+
+    // Vedleggsdataene strømmes til meldingstjenesten.
+    // Ikke lukk strømmen selv: klienten overtar ansvaret og lukker den når opplastingen er fullført.
+    Stream attachmentData = File.OpenRead("path/to/attachment.txt");
+
     CorrespondenceRequest request = CorrespondenceRequestBuilder
       .Create()
       .WithResourceId("A valid resource registry identifier")
-      .WithSender("Sender's organisation number")
       .WithSendersReference("Sender's arbitrary reference for the correspondence")
       .WithRecipient("Recipient's organisation number")
-      .WithAllowSystemDeleteAfter(DateTime.Now.AddYears(1))
       .WithContent(
         language: "en",
         title: "Hello from .NET 👋🏻",
@@ -140,10 +150,8 @@ internal sealed class CorrespondenceClientDemo(
         CorrespondenceAttachmentBuilder
           .Create()
           .WithFilename("attachment.txt")
-          .WithName("The attachment 📎")
           .WithSendersReference("Sender's arbitrary reference for the attachment")
-          .WithDataType("text/plain")
-          .WithData("This is the attachment content"u8.ToArray())
+          .WithData(attachmentData)
       )
       .Build();
 

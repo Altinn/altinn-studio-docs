@@ -9,7 +9,7 @@ Via ressursregisterets API er det mulig å registrere delegerbare API-ressurser.
 ## Forutsetninger
 
 - Organisasjonen må ha en klient i Maskinporten.
-- Organisasjonen må ha fått scopene `altinn:resourceregistry/resource.write` og `altinn:resourceregistry/resource.read`.
+- Organisasjonen må ha fått scopet `altinn:resourceregistry/resource.write`.
 - Organisasjonen må ha fått scopet `altinn:maskinporten/delegationschemes.write`.
 - Organisasjonen må ha opprettet en Maskinporten-klient som er konfigurert med disse scopene.
 

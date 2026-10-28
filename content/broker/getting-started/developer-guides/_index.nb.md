@@ -39,4 +39,4 @@ Som sådan bør du implementere hendelsesabonnementer for å optimalisere proses
 For alle operasjoner må du autentisere deg ved å bruke din [Maskinporten-klient](https://docs.digdir.no/docs/Maskinporten/maskinporten_guide_apikonsument.html) og 
 deretter [skaffe en Altinn-token fra Altinn-autentisering](https://docs.altinn.studio/nb/authorization/getting-started/authentication/#bytt-et-jwt-fra-en-ekstern-tokenleverandør).
 
-Bruk Altinn-tokenet som en Bearer-token for alle Formidling API-forespørsler sammen med APIM-abonnementsnøkkelen som en header med nøkkelen `Ocp-Apim-Subscription-Key`.
+Bruk Altinn-tokenet som en Bearer-token for alle Formidling API-forespørsler.

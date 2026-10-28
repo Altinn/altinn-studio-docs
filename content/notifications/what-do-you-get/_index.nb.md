@@ -21,6 +21,7 @@ Altinn Varslinger støtter følgende kommunikasjonskanaler:
 
 - **E-post**: Sender tilpassede og formaterte e-poster direkte til brukernes innbokser.
 - **SMS**: Leverer tilpassede, konsise, tidsriktige meldinger til brukernes mobiltelefoner, og støtter både nasjonale og internasjonale numre.
+- **E-post og SMS**: Sender både e-post og SMS til mottakeren samtidig.
 - **E-post foretrukket**: Prioriterer e-post som primærkanal, med SMS som reserve når e-postkontaktinformasjon ikke er tilgjengelig.
 - **SMS foretrukket**: Prioriterer SMS som primærkanal, med e-post som reserve når SMS-kontaktinformasjon ikke er tilgjengelig.
 
@@ -37,7 +38,7 @@ Altinn SMS-varsler sikrer rettidig levering av konsise meldinger til brukernes m
 - SMS-varsler kan sendes **hele døgnet, alle dager**.
 - Angi sendevindu ved å sette `smsSettings.sendingTimePolicy` i bestillingen:
   - `Anytime` (standard) gir utsendelse hele døgnet.
-  - `Daytime` begrenser utsendelsen til Altinns dagtidsvindu (09:00-17:00 i tidssonen Europe/Oslo).
+  - `Daytime` begrenser utsendelsen til Altinns dagtidsvindu (09:00-17:00 i tidssonen Europe/Oslo). Dagtidsvinduet gjelder alle dager, også helger og helligdager.
 - Planlagte varsler blir sendt på angitt tidspunkt, også utenfor arbeidstid (tolket i tidssonen Europe/Oslo).
 - Varslingsordrer kan legges inn og endres når som helst.
 
@@ -61,7 +62,6 @@ Altinn E-postvarsler gir mulighet til å sende ren tekst eller HTML-innhold dire
 ### Mottakerbegrensninger
 
 - **Enkeltmottaker**: Hver e-postvarsel sendes til én mottaker.
-- **Vedlegg**: Foreløpig støtter ikke e-postvarsler vedlegg.
 
 ## Mottakeroppslag
 

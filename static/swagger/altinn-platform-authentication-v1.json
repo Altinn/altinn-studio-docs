@@ -1151,47 +1151,6 @@
         }
       }
     },
-    "/systemregister/{systemId}": {
-      "get": {
-        "tags": [
-          "SystemRegister"
-        ],
-        "summary": "Retrieves a Registered System frontend DTO for the systemId.",
-        "parameters": [
-          {
-            "name": "systemId",
-            "in": "path",
-            "description": "The Id of the Registered System",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/RegisteredSystemDTO"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RegisteredSystemDTO"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/RegisteredSystemDTO"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/systemregister/vendor/{systemId}": {
       "get": {
         "tags": [

@@ -22,7 +22,7 @@ Før du setter opp Fiks Arkiv-integrasjonen i appen din, må du ha følgende på
 
 - **Fiks Protokoll** aktivert i Fiks forvaltningsportalen for din organisasjon
 - Tilgang i **Samarbeidsportalen** til å administrere Maskinporten-klienter for organisasjonen din. Altinn Studio bruker denne autoriseringen når du logger inn med Ansattporten og legger Maskinporten-scopes til appen.
-- Et **arkivsystem** som integrerer med Fiks Arkiv (f.eks. Public 360)
+- Et **arkivsystem** som integrerer med Fiks Arkiv
 
 ## Integrasjonsarkitektur og flyt
 
@@ -654,8 +654,8 @@ Ettersom Digdir ikke tilbyr arkivsystemet eller Fiks Arkiv, har vi ikke omfatten
 applikasjonsutvikleren refererer til KS Digitals dokumentasjon sammen med dokumentasjonen fra 
 arkivsystemleverandøren. 
 
-Imidlertid, ettersom flere applikasjonseiere tar i bruk integrasjonen har vi sett noen vanlige fallgruver.
-Disse sammen med løsninger er listet opp nedenfor, til din disposisjon. 
+Selve Fiks Arkiv-kontoen som skal ta imot meldingene opprettes likevel på samme måte uavhengig av arkivsystem.
+Stegene er beskrevet nedenfor.
 
 ### Opprett en Fiks Arkiv-konto
 {.floating-bullet-numbers-sibling-ol}
@@ -677,15 +677,6 @@ Disse sammen med løsninger er listet opp nedenfor, til din disposisjon.
 4. Under kontoen, naviger til fanen _Søk etter systemer_ og slå opp systemet som ble opprettet for å sende meldinger.
 Gi dette systemet tillatelse til å sende meldinger til mottakerkontoen ved å klikke _Gi tilgang_.
     <img src="fiks-system-whitelist.png" alt="Skjermbilde som illustrerer hvordan gi tilgang til et system fra en Fiks-konto" width="80%">
-
-### Kjente problemer i konfigurasjon av Public 360
-
-#### Krypteringsnøkkelen er ikke dokumentert
-
-Maskinporten-tokenet som lastes opp i P360 brukes som den private delen av krypteringsnøkkelen
-Fiks Arkiv-kontoen som mottar meldinger skal laste opp den offentlige delen av dette sertifikatet
-som krypteringsnøkkelen. 
-
 
 ## Ekstern dokumentasjon 
 

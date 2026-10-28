@@ -1,0 +1,50 @@
+{{ partial "header.html" . }}
+
+<style>
+  /* This layout is selected only by the Altinn Authorization landing page. */
+  #sidebar,
+  #top-bar,
+  .last-modified,
+  .adocs-scrollcontainer > .row > .col-md-2,
+  #body-inner > h1,
+  #body-inner > #leadText {
+    display: none !important;
+  }
+
+  #body {
+    margin-left: 0 !important;
+  }
+
+  .a-page > .container {
+    max-width: none;
+    padding: 0 !important;
+  }
+
+  .adocs-scrollcontainer > .row {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .adocs-scrollcontainer > .row > .col-md-10 {
+    flex: 0 0 100%;
+    max-width: 100%;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .adocs-content {
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  @media (min-width: 768px) {
+    .adocs-content {
+      padding: 0;
+    }
+  }
+</style>
+
+{{ .Content | safeHTML }}
+
+{{ partial "footer.html" . }}

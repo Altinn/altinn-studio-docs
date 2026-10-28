@@ -45,7 +45,7 @@ See [Resource Management](https://docs.altinn.studio/en/authorization/getting-st
    - "read" meant for recipients to open and read a message.
    - "write" meant for senders to send a message.
    - "subscribe" to register event subscriptions in Altinn Events.
-4. The roles in Altinn II will be replaced by access packages in Altinn 3. We recommend all our service owners use both roles and access packages until June 2026. It's important to thoroughly assess which access package to assign to each resource. Here you will find information about [access packages](https://docs.altinn.studio/en/authorization/what-do-you-get/accessgroups/accessgroups/).
+4. The roles in Altinn II will be replaced by access packages in Altinn 3. We recommend all our service owners use both roles and access packages until June 2026. It's important to thoroughly assess which access package to assign to each resource. Here you will find information about [access packages](https://docs.altinn.studio/en/authorization/what-do-you-get/accesspackages/business/).
    - **Ordinary mail:** The Altinn II role "Mail/Archive" this is now replaced by the access package "Ordinær post til virksomheten".
    - **Confidential mail:** If the resource is to be confidential, you have to:
       - select the access package "Post til virksomheten med taushetsbelagt innhold".
@@ -122,6 +122,10 @@ See the [readme file on GitHub](https://github.com/Altinn/altinn-correspondence/
 The Repo also contains a [Bruno-collection](https://github.com/Altinn/altinn-correspondence/blob/main/.bruno/collection.bru) with examples.
 
 Swagger for the correspondence API is hosted [here](https://docs.altinn.studio/api/correspondence/spec/).
+
+{{% notice warning %}}
+**Recommended**: Include the `idempotentKey` field when you create correspondences. Altinn then creates each correspondence only once, even if your integration sends the same request again. Read more about [idempotency in Altinn 3 Correspondence]({{< relref "/correspondence/getting-started/developer-guides/idempotency" >}}).
+{{% /notice %}}
 {{% /expandlarge %}}
 
 {{% expandlarge id="test-appearance-formatting" header="9. Test layout and formatting in Arbeidsflate and Altinn 2 inbox" %}}

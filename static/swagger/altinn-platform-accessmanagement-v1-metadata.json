@@ -4,7 +4,7 @@
     "title": "Altinn.AccessManagement.Api.Metadata",
     "version": "1.0"
   },
-  "servers": [
+    "servers": [
     {
       "url": "https://platform.tt02.altinn.no/accessmanagement/api/v1",
       "description": "Integration Test"
@@ -51,6 +51,22 @@
             "in": "query",
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "simpleSearch",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          },
+          {
+            "name": "strict",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": false
             }
           }
         ],
@@ -1034,6 +1050,10 @@
           },
           "provider": {
             "$ref": "#/components/schemas/ProviderDto"
+          },
+          "isRevocable": {
+            "type": "boolean",
+            "nullable": true
           }
         },
         "additionalProperties": false

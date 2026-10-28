@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="nb">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>{{ .Title }} | Altinn docs</title>
+  <link rel="stylesheet" href="https://altinncdn.no/fonts/inter/inter.css">
+  <link rel="stylesheet" href="{{ "css/animated-deck.css" | relURL }}">
+</head>
+<body data-pagefind-ignore="all">
+  <main id="stage-viewport" aria-label="{{ .Params.arialabel | default .Title }}">
+    <div id="stage">
+      {{ .Content }}
+    </div>
+  </main>
+  <footer aria-label="Presentasjonskontroller">
+    {{ with .Params.backlink }}<a class="back" href="{{ . | relURL }}">← Til dokumentasjonen</a>{{ end }}
+    <button id="prev" aria-label="Forrige lysbilde">← Forrige</button>
+    <span id="position" role="status" aria-live="polite"></span>
+    <button id="next" aria-label="Neste lysbilde">Neste →</button>
+    <button id="fullscreen">Fullskjerm</button>
+    <span class="help">Piltaster · Home/End · F for fullskjerm · Skriv ut til PDF</span>
+  </footer>
+  <script src="{{ "js/animated-deck.js" | relURL }}"></script>
+</body>
+</html>

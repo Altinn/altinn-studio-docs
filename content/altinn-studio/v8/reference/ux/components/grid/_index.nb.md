@@ -138,7 +138,7 @@ weight: 10
 
 ## Konfigurasjon
 
-Grid-komponenten konfigureres som alle andre, men krever en konfigurasjon for rader og celler. For å starte med en
+Grid-komponenten krever en konfigurasjon for rader og celler. For å starte med en
 2x2 Grid med to kolonner og to rader, kan vi bruke følgende konfigurasjon:
 
 ```json
@@ -165,6 +165,9 @@ Grid-komponenten konfigureres som alle andre, men krever en konfigurasjon for ra
 Hver celle må være enten et objekt med en `text`-egenskap (for tekstceller), et objekt med en `component`-egenskap
 (refererer til andre komponenter), et objekt med en `labelFrom`-egenskap (tekstcelle som refererer til andre komponenter) eller `null` (for en tom celle). Hver rad må ha samme antall celler som alle andre
 rader.
+
+Legg spesielt merke til at mobilvisningen av Grid bare viser komponentene. Det er viktig å være oppmerksom på at
+komponentene i cellene derfor må fungere frittstående også. [Les mer om dette i fallgruver nedenfor](#fallgruver).
 
 ### Rader
 For noen rader, vanligvis den første, kan du konfigurere en overskriftsrad. For å gjøre dette, legg til
@@ -250,6 +253,41 @@ Når komponenter vises i en tabell, vil de ikke vise `title`- og `description`-t
 bør likevel settes på komponenten, da de vil bli brukt for tilgjengelighet og vil fortsatt bli vist når komponenten
 vises utenfor en Grid - som på [mindre skjermer](#mobilvisning) og i [et sammendrag](/nb/altinn-studio/v8/reference/ux/pages/summary/).
 
+### Kolonnespenn og skjuling av kolonner
+
+Grid-komponenten støtter både kolonnespenn (`colSpan`) og skjuling av kolonner (`hidden`).
+
+- `colSpan` lar en celle dekke flere kolonner. Den kan konfigureres gjennom `cellStyle.colSpan`.
+- `hidden` skjuler en hel kolonne. Den gjelder på kolonnenivå (header + tilhørende celler i radene under), og den kan konfigureres kun via `columnOptions.hidden`.
+
+
+Eksempel med `colSpan`:
+```json
+{
+  "header": true,
+  "cells": [
+    { "text": "Alle endringer", "cellStyle": { "colSpan": 2 } },
+    null
+  ]
+}
+```
+
+Eksempel med `hidden`:
+```json
+{
+  "header": true,
+  "cells": [
+    { "text": "Kolonne A" },
+    { "text": "Kolonne B", "columnOptions": { "hidden": true } },
+    { "text": "Kolonne C" }
+  ]
+}
+```
+
+Merk: _Når du bruker `colSpan`, må du fjerne de cellene som kolonnespennet dekker eller sette dem til `null`, ellers kan tabell-layouten bli uforutsigbar._
+
+Merk : _Hvis du konfigurerer en celle slik at `colSpan` dekker én eller flere kolonner som også er skjulte, vil tabellen fortsatt rendres, men oppsettet stemmer kanskje ikke med det du forventer. Under utvikling logger appen en kort advarsel i nettleserkonsollen som beskriver hvilken celle som spenner over hvor mange kolonner og at den overlapper skjulte kolonne(r), og at dette kan føre til uventet oppsett. Unngå å kombinere en `colSpan` med skjulte kolonner hvis du trenger en forutsigbar tabell._
+
 ### Bredder, tekst og justering
 
 Det finnes flere opsjoner på en celle for å konfigurere bredde, tekst plassering, og
@@ -295,9 +333,89 @@ Eksempel:
 
 Grid-visningen av enkeltkomponenter er nyttig for å gi brukeren bedre oversikt over innholdet i en side og relaterte
 felter når skjermen er stor nok. En slik tabellvisning er derimot ikke optimal for mindre skjermer, derfor vil
-Grid-komponenten automatisk vise enkeltkomponentene (som om de ikke var del av en Grid) på mindre skjermer. Rekkefølgen
-til komponentene blir den samme som rekkefølgen til radene og cellene i Grid-konfigurasjonen (en og en rad av gangen),
-og rekkefølgen til enkeltkomponentene slik de er definert i layout-konfigurasjonen har ingen betydning.
+Grid-komponenten automatisk vise enkeltkomponentene (som om de ikke var del av en Grid) på mindre skjermer. Tekstceller og
+celler som bruker `labelFrom` vises ikke på mobil. Rekkefølgen til komponentene blir den samme som rekkefølgen til
+radene og cellene i Grid-konfigurasjonen (en og en rad av gangen). Rekkefølgen til enkeltkomponentene slik de er
+definert i layout-konfigurasjonen, har derfor ingen betydning.
 
 Det samme gjelder også for visning av en Grid-komponent i [et sammendrag](/nb/altinn-studio/v8/reference/ux/pages/summary/), hvor de samme
-komponentene referert til i Grid vil vises som sammendrag av enkeltkomponenter.
+komponentene referert til i Grid vil vises som sammendrag av enkeltkomponenter, uten visning av tekst-celler og `labelFrom`-celler.
+
+## Fallgruver
+
+Når du konfigurerer Grid-komponenten, kan det ved første øyekast se riktig ut å dele ledetekst og komponenter i
+ulike celler. På en stor skjerm vil dette se riktig ut, men det gir uventet oppførsel på mobil og ved bruk av
+skjermleser.
+
+Som et eksempel, her er en vanlig fallgruve for Grid-konfigurasjonen:
+
+```json
+[
+  {
+    "id": "grid-example",
+    "type": "Grid",
+    "textResourceBindings": {
+      "title": "Innrapportering av verdier",
+      "description": "Staten ønsker å vite om alt det verdifulle du har samlet på."
+    },
+    "rows": [
+      {
+        "header": true,
+        "cells": [
+          { "text": "Verdisak" },
+          { "text": "Antall" }
+        ]
+      },
+      {
+        "cells": [
+          { "text": "Frimerker" },
+          { "component": "antall-frimerker" }
+        ]
+      },
+      {
+        "cells": [
+          { "text": "10-øringer" },
+          { "component": "antall-10oringer" }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "antall-frimerker",
+    "type": "Input",
+    "dataModelBindings": {
+      "simpleBinding": "Verdisaker.Frimerker.Antall"
+    },
+    "textResourceBindings": {
+      "title": "Antall"
+    }
+  },
+  {
+    "id": "antall-10oringer",
+    "type": "Input",
+    "dataModelBindings": {
+      "simpleBinding": "Verdisaker.10Oringer.Antall"
+    },
+    "textResourceBindings": {
+      "title": "Antall"
+    }
+  }
+]
+```
+
+I skjermbildet av denne konfigurasjonen vil det se riktig ut på en stor skjerm:
+
+![Eksempel på stor skjerm](bad-example-desktop.png "Tabell med spørsmål og svar")
+
+I dette eksempelet vil en bruker som navigerer til svarfeltet med en skjermleser, bare få opplest teksten "Antall",
+uten å få vite hva feltet gjelder. Dette blir også tydelig på en mindre skjerm:
+
+![Eksempel på mindre skjerm](bad-example-mobile.png "Komponentoppstilling med bare svar")
+
+I mobilvisningen ser du bare komponentene. Tekstcellene vises ikke, og informasjonen i dem faller derfor bort for
+mobilbrukere.
+
+Du kan løse dette på to måter:
+
+1. Hvis teksten i cellen kan være den samme som ledeteksten til komponenten, anbefaler vi å bruke en beskrivende ledetekst og hente den inn i cellen med `labelFrom` i stedet for `text`.
+2. Hvis teksten i cellen skal vise en annen tekst enn ledeteksten til komponentene, bruker du `text` i cellen. Her er det viktig at ledeteksten, og eventuell beskrivelse på komponentene, inneholder all informasjon brukeren trenger.

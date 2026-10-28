@@ -1,23 +1,23 @@
 ---
-title: Delete System User
-description: This guide shows you, as an end-user, how to delete the system user.
-linktitle: Delete System User
+title: Delete System Access
+description: This guide shows how to delete a system access.
+linktitle: Delete System Access
 weight: 3
 ---
 
-# Deleting a System User
+## Deleting a System Access
 
-Only the end-user themselves (with the role 'Access Manager') can delete the system user. When deleted, all associated delegations are automatically removed. As of today, deleting a system user is only possible via the Altinn portal. The user with the role of access manager in the end-user organization must log in to the Altinn portal to perform the deletion. 
+To delete a system access, you must be able to manage authorizations for the organization. For example, you can do this as the general manager or with the administrator permission **Access Management** or **Main Administrator**. All authorizations linked to the system access are removed automatically. Deletion is currently only possible in the Altinn portal.
 
-## How to Delete a System User
+## How to Delete a System Access
 
-1. Log in to the Altinn portal and open the overview of system accesses: https://am.ui.altinn.no/accessmanagement/ui/systemuser/overview
-2. Find and click on the system access to be deleted
+1. Log in to the Altinn portal and open the [overview of system accesses](https://am.ui.altinn.no/accessmanagement/ui/systemuser/overview).
+2. Find and click on the system access to be deleted.
    ![Deletion step 1](delete_1.png)
 
    ![Deletion step 2](delete_2.png)
 
-3. Click delete system access
+3. Click **Delete system access**.
    ![Deletion step 3](delete_3.png)
 
-**Note:** If the system access contains clients, they must be deleted first.
+**Note:** Clients assigned to the system access are also removed when the system access is deleted.

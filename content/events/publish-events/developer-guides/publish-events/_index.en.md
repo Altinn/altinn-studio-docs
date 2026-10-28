@@ -30,6 +30,21 @@ This API requires authentication and the Maskinporten scope __altinn:events.publ
 See [Authentication and Authorization](/en/events/api/#authentication--authorization) for more information.
 
 
+## Headers
+
+### Idempotency-Key (optional)
+
+A GUID you generate yourself to identify the request. The header lets you safely
+retry the same request without Altinn Events registering the event more than once.
+
+If Altinn Events has already registered an event with the same idempotency key, the
+request still returns a successful response, but Altinn Events doesn't store the
+event again.
+
+The value must be a valid GUID. If it isn't, Altinn Events rejects the request with
+a _400 Bad Request_ response. You can't reuse the value across events.
+
+
 ## Request
 
 ### Content-type
@@ -106,6 +121,7 @@ curl \
 --location 'https://platform.altinn.no/events/api/v1/events' \
 --header 'Content-Type: application/cloudevents+json' \
 --header 'Authorization: Bearer {insert Altinn token}' \
+--header 'Idempotency-Key: {insert a GUID}' \
 --data '{
     "id": "288f71f2-8cbd-3442-1532-ac14f3fd9faa",
     "type": "no.altinn.events.digitalt-dodsbo.opprettet",

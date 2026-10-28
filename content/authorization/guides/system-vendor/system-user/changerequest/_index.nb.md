@@ -139,7 +139,7 @@ Responsen fra Post vil inneholde en kopi av det innsendte, uavhengig av hva som 
 }
 ```
 
-Den "id" som kommer i responsen, er den samme som SBSL sendte inn som en Correlation-id, og kan brukes til å følge status på endringsforespørselen. Etter at Sluttbruker har trykket på Godkjenn så vil endringer skje, dersom den innloggede Sluttbruker har de nødvendige rettigheter til å delegere tilgangene til SystemBrukeren.
+Den "id" som kommer i responsen, er den samme som SBSL sendte inn som en Correlation-id, og kan brukes til å følge status på endringsforespørselen. Etter at sluttbrukeren har trykket på Godkjenn, blir endringene gjennomført dersom den innloggede brukeren har de nødvendige fullmaktene til å gi systembrukeren de forespurte fullmaktene.
 
 ## Flere Endringer 
 
@@ -149,4 +149,4 @@ Det er ikke nødvendig å slette en Forespørsel, dersom SBSL ikke skal bruke de
 
 ## Endring av Systembruker for Klientforhold 
 
-Endring av Systembruker for Klientforhold er ikke mulig pt. De må slettes og opprettes på nytt. Det tilbys et [Klientdelegerings API](/nb/authorization/guides/system-vendor/system-user/client-delegation/) der SBSL selv kan hente ut hvilke tilganger som er gitt, spare dem i sitt eget system. Opprette en ny Systembruker med de nye ønskede tilganger; som godkjennes av Tjenestetilbyder; deretter kan en og en klient (i et API) tildeles på den nye Systembruker. Om det så gjenstår en differanse, der noen av de “gamle” klienter ikke kunne tildeles den nye Systembrukeren, så kan det skyldes at ikke alle de nye tilganger er delegert av disse klientene til fasilitatoren. Dette håndteres enklest av SBSL selv. Sannsynligheten for at det finnes minst en slik klient som ikke har de nye tilganger delegert i et stort system er stor; og vi kan derfor ikke tilby en change request der alt skal godkjennes i en enkelt operasjon.
+Endring av Systembruker for Klientforhold er ikke mulig pt. De må slettes og opprettes på nytt. Det tilbys et [klientdelegerings-API](/nb/authorization/guides/system-vendor/system-user/client-delegation/) der SBSL kan hente ut hvilke fullmakter som er gitt, og lagre dem i sitt eget system. SBSL kan deretter opprette en ny systembruker med de ønskede fullmaktene, få den godkjent av tjenestetilbyderen og legge klientene til den nye systembrukeren én om gangen via API-et. Hvis noen av de tidligere klientene ikke kan legges til, kan årsaken være at klientene ikke har gitt fasilitatoren fullmakt til alle de nye tilgangspakkene. Dette håndteres enklest av SBSL selv. I et stort system er det sannsynlig at minst én klient mangler fullmakt til de nye tilgangspakkene. Derfor kan vi ikke tilby en endringsforespørsel der alt godkjennes i én operasjon.

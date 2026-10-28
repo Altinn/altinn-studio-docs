@@ -10,7 +10,7 @@ Uten denne informasjonen ville det vært umulig for PDP å evaluere kontekstfore
 
 For Altinn-plattformen finnes det flere Policy Informasjonspunkt:
 
-- Altinn II Autorisasjon – Hent informasjon om hvilke roller en bruker eller et system har for en gitt aktør
+- Altinn II Autorisasjon – Hent informasjon om hvilke roller en bruker eller et system har for en gitt part
 - Storage PIP – Hent attributter om ressursen i beslutningsforespørselen. (hvilken type app, hvem er rapporteringsansvarlig for dataene, hva er nåværende prosessstatus)
 
 Antallet PIP-er forventes å øke i fremtiden.

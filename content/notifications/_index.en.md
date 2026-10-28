@@ -99,5 +99,22 @@ Test-emails are sent as normal. Please note that in some cases the recipient ide
 
 **NB2**: There is a delay of up to 10 minutes for any changes to contact-information for a person or organization to take effect in Notifications.
 
+## SMS to international recipients
+Due to regulatory conditions, SMS sent to Finnish (+358), Thai (+66) and Spanish (+34) mobile numbers may fail. We are working on handling this better. In the meantime, service owners with target audiences resident in these countries should prefer the email channel and pay extra attention to users expecting SMS on their foreign subscriptions.
+
+The issue only affects subscriptions from local operators in these countries. Norwegian numbers roaming on those operators (e.g. while on holiday or staying in the countries mentioned) should not be affected.
+
+SMS status will, as today, be "SMS_Delivered" once the message is confirmed as delivered, and "SMS_Failed*" (various variants) when the SMS cannot be confirmed as delivered, so that this can be picked up by existing processes on the service owner side. See also
+[status values for orders and notifications]({{< relref "/notifications/reference/notification-status#smsnotificationresulttype-sms-result" >}}).
+
+__Finland__: A SenderID that is not registered is changed to "tuntematon" (unknown). Delivery otherwise should proceed as normal. --> We are working on registering all known and legitimate IDs*
+
+__Spain__: A SenderID that is not registered through a local lawyer can/will fail (currently planned to take effect from 7 June 2026). --> Our supplier's recommendation is *not* to start the process with a keyword, but to use a numeric sender. We are working on a practical solution to this.
+
+__Thailand__: A SenderID that is not registered and/or the use of URL(s) in message content can/will fail. --> We are working on registering all known and legitimate IDs*
+
+*: As far as is feasible – the process may require further legal follow-up regarding ownership/responsibility for keywords and message content.
+
+
 ## Source code
 The code is on [Github](https://github.com/Altinn/altinn-notifications)

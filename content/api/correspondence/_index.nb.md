@@ -7,4 +7,6 @@ cascade:
     product: product_correspondence
 ---
 
-{{<children />}}
+Se følgende seksjon for referanseinformasjon om Correspondence API
+
+* [OpenAPI-spesifikasjoner](./spec/)

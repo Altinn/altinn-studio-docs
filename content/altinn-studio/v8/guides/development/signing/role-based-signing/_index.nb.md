@@ -29,7 +29,7 @@ Hvis appen din er [konfigurert til å sende signaturkvitteringer](#utvid-app-pro
 
 {{<content-version-selector classes="border-box">}}
 
-{{<content-version-container version-label="Manual setup">}}
+{{<content-version-container version-label="Manuelt oppsett">}}
 {{% insert "content/altinn-studio/v8/guides/development/signing/role-based-signing/backend-manual/add-process-task.nb.md" %}}
 {{</content-version-container>}}
 
@@ -43,7 +43,7 @@ Hvis appen din er [konfigurert til å sende signaturkvitteringer](#utvid-app-pro
 
 {{<content-version-selector classes="border-box">}}
 
-{{<content-version-container version-label="Manual setup">}}
+{{<content-version-container version-label="Manuelt oppsett">}}
 {{% insert "content/altinn-studio/v8/guides/development/signing/role-based-signing/backend-manual/configure-layouts.nb.md" %}}
 {{</content-version-container>}}
 

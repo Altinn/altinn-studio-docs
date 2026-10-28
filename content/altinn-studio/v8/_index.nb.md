@@ -1,7 +1,7 @@
 ---
 title: Altinn Studio
 linktitle: Altinn Studio
-breadcrumbText: Gjeldende (V8)
+breadcrumbText: V8 (gjeldende)
 description: Altinn Studio - Ditt verktøy for utvikling av digitale tjenester til innbyggere og næringsliv
 aliases:
 - /altinn-studio/
@@ -10,6 +10,15 @@ aliases:
 - /nb/teknologi/altinnstudio/solutions/altinn-studio/
 - /app/
 - /nb/app/
+- /technology/solutions/cli/
+- /technology/solutions/cli/commands/
+- /technology/solutions/cli/software-implementation/
+- /altinn-cli/
+- /altinn-cli/commands
+- /altinn-cli/implementation
+- /teknologi/altinnstudio/solutions/cli/
+- /teknologi/altinnstudio/solutions/cli/commands
+- /teknologi/altinnstudio/solutions/cli/implementation
 weight: 1
 cascade:
   params:

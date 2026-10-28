@@ -14,6 +14,10 @@ All available endpoints require authentication. To use the API, you must be a lo
 
 In the path for favorites, you must indicate which party you want to add or delete. This is identified with `partyUuid`, which must be a valid value and which the user must have in their party list.
 
+{{% notice info %}}
+This API resource is restricted by access rules and can only be used with a valid end-user token.
+{{% /notice %}}
+
 ### Response model
 ```json
 {

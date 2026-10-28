@@ -6,7 +6,7 @@ toc: false
 ---
 
 Altinn tilbyr et tilgangsstyrings-API som lar sluttbrukersystemer administrere tilganger mellom parter.
-API-et gir mulighet til å se og håndtere hvem som har tilgang til hva, delegere tilgangspakker og enkeltrettigheter, og administrere klientforhold.
+API-et gir mulighet til å se og håndtere hvem som har tilgang til hva, gi fullmakt til tilgangspakker og enkelttjenester, og administrere klientforhold.
 
 ## Hva er et sluttbrukersystem?
 
@@ -19,7 +19,7 @@ Et sluttbrukersystem er programvare eller en nettside som kaller Altinns API-er 
 
 Tilgangsstyrings-API-et er relevant for systemer som ønsker å automatisere administrasjon av tilganger i Altinn. Eksempler:
 
-- **Store virksomheter** som ønsker å automatisere hvilke tilganger ansatte har. I stedet for å logge inn i Altinn og delegere tilgangspakker manuelt kan virksomheten bruke API-et til å synkronisere tilganger fra egne HR- eller identitetssystemer.
+- **Store virksomheter** som ønsker å automatisere hvilke fullmakter ansatte har. I stedet for å logge inn i Altinn og gi fullmakt til tilgangspakker manuelt, kan virksomheten bruke API-et til å synkronisere fullmaktene med egne HR- eller identitetssystemer.
 - **Tjenestetilbydere** (regnskapsførere, revisorer o.l.) som administrerer tilganger for mange klienter og ønsker å gjøre dette effektivt gjennom egne systemer.
 - **Forvaltningsløsninger** som trenger å vise brukeren hvilke parter de kan handle på vegne av, og hvilke rettigheter de har.
 
@@ -47,13 +47,13 @@ Systemet må be om de scopene som trengs for funksjonaliteten det skal bruke.
 
 | Scope | Valgfri/påkrevd | Beskrivelse |
 |---|---|---|
-| `altinn:accessmanagement/authorizedparties` | Les hvilke aktører (personer og virksomheter) den innloggede brukeren kan representere i Altinn |
+| `altinn:accessmanagement/authorizedparties` | Les hvilke personer og virksomheter den innloggede brukeren kan handle på vegne av i Altinn |
 | `altinn:accessmanagement/enduser:connections:fromothers.read` | Se mottatte tilganger for deg og andre du evt. er tilgangsstyrer for |
-| `altinn:accessmanagement/enduser:connections:fromothers.write` | Slett mottatte tilganger gitt til deg eller andre aktører du er tilgangsstyrer for |
-| `altinn:accessmanagement/enduser:connections:toothers.read` | Se tilganger gitt til andre, fra deg eller andre aktører du er tilgangsstyrer for |
-| `altinn:accessmanagement/enduser:connections:toothers.write` | Opprett, oppdater og slett tilganger gitt til andre fra deg eller andre aktører du er tilgangsstyrer for |
-| `altinn:accessmanagement/enduser:requests.read` | Se sendte og mottatte forespørsler om tilgangspakker og ressurser for deg eller andre aktører du er tilgangsstyrer for |
-| `altinn:accessmanagement/enduser:requests.write` | Opprett, trekk, godkjenn og avvis forespørsler om tilgangspakker og ressurser for deg eller andre aktører du er tilgangsstyrer for |
+| `altinn:accessmanagement/enduser:connections:fromothers.write` | Slett mottatte tilganger gitt til deg eller andre parter du er tilgangsstyrer for |
+| `altinn:accessmanagement/enduser:connections:toothers.read` | Se tilganger gitt til andre, fra deg eller andre parter du er tilgangsstyrer for |
+| `altinn:accessmanagement/enduser:connections:toothers.write` | Opprett, oppdater og slett tilganger gitt til andre fra deg eller andre parter du er tilgangsstyrer for |
+| `altinn:accessmanagement/enduser:requests.read` | Se sendte og mottatte forespørsler om tilgangspakker og ressurser for deg eller andre parter du er tilgangsstyrer for |
+| `altinn:accessmanagement/enduser:requests.write` | Opprett, trekk, godkjenn og avvis forespørsler om tilgangspakker og ressurser for deg eller andre parter du er tilgangsstyrer for |
 
 **Altinn klientdelegering**
 

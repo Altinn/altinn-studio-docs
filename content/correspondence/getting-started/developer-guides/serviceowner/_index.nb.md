@@ -48,7 +48,7 @@ Se [Ressursadministrasjon](https://docs.altinn.studio/nb/authorization/guides/re
    - "read" ment for at mottakere skal kunne åpne og lese en melding.
    - "write" ment for at avsendere skal kunne sende en melding.
    - "subscribe" for å registrere hendelsesabonnement i Altinn Events.
-4. Altinn II rollene erstattes av tilgangspakker i Altinn 3. Frem til juni 2026 anbefaler vi at man setter både roller og tilgangspakker på ressursen. Det er viktig å ta en grundig vurdering på hvilken tilgangspakke ressursen skal ha. Her finner du oversikt over [fullmaktsområder og tilgangspakker](https://docs.altinn.studio/nb/authorization/what-do-you-get/accessgroups/accessgroups/).
+4. Altinn II rollene erstattes av tilgangspakker i Altinn 3. Frem til juni 2026 anbefaler vi at man setter både roller og tilgangspakker på ressursen. Det er viktig å ta en grundig vurdering på hvilken tilgangspakke ressursen skal ha. Her finner du oversikt over [fullmaktsområder og tilgangspakker](https://docs.altinn.studio/nb/authorization/what-do-you-get/accesspackages/business/).
    - **Vanlig post:** Den gamle Altinn II rollen "Post/arkiv" erstattes av tilgangspakken "Ordinær post til virksomheten".
    - **Taushetsbelagt post:** Dersom ressursen skal være taushetsbelagt må du: 
       - velge tilgangspakken "Post til virksomheten med taushetsbelagt innhold".
@@ -124,6 +124,10 @@ Se [Readme-filen på GitHub](https://github.com/Altinn/altinn-correspondence/blo
 Repoet inneholder også en [Bruno-pakke](https://github.com/Altinn/altinn-correspondence/blob/main/.bruno/collection.bru) med eksempler.
 
 Swagger for meldings-APIet finner du [her](/nb/api/correspondence/spec/).
+
+{{% notice warning %}}
+**Anbefalt**: Send med feltet `idempotentKey` når du oppretter meldinger. Da oppretter Altinn hver melding bare én gang, selv om integrasjonen din sender samme forespørsel på nytt. Les mer om [idempotens i Altinn 3 Melding]({{< relref "/correspondence/getting-started/developer-guides/idempotency" >}}).
+{{% /notice %}}
 {{% /expandlarge %}}
 
 {{% expandlarge id="test-appearance-formatting" header="9. Test oppsett og formatering i Arbeidsflate og Altinn 2-innboks" %}}

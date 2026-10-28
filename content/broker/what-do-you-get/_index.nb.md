@@ -19,11 +19,6 @@ Bruk av sikkerhetsmekanismer som beskytter innholdet, finn mer informasjon i den
 ### Logging 
 Altinn Formidling sørger for at alle hendelser og prosesser blir nøye loggført, slik at det er enkelt å etterprøve hvem som har gjort hva og når.
 
-### Varsling
-- Automatisk varsling via e-post eller SMS til mottakere.
-- Re-varsling etter 7 dager dersom filen ikke blir åpnet. 
-- Tilpassede varslingsinnstillinger basert på brukerpreferanser. Dette innebærer varslingsmaler og egendefinerte varslingsadresser.
-
 ### Events (hendelsesabonnementer)
 Du kan motta varsler om hendelser knyttet til sendte formidlingstjenester, ved å sette opp et abonnement for den aktuelle tjenesten. Du kan for eksempel se om filen er kommet frem til mottaker og om den er åpnet. 
 

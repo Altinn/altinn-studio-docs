@@ -14,6 +14,10 @@ Alle tilgjengelige endepunkter krever autentisering. For å bruke API-et må man
 
 I stien for favoritter må man indikere hvilken aktør man ønsker å legge til eller slette. Denne identifiseres med `partyUuid`, som må være en gyldig verdi og som brukeren må ha i sin aktørliste. 
 
+{{% notice info %}}
+Denne API-ressursen er begrenset av tilgangsregler og kan kun benyttes med et gyldig sluttbruker-token. 
+{{% /notice %}}
+
 ### Respons-modell
 ```json
 {

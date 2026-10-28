@@ -13,6 +13,10 @@ To use the API, you must be a logged-in end user. It is important that the acces
 
 In the path, you must indicate which party you want to manage addresses on behalf of. This is identified with `partyUuid`.
 
+{{% notice info %}}
+This API resource is restricted by access rules and can only be used with a valid end-user token.
+{{% /notice %}}
+
 ### Model
 
 ```json

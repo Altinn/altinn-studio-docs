@@ -22,10 +22,12 @@ Altinn Studio-apper og Altinn-ressurser bruker de samme begrepene, selv om regel
 
 ### Tilgangsstyring via fullmakter
 
-Tilgang til tjenester i Altinn styres gjennom fullmakter. En virksomhet kan gi fullmakt til en tjeneste via to nivåer:
-Direkte til en enkelttjeneste, eller til tilgangspakken eller rollen tjenesten tilhører
-Fullmakt på pakke- eller rollenivå gir automatisk tilgang til alle tjenester og ressurser som inngår i dette.
-Siden Altinn bruker samme autorisering på tvers av ressurser og apper, kan virksomheter delegere rettigheter uten å ta stilling til de teknologiske forskjellene mellom apper og ressurser.
+Tilgang til tjenester i Altinn styres gjennom fullmakter. En virksomhet kan gi fullmakt på to nivåer:
+
+- direkte til en enkelttjeneste
+- gjennom en tilgangspakke eller rolle, som gir tilgang til alle tjenestene og ressursene som er knyttet til pakken eller rollen
+
+Siden Altinn bruker samme autorisering på tvers av ressurser og apper, kan virksomheter gi fullmakter uten å ta stilling til de teknologiske forskjellene mellom apper og ressurser.
 
 ### Forskjeller mellom ressurser og apper
 

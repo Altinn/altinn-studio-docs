@@ -4,6 +4,10 @@ description: 'Lær hvordan dialoger i Dialogporten implementerer finkornet tilga
 weight: 20
 ---
 
+{{<notice warning>}}
+Autorisasjonsattributter er utfaset til fordel for [autorisasjonskontekster]({{< relref "/dialogporten/getting-started/authorization/authorization-contexts" >}}), som dekker de samme brukstilfellene i tillegg til tilgang for flere parter og kontroll over hva en uautorisert sluttbruker ser.
+{{</notice>}}
+
 ## Introduksjon
 
 Handlinger og andre deler (f.eks. referanser til forsendelser) av dialogen kan også spesifisere et ekstra _autorisasjonsattributt_.
@@ -16,5 +20,6 @@ Autorisasjonsattributter kan også brukes på [forsendelser](/nb/dialogporten/ge
 
 **Les mer**
 * [Teknisk referanse for autorisasjonsattributter](/nb/dialogporten/getting-started/authorization/attributes/../../../reference/authorization/attributes/)
+* {{<link "../authorization-contexts">}}
 
 {{<children />}}

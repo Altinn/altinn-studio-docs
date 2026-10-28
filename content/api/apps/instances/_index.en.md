@@ -76,7 +76,24 @@ The client specifies the instance owner and may set a number of the metadata fie
 }
 ```
 
-Notice that all dates must be expressed in **Utc (Zulu)** time zone and represented according to ISO 8601!
+### A note on dates
+
+All dates must be expressed in **UTC (Zulu)** time zone and represented according to ISO 8601.
+
+Provided dates are stored as UTC times. Provide a time zone offset if you want to express the date with a local time.
+If a time zone offset is provided, it will be used when the provided date is converted to UTC time.
+For example, with due date using `dueBefore`:
+
+| Provided due date | Stored due date | Due date in Norway local time | 
+|-------------------|-----------------|-------------------------------| 
+| `2026-06-01T23:59:59Z`| `2026-06-01T23:59:59Z` | `2026-06-02T01:59:59` | 
+| `2026-06-01T21:59:59Z`| `2026-06-01T21:59:59Z` | `2026-06-01T23:59:59` | 
+| `2026-06-01T23:59:59+02:00`| `2026-06-01T21:59:59Z` | `2026-06-01T23:59:59` | 
+
+
+Pay attention to daylight savings, as that may affect the time zone offset.
+
+### Attachments
 
 Data elements (files) can be attached to the initial request as a *multipart/form-data* or as *attachments*.
 The name of the parts must correspond to element types defined in the application metadata. 

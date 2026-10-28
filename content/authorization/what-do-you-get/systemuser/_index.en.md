@@ -26,8 +26,6 @@ For a high-level functional walkthrough and user journey, see [Samarbeidsportale
 
 ## Features with System User
 
-System User provides a number of advantages compared to today's enterprise user and end user system concept in Altinn 2.
-
 **For service owners**
 To support System User on your service, you must choose Maskinporten as the authentication method and make queries against our authorization API (PDP) with the system user information found in the Maskinporten token.
 

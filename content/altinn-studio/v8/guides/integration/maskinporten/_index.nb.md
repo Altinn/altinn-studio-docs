@@ -7,6 +7,9 @@ toc: true
 aliases:
 - /app/maskinporten-app-integration/
 - /altinn-studio/guides/integration/maskinporten-app-integration
+- /technology/solutions/cli/configuration/
+- /technology/solutions/cli/configuration/maskinporten-setup/
+- /teknologi/altinnstudio/solutions/cli/configuration
 ---
 
 Denne veiledningen viser hvordan du setter opp en Altinn-app til å utføre autoriserte forespørsler med Maskinporten på vegne av eieren av appen, i stedet for den aktive brukeren.
@@ -40,29 +43,29 @@ Når applikasjonen forberedes til å bruke hemmeligheter fra Azure Key Vault, m�
     - Base64-kodet JWT offentlig og privat nøkkelpar
     - Klient-ID for integrasjonen
 
-   Det er viktig at navnet på disse hemmelighetene i Azure Key Vault tilsvarer navnet på seksjonen i appsettings-filen i kodebasen til applikasjonen. F.eks. hvis din appsettings-seksjon for Maskinporten-integrasjonen ser slik ut:
+Det er viktig at navnet på disse hemmelighetene i Azure Key Vault tilsvarer navnet på seksjonen i appsettings-filen i kodebasen til applikasjonen. F.eks. hvis din appsettings-seksjon for Maskinporten-integrasjonen ser slik ut:
 
-   {{< code-title >}}
-   App/appsettings.json
-   {{< /code-title >}}
+{{< code-title >}}
+App/appsettings.json
+{{< /code-title >}}
 
-   ```json
-   {
-     "MaskinportenSettings": {
-       "Authority": "https://test.maskinporten.no/",
-       "ClientId": "",
-       "JwkBase64": ""
-     }
-   }
-   ```
+```json
+{
+  "MaskinportenSettings": {
+    "Authority": "https://test.maskinporten.no/",
+    "ClientId": "",
+    "JwkBase64": ""
+  }
+}
+```
 
-   Skal hemmelighetene i Azure Key Vault ha navn som dette:
+Skal hemmelighetene i Azure Key Vault ha navn som dette:
 
-   ```
-   MaskinportenSettings--Authority
-   MaskinportenSettings--ClientId
-   MaskinportenSettings--JwkBase64
-   ```
+```text
+MaskinportenSettings--Authority
+MaskinportenSettings--ClientId
+MaskinportenSettings--JwkBase64
+```
 2. For at applikasjonen skal kunne lese hemmelighetene fra Azure Key Vault, må den konfigureres til å gjøre det. Se [secrets-seksjonen](/nb/altinn-studio/v8/reference/configuration/secrets/) for å oppnå dette.
 3. Legg til appsettings-eksempelet ovenfor i `appsettings.{env}.json`-filen.
 {.floating-bullet-numbers}

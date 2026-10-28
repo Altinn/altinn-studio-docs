@@ -35,7 +35,10 @@ Dialogtokenet er også det som muliggjør [front channel embeds]({{< relref "../
 ## Sikkerhet og tillit
 Dialogporten utsteder bearer tokens som JWT-er (JSON Web Tokens) signert ved hjelp av state-of-the-art kryptografistandarder. Det offentlige nøkkelmaterialet som brukes til å verifisere tokens utstedt av Dialogporten er publisert på en standard HTTPS-plassering, noe som muliggjør automatisk konfigurasjon ved hjelp av de fleste veletablerte kryptografiske applikasjonsbiblioteker.
 
+Rettigheter som stammer fra en [autorisasjonskontekst]({{< relref "../authorization-contexts/" >}}) bæres av det samme dialogtokenet, i et eget claim som lister opp de delene av dialogen brukeren er autorisert for. Se [teknisk referanse for dialogtoken]({{< relref "../../../reference/authorization/dialog-tokens/" >}}#e-claimet-autoriserte-entiteter) for detaljer.
+
 **Les mer**
 * [Teknisk referanse for dialogtoken]({{< relref "../../../reference/authorization/dialog-tokens/" >}})
+* {{<link "../authorization-contexts">}}
 
 {{<children />}}

@@ -5,6 +5,10 @@ description: Altinn Authorization is constructed as serveral components.
 tags: [architecture, solution]
 weight: 999
 toc: false
+hidden: true
+cascade:
+  params:
+    hidden: true
 ---
 
 When defining the authorization components, we used the [XACML reference architecture](https://en.wikipedia.org/wiki/XACML).

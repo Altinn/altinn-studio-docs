@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 430" role="img" aria-labelledby="title desc">
+  <title id="title">Autorisasjonsbeslutning</title>
+  <desc id="desc">En person, en virksomhet og et system sender forespørsler til Altinn Autorisasjon, som kontrollerer identitet, fullmakt og regler før tilgangen tillates eller avslås.</desc>
+  <defs>
+    <linearGradient id="shield" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1EAEF7"/><stop offset="1" stop-color="#0062BA"/></linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#EAF4FF"/><stop offset="1" stop-color="#F8FAFC"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#022F51" flood-opacity=".14"/></filter>
+  </defs>
+  <rect x="18" y="18" width="684" height="394" rx="28" fill="url(#glow)"/>
+  <path d="M174 100C270 100 270 177 350 177M174 215H315M174 330C270 330 270 253 350 253" fill="none" stroke="#9FB4C7" stroke-width="5" stroke-linecap="round"/>
+  <path d="M511 215H614" fill="none" stroke="#9FB4C7" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="631" cy="215" r="10" fill="#2FB676"/><circle cx="598" cy="215" r="6" fill="#1EAEF7"/>
+  <g filter="url(#shadow)">
+    <rect x="58" y="55" width="116" height="90" rx="20" fill="#fff"/>
+    <circle cx="116" cy="88" r="17" fill="#E5A54B"/>
+    <path d="M82 129c4-22 18-31 34-31s30 9 34 31" fill="#FFF4E5" stroke="#E5A54B" stroke-width="5" stroke-linecap="round"/>
+    <rect x="58" y="170" width="116" height="90" rx="20" fill="#fff"/>
+    <path d="M84 233v-35l32-17 32 17v35" fill="#EAF7EF" stroke="#2FB676" stroke-width="5" stroke-linejoin="round"/>
+    <path d="M98 233v-25m18 25v-25m18 25v-25M78 237h76" stroke="#2FB676" stroke-width="5" stroke-linecap="round"/>
+    <rect x="58" y="285" width="116" height="90" rx="20" fill="#fff"/>
+    <rect x="82" y="306" width="68" height="47" rx="8" fill="#EAF4FF" stroke="#1EAEF7" stroke-width="5"/>
+    <path d="M101 366h30m-15-13v13" stroke="#1EAEF7" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <g filter="url(#shadow)">
+    <path d="M413 83l96 38v76c0 71-39 119-96 148-57-29-96-77-96-148v-76z" fill="url(#shield)"/>
+    <path d="M413 105l73 29v62c0 55-29 94-73 119-44-25-73-64-73-119v-62z" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="4"/>
+    <circle cx="413" cy="191" r="44" fill="#fff" fill-opacity=".96"/>
+    <path d="M389 192l16 17 34-39" fill="none" stroke="#0F5B32" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="373" cy="266" r="18" fill="#fff"/><path d="M365 266l6 7 11-14" fill="none" stroke="#0062BA" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="413" cy="276" r="18" fill="#fff"/><path d="M405 276l6 7 11-14" fill="none" stroke="#0062BA" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="453" cy="266" r="18" fill="#fff"/><path d="M445 266l6 7 11-14" fill="none" stroke="#0062BA" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  <g transform="translate(610 174)" filter="url(#shadow)"><circle cx="38" cy="41" r="38" fill="#EAF7EF"/><path d="M20 42l12 13 26-30" fill="none" stroke="#0F5B32" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <circle cx="258" cy="177" r="8" fill="#1EAEF7"/><circle cx="278" cy="215" r="8" fill="#1EAEF7"/><circle cx="258" cy="253" r="8" fill="#1EAEF7"/>
+</svg>

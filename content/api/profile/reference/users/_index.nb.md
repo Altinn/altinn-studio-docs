@@ -12,6 +12,10 @@ Profil-APIet kan ikke registrere en brukers folkeregistrerte adresse eller varsl
 En innlogget bruker kan endre innstillinger for visning i Altinns arbeidsflate, for eksempel språk og hvilke aktører som skal vises i aktørlisten.
 API-et støtter både PUT (erstatter hele objektet) og PATCH (oppdaterer deler av objektet).
 
+{{% notice info %}}
+Denne API-ressursen er begrenset av tilgangsregler og kan kun benyttes med et gyldig sluttbruker-token. 
+{{% /notice %}}
+
 ### Response model
 ```json
 {
@@ -24,7 +28,7 @@ API-et støtter både PUT (erstatter hele objektet) og PATCH (oppdaterer deler a
 }
 ```
 
-* **language** (string) Brukerens språkvalg som en to-bokstavs kode. Gyldige alternativer: "no", "nn", "en".
+* **language** (string) Brukerens språkvalg som en to-bokstavs kode. Gyldige alternativer: "nb", "nn", "en".
 * **preselectedPartyUuid** (GUID) Forhåndsvalgt aktør som partyUuid.
 * **doNotPromptForParty** (bool) Et flagg for å indikere om brukeren skal bli spurt om aktør hver gang den starter utfylling av et nytt skjema.
 * **showClientUnits** (bool) Et flagg for å indikere om klient-enheter skal vises i aktørlisten. Gjelder kun regnskapsførere og revisorer.

@@ -14,10 +14,13 @@
 
 {{ $substring := "---" }}
 {{ $parts := split $content $substring }}
-{{ $lastIndex := sub (len $parts) 1 }}
 
-{{ with index $parts $lastIndex }}
-  {{ $content = . }}
+{{/* The first "---" delimited block is the front matter (preceded by an empty
+ segment), so skip the first two segments and rejoin the rest with "---".
+ Rejoining preserves any "---" that belongs to the content itself, such as
+ markdown table separator rows (|---|---|). */}}
+{{ if ge (len $parts) 3 }}
+  {{ $content = delimit (after 2 $parts) $substring }}
 {{ end }}
 
 {{ range $index, $param := .Params }}

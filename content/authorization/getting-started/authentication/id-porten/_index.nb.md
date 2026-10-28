@@ -26,7 +26,7 @@ Relevante scopes for Altinn 3 er:
 - `altinn:instances.read` - Lese innholdet i innboks og arkiv i Altinn for alle elementer sluttbruker er autorisert for
 - `altinn:instances.write` - Fylle ut, signere og sende inn skjema i Altinn for alle elementer sluttbruker er autorisert for
 - `altinn:lookup` - Benytte innsynstjenester i Altinn
-- `altinn:reportees` - Se hvem du kan representere i Altinn
+- `altinn:reportees` - Se hvem du kan handle på vegne av i Altinn
 
 Bildet nedenfor viser hvordan sluttbruker må bekrefte tilgangen.
 
@@ -64,4 +64,4 @@ Bildet nedenfor viser hvordan dette vil bli i Altinn (ikke satt i produksjon end
 
 ![Håndtere systemtilganger](scopemanagement.png "Håndtere systemtilganger")
 
-Et system som har fått tilgang til et token fra ID-porten vil kunne utføre handlinger som bruker er autorisert for, kun begrenset av bruksområdet til scope. Det betyr at hvis systemet har fått scope for innsending av skjema, vil systemet kunne sende inn alle skjema for alle avgivere som sluttbruker er autorisert for. Det er derfor viktig at sluttbruker kan stole på systemet.
+Et system som har fått et token fra ID-porten, kan utføre handlinger som brukeren er autorisert for, bare begrenset av bruksområdet til scopet. Hvis systemet for eksempel har fått scope for innsending av skjema, kan det sende inn alle skjemaer for alle personene og virksomhetene som brukeren er autorisert til å handle på vegne av. Det er derfor viktig at brukeren kan stole på systemet.

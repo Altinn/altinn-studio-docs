@@ -61,17 +61,17 @@ Følgende API-er er identifisert.
 
 Rights-API-et viser rettigheter mellom to parter (organisasjoner, brukere eller personer).
 
-Rettighetene bygger på regler definert av tjenesteeier eller rettigheter som en avgiver har delegert videre.
+Rettighetene bygger på regler som tjenesteeieren har definert, eller på rettigheter som en part har delegert videre.
 
 Eksempler på konsumenter av API-et:
 
-- Sluttbruker som vil se hvilke rettigheter vedkommende har på vegne av en avgiver
-- Administrator for avgiveren
+- Sluttbruker som vil se hvilke rettigheter vedkommende har på vegne av en part
+- Administrator for parten
 - Ressurseier som trenger oversikt over hvilke rettigheter part A har overfor part B
 
 #### Outbound Rights
 
-Outbound-API-et er rettet mot administratorer hos avgiveren.
+Outbound-API-et er rettet mot administratorer hos parten som gir rettighetene.
 
 ```http
 /accessmanagement/api/v1/{who}/rights/outbound/?resource={resource}&recevingParty={receivingparty}

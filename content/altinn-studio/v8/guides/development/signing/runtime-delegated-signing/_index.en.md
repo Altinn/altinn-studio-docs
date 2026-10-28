@@ -167,32 +167,39 @@ Note that `CommunicationConfig` is optional. Here you may override the standard 
 as explained in the previous section. You may also override the email address and phone number for the signees. 
 
 {{% notice info %}}
-By default, a message 
-will be sent to the signees altinn inbox with a link to the relevant application instance and a notification
-will be sent via email. The default texts described in the previous section will be used.
+If `CommunicationConfig` is not set, a message is sent to the signee's Altinn inbox with a link to the application instance,
+and a notification is sent by email only, using Altinn's generic notification template.
 {{% /notice %}}
 
-If not overridden, the email addresses and the phone numbers used are populated as described in [Recipient lookup](/en/notifications/explanation/recipient-lookup/) 
+{{% notice warning %}}
+To notify by SMS, or to use the default SMS and email texts from the previous section, set `CommunicationConfig.NotificationChoice`.
+If it is not set, the channel is derived from `Notification.Email.EmailAddress` and `Notification.Sms.MobileNumber`,
+and when neither has a value, only the generic email is sent. Setting `NotificationChoice` alone is enough to use the default texts
+and the registered contact information.
+{{% /notice %}}
+
+If not overridden, the email addresses and the phone numbers used are populated as described in [Recipient lookup](/en/notifications/explanation/recipient-lookup/)
 and [Address lookup](/en/notifications/explanation/address-lookup/).
 
 These are the possible override configurations for the signee communication:
 
-| Property                                                      | Description                                         | Type                              |
-| ------------------------------------------------------------- | --------------------------------------------------- | --------------------------------- |
-| CommunicationConfig                                           | The object for communication configuration          | Object                            |
-| CommunicationConfig.InboxMessage                              | The object for inbox message configuration          | Object                            |
-| CommunicationConfig.InboxMessage.TitleTextResourceKey         | The text resource key for the inbox message title   | String                            |
-| CommunicationConfig.InboxMessage.SummaryTextResourceKey       | The text resource key for the inbox message summary | String                            |
-| CommunicationConfig.InboxMessage.BodyTextResourceKey          | The text resource key for the inbox message body    | String                            |
-| CommunicationConfig.Notification                              | The object for notification configuration           | Object                            |
-| CommunicationConfig.Notification.Email                        | The object for email notification configuration     | Object                            |
-| CommunicationConfig.Notification.Email.EmailAddress           | The text resource key for the email address         | String                            |
-| CommunicationConfig.Notification.Email.SubjectTextResourceKey | The text resource key for the email subject         | String                            |
-| CommunicationConfig.Notification.Email.BodyTextResourceKey    | The text resource key for the email body            | String                            |
-| CommunicationConfig.Notification.Sms                          | The object for sms notification configuration       | Object                            |
-| CommunicationConfig.Notification.Sms.MobileNumber             | The text resource key for the mobile number         | String                            |
-| CommunicationConfig.Notification.Sms.BodyTextResourceKey      | The text resource key for the sms body              | String                            |
-| CommunicationConfig.Notification.NotificationChoice           | The notification preferrence choice                 | NotificationChoice enum (String)  |
+| Property                                                      | Description                                                                                                  | Type                    |
+| ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ----------------------- |
+| CommunicationConfig                                           | The object for communication configuration                                                                   | Object                  |
+| CommunicationConfig.NotificationChoice                        | Which channel to notify on: `Email`, `Sms`, `SmsAndEmail`, `SmsPreferred` or `EmailPreferred`                | NotificationChoice enum |
+| CommunicationConfig.InboxMessage                              | The object for inbox message configuration                                                                   | Object                  |
+| CommunicationConfig.InboxMessage.TitleTextResourceKey         | The text resource key for the inbox message title                                                            | String                  |
+| CommunicationConfig.InboxMessage.SummaryTextResourceKey       | The text resource key for the inbox message summary                                                          | String                  |
+| CommunicationConfig.InboxMessage.BodyTextResourceKey          | The text resource key for the inbox message body                                                             | String                  |
+| CommunicationConfig.Notification                              | The object for notification configuration                                                                    | Object                  |
+| CommunicationConfig.Notification.Email                        | The object for email notification configuration                                                              | Object                  |
+| CommunicationConfig.Notification.Email.EmailAddress           | Overrides the email address. If not set, the registered contact information is used                         | String                  |
+| CommunicationConfig.Notification.Email.SubjectTextResourceKey | The text resource key for the email subject                                                                  | String                  |
+| CommunicationConfig.Notification.Email.BodyTextResourceKey    | The text resource key for the email body                                                                     | String                  |
+| CommunicationConfig.Notification.Sms                          | The object for SMS notification configuration                                                                | Object                  |
+| CommunicationConfig.Notification.Sms.MobileNumber             | Overrides the mobile number. If not set, the registered contact information is used                         | String                  |
+| CommunicationConfig.Notification.Sms.BodyTextResourceKey      | The text resource key for the SMS body                                                                       | String                  |
+| CommunicationConfig.ReminderNotification                      | If set, a reminder is sent to signees who have not acted. Same structure as `Notification`, but only the text resource keys are used | Object |
 
 {{<content-version-selector classes="border-box">}}
 

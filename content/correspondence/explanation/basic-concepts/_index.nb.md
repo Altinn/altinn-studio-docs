@@ -26,4 +26,5 @@ Dette gjør det mulig å håndtere meldingsstatuser og hendelser separat for hve
 
 {{% notice warning  %}}
 **Merk**: Det er ikke støtte for å angi IdempotentKey på meldingene ved batch-utsending.
+Trenger du denne sikringen, sender du én forespørsel per mottaker. Les hvordan du [bruker idempotentKey til å sikre at Altinn bare oppretter en melding én gang]({{< relref "/correspondence/getting-started/developer-guides/idempotency" >}}).
 {{% /notice %}}

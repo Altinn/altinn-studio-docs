@@ -25,8 +25,8 @@ Create Nets Easy agreement here: [payments.nets.eu](https://payments.nets.eu/nb-
 {{</content-version-selector>}}
 
 
-<!-- Gi tilganger til den som skal betale-->
-## 3. Ensure correct authorization for payment task
+<!-- Gi tilganger til den som skal betale og tjenesteeieren -->
+## 3. Authorise the payer and the service owner
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 {{% insert "content/altinn-studio/v8/guides/development/payment/studio/access-rules.en.md" %}}
@@ -36,6 +36,10 @@ Create Nets Easy agreement here: [payments.nets.eu](https://payments.nets.eu/nb-
 {{% insert "content/altinn-studio/v8/guides/development/payment/backend-manual/access-rules.en.md" %}}
 {{</content-version-container>}}
 {{</content-version-selector>}}
+
+When Nets notifies the app that the payment is complete, the app updates the payment information and advances the process on behalf of the service owner. In `App/config/authorization/policy.xml`, `[org]` must therefore have the `read` and `write` actions for the app and the `confirm` action for the payment task.
+
+The app must also have the standard Maskinporten scopes for service owners. See [how to add Maskinporten scopes](/en/altinn-studio/v8/guides/integration/maskinporten/add-scopes/). Build and deploy the app again after changing the scopes or the authorisation policy.
 
 
 <!--Konfigurer visning av betalingsinformasjon-->
@@ -75,3 +79,19 @@ Create Nets Easy agreement here: [payments.nets.eu](https://payments.nets.eu/nb-
 {{% insert "content/altinn-studio/v8/guides/development/payment/backend-manual/configure-secrets.en.md" %}}
 {{</content-version-container>}}
 {{</content-version-selector>}}
+
+
+## 7. Automatically advance the process after payment
+
+Starting with Altinn.App 8.12.0, the built-in Nets Easy integration registers a webhook when it creates a payment. When Nets reports a completed payment, the app verifies the payment status with Nets, updates the payment information, and advances the payment task if the status is `Paid`. This happens on the server and does not depend on the user returning to the app after payment.
+
+Only the payment task is completed automatically. If the next process element is an end event, the instance is also completed. Otherwise, the instance advances to the next process task.
+
+For automatic advancement to work:
+
+- Use Altinn.App 8.12.0 or later. We recommend using the latest available patch version.
+- Configure Maskinporten and the service owner permissions described in [step 3](#3-authorise-the-payer-and-the-service-owner).
+- Build and deploy the app again after changing the configuration.
+- Start a new payment after deployment. The webhook is registered when the payment is created, so payments created before the upgrade do not receive the new callback.
+
+The webhook is not registered during local development. Test this flow in a deployed test environment.

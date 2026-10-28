@@ -147,7 +147,7 @@ Handlinger har selv en `action`-egenskap som tilsvarer en [XACML action]({{< rel
 
 {{<notice warning>}}Selv om Dialogporten vil sjekke autorisasjon for handlingen og fjerne URL-en dersom sjekken feiler, MÅ tjenesteeiersystemet utføre sin egen autorisasjon basert på den samme policyen{{</notice>}}
 
-For ytterligere kontroll kan et [autorisasjonsattributt]({{< relref "../../../getting-started/authorization/attributes/" >}}) oppgis, som gjør det mulig for tjenesteeiere å referere til spesifikke regler i policyen eller til andre tjenesteressurser som tjenesteeieren kontrollerer.
+For ytterligere kontroll kan en [autorisasjonskontekst]({{< relref "../../../getting-started/authorization/authorization-contexts/" >}}) oppgis, som gjør det mulig for tjenesteeiere å referere til spesifikke regler i policyen, til helt andre tjenesteressurser, eller til flere parter enn dialogens egen. Det eldre [autorisasjonsattributtet]({{< relref "../../../getting-started/authorization/attributes/" >}}) er utfaset, men fortsetter å fungere.
 
 ### Definere GUI-handlinger
 
@@ -173,6 +173,8 @@ Merk at Dialogporten ikke vurderer gyldigheten eller semantikken til API-handlin
 - {{<link "../../../reference/entities/action">}}
 - {{<link "../../../getting-started/write-actions">}}
 - {{<link "../../../getting-started/authorization/dialog-tokens">}}
+- {{<link "../using-authorization-contexts">}}
+- {{<link "../../../reference/authorization/authorization-contexts">}}
 
 ## Definere vedlegg
 
@@ -204,7 +206,7 @@ Navigasjonshandlinger har følgende egenskaper:
 - `url` — URL-en det skal navigeres til; må alltid være et GET-endepunkt over HTTPS
 - `expiresAt` (valgfri) — når dette tidspunktet nås, omskriver Dialogporten URL-en til `urn:dialogporten:expired`, og sluttbrukersystemer bør skjule eller deaktivere handlingen
 
-Hvis forsendelsen har et `authorizationAttribute` som gjør sluttbrukeren uautorisert, skrives URL-en om til `urn:dialogporten:unauthorized`.
+Navigasjonshandlinger har aldri støttet `authorizationAttribute` - de kan bare ha en [autorisasjonskontekst]({{< relref "../../../getting-started/authorization/authorization-contexts/" >}}), som evalueres som en `read`-sjekk med mindre den selv navngir en annen `action`. Hvis navigasjonshandlingens egen kontekst gjør sluttbrukeren uautorisert, eller den overordnede forsendelsen selv er uautorisert, skrives URL-en om til `urn:dialogporten:unauthorized` - eller, hvis `unauthorizedPresentation` er `Excluded`, fjernes hele navigasjonshandlingen fra listen, og bare ID-en og opprettelsestidspunktet vises i `excludedNavigationalActions`.
 
 Når navigasjonshandlinger defineres, krever den nåværende implementasjonen:
 

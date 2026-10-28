@@ -1,0 +1,32 @@
+---
+title: Systemdokumentasjon
+linktitle: System
+description: Teknisk dokumentasjon av hvordan Altinn Autorisasjon er bygd og hvordan komponentene virker sammen.
+weight: 1
+toc: false
+---
+
+Systemdokumentasjonen beskriver hvordan Altinn Autorisasjon er bygd. Målgruppen er utviklere og arkitekter i teamet, og andre som vil forstå løsningens oppbygning, ansvar og tekniske sammenhenger.
+
+Dokumentasjonen handler om systemet, ikke om hvordan en systemleverandør eller tjenesteeier integrerer med Altinn. For integrasjon og bruk av API-er, se [kom i gang](/nb/authorization/getting-started/), [veiledninger](/nb/authorization/guides/) og [API-dokumentasjonen](/nb/api/).
+
+## Systemet i én setning
+
+Altinn Autorisasjon knytter sammen identitet, part, ressurs, rettighet og kontekst for å avgjøre om en handling er tillatt, og for å gjøre beslutningen etterprøvbar.
+
+## Leseguide
+
+- [Ny i teamet](onboarding/) gir nye utviklere en plan for første dag og første uke.
+- [Arbeidsprosessen](working-process/) beskriver hvordan teamet planlegger arbeidet og flytter det på den felles tavlen.
+
+- [Arkitektur](architecture/) beskriver systemkontekst, ansvar og overordnet oppbygning.
+- [Applikasjonsarkitektur](application-architecture/) beskriver intern oppbygning, teknologier og dataeierskap.
+- [Utviklingsarkitektur](development-architecture/) beskriver hvordan kildekoden er fordelt, bygd, testet og levert.
+- [Komponenter](components/) forklarer hva hver komponent eier og hvordan komponentene samarbeider.
+- [Tekniske flyter](flows/) følger de viktigste kallene gjennom systemet.
+- [Integrasjoner og avhengigheter](integrations/) beskriver systemgrensene mot andre Altinn-team og eksterne fellesløsninger.
+- [Sikkerhet og tillit](security/) beskriver tillitsgrenser og sentrale sikkerhetsprinsipper.
+- [Drift og observabilitet](operations/) beskriver runtime, hendelser og feilsøking på tvers av komponentene.
+- [Altinn-landskapet](/nb/technology/architecture/altinn-landscape/) viser detaljerte arkitekturtegninger av hele Altinn 3, produkt for produkt.
+
+{{<children />}}

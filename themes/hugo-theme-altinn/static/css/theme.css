@@ -628,6 +628,10 @@ div.notices.note {
 div.notices.tip {
     background: #fbf6bd;
 }
+div.notices.danger {
+    background: #fdd9d9;
+    border-left: 4px solid #d0021b;
+}
 code, kbd, pre, samp {
     font-family: "Consolas", menlo, monospacef;
     font-size: 86%;

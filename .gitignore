@@ -30,3 +30,18 @@ hyperlink*
 .claude/settings.local.json
 apikey.secret
 scripts/components/.schema-cache
+
+# Lokale Codex-filer og midlertidige presentasjonsbygg
+/.codex/
+/.codex-*
+/presentation*-build/
+
+# Lokale artefakter; behold de delte presentasjonene
+/artifacts/*
+!/artifacts/authorization-presentation/
+
+!/artifacts/systemuser-types/
+!/artifacts/systemuser-types/fire-typer-systembrukere.pptx
+
+!/artifacts/ai-ready-development/
+!/artifacts/ai-ready-development/ai-klar-utvikling-altinn-auth.pptx

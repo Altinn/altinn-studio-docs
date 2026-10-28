@@ -74,17 +74,11 @@ Legg til følgende seksjoner dersom de er relevante:
 |--------------|------------------------------------------------|-----------------|
 | `children`   | array | En array med ID'en til komponenter som tilhører gruppen. | 
 
-<!-- Følgende er en liste over tilgjengelige egenskaper for {{% title %}}. Listen er automatisk generert basert på komponentens JSON schema (se link).
+<!-- Følgende er en liste over tilgjengelige egenskaper for {{% title %}}. Listen er automatisk generert basert på komponentens JSON schema.
 
 {{% notice warning %}}
 Vi oppdaterer for øyeblikket hvordan vi implementerer komponenter. Listen over egenskaper kan derfor være noe unøyaktig.
 {{% /notice %}} -->
-
-<!-- Shortkoden `component-props` genererer automatisk en liste over komponentegenskaper fra komponentens JSON schema.
-Komponentnavnet kan gis eksplisitt som argument (f.eks. `component-props "Grid"`).
-Hvis ingen argument gis, henter shortkoden komponentnavnet fra 'schemaname' i frontmatter. -->
-
-<!-- {{% component-props "ButtonGroup" %}} -->
 
 ## Konfigurering
 

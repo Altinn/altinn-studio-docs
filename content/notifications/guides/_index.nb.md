@@ -12,21 +12,38 @@ cascade:
 {{% notice info %}}
 Vi jobber med å gi deg nye og oppdaterte retningslinjer for bruk av Altinn Notifications.
 I mellomtiden gjelder eksisterende retningslinjer for sending av varsler gjennom Altinn 2 også for Altinn Notifications.
-
-
-[Vennligst gjør deg kjent med eksisterende dokumentasjon og retningslinjer](https://altinn.github.io/docs/utviklingsguider/varsling/)
 {{% /notice %}}
+
+#### Hvordan ser et varsel ut?
+
+Sluttbrukerne kan få varsel på SMS, e-post eller begge deler. Dette bestemmes av hva slags adresseinformasjon sluttbrukerne har registrert i sin profil i Altinn, men tjenesteeier har også mulighet til å overstyre dette.
+
+{{% notice info %}} **Varselet bør inneholde:** 
+- beskrivelse av oppgaven, 
+- konkret hva den gjelder, 
+- hvem som er ansvarlig/kan løse oppgaven
+- informer gjerne også om frist for oppgaven {{% /notice %}}
+
+#### Hva skal et varsel ikke inneholde? 
+Phishing utgjør en stadig større trussel mot IT-sikkerhet. I retningslinjene fra myndighetene for å unngå svindel står følgende: *Vær obs på lenker i SMS som ber deg logge på med BankID. Banken din eller andre seriøse aktører sender aldri ut påloggingslenker til BankID i SMS.* 
+
+Vær derfor spesielt oppmerksom på at varslinger som sendes ut via Altinns varslingstjeneste **IKKE skal inneholde lenke eller formuleringer som skal minne om en lenke,** f. eks. altinn.no eller minetat.no. I slike tilfeller vil «Altinns nettside», «våre nettsider» eller lignende være riktig formulering å bruke. 
+
+### Veiledninger for ulike bestillingstyper
+
+- [Send e-post med filreferanser]({{< relref "/notifications/guides/composed-email" >}})
+- [Send umiddelbare varsler]({{< relref "/notifications/guides/instant-notifications" >}})
 
 ### Opprette en ny Maskinporten-klient
 
 En Maskinporten-klient, også kjent som en Maskinporten-integrasjon, kan generere tokens med et sett av scopes på forespørsel.
 Tokenet må deretter veksles inn i et Altinn-token og brukes for å få tilgang til API-et.
 
-Scopet **altinn:serviceowner/notifications.create** er påkrevd for at klienter skal
-få tilgang til Notifications API.
+Scopet **altinn:serviceowner/notifications.composedemail.create** er påkrevd for at klienter skal få tilgang til sammensatt Varslings-API-et.
 
-Alle registrerte tjenesteeiere har fått delegert dette scopet av Digdir og skal
-kunne finne det i sin liste over scopes i Samarbeidsportalen.
+Scopet **altinn:serviceowner/notifications.create** er påkrevd for at klienter skal få tilgang til Varslings-API-et, samt umiddelbare Varslings-API-et.
+
+Alle registrerte tjenesteeiere har fått delegert `altinn:serviceowner/notifications.create` av Digdir og skal kunne finne det i sin liste over scopes i Samarbeidsportalen.
 
 Registrer din Maskinporten-klient(er) for å autentisere deg med Notifications API, og tildel dem dette scopet.
 

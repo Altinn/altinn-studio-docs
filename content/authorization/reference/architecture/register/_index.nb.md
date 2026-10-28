@@ -87,16 +87,16 @@ GET /persons
 | Attributt                      | Type         | Beskrivelse                                                             |
 | ------------------------------ | ------------ | ----------------------------------------------------------------------- |
 | PartyId                        | int          | partiets ID                                                             |
-| PartyTypeName                  | PartyType    | typen partiet; organisasjon eller person                                |
-| OrgNumber                      | string       | organisasjonsnummer. Tom streng hvis partiet er person.                 |
-| SSN                            | string       | personnummer. Tom streng hvis partiet er organisasjon.                  |
+| PartyTypeName                  | PartyType    | typen parten; organisasjon eller person                                |
+| OrgNumber                      | string       | organisasjonsnummer. Tom streng hvis parten er person.                 |
+| SSN                            | string       | personnummer. Tom streng hvis parten er organisasjon.                  |
 | UnitType                       | string       |                                                                         |
 | Name                           | string       | fullt navn på personen eller navn på organisasjonen                     |
 | IsDeleted                      | bool         | true hvis organisasjonen er slettet fra registeret                      |
-| OnlyHiearhyElementWithNoAccess | bool         | true hvis partiet er en foreldreenhet uten tilgang i gjeldende kontekst |
-| Person                         | Person       | personen partiet representerer                                          |
-| Organization                   | Organization | organisasjonen partiet representerer                                    |
-| ChildParties                   | List<Party>  | Liste over underenheter hvis partiet er en organisasjon                 |
+| OnlyHiearhyElementWithNoAccess | bool         | true hvis parten er en foreldreenhet uten tilgang i gjeldende kontekst |
+| Person                         | Person       | personen parten viser til                                               |
+| Organization                   | Organization | organisasjonen parten viser til                                         |
+| ChildParties                   | List<Party>  | Liste over underenheter hvis parten er en organisasjon                 |
 
 ### Operasjoner
 

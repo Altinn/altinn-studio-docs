@@ -1,0 +1,108 @@
+---
+draft: true
+hidden: true
+---
+
+{{% notice warning  %}}
+This documentation is a work in progess. Subforms are currently in preview-release.
+{{% /notice %}}
+
+Subforms are contained in a subform table. Let us go through configuring a subform table and the subform contained within.
+
+1. [Create a data model](/en/altinn-studio/v8/reference/data/data-modeling/) for the subform.
+2. You should now see the three files under `App/model`. The c# class, the json schema and the xsd.
+3. Set [appLogic.allowInSubform](/en/api/models/app-metadata/#applicationlogic) to **true** in **applicationMetadata.json**.
+4. Create a folder under **App/ui** with your desired subform name.
+5. In the subform folder, add a `Settings.json` file and a folder called **layouts**. Set `defaultDataType` to the data model ID and `type` to `subform`:
+
+   {{< code-title >}}
+   App/ui/{subform}/Settings.json
+   {{< /code-title >}}
+
+   ```json
+   {
+     "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+     "defaultDataType": "your-subform-dataType",
+     "type": "subform",
+     "pages": {
+       "order": ["page1"]
+     }
+   }
+   ```
+6. You can add page layouts to the layouts folder as you would for the main form.
+   {{< notice warning >}}
+   Subforms do not support attachments, and nesting subforms is not allowed (subform in subform).
+   {{< /notice >}}
+7. The **Settings.json** file for the sub form is [configured as normal](/en/altinn-studio/v8/reference/ux/pages/#settings).
+8. The button which closes the subform must be a [CustomButton](/en/altinn-studio/v8/reference/ux/components/custombutton/) with a `closeSubform` action. Optionally you can also trigger validation before exiting.
+
+   {{< code-title >}}
+   App/ui/{subform}/layouts/page1.json
+   {{< /code-title >}}
+
+   ```json
+   {
+     "id": "subform-exitbutton",
+     "type": "CustomButton",
+     "textResourceBindings": {
+       "title": "The button title" // Defaults to `general.done` if omitted
+     },
+     "actions": [
+       {
+         "type": "ClientAction",
+         "id": "closeSubform",
+         // Validation is optional
+         "validation": {
+           "page": "all",
+           "show": ["All"]
+         }
+       }
+     ]
+   }
+   ```
+9. Navigate to the layout for the page in the main form in which you want to add the subform table.
+10. Add `Subform` with the [configuration you want](/en/altinn-studio/v9/develop-a-service/look-and-feel/subform/config-options/). Example:
+
+    {{< code-title >}}
+    App/ui/{taskId}/layouts/{page}.json
+    {{< /code-title >}}
+
+    ```json
+    {
+      "id": "subform-test",
+      "type": "Subform",
+      "textResourceBindings": {
+        "title": "subform-test.title",
+        "addButton": "subform-test.add"
+      },
+      "layoutSet": "subform-layout-folder-name",
+      "showAddButton": true,
+      "showDeleteButton": true,
+      "tableColumns": [
+        {
+          "headerContent": "subform-test.name-header",
+          "cellContent": {
+            "query": "Name"
+          }
+        },
+        {
+          "headerContent": "subform-test.age-header",
+          "cellContent": {
+            "query": "Age"
+          }
+        },
+        {
+          "headerContent": "subform-test.extrainfo-header",
+          "cellContent": {
+            "query": "ExtraInfo",
+            "default": "subform-test.extrainfo.default"
+          }
+        }
+      ]
+    }
+    ```
+
+{{< notice info >}}
+Subforms can have their own summary page and be a part of the main forms summary.
+To add a subform into the main forms summary, use the subform id from the main forms layout, and the type "component".
+{{< /notice >}}

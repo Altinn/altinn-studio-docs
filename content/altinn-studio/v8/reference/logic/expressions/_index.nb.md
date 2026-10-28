@@ -617,18 +617,20 @@ rullerende versjonen av v4.
 {{% /notice %}}
 
 Funksjonen `stringSlice` tar imot en streng som første argument (den originale strengen) og ett eller to tall som andre
-og tredje argument (startindeksen og valgfri lengde). Den returnerer en delstreng av den originale strengen som
-starter på indeksen gitt i andre argument. Om et tredje argument er gitt, vil delstrengen være av lengden gitt i
-tredje argument.
+og tredje argument (startindeksen og valgfri sluttindeks). Den returnerer en delstreng av den originale strengen som
+starter på startindeksen. Om en sluttindeks er gitt, stopper delstrengen før tegnet på den indeksen. Tegnet på
+startindeksen er altså med, mens tegnet på sluttindeksen ikke er det. Indeksene starter på 0, og en negativ indeks
+telles fra slutten av strengen. Merk at tredje argument er en sluttindeks, ikke en lengde.
 
 Eksempel:
 
 ```json
-["stringSlice", ["dataModel", "My.Model.FullName"], 5, 3]
+["stringSlice", ["dataModel", "My.Model.FullName"], 5, 8]
 ```
 
-Dette eksempelet returnerer en delstreng av fullt navn som starter på den 5. bokstaven og med en lengde på 3. Om fullt
-navn er "John Doe", vil funksjonen returnere "Doe".
+Dette eksempelet returnerer en delstreng av det fulle navnet, fra og med indeks 5 til, men ikke med, indeks 8. Om det fulle navnet
+er "John Doe", vil funksjonen returnere "Doe". For å hente to tegn fra indeks 6 bruker du `6, 8` (ikke `6, 2`), slik at
+`["stringSlice", "12345678901", 6, 8]` gir "78".
 
 {{% /expandlarge %}}
 
@@ -1134,8 +1136,8 @@ Dersom `null` sendes inn som argument, tolker funksjonen dette som `0`.
 
 ## Datatyper
 
-Funksjoner i uttrykkene har en forventning om at argumentene som blir sendt inn har en spefikk type. Dersom et argument
-blir sendt inn har en annen type enn forventet, blir verdien forsøkt konvertert til riktig type. Som et eksempel
+Funksjoner i uttrykkene har en forventning om at argumentene som blir sendt inn har en spesifikk type. Dersom et argument
+blir sendt inn og har en annen type enn forventet, blir verdien forsøkt konvertert til riktig type. Som et eksempel
 forventer funksjonen `equals` to strenger, men om du sender inn den boolske verdien `true` som det ene eller andre
 argumentet fungerer det også fint, siden den boolske verdien `true` blir konvertert til strengen `"true"`.
 

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1120" viewBox="0 0 1800 1120" role="img" aria-labelledby="title desc">
+<title id="title">Altinn Authorization logical runtime architecture</title>
+<desc id="desc">Clients enter through public ingress. Container workloads and an Azure Function use shared configuration, security, data, messaging and observability services in a hub-and-spoke environment.</desc>
+<defs>
+<style>
+.bg{fill:#f7f8fa}.zone{fill:#fff;stroke:#334155;stroke-width:2}.hub{fill:#eef2ff;stroke:#4f46e5;stroke-width:2}.work{fill:#ecfeff;stroke:#0e7490;stroke-width:2}.data{fill:#fff7ed;stroke:#c2410c;stroke-width:2}.side{fill:#f0fdf4;stroke:#15803d;stroke-width:2}.title{font:700 30px Arial;fill:#0f172a}.h{font:700 22px Arial;fill:#0f172a}.t{font:18px Arial;fill:#1e293b}.s{font:15px Arial;fill:#475569}.arrow{stroke:#475569;stroke-width:3;fill:none;marker-end:url(#a)}.dash{stroke-dasharray:8 7}
+</style>
+<marker id="a" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#475569"/></marker>
+</defs>
+<rect class="bg" width="1800" height="1120"/>
+<text class="title" x="60" y="58">Altinn Authorization – logical runtime architecture</text>
+<text class="s" x="60" y="88">Stable system view. Exact placement, scaling and resource names vary by environment.</text>
+<rect class="zone" x="60" y="120" width="1680" height="115" rx="16"/><text class="h" x="90" y="158">Consumers and ingress</text>
+<rect class="hub" x="310" y="145" width="260" height="60" rx="12"/><text class="t" x="355" y="181">Users and clients</text>
+<rect class="hub" x="650" y="145" width="310" height="60" rx="12"/><text class="t" x="695" y="181">Altinn components / PEPs</text>
+<rect class="hub" x="1060" y="145" width="460" height="60" rx="12"/><text class="t" x="1110" y="181">DNS · Application Gateway · API boundary</text>
+<rect class="zone" x="60" y="275" width="1280" height="515" rx="16"/><text class="h" x="90" y="315">Environment spoke – workloads and functions</text>
+<rect class="work" x="100" y="355" width="330" height="105" rx="12"/><text class="h" x="135" y="393">Authentication</text><text class="s" x="135" y="425">.NET API container</text>
+<rect class="work" x="475" y="355" width="330" height="105" rx="12"/><text class="h" x="510" y="393">Register</text><text class="s" x="510" y="425">API + background processing</text>
+<rect class="work" x="850" y="355" width="410" height="105" rx="12"/><text class="h" x="885" y="393">Resource Registry</text><text class="s" x="885" y="425">.NET API container</text>
+<rect class="work" x="100" y="500" width="330" height="105" rx="12"/><text class="h" x="135" y="538">Authorization (PDP)</text><text class="s" x="135" y="570">.NET API container</text>
+<rect class="work" x="475" y="500" width="330" height="105" rx="12"/><text class="h" x="510" y="538">Access Management</text><text class="s" x="510" y="570">APIs + background processing</text>
+<rect class="work" x="850" y="500" width="410" height="105" rx="12"/><text class="h" x="885" y="538">Access Management UI</text><text class="s" x="885" y="570">Azure Container App · React + .NET BFF</text>
+<rect class="work" x="280" y="650" width="350" height="105" rx="12"/><text class="h" x="315" y="688">Audit Log API</text><text class="s" x="315" y="720">Azure Container App</text>
+<rect class="work" x="710" y="650" width="350" height="105" rx="12"/><text class="h" x="745" y="688">Audit Log consumer</text><text class="s" x="745" y="720">Azure Function App</text>
+<rect class="side" x="1380" y="275" width="360" height="515" rx="16"/><text class="h" x="1410" y="315">Shared platform</text>
+<text class="t" x="1410" y="365">App Configuration</text><text class="t" x="1410" y="410">Key Vault</text><text class="t" x="1410" y="455">Managed identities + RBAC</text><text class="t" x="1410" y="500">Private DNS + endpoints</text><text class="t" x="1410" y="545">Firewall + hub network</text><text class="t" x="1410" y="610">Log Analytics</text><text class="t" x="1410" y="655">Application Insights</text><text class="t" x="1410" y="700">Managed Grafana</text><text class="s" x="1410" y="750">Common services; use varies</text><text class="s" x="1410" y="772">between components.</text>
+<rect class="zone" x="60" y="830" width="1680" height="220" rx="16"/><text class="h" x="90" y="870">Component-owned state and messaging</text>
+<rect class="data" x="110" y="910" width="360" height="95" rx="12"/><text class="h" x="145" y="948">PostgreSQL</text><text class="s" x="145" y="978">Databases and schemas</text>
+<rect class="data" x="520" y="910" width="360" height="95" rx="12"/><text class="h" x="555" y="948">Azure Storage</text><text class="s" x="555" y="978">Blobs, queues and leases</text>
+<rect class="data" x="930" y="910" width="360" height="95" rx="12"/><text class="h" x="965" y="948">Service Bus</text><text class="s" x="965" y="978">Asynchronous messages</text>
+<rect class="data" x="1340" y="910" width="330" height="95" rx="12"/><text class="h" x="1375" y="948">Memory cache</text><text class="s" x="1375" y="978">Non-authoritative state</text>
+<path class="arrow" d="M570 175 H650"/><path class="arrow" d="M960 175 H1060"/><path class="arrow" d="M1290 205 V260 H700 V345"/><path class="arrow dash" d="M1380 520 H1265"/><path class="arrow" d="M700 790 V900"/><path class="arrow" d="M885 755 V900"/>
+<text class="s" x="76" y="1090">Environment configuration currently includes AT22, AT23, AT24, YT01, TT02 and production.</text>
+</svg>

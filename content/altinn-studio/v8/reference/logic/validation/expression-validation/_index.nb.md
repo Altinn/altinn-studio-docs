@@ -2,6 +2,7 @@
 title: Validering med uttrykk
 description: Hvordan konfigurere valideringer ved hjelp av dynamiske uttrykk
 toc: true
+weight: 30
 ---
 
 Validering med uttrykk er en metode for å definere valideringer på en datamodell som kan gi større fleksibilitet enn begrensninger i datamodellen, samtidig som det er enklere å utvikle enn valideringer i backend-kode.
@@ -53,7 +54,7 @@ example.validation.json
           ]
         ]
       }
-    ],
+    ]
   },
   "definitions": {}
 }
@@ -98,7 +99,7 @@ example2.validation.json
         "message": "en annen regel",
         "condition": [...]
       }
-    ],
+    ]
   },
   "definitions": {
     "tegn-ikke-tillatt": {
@@ -108,7 +109,7 @@ example2.validation.json
         "or",
         ["contains", ["lowercase", ["dataModel", ["argv", 0]]], "æ"],
         ["contains", ["lowercase", ["dataModel", ["argv", 0]]], "ø"],
-        ["contains", ["lowercase", ["dataModel", ["argv", 0]]], "å"],
+        ["contains", ["lowercase", ["dataModel", ["argv", 0]]], "å"]
       ]
     }
   }

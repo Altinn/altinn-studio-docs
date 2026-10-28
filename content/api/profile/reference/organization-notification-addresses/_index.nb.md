@@ -4,6 +4,10 @@ description: Dette API-et gir mulighet til å administrere virksomheters varslin
 weight: 30
 ---
 
+{{% notice info %}}
+Denne API-ressursen er begrenset av tilgangsregler og kan ikke delegeres med scopes. Tilgangsreglene gir tilgang til sluttbrukere med riktige roller eller tilgangspakker i sin virksomhet.
+{{% /notice %}}
+
 ## Hva er varslingsadresser for virksomheter
 For at virksomheter skal bli varslet om nye meldinger i altinn må de registrere minst en varslingsadresse. Dette må være et mobilnummer eller en e-postadresse. 
 Disse brukes også av Brønnøysundregistrene og holdes i synk gjennom jevnlige oppdateringer mellom systemene. 

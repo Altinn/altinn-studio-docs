@@ -7,11 +7,11 @@ weight: 3
 
 ## Oppretting av systemtilgang
 
-Oppretting i Altinn-portalen gjøres kun i de tilfellene det ikke er mulig å opprette systemtilgang fra fagsystemet. Det er sluttbrukeren selv (med rollen tilgangsstyrer) som kan opprette systemtilganger i Altinn-portalen. Systemtilgang for kunder kan ikke opprettes via Altinn-portalen. 
+Du kan opprette systemtilgang i Altinn-portalen når det ikke er mulig å gjøre det fra fagsystemet. For å opprette systemtilgangen må du kunne administrere fullmakter for virksomheten. Det kan du for eksempel gjøre som daglig leder eller med administratorfullmakten **Tilgangsstyring** eller **Hovedadministrator**. Systemtilgang for klienter kan ikke opprettes via Altinn-portalen.
 
 ## Slik oppretter du systemtilgang i Altinn-portalen
 
-1. Logg inn til Altinn portalen og åpne [oversikten over systemtilganger](https://am.ui.altinn.no/accessmanagement/ui/systemuser/overview).
+1. Logg inn i Altinn-portalen og åpne [oversikten over systemtilganger](https://am.ui.altinn.no/accessmanagement/ui/systemuser/overview).
 ![Opprett systemtilgang 1](create-systemuser1.png)
 2. Trykk på knappen **Lag ny systemtilgang**.
 ![Opprett systemtilgang 2](create-systemuser2.png)

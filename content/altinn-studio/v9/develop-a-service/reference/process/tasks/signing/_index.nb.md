@@ -1,0 +1,371 @@
+---
+draft: true
+title: Signering
+linktitle: Signering
+description: Slik setter du opp en signeringsoppgave i prosessen.
+tags: [altinn-apps, process, bpmn, task, sign, signing, needsReview]
+toc: true
+weight: 10
+---
+
+{{% insert "content/altinn-studio/v9/develop-a-service/process/signing/auth-requirements.nb.md" %}}
+
+En signeringsoppgave i prosessfilen krever litt mer arbeid enn en vanlig data-, bekreftelses- eller tilbakemeldingsoppgave.
+
+Denne siden veileder deg gjennom hva du trenger å sette opp og hvordan det er koblet til andre deler av oppsettet.
+
+## Slik setter du opp en signeringsoppgave
+En signeringsoppgave i sin enkleste form ser omtrent slik ut:
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
+```xml
+<bpmn:task id="Task_2" name="Signering">
+    <bpmn:incoming>Flow_1enq1lu</bpmn:incoming>
+    <bpmn:outgoing>Flow_0ybpfuh</bpmn:outgoing>
+    <bpmn:extensionElements>
+        <altinn:taskExtension>
+            <altinn:taskType>signing</altinn:taskType>
+            <altinn:actions>
+                <altinn:action>sign</altinn:action>
+            </altinn:actions>
+            <altinn:signatureConfig>
+                <altinn:dataTypesToSign>
+                    <altinn:dataType>Modell</altinn:dataType>
+                </altinn:dataTypesToSign>
+                <altinn:signatureDataType>signatur</altinn:signatureDataType>
+            </altinn:signatureConfig>
+        </altinn:taskExtension>
+    </bpmn:extensionElements>
+</bpmn:task>
+```
+### Gjør signering tilgjengelig som handling
+
+Som med bekreftelsesoppgaver må du sette opp de tilgjengelige handlingene. For å opprette et signaturobjekt må brukeren kunne utføre handlingen `sign`:
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
+```xml
+<altinn:actions>
+    <altinn:action>sign</altinn:action>
+</altinn:actions>
+```
+
+Handlingen `sign` kan være det eneste alternativet eller kombinert med andre handlinger som `bekreft` eller `avvis`, avhengig av behovene til hver app.
+
+### Velg hvilke dataelementer som skal signeres
+
+Når en bruker utfører handlingen `sign`, bruker systemet oppsettet fra `<altinn:signatureConfig>` til å opprette et signaturobjekt.
+
+Som apputvikler velger du hvilke dataelementer som skal være en del av signaturobjektet ved å sette opp en liste over datatyper. Dette kan være skjemadata, vedlegg eller PDF-er.
+
+Du setter opp datatypene i filen App/config/applicationmetadata.json.
+
+I eksemplet med signeringsoppgaven ovenfor ser du at alle dataelementer som er tilknyttet datatypen "Modell", skal være en del av signaturen.
+
+Hvis appen også har datatypen "attachments", der brukeren legger ved ekstra filer som du ønsker å være en del av signaturobjektet, bør `<altinn:signatureConfig>` se slik ut:
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
+```xml
+<altinn:signatureConfig>
+    <altinn:dataTypesToSign>
+        <altinn:dataType>Modell</altinn:dataType>
+        <altinn:dataType>attachments</altinn:dataType>
+    </altinn:dataTypesToSign>
+    <altinn:signatureDataType>signatur</altinn:signatureDataType>
+</altinn:signatureConfig>
+```
+
+### Velg hvor signaturobjektet skal lagres
+
+Et signaturobjekt krever også en datatype der du kan lagre det når systemet har opprettet det. Du setter opp dette i `<altinn:signatureDataType>`, og må også sette det opp i `App/config/applicationmetadata.json`.
+
+Eksempel på en applicationmetadata.json-fil med en signaturdatatype kalt "signatur":
+
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
+
+```json
+{
+  "id": "ttd/vga-dev-v8",
+  "org": "ttd",
+  "title": {
+    "nb": "vga-dev-v8",
+    "en": "vga-dev-v8"
+  },
+  "dataTypes": [
+    {
+      "id": "ref-data-as-pdf",
+      "allowedContentTypes": [
+        "application/pdf"
+      ],
+      "maxCount": 0,
+      "minCount": 0
+    },
+    {
+      "id": "Modell",
+      "allowedContentTypes": [
+        "application/xml"
+      ],
+      "appLogic": {
+        "autoCreate": true,
+        "classRef": "Altinn.App.Models.Model",
+        "allowAnonymousOnStateless": false,
+        "autoDeleteOnProcessEnd": false
+      },
+      "taskId": "Task_1",
+      "maxCount": 1,
+      "minCount": 1
+    },
+    {
+      "id": "signatur",
+      "allowedContentTypes": [
+        "application/json"
+      ],
+      "taskId": "Task_2",
+      "maxSize": 25,
+      "maxCount": 1,
+      "minCount": 0
+    }
+  ],
+  "partyTypesAllowed": {
+    "bankruptcyEstate": false,
+    "organisation": false,
+    "person": false,
+    "subUnit": false
+  },
+  "autoDeleteOnProcessEnd": false,
+  "created": "2022-10-21T07:30:47.2710111Z",
+  "createdBy": "appdeveloper",
+  "lastChanged": "2022-10-21T07:30:47.2710121Z",
+  "lastChangedBy": "appdeveloper"
+}
+```
+
+### Design layout for signeringssteget
+
+Signeringssteget trenger en layout som bestemmer hva som skal vises til brukeren. Du oppretter denne i mappen for prosesssteget Signering (`Task_2` i eksemplet vårt).
+
+Opprett en mappe i `App/ui/` med et navn som er nøyaktig likt prosesstegets ID, for eksempel `Task_2`. I denne mappen oppretter du filen `Settings.json` og en mappe med navn `layouts`. I `Settings.json` setter du `defaultDataType` til datatypen som sidene skal bruke. Uten `defaultDataType` får du feil når appen skal vise signeringssteget.
+
+I `layouts`-mappen oppretter du filene som bestemmer hvordan sidene skal se ut. En signering-layout må ha en komponent som lar brukeren signere: enten `SigningActions`, som viser **Signer**-knappen selv, eller en `ActionButton` med `"action": "sign"`. Når brukeren klikker på knappen, utfører brukeren handlingen `sign`, og prosessen går videre.
+
+Eksempel på en enkel layout med et read only-tekstfelt og en signeringsknapp kan se sånn her ut:
+
+{{< code-title >}}
+App/ui/Task_2/layouts/{page}.json
+{{< /code-title >}}
+
+```json
+{
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "data": {
+    "layout": [
+      {
+        "id": "name-readonly-input",
+        "type": "Input",
+        "dataModelBindings": {
+          "simpleBinding": "Name"
+        },
+        "readOnly": true,
+        "required": true
+      },
+      {
+        "id": "sign-button",
+        "type": "ActionButton",
+        "textResourceBindings": {
+          "title": "Sign"
+        },
+        "action": "sign",
+        "buttonStyle": "primary"
+      }
+    ]
+  }
+}
+```
+
+### Sett opp autorisasjonsregel som gir brukeren lov til å signere
+
+For at brukere skal få lov til å signere, må du sette opp en regel i `App/config/authorization/policy.xml` som gir brukerne rettigheter til å signere på det nye prosesssteget.
+
+Regelen må si at brukerne som skal kunne signere har rettighetene _read_, _write_ og _sign_ på steget der signering skal utføres.
+
+Eksempel på en autorisasjonsregel som gir disse tilgangene for _DAGL_-rollen på prosesssteg med id _Task_2_:
+
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
+
+```xml
+<xacml:Rule RuleId="urn:altinn:example:ruleid:7" Effect="Permit">
+    <xacml:Description>Rule that defines that user with role REGNA or DAGL can read and write for [ORG]/[APP] when it is in Task_1</xacml:Description>
+    <xacml:Target>
+        <xacml:AnyOf>
+            <xacml:AllOf>
+                <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
+                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">DAGL</xacml:AttributeValue>
+                    <xacml:AttributeDesignator AttributeId="urn:altinn:rolecode" Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+                </xacml:Match>
+            </xacml:AllOf>
+        </xacml:AnyOf>
+        <xacml:AnyOf>
+            <xacml:AllOf>
+                <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">[ORG]</xacml:AttributeValue>
+                    <xacml:AttributeDesignator AttributeId="urn:altinn:org" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+                </xacml:Match>
+                <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">[APP]</xacml:AttributeValue>
+                    <xacml:AttributeDesignator AttributeId="urn:altinn:app" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+                </xacml:Match>
+                <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Task_2</xacml:AttributeValue>
+                    <xacml:AttributeDesignator AttributeId="urn:altinn:task" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:resource" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+                </xacml:Match>
+            </xacml:AllOf>
+        </xacml:AnyOf>
+        <xacml:AnyOf>
+            <xacml:AllOf>
+                <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">read</xacml:AttributeValue>
+                    <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+                </xacml:Match>
+            </xacml:AllOf>
+            <xacml:AllOf>
+                <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">write</xacml:AttributeValue>
+                    <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+                </xacml:Match>
+            </xacml:AllOf>
+            <xacml:AllOf>
+                <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
+                    <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">sign</xacml:AttributeValue>
+                    <xacml:AttributeDesignator AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id" Category="urn:oasis:names:tc:xacml:3.0:attribute-category:action" DataType="http://www.w3.org/2001/XMLSchema#string" MustBePresent="false"/>
+                </xacml:Match>
+            </xacml:AllOf>
+        </xacml:AnyOf>
+    </xacml:Target>
+</xacml:Rule>
+```
+
+### Sett opp unike signaturer
+
+Hvis en app har flere signeringstrinn, kan du sørge for at én person ikke kan signere begge trinnene selv om de har nødvendige roller.
+
+For eksempel hvis to styremedlemmer skal signere, men samme person ikke kan utføre begge signeringstrinnene.
+
+For å sette opp dette må du legge til det første signaturdataobjektet i listen `<altinn:uniqueFromSignaturesInDataTypes>` for signeringsoppgave to:
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
+```xml
+<bpmn:task id="Task_2" name="Signing">
+    <bpmn:incoming>Flow_1enq1lu</bpmn:incoming>
+    <bpmn:outgoing>Flow_0ybpfuh</bpmn:outgoing>
+    <bpmn:extensionElements>
+        <altinn:taskExtension>
+            <altinn:taskType>signing</altinn:taskType>
+            <altinn:actions>
+                <altinn:action>sign</altinn:action>
+            </altinn:actions>
+            <altinn:signatureConfig>
+                <altinn:dataTypesToSign>
+                    <altinn:dataType>Model</altinn:dataType>
+                </altinn:dataTypesToSign>
+                <altinn:signatureDataType>signatur</altinn:signatureDataType>
+            </altinn:signatureConfig>
+        </altinn:taskExtension>
+    </bpmn:extensionElements>
+</bpmn:task>
+<bpmn:task id="Task_3" name="Second Signing">
+    <bpmn:incoming>Flow_1enadsf</bpmn:incoming>
+    <bpmn:outgoing>Flow_0yadsfh</bpmn:outgoing>
+    <bpmn:extensionElements>
+        <altinn:taskExtension>
+            <altinn:taskType>signing</altinn:taskType>
+            <altinn:actions>
+                <altinn:action>sign</altinn:action>
+            </altinn:actions>
+            <altinn:signatureConfig>
+                <altinn:dataTypesToSign>
+                    <altinn:dataType>Model</altinn:dataType>
+                </altinn:dataTypesToSign>
+                <altinn:signatureDataType>signatur2</altinn:signatureDataType>
+                <altinn:uniqueFromSignaturesInDataTypes>
+                    <altinn:dataType>signatur</altinn:dataType>
+                </altinn:uniqueFromSignaturesInDataTypes>
+            </altinn:signatureConfig>
+        </altinn:taskExtension>
+    </bpmn:extensionElements>
+</bpmn:task>
+```
+
+I eksempelet blir signaturobjektet for oppgave `Task_2` lagret i datatypen `signatur`, og i `signatur2` for oppgave `Task_3`.
+
+I tillegg har `Task_3` sitt `<altinn:signatureConfig>` sagt at den skal være unik blant alle signaturobjekter som er lagret i datatypen `signatur`.
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
+```xml
+<altinn:uniqueFromSignaturesInDataTypes>
+    <altinn:dataType>signatur</altinn:dataType>
+</altinn:uniqueFromSignaturesInDataTypes>
+```
+
+### Gjør det mulig for signereren å avslå å signere
+
+Hvis du vil at signereren skal kunne avslå å signere og for eksempel sende instansen tilbake til forrige steg, kan du legge til en `reject`-handling på dette prosesssteget.
+
+Du legger denne til i autorisasjonsregelen og setter opp en egen ActionButton som knyttes til handlingen `reject`.
+
+Se [Slik styrer du prosessflyten](/nb/altinn-studio/v9/develop-a-service/reference/process/flowcontrol/) for mer informasjon.
+
+### Slik lagres signaturobjektet når brukeren signerer
+
+Når brukeren utfører signeringen, lagrer systemet et signaturobjekt som datatypen "signatur". Signaturobjektet ser omtrent slik ut:
+
+```json
+{
+    "id": "ab5b8d43-64a5-482d-bfab-99e5ae6b2f55",
+    "instanceGuid": "5267dc93-aa7d-4af9-934b-b0cf5b97d86e",
+    "signedTime": "2023-06-16T12:16:36.6250698Z",
+    "signeeInfo": {
+        "userId": "1337",
+        "personNumber": "01039012345",
+        "organisationNumber": null
+    },
+    "dataElementSignatures": [
+        {
+            "dataElementId": "c71177df-e74d-44a2-976c-0443c98756ba",
+            "sha256Hash": "cee2a288ccc273e85f9bdbbc2de52b02d0f0caac80a62e0352bd72689b283286",
+            "signed": true
+        }
+    ]
+}
+```
+
+Hvis flere dataelementer er signert, legger systemet dem til i listen `dataElementSignatures`.
+
+Feltet `sha256Hash` inneholder en heksadesimalkodert SHA256-hash opprettet fra dataene som er lagret i Altinn på tidspunktet for signeringen.
+Objektet `signeeInfo` inneholder informasjonen om hvem som utførte signeringen.
+
+### Slik verifiserer du SHA256-hash
+Også kalt en `digest`, denne verdien er resultatet fra SHA256-hashmetoden. I eksempelet over har metoden blitt kjørt på en fil som tilhører et spesifikt dataelement, det vil si filen som ble signert.
+
+Å verifisere signaturen i etterkant går i prinsippet ut på å sammenligne oppgitt `sha256Hash` med en uavhengig SHA256-beregning av samme fil. Hvis verdiene er identiske, betyr det at filen brukeren har signert ikke har endret seg, og at signaturen fremdeles er gyldig.
+
+Mer informasjon om Altinn sin bruk av denne utregningen finnes på [GitHub](https://github.com/Altinn/altinn-storage/blob/afa8f921231afc485c17b8f4226f6d8e2333b3dd/src/Storage/Services/DataService.cs#L57).
+
+Kort oppsummert må du opprette en SHA256-verdi av filen du vil sammenligne, deretter formatere denne verdien som en heksadesimal streng uten bindestreker og med kun små bokstaver.
