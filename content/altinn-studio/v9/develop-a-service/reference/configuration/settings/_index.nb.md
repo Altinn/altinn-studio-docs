@@ -13,9 +13,9 @@ Appen leser innstillinger på samme måte som andre ASP.NET Core-applikasjoner. 
 
 `App/appsettings.json` gjelder i alle miljøer. I tillegg har appen én fil per miljø, som overstyrer verdiene i `appsettings.json`:
 
-- `appsettings.Development.json` når du kjører appen lokalt
-- `appsettings.Staging.json` i testmiljøet TT02
-- `appsettings.Production.json` i produksjon
+- `App/appsettings.Development.json` når du kjører appen lokalt
+- `App/appsettings.Staging.json` i testmiljøet TT02
+- `App/appsettings.Production.json` i produksjon
 
 Legg dine egne innstillinger i en egen seksjon. Altinn bruker selv flere seksjoner, blant annet `Kestrel`, `AppSettings`, `GeneralSettings`, `PlatformSettings`, `PEPSettings`, `AccessTokenSettings`, `CacheSettings`, `kvSetting` og `ApplicationInsights`.
 
@@ -74,16 +74,6 @@ App/appsettings.json
 
 Vi fjerner `EnforceDataTypeTaskId` i neste hovedversjon.
 
-## Innstillinger som er fjernet
-
-Appen ignorerer disse innstillingene i v9. Du kan slette dem fra `appsettings.json`:
-
-- `AppSettings`: `BaseResourceFolderContainer`, `DefaultBootstrapUrl`, `AppBasePath` og innstillingene for mapper og filnavn, for eksempel `UiFolder` og `ApplicationMetadataFileName`
-- `MaskinportenSettings`, fordi plattformen gir appen Maskinporten-klienten
-- `AppCodes`
-
-`studioctl app upgrade v9` finner fjernede innstillinger.
-
 ## Funksjonsflagg
 
 Funksjonsflagg står i seksjonen `FeatureManagement`. Hvert flagg må være `true` eller `false`. Appen starter ikke hvis et flagg har en annen verdi, for eksempel et filter med `EnabledFor`.
@@ -95,7 +85,7 @@ App/appsettings.json
 ```json
 {
   "FeatureManagement": {
-    "JsonObjectInDataResponse": true
+    "NavnPåFlagget": true
   }
 }
 ```
