@@ -34,7 +34,7 @@ Images in this guide show Norwegian GUI elements, as Altinn Studio Designer is o
 
 ## Setup
 
-You can use the Arbeidsflyt tab in Altinn Studio to add a PDF service task.
+You can use the **Prosess** tab in Altinn Studio to add a PDF service task.
 
 ![Add PDF service task](add-pdf-step.png "Add PDF service task")
 
@@ -106,7 +106,7 @@ Altinn Studio inserts a service task into `process.bpmn` and creates the task's 
 
 ### Folder structure and files
 
-The PDF service task needs its own UI folder holding the page that becomes the PDF. If you use the Arbeidsflyt editor, Altinn Studio creates the folder for you. You then only need to edit the content in `PdfLayout.json`.
+The PDF service task needs its own UI folder holding the page that becomes the PDF. If you add the task in the **Prosess** tab, Altinn Studio creates the folder for you. You then only need to edit the content in `PdfLayout.json`.
 
 The files and folder structure should look approximately like this:
 
