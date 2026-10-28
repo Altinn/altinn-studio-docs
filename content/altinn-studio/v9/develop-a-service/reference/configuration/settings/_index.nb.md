@@ -82,13 +82,6 @@ Funksjonsflagg står i seksjonen `FeatureManagement`. Hvert flagg må være `tru
 App/appsettings.json
 {{< /code-title >}}
 
-```json
-{
-  "FeatureManagement": {
-    "MyFeatureFlag": true
-  }
-}
-```
 
 ## Hemmeligheter og verdier for hvert miljø
 
