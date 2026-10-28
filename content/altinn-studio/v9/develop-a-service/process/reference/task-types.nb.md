@@ -96,7 +96,7 @@ App/config/process/process.bpmn
 </bpmn:task>
 ```
 
-Som eksempelet ovenfor viser, krever en signaturoppgave ekstra informasjon. Se [Konfigurering av signering](signing) for detaljer om hvordan du konfigurerer en signaturoppgave og dens effekter.
+Som eksempelet ovenfor viser, krever en signaturoppgave ekstra informasjon. Se [Konfigurering av signering](/nb/altinn-studio/v9/develop-a-service/reference/process/tasks/signing/) for detaljer om hvordan du konfigurerer en signaturoppgave og dens effekter.
 
 ### Tilbakemelding (`feedback`)
 

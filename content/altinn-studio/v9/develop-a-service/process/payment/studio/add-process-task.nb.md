@@ -34,4 +34,4 @@ Gatewayen bør ha to sekvensflyter ut:
 2. Gjenta stegene over, men denne gangen trenger du ikke å endre det oppsettet som legges til – aksjon skal være **Avvise**.
 
     
-![Eksempel på en prosess med utfylling etterfulgt av betaling](./process-data-payment.png "Eksempel på en prosess med utfylling etterfulgt av betaling")
+![Eksempel på en prosess med utfylling etterfulgt av betaling](/nb/altinn-studio/v9/develop-a-service/process/payment/process-data-payment.png "Eksempel på en prosess med utfylling etterfulgt av betaling")

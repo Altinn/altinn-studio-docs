@@ -44,7 +44,7 @@ studioctl env up
 studioctl run
 ```
 
-When the app is running, you can test it at [http://local.altinn.cloud:8000](http://local.altinn.cloud:8000) with a [test user](/en/altinn-studio/v9/test-a-service/testing/local/testusers/).
+When the app is running, you can test it at [http://local.altinn.cloud:8000](http://local.altinn.cloud:8000) with a [test user](/nb/altinn-studio/v9/test-a-service/testing/local/testusers/).
 
 Run `studioctl doctor` if something does not start as expected.
 The command checks tools such as the .NET SDK, container runtime and local configuration.

@@ -17,8 +17,8 @@
                     The current version is v8. If your app uses v8, see the <a href="{{ "altinn-studio/v8/" | relLangURL }}" style="color:#8ed8ff">documentation for v8</a>.{{ end }}
                 </p>
                 <div class="authz-actions">
-                    <a class="authz-btn authz-btn-primary" href="{{ "altinn-studio/v9/getting-started/" | relLangURL }}">{{ if $nb }}Kom i gang{{ else }}Get started{{ end }} →</a>
-                    <a class="authz-btn authz-btn-secondary" href="{{ "altinn-studio/v9/this-is-as/" | relLangURL }}">{{ if $nb }}Se hva du får{{ else }}Explore capabilities{{ end }}</a>
+                    <a class="authz-btn authz-btn-primary" href="{{ partial "studio/v9-url.html" (dict "page" .Page "path" "getting-started/") }}">{{ if $nb }}Kom i gang{{ else }}Get started{{ end }} →</a>
+                    <a class="authz-btn authz-btn-secondary" href="{{ partial "studio/v9-url.html" (dict "page" .Page "path" "this-is-as/") }}">{{ if $nb }}Se hva du får{{ else }}Explore capabilities{{ end }}</a>
                 </div>
             </div>
             <aside class="authz-decision authz-decision-illustrated">
@@ -29,7 +29,7 @@
         </div>
     </section>
     <div class="authz-about">
-        <div class="authz-wrap"><a href="{{ "altinn-studio/v9/this-is-as/" | relLangURL }}">{{ if $nb }}Dette er Altinn
+        <div class="authz-wrap"><a href="{{ partial "studio/v9-url.html" (dict "page" .Page "path" "this-is-as/") }}">{{ if $nb }}Dette er Altinn
                 Studio →{{ else }}How Altinn Studio works →{{ end }}</a></div>
     </div>
     <section class="authz-section authz-wrap">
@@ -40,7 +40,7 @@
                     hvordan du oppgraderer en app fra v8.{{ else }}v9 brings better performance and stability rather
                     than new functionality. See what has changed and how to upgrade an app from v8.{{ end }}</p>
             </div>
-            <a class="authz-btn authz-btn-primary" href="{{ "altinn-studio/v9/new-in-v9/" | relLangURL }}">{{ if $nb
+            <a class="authz-btn authz-btn-primary" href="{{ partial "studio/v9-url.html" (dict "page" .Page "path" "new-in-v9/") }}">{{ if $nb
                 }}Se hva som er nytt{{ else }}See what is new{{ end }} →</a>
         </div>
         <div class="authz-section-head">
@@ -51,11 +51,11 @@
             </div>
         </div>
         <div class="authz-grid">
-            <a class="authz-card authz-role" href="{{ "altinn-studio/v9/getting-started/serviceowner" | relLangURL }}">
+            <a class="authz-card authz-role" href="{{ partial "studio/v9-url.html" (dict "page" .Page "path" "getting-started/serviceowner") }}">
                 <h3>{{ if $nb }}Jeg er tjenesteeier{{ else }}I am a service owner{{ end }}</h3>
                 <p>{{ if $nb }}Lag eller forvalt en digital tjeneste.{{ else }}Protect a service or API.{{ end }}</p>
             </a>
-            <a class="authz-card authz-role" href="{{ "altinn-studio/v9/getting-started/vendor/" | relLangURL }}">
+            <a class="authz-card authz-role" href="{{ partial "studio/v9-url.html" (dict "page" .Page "path" "getting-started/vendor/") }}">
                 <h3>{{ if $nb }}Jeg er systemleverandør{{ else }}I am a system vendor{{ end }}</h3>
                 <p>{{ if $nb }}Koble til en digital tjeneste.{{ else }}Connect to a digital service.{{ end }}</p>
             </a>
@@ -68,13 +68,13 @@
     <section class="authz-section authz-soft">
         <div class="authz-wrap">
             <h2>{{ if $nb }}Gå dypere{{ else }}Go deeper{{ end }}</h2>
-            <div class="authz-grid"><a class="authz-card" href="{{ "altinn-studio/v9/plan-a-service/" | relLangURL }}">
+            <div class="authz-grid"><a class="authz-card" href="{{ partial "studio/v9-url.html" (dict "page" .Page "path" "plan-a-service/") }}">
                     <h3>{{ if $nb }}Planlegge tjenester{{ else }}Plan services{{ end }}</h3>
                     <p>{{ if $nb }}Plan og forbered din digitale tjeneste{{ else }}Plan and prepare your digital service{{ end }}</p>
-                </a><a class="authz-card" href="{{ "altinn-studio/v9/develop-a-service/" | relLangURL }}">
+                </a><a class="authz-card" href="{{ partial "studio/v9-url.html" (dict "page" .Page "path" "develop-a-service/") }}">
                     <h3>{{ if $nb }}Utvikle tjenester{{ else }}Develop services{{ end }}</h3>
                     <p>{{ if $nb }}Alt du trenger å vite for å utvikle en tjeneste.{{ else }}Everything you need to know to develop a service.{{ end }}</p>
-                </a><a class="authz-card" href="{{ "altinn-studio/v9/ordliste/" | relLangURL }}">
+                </a><a class="authz-card" href="{{ partial "studio/v9-url.html" (dict "page" .Page "path" "ordliste/") }}">
                     <h3>{{ if $nb }}Begreper{{ else }}Glossary{{ end }}</h3>
                     <p>{{ if $nb }}Finn forklaringer på sentrale ord og uttrykk.{{ else }}Find explanations of key
                         terms.{{ end }}</p>
@@ -85,7 +85,7 @@
     <header class="authz-page-head">
         <div class="authz-wrap">
             <div class="authz-crumbs">
-                <a href="{{ "altinn-studio/v9/" | relLangURL }}">Altinn Studio</a> / {{ .Page.Title }}
+                <a href="{{ partial "studio/v9-url.html" (dict "page" .Page "path" "") }}">Altinn Studio</a> / {{ .Page.Title }}
             </div>
             <div class="authz-eyebrow">Altinn Studio</div>
             <h1>{{ .Page.Title }}</h1>
@@ -110,44 +110,39 @@
                         </h2>
                         <p>{{ if $nb }}Du eier tjenesten.{{ else }}You own the service.{{ end }}</p>
                     </div>
-                    <a href="{{ "altinn-studio/v9/getting-started/serviceowner/" | relLangURL }}">{{ if $nb }}Se alle
+                    <a href="{{ partial "studio/v9-url.html" (dict "page" .Page "path" "getting-started/serviceowner/") }}">{{ if $nb }}Se alle
                         oppgaver for tjenesteeiere{{ else }}See all service owner tasks{{ end }} →</a>
                 </div>
                 <div class="authz-task-grid">
-                    <a class="authz-card authz-task-card" href="{{ "altinn-studio/v9/getting-started/serviceowner/" |
-                        relLangURL }}">
+                    <a class="authz-card authz-task-card" href="{{ partial "studio/v9-url.html" (dict "page" .Page "path" "getting-started/serviceowner/") }}">
                         <h3>{{ if $nb }}Lag en bruker{{ else }}Protect a service or API{{ end }}</h3>
                         <p>{{ if $nb }}Lag en bruker i Altinn Studio og kom i gang med å lage tjenester{{ else
                             }}Register the resource, create rules and check every request.{{ end }}</p>
                         <span class="authz-card-link">{{ if $nb }}Finn riktig løp{{ else }}Find the right journey{{ end
                             }} →</span>
                     </a>
-                    <a class="authz-card authz-task-card" href="{{ "altinn-studio/v9/getting-started/serviceowner/" |
-                        relLangURL }}">
+                    <a class="authz-card authz-task-card" href="{{ partial "studio/v9-url.html" (dict "page" .Page "path" "getting-started/serviceowner/") }}">
                         <h3>{{ if $nb }}Lag en tjeneste{{ else }}Protect a service or API{{ end }}</h3>
                         <p>{{ if $nb }}Kom i gang med å lage tjenester{{ else }}Register the resource, create rules and
                             check every request.{{ end }}</p>
                         <span class="authz-card-link">{{ if $nb }}Finn riktig løp{{ else }}Find the right journey{{ end
                             }} →</span>
                     </a>
-                    <a class="authz-card authz-task-card" href="{{ "altinn-studio/v9/getting-started/serviceowner/" |
-                        relLangURL }}">
+                    <a class="authz-card authz-task-card" href="{{ partial "studio/v9-url.html" (dict "page" .Page "path" "getting-started/serviceowner/") }}">
                         <h3>{{ if $nb }}Administrer en tjeneste{{ else }}Protect a service or API{{ end }}</h3>
                         <p>{{ if $nb }}Administrer og vedlikehold kjørende tjenester i Altinn Studio.{{ else }}Register
                             the resource, create rules and check every request.{{ end }}</p>
                         <span class="authz-card-link">{{ if $nb }}Finn riktig løp{{ else }}Find the right journey{{ end
                             }} →</span>
                     </a>
-                    <a class="authz-card authz-task-card" href="{{ "altinn-studio/v9/getting-started/serviceowner/" |
-                        relLangURL }}">
+                    <a class="authz-card authz-task-card" href="{{ partial "studio/v9-url.html" (dict "page" .Page "path" "getting-started/serviceowner/") }}">
                         <h3>{{ if $nb }}Administrer din organisasjon{{ else }}Protect a service or API{{ end }}</h3>
                         <p>{{ if $nb }}Styr hvem som skal ha tilgang til hva for din organisasjon i Altinn Studio{{ else
                             }}Register the resource, create rules and check every request.{{ end }}</p>
                         <span class="authz-card-link">{{ if $nb }}Finn riktig løp{{ else }}Find the right journey{{ end
                             }} →</span>
                     </a>
-                    <a class="authz-card authz-task-card" href="{{ "altinn-studio/v9/getting-started/serviceowner/" |
-                        relLangURL }}">
+                    <a class="authz-card authz-task-card" href="{{ partial "studio/v9-url.html" (dict "page" .Page "path" "getting-started/serviceowner/") }}">
                         <h3>{{ if $nb }}Integrer mot en tjeneste{{ else }}Protect a service or API{{ end }}</h3>
                         <p>{{ if $nb }}Lag integrasjoner mot tjenestene via API for å hente ut data, sende ut data og
                             utføre handlinger.{{ else }}Register the resource, create rules and check every request.{{

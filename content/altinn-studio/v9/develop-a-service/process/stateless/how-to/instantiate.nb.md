@@ -7,7 +7,7 @@ tags: [needsReview]
 ---
 
 ## Før du starter
-Denne guiden tar utgangspunkt i at du har satt opp en stateless app, som beskrevet i [guide for oppsett av stateless app](./configure-stateless).
+Denne guiden tar utgangspunkt i at du har satt opp en stateless app, som beskrevet i [guide for oppsett av stateless app](/nb/altinn-studio/v9/develop-a-service/process/stateless/how-to/configure-stateless/).
 
 Denne funksjonaliteten er kun tilgjengelig for innloggede brukere. Hvis du har en stateless app konfigurert med
 bruk uten innlogging vil stegene under ikke fungere.

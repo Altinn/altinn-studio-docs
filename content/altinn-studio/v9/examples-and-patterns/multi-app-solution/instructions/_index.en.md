@@ -29,7 +29,7 @@ Consider the following before starting the technical implementation.
 - The app must use the built-in Maskinporten client when the app owner must authorise the requests.*
 
 If steps 2 and 3 are missing, see
-[Maskinporten-App Integration](/en/altinn-studio/v9/develop-a-service/integration/maskinporten/)
+[Maskinporten-App Integration](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/)
 
 \* _If the end user of app A has the necessary roles to create app B on behalf of the intended
 recipient, you can skip these technical requirements._

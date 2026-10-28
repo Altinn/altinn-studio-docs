@@ -11,9 +11,9 @@ Komponenter for datainnsamling.
 ### Lite tekstfelt (`Input`)
 `Input` gir brukere muligheten til å skrive fritekst eller tall.
 
-![Input](./Input.png)
+![Input](./input/Input.png)
 
-[Detaljer om komponenten](./Input)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Input" >}})
 
 ---
 
@@ -21,9 +21,9 @@ Komponenter for datainnsamling.
 
 `TextArea` brukes når brukeren skal kunne skrive inn tekst som går over flere linjer.
 
-![TextArea](./TextArea.png)
+![TextArea](./textarea/TextArea.png)
 
-[Detaljer om komponenten](./TextArea.md)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/TextArea" >}})
 
 ---
 
@@ -31,15 +31,15 @@ Komponenter for datainnsamling.
 
 `Date`-komponenten lar brukeren legge til strukturert formatert dato.
 
-![Datepicker](./Datepicker.png)
+![Datepicker](./datepicker/Datepicker.png)
 
-[Detaljer om komponenten](./Datepicker.md)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Datepicker" >}})
 
 ---
 
 ### Tidsvelger (`TimePicker`)
 
-[Detaljer om komponenten](./TimePicker)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/TimePicker" >}})
 
 ---
 
@@ -47,9 +47,9 @@ Komponenter for datainnsamling.
 
 `OrganizationLookup`-komponenten bruker organisasjonsnummer til å slå opp en organisasjon i Enhetsregisteret.
 
-![OrganizationLookup](./OrganizationLookup.png)
+![OrganizationLookup](./organizationlookup/OrganizationLookup.png)
 
-[Detaljer om komponenten](./OrganizationLookup)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/OrganizationLookup" >}})
 
 ---
 
@@ -57,9 +57,9 @@ Komponenter for datainnsamling.
 
 `PersonLookup`-komponenten søker i det nasjonale folkeregisteret basert på fødselsnummer og etternavn.
 
-![PersonLookup](./PersonLookup.png)
+![PersonLookup](./personlookup/PersonLookup.png)
 
-[Detaljer om komponenten](./PersonLookup)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/PersonLookup" >}})
 
 ---
 
@@ -72,9 +72,9 @@ Komponenter for å vise tekst og informasjon.
 
 `Heading` brukes til å strukturere innhold og skape hierarki på siden.
 
-![Heading](./Heading.png)
+![Heading](./heading/Heading.png)
 
-[Detaljer om komponenten](./Heading)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Heading" >}})
 
 ---
 
@@ -82,9 +82,9 @@ Komponenter for å vise tekst og informasjon.
 
 `Paragraph` brukes til løpende tekst og benyttes typisk i artikler, komponenter, hjelpetekster og lignende.
 
-![Paragraph](./Paragraph.png)
+![Paragraph](./paragraph/Paragraph.png)
 
-[Detaljer om komponenten](./Paragraph)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Paragraph" >}})
 
 ---
 
@@ -93,9 +93,9 @@ Komponenter for å vise tekst og informasjon.
 `Panel` kan brukes til å vise viktig informasjon til brukeren i ulike varianter (info, success, warning). Komponenten
 dekker hele bredden til siden.
 
-![Panel](./Panel.png)
+![Panel](./panel/Panel.png)
 
-[Detaljer om komponenten](./Panel)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Panel" >}})
 
 ---
 
@@ -104,9 +104,9 @@ dekker hele bredden til siden.
 `Alert` gir brukeren informasjon som det er ekstra viktig at de ser og forstår. Komponenten er designet for å fange
 brukernes oppmerksomhet. Teksten i varselet skal være kort og tydelig.
 
-![Alert](./Alert.png)
+![Alert](./alert/Alert.png)
 
-[Detaljer om komponenten](./Alert)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Alert" >}})
 
 ---
 
@@ -115,9 +115,9 @@ brukernes oppmerksomhet. Teksten i varselet skal være kort og tydelig.
 `Divider` brukes for å skape et visuelt skille mellom innhold. Det er en enkel horisontal linje som strekker seg over
 tilgjengelig bredde.
 
-![Divider](./Divider.png)
+![Divider](./divider/Divider.png)
 
-[Detaljer om komponenten](./Divider)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Divider" >}})
 
 ---
 
@@ -125,15 +125,15 @@ tilgjengelig bredde.
 
 `Text`-komponenten viser tekst med eller uten ledetekst. Tekstverdien som vises kan f.eks. settes dynamisk via uttrykk.
 
-![Text](./Text.png)
+![Text](./text/Text.png)
 
-[Detaljer om komponenten](./Text)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Text" >}})
 
 ---
 
 ### Tall (`Number`)
 
-[Detaljer om komponenten](./Number)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Number" >}})
 
 ---
 
@@ -141,9 +141,9 @@ tilgjengelig bredde.
 
 `Date` er en komponent som viser formatert dato med eller uten ledetekst.
 
-![Date](./Date.png)
+![Date](./date/Date.png)
 
-[Detaljer om komponenten](./Date)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Date" >}})
 
 ---
 
@@ -155,9 +155,9 @@ Komponenter for valg fra forhåndsdefinerte alternativer.
 `Checkboxes` gir brukerne mulighet til å velge ett eller flere alternativer. Den kan også brukes i tilfeller der
 brukeren skal bekrefte noe.
 
-![Checkboxes](./Checkboxes.png)
+![Checkboxes](./checkboxes/Checkboxes.png)
 
-[Detaljer om komponenten](./Checkboxes)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Checkboxes" >}})
 
 ---
 
@@ -165,27 +165,27 @@ brukeren skal bekrefte noe.
 `RadioButtons` er er ett eller fleer alternativ brukeren kan velge. Brukeren kan bytte mellom alternativene, men kan
 kun velge ett.
 
-![RadioButtons](./RadioButtons.png)
+![RadioButtons](./radiobuttons/RadioButtons.png)
 
-[Detaljer om komponenten](./RadioButtons)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/RadioButtons" >}})
 
 ---
 
 ### Nedtrekksliste (`Dropdown`)
 `Dropdown` lar brukeren velge ett alternativ fra en liste.
 
-![Dropdown](./Dropdown.png)
+![Dropdown](./dropdown/Dropdown.png)
 
-[Detaljer om komponenten](./Dropdown)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Dropdown" >}})
 
 ---
 
 ### Nedtrekksliste med flere valg (`MultipleSelect`)
 `MultipleSelect` lar brukeren velge flere alternativer fra en liste.
 
-![MultipleSelect](./Dropdown.png)
+![MultipleSelect](./dropdown/Dropdown.png)
 
-[Detaljer om komponenten](./MultipleSelect)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/MultipleSelect" >}})
 
 ---
 
@@ -201,43 +201,43 @@ Komponenter for å vise tilleggsinformasjon.
 
 ### Informasjon om eksemplaret (InstanceInformation)
 
-[Detaljer om komponenten](./InstanceInformation)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/InstanceInformation" >}})
 
 ---
 
 ### Bilde (`Image`)
 `Image` viser et bilde som er lastet opp til appen eller lastet inn fra en URL.
 
-![Image](./Image.png)
+![Image](./image/Image.png)
 
-[Detaljer om komponenten](./Image)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Image" >}})
 
 ---
 
 ### Lyd (`Audio`)
 
-[Detaljer om komponenten](./Audio)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Audio" >}})
 
 ---
 
 ### Video (`Video`)
 
-[Detaljer om komponenten](./Video)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Video" >}})
 
 ---
 
 ### Lenke (Link)
 `Link` er en lenke til annet innhold. Komponenten kan vises som en klassisk lenke, eller som en knapp.
 
-![Link](./Link.png)
+![Link](./link/Link.png)
 
-[Detaljer om komponenten](./Link)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Link" >}})
 
 ---
 
 ### IFrame (IFrame)
 
-[Detaljer om komponenten](./IFrame)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/IFrame" >}})
 
 ---
 
@@ -246,9 +246,9 @@ Komponenter for å vise tilleggsinformasjon.
 
 Den kan tilpasses for å dekke dine behov, og brukes også for å generere PDF.
 
-![Summary2](./Summary2.png)
+![Summary2](./summary2/Summary2.png)
 
-[Detaljer om komponenten](./Summary)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Summary" >}})
 
 ---
 
@@ -259,24 +259,24 @@ Handlingsknapper og navigasjon.
 ### Send inn (`Button`)
 `Button` brukes til å sende inn data, og flytte brukeren videre i prosessen.
 
-![Button](./Button.png)
+![Button](./button/Button.png)
 
-[Detaljer om komponenten](./Button)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Button" >}})
 
 ---
 
 ### Egendefinert knapp (`CustomButton`)
 `CustomButton` brukes til å trigge egendefinerte handlinger på serveren.
 
-![CustomButton](./Button.png)
+![CustomButton](./button/Button.png)
 
-[Detaljer om komponenten](./CustomButton)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/CustomButton" >}})
 
 ---
 
 ### Navigasjonslinje (`NavigationBar`)
 
-[Detaljer om komponenten](./NavigationBar)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/NavigationBar" >}})
 
 ---
 
@@ -284,24 +284,24 @@ Handlingsknapper og navigasjon.
 `NavigationButtons` brukes til å navigere frem/tilbake mellom sider. Denne komponenten legges automatisk til når du
 legger til en ny side i Altinn Studio verktøyet.
 
-![NavigationButtons](./NavigationButtons.png)
+![NavigationButtons](./navigationbuttons/NavigationButtons.png)
 
-[Detaljer om komponenten](./NavigationButtons)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/NavigationButtons" >}})
 
 ---
 
 ### Utskrift (`PrintButton`)
 `PrintButton` brukes til å trigge utskriftsvisning av skjema.
 
-![PrintButton](./PrintButton.png)
+![PrintButton](./printbutton/PrintButton.png)
 
-[Detaljer om komponenten](./PrintButton)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/PrintButton" >}})
 
 ---
 
 ### Forhåndsvis PDF (`PDFPreviewButton`)
 
-[Detaljer om komponenten](./PDFPreviewButton)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/PDFPreviewButton" >}})
 
 ---
 
@@ -309,9 +309,9 @@ legger til en ny side i Altinn Studio verktøyet.
 `InstantiationButton` brukes til å starte et eksemplar av en app ved bruk av
 [stateless-oppsettet.]({{<relref "/altinn-studio/v9/develop-a-service/process/stateless">}})
 
-![InstantiationButton](./Button.png)
+![InstantiationButton](./button/Button.png)
 
-[Detaljer om komponenten](./InstantiationButton)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/InstantiationButton" >}})
 
 ---
 
@@ -319,9 +319,9 @@ legger til en ny side i Altinn Studio verktøyet.
 `ActionButton` starter en bestemt handling knyttet til den oppgaven i prosessen som brukerne er på.
 Oppgaven kan for eksempel være signering, bekreftelse eller avvisning.
 
-![ActionButton](./Button.png)
+![ActionButton](./button/Button.png)
 
-[Detaljer om komponenten](./ActionButton)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/ActionButton" >}})
 
 ---
 
@@ -333,25 +333,25 @@ Komponenter for filopplasting.
 `AttachmentList` viser en liste over vedlegg som er lastet opp i skjemaet, for den oppgaven de jobber på. Velg om alle
 vedlegg skal vises, eller kun et utvalg.
 
-[Detaljer om komponenten](./AttachmentList)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/AttachmentList" >}})
 
 ---
 
 ### Vedlegg (`FileUpload`)
 `FileUpload` lar brukeren laste opp vedlegg. Du kan styre hvilke filtyper som kan lastes opp, og legge til svaralternativer hvis brukeren skal merke hvert vedlegg med en forhåndsdefinert etikett.
 
-![FileUpload](./FileUpload.png)
+![FileUpload](./fileupload/FileUpload.png)
 
-[Detaljer om komponenten](./FileUpload)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/FileUpload" >}})
 
 ---
 
 ### Bildeopplaster (`ImageUpload`)
 `ImageUpload` lar brukeren laste opp og ev. beskjære bilder.
 
-![ImageUpload](./ImageUpload.png)
+![ImageUpload](./imageupload/ImageUpload.png)
 
-[Detaljer om komponenten](./ImageUpload)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/ImageUpload" >}})
 
 ---
 
@@ -361,13 +361,13 @@ Komponenter for betalingsflyt.
 
 ### Betaling (`Payment`)
 
-[Detaljer om komponenten](./Payment)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Payment" >}})
 
 ---
 
 ### Betalingsdetaljer (`PaymentDetails`)
 
-[Detaljer om komponenten](./PaymentDetails)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/PaymentDetails" >}})
 
 ---
 
@@ -377,19 +377,19 @@ Komponenter for signeringsflyt.
 
 ### Signatarliste (`SigneeList`)
 
-[Detaljer om komponenten](./SigneeList)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/SigneeList" >}})
 
 ---
 
 ### Signeringshandlinger (`SigningActions`)
 
-[Detaljer om komponenten](./SigningActions)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/SigningActions" >}})
 
 ---
 
 ### Signeringsdokumenter (`SigningDocumentList`)
 
-[Detaljer om komponenten](./SigningDocumentList)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/SigningDocumentList" >}})
 
 ---
 
@@ -401,16 +401,16 @@ Komponenter for å strukturere skjemaet.
 
 `Group` brukes til å gruppere komponenter visuelt eller logisk.
 
-[Detaljer om komponenten](./Group)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Group" >}})
 
 ---
 
 ### Rutenett (`Grid`)
 `Grid` brukes til å visuelt oppstille komponenter i en tabellvisning.
 
-![Grid](./Grid.png)
+![Grid](./grid/Grid.png)
 
-[Detaljer om komponenten](./Grid)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Grid" >}})
 
 ---
 
@@ -418,21 +418,21 @@ Komponenter for å strukturere skjemaet.
 
 `Accordion` er en sammenleggbar komponent som lar brukeren vise eller skjule innhold.
 
-![Accordion](./Accordion.png)
+![Accordion](./accordion/Accordion.png)
 
-[Detaljer om komponenten](./Accordion)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Accordion" >}})
 
 ---
 
 ### Nestet trekkspilliste (`AccordionGroup`)
 
-[Detaljer om komponenten](./AccordionGroup)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/AccordionGroup" >}})
 
 ---
 
 ### Knappegruppe (`ButtonGroup`)
 
-[Detaljer om komponenten](./ButtonGroup)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/ButtonGroup" >}})
 
 ---
 
@@ -441,21 +441,21 @@ Komponenter for å strukturere skjemaet.
 `List` brukes til å presentere innholdsrike data til bruker i tabellformat. Hver rad i tabellen er velgbar. Komponenten
 støtter søk, sortering og paginering.
 
-![List](./List.png)
+![List](./list/List.png)
 
-[Detaljer om komponenten](./List)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/List" >}})
 
 ---
 
 ### Repeterende gruppe (`RepeatingGroup`)
 
-[Detaljer om komponenten](./RepeatingGroup)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/RepeatingGroup" >}})
 
 ---
 
 ### Enkel tabell (`SimpleTable`)
 
-[Detaljer om komponenten](./SimpleTable)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/SimpleTable" >}})
 
 ---
 
@@ -463,9 +463,9 @@ støtter søk, sortering og paginering.
 `Cards` brukes til å vise ulike typer innhold (andre komponenter), i en kort-basert layout. Den kan brukes til å vise
 informasjon, bilder, lydklipp, videoer, og skjemakomponenter.
 
-![Cards](./Cards.png)
+![Cards](./cards/Cards.png)
 
-[Detaljer om komponenten](./Cards)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Cards" >}})
 
 ---
 
@@ -473,9 +473,9 @@ informasjon, bilder, lydklipp, videoer, og skjemakomponenter.
 `Tabs` lar deg organisere og bytte mellom ulike innholdsseksjoner ved å klikke på overskriftene. Dette gir en
 plasseffektiv og ryddig måte å presentere informasjon på.
 
-![Tabs](./Tabs.png)
+![Tabs](./tabs/Tabs.png)
 
-[Detaljer om komponenten](./Tabs.png)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Tabs" >}})
 
 ---
 
@@ -485,17 +485,17 @@ Spesialiserte komponenter for avanserte bruksområder.
 
 ### Adresse (`Address`)
 
-![Address](./Address.png)
+![Address](./address/Address.png)
 
-[Detaljer om komponenten](./Address)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Address" >}})
 
 ---
 
 ### Stedfeste i kart (`Map`)
 
-![Map](./Map.png)
+![Map](./map/Map.png)
 
-[Detaljer om komponenten](./Map)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Map" >}})
 
 ---
 
@@ -509,6 +509,6 @@ Spesialiserte komponenter for avanserte bruksområder.
 
 `Subform` viser oppføringene i et underskjema som en tabell i hovedskjemaet. Brukeren kan legge til, endre og slette oppføringer. [Slik setter du opp et underskjema]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/subform" >}}).
 
-[Detaljer om komponenten](./Subform.md)
+[Detaljer om komponenten]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/Subform" >}})
 
 ---

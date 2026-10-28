@@ -7,7 +7,7 @@ tags: [needsReview]
 
 {{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/style.css.md" %}}
 
-Beskyttede data er informasjon som krever ekstra tilgangskontroll, for eksempel personopplysninger eller konfidensiell/klassifisert informasjon. Les mer om [konseptet beskyttede data](/nb/altinn-studio/v9/this-is-as/explanations/data-model/restricted-data/).
+Beskyttede data er informasjon som krever ekstra tilgangskontroll, for eksempel personopplysninger eller konfidensiell/klassifisert informasjon. Les mer om [konseptet beskyttede data](/nb/altinn-studio/v9/parkinglot/explanations/data-model/restricted-data/).
 
 ## Sett opp Maskinporten
 Du må sette opp Maskinporten for at appen skal kunne utføre handlinger på vegne av tjenesteeier. Se [integrere en Altinn-app med Maskinporten](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/).

@@ -16,7 +16,7 @@ Beskyttede data er informasjon som krever ekstra tilgangskontroll utover vanlig 
 
 Beskyttede data er informasjon som krever ekstra tilgangskontroll, for eksempel personopplysninger eller konfidensiell/klassifisert informasjon.
 
-Som standard trenger brukere handlingene `read` og/eller `write` for å få tilgang til applikasjonens data. [Policy.xml-filen](https://github.com/Altinn/app-template-dotnet/blob/main/src/App/config/authorization/policy.xml) er hovedkilden for reglene rundt autorisasjon, men rettigheter kan også [delegeres gjennom Altinn](/nb/authorization/what-do-you-get/accessmanagement/#delegering-og-administrasjon-av-tilgangspakker).
+Som standard trenger brukere handlingene `read` og/eller `write` for å få tilgang til applikasjonens data. [Policy.xml-filen](https://github.com/Altinn/app-template-dotnet/blob/main/src/App/config/authorization/policy.xml) er hovedkilden for reglene rundt autorisasjon, men rettigheter kan også [delegeres gjennom Altinn](/nb/authorization/what-do-you-get/accessmanagement/).
 
 ### Hvordan fungerer beskyttede data?
 

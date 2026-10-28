@@ -102,7 +102,7 @@ If someone else has changed the app in the same place as you, you are told that 
 
 ## Local testing
 
-{{% insert "content/altinn-studio/shared/studioctl/local-test-workflow.en.md" "/en/altinn-studio/v9/develop-a-service/reference/data/data-modeling/" "/en/altinn-studio/v9/test-a-service/testing/local/testusers/" %}}
+{{% insert "content/altinn-studio/shared/studioctl/local-test-workflow.en.md" "/nb/altinn-studio/v9/develop-a-service/reference/data/data-modeling/" "/nb/altinn-studio/v9/test-a-service/testing/local/testusers/" %}}
 {{% insert "content/altinn-studio/shared/studioctl/useful-commands.en.md" %}}
 
 ### Inspect processing in the workflow engine
@@ -127,6 +127,6 @@ The app gets its local settings from `studioctl` itself, so you need to have `st
 
 {{% expandlarge id="legacy-app-localtest" header="Old method: Run app-localtest manually" %}}
 
-{{% insert "content/altinn-studio/shared/studioctl/legacy-app-localtest.en.md" "/en/altinn-studio/v9/test-a-service/testing/local/testusers/" %}}
+{{% insert "content/altinn-studio/shared/studioctl/legacy-app-localtest.en.md" "/nb/altinn-studio/v9/test-a-service/testing/local/testusers/" %}}
 
 {{% /expandlarge %}}
