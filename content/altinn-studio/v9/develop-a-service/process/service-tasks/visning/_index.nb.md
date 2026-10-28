@@ -18,7 +18,7 @@ En systemoppgave kjører på serveren, men brukeren sitter og venter i nettleser
 
 Venter oppgaven, er det bare oppgaven selv som kan slippe prosessen videre, og appen sender brukeren videre av seg selv når det skjer. Se [de to måtene å vente på]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}#vente-på-svar-fra-et-annet-system).
 
-Advarselen kommer etter to mislykkede forsøk på rad, eller når serveren fortsatt melder om ett mislykket forsøk 20 sekunder etter at appen så det første gang. Laster brukeren siden på nytt, begynner de 20 sekundene på nytt. Feiler bare ett forsøk, og det neste lykkes innen 20 sekunder, merker brukeren altså ingenting. Advarselen forsvinner når et steg lykkes eller går over til å vente.
+Advarselen kommer etter to mislykkede forsøk på rad, eller når et steg har feilet i 20 sekunder, regnet fra det første mislykkede forsøket. Feiler bare ett forsøk, og det neste lykkes innen 20 sekunder, merker brukeren altså ingenting. Plattformen holder rede på når steget feilet første gang, så alle som har instansen åpen, ser det samme, også etter at de har lastet siden på nytt. Advarselen forsvinner når et steg lykkes eller går over til å vente.
 
 **Prøv igjen** kjører steget som feilet på nytt. Knappen er aktiv for brukere med `write`, og for en egendefinert oppgavetype må brukeren i tillegg ha handlingen med samme navn som typen. Har bare tjenesteeieren handlingen, er det driften som må starte oppgaven på nytt, ikke brukeren. Se [tilgang til oppgaven]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}#gi-tilgang-til-oppgaven).
 
