@@ -22,7 +22,8 @@
     Lightbulb: 'M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z',
     Chart: 'M4 20h16M7 16v-5M12 16V7M17 16v-8',
     Home: 'M4 11l8-7 8 7M6 9.5V20h12V9.5',
-    Warning: 'M12 4l9 16H3zM12 10v4M12 17v.5'
+    Warning: 'M12 4l9 16H3zM12 10v4M12 17v.5',
+    Chat: 'M4 5h16v11H9l-5 4z'
   };
 
   function drawIcons() {
