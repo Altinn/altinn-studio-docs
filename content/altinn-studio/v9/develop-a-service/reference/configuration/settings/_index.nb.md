@@ -85,7 +85,7 @@ App/appsettings.json
 ```json
 {
   "FeatureManagement": {
-    "NavnPåFlagget": true
+    "MyFeatureFlag": true
   }
 }
 ```
