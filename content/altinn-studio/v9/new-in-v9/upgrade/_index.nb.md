@@ -8,7 +8,15 @@ toc: true
 tags: [Reviewed]
 ---
 
-`studioctl app upgrade` gjør mesteparten av jobben for deg. Verktøyet går gjennom appen og endrer de filene som trenger det.
+Vi anbefaler at du oppgraderer appen med kommandolinjeverktøyet studioctl. `studioctl app upgrade` gjør mesteparten av jobben for deg. Verktøyet går gjennom appen og endrer de filene som trenger det.
+
+## Dette gjør du som tjenesteeier
+
+Det er som regel utvikleren eller leverandøren din som kjører oppgraderingen. Som tjenesteeier bør du
+
+- avtale med dem når appen skal oppgraderes
+- lese [Dette endrer oppgraderingen i appen din](#dette-endrer-oppgraderingen-i-appen-din) og vurdere hva endringene betyr for brukerne
+- teste appen grundig i testmiljøet før dere publiserer den i produksjon
 
 ## Før du starter
 
@@ -16,21 +24,15 @@ tags: [Reviewed]
 - Lukk appen i editoren din, for eksempel Visual Studio eller Visual Studio Code.
 - Lag en egen branch, slik at du har et punkt å gå tilbake til hvis du vil angre oppgraderingen.
 
-## 1. Installer studioctl
+## 1. Sett opp studioctl og hent appen
 
-På Mac og Linux:
+Følg [veiledningen for å installere og sette opp studioctl]({{< relref "/altinn-studio/v9/getting-started/development/studioctl" >}}). Der installerer du studioctl, logger inn og henter appen til maskinen din.
+
+Har du studioctl fra før, oppdaterer du til siste versjon:
 
 ```bash
-curl -sSL https://altinn.studio/designer/api/v1/studioctl/install.sh | sh
+studioctl self update
 ```
-
-I PowerShell på Windows:
-
-```powershell
-iwr https://altinn.studio/designer/api/v1/studioctl/install.ps1 -useb | iex
-```
-
-Trenger du flere installasjonsvalg, finner du dem i [dokumentasjonen for studioctl](https://github.com/Altinn/altinn-studio/tree/main/src/cli#quick-start-app-developers).
 
 ## 2. Kjør oppgraderingen
 
