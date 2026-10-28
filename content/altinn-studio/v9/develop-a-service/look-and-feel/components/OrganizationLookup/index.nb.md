@@ -12,7 +12,7 @@ Med komponenten **Finn virksomhet** (`OrganizationLookup`) kan brukerne slå opp
 
 ## Slik fungerer komponenten
 
-- Brukeren skriver inn organisasjonsnummeret, og klikker på **Hent opplysninger** eller trykker Enter.
+- Brukeren skriver inn organisasjonsnummeret og klikker på **Hent opplysninger** eller trykker Enter.
 - Før søket kontrollerer komponenten at organisasjonsnummeret har ni siffer og riktig kontrollsiffer.
 - Finner appen virksomheten, lagrer den opplysningene i datamodellen. Komponenten låser feltet og viser teksten «Fra enhetsregisteret». Navnet på virksomheten står under feltet, og knappen endrer seg til **Fjern**.
 - Med **Fjern** tømmer brukeren feltene og kan søke på nytt.

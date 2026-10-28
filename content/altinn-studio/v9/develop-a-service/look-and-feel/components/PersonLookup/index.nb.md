@@ -6,12 +6,12 @@ toc: true
 tags: [needsReview]
 ---
 
-Med komponenten **Finn person** (`PersonLookup`) kan brukerne slå opp en person i Folkeregisteret med fødselsnummer eller D-nummer og etternavn. Appen lagrer opplysningene om personen i datamodellen.
+Med komponenten **Finn person** (`PersonLookup`) kan brukerne slå opp en person i Folkeregisteret. Appen lagrer opplysningene om personen i datamodellen.
 
 ## Slik fungerer komponenten
 
-- Brukeren skriver inn fødselsnummer eller D-nummer og etternavn, og klikker på **Hent opplysninger** eller trykker Enter.
-- Før søket kontrollerer komponenten at fødselsnummeret er gyldig og at etternavnet ikke er tomt.
+- Brukeren skriver inn både fødselsnummer (eller D-nummer) og etternavn, og klikker på **Hent opplysninger** eller trykker Enter. Etternavnet må høre til samme person som nummeret.
+- Før søket kontrollerer komponenten at fødselsnummeret eller D-nummeret er gyldig, og at etternavnet ikke er tomt.
 - Finner appen personen, lagrer den opplysningene i datamodellen. Komponenten låser feltene og viser teksten «Fra folkeregisteret». Feltet for etternavn heter nå **Navn** og viser navnet på personen. Knappen endrer seg til **Fjern**.
 - Med **Fjern** tømmer brukeren feltene og kan søke på nytt.
 
@@ -29,7 +29,7 @@ Har feltet for fødselsnummer allerede en verdi, for eksempel fra forhåndsutfyl
 | Svaret fra serveren har feil format | Det oppstod en feil. Vennligst prøv igjen senere. |
 | Annen feil | Ukjent feil. Vennligst prøv igjen senere. |
 
-Folkeregisteret begrenser hvor mange mislykkede søk en bruker kan gjøre. Etter for mange forsøk sperrer Folkeregisteret brukeren midlertidig fra søket.
+Altinn begrenser hvor mange mislykkede søk en bruker kan gjøre, og sperrer søket midlertidig etter for mange forsøk.
 
 ## Datamodellbindinger
 
@@ -62,7 +62,10 @@ App/ui/{taskId}/layouts/{page}.json
   "type": "PersonLookup",
   "dataModelBindings": {
     "ssn": "Styreleder.Foedselsnummer",
-    "fullName": "Styreleder.Navn"
+    "fullName": "Styreleder.Navn",
+    "firstName": "Styreleder.Fornavn",
+    "middleName": "Styreleder.Mellomnavn",
+    "lastName": "Styreleder.Etternavn"
   },
   "textResourceBindings": {
     "title": "styreleder.title"
