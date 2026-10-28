@@ -1,7 +1,6 @@
 ---
 title: Autorisasjon med tredjepartsløsninger
 description: Hentet fra stateless-docs
-draft: true
 tags: [needsReview]
 ---
 

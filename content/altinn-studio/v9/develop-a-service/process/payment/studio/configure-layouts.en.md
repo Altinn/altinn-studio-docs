@@ -1,5 +1,4 @@
 ---
-draft: true
 hidden: true
 ---
 > The setup in this section is done from the Lage page in the app editor. Navigate there by clicking on "Lage"

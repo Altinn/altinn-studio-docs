@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Hva brukeren ser mens en systemoppgave kjører
 linktitle: Hva brukeren ser
 description: Slik styrer du visningen mens appen jobber, venter eller feiler

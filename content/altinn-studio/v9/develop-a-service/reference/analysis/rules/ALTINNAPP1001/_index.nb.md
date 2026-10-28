@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "ALTINNAPP1001: UI-mappen til PDF-systemoppgaven mangler pdfLayoutName"
 description: "En PDF-systemoppgave har en egen UI-mappe uten pdfLayoutName"
 weight: 101

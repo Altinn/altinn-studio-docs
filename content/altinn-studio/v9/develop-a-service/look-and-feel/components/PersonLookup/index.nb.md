@@ -1,7 +1,6 @@
 ---
 title: PersonLookup
 description: Slik lar du brukerne slå opp en person i Folkeregisteret.
-draft: true
 toc: true
 tags: [needsReview]
 ---

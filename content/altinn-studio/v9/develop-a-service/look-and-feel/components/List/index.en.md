@@ -1,6 +1,5 @@
 ---
 title: List
-draft: true
 ---
 
 ## Properties

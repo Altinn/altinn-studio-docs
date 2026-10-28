@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Validering med uttrykk
 description: Slik konfigurerer du valideringer ved hjelp av dynamiske uttrykk.
 toc: true

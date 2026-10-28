@@ -1,6 +1,5 @@
 ---
 title: Datepicker
-draft: true
 ---
 
 ## Egenskaper

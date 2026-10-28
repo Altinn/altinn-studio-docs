@@ -1,6 +1,5 @@
 ---
 title: Panel
-draft: true
 ---
 
 ## Properties

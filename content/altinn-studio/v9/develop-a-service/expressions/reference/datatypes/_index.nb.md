@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Datatyper
 linktitle: Datatyper
 description: Oversikt over datatyper som brukes i uttrykk.

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Kodelister og svaralternativer
 linktitle: Svaralternativer
 description: Slik konfigurerer du svaralternativer for en app

@@ -2,7 +2,6 @@
 title: For deg som skal utvikle en app
 linktitle: Lag en app
 weight: 10
-draft: true
 marp: true
 headingDivider: 4
 style: |

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Copy app in Altinn Studio
 linktitle: Copy app
 description: How to copy an app in Altinn Studio.

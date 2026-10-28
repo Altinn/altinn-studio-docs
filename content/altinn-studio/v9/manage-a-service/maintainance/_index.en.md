@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Maintenance of app in production
 linktitle: Maintenance
 description: Applications in production require regular maintenance and updates.

@@ -1,6 +1,5 @@
 ---
 title: Date
-draft: true
 ---
 
 ## Properties

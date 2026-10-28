@@ -1,5 +1,4 @@
 ---
-draft: true
 title: PDF
 linktitle: PDF
 description: Slik setter du opp PDF-generering som systemoppgave

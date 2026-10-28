@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Add tracing and metrics
 linktitle: Add tracing and metrics
 description: How to add tracing and metrics to your Altinn app, both automatically and manually.

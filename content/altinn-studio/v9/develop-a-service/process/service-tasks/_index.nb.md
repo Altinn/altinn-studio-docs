@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Systemoppgaver
 linktitle: Systemoppgaver
 description: Slik bruker du systemoppgaver til arbeid appen gjør selv

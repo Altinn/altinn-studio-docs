@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Signer og send inn
 linktitle: Signer og send inn
 description: Slik setter du opp signering og innsending i ett steg i appen din.

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Komponenter
 description: Under arbeid - komponentoversikt basert på Altinn Studio GUI
 tags: [needsReview, under-construction]

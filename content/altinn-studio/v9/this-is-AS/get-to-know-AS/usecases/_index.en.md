@@ -1,5 +1,4 @@
 ---
-draft: true
 title: What can you create with Altinn Studio?
 description: An overview of the different use cases for apps developed with Altinn Studio
 weight: 30

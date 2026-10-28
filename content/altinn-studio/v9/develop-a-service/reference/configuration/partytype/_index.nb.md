@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Styre hvilke aktører som kan starte appen
 linktitle: Aktørtyper
 description: Slik velger du hvilke typer aktører som kan starte appen.

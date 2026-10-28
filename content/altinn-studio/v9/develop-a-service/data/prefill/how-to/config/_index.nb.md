@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Slik forhåndsutfyller du data med konfigurasjonsbasert oppsett
 linktitle: Konfigurasjonsbasert oppsett
 description: Denne veiledningen hjelper deg med å sette opp forhåndsutfylling ved hjelp av standard konfigurasjonsbasert oppsett

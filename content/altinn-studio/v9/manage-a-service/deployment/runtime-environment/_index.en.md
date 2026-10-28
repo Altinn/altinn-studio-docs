@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Runtime Environment
 description: Description of the Runtime Environment for Altinn 3 applications for a service owner.
 

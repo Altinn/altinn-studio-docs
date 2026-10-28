@@ -1,6 +1,5 @@
 ---
 title: ActionButton
-draft: true
 ---
 
 ## Properties

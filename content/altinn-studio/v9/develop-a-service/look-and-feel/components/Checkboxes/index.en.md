@@ -1,6 +1,5 @@
 ---
 title: Checkboxes
-draft: true
 ---
 
 ## Properties

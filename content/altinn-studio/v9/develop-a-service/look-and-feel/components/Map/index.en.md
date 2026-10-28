@@ -1,6 +1,5 @@
 ---
 title: Map
-draft: true
 ---
 
 ## Properties

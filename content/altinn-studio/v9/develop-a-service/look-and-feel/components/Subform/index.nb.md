@@ -1,6 +1,5 @@
 ---
 title: Subform
-draft: true
 ---
 
 ## Egenskaper

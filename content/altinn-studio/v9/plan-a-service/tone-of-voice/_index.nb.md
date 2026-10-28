@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Råd om tekster i tjenesten
 description: Råd om hvordan du skriver godt for brukerne i tjenestene du lager.
 weight: 9

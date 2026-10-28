@@ -2,7 +2,6 @@
 title: Hvordan starte en instans fra en stateless-app
 linktitle: Start instans
 description: Følg stegene i guiden for å gjøre det mulig å starte en instans fra din stateless app
-draft: true
 weight: 4
 tags: [needsReview]
 ---

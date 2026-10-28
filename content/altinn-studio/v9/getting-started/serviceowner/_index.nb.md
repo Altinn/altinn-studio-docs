@@ -1,7 +1,6 @@
 ---
 title: Kom i gang som tjenesteeier
 linktitle: For tjenesteeiere
-draft: true
 toc: true
 weight: 98
 ---

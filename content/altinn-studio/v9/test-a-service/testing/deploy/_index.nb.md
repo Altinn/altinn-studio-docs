@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Teste appen i testmiljøet
 linktitle: I testmiljø
 description: Slik bygger, publiserer og tester du appen i testmiljøet.

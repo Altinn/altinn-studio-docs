@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Gjenbruke kodelister fra organisasjonsbiblioteket
 linktitle: Organisasjonsbibliotek
 description: Slik lager du en kodeliste i organisasjonsbiblioteket og henter en kopi av den inn i appen din

@@ -1,6 +1,5 @@
 ---
 title: Payment
-draft: true
 ---
 
 ## Properties

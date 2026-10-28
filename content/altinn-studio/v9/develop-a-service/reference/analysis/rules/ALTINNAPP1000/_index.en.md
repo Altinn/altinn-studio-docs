@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "ALTINNAPP1000: PDF service task has nothing to render"
 description: "A PDF service task has neither autoPdfTaskIds nor its own UI folder"
 weight: 100

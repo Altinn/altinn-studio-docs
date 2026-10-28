@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "ALTINNAPP1002: PDF service task includes a task without a UI folder"
 description: "autoPdfTaskIds lists a task that has no UI folder"
 weight: 102

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "ALTINNAPP0702: mailbox answered twice"
 description: "The same mailbox is answered by more than one handler"
 weight: 72

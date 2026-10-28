@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Grensesnitt for egen kode
 linktitle: Egen kode
 description: Oversikt over grensesnittene appen kan implementere for å kjøre egen kode, og hvor de er beskrevet.

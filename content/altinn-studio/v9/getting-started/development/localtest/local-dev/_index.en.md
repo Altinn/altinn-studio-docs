@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Local development
 linktitle: Local development
 description: Getting started with local development

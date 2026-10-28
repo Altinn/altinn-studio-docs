@@ -1,10 +1,9 @@
 ---
 title: Altinn Studio
 linktitle: Altinn Studio
-breadcrumbText: V9 (neste)
+breadcrumbText: V9 (preview)
 description: Altinn Studio - Ditt verktøy for utvikling av digitale tjenester til innbyggere og næringsliv
 weight: 1
-draft: true
 toc: false
 layout: authorization-landing
 cascade:

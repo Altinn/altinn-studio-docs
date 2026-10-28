@@ -1,6 +1,5 @@
 ---
 title: Summary
-draft: true
 ---
 
 ## Properties

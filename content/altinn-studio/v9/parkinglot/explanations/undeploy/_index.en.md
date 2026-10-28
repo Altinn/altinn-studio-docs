@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Unpublish Apps
 linktitle: Unpublishing
 description: Unpublishing makes an app unavailable by removing it from an environment.

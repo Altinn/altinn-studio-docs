@@ -2,7 +2,6 @@
 title: Customisations in custom code
 linktitle: Custom code
 description: Customise your app with custom code
-draft: true
 weight: 40
 ---
 

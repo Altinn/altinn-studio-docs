@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Signing task
 description: Defining signing process tasks
 tags: [altinn-apps, process, bpmn, task, sign, signing]

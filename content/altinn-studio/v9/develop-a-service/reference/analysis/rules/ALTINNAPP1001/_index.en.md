@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "ALTINNAPP1001: the UI folder of the PDF service task has no pdfLayoutName"
 description: "A PDF service task has its own UI folder without pdfLayoutName"
 weight: 101

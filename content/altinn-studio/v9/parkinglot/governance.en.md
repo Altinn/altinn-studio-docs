@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Overview of components, versioning and governance responsibilities
 linktitle: Components, versions and responsibilities
 description: Overview of components, versioning and governance responsibilities in Altinn Studio.

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Oppgavetyper
 linktitle: Oppgavetyper
 description: Oversikt over de forskjellige oppgavetypene i Altinn Studio

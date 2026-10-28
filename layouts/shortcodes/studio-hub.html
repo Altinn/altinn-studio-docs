@@ -5,12 +5,17 @@
     <section class="authz-hero">
         <div class="authz-wrap authz-hero-grid">
             <div>
-                <div class="authz-eyebrow">Altinn Studio</div>
+                <div class="authz-eyebrow">Altinn Studio v9 <span style="display:inline-block;margin-left:8px;padding:3px 10px;border-radius:99px;background:#fff4e5;color:#704b0b;letter-spacing:.04em">Preview</span></div>
                 <h1>{{ if $nb }}Bygg dine tjenester med Altinn Studio{{ else }}Build your services using Altinn Studio{{
                     end }}</h1>
                 <p class="authz-lead">{{ if $nb }}Alt du trenger for å utvikle, publisere og forvalte digitale tjenester
                     for innbyggere og næringsliv.{{ else }}Everything you need to develop, publish and manage digital
                     services for citizens and businesses.{{ end }}</p>
+                <p style="max-width:720px;margin:20px 0 0;padding:14px 18px;border-left:4px solid #e5a54b;border-radius:6px;background:#ffffff14;color:#fff;line-height:1.5">
+                    {{ if $nb }}<strong>v9 er en forhåndsversjon (preview).</strong> Gjeldende versjon er v8. Bruker appen
+                    din v8, se <a href="{{ "altinn-studio/v8/" | relLangURL }}" style="color:#8ed8ff">dokumentasjonen for v8</a>.{{ else }}<strong>v9 is a preview.</strong>
+                    The current version is v8. If your app uses v8, see the <a href="{{ "altinn-studio/v8/" | relLangURL }}" style="color:#8ed8ff">documentation for v8</a>.{{ end }}
+                </p>
                 <div class="authz-actions">
                     <a class="authz-btn authz-btn-primary" href="{{ "altinn-studio/v9/getting-started/" | relLangURL }}">{{ if $nb }}Kom i gang{{ else }}Get started{{ end }} →</a>
                     <a class="authz-btn authz-btn-secondary" href="{{ "altinn-studio/v9/this-is-as/" | relLangURL }}">{{ if $nb }}Se hva du får{{ else }}Explore capabilities{{ end }}</a>

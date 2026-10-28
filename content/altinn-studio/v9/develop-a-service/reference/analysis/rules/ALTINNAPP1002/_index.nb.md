@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "ALTINNAPP1002: PDF-systemoppgaven tar med en oppgave uten UI-mappe"
 description: "autoPdfTaskIds lister en oppgave som ikke har noen UI-mappe"
 weight: 102

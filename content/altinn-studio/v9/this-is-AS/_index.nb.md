@@ -2,7 +2,6 @@
 title: Dette er Altinn Studio
 description: Altinn Studio er et verktøy for å utvikle, drifte og forvalte digitale tjenester til innbyggere og næringsliv.
 weight: 1
-draft: true
 tags: [Reviewed]
 cascade:
   params:

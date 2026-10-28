@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Hjelpefelter i skjemadata
 linktitle: Hjelpefelter
 description: Slik bruker du hjelpefelter for data som skjemaet trenger underveis, men som ikke skal være med i de ferdige dataene.

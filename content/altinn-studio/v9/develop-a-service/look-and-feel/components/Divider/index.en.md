@@ -1,6 +1,5 @@
 ---
 title: Divider
-draft: true
 ---
 
 ## Properties

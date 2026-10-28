@@ -1,6 +1,5 @@
 ---
 title: Likert
-draft: true
 ---
 
 ## Properties

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Navigasjon
 description: Slik lar du brukeren navigere mellom sider, viser en sidemeny eller fremdriftsindikator, og validerer ved sidebytte.
 toc: true

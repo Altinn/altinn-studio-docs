@@ -3,7 +3,6 @@ title: Lage et enkelt skjema
 linktitle: Lage et enkelt skjema
 description: Slik lager du et enkelt skjema i Altinn Studio.
 weight: 1
-draft: true
 
 # Marp settings - used for generating a HTML/PDF presentation that can be used in live training sessions.
 marp: true

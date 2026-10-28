@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Glossary for management and monitoring
 linktitle: Glossary
 description: Explanations of technical words and concepts used in the documentation on management and monitoring of Altinn services.

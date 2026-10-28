@@ -1,6 +1,5 @@
 ---
 title: Number
-draft: true
 ---
 
 ## Properties

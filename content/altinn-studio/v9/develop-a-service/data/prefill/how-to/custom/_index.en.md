@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Prefill data with custom code
 linktitle: Custom code
 description: How to set up automatic filling of form data with your own code.

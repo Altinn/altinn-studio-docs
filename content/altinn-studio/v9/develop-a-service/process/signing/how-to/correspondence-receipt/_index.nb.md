@@ -2,7 +2,6 @@
 title: Slik sender du kvittering ifm signering
 linktitle: Signeringskvittering
 description: Følg stegene i denne guiden for å sette opp meldingstjenesten til å sende signeringskvittering
-draft: true
 ---
 
 ## Før du starter

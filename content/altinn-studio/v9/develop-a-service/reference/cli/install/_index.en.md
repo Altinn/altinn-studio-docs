@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Installation
 description: How to install the Altinn Studio CLI
 

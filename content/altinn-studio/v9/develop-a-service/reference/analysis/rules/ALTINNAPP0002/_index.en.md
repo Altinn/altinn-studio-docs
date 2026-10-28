@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "ALTINNAPP0002: error in applicationmetadata.json"
 description: "applicationmetadata.json is missing, duplicated or cannot be read"
 weight: 2
