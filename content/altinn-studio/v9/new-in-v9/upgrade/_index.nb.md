@@ -18,23 +18,25 @@ Det er som regel utvikleren eller leverandøren din som kjører oppgraderingen. 
 - lese [Dette endrer oppgraderingen i appen din](#dette-endrer-oppgraderingen-i-appen-din) og vurdere hva endringene betyr for brukerne
 - teste appen grundig i testmiljøet før dere publiserer den i produksjon
 
-## Før du starter
-
-- Commit alt du har jobbet med. Oppgraderingen stopper hvis repositoriet har endringer du ikke har committet.
-- Lukk appen i editoren din, for eksempel Visual Studio eller Visual Studio Code.
-- Lag en egen branch, slik at du har et punkt å gå tilbake til hvis du vil angre oppgraderingen.
-
 ## 1. Sett opp studioctl og hent appen
 
-Følg [veiledningen for å installere og sette opp studioctl]({{< relref "/altinn-studio/v9/getting-started/development/studioctl" >}}). Der installerer du studioctl, logger inn og henter appen til maskinen din.
+Har du ikke appen på maskinen din, følger du [veiledningen for å installere og sette opp studioctl]({{< relref "/altinn-studio/v9/getting-started/development/studioctl" >}}). Der installerer du studioctl, logger inn og henter appen.
 
-Har du studioctl fra før, oppdaterer du til siste versjon:
+Har du appen på maskinen fra før, trenger du ikke hente den på nytt. Har du ikke studioctl ennå, [installerer du verktøyet]({{< relref "/altinn-studio/v9/getting-started/development/studioctl#installer-studioctl" >}}). Har du studioctl fra før, oppdaterer du til siste versjon:
 
 ```bash
 studioctl self update
 ```
 
-## 2. Kjør oppgraderingen
+## 2. Gjør appen klar
+
+Slik gjør du appen klar før du oppgraderer:
+
+- Commit alt du har jobbet med. Oppgraderingen stopper hvis repositoriet har endringer du ikke har committet.
+- Lukk appen i editoren din, for eksempel Visual Studio eller Visual Studio Code.
+- Lag en egen branch, slik at du har et punkt å gå tilbake til hvis du vil angre oppgraderingen.
+
+## 3. Kjør oppgraderingen
 
 Gå til rotmappen i prosjektet ditt og kjør:
 
@@ -46,7 +48,7 @@ v9 er standardvalget, så `studioctl app upgrade` gjør det samme.
 
 Verktøyet går gjennom appen steg for steg og skriver ut hva det endrer. Les gjennom utskriften. Der oppgraderingen ikke klarer å gjøre en endring selv, sier den fra om hva du må ordne manuelt.
 
-## 3. Kontroller at appen fungerer
+## 4. Kontroller at appen fungerer
 
 Start den lokale testplattformen og kjør appen:
 
