@@ -18,19 +18,23 @@ Appen kan hente data fra et annet system og vise dem til brukeren, for eksempel 
 
 1. Utvikleren lager en klasse som henter dataene, og registrerer den i appen.
 2. Appen gjør dataene tilgjengelige for hver instans gjennom et eget endepunkt.
-3. Første gang skjemaet trenger dataene, henter nettleseren dem fra endepunktet. Den henter dataene fra alle de eksterne API-ene appen har, ikke bare det ene skjemaet bruker.
-4. Nettleseren tar vare på dataene i 10 minutter for hver instans.
+3. Første gang et uttrykk med `externalApi` trenger dataene, henter nettleseren dem fra endepunktet. Den henter da dataene fra alle de eksterne API-ene appen har, ikke bare det ene uttrykket bruker. En `SimpleTable` henter bare dataene den selv viser.
+4. Nettleseren bruker de samme dataene resten av tiden brukeren har skjemaet åpent, i minst 10 minutter. Laster brukeren inn siden på nytt, henter nettleseren dataene igjen.
 
 Nettleseren henter ikke dataene på nytt når brukeren endrer noe i skjemaet. Dataene kan derfor ikke avhenge av det brukeren fyller ut.
+
+Fordi uttrykket henter fra alle de eksterne API-ene, kaller appen alle API-ene første gang skjemaet bruker uttrykket for en instans, også dem skjemaet ikke viser. Det tar tid, og det kan koste penger hos den som leverer API-et.
 
 ## Lage en klient
 
 Klienten er en klasse som implementerer grensesnittet `IExternalApiClient`. Den har to deler:
 
-- `Id` er navnet du bruker for å vise til klienten i skjemaet. Appen skiller ikke mellom store og små bokstaver i navnet.
+- `Id` er navnet du bruker for å vise til klienten i skjemaet. Skriv navnet nøyaktig likt i skjemaet. Uttrykket `externalApi` skiller mellom store og små bokstaver, og et feil navn gir tom tekst uten feilmelding.
 - `GetExternalApiData` henter dataene og returnerer dem som et objekt.
 
 Eksempelet returnerer faste data, slik at du ser formen. I en ekte klient henter du dataene fra API-et, se [Kalle et API med Maskinporten](#kalle-et-api-med-maskinporten).
+
+Appen lager alle klientene for å lese `Id`, også når ingen henter data. Hold derfor konstruktøren enkel, og la `Id` være en fast verdi.
 
 {{< code-title >}}
 App/logic/DokumentApiClient.cs
@@ -76,7 +80,7 @@ public class Dokument
 }
 ```
 
-Appen sender dataene som JSON med små forbokstaver i navnene. Egenskapen `Dokumenter` heter derfor `dokumenter` i skjemaet.
+Appen sender dataene som JSON med små forbokstaver i navnene. Egenskapen `Dokumenter` heter derfor `dokumenter` i skjemaet. Det gjelder egenskaper i C#-klasser. Returnerer klienten JSON den har fått fra API-et, for eksempel som `JsonElement`, beholder navnene formen de har i API-et.
 
 ## Registrere klienten
 
@@ -86,7 +90,9 @@ Registrer klienten i `Program.cs`:
 App/Program.cs
 {{< /code-title >}}
 
-{{< highlight csharp "linenos=false,hl_lines=7" >}}
+{{< highlight csharp "linenos=false,hl_lines=1 9" >}}
+using Altinn.App.Core.Features.ExternalApi;
+
 void RegisterCustomAppServices(
   IServiceCollection services,
   IConfiguration config,
@@ -169,17 +175,19 @@ App/ui/{taskId}/layouts/{page}.json
 }
 ```
 
-Stien må peke på et objekt eller en liste med objekter. En komponent kan ikke ha både `externalApi` og `dataModelBindings`. Se [SimpleTable]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/SimpleTable" >}}) for alle egenskapene.
+Stien må peke på et objekt eller en liste med objekter. Peker den på noe annet, viser tabellen ingenting. En komponent kan ikke ha både `externalApi` og `dataModelBindings`. Se [SimpleTable]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/SimpleTable" >}}) for alle egenskapene.
 
 ## Kalle et API med Maskinporten
 
-Krever API-et Maskinporten, gir du klienten en HTTP-klient som legger på et token. Appen bruker Maskinporten-klienten Altinn Studio har satt opp for den. Se [Bruke Maskinporten i appkoden]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten#appkode" >}}) for hvordan du legger til scopene.
+Krever API-et Maskinporten, gir du klienten en HTTP-klient som legger på et token. Appen bruker Maskinporten-klienten Altinn Studio har satt opp for den. Se [Bruke Maskinporten i appkoden]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten#appkode" >}}) for hvordan HTTP-klienten får token, og [Legge til Maskinporten-scopes]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten/add-scopes" >}}) for hvordan du gir appen scopene API-et krever.
 
 {{< code-title >}}
 App/Program.cs
 {{< /code-title >}}
 
-{{< highlight csharp "linenos=false,hl_lines=7-9 11" >}}
+{{< highlight csharp "linenos=false,hl_lines=1 9-11 13" >}}
+using Altinn.App.Core.Features.ExternalApi;
+
 void RegisterCustomAppServices(
   IServiceCollection services,
   IConfiguration config,
@@ -219,7 +227,17 @@ public class DokumentApiClient(HttpClient httpClient) : IExternalApiClient
 }
 ```
 
-Kaster klienten en `HttpRequestException` med statuskode, svarer endepunktet med den samme statuskoden. Andre feil gir statuskode 500.
+## Når noe går galt
+
+Brukeren ser ingen feilmelding når et eksternt API feiler:
+
+- Uttrykket `externalApi` gir tom tekst.
+- `SimpleTable` viser ingenting.
+- Feilen havner bare i konsollen i nettleseren.
+
+Kaster klienten en `HttpRequestException` med statuskode, svarer endepunktet med den samme statuskoden. Avviser API-et tokenet, får nettleseren derfor statuskode 401 eller 403. Andre feil gir statuskode 500.
+
+Endepunktet sender feilmeldingen fra unntaket videre til nettleseren. Ikke ta med personopplysninger eller andre sensitive opplysninger i feilmeldingene fra klienten.
 
 ## Hente dataene fra endepunktet
 
@@ -240,14 +258,15 @@ Ikke send fødselsnummer eller andre personopplysninger som spørreparametere. A
 
 ## Kommer du fra v8?
 
-- Metoden heter nå `GetExternalApiData`, uten `Async`. `queryParams` har ingen standardverdi. `studioctl app upgrade v9` gir metoden det nye navnet.
+- Metoden heter nå `GetExternalApiData`, uten `Async`. `studioctl app upgrade v9` gir metoden det nye navnet. Eksemplene i v8-dokumentasjonen hadde `queryParams = null`, men det har aldri vært en del av grensesnittet.
 - `ConfigureMaskinportenClient` finnes ikke lenger. Se [Kommer du fra v8?]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten#fra-v8" >}}) på siden om Maskinporten.
 - I `Text` står uttrykket i `value` på komponenten.
-- Uttrykket `["equals", ["externalApi", id, "length"], 0]` fra v8-dokumentasjonen virker ikke, fordi funksjonen gir `null` for lister og for `0`.
+- Uttrykket `["equals", ["externalApi", id, "length"], 0]` i `hidden` fra v8-dokumentasjonen virker ikke. Funksjonen gir `null` for lister og for `0`, og backend gir en feil fordi uttrykket står i `hidden`.
 
 ## Spørsmål du kan stille utviklerne
 
 - Hvilke systemer henter appen data fra, og hva skjer i skjemaet hvis et av dem er nede?
 - Bruker vi `externalApi` noe annet sted enn i tekst, for eksempel i `hidden` eller `required`?
-- Kan dataene endre seg mens brukeren fyller ut skjemaet, og er det et problem at nettleseren tar vare på dem i 10 minutter?
+- Kan dataene endre seg mens brukeren fyller ut skjemaet, og er det et problem at nettleseren ikke henter dem på nytt?
+- Hvor mange eksterne API-er kaller appen, og koster hvert kall noe?
 - Inneholder dataene personopplysninger, og hvem har tilgang til dem?
