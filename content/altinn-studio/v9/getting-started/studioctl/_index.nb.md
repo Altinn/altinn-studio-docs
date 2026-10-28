@@ -3,7 +3,7 @@ draft: true
 title: Installere og sette opp studioctl
 linktitle: Sette opp studioctl
 description: Slik installerer du studioctl, logger inn og henter appen til egen maskin.
-weight: 15
+weight: 2
 toc: true
 ---
 

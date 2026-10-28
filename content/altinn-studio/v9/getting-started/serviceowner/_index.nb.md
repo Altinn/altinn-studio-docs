@@ -18,12 +18,13 @@ for din organisasjon.
 2. [Ta i bruk flere konsepter i skjema]()
 1. [Sett opp tilgangskontroll](../development/access-control)
 2. [Publiser og test tjenesten](../development/publish)
+3. [Sett opp studioctl](../studioctl)
 3. [Jobb med tjenesten på lokal maskin](../development/localtest)
 4. [Sett opp egne tilpasninger i kode](../development/custom-development)
 
 ## For deg som skal vedlikeholde og administrere kjørende tjenester
 1. [Sjekk status på tjenester i kjøretidsmiljø]()
-2. [Oppgrader tjenester til nyeste versjon]()
+2. [Oppgrader tjenester til nyeste versjon](../../new-in-v9/upgrade)
 3. [Hent ut data sendt inn på tjenester]()
 4. [Send ut eksemplar at tjenesten til de som skal svare]()
 

@@ -25,7 +25,7 @@ Her er en oversikt over hvordan du kommer i gang med lokal utvikling.
 
 {{% insert "content/altinn-studio/shared/studioctl/local-development-intro.nb.md" %}}
 
-Følg [veiledningen for å installere og sette opp studioctl]({{< relref "/altinn-studio/v9/getting-started/development/studioctl" >}}). Der installerer du studioctl, logger inn og henter appen til maskinen din.
+Følg [veiledningen for å installere og sette opp studioctl]({{< relref "/altinn-studio/v9/getting-started/studioctl" >}}). Der installerer du studioctl, logger inn og henter appen til maskinen din.
 
 {{% expandlarge id="legacy-clone-with-git" header="Gammel metode: Klone manuelt med Git" %}}
 

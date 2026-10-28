@@ -20,9 +20,9 @@ Det er som regel utvikleren eller leverandøren din som kjører oppgraderingen. 
 
 ## 1. Sett opp studioctl og hent appen
 
-Har du ikke appen på maskinen din, følger du [veiledningen for å installere og sette opp studioctl]({{< relref "/altinn-studio/v9/getting-started/development/studioctl" >}}). Der installerer du studioctl, logger inn og henter appen.
+Har du ikke appen på maskinen din, følger du [veiledningen for å installere og sette opp studioctl]({{< relref "/altinn-studio/v9/getting-started/studioctl" >}}). Der installerer du studioctl, logger inn og henter appen.
 
-Har du appen på maskinen fra før, trenger du ikke hente den på nytt. Har du ikke studioctl ennå, [installerer du verktøyet]({{< relref "/altinn-studio/v9/getting-started/development/studioctl#installer-studioctl" >}}). Har du studioctl fra før, oppdaterer du til siste versjon:
+Har du appen på maskinen fra før, trenger du ikke hente den på nytt. Har du ikke studioctl ennå, [installerer du verktøyet]({{< relref "/altinn-studio/v9/getting-started/studioctl#installer-studioctl" >}}). Har du studioctl fra før, oppdaterer du til siste versjon:
 
 ```bash
 studioctl self update
