@@ -21,7 +21,7 @@ Appen har ett eller flere underskjemaer. Denne veiledningen forklarer ikke hvord
 
 ### Legge til oppgaven i Altinn Studio
 
-1. Åpne arbeidsflyt-editoren og dra inn PDF-systemoppgaven for underskjema der i prosessen du vil lage PDF-ene, ofte rett etter dataoppgaven med underskjemaet.
+1. Åpne prosess-editoren og dra inn PDF-systemoppgaven for underskjema der i prosessen du vil lage PDF-ene, ofte rett etter dataoppgaven med underskjemaet.
 2. Velg underskjemaet under **Underskjema** i konfigurasjonspanelet.
 
 Listen viser UI-mappene som har `"type": "subform"` i `Settings.json`, og mappene en **Tabell for underskjema** åpner. Altinn Studio holder valget oppdatert. Gir du underskjemaet et nytt navn, endrer Studio `subformUiFolder`. Sletter du underskjemaet, fjerner Studio innstillingen, og du må velge et underskjema på nytt.

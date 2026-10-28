@@ -42,10 +42,10 @@ Systembruker for eget system uten systemregisteret skal være uten forhåndsdefi
 graph TD
   REQUEST["Forespørsel om systembruker: fire lister over påkrevde rettigheter"] --> FLAG{"ownerControlledAccess satt?"}
   FLAG -->|Ja| EMPTY{"Er alle fire lister tomme?"}
-  EMPTY -->|Ja| FREE["Gyldig: eierstyrt tilgang, ingen tilganger ved aksept"]
-  EMPTY -->|Nei| PROPOSAL["Gyldig: eierstyrt tilgang, listene er initialt forslag og delegeres ved aksept"]
+  EMPTY -->|Ja| FREE["Gyldig: Virksomheten bestemmer, ingen tilganger ved aksept"]
+  EMPTY -->|Nei| PROPOSAL["Gyldig: Virksomheten bestemmer, listene er initialt forslag og delegeres ved aksept"]
   FLAG -->|Nei| CONTENT{"Minst én pakke eller rettighet på minst én liste?"}
-  CONTENT -->|Ja| PRESET["Gyldig: leverandørstyrt tilgang, bindende krav"]
+  CONTENT -->|Ja| PRESET["Gyldig: Leverandøren bestemmer, bindende krav"]
   CONTENT -->|Nei| ERROR2["Valideringsfeil: mangler tilganger"]
 {{< /mermaid >}}
 
@@ -63,7 +63,7 @@ graph TD
   CHECK --> DELEGATE["Deleger klienttilgangene innenfor oppsettet"]
 {{< /mermaid >}}
 
-Ved `ownerControlledAccess=true` delegeres eventuelle lister ved aksept som initialt forslag. Aksept krever tilgangsstyringspakken og er alt eller ingenting på listene. Pakker og enkeltrettigheter kan deretter legges til og fjernes i GUI. Flagget gjelder både egen virksomhet og klienter.
+Ved `ownerControlledAccess=true` delegeres eventuelle lister ved aksept som initialt forslag. Aksept er alt eller ingenting på listene. Den som godkjenner, må alltid være tilgangsstyrer, uansett flagg. Er listene for egen virksomhet tomme, er det eneste Altinn kontrollerer ved aksept. Pakker og enkeltrettigheter kan deretter legges til og fjernes i GUI. Flagget gjelder både egen virksomhet og klienter.
 
 ## Vedtatt: Vanlige bruker- og klientflater
 

@@ -30,7 +30,7 @@ Skal du generere PDF av underskjema, finnes det en egen systemoppgave for det. S
 
 ## Oppsett
 
-Du kan bruke arbeidsflyt-fanen i Altinn Studio for å legge til en PDF-systemoppgave.
+Du kan bruke prosess-fanen i Altinn Studio for å legge til en PDF-systemoppgave.
 
 ![Legg til PDF-systemoppgave](add-pdf-step.png "Legg til PDF-systemoppgave")
 
@@ -102,7 +102,7 @@ Altinn Studio setter inn en systemoppgave i `process.bpmn` og lager UI-mappen ti
 
 ### Mappestruktur og filer
 
-PDF-systemoppgaven trenger en egen UI-mappe med siden som blir PDF-en. Bruker du arbeidsflyt-editoren, lager Altinn Studio mappen for deg. Da trenger du bare å redigere innholdet i `PdfLayout.json`.
+PDF-systemoppgaven trenger en egen UI-mappe med siden som blir PDF-en. Bruker du prosess-editoren, lager Altinn Studio mappen for deg. Da trenger du bare å redigere innholdet i `PdfLayout.json`.
 
 Filene og mappestrukturen skal se omtrent slik ut:
 
@@ -207,7 +207,7 @@ App/config/texts/resource.{language}.json
 
 ## Test
 
-Fyll ut skjemaet og gå videre. Når du når PDF-systemoppgaven i arbeidsflyten, genererer appen PDF-en og går automatisk videre til neste steg i prosessen, for eksempel kvittering.
+Fyll ut skjemaet og gå videre. Når du når PDF-systemoppgaven i prosessen, genererer appen PDF-en og går automatisk videre til neste steg i prosessen, for eksempel kvittering.
 
 ## Feilsøking
 

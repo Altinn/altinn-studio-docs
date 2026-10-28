@@ -214,12 +214,12 @@ Bruk de nye grensesnittene i `Altinn.App.Core.Features.Process` i stedet:
 | -------------------- | ----------------------- |
 | `IProcessTaskStart` | `IOnTaskStartingHandler` |
 | `IProcessTaskEnd` | `IOnTaskEndingHandler` |
-| `IProcessTaskAbandon` | `IOnTaskAbandonHandler` |
+| `IProcessTaskAbandon` | `IOnTaskAbandoningHandler` |
 
 Utover navnet er det tre praktiske forskjeller du må kode mot:
 
 - **Hooken avgjør selv hvilken oppgave den gjelder for.** Før kjørte hver registrerte handler for *alle* oppgaver i prosessen, og koden måtte selv sjekke `taskId`. Nå implementerer hooken `ShouldRunForTask(string taskId)`, og bare handleren som svarer `true` for gjeldende oppgave, kjører.
-- **Hooken kjører som et steg i arbeidsflytmotoren**, akkurat som systemoppgavene over. Hvis det oppstår feil, kan det hende at den blir forsøkt kjørt på nytt automatisk — implementasjonen må altså være idempotent. I stedet for å kaste unntak ved feil returnerer du et `HookResult` (et eget resultat for hooker, ikke å forveksle med `ServiceTaskResult` som brukes av systemoppgaver): `HookResult.Success()`, `HookResult.FailedRetryable("melding")` for en forbigående feil, eller `HookResult.FailedPermanent("melding")` for en feil som trenger en rettelse.
+- **Hooken kjører som et steg i arbeidsflytmotoren**, akkurat som systemoppgavene over. Hvis det oppstår feil, kan det hende at den blir forsøkt kjørt på nytt automatisk — implementasjonen må altså være idempotent. I stedet for å kaste unntak ved feil returnerer du et `HandlerResult` (et eget resultat for hooker, ikke å forveksle med `ServiceTaskResult` som brukes av systemoppgaver): `HandlerResult.Success()`, `HandlerResult.FailedRetryable("melding")` for en forbigående feil, eller `HandlerResult.FailedPermanent("melding")` for en feil som trenger en rettelse.
 - **Instansdata leses og endres via `IInstanceDataMutator`** i stedet for et rått `Instance`-objekt. Kontekstobjektet hooken mottar (`OnTaskStartingContext` og tilsvarende for de to andre) gir deg oppgave-ID-en og en mutator. Instansen finner du i `context.InstanceDataMutator.Instance`, og endringer du gjør gjennom mutatoren, lagres automatisk når hooken fullfører uten feil.
 
 I tillegg mister start-hooken `prefill`-parameteren. Hvis du tidligere har brukt prefill-data i `IProcessTaskStart.Start`, må du flytte den logikken til `IInstantiationProcessor.DataCreation`, som fortsatt mottar prefill og er upåvirket av denne endringen.
@@ -245,16 +245,16 @@ public class MyTaskStartHandler : IOnTaskStartingHandler
 {
     public bool ShouldRunForTask(string taskId) => taskId == "Task_1";
 
-    public async Task<HookResult> Execute(OnTaskStartingContext context)
+    public async Task<HandlerResult> Execute(OnTaskStartingContext context)
     {
         // Egendefinert logikk her, f.eks. context.InstanceDataMutator
 
-        return HookResult.Success();
+        return HandlerResult.Success();
     }
 }
 ```
 
-`IOnTaskEndingHandler` og `IOnTaskAbandonHandler` følger samme mønster, med `Execute(OnTaskEndingContext)` og `Execute(OnTaskAbandonContext)`. Registrering i `Program.cs` er uendret bortsett fra grensesnittnavnet: `services.AddTransient<IOnTaskStartingHandler, MyTaskStartHandler>();`
+`IOnTaskEndingHandler` og `IOnTaskAbandoningHandler` følger samme mønster, med `Execute(OnTaskEndingContext)` og `Execute(OnTaskAbandoningContext)`. Registrering i `Program.cs` er uendret bortsett fra grensesnittnavnet: `services.AddTransient<IOnTaskStartingHandler, MyTaskStartHandler>();`
 
 De nye hookene gjør også at du kan velge å overstyre arbeidsflytmotorens standard tidsavbrudd og strategi for å prøve igjen for steget, med egenskapen `StepOptions`. Det er en ny mulighet, uten noe tilsvarende i versjon 8, så det er ikke noe du trenger å sette for å migrere.
 
@@ -273,9 +273,13 @@ Hvis appen din har en klasse som implementerer `IProcessEnd`, må du flytte kode
 
 `studioctl app upgrade v9` viser hvilke klasser og registreringer du må flytte, men gjør ikke om koden for deg.
 
-`IOnProcessEndedHandler` har samme `Execute` og `HookResult` som oppgave-hookene over, men kjører én gang for hele instansen. Den har ingen `ShouldRunForTask`, og konteksten har ingen oppgave-ID. `Execute` får et kontekstobjekt i stedet for `Instance` og listen med hendelser, og du leser og endrer data gjennom `context.InstanceDataMutator` i stedet for `IDataClient` eller `IInstanceClient`. Koden kjører i arbeidsflytmotoren, ikke i forespørselen fra brukeren, så `HttpContext` gir deg ikke brukerens språk eller pålogging. Du kan bare registrere én `IOnProcessEndedHandler`. Med flere starter ikke appen.
+`IOnProcessEndedHandler` har samme `Execute` og `HandlerResult` som oppgave-hookene over, men kjører én gang for hele instansen. Den har ingen `ShouldRunForTask`, og konteksten har ingen oppgave-ID. `Execute` får et kontekstobjekt i stedet for `Instance` og listen med hendelser, og du leser og endrer data gjennom `context.InstanceDataMutator` i stedet for `IDataClient` eller `IInstanceClient`. Koden kjører i arbeidsflytmotoren, ikke i forespørselen fra brukeren, så `HttpContext` gir deg ikke brukerens språk eller pålogging. Du kan bare registrere én `IOnProcessEndedHandler`. Med flere starter ikke appen.
 
 Se [Prosess-hooks]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks" >}}) for detaljene.
+
+### Vi har fjernet `process/completeProcess`
+
+Appen har ikke lenger endepunktet `PUT .../process/completeProcess`. Bruker systemet deres det til å avslutte en tilbakemeldingsoppgave når dere har behandlet innsendingen, kaller dere `PUT .../process/next` i stedet.
 
 ### Mindre endringer
 

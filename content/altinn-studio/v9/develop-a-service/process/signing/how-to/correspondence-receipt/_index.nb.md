@@ -45,7 +45,7 @@ maskinporten-klienten din i appen.
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-1. Naviger til appen din, og gå til **Arbeidsflyt** i toppmenyen.
+1. Naviger til appen din, og gå til **Prosess** i toppmenyen.
 2. Klikk på signeringsoppgaven i prosess-visningen og se at du får opp konfigurasjonsmuligheter i panelet på høyre side.
 3. Klikk på "Oppgi en ressurs for å sende ut meldinger"
 4. Legg inn navnet på meldingstjenesten i feltet
