@@ -126,9 +126,9 @@ V9 støtter i tillegg egenskapen `pageBreak` på `Summary2`-komponenter. Det gjo
 
 ### PDF av underskjema bruker UI-mappen til underskjemaet
 
-En `subformPdf`-oppgave peker nå på UI-mappen til underskjemaet med `subformUiFolder`, i stedet for `subformComponentId` og `subformDataTypeId`. Oppgaven trenger ingen UI-mappe selv. Oppgraderingen skriver om oppgaven og fjerner UI-mappen som Altinn Studio laget for den, med ventesiden og den skjulte kopien av komponenten **Tabell for underskjema**. Har du lagt til noe annet i mappen, beholder oppgraderingen den. Lister mappen sider i `pages.order`, får du en oppgave du må gjøre selv, fordi v9 viser sidene mens oppgaven kjører. Ellers får du en advarsel.
+En `subformPdf`-oppgave peker nå på UI-mappen til underskjemaet med `subformUiFolder`, i stedet for `subformComponentId` og `subformDataTypeId`. Oppgaven trenger ingen UI-mappe selv. Oppgraderingen skriver om oppgaven og fjerner den skjulte kopien av komponenten **Tabell for underskjema** fra UI-mappen til oppgaven. Resten av mappen rydder den slik den gjør for alle systemoppgaver. Se [Systemoppgaver viser sidene i UI-mappen mens de kjører](#systemoppgaver-viser-sidene-i-ui-mappen-mens-de-kjører).
 
-Oppgraderingen legger også til `"type": "subform"` og en manglende `defaultDataType` i `Settings.json` for underskjemaet. Mangler kopien, finnes den flere ganger, eller peker den ikke på en UI-mappe, lar oppgraderingen oppgaven stå uendret og lister den som en oppgave du må gjøre selv. Da bytter du ut innstillingene med `subformUiFolder` for hånd.
+Oppgraderingen legger også til `"type": "subform"` og en manglende `defaultDataType` i `Settings.json` for underskjemaet. Mangler kopien, finnes den flere ganger, eller peker den ikke på en UI-mappe, lar oppgraderingen oppgaven stå uendret og lister den som en oppgave du må gjøre selv. Da bytter du ut innstillingene med `subformUiFolder` for hånd, og fjerner komponentkopien.
 
 PDF-ene har metadatafeltet `subformUiFolder` i stedet for `subformComponentId`. Leser et system det gamle feltet, må det lese `subformUiFolder` i stedet. Se [PDF-generering for underskjema]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/subform/subform-pdf" >}}).
 
@@ -136,15 +136,20 @@ PDF-ene har metadatafeltet `subformUiFolder` i stedet for `subformComponentId`. 
 
 I v9 viser appen sidene i `pages.order` for en systemoppgave fra prosessen kommer til oppgaven og til neste steg står på skjermen. Sidene er skrivebeskyttet. Lister mappen ingen sider, ser brukeren den innebygde lastevisningen. Apper fra v8 kan ha sider i slike mapper som aldri var ment for brukere som venter på oppgaven.
 
-Oppgraderingen gjør dette for deg:
+Oppgraderingen gjør dette for deg, i UI-mappen til alle systemoppgaver:
 
-- Den fjerner sidene Altinn Studio laget for PDF-oppgaver, som siden «Noe gikk galt» med knapper for å prøve igjen og gå tilbake. Den tar sidene ut av `pages.order` og sletter layoutfilene, men bare når en side er nøyaktig slik Altinn Studio laget den. `pdfLayoutName` beholder den.
-- PDF-oppgavene oppgraderingen legger til, får en tom `pages.order` og ingen venteside. Det gjelder også når oppgraderingen kopierer hele UI-mappen fra dataoppgaven for å beholde PDF-en.
+- Den fjerner siden «Noe gikk galt», som Altinn Studio laget for PDF-oppgaver i v8, med knapper for å prøve igjen og gå tilbake. Den tar siden ut av `pages.order` og sletter layoutfilen, men bare når siden er nøyaktig slik Altinn Studio laget den. `pdfLayoutName` beholder den.
+- Den fjerner sider uten komponenter på samme måte. En slik side ville vist brukeren en tom side, for eksempel når den bare hadde den skjulte kopien av **Tabell for underskjema**.
+- Står mappen igjen med bare `Settings.json`, uten sider og uten `pdfLayoutName`, sletter den hele mappen. Appen bruker ingenting i en slik mappe.
+
+PDF-oppgavene oppgraderingen legger til, får en tom `pages.order` og ingen venteside. Det gjelder også når oppgraderingen kopierer hele UI-mappen fra dataoppgaven for å beholde PDF-en.
 
 Dette må du se på selv:
 
 - **Andre sider i en PDF-oppgave.** Har du endret siden Altinn Studio laget, eller lister mappen andre sider, lar oppgraderingen dem stå, og du får en oppgave du må gjøre selv. Sidene blir aldri en del av PDF-en. Fjern dem fra `pages.order` hvis de ikke er ment for brukere som venter på PDF-en, og behold `pdfLayoutName`.
-- **Sider i andre systemoppgaver.** Har UI-mappen til en annen systemoppgave sider i `pages.order`, for eksempel en eFormidling-, Fiks Arkiv- eller egendefinert oppgave, får du en oppgave du må gjøre selv. Oppgraderingen endrer ingen filer. Behold sidene bare hvis de er ment for brukere som venter på oppgaven. Ellers tømmer du `pages.order`.
+- **Sider i andre systemoppgaver.** Lister UI-mappen til en annen systemoppgave andre sider i `pages.order`, for eksempel en eFormidling-, Fiks Arkiv-, underskjema-PDF- eller egendefinert oppgave, får du en oppgave du må gjøre selv. Oppgraderingen lar sidene stå. Behold dem bare hvis de er ment for brukere som venter på oppgaven. Ellers tømmer du `pages.order`.
+
+Ventesiden som forhåndsversjonene av v9 laget, regner oppgraderingen som en side du har laget selv. Den gir altså også en oppgave du må gjøre selv.
 
 Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}).
 
