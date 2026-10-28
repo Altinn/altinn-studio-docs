@@ -41,7 +41,7 @@ Hookene kjører i arbeidsflytmotoren, og det samme gjør systemoppgavene. De kan
 | --- | --- |
 | [`IDataWriteProcessor`]({{< relref "/altinn-studio/v9/develop-a-service/data/dataprocessing" >}}) | endre data når brukeren lagrer |
 | [`IDataProcessor`]({{< relref "/altinn-studio/v9/develop-a-service/data/dataprocessing" >}}) | endre data når appen henter dem, før brukeren ser dem |
-| [`IExternalApiClient`](https://github.com/Altinn/altinn-studio/blob/main/src/App/backend/src/Altinn.App.Core/Features/ExternalApi/IExternalApiClient.cs) | hente data fra et eksternt API gjennom appen |
+| [`IExternalApiClient`]({{< relref "/altinn-studio/v9/develop-a-service/integration/external-api" >}}) | hente data fra et eksternt API gjennom appen |
 
 ## Validering
 
