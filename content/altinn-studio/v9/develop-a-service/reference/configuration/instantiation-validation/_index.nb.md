@@ -17,7 +17,7 @@ Appen kjører regelen
 - i en tilstandsløs flyt først når brukeren går videre til en instans
 - når brukeren lager en kopi av en instans fra innboksen
 
-Når brukeren lager en kopi fra innboksen, kontrollerer ikke appen aktørtypene. Da er det bare regelen din som gjelder.
+Når brukeren lager en kopi fra innboksen, kontrollerer ikke appen aktørtypene. Appen kjører først regelen din, og deretter [`ICopyInstanceValidator`]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/messagebox/create-copy" >}}) hvis du har registrert den. Stopper en av dem kopien, viser appen meldingen fra den regelen.
 
 Appen bruker bare én regel. Registrerer du flere, er det den siste som gjelder.
 
@@ -154,6 +154,8 @@ App/config/texts/resource.nb.json
   ]
 }
 ```
+
+Legg inn teksten med samme nøkkel i ressursfilen for hvert språk appen støtter, for eksempel `resource.nn.json` og `resource.en.json`.
 
 ## Hva brukeren ser
 
