@@ -24,12 +24,12 @@ Appen har ett eller flere underskjemaer. Denne veiledningen forklarer ikke hvord
 Du må legge til en `serviceTask` av typen `subformPdf` i prosessen.
 
 {{% notice info %}}
-Du kan foreløpig ikke dra inn underskjema-PDF direkte i arbeidsflyt-editoren i Altinn Studio.
+Du kan foreløpig ikke dra inn underskjema-PDF direkte i prosess-editoren i Altinn Studio.
 {{% /notice %}}
 
 Inntil videre anbefaler vi følgende fremgangsmåte:
 
-1. Dra inn en vanlig dataoppgave i arbeidsflyt-editoren.
+1. Dra inn en vanlig dataoppgave i prosess-editoren.
 2. Del endringene i Studio.
 3. Rediger `process.bpmn` manuelt på egen maskin.
 4. Konverter dataoppgaven til en `bpmn:serviceTask` (se eksempel nedenfor).

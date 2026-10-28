@@ -108,11 +108,11 @@ App/ui/Task_1/Settings.json
 
 ![Sidemeny med grupperte sider](./grouped-navigation.png "Sidemeny med grupperte sider")
 
-## Vise arbeidsflyt og oppgaver i navigasjonsmenyen
+## Vise prosess og oppgaver i navigasjonsmenyen
 
-### Vise arbeidsflyten ved å definere det i koden
+### Vise prosessen ved å definere det i koden
 
-Du kan vise hele arbeidsflyten i navigasjonsmenyen på to måter i koden:
+Du kan vise hele prosessen i navigasjonsmenyen på to måter i koden:
 
 - **For hele appen:** i `App/ui/Settings.json` med `taskNavigation` direkte i roten av filen (ikke i et eget objekt).
 - **Per prosessteg:** i prosesstegets `Settings.json` med `pages.taskNavigation`.
@@ -169,7 +169,7 @@ App/ui/Task_1/Settings.json
 }
 ```
 
-### Parametere for stegene i arbeidsflyten
+### Parametere for stegene i prosessen
 
 | Parameter | Beskrivelse |
 | --- | --- |
@@ -177,7 +177,7 @@ App/ui/Task_1/Settings.json
 | taskId | Hvilket prosessteg (task) det gjelder. Obligatorisk hvis ikke type er satt. |
 | type | «receipt». Obligatorisk hvis ikke taskId er satt. |
 
-![Navigasjonsmeny med arbeidsflyt](./task-navigation.png "Navigasjonsmeny med arbeidsflyt")
+![Navigasjonsmeny med prosessteg](./task-navigation.png "Navigasjonsmeny med prosessteg")
 
 ## Vise navigasjon fra Altinn Studio Designer
 

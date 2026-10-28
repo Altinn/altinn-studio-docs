@@ -317,7 +317,7 @@ legger til en ny side i Altinn Studio verktøyet.
 ---
 
 ### Handlingsknapp (`ActionButton`)
-`ActionButton` starter en bestemt handling knyttet til den oppgaven i arbeidsflyten som brukerne er på.
+`ActionButton` starter en bestemt handling knyttet til den oppgaven i prosessen som brukerne er på.
 Oppgaven kan for eksempel være signering, bekreftelse eller avvisning.
 
 ![ActionButton](./Button.png)
