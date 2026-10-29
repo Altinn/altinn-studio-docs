@@ -53,11 +53,13 @@ Trenger du en bestemt versjon, legger du til `--version`, for eksempel `studioct
 
 ## Avinstallere studioctl
 
-Denne kommandoen fjerner studioctl fra maskinen:
+Denne kommandoen fjerner studioctl og dataene til studioctl fra maskinen:
 
 ```bash
 studioctl self uninstall
 ```
+
+Kommandoen stopper den lokale testplattformen og sletter innloggingen, innstillingene og testdataene til studioctl. Appene du har hentet til maskinen, blir ikke slettet.
 
 Kommandoen spør før den fjerner noe. Legg til `--yes` hvis du ikke vil få spørsmålet.
 
