@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Bygge uttrykk med Altinn Studio
 linktitle: Bygge uttrykk med Altinn Studio
 weight: 8

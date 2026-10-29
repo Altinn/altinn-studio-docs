@@ -1,5 +1,4 @@
 ---
-draft: true
 tags: [Reviewed]
 title: Åpen kildekode og samarbeid
 description: Slik kan du bidra til å utvikle Altinn Studio.

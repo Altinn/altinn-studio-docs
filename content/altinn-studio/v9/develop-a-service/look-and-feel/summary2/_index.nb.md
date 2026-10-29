@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Legge til en oppsummering i en app
 linktitle: Oppsummering
 description: Slik legger du til en oppsummering i appen din

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Teste appen lokalt
 linktitle: Lokalt
 description: Slik kjører og tester du appen på maskinen din med den lokale testplattformen.

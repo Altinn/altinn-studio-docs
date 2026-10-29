@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "ALTINNAPP0800: tjenesteeier mangler nødvendig autorisasjon"
 description: "policy.xml gir ikke apporganisasjonen rettighetene appen bruker på egne vegne"
 weight: 80

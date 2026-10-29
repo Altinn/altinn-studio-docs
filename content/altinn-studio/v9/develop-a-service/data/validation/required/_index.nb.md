@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Påkrevde felt
 description: Slik gjør du et felt påkrevd, og slik tilpasser du feilmeldingen brukeren ser
 toc: true

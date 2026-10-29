@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Slik setter du opp betaling i appen
 linktitle: Betaling
 description: Slik setter du opp betaling med Nets Easy i appen din.

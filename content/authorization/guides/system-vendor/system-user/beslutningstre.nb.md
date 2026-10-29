@@ -36,16 +36,16 @@ Vi utvider `POST /authentication/api/v1/systemuser/request/vendor` og kaller bru
 
 Forespørselen har fire lister: pakker og enkeltrettigheter for egen virksomhet, og pakker og enkeltrettigheter for klienter. Navnene på de nye klientfeltene er ikke endelig fastsatt.
 
-Systembruker for eget system uten systemregisteret skal være uten forhåndsdefinerte rettigheter, og kunne brukes for både egen virksomhet og klienter. Den skal dermed ha flagget satt og fire tomme lister. Direkte Maskinporten-tilknytning er fortsatt et eget teknisk arbeidspunkt.
+Systembruker for eget system uten systemregisteret skal være uten forhåndsdefinerte rettigheter, og kunne brukes for både egen virksomhet og klienter. Den skal dermed ha flagget `ownerControlledAccess` satt, typisk med fire tomme lister. Direkte Maskinporten-tilknytning er fortsatt et eget teknisk arbeidspunkt.
 
 {{< mermaid >}}
 graph TD
-  REQUEST["Forespørsel om systembruker: fire lister over påkrevde rettigheter"] --> FLAG{"withoutPredefinedRights satt?"}
+  REQUEST["Forespørsel om systembruker: fire lister over påkrevde rettigheter"] --> FLAG{"ownerControlledAccess satt?"}
   FLAG -->|Ja| EMPTY{"Er alle fire lister tomme?"}
-  EMPTY -->|Ja| FREE["Gyldig kombinasjon: uten forhåndsdefinerte rettigheter"]
-  EMPTY -->|Nei| ERROR1["Valideringsfeil: flagg og listeinnhold kan ikke kombineres"]
+  EMPTY -->|Ja| FREE["Gyldig: Virksomheten bestemmer, ingen tilganger ved aksept"]
+  EMPTY -->|Nei| PROPOSAL["Gyldig: Virksomheten bestemmer, listene er initialt forslag og delegeres ved aksept"]
   FLAG -->|Nei| CONTENT{"Minst én pakke eller rettighet på minst én liste?"}
-  CONTENT -->|Ja| PRESET["Gyldig kombinasjon: forhåndsdefinerte rettigheter"]
+  CONTENT -->|Ja| PRESET["Gyldig: Leverandøren bestemmer, bindende krav"]
   CONTENT -->|Nei| ERROR2["Valideringsfeil: mangler tilganger"]
 {{< /mermaid >}}
 
@@ -63,7 +63,7 @@ graph TD
   CHECK --> DELEGATE["Deleger klienttilgangene innenfor oppsettet"]
 {{< /mermaid >}}
 
-Ved `withoutPredefinedRights=true` er alle listene tomme. Aksept krever tilgangsstyringspakken, og pakker og enkeltrettigheter gis senere i GUI. Flagget gjelder både egen virksomhet og klienter.
+Ved `ownerControlledAccess=true` delegeres eventuelle lister ved aksept som initialt forslag. Aksept er alt eller ingenting på listene. Den som godkjenner, må alltid være tilgangsstyrer, uansett flagg. Er listene for egen virksomhet tomme, er det eneste Altinn kontrollerer ved aksept. Pakker og enkeltrettigheter kan deretter legges til og fjernes i GUI. Flagget gjelder både egen virksomhet og klienter.
 
 ## Vedtatt: Vanlige bruker- og klientflater
 
@@ -71,7 +71,7 @@ Alle systembrukere vises i brukeroversikten og den relevante klientdelegeringsov
 
 {{< mermaid >}}
 graph TD
-  OPEN["Åpne systembrukeren på vanlig bruker- eller klientflate"] --> MODE{"withoutPredefinedRights?"}
+  OPEN["Åpne systembrukeren på vanlig bruker- eller klientflate"] --> MODE{"ownerControlledAccess?"}
   MODE -->|Ja| CHOOSE["Velg pakker og enkeltrettigheter innenfor virksomhetens fullmakter"]
   MODE -->|Nei| CONTEXT{"Hvilke forhåndsdefinerte tilganger håndteres?"}
   CONTEXT -->|Klient| SET["Hele klientsettet er forhåndsvalgt på vanlig klientdelegeringsside"]
@@ -101,7 +101,7 @@ Dette gjelder både enkeltrettigheter og tilgangspakker, uavhengig av systembruk
 | Valg | Alternativer som må avklares |
 |---|---|
 | Kombinasjoner på samme system | Tillate eller avvise samtidig bruk med og uten forhåndsdefinerte rettigheter |
-| Endre tilgangsmodell | Endre flagget på eksisterende bruker eller kreve ny bruker |
+| Endre tilgangsmodell | Vedtatt 26. oktober 2026: flagget kan endres på eksisterende bruker. Åpent: hvem kan bytte, og hva skjer med tillagte rettigheter ved bytte til `false` |
 | Eksisterende Agent-brukere | Videreføre med kompatibilitet eller overføre til utvidet modell |
 | Bytte Maskinporten-klient | Tillate bytte eller kreve ny bruker |
 

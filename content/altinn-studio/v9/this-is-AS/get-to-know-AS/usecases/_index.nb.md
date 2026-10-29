@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Hva kan du lage med Altinn Studio?
 description: En oversikt over de ulike bruksområdene for apper utviklet med Altinn Studio
 weight: 30

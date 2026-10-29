@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Varsling ved instansiering
 linktitle: Varsling
 description: Slik varsler du instanseieren når du oppretter en instans gjennom API-et

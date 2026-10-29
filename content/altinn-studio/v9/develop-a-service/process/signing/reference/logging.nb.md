@@ -1,6 +1,5 @@
 ---
 title: Logging
-draft: true
 tags: [needsReview]
 ---
 

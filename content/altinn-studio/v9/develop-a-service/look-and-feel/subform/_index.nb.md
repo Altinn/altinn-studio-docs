@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Sette opp underskjema i en app
 linktitle: Underskjema
 description: Slik setter du opp underskjema i appen din
