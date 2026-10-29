@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Dynamikk
 description: Slik setter du opp dynamikk i skjemaer i Altinn Studio.
 tags: [Reviewed]
@@ -21,9 +21,9 @@ En enhet som består av et boolsk komponentfelt og selve uttrykket, som gir en b
 
 {{% expandsmall id="egenskap" header="Egenskap eller felt" %}}
 En komponent har mange egenskaper du kan stille inn. Disse egenskapene kan du styre med uttrykk:
-- Feltet skal skjules (`hidden`).
-- Feltet skal være skrivebeskyttet (`readOnly`).
-- Det skal være påkrevd å fylle ut feltet (`required`).
+- Skjul feltet (`hidden`).
+- Sett skrivebeskyttelse på feltet (`readOnly`).
+- Feltet må fylles ut (`required`).
 {{%/expandsmall%}}
 
 {{% expandsmall id="underuttrykk" header="Underuttrykk" %}}
@@ -141,7 +141,7 @@ Studio kan bare bygge uttrykk for noen av komponentfeltene. Vi jobber med å få
 
 ### <a name="Nøsting"></a>Nøsting
 
-Studio kan bare bygge uttrykk med ett nivå av nøsting. En verdi i et underuttrykk kan bare være en direkte eller indirekte verdi, ikke et nytt underuttrykk. Hvis verdien er et underuttrykk, kan du bare redigere uttrykket i fanen **Manuell**.
+Studio kan bare bygge uttrykk med ett nøstenivå. En verdi i et underuttrykk kan bare være en direkte eller indirekte verdi, ikke et nytt underuttrykk. Hvis verdien er et underuttrykk, kan du bare redigere uttrykket i fanen **Manuell**.
 
 ### Egenskaper som allerede har en verdi
 
