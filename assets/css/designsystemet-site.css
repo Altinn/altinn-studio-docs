@@ -148,9 +148,8 @@ body.ds-site > main {
 
 /* Hero */
 .studio-hero {
-  margin-inline: calc(50% - 50vw);
   padding-block: var(--ds-size-15) var(--ds-size-18);
-  background: linear-gradient(135deg, var(--ds-site-navy) 0%, var(--ds-site-blue) 100%);
+  background: var(--ds-site-blue);
   color: var(--ds-site-white);
 }
 .studio-hero .studio-eyebrow {
@@ -220,7 +219,6 @@ body.ds-site > main {
   padding-top: 0;
 }
 .studio-soft {
-  margin-inline: calc(50% - 50vw);
   background: var(--ds-color-accent-background-tinted);
 }
 .studio-section-head {
