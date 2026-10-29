@@ -6,7 +6,7 @@ breadcrumbText: V9 (preview)
 description: Altinn Studio - Your tool to develop digital services for citizens and businesses
 weight: 1
 toc: false
-layout: authorization-landing
+layout: designsystemet
 # v9 er preview og skal ikke stå i sitemapen eller indekseres av søkemotorer.
 # Fjern sitemap- og noindex-linjene når v9 blir gjeldende versjon.
 sitemap:
@@ -21,4 +21,4 @@ cascade:
     version: v10
 ---
 
-{{< studio-hub kind="main" >}}
+{{< studio-landing >}}

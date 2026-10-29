@@ -1,6 +1,6 @@
 ---
 title: Motta data
-description: I denne veiledningen skal vi se på hvordan data kan hentes ut fra en Altinn-app for saksbehandling
+description: Slik henter du ut data fra en Altinn-app til saksbehandling.
 weight: 20
 ---
 
