@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Prosess
 description: Prosess er et sentralt konsept i en Altinn app, og styrer hvilken flyt brukeren opplever når de bruker appen.
 weight: 60

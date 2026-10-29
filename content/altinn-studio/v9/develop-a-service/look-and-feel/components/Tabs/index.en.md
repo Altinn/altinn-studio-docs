@@ -1,6 +1,6 @@
 ---
-title: Tabs
 draft: true
+title: Tabs
 ---
 
 ## Properties

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Vedlegg og virusskanning
 linktitle: Vedlegg
 description: Oversikt over hvordan appen tar imot vedlegg fra brukere og systemer, og hvordan virusskanning fungerer.

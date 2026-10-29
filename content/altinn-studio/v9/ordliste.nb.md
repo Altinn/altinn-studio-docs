@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Ordliste
 linktitle: Ordliste
 description: Forklaringer av ord og begreper som brukes i dokumentasjonen for Altinn Studio, rettet mot tjenesteeiere.

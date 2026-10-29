@@ -1,6 +1,5 @@
 ---
 title: Summary2
-draft: true
 ---
 
 ## Egenskaper

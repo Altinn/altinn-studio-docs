@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Datamodellering i Altinn Studio
 linktitle: Datamodellering
 description: Slik bruker du datamodelleringsverktøyet i Altinn Studio til å lage og redigere datamodeller
@@ -66,7 +65,7 @@ Datamodelleringsverktøyet i Altinn Studio bruker datamodeller i JSON schema-for
 
 - [Registrerte feil og mangler for datamodelleringsverktøyet](https://github.com/orgs/Altinn/projects/1/views/10)
 - [Planlagt ny funksjonalitet for datamodelleringsverktøyet](https://github.com/orgs/Altinn/projects/1/views/6)
-- [Utvikling av datamodell for Altinn 2](/altinn-studio/v8/guides/altinn-2/altinn-2-datamodel/)
+- [Utvikling av datamodell for Altinn 2](/nb/altinn-studio/v8/guides/altinn-2/altinn-2-datamodel/)
 - [Overgang fra Seres til Altinn Studio]({{< relref "/altinn-studio/v8/guides/altinn-2/seres-migration" >}})
 {{% /expandlarge %}}
 

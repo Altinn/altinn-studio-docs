@@ -1,6 +1,6 @@
 ---
-title: SimpleTable
 draft: true
+title: SimpleTable
 ---
 
 ## Properties

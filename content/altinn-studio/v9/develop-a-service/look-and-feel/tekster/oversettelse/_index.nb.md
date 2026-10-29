@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Oversette tekster i appen
 description: Slik lar du brukeren velge språk for tekstene i appen.
 toc: true

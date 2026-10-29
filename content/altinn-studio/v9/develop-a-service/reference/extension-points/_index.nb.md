@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Grensesnitt for egen kode
 linktitle: Egen kode
 description: Oversikt over grensesnittene appen kan implementere for å kjøre egen kode, og hvor de er beskrevet.
@@ -31,7 +30,7 @@ Hookene kjører i arbeidsflytmotoren, og det samme gjør systemoppgavene. De kan
 | Grensesnitt | Bruk det til |
 | --- | --- |
 | [`IInstantiationProcessor`]({{< relref "/altinn-studio/v9/develop-a-service/data/prefill/how-to/custom" >}}) | fylle ut data når en instans blir opprettet |
-| [`IInstantiationValidator`](https://github.com/Altinn/altinn-studio/blob/main/src/App/backend/src/Altinn.App.Core/Features/IInstantiationValidator.cs) | avgjøre om en instans kan opprettes |
+| [`IInstantiationValidator`]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/instantiation-validation" >}}) | avgjøre om en instans kan opprettes |
 | [`IValidateQueryParamPrefill`]({{< relref "/altinn-studio/v9/develop-a-service/data/prefill/how-to/query-params" >}}) | kontrollere verdier som skal fylles ut fra spørringsparametere |
 | [`ICopyInstanceValidator`]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/messagebox/create-copy" >}}) | avgjøre om brukeren kan lage en kopi av en instans |
 

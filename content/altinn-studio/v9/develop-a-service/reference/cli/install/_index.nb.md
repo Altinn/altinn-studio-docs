@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Installering
 description: Installasjonskommandoer for Altinn Studio CLI
 

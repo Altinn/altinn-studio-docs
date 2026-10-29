@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Datamodellbindinger
 linktitle: Datamodellbindinger
 description: Slik kobler du komponenter i en layout til felter i en datamodell

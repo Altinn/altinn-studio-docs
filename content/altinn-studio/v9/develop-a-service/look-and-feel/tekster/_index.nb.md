@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Tekster
 description: Slik redigerer og formaterer du tekster, bruker variabler og legger til hjelpetekster i appen.
 toc: true

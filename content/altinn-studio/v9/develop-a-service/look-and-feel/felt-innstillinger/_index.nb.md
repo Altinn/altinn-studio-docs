@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Innstillinger for felt
 linktitle: Innstillinger
 description: Slik viser du at et felt er valgfritt, setter en tegngrense og styrer autolagring

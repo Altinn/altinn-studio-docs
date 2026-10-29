@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Innstillinger for publisering
 linktitle: Publisering
 description: Oversikt over innstillingene i deployment/values.yaml som styrer hvordan appen kjører etter publisering
