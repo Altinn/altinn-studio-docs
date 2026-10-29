@@ -1,6 +1,6 @@
 ---
 draft: false
-title: Sende hendelser fra appen
+title: Sende hendelser til Altinn Events
 linktitle: Hendelser
 description: Slik slår du på hendelsene appen sender selv, og slik sender du dine egne hendelser til Altinn Events
 weight: 70
