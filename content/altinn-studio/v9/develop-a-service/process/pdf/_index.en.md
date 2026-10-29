@@ -11,6 +11,21 @@ weight: 20
 
 The app generates PDFs through a **service task** that you add as a step in the process. The task defines which content the PDF should contain and where in the process it is generated.
 
+The PDF task takes its content from one of two places:
+
+- If the task's UI folder sets `pdfLayoutName` in `Settings.json`, the PDF is that page. The app then ignores `autoPdfTaskIds`.
+- Otherwise, the app generates the PDF automatically from the tasks you list in `autoPdfTaskIds`. It skips blank entries, tasks without a UI folder of their own and the PDF task itself.
+
+The pages in `pages.order` are never part of the PDF. They are waiting pages the user sees while the task runs.
+
+The build checks the setup:
+
+- If the task has no `pdfLayoutName`, and `autoPdfTaskIds` is missing or lists only blank entries, the build fails with [ALTINNAPP1000]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1000" >}}).
+- If `pdfLayoutName` names a page that does not exist in the task's UI folder, the build fails with [ALTINNAPP1026]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1026" >}}).
+- If `autoPdfTaskIds` lists an entry that adds nothing to the PDF, the build reports the warning [ALTINNAPP1002]({{< relref "/altinn-studio/v9/develop-a-service/reference/analysis/rules/ALTINNAPP1002" >}}). That applies to the PDF task itself, tasks without a UI folder of their own, and blank entries next to other entries.
+
+The app also checks for the two errors when it starts, and does not start with such a PDF task.
+
 To generate PDFs of subforms, there is a separate service task. See [PDF generation for subforms](/nb/altinn-studio/v9/develop-a-service/look-and-feel/subform/subform-pdf/) (documentation available in Norwegian only).
 
 {{% notice info %}}
@@ -19,7 +34,7 @@ Images in this guide show Norwegian GUI elements, as Altinn Studio Designer is o
 
 ## Setup
 
-You can use the Arbeidsflyt tab in Altinn Studio to add a PDF service task.
+You can use the **Prosess** tab in Altinn Studio to add a PDF service task.
 
 ![Add PDF service task](add-pdf-step.png "Add PDF service task")
 
@@ -30,7 +45,7 @@ There you choose between two approaches: standard or custom PDF.
 
 {{% expandlarge id="auto-generated-pdf" header="Standard PDF based on previous tasks" %}}
 
-If you select this option, you specify which previous tasks should be included in the PDF. The content is based on the components in the selected tasks, displayed in summary mode. This function does not respect the pdfLayoutName configuration in Settings.json.
+If you select this option, you specify which previous tasks should be included in the PDF. The content is based on the components in the selected tasks, displayed in summary mode.
 
 ![Example setup standard PDF](auto-pdf.png "Example setup standard PDF")
 
@@ -62,13 +77,13 @@ Altinn Studio inserts a service task into `process.bpmn`. The result may differ 
 
 {{% expandlarge id="custom-pdf-layout" header="Custom PDF with custom content" %}}
 
-If you select this option, you can determine the content of the PDF yourself by defining your own layout files for the PDF service task.
+If you select this option, you decide the content of the PDF yourself with a page of its own in the PDF service task's UI folder. The page is the one `pdfLayoutName` names.
 
 You first provide a name for the PDF service task and then choose a data model as the default model. You can, for example, choose the model of one of the tasks included in the PDF.
 
 ![Example setup custom PDF](manual-pdf.png "Example setup custom PDF")
 
-Altinn Studio inserts a service task into `process.bpmn` and generates the task's layout files, but without content in PdfLayout.json.
+Altinn Studio inserts a service task into `process.bpmn` and creates the task's UI folder with an empty `PdfLayout.json`.
 
 {{< code-title >}}
   App/config/process/process.bpmn
@@ -91,7 +106,7 @@ Altinn Studio inserts a service task into `process.bpmn` and generates the task'
 
 ### Folder structure and files
 
-The PDF service task needs its own folder of layout files to define the content. If you use the Arbeidsflyt editor, Altinn Studio generates this automatically. You then only need to edit the content in `PdfLayout.json`.
+The PDF service task needs its own UI folder holding the page that becomes the PDF. If you add the task in the **Prosess** tab, Altinn Studio creates the folder for you. You then only need to edit the content in `PdfLayout.json`.
 
 The files and folder structure should look approximately like this:
 
@@ -104,8 +119,7 @@ App/ui/
 └── Pdf/
     ├── Settings.json
     └── layouts/
-        ├── PdfLayout.json
-        └── ServiceTask.json
+        └── PdfLayout.json
 ```
 
 #### Settings.json
@@ -129,9 +143,7 @@ App/ui/
         "type": "receipt"
       }
     ],
-    "order": [
-      "ServiceTask"
-    ]
+    "order": []
   }
 }
 ```
@@ -166,38 +178,9 @@ In this file, you define the content of the PDF. You typically use the Summary2 
 }
 ```
 
-#### ServiceTask.json
+#### Waiting page
 
-A service task with its own folder of layout files must have at least one page, so Altinn Studio creates this one. The user does not normally see it: while the PDF is being generated, the app shows its ordinary loading view, and if generation fails, it shows its own failure page with a **Try again** button. See [What the user sees while a service task runs](/nb/altinn-studio/v9/develop-a-service/process/service-tasks/visning/) (documentation available in Norwegian only).
-
-{{< code-title >}}
-  App/ui/Pdf/layouts/ServiceTask.json
-{{< /code-title >}}
-
-```json
-{
-  "$schema": "https://altinncdn.no/schemas/json/layout/layout.schema.v1.json",
-  "data": {
-    "layout": [
-      {
-        "size": "L",
-        "id": "service-task-waiting-title",
-        "type": "Heading",
-        "textResourceBindings": {
-          "title": "service_task.waiting_title"
-        }
-      },
-      {
-        "id": "service-task-waiting-body",
-        "type": "Paragraph",
-        "textResourceBindings": {
-          "title": "service_task.waiting_body"
-        }
-      }
-    ]
-  }
-}
-```
+Altinn Studio creates no waiting page. While the PDF is being generated, the user sees the ordinary loading view, and if generation fails, the app shows its own failure page with a **Prøv igjen** button. To show a page of your own while the task runs, add it to `pages.order`. It never becomes part of the PDF. See [What the user sees while a service task runs](/nb/altinn-studio/v9/develop-a-service/process/service-tasks/visning/) (documentation available in Norwegian only).
 
 {{% /expandlarge %}}
 

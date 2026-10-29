@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Kjøremiljø
 description: Kjøremiljøet for Altinn 3-applikasjoner for en tjenesteeier
 

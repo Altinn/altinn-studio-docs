@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Gruppering av enkeltfelter
 linktitle: Ikke-repeterende
 description: Slik setter du opp ikke-repeterende grupper

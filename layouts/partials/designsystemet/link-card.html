@@ -1,0 +1,15 @@
+{{- /*
+  Klikkbart kort fra Designsystemet (Card med data-clickdelegatefor).
+  Lenken ligger i overskriften, så skjermlesere leser bare tittelen som lenketekst,
+  mens hele kortet er klikkbart.
+  Tar imot: id, href, title, text og eventuelt color (en farge fra temaet, som gir tonet bakgrunn).
+*/ -}}
+<li>
+    <div class="ds-card studio-link-card" data-clickdelegatefor="{{ .id }}"{{ with .color }} data-color="{{ . }}" data-variant="tinted"{{ else }} data-color="accent"{{ end }}>
+        <div class="studio-link-card-text">
+            <h3 class="ds-heading" data-size="xs"><a class="ds-link" id="{{ .id }}" href="{{ .href }}">{{ .title }}</a></h3>
+            <p class="ds-paragraph" data-size="sm">{{ .text }}</p>
+        </div>
+        <svg class="studio-link-card-arrow" aria-hidden="true" width="1.5em" height="1.5em" viewBox="0 0 24 24" fill="none"><path fill="currentColor" fill-rule="evenodd" d="M13.47 5.47a.75.75 0 0 1 1.06 0l6 6a.75.75 0 0 1 0 1.06l-6 6a.75.75 0 1 1-1.06-1.06l4.72-4.72H4a.75.75 0 0 1 0-1.5h14.19l-4.72-4.72a.75.75 0 0 1 0-1.06" clip-rule="evenodd"/></svg>
+    </div>
+</li>

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Grensesnitt for egen kode
 linktitle: Egen kode
 description: Oversikt over grensesnittene appen kan implementere for å kjøre egen kode, og hvor de er beskrevet.
@@ -15,7 +14,7 @@ Appen kjører egen kode gjennom grensesnitt i applikasjonsbibliotekene. Du lager
 | --- | --- |
 | [`IOnTaskStartingHandler`]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks" >}}#kjøre-kode-når-en-oppgave-starter) | kjøre kode når en oppgave starter |
 | [`IOnTaskEndingHandler`]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks" >}}#kjøre-kode-når-en-oppgave-avsluttes) | kjøre kode når en oppgave avsluttes, før prosessen går videre |
-| [`IOnTaskAbandonHandler`]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks" >}}#kjøre-kode-når-en-oppgave-avbrytes) | kjøre kode når en oppgave avbrytes |
+| [`IOnTaskAbandoningHandler`]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks" >}}#kjøre-kode-når-en-oppgave-avbrytes) | kjøre kode når en oppgave avbrytes |
 | [`IOnProcessEndedHandler`]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks" >}}#kjøre-kode-etter-at-prosessen-er-avsluttet) | kjøre kode etter at prosessen er avsluttet og lagret |
 | [`IProcessExclusiveGateway`]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/exclusive-gateways" >}}) | avgjøre hvilken vei prosessen tar ut av en gateway |
 | [`IServiceTask`]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}) | lage en systemoppgave som gjør én ting |
@@ -31,7 +30,7 @@ Hookene kjører i arbeidsflytmotoren, og det samme gjør systemoppgavene. De kan
 | Grensesnitt | Bruk det til |
 | --- | --- |
 | [`IInstantiationProcessor`]({{< relref "/altinn-studio/v9/develop-a-service/data/prefill/how-to/custom" >}}) | fylle ut data når en instans blir opprettet |
-| [`IInstantiationValidator`](https://github.com/Altinn/altinn-studio/blob/main/src/App/backend/src/Altinn.App.Core/Features/IInstantiationValidator.cs) | avgjøre om en instans kan opprettes |
+| [`IInstantiationValidator`]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/instantiation-validation" >}}) | avgjøre om en instans kan opprettes |
 | [`IValidateQueryParamPrefill`]({{< relref "/altinn-studio/v9/develop-a-service/data/prefill/how-to/query-params" >}}) | kontrollere verdier som skal fylles ut fra spørringsparametere |
 | [`ICopyInstanceValidator`]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/messagebox/create-copy" >}}) | avgjøre om brukeren kan lage en kopi av en instans |
 

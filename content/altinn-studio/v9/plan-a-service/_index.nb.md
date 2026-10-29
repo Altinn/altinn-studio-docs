@@ -1,6 +1,5 @@
 ---
-draft: true
 title: Planlegge tjenester
-description: Plan og forbered din digitale tjeneste
+description: Slik planlegger og forbereder du den digitale tjenesten din.
 weight: 20
 ---

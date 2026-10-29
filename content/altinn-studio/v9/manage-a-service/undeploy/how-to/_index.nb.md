@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Hvordan avpublisere en app
 linktitle: 🎯 Guide
 description: Følg denne guiden for å avpublisere en app i Altinn Studio.

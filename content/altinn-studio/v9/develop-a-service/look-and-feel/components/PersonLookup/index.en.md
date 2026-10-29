@@ -1,6 +1,6 @@
 ---
-title: PersonLookup
 draft: true
+title: PersonLookup
 ---
 
 ## Properties

@@ -1,6 +1,6 @@
 ---
-title: Group
 draft: true
+title: Group
 ---
 
 ## Properties
