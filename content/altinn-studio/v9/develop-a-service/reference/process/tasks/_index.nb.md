@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Prosessoppgaver
 description: Prosessoppgaver i Altinn Studio
 tags: [altinn-apps, process, bpmn, task]

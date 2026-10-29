@@ -2,7 +2,6 @@
 title: Integrere Altinn-app med Varsling
 linktitle: Varsling
 description: Slik sender du e-post og SMS til brukere fra en Altinn-app.
-draft: true
 weight: 110
 toc: true
 tags: [Reviewed]

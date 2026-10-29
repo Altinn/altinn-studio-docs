@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Feilsøke i appen
 linktitle: Feilsøking
 description: Slik feilsøker du i appen lokalt med Visual Studio Code.

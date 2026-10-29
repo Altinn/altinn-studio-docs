@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Forhåndsutfylle data basert på spørringsparametere
 linktitle: Spørringsparametere
 description: Slik konfigurerer du forhåndsutfylling for en app basert på spørringsparametere.

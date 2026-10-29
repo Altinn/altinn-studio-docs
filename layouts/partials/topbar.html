@@ -1,7 +1,8 @@
 <nav class="a-jumpnav">
   <ul class="no-decoration d-flex">
     <li><a class="sr-only sr-only-focusable" href="#content">{{ T "jump-to-main-content" }}</a></li>
-    {{- if not .Params.jumbotron -}}
+    {{- /* Sider med layout: designsystemet har ingen sidemeny (#docsmenu). */ -}}
+    {{- if and (not .Params.jumbotron) (ne .Layout "designsystemet") -}}
     <li><a class="sr-only sr-only-focusable" href="#docsmenu">{{ T "jump-to-main-menu" }}</a></li>
     {{- end -}}
   </ul>

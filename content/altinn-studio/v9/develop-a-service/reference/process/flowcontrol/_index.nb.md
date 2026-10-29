@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Flytkontroll
 description: Slik styrer du hvilken vei prosessen følger med gateways, uttrykk og tilpasset kode.
 tags: [altinn-apps, process, bpmn, gateway, needsReview]

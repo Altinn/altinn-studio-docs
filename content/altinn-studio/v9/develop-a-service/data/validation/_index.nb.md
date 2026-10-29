@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Validering
 description: Slik kontrollerer appen at dataene brukeren fyller inn, er gyldige
 toc: true

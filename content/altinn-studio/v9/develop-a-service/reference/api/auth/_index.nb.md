@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Autentisering
 description: Autentiseringsmetoder for API-er
 weight: 800

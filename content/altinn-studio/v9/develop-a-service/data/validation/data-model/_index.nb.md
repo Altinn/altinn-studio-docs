@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Validere med datamodellen
 linktitle: Datamodell
 description: Slik setter du begrensninger på feltene i datamodellen, og slik tilpasser du feilmeldingene

@@ -1,11 +1,10 @@
 ---
-draft: true
 title: CLI
-description: Referansedokumentasjon for Altinn CLI (kommandolinjeverktøy).
+description: Referansedokumentasjon for studioctl, kommandolinjeverktøyet for Altinn Studio.
 
 tags: [needsReview, migrate-from-v8]
 ---
 
-Referansedokumentasjon for Altinn CLI, kommandolinjeverktøyet for Altinn Studio.
+Referansedokumentasjon for studioctl, kommandolinjeverktøyet for Altinn Studio.
 
 {{<children />}}

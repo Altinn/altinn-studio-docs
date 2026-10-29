@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Brukerteste tjenester
 weight: 2
 tags: [Reviewed]

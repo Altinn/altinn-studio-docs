@@ -1,6 +1,6 @@
 ---
-title: InstantiationButton
 draft: true
+title: InstantiationButton
 ---
 
 ## Properties

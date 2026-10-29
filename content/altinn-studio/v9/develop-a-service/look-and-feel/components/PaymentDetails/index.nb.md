@@ -1,6 +1,5 @@
 ---
 title: PaymentDetails
-draft: true
 ---
 
 ## Egenskaper

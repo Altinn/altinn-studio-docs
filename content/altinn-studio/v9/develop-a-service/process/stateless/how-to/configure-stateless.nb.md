@@ -2,7 +2,6 @@
 title: Hvordan sette opp en stateless app
 linktitle: Oppsett
 description: Følg stegene i denne guiden for å sette opp en stateless app.
-draft: true
 weight: 1
 tags: [needsReview]
 ---
