@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Using the Different Parts of Altinn Studio
 linktitle: The Different Parts of Altinn Studio
 description: How to use the different parts of Altinn Studio.

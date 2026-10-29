@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Visualise Telemetry
 linktitle: Visualise Telemetry
 description: How to visualise telemetry from Altinn 3 apps.

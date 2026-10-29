@@ -1,4 +1,5 @@
 ---
+draft: true
 title: This is Altinn Studio
 description: Altinn Studio is a tool for developing, operating and managing digital services for citizens and businesses.
 weight: 1

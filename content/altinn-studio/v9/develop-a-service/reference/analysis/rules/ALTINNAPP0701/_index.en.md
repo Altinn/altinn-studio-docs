@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "ALTINNAPP0701: incomplete registration discarded"
 description: "The result of a builder call is discarded, but it is not a usable registration on its own"
 weight: 71

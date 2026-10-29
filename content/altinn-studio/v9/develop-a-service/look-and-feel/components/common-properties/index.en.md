@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Common component properties
 ---
 

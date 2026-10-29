@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "ALTINNAPP1003: task uses the wrong BPMN element"
 description: "A task in process.bpmn is a different BPMN element from the one its task type requires"
 weight: 103

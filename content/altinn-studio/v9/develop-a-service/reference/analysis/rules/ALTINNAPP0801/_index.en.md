@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "ALTINNAPP0801: service owner authorisation could not be verified"
 description: "The analysis could not determine statically whether the app owner has the required rights"
 weight: 81

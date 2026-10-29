@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Data model bindings
 linktitle: Data model bindings
 description: Connect components in a layout to fields in a data model

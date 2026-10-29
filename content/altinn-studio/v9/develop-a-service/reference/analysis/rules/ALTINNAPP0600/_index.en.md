@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "ALTINNAPP0600: enablePdfCreation is not supported"
 description: "enablePdfCreation on a dataType is no longer supported"
 weight: 60

@@ -1,4 +1,5 @@
 ---
+draft: true
 title: PDF
 linktitle: PDF
 description: How to set up PDF generation as a service task

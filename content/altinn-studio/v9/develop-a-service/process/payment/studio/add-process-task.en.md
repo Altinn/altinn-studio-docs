@@ -1,4 +1,5 @@
 ---
+draft: true
 hidden: true
 ---
 > The setup in this section is done from the Process page in the app editor. Navigate there by clicking on "Process"
