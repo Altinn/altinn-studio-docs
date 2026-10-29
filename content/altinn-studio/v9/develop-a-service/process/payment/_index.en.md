@@ -40,7 +40,7 @@ Create Nets Easy agreement here: [payments.nets.eu](https://payments.nets.eu/nb-
 
 When Nets notifies the app that the payment is complete, the app updates the payment information and advances the process on behalf of the service owner. In `App/config/authorization/policy.xml`, `[org]` must therefore have the `read` and `write` actions for the app and the `confirm` action for the payment task.
 
-Altinn Studio automatically adds the standard Maskinporten scopes for service owners to apps that use Altinn App v9. However, you must still verify that the authorisation policy grants the required actions to the service owner. See [integrating with Maskinporten](/en/altinn-studio/v9/develop-a-service/integration/maskinporten/). Build and deploy the app again after changing the scopes or the authorisation policy.
+Altinn Studio automatically adds the standard Maskinporten scopes for service owners to apps that use Altinn App v9. However, you must still verify that the authorisation policy grants the required actions to the service owner. See [integrating with Maskinporten](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/). Build and deploy the app again after changing the scopes or the authorisation policy.
 
 
 <!--Konfigurer visning av betalingsinformasjon-->

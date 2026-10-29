@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Slik slår du på virusskanning
 linktitle: Virusskanning
 description: Slik slår du på virusskanning for vedlegg og bestemmer om brukerne må vente på resultatet.

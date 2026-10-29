@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Fiks Arkiv
 linktitle: Fiks Arkiv
 description: Slik setter du opp Fiks Arkiv som systemoppgave i appen din.

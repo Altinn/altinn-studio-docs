@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Hemmeligheter
 linktitle: Hemmeligheter
 description: Slik gir du appen tilgang til hemmeligheter i Azure Key Vault

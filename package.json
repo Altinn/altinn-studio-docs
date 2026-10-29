@@ -1,0 +1,16 @@
+{
+  "name": "altinn-studio-docs",
+  "private": true,
+  "description": "Hugo-avhengigheter for Altinn-dokumentasjonen. Designsystemet hentes herfra av Hugo Pipes.",
+  "scripts": {
+    "theme": "designsystemet tokens create -y && designsystemet tokens build --out-dir assets/designsystemet --clean"
+  },
+  "dependencies": {
+    "@digdir/designsystemet-css": "1.23.0",
+    "@digdir/designsystemet-web": "1.23.0",
+    "@navikt/aksel-icons": "8.19.1"
+  },
+  "devDependencies": {
+    "@digdir/designsystemet": "1.23.0"
+  }
+}

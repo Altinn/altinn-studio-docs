@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Systemoppgaver med flere steg
 linktitle: Flere steg
 description: Slik deler du en systemoppgave i flere arbeidssteg, og lar den vente på svar utenfra

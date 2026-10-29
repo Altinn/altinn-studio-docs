@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Funksjoner
 linktitle: Funksjoner
 description: Oversikt over dynamiske uttrykk definert i JSON
@@ -516,7 +515,7 @@ Eksempel:
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-displayValue" header="displayValue" %}}
-Funksjonen `displayValue` gjør et oppslag på en komponent og returnerer en formattert tekststreng som representerer verdien i datamodellen. Dette er til forskjell fra [component](#func-component)-funksjonen som returnerer råverdien som ligger i datamodellen. Denne funksjonen egner seg best til visning av en komponents verdi for brukeren, og mindre til videre logikk basert på verdien som returneres. Dette er spesielt relevant for Input-felter med [tallformattering](/nb/altinn-studio/v9/develop-a-service/look-and-feel/styling/#formatering-av-tall), datofelter, radioknapper og andre komponenter med kodelister.
+Funksjonen `displayValue` gjør et oppslag på en komponent og returnerer en formattert tekststreng som representerer verdien i datamodellen. Dette er til forskjell fra [component](#func-component)-funksjonen som returnerer råverdien som ligger i datamodellen. Denne funksjonen egner seg best til visning av en komponents verdi for brukeren, og mindre til videre logikk basert på verdien som returneres. Dette er spesielt relevant for Input-felter med [tallformattering](/nb/altinn-studio/v8/reference/ux/styling/#formatering-av-tall), datofelter, radioknapper og andre komponenter med kodelister.
 
 Eksempel:
 

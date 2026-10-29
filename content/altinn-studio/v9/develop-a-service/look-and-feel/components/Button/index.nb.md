@@ -1,6 +1,5 @@
 ---
 title: Button
-draft: true
 ---
 
 ## Egenskaper

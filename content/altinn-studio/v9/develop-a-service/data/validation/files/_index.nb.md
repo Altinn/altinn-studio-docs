@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Utvidet filvalidering
 description: Slik utfører du utvidet filvalidering.
 toc: false

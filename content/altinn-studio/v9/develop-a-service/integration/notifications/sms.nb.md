@@ -1,7 +1,6 @@
 ---
 title: SMS
 description: Slik sender du SMS til brukere fra appen din.
-draft: true
 weight: 20
 tags: [Reviewed]
 ---

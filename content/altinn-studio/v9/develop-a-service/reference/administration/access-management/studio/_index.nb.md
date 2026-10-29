@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Standardteam i Altinn Studio
 linktitle: Studio
 description: Oversikt over standardteamene og tilgangene de gir i Altinn Studio.

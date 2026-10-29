@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Slik tar du imot vedlegg i skjemaet
 linktitle: Vedlegg i skjemaet
 description: Slik legger du til en vedleggskomponent i skjemaet og setter opp filtyper, antall filer og merking.

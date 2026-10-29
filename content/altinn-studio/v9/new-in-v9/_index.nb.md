@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Hvorfor v9?
 linktitle: Nytt i v9
 description: Bakgrunnen for v9, og hva den nye versjonen betyr for deg som eier eller utvikler en Altinn-app.
