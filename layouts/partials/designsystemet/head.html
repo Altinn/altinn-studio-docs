@@ -3,6 +3,10 @@
   Følger oppsettet på https://designsystemet.no/no/fundamentals/code/setup:
   CSS fra @digdir/designsystemet-css, deretter temaet (Altinn-temaet laget med CLI-en, se designsystemet.config.json),
   og web-komponentene fra @digdir/designsystemet-web. Pakkene installeres med npm ci og hentes av Hugo Pipes.
+
+  Siden bruker topplinjen og bunnteksten fra temaet, så CSS-en fra temaet må også lastes.
+  Den legges i laget "legacy", som kommer før laget "ds" til Designsystemet.
+  Da beholder topplinjen og bunnteksten utseendet sitt, og Designsystemet vinner der stilene kolliderer.
 */ -}}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,6 +17,17 @@
 <title>{{ .Title }} – Altinn</title>
 <link rel="shortcut icon" href="{{ "images/favicon.png" | relURL }}" type="image/x-icon">
 <link rel="stylesheet" href="https://altinncdn.no/fonts/inter/inter.css">
+<style>
+  @layer legacy, ds;
+  @import url("{{ "css/nucleus.css" | relURL }}") layer(legacy);
+  @import url("{{ "css/font-awesome.min.css" | relURL }}") layer(legacy);
+  @import url("{{ "css/hybrid.css" | relURL }}") layer(legacy);
+  @import url("{{ "css/fortawesome.css" | relURL }}") layer(legacy);
+  @import url("{{ "css/designsystem.css" | relURL }}") layer(legacy);
+  @import url("{{ "css/theme.css" | relURL }}") layer(legacy);
+  @import url("{{ "css/custom.css" | relURL }}") layer(legacy);
+</style>
+<script src="{{ "js/jquery-2.x.min.js" | relURL }}"></script>
 
 {{- $dsCss := resources.Get "vendor/designsystemet-css/index.css" -}}
 {{- if not $dsCss }}{{ errorf "Fant ikke CSS-en til Designsystemet. Kjør npm ci før hugo." }}{{ end -}}
@@ -28,5 +43,4 @@
 {{- end }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}"{{ with $css.Data.Integrity }} integrity="{{ . }}"{{ end }}>
 <script type="module" src="{{ $js.RelPermalink }}"{{ with $js.Data.Integrity }} integrity="{{ . }}"{{ end }}></script>
-<link rel="stylesheet" href="/pagefind/pagefind-ui.css">
 {{ partial "analytics.html" . }}
