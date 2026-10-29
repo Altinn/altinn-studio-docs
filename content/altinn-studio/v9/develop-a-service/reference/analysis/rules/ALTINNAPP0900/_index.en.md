@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "ALTINNAPP0900: two fields share the same id"
 description: "Two entries in presentationFields or dataFields have the same id for the same dataTypeId"
 weight: 90

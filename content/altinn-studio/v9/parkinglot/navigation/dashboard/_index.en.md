@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Dashboard in Altinn Studio
 linktitle: Dashboard
 description: How to use the dashboard

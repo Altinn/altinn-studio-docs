@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Unpublishing an app
 linktitle: Unpublishing
 description: Explains how to unpublish apps in Altinn Studio.

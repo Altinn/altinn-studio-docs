@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "ALTINNAPP1002: PDF service task lists an entry that adds nothing to its PDF"
 description: "autoPdfTaskIds lists the PDF task itself, a task without a UI folder, or a blank entry next to other entries"
 weight: 102

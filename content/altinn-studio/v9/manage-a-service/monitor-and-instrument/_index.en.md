@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Monitor and instrument
 linktitle: Monitor and instrument
 description: Get started with Altinn monitoring tools and instrumentation

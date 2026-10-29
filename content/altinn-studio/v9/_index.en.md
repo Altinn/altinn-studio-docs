@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Altinn Studio
 linktitle: Altinn Studio
 breadcrumbText: V9 (preview)
