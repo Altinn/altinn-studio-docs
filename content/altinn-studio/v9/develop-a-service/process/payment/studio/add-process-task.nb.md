@@ -37,4 +37,4 @@ Gatewayen skal ha to piler (sekvensflyter) ut:
 1. Klikk på pilen som går _tilbake_ i arbeidsflyten.
 2. Gjenta stegene over, men ikke endre handlingen. Den skal være **Avvise**.
 
-![Arbeidsflyt med oppgavene Utfylling og Betaling, og en gateway som enten går videre til slutten eller tilbake til Utfylling](/nb/altinn-studio/v9/develop-a-service/process/payment/process-data-payment.png "Arbeidsflyt med betaling")flyt med betaling")
+![Arbeidsflyt med oppgavene Utfylling og Betaling, og en gateway som enten går videre til slutten eller tilbake til Utfylling](/nb/altinn-studio/v9/develop-a-service/process/payment/process-data-payment.png "Arbeidsflyt med betaling")
