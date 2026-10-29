@@ -5,7 +5,7 @@ description: Kommandoer for å installere, kontrollere, oppdatere og avinstaller
 toc: true
 ---
 
-I v9 bruker du kommandolinjeverktøyet studioctl. Dokumentasjonen for v8 beskriver .NET-verktøyet `altinn.studio.cli`. Det bruker du ikke i v9.
+studioctl er kommandolinjeverktøyet for Altinn Studio. Du bruker det når du jobber med appen på egen maskin.
 
 {{% notice warning %}}
 {{% insert "content/altinn-studio/shared/studioctl/preview-warning.nb.md" %}}
@@ -65,5 +65,5 @@ Kommandoen spør før den fjerner noe. Legg til `--yes` hvis du ikke vil få sp�
 
 ## Neste steg
 
-- [Oppgrader appen fra v8 til v9]({{< relref "/altinn-studio/v9/new-in-v9/upgrade" >}}).
+- [Oppgrader appen til v9]({{< relref "/altinn-studio/v9/new-in-v9/upgrade" >}}).
 - [Test appen på egen maskin]({{< relref "/altinn-studio/v9/getting-started/development/localtest/local-dev" >}}).
