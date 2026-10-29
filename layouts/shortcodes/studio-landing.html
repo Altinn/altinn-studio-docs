@@ -62,15 +62,10 @@
             <div class="studio-section-head">
                 <h2 class="ds-heading" data-size="md" id="studio-sections-title">{{ if $nb }}Finn fram i dokumentasjonen{{ else }}Find your way in the documentation{{ end }}</h2>
             </div>
-            <ul class="studio-index ds-list--unstyled">
-                {{- range $sections }}
-                {{- with $p.Site.GetPage (printf "/altinn-studio/v9/%s" .) }}
-                <li>
-                    <a class="ds-link studio-index-link" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-                    {{- with .Description }}
-                    <p class="ds-paragraph" data-size="sm">{{ . }}</p>
-                    {{- end }}
-                </li>
+            <ul class="studio-grid ds-list--unstyled">
+                {{- range $i, $path := $sections }}
+                {{- with $p.Site.GetPage (printf "/altinn-studio/v9/%s" $path) }}
+                {{ partial "designsystemet/link-card.html" (dict "id" (printf "studio-section-%d" $i) "href" .RelPermalink "title" .LinkTitle "text" .Description) }}
                 {{- end }}
                 {{- end }}
             </ul>

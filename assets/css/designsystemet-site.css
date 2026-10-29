@@ -292,27 +292,6 @@ body.ds-site > main {
   translate: var(--ds-size-1) 0;
 }
 
-/* Oversikt over hoveddelene: en enkel lenkeliste i kolonner */
-.studio-index {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--ds-size-6) var(--ds-size-10);
-}
-.studio-index > li {
-  display: flex;
-  flex-direction: column;
-  gap: var(--ds-size-1);
-  margin: 0;
-}
-.studio-index-link {
-  font-size: var(--ds-body-lg-font-size);
-  font-weight: var(--ds-font-weight-medium);
-  width: fit-content;
-}
-.studio-index .ds-paragraph {
-  color: var(--ds-color-neutral-text-subtle);
-}
-
 /* Funksjoner: tittel og tekst i kolonner, uten bokser og streker */
 .studio-features {
   display: grid;
@@ -334,8 +313,7 @@ body.ds-site > main {
     grid-template-columns: 1fr;
     gap: var(--ds-size-10);
   }
-  .studio-features,
-  .studio-index {
+  .studio-features {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -355,8 +333,7 @@ body.ds-site > main {
   }
   .studio-grid,
   .studio-grid-2,
-  .studio-features,
-  .studio-index {
+  .studio-features {
     grid-template-columns: 1fr;
   }
   .studio-news {
