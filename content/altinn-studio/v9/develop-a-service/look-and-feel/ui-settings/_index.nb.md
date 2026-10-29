@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Innstillinger for sider og oppgaver
 description: Felles innstillinger, overstyringer per oppgave og automatisk lagring.
 weight: 50

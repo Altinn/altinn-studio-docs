@@ -1,5 +1,4 @@
 ---
-draft: true
 hidden: true
 tags: [Reviewed]
 ---
@@ -46,4 +45,4 @@ Hvis du hopper over dette steget, bruker appen oppsettet fra betalingsoppgaven i
 4. Legg til komponenten **Betaling**, og eventuelt andre tekster og komponenter du vil ha på PDF-siden.
 5. Åpne utviklerverktøyet i forhåndsvisningen med knappen nederst til høyre, eller med hurtigtasten **Ctrl+Shift+K** (**⌘+Shift+K** på Mac). Klikk deretter på **Generer PDF** under **Forhåndsvis PDF**.
 
-   ![Knappen for å åpne utviklerverktøyet nederst til høyre i forhåndsvisningen](./devtools.png "Åpne utviklerverktøyet")
+   ![Knappen for å åpne utviklerverktøyet nederst til høyre i forhåndsvisningen](/nb/altinn-studio/v9/develop-a-service/process/payment/devtools.png "Åpne utviklerverktøyet")

@@ -1,6 +1,6 @@
 ---
-title: RepeatingGroup
 draft: true
+title: RepeatingGroup
 ---
 
 ## Properties

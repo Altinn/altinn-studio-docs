@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Konfigurere autentisering
 linktitle: Autentisering
 description: Slik konfigurerer du autentisering.

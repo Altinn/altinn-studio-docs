@@ -8,7 +8,7 @@ Dette er en Hugo-basert dokumentasjonsside for Altinn-produkter som Altinn Studi
 
 **For brukeren**: Start Hugo-server i terminal ved øktstart:
 ```bash
-cd <repo-root> && hugo server
+cd <repo-root> && npm ci && hugo server
 ```
 Åpne nettleser på http://localhost:1313/
 
@@ -20,6 +20,8 @@ cd <repo-root> && hugo server
 - `themes/` - Hugo-tema
 - `config.toml` - Hugo-konfigurasjon
 - `public/` - Generert nettsted
+- `assets/` - Filer Hugo Pipes behandler, blant annet temaet og CSS-en til Designsystemet
+- `package.json` - npm-avhengigheter (Designsystemet). Kjør `npm ci` før `hugo server`
 
 ### Nøkkelfunksjoner
 
@@ -91,6 +93,9 @@ for eksempel `Funksjonen er tilgjengelig fra versjon [[FIX BEFORE MERGE: første
 - List alle plassholdere i PR-beskrivelsen, så den som skal fylle dem inn ser dem.
 - Fjern alle plassholdere før PR-en merges.
 
+### Språkvask før commit
+
+Når du har skrevet eller endret norsk tekst på en side i `content/`, kjør skillen `tekstforfatter-altinn-docs` over siden og rett funnene før du committer. Gjør det uten at noen ber om det, også når du har skrevet teksten selv. Hvis skillen ikke er tilgjengelig, sjekk teksten mot reglene under «Språk og stil», «Overskriftsregler» og «Listeregler».
 ### Før commit
 
 Verifiser kun `.md`-filer (og evt. bilder) committes:
@@ -171,6 +176,9 @@ Rett småfeil (ofte grammatikk) raskt - tar vanligvis 5-10 min.
 - **Bruk etterstilte pronomen** på norsk
   - ❌ Feil: "ditt system", "din tjeneste", "dine data"
   - ✅ Riktig: "systemet ditt", "tjenesten din", "dataene dine"
+- **Skriv "brukeren" eller flertall når du omtaler sluttbrukeren**. Trenger du et pronomen, bruk "de"
+  - ❌ Feil: "hen", "han", "hun"
+  - ✅ Riktig: "Brukerne får en feilmelding hvis de prøver å laste opp en annen filtype"
 - **Bruk bestemt form** når du snakker om spesifikke ting
   - ❌ Feil: "flyt", "prosess", "kode", "applikasjon"
   - ✅ Riktig: "flyten", "prosessen", "koden", "applikasjonen"

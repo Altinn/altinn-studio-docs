@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Slik setter du opp betaling i appen
 linktitle: Betaling
 description: Slik integrerer du betaling i Altinn-appen din.

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Teste API som organisasjon
 linktitle: Organisasjon
 description: Slik tester du API-ene i appen som organisasjon når du kjører appen med den lokale testplattformen.

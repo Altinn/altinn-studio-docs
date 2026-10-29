@@ -1,6 +1,5 @@
 ---
 title: Felles komponentegenskaper
-draft: true
 ---
 
 ## Egenskaper

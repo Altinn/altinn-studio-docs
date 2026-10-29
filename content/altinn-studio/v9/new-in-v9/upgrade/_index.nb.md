@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Slik oppgraderer du appen fra v8 til v9
 linktitle: Oppgradere fra v8
 description: Slik oppgraderer du en Altinn-app fra v8 til v9 med studioctl.
@@ -8,31 +7,36 @@ toc: true
 tags: [Reviewed]
 ---
 
-`studioctl app upgrade` gjør mesteparten av jobben for deg. Verktøyet går gjennom appen og endrer de filene som trenger det.
+Vi anbefaler at du oppgraderer appen med kommandolinjeverktøyet studioctl. `studioctl app upgrade` gjør mesteparten av jobben for deg. Verktøyet går gjennom appen og endrer de filene som trenger det.
 
-## Før du starter
+## Dette gjør du som tjenesteeier
+
+Det er som regel utvikleren eller leverandøren din som kjører oppgraderingen. Som tjenesteeier bør du
+
+- avtale med dem når appen skal oppgraderes
+- lese [Dette endrer oppgraderingen i appen din](#dette-endrer-oppgraderingen-i-appen-din) og vurdere hva endringene betyr for brukerne
+- teste appen grundig i testmiljøet før dere publiserer den i produksjon
+
+## 1. Sett opp studioctl og hent appen
+
+Har du ikke appen på maskinen din, følger du [veiledningen for å installere og sette opp studioctl]({{< relref "/altinn-studio/v9/getting-started/studioctl" >}}). Der installerer du studioctl, logger inn og henter appen.
+
+Har du appen på maskinen fra før, trenger du ikke hente den på nytt. Har du ikke studioctl ennå, [installerer du verktøyet]({{< relref "/altinn-studio/v9/getting-started/studioctl#installer-studioctl" >}}). Har du studioctl fra før, oppdaterer du til siste versjon:
+
+```bash
+studioctl self update
+```
+
+## 2. Gjør appen klar
+
+Slik gjør du appen klar før du oppgraderer:
 
 - Commit alt du har jobbet med. Oppgraderingen stopper hvis repositoriet har endringer du ikke har committet.
 - Lukk appen i editoren din, for eksempel Visual Studio eller Visual Studio Code.
 - Lag en egen branch, slik at du har et punkt å gå tilbake til hvis du vil angre oppgraderingen.
+- Kontroller at du har .NET SDK 11 eller nyere. Kjør `dotnet --version` i rotmappen til appen. Bruker du en forhåndsversjon av .NET 11, må den være 11.0.100-rc.2 eller nyere. Har appen en `global.json` som velger en eldre versjon, må du endre den. Oppgraderingen stopper og sier fra hvis versjonen er for gammel.
 
-## 1. Installer studioctl
-
-På Mac og Linux:
-
-```bash
-curl -sSL https://altinn.studio/designer/api/v1/studioctl/install.sh | sh
-```
-
-I PowerShell på Windows:
-
-```powershell
-iwr https://altinn.studio/designer/api/v1/studioctl/install.ps1 -useb | iex
-```
-
-Trenger du flere installasjonsvalg, finner du dem i [dokumentasjonen for studioctl](https://github.com/Altinn/altinn-studio/tree/main/src/cli#quick-start-app-developers).
-
-## 2. Kjør oppgraderingen
+## 3. Kjør oppgraderingen
 
 Gå til rotmappen i prosjektet ditt og kjør:
 
@@ -44,7 +48,7 @@ v9 er standardvalget, så `studioctl app upgrade` gjør det samme.
 
 Verktøyet går gjennom appen steg for steg og skriver ut hva det endrer. Les gjennom utskriften. Der oppgraderingen ikke klarer å gjøre en endring selv, sier den fra om hva du må ordne manuelt.
 
-## 3. Kontroller at appen fungerer
+## 4. Kontroller at appen fungerer
 
 Start den lokale testplattformen og kjør appen:
 
@@ -124,6 +128,35 @@ Standardoppsettet lager en PDF som oppsummerer skjemautfyllingen, ut fra skjemao
 V9 støtter i tillegg egenskapen `pageBreak` på `Summary2`-komponenter. Det gjorde ikke app-frontend v4. Se etter om PDF-en har fått flere sideskift enn du ønsker.
 {{% /notice %}}
 
+### PDF av underskjema bruker UI-mappen til underskjemaet
+
+En `subformPdf`-oppgave peker nå på UI-mappen til underskjemaet med `subformUiFolder`, i stedet for `subformComponentId` og `subformDataTypeId`. Oppgaven trenger ingen UI-mappe selv. Oppgraderingen skriver om oppgaven og fjerner den skjulte kopien av komponenten **Tabell for underskjema** fra UI-mappen til oppgaven. Resten av mappen rydder den slik den gjør for alle systemoppgaver. Se [Systemoppgaver viser sidene i UI-mappen mens de kjører](#systemoppgaver-viser-sidene-i-ui-mappen-mens-de-kjører).
+
+Oppgraderingen legger også til `"type": "subform"` og en manglende `defaultDataType` i `Settings.json` for underskjemaet. Mangler kopien, finnes den flere ganger, eller peker den ikke på en UI-mappe, lar oppgraderingen oppgaven stå uendret og lister den som en oppgave du må gjøre selv. Da bytter du ut innstillingene med `subformUiFolder` for hånd, og fjerner komponentkopien. Sjekk også at `Settings.json` for underskjemaet har `"type": "subform"`, og at `defaultDataType` er datatypen fra `subformDataTypeId`.
+
+PDF-ene har metadatafeltet `subformUiFolder` i stedet for `subformComponentId`. Leser et system det gamle feltet, må det lese `subformUiFolder` i stedet. Se [PDF-generering for underskjema]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/subform/subform-pdf" >}}).
+
+### Systemoppgaver viser sidene i UI-mappen mens de kjører
+
+I v9 viser appen sidene i `pages.order` for en systemoppgave fra prosessen kommer til oppgaven og til neste steg står på skjermen. Sidene er skrivebeskyttet. Feiler oppgaven for godt, for eksempel når den har brukt opp forsøkene eller ventetiden sin, viser appen den innebygde siden **Noe gikk galt** i stedet. Lister mappen ingen sider, ser brukeren den innebygde lastevisningen. Apper fra v8 kan ha sider i slike mapper som aldri var ment for brukere som venter på oppgaven.
+
+Oppgraderingen gjør dette for deg, i UI-mappen til alle systemoppgaver:
+
+- Den fjerner siden «Noe gikk galt», som Altinn Studio laget for PDF-oppgaver i v8, med knapper for å prøve igjen og gå tilbake. Den tar siden ut av `pages.order` og sletter layoutfilen, men bare når siden er nøyaktig slik Altinn Studio laget den. `pdfLayoutName` beholder den.
+- Den fjerner sider uten komponenter på samme måte. En slik side ville vist brukeren en tom side, for eksempel når den bare hadde den skjulte kopien av **Tabell for underskjema**.
+- Står mappen igjen med bare `Settings.json`, uten sider og uten `pdfLayoutName`, sletter den hele mappen. Appen bruker ingenting i en slik mappe.
+
+PDF-oppgavene oppgraderingen legger til, får en tom `pages.order` og ingen venteside. Det gjelder også når oppgraderingen kopierer hele UI-mappen fra dataoppgaven for å beholde PDF-en.
+
+Dette må du se på selv:
+
+- **Andre sider i en PDF-oppgave.** Har du endret siden Altinn Studio laget, eller lister mappen andre sider, lar oppgraderingen dem stå, og du får en oppgave du må gjøre selv. Sidene blir aldri en del av PDF-en. Fjern dem fra `pages.order` hvis de ikke er ment for brukere som venter på PDF-en, og behold `pdfLayoutName`.
+- **Sider i andre systemoppgaver.** Lister UI-mappen til en annen systemoppgave andre sider i `pages.order`, for eksempel en eFormidling-, Fiks Arkiv-, underskjema-PDF- eller egendefinert oppgave, får du en oppgave du må gjøre selv. Oppgraderingen lar sidene stå. Behold dem bare hvis de er ment for brukere som venter på oppgaven. Ellers tømmer du `pages.order`.
+
+Ventesiden som forhåndsversjonene av v9 laget, regner oppgraderingen som en side du har laget selv. Den gir altså også en oppgave du må gjøre selv.
+
+Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}).
+
 ### eFormidling har fått sitt eget steg i prosessen
 
 Tidligere sendte appen eFormidling-meldingen når prosessen gikk ut av oppgaven i `sendAfterTaskId`. Oppsettet lå i `eFormidling`-seksjonen i `applicationmetadata.json`, og flagget `EnableEFormidling` i `appsettings` slo sendingen av og på. I v9 er sendingen en egen systemoppgave i prosessen, og all konfigurasjonen ligger på den oppgaven.
@@ -185,12 +218,12 @@ Bruk de nye grensesnittene i `Altinn.App.Core.Features.Process` i stedet:
 | -------------------- | ----------------------- |
 | `IProcessTaskStart` | `IOnTaskStartingHandler` |
 | `IProcessTaskEnd` | `IOnTaskEndingHandler` |
-| `IProcessTaskAbandon` | `IOnTaskAbandonHandler` |
+| `IProcessTaskAbandon` | `IOnTaskAbandoningHandler` |
 
 Utover navnet er det tre praktiske forskjeller du må kode mot:
 
 - **Hooken avgjør selv hvilken oppgave den gjelder for.** Før kjørte hver registrerte handler for *alle* oppgaver i prosessen, og koden måtte selv sjekke `taskId`. Nå implementerer hooken `ShouldRunForTask(string taskId)`, og bare handleren som svarer `true` for gjeldende oppgave, kjører.
-- **Hooken kjører som et steg i arbeidsflytmotoren**, akkurat som systemoppgavene over. Hvis det oppstår feil, kan det hende at den blir forsøkt kjørt på nytt automatisk — implementasjonen må altså være idempotent. I stedet for å kaste unntak ved feil returnerer du et `HookResult` (et eget resultat for hooker, ikke å forveksle med `ServiceTaskResult` som brukes av systemoppgaver): `HookResult.Success()`, `HookResult.FailedRetryable("melding")` for en forbigående feil, eller `HookResult.FailedPermanent("melding")` for en feil som trenger en rettelse.
+- **Hooken kjører som et steg i arbeidsflytmotoren**, akkurat som systemoppgavene over. Hvis det oppstår feil, kan det hende at den blir forsøkt kjørt på nytt automatisk — implementasjonen må altså være idempotent. I stedet for å kaste unntak ved feil returnerer du et `HandlerResult` (et eget resultat for hooker, ikke å forveksle med `ServiceTaskResult` som brukes av systemoppgaver): `HandlerResult.Success()`, `HandlerResult.FailedRetryable("melding")` for en forbigående feil, eller `HandlerResult.FailedPermanent("melding")` for en feil som trenger en rettelse.
 - **Instansdata leses og endres via `IInstanceDataMutator`** i stedet for et rått `Instance`-objekt. Kontekstobjektet hooken mottar (`OnTaskStartingContext` og tilsvarende for de to andre) gir deg oppgave-ID-en og en mutator. Instansen finner du i `context.InstanceDataMutator.Instance`, og endringer du gjør gjennom mutatoren, lagres automatisk når hooken fullfører uten feil.
 
 I tillegg mister start-hooken `prefill`-parameteren. Hvis du tidligere har brukt prefill-data i `IProcessTaskStart.Start`, må du flytte den logikken til `IInstantiationProcessor.DataCreation`, som fortsatt mottar prefill og er upåvirket av denne endringen.
@@ -216,16 +249,16 @@ public class MyTaskStartHandler : IOnTaskStartingHandler
 {
     public bool ShouldRunForTask(string taskId) => taskId == "Task_1";
 
-    public async Task<HookResult> Execute(OnTaskStartingContext context)
+    public async Task<HandlerResult> Execute(OnTaskStartingContext context)
     {
         // Egendefinert logikk her, f.eks. context.InstanceDataMutator
 
-        return HookResult.Success();
+        return HandlerResult.Success();
     }
 }
 ```
 
-`IOnTaskEndingHandler` og `IOnTaskAbandonHandler` følger samme mønster, med `Execute(OnTaskEndingContext)` og `Execute(OnTaskAbandonContext)`. Registrering i `Program.cs` er uendret bortsett fra grensesnittnavnet: `services.AddTransient<IOnTaskStartingHandler, MyTaskStartHandler>();`
+`IOnTaskEndingHandler` og `IOnTaskAbandoningHandler` følger samme mønster, med `Execute(OnTaskEndingContext)` og `Execute(OnTaskAbandoningContext)`. Registrering i `Program.cs` er uendret bortsett fra grensesnittnavnet: `services.AddTransient<IOnTaskStartingHandler, MyTaskStartHandler>();`
 
 De nye hookene gjør også at du kan velge å overstyre arbeidsflytmotorens standard tidsavbrudd og strategi for å prøve igjen for steget, med egenskapen `StepOptions`. Det er en ny mulighet, uten noe tilsvarende i versjon 8, så det er ikke noe du trenger å sette for å migrere.
 
@@ -244,9 +277,13 @@ Hvis appen din har en klasse som implementerer `IProcessEnd`, må du flytte kode
 
 `studioctl app upgrade v9` viser hvilke klasser og registreringer du må flytte, men gjør ikke om koden for deg.
 
-`IOnProcessEndedHandler` har samme `Execute` og `HookResult` som oppgave-hookene over, men kjører én gang for hele instansen. Den har ingen `ShouldRunForTask`, og konteksten har ingen oppgave-ID. `Execute` får et kontekstobjekt i stedet for `Instance` og listen med hendelser, og du leser og endrer data gjennom `context.InstanceDataMutator` i stedet for `IDataClient` eller `IInstanceClient`. Koden kjører i arbeidsflytmotoren, ikke i forespørselen fra brukeren, så `HttpContext` gir deg ikke brukerens språk eller pålogging. Du kan bare registrere én `IOnProcessEndedHandler`. Med flere starter ikke appen.
+`IOnProcessEndedHandler` har samme `Execute` og `HandlerResult` som oppgave-hookene over, men kjører én gang for hele instansen. Den har ingen `ShouldRunForTask`, og konteksten har ingen oppgave-ID. `Execute` får et kontekstobjekt i stedet for `Instance` og listen med hendelser, og du leser og endrer data gjennom `context.InstanceDataMutator` i stedet for `IDataClient` eller `IInstanceClient`. Koden kjører i arbeidsflytmotoren, ikke i forespørselen fra brukeren, så `HttpContext` gir deg ikke brukerens språk eller pålogging. Du kan bare registrere én `IOnProcessEndedHandler`. Med flere starter ikke appen.
 
 Se [Prosess-hooks]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks" >}}) for detaljene.
+
+### Vi har fjernet `process/completeProcess`
+
+Appen har ikke lenger endepunktet `PUT .../process/completeProcess`. Bruker systemet deres det til å avslutte en tilbakemeldingsoppgave når dere har behandlet innsendingen, kaller dere `PUT .../process/next` i stedet.
 
 ### Mindre endringer
 

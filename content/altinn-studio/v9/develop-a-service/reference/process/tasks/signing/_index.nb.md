@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Signering
 linktitle: Signering
 description: Slik setter du opp en signeringsoppgave i prosessen.

@@ -48,4 +48,4 @@ If you skip this step, the app uses the setup from the payment task for the rece
 4. Add the **Betaling** component, and any other texts and components you want on the PDF page.
 5. Open the developer tools in the preview with the button at the bottom right, or press **Ctrl+Shift+K** (**⌘+Shift+K** on Mac). Then click **Generer PDF** under **Forhåndsvis PDF**.
 
-   ![The button for opening the developer tools at the bottom right of the preview](./devtools.png "Open the developer tools")
+ ![The button for opening the developer tools at the bottom right of the preview](/en/altinn-studio/v9/develop-a-service/process/payment/devtools.png "Open the developer tools")

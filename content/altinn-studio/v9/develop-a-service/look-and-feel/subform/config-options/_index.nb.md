@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Innstillinger for underskjema
 linktitle: Innstillinger
 description: Oversikt over innstillingene for komponenten Tabell for underskjema (Subform)

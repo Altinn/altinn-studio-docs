@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "ALTINNAPP0701: ufullstendig registrering forkastes"
 description: "Resultatet av et builder-kall forkastes, men er ikke en brukbar registrering alene"
 weight: 71
