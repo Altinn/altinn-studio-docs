@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Oppgavetyper
 linktitle: Oppgavetyper
 description: Oversikt over de forskjellige oppgavetypene i Altinn Studio
@@ -17,6 +16,10 @@ En dataoppgave er der brukeren/systemet som bruker den digitale tjenesten gjenno
 En dataoppgave krever at all data for en gitt prosessoppgave er gyldig og at brukeren/systemet har lagt til all nødvendig data.
 
 Datavalidering er en del av standardlogikken i malen. Applikasjonsutviklere kan legge til egendefinert validering for hvert dataelement og oppgave.
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
 
 ```xml
 <bpmn:task id="Task_1" name="Utfylling">
@@ -37,6 +40,10 @@ En bekreftelsesoppgave er der sluttbrukeren som bruker applikasjonen gjennom net
 Når en bruker bekrefter en bekreftelsesoppgave oppretter systemet en bekreftelseslogg for instansen som detaljerer at bruker/system X har bekreftet.
 
 Eksempel på en bekreftelsesoppgave:
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
 
 ```xml
 <bpmn:task id="Task_2" name="Bekreftelse">
@@ -60,6 +67,10 @@ En signeringsoppgave er der sluttbrukeren som bruker applikasjonen gjennom nettl
 Når en bruker utfører en signering genererer systemet et signaturobjekt som inneholder brukerinformasjonen og en hash av dataelementene du har definert i prosessoppgaven. Samtidig oppretter systemet en hendelseslogg for instansen som detaljerer at bruker/system X har signert.
 
 Eksempel på en signeringsoppgave:
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
 
 ```xml
 <bpmn:task id="Task_1">
@@ -85,13 +96,17 @@ Eksempel på en signeringsoppgave:
 </bpmn:task>
 ```
 
-Som eksempelet ovenfor viser, krever en signaturoppgave ekstra informasjon. Se [Konfigurering av signering](signing) for detaljer om hvordan du konfigurerer en signaturoppgave og dens effekter.
+Som eksempelet ovenfor viser, krever en signaturoppgave ekstra informasjon. Se [Konfigurering av signering](/nb/altinn-studio/v9/develop-a-service/reference/process/tasks/signing/) for detaljer om hvordan du konfigurerer en signaturoppgave og dens effekter.
 
 ### Tilbakemelding (`feedback`)
 
 En tilbakemeldingsoppgave lar tjenesteeieren eller andre gi tilbakemeldinger til enheten som rapporterer data. Dette lar brukeren laste opp data og fortsette prosessen.
 
 Eksempel på en tilbakemeldingsoppgave:
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
 
 ```xml
 <bpmn:task id="Task_2" name="Bekreftelse">
@@ -111,6 +126,10 @@ En betalingsoppgave lar brukeren betale for tjenester direkte i app-flyten. Ved 
 brukeren til en ekstern betalingsleverandør, og returneres til tjenesten når betalingen er fullført.
 
 Eksempel på betalingsoppgave:
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
 
 ```xml
 <bpmn:task id="Task_2" name="Betaling">
@@ -148,6 +167,10 @@ Genererer PDF basert på valgt oppsett. Bruker standard oppsett for PDF, eller e
 
 Eksempel på PDF-systemoppgave:
 
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <bpmn:serviceTask id="Activity_0amjsu7" name="Altinn pdf task">
     <bpmn:extensionElements>
@@ -170,6 +193,10 @@ Eksempel på PDF-systemoppgave:
 Sender instansdata via eFormidling når prosessen når oppgaven. Oppgaven venter deretter på at integrasjonspunktet bekrefter at meldingen er levert, og prosessen går først videre når bekreftelsen har kommet. Du skal derfor ikke legge en tilbakemeldingsoppgave etter den. All konfigurasjon for meldingen ligger på selve oppgaven, i `<altinn:eFormidlingConfig>`. Plasser oppgaven der du vil at meldingen skal sendes, vanligvis etter oppgaven som produserer dataene du vil sende. Se [Slik setter du opp eFormidling]({{< relref "/altinn-studio/v9/receive-data/eFormidling" >}}) for hele oppsettet.
 
 Eksempel på eFormidling-systemoppgave:
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
 
 ```xml
 <bpmn:serviceTask id="Task_eFormidling" name="eFormidling">
@@ -201,6 +228,10 @@ Sender en NOARK 5-arkivmelding med dokumentene fra instansen til et arkivsystem 
 
 Eksempel på Fiks Arkiv-systemoppgave:
 
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <bpmn:serviceTask id="Task_FiksArkiv" name="Fiks Arkiv">
     <bpmn:extensionElements>
@@ -221,6 +252,10 @@ som handling i tilgangsregelen. Klassenavnet har ingenting å si. Se
 [Lage en egendefinert systemoppgave]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/custom" >}}).
 
 Eksempel på en egendefinert systemoppgave:
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
 
 ```xml
 <bpmn:serviceTask id="ExampleServiceTask" name="Example service task">

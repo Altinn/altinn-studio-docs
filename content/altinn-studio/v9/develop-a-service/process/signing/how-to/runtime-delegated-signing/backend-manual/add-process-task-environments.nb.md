@@ -1,5 +1,4 @@
 ---
-draft: true
 headless: true
 hidden: true
 tags: [needsReview]
@@ -7,6 +6,10 @@ tags: [needsReview]
 
 Hvis du ønsker å bruke forskjellige meldingsressurser i forskjellige miljøer, kan du legge til en `env`-attributt
 på oppsettet. Se eksempel under:
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
 
 ```xml
 <altinn:signatureConfig>

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Gruppering av enkeltfelter
 linktitle: Ikke-repeterende
 description: Slik setter du opp ikke-repeterende grupper
@@ -15,6 +14,10 @@ Du setter opp en gruppe i layoutfilen til siden, sammen med de andre komponenten
 En gruppe _må_ ha `"type": "Group"`. Repeterende grupper har en egen komponenttype, [`RepeatingGroup`](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/repeatinggroup/).
 
 Slik definerer du en gruppe som inneholder tre felter:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json {hl_lines=[3,"7-11"]}
 {

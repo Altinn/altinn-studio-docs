@@ -4,6 +4,10 @@ headless: true
 hidden: true
 ---
 
+{{< code-title >}}
+App/config/texts/resource.{language}.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "signing.correspondence_receipt_title",

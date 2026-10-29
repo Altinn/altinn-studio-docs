@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Definere autorisasjonspolicy
 linktitle: Autorisasjon
 description: I Altinn Studio kan apputvikleren definere autorisasjonspolicyen for tjenesten.
@@ -33,6 +32,10 @@ Ressursattributtene til regler beskriver hvilken tjeneste eller del av tjenesten
 ### Eksempel
 
 Eksempelet nedenfor viser en del av XACML 3.0-policyen der en ressurs er definert.
+
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
 
 ```xml {linenos=false,hl_lines=[3,7,11]}
 <xacml:AllOf>
@@ -68,6 +71,10 @@ En fullstendig liste over rolletyper finner du på [Altinn API](https://www.alti
 
 Eksempel med rollekode:
 
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
+
 ```xml {linenos=false,hl_lines=[3]}
 <xacml:AllOf>
   <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
@@ -78,6 +85,10 @@ Eksempel med rollekode:
 ```
 
 Eksempel med organisasjon:
+
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
 
 ```xml {linenos=false,hl_lines=[3]}
 <xacml:AllOf>
@@ -98,6 +109,10 @@ Action-attributtene beskriver hvilken operasjon regelen gjelder for.
 
 Eksempel med read-operasjon:
 
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
+
 ```xml {linenos=false,hl_lines=[2]}
 <xacml:Match MatchId="urn:oasis:names:tc:xacml:1.0:function:string-equal">
     <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">read</xacml:AttributeValue>
@@ -108,17 +123,21 @@ Eksempel med read-operasjon:
 
 ## Obligation
 
-Obligation-delen av policyen brukes til å definere informasjon som skal brukes av PEP (Policy Enforcement Point). Det nødvendige autentiseringsnivået er satt til 2 som standard. Dette gjøres som en obligation i XACML Policy-filen.
+Obligation-delen av policyen brukes til å definere informasjon som skal brukes av PEP (Policy Enforcement Point). Det nødvendige autentiseringsnivået er satt til 3 som standard. Dette gjøres som en obligation i XACML Policy-filen.
 
 Hvis nødvendig autentiseringsnivå er satt til 4, må du definere at tjenesteeier kan samhandle med det gjennom nivå 3-autentisering for Maskinporten. Dette fordi Maskinporten er definert som nivå 3. Se [regelbiblioteket](rules/) for eksempler.
 
-Eksempel med autentiseringsnivå 2:
+Eksempel med autentiseringsnivå 3:
+
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
 
 ```xml {linenos=false,hl_lines=[4]}
 <xacml:ObligationExpressions>
     <xacml:ObligationExpression FulfillOn="Permit" ObligationId="urn:altinn:obligation:authenticationLevel1">
       <xacml:AttributeAssignmentExpression AttributeId="urn:altinn:obligation1-assignment1" Category="urn:altinn:minimum-authenticationlevel">
-        <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">2</xacml:AttributeValue>
+        <xacml:AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">3</xacml:AttributeValue>
       </xacml:AttributeAssignmentExpression>
     </xacml:ObligationExpression>
   </xacml:ObligationExpressions>

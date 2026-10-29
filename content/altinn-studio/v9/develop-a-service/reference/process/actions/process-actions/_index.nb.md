@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Prosesshandlinger
 linktitle: Prosesshandlinger
 description: Slik autoriserer du handlinger og skriver tilpasset logikk for prosesshandlinger.
@@ -33,6 +32,10 @@ Handling du bruker når du flytter tilbake fra en oppgave til en annen. Handling
 For å legge til handlinger i en oppgave må du endre filen `App/config/process/process.bpmn` og legge til ønsket handling i oppgaven.
 
 Eksempel på en prosess der Task_1 har handlingene _demo_ og _custom_ definert:
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
 
 ```xml {hl_lines=["15-27"]}
 <?xml version="1.0" encoding="UTF-8"?>
@@ -77,6 +80,10 @@ Type-attributtet som er definert for handlingen _custom_ (processAction) er stan
 Du må gi brukere rettigheter til å utføre handlingene _custom_ og _demo_ når de forlater _Task_1_.
 
 Dette defineres i policy.xml:
+
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
 
 ```xml
 <!-- Beginning of policy.xml definition omitted for brevity -->

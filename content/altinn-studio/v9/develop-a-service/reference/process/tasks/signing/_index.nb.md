@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Signering
 linktitle: Signering
 description: Slik setter du opp en signeringsoppgave i prosessen.
@@ -16,6 +15,10 @@ Denne siden veileder deg gjennom hva du trenger å sette opp og hvordan det er k
 
 ## Slik setter du opp en signeringsoppgave
 En signeringsoppgave i sin enkleste form ser omtrent slik ut:
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
 
 ```xml
 <bpmn:task id="Task_2" name="Signering">
@@ -41,6 +44,10 @@ En signeringsoppgave i sin enkleste form ser omtrent slik ut:
 
 Som med bekreftelsesoppgaver må du sette opp de tilgjengelige handlingene. For å opprette et signaturobjekt må brukeren kunne utføre handlingen `sign`:
 
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <altinn:actions>
     <altinn:action>sign</altinn:action>
@@ -61,6 +68,10 @@ I eksemplet med signeringsoppgaven ovenfor ser du at alle dataelementer som er t
 
 Hvis appen også har datatypen "attachments", der brukeren legger ved ekstra filer som du ønsker å være en del av signaturobjektet, bør `<altinn:signatureConfig>` se slik ut:
 
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <altinn:signatureConfig>
     <altinn:dataTypesToSign>
@@ -76,6 +87,10 @@ Hvis appen også har datatypen "attachments", der brukeren legger ved ekstra fil
 Et signaturobjekt krever også en datatype der du kan lagre det når systemet har opprettet det. Du setter opp dette i `<altinn:signatureDataType>`, og må også sette det opp i `App/config/applicationmetadata.json`.
 
 Eksempel på en applicationmetadata.json-fil med en signaturdatatype kalt "signatur":
+
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
 
 ```json
 {
@@ -145,6 +160,10 @@ I `layouts`-mappen oppretter du filene som bestemmer hvordan sidene skal se ut. 
 
 Eksempel på en enkel layout med et read only-tekstfelt og en signeringsknapp kan se sånn her ut:
 
+{{< code-title >}}
+App/ui/Task_2/layouts/{page}.json
+{{< /code-title >}}
+
 ```json
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
@@ -180,6 +199,10 @@ For at brukere skal få lov til å signere, må du sette opp en regel i `App/con
 De som skal signere, trenger `read` og `sign` på steget der signeringen skjer. Den som skal sende inn skjemaet etter signeringen, trenger i tillegg `write`.
 
 Eksempel på en autorisasjonsregel som gir disse tilgangene for _DAGL_-rollen på prosesssteg med id _Task_2_:
+
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
 
 ```xml
 <xacml:Rule RuleId="urn:altinn:example:ruleid:7" Effect="Permit">
@@ -241,6 +264,10 @@ For eksempel hvis to styremedlemmer skal signere, men samme person ikke kan utf�
 
 For å sette opp dette må du legge til det første signaturdataobjektet i listen `<altinn:uniqueFromSignaturesInDataTypes>` for signeringsoppgave to:
 
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <bpmn:task id="Task_2" name="Signing">
     <bpmn:incoming>Flow_1enq1lu</bpmn:incoming>
@@ -286,6 +313,10 @@ For å sette opp dette må du legge til det første signaturdataobjektet i liste
 I eksempelet blir signaturobjektet for oppgave `Task_2` lagret i datatypen `signatur`, og i `signatur2` for oppgave `Task_3`.
 
 I tillegg har `Task_3` sitt `<altinn:signatureConfig>` sagt at den skal være unik blant alle signaturobjekter som er lagret i datatypen `signatur`.
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
 
 ```xml
 <altinn:uniqueFromSignaturesInDataTypes>

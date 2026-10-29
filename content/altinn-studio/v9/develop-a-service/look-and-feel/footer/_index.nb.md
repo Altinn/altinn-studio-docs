@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Bunntekst
 description: Slik konfigurerer du bunnteksten i appen
 tags: [needsReview]
@@ -8,6 +7,10 @@ tags: [needsReview]
 I bunnteksten kan du legge inn kontaktinformasjon, lenker og annen tekst. I nye apper inneholder bunnteksten som standard en lenke til tilgjengelighetserklæringen til Altinn 3.
 
 Du definerer bunnteksten i `footer.json`-filen under `App/ui`. Denne filen ligner på andre layoutfiler, men er mye enklere. Standardbunnteksten ser slik ut:
+
+{{< code-title >}}
+App/ui/footer.json
+{{< /code-title >}}
 
 ```json
 {
@@ -39,6 +42,10 @@ Du kan legge til nye komponenter i `footer`-listen.
 
 ### E-posteksempel
 
+{{< code-title >}}
+App/ui/footer.json
+{{< /code-title >}}
+
 ```json
 {
     "type": "Email",
@@ -60,6 +67,10 @@ Du kan legge til nye komponenter i `footer`-listen.
 | target   | Telefonnummeret lenken peker til.                                                                                            |
 
 ### Telefoneksempel
+
+{{< code-title >}}
+App/ui/footer.json
+{{< /code-title >}}
 
 ```json
 {
@@ -84,6 +95,10 @@ Du kan legge til nye komponenter i `footer`-listen.
 
 ### Lenkeeksempel
 
+{{< code-title >}}
+App/ui/footer.json
+{{< /code-title >}}
+
 ```json
 {
     "type": "Link",
@@ -105,6 +120,10 @@ Du kan legge til nye komponenter i `footer`-listen.
 | title    | Tekstressursen du vil vise. Du kan [formatere]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/tekster" >}}#formatere-tekster) denne teksten. |
 
 ### Teksteksempel
+
+{{< code-title >}}
+App/ui/footer.json
+{{< /code-title >}}
 
 ```json
 {

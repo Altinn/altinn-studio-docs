@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Navigasjon
 description: Slik lar du brukeren navigere mellom sider, viser en sidemeny eller fremdriftsindikator, og validerer ved sidebytte.
 toc: true
@@ -17,6 +16,10 @@ Brukeren flytter seg mellom sidene i appen ved hjelp av navigasjonsknapper. Alti
 Du legger navigasjonsknappene i alle layoutfilene der du trenger dem. Vil du vise dem nederst på siden, plasserer du dem nederst i layoutfilen.
 
 #### Eksempel på konfigurasjon
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 {
@@ -46,6 +49,10 @@ Du definerer rekkefølgen på sidene i `Settings.json`-filen til prosesstegmappe
 
 **Filplassering:** `App/ui/Task_1/Settings.json` (bytt ut `Task_1` med prosesstegets egen ID)
 
+{{< code-title >}}
+App/ui/Task_1/Settings.json
+{{< /code-title >}}
+
 ```json
 {
   "pages": {
@@ -61,6 +68,10 @@ Du definerer rekkefølgen på sidene i `Settings.json`-filen til prosesstegmappe
 Du kan gruppere sidene og vise dem i en sidemeny som alternativ til tradisjonell rekkefølge. Da erstatter du `pages.order` med `pages.groups`.
 
 **Filplassering:** `App/ui/Task_1/Settings.json`
+
+{{< code-title >}}
+App/ui/Task_1/Settings.json
+{{< /code-title >}}
 
 ```json
 {
@@ -96,11 +107,11 @@ Du kan gruppere sidene og vise dem i en sidemeny som alternativ til tradisjonell
 
 ![Sidemeny med grupperte sider](./grouped-navigation.png "Sidemeny med grupperte sider")
 
-## Vise arbeidsflyt og oppgaver i navigasjonsmenyen
+## Vise prosess og oppgaver i navigasjonsmenyen
 
-### Vise arbeidsflyten ved å definere det i koden
+### Vise prosessen ved å definere det i koden
 
-Du kan vise hele arbeidsflyten i navigasjonsmenyen på to måter i koden:
+Du kan vise hele prosessen i navigasjonsmenyen på to måter i koden:
 
 - **For hele appen:** i `App/ui/Settings.json` med `taskNavigation` direkte i roten av filen (ikke i et eget objekt).
 - **Per prosessteg:** i prosesstegets `Settings.json` med `pages.taskNavigation`.
@@ -108,6 +119,10 @@ Du kan vise hele arbeidsflyten i navigasjonsmenyen på to måter i koden:
 #### Eksempel for hele appen
 
 **Filplassering:** `App/ui/Settings.json`
+
+{{< code-title >}}
+App/ui/Settings.json
+{{< /code-title >}}
 
 ```json
 {
@@ -130,6 +145,10 @@ Du kan vise hele arbeidsflyten i navigasjonsmenyen på to måter i koden:
 
 **Filplassering:** `App/ui/Task_1/Settings.json`
 
+{{< code-title >}}
+App/ui/Task_1/Settings.json
+{{< /code-title >}}
+
 ```json
 {
   "pages": {
@@ -149,7 +168,7 @@ Du kan vise hele arbeidsflyten i navigasjonsmenyen på to måter i koden:
 }
 ```
 
-### Parametere for stegene i arbeidsflyten
+### Parametere for stegene i prosessen
 
 | Parameter | Beskrivelse |
 | --- | --- |
@@ -157,7 +176,7 @@ Du kan vise hele arbeidsflyten i navigasjonsmenyen på to måter i koden:
 | taskId | Hvilket prosessteg (task) det gjelder. Obligatorisk hvis ikke type er satt. |
 | type | «receipt». Obligatorisk hvis ikke taskId er satt. |
 
-![Navigasjonsmeny med arbeidsflyt](./task-navigation.png "Navigasjonsmeny med arbeidsflyt")
+![Navigasjonsmeny med prosessteg](./task-navigation.png "Navigasjonsmeny med prosessteg")
 
 ## Vise navigasjon fra Altinn Studio Designer
 
@@ -190,6 +209,10 @@ Du kan sette `showProgress` per prosessteg, eller globalt for hele appen i `App/
 
 **Filplassering:** `App/ui/Task_1/Settings.json`
 
+{{< code-title >}}
+App/ui/Task_1/Settings.json
+{{< /code-title >}}
+
 ```json
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
@@ -217,6 +240,10 @@ Et navigasjonsfelt vises øverst på siden i appen, og kan gjøre det enklere fo
 
 Du legger til navigasjonsfeltet ved å legge koden for det i alle layoutfilene der du vil bruke det:
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "navbar-page1",
@@ -227,6 +254,10 @@ Du legger til navigasjonsfeltet ved å legge koden for det i alle layoutfilene d
 ### Vise nedtrekksmenyen på alle skjermer
 
 I koden kan du sette opp at appen skal vise sidene i navigasjonsfeltet som en nedtrekksmeny, også på større skjermer:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 {
@@ -243,6 +274,10 @@ Knappene i navigasjonsfeltet henter navnet sitt fra filnavnet til siden, uten fi
 **Slik endrer du tekstene:**
 
 Legg til tekster i `resource.XX.json`, der `id` er navnet på filen uten filutvidelsen:
+
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
 
 ```json
 {
@@ -269,6 +304,10 @@ Du kan konfigurere dette på to nivåer med ulik prioritet: globalt for hele app
 ### `validationOnNavigation`-objektet
 
 Du bruker egenskapen `validationOnNavigation` på globalt nivå og per side. Den har to egenskaper. På komponentnivå bruker du tilsvarende objekt, men via egenskapene `validateOnNext` og `validateOnPrevious` (NavigationButtons) eller `validateOnForward` og `validateOnBackward` (NavigationBar).
+
+{{< code-title >}}
+App/ui/Settings.json eller App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 {
@@ -306,6 +345,10 @@ Gjelder for alle prosessteg i appen. Konfigurer direkte i roten av `App/ui/Setti
 
 **Filplassering:** `App/ui/Settings.json`
 
+{{< code-title >}}
+App/ui/Settings.json
+{{< /code-title >}}
+
 ```json
 {
   "validationOnNavigation": {
@@ -320,6 +363,10 @@ Gjelder for alle prosessteg i appen. Konfigurer direkte i roten av `App/ui/Setti
 Overstyrer det globale nivået for én enkelt side. Konfigurer direkte på `data`-objektet i layoutfilen.
 
 **Filplassering:** `App/ui/Task_1/layouts/side1.json`
+
+{{< code-title >}}
+App/ui/Task_1/layouts/side1.json
+{{< /code-title >}}
 
 ```json
 {
@@ -336,6 +383,10 @@ Overstyrer det globale nivået for én enkelt side. Konfigurer direkte på `data
 #### 3. Komponentnivå (NavigationButtons, CustomButton, NavigationBar)
 
 Har du ikke konfigurert noen av de høyere nivåene, kan du konfigurere validering direkte på komponenten. For NavigationButtons bruker du `validateOnNext` og `validateOnPrevious`:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 {
@@ -376,6 +427,10 @@ Når brukeren prøver å navigere og det finnes valideringsfeil:
 ### Bruke NavigationBar med validering
 
 NavigationBar-komponenten har tilsvarende egenskaper, `validateOnForward` og `validateOnBackward`:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 {

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Uttrykk
 linktitle: Uttrykk
 description: Introduksjon til uttrykksspråket i Altinn Studio og hvordan du kan bruke det til å lage mer dynamiske skjemaer.
@@ -53,6 +52,10 @@ Funksjonen `equals` forventer å få inn to strenger (tekstverdier) som inndata/
 I dette eksempelet kjøres det innerste uttrykket/funksjonskallet `["component", "firstName"]` først. Hvis verdien til komponenten "firstName" er lik strengen "John", gir funksjonen resultatet den boolske verdien `true`.
 
 Hvis du bruker dette uttrykket for `hidden`-egenskapen til en komponent, skjules komponenten hvis du skriver inn "John" i "firstName"-komponenten et annet sted i applikasjonen:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 {
@@ -114,11 +117,11 @@ Dynamiske uttrykk er tilgjengelig for bruk i disse egenskapene:
 | [Kodelistebaserte komponenter](/nb/altinn-studio/v9/develop-a-service/look-and-feel/options/sources/from-data-model/#støtte-for-uttrykk) | `source.label`                | Streng       | ✅       | ❌      |
 | [Kodelistebaserte komponenter](/nb/altinn-studio/v9/develop-a-service/look-and-feel/options/sources/from-data-model/#støtte-for-uttrykk) | `source.description`          | Streng       | ✅       | ❌      |
 | [Kodelistebaserte komponenter](/nb/altinn-studio/v9/develop-a-service/look-and-feel/options/sources/from-data-model/#støtte-for-uttrykk) | `source.helpText`             | Streng       | ✅       | ❌      |
-| [Kodelistebaserte komponenter](/nb/altinn-studio/v9/develop-a-service/look-and-feel/options/sources/dynamic/#basert-på-uttrykk)          | `queryParameters.[*]`         | Streng       | ✅       | ❌      |
+| [Kodelistebaserte komponenter](/nb/altinn-studio/v9/develop-a-service/look-and-feel/options/sources/dynamic/#spørringsparametre)          | `queryParameters.[*]`         | Streng       | ✅       | ❌      |
 | [Kodelistebaserte komponenter](/nb/altinn-studio/v9/develop-a-service/look-and-feel/options/functionality/filtering/)                     | `optionFilter`                | Streng       | ✅       | ❌      |
 | Alle                                                                                                            | `textResourceBindings.[*]` \* | Streng       | ✅       | ❌      |
 
-\* = Hvilke verdier du kan overstyre med textResourceBindings, varierer fra komponent til komponent, men fungerer på alle steder der det brukes. TextResourceBindings for repeterende grupper finner du [mer informasjon om her](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/repeatinggroup#properties)
+\* = Hvilke verdier du kan overstyre med textResourceBindings, varierer fra komponent til komponent, men fungerer på alle steder der det brukes. TextResourceBindings for repeterende grupper finner du [mer informasjon om her](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/repeatinggroup/#egenskaper)
 
 
 ## Testing, feilsøking og utvikling av uttrykk
@@ -133,6 +136,10 @@ Det er også mulig å teste kjøring av et uttrykk direkte i utviklerverktøyene
 Her endrer vi teksten til redigeringsknappen i en repeterende gruppe basert på om `IsPrefill` er satt til `true` i en gitt adresse i datamodellen. Hvis `IsPrefill` er `true` for en adresse, har raden som viser frem den adressen en redigeringsknapp med teksten `"View"`. Hvis `IsPrefill` er `false`, er teksten på knappen til den spesifikke raden `"Edit"`.
 
 Det er verdt å merke seg at hvis et oppslag på `IsPrefill` gir resultatet `null` (ikke funnet), konverteres resultatet til `false` når det brukes i en `if`. Les mer detaljert om dette i seksjonene [if](/nb/altinn-studio/v9/develop-a-service/expressions/reference/functions/#func-if) og [datatyper](/nb/altinn-studio/v9/develop-a-service/expressions/reference/datatypes/)
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 {
@@ -160,6 +167,10 @@ Det er verdt å merke seg at hvis et oppslag på `IsPrefill` gir resultatet `nul
 {{% expandlarge id="show-hide-pages" header="Vise/skjule hele sider" %}}
 Uttrykk kan brukes til å vise/skjule hele sider. I eksempelet under skjules hele siden hvis en komponent
 (på en av de andre sidene) har verdien _no_ eller ikke er satt.
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 {

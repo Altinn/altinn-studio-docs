@@ -1,5 +1,4 @@
 ---
-draft: true
 title: eFormidling
 description: Slik setter du opp eFormidling-integrasjon for appen din.
 tags: [eFormidling, needsReview]
@@ -49,9 +48,9 @@ Utvidelsesmetodene ligger i navnerommet `Altinn.App.Core.EFormidling.Extensions`
 ### Legge til eFormidling som en systemoppgave {#eFormidling-oppsett-servicetask}
 eFormidling legges til i prosessen som en systemoppgave, og meldingen sendes når prosessen når denne oppgaven. Plasser oppgaven der du vil at meldingen skal sendes, vanligvis etter oppgaven som produserer dataene du vil sende. Oppgaven må ha en innkommende og en utgående sekvensflyt.
 
-**Merk:** Du kan ennå ikke dra en eFormidling-oppgave direkte inn i Arbeidsflyt-editoren i Altinn Studio. Inntil videre anbefaler vi denne fremgangsmåten:
+**Merk:** Du kan ennå ikke dra en eFormidling-oppgave direkte inn i Prosess-editoren i Altinn Studio. Inntil videre anbefaler vi denne fremgangsmåten:
 
-1. Dra en vanlig dataoppgave inn i Arbeidsflyt-editoren.
+1. Dra en vanlig dataoppgave inn i Prosess-editoren.
 2. Del endringene i Studio.
 3. Rediger `process.bpmn` på din egen maskin.
 4. Gjør dataoppgaven om til en `bpmn:serviceTask` (se eksemplet nedenfor).
@@ -114,6 +113,10 @@ Appen kontrollerer eFormidling-konfigurasjonen når den starter, ikke når den f
 Alle elementene i `<altinn:eFormidlingConfig>` støtter det valgfrie attributtet `env`, ikke bare `disabled`. Du kan gjenta et element med ulike `env`-verdier, og verdien for gjeldende driftsmiljø går foran verdien uten `env`. Miljønavnene grupperes i tre miljøer: utvikling (`development`, `dev`, `local`, `localtest`), test (`staging`, `test`, `at22`, `at23`, `at24`, `tt02`, `yt01`) og produksjon (`production`, `prod`, `produksjon`).
 
 For eksempel kan du sende til en testmottaker i TT02 og den reelle mottakeren i produksjon (bytt ut begge organisasjonsnumrene med dine egne):
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
 
 ```xml
 <altinn:receiver env="staging">310075809</altinn:receiver>

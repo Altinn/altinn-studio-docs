@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Regne ut verdier med uttrykk
 linktitle: Kalkulering med uttrykk
 description: Slik regner du ut verdier i datamodellen automatisk med dynamiske uttrykk

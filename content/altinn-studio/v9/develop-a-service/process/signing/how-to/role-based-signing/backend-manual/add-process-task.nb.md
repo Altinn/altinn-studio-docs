@@ -1,5 +1,4 @@
 ---
-draft: true
 headless: true
 hidden: true
 tags: [needsReview]
@@ -15,6 +14,10 @@ Vi anbefaler å dra inn prosessteget via prosessdesigneren i Altinn Studio. Da b
 Signering består av to brukerhandlinger (user actions). Hvis appen bruker Altinn-brukergrensesnittet, blir disse kalt automatisk når du er i signeringssteget. Bruker du bare API-et, må du kalle dem manuelt via `/actions`-endepunktet eller `process next`.
 - `sign`: Selve signeringshandlingen.
 - `reject`: Hvis det skal være mulig å avbryte signeringssteget, må du også legge til en gateway som styrer hvor prosessen skal gå videre.
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
 
 ```xml
 <bpmn:task id="SigningTask" name="Signering">
@@ -53,6 +56,10 @@ Hvis du har valgt å sende signeringskvitteringer ved å spesifisere en correspo
 Legg til denne datatypen i `dataTypes` i `App/config/applicationmetadata.json`.
 
 Signeringssteget bruker den til å lagre de faktiske signaturene som blir generert når brukeren utfører signeringshandlingen.
+
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
 
 ```json
 {

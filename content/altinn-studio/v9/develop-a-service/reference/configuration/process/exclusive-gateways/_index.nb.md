@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Definere egne gateways
 linktitle: Exclusive Gateways
 description: Slik skriver du kode som avgjør flyten ut av en exclusive gateway.
@@ -17,6 +16,10 @@ Funksjonaliteten beskrevet på denne siden krever minimum versjon 7.1.0 av Altin
 - Du må ha en applikasjon med exclusive gateway(s) definert i prosessen.
 
 ## Eksempel på prosess med exclusive gateways
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -91,6 +94,10 @@ For mer dokumentasjon av grensesnittet, se xml-dokumentasjonen [her](https://git
 Etter at du har skrevet logikken, må du registrere den i dependency injection-systemet. Du gjør dette i metoden `RegisterCustomAppServices` i filen `Program.cs`.
 
 Eksempel: 
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
 ```csharp
 void RegisterCustomAppServices(

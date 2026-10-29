@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Presentasjonsfelter
 linktitle: Presentasjonsfelter
 description: Slik konfigurerer du presentasjonsfelter for en app.
@@ -24,6 +23,10 @@ Legg til en ny seksjon med navn `presentationFields` med følgende underfelter:
 | dataTypeId  | Id på datamodellen som verdien skal hentes fra.                                                                   |
 
 Konfigurasjonen til en app med to definerte presentasjonsfelter ser slik ut:
+
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
 
 ```json
 "presentationFields": [

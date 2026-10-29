@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Signer og send inn
 linktitle: Signer og send inn
 description: Slik setter du opp signering og innsending i ett steg i appen din.
@@ -14,7 +13,7 @@ Denne guiden tar utgangspunkt i at du har opprettet en tom app.
 Hvis appen skal sende signeringskvittering til innboksen til den som signerer, må meldingstjenesten i Altinn være satt opp.
 
 ## 1. Slett eksisterende dataoppgave
-Naviger til **Arbeidsflyt** i toppmenyen til appen i Altinn Studio, og slett oppgaven "Utfylling" som ligger i appens prosess.
+Naviger til **Prosess** i toppmenyen til appen i Altinn Studio, og slett oppgaven "Utfylling" som ligger i appens prosess.
 Du har nå en tom prosess med kun start- og slutthendelse.
 
 ## 2. Legg til signeringsoppgave
@@ -62,6 +61,10 @@ Steget fungerer fortsatt som et vanlig datasteg, men brukeren kan i tillegg sign
 
 Ferdig konvertert eksempel i `process.bpmn`:
 
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml
 <bpmn:task id="Task_1" name="Fyll ut og signer">
   <bpmn:extensionElements>
@@ -91,6 +94,10 @@ Ferdig konvertert eksempel i `process.bpmn`:
 
 Datatypen i `applicationmetadata.json`:
 
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "signatures",
@@ -107,6 +114,10 @@ Det er viktig å sette `allowedContributors` til `"app:owned"`. Det gjør at dis
 Sørg for at den som fyller ut skjemaet har rettighet til å utføre action `sign`.
 
 Du kan for eksempel legge til dette rett ved der vedkommende får `read` og `write`:
+
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
 
 ```xml
 ...

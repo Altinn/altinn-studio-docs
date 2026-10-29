@@ -1,5 +1,4 @@
 ---
-draft: true
 hidden: true
 tags: [needsReview]
 ---
@@ -11,6 +10,11 @@ Pass på at du bruker testnøkkelen under utvikling.
 2. Gjør appen din klar for bruk av Azure Key Vault som konfigurasjonskilde, hvis du ikke har gjort det allerede. Se [Hemmeligheter]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/secrets" >}}).
 3. Legg til din hemmelige nøkkel i Key Vault med variabelnavnet `NetsPaymentSettings--SecretApiKey`. På denne måten overstyrer den `SecretApiKey` i `appsettings.json`.
 4. Legg til `NetsPaymentSettings` i din `appsettings.json`.
+
+    {{< code-title >}}
+    App/appsettings.json
+    {{< /code-title >}}
+
     ```json
     {
       "NetsPaymentSettings": 

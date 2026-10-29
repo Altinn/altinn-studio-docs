@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Lage en egendefinert systemoppgave
 linktitle: Egendefinert
 description: Slik lager du en systemoppgave som kjører egen kode i prosessen
@@ -172,6 +171,10 @@ Se [tilgangsregler]({{< relref "/altinn-studio/v9/develop-a-service/configuratio
 
 Skal brukeren kunne trykke **Prøv igjen** på en oppgave som har feilet, trenger brukeren den samme handlingen. Legg den på samme sted som de andre handlingene brukeren skal ha tilgang til.
 
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
+
 ```xml
 <xacml:AllOf>
     <xacml:Match MatchId="urn:oasis:names:tc:xacml:3.0:function:string-equal-ignore-case">
@@ -225,6 +228,10 @@ Plattformen kan kjøre oppgaven på nytt etter en feil. Sender oppgaven en meldi
 ## Styre tidsbruk og nye forsøk
 
 Trenger oppgaven andre tidsrammer enn standard, overstyrer du `StepOptions`:
+
+{{< code-title >}}
+App/logic/ServiceTasks/ExampleServiceTask.cs
+{{< /code-title >}}
 
 ```csharp
 public ProcessStepOptions? StepOptions =>

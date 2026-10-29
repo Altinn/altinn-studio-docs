@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Slette en tjeneste automatisk
 linktitle: Automatisk sletting
 description: Slik konfigurerer du automatisk sletting av en tjeneste når prosessen er slutt.
@@ -21,6 +20,10 @@ Du konfigurerer automatisk sletting i `applicationmetadata.json` med flagget `"a
 ## Slette instans automatisk
 
 Eksempel på konfigurasjon i `applicationmetadata.json` for instanser:
+
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
 
 ```json {linenos=false,hl_lines=[48]}
 {
@@ -77,6 +80,10 @@ Eksempel på konfigurasjon i `applicationmetadata.json` for instanser:
 ## Slette data automatisk
 
 Eksempel på konfigurasjon i `applicationmetadata.json` for datatype:
+
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
 
 ```json {linenos=false,hl_lines=[11, 32]}
 "dataTypes":[

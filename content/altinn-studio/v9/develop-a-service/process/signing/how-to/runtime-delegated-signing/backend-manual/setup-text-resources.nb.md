@@ -1,5 +1,4 @@
 ---
-draft: true
 headless: true
 hidden: true
 tags: [needsReview]
@@ -24,6 +23,10 @@ Du kan ikke endre kvitteringen per person som skal signere, bare generelt for al
 - `signing.correspondence_receipt_title` - tittel på kvitteringsmelding
 - `signing.correspondence_receipt_summary` - undertittel på kvitteringsmelding
 - `signing.correspondence_receipt_body` - innhold i kvitteringsmelding
+
+{{< code-title >}}
+App/config/texts/resource.{language}.json
+{{< /code-title >}}
 
 ```json
 {

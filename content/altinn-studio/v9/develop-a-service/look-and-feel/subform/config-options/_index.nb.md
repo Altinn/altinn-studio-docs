@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Innstillinger for underskjema
 linktitle: Innstillinger
 description: Oversikt over innstillingene for komponenten Tabell for underskjema (Subform)
@@ -49,6 +48,10 @@ Du kan tilpasse disse tekstene i `textResourceBindings`-objektet:
 | cellContent.value     | Ja      | Et uttrykk som henter verdien i cellen fra datamodellen til underskjemaet, vanligvis `["dataModel", "feltnavn"]`. Eldre apper kan bruke `query` i stedet, se under. |
 | cellContent.default   | Nei     | Teksten appen viser hvis `value` ikke gir noe resultat. Kan være en tekstressurs.                                                   |
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json
 "tableColumns": [
   {
@@ -81,6 +84,10 @@ Når du oppsummerer tabellen med `Summary2`, kan du velge visningstype med `disp
 - `full` viser alle opplysningene i hver oppføring.
 
 Sett alltid `display`. Skjemaet oppgir `table` som standardverdi, men setter du ikke `display`, viser appen i dag fullstendig visning.
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 {

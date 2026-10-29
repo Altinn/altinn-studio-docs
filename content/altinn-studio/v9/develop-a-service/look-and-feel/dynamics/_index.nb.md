@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Dynamikk
 description: Slik setter du opp dynamikk i skjema i Altinn Studio
 tags: [needsReview]
@@ -172,6 +171,10 @@ Studio viser bare **Lagre**-knappen når disse betingelsene er oppfylt:
 - Du har valgt en funksjon for det første deluttrykket i uttrykket ditt.
 
 Når disse betingelsene er oppfylt, kan du lagre uttrykket uten å fylle inn noen av verdiene. Dette legger til et uttrykk som ser slik ut i den gitte komponentfeltet:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 "[KOMPONENTEGENSKAP]": [

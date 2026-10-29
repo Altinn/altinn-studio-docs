@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Konfigurere autentisering
 linktitle: Autentisering
 description: Slik konfigurerer du autentisering.
@@ -21,6 +20,10 @@ De eneste godkjente ID-providerene for øyeblikket er:
 - [UIDP](https://www.udir.no/verktoy/uidp/)
 
 Bruk av OIDC-provider angis i `appSettings`:
+
+{{< code-title >}}
+App/appsettings.json
+{{< /code-title >}}
 
 ```json
 "AppOidcProvider": "uidp"

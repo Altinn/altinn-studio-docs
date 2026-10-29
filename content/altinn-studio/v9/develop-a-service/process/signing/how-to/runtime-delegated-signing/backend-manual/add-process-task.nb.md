@@ -1,5 +1,4 @@
 ---
-draft: true
 headless: true
 hidden: true
 tags: [needsReview]
@@ -19,6 +18,10 @@ Signering bruker to brukerhandlinger (user actions):
 Hvis appen bruker Altinn-brukergrensesnittet, vil handlingene ovenfor bli kalt ved knappetrykk i signeringssteget. Hvis appen bare bruker API-et, må du kalle disse manuelt via `/actions`-endepunktet eller process next.
 
 Et signeringssteg kan se omtrent slik ut:
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
 
 ```xml
 <bpmn:task id="SigningTask" name="Signering">

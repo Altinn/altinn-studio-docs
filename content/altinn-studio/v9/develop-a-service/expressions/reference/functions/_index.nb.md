@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Funksjoner
 linktitle: Funksjoner
 description: Oversikt over dynamiske uttrykk definert i JSON
@@ -143,6 +142,10 @@ Disse to funksjonene sammenligner to strenger for å sjekke om de er like (`equa
 
 Eksempler:
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "lastName",
@@ -168,6 +171,10 @@ Se også tips og triks under [_Streng eller mindre streng sammenligning?_](/nb/a
 Denne funksjonen tar inn en boolsk verdi eller noe som kan konverteres til en boolsk verdi, og returnerer den motsatte boolske verdien. Sann konverteres til usann, usann konverteres til sann.
 
 Funksjonen kan være nyttig hvis du vil _snu_ et uttrykk. I stedet for å tenke at du skal skrive et uttrykk som _skjuler_ en komponent gitt noen forutsetninger, kan du pakke uttrykket inn i `not` og skrive uttrykket ut fra hva som skal til for å _vise_ komponenten:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 {
@@ -270,6 +277,10 @@ Funksjonen `language` returnerer brukerens valgte språkkode.
 
 Eksempel:
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json
 {
    "id": "lastName",
@@ -352,15 +363,15 @@ versjon 8.6.0-preview.3 eller nyere. I frontend er denne funksjonen tilgjengelig
 rullerende versjonen av v4.
 {{% /notice %}}
 
-Funksjonen `stringSlice` tar imot en streng som første argument (den originale strengen) og ett eller to tall som andre og tredje argument (startindeksen og valgfri lengde). Den returnerer en delstreng av den originale strengen som starter på indeksen gitt i andre argument. Hvis et tredje argument er gitt, har delstrengen lengden gitt i tredje argument.
+Funksjonen `stringSlice` tar imot en streng som første argument (den originale strengen) og ett eller to tall som andre og tredje argument (startindeksen og valgfri sluttindeks). Den returnerer en delstreng av den originale strengen som starter på startindeksen. Hvis en sluttindeks er gitt, stopper delstrengen før tegnet på den indeksen. Tegnet på startindeksen er altså med, mens tegnet på sluttindeksen ikke er det. Indeksene starter på 0, og en negativ indeks telles fra slutten av strengen. Merk at tredje argument er en sluttindeks, ikke en lengde.
 
 Eksempel:
 
 ```json
-["stringSlice", ["dataModel", "My.Model.FullName"], 5, 3]
+["stringSlice", ["dataModel", "My.Model.FullName"], 5, 8]
 ```
 
-Dette eksempelet returnerer en delstreng av fullt navn som starter på den femte bokstaven og med en lengde på tre. Hvis fullt navn er "John Doe", returnerer funksjonen "Doe".
+Dette eksempelet returnerer en delstreng av det fulle navnet, fra og med indeks 5 til, men ikke med, indeks 8. Hvis det fulle navnet er "John Doe", returnerer funksjonen "Doe". For å hente to tegn fra indeks 6 bruker du `6, 8` (ikke `6, 2`), slik at `["stringSlice", "12345678901", 6, 8]` gir "78".
 
 {{% /expandlarge %}}
 
@@ -389,6 +400,10 @@ Disse to funksjonene sjekker om streng A inkluderer eller ikke inkluderer streng
 
 Eksempel:
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json
 {
    "id": "lastName",
@@ -415,6 +430,10 @@ Hvis du vil sjekke om verdier finnes i en kommaseparert liste, kan du bruke funk
 Funksjonen commaContains tar imot to argumenter. Det første argumentet er en kommaseparert streng, og det andre argumentet er strengen du vil sjekke om er blant de kommaseparerte verdiene i første argument.
 
 Eksempel:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 {
@@ -495,7 +514,7 @@ Eksempel:
 {{% /expandlarge %}}
 
 {{% expandlarge id="func-displayValue" header="displayValue" %}}
-Funksjonen `displayValue` gjør et oppslag på en komponent og returnerer en formattert tekststreng som representerer verdien i datamodellen. Dette er til forskjell fra [component](#func-component)-funksjonen som returnerer råverdien som ligger i datamodellen. Denne funksjonen egner seg best til visning av en komponents verdi for brukeren, og mindre til videre logikk basert på verdien som returneres. Dette er spesielt relevant for Input-felter med [tallformattering](/nb/altinn-studio/v9/develop-a-service/look-and-feel/styling/#formatering-av-tall), datofelter, radioknapper og andre komponenter med kodelister.
+Funksjonen `displayValue` gjør et oppslag på en komponent og returnerer en formattert tekststreng som representerer verdien i datamodellen. Dette er til forskjell fra [component](#func-component)-funksjonen som returnerer råverdien som ligger i datamodellen. Denne funksjonen egner seg best til visning av en komponents verdi for brukeren, og mindre til videre logikk basert på verdien som returneres. Dette er spesielt relevant for Input-felter med [tallformattering](/nb/altinn-studio/v8/reference/ux/styling/#formatering-av-tall), datofelter, radioknapper og andre komponenter med kodelister.
 
 Eksempel:
 
@@ -555,6 +574,10 @@ Eksempel:
 Denne oppslagsfunksjonen gjør det mulig å hente verdier direkte fra gjeldende datamodell. Første argument må peke et sted i datamodellen, og bruker det samme punktum-separerte formatet som brukt i `dataModelBindings`. Hvis appen har flere datamodeller, kan du oppgi datatypen til datamodellen som andre argument, for eksempel `["dataModel", "Ansatte.Navn", "personalmodell"]`. Datatypen må være en fast tekst, ikke et uttrykk. Uten andre argument slår funksjonen opp i standarddatamodellen (`defaultDataType`). Ved bruk inne i [repeterende grupper](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/repeatinggroup/) trenger du _ikke_ bruke plassholdere for indekser til gruppen - uttrykket finner selv den relative plasseringen i kontekst av en repeterende gruppe.
 
 Eksempel på oppslag i repeterende gruppe:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json {linenos=false,hl_lines=[11,21,23,24,25,34,36,37,38]}
 [

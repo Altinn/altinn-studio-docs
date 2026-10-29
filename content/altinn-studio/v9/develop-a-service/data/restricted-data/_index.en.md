@@ -19,7 +19,7 @@ You can read more about the concept [here](/en/altinn-studio/v8/concepts/data-mo
 ## Configuring Maskinporten
 You must configure Maskinporten to allow the app to perform actions on behalf of the service owner.
 
-You can find a detailed guide on that setup in the [Maskinporten integration guide](/en/altinn-studio/v9/develop-a-service/integration/maskinporten/).
+You can find a detailed guide on that setup in the [Maskinporten integration guide](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/).
 
 ## Configuring the data types
 The [applicationmetadata.json](https://github.com/Altinn/altinn-studio/blob/main/src/App/app-template-dotnet/src/App/config/applicationmetadata.json) file defines all [data types](/en/api/models/app-metadata/#datatype) in an application. Here, you specify which [actions](/en/altinn-studio/v8/reference/configuration/authorization/#action-attributes) are required for your restricted data type.
@@ -54,9 +54,7 @@ This service can then be registered in `Program.cs` and [injected](https://learn
 ### Writing data
 As mentioned, we need to manually create the data element when the application enters the `Task_1` process step.
 
-To do this, use the `UpdateOrCreateData` method from the [RestrictedDataHelper service](#helper-service).
-
-The following example implements this logic in the `IProcessTaskStart` interface, fetching information from a fictional API and storing it in the restricted data model. This information remains unavailable to the user but can be retrieved later by the app.
+The following example does this in a [process hook](/nb/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks) that implements `IOnTaskStartingHandler`. It fetches information from a fictional API and stores it in the restricted data model. The hook writes through `context.InstanceDataMutator`, which the platform saves when the hook completes, so `RestrictedDataHelper` is not needed here. This information remains unavailable to the user but can be retrieved later by the app.
 
 {{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/ProcessTaskStartHandler.cs.md" %}}
 

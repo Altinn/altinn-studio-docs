@@ -57,6 +57,11 @@ public class OrderDetailsCalculator : IOrderDetailsCalculator
 ```
 
 Register IOrderDetailsCalculator implementation in program.cs:
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```c#
 void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
 {

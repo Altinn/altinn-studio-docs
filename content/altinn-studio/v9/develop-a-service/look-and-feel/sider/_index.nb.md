@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Sider
 description: Slik setter du opp en app med flere sider og oppsummering.
 toc: true
@@ -49,6 +48,10 @@ Legger du innstillingene i et `pages`-objekt i denne fila, slik du gjør i prose
 
 **Eksempel på prosesstegets `Settings.json`:**
 
+{{< code-title >}}
+App/ui/{taskId}/Settings.json
+{{< /code-title >}}
+
 ```json
 {
   "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
@@ -74,6 +77,10 @@ Legger du innstillingene i et `pages`-objekt i denne fila, slik du gjør i prose
 ```
 
 **Eksempel på den globale `App/ui/Settings.json`:**
+
+{{< code-title >}}
+App/ui/Settings.json
+{{< /code-title >}}
 
 ```json
 {
@@ -114,6 +121,10 @@ Du kan sette standardverdien for sidebredden til utvidet ved å legge til `expan
 
 `App/ui/Settings.json` (globalt, for hele appen):
 
+{{< code-title >}}
+App/ui/Settings.json
+{{< /code-title >}}
+
 ```json
 {
   "expandedWidth": true
@@ -121,6 +132,10 @@ Du kan sette standardverdien for sidebredden til utvidet ved å legge til `expan
 ```
 
 `Settings.json` (per prosessteg):
+
+{{< code-title >}}
+App/ui/{taskId}/Settings.json
+{{< /code-title >}}
 
 ```json
 {
@@ -139,6 +154,10 @@ Du kan sette standardverdien for sidebredden til utvidet ved å legge til `expan
 ```
 
 Layoutfil:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 {

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Systemoppgaver med flere steg
 linktitle: Flere steg
 description: Slik deler du en systemoppgave i flere arbeidssteg, og lar den vente på svar utenfra
@@ -72,6 +71,10 @@ public class ArchiveServiceTask : IPipelineServiceTask
 
 Oppgaver med flere arbeidssteg registrerer du på `IPipelineServiceTask`:
 
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```csharp
 services.AddTransient<IArchiveClient, ArchiveClient>();
 services.AddTransient<IPipelineServiceTask, ArchiveServiceTask>();
@@ -107,6 +110,10 @@ Bare avslutningen kan si at hele oppgaven er ferdig og at prosessen skal gå vid
 
 Kommer svaret som en melding utenfra i stedet for at appen spør igjen, åpner arbeidssteget en **postkasse** (mailbox i koden). Postkassen har en id som er adressen svaret må komme tilbake til, og en frist for hvor lenge den tar imot meldinger.
 
+{{< code-title >}}
+App/logic/ServiceTasks/ArchiveServiceTask.cs
+{{< /code-title >}}
+
 ```csharp
 public ServiceTaskPipeline Define(ServiceTaskPipelineBuilder pipeline) =>
     pipeline
@@ -135,7 +142,7 @@ private async Task<ServiceTaskExchangeResult> HandleAnswer(ServiceTaskContext co
 }
 
 private Task<ServiceTaskResult> HandleClosed(ServiceTaskContext context, MailboxClosedReason reason) =>
-    // Typeargumentet er nødvendig: uten det blir returtypen Task<ServiceTaskFailedResult>, som ikke kompilerer.
+    // Typeargumentet er nødvendig: uten det blir returtypen Task<FailedServiceTaskResult>, som ikke kompilerer.
     Task.FromResult<ServiceTaskResult>(ServiceTaskResult.FailedPermanent("Fikk aldri svar fra samarbeidspartneren."));
 ```
 

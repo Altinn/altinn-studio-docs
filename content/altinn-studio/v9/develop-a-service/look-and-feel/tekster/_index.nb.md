@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Tekster
 description: Slik redigerer og formaterer du tekster, bruker variabler og legger til hjelpetekster i appen.
 toc: true
@@ -130,6 +129,10 @@ Du kan ikke redigere selve tallet, siden det i dette tilfellet er knyttet til ma
 
 Legg til tekstnøkkelen og den nye verdien i `App/config/texts/resource`. Merk at nøkkelen må vise til den overordnede gruppen, og deretter tekstnøkkelen, atskilt med `.`
 
+{{< code-title >}}
+App/config/texts/resource.{language}.json
+{{< /code-title >}}
+
 ```json
     {
       "id": "form_filler.file_uploader_validation_error_file_number_1",
@@ -147,6 +150,10 @@ Dette gir en feilmelding som vist under:
 ## Variabler i tekster
 
 Du kan sette inn variabler i tekster ved å følge oppsettet under. Det er viktig at rekkefølgen på variablene er den samme som parameterne i teksten.
+
+{{< code-title >}}
+App/config/texts/resource.{language}.json
+{{< /code-title >}}
 
 ```json
 {
@@ -181,6 +188,11 @@ Du kan hente verdier fra fire ulike datakilder:
    Ved å angi `dataModel.<dataModelNavn>` som datakilde kan du hente verdier fra felt i skjemaet som brukeren fyller ut. Du kan hente data fra felt uavhengig av om de er synlige eller ikke. Endrer brukeren data i et felt en variabel refererer til, oppdaterer appen teksten når brukeren slutter å skrive i feltet.
 2. **Innstillinger**  
    Ved å angi `applicationSettings` som datakilde kan du hente verdier fra en egen seksjon i `appsettings.{miljø}.json`-filene, kalt `FrontEndSettings`. Dette er en dynamisk liste du kan utvide uten å endre koden. Dermed kan du ha ulike verdier fra miljø til miljø, ved å sette andre verdier i de ulike `appsettings.{miljø}.json`-filene. Legg merke til at `FrontEndSettings` og `applicationSettings` bruker stor forbokstav forskjellig.
+
+   {{< code-title >}}
+   App/appsettings.json
+   {{< /code-title >}}
+
    ```json
    "FrontEndSettings": {
      "HomeBaseUrl": "https://www.testdirektoratet.no"
@@ -212,6 +224,10 @@ Finner ikke appen en variabel i datakilden, viser den i stedet stien til feltet 
 
 Vil du at appen ikke skal vise teksten i det hele tatt når den ikke finner feltet i datakilden, kan du sette `defaultValue` til en tom streng.
 
+{{< code-title >}}
+App/config/texts/resource.{language}.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "good.text.id",
@@ -227,6 +243,10 @@ Vil du at appen ikke skal vise teksten i det hele tatt når den ikke finner felt
 ```
 
 ### Fullstendig eksempel
+
+{{< code-title >}}
+App/config/texts/resource.{language}.json
+{{< /code-title >}}
 
 ```json
 {
@@ -260,6 +280,10 @@ For at variabler i tekst skal fungere med data i repeterende grupper, må du end
 
 Det gjør du ved å legge til `[{0}]` _etter_ den repeterende gruppen når du angir felt i datamodellen i `key`-parameteren. For eksempel:
 
+{{< code-title >}}
+App/config/texts/resource.{language}.json
+{{< /code-title >}}
+
 ```json {hl_lines=[6,10]}
 {
   "id": "common.submitinfo",
@@ -286,6 +310,10 @@ Hjelpetekster er korte tekstsnutter som gir en kort og presis beskrivelse av hva
 Du definerer nøklene for hjelpeteksten i layoutfilen til siden. Layoutfilene ligger i `App/ui/{oppgave-ID}/layouts/`, for eksempel `App/ui/Task_1/layouts/Side1.json`.
 
 Under ser du et eksempel på en layoutfil uten hjelpetekster.
+
+{{< code-title >}}
+App/ui/Task_1/layouts/Side1.json
+{{< /code-title >}}
 
 ```json
 {
@@ -329,6 +357,10 @@ Vil du legge til hjelpetekst på en av disse skjemakomponentene, gjør du dette:
 3. Legg til en binding til den nye hjelpeteksten, med nøkkelen `"help"` og verdi lik nøkkelen til tekstressursen.
 
 Slik ser hele filen ut etter at du har lagt til en hjelpetekst:
+
+{{< code-title >}}
+App/ui/Task_1/layouts/Side1.json
+{{< /code-title >}}
 
 ```json {linenos=false,hl_lines=[18]}
 {
@@ -383,6 +415,10 @@ Endrer du `appName` lokalt, er det viktig at du også legger den oppdaterte titt
 
 I `App/config/applicationmetadata.json`:
 
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
+
 ```json
 "title": {
     "nb": "Automatisk deploy applikasjonen",
@@ -392,6 +428,10 @@ I `App/config/applicationmetadata.json`:
 ```
 
 I `App/config/texts/resource.nb.json`:
+
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
 
 ```json
 {
@@ -408,6 +448,10 @@ I `App/config/texts/resource.nb.json`:
 
 I `App/config/texts/resource.nn.json`:
 
+{{< code-title >}}
+App/config/texts/resource.nn.json
+{{< /code-title >}}
+
 ```json
 {
   "language": "nn",
@@ -422,6 +466,10 @@ I `App/config/texts/resource.nn.json`:
 ```
 
 I `App/config/texts/resource.en.json`:
+
+{{< code-title >}}
+App/config/texts/resource.en.json
+{{< /code-title >}}
 
 ```json
 {
@@ -446,6 +494,10 @@ Som standard henter appen app-eieren fra tekstene i [altinn-orgs.json](https://g
 Vil du endre dette navnet, legger du til nøkkelen `appOwner` i tekstressursene. Den overstyrer da verdien som ligger på CDN-en.
 
 Eksempel:
+
+{{< code-title >}}
+App/config/texts/resource.en.json
+{{< /code-title >}}
 
 ```json
 {
@@ -486,6 +538,10 @@ receipt_platform.sent_content
 ```
 
 Vil du for eksempel overstyre hjelpeteksten, kan du legge dette til i `config/texts/resource.nb.json`-filen i appen:
+
+{{< code-title >}}
+App/config/texts/resource.nb.json
+{{< /code-title >}}
 
 ```json
 {

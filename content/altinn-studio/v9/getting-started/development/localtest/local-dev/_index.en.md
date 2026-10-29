@@ -3,7 +3,7 @@ draft: true
 title: Local development
 linktitle: Local development
 description: Getting started with local development
-tags: [needsReview]
+tags: [Reviewed]
 toc: true
 weight: 40
 aliases:
@@ -25,24 +25,20 @@ Here is an overview of how to get started with local development.
 
 {{% expandlarge id="legacy-clone-with-git" header="Old method: Clone manually with Git" %}}
 
-1. Find the application you want to work with locally in the [Dashboard](/en/altinn-studio/v8/getting-started/navigation/dashboard/) in Altinn Studio
-2. Open the repository. Click the **Repository** button
-    ![Repository button highlighted in an image](find-app-in-dashboard.png)
-    *Replace this image.*
-3. Copy the repository link (the blue square) either manually or by clicking the button marked with a red circle
-    ![Highlighted repository URL in Gitea in an image](copy-repo-link.png)
-    *Consider replacing this image.*
-4. Open a terminal in your local development environment:
-    - Go to the desired location for the application repository.
-    - Enter the command `git clone` and paste the URL you copied in the previous step.
-    ```cmd
-    $ git clone https://altinn.studio/repos/<org>/<app-name>.git
+1. Go to the repository for the app. You can do this in two ways:
+    - On the dashboard in Altinn Studio, click the repository icon next to the app.
+      ![The repository icon next to the app on the dashboard](./find-app-in-dashboard.png "The repository icon on the dashboard")
+    - Inside the app, click the three dots in the top right corner and select **Repositorium**.
+      ![The three-dots menu with the Repositorium option](./three-dots-repository.png "Repositorium in the three-dots menu")
+2. Click **Kode**, and copy the link under **HTTPS** with the copy button (marked with a red circle).
+    ![Copy the repository link in Gitea](./copy-repo-link.png "Copy the repository link")
+3. Open a terminal in your local development environment, go to the folder where you want the app, and run `git clone` with the link you copied:
+    ```bash
+    git clone https://altinn.studio/repos/<org>/<app-name>.git
     ```
-    -  If you have logged into Altinn Studio without creating a password (e.g. using GitHub login), you can [create a personal access token in Gitea](https://altinn.studio/repos/user/settings/applications) to use as a password when cloning:
-    ```cmd
-    $ git clone https://<username>:<access-token>@altinn.studio/repos/<org>/<app-name>.git
-    ```
-    - You should see a result in the terminal similar to this:
+    You log in to Altinn Studio with Ansattporten, so you don't have a separate password. If Git asks for a password, use a [personal access token from Gitea](https://altinn.studio/repos/user/settings/applications) instead.
+
+    You should see a result in the terminal similar to this:
     ```cmd
     Cloning into 'app-name'...
     remote: Enumerating objects: 982, done.
@@ -53,8 +49,8 @@ Here is an overview of how to get started with local development.
     Resolving deltas: 100% (600/600), done.
     ```
 
-The system creates a folder with the same name as the application and clones the contents of the application repository into the folder.
-Now you can open your preferred development tool and start coding.
+The system creates a folder with the same name as the app and clones the contents of the app repository into the folder.
+Now you can open your preferred development tool and get started.
 
 {{% /expandlarge %}}
 
@@ -72,46 +68,42 @@ Below we describe how you can synchronise changes from the command line.
 
 1. Go to your application repository in a terminal.
 2. Add the files for which you want to upload changes (push) with the command `git add <file path>`. You can run the command for individual files, multiple files at once (space separated), or a directory.
-3. Save (commit) the changes with a meaningful message using the command `git commit -m <commit message>`.
+3. Save (commit) the changes with a descriptive message using the command `git commit -m <commit message>`.
 4. Upload (push) the changes to the master branch with the command `git push`.
 
 ### Download changes
 
 Go to your application repository in a terminal and run the command `git pull`.
 
-[Read more about `git pull` here](https://git-scm.com/docs/git-pull)
+Read more about [git pull in the Git documentation](https://git-scm.com/docs/git-pull).
 
 ## Synchronise changes in Altinn Studio
 
-In Altinn Studio, you must synchronise changes in the same way as with local changes.
+In Altinn Studio, you synchronise changes with the buttons in the toolbar at the top of the page.
 
-### Download changes
-1. Click **Hent endringer** (Fetch changes) on the 'Lage' page of the application in Altinn Studio.
-   ![Fetch changes in Altinn Studio](toolbar-hent.png)
-   *Replace this image.*
-2. If everything went well, you will see this confirmation.
-    ![Fetch changes confirmation](pull-successful.png)
-    *Replace this image.*
+### Fetch changes
 
-### Upload changes
+Click **Hent endringer** (Fetch changes). You are notified when the app has been updated to the latest version.
 
-1. Click **Last opp dine endringer** (Upload your changes) on the 'Lage' page of the application in Altinn Studio.
-   ![Upload changes in Altinn Studio](toolbar-last-opp.png)
-   *Replace this image.*
-2. Enter a descriptive message for the change(s) and click **Valider endringer** (Validate changes).
-    ![Commit message](commit-message.png)
-    *Replace this image.*
-3. Wait a moment while the system validates the changes. If a conflict occurs, click **Løs konflikt** (Resolve conflict) and follow the instructions.
-4. Click **Lagre** (Save) to upload the changes to the repository (master).
-    ![Save validated changes](changes-validated.png)
-    *Replace this image.*
-5. If everything went well, you will see this confirmation.
-    ![Save confirmation](push-successful.png)
-    *Replace this image.*
+![Fetch changes in Altinn Studio](./fetch-changes.png "Fetch changes in Altinn Studio")
+
+### Share changes
+
+A red dot on **Del dine endringer** (Share your changes) shows that you have changes that have not been shared yet.
+
+1. Click **Del dine endringer**.
+2. Describe what you have changed, and click **Del endringer** (Share changes). To see which files you have changed, click **Se siste endringer** (See latest changes).
+   ![Share changes in Altinn Studio](./share-changes.png "Share changes in Altinn Studio")
+
+You get a confirmation when the changes have been shared.
+
+![Confirmation that the changes have been shared](./changes-shared.png "Confirmation that the changes have been shared")
+
+If someone else has changed the app in the same place as you, you are told that there is a conflict in the app. You can then download your changes as a zip file, or select **Slett mine endringer** (Delete my changes).
 
 ## Local testing
 
-{{% insert "content/altinn-studio/shared/studioctl/local-test-workflow.en.md" "/en/altinn-studio/v9/develop-a-service/reference/data/data-modeling/" "/en/altinn-studio/v9/test-a-service/testing/local/testusers/" %}}
+{{% insert "content/altinn-studio/shared/studioctl/local-test-workflow.en.md" "/nb/altinn-studio/v9/develop-a-service/reference/data/data-modeling/" "/nb/altinn-studio/v9/test-a-service/testing/local/testusers/" %}}
 {{% insert "content/altinn-studio/shared/studioctl/useful-commands.en.md" %}}
 
 ### Inspect processing in the workflow engine
@@ -128,13 +120,14 @@ The **Live** tab shows scheduled, active, and recently finished workflows. Use t
 - If you change prefilling, you must start a new instance of the application (go to [http://local.altinn.cloud:8000](http://local.altinn.cloud:8000) and log in again).
 - If you change C# files, you must stop the application (`ctrl+C`) and start it again (`studioctl run`).
 
-You can update automatically when changing C# files by starting the application with `dotnet watch`.
-This command will either start the application or reload it ([hot reload](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-watch#hot-reload)) when changes are made to the source code.
+You can update automatically when changing C# files by starting the app with `dotnet watch` from the *App* folder.
+The command starts the app, or reloads it ([hot reload](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-watch#hot-reload)) when you change the source code.
+The app gets its local settings from `studioctl` itself, so you need to have `studioctl` installed.
 
 {{% insert "content/altinn-studio/shared/studioctl/stop-local-test.en.md" %}}
 
 {{% expandlarge id="legacy-app-localtest" header="Old method: Run app-localtest manually" %}}
 
-{{% insert "content/altinn-studio/shared/studioctl/legacy-app-localtest.en.md" "/en/altinn-studio/v9/test-a-service/testing/local/testusers/" %}}
+{{% insert "content/altinn-studio/shared/studioctl/legacy-app-localtest.en.md" "/nb/altinn-studio/v9/test-a-service/testing/local/testusers/" %}}
 
 {{% /expandlarge %}}

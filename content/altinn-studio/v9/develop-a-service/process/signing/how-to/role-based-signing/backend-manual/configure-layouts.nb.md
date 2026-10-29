@@ -1,5 +1,4 @@
 ---
-draft: true
 headless: true
 hidden: true
 tags: [needsReview]
@@ -8,6 +7,10 @@ tags: [needsReview]
 1. Legg til en ny mappe under `App/ui` for signeringsoppgaven. Mappen må ha samme navn som ID-en til oppgaven i `process.bpmn`, for eksempel `Task_2`.
 
 2. Opprett en `layouts`-mappe og en `Settings.json`-fil i oppgavemappen. Sett `defaultDataType` til datamodellen som signeringsoppgaven skal bruke:
+
+   {{< code-title >}}
+   App/ui/Task_2/Settings.json
+   {{< /code-title >}}
 
    ```json
    {
@@ -30,6 +33,10 @@ tags: [needsReview]
    Hvis du ikke bruker `SigningActions` for å vise **Signer**-knappen, må du legge til en egen handlingsknapp med action "sign", for å la sluttbruker signere.
 
    Eksempler på hvordan du kan bruke komponentene:
+
+   {{< code-title >}}
+   App/ui/Task_2/layouts/signing.json
+   {{< /code-title >}}
 
    ```json
    {
@@ -70,6 +77,10 @@ tags: [needsReview]
 
 4. Du kan overstyre teksten som vises når listen er tom, før noen har signert, ved å legge til en tekst for tekstressursnøkkelen `signee_list.no_signees` i tekstressursfilene.
    
+   {{< code-title >}}
+   App/config/texts/resource.{language}.json
+   {{< /code-title >}}
+
    ```json
    {
      "id": "signee_list.no_signees",

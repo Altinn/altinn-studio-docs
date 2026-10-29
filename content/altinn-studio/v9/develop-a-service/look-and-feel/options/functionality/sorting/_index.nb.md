@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Sortering
 description: Slik sorterer du valgene i listen
 weight: 300
@@ -21,6 +20,10 @@ Egenskapen `sortOrder` er valgfri, og du kan sette den til en av følgende verdi
 - `desc` (descending) - sorterer i synkende rekkefølge. Systemet sorterer tekster alfabetisk fra Å til A.
 
 Eksempel-konfigurasjon:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json {hl_lines=[10]}
 {

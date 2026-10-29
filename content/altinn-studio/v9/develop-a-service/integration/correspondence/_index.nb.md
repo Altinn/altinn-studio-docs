@@ -1,41 +1,36 @@
 ---
-draft: true
 title: Integrere Altinn-app med Meldingstjenesten
 linktitle: Meldingstjenesten
 description: Slik integrerer du en Altinn-app med Meldingstjenesten.
 weight: 100
 toc: true
-tags: [needsReview]
+tags: [Reviewed]
 ---
 
 Slik integrerer du [meldingstjenesten](/nb/correspondence/) med en Altinn-app. Med en slik integrasjon kan appen sende digitale meldinger og vedlegg sikkert til både organisasjoner og enkeltpersoner.
 
 ## Forutsetninger
-- En [Altinn-ressurs](#altinn-ressurs)
-- [Altinn.App.Api](https://www.nuget.org/packages/Altinn.App.Api) og [Altinn.App.Core](https://www.nuget.org/packages/Altinn.App.Core) _v8.12.2_ eller nyere
+
+Du trenger en [Altinn-ressurs](#altinn-ressurs). Meldingsklienten er innebygd i alle v9-apper, så du trenger ikke installere eller registrere noe.
 
 ### Altinn-ressurs
-Når du sender en korrespondanse må du knytte den til en Altinn-ressurs. Ressursen bestemmer tilgangen til meldingene. Altinn evaluerer om både avsendere og mottakere har tilgang.
+Hver melding du sender, må høre til en Altinn-ressurs. Policyen til ressursen bestemmer hvem som får lese meldingene.
 
-Se [veiledningen for ressursregistrering](/nb/correspondence/getting-started/developer-guides/serviceowner/#registeraresourceinaltinnresourceregistry) for mer informasjon om oppsett og opprettelse.
+Se [veiledningen for ressursregistrering](/nb/correspondence/getting-started/developer-guides/serviceowner/#registeraresourceinaltinnresourceregistry) for hvordan du oppretter ressursen.
 
 {{<notice info notice-paragraph-fix>}}
-Policyen til ressursen må tillate handlingene:
-- `read`, slik at mottakere kan åpne og lese meldingen
-- `write`, slik at avsendere kan sende meldingen
-- `subscribe`, for å registrere hendelsesabonnement i Altinn Events
+Policyen til ressursen må tillate
 
-Ressursen må tillate sender-tilgang for [din organisasjon](https://github.com/Altinn/altinn-cdn/blob/master/orgs/altinn-orgs.json)
-og mottaker-tilgang for ønskelige [rollekoder](https://github.com/Altinn/altinn-cdn/blob/master/authorization/subjectoptions.json) eller [tilgangspakker](https://docs.altinn.studio/nb/authorization/what-do-you-get/accesspackages/business/). Tilgangspakker erstatter etter hvert de tradisjonelle Altinn-rollene, men rollekoder fungerer fortsatt som et unntak fram til 1. januar 2027.
+- `read`, slik at mottakerne kan åpne og lese meldingen
+- `subscribe`, hvis du skal abonnere på hendelser for ressursen i Altinn Events
 
-Når du sender en melding til en person, bruker du koden `priv`. Når du sender en melding til en organisasjon, bruker du rollene eller tilgangspakkene
-som best beskriver din tiltenkte mottaker.
+Mottakerne gir du tilgang med [rollekoder](https://github.com/Altinn/altinn-cdn/blob/master/authorization/subjectoptions.json) eller [tilgangspakker](/nb/authorization/what-do-you-get/accesspackages/business/). Sender du meldinger til personer, bruker du rollekoden `priv`. Det er [rollen Privatperson]({{< relref "/authorization/what-do-you-get/accesspackages/citizens/privatperson" >}}), som alle innbyggere har fra Folkeregisteret.
+
+Sender du til virksomheter, velger du tilgangspakkene eller rollene som passer best for mottakeren. De gamle Altinn 2-rollene slutter å gi tilgang 1. januar 2027. Bruk derfor tilgangspakker eller roller fra Enhetsregisteret, for eksempel daglig leder. Se [Altinn Autorisasjon – detaljert konsept]({{< relref "/authorization/about/detailed" >}}).
+
+Eier virksomheten din ressursen, trenger policyen ingen `write`-regel for at appen skal kunne sende. Meldingstjenesten slipper gjennom tjenesteeieren som eier ressursen. Det gjelder når appen bruker `CorrespondenceAuthenticationMethod.Default()`, fordi tokenet da har scopet `altinn:serviceowner` og viser hvilken virksomhet appen tilhører. Bruker du en ressurs en annen virksomhet eier, må policyen gi virksomheten din `write`.
 {{</notice>}}
 
-## Implementasjon og bruk
+## Sende meldinger fra appen
 
-For å bruke meldingstjenesten må du autorisere forespørselen med en passende bearer-token og en abonnementnøkkel.
-
-Under finner du veiledninger for hvordan du setter opp dette:
-
-- [Sende meldinger ved hjelp av Maskinporten](maskinporten)
+Appen sender meldinger på vegne av tjenesteeieren og henter tokenet via Maskinporten. Se [Sende meldinger med Maskinporten-autorisasjon]({{< relref "/altinn-studio/v9/develop-a-service/integration/correspondence/maskinporten" >}}) for hvordan du setter det opp og skriver koden.

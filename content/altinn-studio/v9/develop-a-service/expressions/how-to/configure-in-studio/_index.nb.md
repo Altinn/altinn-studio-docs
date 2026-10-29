@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Bygge uttrykk med Altinn Studio
 linktitle: Bygge uttrykk med Altinn Studio
 weight: 8
@@ -129,6 +128,10 @@ For å tillate lagring av et uttrykk i layoutfilen, viser Studio bare **Lagre**-
 2. Du har valgt en funksjon for det første deluttrykket i uttrykket ditt
 
 Når disse betingelsene er oppfylt, kan du lagre uttrykket uten å fylle inn noen av verdiene. Dette legger til et uttrykk som ser slik ut i det gitte komponentfeltet:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 "[KOMPONENTEGENSKAP]": [

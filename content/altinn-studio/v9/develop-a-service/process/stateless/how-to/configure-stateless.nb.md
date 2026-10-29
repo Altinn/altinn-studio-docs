@@ -2,7 +2,6 @@
 title: Hvordan sette opp en stateless app
 linktitle: Oppsett
 description: Følg stegene i denne guiden for å sette opp en stateless app.
-draft: true
 weight: 1
 tags: [needsReview]
 ---
@@ -18,6 +17,10 @@ Vi skal fortelle appen at den skal ignorere prosess ved oppstart, og heller gå 
 Dette gjør du i filen `applicationmetadata.json`.
 
 Legg til følgende linje i `App/config/applicationmetadata.json`:
+
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
 
 ```json
 "onEntry": { "show": "stateless" }

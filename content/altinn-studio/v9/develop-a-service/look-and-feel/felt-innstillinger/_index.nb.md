@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Innstillinger for felt
 linktitle: Innstillinger
 description: Slik viser du at et felt er valgfritt, setter en tegngrense og styrer autolagring
@@ -22,6 +21,10 @@ Du kan styre om et felt ser valgfritt ut eller ikke. Vanlig oppførsel er at på
 
 Du kan overstyre denne oppførselen for valgfrie felt med `labelSettings` på en komponent i layoutfilen.
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "input-felt1",
@@ -42,6 +45,10 @@ Du kan ikke tvinge frem `(Valgfri)`-teksten på et felt som er obligatorisk. Den
 
 Du kan sette en tegngrense for et tekstfelt ved å legge til `maxLength`-egenskapen på en komponent i layoutfilen. Da viser appen en teller med antall gjenværende tegn. Her er et eksempel på en `Input`-komponent med en tegngrense på 10 tegn:
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "input-felt1",
@@ -58,6 +65,10 @@ Skal du kontrollere selve antallet tegn, må du også legge til `maxLength`-egen
 `Input`, `TextArea` og `Address` oppdaterer skjemadataene mens brukeren skriver. Som standard skjer dette 400 millisekunder etter at brukeren sist skrev noe. Med standardinnstillingen `autoSaveBehavior: "onChangeFormData"` lagrer appen endringene på serveren. Med `onChangePage` lagres de ved sideskifte. Se [innstillinger for automatisk lagring](/nb/altinn-studio/v9/develop-a-service/look-and-feel/ui-settings/#automatisk-lagring).
 
 Du styrer dette med `saveWhileTyping`-egenskapen på en komponent i layoutfilen. I eksempelet under oppdaterer feltet skjemadataene to sekunder etter at brukeren slutter å skrive i feltet.
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json {hl_lines=[4]}
 {

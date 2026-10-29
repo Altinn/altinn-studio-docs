@@ -1,8 +1,8 @@
 ---
-draft: true
 title: Brukerteste tjenester
+description: Slik finner du ut hvordan tjenesten oppleves for brukerne, med noen få enkle grep.
 weight: 2
-tags: [needsReview]
+tags: [Reviewed]
 ---
 
 Har du laget en tjeneste i Altinn Studio? Da har du sikkert brukt tid på å få alt til å fungere teknisk. Men vet du hvordan det oppleves for brukeren? Brukertesting er en enkel måte å finne ut av det. Med noen få enkle grep kan du avdekke problemer og forbedre tjenesten din.
@@ -38,13 +38,13 @@ Start med å finne noen som kan representere brukerne av tjenesten din. Det kan 
 - personer fra målgruppen (hvis du lager en søknad for bedrifter, finn noen som jobber med dette)
 - venner eller familiemedlemmer som passer profilen
 
-Tre til fem personer er ofte nok. Ikke bekymre deg for å finne den "perfekte" testpersonen – selv testing med folk som er litt utenfor målgruppen gir verdifull innsikt.
+Tre til fem personer er ofte nok. Ikke bekymre deg for å finne den «perfekte» testpersonen – selv testing med folk som er litt utenfor målgruppen gir verdifull innsikt.
 
 #### 3. Forbered det du trenger
 
 Hold det enkelt:
 
-- Lag en kort liste med oppgaver brukeren skal gjøre (f.eks. "Du skal søke om tilskudd til arrangement. Fyll ut skjemaet.")
+- Lag en kort liste med oppgaver brukeren skal gjøre (for eksempel «Du skal søke om tilskudd til arrangement. Fyll ut skjemaet.»)
 - Ha tjenesten klar i testmiljøet.
 - Ta med noe å notere på.
 - Sett av 30–45 minutter per person.
@@ -53,11 +53,11 @@ Hold det enkelt:
 
 Be testpersonen tenke høyt mens de bruker tjenesten. Dette er det viktigste grepet. Du vil høre ting som:
 
-- "Hm, hva betyr egentlig 'arrangør'? Er det meg eller organisasjonen?"
-- "Jeg lurer på om jeg skal fylle ut dette nå eller senere..."
-- "Hvor finner jeg informasjonen de spør om her?"
+- «Hm, hva betyr egentlig 'arrangør'? Er det meg eller organisasjonen?»
+- «Jeg lurer på om jeg skal fylle ut dette nå eller senere...»
+- «Hvor finner jeg informasjonen de spør om her?»
 
-**Viktig:** Ikke hjelp eller forklar underveis, selv om det gjør vondt å se dem slite. Si heller: "Hva tenker du nå?" eller "Hva ville du gjort videre?"
+**Viktig:** Ikke hjelp eller forklar underveis, selv om det gjør vondt å se dem slite. Si heller: «Hva tenker du nå?» eller «Hva ville du gjort videre?»
 
 Noter hvor de stopper opp, hva de misforstår, og hva de sier. Du trenger ikke skrive alt – bare det viktigste.
 
@@ -84,27 +84,27 @@ Start med det som går igjen hos flere. Det kan være å
 
 **Scenario:** Du har laget et skjema for søknad om parkeringstillatelse.
 
-**Hva du oppdaget:** Tre av fire testpersoner stopper opp ved feltet "Kjøretøyets registreringsnummer" og lurer på om de skal skrive inn bindestrek eller ikke. To av dem skriver feil format først.
+**Hva du oppdaget:** Tre av fire testpersoner stopper opp ved feltet «Kjøretøyets registreringsnummer» og lurer på om de skal skrive inn bindestrek eller ikke. To av dem skriver feil format først.
 
-**Løsning:** Legg til en hjelpetekst under feltet: "Skriv registreringsnummeret uten mellomrom eller bindestreker, f.eks. AB12345"
+**Løsning:** Legg til en hjelpetekst under feltet: «Skriv registreringsnummeret uten mellomrom eller bindestreker, for eksempel AB12345»
 
 Eller enda bedre: Bruk et inndataformat som automatisk formaterer mens de skriver.
 
 ## Vanlige bekymringer
 
-### "Jeg har ikke tid til dette"
+### «Jeg har ikke tid til dette»
 
 En times brukertesting kan spare deg for flere dager med brukerstøtte og feilretting senere. Start smått – selv én test er bedre enn ingen.
 
-### "Jeg er ikke designer, jeg kan ikke dette"
+### «Jeg er ikke designer, jeg kan ikke dette»
 
 Du trenger ingen designkompetanse. Du trenger bare å observere og lytte. Testpersonene forteller deg hva som er problemet.
 
-### "Hva hvis jeg ikke finner noen å teste med?"
+### «Hva hvis jeg ikke finner noen å teste med?»
 
 Start med kolleger. Selv om de jobber i samme organisasjon, kjenner de sannsynligvis ikke din spesifikke tjeneste. Det gir verdifull innsikt.
 
-### "Tjenesten er ikke ferdig ennå"
+### «Tjenesten er ikke ferdig ennå»
 
 Perfekt! Det er bedre å teste underveis enn å vente til alt er klart. Da er det lettere å gjøre endringer.
 

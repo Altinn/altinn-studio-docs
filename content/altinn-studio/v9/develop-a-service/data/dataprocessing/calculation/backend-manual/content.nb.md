@@ -1,5 +1,4 @@
 ---
-draft: true
 headless: true
 hidden: true
 tags: [needsReview]
@@ -51,6 +50,10 @@ Hvert felt kan ha én regel. Trenger du flere betingelser, samler du dem i det s
 Ligger feltet i en repeterende gruppe, regner appen ut verdien for hver rad. Du skriver stien uten radnummer.
 
 Eksempelet under gir hver rad i `varer` sin egen `sum`, ut fra prisen og antallet i den samme raden:
+
+{{< code-title >}}
+App/models/skjema.calculation.json
+{{< /code-title >}}
 
 ```json
 {

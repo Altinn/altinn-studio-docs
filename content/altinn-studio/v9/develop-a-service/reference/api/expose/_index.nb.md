@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Eksponere API fra en app
 linktitle: Eksponere
 description: Slik legger du til flere API-er i appen enn det som er definert som standard

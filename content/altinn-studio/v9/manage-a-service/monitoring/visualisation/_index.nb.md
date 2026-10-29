@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Visualisere telemetri
 linktitle: Visualisere telemetri
 description: Slik visualiserer du telemetri fra Altinn 3-apper.

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Flytkontroll
 description: Slik styrer du hvilken vei prosessen følger med gateways, uttrykk og tilpasset kode.
 tags: [altinn-apps, process, bpmn, gateway, needsReview]
@@ -23,6 +22,11 @@ Du kan la data som brukeren leverte i en tidligere oppgave avgjøre hvilken flyt
 Først må du bestemme hvilke skjemadata uttrykkene skal kunne bruke.
 
 Eksempel:
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml {hl_lines=["6-10"]}
 ...
 <bpmn:exclusiveGateway id="Gateway_1">
@@ -53,6 +57,10 @@ Prosessen skal følge _Flow_g1_t2_ hvis feltet _Amount_ i skjemadataene er stør
 
 Du gjør dette ved å legge til betingelsesuttrykk (`conditionExpression`) i de utgående flytene.
 
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml {hl_lines=[2,5]}
 <bpmn:sequenceFlow id="Flow_g1_t2" sourceRef="Gateway_1" targetRef="Task_2">
     <bpmn:conditionExpression>["greaterThanEq", ["dataModel", "Amount"], 1000]</bpmn:conditionExpression>
@@ -70,6 +78,10 @@ Du finner flere muligheter på siden om [uttrykk]({{< relref "/altinn-studio/v9/
 Du kan også la handlingen som brukeren eller systemet utførte i oppgaven før gatewayen, avgjøre hvilken flyt prosessen følger. Da skriver du et betingelsesuttrykk i prosessen, i tillegg til uttrykkene mot datamodellen.
 
 Hvis appen har et bekreftelsessteg, kan du la sluttbrukeren avvise dataene. Prosessen sender da instansen tilbake til forrige oppgave (_Task_1_).
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
 
 ```xml
 <bpmn:task id="Task_2" name="Person">
@@ -100,6 +112,10 @@ Prosessen skal følge _Flow_g1_t1_ hvis brukeren utfører handlingen _reject_, o
 
 Du gjør dette med uttrykksfunksjonen _gatewayAction_:
 
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
+
 ```xml {hl_lines=[2,5]}
 <bpmn:sequenceFlow id="Flow_g1_t1" sourceRef="Gateway_1" targetRef="Task_1">
     <bpmn:conditionExpression>["equals", ["gatewayAction"], "reject"]</bpmn:conditionExpression>
@@ -122,6 +138,10 @@ Hvis uttrykk ikke er nok til å styre gatewayen din, kan du skrive tilpasset kod
 Du trenger en prosess som inneholder en eksklusiv gateway.
 
 ### Eksempelprosess med eksklusive gateways
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -199,6 +219,10 @@ https://github.com/Altinn/app-lib-dotnet/blob/main/src/Altinn.App.Core/Features/
 Når du har skrevet den tilpassede koden, registrerer du den i `Program.cs`, i metoden `RegisterCustomAppServices`.
 
 Eksempel:
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
 ```csharp
 void RegisterCustomAppServices(

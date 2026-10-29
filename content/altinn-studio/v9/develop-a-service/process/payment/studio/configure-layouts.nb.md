@@ -1,5 +1,4 @@
 ---
-draft: true
 hidden: true
 tags: [needsReview]
 ---
@@ -16,6 +15,10 @@ tags: [needsReview]
   Du kan plassere denne komponenten hvor som helst i skjemaet ditt, men vi anbefaler å sette den på den siste siden før brukeren blir bedt om å betale.
 
 - Systemet beregner ordrelinjene ut fra data i skjemaet. Når brukeren endrer disse dataene, må appen hente ordrelinjene på nytt. Derfor legger du til datafeltene som systemet bruker i beregningen, i `refetchDependencies`. Hver verdi er et uttrykk som peker på et felt i datamodellen. Navnet på nøkkelen kan du velge fritt, og verdiene sendes ikke til serveren. Dette gjør du manuelt, direkte i layoutfilene:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 {
@@ -41,4 +44,4 @@ Dette steget er valgfritt. Hvis du ikke gjennomfører dette steget, brukes oppse
 2. Klikk på **Legg til ny side**.
 3. I konfigurasjonspanelet for siden åpner du **PDF** og klikker på **Gjør om siden til PDF**.
 4. Legg til komponenten **Betaling**, og eventuelt andre tekster og komponenter du ønsker på PDF-siden.
-5. Forhåndsvis PDF-en ved å åpne utviklerverktøyet med ikonknappen nederst til høyre i forhåndsvisningen ![Utviklerverktøy](../devtools.png), og klikk deretter på **Generer PDF**.
+5. Forhåndsvis PDF-en ved å åpne utviklerverktøyet med ikonknappen nederst til høyre i forhåndsvisningen ![Utviklerverktøy](/nb/altinn-studio/v9/develop-a-service/process/payment/devtools.png), og klikk deretter på **Generer PDF**.

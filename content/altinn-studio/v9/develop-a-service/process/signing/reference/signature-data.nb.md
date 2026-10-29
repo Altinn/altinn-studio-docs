@@ -1,7 +1,6 @@
 ---
 title: Slik lagres data fra signering
 linktitle: Signeringsdata
-draft: true
 tags: [needsReview]
 ---
 

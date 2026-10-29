@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Fiks Arkiv
 linktitle: Fiks Arkiv
 description: Slik setter du opp Fiks Arkiv som systemoppgave i appen din.
@@ -57,7 +56,7 @@ Slik går det steg for steg:
 1. **Appen sender.** Arbeidssteget henter mottakeren, lager `arkivmelding.xml` med hoveddokument og vedlegg fra instansdataene, og lagrer arkivmeldingen på instansen som datatypen i `Receipt.ArchiveRecord`. Så åpner det en postkasse og sender meldingen til mottakerkontoen gjennom Fiks IO. Postkassens id følger med som `klientKorrelasjonsId`, og det er den som gjør at svaret finner tilbake til riktig oppgave. Feiler noe underveis, prøver plattformen steget på nytt med samme innhold.
 2. **Arkivet svarer.** Arkivsystemet sender først en mottaksbekreftelse (`arkivmelding.opprett.mottatt`) og deretter en kvittering (`arkivmelding.opprett.kvittering`) når saken er opprettet. Kan det ikke opprette saken, sender det en feilmelding i stedet.
 3. **Lytteren sender svaret videre.** Appen lytter på Fiks IO-kontoen sin, leser `klientKorrelasjonsId` fra hver melding og leverer den til postkassen som venter. Meldinger uten korrelasjons-id blir logget og forkastet, siden ingen oppgave venter på dem.
-4. **Oppgaven konkluderer.** Mottaksbekreftelsen holder oppgaven ventende. Kvitteringen lagres på instansen som datatypen i `Receipt.ConfirmationRecord`, instansen markeres som fullført med mindre du har slått det av, og prosessen går videre med handlingen i `SuccessHandling.Action`, som standard langs standardflyten. En feilmelding fra arkivet sender prosessen videre med handlingen i `ErrorHandling.Action`, som standard `reject`. Gatewayen etter oppgaven skiller de to veiene. Kommer det ingen kvittering på 7 døgn, feiler oppgaven.
+4. **Oppgaven konkluderer.** Mottaksbekreftelsen holder oppgaven ventende. Kvitteringen lagres på instansen som datatypen i `Receipt.ConfirmationRecord`, instansen markeres som fullført med mindre du har slått det av, og prosessen går videre med handlingen i `SuccessHandling.Action`, som standard uten handling. En feilmelding fra arkivet sender prosessen videre med handlingen i `ErrorHandling.Action`, som standard `reject`. Gatewayen etter oppgaven skiller de to veiene. Kommer det ingen kvittering på 7 døgn, feiler oppgaven.
 
 Mens oppgaven venter, ser brukeren lastevisningen. Ingen bruker eller tjenesteeier trenger å gjøre noe, og ingenting spør arkivet om status. Se [Hva brukeren ser mens en systemoppgave kjører]({{< relref "/altinn-studio/v9/develop-a-service/process/service-tasks/visning" >}}) for hvordan du tilpasser ventingen og feilsiden.
 
@@ -153,9 +152,9 @@ Utvidelsesmetodene ligger i navnerommet `Altinn.App.Clients.Fiks.Extensions`, s�
 
 Legg oppgaven inn i `process.bpmn` som en `bpmn:serviceTask` med oppgavetypen `fiksArkiv`, og legg en eksklusiv gateway rett etter den. Oppgaven går alltid videre når arkiveringen er avgjort: med handlingen i `SuccessHandling.Action` når arkivet har bekreftet saken, og med handlingen i `ErrorHandling.Action`, som standard `reject`, når arkiveringen ikke kan lykkes. Gatewayen er der de to veiene skiller lag, og appen nekter å starte hvis oppgaven ikke er fulgt av en gateway med minst to utganger. Plasser oppgaven etter oppgaven som lager dataene du vil arkivere, vanligvis etter PDF-oppgaven, og ikke legg en tilbakemeldingsoppgave etter den.
 
-**Merk:** Du kan ennå ikke dra en Fiks Arkiv-oppgave direkte inn i Arbeidsflyt-editoren i Altinn Studio. Inntil videre anbefaler vi denne fremgangsmåten:
+**Merk:** Du kan ennå ikke dra en Fiks Arkiv-oppgave direkte inn i Prosess-editoren i Altinn Studio. Inntil videre anbefaler vi denne fremgangsmåten:
 
-1. Dra en vanlig dataoppgave inn i Arbeidsflyt-editoren.
+1. Dra en vanlig dataoppgave inn i Prosess-editoren.
 2. Del endringene i Studio.
 3. Rediger `process.bpmn` på din egen maskin.
 4. Gjør dataoppgaven om til en `bpmn:serviceTask` (se eksemplet nedenfor).
@@ -177,18 +176,20 @@ App/config/process/process.bpmn
   <bpmn:outgoing>Flow_3</bpmn:outgoing>
 </bpmn:serviceTask>
 <bpmn:sequenceFlow id="Flow_3" sourceRef="Task_FiksArkiv" targetRef="Gateway_FiksArkiv" />
-<bpmn:exclusiveGateway id="Gateway_FiksArkiv" default="Flow_4">
+<bpmn:exclusiveGateway id="Gateway_FiksArkiv">
   <bpmn:incoming>Flow_3</bpmn:incoming>
   <bpmn:outgoing>Flow_4</bpmn:outgoing>
   <bpmn:outgoing>Flow_5</bpmn:outgoing>
 </bpmn:exclusiveGateway>
-<bpmn:sequenceFlow id="Flow_4" sourceRef="Gateway_FiksArkiv" targetRef="EndEvent_1" />
+<bpmn:sequenceFlow id="Flow_4" sourceRef="Gateway_FiksArkiv" targetRef="EndEvent_1">
+  <bpmn:conditionExpression>["notEquals", ["gatewayAction"], "reject"]</bpmn:conditionExpression>
+</bpmn:sequenceFlow>
 <bpmn:sequenceFlow id="Flow_5" sourceRef="Gateway_FiksArkiv" targetRef="Task_Oppfolging">
   <bpmn:conditionExpression>["equals", ["gatewayAction"], "reject"]</bpmn:conditionExpression>
 </bpmn:sequenceFlow>
 ```
 
-`Flow_4` er standardflyten og tas når arkivet har bekreftet saken. `Flow_5` tas når handlingen er `reject`, og fører her til en oppgave der noen kan følge opp saken. Hva den oppgaven gjør, bestemmer du. All konfigurasjon av selve meldingen ligger i `appsettings.json`, ikke i prosessen. Se [flytkontroll]({{< relref "/altinn-studio/v9/develop-a-service/reference/process/flowcontrol" >}}) for mer om gatewayer og `gatewayAction`.
+`Flow_4` tas når handlingen ikke er `reject`. Med standardinnstillingene betyr det at arkivet har bekreftet saken. `Flow_5` tas når handlingen er `reject`, og fører her til en oppgave der noen kan følge opp saken. Hva den oppgaven gjør, bestemmer du. Endrer du `SuccessHandling.Action` eller `ErrorHandling.Action`, må uttrykkene i gatewayen endres tilsvarende. All konfigurasjon av selve meldingen ligger i `appsettings.json`, ikke i prosessen. Se [flytkontroll]({{< relref "/altinn-studio/v9/develop-a-service/reference/process/flowcontrol" >}}) for mer om gatewayer og `gatewayAction`.
 
 ### Steg 5: Gi tjenesteeieren tilgang {#oppsett-tilgang}
 
@@ -463,10 +464,10 @@ Hva oppgaven gjør når arkivet har bekreftet saken med en kvittering. Innstilli
 
 | Innstilling              | Formål og standardverdi                                                                                            |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------|
-| **Action**               | Handlingen prosessen går videre med. Standard: ingen, altså standardflyten ut av gatewayen.                        |
+| **Action**               | Handlingen prosessen går videre med. Standard: ingen. Gatewayen i eksempelet over tar da `Flow_4`.                        |
 | **MarkInstanceComplete** | Om instansen skal markeres som fullført. Skjer før prosessen går videre. Standard: `true`.                         |
 
-Seksjonen kan utelates. Da markeres instansen som fullført, og prosessen går videre langs standardflyten ut av gatewayen. Sett `MarkInstanceComplete` til `false` hvis instansen skal holdes åpen etter arkiveringen, og `Action` hvis gatewayen skal skille på en egen handling. Slik ser standardverdiene ut, skrevet ut:
+Seksjonen kan utelates. Da markeres instansen som fullført, og prosessen går videre uten handling. Gatewayen i eksempelet over tar da `Flow_4`. Sett `MarkInstanceComplete` til `false` hvis instansen skal holdes åpen etter arkiveringen, og `Action` hvis gatewayen skal skille på en egen handling. Slik ser standardverdiene ut, skrevet ut:
 
 {{< code-title >}}
 App/appsettings.json
@@ -514,6 +515,10 @@ Innstillingene under `Recipient` og `Metadata` kan oppgis på to måter:
 
 1. **Fast verdi**
 
+   {{< code-title >}}
+   App/appsettings.json
+   {{< /code-title >}}
+
    ```json
    "JournalEntryTitle": {
      "Value": "Søknad om skjenkebevilling"
@@ -521,6 +526,10 @@ Innstillingene under `Recipient` og `Metadata` kan oppgis på to måter:
    ```
 
 2. **Verdi fra datamodellen**
+
+   {{< code-title >}}
+   App/appsettings.json
+   {{< /code-title >}}
 
    ```json
    "CaseFileTitle": {

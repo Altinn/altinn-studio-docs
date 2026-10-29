@@ -1,12 +1,11 @@
 ---
-draft: true
 title: Feilmeldinger i tjenesten
-description: Feilmeldinger skal hjelpe brukeren videre når noe går galt.
+description: Slik skriver du feilmeldinger som hjelper brukeren videre når noe går galt.
 weight: 6
-tags: [needsReview]
+tags: [Reviewed]
 ---
 
-Feilmeldinger vises når brukeren gjør noe som ikke fungerer, eller når systemet støter på et problem. En god feilmelding forklarer hva som er galt og hvordan brukeren kan løse problemet.
+Brukeren ser en feilmelding når noe ikke fungerer som det skal, eller når systemet støter på et problem. En god feilmelding forklarer hva som er galt og hvordan brukeren kan løse problemet.
 
 ## Krav til gode feilmeldinger
 
@@ -19,21 +18,20 @@ En god feilmelding skal
 
 ## Vis feilen på riktig sted og til riktig tid
 
-Feilmeldinger skal vises så nært det aktuelle feltet som mulig, og så snart som mulig etter at feilen oppstår.
+Vis feilmeldingen så nært det aktuelle feltet som mulig, og så snart som mulig etter at feilen oppstår.
 
-**Inline-validering** (validering mens brukeren fyller ut) gir raskest tilbakemelding. Plasser feilmeldingen rett under det aktuelle feltet, med tydelig merking av feltet som har feil.
+**Kontroll underveis**, mens brukeren fyller ut, gir raskest tilbakemelding. Plasser feilmeldingen rett under feltet, og merk tydelig at feltet har feil.
 
-Vanligvis bruker vi rød farge og gjerne et symbol for å vise feil. Bruk
-https://designsystemet.no/no/patterns/errors for å få oppdatert informasjon om hvordan vi merker feil.
+Vanligvis bruker vi rød farge og gjerne et symbol for å vise feil. Se [Designsystemets råd om feilmeldinger](https://designsystemet.no/no/patterns/errors) for oppdatert informasjon om hvordan du merker feil.
 
 ## Ikke skap tvil
 
 Feilmeldinger må fortelle hva som er galt og hva brukeren kan gjøre – på et språk brukeren forstår.
 
 Unngå:
-- Teknisk sjargong og fagtermer
-- Feilkoder uten forklaring
-- Vage meldinger som «noe gikk galt»
+- Teknisk sjargong og fagtermer.
+- Feilkoder uten forklaring.
+- Vage meldinger som «noe gikk galt».
 
 ❌ «Validering feilet for felt organisasjonsnummer»
 
@@ -43,7 +41,7 @@ Unngå:
 
 Når noe går galt, kan brukeren bli usikker på om de har gjort noe feil, eller om de kan miste data. Feilmeldingen skal være tydelig og forståelig, uten å være anklagende.
 
-Unngå «du har gjort feil» – fokuser på hva som må rettes.
+Unngå «du har gjort feil». Skriv heller hva brukeren må rette.
 
 ❌ «Du har skrevet feil fødselsnummer.»
 
@@ -68,14 +66,14 @@ Forklar hva som har skjedd, trygg brukeren om at det ikke er deres feil, og si h
 ✅ «Vi kunne ikke lagre endringene dine på grunn av en teknisk feil. Prøv igjen. Hvis problemet fortsetter, ta kontakt med kundesenteret vårt.»
 
 Gi gjerne brukeren to valgmuligheter:
-- En mulighet til å fikse det selv (for eksempel «Prøv igjen»)
-- En utvei hvis det ikke fungerer (for eksempel lenke til kundesenteret)
+- En mulighet til å fikse det selv (for eksempel «Prøv igjen»).
+- En utvei hvis det ikke fungerer (for eksempel lenke til kundesenteret).
 
 ## Oppsummerende feilmeldinger
 
-Når én eller flere feil hindrer brukerne i å gå videre eller sende inn skjemaet, vises en oppsummering med lenker til feltene som har feil. Dette gjør det lettere for brukerne å se hva de må rette.
+Når én eller flere feil hindrer brukerne i å gå videre eller sende inn skjemaet, viser appen en oppsummering med lenker til feltene som har feil. Dette gjør det lettere for brukerne å se hva de må rette.
 
-### Plassering av oppsummeringen
+### Hvor oppsummeringen skal stå
 
 Plasser oppsummeringen nær **Neste**- eller **Send inn**-knappen, slik at brukeren forstår sammenhengen mellom feilene og hvorfor de ikke kommer videre.
 
@@ -92,13 +90,12 @@ Oppsummeringen skal
 - fjerne feil fra listen etter hvert som brukeren retter dem
 - bruke samme tekst i lenken som i feilmeldingen ved feltet
 
-Inkluder stikkord fra feltnavnet i feilmeldingen, for eksempel «Postnummer må ha 4 siffer» eller «Postnummeret må ha fire siffer».
+Ta med stikkord fra feltnavnet i feilmeldingen, for eksempel «Postnummer må ha 4 siffer» eller «Postnummeret må ha fire siffer».
 
-Les mer om hvordan du setter opp feilmeldinger teknisk på
-https://designsystemet.no/no/patterns/errors
+Les mer om [hvordan du setter opp feilmeldinger](https://designsystemet.no/no/patterns/errors) i Designsystemet.
 
 ## Tips til arbeidet med feilmeldinger
 
 - Kontroller tekst like grundig som design og kode.
-- Ta med deg en feilmelding til vurdering i dailyen.
+- Ta med deg en feilmelding til vurdering i det daglige møtet.
 - Test meldingen på noen utenfor teamet ditt.

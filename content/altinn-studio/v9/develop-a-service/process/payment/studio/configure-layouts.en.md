@@ -22,6 +22,10 @@ hidden: true
 - To update the order details when the user enters data in the form, you need to add the data fields used to 
   calculate the order to `refetchDependencies`. You do this manually, directly in the layout-files. See example below.
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json {linenos=false,hl_lines=[8,9,10]}
 {
   "id": "paymentDetails",
@@ -47,4 +51,4 @@ This step is optional. The default is to use the same setup as the layout from t
 2. Click "Add new page".
 3. In the configuration panel for the page, open "PDF" and click on "Convert page to PDF".
 4. Add the "Payment" component, and any other of the available components to the PDF layout.
-5. To preview the PDF, open the developer tools at the bottom right of the preview ![Developer tools](../devtools.png), then click "Generer PDF".
+5. To preview the PDF, open the developer tools at the bottom right of the preview ![Developer tools](/en/altinn-studio/v9/develop-a-service/process/payment/devtools.png), then click "Generer PDF".

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Signering
 linktitle: Signering
 description: Om signering i en Altinn-app
