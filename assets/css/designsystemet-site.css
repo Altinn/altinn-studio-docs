@@ -121,10 +121,6 @@ body.ds-site > main {
 }
 
 /* Forsiden for v9 (kortkoden studio-landing) */
-.ds-site-version-alert {
-  width: min(1200px, calc(100% - 2 * var(--ds-size-6)));
-  margin: var(--ds-size-6) auto 0;
-}
 .studio-hub :is(.ds-heading, .ds-paragraph) {
   margin: 0;
 }
@@ -154,6 +150,16 @@ body.ds-site > main {
 }
 .studio-hero .studio-eyebrow {
   color: var(--ds-color-accent-surface-tinted);
+}
+/* Lenken til v8 under knappene i heroen */
+.studio-hero .studio-current-version {
+  color: var(--ds-color-accent-surface-tinted);
+}
+.studio-hero .studio-current-version .ds-link {
+  --dsc-link-color: var(--ds-site-white);
+  --dsc-link-color--hover: var(--ds-site-white);
+  --dsc-link-color--active: var(--ds-color-accent-text-default);
+  --dsc-link-color--visited: var(--ds-site-white);
 }
 .studio-hero .studio-lead {
   color: var(--ds-color-accent-surface-tinted);

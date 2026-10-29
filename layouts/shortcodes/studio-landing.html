@@ -6,16 +6,6 @@
 {{- $p := .Page -}}
 {{- $v8 := "" }}{{ with .Site.GetPage "/altinn-studio/v8" }}{{ $v8 = .RelPermalink }}{{ end -}}
 <div class="studio-hub">
-    <div class="ds-alert ds-site-version-alert" data-color="info">
-        <p class="ds-paragraph">
-            {{- if $nb }}
-            <strong>Altinn Studio v9 er en forhåndsversjon (preview).</strong> Gjeldende versjon er v8. Bruker appen din v8, se <a class="ds-link" href="{{ $v8 }}">dokumentasjonen for v8</a>.
-            {{- else }}
-            <strong>Altinn Studio v9 is a preview.</strong> The current version is v8. If your app uses v8, see the <a class="ds-link" href="{{ $v8 }}">documentation for v8</a>.
-            {{- end }}
-        </p>
-    </div>
-
     <section class="studio-hero">
         <div class="studio-wrap studio-hero-grid">
             <div class="studio-stack">
@@ -31,6 +21,10 @@
                     <a class="ds-button" data-variant="primary" href="{{ partial "studio/v9-url.html" (dict "page" $p "path" "getting-started") }}">{{ if $nb }}Kom i gang{{ else }}Get started{{ end }}</a>
                     <a class="ds-button" data-variant="secondary" href="{{ partial "studio/v9-url.html" (dict "page" $p "path" "this-is-as") }}">{{ if $nb }}Se hva du får{{ else }}Explore capabilities{{ end }}</a>
                 </div>
+                <p class="ds-paragraph studio-current-version" data-size="sm">
+                    {{- if $nb }}Bruker appen din v8? Se <a class="ds-link" href="{{ $v8 }}">dokumentasjonen for v8</a>, som er gjeldende versjon.
+                    {{- else }}Does your app use v8? See the <a class="ds-link" href="{{ $v8 }}">documentation for v8</a>, the current version.{{ end }}
+                </p>
             </div>
             <figure class="studio-hero-figure">
                 <img src="{{ "images/studio/studio-i-midten.png" | relURL }}"
