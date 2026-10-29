@@ -1,0 +1,12 @@
+{{- /*
+  Oversiktsside for en del av dokumentasjonen for Altinn Studio v9, for eksempel Planlegge tjenester.
+  Viser sidehodet og undersidene som kort. Brukes sammen med layout: designsystemet.
+*/ -}}
+<div class="studio-hub">
+    {{ partial "designsystemet/page-head.html" .Page }}
+    <section class="studio-section studio-soft" aria-label="{{ .Page.Title }}">
+        <div class="studio-wrap">
+            {{ partial "designsystemet/child-cards.html" (dict "page" .Page "prefix" "studio-child") }}
+        </div>
+    </section>
+</div>

@@ -1,7 +1,6 @@
 ---
 title: E-post
 description: Slik sender du e-post til brukere fra appen din.
-draft: true
 weight: 10
 tags: [Reviewed]
 ---
@@ -32,7 +31,7 @@ public class EmailOnStart(ILogger<EmailOnStart> logger, IEmailNotificationClient
     // "Task_1" er id-en til skjemasteget i BPMN-prosessen
     public bool ShouldRunForTask(string taskId) => taskId == "Task_1";
 
-    public async Task<HookResult> Execute(OnTaskStartingContext context)
+    public async Task<HandlerResult> Execute(OnTaskStartingContext context)
     {
         var order = new EmailNotification
         {
@@ -57,12 +56,12 @@ public class EmailOnStart(ILogger<EmailOnStart> logger, IEmailNotificationClient
             logger.LogError(e, "Error sending email on task start");
         }
 
-        return HookResult.Success();
+        return HandlerResult.Success();
     }
 }
 ```
 
-I eksempelet går prosessen videre selv om bestillingen feiler. Skal prosessen heller vente og prøve på nytt, returnerer du `HookResult.FailedRetryable("melding")` i `catch`-blokken. Da venter prosessen til bestillingen lykkes, og den stopper hvis alle forsøkene feiler.
+I eksempelet går prosessen videre selv om bestillingen feiler. Skal prosessen heller vente og prøve på nytt, returnerer du `HandlerResult.FailedRetryable("melding")` i `catch`-blokken. Da venter prosessen til bestillingen lykkes, og den stopper hvis alle forsøkene feiler.
 
 Deretter må du registrere klassen `EmailOnStart` som `IOnTaskStartingHandler` i `Program.cs`.
 

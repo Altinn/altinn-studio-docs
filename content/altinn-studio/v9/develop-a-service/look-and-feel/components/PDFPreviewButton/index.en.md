@@ -1,6 +1,6 @@
 ---
-title: PDFPreviewButton
 draft: true
+title: PDFPreviewButton
 ---
 
 ## Properties

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Lage validatorer i C#
 linktitle: Validatorer i C#
 description: Slik skriver du egne valideringsregler i C# som appen kjører på serveren

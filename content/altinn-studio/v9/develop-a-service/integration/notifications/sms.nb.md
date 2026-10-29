@@ -1,7 +1,6 @@
 ---
 title: SMS
 description: Slik sender du SMS til brukere fra appen din.
-draft: true
 weight: 20
 tags: [Reviewed]
 ---
@@ -32,7 +31,7 @@ public class SmsOnStart(ILogger<SmsOnStart> logger, ISmsNotificationClient smsNo
     // "Task_1" er id-en til skjemasteget i BPMN-prosessen
     public bool ShouldRunForTask(string taskId) => taskId == "Task_1";
 
-    public async Task<HookResult> Execute(OnTaskStartingContext context)
+    public async Task<HandlerResult> Execute(OnTaskStartingContext context)
     {
         var order = new SmsNotification
         {
@@ -57,12 +56,12 @@ public class SmsOnStart(ILogger<SmsOnStart> logger, ISmsNotificationClient smsNo
             logger.LogError(e, "Error sending SMS on task start");
         }
 
-        return HookResult.Success();
+        return HandlerResult.Success();
     }
 }
 ```
 
-I eksempelet går prosessen videre selv om bestillingen feiler. Skal prosessen heller vente og prøve på nytt, returnerer du `HookResult.FailedRetryable("melding")` i `catch`-blokken. Da venter prosessen til bestillingen lykkes, og den stopper hvis alle forsøkene feiler.
+I eksempelet går prosessen videre selv om bestillingen feiler. Skal prosessen heller vente og prøve på nytt, returnerer du `HandlerResult.FailedRetryable("melding")` i `catch`-blokken. Da venter prosessen til bestillingen lykkes, og den stopper hvis alle forsøkene feiler.
 
 Deretter må du registrere klassen `SmsOnStart` som `IOnTaskStartingHandler` i `Program.cs`.
 

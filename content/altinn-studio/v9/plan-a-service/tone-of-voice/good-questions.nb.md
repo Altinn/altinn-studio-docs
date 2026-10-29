@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Lag gode spørsmål
 description: Slik stiller du spørsmål som brukerne forstår og kan svare riktig på.
 weight: 1

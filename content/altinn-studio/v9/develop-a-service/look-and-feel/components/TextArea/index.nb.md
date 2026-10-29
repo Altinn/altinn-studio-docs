@@ -1,6 +1,5 @@
 ---
 title: TextArea
-draft: true
 ---
 
 ## Egenskaper

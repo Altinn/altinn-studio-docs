@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Jobbe i grener
 linktitle: Grener
 description: Slik jobber du i egne grener av appen i Altinn Studio og fletter endringene inn i master.

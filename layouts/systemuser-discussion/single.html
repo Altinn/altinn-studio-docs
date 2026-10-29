@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="{{ "css/systemuser-discussion.css" | relURL }}">
 </head>
 <body data-pagefind-ignore="all">
-  <main aria-label="Beslutningsgrunnlag om systembruker">
+  <main aria-label="{{ .Params.arialabel | default "Beslutningsgrunnlag om systembruker" }}">
     {{ range $i, $slide := split .Content "<hr>" }}
       <section class="slide" id="slide-{{ add $i 1 }}" tabindex="-1" aria-label="Lysbilde {{ add $i 1 }}">{{ $slide | safeHTML }}</section>
     {{ end }}

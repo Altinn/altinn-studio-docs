@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Altinn Studio-tilganger
 linktitle: Studio
 description: Slik styrer du hvem som har tilgang til organisasjonen og appene i Altinn Studio.

@@ -1,6 +1,5 @@
 ---
 title: RadioButtons
-draft: true
 ---
 
 ## Egenskaper

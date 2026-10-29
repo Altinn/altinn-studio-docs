@@ -8,7 +8,7 @@ Dette er en Hugo-basert dokumentasjonsside for Altinn-produkter som Altinn Studi
 
 **For brukeren**: Start Hugo-server i terminal ved øktstart:
 ```bash
-cd <repo-root> && hugo server
+cd <repo-root> && npm ci && hugo server
 ```
 Åpne nettleser på http://localhost:1313/
 
@@ -20,6 +20,8 @@ cd <repo-root> && hugo server
 - `themes/` - Hugo-tema
 - `config.toml` - Hugo-konfigurasjon
 - `public/` - Generert nettsted
+- `assets/` - Filer Hugo Pipes behandler, blant annet temaet og CSS-en til Designsystemet
+- `package.json` - npm-avhengigheter (Designsystemet). Kjør `npm ci` før `hugo server`
 
 ### Nøkkelfunksjoner
 

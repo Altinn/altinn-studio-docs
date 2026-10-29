@@ -1,5 +1,4 @@
 ---
-draft: true
 title: App B
 linktitle: App B
 description: Slik setter du opp app B
