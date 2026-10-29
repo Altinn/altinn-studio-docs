@@ -276,6 +276,6 @@ services.AddTransient<IProcessTask, CaseProcessTask>();
 
 ## Endre en oppgave mens instanser er underveis
 
-Formen på oppgaven låser seg når prosessen starter overgangen, og plattformen kjenner igjen arbeidsstegene på plasseringen i rekken. Det gjelder både arbeidsstegene i `DefineExecute` og dem i `DefineStart`, `DefineEnd` og `DefineAbandon`. Ruller du ut en ny versjon som setter inn, fjerner eller bytter om på arbeidssteg, mister instansene som er underveis sporet. De feiler, eller de hopper over arbeid uten å feile.
+Formen på oppgaven låser seg når prosessen starter overgangen, og plattformen kjenner igjen arbeidsstegene, og behandlerne som svarer på en postkasse (`HandleReplies` og `ConcludeOnReplies`), på plasseringen i rekken. Det gjelder både dem i `DefineExecute` og arbeidsstegene i `DefineStart`, `DefineEnd` og `DefineAbandon`. Ruller du ut en ny versjon som setter inn, fjerner eller bytter om på arbeidssteg eller behandlere, mister instansene som er underveis sporet. De feiler, eller de hopper over arbeid uten å feile.
 
 Dette er samme problem som å endre en BPMN-fil mens instanser er i gang, og det er utviklerne som må håndtere det: la instansene som er underveis, bli ferdige på koden de startet på, eller avslutt dem bevisst før utrullingen.
