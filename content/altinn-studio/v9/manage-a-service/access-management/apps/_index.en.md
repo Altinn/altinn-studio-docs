@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Apps infrastructure access
 linktitle: Apps
 description: How to request access to app logs and secrets.

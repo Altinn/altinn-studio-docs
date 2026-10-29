@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Re-use options from Altinn 2
 linktitle: From Altinn 2
 description: Options fetched from Altinn 2

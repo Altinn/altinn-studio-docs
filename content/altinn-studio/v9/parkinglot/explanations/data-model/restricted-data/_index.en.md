@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Protected Data
 description: Protected data requires extra access control beyond normal authorisation.
 tags: [needsReview]
@@ -17,7 +16,7 @@ Protected data is information that requires extra access control beyond normal a
 
 Protected data is information that requires extra access control, for example personal information or confidential/classified information.
 
-By default, users need the actions `read` and/or `write` to access the application's data. The [Policy.xml file](https://github.com/Altinn/app-template-dotnet/blob/main/src/App/config/authorization/policy.xml) is the main source of authorisation rules, but permissions can also be [delegated through Altinn](/en/authorization/what-do-you-get/accessmanagement/#delegation-and-management-of-access-groups).
+By default, users need the actions `read` and/or `write` to access the application's data. The [Policy.xml file](https://github.com/Altinn/app-template-dotnet/blob/main/src/App/config/authorization/policy.xml) is the main source of authorisation rules, but permissions can also be [delegated through Altinn](/en/authorization/what-do-you-get/accessmanagement/).
 
 ### How Does Protected Data Work?
 

@@ -2,7 +2,6 @@
 title: Slik sender du kvittering ifm signering
 linktitle: Signeringskvittering
 description: Følg stegene i denne guiden for å sette opp meldingstjenesten til å sende signeringskvittering
-draft: true
 ---
 
 ## Før du starter
@@ -37,7 +36,7 @@ Hvis du allerede bruker maskinporten i appen trenger du ikke å utføre dette st
 tilgang til nødvendige scopes før du går videre.
 {{% /notice %}}
 
-Følg [denne guiden](<relref "altinn-studio/v9/develop-a-service/integration/maskinporten/">) for å ta i bruk 
+Følg [denne guiden](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/) for å ta i bruk 
 maskinporten-klienten din i appen.
 
 ## 3. Legg til en meldingsressurs

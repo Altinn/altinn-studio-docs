@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Publisere (deploye) Altinn-tjenester
 description: Slik publiserer du tjenesten til produksjon, og dette må du vite om kjøremiljøet og brannmuren.
 

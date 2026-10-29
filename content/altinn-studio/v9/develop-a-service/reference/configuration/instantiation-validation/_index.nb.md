@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Lage egne regler for å starte appen
 linktitle: Egne regler for oppstart
 description: Slik lager du egne regler som avgjør om brukeren kan starte appen.

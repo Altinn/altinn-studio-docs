@@ -1,6 +1,5 @@
 ---
 title: MultipleSelect
-draft: true
 ---
 
 ## Properties

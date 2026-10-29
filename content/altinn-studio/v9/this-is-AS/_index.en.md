@@ -2,7 +2,6 @@
 title: This is Altinn Studio
 description: Altinn Studio is a tool for developing, operating and managing digital services for citizens and businesses.
 weight: 1
-draft: true
 tags: [Reviewed]
 cascade:
   params:

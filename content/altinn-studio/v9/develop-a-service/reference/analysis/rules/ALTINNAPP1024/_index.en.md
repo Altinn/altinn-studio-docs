@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "ALTINNAPP1024: subformPdf task names a UI folder it cannot render"
 description: "subformUiFolder is not a subform's UI folder with a defaultDataType the app declares"
 weight: 124

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Code analysis
 description: Reference documentation for the code analysis rules in Altinn Studio.
 

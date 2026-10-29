@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "ALTINNAPP0700: sealed default implementation replaced"
 description: "A class replaces an interface member whose default implementation is sealed"
 weight: 70

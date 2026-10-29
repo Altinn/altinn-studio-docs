@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Instans
 description: Slik gjør du endringer på applikasjonsinstanser
 toc: true

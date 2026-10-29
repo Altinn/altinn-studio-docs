@@ -1,7 +1,6 @@
 ---
 title: E-post
 description: Slik sender du e-post til brukere fra appen din.
-draft: true
 weight: 10
 tags: [Reviewed]
 ---

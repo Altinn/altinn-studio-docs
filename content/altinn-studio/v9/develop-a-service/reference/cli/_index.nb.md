@@ -1,5 +1,4 @@
 ---
-draft: true
 title: CLI
 description: Referansedokumentasjon for Altinn CLI (kommandolinjeverktøy).
 

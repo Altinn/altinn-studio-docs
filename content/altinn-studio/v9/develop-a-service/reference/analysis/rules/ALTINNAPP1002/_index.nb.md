@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "ALTINNAPP1002: PDF-systemoppgaven lister noe som ikke gir innhold i PDF-en"
 description: "autoPdfTaskIds lister PDF-oppgaven selv, en oppgave uten UI-mappe eller en tom oppføring ved siden av andre"
 weight: 102

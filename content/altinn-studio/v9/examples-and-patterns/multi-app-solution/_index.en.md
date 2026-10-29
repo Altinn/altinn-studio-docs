@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Develop a multi-app solution in Altinn
 linktitle: Multi-app solution
 description: How to assess needs and proceed when developing a multi-app solution

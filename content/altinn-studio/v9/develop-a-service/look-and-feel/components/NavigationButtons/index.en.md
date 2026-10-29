@@ -1,6 +1,5 @@
 ---
 title: NavigationButtons
-draft: true
 ---
 
 ## Properties

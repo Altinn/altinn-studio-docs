@@ -1,6 +1,5 @@
 ---
 title: ImageUpload
-draft: true
 ---
 
 ## Properties

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "ALTINNAPP0602: subformComponentId og subformDataTypeId støttes ikke"
 description: "En subformPdf-oppgave har innstillinger som ikke lenger er støttet"
 weight: 62

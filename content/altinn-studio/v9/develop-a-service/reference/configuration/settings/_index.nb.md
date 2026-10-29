@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Innstillinger i appsettings.json
 linktitle: Innstillinger
 description: Slik legger du inn innstillinger for appen og ser hvilke standardverdier som er endret i v9.

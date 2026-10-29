@@ -1,6 +1,5 @@
 ---
 title: AccordionGroup
-draft: true
 ---
 
 ## Properties

@@ -1,6 +1,5 @@
 ---
 title: SigningActions
-draft: true
 ---
 
 ## Properties

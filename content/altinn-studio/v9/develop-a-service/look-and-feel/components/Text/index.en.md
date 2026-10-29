@@ -1,6 +1,5 @@
 ---
 title: Text
-draft: true
 ---
 
 ## Properties

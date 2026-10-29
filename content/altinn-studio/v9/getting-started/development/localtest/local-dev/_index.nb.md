@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Lokal utvikling
 linktitle: Lokal utvikling
 description: Slik kommer du i gang med lokal utvikling

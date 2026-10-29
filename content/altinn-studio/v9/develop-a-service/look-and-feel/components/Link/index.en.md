@@ -1,6 +1,5 @@
 ---
 title: Link
-draft: true
 ---
 
 ## Properties

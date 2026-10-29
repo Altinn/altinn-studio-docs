@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "ALTINNAPP0602: subformComponentId and subformDataTypeId are not supported"
 description: "A subformPdf task has settings that are no longer supported"
 weight: 62

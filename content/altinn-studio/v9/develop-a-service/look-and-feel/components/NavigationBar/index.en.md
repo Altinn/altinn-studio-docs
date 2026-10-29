@@ -1,6 +1,5 @@
 ---
 title: NavigationBar
-draft: true
 ---
 
 ## Properties

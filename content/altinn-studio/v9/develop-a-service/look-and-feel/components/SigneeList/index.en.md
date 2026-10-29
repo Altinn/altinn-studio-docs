@@ -1,6 +1,5 @@
 ---
 title: SigneeList
-draft: true
 ---
 
 ## Properties

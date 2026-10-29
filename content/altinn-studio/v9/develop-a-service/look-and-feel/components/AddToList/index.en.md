@@ -1,6 +1,5 @@
 ---
 title: AddToList
-draft: true
 ---
 
 ## Properties

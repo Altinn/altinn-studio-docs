@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Payment
 description: Payment is a process step that allows users to pay for services or fees in the app.
 weight: 20

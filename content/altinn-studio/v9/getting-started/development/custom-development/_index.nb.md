@@ -2,7 +2,6 @@
 title: Tilpasninger i egenutviklet kode
 linktitle: Egne tilpasninger
 description: Gjør tilpasninger i appen din med egen kode
-draft: true
 weight: 40
 marp: true
 headingDivider: 4

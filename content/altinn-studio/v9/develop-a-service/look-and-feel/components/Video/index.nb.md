@@ -1,6 +1,5 @@
 ---
 title: Video
-draft: true
 ---
 
 ## Egenskaper

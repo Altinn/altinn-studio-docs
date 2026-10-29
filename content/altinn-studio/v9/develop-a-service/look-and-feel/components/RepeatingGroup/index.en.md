@@ -1,6 +1,5 @@
 ---
 title: RepeatingGroup
-draft: true
 ---
 
 ## Properties

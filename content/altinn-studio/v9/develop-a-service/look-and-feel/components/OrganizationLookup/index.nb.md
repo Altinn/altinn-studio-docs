@@ -1,7 +1,6 @@
 ---
 title: OrganizationLookup
 description: Slik lar du brukerne slå opp en virksomhet i Enhetsregisteret.
-draft: true
 toc: true
 tags: [needsReview]
 aliases:

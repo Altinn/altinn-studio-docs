@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Slik tar du imot vedlegg via API
 linktitle: Vedlegg via API
 description: Slik legger du til en vedleggstype som systemer kan laste opp til via API.

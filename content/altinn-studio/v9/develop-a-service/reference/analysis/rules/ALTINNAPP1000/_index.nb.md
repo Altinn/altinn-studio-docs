@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "ALTINNAPP1000: PDF-systemoppgaven har ingenting å vise"
 description: "En PDF-systemoppgave har verken pdfLayoutName eller autoPdfTaskIds"
 weight: 100

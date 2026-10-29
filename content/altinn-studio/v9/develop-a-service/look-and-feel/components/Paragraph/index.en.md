@@ -1,6 +1,5 @@
 ---
 title: Paragraph
-draft: true
 ---
 
 ## Properties

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "ALTINNAPP1026: pdfLayoutName peker på en side som ikke finnes"
 description: "pdfLayoutName for en PDF-systemoppgave peker på en side som ikke finnes i UI-mappen til oppgaven"
 weight: 126

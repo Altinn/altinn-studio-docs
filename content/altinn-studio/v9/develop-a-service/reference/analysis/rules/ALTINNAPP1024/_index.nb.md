@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "ALTINNAPP1024: subformPdf-oppgaven peker på en UI-mappe den ikke kan vise"
 description: "subformUiFolder er ikke UI-mappen til et underskjema med en defaultDataType appen kjenner"
 weight: 124
