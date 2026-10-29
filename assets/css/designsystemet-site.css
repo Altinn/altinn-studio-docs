@@ -306,12 +306,6 @@ body.ds-site > main {
   padding-top: var(--ds-size-4);
   border-top: var(--ds-size-1) solid var(--ds-color-accent-base-default);
 }
-.studio-feature:nth-child(3n + 2) {
-  border-top-color: var(--ds-color-brand1-base-default);
-}
-.studio-feature:nth-child(3n + 3) {
-  border-top-color: var(--ds-color-brand2-base-default);
-}
 .studio-feature .ds-paragraph {
   color: var(--ds-color-neutral-text-subtle);
 }
@@ -334,6 +328,10 @@ body.ds-site > main {
   }
   .studio-hero .ds-heading[data-size="xl"] {
     font-size: var(--ds-heading-lg-font-size);
+  }
+  /* Illustrasjonen er pynt. På små skjermer skjuler vi den, så rollevalget kommer rett etter heroen. */
+  .studio-hero-figure {
+    display: none;
   }
   .studio-grid,
   .studio-grid-2,
