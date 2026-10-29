@@ -144,7 +144,7 @@ body.ds-site > main {
 
 /* Hero */
 .studio-hero {
-  padding-block: var(--ds-size-15) var(--ds-size-18);
+  padding-block: var(--ds-size-18);
   background: var(--ds-site-blue);
   color: var(--ds-site-white);
 }
@@ -195,7 +195,7 @@ body.ds-site > main {
   display: flex;
   flex-wrap: wrap;
   gap: var(--ds-size-3);
-  margin-top: var(--ds-size-2);
+  margin-top: var(--ds-size-4);
 }
 .studio-hero-figure {
   margin: 0;
@@ -218,11 +218,13 @@ body.ds-site > main {
 }
 
 /* Seksjoner */
+/*
+  Avstandsrytme på forsiden:
+  innen en gruppe size-2 til size-4, mellom elementer i en blokk size-6,
+  fra seksjonsoverskrift til innhold size-8 og mellom seksjoner size-18 (size-12 på mobil).
+*/
 .studio-section {
-  padding-block: var(--ds-size-12);
-}
-.studio-section-tight {
-  padding-top: 0;
+  padding-block: var(--ds-size-18);
 }
 .studio-soft {
   background: var(--ds-color-neutral-background-tinted);
@@ -231,7 +233,7 @@ body.ds-site > main {
   display: flex;
   flex-direction: column;
   gap: var(--ds-size-2);
-  margin-bottom: var(--ds-size-6);
+  margin-bottom: var(--ds-size-8);
   max-width: 70ch;
 }
 .studio-section-head .ds-paragraph {
@@ -252,7 +254,7 @@ body.ds-site > main {
 .studio-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--ds-size-4);
+  gap: var(--ds-size-6);
 }
 .studio-grid-2 {
   grid-template-columns: repeat(2, 1fr);
@@ -296,7 +298,7 @@ body.ds-site > main {
 .studio-features {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--ds-size-6) var(--ds-size-10);
+  gap: var(--ds-size-8) var(--ds-size-10);
 }
 .studio-feature {
   display: grid;
@@ -316,7 +318,7 @@ body.ds-site > main {
   color: var(--ds-color-accent-text-subtle);
 }
 .studio-hub .studio-more {
-  margin-block-start: var(--ds-size-8);
+  margin-block-start: var(--ds-size-10);
 }
 .studio-feature .ds-paragraph {
   color: var(--ds-color-neutral-text-subtle);
@@ -335,8 +337,12 @@ body.ds-site > main {
   .studio-wrap {
     width: calc(100% - 2 * var(--ds-size-4));
   }
-  .studio-hero {
-    padding-block: var(--ds-size-10) var(--ds-size-12);
+  .studio-hero,
+  .studio-section {
+    padding-block: var(--ds-size-12);
+  }
+  .studio-section-head {
+    margin-bottom: var(--ds-size-6);
   }
   .studio-hero .ds-heading[data-size="xl"] {
     font-size: var(--ds-heading-lg-font-size);
