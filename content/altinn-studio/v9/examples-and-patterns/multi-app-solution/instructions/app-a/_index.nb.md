@@ -119,7 +119,7 @@ Du oppretter instansen av app B i en [prosess-hook]({{< relref "/altinn-studio/v
    ```csharp
    public class OpprettInstansIAppB(AppInstantiationClient appInstantiationClient) : IOnProcessEndedHandler
    {
-       public async Task<HookResult> Execute(OnProcessEndedContext context)
+       public async Task<HandlerResult> Execute(OnProcessEndedContext context)
        {
            var instanceTemplate = new InstantiationInstance
            {
@@ -144,7 +144,7 @@ Du oppretter instansen av app B i en [prosess-hook]({{< relref "/altinn-studio/v
 
            // Send eventuelt data til instansen, se «Levere data til app B» under
 
-           return HookResult.Success();
+           return HandlerResult.Success();
        }
    }
    ```
