@@ -33,11 +33,7 @@ Listen er ikke utfyllende - her kan du i praksis få til hva som helst!
 
 {{% insert "content/altinn-studio/shared/studioctl/local-development-intro.nb.md" %}}
 
-{{% notice warning %}}
-{{% insert "content/altinn-studio/shared/studioctl/preview-warning.nb.md" %}}
-{{% /notice %}}
-
-{{% insert "content/altinn-studio/shared/studioctl/install-clone.nb.md" %}}
+Følg [veiledningen for å installere og sette opp studioctl]({{< relref "/altinn-studio/v9/getting-started/studioctl" >}}). Der installerer du studioctl, logger inn og henter appen til maskinen din.
 
 Når appen er klonet, kan du åpne repoet i ønsket utviklingsverktøy og gjøre endringer i C#-kode, konfigurasjon, datamodeller, layouts og andre filer.
 Husk å synkronisere endringer med Git når du bytter mellom Altinn Studio Designer og ditt lokale utviklingsmiljø.

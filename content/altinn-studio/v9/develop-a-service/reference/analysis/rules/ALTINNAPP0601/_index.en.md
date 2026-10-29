@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "ALTINNAPP0601: legacy eFormidling configuration is not supported"
 description: "The eFormidling block in applicationmetadata.json is no longer supported"
 weight: 61

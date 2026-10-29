@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "ALTINNAPP0902: auto-delete combined with deletion prevention"
 description: "applicationmetadata.json sets both autoDeleteOnProcessEnd and preventInstanceDeletionForDays"
 weight: 92

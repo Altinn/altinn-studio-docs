@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "ALTINNAPP0800: service owner lacks required authorisation"
 description: "policy.xml does not grant the app owner the rights the app uses on its own behalf"
 weight: 80

@@ -1,4 +1,5 @@
 ---
+draft: true
 tags: [Reviewed]
 title: Open source and collaboration
 description: How you can help develop Altinn Studio.

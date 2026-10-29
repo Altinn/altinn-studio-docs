@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Resource Allocation
 description: Which resources are allocated in a cluster and how?
 toc: true

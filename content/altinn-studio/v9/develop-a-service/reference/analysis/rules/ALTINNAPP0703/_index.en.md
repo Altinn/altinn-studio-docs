@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "ALTINNAPP0703: mailbox never answered"
 description: "A mailbox is opened, but no handler receives the replies"
 weight: 73

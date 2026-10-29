@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "ALTINNAPP1000: PDF service task has nothing to render"
 description: "A PDF service task has neither pdfLayoutName nor autoPdfTaskIds"
 weight: 100

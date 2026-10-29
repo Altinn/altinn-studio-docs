@@ -1,4 +1,5 @@
 ---
+draft: true
 title: "ALTINNAPP0001: Altinn app project not found"
 description: "The analysis could not find the project directory and did not run"
 weight: 1
