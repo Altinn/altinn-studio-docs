@@ -1,6 +1,7 @@
 ---
 title: For deg som skal utvikle en app
 linktitle: Lag en app
+description: Slik lager du en app i Altinn Studio, fra et enkelt skjema til publisering.
 weight: 10
 marp: true
 headingDivider: 4
