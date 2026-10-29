@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Integrere Altinn-app med Meldingstjenesten
 linktitle: Meldingstjenesten
 description: Slik integrerer du en Altinn-app med Meldingstjenesten.

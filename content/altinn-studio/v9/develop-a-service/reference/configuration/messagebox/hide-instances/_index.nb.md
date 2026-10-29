@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Skjule instanser
 linktitle: Skjule instanser
 description: Slik skjuler du instanser fra meldingsboksen.

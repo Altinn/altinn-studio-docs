@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Feilmeldinger i tjenesten
 description: Slik skriver du feilmeldinger som hjelper brukeren videre når noe går galt.
 weight: 6

@@ -1,6 +1,5 @@
 ---
 title: Image
-draft: true
 ---
 
 ## Egenskaper

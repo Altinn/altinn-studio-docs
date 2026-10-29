@@ -1,5 +1,4 @@
 ---
-draft: false
 title: Dynamikk
 description: Slik setter du opp dynamikk i skjemaer i Altinn Studio.
 tags: [Reviewed]

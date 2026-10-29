@@ -1,6 +1,6 @@
 ---
-draft: true
 title: Brukerteste tjenester
+description: Slik finner du ut hvordan tjenesten oppleves for brukerne, med noen få enkle grep.
 weight: 2
 tags: [Reviewed]
 ---

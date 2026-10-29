@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Definere autorisasjonspolicy
 linktitle: Autorisasjon
 description: I Altinn Studio kan apputvikleren definere autorisasjonspolicyen for tjenesten.

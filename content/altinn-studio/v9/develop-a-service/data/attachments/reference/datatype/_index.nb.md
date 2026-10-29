@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Egenskaper på datatypen for vedlegg
 linktitle: Datatype
 description: Oversikt over egenskapene på en datatype for vedlegg i applicationmetadata.json.

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Stil og tone
 description: Slik skriver du personlig, vennlig og tydelig til brukerne.
 weight: 2

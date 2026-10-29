@@ -1,6 +1,5 @@
 ---
 title: SimpleTable
-draft: true
 ---
 
 ## Egenskaper

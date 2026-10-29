@@ -92,11 +92,11 @@ Du kan gruppere sider og vise dem i en sidemeny som alternativ til tradisjonell 
 | expandedByDefault | Valgfritt. Viser sidene i gruppen i sidenavigasjonen fra start. Standard er at sidene er skjult under gruppenavnet til brukeren åpner gruppen. |
 | order             | Angir hvilke sider som inngår i gruppen.                                                                   |
 
-## Vise arbeidsflyt og oppgaver i navigasjonsmenyen
+## Vise prosess og oppgaver i navigasjonsmenyen
 
-### Vise arbeidsflyten ved å definere det i koden
+### Vise prosessen ved å definere det i koden
 
-Du kan vise hele arbeidsflyten i navigasjonsmenyen på to måter. I koden gjør du det slik:
+Du kan vise hele prosessen i navigasjonsmenyen på to måter. I koden gjør du det slik:
 
 - **For hele appen:** i `layout-sets.json` med `uiSettings.taskNavigation`
 - **Per layout-sett:** i `Settings.json` med `pages.taskNavigation`
@@ -124,7 +124,7 @@ Du kan vise hele arbeidsflyten i navigasjonsmenyen på to måter. I koden gjør 
 }
 ```
 
-### Parametere for stegene i arbeidsflyten
+### Parametere for stegene i prosessen
 
 | Parameter | Beskrivelse                                                       |
 | --------- | ----------------------------------------------------------------- |
@@ -152,7 +152,7 @@ En fremdriftsindikator er et lite visuelt hjul, som viser hvor langt brukerne ha
 
 ### Viktig å vite
 
-[Oppgavene i arbeidsflyten](/nb/altinn-studio/v8/reference/configuration/process/) teller med i det totale antall sider i fremdriftsindikatoren. Hvis du har satt opp [sporvalg](/nb/altinn-studio/v8/reference/ux/pages/tracks/) eller [dynamisk skjulte sider](/nb/altinn-studio/v8/reference/logic/expressions#viseskjule-hele-sider), kan antallet sider variere mye og virke forvirrende for brukeren.
+[Oppgavene i prosessen](/nb/altinn-studio/v8/reference/configuration/process/) teller med i det totale antall sider i fremdriftsindikatoren. Hvis du har satt opp [sporvalg](/nb/altinn-studio/v8/reference/ux/pages/tracks/) eller [dynamisk skjulte sider](/nb/altinn-studio/v8/reference/logic/expressions#viseskjule-hele-sider), kan antallet sider variere mye og virke forvirrende for brukeren.
 
 **Vurder om det gir mening og verdi for brukeren å legge til en fremdriftsindikator, før du velger å legge den til.**
 

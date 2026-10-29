@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Serverhandlinger
 linktitle: Serverhandlinger
 description: Slik skriver du egendefinerte serverhandlinger som kan utføres av en API-bruker eller via en generisk knapp.

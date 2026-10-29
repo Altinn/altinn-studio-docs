@@ -34,7 +34,7 @@ Direkte klienttilknytning er fortsatt et eget behov. Utvidelsen av forespørsels
 
 Virksomheten skal kunne knytte sin Maskinporten-klient direkte til systembrukeren og gi pakker og enkeltrettigheter for både egen virksomhet og klienter.
 
-Med den nye flaggregelen betyr dette `withoutPredefinedRights=true` og fire tomme lister over påkrevde rettigheter. Den tekniske flyten for direkte klienttilknytning må fortsatt beskrives.
+Med den nye flaggregelen betyr dette `ownerControlledAccess=true`, typisk med fire tomme lister over påkrevde rettigheter. Den tekniske flyten for direkte klienttilknytning må fortsatt beskrives.
 
 ---
 ## Vedtatt: Vi kaller det systembruker
@@ -70,7 +70,7 @@ Leverandøren angir alle fire lister i forespørselen, uavhengig av rettighetskr
 
 Klientlistene tildeler ingen klienttilgang på dette tidspunktet. De definerer hvilke tilganger som kan delegeres senere.
 
-For systembruker uten forhåndsdefinerte rettigheter krever aksept tilgangsstyringspakken. Tilgangene gis senere gjennom GUI.
+Aksept krever alltid at den som godkjenner er tilgangsstyrer, uansett flagg. Tilganger for egen virksomhet krever i tillegg myndighet til hver tilgang. Er listene for egen virksomhet tomme, er tilgangsstyrer det eneste Altinn kontrollerer ved aksept. Med `ownerControlledAccess=true` kan virksomheten gi tilgangene senere i GUI.
 
 ---
 ## Vedtatt: Tilganger når klienten knyttes til
@@ -82,17 +82,21 @@ For forhåndsdefinerte klienttilganger gjelder hele settet av klientpakker og en
 Hvis klientens delegering til eiervirksomheten slettes, skal tilhørende videredelegeringer slettes. Avhengigheten følger rettighetsgrunnlaget, uavhengig av type og flagg.
 
 ---
-## Vedtatt: Eksplisitt flagg for fri delegering
+## Vedtatt: Eksplisitt flagg for «Virksomheten bestemmer»
 
 ```json
-{ "withoutPredefinedRights": true }
+{ "ownerControlledAccess": true }
 ```
 
-Flagget sier at eiervirksomheten kan delegere pakker og enkeltrettigheter uten forhåndsdefinerte rettighetskrav.
+Flagget sier at eiervirksomheten styrer tilgangene etter aksept og kan legge til og fjerne pakker og enkeltrettigheter. Listene i forespørselen er da leverandørens initiale forslag.
 
 **Ett flagg gjelder både egen virksomhet og klienter.** Virksomhetens delegeringsmyndighet og fullmakter gjelder fortsatt.
 
-Vi bruker navnet `withoutPredefinedRights` i kontraktsforslaget. Tomme lister alene markerer ikke fri delegering.
+Vi bruker navnet `ownerControlledAccess` i kontraktsforslaget (tidligere `withoutPredefinedRights`). Tomme lister alene betyr ikke at virksomheten bestemmer.
+
+I grensesnittet heter de to måtene «Leverandøren bestemmer» (`false`) og «Virksomheten bestemmer» (`true`). Vedtatt 27. oktober 2026.
+
+Oppdatert 26. oktober 2026: flagget kan kombineres med lister, aksepten er alltid alt eller ingenting på listene, og flagget kan endres i etterkant.
 
 ---
 ## Vedtatt: Validering av flagg og lister
@@ -102,14 +106,14 @@ Vi bruker navnet `withoutPredefinedRights` i kontraktsforslaget. Tomme lister al
 | Ikke satt / `false` | Minst én pakke eller enkeltrettighet på minst én liste | Gyldig kombinasjon |
 | Ikke satt / `false` | Alle lister tomme | Valideringsfeil |
 | `true` | Alle lister tomme | Gyldig kombinasjon |
-| `true` | Innhold på én eller flere lister | Valideringsfeil |
+| `true` | Innhold på én eller flere lister | Gyldig kombinasjon, listene er initialt forslag |
 
 «Gyldig kombinasjon» gjelder flagget og listene. Øvrig validering og autorisasjon må fortsatt bestås. Detaljer for utelatte lister og `null` må beskrives i kontrakten.
 
 ---
 ## Vedtatt: Alle systembrukere vises i oversiktene
 
-**Synlighet er uavhengig av `withoutPredefinedRights`.**
+**Synlighet er uavhengig av `ownerControlledAccess`.**
 
 Alle systembrukere skal vises i den vanlige brukeroversikten og i den relevante klientdelegeringsoversikten, også når de har forhåndsdefinerte rettigheter.
 
@@ -188,15 +192,13 @@ Kontroll av gyldige rettigheter, systemeierskap og delegeringsmyndighet gjelder 
 Felles brukeroversikt er vedtatt. Samtidige oppsett på samme system er ikke uttrykkelig avklart i møtereferatet her.
 
 ---
-## Åpent valg: Endre tilgangsmodell etter opprettelse
+## Vedtatt: Flagget kan endres etter opprettelse
 
-**Skal flagget kunne endres på en eksisterende systembruker?**
+**Flagget kan endres på en eksisterende systembruker** (vedtatt 26. oktober 2026). Identiteten beholdes.
 
-**Tillat endring:** Beholder identiteten, men må håndtere lister over påkrevde rettigheter og eksisterende delegeringer.
+Fortsatt åpent: hvem som kan bytte (anbefaling: kun eier), hva som skjer med rettigheter eieren har lagt til ved bytte til `false`, og hvordan byttet audit-loggføres og varsles til leverandøren.
 
-**Krev ny systembruker:** Stabil modell gjennom levetiden, men nytt oppsett må etableres.
-
-Samlet sletting på brukersiden for forhåndsdefinerte rettigheter er vedtatt. En eventuell egen flyt for endring av modellen er fortsatt uavklart.
+Samlet sletting på brukersiden når flagget ikke er satt er vedtatt. Flyten for selve byttet er fortsatt uavklart.
 
 ---
 ## Åpent valg: Eksisterende Agent-brukere
@@ -238,7 +240,7 @@ Rettighetskravene i systemregisteret inngår ikke i innholdsvalideringen av fore
 
 Forespørsel, lagring, svarmodeller og godkjenningsbilde må bevare skillet mellom egen- og klienttilganger. Aksept og senere delegering må bruke kravene fra forespørselen, også når systemets lister er tomme eller endres.
 
-Standard GUI må håndtere rettighetssettet samlet for klienter, samlet sletting for egen virksomhet og fri delegering når flagget er satt.
+Standard GUI må håndtere rettighetssettet samlet for klienter, samlet sletting for egen virksomhet og individuell delegering når virksomheten bestemmer.
 
 Direkte klienttilknytning, tokeninnhold uten registertilknytning og sporing av rettighetsgrunnlag må beskrives videre.
 

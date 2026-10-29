@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Validering med uttrykk
 description: Slik konfigurerer du valideringer ved hjelp av dynamiske uttrykk.
 toc: true
@@ -56,7 +55,7 @@ example.validation.json
           ]
         ]
       }
-    ],
+    ]
   },
   "definitions": {}
 }
@@ -101,7 +100,7 @@ example2.validation.json
         "message": "en annen regel",
         "condition": [...]
       }
-    ],
+    ]
   },
   "definitions": {
     "tegn-ikke-tillatt": {
@@ -111,7 +110,7 @@ example2.validation.json
         "or",
         ["contains", ["lowercase", ["dataModel", ["argv", 0]]], "æ"],
         ["contains", ["lowercase", ["dataModel", ["argv", 0]]], "ø"],
-        ["contains", ["lowercase", ["dataModel", ["argv", 0]]], "å"],
+        ["contains", ["lowercase", ["dataModel", ["argv", 0]]], "å"]
       ]
     }
   }

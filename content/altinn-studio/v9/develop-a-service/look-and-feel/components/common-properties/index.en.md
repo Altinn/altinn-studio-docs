@@ -1,6 +1,6 @@
 ---
-title: Common component properties
 draft: true
+title: Common component properties
 ---
 
 ## Properties

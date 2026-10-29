@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "ALTINNAPP1003: oppgaven bruker feil BPMN-element"
 description: "En oppgave i process.bpmn er et annet BPMN-element enn oppgavetypen krever"
 weight: 103

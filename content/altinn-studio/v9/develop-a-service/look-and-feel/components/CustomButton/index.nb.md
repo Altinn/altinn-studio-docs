@@ -1,6 +1,5 @@
 ---
 title: CustomButton
-draft: true
 ---
 
 ## Egenskaper

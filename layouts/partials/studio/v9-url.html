@@ -1,0 +1,9 @@
+{{- /*
+  Lenke til en side i Altinn Studio v9 på samme språk som siden.
+  Finnes ikke siden på dette språket (mange v9-sider finnes bare på norsk), lenker vi til den norske siden.
+  Tar imot dict med page og path, for eksempel (dict "page" .Page "path" "getting-started").
+*/ -}}
+{{- $path := strings.TrimSuffix "/" (printf "/altinn-studio/v9/%s" (strings.TrimPrefix "/" .path)) -}}
+{{- $url := printf "/nb%s/" $path -}}
+{{- with .page.Site.GetPage $path }}{{ $url = .RelPermalink }}{{ end -}}
+{{- return $url -}}
