@@ -1,0 +1,373 @@
+/*
+  Oppsett for sider som bruker Designsystemet (layouts/_default/designsystemet.html), foreløpig forsiden for Altinn Studio v9.
+  Komponentene, fargene og typografien kommer fra Designsystemet med Altinn-temaet (assets/designsystemet/altinn.css).
+  Denne filen styrer bare oppsettet: rutenett, bredde og avstander. Bruk variablene fra Designsystemet, ikke faste verdier.
+*/
+
+:root {
+  /* Altinn-navy fra temaet. Settes her, så den beholder fargen fra lys modus også i data-color-scheme="dark". */
+  --ds-site-navy: var(--ds-color-neutral-base-default);
+  --ds-site-blue: var(--ds-color-accent-base-default);
+  --ds-site-white: var(--ds-color-neutral-background-default);
+  --ds-site-header-height: var(--ds-size-14);
+  --ds-site-max-width: 1440px;
+}
+
+body.ds-site {
+  margin: 0;
+  font-family: var(--ds-font-family), system-ui, sans-serif;
+  font-feature-settings: 'cv05' 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+body.ds-site > main {
+  flex: 1;
+}
+
+/* Hopp til hovedinnholdet */
+.ds-skip-link {
+  position: absolute;
+  inset: var(--ds-size-2) auto auto var(--ds-size-2);
+  z-index: 100;
+  padding: var(--ds-size-2) var(--ds-size-4);
+  background: var(--ds-color-neutral-background-default);
+  border-radius: var(--ds-border-radius-md);
+  translate: 0 -200%;
+}
+.ds-skip-link:focus {
+  translate: 0 0;
+}
+
+/* Topplinje */
+.ds-site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--ds-site-navy);
+}
+.ds-site-header-inner {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-size-6);
+  max-width: var(--ds-site-max-width);
+  min-height: var(--ds-site-header-height);
+  margin-inline: auto;
+  padding-inline: var(--ds-size-6);
+}
+.ds-site-logo {
+  display: inline-flex;
+  border-radius: var(--ds-border-radius-md);
+}
+.ds-site-logo img {
+  display: block;
+  height: var(--ds-size-9);
+  width: auto;
+  /* viewBox i logoen har luft under ordmerket, så vi flytter den litt ned for å stå på linje med menyen. */
+  translate: 0 var(--ds-size-1);
+}
+.ds-site-nav,
+.ds-site-tools {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-size-1);
+}
+.ds-site-tools {
+  margin-inline-start: auto;
+}
+.ds-site-header .ds-button[data-variant="tertiary"] {
+  color: var(--ds-color-neutral-text-default);
+}
+.ds-site-mobile-only,
+.ds-site-show-small {
+  display: none;
+}
+
+/* Søk */
+.ds-site-search-dialog {
+  width: min(48rem, calc(100% - 2 * var(--ds-size-4)));
+}
+.ds-site-search-close {
+  float: right;
+  margin: 0 0 var(--ds-size-2) var(--ds-size-2);
+}
+.ds-site-search-dialog .ds-heading {
+  margin-block-end: var(--ds-size-4);
+}
+#ds-site-search-ui {
+  --pagefind-ui-scale: 0.9;
+  --pagefind-ui-primary: var(--ds-color-accent-base-default);
+  --pagefind-ui-text: var(--ds-color-neutral-text-default);
+  --pagefind-ui-background: var(--ds-color-neutral-background-default);
+  --pagefind-ui-border: var(--ds-color-neutral-border-default);
+  --pagefind-ui-tag: var(--ds-color-neutral-surface-tinted);
+  --pagefind-ui-border-radius: var(--ds-border-radius-md);
+  --pagefind-ui-font: var(--ds-font-family), system-ui, sans-serif;
+}
+
+/* Bunntekst */
+.ds-site-footer {
+  background: var(--ds-site-navy);
+  padding: var(--ds-size-8) var(--ds-size-6);
+}
+.ds-site-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--ds-size-6);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Forsiden for v9 (kortkoden studio-landing) */
+.ds-site-version-alert {
+  width: min(1200px, calc(100% - 2 * var(--ds-size-6)));
+  margin: var(--ds-size-6) auto 0;
+}
+.studio-hub :is(.ds-heading, .ds-paragraph) {
+  margin: 0;
+}
+
+.studio-wrap {
+  width: min(1200px, calc(100% - 2 * var(--ds-size-6)));
+  margin-inline: auto;
+}
+.studio-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-size-4);
+}
+.studio-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-size-3);
+  font-weight: var(--ds-font-weight-medium);
+  color: var(--ds-color-text-subtle);
+}
+
+/* Hero */
+.studio-hero {
+  margin-inline: calc(50% - 50vw);
+  padding-block: var(--ds-size-15) var(--ds-size-18);
+  background: linear-gradient(135deg, var(--ds-site-navy) 0%, var(--ds-site-blue) 100%);
+  color: var(--ds-site-white);
+}
+.studio-hero .studio-eyebrow {
+  color: var(--ds-color-accent-surface-tinted);
+}
+.studio-hero .studio-lead {
+  color: var(--ds-color-accent-surface-tinted);
+}
+/* Knappene på blå bakgrunn: hvit hovedknapp og hvit kantlinje på sekundærknappen. */
+.studio-hero .ds-button[data-variant="primary"] {
+  --dsc-button-background: var(--ds-site-white);
+  --dsc-button-background--hover: var(--ds-color-accent-surface-tinted);
+  --dsc-button-background--active: var(--ds-color-accent-surface-active);
+  --dsc-button-color: var(--ds-color-accent-text-default);
+}
+.studio-hero .ds-button[data-variant="secondary"] {
+  --dsc-button-border-color: var(--ds-site-white);
+  --dsc-button-color: var(--ds-site-white);
+  --dsc-button-color--hover: var(--ds-site-white);
+  --dsc-button-background--hover: rgb(255 255 255 / 0.12);
+  --dsc-button-background--active: rgb(255 255 255 / 0.2);
+}
+.studio-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--ds-size-15);
+  align-items: center;
+}
+.studio-hero .ds-heading[data-size="xl"] {
+  max-width: 16ch;
+  color: var(--ds-site-white);
+}
+.studio-lead {
+  max-width: 52ch;
+}
+.studio-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-size-3);
+  margin-top: var(--ds-size-2);
+}
+.studio-hero-figure {
+  margin: 0;
+  padding: var(--ds-size-6);
+  background: var(--ds-color-neutral-background-default);
+  border-radius: var(--ds-border-radius-xl);
+  box-shadow: var(--ds-shadow-xl);
+}
+.studio-hero-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 320px;
+  object-fit: contain;
+}
+.studio-hero-figure figcaption {
+  margin-top: var(--ds-size-3);
+  text-align: center;
+  color: var(--ds-color-neutral-text-subtle);
+}
+
+/* Seksjoner */
+.studio-section {
+  padding-block: var(--ds-size-12);
+}
+.studio-section-tight {
+  padding-top: 0;
+}
+.studio-soft {
+  margin-inline: calc(50% - 50vw);
+  background: var(--ds-color-accent-background-tinted);
+}
+.studio-section-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-size-2);
+  margin-bottom: var(--ds-size-6);
+  max-width: 70ch;
+}
+.studio-section-head .ds-paragraph {
+  color: var(--ds-color-neutral-text-subtle);
+}
+.studio-news {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--ds-size-8);
+}
+.studio-news .ds-paragraph {
+  max-width: 65ch;
+}
+
+/* Klikkbare kort */
+.studio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--ds-size-4);
+}
+.studio-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.studio-grid > li {
+  margin: 0;
+}
+.studio-link-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-size-4);
+  height: 100%;
+}
+.studio-link-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-size-1);
+}
+.studio-link-card .ds-paragraph {
+  color: var(--ds-color-neutral-text-subtle);
+}
+.studio-link-card .ds-link {
+  text-decoration: none;
+}
+.studio-link-card:hover .ds-link,
+.studio-link-card .ds-link:focus-visible {
+  text-decoration: underline;
+}
+.studio-link-card-arrow {
+  flex-shrink: 0;
+  color: var(--ds-color-base-default);
+  transition: translate 0.15s ease;
+}
+.studio-link-card:hover .studio-link-card-arrow {
+  translate: var(--ds-size-1) 0;
+}
+
+/* Funksjoner */
+.studio-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--ds-size-8) var(--ds-size-10);
+}
+.studio-feature {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-size-2);
+  margin: 0;
+  padding-top: var(--ds-size-4);
+  border-top: var(--ds-size-1) solid var(--ds-color-accent-base-default);
+}
+.studio-feature:nth-child(3n + 2) {
+  border-top-color: var(--ds-color-brand1-base-default);
+}
+.studio-feature:nth-child(3n + 3) {
+  border-top-color: var(--ds-color-brand2-base-default);
+}
+.studio-feature .ds-paragraph {
+  color: var(--ds-color-neutral-text-subtle);
+}
+
+@media (max-width: 1050px) {
+  .studio-hero-grid {
+    grid-template-columns: 1fr;
+    gap: var(--ds-size-10);
+  }
+  .studio-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 760px) {
+  .studio-wrap {
+    width: calc(100% - 2 * var(--ds-size-4));
+  }
+  .studio-hero {
+    padding-block: var(--ds-size-10) var(--ds-size-12);
+  }
+  .studio-hero .ds-heading[data-size="xl"] {
+    font-size: var(--ds-heading-lg-font-size);
+  }
+  .studio-grid,
+  .studio-grid-2,
+  .studio-features {
+    grid-template-columns: 1fr;
+  }
+  .studio-news {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .studio-link-card-arrow {
+    transition: none;
+  }
+}
+
+/* Små skjermer: topplinjen */
+@media (max-width: 760px) {
+  .ds-site-header-inner {
+    gap: var(--ds-size-1);
+    padding-inline: var(--ds-size-3);
+  }
+  .ds-site-logo img {
+    height: var(--ds-size-7);
+  }
+  .ds-site-header .ds-button {
+    padding-inline: var(--ds-size-2);
+    gap: var(--ds-size-1);
+  }
+  .ds-site-desktop-only,
+  .ds-site-hide-small {
+    display: none;
+  }
+  .ds-site-show-small {
+    display: inline;
+  }
+  .ds-site-mobile-only {
+    display: list-item;
+  }
+}

@@ -1,0 +1,32 @@
+{{- /*
+  <head> for sider som bruker Designsystemet.
+  Følger oppsettet på https://designsystemet.no/no/fundamentals/code/setup:
+  CSS fra @digdir/designsystemet-css, deretter temaet (Altinn-temaet laget med CLI-en, se designsystemet.config.json),
+  og web-komponentene fra @digdir/designsystemet-web. Pakkene installeres med npm ci og hentes av Hugo Pipes.
+*/ -}}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{{ partial "meta.html" . }}
+{{- if .Params.noindex }}
+<meta name="robots" content="noindex">
+{{- end }}
+<title>{{ .Title }} – Altinn</title>
+<link rel="shortcut icon" href="{{ "images/favicon.png" | relURL }}" type="image/x-icon">
+<link rel="stylesheet" href="https://altinncdn.no/fonts/inter/inter.css">
+
+{{- $dsCss := resources.Get "vendor/designsystemet-css/index.css" -}}
+{{- if not $dsCss }}{{ errorf "Fant ikke CSS-en til Designsystemet. Kjør npm ci før hugo." }}{{ end -}}
+{{- $css := slice
+  $dsCss
+  (resources.Get "designsystemet/altinn.css")
+  (resources.Get "css/designsystemet-site.css")
+  | resources.Concat "css/designsystemet.css" -}}
+{{- $js := resources.Get "js/designsystemet.js" | js.Build (dict "format" "esm" "target" "es2020" "minify" hugo.IsProduction) -}}
+{{- if hugo.IsProduction }}
+{{- $css = $css | minify | fingerprint }}
+{{- $js = $js | fingerprint }}
+{{- end }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}"{{ with $css.Data.Integrity }} integrity="{{ . }}"{{ end }}>
+<script type="module" src="{{ $js.RelPermalink }}"{{ with $js.Data.Integrity }} integrity="{{ . }}"{{ end }}></script>
+<link rel="stylesheet" href="/pagefind/pagefind-ui.css">
+{{ partial "analytics.html" . }}

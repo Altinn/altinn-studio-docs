@@ -72,3 +72,31 @@ isPlainText = true
 home = ["HTML", "JSON", "LLMS"]
 page = ["HTML", "MARKDOWN"]
 section = ["HTML", "MARKDOWN"]
+
+# Mapper Hugo leser fra. Når vi legger til egne mounts, må standardmappene også listes opp.
+# CSS-en til Designsystemet hentes fra node_modules (npm ci) og brukes av forsiden for Altinn Studio v9.
+[module]
+  [[module.mounts]]
+    source = "content"
+    target = "content"
+  [[module.mounts]]
+    source = "static"
+    target = "static"
+  [[module.mounts]]
+    source = "layouts"
+    target = "layouts"
+  [[module.mounts]]
+    source = "data"
+    target = "data"
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "i18n"
+    target = "i18n"
+  [[module.mounts]]
+    source = "archetypes"
+    target = "archetypes"
+  [[module.mounts]]
+    source = "node_modules/@digdir/designsystemet-css/dist/src"
+    target = "assets/vendor/designsystemet-css"
