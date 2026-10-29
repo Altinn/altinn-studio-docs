@@ -15,7 +15,7 @@ aliases:
 
 Dette bør du vite når du samhandler med Maskinporten i en app.
 
-Legg til Maskinporten-scopene appen trenger i Altinn Studio før du publiserer den til et runtime-miljø. Altinn Studio oppretter Maskinporten-klienten for miljøet under publisering og monterer genererte klientdetaljer i appen.
+Legg til Maskinporten-scopene appen trenger i Altinn Studio før du publiserer den til et runtime-miljø. Altinn Studio oppretter Maskinporten-klienten for miljøet under publisering og setter inn genererte klientdetaljer i appen.
 
 Brukeren som legger til scopes i Altinn Studio må ha tilgang til å administrere Maskinporten-klienter for tjenesteeierorganisasjonen. Les mer i [veiledningen for Maskinporten-integrasjon]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten" >}}).
 
@@ -37,7 +37,7 @@ med samme testbruker fra Tenor.
 
 ## Teste i tt02
 
-Før du ruller ut appene i produksjon, bør du ha testet skjemaene fullt ut i tt02 med publisert Maskinporten-oppsett.
+Før du ruller ut appene i produksjon, bør du ha testet dem fullt ut i tt02 med publisert Maskinporten-oppsett.
 Dette betyr at du bør teste begge appene mens de kjører i tt02.
 Du kan fortsatt teste med en testbruker fra Tenor som mottaker av instansen, men et alternativ er å be om en testorganisasjon som kan motta disse skjemaene.
 Du gjør dette ved å sende en forespørsel til servicedesk@altinn.no.

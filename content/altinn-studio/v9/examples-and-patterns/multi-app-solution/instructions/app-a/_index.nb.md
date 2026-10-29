@@ -29,7 +29,7 @@ I v9 lager appen PDF-en i en egen systemoppgave i prosessen. Legg PDF-oppgaven r
 Task_1 (data) → PDF (systemoppgave) → slutt
 ```
 
-Les om [hvordan du setter opp PDF-oppgaven]({{< relref "/altinn-studio/v9/develop-a-service/process/pdf" >}}). Du trenger ikke et ekstra steg av typen _confirm_ eller _feedback_ for å få tak i PDF-en.
+[Slik setter du opp PDF-oppgaven]({{< relref "/altinn-studio/v9/develop-a-service/process/pdf" >}}). Du trenger ikke et ekstra steg av typen _confirm_ eller _feedback_ for å få tak i PDF-en.
 
 Hvis du endrer prosessen, må du også sjekke at `policy.xml` gir tilgang til de nye stegene. Les mer om [tilgangsregler for appen]({{< relref "/altinn-studio/v9/develop-a-service/configuration/authorization" >}}).
 
@@ -42,7 +42,7 @@ Altinn har ingen innebygd måte å gjøre dette på, så du må skrive koden sel
 
 ### Opprette instansen fra app A
 
-Du oppretter instansen av app B i en [prosess-hook]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks" >}}) som implementerer `IOnProcessEndedHandler`. Den kjører når prosessen i app A er ferdig, altså etter PDF-oppgaven. Da kan ikke brukeren lenger gå tilbake og endre skjemaet. En app kan bare ha én `IOnProcessEndedHandler`, så har appen allerede en, legger du koden inn i den. Grensesnittet ligger i `Altinn.App.Core.Features.Process`, som ikke er med i de globale `using`-linjene i appen. Du må derfor legge til `using Altinn.App.Core.Features.Process;` både i hook-klassen og i `Program.cs`.
+Du oppretter instansen av app B i en [prosess-hook]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks" >}}) som implementerer `IOnProcessEndedHandler`. Den kjører når prosessen i app A er ferdig, altså etter PDF-oppgaven. Da kan ikke brukeren lenger gå tilbake og endre skjemaet. En app kan bare ha én `IOnProcessEndedHandler`, så hvis appen allerede har en, legger du koden inn i den. Grensesnittet ligger i `Altinn.App.Core.Features.Process`, som ikke er med i de globale `using`-linjene i appen. Du må derfor legge til `using Altinn.App.Core.Features.Process;` både i hook-klassen og i `Program.cs`.
 
 1. Lag en klient som sender forespørslene til app B, for eksempel `AppInstantiationClient`.
    Klienten trenger metoden `CreateNewInstance`, som oppretter instansen, og metoden `InsertBinaryData`, som du bruker i [alternativ 3](#kontrollere-data-i-app-b) lenger ned.
@@ -173,7 +173,7 @@ Du oppretter instansen av app B i en [prosess-hook]({{< relref "/altinn-studio/v
 Appen kan kjøre hooken på nytt hvis noe feiler. Feiler hooken etter at instansen i app B er opprettet, kan et nytt forsøk opprette en instans til. Gjør derfor så lite som mulig etter `CreateNewInstance`, og vurder om koden din må sjekke om instansen allerede finnes.
 {{% /notice %}}
 
-Hooken kjører i arbeidsflytmotoren uten en innlogget bruker, så appen sender alltid forespørslene til app B som tjenesteeier.
+Hooken kjører i arbeidsflytmotoren uten en innlogget bruker, så appen sender alltid forespørslene til app B som tjenesteeier. Derfor må `policy.xml` i app B gi tjenesteeieren rettighetene `instantiate`, `read` og `write`. Malen for v9 gir tjenesteeieren disse rettighetene, så du trenger bare å sjekke dette hvis du har endret tilgangsreglene i app B.
 
 ## Levere data til app B
 
@@ -215,7 +215,7 @@ Du kan styre dataene i app B på tre måter, og du kan kombinere dem:
 - **Alt 2:** Hvis du vil styre tekstene i Altinn-innboksen for instanser av app B,
   bruker du [presentasjonsfelt]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/messagebox/presentationfields" >}}).
 
-- **Alt 3:** Legg til data som binære data i instansen av app B med metoden `InsertBinaryData` i klienten over. I hooken kaller du den etter at du har opprettet instansen:
+- **Alt 3:** Legg til data som binære data i instansen av app B med metoden `InsertBinaryData` i klienten over. App B må ha en datatype med samme id, her `vedlegg`, i `App/config/applicationmetadata.json`. Har datatypen `allowedContentTypes`, må `application/pdf` være med. I hooken kaller du metoden etter at du har opprettet instansen:
 
   {{< code-title >}}
   App/logic/OpprettInstansIAppB.cs

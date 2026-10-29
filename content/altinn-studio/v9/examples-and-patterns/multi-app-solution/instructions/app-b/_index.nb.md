@@ -30,7 +30,8 @@ trenger du ikke egen kode.
 
 Hvis du bruker alternativ 3, må du hente dataene fra instansen selv.
 Du gjør dette i `ProcessDataRead`-metoden i klassen som implementerer `IDataProcessor`.
-Endringer du gjør i datamodellen i `ProcessDataRead`, lagrer appen automatisk.
+Endringer du gjør i datamodellen i `ProcessDataRead`, lagrer appen som regel automatisk. Les om unntakene i [Endre data når appen henter dem]({{< relref "/altinn-studio/v9/develop-a-service/data/dataprocessing#endre-data-når-appen-henter-dem" >}}).
+App B må også ha datatypen som app A laster opp til, her `vedlegg`, i `App/config/applicationmetadata.json`.
 Eksempel:
 
 {{< code-title >}}
