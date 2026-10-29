@@ -117,7 +117,7 @@ Et arbeidssteg svarer med `StageResult`:
 | `FailedRetryable("melding")` | Noe gikk galt som kan gå bedre om litt. Plattformen prøver arbeidssteget på nytt. |
 | `FailedPermanent("melding")` | Noe gikk galt som ikke retter seg selv. Plattformen gir opp. |
 
-Bare avslutningen kan si at hele oppgaven er ferdig og at prosessen skal gå videre. Derfor svarer `Finally` med `ServiceTaskResult`, som i tillegg har `Success(action)`. `Success` flytter alltid prosessen videre.
+Bare avslutningen kan si at hele oppgaven er ferdig og at prosessen skal gå videre. Derfor svarer `Finally` med `ServiceTaskResult`, som i tillegg har `Success(action)`. `Success` flytter alltid prosessen videre. Det ene unntaket er et arbeidssteg som åpner en postkasse: det kan [avslutte hele oppgaven fra sendingen](#avslutte-oppgaven-fra-sendingen).
 
 ## Gi hvert steg sine egne tidsrammer
 
@@ -182,6 +182,28 @@ Slik henger delene sammen:
 - Id-en til postkassen er umulig å gjette, men den er ikke en hemmelighet. Den er en adresse, ikke bevis for hvem som sendte meldingen.
 
 Fiks Arkiv er det innebygde eksempelet i plattformen: oppgaven sender id-en til postkassen som `klientKorrelasjonsId`, og lytteren leser den tilbake fra svaret og sender meldingen videre.
+
+### Avslutte oppgaven fra sendingen
+
+Arbeidssteget som åpner postkassen, svarer med `ServiceTaskOpeningStageResult`. Det har de samme svarene som et vanlig arbeidssteg, og i tillegg `Conclude(result)`, som avslutter hele oppgaven fra sendingen. Plattformen lukker alle postkassene oppgaven har åpnet, og ingenting av det du satte sammen etter arbeidssteget, kjører. Resultatet du sender med, avgjør hva som skjer videre: `Success(action)` flytter prosessen videre, og `FailedPermanent("melding")` lar oppgaven feile med postkassene lukket. Sender du med `FailedRetryable` eller `Defer`, avslutter det ingenting og virker som det vanlige svaret fra et arbeidssteg.
+
+{{< code-title >}}
+App/logic/ServiceTasks/ArchiveServiceTask.cs
+{{< /code-title >}}
+
+```csharp
+if (!await _partner.RecipientExists(recipient))
+{
+    return ServiceTaskOpeningStageResult.Conclude(
+        ServiceTaskResult.FailedPermanent("Mottakeren finnes ikke hos samarbeidspartneren.")
+    );
+}
+```
+
+Bruk `Conclude` bare når sendingen alene avgjør saken, for eksempel når mottakeren ikke finnes, slik at det ikke er noe poeng i å vente på et svar som aldri kommer. I to tilfeller skal du ikke avslutte:
+
+- Vet du ikke om sendingen kom frem, for eksempel etter et tidsavbrudd, svarer du `FailedRetryable`. Sendingen kan ha gått, og en avslutning ville lukket postkassen svaret trenger.
+- Er feilen hos dere, for eksempel avviste påloggingsopplysninger eller feil konfigurasjon, svarer du `FailedPermanent` uten `Conclude`. Da står postkassen åpen, og når noen har rettet feilen og gjenopptatt oppgaven, kjører sendingen på nytt, og oppgaven kan fullføre utvekslingen.
 
 ## Navn på stegene
 
