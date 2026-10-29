@@ -108,12 +108,12 @@ Dynamiske uttrykk er tilgjengelig for bruk i disse egenskapene:
 | Alle                                                                                                            | `hidden`                      | Boolsk | ✅       | ✅      |
 | Skjemakomponenter                                                                                               | `required`                    | Boolsk | ✅       | ✅      |
 | Skjemakomponenter                                                                                               | `readOnly`                    | Boolsk | ✅       | ❌      |
-| [Repeterende grupper](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/repeatinggroup/)                                                       | `hiddenRow`                   | Boolsk | ✅       | ❌      |
-| [Repeterende grupper](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/repeatinggroup/)                                                       | `edit.addButton`              | Boolsk | ✅       | ❌      |
-| [Repeterende grupper](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/repeatinggroup/)                                                       | `edit.saveButton`             | Boolsk | ✅       | ❌      |
-| [Repeterende grupper](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/repeatinggroup/)                                                       | `edit.deleteButton`           | Boolsk | ✅       | ❌      |
-| [Repeterende grupper](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/repeatinggroup/)                                                       | `edit.alertOnDelete`          | Boolsk | ✅       | ❌      |
-| [Repeterende grupper](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/repeatinggroup/)                                                       | `edit.saveAndNextButton`      | Boolsk | ✅       | ❌      |
+| [Repeterende grupper]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating" >}})                                                       | `hiddenRow`                   | Boolsk | ✅       | ❌      |
+| [Repeterende grupper]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating" >}})                                                       | `edit.addButton`              | Boolsk | ✅       | ❌      |
+| [Repeterende grupper]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating" >}})                                                       | `edit.saveButton`             | Boolsk | ✅       | ❌      |
+| [Repeterende grupper]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating" >}})                                                       | `edit.deleteButton`           | Boolsk | ✅       | ❌      |
+| [Repeterende grupper]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating" >}})                                                       | `edit.alertOnDelete`          | Boolsk | ✅       | ❌      |
+| [Repeterende grupper]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating" >}})                                                       | `edit.saveAndNextButton`      | Boolsk | ✅       | ❌      |
 | [Kodelistebaserte komponenter](/nb/altinn-studio/v9/develop-a-service/look-and-feel/options/sources/from-data-model/#støtte-for-uttrykk) | `source.label`                | Streng       | ✅       | ❌      |
 | [Kodelistebaserte komponenter](/nb/altinn-studio/v9/develop-a-service/look-and-feel/options/sources/from-data-model/#støtte-for-uttrykk) | `source.description`          | Streng       | ✅       | ❌      |
 | [Kodelistebaserte komponenter](/nb/altinn-studio/v9/develop-a-service/look-and-feel/options/sources/from-data-model/#støtte-for-uttrykk) | `source.helpText`             | Streng       | ✅       | ❌      |
@@ -121,7 +121,7 @@ Dynamiske uttrykk er tilgjengelig for bruk i disse egenskapene:
 | [Kodelistebaserte komponenter](/nb/altinn-studio/v9/develop-a-service/look-and-feel/options/functionality/filtering/)                     | `optionFilter`                | Streng       | ✅       | ❌      |
 | Alle                                                                                                            | `textResourceBindings.[*]` \* | Streng       | ✅       | ❌      |
 
-\* = Hvilke verdier du kan overstyre med textResourceBindings, varierer fra komponent til komponent, men fungerer på alle steder der det brukes. TextResourceBindings for repeterende grupper finner du [mer informasjon om her](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/repeatinggroup/#egenskaper)
+\* = Hvilke verdier du kan overstyre med textResourceBindings, varierer fra komponent til komponent, men fungerer på alle steder der det brukes. TextResourceBindings for repeterende grupper finner du [mer informasjon om her]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating#tekster" >}})
 
 
 ## Testing, feilsøking og utvikling av uttrykk

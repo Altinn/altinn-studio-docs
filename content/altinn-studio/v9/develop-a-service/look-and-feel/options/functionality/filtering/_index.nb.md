@@ -54,7 +54,7 @@ I eksempelet over bruker du `value`-funksjonen til å få tilgang til verdien av
 
 Hvis du bruker [kodelister fra en repeterende struktur i datamodellen](../../sources/from-data-model/), evaluerer systemet uttrykket i `optionFilter`-egenskapen for hver _rad_ i den repeterende strukturen. Det betyr at hvis du gjør oppslag i datamodellen (via `dataModel`-funksjonen) i uttrykket, får du tilgang til data fra den nåværende raden som kodeliste-elementet kommer fra.
 
-Hvis det finnes en `RepeatingGroup`-komponent knyttet til denne repeterende strukturen, kan `optionFilter`-egenskapen også slå opp verdier fra `component`-funksjonen for å få tilgang til data fra komponenter inne i den repeterende gruppen. Returverdien fra denne funksjonen er alltid `null` hvis raden er skjult via [dynamikk i `hiddenRow`-egenskapen](/nb/altinn-studio/v8/reference/ux/fields/grouping/repeating/dynamics/), selv om et oppslag med `dataModel`-funksjonen ville returnert data fra den skjulte raden.
+Hvis det finnes en `RepeatingGroup`-komponent knyttet til denne repeterende strukturen, kan `optionFilter`-egenskapen også slå opp verdier fra `component`-funksjonen for å få tilgang til data fra komponenter inne i den repeterende gruppen. Returverdien fra denne funksjonen er alltid `null` hvis raden er skjult via [dynamikk i `hiddenRow`-egenskapen]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating#skjule-rader" >}}), selv om et oppslag med `dataModel`-funksjonen ville returnert data fra den skjulte raden.
 
 Et eksempel på denne kombinasjonen:
 
