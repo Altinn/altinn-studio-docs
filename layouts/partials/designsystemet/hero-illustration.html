@@ -3,6 +3,7 @@
   appen er koblet til i en ring rundt. Tegnet som SVG, så den er skarp i alle størrelser og bruker fargene i temaet.
   Ikonene kommer fra Aksel (@navikt/aksel-icons). Plasseringen regnes ut fra antall tjenester.
   Navn med | deles over to linjer. Tar imot dict med nb (true for norsk).
+  Elementene har egne slutt-tagger (<circle></circle>), fordi --minify fjerner skråstreken i <circle />.
 */ -}}
 {{- $nb := .nb -}}
 {{- $services := slice
@@ -25,15 +26,15 @@
   <title id="studio-hero-ill-title">{{ if $nb }}Altinn Studio og fellestjenestene{{ else }}Altinn Studio and the common services{{ end }}</title>
   <desc id="studio-hero-ill-desc">{{ if $nb }}Altinn Studio har ferdige integrasjoner mot fellestjenester og nasjonale registre: {{ else }}Altinn Studio has pre-built integrations with common services and national registers: {{ end }}{{ delimit $names ", " }}.</desc>
 
-  <circle class="studio-ill-ring" cx="{{ $cx }}" cy="{{ $cy }}" r="{{ $ring }}" />
+  <circle class="studio-ill-ring" cx="{{ $cx }}" cy="{{ $cy }}" r="{{ $ring }}"></circle>
   {{- range $i, $s := $services }}
   {{- $a := mul (div (float $i) (len $services)) (mul 2 math.Pi) }}
   {{- $x := add $cx (mul $ring (math.Sin $a)) }}{{ $y := sub $cy (mul $ring (math.Cos $a)) }}
-  <line class="studio-ill-spoke" x1="{{ $cx }}" y1="{{ $cy }}" x2="{{ $x }}" y2="{{ $y }}" />
+  <line class="studio-ill-spoke" x1="{{ $cx }}" y1="{{ $cy }}" x2="{{ $x }}" y2="{{ $y }}"></line>
   {{- end }}
 
-  <circle class="studio-ill-halo" cx="{{ $cx }}" cy="{{ $cy }}" r="{{ add $core 18 }}" />
-  <circle class="studio-ill-core" cx="{{ $cx }}" cy="{{ $cy }}" r="{{ $core }}" />
+  <circle class="studio-ill-halo" cx="{{ $cx }}" cy="{{ $cy }}" r="{{ add $core 18 }}"></circle>
+  <circle class="studio-ill-core" cx="{{ $cx }}" cy="{{ $cy }}" r="{{ $core }}"></circle>
   {{ partial "designsystemet/svg-icon.html" (dict "name" "Monitor" "x" (sub $cx 26) "y" (sub $cy 46) "size" 52 "class" "studio-ill-core-icon") }}
   <text class="studio-ill-core-text" x="{{ $cx }}" y="{{ add $cy 34 }}" text-anchor="middle">Altinn Studio</text>
 
@@ -44,7 +45,7 @@
   {{- $lx := add $cx (mul (add $ring $labelGap) $sin) }}{{ $ly := add (sub $cy (mul (add $ring $labelGap) $cos)) 7 }}
   {{- $anchor := "middle" }}{{ if gt $sin 0.2 }}{{ $anchor = "start" }}{{ else if lt $sin -0.2 }}{{ $anchor = "end" }}{{ end }}
   <g class="studio-ill-node">
-    <circle cx="{{ $x }}" cy="{{ $y }}" r="{{ $node }}" />
+    <circle cx="{{ $x }}" cy="{{ $y }}" r="{{ $node }}"></circle>
     {{ partial "designsystemet/svg-icon.html" (dict "name" $s.icon "x" (sub $x (div $icon 2)) "y" (sub $y (div $icon 2)) "size" $icon "class" "studio-ill-icon") }}
     {{- /* Navn med | deles over to linjer. */}}
     {{- $lines := split (cond $nb $s.nb $s.en) "|" }}
