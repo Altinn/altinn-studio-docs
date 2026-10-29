@@ -225,7 +225,7 @@ body.ds-site > main {
   padding-top: 0;
 }
 .studio-soft {
-  background: var(--ds-color-accent-background-tinted);
+  background: var(--ds-color-neutral-background-tinted);
 }
 .studio-section-head {
   display: flex;

@@ -48,10 +48,10 @@
                 journey and level of detail.{{ end }}</p>
         </div>
         <ul class="studio-grid studio-grid-2 ds-list--unstyled">
-            {{ partial "designsystemet/link-card.html" (dict "id" "studio-role-owner" "color" "accent" "href" (partial "studio/v9-url.html" (dict "page" $p "path" "getting-started/serviceowner"))
+            {{ partial "designsystemet/link-card.html" (dict "id" "studio-role-owner" "href" (partial "studio/v9-url.html" (dict "page" $p "path" "getting-started/serviceowner"))
                 "title" (cond $nb "Jeg er tjenesteeier" "I am a service owner")
                 "text" (cond $nb "Lag eller forvalt en digital tjeneste." "Create or manage a digital service.")) }}
-            {{ partial "designsystemet/link-card.html" (dict "id" "studio-role-vendor" "color" "accent" "href" (partial "studio/v9-url.html" (dict "page" $p "path" "getting-started/vendor"))
+            {{ partial "designsystemet/link-card.html" (dict "id" "studio-role-vendor" "href" (partial "studio/v9-url.html" (dict "page" $p "path" "getting-started/vendor"))
                 "title" (cond $nb "Jeg er systemleverandør" "I am a system vendor")
                 "text" (cond $nb "Koble til en digital tjeneste." "Connect to a digital service.")) }}
         </ul>
