@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Repeterende grupper
 linktitle: Repeterende
 description: Slik lar du brukeren fylle ut de samme feltene flere ganger i skjemaet
@@ -238,8 +237,8 @@ Du kan endre tekstene på knappene med `paginationNextButton` og `paginationBack
 Du kan kontrollere radene i gruppen på tre måter:
 
 - Med `minCount` bestemmer du hvor mange rader brukeren må legge til. Skjulte rader teller ikke med. Gruppen viser en valideringsfeil hvis den har for få rader. Appen viser feilen på samme tidspunkt som feil for påkrevde felter.
-- Med `validateOnSaveRow` kontrollerer appen raden før brukeren forlater den. Det skjer når brukeren lukker raden, åpner en annen rad, legger til en ny rad eller bytter side. Hvis raden har valideringsfeil, må brukeren rette dem først. Se [gruppevalidering]({{< relref "/altinn-studio/v9/develop-a-service/data/validation#gruppevalidering" >}}).
-- Med `showValidations` bestemmer du hvilke feil på selve gruppen appen viser med en gang. Innstillingen gjelder ikke feltene i radene. Vil du vise feilen for for få rader med en gang, tar du med `Required`. Se [enkeltfeltvalidering]({{< relref "/altinn-studio/v9/develop-a-service/data/validation#enkeltfeltvalidering" >}}).
+- Med `validateOnSaveRow` kontrollerer appen raden før brukeren forlater den. Det skjer når brukeren lukker raden, åpner en annen rad, legger til en ny rad eller bytter side. Hvis raden har valideringsfeil, må brukeren rette dem først. Se [Når brukeren lagrer en rad i en repeterende gruppe]({{< relref "/altinn-studio/v9/develop-a-service/data/validation#når-brukeren-lagrer-en-rad-i-en-repeterende-gruppe" >}}).
+- Med `showValidations` bestemmer du hvilke feil på selve gruppen appen viser med en gang. Innstillingen gjelder ikke feltene i radene. Vil du vise feilen for for få rader med en gang, tar du med `Required`. Se [Velge hvilke meldinger appen viser med en gang]({{< relref "/altinn-studio/v9/develop-a-service/data/validation#velge-hvilke-meldinger-appen-viser-med-en-gang" >}}).
 
 `validateOnSaveRow` har ingen virkning når [`mode`]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating/edit#mode" >}}) i `edit` er `"showAll"` eller `"onlyTable"`, fordi brukeren ikke åpner og lukker rader i de modusene.
 

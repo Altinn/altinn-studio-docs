@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Vedlegg i repeterende grupper
 linktitle: Vedlegg
 description: Slik setter du opp vedlegg i en repeterende gruppe, slik at mottakeren ser hvilket vedlegg som hører til hvilken rad

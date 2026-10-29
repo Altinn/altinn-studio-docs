@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Sette opp tabellen
 linktitle: Tabell
 description: Slik bestemmer du hvilke kolonner, rader og knapper brukeren ser i tabellen til en repeterende gruppe

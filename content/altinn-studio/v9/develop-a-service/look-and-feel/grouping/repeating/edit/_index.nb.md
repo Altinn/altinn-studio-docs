@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Redigere rader
 linktitle: Redigering
 description: Slik bestemmer du hvordan brukeren redigerer en rad i en repeterende gruppe, og hvilke knapper brukeren ser

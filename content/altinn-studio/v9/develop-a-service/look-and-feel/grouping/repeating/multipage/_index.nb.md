@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Fylle ut en rad over flere sider
 linktitle: Flere sider
 description: Slik deler du feltene i en rad i en repeterende gruppe inn i flere sider
