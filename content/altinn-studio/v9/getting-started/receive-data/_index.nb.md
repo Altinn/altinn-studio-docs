@@ -1,7 +1,6 @@
 ---
 title: Motta data
 description: I denne veiledningen skal vi se på hvordan data kan hentes ut fra en Altinn-app for saksbehandling
-draft: true
 weight: 20
 ---
 

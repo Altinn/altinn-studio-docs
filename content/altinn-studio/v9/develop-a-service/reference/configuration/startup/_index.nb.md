@@ -4,7 +4,6 @@ linktitle: Oppstart
 description: Slik oppretter appen en ny instans eller lar utfylleren velge en aktiv instans.
 toc: true
 weight: 500
-draft: true
 ---
 
 Egenskapen `onEntry.show` i `App/config/applicationmetadata.json` styrer hva som skjer når utfylleren åpner appen uten en lenke til en bestemt instans.

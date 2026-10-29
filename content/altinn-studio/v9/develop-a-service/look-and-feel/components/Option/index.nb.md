@@ -1,6 +1,5 @@
 ---
 title: Option
-draft: true
 ---
 
 ## Egenskaper

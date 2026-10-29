@@ -1,6 +1,6 @@
 ---
-title: NavigationButtons
 draft: true
+title: NavigationButtons
 ---
 
 ## Properties

@@ -1,5 +1,4 @@
 ---
-draft: true
 tags: [needsReview]
 title: Oversikt over komponenter, versjonering og forvaltningsansvar
 linktitle: Komponenter, versjoner og ansvar

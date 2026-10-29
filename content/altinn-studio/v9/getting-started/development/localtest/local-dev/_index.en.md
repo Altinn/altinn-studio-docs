@@ -28,7 +28,7 @@ Here is an overview of how to get started with local development.
 1. Go to the repository for the app. You can do this in two ways:
     - On the dashboard in Altinn Studio, click the repository icon next to the app.
       ![The repository icon next to the app on the dashboard](./find-app-in-dashboard.png "The repository icon on the dashboard")
-    - Inside the app, click the three dots at the top right and select **Repositorium**.
+    - Inside the app, click the three dots in the top right corner and select **Repositorium**.
       ![The three-dots menu with the Repositorium option](./three-dots-repository.png "Repositorium in the three-dots menu")
 2. Click **Kode**, and copy the link under **HTTPS** with the copy button (marked with a red circle).
     ![Copy the repository link in Gitea](./copy-repo-link.png "Copy the repository link")
@@ -103,7 +103,7 @@ If someone else has changed the app in the same place as you, you are told that 
 
 ## Local testing
 
-{{% insert "content/altinn-studio/shared/studioctl/local-test-workflow.en.md" "/en/altinn-studio/v9/develop-a-service/reference/data/data-modeling/" "/en/altinn-studio/v9/test-a-service/testing/local/testusers/" %}}
+{{% insert "content/altinn-studio/shared/studioctl/local-test-workflow.en.md" "/nb/altinn-studio/v9/develop-a-service/reference/data/data-modeling/" "/nb/altinn-studio/v9/test-a-service/testing/local/testusers/" %}}
 {{% insert "content/altinn-studio/shared/studioctl/useful-commands.en.md" %}}
 
 ### Inspect processing in the workflow engine
@@ -128,6 +128,6 @@ The app gets its local settings from `studioctl` itself, so you need to have `st
 
 {{% expandlarge id="legacy-app-localtest" header="Old method: Run app-localtest manually" %}}
 
-{{% insert "content/altinn-studio/shared/studioctl/legacy-app-localtest.en.md" "/en/altinn-studio/v9/test-a-service/testing/local/testusers/" %}}
+{{% insert "content/altinn-studio/shared/studioctl/legacy-app-localtest.en.md" "/nb/altinn-studio/v9/test-a-service/testing/local/testusers/" %}}
 
 {{% /expandlarge %}}

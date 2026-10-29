@@ -1,6 +1,6 @@
 ---
-title: NavigationBar
 draft: true
+title: NavigationBar
 ---
 
 ## Properties
