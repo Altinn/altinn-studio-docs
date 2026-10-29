@@ -1,7 +1,6 @@
 ---
 headless: true
 hidden: true
-tags: [needsReview]
 ---
 
 For at appen skal vite hvem som skal få tilganger for å lese og signere, må du implementere C#-grensesnittet `ISigneeProvider`.

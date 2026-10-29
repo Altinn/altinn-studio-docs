@@ -2,7 +2,7 @@
 title: Signering
 linktitle: Signering
 description: Slik setter du opp en signeringsoppgave i prosessen.
-tags: [altinn-apps, process, bpmn, task, sign, signing, needsReview]
+tags: [altinn-apps, process, bpmn, task, sign, signing]
 toc: true
 weight: 10
 ---

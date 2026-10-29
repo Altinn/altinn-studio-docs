@@ -1,7 +1,6 @@
 ---
 headless: true
 hidden: true
-tags: [needsReview]
 ---
 
 #### Utvid app-prosessen med et signeringssteg

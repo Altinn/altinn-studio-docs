@@ -1,7 +1,6 @@
 ---
 headless: true
 hidden: true
-tags: [needsReview]
 ---
 
 Hvis du vil endre standardtekstene, legger du til en [tekstressursfil](/nb/altinn-studio/v9/develop-a-service/look-and-feel/tekster/) under `App/config/texts` for hvert språk du vil støtte.

@@ -2,7 +2,7 @@
 title: API-basert signering
 linktitle: API-basert signering
 description: Slik setter du opp signering via API.
-tags: [signering, needsReview]
+tags: [signering]
 ---
 
 ## Hva er API-basert signering?

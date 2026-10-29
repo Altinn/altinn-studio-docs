@@ -2,7 +2,7 @@
 title: Signer og send inn
 linktitle: Signer og send inn
 description: Slik setter du opp signering og innsending i ett steg i appen din.
-tags: [signering, needsReview]
+tags: [signering]
 ---
 
 {{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/style.css.md" %}}

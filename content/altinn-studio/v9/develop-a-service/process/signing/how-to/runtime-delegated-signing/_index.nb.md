@@ -2,7 +2,7 @@
 title: Brukerstyrt signering
 linktitle: Brukerstyrt signering
 description: Slik setter du opp brukerstyrt signering i tjenesten din.
-tags: [signering, needsReview]
+tags: [signering]
 ---
 
 {{% insert "content/altinn-studio/v9/develop-a-service/data/restricted-data/shared/style.css.md" %}}

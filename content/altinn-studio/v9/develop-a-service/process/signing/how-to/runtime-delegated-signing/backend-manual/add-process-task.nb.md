@@ -1,7 +1,6 @@
 ---
 headless: true
 hidden: true
-tags: [needsReview]
 ---
 
 ### Legg til et signeringssteg i app-prosessen
