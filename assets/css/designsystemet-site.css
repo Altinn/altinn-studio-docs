@@ -64,7 +64,7 @@
 
 /* Hero */
 .studio-hero {
-  padding-block: var(--ds-size-18);
+  padding-block: var(--ds-size-22);
   background: var(--ds-site-blue);
   color: var(--ds-site-white);
 }
@@ -109,7 +109,21 @@
   color: var(--ds-site-white);
 }
 .studio-lead {
-  max-width: 52ch;
+  max-width: 46ch;
+  line-height: var(--ds-body-long-lg-line-height);
+}
+/*
+  Teksten i heroen: mer luft mellom nivåene enn inne i dem, så hierarkiet blir tydelig.
+  Merkelinje og overskrift size-6, overskrift og ingress size-6, ingress og knapper size-10, knapper og v8-lenken size-8.
+*/
+.studio-hero .studio-stack {
+  gap: var(--ds-size-6);
+}
+.studio-hero .studio-actions {
+  margin-top: var(--ds-size-4);
+}
+.studio-hero .studio-current-version {
+  margin-top: var(--ds-size-2);
 }
 .studio-actions {
   display: flex;
