@@ -5,7 +5,7 @@ linktitle: Eksternt API
 description: Slik henter appen data fra et annet system og viser dem i skjemaet
 weight: 60
 toc: true
-tags: [needsReview]
+tags: [Reviewed]
 ---
 
 Appen kan hente data fra et annet system og vise dem til brukeren, for eksempel en liste med dokumenter som hører til saken. Utvikleren skriver en klasse som henter dataene. I skjemaet viser du dem med uttrykket `externalApi` eller i en `SimpleTable`.
