@@ -62,41 +62,18 @@
   color: var(--ds-color-text-subtle);
 }
 
-/* Hero */
+/* Hero: lys flate med et hint av Altinn-blått. Komponentene beholder standardutseendet fra Designsystemet. */
 .studio-hero {
   padding-block: var(--ds-size-22);
-  background: var(--ds-site-blue);
-  color: var(--ds-site-white);
+  background: var(--ds-color-accent-background-tinted);
+  border-bottom: var(--ds-border-width-default) solid var(--ds-color-accent-border-subtle);
 }
 .studio-hero .studio-eyebrow {
-  color: var(--ds-color-accent-surface-tinted);
+  color: var(--ds-color-accent-text-default);
 }
-/* Lenken til v8 under knappene i heroen */
+.studio-hero .studio-lead,
 .studio-hero .studio-current-version {
-  color: var(--ds-color-accent-surface-tinted);
-}
-.studio-hero .studio-current-version .ds-link {
-  --dsc-link-color: var(--ds-site-white);
-  --dsc-link-color--hover: var(--ds-site-white);
-  --dsc-link-color--active: var(--ds-color-accent-text-default);
-  --dsc-link-color--visited: var(--ds-site-white);
-}
-.studio-hero .studio-lead {
-  color: var(--ds-color-accent-surface-tinted);
-}
-/* Knappene på blå bakgrunn: hvit hovedknapp og hvit kantlinje på sekundærknappen. */
-.studio-hero .ds-button[data-variant="primary"] {
-  --dsc-button-background: var(--ds-site-white);
-  --dsc-button-background--hover: var(--ds-color-accent-surface-tinted);
-  --dsc-button-background--active: var(--ds-color-accent-surface-active);
-  --dsc-button-color: var(--ds-color-accent-text-default);
-}
-.studio-hero .ds-button[data-variant="secondary"] {
-  --dsc-button-border-color: var(--ds-site-white);
-  --dsc-button-color: var(--ds-site-white);
-  --dsc-button-color--hover: var(--ds-site-white);
-  --dsc-button-background--hover: rgb(255 255 255 / 0.12);
-  --dsc-button-background--active: rgb(255 255 255 / 0.2);
+  color: var(--ds-color-neutral-text-subtle);
 }
 .studio-hero-grid {
   display: grid;
@@ -106,7 +83,7 @@
 }
 .studio-hero .ds-heading[data-size="xl"] {
   max-width: 16ch;
-  color: var(--ds-site-white);
+  color: var(--ds-color-neutral-text-default);
 }
 .studio-lead {
   max-width: 46ch;
@@ -134,7 +111,7 @@
 .studio-hero-figure {
   margin: 0;
 }
-/* Illustrasjonen i heroen (partial hero-illustration.html), tegnet på den blå bakgrunnen. */
+/* Illustrasjonen i heroen (partial hero-illustration.html): Altinn-blå streker og ikoner på lys bakgrunn. */
 .studio-hero-illustration {
   display: block;
   width: 100%;
@@ -143,35 +120,38 @@
 }
 .studio-ill-ring {
   fill: none;
-  stroke: var(--ds-site-white);
-  stroke-opacity: 0.35;
+  stroke: var(--ds-color-accent-border-default);
   stroke-width: 2;
 }
 .studio-ill-spoke {
-  stroke: var(--ds-site-white);
-  stroke-opacity: 0.18;
+  stroke: var(--ds-color-accent-border-subtle);
   stroke-width: 1.5;
   stroke-dasharray: 4 6;
 }
 .studio-ill-halo {
-  fill: var(--ds-site-white);
-  fill-opacity: 0.12;
+  fill: var(--ds-color-accent-surface-tinted);
 }
-.studio-ill-core,
-.studio-ill-node circle {
-  fill: var(--ds-site-white);
+.studio-ill-core {
+  fill: var(--ds-site-blue);
 }
-.studio-ill-core-icon,
-.studio-ill-icon {
-  color: var(--ds-color-accent-base-default);
+.studio-ill-core-icon {
+  color: var(--ds-site-white);
 }
 .studio-ill-core-text {
-  fill: var(--ds-color-accent-text-default);
+  fill: var(--ds-site-white);
   font-size: 21px;
   font-weight: 600;
 }
-.studio-ill-node text {
+.studio-ill-node circle {
   fill: var(--ds-site-white);
+  stroke: var(--ds-color-accent-border-default);
+  stroke-width: 2;
+}
+.studio-ill-icon {
+  color: var(--ds-color-accent-base-default);
+}
+.studio-ill-node text {
+  fill: var(--ds-color-neutral-text-default);
   font-size: 21px;
   font-weight: 500;
 }
@@ -253,18 +233,22 @@
   translate: var(--ds-size-1) 0;
 }
 
-/* Funksjoner: tittel og tekst i kolonner, uten bokser og streker */
+/* Funksjoner: ikon, tittel og tekst på en lys flate i tre kolonner */
 .studio-features {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--ds-size-8) var(--ds-size-10);
+  gap: var(--ds-size-4);
 }
+/* Hver funksjon er en flate med samme farge som heroen, uten kantlinje. */
 .studio-feature {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: var(--ds-size-3);
   align-items: start;
   margin: 0;
+  padding: var(--ds-size-6);
+  background: var(--ds-color-accent-background-tinted);
+  border-radius: var(--ds-border-radius-lg);
 }
 .studio-feature-text {
   display: flex;
