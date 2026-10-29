@@ -216,7 +216,7 @@ Verktøyet støtter ikke dette, så du må gjøre det manuelt. Slik gjør du det
 
 Når modellen er klar, kan du generere modellfiler:
 
-1. Klikk på knappen **Generer modell** over det høyre panelet. Verktøyet lager både XSD- og C#-modellfiler.
+1. Klikk på knappen **Generer modell** over det høyre panelet. I et app-repo lager verktøyet både XSD- og C#-modellfiler. I `<org>-datamodels`-repoet lager det bare XSD-filen.
 2. Klikk på **Del dine endringer** til høyre i hovedmenyen til Altinn Studio for å lagre endringene dine.
 
 Slik laster du ned en generert XSD-fil:
