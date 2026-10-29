@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Egenskaper og tekstnøkler for virusskanning
 linktitle: Virusskanning
 description: Oversikt over egenskapene og tekstnøklene som styrer virusskanning for vedlegg.

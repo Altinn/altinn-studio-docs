@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Prosess
 description: Referansedokumentasjon for prosess-konfigurasjon i Altinn Studio.
 

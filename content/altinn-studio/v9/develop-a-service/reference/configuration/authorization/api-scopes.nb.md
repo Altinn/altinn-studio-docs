@@ -1,5 +1,4 @@
 ---
-draft: true
 title: API Scopes-konfigurasjon
 linktitle: API Scopes
 description: Slik konfigurerer du tilpassede API-scopes for tjenesten.

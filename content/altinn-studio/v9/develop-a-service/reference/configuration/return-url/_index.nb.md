@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Sende brukeren tilbake til en bestemt side
 linktitle: Tilbakelenke (returnUrl)
 description: Slik bruker du returnUrl til å bestemme hvor knappen Tilbake sender brukeren.

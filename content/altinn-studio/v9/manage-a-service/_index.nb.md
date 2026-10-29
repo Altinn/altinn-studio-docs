@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Administrere tjenester
 description: Slik publiserer, administrerer og overvåker du tjenestene dine.
 weight: 40

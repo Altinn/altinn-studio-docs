@@ -3,7 +3,6 @@ title: Tilgangskontroll
 linktitle: Tilgangskontroll
 description: Du skal sette opp regler for hvem som skal ha tilgang til tjenesten. 
 weight: 2
-draft: true
 marp: true
 headingDivider: 4
 style: |

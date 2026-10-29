@@ -1,6 +1,5 @@
 ---
 title: PrintButton
-draft: true
 ---
 
 ## Egenskaper

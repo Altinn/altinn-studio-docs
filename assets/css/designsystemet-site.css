@@ -1,0 +1,330 @@
+/*
+  Oppsett for sider som bruker Designsystemet (layouts/_default/designsystemet.html), foreløpig forsiden for Altinn Studio v9.
+  Komponentene, fargene og typografien kommer fra Designsystemet med Altinn-temaet (assets/designsystemet/altinn.css).
+  Denne filen styrer bare oppsettet: rutenett, bredde og avstander. Bruk variablene fra Designsystemet, ikke faste verdier.
+*/
+
+
+/*
+  Topplinjen og bunnteksten kommer fra temaet (se layouts/partials/designsystemet/head.html).
+  CSS-en fra temaet ligger i laget "legacy", før Designsystemet. Reglene under ligger utenfor lag.
+*/
+
+:root {
+  /* Altinn-blå og hvit fra temaet. Settes her, så fargene er de samme overalt på siden. */
+  --ds-site-blue: var(--ds-color-accent-base-default);
+  --ds-site-white: var(--ds-color-neutral-background-default);
+}
+
+/*
+  Temaet setter html { font-size: 62.5% !important } (designsystem.css), og topplinjen er laget for det.
+  Designsystemet regner størrelser ut fra rem og --ds-size-base (18). Vi deler basen på 1,6 (18 / 1,6 = 11,25),
+  så tekst og avstander i Designsystemet får riktig størrelse.
+*/
+:root,
+[data-size] {
+  --ds-size-base: 11.25;
+}
+
+/* Innholdet bruker skrifttypen til Designsystemet. Temaet setter egne skrifttyper på overskrifter og avsnitt. */
+.studio-hub {
+  font-family: var(--ds-font-family), system-ui, sans-serif;
+  font-feature-settings: 'cv05' 1;
+}
+.studio-hub :is(h1, h2, h3, p, a, li, span, figure) {
+  font-family: inherit;
+}
+/* Temaet gir lenker en blå strek under (border-bottom). Lenkene i Designsystemet har egen understreking. */
+.studio-hub a:not(.ds-button) {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+/* Forsiden for v9 (kortkoden studio-landing) */
+.studio-hub :is(.ds-heading, .ds-paragraph) {
+  margin: 0;
+}
+
+.studio-wrap {
+  width: min(1200px, calc(100% - 2 * var(--ds-size-6)));
+  margin-inline: auto;
+}
+.studio-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-size-4);
+}
+.studio-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--ds-size-3);
+  font-weight: var(--ds-font-weight-medium);
+  color: var(--ds-color-text-subtle);
+}
+
+/* Hero: lys flate med et hint av Altinn-blått. Komponentene beholder standardutseendet fra Designsystemet. */
+.studio-hero {
+  padding-block: var(--ds-size-22);
+  background: var(--ds-color-accent-background-tinted);
+  border-bottom: var(--ds-border-width-default) solid var(--ds-color-accent-border-subtle);
+}
+.studio-hero .studio-eyebrow {
+  color: var(--ds-color-accent-text-default);
+}
+.studio-hero .studio-lead,
+.studio-hero .studio-current-version {
+  color: var(--ds-color-neutral-text-subtle);
+}
+.studio-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--ds-size-15);
+  align-items: center;
+}
+.studio-hero .ds-heading[data-size="xl"] {
+  max-width: 16ch;
+  color: var(--ds-color-neutral-text-default);
+}
+.studio-lead {
+  max-width: 46ch;
+  line-height: var(--ds-body-long-lg-line-height);
+}
+/*
+  Teksten i heroen: mer luft mellom nivåene enn inne i dem, så hierarkiet blir tydelig.
+  Merkelinje og overskrift size-6, overskrift og ingress size-6, ingress og knapper size-10, knapper og v8-lenken size-8.
+*/
+.studio-hero .studio-stack {
+  gap: var(--ds-size-6);
+}
+.studio-hero .studio-actions {
+  margin-top: var(--ds-size-4);
+}
+.studio-hero .studio-current-version {
+  margin-top: var(--ds-size-2);
+}
+.studio-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--ds-size-3);
+  margin-top: var(--ds-size-4);
+}
+.studio-hero-figure {
+  margin: 0;
+}
+/* Illustrasjonen i heroen (partial hero-illustration.html): Altinn-blå streker og ikoner på lys bakgrunn. */
+.studio-hero-illustration {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: var(--ds-font-family), system-ui, sans-serif;
+}
+.studio-ill-ring {
+  fill: none;
+  stroke: var(--ds-color-accent-border-default);
+  stroke-width: 2;
+}
+.studio-ill-spoke {
+  stroke: var(--ds-color-accent-border-subtle);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 6;
+}
+.studio-ill-halo {
+  fill: var(--ds-color-accent-surface-tinted);
+}
+.studio-ill-core {
+  fill: var(--ds-site-blue);
+}
+.studio-ill-core-icon {
+  color: var(--ds-site-white);
+}
+.studio-ill-core-text {
+  fill: var(--ds-site-white);
+  font-size: 21px;
+  font-weight: 600;
+}
+.studio-ill-node circle {
+  fill: var(--ds-site-white);
+  stroke: var(--ds-color-accent-border-default);
+  stroke-width: 2;
+}
+.studio-ill-icon {
+  color: var(--ds-color-accent-base-default);
+}
+.studio-ill-node text {
+  fill: var(--ds-color-neutral-text-default);
+  font-size: 21px;
+  font-weight: 500;
+}
+
+/* Sidehode på oversiktssider (for eksempel Kom i gang): samme lyse flate som heroen på forsiden. */
+.studio-page-head {
+  padding-block: var(--ds-size-15);
+  background: var(--ds-color-accent-background-tinted);
+  border-bottom: var(--ds-border-width-default) solid var(--ds-color-accent-border-subtle);
+}
+.studio-page-head .studio-stack {
+  gap: var(--ds-size-6);
+}
+.studio-page-head .ds-heading[data-size="xl"] {
+  color: var(--ds-color-neutral-text-default);
+}
+.studio-page-head .studio-eyebrow {
+  color: var(--ds-color-accent-text-default);
+}
+.studio-page-head .studio-lead {
+  color: var(--ds-color-neutral-text-subtle);
+}
+
+/* Seksjoner */
+/*
+  Avstandsrytme på forsiden:
+  innen en gruppe size-2 til size-4, mellom elementer i en blokk size-6,
+  fra seksjonsoverskrift til innhold size-8 og mellom seksjoner size-18 (size-12 på mobil).
+*/
+.studio-section {
+  padding-block: var(--ds-size-18);
+}
+.studio-soft {
+  background: var(--ds-color-neutral-background-tinted);
+}
+.studio-section-head {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-size-2);
+  margin-bottom: var(--ds-size-8);
+  max-width: 70ch;
+}
+.studio-section-head .ds-paragraph {
+  color: var(--ds-color-neutral-text-subtle);
+}
+.studio-news {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--ds-size-8);
+}
+.studio-news .ds-paragraph {
+  max-width: 65ch;
+}
+
+/* Klikkbare kort */
+.studio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--ds-size-6);
+}
+.studio-grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.studio-grid > li {
+  margin: 0;
+}
+.studio-link-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--ds-size-4);
+  height: 100%;
+}
+.studio-link-card-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-size-1);
+}
+.studio-link-card .ds-paragraph {
+  color: var(--ds-color-neutral-text-subtle);
+}
+.studio-link-card .ds-link {
+  text-decoration: none;
+}
+.studio-link-card:hover .ds-link,
+.studio-link-card .ds-link:focus-visible {
+  text-decoration: underline;
+}
+.studio-link-card-arrow {
+  flex-shrink: 0;
+  color: var(--ds-color-base-default);
+  transition: translate 0.15s ease;
+}
+.studio-link-card:hover .studio-link-card-arrow {
+  translate: var(--ds-size-1) 0;
+}
+
+/* Funksjoner: ikon, tittel og tekst på en lys flate i tre kolonner */
+.studio-features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--ds-size-4);
+}
+/* Hver funksjon er en flate med samme farge som heroen, uten kantlinje. */
+.studio-feature {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--ds-size-3);
+  align-items: start;
+  margin: 0;
+  padding: var(--ds-size-6);
+  background: var(--ds-color-accent-background-tinted);
+  border-radius: var(--ds-border-radius-lg);
+}
+.studio-feature-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-size-1);
+}
+/* Ikonet står på linje med overskriften og har samme farge som lenkene. */
+.studio-feature .ds-site-icon {
+  font-size: var(--ds-size-8);
+  color: var(--ds-color-accent-text-subtle);
+}
+.studio-hub .studio-more {
+  margin-block-start: var(--ds-size-10);
+}
+.studio-feature .ds-paragraph {
+  color: var(--ds-color-neutral-text-subtle);
+}
+
+@media (max-width: 1050px) {
+  .studio-hero-grid {
+    grid-template-columns: 1fr;
+    gap: var(--ds-size-10);
+  }
+  .studio-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 760px) {
+  .studio-wrap {
+    width: calc(100% - 2 * var(--ds-size-4));
+  }
+  .studio-hero,
+  .studio-section {
+    padding-block: var(--ds-size-12);
+  }
+  .studio-section-head {
+    margin-bottom: var(--ds-size-6);
+  }
+  .studio-hero .ds-heading[data-size="xl"] {
+    font-size: var(--ds-heading-lg-font-size);
+  }
+  /* Illustrasjonen er pynt. På små skjermer skjuler vi den, så rollevalget kommer rett etter heroen. */
+  .studio-hero-figure {
+    display: none;
+  }
+  .studio-grid,
+  .studio-grid-2,
+  .studio-features {
+    grid-template-columns: 1fr;
+  }
+  .studio-news {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .studio-link-card-arrow {
+    transition: none;
+  }
+}

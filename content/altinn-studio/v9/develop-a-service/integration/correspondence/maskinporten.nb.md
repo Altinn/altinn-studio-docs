@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Sende meldinger med Maskinporten-autorisasjon
 linktitle: Med Maskinporten
 description: Slik sender du meldinger fra appen med appens Maskinporten-klient.

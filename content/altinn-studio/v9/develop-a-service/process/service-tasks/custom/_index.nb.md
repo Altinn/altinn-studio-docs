@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Lage en egendefinert systemoppgave
 linktitle: Egendefinert
 description: Slik lager du en systemoppgave som kjører egen kode i prosessen
