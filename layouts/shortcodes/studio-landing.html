@@ -34,10 +34,9 @@
                     {{- else }}Does your app use v8? See the <a class="ds-link" href="{{ $v8 }}">documentation for v8</a>, the current version.{{ end }}
                 </p>
             </div>
-            <figure class="studio-hero-figure">
-                <img src="{{ "images/studio/studio-i-midten.png" | relURL }}"
-                    alt="{{ if $nb }}Altinn Studio har ferdige integrasjoner mot flere av fellestjenestene til Digdir og mot nasjonale registre{{ else }}Altinn Studio has pre-built integrations with several of Digdir's common services and national registers.{{ end }}">
-            </figure>
+            <div class="studio-hero-figure">
+                {{ partial "designsystemet/hero-illustration.html" (dict "nb" $nb) }}
+            </div>
         </div>
     </section>
 

@@ -119,22 +119,47 @@
 }
 .studio-hero-figure {
   margin: 0;
-  padding: var(--ds-size-6);
-  background: var(--ds-color-neutral-background-default);
-  border-radius: var(--ds-border-radius-xl);
-  box-shadow: var(--ds-shadow-xl);
 }
-.studio-hero-figure img {
+/* Illustrasjonen i heroen (partial hero-illustration.html), tegnet på den blå bakgrunnen. */
+.studio-hero-illustration {
   display: block;
   width: 100%;
   height: auto;
-  max-height: 320px;
-  object-fit: contain;
+  font-family: var(--ds-font-family), system-ui, sans-serif;
 }
-.studio-hero-figure figcaption {
-  margin-top: var(--ds-size-3);
-  text-align: center;
-  color: var(--ds-color-neutral-text-subtle);
+.studio-ill-ring {
+  fill: none;
+  stroke: var(--ds-site-white);
+  stroke-opacity: 0.35;
+  stroke-width: 2;
+}
+.studio-ill-spoke {
+  stroke: var(--ds-site-white);
+  stroke-opacity: 0.18;
+  stroke-width: 1.5;
+  stroke-dasharray: 4 6;
+}
+.studio-ill-halo {
+  fill: var(--ds-site-white);
+  fill-opacity: 0.12;
+}
+.studio-ill-core,
+.studio-ill-node circle {
+  fill: var(--ds-site-white);
+}
+.studio-ill-core-icon,
+.studio-ill-icon {
+  color: var(--ds-color-accent-base-default);
+}
+.studio-ill-core-text {
+  fill: var(--ds-color-accent-text-default);
+  font-size: 21px;
+  font-weight: 600;
+}
+.studio-ill-node text {
+  fill: var(--ds-site-white);
+  font-size: 21px;
+  font-weight: 500;
 }
 
 /* Seksjoner */
