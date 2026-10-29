@@ -1,5 +1,5 @@
 ---
-draft: true
+draft: false
 title: Hente data fra et eksternt API
 linktitle: Eksternt API
 description: Slik henter appen data fra et annet system og viser dem i skjemaet
@@ -19,11 +19,11 @@ Appen kan hente data fra et annet system og vise dem til brukeren, for eksempel 
 1. Utvikleren lager en klasse som henter dataene, og registrerer den i appen.
 2. Appen gjør dataene tilgjengelige for hver instans gjennom et eget endepunkt.
 3. Første gang et uttrykk med `externalApi` trenger dataene, henter nettleseren dem fra endepunktet. Den henter da dataene fra alle de eksterne API-ene appen har, ikke bare det ene uttrykket bruker. En `SimpleTable` henter bare dataene den selv viser.
-4. Nettleseren bruker de samme dataene resten av tiden brukeren har skjemaet åpent, i minst 10 minutter. Laster brukeren inn siden på nytt, henter nettleseren dataene igjen.
+4. Nettleseren husker dataene en stund og bruker dem om igjen. Hvor lenge, kommer an på hvor dataene vises. Når nettleseren har glemt dem, eller brukeren laster inn siden på nytt, henter den dataene igjen.
 
 Nettleseren henter ikke dataene på nytt når brukeren endrer noe i skjemaet. Dataene kan derfor ikke avhenge av det brukeren fyller ut.
 
-Fordi uttrykket henter fra alle de eksterne API-ene, kaller appen alle API-ene første gang skjemaet bruker uttrykket for en instans, også dem skjemaet ikke viser. Det tar tid, og det kan koste penger hos den som leverer API-et.
+Fordi uttrykket henter fra alle de eksterne API-ene, kaller appen alle API-ene hver gang nettleseren henter dataene til uttrykket, også dem skjemaet ikke viser. Det tar tid, og det kan koste penger hos den som leverer API-et.
 
 ## Lage en klient
 
@@ -233,7 +233,7 @@ Brukeren ser ingen feilmelding når et eksternt API feiler:
 
 - Uttrykket `externalApi` gir tom tekst.
 - `SimpleTable` viser ingenting.
-- Feilen havner bare i konsollen i nettleseren.
+- For `SimpleTable` skriver nettleseren feilen i konsollen. For uttrykket `externalApi` ser du feilen bare som en mislykket forespørsel i nettverksfanen i utviklerverktøyene til nettleseren.
 
 Kaster klienten en `HttpRequestException` med statuskode, svarer endepunktet med den samme statuskoden. Avviser API-et tokenet, får nettleseren derfor statuskode 401 eller 403. Andre feil gir statuskode 500.
 
