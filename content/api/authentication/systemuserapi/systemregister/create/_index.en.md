@@ -85,6 +85,7 @@ For detailed description about each entity in the body, please refer the descrip
 | AUTH.VLD-00007 | 400         | One or more duplicate access package(s) found                                                                                  | The system id is already taken                                                                                                                                                                                   |
 | AUTH.VLD-00008 | 400         | One or all the accesspackage(s) is not found in altinn's access packages or is not a part of REGN/REVI/Forretningsfører roller | The system id is already taken                                                                                                                                                                                   |
 | AUTH.VLD-00009 | 400         | One or more resource id is in wrong format. The vlaid format is urn:altinn:resource                                            | -                                                                                                                                                                                                                |
+| AUTH.VLD-00022 | 400         | A right can have at most one resource, with the id urn:altinn:resource. Use one right per resource.                            | A right has at most one entry in its resource list. To give access to several resources, add one right per resource. |
 
 ## Examples
 
