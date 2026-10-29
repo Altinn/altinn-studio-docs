@@ -77,5 +77,8 @@
             <h2 class="ds-heading" data-size="md" id="studio-features-title">{{ if $nb }}Dette får du med Altinn Studio{{ else }}What you get with Altinn Studio{{ end }}</h2>
         </div>
         <ul class="studio-features ds-list--unstyled">{{ partial "designsystemet/capabilities.html" (dict "nb" $nb) }}</ul>
+        <p class="ds-paragraph studio-more">
+            <a class="ds-link" href="{{ partial "studio/v9-url.html" (dict "page" $p "path" "this-is-as") }}">{{ if $nb }}Les mer om hva Altinn Studio gir deg{{ else }}Read more about what Altinn Studio gives you{{ end }}</a>
+        </p>
     </section>
 </div>
