@@ -1,0 +1,14 @@
+{{- /*
+  Finner produktet, versjonen og rotsiden for versjonen til siden.
+  Returnerer dict med product, version, productRoot og versionRoot.
+*/ -}}
+{{- $info := partial "get-current-product.html" . -}}
+{{- $productRoot := "" -}}
+{{- $versionRoot := "" -}}
+{{- with $info.product -}}
+  {{- $productRoot = $.Site.GetPage (printf "/%s" .) -}}
+  {{- with $info.version -}}
+    {{- $versionRoot = $.Site.GetPage (printf "/%s/%s" $info.product .) -}}
+  {{- end -}}
+{{- end -}}
+{{- return dict "product" $info.product "version" $info.version "productRoot" $productRoot "versionRoot" $versionRoot -}}

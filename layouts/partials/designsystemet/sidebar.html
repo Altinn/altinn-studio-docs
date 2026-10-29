@@ -1,0 +1,16 @@
+{{- /*
+  Sidemeny med versjonsvelger, som på resten av nettstedet. På små skjermer ligger menyen i en sammenleggbar Details.
+*/ -}}
+{{- $ctx := partial "designsystemet/context.html" . -}}
+{{- with $ctx.versionRoot }}
+<aside class="ds-site-sidebar" aria-label="{{ cond (eq $.Language.Lang "nb") "Meny" "Menu" }}">
+  {{ partial "designsystemet/version-switcher.html" $ctx }}
+  <details class="ds-details ds-site-sidebar-details" data-size="sm" open>
+    <summary>{{ cond (eq $.Language.Lang "nb") "Meny" "Menu" }}</summary>
+    <nav class="ds-site-tree" id="docsmenu" aria-label="{{ .LinkTitle }}">
+      <a class="ds-site-tree-root" href="{{ .RelPermalink }}"{{ if eq . $ }} aria-current="page"{{ end }}>{{ .LinkTitle }}</a>
+      {{ partial "designsystemet/nav-tree.html" (dict "section" . "current" $) }}
+    </nav>
+  </details>
+</aside>
+{{- end }}

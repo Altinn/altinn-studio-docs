@@ -1,0 +1,24 @@
+{{- /*
+  Versjonsvelger med Dropdown fra Designsystemet. Versjonene heter det samme som i resten av nettstedet (breadcrumbText).
+  Tar imot dict med productRoot og versionRoot.
+*/ -}}
+{{- $productRoot := .productRoot -}}
+{{- $versionRoot := .versionRoot -}}
+{{- if and $productRoot $versionRoot (gt (len $productRoot.Sections) 1) }}
+<div class="ds-site-version">
+  <span class="ds-label" data-weight="medium" id="ds-site-version-label">{{ T "version" }}</span>
+  <button type="button" class="ds-button ds-site-version-button" data-variant="secondary" data-size="sm" popovertarget="ds-site-version-menu" aria-labelledby="ds-site-version-label ds-site-version-button" id="ds-site-version-button">
+    <span>{{ or $versionRoot.Params.breadcrumbText $versionRoot.LinkTitle }}</span>
+    {{ partial "designsystemet/icon.html" "ChevronDown" }}
+  </button>
+  <div class="ds-dropdown" popover id="ds-site-version-menu" data-placement="bottom-start">
+    <ul>
+      {{- range $productRoot.Sections }}
+      <li>
+        <a class="ds-button" data-variant="tertiary" href="{{ .RelPermalink }}"{{ if eq . $versionRoot }} aria-current="page"{{ end }}>{{ or .Params.breadcrumbText .LinkTitle }}</a>
+      </li>
+      {{- end }}
+    </ul>
+  </div>
+</div>
+{{- end }}

@@ -1,32 +1,41 @@
 ---
 title: Kom i gang som tjenesteeier
 linktitle: For tjenesteeiere
+description: Slik kommer du i gang med å lage, publisere og forvalte tjenester i Altinn Studio.
 toc: true
 weight: 98
 ---
 
-## Lag en bruker
-Alle som ønsker å teste og/eller bruke Altinn Studio må først lage en bruker. Dette er selvbetjent.
-[Følg denne veiledningen for å komme i gang](../create-user). 
+Som tjenesteeier lager og forvalter du digitale tjenester i Altinn Studio. Her finner du ut hvor du skal begynne, ut fra hva du skal gjøre.
 
-Om du skal ha tilgang til å lage tjenester for en organisasjon må du kontakte den som administrerer Altinn Studio
-for din organisasjon.
+## Lage en bruker
 
-## For deg som skal lage en tjeneste
-1. [Lag et enkelt skjema](../development/basic-form)
-2. [Ta i bruk flere konsepter i skjema]()
-1. [Sett opp tilgangskontroll](../development/access-control)
-2. [Publiser og test tjenesten](../development/publish)
-3. [Sett opp studioctl](../studioctl)
-3. [Jobb med tjenesten på lokal maskin](../development/localtest)
-4. [Sett opp egne tilpasninger i kode](../development/custom-development)
+Alle som skal bruke Altinn Studio, må først lage en bruker. Det gjør du selv. Se [Lage en bruker]({{< relref "/altinn-studio/v9/getting-started/create-user" >}}).
 
-## For deg som skal vedlikeholde og administrere kjørende tjenester
-1. [Sjekk status på tjenester i kjøretidsmiljø]()
-2. [Oppgrader tjenester til nyeste versjon](../../new-in-v9/upgrade)
-3. [Hent ut data sendt inn på tjenester]()
-4. [Send ut eksemplar at tjenesten til de som skal svare]()
+Skal du lage tjenester for en organisasjon, må en administrator i organisasjonen gi deg tilgang. Se [Bli del av en organisasjon]({{< relref "/altinn-studio/v9/getting-started/create-user#bli-del-av-en-organisasjon" >}}).
 
-## For deg som skal administrere Altinn Studio for din organisasjon
-1. [Gi tilganger i Altinn Studio for din organisasjon]()
-2. [Be om tilganger til logger]()
+## Lage en tjeneste
+
+1. [Lag et enkelt skjema]({{< relref "/altinn-studio/v9/getting-started/development/basic-form" >}}).
+2. [Sett opp tilgangskontroll]({{< relref "/altinn-studio/v9/getting-started/development/access-control" >}}).
+3. [Publiser og test tjenesten]({{< relref "/altinn-studio/v9/getting-started/development/publish" >}}).
+
+Skal du jobbe med koden til tjenesten på egen maskin, gjør du dette:
+
+1. [Sett opp studioctl]({{< relref "/altinn-studio/v9/getting-started/studioctl" >}}).
+2. [Jobb med tjenesten lokalt]({{< relref "/altinn-studio/v9/getting-started/development/localtest" >}}).
+3. [Lag tilpasninger i kode]({{< relref "/altinn-studio/v9/getting-started/development/custom-development" >}}).
+
+Flere muligheter for skjemaet og tjenesten finner du under [Utvikle tjenester]({{< relref "/altinn-studio/v9/develop-a-service" >}}).
+
+## Vedlikeholde og forvalte tjenester
+
+- [Følg med på ytelse og feil i tjenestene]({{< relref "/altinn-studio/v9/manage-a-service/monitoring" >}}).
+- [Oppgrader tjenesten til v9]({{< relref "/altinn-studio/v9/new-in-v9/upgrade" >}}).
+- [Hent ut data brukerne har sendt inn]({{< relref "/altinn-studio/v9/getting-started/receive-data" >}}).
+- [Opprett skjemaer med forhåndsutfylte data for dem som skal svare]({{< relref "/altinn-studio/v9/develop-a-service/data/prefill/how-to/instantiation" >}}).
+
+## Administrere Altinn Studio for organisasjonen
+
+- [Gi tilganger i Altinn Studio]({{< relref "/altinn-studio/v9/manage-a-service/access-management/studio" >}}).
+- [Bestill tilgang til app-logger og hemmeligheter]({{< relref "/altinn-studio/v9/manage-a-service/access-management/apps" >}}).

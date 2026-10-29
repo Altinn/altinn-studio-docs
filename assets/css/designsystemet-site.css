@@ -26,18 +26,25 @@
   --ds-size-base: 11.25;
 }
 
-/* Innholdet bruker skrifttypen til Designsystemet. Temaet setter egne skrifttyper på overskrifter og avsnitt. */
-.studio-hub {
+/*
+  Innhold, sidemeny og sidefot bruker skrifttypen til Designsystemet.
+  Temaet setter egne skrifttyper på overskrifter, avsnitt og lenker.
+*/
+:is(.studio-hub, .ds-site-sidebar, .ds-site-page-meta) {
   font-family: var(--ds-font-family), system-ui, sans-serif;
   font-feature-settings: 'cv05' 1;
 }
-.studio-hub :is(h1, h2, h3, p, a, li, span, figure) {
+:is(.studio-hub, .ds-site-sidebar, .ds-site-page-meta) :is(h1, h2, h3, p, a, li, span, figure, summary, label) {
   font-family: inherit;
 }
 /* Temaet gir lenker en blå strek under (border-bottom). Lenkene i Designsystemet har egen understreking. */
-.studio-hub a:not(.ds-button) {
+:is(.studio-hub, .ds-site-sidebar, .ds-site-page-meta) a:not(.ds-button) {
   border-bottom: 0;
   padding-bottom: 0;
+}
+/* Temaet legger en pil etter lenker til andre nettsteder. Lenken til GitHub har ikonet sitt fra før. */
+.ds-site-page-meta a::after {
+  content: none;
 }
 
 /* Forsiden for v9 (kortkoden studio-landing) */
@@ -95,6 +102,15 @@
 */
 .studio-hero .studio-stack {
   gap: var(--ds-size-6);
+}
+/* Søkefeltet i heroen. Bredden er i px, fordi temaet setter rem til 10 px. */
+.studio-search {
+  max-width: 520px;
+  margin-top: var(--ds-size-2);
+}
+/* Tøm-knappen vises bare når det står noe i feltet. */
+.studio-search > input:placeholder-shown ~ button[type="reset"] {
+  display: none;
 }
 .studio-hero .studio-actions {
   margin-top: var(--ds-size-4);
@@ -326,5 +342,152 @@
 @media (prefers-reduced-motion: reduce) {
   .studio-link-card-arrow {
     transition: none;
+  }
+}
+
+/*
+  Sider med sidemeny (alle sider med layout: designsystemet unntatt forsiden for en versjon).
+  Menyen til venstre og innholdet til høyre, som resten av dokumentasjonen.
+*/
+.ds-site-layout {
+  display: grid;
+  /* Bredden på menyen er i px, fordi temaet setter rem til 10 px. */
+  grid-template-columns: 272px minmax(0, 1fr);
+  gap: var(--ds-size-10);
+  width: min(1440px, 100%);
+  margin-inline: auto;
+  padding: var(--ds-size-8) var(--ds-size-6) var(--ds-size-15);
+  box-sizing: border-box;
+}
+.ds-site-main {
+  min-width: 0;
+}
+/* Inne i innholdskolonnen er sidehodet og seksjonene flater, ikke fullbredde bånd. */
+.ds-site-main .studio-wrap {
+  width: 100%;
+}
+.ds-site-main .studio-page-head {
+  padding: var(--ds-size-10);
+  border: 0;
+  border-radius: var(--ds-border-radius-lg);
+}
+.ds-site-main .studio-section {
+  padding-block: var(--ds-size-12) 0;
+}
+.ds-site-main .studio-soft {
+  background: none;
+}
+
+/* Sidemeny */
+.ds-site-sidebar {
+  position: sticky;
+  top: var(--ds-size-6);
+  align-self: start;
+  max-height: calc(100vh - var(--ds-size-12));
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-size-6);
+}
+.ds-site-version {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-size-2);
+}
+.ds-site-version-button {
+  justify-content: space-between;
+  width: 100%;
+}
+.ds-site-sidebar-details {
+  --dsc-details-border-color: transparent;
+}
+.ds-site-sidebar-details > summary {
+  display: none;
+}
+.ds-site-tree ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ds-site-tree ul ul {
+  margin-inline-start: var(--ds-size-3);
+  padding-inline-start: var(--ds-size-2);
+  border-inline-start: var(--ds-border-width-default) solid var(--ds-color-neutral-border-subtle);
+}
+/* Spesifikk nok til å slå nullstillingen av lenker over, som fjerner padding-bottom. */
+.ds-site-sidebar .ds-site-tree a {
+  display: block;
+  padding: var(--ds-size-2) var(--ds-size-3);
+  border-radius: var(--ds-border-radius-md);
+  color: var(--ds-color-neutral-text-default);
+  font-size: var(--ds-body-sm-font-size);
+  line-height: var(--ds-body-short-sm-line-height);
+  text-decoration: none;
+}
+.ds-site-tree a:hover {
+  background: var(--ds-color-neutral-surface-hover);
+}
+.ds-site-tree a:focus-visible {
+  outline: var(--ds-border-width-focus) solid var(--ds-color-focus-outer);
+  outline-offset: 0;
+}
+.ds-site-tree a[data-open] {
+  font-weight: var(--ds-font-weight-medium);
+}
+.ds-site-tree a[aria-current="page"] {
+  background: var(--ds-color-accent-surface-tinted);
+  color: var(--ds-color-accent-text-default);
+  font-weight: var(--ds-font-weight-semibold);
+}
+.ds-site-tree-root {
+  font-weight: var(--ds-font-weight-semibold) !important;
+}
+
+/* Sist endret og Endre denne siden i GitHub */
+.ds-site-page-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--ds-size-4);
+  margin-block-start: var(--ds-size-12);
+  padding-block-start: var(--ds-size-4);
+  border-block-start: var(--ds-border-width-default) solid var(--ds-color-neutral-border-subtle);
+  color: var(--ds-color-neutral-text-subtle);
+}
+.ds-site-page-meta .ds-paragraph {
+  margin: 0;
+}
+.ds-site-page-meta .ds-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-size-1);
+}
+
+@media (max-width: 1023px) {
+  .ds-site-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--ds-size-6);
+    padding-block-start: var(--ds-size-4);
+  }
+  .ds-site-sidebar {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    gap: var(--ds-size-3);
+  }
+  .ds-site-sidebar-details {
+    --dsc-details-border-color: var(--ds-color-neutral-border-subtle);
+  }
+  .ds-site-sidebar-details > summary {
+    display: flex;
+  }
+}
+@media (max-width: 760px) {
+  .ds-site-layout {
+    padding-inline: var(--ds-size-4);
+  }
+  .ds-site-main .studio-page-head {
+    padding: var(--ds-size-6);
   }
 }

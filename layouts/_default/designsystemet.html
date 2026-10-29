@@ -1,18 +1,44 @@
 <!DOCTYPE html>
 {{- /*
-  Layout for sider som bruker Designsystemet, foreløpig forsiden for Altinn Studio v9 (layout: designsystemet).
+  Layout for sider som bruker Designsystemet (layout: designsystemet).
   Topplinjen og bunnteksten er de samme som på resten av nettstedet (topbar.html og footer-content.html).
   Innholdet bruker komponentene i Designsystemet. Se head.html for hvordan CSS-en er lagt i lag.
+
+  Forsiden for en versjon (for eksempel /altinn-studio/v9/) bruker hele bredden.
+  Andre sider får sidemeny med versjonsvelger til venstre, som resten av dokumentasjonen, og Sist endret nederst.
 */ -}}
+{{- $ctx := partial "designsystemet/context.html" . -}}
+{{- $isVersionRoot := and $ctx.versionRoot (eq $ctx.versionRoot .) -}}
 <html lang="{{ .Language.Lang }}" data-color-scheme="light" data-size="sm">
   <head>
     {{- partial "designsystemet/head.html" . }}
   </head>
   <body class="a-page ds-site" data-url="{{ .RelPermalink }}">
     {{- partial "topbar.html" . }}
+    {{- if $isVersionRoot }}
     <main id="content"{{ if not .Params.disablepagefind }} data-pagefind-body{{ end }}>
       {{ .Content }}
     </main>
+    {{- else }}
+    <div class="ds-site-layout">
+      {{ partial "designsystemet/sidebar.html" . }}
+      <main id="content" class="ds-site-main"{{ if not .Params.disablepagefind }} data-pagefind-body{{ end }}>
+        {{ .Content }}
+        {{ partial "designsystemet/page-meta.html" . }}
+      </main>
+    </div>
+    <script>
+      // Sidemenyen er åpen på store skjermer og lukket på små.
+      (function () {
+        var details = document.querySelector('.ds-site-sidebar-details');
+        if (!details) return;
+        var wide = window.matchMedia('(min-width: 1024px)');
+        var sync = function () { details.open = wide.matches; };
+        sync();
+        wide.addEventListener('change', sync);
+      })();
+    </script>
+    {{- end }}
     {{- partial "footer-content.html" . }}
     <script src="{{ "js/altinninfoportal.js" | relURL }}"></script>
     <script src="{{ "js/altinndocs.js" | relURL }}"></script>

@@ -1,0 +1,7 @@
+{{- /* Sist endret og lenke for å endre siden i GitHub, som på resten av nettstedet. */ -}}
+<div class="ds-site-page-meta">
+  <p class="ds-paragraph" data-size="sm">{{ T "Last-Modified" }}{{ .Lastmod | time.Format ":date_medium" }}</p>
+  {{- if and .File .Site.Params.editURL }}
+  <a class="ds-link" data-size="sm" href="{{ .Site.Params.editURL }}{{ replace .File.Dir "\\" "/" }}{{ .File.LogicalName }}">{{ partial "designsystemet/icon.html" "Pencil" }}{{ T "Edit-this-page" }}</a>
+  {{- end }}
+</div>

@@ -1,0 +1,22 @@
+{{- /*
+  Sidemeny for en versjon. Viser sidene på øverste nivå og åpner grenene ned til siden brukeren står på.
+  Tar imot dict med section (siden vi lister barna til) og current (siden brukeren står på).
+*/ -}}
+{{- $current := .current -}}
+{{- $pages := .section.Pages.ByWeight -}}
+{{- if $pages }}
+<ul>
+  {{- range $pages }}
+  {{- if not .Params.hidden }}
+  {{- $isCurrent := eq . $current }}
+  {{- $isOpen := or $isCurrent (.IsAncestor $current) }}
+  <li>
+    <a href="{{ .RelPermalink }}"{{ if $isCurrent }} aria-current="page"{{ end }}{{ if $isOpen }} data-open{{ end }}>{{ .LinkTitle }}</a>
+    {{- if and $isOpen .IsSection }}
+    {{- partial "designsystemet/nav-tree.html" (dict "section" . "current" $current) }}
+    {{- end }}
+  </li>
+  {{- end }}
+  {{- end }}
+</ul>
+{{- end }}

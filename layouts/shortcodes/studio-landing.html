@@ -25,6 +25,13 @@
                 <p class="ds-paragraph studio-lead" data-size="lg">{{ if $nb }}Alt du trenger for å utvikle, publisere og forvalte digitale tjenester
                     for innbyggere og næringsliv.{{ else }}Everything you need to develop, publish and manage digital
                     services for citizens and businesses.{{ end }}</p>
+                <form class="ds-search studio-search" role="search" action="" data-studio-search>
+                    <input class="ds-input" type="search" name="q" autocomplete="off"
+                        aria-label="{{ if $nb }}Søk i dokumentasjonen{{ else }}Search the documentation{{ end }}"
+                        placeholder="{{ if $nb }}Søk i dokumentasjonen{{ else }}Search the documentation{{ end }}">
+                    <button type="reset" aria-label="{{ if $nb }}Tøm{{ else }}Clear{{ end }}"></button>
+                    <button class="ds-button" data-variant="secondary" type="submit">{{ if $nb }}Søk{{ else }}Search{{ end }}</button>
+                </form>
                 <div class="studio-actions">
                     <a class="ds-button" data-variant="primary" href="{{ partial "studio/v9-url.html" (dict "page" $p "path" "getting-started") }}">{{ if $nb }}Kom i gang{{ else }}Get started{{ end }}</a>
                     <a class="ds-button" data-variant="secondary" href="{{ partial "studio/v9-url.html" (dict "page" $p "path" "new-in-v9") }}">{{ if $nb }}Hva er nytt i v9{{ else }}What is new in v9{{ end }}</a>
@@ -75,9 +82,34 @@
         <div class="studio-section-head">
             <h2 class="ds-heading" data-size="md" id="studio-features-title">{{ if $nb }}Dette får du med Altinn Studio{{ else }}What you get with Altinn Studio{{ end }}</h2>
         </div>
-        <ul class="studio-features ds-list--unstyled">{{ partial "designsystemet/capabilities.html" (dict "nb" $nb) }}</ul>
+        <ul class="studio-features ds-list--unstyled">{{ partial "designsystemet/capabilities.html" (dict "nb" $nb "limit" 6) }}</ul>
         <p class="ds-paragraph studio-more">
             <a class="ds-link" href="{{ partial "studio/v9-url.html" (dict "page" $p "path" "this-is-as") }}">{{ if $nb }}Les mer om hva Altinn Studio gir deg{{ else }}Read more about what Altinn Studio gives you{{ end }}</a>
         </p>
     </section>
 </div>
+<script>
+  // Søkefeltet i heroen bruker det samme søket som topplinjen (Pagefind i search.html):
+  // det åpner søkepanelet og fyller inn søket der, så nettstedet bare har ett søk.
+  document.querySelectorAll('[data-studio-search]').forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      var query = form.elements.q.value.trim();
+      var panel = document.getElementById('collapseSearchContent');
+      var toggle = document.getElementById('search-button');
+      if (panel && toggle && !panel.classList.contains('show')) toggle.click();
+      var attempts = 0;
+      (function fill() {
+        var input = document.querySelector('#search-by .pagefind-ui__search-input');
+        if (input) {
+          input.value = query;
+          input.dispatchEvent(new Event('input', { bubbles: true }));
+          input.focus();
+          window.scrollTo({ top: 0 });
+        } else if (attempts++ < 20) {
+          setTimeout(fill, 100);
+        }
+      })();
+    });
+  });
+</script>
