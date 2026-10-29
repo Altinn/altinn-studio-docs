@@ -1,122 +1,70 @@
 ---
-title: SMS Segmentation
-description: "Altinn Notifications automatically splits long SMS messages into multiple segments to ensure delivery. This article explains how SMS segmentation works, which character limits apply, and what will and will not work when using the API."
-linktitle: SMS Segmentation
+title: SMS segmentation
+description: "Long SMS messages are automatically split into several segments so they can be delivered. This article explains how SMS segmentation works, how the characters in a message determine the number of segments, and what this means for the cost."
+linktitle: SMS segmentation
 tags: [sms, segmentation, character limit]
 weight: 40
 ---
 
 ## Introduction
 
-SMS messages have technical limitations on how many characters can be sent in a single message. When you send SMS via Altinn Notifications, the system automatically handles the splitting of long messages into multiple segments. This allows you to send longer texts without having to split them manually.
+An SMS can only hold a limited number of characters. When you send a longer message through Altinn Notifications, it is automatically split into several parts, called segments. The recipient still sees a single, continuous message, because the phone reassembles the segments.
 
-Understanding how segmentation works is important to ensure that your messages are delivered as expected and to avoid messages being rejected due to length limitations.
+It is useful to understand how this splitting works, because each segment is counted and charged as a separate SMS. A message that looks short can still become several segments if it contains certain characters. The characters you use therefore affect both the cost and how much text there is room for.
 
-## How SMS segmentation works
+## The character encoding determines the segment length
 
-SMS technology has two different modes for message length:
+How many characters fit in each segment depends on how the text is encoded. An SMS is sent in one of two ways, and the receiving phone chooses automatically based on which characters the message contains:
 
-### Single message (up to 160 characters)
+- **GSM-7** is the standard alphabet for SMS. It covers ordinary letters, numbers and punctuation, and **the Norwegian letters æ, ø and å** (including capitals). As long as the message only uses characters from this alphabet, there is plenty of room in each segment.
+- **UCS-2** is used when the message contains at least one character that is not in the GSM-7 alphabet, for example an emoji or a non-Latin character. The whole message is then encoded in a way that takes more space, leaving room for far fewer characters per segment.
 
-If your message is **160 characters or shorter**, it is sent as a single SMS. This is the most efficient way to send short messages.
+A single character outside the GSM-7 alphabet is enough to switch the whole message to UCS-2. This more than halves the available space, as the table below shows.
 
-### Concatenated messages (over 160 characters)
+## How many characters fit
 
-When the message is **longer than 160 characters**, it is automatically split into multiple segments that are sent separately and reassembled on the recipient's phone. Each segment in a concatenated message can contain **up to 134 characters**.
+| Character encoding | Single message | Per segment in a split message |
+|--------------------|----------------|--------------------------------|
+| GSM-7 (ordinary text, including æ, ø, å) | 160 characters | 153 characters |
+| UCS-2 (emoji, typographic characters, non-Latin characters) | 70 characters | 67 characters |
 
-{{% notice info %}}
-The reason segments are 134 characters instead of 160 characters is that some space is used for metadata that tells the recipient's phone how to reassemble the segments.
-{{% /notice %}}
+When a message has to be split, part of the space in each segment is used for joining information, that is, the data the phone needs to put the segments back together in the right order. Each segment therefore holds slightly less than a single message: 153 characters with GSM-7 and 67 characters with UCS-2.
 
-## Character limitations
+### Characters that count double in GSM-7
 
-Altinn Notifications has the following limitations for SMS messages:
+Some characters are part of GSM-7, but live in a separate extension table, and each of them counts as **two** characters:
 
-- **Single message**: up to **160 characters**
-- **Concatenated message**: up to **134 characters per segment**
-- **Maximum number of segments**: **16 segments**
-- **Maximum total length**: **2144 characters** (16 × 134 characters)
+- `^ { } \ [ ] ~ |`
+- `€` (the euro sign)
 
-{{% notice warning %}}
-The maximum limit of 16 segments is a limitation in the SMS gateway that Altinn Notifications uses. Messages that exceed this limit are truncated to the first 16 segments.
-{{% /notice %}}
+If you use several curly brackets or euro signs, for example, the message fills up faster than the number of visible characters suggests.
 
-### Segmentation examples
+## Number of segments and upper limit
 
-| Message length | Number of segments | Description |
-|----------------|-------------------|-------------|
-| 50 characters | 1 | Sent as a single SMS |
-| 160 characters | 1 | Sent as a single SMS (maximum length) |
-| 161 characters | 2 | Split into 2 segments (134 + 27 characters) |
-| 268 characters | 2 | Split into 2 segments (134 + 134 characters) |
-| 269 characters | 3 | Split into 3 segments (134 + 134 + 1 character) |
-| 2144 characters | 16 | Split into 16 segments (maximum length) |
-| 2145 characters | 16 | Truncated to 16 segments (content shortened) |
+A message can become up to **16 segments** in Altinn Notifications. How much text this allows in total depends on the character encoding:
 
-## Special characters and URL encoding
+- With **GSM-7**, the upper limit is 16 × 153 characters.
+- With **UCS-2**, the upper limit is 16 × 67 characters.
 
-When the system calculates message length, **URL-encoded length** is used. This means that certain special characters count as more than one character.
+There is therefore no single fixed cap on the number of characters. The cap depends on which characters the message contains. A message with only ordinary text fits far more than a message with an emoji or other special characters.
 
-### Characters that affect length
+Messages longer than 16 segments are truncated. The full text then does not reach the recipient, so it is important to keep long messages within the limit.
 
-The following types of characters can affect the actual length of the message:
+## Example: one character can double the cost
 
-- **Æ, Ø, Å** and other national special characters
-- **Emojis** and other special symbols
-- **Line breaks** and other control characters
+Imagine a 70-character message that uses only ordinary letters:
 
-### Practical example
+- Written as ordinary text (GSM-7), it fits in **one** SMS, since the limit is 160 characters. You pay for one segment.
+- Replace the straight quotation mark `"` with a typographic one (`"` or `"`), or add a single emoji, and the whole message switches to UCS-2. The limit for a single message is then 70 characters, and a 70-character message fills it exactly. Add a little more text and it splits into **two** segments of 67 characters each, and you pay for two.
 
-```text
-Original message: "Meeting at 14:00"
-Character length: 16 characters
-URL-encoded length: 22 characters (38% longer)
-```
+A single "smart" quotation mark, a dash (– or —) or an emoji can therefore move the message from GSM-7 to UCS-2 and more than double the number of segments, and with it the cost.
 
-The example shows how spaces become "%20" (3 characters) and colons become "%3A" (3 characters) in URL encoding.
+## Advice for keeping costs down
 
-{{% notice info %}}
-To be sure that your message does not exceed the limits, you should test with representative examples that contain the same types of special characters you plan to use.
-{{% /notice %}}
+To avoid messages becoming more expensive or longer than necessary:
 
-## Limitations and what does not work
-
-### What happens to messages over 2144 characters?
-
-When a message (measured in URL-encoded length) exceeds 2144 characters:
-
-- The message is **automatically truncated** to the first 16 segments (2144 characters)
-- Content beyond this limit **is not sent**
-- You receive **no error message** from the API indicating that the content has been truncated
-
-{{% notice warning %}}
-The API will not notify you that the message has been truncated. It is therefore essential to test message length in advance, especially if you are using many special characters.
-{{% /notice %}}
-
-### Recommendations
-
-To ensure that your messages are delivered as expected:
-
-1. **Keep messages short and concise** - under 160 characters if possible
-2. **Avoid unnecessary emojis** - these can significantly increase the length
-3. **Test with representative data** - use special characters similar to what you will use in production
-4. **Plan for segmentation** - if you know the message will be long, ensure it still makes sense even when split up
-5. **Consider alternative channels** - for longer messages, email may be a better choice
-
-## How the API handles segmentation
-
-When you send an SMS via the Altinn Notifications API:
-
-1. **You send the entire message** - you do not need to split it yourself
-2. **The system calculates the length** - based on URL-encoded length
-3. **The system calculates the number of segments** - and limits to a maximum of 16 segments
-4. **The system splits the message** - automatically into segments if necessary
-5. **The message is sent** - segments are delivered to the SMS gateway
-
-{{% notice warning %}}
-If the URL-encoded length of the message requires more than 16 segments, only the first 16 segments (2144 characters) are sent. You receive no error message about this, so it is important to validate message length in advance.
-{{% /notice %}}
-
-{{% notice info %}}
-You cannot control how the message is split into segments. The splitting happens automatically based on the character limits described in this article.
-{{% /notice %}}
+- keep messages short. The shorter the text, the greater the chance it fits in a single segment
+- be careful with emoji and typographic characters. A single such character can halve the available space and double the cost
+- watch which quotation marks and dashes you paste in. Characters from word processors are often typographic variants that trigger UCS-2. Use the straight `"` and the hyphen `-` instead
+- keep long messages within 16 segments. Text beyond the limit is truncated and does not arrive
+- consider email for longer content. SMS is best suited to short messages
