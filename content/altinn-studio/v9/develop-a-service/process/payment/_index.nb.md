@@ -11,7 +11,7 @@ aliases:
 <!-- Før du starter -->
 ## 1. Før du starter
 Organisasjonen du lager appen for, må ha en Nets Easy-avtale.
-Les hvordan du oppretter avtalen, på [nettsidene til Nets](https://payments.nets.eu/nb-NO/checkout).
+Les hvordan du oppretter avtalen på [nettsidene til Nets](https://payments.nets.eu/nb-NO/checkout).
 
 
 <!-- Legg til betalingsoppgave i appens prosess -->
