@@ -198,6 +198,7 @@ Du kan også bruke [brukerhemmeligheter i .NET](https://learn.microsoft.com/en-u
 ```bash
 dotnet user-secrets init
 dotnet user-secrets set "MinTjeneste:ApiKey" "lokal testverdi"
+dotnet user-secrets set "secretId" "lokal testverdi"
 ```
 
 Verdiene blir en del av konfigurasjonen. `ISecretsClient` finner dem også, så lenge navnet er det samme som navnet du sender til `GetSecret`.
