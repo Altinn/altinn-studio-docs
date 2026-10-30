@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{{- /*
+  Ramme for dokumentasjonssider med Designsystemet (layout: designsystemet-docs, satt med cascade på forsiden til en versjon).
+  Tre kolonner: sidemeny med versjonsvelger, innholdet og «På denne siden». På små skjermer ligger menyen over innholdet.
+  Topplinjen og bunnteksten er de samme som på resten av nettstedet. CSS-en ligger i assets/css/designsystemet-docs.css.
+
+  Innholdet er Markdown med kortkoder fra temaet. Derfor beholder vi id-ene og klassene temaet bruker til innhold
+  (#body, #body-inner, .a-text og .highlightable), og laster skriptene innholdet trenger (content-scripts.html).
+*/ -}}
+{{- $ctx := partial "designsystemet/docs/context.html" . -}}
+<html lang="{{ .Language.Lang }}" data-color-scheme="light" data-size="sm">
+  <head>
+    {{- partial "designsystemet/head.html" . }}
+  </head>
+  <body class="a-page ds-site" data-url="{{ .RelPermalink }}">
+    {{- partial "topbar.html" . }}
+    <div class="docs-layout">
+      {{ partial "designsystemet/docs/sidebar.html" (dict "page" . "ctx" $ctx) }}
+      <main class="docs-main" id="content">
+        {{ partial "designsystemet/docs/breadcrumbs.html" (dict "page" . "ctx" $ctx) }}
+        <article class="docs-article" id="body"{{ if not .Params.disablepagefind }} data-pagefind-body{{ end }}>
+          {{ partial "designsystemet/docs/page-header.html" . }}
+          <div class="docs-content a-text highlightable" id="body-inner">
+            {{ .Content }}
+          </div>
+        </article>
+        {{ partial "designsystemet/docs/page-footer.html" . }}
+      </main>
+      {{ partial "designsystemet/docs/toc.html" . }}
+    </div>
+    {{- partial "footer-content.html" . }}
+    {{- partial "designsystemet/docs/content-scripts.html" . }}
+  </body>
+</html>

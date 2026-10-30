@@ -1,0 +1,15 @@
+{{- /*
+  Skriptene innholdet på sidene trenger, hentet fra footer.html i temaet:
+  topplinjen (altinninfoportal.js), kodefarger (highlight), kopieringsknapper på kodeblokker og søkemarkering (altinndocs-learn.js),
+  faner for versjoner av innhold (custom.js) og diagrammer (Mermaid).
+  Skriptene til den gamle sidemenyen og innholdsfortegnelsen er ikke med, fordi rammen har egne.
+*/ -}}
+<script src="{{ "js/clipboard.min.js" | relURL }}"></script>
+<script src="{{ "js/highlight.pack.js" | relURL }}"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<script src="{{ "js/altinninfoportal.js" | relURL }}"></script>
+<script src="{{ "js/altinndocs-learn.js" | relURL }}"></script>
+{{ partial "custom-footer.html" . }}
+<link rel="stylesheet" href="{{ "mermaid/mermaid.css" | relURL }}">
+<script src="{{ "mermaid/mermaid.js" | relURL }}"></script>
+<script>mermaid.initialize({ startOnLoad: true });</script>

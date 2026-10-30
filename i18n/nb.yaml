@@ -205,3 +205,17 @@
   translation: Til toppen
 - id: write-us
   translation: Skriv til oss
+
+# Dokumentasjonssider med Designsystemet (layouts/_default/designsystemet-docs.html)
+- id: docs-menu
+  translation: "Sider i {{ .Label }}"
+- id: docs-version
+  translation: Versjon
+- id: docs-breadcrumbs
+  translation: "Du er her:"
+- id: docs-on-this-page
+  translation: På denne siden
+- id: docs-last-modified
+  translation: Sist endret
+- id: docs-preview
+  translation: Preview
