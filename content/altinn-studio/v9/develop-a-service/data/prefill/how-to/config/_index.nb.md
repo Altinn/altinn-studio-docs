@@ -2,7 +2,7 @@
 title: Slik forhåndsutfyller du data med konfigurasjonsbasert oppsett
 linktitle: Konfigurasjonsbasert oppsett
 description: Denne veiledningen hjelper deg med å sette opp forhåndsutfylling ved hjelp av standard konfigurasjonsbasert oppsett
-tags: [needsReview]
+tags: [Reviewed]
 toc: false
 ---
 
@@ -11,9 +11,9 @@ Du kan sette opp forhåndsutfylling i Designer eller skrive konfigurasjonsfilen 
 ## Sett opp forhåndsutfylling i Designer
 
 1. Åpne appen i Designer, og gå til **Datamodell**.
-2. Velg feltet du vil fylle ut automatisk.
+2. Klikk på feltet du vil fylle ut automatisk i trevisningen, og se i fanen **Egenskaper** i panelet til høyre.
    - Du kan bare forhåndsutfylle enkeltfelt. Objekter, lister og typer har ikke denne innstillingen.
-3. Velg hvor dataene skal komme fra i **Kilde** under **Forhåndsutfylling**:
+3. Velg hvor dataene skal komme fra i **Kilde**, under **Forhåndsutfylling** lenger ned i panelet:
    - **Enhetsregisteret (ER)**
    - **Folkeregisteret (DSF)**
    - **Brukerprofil**
@@ -27,16 +27,16 @@ Designer lagrer valgene dine i filen `App/models/{datamodell}.prefill.json`. Des
 
 Du kan også lage og redigere filen selv, for eksempel hvis du jobber i app-repoet på egen maskin.
 
-### 1. Opprett en ny fil
+### 1. Opprette en ny fil
 
    Gå til mappen `App/models` i appen din og opprett en ny fil med navn `{datatype-ID}.prefill.json`. Datatype-ID-en er `id` for datatypen i `applicationmetadata.json`. I apper du har laget i Studio, er den det samme som navnet på datamodellen.
 
-   Hvis datamodellen din heter _appModel_ skal du ha disse filene:
+   Hvis datamodellen din heter _appModel_, skal du ha disse filene:
    - `appModel.cs` 
    - `appModel.schema.json` 
    - `appModel.prefill.json`  &larr; *den nye filen*
 
-### 2. Legg til grunnkonfigurasjon
+### 2. Legge til grunnkonfigurasjon
 
    Kopier denne konfigurasjonskoden inn i den nye filen:
 
@@ -54,7 +54,7 @@ Du kan også lage og redigere filen selv, for eksempel hvis du jobber i app-repo
    }
    ```
 
-### 3. Konfigurer hvilke data som skal fylles ut automatisk
+### 3. Velge hvilke data appen skal fylle ut
 
    De tre gruppene i koden speiler de tre kildene som er tilgjengelige:
    - `ER` - Enhetsregisteret
@@ -63,11 +63,11 @@ Du kan også lage og redigere filen selv, for eksempel hvis du jobber i app-repo
 
    Velger du **Spørringsparameter** i Designer, legger Designer også til gruppen `QueryParameters` i filen. Les mer i [veiledningen om spørringsparametere]({{< relref "/altinn-studio/v9/develop-a-service/data/prefill/how-to/query-params" >}}).
 
-   Du velger hvilke av kildene du ønsker å bruke. Hvis en (eller flere) av kildene ikke skal brukes, lar du dem stå tomme.
+   Du velger selv hvilke kilder du vil bruke. Kilder du ikke bruker, lar du stå tomme.
 
    Inne i gruppen for den aktuelle kilden legger du til linjer som forteller
    - hvilket felt (fra kilden) du vil hente data fra
-   - hvilket felt i skjemaet som skal fylles ut
+   - hvilket felt i skjemaet appen skal fylle ut
 
    Formatet er `"datafelt": "skjemafelt"`, der
    - `datafelt` er navnet på feltet _fra kilden_
@@ -77,9 +77,9 @@ Du kan også lage og redigere filen selv, for eksempel hvis du jobber i app-repo
 
 ## Eksempler
 
-Alle eksemplene tar utgangspunkt i datamodellen vist under:
+Alle eksemplene tar utgangspunkt i datamodellen nedenfor:
 
-![Datamodell for skjema](exampleModel.png "Datamodell for skjema")
+![Datamodell for skjema](./exampleModel.png "Datamodell for skjema")
 
 ### Eksempel: Hent organisasjonsnummer fra Enhetsregisteret (ER)
 
@@ -98,7 +98,7 @@ App/models/appModel.prefill.json
 
 ### Eksempel: Hent personnummer fra Folkeregisteret (DSF)
 
-Dette fyller ut feltet `Person.Personnr` med personnummer fra Folkeregistret.
+Dette fyller ut feltet `Person.Personnr` med personnummeret fra Folkeregisteret.
 
  {{< code-title >}}
  App/models/appModel.prefill.json
@@ -112,7 +112,7 @@ Dette fyller ut feltet `Person.Personnr` med personnummer fra Folkeregistret.
 
 ### Eksempel: Hent e-post fra brukerens Altinn-profil
 
-Dette fyller ut feltet `Bruker.Epost` med e-post hentet fra brukerens Altinn-profil.
+Dette fyller ut feltet `Bruker.Epost` med e-postadressen fra brukerens Altinn-profil.
 
 {{< code-title >}}
 App/models/appModel.prefill.json
