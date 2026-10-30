@@ -2,7 +2,7 @@
 draft: true
 title: Payment
 linktitle: Payment
-description: Follow these steps to implement Payment in your App
+description: How to set up payment with Nets Easy in your app.
 tags: [payment]
 
 aliases:
@@ -10,7 +10,7 @@ aliases:
 ---
 
 ## 1. Before you begin
-Create Nets Easy agreement here: [payments.nets.eu](https://payments.nets.eu/nb-NO/checkout).
+The organisation you are creating the app for must have a Nets Easy agreement. Read how to set one up on [Nets' website](https://payments.nets.eu/nb-NO/checkout).
 
 <!-- Legg til betalingsoppgave i appens prosess -->
 ## 2. Add a payment task to the app process, with basic configuration
@@ -40,11 +40,11 @@ Create Nets Easy agreement here: [payments.nets.eu](https://payments.nets.eu/nb-
 
 When Nets notifies the app that the payment is complete, the app updates the payment information and advances the process on behalf of the service owner. In `App/config/authorization/policy.xml`, `[org]` must therefore have the `read` and `write` actions for the app and the `confirm` action for the payment task.
 
-Altinn Studio automatically adds the standard Maskinporten scopes for service owners to apps that use Altinn App v9. However, you must still verify that the authorisation policy grants the required actions to the service owner. See [integrating with Maskinporten](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/). Build and deploy the app again after changing the scopes or the authorisation policy.
+Altinn Studio automatically adds the standard Maskinporten scopes for service owners to apps that use Altinn App v9. However, you must still verify that the authorisation policy grants the required actions to the service owner. See [integrating with Maskinporten](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/) (in Norwegian). Build and publish the app again after changing the scopes or the authorisation policy.
 
 
 <!--Konfigurer visning av betalingsinformasjon-->
-## 4. Configure display of payment information in form
+## 4. Configure how payment information is shown in the form
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 {{% insert "content/altinn-studio/v9/develop-a-service/process/payment/studio/configure-layouts.en.md" %}}
@@ -70,7 +70,7 @@ Altinn Studio automatically adds the standard Maskinporten scopes for service ow
 
 
 <!--Koble appen til NETS Easy avtalen-->
-## 6. Connect the app to the NETS Easy agreement
+## 6. Connect the app to the Nets Easy agreement
 {{<content-version-selector classes="border-box">}}
 {{<content-version-container version-label="Altinn Studio Designer">}}
 {{% insert "content/altinn-studio/v9/develop-a-service/process/payment/studio/configure-secrets.en.md" %}}
@@ -91,7 +91,7 @@ Only the payment task is completed automatically. If the next process element is
 For automatic advancement to work:
 
 - Configure the service owner permissions described in [step 3](#3-authorise-the-payer-and-the-service-owner).
-- Build and deploy the app again after changing the configuration.
-- Start a new payment after deployment. The webhook is registered when the payment is created, so payments created before the change do not receive the new callback.
+- Build and publish the app again after changing the configuration.
+- Start a new payment after publishing. The webhook is registered when the payment is created, so payments created before the change do not receive the new callback.
 
-The webhook is not registered during local development. Test this flow in a deployed test environment.
+The webhook is not registered during local development. Test this flow in a published test environment.
