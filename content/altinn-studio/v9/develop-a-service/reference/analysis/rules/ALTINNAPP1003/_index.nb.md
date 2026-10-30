@@ -13,7 +13,7 @@ Regelen kjenner disse oppgavetypene:
 
 - de innebygde systemoppgavene `pdf`, `subformPdf`, `eFormidling` og `fiksArkiv`
 - de innebygde brukeroppgavene `data`, `confirmation`, `feedback`, `signing` og `payment`
-- appens egne `IServiceTask`, `IPipelineServiceTask` og `IProcessTask`, når `Type` returnerer
+- appens egne `IServiceTask` og `IProcessTask`, når `Type` returnerer
   en konstant
 
 En oppgavetype regelen ikke kan avgjøre ved bygging, for eksempel en som kommer fra en pakke,
