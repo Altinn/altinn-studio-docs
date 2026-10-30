@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Bruke testbrukere lokalt
 linktitle: Testbrukere
 description: Slik bruker du testbrukere når du tester appen lokalt.

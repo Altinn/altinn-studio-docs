@@ -1,6 +1,5 @@
 ---
 title: ButtonGroup
-draft: true
 ---
 
 ## Egenskaper

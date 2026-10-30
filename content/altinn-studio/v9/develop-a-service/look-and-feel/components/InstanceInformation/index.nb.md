@@ -1,6 +1,5 @@
 ---
 title: InstanceInformation
-draft: true
 ---
 
 ## Egenskaper

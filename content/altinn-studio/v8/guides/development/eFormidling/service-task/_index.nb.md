@@ -71,13 +71,13 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 }
 ```
 
-### Legg til eFormidling som systemoppgave i arbeidsflyten til applikasjonen din  {#eFormidling-setup-appsettings}
-Integrasjon mot eFormidling legges til i arbeidsflyten som en systemoppgave.
+### Legg til eFormidling som systemoppgave i prosessen til applikasjonen din  {#eFormidling-setup-appsettings}
+Integrasjon mot eFormidling legges til i prosessen som en systemoppgave.
 
-**NB!** På sikt vil det være mulig å dra inn eFormidling direkte via Arbeidsflyt-editoren i Altinn Studio, men denne funksjonaliteten er dessverre ikke tilgjengelig enda.
+**NB!** På sikt vil det være mulig å dra inn eFormidling direkte via Prosess-editoren i Altinn Studio, men denne funksjonaliteten er dessverre ikke tilgjengelig enda.
 
 Inntil videre anbefales følgende fremgangsmåte:
-1. Dra inn en vanlig data-oppgave i Arbeidsflyt-editoren
+1. Dra inn en vanlig data-oppgave i Prosess-editoren
 2. Del endringene i Studio
 3. Rediger `process.bpmn` manuelt på egen maskin
 4. Konverter data-oppgaven til en `bpmn:serviceTask` (se eksempel nedenfor)

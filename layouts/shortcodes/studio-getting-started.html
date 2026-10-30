@@ -1,0 +1,40 @@
+{{- /*
+  Siden Kom i gang for Altinn Studio v9, bygget med Designsystemet (https://designsystemet.no).
+  Brukes sammen med layout: designsystemet. Oppsettet ligger i assets/css/designsystemet-site.css.
+
+  Rekkefølgen følger det brukeren trenger:
+  1. Hvor brukeren er (brødsmulesti) og hva siden er.
+  2. Veivalg etter rolle.
+  3. Alle veiledningene under Kom i gang, i samme rekkefølge som menyen. Tittel og beskrivelse hentes fra hver side.
+*/ -}}
+{{- $nb := eq .Page.Language.Lang "nb" -}}
+{{- $p := .Page -}}
+{{- $roles := slice "serviceowner" "vendor" -}}
+<div class="studio-hub">
+    {{ partial "designsystemet/page-head.html" $p }}
+
+    <section class="studio-section studio-wrap" aria-labelledby="studio-roles-title">
+        <div class="studio-section-head">
+            <h2 class="ds-heading" data-size="md" id="studio-roles-title">{{ if $nb }}Velg rollen din{{ else }}Choose your role{{ end }}</h2>
+            <p class="ds-paragraph">{{ if $nb }}Vi leder deg til riktig løp og riktig detaljnivå.{{ else }}We will guide you to the right
+                journey and level of detail.{{ end }}</p>
+        </div>
+        <ul class="studio-grid studio-grid-2 ds-list--unstyled">
+            {{ partial "designsystemet/link-card.html" (dict "id" "studio-role-owner" "href" (partial "studio/v9-url.html" (dict "page" $p "path" "getting-started/serviceowner"))
+                "title" (cond $nb "Jeg er tjenesteeier" "I am a service owner")
+                "text" (cond $nb "Lag eller forvalt en digital tjeneste." "Create or manage a digital service.")) }}
+            {{ partial "designsystemet/link-card.html" (dict "id" "studio-role-vendor" "href" (partial "studio/v9-url.html" (dict "page" $p "path" "getting-started/vendor"))
+                "title" (cond $nb "Jeg er systemleverandør" "I am a system vendor")
+                "text" (cond $nb "Koble til en digital tjeneste." "Connect to a digital service.")) }}
+        </ul>
+    </section>
+
+    <section class="studio-section studio-soft" aria-labelledby="studio-guides-title">
+        <div class="studio-wrap">
+            <div class="studio-section-head">
+                <h2 class="ds-heading" data-size="md" id="studio-guides-title">{{ if $nb }}Veiledninger{{ else }}Guides{{ end }}</h2>
+            </div>
+            {{ partial "designsystemet/child-cards.html" (dict "page" $p "prefix" "studio-guide" "skip" $roles) }}
+        </div>
+    </section>
+</div>

@@ -1,6 +1,6 @@
 ---
-title: InstanceInformation
 draft: true
+title: InstanceInformation
 ---
 
 ## Properties

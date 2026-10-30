@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Avpublisere apper
 linktitle: Avpublisering
 description: Hva som skjer når du avpubliserer en app, og hva du bør tenke på før du gjør det.

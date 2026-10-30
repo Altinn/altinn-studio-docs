@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Statiske svaralternativer og enkle kodelister
 linktitle: Statisk
 description: Svaralternativer som ikke endrer seg, men som kan filtreres

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Forhåndsutfylle data automatisk - egendefinert kode
 linktitle: Egendefinert kode
 description: Slik setter du opp automatisk utfylling av skjemadata med din egen kode.

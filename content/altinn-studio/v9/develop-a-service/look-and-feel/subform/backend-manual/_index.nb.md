@@ -1,5 +1,4 @@
 ---
-draft: true
 hidden: true
 ---
 
@@ -43,7 +42,7 @@ hidden: true
    }
    ```
    Resten av `Settings.json` setter du opp [på samme måte som for andre sider]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/sider" >}}#innstillinger).
-5. Legg til sidene til underskjemaet i `layouts`-mappen, slik du gjør for hovedskjemaet. Se [begrensningene](#begrensninger) for hvilke komponenter du ikke kan bruke i et underskjema.
+5. Legg til sidene til underskjemaet i `layouts`-mappen, slik du gjør for hovedskjemaet. Se [begrensningene](/nb/altinn-studio/v9/develop-a-service/look-and-feel/subform/#begrensninger) for hvilke komponenter du ikke kan bruke i et underskjema.
 6. Legg til en knapp som lukker underskjemaet. Det er en [CustomButton]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/components/CustomButton" >}}) med handlingen `closeSubform`. Uten egen tekst viser knappen teksten **Ferdig**. Legg til `validation` hvis du vil at appen skal kontrollere opplysningene før brukeren lukker underskjemaet.
 
    {{< code-title >}}

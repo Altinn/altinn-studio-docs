@@ -1,0 +1,60 @@
+/* Player for 1920x1080 slides written as inline-styled <section> elements (layouts/animated-deck). */
+:root { color-scheme: light; --ink: #111d46; --focus: #1eaef7; }
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { background: #0b1230; color: #1e2950; font-family: Inter, Arial, sans-serif; display: flex; flex-direction: column; }
+
+#stage-viewport { flex: 1; position: relative; overflow: hidden; }
+#stage { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform-origin: 0 0; }
+#stage > section { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; overflow: hidden; font-size: 32px; opacity: 0; visibility: hidden; transition: opacity .35s ease; }
+#stage > section.current { opacity: 1; visibility: visible; z-index: 1; }
+
+/* Element defaults that the slide markup relies on. */
+#stage h1, #stage h2, #stage h3, #stage p, #stage ul, #stage ol, #stage table { margin: 0; }
+#stage h1 { font-size: 96px; font-weight: 600; line-height: 1.1; }
+#stage h2 { font-size: 64px; font-weight: 600; line-height: 1.15; }
+#stage h3 { font-size: 44px; font-weight: 600; line-height: 1.2; }
+#stage p { line-height: 1.4; }
+#stage table { border-collapse: collapse; }
+#stage td, #stage th { padding: .35em .6em; border: 1px solid #c8cbd4; text-align: left; vertical-align: top; }
+#stage th { font-weight: 600; }
+#stage x-icon { display: block; flex: none; }
+#stage x-icon svg { width: 100%; height: 100%; display: block; }
+#stage x-connector { display: none; }
+#stage .deck-lines { position: absolute; left: 0; top: 0; pointer-events: none; overflow: visible; }
+#stage iframe.deck-embed { position: absolute; border: 0; background: transparent; }
+
+/* Builds: elements wait hidden until their step. */
+#stage [data-build-in], #stage [data-build-out] { transition: opacity .45s ease, transform .45s cubic-bezier(.2,.7,.2,1); }
+#stage .build-wait { opacity: 0 !important; }
+#stage .build-wait.b-rise { transform: translateY(40px); }
+#stage .build-wait.b-drop { transform: translateY(-40px); }
+#stage .build-wait.b-left { transform: translateX(-60px); }
+#stage .build-wait.b-right { transform: translateX(60px); }
+#stage .build-wait.b-scale, #stage .build-wait.b-pop { transform: scale(.85); }
+#stage .build-gone { opacity: 0 !important; }
+#stage .magic { transition: transform .7s cubic-bezier(.4,0,.2,1), opacity .5s ease; }
+
+footer { min-height: 64px; display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; background: var(--ink); color: #fff; padding: 10px 16px; }
+footer button, footer .back { font: inherit; font-size: 16px; cursor: pointer; border: 1px solid #a5d6fb; border-radius: 4px; background: transparent; color: #fff; padding: 8px 14px; text-decoration: none; }
+footer button:disabled { opacity: .4; cursor: default; }
+footer #position { font-size: 16px; min-width: 70px; text-align: center; }
+footer .help { font-size: 14px; color: #c9d3f0; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+:fullscreen footer { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  #stage > section, #stage [data-build-in], #stage [data-build-out], #stage .magic { transition: none !important; }
+}
+
+@page { size: 1920px 1080px; margin: 0; }
+@media print {
+  body { display: block; background: #fff; height: auto; }
+  footer { display: none; }
+  #stage-viewport { overflow: visible; }
+  #stage { position: static; transform: none !important; width: 1920px; height: auto; }
+  #stage > section { position: relative; opacity: 1; visibility: visible; break-after: page; }
+  #stage .build-wait { opacity: 1 !important; transform: none !important; }
+  #stage [data-build-out] { display: none; }
+  #stage iframe.deck-embed { display: none; }
+}

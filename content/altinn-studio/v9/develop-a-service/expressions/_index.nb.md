@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Uttrykk
 linktitle: Uttrykk
 description: Introduksjon til uttrykksspråket i Altinn Studio og hvordan du kan bruke det til å lage mer dynamiske skjemaer.
@@ -120,11 +119,11 @@ Dynamiske uttrykk er tilgjengelig for bruk i disse egenskapene:
 | [Kodelistebaserte komponenter](/nb/altinn-studio/v9/develop-a-service/look-and-feel/options/sources/from-data-model/#støtte-for-uttrykk) | `source.label`                | Streng       | ✅       | ❌      |
 | [Kodelistebaserte komponenter](/nb/altinn-studio/v9/develop-a-service/look-and-feel/options/sources/from-data-model/#støtte-for-uttrykk) | `source.description`          | Streng       | ✅       | ❌      |
 | [Kodelistebaserte komponenter](/nb/altinn-studio/v9/develop-a-service/look-and-feel/options/sources/from-data-model/#støtte-for-uttrykk) | `source.helpText`             | Streng       | ✅       | ❌      |
-| [Kodelistebaserte komponenter](/nb/altinn-studio/v9/develop-a-service/look-and-feel/options/sources/dynamic/#basert-på-uttrykk)          | `queryParameters.[*]`         | Streng       | ✅       | ❌      |
+| [Kodelistebaserte komponenter](/nb/altinn-studio/v9/develop-a-service/look-and-feel/options/sources/dynamic/#spørringsparametre)          | `queryParameters.[*]`         | Streng       | ✅       | ❌      |
 | [Kodelistebaserte komponenter](/nb/altinn-studio/v9/develop-a-service/look-and-feel/options/functionality/filtering/)                     | `optionFilter`                | Streng       | ✅       | ❌      |
 | Alle                                                                                                            | `textResourceBindings.[*]` \* | Streng       | ✅       | ❌      |
 
-\* = Hvilke verdier du kan overstyre med textResourceBindings, varierer fra komponent til komponent, men fungerer på alle steder der det brukes. TextResourceBindings for repeterende grupper finner du [mer informasjon om her](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/repeatinggroup#properties)
+\* = Hvilke verdier du kan overstyre med textResourceBindings, varierer fra komponent til komponent, men fungerer på alle steder der det brukes. TextResourceBindings for repeterende grupper finner du [mer informasjon om her](/nb/altinn-studio/v9/develop-a-service/look-and-feel/components/repeatinggroup/#egenskaper)
 
 
 ## Testing, feilsøking og utvikling av uttrykk

@@ -1,6 +1,6 @@
 ---
-title: Text
 draft: true
+title: Text
 ---
 
 ## Properties
