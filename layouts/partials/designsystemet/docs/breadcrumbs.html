@@ -1,0 +1,23 @@
+{{- /*
+  Brødsmulesti med Breadcrumbs fra Designsystemet: fra forsiden til versjonen og ned til siden brukeren står på.
+  Den siste lenken er siden selv og er merket med aria-current.
+  data-pagefind-meta gir søket stien, slik at treffene viser hvor siden ligger.
+  Tar imot dict med page og ctx (fra context.html).
+*/ -}}
+{{- $page := .page -}}
+{{- $ctx := .ctx -}}
+{{- with $ctx.versionRoot }}
+{{- $root := . }}
+<ds-breadcrumbs class="ds-breadcrumbs docs-breadcrumbs" aria-label="{{ T "docs-breadcrumbs" }}">
+  <ol data-pagefind-meta="🍞">
+    {{- range $page.Ancestors.Reverse }}
+    {{- if eq . $root }}
+    <li><a class="ds-link" href="{{ .RelPermalink }}">{{ $ctx.label }}</a></li>
+    {{- else if $root.IsAncestor . }}
+    <li><a class="ds-link" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+    {{- end }}
+    {{- end }}
+    <li><a class="ds-link" href="{{ $page.RelPermalink }}" aria-current="page">{{ $page.LinkTitle }}</a></li>
+  </ol>
+</ds-breadcrumbs>
+{{- end }}

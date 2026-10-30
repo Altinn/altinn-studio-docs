@@ -206,3 +206,18 @@
   translation: To the top
 - id: write-us
   translation: Write us
+
+
+# Documentation pages with Designsystemet (layouts/_default/designsystemet-docs.html)
+- id: docs-menu
+  translation: "Pages in {{ .Label }}"
+- id: docs-version
+  translation: Version
+- id: docs-breadcrumbs
+  translation: "You are here:"
+- id: docs-on-this-page
+  translation: On this page
+- id: docs-last-modified
+  translation: Last modified
+- id: docs-preview
+  translation: Preview

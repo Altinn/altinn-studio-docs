@@ -1,0 +1,299 @@
+/*
+  Ramme for dokumentasjonssider med Designsystemet (layouts/_default/designsystemet-docs.html).
+  Komponentene kommer fra Designsystemet. Denne filen styrer oppsettet og sidemenyen, med variablene fra Designsystemet.
+  Oppsettet er laget for små skjermer først. Sidemenyen og «På denne siden» kommer til på større skjermer (se nederst).
+  Bredder er i px, fordi temaet setter rem til 10 px (se designsystemet-site.css). Brytepunktene er i em, som i media queries alltid er 16 px.
+*/
+
+.docs-layout {
+  --docs-sidebar-width: 272px;
+  --docs-toc-width: 220px;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--ds-size-8);
+  max-width: 1440px;
+  margin-inline: auto;
+  padding: var(--ds-size-6) var(--ds-size-4) var(--ds-size-15);
+  box-sizing: border-box;
+  font-family: var(--ds-font-family), system-ui, sans-serif;
+  font-feature-settings: 'cv05' 1;
+  color: var(--ds-color-neutral-text-default);
+}
+
+/*
+  Nullstilling av stiler fra temaet. CSS-en fra temaet ligger i laget «legacy» (se head.html),
+  og regler utenfor lag vinner alltid over regler i lag. Derfor står nullstillingene i :where(), uten spesifisitet,
+  slik at reglene under kan overstyre dem med én klasse.
+*/
+/* Temaet setter egne skrifttyper på overskrifter, avsnitt og lenker. Rammen og innholdet bruker skrifttypen til Designsystemet. */
+:where(.docs-layout) :where(h1, h2, h3, h4, h5, h6, p, a, li, td, th, dt, dd, strong, b, em, figcaption, label, summary, button) {
+  font-family: inherit;
+}
+/* Temaet gir lenker en strek under med border-bottom. Lenkene i rammen og komponentene har egen understreking. */
+:where(.docs-sidebar, .docs-breadcrumbs, .docs-toc, .docs-page-footer, .docs-overview, .docs-content .ds-card) a {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+/*
+  Innholdet: Markdown-sidene bruker tekststørrelsene og overskriftene til Designsystemet.
+  Temaet setter egne størrelser på avsnitt, lister og overskrifter, så de nullstilles her.
+  Reglene gjelder bare vanlige elementer. Komponenter fra Designsystemet (klasser som begynner med ds-) beholder sine egne størrelser.
+*/
+.docs-content {
+  font-size: var(--ds-body-md-font-size);
+  line-height: var(--ds-body-long-md-line-height);
+}
+:where(.docs-content) :where(p, ul, ol, li, dl, dd, dt, td, th, blockquote):where(:not([class*='ds-'])) {
+  font-size: inherit;
+  line-height: inherit;
+}
+:where(.docs-content) :where(h2, h3, h4, h5, h6):where(:not(.ds-heading)) {
+  margin-block: var(--ds-size-10) var(--ds-size-4);
+  font-weight: var(--ds-font-weight-medium);
+  line-height: var(--ds-heading-sm-line-height);
+  color: var(--ds-color-neutral-text-default);
+}
+:where(.docs-content) h2:where(:not(.ds-heading)) {
+  margin-block-start: var(--ds-size-15);
+  font-size: var(--ds-heading-sm-font-size);
+}
+:where(.docs-content) h3:where(:not(.ds-heading)) {
+  font-size: var(--ds-heading-xs-font-size);
+}
+:where(.docs-content) :where(h4, h5, h6):where(:not(.ds-heading)) {
+  font-size: var(--ds-heading-2xs-font-size);
+}
+
+/*
+  Fast avstand mellom blokker i innholdet (avsnitt, lister, kode, tabeller), så teksten får en jevn rytme.
+  Temaet gir disse ulike marger, og noen mangler marg under. Det gjelder bare vanlige elementer, ikke komponenter.
+*/
+:where(.docs-content) :where(p, ul, ol, dl, pre, table, blockquote, figure, .highlight):where(:not([class*='ds-'])) {
+  margin-block: 0 var(--ds-size-6);
+}
+:where(.docs-content) :where(ul, ol):where(:not([role='list'], .ds-list--unstyled)) > li {
+  margin-block: var(--ds-size-2);
+}
+/* Nummererte lister er som regel steg i en fremgangsmåte. Hvert steg får mer luft, så stegene ikke flyter sammen. */
+:where(.docs-content) :where(ol):where(:not([role='list'], .ds-list--unstyled)) > li {
+  margin-block: var(--ds-size-6);
+}
+/* Kode i et steg står under teksten i steget, med litt luft. */
+:where(.docs-content) :where(li) > :where(.highlight, pre) {
+  margin-block: var(--ds-size-3);
+}
+/* Kodeblokker ligger i en .highlight med en <pre> inni. Bare omslaget skal ha marg. */
+:where(.docs-content) :where(.highlight) > pre {
+  margin: 0;
+}
+/* En liste inne i et listepunkt skal ligge tett på punktet over. */
+:where(.docs-content) :where(li) > :where(ul, ol, p:last-child) {
+  margin-block-end: 0;
+}
+
+/* Temaet setter kulepunkter på alle lister i innholdet. Lister som er stilt av rammen eller Designsystemet, skal ikke ha dem. */
+:where(.docs-layout) :where(.ds-list--unstyled, [role='list']) > li::before {
+  content: none;
+}
+:where(.docs-layout) :where(.ds-list--unstyled, [role='list']) {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+:where(.docs-layout) :where(.ds-list--unstyled, [role='list']) > li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Sidemeny */
+.docs-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-size-4);
+}
+
+.docs-version {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-size-2);
+}
+.docs-version-button {
+  justify-content: space-between;
+  width: 100%;
+}
+
+.docs-nav-list .docs-nav-list {
+  margin-block: var(--ds-size-1) var(--ds-size-2);
+  margin-inline-start: var(--ds-size-4);
+  padding-inline-start: var(--ds-size-2);
+  border-inline-start: var(--ds-border-width-default) solid var(--ds-color-neutral-border-subtle);
+}
+
+/* Lenkene er minst 40 px høye på øverste nivå og 32 px under, godt over minstekravet på 24 px (WCAG 2.5.8). */
+.docs-nav-link {
+  display: block;
+  padding: var(--ds-size-3) var(--ds-size-3);
+  border-radius: var(--ds-border-radius-md);
+  color: var(--ds-color-neutral-text-default);
+  font-size: var(--ds-body-sm-font-size);
+  line-height: var(--ds-body-short-sm-line-height);
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.docs-nav-list .docs-nav-list .docs-nav-link {
+  padding-block: var(--ds-size-2);
+  color: var(--ds-color-neutral-text-subtle);
+}
+.docs-nav-link:hover {
+  background: var(--ds-color-neutral-surface-hover);
+  color: var(--ds-color-neutral-text-default);
+}
+.docs-nav-link:focus-visible {
+  outline: var(--ds-border-width-focus) solid var(--ds-color-focus-outer);
+  outline-offset: 0;
+}
+.docs-nav-root,
+.docs-nav-link[data-trail] {
+  font-weight: var(--ds-font-weight-semibold);
+}
+.docs-nav-link[aria-current='page'] {
+  background: var(--ds-color-accent-surface-tinted);
+  color: var(--ds-color-accent-text-default);
+  font-weight: var(--ds-font-weight-semibold);
+}
+
+/* Innhold */
+.docs-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-size-8);
+  min-width: 0;
+}
+/* Temaet gir #body min-height: 100%. I flex-kolonnen ville artikkelen da presse lenken under den ut av kolonnen. */
+.docs-article {
+  margin: 0;
+  min-height: 0;
+}
+
+.docs-page-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-size-4);
+  padding-block-end: var(--ds-size-8);
+  margin-block-end: var(--ds-size-10);
+  border-block-end: var(--ds-border-width-default) solid var(--ds-color-neutral-border-subtle);
+}
+.docs-page-header :is(.ds-heading, .ds-paragraph) {
+  margin: 0;
+}
+.docs-lead {
+  color: var(--ds-color-neutral-text-subtle);
+  max-width: 70ch;
+}
+.docs-page-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--ds-size-3);
+  margin-block-start: var(--ds-size-2);
+  color: var(--ds-color-neutral-text-subtle);
+}
+
+/* Oversiktssider (kortkodene studio-getting-started og studio-section): seksjoner med kort. */
+.docs-overview {
+  display: flex;
+  flex-direction: column;
+  gap: var(--ds-size-15);
+}
+
+.docs-page-footer {
+  margin-block-start: var(--ds-size-8);
+  padding-block-start: var(--ds-size-6);
+  border-block-start: var(--ds-border-width-default) solid var(--ds-color-neutral-border-subtle);
+}
+.docs-page-footer .ds-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-size-1);
+  font-size: var(--ds-body-sm-font-size);
+}
+/* Temaet legger en pil etter lenker til andre nettsteder. Lenken har ikonet sitt fra før. */
+.docs-page-footer a::after {
+  content: none;
+}
+
+/* På denne siden. Vises bare på store skjermer (se nederst). */
+.docs-toc {
+  display: none;
+}
+.docs-toc-title {
+  margin: 0 0 var(--ds-size-4);
+}
+.docs-toc-list .docs-toc-list {
+  padding-inline-start: var(--ds-size-3);
+}
+.docs-toc-link {
+  display: block;
+  padding: var(--ds-size-2) var(--ds-size-4);
+  border-inline-start: var(--ds-border-width-focus) solid var(--ds-color-neutral-border-subtle);
+  color: var(--ds-color-neutral-text-subtle);
+  font-size: var(--ds-body-sm-font-size);
+  line-height: var(--ds-body-short-sm-line-height);
+  text-decoration: none;
+}
+.docs-toc-link:hover {
+  color: var(--ds-color-neutral-text-default);
+  text-decoration: underline;
+}
+.docs-toc-link[aria-current='location'] {
+  border-inline-start-color: var(--ds-color-accent-base-default);
+  color: var(--ds-color-accent-text-default);
+  font-weight: var(--ds-font-weight-medium);
+}
+
+/*
+  Store skjermer: sidemenyen står til venstre og er alltid åpen (skriptet i sidebar.html).
+  Da skal den ikke se ut som en Details, så vi skjuler tittelen og kantlinjene.
+*/
+@media (min-width: 64em) {
+  .docs-layout {
+    grid-template-columns: var(--docs-sidebar-width) minmax(0, 1fr);
+    gap: var(--ds-size-15);
+    padding: var(--ds-size-12) var(--ds-size-8) var(--ds-size-18);
+  }
+  .docs-sidebar {
+    position: sticky;
+    top: var(--ds-size-6);
+    align-self: start;
+    gap: var(--ds-size-8);
+    max-height: calc(100vh - 2 * var(--ds-size-6));
+    overflow-y: auto;
+    padding-inline-end: var(--ds-size-6);
+    border-inline-end: var(--ds-border-width-default) solid var(--ds-color-neutral-border-subtle);
+  }
+  .docs-menu {
+    border-block: 0;
+  }
+  .docs-menu[open] > summary {
+    display: none;
+  }
+  .docs-menu > div {
+    padding: 0;
+  }
+}
+
+/* Svært store skjermer: «På denne siden» får en egen kolonne til høyre, når siden har en. */
+@media (min-width: 75em) {
+  .docs-layout:has(.docs-toc) {
+    grid-template-columns: var(--docs-sidebar-width) minmax(0, 1fr) var(--docs-toc-width);
+  }
+  .docs-toc {
+    display: block;
+    position: sticky;
+    top: var(--ds-size-6);
+    align-self: start;
+    max-height: calc(100vh - 2 * var(--ds-size-6));
+    overflow-y: auto;
+  }
+}

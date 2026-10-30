@@ -1,0 +1,31 @@
+{{- /*
+  Sidemenyen: versjonsvelger og menytreet for versjonen.
+  På store skjermer er menyen alltid åpen. På små skjermer ligger den i en Details («Sider i Altinn Studio v9») over innholdet.
+  CSS kan ikke åpne en Details, så skriptet rett etter menyen gjør det på store skjermer. Det kjører før siden tegnes første gang,
+  så menyen ikke spretter opp etter at siden er vist. Uten JavaScript kan brukeren åpne menyen selv.
+  Landemerket er <nav> med navn. Omslaget er en <div>, så skjermlesere ikke får to landemerker for samme meny.
+  Tar imot dict med page og ctx (fra context.html).
+*/ -}}
+{{- $page := .page -}}
+{{- with .ctx.versionRoot }}
+<div class="docs-sidebar">
+  {{ partial "designsystemet/docs/version-switcher.html" $.ctx }}
+  <details class="ds-details docs-menu" data-docs-menu>
+    <summary>{{ T "docs-menu" (dict "Label" $.ctx.label) }}</summary>
+    <div>
+      <nav class="docs-nav" id="docsmenu" aria-label="{{ $.ctx.label }}">
+        <a class="docs-nav-link docs-nav-root" href="{{ .RelPermalink }}"{{ if eq . $page }} aria-current="page"{{ end }}>{{ .LinkTitle }}</a>
+        {{ partial "designsystemet/docs/nav-tree.html" (dict "section" . "current" $page) }}
+      </nav>
+    </div>
+  </details>
+  <script>
+    (function (menu) {
+      var wide = window.matchMedia('(min-width: 64em)');
+      var sync = function () { menu.open = wide.matches; };
+      sync();
+      wide.addEventListener('change', sync);
+    })(document.currentScript.previousElementSibling);
+  </script>
+</div>
+{{- end }}

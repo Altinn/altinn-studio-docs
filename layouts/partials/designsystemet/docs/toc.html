@@ -1,0 +1,29 @@
+{{- /*
+  «På denne siden»: lenker til overskriftene på nivå 2 og 3.
+  Vises når siden har minst to slike overskrifter, og ikke har toc: false.
+  assets/js/docs-toc.js markerer overskriften brukeren leser.
+  Landemerket er <nav>, som har overskriften som navn.
+  Tar imot siden.
+*/ -}}
+{{- $headings := partial "designsystemet/docs/toc-headings.html" .Fragments.Headings -}}
+{{- if and (ne .Params.toc false) (ge (len $headings) 2) }}
+<div class="docs-toc">
+  <nav aria-labelledby="docs-toc-title" data-docs-toc>
+    <h2 class="ds-heading docs-toc-title" data-size="2xs" id="docs-toc-title">{{ T "docs-on-this-page" }}</h2>
+    <ul class="docs-toc-list" role="list">
+      {{- range $headings }}
+      <li>
+        <a class="docs-toc-link" href="#{{ .ID }}">{{ .Title }}</a>
+        {{- with partial "designsystemet/docs/toc-headings.html" .Headings }}
+        <ul class="docs-toc-list" role="list">
+          {{- range . }}
+          <li><a class="docs-toc-link" href="#{{ .ID }}">{{ .Title }}</a></li>
+          {{- end }}
+        </ul>
+        {{- end }}
+      </li>
+      {{- end }}
+    </ul>
+  </nav>
+</div>
+{{- end }}
