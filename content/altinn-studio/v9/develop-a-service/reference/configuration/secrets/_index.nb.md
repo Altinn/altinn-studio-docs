@@ -99,7 +99,7 @@ Mangler innstillingene for å koble seg til Key Vault, starter ikke appen. Det s
 
 ### Alternativ 2: `ISecretsClient`
 
-`ISecretsClient` henter én hemmelighet om gangen fra Key Vault. Du ber om tjenesten i konstruktøren til klassen der du trenger den, og kaller `GetSecretAsync` med navnet på hemmeligheten i Key Vault.
+`ISecretsClient` henter én hemmelighet om gangen fra Key Vault. Du ber om tjenesten i konstruktøren til klassen der du trenger den, og kaller `GetSecret` med navnet på hemmeligheten i Key Vault.
 
 Eksempelet under henter en API-nøkkel fra Key Vault og sender den med når appen henter data fra et eksternt system. Nøkkelen havner bare i forespørselen til det eksterne systemet, ikke i dataene i appen:
 
@@ -121,7 +121,7 @@ public class MinTjenesteKlient
 
     public async Task<string> HentStatus()
     {
-        string apiKey = await _secretsClient.GetSecretAsync("secretId");
+        string apiKey = await _secretsClient.GetSecret("secretId");
 
         using var request = new HttpRequestMessage(HttpMethod.Get, "https://api.eksempel.no/status");
         request.Headers.Add("X-Api-Key", apiKey);
@@ -198,9 +198,10 @@ Du kan også bruke [brukerhemmeligheter i .NET](https://learn.microsoft.com/en-u
 ```bash
 dotnet user-secrets init
 dotnet user-secrets set "MinTjeneste:ApiKey" "lokal testverdi"
+dotnet user-secrets set "secretId" "lokal testverdi"
 ```
 
-Verdiene blir en del av konfigurasjonen. `ISecretsClient` finner dem også, så lenge navnet er det samme som navnet du sender til `GetSecretAsync`.
+Verdiene blir en del av konfigurasjonen. `ISecretsClient` finner dem også, så lenge navnet er det samme som navnet du sender til `GetSecret`.
 
 ### Med `secrets.json` (alternativ 2)
 
