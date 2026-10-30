@@ -1,7 +1,7 @@
 ---
 title: Jobbe med tjenesten lokalt på egen maskin
 linktitle: Jobbe på egen maskin
-description: I denne veiledningen skal vi sette opp utvikling- og testmiljø lokalt på egen maskin.
+description: I denne veiledningen skal vi sette opp utviklings- og testmiljø lokalt på egen maskin.
 weight: 20
 ---
 
