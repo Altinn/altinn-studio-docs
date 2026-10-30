@@ -3,6 +3,7 @@
   På store skjermer er menyen alltid åpen. På små skjermer ligger den i en Details («Sider i Altinn Studio v9») over innholdet.
   CSS kan ikke åpne en Details, så skriptet rett etter menyen gjør det på store skjermer. Det kjører før siden tegnes første gang,
   så menyen ikke spretter opp etter at siden er vist. Uten JavaScript kan brukeren åpne menyen selv.
+  Skriptet holder også menyen innenfor vinduet, og ruller den slik at siden brukeren står på, synes.
   Landemerket er <nav> med navn. Omslaget er en <div>, så skjermlesere ikke får to landemerker for samme meny.
   Tar imot dict med page og ctx (fra context.html).
 */ -}}
@@ -25,6 +26,35 @@
       var sync = function () { menu.open = wide.matches; };
       sync();
       wide.addEventListener('change', sync);
+
+      // Menyen skal aldri gå utenfor vinduet eller forbi slutten av innholdet. Før den fester seg, starter den under topplinjen,
+      // og på slutten av siden ville den ellers blitt skjøvet opp av bunnteksten. Vi oppdaterer høyst én gang per bilde.
+      var sidebar = menu.parentElement;
+      var layout = sidebar.parentElement;
+      var queued = false;
+      var fit = function () {
+        queued = false;
+        if (!wide.matches) { sidebar.style.maxHeight = ''; return; }
+        var top = Math.max(0, sidebar.getBoundingClientRect().top);
+        var end = layout.getBoundingClientRect().bottom - parseFloat(getComputedStyle(layout).paddingBottom);
+        sidebar.style.maxHeight = Math.max(0, Math.min(window.innerHeight, end) - top) + 'px';
+      };
+      var queueFit = function () {
+        if (!queued) { queued = true; window.requestAnimationFrame(fit); }
+      };
+      fit();
+      window.addEventListener('scroll', queueFit, { passive: true });
+      window.addEventListener('resize', queueFit);
+
+      // Ligger siden brukeren står på utenfor det synlige området av menyen, ruller vi menyen (ikke siden) så den synes.
+      // Vi venter til skriftene er lastet, fordi de endrer høyden på punktene i menyen.
+      var reveal = function () {
+        var current = menu.querySelector('[aria-current="page"]');
+        if (!wide.matches || !current) return;
+        var offset = current.getBoundingClientRect().top - sidebar.getBoundingClientRect().top;
+        if (offset < 0 || offset > sidebar.clientHeight * 0.7) sidebar.scrollTop += offset - sidebar.clientHeight / 3;
+      };
+      if (document.fonts) document.fonts.ready.then(reveal); else reveal();
     })(document.currentScript.previousElementSibling);
   </script>
 </div>
