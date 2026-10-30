@@ -1,7 +1,6 @@
 ---
 headless: true
 hidden: true
-tags: [needsReview]
 ---
 
 ### Legg til et signeringssteg i app-prosessen
@@ -57,7 +56,7 @@ App/config/process/process.bpmn
         <altinn:signingPdfDataType>signing-step-pdf</altinn:signingPdfDataType> <!-- optional -->
 
         <!-- Vi har laget en standard validator som kan slås på her. -->
-        <!-- Den validerer at påkrevd antall signaturer (minCount på signatur-datatypen) er oppfylt. -->
+        <!-- Den kontrollerer at alle som skal signere, har signert, og at antallet signaturer er minst minCount på signaturdatatypen. -->
         <!-- Om denne ikke slås på, bør man skrive egen validering av signaturer. -->
         <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
       </altinn:signatureConfig>
@@ -113,4 +112,6 @@ Nedenfor finner du et eksempel på en slik policy. For at denne koden skal funge
 
 Gi `signature-access` til tjenesteeier. Dette gjør at appen (via Maskinporten) kan skrive og lese data i signaturdokumentene. Du kan også lese og sjekke signaturer når du måtte ønske det.
 
-[Les om begrenset tilgang til data](/nb/altinn-studio/v9/develop-a-service/data/restricted-data/).
+Oppgaven i eksempelet har handlingen `reject`. Derfor må tjenesteeieren (`[org]`) også ha `reject` på oppgaven. Ellers stopper bygget med feilen `ALTINNAPP0800`.
+
+[Les om beskyttede data](/nb/altinn-studio/v9/develop-a-service/data/restricted-data/).

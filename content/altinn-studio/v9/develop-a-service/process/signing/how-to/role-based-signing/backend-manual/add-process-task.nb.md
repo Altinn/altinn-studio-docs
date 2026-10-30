@@ -1,7 +1,6 @@
 ---
 headless: true
 hidden: true
-tags: [needsReview]
 ---
 
 #### Utvid app-prosessen med et signeringssteg
@@ -35,7 +34,7 @@ App/config/process/process.bpmn
         <altinn:signatureDataType>signatures</altinn:signatureDataType>
 
         <!-- Vi har laget en standard validator som kan slås på her. -->
-        <!-- Den validerer at påkrevd antall signaturer (minCount på signatur-datatypen) er oppfylt. -->
+        <!-- Den kontrollerer at alle som skal signere, har signert, og at antallet signaturer er minst minCount på signaturdatatypen. -->
         <!-- Hvis du ikke slår på denne, bør du skrive egen validering av signaturer. -->
         <altinn:runDefaultValidator>true</altinn:runDefaultValidator>
 
@@ -83,6 +82,8 @@ Det er viktig å sette `allowedContributors` til `"app:owned"`, slik at bare app
 Vi anbefaler å sette opp [databeskyttelse](/nb/altinn-studio/v9/develop-a-service/data/restricted-data/) for signaturobjektene, ved å spesifisere feltene for `actionRequiredToRead` og `actionRequiredToWrite` i definisjonen ovenfor. Hvis du ikke ønsker å sette opp dette, kan du fjerne disse feltene.
 
 #### Sett opp tilgangsstyring
-Gi `read`, `write` og eventuelt `sign` til den som fyller ut skjemaet. Andre som skal signere må også få `read` og `write`.
+De som skal signere, trenger `read` og `sign`. Den som skal sende inn skjemaet etter signeringen, trenger i tillegg `write`.
+
+Oppgaven i eksempelet har handlingen `reject`. Derfor må også tjenesteeieren (`[org]`) ha `reject` på oppgaven. Ellers stopper bygget med feilen `ALTINNAPP0800`.
 
 [Les om action-attributter i tilgangsstyring](/nb/altinn-studio/v9/develop-a-service/reference/configuration/authorization/#action-attributter).
