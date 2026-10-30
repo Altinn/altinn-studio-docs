@@ -1,5 +1,6 @@
 ---
 title: Sikre tilgjengelighet i Altinn-tjenester
+linktitle: Sikre tilgjengelighet
 description: Slik sikrer du tilgjengelighet i tjenesten din.
 tags: [Reviewed]
 ---
