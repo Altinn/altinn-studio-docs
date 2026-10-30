@@ -44,7 +44,7 @@ Se [veiledningen for egendefinert kode]({{< relref "/altinn-studio/v9/develop-a-
 ## HTTP POST
 ### Hva gjør denne funksjonen?
 
-Du kan starte en instans med ferdig utfylte data, for eksempel fra et eget fagsystem. Du sender dataene som multipart
+Du kan starte en instans med ferdigutfylte data, for eksempel fra et eget fagsystem. Du sender dataene som multipart
 i HTTP POST-forespørselen til appen.
 
 ### Når bør du bruke dette?
@@ -80,7 +80,7 @@ Det er imidlertid noen viktige forbehold knyttet til sikkerhet når du bruker de
     > verdien til å dukke opp direkte i mottakerens Altinn-innboks.
 
 2. Vi anbefaler på det sterkeste at du kontrollerer verdien av spørringsparameterne i appen din. På denne måten
-   sikrer du at appen bare forhåndsutfyller gyldige data. Du kan da stoppe en angriper fra å bruke en lenke som
+   sikrer du at appen bare forhåndsutfyller gyldige data. Du kan da stoppe en angriper fra å bruke en lenke
     
     `altinn.no/ttd/stateless-app/set-query-params?jobTitle=Im a scammer`
     

@@ -27,7 +27,7 @@ Designer lagrer valgene dine i filen `App/models/{datamodell}.prefill.json`. Des
 
 Du kan også lage og redigere filen selv, for eksempel hvis du jobber i app-repoet på egen maskin.
 
-### 1. Opprette en ny fil
+### 1. Opprett en ny fil
 
    Gå til mappen `App/models` i appen din og opprett en ny fil med navn `{datatype-ID}.prefill.json`. Datatype-ID-en er `id` for datatypen i `applicationmetadata.json`. I apper du har laget i Studio, er den det samme som navnet på datamodellen.
 
@@ -36,7 +36,7 @@ Du kan også lage og redigere filen selv, for eksempel hvis du jobber i app-repo
    - `appModel.schema.json` 
    - `appModel.prefill.json`  &larr; *den nye filen*
 
-### 2. Legge til grunnkonfigurasjon
+### 2. Legg til grunnkonfigurasjon
 
    Kopier denne konfigurasjonskoden inn i den nye filen:
 
@@ -54,7 +54,7 @@ Du kan også lage og redigere filen selv, for eksempel hvis du jobber i app-repo
    }
    ```
 
-### 3. Velge hvilke data appen skal fylle ut
+### 3. Velg hvilke data appen skal fylle ut
 
    De tre gruppene i koden speiler de tre kildene som er tilgjengelige:
    - `ER` - Enhetsregisteret
