@@ -10,57 +10,77 @@ aliases:
 
 ---
 
-App B er først og fremst ansvarlig for å håndtere og presentere data som den henter fra app A.
-Utover dette kan appen fungere som en vanlig Altinn-app der det siste trinnet er å sende inn skjemaet,
-og dermed avslutte livssyklusen til den opprettede instansen.
-Hvis det ikke er en naturlig måte å avslutte instansen av app B på, må du håndtere dette manuelt.
+App B tar imot data fra app A og viser eller behandler dem.
+Ellers fungerer den som en vanlig Altinn-app, der brukeren avslutter instansen ved å sende inn skjemaet.
+Hvis app B ikke har en naturlig avslutning, må du avslutte instansene på en annen måte.
 
-Les følgende seksjoner for mer detaljer:
+Siden har to deler:
 
 - [Hente data fra app A](#hente-data-fra-app-a)
 - [Stoppe en aktiv instans](#stoppe-en-aktiv-instans)
 
 ## Hente data fra app A
 
-App B trenger mye mindre konfigurasjon som et minimum.
-Hovedoppgaven for app B er å hente ut dataene mottatt fra app A og representere eller behandle dem på en måte.
+App B trenger mindre oppsett enn app A.
+Hovedoppgaven til app B er å hente dataene fra app A og vise eller behandle dem.
 
-Hvis du bruker presentasjonsfelt eller prefill, som forklart
-i [alternativ 1 og 2 i den siste delen av app A-instruksjonene](/nb/altinn-studio/v8/guides/development/multi-app-solution/instructions/app-a#kontrollere-data-i-app-b),
-trenger du ikke tilpasset kode.
+Hvis du bruker forhåndsutfylling eller presentasjonsfelt, som beskrevet i
+[alternativ 1 og 2 i veiledningen for app A]({{< relref "/altinn-studio/v9/examples-and-patterns/multi-app-solution/instructions/app-a#kontrollere-data-i-app-b" >}}),
+trenger du ikke egen kode.
 
-Hvis du benytter alternativ 3, må du aktivt hente dataene fra instansen.
-Du gjør dette ved å bruke `ProcessDataRead`-metoden i servicen `DataProcessor` sammen med `UpdateData`-metoden på `dataClient`.
-Se eksempelkode nedenfor:
+Hvis du bruker alternativ 3, må du hente dataene fra instansen selv.
+Du gjør dette i `ProcessDataRead`-metoden i klassen som implementerer `IDataProcessor`.
+Endringer du gjør i datamodellen i `ProcessDataRead`, lagrer appen som regel automatisk. Les om unntakene i [Endre data når appen henter dem]({{< relref "/altinn-studio/v9/develop-a-service/data/dataprocessing#endre-data-når-appen-henter-dem" >}}).
+App B må også ha datatypen som app A laster opp til, her `vedlegg`, i `App/config/applicationmetadata.json`.
+Eksempel:
+
+{{< code-title >}}
+App/logic/DataProcessor.cs
+{{< /code-title >}}
 
 ```csharp
-public async Task<bool> ProcessDataRead(Instance instance, Guid? dataId, object data)
+public class DataProcessor : IDataProcessor
 {
-   bool redigert = false;
+    public Task ProcessDataRead(Instance instance, Guid? dataId, object data, string? language)
+    {
+        // Bytt ut DataModel med navnet på datamodellen din
+        if (data is DataModel modell)
+        {
+            // "vedlegg" er datatypen app A sender dataene som, se alternativ 3 i veiledningen for app A
+            DataElement? dataFraAppA = instance.Data.FirstOrDefault(de => de.DataType == "vedlegg");
 
-   if (data.GetType() == typeof(DataModel))
-   {
-       DataModel modell = (DataModel)data;
+            if (dataFraAppA != null)
+            {
+                // Oppdater modell med informasjon om dataene fra app A
+            }
+        }
+        return Task.CompletedTask;
+    }
 
-       DataElement data = instance.Data.FirstOrDefault(de => de.DataType == [DATA_TYPE]);
+    public Task ProcessDataWrite(Instance instance, Guid? dataId, object data, object? previousData, string? language)
+    {
+        return Task.CompletedTask;
+    }
+}
+```
 
-       if (data != null)
-       {
-           var instansGuid = Guid.Parse(instance.Id.Split("/")[1]);
-          
-           await _dataClient.UpdateData(modell, instansGuid, typeof(DataModel), instance.Org, instance.AppId, int.Parse(instance.InstanceOwner.PartyId), Guid.Parse(instance.Data.Where(de => de.DataType == [DATA_TYPE]).First().Id));
-           redigert = true;
-       }
-   }
-   return await Task.FromResult(redigert);
+Registrer klassen i `Program.cs`:
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
+```csharp
+void RegisterCustomAppServices(IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
+{
+    services.AddTransient<IDataProcessor, DataProcessor>();
 }
 ```
 
 ## Stoppe en aktiv instans
 
-Siden denne appen, i de fleste tilfeller, fungerer som
-et on-demand-dashboard for å hente inn data fra app A, har appen ingen naturlig måte å avslutte sin prosess på.
-For å omgå dette hindret, bør de innkommende skjemaene enten:
+Som oftest viser app B bare data fra app A, og da har appen ingen naturlig avslutning på prosessen.
+Du kan løse det ved å enten
 
-1. slettes manuelt etter å ha blitt lest, eller
-2. implementeres med et krav om noen form for brukerinteraksjon som vil utløse avslutningen av prosessen. 
+- slette instansene manuelt når mottakeren har lest dem
+- kreve at brukeren gjør noe i app B som avslutter prosessen
