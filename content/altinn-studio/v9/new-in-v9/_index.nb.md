@@ -68,6 +68,6 @@ Se [veiledningen for å jobbe med tjenesten lokalt på egen maskin]({{< relref "
 
 ## Neste steg
 
-Er appen din på v8, er dette veien videre:
+Er appen din på v8, kan du [oppgradere appen fra v8 til v9 med studioctl]({{< relref "/altinn-studio/v9/new-in-v9/upgrade" >}}).
 
 {{<children />}}
