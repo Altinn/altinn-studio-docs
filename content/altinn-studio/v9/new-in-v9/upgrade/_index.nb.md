@@ -293,7 +293,7 @@ Oppgraderingen ordner disse endringene uten at du trenger å gjøre noe, men det
 - Komponenten `OrganisationLookup` heter nå `OrganizationLookup`.
 - Komponenten `Header` heter nå `Heading`.
 - Knappetekstene i `RepeatingGroup` har fått nye navn i camelCase under `textResourceBindings`, for eksempel `addButton` i stedet for `add_button`. Det gjelder `addButton`, `addButtonFull`, `saveButton`, `saveAndNextButton`, `editButtonOpen`, `editButtonClose`, `paginationNextButton`, `paginationBackButton`, `multipageNextButton` og `multipageBackButton`.
-- Datamodellkoblingene i `PersonLookup` og `OrganizationLookup` har fått nye navn i camelCase, uten prefiksene `person_lookup_` og `organization_lookup_`. I `PersonLookup` heter de nå `ssn`, `fullName`, `firstName`, `middleName` og `lastName`. Legg merke til at `person_lookup_name` har blitt til `fullName`. I `OrganizationLookup` heter de `orgnr` og `name`.
+- Datamodellkoblingene i `PersonLookup` og `OrganizationLookup` har fått nye navn i camelCase, uten prefiksene `person_lookup_`, `organization_lookup_` og `organisation_lookup_`. I `PersonLookup` heter de nå `ssn`, `fullName`, `firstName`, `middleName` og `lastName`. Legg merke til at `person_lookup_name` har blitt til `fullName`. I `OrganizationLookup` heter de `orgnr` og `name`.
 
 ## Neste steg
 
