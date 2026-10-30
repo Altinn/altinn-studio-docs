@@ -3,7 +3,7 @@ hidden: true
 tags: [Reviewed]
 ---
 
-> Du gjør det meste av oppsettet i denne delen på siden **Utforming** i Altinn Studio. Klikk på **Utforming** i toppmenyen for å komme dit. Noe av oppsettet gjør du manuelt i layoutfilene, som beskrevet nedenfor.
+> Du gjør det meste av oppsettet i denne delen på siden **Utforming** i Altinn Studio. Klikk på **Utforming** i toppmenyen. Noe av oppsettet gjør du manuelt i layoutfilene, som beskrevet nedenfor.
 
 ### Slik viser du betalingsinformasjon i skjemaet
 

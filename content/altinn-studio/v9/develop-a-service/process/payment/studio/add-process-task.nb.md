@@ -6,13 +6,13 @@ tags: [Reviewed]
 
 >Du gjør oppsettet i denne delen på siden **Arbeidsflyt** i Altinn Studio. Klikk på **Arbeidsflyt** i toppmenyen for å komme dit.
 
-### 1. Legge til en betalingsoppgave
+### 1. Legg til en betalingsoppgave
 
 Legg til en betalingsoppgave ved å dra **Lag betalingsoppgave** fra menyen til venstre inn i arbeidsflyten.
 
 Altinn Studio legger da automatisk til
 
-- to datatyper for betaling (én for betalingsdata og én for betalingskvitteringen)
+- to datatyper for betaling (en for betalingsdata og en for betalingskvitteringen)
 - sider for betalingsoppgaven, med én ferdig oppsatt side
 - en regel for tilgangsstyring for betalingsoppgaven, som du setter opp i steget «Gi tilgang til den som skal betale og tjenesteeieren»
 
@@ -20,10 +20,10 @@ Altinn Studio legger da automatisk til
 
 Gatewayen skal ha to piler (sekvensflyter) ut:
 
-- Én som peker videre i arbeidsflyten.
-- Én som peker tilbake til forrige oppgave i arbeidsflyten (før betaling).
+- En som peker videre i arbeidsflyten.
+- En som peker tilbake til forrige oppgave i arbeidsflyten (før betaling).
 
-### 3. Sette opp regler for pilene ut av gatewayen
+### 3. Sett opp regler for pilene ut av gatewayen
 
 **For pilen som går videre:**
 
