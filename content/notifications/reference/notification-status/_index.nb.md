@@ -155,9 +155,16 @@ av hvilket endepunkt du bruker.
 ### Standard levetid på 48 timer
 
 Vanlige varslinger (bestilt via `/orders` og `/future/orders`) har en fast
-levetid på **48 timer** som tjenesteeiere **ikke kan konfigurere**. Altinn
-beregner utløpstidspunktet ut fra ønsket sendetidspunkt pluss 48 timer for både
-e‑post og SMS.
+levetid på **48 timer** som tjenesteeiere **ikke kan konfigurere**. For
+varslinger uten sendetidspolicyen `Daytime` beregner Altinn utløpstidspunktet ut
+fra ønsket sendetidspunkt pluss 48 timer for både e‑post og SMS.
+
+For varslinger med sendetidspolicyen `Daytime` er levetiden fortsatt 48 timer,
+men den telles fra det tidspunktet utsendelse først er tillatt. Hvis ønsket
+sendetidspunkt er utenfor dagtidsvinduet, starter de 48 timene når vinduet åpner
+neste gang. Hvis det er innenfor vinduet, starter de ved ønsket sendetidspunkt.
+Se avsnittene om sendevindu for e‑post og SMS i
+[Hva får du?](/nb/notifications/what-do-you-get/).
 
 Umiddelbare varslinger (endepunktene `/future/orders/instant/*`) styres
 annerledes:
