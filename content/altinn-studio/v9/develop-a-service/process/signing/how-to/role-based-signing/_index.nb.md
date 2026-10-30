@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Signering med roller og tilgangspakker
 linktitle: Rolle/tilgangspakke
 description: Slik setter du opp signering basert på rolle eller tilgangspakke.

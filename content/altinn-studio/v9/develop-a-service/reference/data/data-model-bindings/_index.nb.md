@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Datamodellbindinger
 linktitle: Datamodellbindinger
 description: Slik kobler du komponenter i en layout til felter i en datamodell
@@ -14,6 +13,10 @@ Du angir bindingene i `dataModelBindings` på komponenten. Hvilke bindinger en k
 ## Kort format
 
 Skriv feltstien som en streng når feltet ligger i standarddatamodellen for layoutsettet:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 {
@@ -32,6 +35,10 @@ Standarddatamodellen er verdien i `defaultDataType` i `App/ui/<layoutsett>/Setti
 ## Utvidet format
 
 Bruk et objekt med `dataType` og `field` når bindingen skal peke til en annen datamodell enn standardmodellen:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 {
@@ -65,6 +72,10 @@ Noen komponenter har egne bindingnøkler. `Address` har for eksempel egne bindin
 ## Bindinger i repeterende grupper
 
 En `RepeatingGroup` bindes til listen den skal vise. Komponentene i gruppen bindes til feltene i hvert objekt i listen. Hvis gruppen er bundet til `personer`, binder du et navnefelt i gruppen til `personer.navn`:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 [

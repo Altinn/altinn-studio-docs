@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Tilgjengelige kilder for forhåndsutfylling via konfigurasjon
 linktitle: Tilgjengelige kilder
 description: Oversikt over tilgjengelige kilder og tilhørende felter for forhåndsutfylling med konfigurasjonsfil
@@ -53,9 +52,9 @@ Tilgjengelige verdier for forhåndsutfylling inkluderer:
 
 Brukerprofilen som eksponeres tilhører den som starter tjenesten. Hvis Ola Nordmann starter et skjema på vegne av Kari Nordmann, hentes data om Ola.
 
-Objektene Party.Organization og Party.Person inneholder de samme feltene som ER og DSF-forhåndsutfylling. Party.Organization er null hvis brukeren er logget inn som privatperson. Party.Person er null hvis brukeren er logget inn som virksomhetsbruker.
+Objektene Party.Organization og Party.Person inneholder de samme feltene som ER og DSF-forhåndsutfylling. Party.Organization er null hvis brukeren er logget inn som privatperson.
 
-Forhåndsutfyllingen feiler hvis objektet du bruker ikke finnes. Hvis du vil forhåndsutfylle dynamisk basert på disse verdiene, må du sette opp [egendefinert forhåndsutfylling](/nb/altinn-studio/v9/develop-a-service/prefill#egendefinert-kode).
+Forhåndsutfyllingen feiler hvis objektet du bruker ikke finnes. Hvis du vil forhåndsutfylle dynamisk basert på disse verdiene, må du sette opp [egendefinert forhåndsutfylling]({{< relref "/altinn-studio/v9/develop-a-service/data/prefill/how-to/custom" >}}).
 
 Tilgjengelige verdier for forhåndsutfylling inkluderer:
 

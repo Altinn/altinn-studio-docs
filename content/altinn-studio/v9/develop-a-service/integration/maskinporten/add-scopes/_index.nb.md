@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Legge til Maskinporten-scopes
 linktitle: Legg til scopes
 description: Slik legger du til Maskinporten-scopes i en app i Altinn Studio.

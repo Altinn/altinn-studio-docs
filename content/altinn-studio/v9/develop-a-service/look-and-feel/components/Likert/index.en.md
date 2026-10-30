@@ -1,6 +1,6 @@
 ---
-title: Likert
 draft: true
+title: Likert
 ---
 
 ## Properties

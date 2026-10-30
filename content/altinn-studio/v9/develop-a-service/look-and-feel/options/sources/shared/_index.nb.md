@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Felles standard kodelister
 linktitle: Felles
 description: Delte standard kodelister som kan brukes i flere applikasjoner
@@ -58,6 +57,11 @@ dotnet add package Altinn.Codelists --version 9.0.0-preview.1
 Du må oppgi versjonen, fordi kommandoen ellers henter den nyeste stabile versjonen, som foreløpig er versjon 8. Se [Altinn.Codelists på NuGet](https://www.nuget.org/packages/Altinn.Codelists) for den nyeste versjonen av 9.
 
 Som et alternativ kan du redigere applikasjonens App.csproj-fil direkte ved å legge til referansen nedenfor i `<ItemGroup>` der du har pakkereferanser:
+
+{{< code-title >}}
+App/App.csproj
+{{< /code-title >}}
+
 ```xml
 <PackageReference Include="Altinn.Codelists" Version="9.0.0-preview.1" />
 ```
@@ -65,6 +69,11 @@ Som et alternativ kan du redigere applikasjonens App.csproj-fil direkte ved å l
 ### 2. Registrer kodelistene i appens DI-kontainer
 
 Legg til følgende i Program.cs-filen din:
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```csharp
 services.AddAltinnCodelists();
 ```
@@ -75,18 +84,33 @@ Ved å kalle denne metoden vil du registrere alle kodelistene på tvers av alle 
 I stedet for å registrere alle tilgjengelige kodelister, kan du velge å registrere bare spesifikke kilder:
 
 **SSB (Statistisk sentralbyrå) kodelister:**
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```csharp
 services.AddSSBClassifications();
 ```
 Dette registrerer alle SSB-baserte kodelister: fylker, kjønn, kommuner, land, næringsgruppering, sivilstand, yrker og grunnbeløpfolketrygden.
 
 **Kartverket kodelister:**
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```csharp
 services.AddKartverketAdministrativeUnits();
 ```
 Dette registrerer Kartverkets administrative enhetskodelister: fylker-kv og kommuner-kv.
 
 **Posten kodelister:**
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```csharp
 services.AddPosten();
 ```
@@ -94,12 +118,22 @@ Dette registrerer Postens postnummerkodeliste: poststed.
 
 **Individuelle SSB kodelister:**
 Du kan også legge til individuelle SSB kodelister med tilpasset konfigurasjon:
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```csharp
 services.AddSSBClassificationCodelistProvider("næring", Classification.IndustryGrouping, new Dictionary<string, string> { { "level", "1" } });
 ```
 
 **RestCountries klient:**
 For avansert landsinformasjon utover den grunnleggende SSB landskodelisten:
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```csharp
 services.AddRestCountriesClient();
 ```
@@ -118,6 +152,11 @@ Mens konfigurasjonen nevnt ovenfor der du kaller `services.AddAltinnCodelists();
 Hvis du ikke ønsker å bruke standard kodeliste-ID, eller bare ønsker å registrere kodelister som er relevante for appen din, kan du registrere hver kodeliste individuelt.
 
 Eksemplet benytter en kodeliste fra SSB og overstyrer kodeliste id'en:
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```csharp
 services.AddSSBClassificationCodelistProvider("næring", Classification.IndustryGrouping);
 ```
@@ -126,6 +165,10 @@ services.AddSSBClassificationCodelistProvider("næring", Classification.Industry
 Noen av kodelistene godtar parametere som styrer hva systemet returnerer.
 
 Eksemplet benytter en kodeliste fra SSB og spesifiserer et filter for å bare hente verdier fra første nivå (denne spesifikke kodelisten er hierarkisk).
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
 ```csharp
 services.AddSSBClassificationCodelistProvider("næring", Classification.IndustryGrouping, new Dictionary<string, string>() { { "level", "1" } });
@@ -137,12 +180,20 @@ Mens en vanlig kodeliste bare er nøkkel/verdi-par, kan du utvide dette ved å l
 
 Følgende eksempel gjør at notatfeltet fra SSB-klassifiseringen fyller ut beskrivelsesteksten.
 
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```csharp
 services.AddSSBClassificationCodelistProvider("næring", Classification.IndustryGrouping,
     new ClassificationOptions() { MapNotesToDescription = true },
     new Dictionary<string, string>() { { "level", "1" } });
 ```
 Eksemplet aktiverer en forhåndsdefinert måte å legge til en beskrivelsestekst på. Hvis du vil tilpasse beskrivelsesteksten enda mer, kan du sende inn en funksjon. Eksemplet under sender inn en funksjon som systemet evaluerer når kodelisten fylles ut, og vil returnere en kombinasjon av klassifiseringskoden og notatfeltene, separert med kolon.
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
 ```csharp
 services.AddSSBClassificationCodelistProvider(
@@ -157,6 +208,10 @@ services.AddSSBClassificationCodelistProvider(
 
 ### Legg til en kodeliste fra SSB som ikke er tilgjengelig i `Classification`-enumen
 For øyeblikket er bare et lite utvalg av de tilgjengelige kodelistene fra SSB inkludert i `Classification`-enumen. Enumen er egentlig bare en mer lesbar versjon av den underliggende id'en som SSB bruker. Men i vårt tilfelle fungerer den også som en måte å fortelle hvilke kodelister vi har testet eksplisitt mot. Hvis du finner en kodeliste du vil bruke, kan du spesifisere id-en direkte i stedet for enumen.
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
 ```csharp
    services.AddSSBClassificationCodelistProvider("næring", 6);

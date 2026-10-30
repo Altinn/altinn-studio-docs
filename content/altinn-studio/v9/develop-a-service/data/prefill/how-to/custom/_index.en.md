@@ -15,7 +15,7 @@ You can create your own code to automatically fill out parts of the form before 
 - Use other logic of your choice
 
 ## When should I use this?
-If you need other data sources than those that are available through [configuration based setup](/en/altinn-studio/v8/guides/development/prefill/config/) of prefill, 
+If you need other data sources than those that are available through [configuration based setup](/nb/altinn-studio/v9/develop-a-service/data/prefill/how-to/config/) of prefill, 
 or if you need any logic as part of the prefill process.
 
 ## How to set it up
@@ -43,6 +43,10 @@ See below for examples.
 ### 3. Register your class
 
 Open `Program.cs` and add this line:
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
 ```csharp
 services.AddTransient<IInstantiationProcessor, MyFilling>();

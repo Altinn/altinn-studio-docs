@@ -57,9 +57,10 @@ list of selected values in the data model.
 }
 ```
 
-In the example above, the component will store a comma-separated list of selected pets in the field `Submitter.Pets` in
-the data model. If you choose "Cat" and "Fish", the field will get the value `"cat,fish"`. The order of the choices is
-not guaranteed to be the same as the order of the options, nor the order the user chose them in.
+In the example above, the component stores the selected pets in the field `Submitter.Pets` in the data model.
+If you select "Cat" first and then "Fish", the field gets the value `"cat,fish"`.
+If you select them in the opposite order, the field gets the value `"fish,cat"`.
+The stored values can therefore have a different order from the options displayed in the form.
 
 {{<notice warning>}}
 Note that the value for each option must be unique, and if you use multi-choice components, none of the values can
@@ -75,8 +76,8 @@ you have a requirement to remember the label the user actually picked in case it
 the label in the data model, it will respect the user's chosen language, look up the actual text from the text resources
 and store the final value in the data model.
 
-This is configured by having a separate binding with the key `label`. The `label` binding should point to a field in the
-data model of type `string`:
+Add a separate binding with the key `label`. For single-choice components such as `Dropdown` and `RadioButtons`,
+this binding must point to a field of type `string`:
 
 ```json {hl_lines=["6"]}
 {
@@ -89,6 +90,73 @@ data model of type `string`:
   "optionsId": "municipalities"
 }
 ```
+
+For multi-choice components such as `Checkboxes` and `MultipleSelect`, the `label` binding must point to a list of
+strings, `string[]`. The `simpleBinding` still points to a `string` containing comma-separated values. Labels use a
+list because the label text itself can contain commas.
+
+#### Example of ordering in stored data
+
+In an application form, the user selects the municipalities where their business operates. The component
+below displays municipalities alphabetically using `sortOrder: "asc"`. The `label` binding stores the text
+of the selected options in the data model. This is the text the user sees beside each checkbox, such as "Stavanger".
+
+```json
+{
+  "id": "municipalities",
+  "type": "Checkboxes",
+  "textResourceBindings": {
+    "title": "In which municipalities does the business operate?"
+  },
+  "dataModelBindings": {
+    "simpleBinding": "Business.Municipalities",
+    "label": "Business.MunicipalityLabels"
+  },
+  "sortOrder": "asc",
+  "options": [
+    { "value": "1103", "label": "Stavanger" },
+    { "value": "1108", "label": "Sandnes" },
+    { "value": "1124", "label": "Sola" }
+  ]
+}
+```
+
+Define the fields under `Business` in the data model's JSON Schema as follows:
+
+```json
+"Municipalities": {
+  "type": "string"
+},
+"MunicipalityLabels": {
+  "type": "array",
+  "items": { "type": "string" }
+}
+```
+
+The user sees the options in the order **Sandnes, Sola, Stavanger**, but selects **Stavanger** first,
+then **Sandnes**, then **Sola**. `Checkboxes` stores the municipality codes in selection order,
+`"1103,1108,1124"`.
+
+Before app-frontend v4.35.0, the stored labels followed the display order of the options. From v4.35.0,
+they follow the order of the stored values:
+
+| Field in the data model | Before app-frontend v4.35.0 | From app-frontend v4.35.0 |
+| --- | --- | --- |
+| `Business.Municipalities` | `"1103,1108,1124"` | `"1103,1108,1124"` |
+| `Business.MunicipalityLabels` | `["Sandnes", "Sola", "Stavanger"]` | `["Stavanger", "Sandnes", "Sola"]` |
+
+From app-frontend v4.35.0, the stored labels follow the order of the stored values.
+After splitting `Business.Municipalities` on commas, each value corresponds to the label at the same index in
+`Business.MunicipalityLabels`. For example, the first value, `1103`, corresponds to the first label,
+`"Stavanger"`. In earlier versions, using the same index could give the wrong municipality, such as
+`1103` and `"Sandnes"` in this example.
+
+The change only affects the order of labels stored in the data model. The user still sees the options in
+the order **Sandnes, Sola, Stavanger**. If you change how the options are sorted, the stored labels still
+follow the order of the stored values.
+
+If you use the `group` binding to store choices in a repeating structure, each row stores its own value and label.
+In that case, `label` must point to a `string` field inside the row, rather than a separate list of labels.
 
 ### Storing metadata
 

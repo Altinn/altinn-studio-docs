@@ -14,6 +14,11 @@ Subforms are contained in a subform table. Let us go through configuring a subfo
 3. Set [appLogic.allowInSubform](/en/api/models/app-metadata/#applicationlogic) to **true** in **applicationMetadata.json**.
 4. Create a folder under **App/ui** with your desired subform name.
 5. In the subform folder, add a `Settings.json` file and a folder called **layouts**. Set `defaultDataType` to the data model ID and `type` to `subform`:
+
+   {{< code-title >}}
+   App/ui/{subform}/Settings.json
+   {{< /code-title >}}
+
    ```json
    {
      "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
@@ -30,6 +35,11 @@ Subforms are contained in a subform table. Let us go through configuring a subfo
    {{< /notice >}}
 7. The **Settings.json** file for the sub form is [configured as normal](/en/altinn-studio/v8/reference/ux/pages/#settings).
 8. The button which closes the subform must be a [CustomButton](/en/altinn-studio/v8/reference/ux/components/custombutton/) with a `closeSubform` action. Optionally you can also trigger validation before exiting.
+
+   {{< code-title >}}
+   App/ui/{subform}/layouts/page1.json
+   {{< /code-title >}}
+
    ```json
    {
      "id": "subform-exitbutton",
@@ -51,7 +61,12 @@ Subforms are contained in a subform table. Let us go through configuring a subfo
    }
    ```
 9. Navigate to the layout for the page in the main form in which you want to add the subform table.
-10. Add `Subform` with the [configuration you want](/en/altinn-studio/v9/develop-a-service/look-and-feel/subform/config-options/). Example:
+10. Add `Subform` with the [configuration you want](/nb/altinn-studio/v9/develop-a-service/look-and-feel/subform/config-options/). Example:
+
+    {{< code-title >}}
+    App/ui/{taskId}/layouts/{page}.json
+    {{< /code-title >}}
+
     ```json
     {
       "id": "subform-test",

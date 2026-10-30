@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Varsling ved instansiering
 linktitle: Varsling
 description: Slik varsler du instanseieren når du oppretter en instans gjennom API-et
@@ -129,6 +128,10 @@ public class MyNotificationCancellation : ICancelInstantiationNotification
 ```
 
 Registrer implementasjonen i `Program.cs`:
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
 ```csharp file=Program.cs
 using Altinn.App.Core.Features.Notifications.Cancellation;

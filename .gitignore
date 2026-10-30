@@ -42,3 +42,11 @@ scripts/components/.schema-cache
 
 !/artifacts/systemuser-types/
 !/artifacts/systemuser-types/fire-typer-systembrukere.pptx
+
+!/artifacts/ai-ready-development/
+!/artifacts/ai-ready-development/ai-klar-utvikling-altinn-auth.pptx
+
+# Designsystemet: npm-pakker og mellomfiler fra CLI-en (temaet bygges til assets/designsystemet/)
+node_modules/
+/design-tokens/
+assets/designsystemet/*.d.ts

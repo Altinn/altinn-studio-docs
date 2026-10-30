@@ -2,7 +2,6 @@
 title: Slik sender du kvittering ifm signering
 linktitle: Signeringskvittering
 description: Følg stegene i denne guiden for å sette opp meldingstjenesten til å sende signeringskvittering
-draft: true
 ---
 
 ## Før du starter
@@ -37,7 +36,7 @@ Hvis du allerede bruker maskinporten i appen trenger du ikke å utføre dette st
 tilgang til nødvendige scopes før du går videre.
 {{% /notice %}}
 
-Følg [denne guiden](<relref "altinn-studio/v9/develop-a-service/integration/maskinporten/">) for å ta i bruk 
+Følg [denne guiden](/nb/altinn-studio/v9/develop-a-service/integration/maskinporten/) for å ta i bruk 
 maskinporten-klienten din i appen.
 
 ## 3. Legg til en meldingsressurs
@@ -45,7 +44,7 @@ maskinporten-klienten din i appen.
 {{<content-version-selector classes="border-box">}}
 
 {{<content-version-container version-label="Altinn Studio Designer">}}
-1. Naviger til appen din, og gå til **Arbeidsflyt** i toppmenyen.
+1. Naviger til appen din, og gå til **Prosess** i toppmenyen.
 2. Klikk på signeringsoppgaven i prosess-visningen og se at du får opp konfigurasjonsmuligheter i panelet på høyre side.
 3. Klikk på "Oppgi en ressurs for å sende ut meldinger"
 4. Legg inn navnet på meldingstjenesten i feltet
@@ -55,6 +54,10 @@ maskinporten-klienten din i appen.
 
 {{<content-version-container version-label="Manuelt oppsett">}}
 1. Legg inn `altinn:correspondenceResource` under `altinn:signatureConfig` på signeringsoppgaven (i filen `App/config/process/process.bpmn`) Se eksempel under:
+
+    {{< code-title >}}
+    App/config/process/process.bpmn
+    {{< /code-title >}}
 
     ```xml {hl_lines=[20,21,22]}
     <bpmn:task id="SigningTask" name="Signering">

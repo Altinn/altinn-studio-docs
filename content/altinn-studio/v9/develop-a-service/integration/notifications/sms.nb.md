@@ -1,21 +1,20 @@
 ---
 title: SMS
-description: Slik oppretter du egendefinerte SMS-varslinger for apper.
-draft: true
+description: Slik sender du SMS til brukere fra appen din.
 weight: 20
-tags: [needsReview]
+tags: [Reviewed]
 ---
 
 ## Aktivere SMS-varsling i appen din
 
-Appen inkluderer automatisk SMS-klienten. For å bruke den, sett inn grensesnittet `ISmsNotificationClient` i konstruktøren.
-Grensesnittet definerer en metode du bruker til å bestille en SMS-varsling fra API-et til [Altinn Notifications](https://github.com/Altinn/altinn-notifications).
+SMS-klienten er allerede registrert i appen. Du bruker den ved å ta inn grensesnittet `ISmsNotificationClient` i konstruktøren til klassen din.
+Grensesnittet definerer en metode du bruker til å bestille en SMS-varsling fra [Altinn Varslinger-API-et]({{< relref "/notifications" >}}).
 
 ### Kodeeksempel
 
-Under ser du et eksempel der appen sender en SMS-varsling når brukeren har begynt å fylle ut skjemaet. Eksempelet bruker en [prosess-hook](/nb/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks/) som implementerer `IOnTaskStartingHandler`.
+Nedenfor ser du et eksempel der appen sender en SMS-varsling når brukeren har begynt å fylle ut skjemaet. Eksempelet bruker en [prosess-hook]({{< relref "/altinn-studio/v9/develop-a-service/reference/configuration/process/pre-post-hooks" >}}) som implementerer `IOnTaskStartingHandler`.
 
-Hooken kan bli kjørt på nytt hvis den feiler. Bestill derfor SMS-en som det siste hooken gjør, slik at et nytt forsøk ikke sender den samme SMS-en to ganger.
+Prosessen kan kjøre hooken på nytt hvis den feiler. Bestill derfor SMS-en som det siste hooken gjør, slik at et nytt forsøk ikke sender den samme SMS-en to ganger.
 
 ```csharp file=SmsOnStart.cs
 using System.Threading.Tasks;
@@ -32,7 +31,7 @@ public class SmsOnStart(ILogger<SmsOnStart> logger, ISmsNotificationClient smsNo
     // "Task_1" er id-en til skjemasteget i BPMN-prosessen
     public bool ShouldRunForTask(string taskId) => taskId == "Task_1";
 
-    public async Task<HookResult> Execute(OnTaskStartingContext context)
+    public async Task<HandlerResult> Execute(OnTaskStartingContext context)
     {
         var order = new SmsNotification
         {
@@ -57,14 +56,18 @@ public class SmsOnStart(ILogger<SmsOnStart> logger, ISmsNotificationClient smsNo
             logger.LogError(e, "Error sending SMS on task start");
         }
 
-        return HookResult.Success();
+        return HandlerResult.Success();
     }
 }
 ```
 
-I eksempelet går prosessen videre selv om bestillingen feiler. Skal prosessen heller vente og prøve på nytt, returnerer du `HookResult.FailedRetryable("melding")` i `catch`-blokken. Da venter prosessen til bestillingen lykkes, og den stopper hvis alle forsøkene feiler.
+I eksempelet går prosessen videre selv om bestillingen feiler. Skal prosessen heller vente og prøve på nytt, returnerer du `HandlerResult.FailedRetryable("melding")` i `catch`-blokken. Da venter prosessen til bestillingen lykkes, og den stopper hvis alle forsøkene feiler.
 
 Deretter må du registrere klassen `SmsOnStart` som `IOnTaskStartingHandler` i `Program.cs`.
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
 ```csharp file=Program.cs
 using Altinn.App;

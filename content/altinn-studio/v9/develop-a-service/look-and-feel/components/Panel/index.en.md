@@ -1,6 +1,6 @@
 ---
-title: Panel
 draft: true
+title: Panel
 ---
 
 ## Properties

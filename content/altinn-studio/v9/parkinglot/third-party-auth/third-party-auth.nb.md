@@ -1,7 +1,6 @@
 ---
 title: Autorisasjon med tredjepartsløsninger
 description: Hentet fra stateless-docs
-draft: true
 tags: [needsReview]
 ---
 
@@ -11,9 +10,9 @@ sikring av tjenesten, kan du implementere logikk for autorisasjon av brukere med
 
 Eksempelet nedenfor bruker Finanstilsynets API til å fastslå om virksomheten som en bruker representerer i Altinn, har tilstrekkelige lisenser til å bruke tjenesten.
 
-![GUI for autorisert bruker](extra-credentials-example-allowed.png "GUI for autorisert bruker")
+![GUI for autorisert bruker](../extra-credentials-example-allowed.png "GUI for autorisert bruker")
 
-![GUI for ikke-autorisert bruker](extra-credentials-example-denied.png "GUI for ikke-autorisert bruker")
+![GUI for ikke-autorisert bruker](../extra-credentials-example-denied.png "GUI for ikke-autorisert bruker")
 
 
 Kildekoden til applikasjonen som eksempelet er basert på finnes [her](https://altinn.studio/repos/ttd/extra-credentials-demo) (krever bruker i Altinn Studio).
@@ -23,6 +22,10 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
 1. **Utvid datamodellen med felter for autorisasjon**
 
     I tillegg til et felt for å ta input fra brukeren og et felt for å vise resultatet, har vi i dette eksempelet et felt for å holde på informasjon om hvorvidt brukeren er autentisert, og et felt for å holde på en dynamisk feilmelding.
+
+    {{< code-title >}}
+    App/models/{model}.xsd
+    {{< /code-title >}}
 
     ```xml
     <xs:sequence>
@@ -39,7 +42,7 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
 
     I brukergrensesnittet til appen er det tre komponenter: Et søkefelt for brukerinput, et tekstfelt dedikert til å vise søkeresultatet, og en paragraf som er reservert for feilmeldinger.
 
-    ![GUI i Altinn Studio](extra-credentials-example-layout.png "GUI i Altinn Studio")
+    ![GUI i Altinn Studio](../extra-credentials-example-layout.png "GUI i Altinn Studio")
 
     Komponentene er koblet til datamodell og tekstressurs på følgende måte i `{page}.json`:
 
@@ -107,6 +110,10 @@ Videre i eksempelet vil betegnelsen *bruker* være synonymt med en virksomhet re
    I tillegg til navnet på tjenesten er det lagt inn tre tekstressurser.
 
    Tekstressursen for feilmelding inneholder en placeholder for navnet på brukeren. Variabelen `errorMessage` populeres i datamodellen når det registreres at en bruker ikke er autorisert til å bruke tjenesten.
+
+    {{< code-title >}}
+    App/config/texts/resource.{language}.json
+    {{< /code-title >}}
 
     ```json
      {

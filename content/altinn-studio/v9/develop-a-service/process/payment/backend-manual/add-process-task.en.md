@@ -12,6 +12,10 @@ hidden: true
 
 This data type is used to store information and status about the payment. Put it in the `dataTypes` array in `App/config/applicationmetadata.json`.
 
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
+
 ```json
 {
     "id": "paymentInformation",
@@ -27,6 +31,10 @@ This data type is used to store information and status about the payment. Put it
 ```
 
 This data type is used to store the PDF-receipt for the payment. Configure it next to the other data type.
+
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
 
 ```json
 {
@@ -54,6 +62,10 @@ Payment uses three user actions. If the Altinn user interface is used by the app
 - `pay`: Initiates the payment, often by making API calls to the payment processor. Information and status about the initiated payment is stored in a JSON data type specified in the payment process step.
 - `confirm`: Called when payment has been completed to drive the process to the next step.
 - `reject`: If the end user sees something wrong with the order, the person concerned can press "Back" in the payment step. The payment is then canceled and information about the interrupted payment is deleted. Which process step you are then directed to is specified in a gateway, as exemplified below.
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
 
 ```xml
     <bpmn:startEvent id="StartEvent_1">
@@ -121,6 +133,10 @@ Add a folder under `App/ui` with the same name as the payment task ID. In the ex
 
 Add `Settings.json` to the folder. Set `defaultDataType` to the data model used by the payment task:
 
+{{< code-title >}}
+App/ui/Task_2/Settings.json
+{{< /code-title >}}
+
 ```json
 {
   "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
@@ -132,6 +148,10 @@ Add `Settings.json` to the folder. Set `defaultDataType` to the data model used 
 ```
 
 Create `App/ui/Task_2/layouts`, then add `payment.json` with the following layout:
+
+{{< code-title >}}
+App/ui/Task_2/layouts/payment.json
+{{< /code-title >}}
 
 ```json
 {

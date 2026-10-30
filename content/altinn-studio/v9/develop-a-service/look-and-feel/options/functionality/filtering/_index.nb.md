@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Filtrering
 description: Slik fjerner du noen alternativer fra listen
 weight: 200
@@ -21,6 +20,10 @@ Filtrering av svaralternativer via `optionFilter`-egenskapen fungerer med alle d
 I eksempelet under er `optionFilter`-egenskapen satt til et dynamisk uttrykk som filtrerer ut alternativet `should-be-removed`. Merk at `optionFilter`-egenskapen bruker et uttrykk for å bestemme hvilke alternativer som skal beholdes. Hvis du vil fjerne alternativer, må du snu om logikken. Du kan for eksempel pakke inn hele uttrykket i en `not`-funksjon.
 
 Uttrykket evalueres for hvert svaralternativ, og hvis det returnerer `true`, beholdes alternativet. Systemet fjerner alle andre alternativer.
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json {hl_lines=["10"]}
 {
@@ -55,6 +58,10 @@ Hvis det finnes en `RepeatingGroup`-komponent knyttet til denne repeterende stru
 
 Et eksempel på denne kombinasjonen:
 
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
+
 ```json {hl_lines=["10-15"]}
 {
    "id": "choose-pet",
@@ -87,6 +94,10 @@ I animasjonen under er en `RepeatingGroup`-komponent satt opp med en `Dropdown`-
 ![Filtrering av alternativer i en repeterende gruppe](filtering.gif)
 
 Konfigurasjonen for dette eksempelet er som følger:
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json {hl_lines=["11-17"]}
 {

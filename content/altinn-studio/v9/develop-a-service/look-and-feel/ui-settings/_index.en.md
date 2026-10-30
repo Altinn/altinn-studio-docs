@@ -8,6 +8,10 @@ toc: true
 
 Use `App/ui/Settings.json` for settings shared across tasks. Place the properties directly in the object:
 
+{{< code-title >}}
+App/ui/Settings.json
+{{< /code-title >}}
+
 ```json
 {
   "showLanguageSelector": true,
@@ -19,6 +23,10 @@ Use `App/ui/Settings.json` for settings shared across tasks. Place the propertie
 ## Override settings for a task
 
 In `App/ui/<TaskId>/Settings.json`, page settings belong under `pages`. `defaultDataType` belongs at the top level and refers to the data type ID in the app's metadata:
+
+{{< code-title >}}
+App/ui/{taskId}/Settings.json
+{{< /code-title >}}
 
 ```json
 {

@@ -1,5 +1,4 @@
 ---
-draft: true
 title: API Scopes-konfigurasjon
 linktitle: API Scopes
 description: Slik konfigurerer du tilpassede API-scopes for tjenesten.
@@ -39,6 +38,10 @@ som ligger i `App/config/` i app-lageret ditt.
 
 Her er et eksempel på konfigurasjon med en lignende scope-struktur, men med et tilpasset ID-porten scope-prefiks
 og med `[app]`-plassholderstøtte (den vil bli erstattet med app-navnet under kjøring).
+
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
 
 {{% insert "content/altinn-studio/v8/reference/configuration/authorization/shared/api-scopes-example.md" %}}
 

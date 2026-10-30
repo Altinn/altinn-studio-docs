@@ -1,9 +1,8 @@
 ---
-draft: true
 title: Lokal utvikling
 linktitle: Lokal utvikling
 description: Slik kommer du i gang med lokal utvikling
-tags: [needsReview]
+tags: [Reviewed]
 toc: true
 weight: 40
 aliases:
@@ -25,32 +24,24 @@ Her er en oversikt over hvordan du kommer i gang med lokal utvikling.
 
 {{% insert "content/altinn-studio/shared/studioctl/local-development-intro.nb.md" %}}
 
-{{% notice warning %}}
-{{% insert "content/altinn-studio/shared/studioctl/preview-warning.nb.md" %}}
-{{% /notice %}}
-
-{{% insert "content/altinn-studio/shared/studioctl/install-clone.nb.md" %}}
+Følg [veiledningen for å installere og sette opp studioctl]({{< relref "/altinn-studio/v9/getting-started/studioctl" >}}). Der installerer du studioctl, logger inn og henter appen til maskinen din.
 
 {{% expandlarge id="legacy-clone-with-git" header="Gammel metode: Klone manuelt med Git" %}}
 
-1. Finn appen du vil jobbe med lokalt i Dashboardet i Altinn Studio
-2. Åpne repositoriet. Klikk på **Repository**-knappen
-    ![Repositoryknappen markert i et bilde](find-app-in-dashboard.png)
-    *Bytt ut dette bildet.*
-3. Kopier lenken til repoet (den blå firkanten), enten manuelt eller ved å klikke på knappen markert med en rød sirkel.
-    ![Markert url til repository i Gitea i et bilde](copy-repo-link.png)
-    *Vurder å bytte dette bildet.*
-4. Åpne en terminal i ditt lokale utviklingsmiljø:
-    - Gå til ønsket lokasjon for applikasjonsrepoet.
-    - Skriv kommandoen `git clone` og lim inn URLen du kopierte i forrige steg.
-    ```cmd
-    $ git clone https://altinn.studio/repos/<org>/<app-name>.git
+1. Gå til repositoriet for appen. Du kan gjøre det på to måter:
+    - På dashboardet i Altinn Studio klikker du på repository-ikonet ved siden av appen.
+      ![Repository-ikonet ved siden av appen på dashboardet](./find-app-in-dashboard.png "Repository-ikonet på dashboardet")
+    - Inne i appen klikker du på de tre prikkene øverst til høyre og velger **Repositorium**.
+      ![Menyen med de tre prikkene, med valget Repositorium](./three-dots-repository.png "Repositorium i menyen med de tre prikkene")
+2. Klikk på **Kode**, og kopier lenken under **HTTPS** med kopieringsknappen (markert med rød sirkel).
+    ![Kopier lenken til repositoriet i Gitea](./copy-repo-link.png "Kopier lenken til repositoriet")
+3. Åpne en terminal i det lokale utviklingsmiljøet ditt, gå til mappen der du vil ha appen, og kjør `git clone` med lenken du kopierte:
+    ```bash
+    git clone https://altinn.studio/repos/<org>/<app-name>.git
     ```
-    -  Hvis du har logget inn i Altinn Studio uten å lage passord (f. eks. Github login), kan du [lage et personlig access token i Gitea](https://altinn.studio/repos/user/settings/applications) som kan brukes som passord ved kloning:
-    ```cmd
-    $ git clone https://<brukernavn>:<access-token>@altinn.studio/repos/<org>/<app-name>.git
-    ```
-    - I terminalen skal du se et resultat som likner dette:
+    Du logger inn i Altinn Studio med Ansattporten og har derfor ikke et eget passord. Hvis Git spør om passord, bruker du et [personlig tilgangstoken fra Gitea](https://altinn.studio/repos/user/settings/applications) i stedet.
+
+    I terminalen ser du et resultat som likner dette:
     ```cmd
     Cloning into 'app-name'...
     remote: Enumerating objects: 982, done.
@@ -62,7 +53,7 @@ Her er en oversikt over hvordan du kommer i gang med lokal utvikling.
     ```
 
 Systemet oppretter en mappe med samme navn som appen og kopierer innholdet i app-repoet inn i mappen.
-Nå kan du åpne ditt foretrukne utviklingsverktøy og komme i gang med utviklingen.
+Nå kan du åpne utviklingsverktøyet du foretrekker, og komme i gang.
 
 {{% /expandlarge %}}
 
@@ -72,7 +63,7 @@ Du må laste opp (*pushe*) endringer som du gjør lokalt til repoet koden ble kl
 Hvis du gjør endringer i Altinn Studio Designer (og laster disse opp til repoet), må du hente dem ned (*pull*) for å oppdatere den lokale koden.
 
 Du kan synkronisere endringer i det lokale utviklingsmiljøet på flere måter.
-Mange utviklingsverktøy har gode integrasjoner for nettopp dette, så sjekk gjerne om ditt verktøy har den typen støtte.
+Mange utviklingsverktøy har gode integrasjoner for nettopp dette, så sjekk gjerne om verktøyet ditt har den typen støtte.
 
 Under kan du lese mer om hvordan du synkroniserer endringer fra kommandolinjen.
 
@@ -80,42 +71,38 @@ Under kan du lese mer om hvordan du synkroniserer endringer fra kommandolinjen.
 
 1. Gå til app-repoet ditt i en terminal.
 2. Legg til filene du ønsker å laste opp endringer for (*pushe*) med kommandoen `git add <sti til filen>`. Du kan kjøre kommandoen for enkeltfiler, flere filer samtidig eller en mappe.
-3. Lagre (*commit*) endringene med en fornuftig melding med kommandoen `git commit -m <commit-melding>`.
+3. Lagre (*commit*) endringene med en beskrivende melding med kommandoen `git commit -m <commit-melding>`.
 4. Last opp (*push*) endringene til master med kommandoen `git push`.
 
 ### Laste ned endringer
 
 Gå til app-repoet ditt i en terminal og kjør kommandoen `git pull`.
 
-[Les mer om _git pull_ her](https://git-scm.com/docs/git-pull)
+Les mer om [git pull i Git-dokumentasjonen](https://git-scm.com/docs/git-pull).
 
 ## Slik synkroniserer du endringer i Altinn Studio
 
-I Altinn Studio må du synkronisere endringer på samme vis som ved lokale endringer.
+I Altinn Studio synkroniserer du endringer med knappene i verktøylinjen øverst på siden.
 
-### Last ned endringer
-1. Klikk på **Hent endringer** på Utforming-siden til appen i Altinn Studio.
-   ![Hent endringer i Altinn Studio](toolbar-hent.png)
-   *Bytt dette bildet.*
+### Hente endringer
 
-   Du får en bekreftelse på at appen din er oppdatert.
+Klikk på **Hent endringer**. Du får beskjed når appen er oppdatert til siste versjon.
 
-### Last opp endringer
+![Hent endringer i Altinn Studio](./fetch-changes.png "Hent endringer i Altinn Studio")
 
-1. Klikk på **Last opp dine endringer** på Utforming-siden til appen i Altinn Studio.
-   ![Last opp endringer i Altinn Studio](toolbar-last-opp.png)
-   *Bytt dette bildet.*
-2. Legg inn en beskrivende tekst for endringen(e) og klikk på **Valider endringer**.
-    ![Commitmelding](commit-message.png)
-    *Bytt dette bildet.*
+### Dele endringer
 
-   Systemet validerer endringene. Oppstår det en konflikt, klikker du på **Løs konflikt** og følger instruksjonene.
+En rød prikk på **Del dine endringer** viser at du har endringer som ikke er delt ennå.
 
-3. Klikk på **Lagre** for å laste opp endringene til repoet (master).
-    ![Lagre validerte endringer](changes-validated.png)
-    *Bytt dette bildet.*
+1. Klikk på **Del dine endringer**.
+2. Beskriv hva du har endret, og klikk på **Del endringer**. Vil du se hvilke filer du har endret, klikker du på **Se siste endringer**.
+   ![Del endringer i Altinn Studio](./share-changes.png "Del endringer i Altinn Studio")
 
-   Du får en bekreftelse på at endringene er lastet opp.
+Du får en bekreftelse når endringene er delt.
+
+![Bekreftelse på at endringene er delt](./changes-shared.png "Bekreftelse på at endringene er delt")
+
+Hvis noen andre har endret appen på samme sted som deg, får du beskjed om at det er en konflikt i appen. Da kan du laste ned endringene dine som en zip-fil, eller velge **Slett mine endringer**.
 
 ## Lokal testing
 
@@ -136,8 +123,9 @@ Fanen **Live** viser planlagte, aktive og nylig avsluttede arbeidsflyter. Bruk f
 - Hvis du endrer forhåndsutfylling, må du starte en ny instans av appen (gå til [http://local.altinn.cloud:8000](http://local.altinn.cloud:8000) og logg inn igjen).
 - Hvis du endrer C#-filer, må du stoppe appen (`ctrl+C`) og starte den på nytt (`studioctl run`).
 
-Du kan oppdatere automatisk ved endring i C#-filer ved å starte appen med `dotnet watch`.
-Denne kommandoen vil enten starte appen eller laste den på nytt ([hot reload](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-watch#hot-reload)) ved endringer i kildekoden.
+Du kan oppdatere automatisk ved endring i C#-filer ved å starte appen med `dotnet watch` fra mappen *App*.
+Kommandoen starter appen, eller laster den på nytt ([hot reload](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-watch#hot-reload)) når du endrer kildekoden.
+Appen henter de lokale innstillingene fra `studioctl` selv, så du må ha `studioctl` installert.
 
 {{% insert "content/altinn-studio/shared/studioctl/stop-local-test.nb.md" %}}
 

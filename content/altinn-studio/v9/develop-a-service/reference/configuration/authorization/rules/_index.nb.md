@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Regelbibliotek
 linktitle: Regelbibliotek
 description: Her finner du eksempler på autorisasjonsregler du kan bruke i en app. Husk å bytte ut tags ([RULE_ID]) med en egen ID. [ORG] og [APP] kan stå som de er, siden de erstattes med informasjon fra applicationmetadata.json hvis du har oppdatert LocalTest etter januar 2023.
@@ -10,6 +9,10 @@ tags: [needsReview]
 ## [ORG] kan starte en instans av [ORG]/[APP]
 
 [ORG_1] og [ORG_2] kan her være like eller ulike. I tilfellet at de er ulike, tilsvarer [ORG_1] applikasjonseieren og [ORG_2] en annen organisasjon som får lov til å starte en instans. 
+
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
 
 ```xml {linenos=false,hl_lines=[2,7,15,19,27]}
 <xacml:Rule RuleId="urn:altinn:example:ruleid:[RULE_ID]" Effect="Permit">
@@ -50,6 +53,10 @@ tags: [needsReview]
 ## Bruker med rollen REGNA kan lese instanser av [ORG]/[APP] som er i Task_1
 
 Ved å endre rolle og task i denne regelen kan du gi rettigheter til å lese instansdata på en gitt task i prosessflyten.
+
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
 
 ```xml {linenos=false,hl_lines=[2,7,15,19,23,31]}
 <xacml:Rule RuleId="urn:altinn:example:ruleid:[RULE_ID]" Effect="Permit">
@@ -95,6 +102,10 @@ Ved å endre rolle og task i denne regelen kan du gi rettigheter til å lese ins
 
 Denne regelen kan brukes hvis applikasjonseier skal kunne oppdatere instanser uavhengig av hvor de er i prosessflyten.
 
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
+
 ```xml {linenos=false,hl_lines=[2,7,15,19,27]}
 <xacml:Rule RuleId="urn:altinn:example:ruleid:[RULE_ID]" Effect="Permit">
   <xacml:Description>[ORG] can write to instances of [ORG]/[APP] in any task or event</xacml:Description>
@@ -134,6 +145,10 @@ Denne regelen kan brukes hvis applikasjonseier skal kunne oppdatere instanser ua
 ## Bruker med rollen REGNA eller DAGL kan bekrefte instanser av [ORG]/[APP] som er i Task_2
 
 Denne regelen begrenser rettigheten til å bekrefte en instans i en bestemt task til kun to roller. Ved å enten modifisere task eller roller kan du sette regler for hvem som får bekrefte instansen i ulike faser av prosessen.
+
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
 
 ```xml {linenos=false,hl_lines=[2,7,13,21,25,29,37]}
 <xacml:Rule RuleId="urn:altinn:example:ruleid:[RULE_ID]" Effect="Permit">
@@ -185,6 +200,10 @@ Denne regelen begrenser rettigheten til å bekrefte en instans i en bestemt task
 
 Denne regelen tillater en bruker med den gitte rollen å lese instansdata etter at prosessen er avsluttet. Dette inkluderer blant annet å laste ned vedlegg og kvitteringer knyttet til instansen.
 
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
+
 ```xml {linenos=false,hl_lines=[2,7,14,18,22,30]}
 <xacml:Rule RuleId="urn:altinn:example:ruleid:[RULE_ID]" Effect="Permit">
   <xacml:Description>User with role REGNA can read instances of [ORG]/[APP] when it is in EndEvent_1</xacml:Description>
@@ -228,6 +247,10 @@ Denne regelen tillater en bruker med den gitte rollen å lese instansdata etter 
 ## Regel som definerer at [ORG] kan fullføre en instans av [ORG]/[APP] som har en fullført prosess.
 
 Denne regelen tillatter applikasjonseier å utføre en kvittering på at de er ferdig med en instans. Instansen må ha en fullført process.
+
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
 
 ```xml {linenos=false,hl_lines=[2,7,15,19,23,31]}
 <xacml:Rule RuleId="urn:altinn:example:ruleid:[RULE_ID]" Effect="Permit">
@@ -273,6 +296,10 @@ Denne regelen tillatter applikasjonseier å utføre en kvittering på at de er f
 
 Denne regelen tillatter applikasjonseier å slette en instans. Dette kan gjøres uavhengig av hvor i prosessen instansen er.
 
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
+
 ```xml
 <xacml:Rule RuleId="urn:altinn:example:ruleid:[RULE_ID]" Effect="Permit">
   <xacml:Description>[ORG] can delete an instance of [ORG]/[APP] in any task or event.</xacml:Description>
@@ -309,6 +336,10 @@ Denne regelen tillatter applikasjonseier å slette en instans. Dette kan gjøres
 </xacml:Rule>
 ```
 ## Bruker med rollen [REGNA] kan lese/abonnere på events generert av app [ORG]/[APP]
+
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
 
 ```xml
   <xacml:Rule RuleId="urn:altinn:example:ruleid:[RULE_ID]" Effect="Permit">
@@ -351,6 +382,10 @@ Denne regelen tillatter applikasjonseier å slette en instans. Dette kan gjøres
   ```
 
 ## [ORG] kan få tilgang med autentiseringsnivå 3
+
+{{< code-title >}}
+App/config/authorization/policy.xml
+{{< /code-title >}}
 
 ```xml
   <xacml:ObligationExpressions>

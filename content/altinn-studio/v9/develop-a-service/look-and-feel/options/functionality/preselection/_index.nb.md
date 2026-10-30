@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Forhåndsvalg
 description: Slik gjør du et av alternativene forhåndsvalgt
 weight: 250
@@ -19,6 +18,10 @@ Denne egenskapen er tilgjengelig for de fleste komponenter som støtter svaralte
 {{% /notice %}}
 
 Med denne egenskapen kan du forhåndsvelge et svaralternativ. Den tar et heltall som argument, som er indeksen til svaralternativet som skal være forhåndsvalgt. Indeksen starter på 0 for det første svaralternativet, 1 for det andre osv.
+
+{{< code-title >}}
+App/ui/{taskId}/layouts/{page}.json
+{{< /code-title >}}
 
 ```json
 {

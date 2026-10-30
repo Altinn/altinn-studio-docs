@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Autentisering
 description: Autentiseringsmetoder for API-er
 weight: 800
@@ -39,7 +38,7 @@ Altinn Autorisasjon støtter ulike typer brukere. Dette er viktig å vite om nå
   - Appens API aksepterer bare Maskinporten-tokens som har blitt innvekslet til Altinn-token (i fremtiden vil vi støtte Maskinporten-tokens direkte).
 
 {{% notice info %}}
-Virksomhetsbrukere fra Altinn 2 kan ikke lenger logge inn. De er erstattet av [systembruker](/nb/authorization/what-do-you-get/systemuser/).
+Virksomhetsbrukere fra Altinn 2 kan ikke lenger logge inn. De er erstattet av [systembruker]({{< relref "/authorization/what-do-you-get/systemuser" >}}).
 {{% /notice %}}
 
 ## Informasjon i appen
@@ -85,8 +84,9 @@ Det finnes ingen innebygd konfigurasjon for å begrense tilgang basert på auten
 Det vil si at ASP.NET Core-mellomvaren for autentisering må ha kjørt for at du skal få riktig informasjon.
 Mellomvaren for autentisering legges til i `UseAltinnAppCommonConfiguration`. Så hvis du skal bruke `IAuthenticationContext.Current`
 i en ASP.NET Core-mellomvare, må denne legges til **etter** at `UseAltinnAppCommonConfiguration` har blitt kalt.
-Alle grensesnitt som implementeres i en app, slik som `IInstantiationValidator` i eksempelet under, kjører på et tidspunkt
-hvor autentiseringsinformasjonen er tilgjengelig, så der er det trygt.
+Grensesnitt som kjører i forespørselen fra brukeren, slik som `IInstantiationValidator` i eksempelet under, kjører på et tidspunkt
+hvor autentiseringsinformasjonen er tilgjengelig, så der er det trygt. Prosess-hooks og systemoppgaver kjører i arbeidsflytmotoren,
+og der er `IAuthenticationContext.Current` appen selv, ikke brukeren.
 {{% /notice %}}
 
 ### ✅ Altinn-portalbrukere
@@ -142,6 +142,10 @@ Du kan gjøre den samme autoriseringen globalt ved hjelp av ASP.NET Core-mellomv
 Merk at denne varianten også blokkerer uautentiserte forespørsler.
 {{% /notice %}}
 
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
+
 ```csharp
 WebApplication app = builder.Build();
 
@@ -180,6 +184,10 @@ I dette eksempelet tillater vi bare forespørsler fra systembrukere:
 {{% notice info %}}
 Merk at denne varianten også blokkerer uautentiserte forespørsler.
 {{% /notice %}}
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
 ```csharp
 WebApplication app = builder.Build();

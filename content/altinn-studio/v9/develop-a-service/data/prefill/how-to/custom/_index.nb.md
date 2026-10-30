@@ -1,5 +1,4 @@
 ---
-draft: true
 title: Forhåndsutfylle data automatisk - egendefinert kode
 linktitle: Egendefinert kode
 description: Slik setter du opp automatisk utfylling av skjemadata med din egen kode.
@@ -27,6 +26,10 @@ Se under for eksempler.
 ## 3. Registrer klassen din
 
 Åpne `Program.cs` og legg til denne linjen:
+
+{{< code-title >}}
+App/Program.cs
+{{< /code-title >}}
 
 ```csharp
 services.AddTransient<IInstantiationProcessor, MinUtfylling>();

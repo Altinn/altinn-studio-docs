@@ -1,5 +1,4 @@
 ---
-draft: true
 title: "ALTINNAPP0702: postkassen er besvart to ganger"
 description: "Samme postkasse blir besvart av mer enn én behandler"
 weight: 72

@@ -4,6 +4,10 @@ headless: true
 hidden: true
 ---
 
+{{< code-title >}}
+App/config/applicationmetadata.json
+{{< /code-title >}}
+
 ```json
 {
   "id": "signeeState",

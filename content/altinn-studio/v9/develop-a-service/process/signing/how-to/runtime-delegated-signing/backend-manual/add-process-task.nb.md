@@ -1,5 +1,4 @@
 ---
-draft: true
 headless: true
 hidden: true
 tags: [needsReview]
@@ -19,6 +18,10 @@ Signering bruker to brukerhandlinger (user actions):
 Hvis appen bruker Altinn-brukergrensesnittet, vil handlingene ovenfor bli kalt ved knappetrykk i signeringssteget. Hvis appen bare bruker API-et, må du kalle disse manuelt via `/actions`-endepunktet eller process next.
 
 Et signeringssteg kan se omtrent slik ut:
+
+{{< code-title >}}
+App/config/process/process.bpmn
+{{< /code-title >}}
 
 ```xml
 <bpmn:task id="SigningTask" name="Signering">
@@ -110,4 +113,4 @@ Nedenfor finner du et eksempel på en slik policy. For at denne koden skal funge
 
 Gi `signature-access` til tjenesteeier. Dette gjør at appen (via Maskinporten) kan skrive og lese data i signaturdokumentene. Du kan også lese og sjekke signaturer når du måtte ønske det.
 
-[Les om begrenset tilgang til data](/nb/altinn-studio/v9/this-is-as/explanations/data-model/restricted-data/).
+[Les om begrenset tilgang til data](/nb/altinn-studio/v9/develop-a-service/data/restricted-data/).

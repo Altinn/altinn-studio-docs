@@ -3,7 +3,6 @@ title: Navigere i Altinn Studio
 linktitle: Navigere i Altinn Studio
 description: Oversikt over hva du ser når du logger inn i Altinn Studio.
 weight: 1
-draft: true
 marp: true
 headingDivider: 4
 style: |
