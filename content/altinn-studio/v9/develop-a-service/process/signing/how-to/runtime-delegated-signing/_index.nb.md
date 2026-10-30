@@ -159,14 +159,19 @@ Hvis `CommunicationConfig` ikke er satt, sendes en melding til innboksen i Altin
 og et varsel sendes bare på e-post, med Altinns generiske varslingsmal.
 {{% /notice %}}
 
-{{% notice warning %}}
-Vil du varsle på SMS, eller bruke standardtekstene for SMS og e-post fra forrige punkt, må du sette `CommunicationConfig.NotificationChoice`.
-Hvis den ikke er satt, avgjøres kanalen av `Notification.Email.EmailAddress` og `Notification.Sms.MobileNumber`,
-og når ingen av dem har verdi, sendes bare den generiske e-posten. Det holder å sette `NotificationChoice` for å bruke standardtekstene
-og den registrerte kontaktinformasjonen.
+{{% notice info %}}
+Med `CommunicationConfig.NotificationChoice` velger du hvilken kanal Altinn varsler på.
+Hvis du ikke setter den, varsler Altinn på kanalene du har satt i `Notification`: `Notification.Sms` gir SMS, `Notification.Email` gir e-post, og begge gir både SMS og e-post.
+Hvis du verken setter `NotificationChoice` eller noen av kanalene i `Notification`, sender Altinn bare den generiske e-posten.
 {{% /notice %}}
 
-Hvis du ikke endrer e-postadresser og telefonnumre, hentes de som beskrevet i [Recipient lookup](/nb/notifications/explanation/recipient-lookup/) og [Address lookup](/nb/notifications/explanation/address-lookup/).
+Hvis du ikke oppgir e-postadresse eller mobilnummer, sender Altinn varselet til den registrerte kontaktinformasjonen til de som skal signere: Kontakt- og reservasjonsregisteret (KRR) for personer og varslingsadressene for virksomheter. Les mer i [Recipient lookup](/nb/notifications/explanation/recipient-lookup/) og [Address lookup](/nb/notifications/explanation/address-lookup/).
+
+{{% notice warning %}}
+Hvis en person som skal signere, har reservert seg mot digital kommunikasjon i KRR, avviser Altinn meldingen om signeringsoppgaven.
+Personen får da verken melding i innboksen eller varsel, heller ikke når du selv oppgir e-postadresse eller mobilnummer.
+Personen får likevel rettigheter til å signere, og komponenten `SigneeList` viser at varslingen mislyktes.
+{{% /notice %}}
 
 Dette kan du endre i kommunikasjonen med de som skal signere:
 
@@ -180,11 +185,11 @@ Dette kan du endre i kommunikasjonen med de som skal signere:
 | CommunicationConfig.InboxMessage.BodyTextResourceKey          | Tekstressursnøkkelen for innboksmeldingsinnhold                                                              | String                  |
 | CommunicationConfig.Notification                              | Objektet for varslingskonfigurasjon                                                                          | Object                  |
 | CommunicationConfig.Notification.Email                        | Objektet for e-postvarsling                                                                                  | Object                  |
-| CommunicationConfig.Notification.Email.EmailAddress           | Overstyrer e-postadressen. Hvis den ikke er satt, brukes registrert kontaktinformasjon                       | String                  |
+| CommunicationConfig.Notification.Email.EmailAddress           | Overstyrer e-postadressen. Uten adresse bruker Altinn den registrerte kontaktinformasjonen                       | String                  |
 | CommunicationConfig.Notification.Email.SubjectTextResourceKey | Tekstressursnøkkelen for e-postemne                                                                          | String                  |
 | CommunicationConfig.Notification.Email.BodyTextResourceKey    | Tekstressursnøkkelen for e-postinnhold                                                                       | String                  |
 | CommunicationConfig.Notification.Sms                          | Objektet for SMS-varsling                                                                                    | Object                  |
-| CommunicationConfig.Notification.Sms.MobileNumber             | Overstyrer mobilnummeret. Hvis det ikke er satt, brukes registrert kontaktinformasjon                        | String                  |
+| CommunicationConfig.Notification.Sms.MobileNumber             | Overstyrer mobilnummeret. Oppgi det med landkode, for eksempel `+4799999999`. Uten nummer bruker Altinn den registrerte kontaktinformasjonen | String                  |
 | CommunicationConfig.Notification.Sms.BodyTextResourceKey      | Tekstressursnøkkelen for SMS-innhold                                                                         | String                  |
 | CommunicationConfig.ReminderNotification                      | Hvis satt, sendes en påminnelse til de som ikke har signert. Samme struktur som `Notification`, men bare tekstressursnøklene brukes | Object |
 
