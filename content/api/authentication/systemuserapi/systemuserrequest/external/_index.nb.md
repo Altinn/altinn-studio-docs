@@ -102,6 +102,7 @@ For en detaljert beskrivelse av hver felt i responsen, vennligst se beskrivelsen
 | AUTH-00026 | 400         | No redirect uris are set for the system                                                           | -                                                            |
 | AUTH-00021 | 400         | The RedirectUri was not found or not valid.                                                       | -                                                            |
 | AUTH-00001 | 400         | One or more Right not found or not delegable.                                                     | -                                                            |
+| AUTH-00083 | 400         | A right can have at most one resource, with the id urn:altinn:resource. Use one right per resource. | A right has one entry in its resource list. For several resources, send one right per resource. |
 | AUTH-00012 | 400         | An error occured when storing the Request.                                                        | -                                                            |
 
 ## Hent en systembruker forespørsel
