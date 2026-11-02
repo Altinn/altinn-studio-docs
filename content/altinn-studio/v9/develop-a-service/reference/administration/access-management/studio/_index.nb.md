@@ -35,8 +35,6 @@ Når Digdir oppretter en ny organisasjon i Altinn Studio, får den disse teamene
 
 Listen over standardteam har blitt lengre over tid. Eldre organisasjoner har kanskje bare Owners, Devs, Deploy-TT02 og Deploy-Production. Mangler organisasjonen din et team, kan du som eier opprette det selv med navnet fra tabellen.
 
-Organisasjoner som ble opprettet mellom april og oktober 2026, kan også ha et team som heter **Datamodels**. Altinn Studio bruker ikke dette teamet lenger.
-
 ### Team for andre miljøer
 
 Altinn Studio kjenner igjen teamene på navnet. Navnet består av hva teamet gir tilgang til, og navnet på miljøet:
