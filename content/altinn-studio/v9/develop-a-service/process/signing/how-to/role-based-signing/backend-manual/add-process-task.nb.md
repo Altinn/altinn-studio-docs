@@ -79,7 +79,7 @@ Verdien av `id`-feltet _må_ samstemme med verdien som har blitt spesifisert i [
 
 Det er viktig å sette `allowedContributors` til `"app:owned"`, slik at bare appen selv kan redigere disse dataene – ikke via appens API. Før versjon 8.6 var denne konfigurasjonen feilstavet `allowedContributers`.
 
-Vi anbefaler å sette opp [databeskyttelse](/nb/altinn-studio/v9/develop-a-service/data/restricted-data/) for signaturobjektene, ved å spesifisere feltene for `actionRequiredToRead` og `actionRequiredToWrite` i definisjonen ovenfor. Hvis du ikke ønsker å sette opp dette, kan du fjerne disse feltene.
+Vi anbefaler å sette opp [databeskyttelse](/nb/altinn-studio/v9/develop-a-service/data/restricted-data/) for signaturobjektene, ved å spesifisere feltene for `actionRequiredToRead` og `actionRequiredToWrite` i definisjonen ovenfor. Hvis du ikke ønsker å sette opp det, kan du fjerne disse feltene.
 
 #### Sett opp tilgangsstyring
 De som skal signere, trenger `read` og `sign`. Den som skal sende inn skjemaet etter signeringen, trenger i tillegg `write`.

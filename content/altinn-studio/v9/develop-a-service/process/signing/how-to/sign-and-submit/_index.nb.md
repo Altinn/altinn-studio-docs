@@ -57,7 +57,7 @@ Steget fungerer fortsatt som et vanlig datasteg, men brukeren kan i tillegg sign
 1. Endre `taskType` på datasteget til `signing`.
 2. Legg til `sign`-action som en mulig handling.
 3. Angi hvilke data som skal signeres i `<altinn:dataTypesToSign>`, for eksempel skjemadataene i datamodellen.
-4. Oppgi en datatype i `<altinn:signatureDataType>`. Hvordan den bør se ut, finner du nedenfor.
+4. Oppgi en datatype i `<altinn:signatureDataType>`. Se under hvordan den bør se ut.
 
 Ferdig konvertert eksempel i `process.bpmn`:
 

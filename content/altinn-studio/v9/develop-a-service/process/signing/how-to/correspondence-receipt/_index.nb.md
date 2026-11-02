@@ -46,12 +46,12 @@ maskinporten-klienten din i appen.
 {{<content-version-container version-label="Altinn Studio Designer">}}
 I Designer finner du feltet **Oppgi en ressurs for å sende ut meldinger** bare for brukerstyrt signering. For andre signeringsoppgaver legger du inn meldingsressursen som beskrevet under **Manuelt oppsett**.
 
-1. Naviger til appen din, og gå til **Prosess** i toppmenyen.
+1. Gå til appen din, og gå til **Prosess** i toppmenyen.
 2. Klikk på signeringsoppgaven i prosess-visningen og se at du får opp konfigurasjonsmuligheter i panelet på høyre side.
 3. Klikk på **Oppgi en ressurs for å sende ut meldinger**.
-4. Legg inn navnet på meldingstjenesten i feltet
-5. Klikk på "Del dine endringer" og knappen "Del endringer". 
-6. Publiser tjenesten til testmiljø og verifiser at kvitteringen sendes.
+4. Legg inn navnet på meldingstjenesten i feltet.
+5. Klikk på **Del dine endringer** og knappen **Del endringer**.
+6. Publiser tjenesten til testmiljøet og sjekk at kvitteringen blir sendt.
 {{</content-version-container>}}
 
 {{<content-version-container version-label="Manuelt oppsett">}}
@@ -81,9 +81,9 @@ I Designer finner du feltet **Oppgi en ressurs for å sende ut meldinger** bare 
 
             <!-- ... ev. annen konfigurasjon knyttet til signering her -->
 
-            <!-- Her oppgis en meldingsressurs, som brukes for å si fra til de som skal signere -->
+            <!-- Her oppgir du en meldingsressurs, som brukes for å si fra til de som skal signere -->
             <!-- om at de må inn og signere, samt signeringskvittering. -->
-            <!-- Påkrevd for brukerstyrt signering i testmiljø og produksjon. -->
+            <!-- Må fylles ut for brukerstyrt signering i testmiljø og produksjon. -->
             <altinn:correspondenceResource>app-correspondence-resource</altinn:correspondenceResource>
 
         </altinn:signatureConfig>
