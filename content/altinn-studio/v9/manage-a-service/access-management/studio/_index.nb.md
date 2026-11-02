@@ -15,7 +15,7 @@ Som eier av en organisasjon i Altinn Studio kan du styre hva de andre brukerne i
 
 Gå til `https://altinn.studio/repos/org/{org}/teams/` (erstatt `{org}` med organisasjonskoden din).
 
-Altinn Studio har fire standardteam som bestemmer hva en bruker har lov til å gjøre i organisasjonen. Ved behov kan du som eier legge til eller fjerne brukere i team, opprette nye team og endre innstillingene for eksisterende team.
+Altinn Studio har standardteam som bestemmer hva en bruker har lov til å gjøre i organisasjonen. Ved behov kan du som eier legge til eller fjerne brukere i team, opprette nye team og endre innstillingene for eksisterende team.
 
 [Se oversikt over standardteamene og tilgangene de gir]({{< relref "/altinn-studio/v9/develop-a-service/reference/administration/access-management/studio" >}}).
 
