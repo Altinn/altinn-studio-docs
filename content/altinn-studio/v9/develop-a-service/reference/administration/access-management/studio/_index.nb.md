@@ -39,7 +39,7 @@ Listen over standardteam har blitt lengre over tid. Eldre organisasjoner har kan
 
 ### Owners (eiere)
 
-Medlemmer i dette teamet er administratorer for organisasjonen. De kan administrere tilgangsstyringen for alle team og repositorier som er knyttet til organisasjonen. De kan også publisere apper til alle miljøer.
+Medlemmer i dette teamet er administratorer for organisasjonen. De kan administrere tilgangsstyringen for alle team og repositorier som er knyttet til organisasjonen.
 
 Som medlem i teamet kan du blant annet
 
