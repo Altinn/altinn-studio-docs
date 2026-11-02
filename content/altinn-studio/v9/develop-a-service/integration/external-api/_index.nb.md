@@ -235,7 +235,7 @@ Brukeren ser ingen feilmelding når et eksternt API feiler:
 - `SimpleTable` viser ingenting.
 - For `SimpleTable` skriver nettleseren feilen i konsollen. For uttrykket `externalApi` ser du feilen bare som en mislykket forespørsel i nettverksfanen i utviklerverktøyene til nettleseren.
 
-Kaster klienten en `HttpRequestException` med statuskode, svarer endepunktet med den samme statuskoden. Avviser API-et tokenet, får nettleseren derfor statuskode 401 eller 403. Andre feil gir statuskode 500.
+Gir klienten en `HttpRequestException` med statuskode, svarer endepunktet med den samme statuskoden. Avviser API-et tokenet, får nettleseren derfor statuskode 401 eller 403. Andre feil gir statuskode 500.
 
 Endepunktet sender feilmeldingen fra unntaket videre til nettleseren. Ikke ta med personopplysninger eller andre sensitive opplysninger i feilmeldingene fra klienten.
 
