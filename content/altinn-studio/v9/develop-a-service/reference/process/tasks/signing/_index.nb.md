@@ -196,7 +196,7 @@ App/ui/Task_2/layouts/{page}.json
 
 For at brukere skal få lov til å signere, må du sette opp en regel i `App/config/authorization/policy.xml` som gir brukerne rettigheter til å signere på det nye prosesssteget.
 
-De som skal signere, trenger `read` og `sign` på steget der signeringen skjer. Den som skal sende inn skjemaet etter signeringen, trenger i tillegg `write`.
+De som skal signere, trenger `read` og `sign` på steget der signeringen skjer. Med `SigningActions` ser bare brukere med `write` knappen **Send inn skjemaet** etter signeringen.
 
 Eksempel på en autorisasjonsregel som gir disse tilgangene for _DAGL_-rollen på prosesssteg med id _Task_2_:
 
@@ -328,9 +328,7 @@ App/config/process/process.bpmn
 
 Hvis du vil at signereren skal kunne avslå å signere og for eksempel sende instansen tilbake til forrige steg, kan du legge til en `reject`-handling på dette prosesssteget.
 
-Du legger også handlingen til i autorisasjonsregelen. Hvis layouten bruker `SigningActions`, viser komponenten da en egen **Avbryt signering**-knapp. Bruker du ikke `SigningActions`, må du legge til en `ActionButton` med `"action": "reject"`.
-
-Har oppgaven handlingen `reject`, må også tjenesteeieren (`[org]`) ha `reject` på oppgaven. Ellers stopper bygget med feilen `ALTINNAPP0800`.
+Du legger også handlingen til i autorisasjonsregelen. Hvis layouten bruker `SigningActions`, viser komponenten knappen **Avbryt signering** for brukere som har `reject`. Bruker du ikke `SigningActions`, må du legge til en `ActionButton` med `"action": "reject"`.
 
 Se [Slik styrer du prosessflyten](/nb/altinn-studio/v9/develop-a-service/reference/process/flowcontrol/) for mer informasjon.
 

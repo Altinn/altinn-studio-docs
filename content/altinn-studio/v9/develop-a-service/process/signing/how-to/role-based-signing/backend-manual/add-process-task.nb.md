@@ -82,8 +82,6 @@ Det er viktig å sette `allowedContributors` til `"app:owned"`, slik at bare app
 Vi anbefaler å sette opp [databeskyttelse](/nb/altinn-studio/v9/develop-a-service/data/restricted-data/) for signaturobjektene, ved å spesifisere feltene for `actionRequiredToRead` og `actionRequiredToWrite` i definisjonen ovenfor. Hvis du ikke ønsker å sette opp det, kan du fjerne disse feltene.
 
 #### Sett opp tilgangsstyring
-De som skal signere, trenger `read` og `sign`. Den som skal sende inn skjemaet etter signeringen, trenger i tillegg `write`.
-
-Oppgaven i eksempelet har handlingen `reject`. Derfor må også tjenesteeieren (`[org]`) ha `reject` på oppgaven. Ellers stopper bygget med feilen `ALTINNAPP0800`.
+De som skal signere, trenger `read` og `sign`. Med `SigningActions` ser bare brukere med `write` knappen **Send inn skjemaet** etter signeringen.
 
 [Les om action-attributter i tilgangsstyring](/nb/altinn-studio/v9/develop-a-service/reference/configuration/authorization/#action-attributter).

@@ -200,7 +200,7 @@ App/ui/Task_2/layouts/{page}.json
 
 To allow users to sign, a rule must be defined in `App/config/authorization/policy.xml` that grants users the rights to sign in the given process step.
 
-Users who will sign need `read` and `sign` on the step. The user who submits the form after signing also needs `write`.
+Users who will sign need `read` and `sign` on the step. With `SigningActions`, only users with `write` see the **Send inn skjemaet** button after signing.
 
 An example of an authorization rule granting these permissions for the _DAGL_ role on the process step with the ID _Task_2_ could look like this:
 
@@ -332,9 +332,7 @@ App/config/process/process.bpmn
 
 If it should be possible to decline signing and, for example send the instance back to the previous step, this can be done by adding a `reject` action to this process step.
 
-You also add the action to the authorization rule. If the layout uses `SigningActions`, the component then shows its own **Avbryt signering** button. If you do not use `SigningActions`, you must add an `ActionButton` with `"action": "reject"`.
-
-If the task has the `reject` action, the service owner (`[org]`) must also have `reject` on the task. Otherwise the build stops with the error `ALTINNAPP0800`.
+You also add the action to the authorization rule. If the layout uses `SigningActions`, the component shows the **Avbryt signering** button to users who have `reject`. If you do not use `SigningActions`, you must add an `ActionButton` with `"action": "reject"`.
 
 See [Controlling process flow](/nb/altinn-studio/v9/develop-a-service/reference/process/flowcontrol/) (in Norwegian) for more information.
 
