@@ -6,7 +6,7 @@ tags: [Reviewed]
 toc: true
 weight: 200
 aliases:
-- /nb/altinn-studio/guides/administration/access-management/studio/
+  - /nb/altinn-studio/guides/administration/access-management/studio/
 ---
 
 ## Styre tilganger i organisasjonen

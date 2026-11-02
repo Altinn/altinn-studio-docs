@@ -19,19 +19,19 @@ Altinn Studio har standardteam som legger føringer for hva en bruker har lov ti
 
 Når Digdir oppretter en ny organisasjon i Altinn Studio, får den disse teamene:
 
-| Team | Hva medlemmene kan gjøre |
-|---|---|
-| **Owners** | Administrere organisasjonen og tilgangene i den |
-| **Devs** | Utvikle apper og opprette nye repositorier |
-| **Deploy-TT02** | Publisere apper til testmiljøet TT02 |
-| **Deploy-Production** | Publisere apper til produksjonsmiljøet |
-| **Admin-TT02** | Følge med på publiserte apper i testmiljøet TT02 |
-| **Admin-Production** | Følge med på publiserte apper i produksjonsmiljøet |
-| **Resources** | Jobbe med ressursene til organisasjonen i ressursadministrasjonen |
-| **Resources-Publish-TT02** | Publisere ressurser til testmiljøet TT02 |
-| **Resources-Publish-PROD** | Publisere ressurser til produksjonsmiljøet |
-| **AccessLists-TT02** | Administrere tilgangslister i testmiljøet TT02 |
-| **AccessLists-PROD** | Administrere tilgangslister i produksjonsmiljøet |
+| Team                       | Hva medlemmene kan gjøre                                          |
+| -------------------------- | ----------------------------------------------------------------- |
+| **Owners**                 | Administrere organisasjonen og tilgangene i den                   |
+| **Devs**                   | Utvikle apper og opprette nye repositorier                        |
+| **Deploy-TT02**            | Publisere apper til testmiljøet TT02                              |
+| **Deploy-Production**      | Publisere apper til produksjonsmiljøet                            |
+| **Admin-TT02**             | Følge med på publiserte apper i testmiljøet TT02                  |
+| **Admin-Production**       | Følge med på publiserte apper i produksjonsmiljøet                |
+| **Resources**              | Jobbe med ressursene til organisasjonen i ressursadministrasjonen |
+| **Resources-Publish-TT02** | Publisere ressurser til testmiljøet TT02                          |
+| **Resources-Publish-PROD** | Publisere ressurser til produksjonsmiljøet                        |
+| **AccessLists-TT02**       | Administrere tilgangslister i testmiljøet TT02                    |
+| **AccessLists-PROD**       | Administrere tilgangslister i produksjonsmiljøet                  |
 
 Listen over standardteam har blitt lengre over tid. Eldre organisasjoner har kanskje bare Owners, Devs, Deploy-TT02 og Deploy-Production. Mangler organisasjonen din et team, kan du som eier opprette det selv med navnet fra tabellen.
 
