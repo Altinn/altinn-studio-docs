@@ -258,7 +258,7 @@ Ikke send fødselsnummer eller andre personopplysninger som spørreparametere. A
 
 ## Kommer du fra v8?
 
-- Metoden heter nå `GetExternalApiData`, uten `Async`. `studioctl app upgrade v9` gir metoden det nye navnet. Eksemplene i v8-dokumentasjonen hadde `queryParams = null`, men det har aldri vært en del av grensesnittet.
+- Metoden heter nå `GetExternalApiData`, uten `Async`. `studioctl app upgrade v9` gir metoden det nye navnet.
 - `ConfigureMaskinportenClient` finnes ikke lenger. Se [Kommer du fra v8?]({{< relref "/altinn-studio/v9/develop-a-service/integration/maskinporten#fra-v8" >}}) på siden om Maskinporten.
 - I `Text` står uttrykket i `value` på komponenten.
 - Uttrykket `["equals", ["externalApi", id, "length"], 0]` i `hidden` fra v8-dokumentasjonen virker ikke. Funksjonen gir `null` for lister og for `0`, og backend gir en feil fordi uttrykket står i `hidden`.
