@@ -33,7 +33,7 @@ Når Digdir oppretter en ny organisasjon i Altinn Studio, får den disse teamene
 | **AccessLists-TT02**       | Administrere tilgangslister i testmiljøet TT02                    |
 | **AccessLists-PROD**       | Administrere tilgangslister i produksjonsmiljøet                  |
 
-Listen over standardteam har blitt lengre over tid. Eldre organisasjoner har kanskje bare Owners, Devs, Deploy-TT02 og Deploy-Production. Mangler organisasjonen din et team, kan du som eier opprette det selv med navnet fra tabellen.
+Listen over standardteam kan endres over tid. Eldre organisasjoner har kanskje bare Owners, Devs, Deploy-TT02 og Deploy-Production. Mangler organisasjonen din et team, kan du som eier opprette det selv med navnet fra tabellen.
 
 ## Team for å administrere organisasjonen
 
