@@ -23,7 +23,7 @@ Appen kan hente data fra et annet system og vise dem til brukeren, for eksempel 
 
 Nettleseren henter ikke dataene på nytt når brukeren endrer noe i skjemaet. Dataene kan derfor ikke avhenge av det brukeren fyller ut.
 
-Fordi uttrykket henter fra alle de eksterne API-ene, kaller appen alle API-ene hver gang nettleseren henter dataene til uttrykket, også dem skjemaet ikke viser. Det tar tid, og det kan koste penger hos den som leverer API-et.
+Fordi uttrykket henter fra alle de eksterne API-ene, kaller appen alle API-ene hver gang nettleseren henter dataene til uttrykket, også de dataene skjemaet ikke viser. Det tar tid, og det kan koste penger for den som leverer API-et.
 
 ## Lage en klient
 
