@@ -4,6 +4,9 @@ title: Payment
 linktitle: Payment
 description: How to set up payment with Nets Easy in your app.
 tags: [payment]
+
+aliases:
+- /altinn-studio/v8/guides/payment/
 ---
 
 ## 1. Before you begin

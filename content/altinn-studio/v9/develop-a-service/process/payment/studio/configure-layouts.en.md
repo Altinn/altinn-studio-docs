@@ -36,7 +36,7 @@ App/ui/{taskId}/layouts/{page}.json
 
 ### How to show payment information in the payment task
 
-Altinn Studio sets this up automatically when you add the payment task in **Prosess**.
+Altinn Studio sets this up automatically when you add the payment task in **Arbeidsflyt**.
 
 ### How to create your own receipt for the payment (optional)
 
@@ -44,7 +44,7 @@ If you skip this step, the app uses the setup from the payment task for the rece
 
 1. Click **Utforming** in the top menu, and click **Utform** on the **Oppgave: Betaling** card. If you are already in a task, first click **Oversikt** at the top of the page to get back to the cards.
 2. Click **Legg til ny side**.
-3. In the panel on the right, open **PDF** and turn on the **Siden skal være en PDF** switch.
+3. In the panel on the right, open **PDF** and click **Gjør om siden til PDF**.
 4. Add the **Betaling** component, and any other texts and components you want on the PDF page.
 5. Open the developer tools in the preview with the button at the bottom right, or press **Ctrl+Shift+K** (**⌘+Shift+K** on Mac). Then click **Generer PDF** under **Forhåndsvis PDF**.
 

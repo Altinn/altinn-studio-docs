@@ -1,7 +1,6 @@
 ---
 draft: true
 hidden: true
-tags: [needsReview]
 ---
 
 > This is a description of how to set up a payment task in the app process. This involves several manual steps in multiple
@@ -27,7 +26,7 @@ App/config/applicationmetadata.json
       "app:owned"
     ],
     "maxCount": 1,
-    "minCount": 0
+    "minCount": 0,
 }
 ```
 
@@ -47,13 +46,13 @@ App/config/applicationmetadata.json
       "app:owned"
     ],
     "maxCount": 1,
-    "minCount": 0
+    "minCount": 0,
 }
 ```
 
-It is important to set `allowedContributors` to `"app:owned"`. This means that you cannot edit these data items through the app’s API, only through the app itself.
+It is important to set `allowedContributors` to `"app:owned"`. This ensures that these data items cannot be edited via the app’s API but only by the app itself. Before version 8.6, this was misspelled `allowedContributers`.
 
-You can use other IDs, but they must match the IDs entered in `paymentDataType` and `paymentReceiptPdfDataType` in the process step, as shown in the next section.
+The IDs can be set to something else, but they must match the IDs entered in `paymentDataType` and `paymentReceiptPdfDataType` in the process step, as shown in step 2.
 
 ### Extend the app process with payment task:
 
@@ -140,7 +139,7 @@ App/ui/Task_2/Settings.json
 
 ```json
 {
-  "$schema": "https://altinn.studio/designer/app-dist/9.0.0-preview.9/schemas/json/layout/layoutSettings.schema.v1.json",
+  "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
   "defaultDataType": "model",
   "pages": {
     "order": ["payment"]
@@ -156,7 +155,7 @@ App/ui/Task_2/layouts/payment.json
 
 ```json
 {
-  "$schema": "https://altinn.studio/designer/app-dist/9.0.0-preview.9/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       {
