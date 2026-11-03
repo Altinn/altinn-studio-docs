@@ -4,11 +4,11 @@ tags: [Reviewed]
 ---
 
 
->Du gjør oppsettet i denne delen på siden **Arbeidsflyt** i Altinn Studio. Klikk på **Arbeidsflyt** i toppmenyen for å komme dit.
+>Du gjør oppsettet i denne delen på siden **Prosess** i Altinn Studio. Klikk på **Prosess** i toppmenyen for å komme dit.
 
 ### 1. Legg til en betalingsoppgave
 
-Legg til en betalingsoppgave ved å dra **Lag betalingsoppgave** fra menyen til venstre inn i arbeidsflyten.
+Legg til en betalingsoppgave ved å dra **Lag betalingsoppgave** fra menyen til venstre inn i prosessen.
 
 Altinn Studio legger da automatisk til
 
@@ -20,21 +20,21 @@ Altinn Studio legger da automatisk til
 
 Gatewayen skal ha to piler (sekvensflyter) ut:
 
-- En som peker videre i arbeidsflyten.
-- En som peker tilbake til forrige oppgave i arbeidsflyten (før betaling).
+- En som peker videre i prosessen.
+- En som peker tilbake til forrige oppgave i prosessen (før betaling).
 
 ### 3. Sett opp regler for pilene ut av gatewayen
 
 **For pilen som går videre:**
 
-1. Klikk på pilen som går _videre_ i arbeidsflyten.
+1. Klikk på pilen som går _videre_ i prosessen.
 2. I panelet til høyre klikker du på **Lag en ny logikkregel**. Regelen får handlingen **Avvise** (`reject`) som utgangspunkt.
 3. Klikk på **Endre**, og bytt handlingen fra **Avvise** til **Bekrefte**.
 4. Klikk på **Lagre og lukk** for å lagre regelen.
 
 **For pilen som går tilbake:**
 
-1. Klikk på pilen som går _tilbake_ i arbeidsflyten.
+1. Klikk på pilen som går _tilbake_ i prosessen.
 2. Gjenta stegene over, men ikke endre handlingen. Den skal være **Avvise**.
 
-![Arbeidsflyt med oppgavene Utfylling og Betaling, og en gateway som enten går videre til slutten eller tilbake til Utfylling](/nb/altinn-studio/v9/develop-a-service/process/payment/process-data-payment.png "Arbeidsflyt med betaling")
+![Prosessen med oppgavene Utfylling og Betaling, og en gateway som enten går videre til slutten eller tilbake til Utfylling](/nb/altinn-studio/v9/develop-a-service/process/payment/process-data-payment.png "Arbeidsflyt med betaling")

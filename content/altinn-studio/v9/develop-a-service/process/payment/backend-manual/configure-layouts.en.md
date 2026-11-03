@@ -1,9 +1,10 @@
 ---
 draft: true
 hidden: true
+tags: [needsReview]
 ---
 
-### Add OrderDetails component to your form
+### Add the PaymentDetails component to your form
 
 This will display a table showing the items the user will need to pay for.
 You can put this anywhere in your app, but we recommend at the very least putting it on the last page before the user is prompted to pay.
@@ -43,7 +44,7 @@ App/ui/{taskId}/layouts/receiptLayout.json
 
 ```json
 {
-  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinn.studio/designer/app-dist/9.0.0-preview.7/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       {
@@ -64,7 +65,8 @@ App/ui/{taskId}/Settings.json
 
 ```json
 {
-  "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layoutSettings.schema.v1.json",
+  "$schema": "https://altinn.studio/designer/app-dist/9.0.0-preview.7/schemas/json/layout/layoutSettings.schema.v1.json",
+  "defaultDataType": "model",
   "pages": {
     "order": [
       "payment"
