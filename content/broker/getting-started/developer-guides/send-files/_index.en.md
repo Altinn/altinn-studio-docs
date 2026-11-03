@@ -17,7 +17,7 @@ For more information, see our [swagger-page](/en/api/broker/spec/) and [GitHub-r
 
 **Endpoint:** POST /broker/api/v1/filetransfer/
 
-This operation initializes a File Transfer, including validating basic metadata and authorizing if the recipient(s) specified are valid.
+This operation initializes a File Transfer, including validating basic metadata and authorizing if the recipient(s) specified are valid. You can include an optional [checksum](/en/broker/explanation/checksum/).
 
 **Request**: An instance of [FileInitializeExt](https://github.com/Altinn/altinn-broker/blob/main/src/Altinn.Broker.API/Models/FileTransferInitializeExt.cs) serialized as JSON.
 

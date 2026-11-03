@@ -17,7 +17,7 @@ For mer informasjon, se vår [swagger-side](/nb/api/broker/spec/) og [GitHub-rep
 
 **Endepunkt:** POST /broker/api/v1/filetransfer/
 
-Denne operasjonen initialiserer en filoverføring, inkludert validering av grunnleggende metadata og autorisasjon hvis mottaker(e) spesifisert er gyldige.
+Denne operasjonen initialiserer en filoverføring, inkludert validering av grunnleggende metadata og autorisasjon hvis mottaker(e) spesifisert er gyldige. Du kan ta med en valgfri [sjekksum](/nb/broker/explanation/checksum/).
 
 **Forespørsel**: En instans av [FileInitializeExt](https://github.com/Altinn/altinn-broker/blob/main/src/Altinn.Broker.API/Models/FileTransferInitializeExt.cs) serialisert som JSON.
 
