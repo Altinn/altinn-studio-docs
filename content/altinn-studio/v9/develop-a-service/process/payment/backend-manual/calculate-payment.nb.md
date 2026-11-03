@@ -18,11 +18,11 @@ Returverdien fra metoden `CalculateOrderDetails` angir
 - detaljer om betalingsmottakeren, som appen bruker i kvitteringen
 - detaljer om betaleren (valgfritt)
 
-Fyll ut `Nets Easy` som betalingsbehandler for å bruke standardimplementasjonen for Nets Easy. Du gjør egne betalingsbehandlere tilgjengelige ved å implementere grensesnittet `IPaymentProcessor` og registrere dem som `transient` i `Program.cs`.
+Sett betalingsbehandleren til `Nets Easy` for å bruke standardimplementasjonen for Nets Easy. Du gjør egne betalingsbehandlere tilgjengelige ved å implementere grensesnittet `IPaymentProcessor` og registrere dem som `transient` i `Program.cs`.
 
-Send med detaljer om betaleren hvis du vil fylle ut denne informasjonen på forhånd hos Nets Easy. Du kan bruke dette sammen med flagget `MerchantHandlesConsumerData` fra Nets Easy, som du setter i `appsettings.json` under `NetsPaymentSettings.MerchantHandlesConsumerData`. Hvis du setter det til `true`, må du sende med detaljer om betaleren. Ellers feiler betalingen.
+Send med detaljer om betaleren hvis du vil fylle ut denne informasjonen på forhånd hos Nets Easy. Du kan bruke dette sammen med flagget `MerchantHandlesConsumerData` fra Nets Easy, som du setter i `appsettings.json` under `NetsPaymentSettings.MerchantHandlesConsumerData`. Hvis du setter det til `true`, må du sende med detaljer om betaleren. Ellers går ikke betalingen gjennom.
 
-I dette eksempelet regner appen ut ordrelinjene basert på skjemadata:
+I dette eksempelet regner appen ut ordrelinjene ut fra skjemadataene:
 
 ```c#
 public class OrderDetailsCalculator : IOrderDetailsCalculator
@@ -85,7 +85,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 ### Når totalbeløpet er 0
 
-Hvis totalbeløpet for ordren er 0, kontakter ikke appen betalingsleverandøren. Appen setter da betalingsstatusen til `Skipped` og lager ingen betalingskvittering når betalingssteget avsluttes.
+Hvis totalbeløpet for ordren er 0, kontakter ikke appen betalingsleverandøren. Appen setter da betalingsstatusen til `Skipped` og lager ingen betalingskvittering når betalingssteget er ferdig.
 
 ### Teste uten betalingsleverandør
 

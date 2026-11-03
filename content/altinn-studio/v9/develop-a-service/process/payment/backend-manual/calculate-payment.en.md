@@ -19,11 +19,11 @@ The return value from the `CalculateOrderDetails` method specifies
 - details about the payment receiver, which the app uses in the receipt
 - details about the payer (optional)
 
-Fill in `Nets Easy` as the payment processor to use the default implementation for Nets Easy. You make your own payment processors available by implementing the `IPaymentProcessor` interface and registering them as `transient` in `Program.cs`.
+Set the payment processor to `Nets Easy` to use the default implementation for Nets Easy. You make your own payment processors available by implementing the `IPaymentProcessor` interface and registering them as `transient` in `Program.cs`.
 
 Send payer details if you want to prefill this information with Nets Easy. You can use this together with the Nets Easy flag `MerchantHandlesConsumerData`, which you set in `appsettings.json` under `NetsPaymentSettings.MerchantHandlesConsumerData`. If you set it to `true`, you must send payer details; otherwise, the payment fails.
 
-In this example, the app calculates the order lines based on form data:
+In this example, the app calculates the order lines from the form data:
 
 ```c#
 public class OrderDetailsCalculator : IOrderDetailsCalculator
@@ -86,7 +86,7 @@ void RegisterCustomAppServices(IServiceCollection services, IConfiguration confi
 
 ### When the total is 0
 
-If the order total is 0, the app does not contact the payment processor. The app then sets the payment status to `Skipped` and does not create a payment receipt when the payment task ends.
+If the order total is 0, the app does not contact the payment provider. The app then sets the payment status to `Skipped` and does not create a payment receipt when the payment task is finished.
 
 ### Test without a payment provider
 

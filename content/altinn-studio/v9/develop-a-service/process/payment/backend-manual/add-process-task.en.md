@@ -51,9 +51,9 @@ App/config/applicationmetadata.json
 }
 ```
 
-It is important to set `allowedContributors` to `"app:owned"`. This ensures that these data items cannot be edited via the app’s API but only by the app itself.
+It is important to set `allowedContributors` to `"app:owned"`. This means that you cannot edit these data items through the app’s API, only through the app itself.
 
-The IDs can be set to something else, but they must match the IDs entered in `paymentDataType` and `paymentReceiptPdfDataType` in the process step, as shown in the next section.
+You can use other IDs, but they must match the IDs entered in `paymentDataType` and `paymentReceiptPdfDataType` in the process step, as shown in the next section.
 
 ### Extend the app process with payment task:
 
@@ -140,7 +140,7 @@ App/ui/Task_2/Settings.json
 
 ```json
 {
-  "$schema": "https://altinn.studio/designer/app-dist/9.0.0-preview.7/schemas/json/layout/layoutSettings.schema.v1.json",
+  "$schema": "https://altinn.studio/designer/app-dist/9.0.0-preview.9/schemas/json/layout/layoutSettings.schema.v1.json",
   "defaultDataType": "model",
   "pages": {
     "order": ["payment"]
@@ -156,7 +156,7 @@ App/ui/Task_2/layouts/payment.json
 
 ```json
 {
-  "$schema": "https://altinn.studio/designer/app-dist/9.0.0-preview.7/schemas/json/layout/layout.schema.v1.json",
+  "$schema": "https://altinn.studio/designer/app-dist/9.0.0-preview.9/schemas/json/layout/layout.schema.v1.json",
   "data": {
     "layout": [
       {

@@ -4,7 +4,7 @@ tags: [Reviewed]
 ---
 
 
->Du gjør oppsettet i denne delen på siden **Prosess** i Altinn Studio. Klikk på **Prosess** i toppmenyen for å komme dit.
+> Du gjør oppsettet i denne delen på siden **Prosess** i Altinn Studio. Klikk på **Prosess** i toppmenyen for å komme dit.
 
 ### 1. Legg til en betalingsoppgave
 
@@ -37,4 +37,4 @@ Gatewayen skal ha to piler (sekvensflyter) ut:
 1. Klikk på pilen som går _tilbake_ i prosessen.
 2. Gjenta stegene over, men ikke endre handlingen. Den skal være **Avvise**.
 
-![Prosessen med oppgavene Utfylling og Betaling, og en gateway som enten går videre til slutten eller tilbake til Utfylling](/nb/altinn-studio/v9/develop-a-service/process/payment/process-data-payment.png "Arbeidsflyt med betaling")
+![Prosessen med oppgavene Utfylling og Betaling, og en gateway som enten går videre til slutten eller tilbake til Utfylling](/nb/altinn-studio/v9/develop-a-service/process/payment/process-data-payment.png "Prosess med betaling")

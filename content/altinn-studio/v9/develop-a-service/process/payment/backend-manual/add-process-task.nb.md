@@ -136,7 +136,7 @@ NB: Verdien til noden `<altinn:paymentDataType>paymentInformation</altinn:paymen
 
   ```json
   {
-    "$schema": "https://altinn.studio/designer/app-dist/9.0.0-preview.7/schemas/json/layout/layoutSettings.schema.v1.json",
+    "$schema": "https://altinn.studio/designer/app-dist/9.0.0-preview.9/schemas/json/layout/layoutSettings.schema.v1.json",
     "defaultDataType": "model",
     "pages": {
       "order": ["payment"]
@@ -152,7 +152,7 @@ NB: Verdien til noden `<altinn:paymentDataType>paymentInformation</altinn:paymen
 
   ```json
   {
-    "$schema": "https://altinn.studio/designer/app-dist/9.0.0-preview.7/schemas/json/layout/layout.schema.v1.json",
+    "$schema": "https://altinn.studio/designer/app-dist/9.0.0-preview.9/schemas/json/layout/layout.schema.v1.json",
     "data": {
       "layout": [
         {
