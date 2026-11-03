@@ -15,6 +15,8 @@ Denne prosessen vil forenkles gjennom en fremtidig oppdatering i Altinn Studio.
 Spesielt vil trinn 4-6 utføres via GUI i stedet for å kreve direkte API-kall.
 {{% /notice %}}
 
+Skal avsendere og mottakere bruke nettleseren, følger du [Slik setter du opp en formidlingstjeneste for nettleseren](/nb/broker/getting-started/web-app/service-owner/). Stegene under gjelder når et system skal kalle API-et.
+
 Denne veiledningen er for deg som er tjenesteeier og ønsker å bruke Altinn Formidling. Her finner du trinnvise instruksjoner for registrering, opprettelse av ressurs, konfigurering av tilganger og autentisering, integrasjon med Formidling API-et, samt oppsett av varsler. Veiledningen hjelper deg med å sette opp og administrere formidlingstjenesten.
 
 ## 1. Kom i gang som tjenesteeier i Altinn {#get-started-as-service-owner-in-altinn}
