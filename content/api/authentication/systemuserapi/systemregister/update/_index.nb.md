@@ -191,18 +191,22 @@ PUT authentication/api/v1/systemregister/vendor/{systemid}/rights
 ### Request Body
 ```
 [
-    {
-        "resource": [
-            {
-                "id": "urn:altinn:resource",
-                "value": "authentication-e2e-test"
-            },
-            {
-                "id": "urn:altinn:resource",
-                "value": "authentication-e2e-test"
-            }
-        ]
-    }
+  {
+    "resource": [
+      {
+        "id": "urn:altinn:resource",
+        "value": "authentication-e2e-test"
+      }
+    ]
+  },
+  {
+    "resource": [
+      {
+        "id": "urn:altinn:resource",
+        "value": "ske-krav-og-betalinger"
+      }
+    ]
+  }
 ]
 ```
 ### Scopes

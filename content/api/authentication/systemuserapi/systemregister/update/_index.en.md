@@ -216,7 +216,7 @@ PUT authentication/api/v1/systemregister/vendor/{systemid}/rights
     "resource": [
       {
         "id": "urn:altinn:resource",
-        "value": "vegardtestressurs"
+        "value": "ske-krav-og-betalinger"
       }
     ]
   }

@@ -54,6 +54,8 @@ A short text that describes the system. This is used to present to the end user 
 
 This defines the services that the vendor's system requires access from the system user. This can be either altinn 3 app, service outside altinn but is registered as a resource in Altinn. The example below defines an app "app_ttd_endring-av-navn-v2" in altinn and service "ske-krav-og-betalinger" outside altinn that is registered as a resource in Altinn. This is an optional argument to create a system but it must be set before the system user can be created.
 
+Each right names one resource: its `resource` list has one entry, with `"id": "urn:altinn:resource"`. To give access to several resources, add one right per resource, as in the example below. A right with several entries is rejected with `400 Bad Request`.
+
 ```json
 "rights": [
   {
