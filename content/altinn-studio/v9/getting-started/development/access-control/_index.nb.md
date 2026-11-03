@@ -1,7 +1,7 @@
 ---
 title: Tilgangskontroll
 linktitle: Tilgangskontroll
-description: Du skal sette opp regler for hvem som skal ha tilgang til tjenesten. 
+description: Du skal sette opp regler for hvem som skal ha tilgang til tjenesten.
 weight: 2
 draft: true
 marp: true
@@ -13,55 +13,64 @@ style: |
 header: 'Tilgangskontroll'
 footer: 'Altinn Studio - kom i gang'
 ---
-Før vi går videre med tjenesten skal vi sette opp regler for hvem som skal ha lov til å bruke tjenesten. Altinn Studio kommer med noen regler som standard, men du må alltid vurdere disse før du publiserer tjenesten. Standard oppsett innebærer at både privatpersoner og virksomheter kan ta i bruk tjenesten, inkludert virksomheter som er under konkursbehandling. I tillegg er din virksomhet som eier tjenesten også satt opp med tilgang.
+Før du går videre med tjenesten, må du sette opp regler for hvem som skal få bruke den. Altinn Studio har noen standardregler, men du må alltid vurdere dem før du publiserer tjenesten. Standardoppsettet gir både privatpersoner og virksomheter tilgang til tjenesten, også virksomheter som er under konkursbehandling. I tillegg har virksomheten din, som eier tjenesten, tilgang.
 
 ## Oppstartskontroll
-Det første vi skal gjøre er å vurdere hvem som får lov til å starte tjenesten. Dette finner du under Innstillinger og Oppstartskontroll.
+Først vurderer du hvem som skal få starte tjenesten. Dette finner du under **Innstillinger** og **Oppstartskontroll**.
 
-![Skjermbilde for oppstartskontroll](settings-startup.png)
+![Skjermbilde av innstillingene for oppstartskontroll](./settings-startup.png)
 
-Her har du 4 valg:
-* Privatperson
-* Hovedenhet - Selskap, forening, enkeltpersonforetak og andre som er registrert i [Enhetsregisteret](https://www.brreg.no/om-oss/registrene-vare/om-enhetsregisteret/)
-* Underenhet - En underenhet av en hovedenhet registrert i [Enhetsregisteret](https://www.brreg.no/bedrift/underenhet/)
-* Konkursbo - Enheter som er under konkursbehandling i [Konkursregisteret](https://www.brreg.no/om-oss/registrene-vare/om-konkursregisteret/)
+Her har du fire valg:
 
-De du krysser av for er de som har lov til å starte skjemaet/tjenesten din.
+- **Privatperson**
+- **Hovedenhet (juridisk enhet)**: selskap, forening, enkeltpersonforetak og andre som er registrert i [Enhetsregisteret](https://www.brreg.no/om-oss/registrene-vare/om-enhetsregisteret/)
+- **Underenhet (bedrift)**: en underenhet av en hovedenhet som er registrert i [Enhetsregisteret](https://www.brreg.no/bedrift/underenhet/)
+- **Konkursbo**: enheter som er under konkursbehandling i [Konkursregisteret](https://www.brreg.no/om-oss/registrene-vare/om-konkursregisteret/)
+
+Bare de du krysser av for, kan starte tjenesten.
 
 ---
 
 ## Sikkerhetsnivå
-Det neste du bestemmer er sikkerhetsnivå som bestemmer minstekravet til innloggingsmetoden for brukeren. Dette finner du under Instillinger og Tilganger. Her har du 5 valg:
+Deretter velger du sikkerhetsnivå. Sikkerhetsnivået er minstekravet til hvordan brukeren logger inn. Dette finner du under **Innstillinger** og **Tilganger**. Her har du fem valg:
 
-* 0 - Selvidentifisert bruker i Altinn (Eget passord og brukernavn)
-* 1 - Kun passord (Eget passord og fødselsnummer)
-* 2 - Altinn kodebrev/SMS-kode
-* 3 - MinID
-* 4 - BankID, Buypass, Commfides
+- **0 - Selvidentifisert bruker i Altinn** (eget passord og brukernavn)
+- **1 - Kun passord** (eget passord og fødselsnummer)
+- **2 - Altinn kodebrev/SMS-kode**
+- **3 - MinID**
+- **4 - BankID, Buypass, Commfides**
 
-![Skjermbilde for å velge sikkerhetsnivå](settings-security-level.png)
+![Skjermbilde av listen der du velger sikkerhetsnivå](./settings-security-level.png)
 
-Altinn kodebrev/SMS-kode er standard sikkerhetsnivå. Dersom brukeren prøver å ta i bruk en tjeneste og har for lavt sikkerhetsnivå vil de få beskjed om å logge inn på nytt og velge en annen innloggingsmetode.
+Altinn kodebrev/SMS-kode er standard sikkerhetsnivå. Hvis brukerne prøver å ta i bruk en tjeneste og har for lavt sikkerhetsnivå, får de beskjed om å logge inn på nytt med en annen innloggingsmetode.
 
 ---
 
 ## Tilgangsstyring
 
-Oppstartskontroll og sikkerhetsnivå handler om hvem tjenesten er rettet mot og hva som minimum kreves for å komme inn, men det betyr ikke at du nødvendigvis har rettighetene til å bruke den. Hvem som får lov til å gjøre hva inne i en tjeneste styres av tilgangsregler. Reglene finner du under Instillinger og Tilganger.
+Oppstartskontroll og sikkerhetsnivå handler om hvem tjenesten er rettet mot, og hva som minst kreves for å logge inn. Det betyr ikke at brukeren nødvendigvis har rettigheter til å bruke tjenesten. Det er tilgangsreglene som bestemmer hvem som får gjøre hva i tjenesten. Du finner reglene under **Innstillinger** og **Tilganger**.
 
-En regel består 3 deler:
-* *HVEM* får tilgangen
-* *HVA* gis det tilgang til (kalles ofte ressurs)
-* *HVILKE* handlinger, eller rettigheter, får man på det man har fått tilgang til
+En regel består av tre deler som beskriver
 
-F. eks. kan vi gi Revisor (HVEM) signeringsrett (HVILKEN handling) til signeringssteget i tjenesten (HVA), mens Daglig leder (HVEM) får skrivetilgang (HVILKEN handling) til skjemautfyllingssteget (HVA).
+- *hvem* som får tilgang
+- *hva* de får tilgang til (ofte kalt en ressurs)
+- *hvilke* handlinger, eller rettigheter, de får
 
-Som man ser er disse 3 konseptene i seg selv faste for hver regel, men hva de skal settes til i den enkelte tjeneste vil naturligvis variere avhengig av hva slags prosess tjenesten har definert (ikke alle har signeringssteg), hvilke handlinger som er definert i tjenesten, hva slags tjeneste det er og hvem den rettes mot. Tilgangsstyring og regler er derfor vesentlig å tenke gjennom **før** man lanserer tjenesten.
+Du kan for eksempel gi revisor (hvem) rett til å signere (hvilken handling) i signeringssteget i tjenesten (hva), mens daglig leder (hvem) får skrivetilgang (hvilken handling) til steget der brukeren fyller ut skjemaet (hva).
 
-![Skjermbilde som viser oversikt over regler for tilganger til en tjeneste](settings-access-control.png)
+Alle regler har disse tre delene, men innholdet varierer fra tjeneste til tjeneste. Det avhenger av
 
-For å endre, eller legge til en regel, klikker du på fanen "Regler". 
+- hvilke steg prosessen i tjenesten har, for eksempel om den har et signeringssteg
+- hvilke handlinger tjenesten har
+- hva slags tjeneste det er
+- hvem tjenesten er rettet mot
 
-![Skjermbilde som viser en spesifikk regel](settings-access-control-rules.png)
+Tenk derfor nøye gjennom tilgangsreglene *før* du lanserer tjenesten.
 
-Legg merke til at det er to regler, mens oversiktstabellen viser tre rader. Årsaken finner vi når vi ser på Regel 1. Den beskriver to roller i samme regel, Daglig leder og Privatperson, dermed så blir det to rader for en regel i oversikten siden denne tar utgangspunkt i HVEM som har hvilken tilgang.
+![Skjermbilde av oversikten over tilgangsregler for en tjeneste](./settings-access-control.png)
+
+Klikk på fanen **Regler** for å endre eller legge til en regel.
+
+![Skjermbilde av fanen Regler med to regler](./settings-access-control-rules.png)
+
+Legg merke til at det er to regler her, mens oversiktstabellen viser tre rader. Det er fordi **Regel 1** gjelder to roller: **Privatperson** og **Daglig leder**. Oversikten tar utgangspunkt i *hvem* som har tilgang, og viser derfor én rad for hver rolle.

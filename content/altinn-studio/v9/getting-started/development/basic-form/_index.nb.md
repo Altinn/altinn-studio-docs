@@ -19,11 +19,11 @@ footer: 'Altinn Studio - kom i gang'
 
 ### Opprette ny tjeneste
 
-1. Klikk på knappen "Opprett ny app" for å lage en ny app som skal inneholde skjemaet.
+1. Klikk på **Opprett ny app** for å lage en ny app som skal inneholde skjemaet.
 2. Velg din organisasjon som eier av appen om du er tilknyttet en organisasjon
 3. Skriv inn identifiserende navn på appen
    >*Navnet må være unikt innenfor din organisasjon. Det brukes også i URL til tjenesten når den er publisert.*
-4. Klikk på knappen "Opprett app" og vent på at appen er opprettet.
+4. Klikk på **Opprett app** og vent på at appen er opprettet.
 
 ---
 
@@ -45,21 +45,21 @@ Når appen er opprettet og lastet, kommer du til en oversiktsside for appen. Her
 
 
 #### Endre informasjon om appen
-1. Klikk på "Innstillinger" i menylinjen.
+1. Klikk på **Innstillinger** i menylinjen.
 2. Skriv inn appens tittel - en beskrivende overskrift.
 3. Skriv inn en beskrivelse om appen - hvem skal bruke den, og hva brukes den til?
-4. Klikk på "Lagre"-knappen for å lagre endringene.
-5. Naviger tilbake til oversikten ved å klikke på "Til hjem" i menylinjen.
+4. Klikk på **Lagre** for å lagre endringene.
+5. Naviger tilbake til oversikten ved å klikke på **Til hjem** i menylinjen.
 
 ---
 
 ![Endre tittel på appen](./Kurs-skjermbilder-Oppgave-Endre-tittel-på-appen.jpg)
 
-Appens tittel bør legges inn på bokmål og nynorsk
+Skriv inn app-tittelen på både bokmål og nynorsk.
 
 ---
 
-Når du kommer tilbake til oversiktssiden vil du se at appens tittel har oppdatert seg der og.
+Når du kommer tilbake til oversiktssiden, ser du at app-tittelen er oppdatert der også.
 
 ![bg right:60% contain](./Kurs-skjermbilder-Konsept-Oversikt-i-appen-med-tittel.jpg)
 
@@ -67,7 +67,7 @@ Når du kommer tilbake til oversiktssiden vil du se at appens tittel har oppdate
 
 ### Lagre og dele endringer
 
-Før vi går videre med selve tjenesten skal vi gjøre endringene våre tilgjengelige for andre ved å dele de. Enn så lenge er det kun du som ser det du har gjort.
+Før du går videre med selve tjenesten, deler du endringene dine slik at andre også kan se dem. Foreløpig er det bare du som ser det du har gjort.
 
 Når du jobber med en app i Altinn Studio er det to hovedområder:
 - Din brukers område: Alle endringer du gjør i en app lagres hit automatisk. Andre kan ikke se disse endringene.
@@ -77,19 +77,20 @@ Når du jobber med en app i Altinn Studio er det to hovedområder:
 Endringer fra brukerens område må deles til appens sentrale område for at endringene skal bli tilgjengelig for publisering.
 
 ![Lagre og dele endringer](./Kurs-skjermbilder-Konsept-Endringer-og-lagring.jpg)
+
 Illustrasjonen viser hvordan de ulike arbeidsområdene henger sammen.
 
 ---
 
 Nå som du har gjort en endring i appens overskrift, kan du dele den endringen til appens sentrale område.
-1. Klikk på "Del dine endringer" i menylinjen.
-2. Klikk på "Se siste endringer" for å se en oversikt over endringer som er gjort.
-3. Se på endringene, og klikk på "X" for å lukke vinduet og komme tilbake til vindu for å dele endringer.
-4. Beskriv endringene i tekstboksen og klikk på "Del endringer". 
+1. Klikk på **Del dine endringer** i menylinjen.
+2. Klikk på **Se siste endringer** for å se en oversikt over endringer som er gjort.
+3. Se på endringene, og klikk på **X** for å lukke vinduet og komme tilbake til vindu for å dele endringer.
+4. Beskriv endringene i tekstboksen og klikk på **Del endringer**. 
 
 ![Dele endringer](./Kurs-skjermbilder-Oppgave-Del-endringer.jpg)
 
-Hvis noen andre i din organisasjon nå går inn for å jobbe på den samme appen vil de se de siste endringene du har delt.
+Hvis andre i organisasjonen din nå åpner den samme appen, ser de endringene du har delt.
 
 ---
 
@@ -97,8 +98,8 @@ Hvis noen andre i din organisasjon nå går inn for å jobbe på den samme appen
 Vi skal starte med å lage en informasjonsside, som skal inneholde bilde og tekst.
 
 #### Naviger til utforming
-1. Klikk på "Utforming" i toppmenyen.
-2. Klikk på "Utform" knappen for å utforme første del av skjema
+1. Klikk på **Utforming** i toppmenyen.
+2. Klikk på **Utform** for å utforme den første delen av skjemaet.
 
 #### Om Utforming-siden
 Utforming er satt opp med fire kolonner:
@@ -112,12 +113,12 @@ Utforming er satt opp med fire kolonner:
 ![Utforming-siden](./Kurs-skjermbilder-Konsept-Utforming.jpg)
 
 #### Legg til komponenter på infosiden
-1. Åpne siden "Side1" ved å klikke på den og klikk på "Legg til komponent".
-2. Klikk på "Vis alle", søk etter "Bilde" og klikk på "Bilde"-komponenten under "Informasjon". Klikk på "Legg til" i 
+1. Åpne siden **Side1** ved å klikke på den og klikk på **Legg til komponent**.
+2. Klikk på **Vis alle**, søk etter **Bilde** og klikk på **Bilde**-komponenten under **Informasjon**. Klikk på **Legg til** i 
   høyrepanelet for å legge til bildekomponenten på siden.
-4. Under "Valg for bilde" i konfigurasjonskolonnen, klikk på "Lim inn en URL" og lim inn https://docs.altinn.studio/nb/altinn-studio/v8/getting-started/app-dev-course/resources/kommune-logo.png
-5. Legg til ny komponent på siden: "Avsnitt".
-6. Under "Ledetekst", legg inn en tekst. F.eks. "Vi har registrert at du har meldt flytting til Sogndal kommune - velkommen til oss!".
+4. Under **Valg for bilde** i konfigurasjonskolonnen, klikk på **Lim inn en URL** og lim inn https://docs.altinn.studio/nb/altinn-studio/v8/getting-started/app-dev-course/resources/kommune-logo.png
+5. Legg til ny komponent på siden: **Avsnitt**.
+6. Under **Ledetekst**, legg inn en tekst. F.eks. "Vi har registrert at du har meldt flytting til Sogndal kommune - velkommen til oss!".
 
 ---
 
@@ -142,7 +143,7 @@ skjemaer kan datamodellen og skjemaet være ganske forskjellige.
 Når du oppretter en app, følger det med en enkel datamodell med noen eksempelfelter. Du kan redigere feltnavnene
 for å tydelig vise hva de representerer, og du kan legge til egne felter. 
 
-Naviger til "Datamodell" i toppmenyen for å komme i gang.
+Naviger til **Datamodell** i toppmenyen for å komme i gang.
 
 [Les mer om datamodeller.](../../../../v8/concepts/data-model/)
 
@@ -166,9 +167,9 @@ Kommunen ønsker i første omgang å samle inn følgende data om innflyttere:
 
 #### Lage datamodellen
 1. Påse at det er modellen `model` som er valgt. Slett de eksisterende feltene i modellen ved å klikke på 🗑️-ikonet ved siden av feltet.
-2. Klikk på "Legg til" øverst på siden og velg "Objekt".
+2. Klikk på **Legg til** øverst på siden og velg **Objekt**.
 3. Endre navn på den nye gruppen til "person".
-4. I person-gruppen, klikk på "Legg til felt" og velg "Tekst".
+4. I person-gruppen, klikk på **Legg til felt** og velg **Tekst**.
 5. Endre navn på feltet til `fullt_navn`.
 
 ---
@@ -178,10 +179,10 @@ Kommunen ønsker i første omgang å samle inn følgende data om innflyttere:
 ---
 
 Fortsett å legge til felter i datamodellen. Du skal ha 3 grupper (`object`) med tilhørende felter.
-Bruk feltene beskrevet i krav fra kommunen som referanse. Alle feltene kan være av typen "Tekst", med unntak av feltet 
+Bruk feltene beskrevet i krav fra kommunen som referanse. Alle feltene kan være av typen **Tekst**, med unntak av feltet 
 `alder` som kan være et heltall.
 
-Når du er ferdig med datamodellen, klikk på "Generer modeller" for å lage alle nødvendige modellfiler som appen bruker.
+Når du er ferdig med datamodellen, klikk på **Generer modeller** for å lage alle nødvendige modellfiler som appen bruker.
 
 ![bg right:40% contain](./Kurs-skjermbilder%20-%20Oppgave-Datamodell-2-resultat.jpg?width=300 "Resultat")
 
@@ -197,15 +198,15 @@ Når du er ferdig med datamodellen, klikk på "Generer modeller" for å lage all
 
 Nå skal du bygge opp skjemaet. Dette er veldig likt det du gjorde for infosiden.
 
-Gå til "Utforming" i toppmenyen, og klikk på "Utform" på kortet for oppgaven "Task_1".
+Gå til **Utforming** i toppmenyen, og klikk på **Utform** på kortet for oppgaven **Task_1**.
 
 #### Lag en ny side
-1. Klikk på "Legg til ny side".
+1. Klikk på **Legg til ny side**.
 2. Endre navnet på siden til "om-innflytter". Lagre endringen.
-3. Klikk på "Visningsnavn" og legg inn en visningstekst for siden, f.eks. "Om innflytter". Lagre endringen.
+3. Klikk på **Visningsnavn** og legg inn en visningstekst for siden, f.eks. "Om innflytter". Lagre endringen.
 
 #### Legg til den første skjemakomponenten
-1. Påse at du er på siden "om-innflytter". Klikk på "+"-tegnet inne på siden.
-2. Velg "Lite tekstfelt" fra komponentlisten.
+1. Påse at du er på siden "om-innflytter". Klikk på **+**-tegnet inne på siden.
+2. Velg **Lite tekstfelt** fra komponentlisten.
 
 #### Legg til resten av skjemakomponentene

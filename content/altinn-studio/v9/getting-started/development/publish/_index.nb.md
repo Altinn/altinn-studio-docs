@@ -14,12 +14,11 @@ header: 'Publiser og test en tjeneste'
 footer: 'Altinn Studio - kom i gang'
 ---
 ## Publiser og test
-Forhåndsvisning av tjenesten i Altinn Studio gir deg en mulighet til å se hvordan skjemaet ser ut samt teste enkel visninglogikk for skjuling av felter. Men ønsker du å teste hele tjenesten inkludert egen kode, API-oppslag mot enhetsregisteret, folkeregisteret osv. må du publisere tjenesten til et miljø hvor du får med alle avhengigheter. 
+I forhåndsvisningen i Altinn Studio kan du se hvordan skjemaet ser ut, og teste enkel logikk som skjuler felter. Vil du teste hele tjenesten, inkludert egen kode og oppslag mot for eksempel Enhetsregisteret og Folkeregisteret, må du publisere den til et miljø der alt tjenesten er avhengig av, er tilgjengelig.
 
-Som tjenesteeier har du i utgangspunktet tilgang til å publisere til to miljøer - produksjon og test. NB! Test kalles for TT02 i listen over miljøer, og vi bruker test og TT02 om hverandre.
+Som tjenesteeier kan du i utgangspunktet publisere til to miljøer: test og produksjon. Testmiljøet heter TT02 i listen over miljøer, og vi bruker begge navnene om hverandre.
+
 ### Bygge og publisere tjenesten
-For å få tjenesten ut i et miljø må du bygge den først. Det betyr enkelt å greit å sette sammen en ferdig pakke sammen alt tjenesten trenger for å kjøre basert på det du har gjort i Altinn Studio. En ferdig sammensatt pakke som miljøet skjønner hvordan den skal håndtere kalles et bygg. For de tekniske betyr dette en web applikasjon i en Docker container. Vi gir hvert 
-
-
+Før du kan publisere tjenesten til et miljø, må du bygge den. Det betyr enkelt og greit at Altinn Studio setter sammen alt tjenesten trenger for å kjøre, til én ferdig pakke ut fra det du har laget. Denne pakken kaller vi et bygg, og miljøet vet hvordan det skal håndtere den. Teknisk sett er bygget en webapplikasjon i en Docker-container. [[FIX BEFORE MERGE: setningen som begynte med «Vi gir hvert …» er ikke skrevet ferdig]]
 
 ### Teste tjenesten i testmiljø
