@@ -52,7 +52,7 @@ Filter instances based on when they became visible.
 - **dueBefore** (datetime)  
 Filter instances based on their due date.
 - **excludeConfirmedBy** (string)  
-Exclude instances already confirmed by a specific stakeholder. Usually the short name of an application owner.
+Exclude instances already confirmed by a specific stakeholder. Usually the short name of an application owner. See [Bekrefte at dataene er mottatt](/nb/altinn-studio/v9/receive-data/#bekrefte-mottak) (in Norwegian) for what the confirmation is used for and how to add one.
 - **status.isArchived** (bool)
 Filter instances based on whether they are archived.
 - **size** (int)
