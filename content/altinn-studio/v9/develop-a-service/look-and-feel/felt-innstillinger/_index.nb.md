@@ -1,7 +1,7 @@
 ---
 title: Innstillinger for felt
 linktitle: Innstillinger
-description: Slik skjuler du etiketten for valgfrie felt, setter en tegngrense og styrer autolagring
+description: Slik skjuler du etiketten for valgfrie felt, setter en tegngrense og endrer hvor lenge appen venter før den lagrer
 tags: [Reviewed]
 ---
 
@@ -58,11 +58,11 @@ App/ui/{taskId}/layouts/{page}.json
 _Merk_: `maxLength` i layoutfilen viser bare hvor mange tegn som gjenstår. Den kontrollerer ikke antallet tegn, så brukeren kan fortsatt sende inn skjemaet selv om teksten er lengre enn grensen.
 Skal du kontrollere selve antallet tegn, må du også legge til `maxLength`-egenskapen i datamodellen til skjemaet. Se [validering]({{< relref "/altinn-studio/v9/develop-a-service/data/validation" >}}) for mer informasjon.
 
-## Konfigurere automatisk lagring
+## Endre hvor lenge appen venter før den lagrer
 
-`Input`, `TextArea` og `Address` oppdaterer skjemadataene mens brukeren skriver. Som standard skjer dette 400 millisekunder etter at brukeren sist skrev noe. Med standardinnstillingen `autoSaveBehavior: "onChangeFormData"` lagrer appen endringene på serveren. Med `onChangePage` lagres de ved sideskifte. Se [innstillinger for automatisk lagring]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/ui-settings#automatisk-lagring" >}}).
+`Input`, `TextArea` og `Address` lagrer automatisk mens brukeren skriver, som standard 400 millisekunder etter at brukeren sist skrev noe. Hvis appen er [satt opp til å lagre først ved sideskifte]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/ui-settings#automatisk-lagring" >}}), venter den til da.
 
-Du styrer dette med `saveWhileTyping`-egenskapen på en komponent i layoutfilen. I eksempelet under oppdaterer feltet skjemadataene to sekunder etter at brukeren slutter å skrive i feltet.
+Du endrer hvor lenge appen venter, med `saveWhileTyping`. I eksempelet under venter feltet to sekunder etter at brukeren slutter å skrive.
 
 {{< code-title >}}
 App/ui/{taskId}/layouts/{page}.json
@@ -76,4 +76,4 @@ App/ui/{taskId}/layouts/{page}.json
 }
 ```
 
-`saveWhileTyping` er en forsinkelse i millisekunder og kan ikke slå av automatisk lagring. En høy verdi er heller ikke en pålitelig måte å unngå lagring på. Andre felt og navigasjon kan føre til at appen lagrer dataene.
+`saveWhileTyping` kan ikke slå av automatisk lagring. En høy verdi er heller ikke en pålitelig måte å unngå lagring på, fordi andre felt og navigasjon kan føre til at appen lagrer dataene.
