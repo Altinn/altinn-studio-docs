@@ -55,7 +55,7 @@ Hent instanser etter når de ble synliggjort.
 - **dueBefore** (datetime)  
 Hent instanser basert på fristdato.
 - **excludeConfirmedBy** (string)  
-Ikke ta med instanser som allerede er bekreftet av en aksjonær. Vanligvis kortnavnet til en applikasjonseier. Se [Bekrefte at dataene er mottatt](/nb/altinn-studio/v9/receive-data/#bekrefte-mottak) for hva bekreftelsen brukes til, og hvordan du legger den til.
+Ikke ta med instanser som allerede er bekreftet av en aksjonær. Vanligvis kortnavnet til en applikasjonseier. Se [Bekrefte at dataene er mottatt](/nb/altinn-studio/v9/receive-data/#bekrefte-mottak) for hva bekreftelsen brukes til, og hvordan du bekrefter mottak.
 - **status.isArchived** (bool)
 Hent instanser basert på om de er arkivert.
 - **size** (int)
