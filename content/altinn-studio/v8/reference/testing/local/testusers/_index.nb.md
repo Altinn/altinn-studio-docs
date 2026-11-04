@@ -36,7 +36,7 @@ Hun er også styremedlem i borettslaget der hun bor. "Oslos Vakreste Borettslag"
 
 ### Pengelens Partner
 
-Pengelens Partner er regnskapsføreren for selskapet DDG Fitness AS.
+Pengelens Partner er regnskapsføreren for selskapet DDG Fitness AS. Pengelens har også tilgangspakkene **Regnskapsfører med signeringsrettighet** (`regnskapsforer-med-signeringsrettighet`) og **Lønn** (`lonn`) for DDG Fitness AS.
 
 #### Avgivere
 
@@ -80,6 +80,7 @@ NB! Disse er fra Tenors testdatasett, men ligger der med andre navn.
 
 Med nyere versjon av localtest kan man teste apper med systembrukere lokalt.
 Det er lagt ved en innebygget system og systembruker knyttet til 950474084 Oslos Vakreste Borettslag.
+Systembrukeren har tilgangspakkene **Regnskapsfører med signeringsrettighet** (`regnskapsforer-med-signeringsrettighet`) og **Lønn** (`lonn`) for borettslaget.
 Du kan hente ut token ved hjelp av `/Home/GetTestSystemUserToken` i localtest eller besøke nettsiden `/Home/Tokens`.
 
 ### Instansdelegering
@@ -94,6 +95,64 @@ json dokument på url `/[org]/[appId]/testData.json`. Den enkleste måten er å 
 
 Typiske endringer du kan være interresert i er å bruke andre organisasjonsnummer/fødselsnummer for at oppslag i apier som
 appene er avhengig av skal virke, eller testing av autorisasjonsreglene med andre roller enn det standard brukerene har.
+
+### Gi testbrukere tilgangspakker
+
+Tilgangspakker samler rettigheter til tjenester som hører sammen, for eksempel alt som har med lønn å gjøre. Hvis autorisasjonsreglene i appen gir tilgang med tilgangspakker, kan du teste reglene lokalt. Localtest gir testbrukerne de samme tilgangspakkene som de ville fått i Altinn. Localtest støtter tilgangspakker fra versjon [[FIX BEFORE MERGE: første versjon av studioctl der localtest støtter tilgangspakker]].
+
+Slik får testbrukerne tilgangspakker:
+
+- En rolle gir de samme tilgangspakkene som rollen gir i Altinn. Daglig leder (DAGL) får for eksempel de fleste tilgangspakkene for virksomheten, og en privatperson (PRIV) får tilgangspakkene for innbyggere for seg selv.
+- Du kan gi en person flere tilgangspakker i `accessPackages`. Nøkkelen er `partyId` til aktøren personen har tilgangspakkene for.
+- En underenhet får de samme tilgangspakkene som personen har for hovedenheten.
+- Du gir en systembruker tilgangspakker i `accessPackages`. Systembrukeren har dem for virksomheten den tilhører (`orgNumber`) og underenhetene til virksomheten.
+
+Skriv tilgangspakken med navnet, for eksempel `lonn`, eller med hele URN-en, for eksempel `urn:altinn:accesspackage:lonn`. [Les mer om hvilke roller og tilgangspakker som finnes i Altinn]({{< relref "/authorization/what-do-you-get/accesspackages" >}}).
+
+{{< code-title >}}
+App/wwwroot/testData.json
+{{< /code-title >}}
+
+```json
+{
+  "$schema": "https://altinncdn.no/schemas/json/test-users/test-users.schema.v1.json",
+  "persons": [
+    {
+      "partyId": 512345,
+      "userId": 12345,
+      "ssn": "01017512345",
+      "lastName": "Nordmann",
+      "partyRoles": {},
+      "accessPackages": {
+        "500000": ["lonn", "urn:altinn:accesspackage:skattegrunnlag"]
+      }
+    }
+  ],
+  "orgs": [
+    {
+      "partyId": 500000,
+      "orgNumber": "897069650",
+      "name": "DDG Fitness",
+      "unitType": "AS"
+    }
+  ],
+  "systems": [
+    {
+      "id": "913312465_sbs",
+      "name": "Sluttbrukersystem",
+      "systemUsers": [
+        {
+          "id": "d111dbab-d619-4f15-bf29-58fe570a9ae6",
+          "orgNumber": "897069650",
+          "accessPackages": ["lonn"]
+        }
+      ]
+    }
+  ]
+}
+```
+
+Systembrukere kan også ha listen `actions`. Den finnes bare i localtest og gir systembrukeren lov til å utføre handlingene i listen i alle apper når autorisasjonsreglene i appen ikke gir noe svar. I Altinn får systembrukere tilgang gjennom tilgangspakker og enkeltrettigheter, så bruk heller `accessPackages`.
 
 ### Json Struktur
 
@@ -274,6 +333,10 @@ en `testData.json` fil i verktøy som VSCode. En full versjon av brukerene som l
             "confirm",
             "reject",
             "delete"
+          ],
+          "accessPackages": [
+            "regnskapsforer-med-signeringsrettighet",
+            "lonn"
           ]
         }
       ]

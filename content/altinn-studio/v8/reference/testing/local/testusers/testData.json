@@ -637,6 +637,12 @@
       "middleName": "",
       "lastName": "Partner",
       "customClaims": [],
+      "accessPackages": {
+        "500000": [
+          "regnskapsforer-med-signeringsrettighet",
+          "lonn"
+        ]
+      },
       "partyRoles": {
         "510001": [
           {
@@ -970,6 +976,10 @@
             "confirm",
             "reject",
             "delete"
+          ],
+          "accessPackages": [
+            "regnskapsforer-med-signeringsrettighet",
+            "lonn"
           ]
         }
       ]

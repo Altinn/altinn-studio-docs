@@ -37,7 +37,7 @@ She is also a board member of the housing cooperative where she resides, named "
 
 ### Pengelens Partner
 
-Pengelens Partner is the accountant for the company DDG Fitness AS.
+Pengelens Partner is the accountant for the company DDG Fitness AS. Pengelens also holds the access packages **Regnskapsfører med signeringsrettighet** (`regnskapsforer-med-signeringsrettighet`) and **Lønn** (`lonn`) for DDG Fitness AS.
 
 #### Submitters (avgivere)
 
@@ -81,6 +81,7 @@ Note: These originate from Tenor's test dataset but are listed there under diffe
 
 With the newer version of localtest, you can test apps locally using system users.
 A built-in system and system user associated with 950474084 Oslos Vakreste Borettslag has been provided.
+The system user holds the access packages **Regnskapsfører med signeringsrettighet** (`regnskapsforer-med-signeringsrettighet`) and **Lønn** (`lonn`) for the housing cooperative.
 You can obtain the token using `/Home/GetTestSystemUserToken` in localtest or visit the webpage `/Home/Tokens`.
 
 ### Instance Delegation
@@ -97,6 +98,64 @@ The simplest way is to place the file at `App/wwwroot/testData.json`
 Typical customizations you might be interested in include using alternative organization numbers or personal identification
 numbers, ensuring lookups in APIs your app depends on function correctly, or testing authorization rules with roles
 different from those assigned to the default users.
+
+### Give test users access packages
+
+Access packages group the rights to services that belong together, such as everything to do with payroll. If the authorisation rules of the app give access through access packages, you can test the rules locally. Localtest gives the test users the same access packages they would have in Altinn. Localtest supports access packages from version [[FIX BEFORE MERGE: first studioctl version whose localtest supports access packages]].
+
+This is how test users get access packages:
+
+- A role gives the same access packages as the role gives in Altinn. For example, a general manager (DAGL) gets most of the access packages for the organisation, and a private person (PRIV) gets the citizen access packages for themselves.
+- You can give a person more access packages in `accessPackages`. The key is the `partyId` of the party the person holds the access packages for.
+- A sub-unit gets the same access packages as the person holds for the main unit.
+- You give a system user access packages in `accessPackages`. The system user holds them for the organisation it belongs to (`orgNumber`) and its sub-units.
+
+Write an access package as its name, such as `lonn`, or as its full URN, such as `urn:altinn:accesspackage:lonn`. [Read more about which roles and access packages exist in Altinn]({{< relref "/authorization/what-do-you-get/accesspackages" >}}).
+
+{{< code-title >}}
+App/wwwroot/testData.json
+{{< /code-title >}}
+
+```json
+{
+  "$schema": "https://altinncdn.no/schemas/json/test-users/test-users.schema.v1.json",
+  "persons": [
+    {
+      "partyId": 512345,
+      "userId": 12345,
+      "ssn": "01017512345",
+      "lastName": "Nordmann",
+      "partyRoles": {},
+      "accessPackages": {
+        "500000": ["lonn", "urn:altinn:accesspackage:skattegrunnlag"]
+      }
+    }
+  ],
+  "orgs": [
+    {
+      "partyId": 500000,
+      "orgNumber": "897069650",
+      "name": "DDG Fitness",
+      "unitType": "AS"
+    }
+  ],
+  "systems": [
+    {
+      "id": "913312465_sbs",
+      "name": "Sluttbrukersystem",
+      "systemUsers": [
+        {
+          "id": "d111dbab-d619-4f15-bf29-58fe570a9ae6",
+          "orgNumber": "897069650",
+          "accessPackages": ["lonn"]
+        }
+      ]
+    }
+  ]
+}
+```
+
+System users can also have an `actions` list. It exists only in localtest: when the authorisation rules of the app give no answer, it lets the system user perform the listed actions in every app. In Altinn, system users get access through access packages and single rights, so use `accessPackages` instead.
 
 ### Json Structure
 
@@ -277,6 +336,10 @@ file in an IDE such as VSCode. A full version of users from the `TestData`-folde
             "confirm",
             "reject",
             "delete"
+          ],
+          "accessPackages": [
+            "regnskapsforer-med-signeringsrettighet",
+            "lonn"
           ]
         }
       ]
