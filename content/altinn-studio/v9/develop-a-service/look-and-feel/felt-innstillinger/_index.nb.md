@@ -64,7 +64,7 @@ Skal du kontrollere selve antallet tegn, må du også legge til `maxLength`-egen
 
 `Input`, `TextArea` og `Address` lagrer automatisk mens brukeren skriver, som standard 400 millisekunder etter at brukeren sist skrev noe. Hvis appen er [satt opp til å lagre først ved sideskifte]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/ui-settings#automatisk-lagring" >}}), venter den til da.
 
-Du endrer hvor lenge appen venter, med `saveWhileTyping`. I eksempelet under venter feltet to sekunder etter at brukeren slutter å skrive.
+Du endrer hvor lenge appen venter, med `saveWhileTyping`. I eksempelet under lagres skjemadataene to sekunder etter at brukeren slutter å skrive i feltet.
 
 {{< code-title >}}
 App/ui/{taskId}/layouts/{page}.json
