@@ -2,10 +2,10 @@
 title: Innstillinger for felt
 linktitle: Innstillinger
 description: Slik skjuler du etiketten for valgfrie felt, setter en tegngrense og styrer autolagring
-tags: [needsReview]
+tags: [Reviewed]
 ---
 
-Du setter opp disse innstillingene manuelt i layoutfilen for feltet.
+Du kan sette disse innstillingene i Altinn Studio Designer, under **Innhold** i innstillingene for komponenten, eller direkte i layoutfilen. Eksemplene under viser layoutfilen.
 
 ## Skjule etiketten for valgfrie felt
 
