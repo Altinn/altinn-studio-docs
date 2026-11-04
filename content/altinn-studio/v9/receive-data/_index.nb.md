@@ -29,7 +29,7 @@ Henter du dataene selv, kaller du `complete`-endepunktet på appen når du har h
 POST https://{org}.apps.{host}/api/v1/instances/{instanceOwnerPartyId}/{instanceGuid}/complete
 ```
 
-Du kaller endepunktet med et Maskinporten-token for organisasjonen din, og uten body. Svaret er instansen med bekreftelsen lagt til. Du kan trygt kalle endepunktet flere ganger, for Altinn registrerer bare én bekreftelse per organisasjon.
+Endepunktet er beskrevet i [appens OpenAPI-spesifikasjon]({{< relref "/altinn-studio/v9/develop-a-service/reference/api" >}}). Du kaller det med et Maskinporten-token for organisasjonen din.
 
 Endepunktet svarer `409 Conflict` mens arbeidsflytmotoren jobber med instansen, for eksempel mens en systemoppgave kjører. Da prøver du igjen senere. Det svarer `403 Forbidden` hvis organisasjonen din mangler handlingen `complete` i `App/config/authorization/policy.xml`. App-malen gir organisasjonen denne handlingen, så det skjer bare hvis noen har fjernet den.
 
