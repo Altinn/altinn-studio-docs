@@ -41,7 +41,7 @@ Eksempelet søker på instanser:
 - fra en gitt app, `appId={org}/{app}` - bytt ut `org` og `app` med din app
 - som er fullført `process.isComplete=true`
 - kun instanser som er fullført etter 27. februar 2026, `process.ended=gt:2026-02-27`
-- kun instanser du ikke allerede har bekreftet mottak av, `excludeConfirmedBy={org}` - bytt ut `org` med organisasjonen din
+- kun instanser som ikke allerede har fått bekreftet mottak, `excludeConfirmedBy={org}` - bytt ut `org` med organisasjonen din
    
 
 [Se oversikt over spørringsparametre som er tilgjengelig, og eksempler på bruk.]({{<relref "/api/storage/instances">}})
