@@ -1,7 +1,7 @@
 ---
 title: Innstillinger for felt
 linktitle: Innstillinger
-description: Slik skjuler du etiketten for valgfrie felt, setter en tegngrense og endrer hvor lenge appen venter før den lagrer
+description: Slik skjuler du etiketten for valgfrie felt, setter en tegngrense og tilpasser automatisk lagring
 tags: [Reviewed]
 ---
 
@@ -60,7 +60,7 @@ App/ui/{taskId}/layouts/{page}.json
 _Merk_: `maxLength` i layoutfilen viser bare hvor mange tegn som gjenstår. Den kontrollerer ikke antallet tegn, så brukeren kan fortsatt sende inn skjemaet selv om teksten er lengre enn grensen.
 Skal du kontrollere selve antallet tegn, må du også legge til `maxLength`-egenskapen i datamodellen til skjemaet. Se [validering]({{< relref "/altinn-studio/v9/develop-a-service/data/validation" >}}) for mer informasjon.
 
-## Endre hvor lenge appen venter før den lagrer
+## Tilpasse automatisk lagring
 
 `Input`, `TextArea` og `Address` lagrer automatisk mens brukeren skriver, som standard 400 millisekunder etter at brukeren sist skrev noe. Hvis appen er [satt opp til å lagre først ved sideskifte]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/ui-settings#automatisk-lagring" >}}), venter den til da.
 
