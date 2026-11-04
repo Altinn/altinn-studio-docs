@@ -9,7 +9,7 @@ tags: [Reviewed]
 
 Altinn har bak seg mange år med høyt utviklingstempo og mange leveranser. Nå er plattformen i full drift for alle innbyggere og bedrifter i Norge, og da endrer behovene seg. Vi må stabilisere plattformen og gjøre den klar for mer trafikk og videre utvikling.
 
-V9 gir derfor lite ny funksjonalitet for deg som er tjenesteeier. Til gjengjeld gir versjonen bedre ytelse og stabilitet på områder som betyr mye når du skal forvalte og videreutvikle tjenesten din over tid. Det sluttbrukerne merker mest, er at skjemaene har fått en skrifttype som er lettere å lese, og at de viser tydeligere hvilke felt som er påkrevde.
+V9 gir derfor lite ny funksjonalitet for deg som er tjenesteeier. Til gjengjeld gir versjonen bedre ytelse og stabilitet på områder som betyr mye når du skal forvalte og videreutvikle tjenesten din over tid.
 
 {{% notice info %}}
 Skal du oppgradere en app fra v8? Følg [veiledningen for å oppgradere appen fra v8 til v9]({{< relref "/altinn-studio/v9/new-in-v9/upgrade" >}}).
