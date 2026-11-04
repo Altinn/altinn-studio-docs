@@ -189,10 +189,6 @@ file in an IDE such as VSCode. A full version of users from the `TestData`-folde
           },
           {
             "type": "altinn",
-            "value": "dagl"
-          },
-          {
-            "type": "altinn",
             "value": "priv"
           }
         ]

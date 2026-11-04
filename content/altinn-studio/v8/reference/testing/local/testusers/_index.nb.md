@@ -186,10 +186,6 @@ en `testData.json` fil i verktøy som VSCode. En full versjon av brukerene som l
           },
           {
             "type": "altinn",
-            "value": "dagl"
-          },
-          {
-            "type": "altinn",
             "value": "priv"
           }
         ]

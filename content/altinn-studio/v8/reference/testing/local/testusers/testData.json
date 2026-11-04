@@ -23,10 +23,6 @@
           },
           {
             "type": "altinn",
-            "value": "dagl"
-          },
-          {
-            "type": "altinn",
             "value": "priv"
           }
         ]
@@ -651,10 +647,6 @@
           },
           {
             "type": "altinn",
-            "value": "dagl"
-          },
-          {
-            "type": "altinn",
             "value": "priv"
           }
         ]
@@ -692,10 +684,6 @@
           },
           {
             "type": "altinn",
-            "value": "dagl"
-          },
-          {
-            "type": "altinn",
             "value": "priv"
           }
         ]
@@ -730,10 +718,6 @@
           {
             "type": "altinn",
             "value": "regna"
-          },
-          {
-            "type": "altinn",
-            "value": "dagl"
           },
           {
             "type": "altinn",

@@ -199,10 +199,6 @@ App/wwwroot/testData.json
           },
           {
             "type": "altinn",
-            "value": "dagl"
-          },
-          {
-            "type": "altinn",
             "value": "priv"
           }
         ]
