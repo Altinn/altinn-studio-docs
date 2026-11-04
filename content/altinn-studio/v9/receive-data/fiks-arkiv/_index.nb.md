@@ -467,7 +467,7 @@ Hva oppgaven gjør når arkivet har bekreftet saken med en kvittering. Innstilli
 | **Action**               | Handlingen prosessen går videre med. Standard: ingen. Gatewayen i eksempelet over tar da `Flow_4`.                        |
 | **MarkInstanceComplete** | Om instansen skal markeres som fullført. Skjer før prosessen går videre. Standard: `true`.                         |
 
-Seksjonen kan utelates. Da markeres instansen som fullført, og prosessen går videre uten handling. Gatewayen i eksempelet over tar da `Flow_4`. Å markere instansen som fullført er det samme som å bekrefte at tjenesteeieren har mottatt dataene, se [Bekrefte at dataene er mottatt]({{< relref "/altinn-studio/v9/receive-data" >}}#bekrefte-mottak). Sett `MarkInstanceComplete` til `false` hvis oppgaven ikke skal bekrefte mottak når arkivet har kvittert, for eksempel fordi fagsystemet ditt henter dataene selv senere, og `Action` hvis gatewayen skal skille på en egen handling. Slik ser standardverdiene ut, skrevet ut:
+Seksjonen kan utelates. Da markeres instansen som fullført, og prosessen går videre uten handling. Gatewayen i eksempelet over tar da `Flow_4`. Å markere instansen som fullført er det samme som å bekrefte at tjenesteeieren har mottatt dataene, se [Bekrefte at dataene er mottatt]({{< relref "/altinn-studio/v9/receive-data" >}}#bekrefte-mottak). Sett `MarkInstanceComplete` til `false` hvis oppgaven ikke skal bekrefte mottak når arkivet har kvittert, og `Action` hvis gatewayen skal skille på en egen handling. Slik ser standardverdiene ut, skrevet ut:
 
 {{< code-title >}}
 App/appsettings.json
