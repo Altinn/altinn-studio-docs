@@ -55,6 +55,8 @@ App/ui/{taskId}/layouts/{page}.json
 }
 ```
 
+![Kallenavn med teksten Kari og telleren Du har 6 tegn igjen](./maxlength.png "Felt med tegngrense på 10 tegn")
+
 _Merk_: `maxLength` i layoutfilen viser bare hvor mange tegn som gjenstår. Den kontrollerer ikke antallet tegn, så brukeren kan fortsatt sende inn skjemaet selv om teksten er lengre enn grensen.
 Skal du kontrollere selve antallet tegn, må du også legge til `maxLength`-egenskapen i datamodellen til skjemaet. Se [validering]({{< relref "/altinn-studio/v9/develop-a-service/data/validation" >}}) for mer informasjon.
 
