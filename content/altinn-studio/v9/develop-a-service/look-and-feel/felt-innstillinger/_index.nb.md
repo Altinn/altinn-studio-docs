@@ -1,25 +1,25 @@
 ---
 title: Innstillinger for felt
 linktitle: Innstillinger
-description: Slik viser du at et felt er valgfritt, setter en tegngrense og styrer autolagring
+description: Slik skjuler du etiketten for valgfrie felt, setter en tegngrense og styrer autolagring
 tags: [needsReview]
 ---
 
 Du setter opp disse innstillingene manuelt i layoutfilen for feltet.
 
-## Indikere at felt er valgfritt
+## Skjule etiketten for valgfrie felt
 
-{{% notice info %}}
-Denne delen oppdateres. Vi vurderer å følge designsystemet.no sin praksis med etikettene **Må fylles ut** og **Valgfritt** i stedet for markeringen beskrevet under.
-{{% /notice %}}
+Appen merker alle felt som enten påkrevde eller valgfrie, slik at det er tydelig for brukerne hva de må fylle ut og hva de kan hoppe over:
 
-Du kan styre om et felt ser valgfritt ut eller ikke. Vanlig oppførsel er at påkrevde felt får en markering med `*`, mens valgfrie felt ikke får noen markering.
+- Påkrevde felt får etiketten **Må fylles ut**.
+- Felt som ikke er påkrevde, får etiketten **Valgfritt**.
+- Skrivebeskyttede felt får ikke etiketten **Valgfritt**.
 
-![Optional default](optional-default.png "Vanlig oppførsel for valgfritt felt (ingen markering).")
+![Fødselsnummer med etiketten Må fylles ut](./required.png "Påkrevd felt")
 
-![Required default](required.png "Vanlig oppførsel for påkrevd felt (markert med *).")
+![Fødselsnummer med etiketten Valgfritt](./optional-default.png "Valgfritt felt")
 
-Du kan overstyre denne oppførselen for valgfrie felt med `labelSettings` på en komponent i layoutfilen.
+Vil du skjule etiketten **Valgfritt** på et felt, setter du `optionalIndicator` til `false` i `labelSettings` på komponenten i layoutfilen:
 
 {{< code-title >}}
 App/ui/{taskId}/layouts/{page}.json
@@ -30,16 +30,14 @@ App/ui/{taskId}/layouts/{page}.json
   "id": "input-felt1",
   "type": "Input",
   "labelSettings": {
-    "optionalIndicator": true
+    "optionalIndicator": false
   }
 }
 ```
 
-Når du setter `optionalIndicator` til `true`, viser appen teksten `(Valgfri)` etter ledeteksten til feltet.
+![Fødselsnummer uten etikett](./optional-hidden.png "Valgfritt felt der etiketten er skjult")
 
-![Valgfritt](optional.png "Markering av valgfritt felt.")
-
-Du kan ikke tvinge frem `(Valgfri)`-teksten på et felt som er obligatorisk. Denne innstillingen styrer bare visningen, ikke om feltet faktisk er påkrevd.
+Du kan ikke skjule **Må fylles ut** på et påkrevd felt.
 
 ## Aktivere tegngrense
 
