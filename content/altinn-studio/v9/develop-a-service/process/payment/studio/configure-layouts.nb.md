@@ -41,7 +41,7 @@ Hvis du hopper over dette steget, bruker appen oppsettet fra betalingsoppgaven i
 
 1. Klikk på **Utforming** i toppmenyen, og klikk på **Utform** på kortet **Oppgave: Betaling**. Hvis du allerede står i en oppgave, klikker du først på **Oversikt** øverst på siden for å komme tilbake til kortene.
 2. Klikk på **Legg til ny side**.
-3. I panelet til høyre åpner du **PDF** og slår på bryteren **Siden skal være en PDF**.
+3. I panelet til høyre åpner du **PDF** og velger **Siden skal være en PDF**.
 4. Legg til komponenten **Betaling**, og eventuelt andre tekster og komponenter du vil ha på PDF-siden.
 5. Åpne utviklerverktøyet i forhåndsvisningen med knappen nederst til høyre, eller med hurtigtasten **Ctrl+Shift+K** (**⌘+Shift+K** på Mac). Klikk deretter på **Generer PDF** under **Forhåndsvis PDF**.
 
