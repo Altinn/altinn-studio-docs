@@ -35,7 +35,7 @@ Endepunktet svarer `409 Conflict` mens arbeidsflytmotoren jobber med instansen, 
 
 ### La eFormidling eller Fiks Arkiv bekrefte for deg
 
-eFormidling-oppgaven bekrefter når integrasjonspunktet melder at meldingen er levert. Fiks Arkiv-oppgaven bekrefter når arkivet har kvittert for saken, så lenge `MarkInstanceComplete` står på, og det gjør den som standard. Da trenger du ikke kalle endepunktet selv. Poller du i tillegg med `excludeConfirmedBy`, får du heller ikke disse instansene i svaret.
+eFormidling-oppgaven bekrefter når integrasjonspunktet melder at meldingen er levert. Fiks Arkiv-oppgaven bekrefter når arkivet har kvittert for saken, så lenge `MarkInstanceComplete` står på, og det gjør den som standard. Da trenger du ikke kalle endepunktet selv.
 
 ### Referanse
 
