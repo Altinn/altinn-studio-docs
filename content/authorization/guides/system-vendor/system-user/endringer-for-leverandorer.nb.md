@@ -308,6 +308,9 @@ En klient som har gitt Sykefravær-pakken, oppfyller ikke disse settene. Virksom
 | A-ordningen og Sykefravær-pakken | 3 | Virksomheten kan knytte klienten til systembrukeren |
 | Regnskapsførerrolle | Ingen | Flaten viser at Sykefravær-pakken mangler, og at klienten må gi den |
 | Bare A-ordningen | Ingen | Flaten viser at Sykefravær-pakken mangler, og at klienten må gi den |
+| Regnskapsførerrolle og pakken Sykefravær, ikke den med særlig kategori | Ingen | Flaten viser at Sykefravær-pakken med særlig kategori mangler |
+| Bare Sykefravær-pakken | Ingen | Flaten viser at klienten har gitt en del av det systemet krever |
+| Bare en annen pakke, for eksempel Merverdiavgift | Ingen | Flaten viser at klienten ikke har gitt noe av det systemet krever |
 
 Klienten kan ikke delegere regnskapsfører- og revisorpakkene direkte. En uregistrert kunde kan derfor bare oppfylle sett 3.
 
@@ -390,10 +393,10 @@ Er du i tvil, fortsett som i dag. Du kan ta i bruk flagget for nye kunder senere
 
 De neste lysbildene viser hvordan virksomhetene kan se og forvalte systembrukere i Tilgangsstyring.
 
-- Dette er skisser for å forstå problemet, ikke designforslag. Utformingen kan endre seg, men det funksjonelle er vedtatt.
+- Dette er skisser for å forstå problemet, ikke designforslag. Både utformingen og funksjonaliteten kan endre seg, og vi vil gjerne ha innspill.
 - Skissene for klienter når leverandøren bestemmer viser rettighetssett.
 - De øvrige skissene er laget tidligere. De har mer informasjon, og stiplede merker som viser hvilken regel et element oppfyller. Reglene R1–R25 står forklart til slutt i presentasjonen.
-- To ting i de eldre skissene er ikke vedtatt: lenken **Endre hvem som bestemmer tilgangene**, og at leverandørens forslag er forhåndsvalgt når virksomheten knytter til en ny klient.
+- Dette er blant annet ikke vedtatt i de eldre skissene: lenken **Endre hvem som bestemmer tilgangene**, og at leverandørens forslag er forhåndsvalgt når virksomheten knytter til en ny klient.
 
 Alle navn, organisasjonsnumre og eksempeltilganger er fiktive.
 
@@ -436,9 +439,9 @@ Virksomheten ser hvilke klienter som er lagt til, hvilke de kan legge til, og hv
 ---
 ## Klienter som ikke kan legges til ennå
 
-Hver klient viser hva som mangler, og hvem som må gjøre noe. Dette kan du vise til når en kunde spør hvorfor en klient ikke kan legges til.
+Hver klient viser hva som mangler, eller lenken **Se hva systemet krever** når klienten mangler like mye til alle settene. Dette kan du vise til når en kunde spør hvorfor en klient ikke kan legges til.
 
-[![Listen over klienter som ikke kan legges til ennå, der tre mangler Sykefravær-pakken og én mangler A-ordningen, og klienten må gi det som mangler](/images/authorization/systemuser/2026-11-05/klienter-kan-ikke-legges-til.png)](/images/authorization/systemuser/2026-11-05/klienter-kan-ikke-legges-til.png "Åpne skissen i full størrelse")
+[![Personalportalen med listen over klienter som ikke kan legges til ennå: tre mangler Sykefravær-pakken, og Kystlinjen Eiendom AS har gitt en del av det systemet krever](/images/authorization/systemuser/2026-11-05/klienter-kan-ikke-legges-til.png)](/images/authorization/systemuser/2026-11-05/klienter-kan-ikke-legges-til.png "Åpne skissen i full størrelse")
 
 *Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
@@ -454,9 +457,9 @@ Når virksomheten klikker **Legg til**, ser de hvilke tilganger systembrukeren f
 ---
 ## Det systemet krever
 
-Rettighetssettene du har oppgitt, ligger bak lenken **Se hva systemet krever**. Virksomheten trenger dem bare hvis de vil forstå hvorfor en klient ikke kan legges til.
+Rettighetssettene du har oppgitt, ligger bak lenken **Se hva systemet krever**. Virksomheten trenger dem bare hvis de vil forstå hvorfor en klient ikke kan legges til. Dialogen forklarer også hvilke tilganger klienten gir ved å registrere regnskapsfører eller revisor i Enhetsregisteret, og hvilke klienten kan gi direkte.
 
-[![Dialogen Det systemet krever, som viser de tre kombinasjonene av tilgangspakker klienten må ha gitt én av](/images/authorization/systemuser/2026-11-05/det-systemet-krever.png)](/images/authorization/systemuser/2026-11-05/det-systemet-krever.png "Åpne skissen i full størrelse")
+[![Dialogen Det systemet krever: de tre kombinasjonene av tilgangspakker klienten må ha gitt én av, og hvordan klienten gir dem](/images/authorization/systemuser/2026-11-05/det-systemet-krever.png)](/images/authorization/systemuser/2026-11-05/det-systemet-krever.png "Åpne skissen i full størrelse")
 
 *Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
@@ -499,9 +502,18 @@ For hver klient velger virksomheten hvilke av klientens fullmakter systembrukere
 ---
 ## Klientens side viser systembrukerne
 
-På siden for en klient ser virksomheten hvilke systembrukere de kan legge til, og hva som hindrer de andre.
+På siden for en klient ser virksomheten hva klienten har gitt, hvilke systembrukere de kan legge til, og hva som hindrer de andre. Personalportalen får bare settet klienten oppfyller, så Ansvarlig revisor følger ikke med.
 
-[![Siden for Havbris Fiskeoppdrett AS: Personalportalen kan legges til, og Lønn Direkte krever rollen regnskapsfører](/images/authorization/systemuser/2026-11-05/klient-valgt.png)](/images/authorization/systemuser/2026-11-05/klient-valgt.png "Åpne skissen i full størrelse")
+[![Siden for Havbris Fiskeoppdrett AS: klienten har gitt tre tilganger, Personalportalen kan legges til, og Lønn Direkte krever rollen regnskapsfører](/images/authorization/systemuser/2026-11-05/klient-valgt.png)](/images/authorization/systemuser/2026-11-05/klient-valgt.png "Åpne skissen i full størrelse")
+
+*Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
+
+---
+## Når klienten har gitt en annen pakke
+
+Elvebakken Kafé AS har bare gitt Merverdiavgift. Pakken finnes ikke i noen av settene til Personalportalen, så klienten kan ikke legges til. Virksomheten kan ikke rette dette selv, og må kontakte klienten. Mva-systemet krever pakken og kan legges til.
+
+[![Siden for Elvebakken Kafé AS: klienten har gitt Merverdiavgift, Mva-systemet kan legges til, og Personalportalen kan ikke legges til fordi klienten ikke har gitt noe av det systemet krever](/images/authorization/systemuser/2026-11-05/klient-annen-pakke.png)](/images/authorization/systemuser/2026-11-05/klient-annen-pakke.png "Åpne skissen i full størrelse")
 
 *Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
@@ -522,6 +534,8 @@ På siden for en klient ser virksomheten hvilke systembrukere de kan legge til, 
 - Oppdatering av rettighetssett: om kunden må godkjenne, hva «komplett» betyr med flere sett, og hva som skjer når du fjerner en tilgang fra et sett.
 - Hva som skjer når klienten trekker tilbake bare en del av settet, også om systembrukeren skal gå over til et annet sett klienten fortsatt oppfyller.
 - Hvor mange rettighetssett du kan oppgi.
+- Om Altinn sammenligner tilgangspakkene i settet, eller tjenestene pakkene gir tilgang til. Skissene forutsetter tilgangspakkene.
+- Hva listen skal vise når en klient mangler like mye til flere sett. Skissene viser ingen bestemt pakke.
 - Når funksjonaliteten blir tilgjengelig i testmiljøet og i produksjon.
 
 Vi oppdaterer veiledningene for systemleverandører og virksomheter før funksjonaliteten blir tilgjengelig.
