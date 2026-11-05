@@ -312,6 +312,23 @@ En klient som har gitt Sykefravær-pakken, oppfyller ikke disse settene. Virksom
 Klienten kan ikke delegere regnskapsfører- og revisorpakkene direkte. En uregistrert kunde kan derfor bare oppfylle sett 3.
 
 ---
+## Når klienten passer med flere sett
+
+Klienten kan ha gitt nok til at flere sett er oppfylt. Da bruker Altinn **det første settet i listen**. Virksomheten velger ikke, og systembrukeren får ikke summen av settene.
+
+Eksempel fra scenario 1: Fjellvik Bygg AS har regnskapsførerrollen, og har også gitt A-ordningen og Sykefravær-pakken direkte.
+
+| Sett | Oppfylt | Dette skjer |
+|---|---|---|
+| 1. Regnskapsfører lønn + Sykefravær-pakken | Ja | Systembrukeren får dette settet |
+| 2. Revisormedarbeider + Sykefravær-pakken | Nei | Ingenting |
+| 3. A-ordningen + Sykefravær-pakken | Ja | Ingenting, siden sett 1 står først |
+
+**Virksomheten ser ikke forskjell.** Klienten står under **Kan legges til** med én knapp, og bekreftelsen viser bare tilgangene i sett 1.
+
+**Rekkefølgen er ditt valg, og den avgjør hvor mye tilgang systemet får.** I dag dekker Regnskapsfører lønn 700 ressurser og A-ordningen 8. Vil du gi systemet minst mulig tilgang, setter du det smaleste settet først. Klienter som ikke oppfyller det, går videre til neste sett.
+
+---
 ## Slik går du over til én systembruker
 
 Har selskapet i dag én systembruker per kundetype, beholder de den til de er klare. En klient kan være knyttet til mange systembrukere samtidig, siden selskapet mottar fullmakten og gir den videre til så mange systembrukere det trenger. Selskapet kan derfor gå over gradvis.
@@ -369,106 +386,124 @@ Vi vurderer et API og varsling slik at du kan se hvilke tilganger systembrukeren
 Er du i tvil, fortsett som i dag. Du kan ta i bruk flagget for nye kunder senere.
 
 ---
-## Om skjermbildene
+## Om skissene
 
-De neste lysbildene viser hvordan virksomhetene vil se og forvalte systembrukere i Tilgangsstyring.
+De neste lysbildene viser hvordan virksomhetene kan se og forvalte systembrukere i Tilgangsstyring.
 
-- Skjermbildene er forslag til design fra en prototype. Vi kan endre utformingen, men det funksjonelle er vedtatt.
-- De stiplede merkene R1–R25 viser hvilken regel et element oppfyller. Reglene står forklart til slutt i presentasjonen.
-- Skjermbildene er laget før vi innførte rettighetssett, så de viser bare ett sett per systembruker. Vi oppdaterer dem når designet er gjennomgått.
-- To ting i skjermbildene er ikke vedtatt: lenken **Endre hvem som bestemmer tilgangene**, og at leverandørens forslag er forhåndsvalgt når virksomheten knytter til en ny klient. Det siste er merket **Designforslag**.
+- Dette er skisser for å forstå problemet, ikke designforslag. Utformingen kan endre seg, men det funksjonelle er vedtatt.
+- Skissene for klienter når leverandøren bestemmer viser rettighetssett.
+- De øvrige skissene er laget tidligere. De har mer informasjon, og stiplede merker som viser hvilken regel et element oppfyller. Reglene R1–R25 står forklart til slutt i presentasjonen.
+- To ting i de eldre skissene er ikke vedtatt: lenken **Endre hvem som bestemmer tilgangene**, og at leverandørens forslag er forhåndsvalgt når virksomheten knytter til en ny klient.
 
-Alle navn, organisasjonsnumre og tilganger er fiktive.
+Alle navn, organisasjonsnumre og eksempeltilganger er fiktive.
 
 ---
 ## Virksomhetene finner systembrukerne under Brukere
 
 Systembrukerne ligger i en egen gruppe på den vanlige brukersiden. Virksomheten kan filtrere på systembrukere, og ser hvem som bestemmer tilgangene for hver av dem.
 
-[![Brukere-siden for Nordlys Regnskap AS med personen Ada Eksempel og fire systembrukere i en egen gruppe](/images/authorization/systemuser/2026-10-27/brukere-oversikt.webp)](/images/authorization/systemuser/2026-10-27/brukere-oversikt.webp "Åpne skjermbildet i full størrelse")
+[![Brukere-siden for Nordlys Regnskap AS med personen Ada Eksempel og fire systembrukere i en egen gruppe](/images/authorization/systemuser/2026-10-27/brukere-oversikt.webp)](/images/authorization/systemuser/2026-10-27/brukere-oversikt.webp "Åpne skissen i full størrelse")
 
-*Forslag til design. Klikk på bildet for full størrelse.*
+*Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
 ---
 ## Klientadministrasjon viser også systembrukerne
 
 Fanen **Brukere** i Klientadministrasjon viser personer og systembrukere med klienttilgang, og hvor mange klienter hver av dem har.
 
-[![Klientadministrasjon, fanen Brukere, med Kari Nordmann og tre systembrukere med klienttilgang, og to brukere uten klienter ennå](/images/authorization/systemuser/2026-10-27/klientadministrasjon-brukere.webp)](/images/authorization/systemuser/2026-10-27/klientadministrasjon-brukere.webp "Åpne skjermbildet i full størrelse")
+[![Klientadministrasjon, fanen Brukere, med Kari Nordmann og tre systembrukere med klienttilgang, og to brukere uten klienter ennå](/images/authorization/systemuser/2026-10-27/klientadministrasjon-brukere.webp)](/images/authorization/systemuser/2026-10-27/klientadministrasjon-brukere.webp "Åpne skissen i full størrelse")
 
-*Forslag til design. Klikk på bildet for full størrelse.*
+*Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
 ---
 ## Brukersiden når leverandøren bestemmer
 
 Virksomheten ser tilgangene, men kan ikke fjerne eller legge til enkelttilganger. Den eneste endringen er å slette hele systembrukeren. Siden forklarer at leverandøren endrer tilgangene med en endringsforespørsel.
 
-[![Systembrukeren Regnskap Pluss der leverandøren bestemmer tilgangene, med tilgangspakken Skattegrunnlag uten knapper for å fjerne den](/images/authorization/systemuser/2026-10-27/systembruker-leverandoren-bestemmer.webp)](/images/authorization/systemuser/2026-10-27/systembruker-leverandoren-bestemmer.webp "Åpne skjermbildet i full størrelse")
+[![Systembrukeren Regnskap Pluss der leverandøren bestemmer tilgangene, med tilgangspakken Skattegrunnlag uten knapper for å fjerne den](/images/authorization/systemuser/2026-10-27/systembruker-leverandoren-bestemmer.webp)](/images/authorization/systemuser/2026-10-27/systembruker-leverandoren-bestemmer.webp "Åpne skissen i full størrelse")
 
-*Forslag til design. Klikk på bildet for full størrelse.*
+*Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
 ---
 ## Klienter når leverandøren bestemmer
 
-Øverst står settet systembrukeren får for hver klient. Virksomheten ser hvilke klienter som er knyttet til, hvilke de kan knytte til, og hvilke som mangler noe. Klientene som mangler fullmakter, viser nøyaktig hva som mangler.
+Virksomheten ser hvilke klienter som er lagt til, hvilke de kan legge til, og hvor mange som ikke kan legges til ennå. Ordet «rettighetssett» bruker vi bare overfor deg som leverandør. Virksomheten ser «det systemet krever».
 
-[![Regnskap Pluss i Klientadministrasjon med én klient knyttet til og to klienter som mangler enkelttjenesten Innsending av MVA-melding](/images/authorization/systemuser/2026-10-27/klienter-leverandoren-bestemmer.webp)](/images/authorization/systemuser/2026-10-27/klienter-leverandoren-bestemmer.webp "Åpne skjermbildet i full størrelse")
+[![Personalportalen i Klientadministrasjon: én klient er knyttet til, to kan legges til med hver sin knapp, og fire kan ikke legges til ennå](/images/authorization/systemuser/2026-11-05/klienter-oversikt.png)](/images/authorization/systemuser/2026-11-05/klienter-oversikt.png "Åpne skissen i full størrelse")
 
-*Forslag til design. Klikk på bildet for full størrelse.*
+*Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
+
+---
+## Klienter som ikke kan legges til ennå
+
+Hver klient viser hva som mangler, og hvem som må gjøre noe. Dette kan du vise til når en kunde spør hvorfor en klient ikke kan legges til.
+
+[![Listen over klienter som ikke kan legges til ennå, der tre mangler Sykefravær-pakken og én mangler A-ordningen, og klienten må gi det som mangler](/images/authorization/systemuser/2026-11-05/klienter-kan-ikke-legges-til.png)](/images/authorization/systemuser/2026-11-05/klienter-kan-ikke-legges-til.png "Åpne skissen i full størrelse")
+
+*Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
 ---
 ## Virksomheten knytter til en klient
 
-Når virksomheten knytter til en klient, bekrefter de hele settet samtidig. De kan ikke velge bort deler av det.
+Når virksomheten klikker **Legg til**, ser de hvilke tilganger systembrukeren får. Tilgangene følger med samtidig, og virksomheten kan ikke velge bort noen av dem.
 
-[![Bekreftelse: Vil du knytte Havbris Fiskeoppdrett AS til Lønn Direkte? Lønn Direkte får hele settet samtidig](/images/authorization/systemuser/2026-10-27/knytt-klient-hele-settet.webp)](/images/authorization/systemuser/2026-10-27/knytt-klient-hele-settet.webp "Åpne skjermbildet i full størrelse")
+[![Bekreftelse: Legge til Havbris Fiskeoppdrett AS? Personalportalen får Revisormedarbeider og Sykefravær-pakken samtidig](/images/authorization/systemuser/2026-11-05/bekreftelse-legg-til.png)](/images/authorization/systemuser/2026-11-05/bekreftelse-legg-til.png "Åpne skissen i full størrelse")
 
-*Forslag til design. Klikk på bildet for full størrelse.*
+*Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
+
+---
+## Det systemet krever
+
+Rettighetssettene du har oppgitt, ligger bak lenken **Se hva systemet krever**. Virksomheten trenger dem bare hvis de vil forstå hvorfor en klient ikke kan legges til.
+
+[![Dialogen Det systemet krever, som viser de tre kombinasjonene av tilgangspakker klienten må ha gitt én av](/images/authorization/systemuser/2026-11-05/det-systemet-krever.png)](/images/authorization/systemuser/2026-11-05/det-systemet-krever.png "Åpne skissen i full størrelse")
+
+*Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
 ---
 ## Brukersiden når virksomheten bestemmer
 
 Hver tilgang har en knapp for å slette fullmakten. Merket viser om tilgangen kom fra leverandørens forslag eller ble lagt til av virksomheten. Virksomheten kan fjerne begge typene.
 
-[![Systembrukeren Egen integrasjon der virksomheten bestemmer, med Skattegrunnlag fra leverandørens forslag og A-ordningen lagt til av virksomheten](/images/authorization/systemuser/2026-10-27/systembruker-virksomheten-bestemmer.webp)](/images/authorization/systemuser/2026-10-27/systembruker-virksomheten-bestemmer.webp "Åpne skjermbildet i full størrelse")
+[![Systembrukeren Egen integrasjon der virksomheten bestemmer, med Skattegrunnlag fra leverandørens forslag og A-ordningen lagt til av virksomheten](/images/authorization/systemuser/2026-10-27/systembruker-virksomheten-bestemmer.webp)](/images/authorization/systemuser/2026-10-27/systembruker-virksomheten-bestemmer.webp "Åpne skissen i full størrelse")
 
-*Forslag til design. Klikk på bildet for full størrelse.*
+*Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
 ---
 ## Virksomheten gir flere tilganger
 
 Med **Gi fullmakt** velger virksomheten tilgangspakker og enkelttjenester én og én. Det virksomheten ikke har myndighet til å gi, er merket **Kan ikke gis**, med en forklaring.
 
-[![Dialogen Hva skal Egen integrasjon få tilgang til? med tilgangspakker virksomheten kan gi, har gitt og ikke kan gi](/images/authorization/systemuser/2026-10-27/gi-fullmakt-systembruker.webp)](/images/authorization/systemuser/2026-10-27/gi-fullmakt-systembruker.webp "Åpne skjermbildet i full størrelse")
+[![Dialogen Hva skal Egen integrasjon få tilgang til? med tilgangspakker virksomheten kan gi, har gitt og ikke kan gi](/images/authorization/systemuser/2026-10-27/gi-fullmakt-systembruker.webp)](/images/authorization/systemuser/2026-10-27/gi-fullmakt-systembruker.webp "Åpne skissen i full størrelse")
 
-*Forslag til design. Klikk på bildet for full størrelse.*
+*Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
 ---
 ## Systembruker uten tilganger
 
 Sender du flagget uten lister, starter systembrukeren uten tilganger. Virksomheten ser at systemet ikke kan gjøre noe før de gir fullmakt.
 
-[![Systembrukeren Rapportrobot uten tilgangspakker, med knappen Gi fullmakt](/images/authorization/systemuser/2026-10-27/systembruker-uten-tilganger.webp)](/images/authorization/systemuser/2026-10-27/systembruker-uten-tilganger.webp "Åpne skjermbildet i full størrelse")
+[![Systembrukeren Rapportrobot uten tilgangspakker, med knappen Gi fullmakt](/images/authorization/systemuser/2026-10-27/systembruker-uten-tilganger.webp)](/images/authorization/systemuser/2026-10-27/systembruker-uten-tilganger.webp "Åpne skissen i full størrelse")
 
-*Forslag til design. Klikk på bildet for full størrelse.*
+*Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
 ---
 ## Klienter når virksomheten bestemmer
 
 For hver klient velger virksomheten hvilke av klientens fullmakter systembrukeren skal få. Tjenester klienten har gitt gjennom en tilgangspakke, kan virksomheten ikke gi alene. Varselet øverst viser hva som skjer når en klient trekker tilbake en fullmakt.
 
-[![Egen integrasjon i Klientadministrasjon med valg per klient, et varsel om at Fjordbakeriet AS trakk tilbake en fullmakt, og en ny klient med forhåndsvalg](/images/authorization/systemuser/2026-10-27/klienter-virksomheten-bestemmer.webp)](/images/authorization/systemuser/2026-10-27/klienter-virksomheten-bestemmer.webp "Åpne skjermbildet i full størrelse")
+[![Egen integrasjon i Klientadministrasjon med valg per klient, et varsel om at Fjordbakeriet AS trakk tilbake en fullmakt, og en ny klient med forhåndsvalg](/images/authorization/systemuser/2026-10-27/klienter-virksomheten-bestemmer.webp)](/images/authorization/systemuser/2026-10-27/klienter-virksomheten-bestemmer.webp "Åpne skissen i full størrelse")
 
-*Forslag til design. Klikk på bildet for full størrelse.*
+*Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
 ---
-## Klientens side viser alle systembrukerne
+## Klientens side viser systembrukerne
 
-På siden for en klient ser virksomheten hvem som har tilgang, hvem som kan få tilgang, og hvem som ikke kan. Systembrukere står sammen med personene.
+På siden for en klient ser virksomheten hvilke systembrukere de kan legge til, og hva som hindrer de andre.
 
-[![Klientsiden for Eksempelklient AS med brukere og systembrukere som har tilgang, kan få tilgang og ikke kan få tilgang](/images/authorization/systemuser/2026-10-27/klientside-eksempelklient.webp)](/images/authorization/systemuser/2026-10-27/klientside-eksempelklient.webp "Åpne skjermbildet i full størrelse")
+[![Siden for Havbris Fiskeoppdrett AS: Personalportalen kan legges til, og Lønn Direkte krever rollen regnskapsfører](/images/authorization/systemuser/2026-11-05/klient-valgt.png)](/images/authorization/systemuser/2026-11-05/klient-valgt.png "Åpne skissen i full størrelse")
 
-*Forslag til design. Klikk på bildet for full størrelse.*
+*Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
 ---
 ## Dette er likt som i dag for virksomhetene
@@ -485,7 +520,7 @@ På siden for en klient ser virksomheten hvem som har tilgang, hvem som kan få 
 - Om du kan sende endringsforespørsel til en systembruker der virksomheten bestemmer tilgangene.
 - Hvordan du kan lese hvilke tilganger systembrukeren faktisk har, og hvilke klienter som er knyttet til den, og få varsel når det endrer seg.
 - Oppdatering av rettighetssett: om kunden må godkjenne, hva «komplett» betyr med flere sett, og hva som skjer når du fjerner en tilgang fra et sett.
-- Hva som skjer når klienten trekker tilbake bare en del av settet.
+- Hva som skjer når klienten trekker tilbake bare en del av settet, også om systembrukeren skal gå over til et annet sett klienten fortsatt oppfyller.
 - Hvor mange rettighetssett du kan oppgi.
 - Når funksjonaliteten blir tilgjengelig i testmiljøet og i produksjon.
 
@@ -502,7 +537,7 @@ Vi oppdaterer veiledningene for systemleverandører og virksomheter før funksjo
 - [Arbeidet på GitHub, epic for systembrukermodellen](https://github.com/Altinn/altinn-auth/issues/4510)
 
 ---
-## Reglene bak skjermbildene: synlighet
+## Reglene bak skissene: synlighet
 
 | Regel | Hva den betyr |
 |---|---|
@@ -512,7 +547,7 @@ Vi oppdaterer veiledningene for systemleverandører og virksomheter før funksjo
 | R4 | Virksomheten oppretter ikke systembrukere med **Ny bruker**. De kommer fra en forespørsel fra leverandøren, eller fra siden **Systembrukere** når virksomheten velger et system selv. |
 
 ---
-## Reglene bak skjermbildene: leverandøren bestemmer
+## Reglene bak skissene: leverandøren bestemmer
 
 | Regel | Hva den betyr |
 |---|---|
@@ -526,7 +561,7 @@ Vi oppdaterer veiledningene for systemleverandører og virksomheter før funksjo
 | R12 | Siden skjuler slettede klienter som standard, med et valg for å vise dem. |
 
 ---
-## Reglene bak skjermbildene: virksomheten bestemmer
+## Reglene bak skissene: virksomheten bestemmer
 
 | Regel | Hva den betyr |
 |---|---|
@@ -540,7 +575,7 @@ Vi oppdaterer veiledningene for systemleverandører og virksomheter før funksjo
 | R20 | Leverandørens forslag kan være forhåndsvalgt når virksomheten knytter til en ny klient. Dette er et designforslag, ikke et vedtak. |
 
 ---
-## Reglene bak skjermbildene: felles
+## Reglene bak skissene: felles
 
 | Regel | Hva den betyr |
 |---|---|
