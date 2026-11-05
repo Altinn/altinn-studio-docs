@@ -13,7 +13,7 @@ build:
 
 ## Hva endrer seg for systemleverandører og virksomheter?
 
-Oppdatert 27. oktober 2026
+Oppdatert 5. november 2026
 
 **Det du har laget i dag, virker som før.** Endringene gir nye muligheter som du kan ta i bruk når du vil.
 
@@ -23,10 +23,12 @@ Funksjonaliteten er under utvikling og er ikke tilgjengelig ennå. Vi kan endre 
 ## Det viktigste
 
 - **Ingen endring for eksisterende integrasjoner.** Dagens endepunkter, felt og systembrukere virker uendret. Alle nye felt er valgfrie.
+- **Én systembruker for alle kundetyper.** Med rettighetssett kan ett selskap bruke samme systembruker for regnskapsfører-, revisor- og uregistrerte kunder. Du trenger ikke vite kundeforholdet for å hente token.
 - **Én systembruker for egen virksomhet og klienter.** Du trenger ikke lenger velge mellom systembruker for eget system og for klientsystem.
 - **Enkeltrettigheter også for klienter.** I dag kan du bare be om tilgangspakker for klientsystem.
 - **Forespørselen bestemmer rettighetene.** Du trenger ikke registrere hver rettighet på systemet først.
-- **Tomme lister for egen virksomhet er lov.** Forespørselen må da ha klienttilganger eller flagget `ownerControlledAccess`. Kunden trenger bare å være tilgangsstyrer for å godkjenne.
+- **Du kan oppdatere rettighetssettene.** Du slipper å opprette en ny systembruker når det for eksempel kommer nye tilgangspakker.
+- **Tomme lister for egen virksomhet er lov.** Forespørselen må da ha rettighetssett eller flagget `ownerControlledAccess`. Kunden trenger bare å være tilgangsstyrer for å godkjenne.
 - **Kunden kan få styre tilgangene selv.** Med det nye flagget `ownerControlledAccess` kan virksomheten justere tilgangene etter at den har godkjent.
 
 ---
@@ -39,44 +41,71 @@ Funksjonaliteten er under utvikling og er ikke tilgjengelig ennå. Vi kan endre 
 | Endringsforespørsel (`/changerequest/vendor`) | Virker som før. |
 | Klientdelegerings-API-et | Virker som før. |
 | Systembrukere kundene dine allerede har godkjent | Beholder tilgangene og oppførselen sin. Ingen systembruker går over til «Virksomheten bestemmer» av seg selv. |
+| Klienter som er knyttet til systembrukerne dine | Blir der de er. Altinn flytter dem ikke automatisk. |
 | Brukerstyrt opprettelse fra systemer i systemregisteret | Virker som før, med rettighetene som er registrert på systemet. |
 
 Sender du ikke `ownerControlledAccess`, får du samme oppførsel som i dag.
 
 ---
-## Forbedring 1: Én systembruker for egen virksomhet og klienter
+## Forbedring 1: Én systembruker for alle kundetyper
+
+**I dag** har hver systembruker ett fast sett tilgangspakker. Et regnskapsselskap trenger derfor én systembruker per kundetype. Du må vite kundeforholdet til klienten for å velge riktig systembruker før du henter token.
+
+**Nå** holder det med én systembruker. Du beskriver hva som er gyldig for hver kundetype, og henter token på samme måte for alle klienter.
+
+| Kundetype | Slik oppstår kundeforholdet | Selskapet får |
+|---|---|---|
+| Registrert regnskapsfører | Klienten melder inn selskapet i Samordnet registermelding. Enhetsregisteret får rollen REGN. | Regnskapsførerpakkene, automatisk |
+| Registrert revisor | Klienten melder inn selskapet i Samordnet registermelding. Enhetsregisteret får rollen REVI. | Revisorpakkene, automatisk |
+| Uregistrert kunde | Klienten delegerer direkte i Altinn. | Det klienten gir, typisk A-ordningen |
+
+---
+## Slik virker rettighetssett
+
+Et **rettighetssett** er tilgangspakker og enkeltrettigheter som hører sammen. Du oppgir en prioritert liste med rettighetssett for klientene.
+
+- Klienten må ha gitt alt i et sett for at settet skal være oppfylt.
+- Det holder å oppfylle ett av settene.
+- Altinn går gjennom settene i rekkefølge og bruker det første klienten oppfyller fullt ut. Rekkefølgen i listen er prioriteten, og du trenger ikke oppgi noe tall.
+- Oppfyller klienten flere sett, får systembrukeren bare det første.
+- Oppfyller klienten ingen av settene, kan ikke virksomheten knytte klienten til systembrukeren. Flaten viser hva som mangler.
+
+Fordelen forutsetter at **alle settene dekker de samme tjenestene**. Ellers må du fortsatt vite hvilket sett klienten fikk.
+
+---
+## Forbedring 2: Én systembruker for egen virksomhet og klienter
 
 **I dag** må du velge type når du ber om systembruker. Et regnskapssystem som både leverer for regnskapsbyrået selv og for kundene deres, trenger to systembrukere.
 
-**Nå** kan én forespørsel inneholde fire lister:
+**Nå** kan én forespørsel inneholde begge deler:
 
-| Liste | Gjelder | Status |
+| Felt | Gjelder | Status |
 |---|---|---|
 | `accessPackages` | Tilgangspakker for egen virksomhet | Finnes i dag |
 | `rights` | Enkeltrettigheter for egen virksomhet | Finnes i dag |
-| `clientAccessPackages` | Tilgangspakker for klienter | Nytt, foreløpig navn |
-| `clientRights` | Enkeltrettigheter for klienter | Nytt, foreløpig navn |
+| `clientAccessSets` | Prioritert liste med rettighetssett for klienter | Nytt, foreløpig navn |
 
-Kunden godkjenner én systembruker. Tilgangene for egen virksomhet får systembrukeren når kunden godkjenner. Tilgangene for klienter får den når kunden knytter klienter til systembrukeren.
+Kunden godkjenner én systembruker. Tilgangene for egen virksomhet får systembrukeren når kunden godkjenner. Tilgangene for klienter får den når virksomheten knytter klienter til systembrukeren.
 
 ---
-## Forbedring 2: Enkeltrettigheter også for klienter
+## Forbedring 3: Enkeltrettigheter også for klienter
 
 **I dag** kan systembruker for klientsystem bare få tilgangspakker. Har kunden din fått en enkelttjeneste fra klienten sin, kan de ikke gi den videre til systemet ditt.
 
-**Nå** kan du be om enkeltrettigheter i `clientRights`. Virksomheten kan da klientdelegere enkelttjenester til systembrukeren, på samme måte som tilgangspakker.
+**Nå** kan et rettighetssett inneholde enkeltrettigheter. Virksomheten kan da klientdelegere enkelttjenester til systembrukeren, sammen med tilgangspakkene i settet.
 
-To regler gjelder:
+Tre regler gjelder:
 
 - Virksomheten kan bare gi videre enkelttjenester den har fått som enkelttjeneste fra klienten. Tjenester den har fått gjennom en tilgangspakke, kan den ikke gi videre én og én.
+- Du oppgir ikke `action` i rettighetssett i første versjon. Trenger du finere styring, bruker du tilgangspakker.
 - Systembrukeren får de samme handlingene, for eksempel lese og skrive, som klienten har gitt virksomheten.
 
 ---
-## Forbedring 3: Forespørselen bestemmer rettighetene
+## Forbedring 4: Forespørselen bestemmer rettighetene
 
 **I dag** avviser Altinn en forespørsel som inneholder rettigheter du ikke har registrert på systemet i systemregisteret. Vil du be om en ny rettighet, må du først oppdatere systemet.
 
-**Nå** er det de fire listene i forespørselen som bestemmer rettighetene. Systemregisteret verken fyller ut, erstatter eller begrenser dem.
+**Nå** er det listene og rettighetssettene i forespørselen som bestemmer rettighetene. Systemregisteret verken fyller ut, erstatter eller begrenser dem.
 
 Det betyr at du kan
 
@@ -87,14 +116,29 @@ Det betyr at du kan
 Altinn kontrollerer fortsatt at rettighetene finnes, at det går an å delegere dem, og at kunden har myndighet til å gi dem.
 
 ---
-## Forbedring 4: Kunden kan styre tilgangene selv
+## Forbedring 5: Du kan oppdatere rettighetssettene
+
+**I dag** kan du ikke endre en systembruker for klientforhold. Du må slette den og opprette den på nytt.
+
+**Nå** får du et eget endepunkt for å oppdatere rettighetssettene på en systembruker, for eksempel når det kommer nye tilgangspakker. Foreløpig forslag til adresse:
+
+```http
+PUT /authentication/api/v1/systemuser/vendor/{systemUserId}/clientaccesssets
+```
+
+- **Oppdateringen endrer ikke det som er delegert.** Altinn verken gir eller fjerner tilganger.
+- **Virksomheten ser avviket.** Flaten viser at settet ikke er komplett for klienter som allerede er knyttet til.
+- **Systemet ditt må tåle avviket.** Til virksomheten har gitt det som mangler, kan kall til den nye tjenesten bli avvist for disse klientene.
+
+---
+## Forbedring 6: Kunden kan styre tilgangene selv
 
 Det nye flagget `ownerControlledAccess` bestemmer hvem som forvalter tilgangene etter at kunden har godkjent. Vi kaller de to måtene «Leverandøren bestemmer» og «Virksomheten bestemmer».
 
 | | Leverandøren bestemmer | Virksomheten bestemmer |
 |---|---|---|
 | Flagget | `false` eller utelatt, som i dag | `true` |
-| Listene i forespørselen | Bindende krav | Et forslag kunden starter med |
+| Listene og rettighetssettene | Bindende krav | Et forslag kunden starter med |
 | Hvem endrer tilgangene etterpå | Du, med endringsforespørsel | Kunden selv, i Tilgangsstyring |
 | Kan kunden fjerne én tilgang | Nei, bare slette hele systembrukeren | Ja |
 | Kan kunden legge til tilganger | Nei | Ja, innenfor sine egne fullmakter |
@@ -120,24 +164,26 @@ Du kan nå be om tomme lister for egen virksomhet. Da er det eneste Altinn kontr
 | Forespørselen inneholder | Altinn kontrollerer ved godkjenning |
 |---|---|
 | Ingen tilganger, med `ownerControlledAccess` | At den som godkjenner er tilgangsstyrer |
-| Bare tilganger for klienter | At den som godkjenner er tilgangsstyrer |
+| Bare rettighetssett for klienter | At den som godkjenner er tilgangsstyrer |
 | Tilganger for egen virksomhet | At den som godkjenner er tilgangsstyrer, og har myndighet til å gi hver av tilgangene |
 
-Klienttilgangene kontrollerer Altinn først når virksomheten knytter en klient til systembrukeren. Da må virksomheten ha fått fullmakten fra klienten.
+Rettighetssettene kontrollerer Altinn først når virksomheten knytter en klient til systembrukeren. Da må virksomheten ha fått fullmaktene fra klienten.
 
 Flagget `ownerControlledAccess` endrer ikke hva Altinn kontrollerer ved godkjenning.
 
 ---
-## Fire kombinasjoner av flagg og lister
+## Fire kombinasjoner av flagg og krav
 
-| `ownerControlledAccess` | De fire listene | Resultat | Typisk bruk |
+Krav betyr her tilganger i `accessPackages` eller `rights`, eller minst ett rettighetssett.
+
+| `ownerControlledAccess` | Krav | Resultat | Typisk bruk |
 |---|---|---|---|
-| `false` eller utelatt | Minst én tilgang | Gyldig. Listene er krav, som i dag. | Systemet trenger et fast sett tilganger. |
-| `true` | Minst én tilgang | Gyldig. Kunden får forslaget ved godkjenning og kan endre etterpå. | Du vet hva de fleste trenger, men behovet varierer. |
-| `true` | Alle tomme | Gyldig. Systembrukeren starter uten tilganger, og kunden trenger bare å være tilgangsstyrer for å godkjenne. | Kunden vil gi alle tilganger selv. |
-| `false` eller utelatt | Alle tomme | Avvist | – |
+| `false` eller utelatt | Minst ett | Gyldig. Kravene er bindende, som i dag. | Systemet trenger et fast sett tilganger. |
+| `true` | Minst ett | Gyldig. Kravene er et forslag, og kunden kan endre etterpå. | Du vet hva de fleste trenger, men behovet varierer. |
+| `true` | Ingen | Gyldig. Systembrukeren starter uten tilganger, og kunden trenger bare å være tilgangsstyrer for å godkjenne. | Kunden vil gi alle tilganger selv. |
+| `false` eller utelatt | Ingen | Avvist | – |
 
-Flagget gir aldri tilganger av seg selv. Kunden kan bare gi tilganger de har myndighet til å gi.
+Et rettighetssett uten tilganger blir også avvist. Flagget gir aldri tilganger av seg selv. Kunden kan bare gi tilganger de har myndighet til å gi.
 
 ---
 ## Slik ber du om klientsystem i dag
@@ -161,34 +207,121 @@ POST /authentication/api/v1/systemuser/request/vendor/agent
 Organisasjonsnumre, system-ID og URL-er i eksemplene er fiktive.
 
 ---
-## Slik ber du om én systembruker for egen virksomhet og klienter
+## Brukstilfelle: regnskapsselskap med a-melding og sykmelding
 
-Samme kunde, nå med tilganger for både regnskapsbyrået selv og klientene, og med en enkeltrettighet for klientene.
+Et regnskaps- eller revisjonsselskap sender a-melding og henter sykmeldinger for klientene sine med samme lønnssystem.
+
+- **A-meldingen følger av kundeforholdet.** Regnskapsfører- og revisorpakkene dekker den, og det gjør også A-ordningen.
+- **Sykmeldingen gjør ikke det.** Ingen av disse pakkene dekker den, så klienten må gi den i tillegg.
+
+| Tilgang | A-melding | Sykmelding |
+|---|---|---|
+| `regnskapsforer-lonn` (fra rollen REGN) | Ja | Nei |
+| `revisormedarbeider` (fra rollen REVI) | Ja | Nei |
+| `a-ordning` (gitt direkte) | Ja | Nei |
+| `sykefravaer-personopplysninger-saerlig-kategori` (gitt direkte) | Nei | Ja |
+| Enkelttjenesten `nav_sykepenger_sykmelding` (gitt direkte) | Nei | Ja |
+
+Tilgangspakkene og tjenestene er slik de ligger i produksjon i dag. Vi har ikke bekreftet at tjenestene er klare for systembruker.
+
+---
+## Scenario 1: bare tilgangspakker
+
+Du beskriver de tre kundetypene som hvert sitt sett. Alle settene dekker både a-melding og sykmelding.
 
 ```json
 POST /authentication/api/v1/systemuser/request/vendor
 
 {
-  "systemId": "912345678_regnskapssystem",
+  "systemId": "912345678_lonnssystem",
   "partyOrgNo": "310000001",
   "externalRef": "kunde-4711",
-  "accessPackages": [
-    { "urn": "urn:altinn:accesspackage:skattegrunnlag" }
-  ],
-  "clientAccessPackages": [
-    { "urn": "urn:altinn:accesspackage:regnskapsforer-med-signeringsrettighet" }
-  ],
-  "clientRights": [
+  "clientAccessSets": [
     {
-      "action": "write",
-      "resource": [ { "id": "urn:altinn:resource", "value": "ttd-eksempel-mva" } ]
+      "accessPackages": [
+        { "urn": "urn:altinn:accesspackage:regnskapsforer-lonn" },
+        { "urn": "urn:altinn:accesspackage:sykefravaer-personopplysninger-saerlig-kategori" }
+      ]
+    },
+    {
+      "accessPackages": [
+        { "urn": "urn:altinn:accesspackage:revisormedarbeider" },
+        { "urn": "urn:altinn:accesspackage:sykefravaer-personopplysninger-saerlig-kategori" }
+      ]
+    },
+    {
+      "accessPackages": [
+        { "urn": "urn:altinn:accesspackage:a-ordning" },
+        { "urn": "urn:altinn:accesspackage:sykefravaer-personopplysninger-saerlig-kategori" }
+      ]
     }
   ],
-  "redirectUrl": "https://regnskap.example.no/altinn/callback"
+  "redirectUrl": "https://lonn.example.no/altinn/callback"
 }
 ```
 
-Uten `ownerControlledAccess` er dette «Leverandøren bestemmer»: listene er krav som bare du kan endre.
+Organisasjonsnumre, system-ID og URL-er er fiktive. Uten `ownerControlledAccess` er dette «Leverandøren bestemmer»: settene er krav som bare du kan endre.
+
+---
+## Scenario 2: tilgangspakker og enkelttjeneste
+
+Settene er like, men sykmeldingen er en enkelttjeneste. Systemet får da tilgang til sykmeldingen uten alt det andre som ligger i pakken.
+
+```json
+"clientAccessSets": [
+  {
+    "accessPackages": [
+      { "urn": "urn:altinn:accesspackage:regnskapsforer-lonn" }
+    ],
+    "rights": [
+      { "resource": [ { "id": "urn:altinn:resource", "value": "nav_sykepenger_sykmelding" } ] }
+    ]
+  },
+  {
+    "accessPackages": [
+      { "urn": "urn:altinn:accesspackage:revisormedarbeider" }
+    ],
+    "rights": [
+      { "resource": [ { "id": "urn:altinn:resource", "value": "nav_sykepenger_sykmelding" } ] }
+    ]
+  },
+  {
+    "accessPackages": [
+      { "urn": "urn:altinn:accesspackage:a-ordning" }
+    ],
+    "rights": [
+      { "resource": [ { "id": "urn:altinn:resource", "value": "nav_sykepenger_sykmelding" } ] }
+    ]
+  }
+]
+```
+
+En klient som har gitt Sykefravær-pakken, oppfyller ikke disse settene. Virksomheten kan ikke gi videre en tjeneste alene når den har fått tjenesten gjennom en pakke.
+
+---
+## Slik går det med klientene i scenario 1
+
+| Klienten har gitt selskapet | Sett | Resultat |
+|---|---|---|
+| Regnskapsførerrolle og Sykefravær-pakken | 1 | Virksomheten kan knytte klienten til systembrukeren |
+| Revisorrolle og Sykefravær-pakken | 2 | Virksomheten kan knytte klienten til systembrukeren |
+| A-ordningen og Sykefravær-pakken | 3 | Virksomheten kan knytte klienten til systembrukeren |
+| Regnskapsførerrolle | Ingen | Flaten viser at Sykefravær-pakken mangler, og at klienten må gi den |
+| Bare A-ordningen | Ingen | Flaten viser at Sykefravær-pakken mangler, og at klienten må gi den |
+
+Klienten kan ikke delegere regnskapsfører- og revisorpakkene direkte. En uregistrert kunde kan derfor bare oppfylle sett 3.
+
+---
+## Slik går du over til én systembruker
+
+Har selskapet i dag én systembruker per kundetype, beholder de den til de er klare. En klient kan være knyttet til mange systembrukere samtidig, siden selskapet mottar fullmakten og gir den videre til så mange systembrukere det trenger. Selskapet kan derfor gå over gradvis.
+
+1. Du ber om en ny systembruker med `clientAccessSets`, og selskapet godkjenner.
+2. Selskapet knytter klientene til den nye systembrukeren. Altinn flytter dem ikke automatisk.
+3. Du bytter til den nye systembrukeren når du ber om token.
+4. Selskapet sletter de gamle systembrukerne.
+
+Kombinasjonen av `systemId`, organisasjonsnummer og `externalRef` må være unik, og uten `externalRef` bruker Altinn organisasjonsnummeret. Den nye systembrukeren må derfor ha en egen `externalRef`, som du oppgir når du ber om token.
 
 ---
 ## Slik lar du kunden styre tilgangene selv
@@ -242,6 +375,7 @@ De neste lysbildene viser hvordan virksomhetene vil se og forvalte systembrukere
 
 - Skjermbildene er forslag til design fra en prototype. Vi kan endre utformingen, men det funksjonelle er vedtatt.
 - De stiplede merkene R1–R25 viser hvilken regel et element oppfyller. Reglene står forklart til slutt i presentasjonen.
+- Skjermbildene er laget før vi innførte rettighetssett, så de viser bare ett sett per systembruker. Vi oppdaterer dem når designet er gjennomgått.
 - To ting i skjermbildene er ikke vedtatt: lenken **Endre hvem som bestemmer tilgangene**, og at leverandørens forslag er forhåndsvalgt når virksomheten knytter til en ny klient. Det siste er merket **Designforslag**.
 
 Alle navn, organisasjonsnumre og tilganger er fiktive.
@@ -346,10 +480,13 @@ På siden for en klient ser virksomheten hvem som har tilgang, hvem som kan få 
 ---
 ## Dette er ikke avklart ennå
 
-- Endelige navn på `clientRights` og `clientAccessPackages`.
+- Endelig navn på `clientAccessSets`, og navnet på flagget. `ownerControlledAccess` kan bli erstattet av et annet navn.
 - Hvem som kan bytte mellom «Leverandøren bestemmer» og «Virksomheten bestemmer», og hva som skjer med tilganger kunden har lagt til hvis de bytter tilbake.
 - Om du kan sende endringsforespørsel til en systembruker der virksomheten bestemmer tilgangene.
-- Hvordan du kan lese hvilke tilganger systembrukeren faktisk har, og få varsel når de endrer seg.
+- Hvordan du kan lese hvilke tilganger systembrukeren faktisk har, og hvilke klienter som er knyttet til den, og få varsel når det endrer seg.
+- Oppdatering av rettighetssett: om kunden må godkjenne, hva «komplett» betyr med flere sett, og hva som skjer når du fjerner en tilgang fra et sett.
+- Hva som skjer når klienten trekker tilbake bare en del av settet.
+- Hvor mange rettighetssett du kan oppgi.
 - Når funksjonaliteten blir tilgjengelig i testmiljøet og i produksjon.
 
 Vi oppdaterer veiledningene for systemleverandører og virksomheter før funksjonaliteten blir tilgjengelig.
@@ -382,8 +519,8 @@ Vi oppdaterer veiledningene for systemleverandører og virksomheter før funksjo
 | R5 | Siden viser tilgangspakker og enkelttjenester uten knapper for å fjerne eller legge til enkelttilganger. |
 | R6 | Den eneste endringen er å slette hele systembrukeren, med alle tilganger og klientdelegeringer. |
 | R7 | Siden forklarer at leverandøren bestemmer tilgangene, og at endringer kommer som en endringsforespørsel. |
-| R8 | Når virksomheten knytter til en klient, gir de hele klientsettet samtidig. Det er hele settet eller ingenting. |
-| R9 | Virksomheten kan ikke knytte til klienter som ikke har gitt dem hele settet. Siden viser dem likevel, med hva som mangler. |
+| R8 | Når virksomheten knytter til en klient, gir de det første rettighetssettet klienten oppfyller fullt ut, samlet. Det er hele settet eller ingenting. |
+| R9 | Virksomheten kan ikke knytte til klienter som ikke oppfyller noen av settene. Siden viser dem likevel, med hva som mangler. |
 | R10 | Virksomheten kan fjerne en klient. Da fjerner de hele settet for den klienten. |
 | R11 | Virksomheten kan knytte til mange klienter samtidig. |
 | R12 | Siden skjuler slettede klienter som standard, med et valg for å vise dem. |
