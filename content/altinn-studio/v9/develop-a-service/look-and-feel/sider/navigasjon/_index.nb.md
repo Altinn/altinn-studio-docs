@@ -299,14 +299,14 @@ App/config/texts/resource.nb.json
 
 Du kan legge inn kode for å sjekke om det finnes valideringsfeil når brukeren prøver å navigere mellom sider. Valideringsfeil kan for eksempel bety at brukeren har glemt å fylle ut et felt, eller har fylt det ut med feil format på informasjonen. Hvis det er feil, stopper appen navigeringen.
 
-Du kan konfigurere dette på to nivåer med ulik prioritet: globalt for hele appen og per side. Du kan ikke sette det per prosessteg i `Settings.json` i oppgavemappen, fordi appen ikke tar med `validationOnNavigation` derfra. I tillegg kan du konfigurere NavigationButtons, CustomButton og NavigationBar på komponentnivå.
+Du kan konfigurere dette globalt for hele appen, per prosessteg, per side og på komponentene NavigationButtons, CustomButton og NavigationBar. Ved fremovernavigering har innstillingen på komponenten høyest prioritet.
 
 ### `validationOnNavigation`-objektet
 
-Du bruker egenskapen `validationOnNavigation` på globalt nivå og per side. Den har to egenskaper. På komponentnivå bruker du tilsvarende objekt, men via egenskapene `validateOnNext` og `validateOnPrevious` (NavigationButtons) eller `validateOnForward` og `validateOnBackward` (NavigationBar).
+Du bruker egenskapen `validationOnNavigation` på globalt nivå, per prosessteg og per side. Den har to egenskaper. På komponentnivå bruker du tilsvarende objekt, men via egenskapene `validateOnNext` og `validateOnPrevious` (NavigationButtons) eller `validateOnForward` og `validateOnBackward` (NavigationBar).
 
 {{< code-title >}}
-App/ui/Settings.json eller App/ui/{taskId}/layouts/{page}.json
+App/ui/Settings.json, App/ui/{taskId}/Settings.json eller App/ui/{taskId}/layouts/{page}.json
 {{< /code-title >}}
 
 ```json
@@ -321,7 +321,7 @@ App/ui/Settings.json eller App/ui/{taskId}/layouts/{page}.json
 | Verdi | Beskrivelse |
 | --- | --- |
 | `"current"` | Appen sjekker kun gjeldende side. |
-| `"currentAndPrevious"` | Appen sjekker gjeldende side og alle tidligere besøkte sider. |
+| `"currentAndPrevious"` | Appen sjekker gjeldende side og sidene før den i siderekkefølgen, også sider brukeren ikke har besøkt. |
 | `"all"` | Appen sjekker alle sidene i prosessteget. |
 
 **show – hvilke valideringstyper appen viser:**
@@ -358,9 +358,29 @@ App/ui/Settings.json
 }
 ```
 
-#### 2. Per side
+#### 2. Per prosessteg
 
-Overstyrer det globale nivået for én enkelt side. Konfigurer direkte på `data`-objektet i layoutfilen.
+Overstyrer det globale nivået for ett prosessteg. Konfigurer under `pages` i oppgavemappens `Settings.json`.
+
+{{< code-title >}}
+App/ui/Task_1/Settings.json
+{{< /code-title >}}
+
+```json
+{
+  "pages": {
+    "order": ["side1", "oppsummering"],
+    "validationOnNavigation": {
+      "page": "current",
+      "show": ["Required"]
+    }
+  }
+}
+```
+
+#### 3. Per side
+
+Overstyrer innstillingene for prosessteget og appen for én enkelt side. Konfigurer direkte på `data`-objektet i layoutfilen.
 
 **Filplassering:** `App/ui/Task_1/layouts/side1.json`
 
@@ -380,9 +400,9 @@ App/ui/Task_1/layouts/side1.json
 }
 ```
 
-#### 3. Komponentnivå (NavigationButtons, CustomButton, NavigationBar)
+#### 4. Komponentnivå (NavigationButtons, CustomButton, NavigationBar)
 
-Har du ikke konfigurert noen av de høyere nivåene, kan du konfigurere validering direkte på komponenten. For NavigationButtons bruker du `validateOnNext` og `validateOnPrevious`:
+Du kan overstyre valideringen for fremovernavigering direkte på komponenten. For NavigationButtons bruker du `validateOnNext`:
 
 {{< code-title >}}
 App/ui/{taskId}/layouts/{page}.json
@@ -399,16 +419,53 @@ App/ui/{taskId}/layouts/{page}.json
 }
 ```
 
-**Merk:** Setter du `validationOnNavigation` på side- eller globalt nivå, overstyrer denne konfigurasjonen komponentnivået:
-
-- Den erstatter `validateOnNext`.
-- Den slår av `validateOnPrevious` helt.
+For bakovernavigering kan du bruke `validateOnPrevious`. Har du satt `validationOnNavigation` på side-, oppgave- eller appnivå, kjører ikke appen `validateOnPrevious`. Det samme gjelder `validateOnBackward` på NavigationBar.
 
 ### Prioritetsrekkefølge
 
-Side → Globalt → Komponent
+Komponent → Side → Prosessteg → App
 
-Sidenivå har høyest prioritet og overstyrer alt annet. Komponentnivåkonfigurasjonen gjelder bare når du ikke har konfigurert noen høyere nivåer.
+Ved fremovernavigering bruker appen den mest spesifikke innstillingen. Har komponenten ingen innstilling, bruker appen innstillingen for siden, deretter prosessteget og til slutt hele appen.
+
+### Validering ved retur til oppsummering eller en annen side
+
+Når brukeren velger **Endre** i en oppsummering, kan NavigationButtons vise **Tilbake til oppsummering** på redigeringssiden. En lenke med `linkToPage` eller `linkToComponent` og returknapp gir tilsvarende **Tilbake til side**. Begge returknappene bruker `validateOnBackToSummary`.
+
+Du kan sette egenskapen på NavigationButtons, på `data`-objektet i redigeringssidens layoutfil, under `pages` i oppgavemappens `Settings.json` eller i roten av appens `App/ui/Settings.json`.
+
+Appen sjekker innstillingene i denne rekkefølgen:
+
+1. På NavigationButtons: `validateOnBackToSummary`, ellers `validateOnNext`.
+2. På redigeringssiden: `validateOnBackToSummary`, ellers `validationOnNavigation`.
+3. På prosessteget: `validateOnBackToSummary`, ellers `validationOnNavigation`.
+4. På appen: `validateOnBackToSummary`, ellers `validationOnNavigation`.
+
+Den første innstillingen appen finner, gjelder. Har NavigationButtons for eksempel `validateOnNext`, bruker returknappen denne fremfor `validateOnBackToSummary` på oppgaven. Innstillinger på siden brukeren returnerer til, påvirker ikke returknappen.
+
+I eksempelet under sjekker **Neste** påkrevde felter, mens **Tilbake til oppsummering** tillater retur uten å vise nye valideringsfeil. En tom `show`-liste fjerner ikke feilmeldinger som allerede er synlige.
+
+{{< code-title >}}
+App/ui/Task_1/layouts/side1.json
+{{< /code-title >}}
+
+```json
+{
+  "id": "navigasjon",
+  "type": "NavigationButtons",
+  "validateOnNext": {
+    "page": "current",
+    "show": ["Required"]
+  },
+  "validateOnBackToSummary": {
+    "page": "current",
+    "show": []
+  }
+}
+```
+
+Returknappene bruker de samme reglene for `page` og `show` som **Neste**. Med `"page": "all"` kan appen vise feil på senere sider, men disse feilene hindrer ikke retur. Innstillinger på mellomliggende sider gir ingen ekstra validering ved retur.
+
+Hvis en endring viser eller skjuler en side mellom redigeringssiden og retursiden, fjerner appen returknappen og viser vanlige navigasjonsknapper. Det samme skjer hvis retursiden ikke lenger er tilgjengelig. Brukeren kan fortsatt navigere på vanlig måte, og trenger ikke besøke bestemte sider. Endringer utenfor denne delen av siderekkefølgen påvirker ikke returknappen. Knappen dukker ikke automatisk opp igjen hvis brukeren angrer endringen.
 
 ### Blokkere direktenavigasjon i sidemenyen
 
