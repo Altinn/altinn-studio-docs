@@ -390,10 +390,10 @@ Er du i tvil, fortsett som i dag. Du kan ta i bruk flagget for nye kunder senere
 
 De neste lysbildene viser hvordan virksomhetene kan se og forvalte systembrukere i Tilgangsstyring.
 
-- Dette er skisser for å forstå problemet, ikke designforslag. Utformingen kan endre seg, men det funksjonelle er vedtatt.
+- Dette er skisser for å forstå problemet, ikke designforslag. Både utformingen og funksjonaliteten kan endre seg, og vi vil gjerne ha innspill.
 - Skissene for klienter når leverandøren bestemmer viser rettighetssett.
 - De øvrige skissene er laget tidligere. De har mer informasjon, og stiplede merker som viser hvilken regel et element oppfyller. Reglene R1–R25 står forklart til slutt i presentasjonen.
-- To ting i de eldre skissene er ikke vedtatt: lenken **Endre hvem som bestemmer tilgangene**, og at leverandørens forslag er forhåndsvalgt når virksomheten knytter til en ny klient.
+- Dette er blant annet ikke vedtatt i de eldre skissene: lenken **Endre hvem som bestemmer tilgangene**, og at leverandørens forslag er forhåndsvalgt når virksomheten knytter til en ny klient.
 
 Alle navn, organisasjonsnumre og eksempeltilganger er fiktive.
 
