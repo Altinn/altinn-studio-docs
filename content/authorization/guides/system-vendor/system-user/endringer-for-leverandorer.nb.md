@@ -439,9 +439,9 @@ Virksomheten ser hvilke klienter som er lagt til, hvilke de kan legge til, og hv
 ---
 ## Klienter som ikke kan legges til ennå
 
-Hver klient viser hva som mangler, eller lenken **Se hva systemet krever** når klienten mangler like mye til alle settene. Dette kan du vise til når en kunde spør hvorfor en klient ikke kan legges til.
+Hver klient viser kort hva som mangler, og lenken **Se hva som mangler** åpner detaljene for den klienten. Dette kan du vise til når en kunde spør hvorfor en klient ikke kan legges til.
 
-[![Personalportalen med listen over klienter som ikke kan legges til ennå: tre mangler Sykefravær-pakken, og Kystlinjen Eiendom AS har gitt en del av det systemet krever](/images/authorization/systemuser/2026-11-05/klienter-kan-ikke-legges-til.png)](/images/authorization/systemuser/2026-11-05/klienter-kan-ikke-legges-til.png "Åpne skissen i full størrelse")
+[![Personalportalen med listen over klienter som ikke kan legges til ennå: tre mangler Sykefravær-pakken, Kystlinjen Eiendom AS har gitt en del av det systemet krever, og Elvebakken Kafé AS har ikke gitt noe av det, alle med lenken Se hva som mangler](/images/authorization/systemuser/2026-11-05/klienter-kan-ikke-legges-til.png)](/images/authorization/systemuser/2026-11-05/klienter-kan-ikke-legges-til.png "Åpne skissen i full størrelse")
 
 *Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
@@ -518,6 +518,61 @@ Elvebakken Kafé AS har bare gitt Merverdiavgift. Pakken finnes ikke i noen av s
 *Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
 
 ---
+## Scenario: klienten har gitt en helt annen pakke
+
+**Situasjon:** Elvebakken Kafé AS har bare gitt Merverdiavgift. Klienten mangler alt systemet krever, og Altinn kan ikke vite hvilket kundeforhold klienten skal ha. Derfor viser dialogen alle kombinasjonene.
+
+**Det byrået gjør:** Åpner **Se hva som mangler**, avklarer kundeforholdet, og ber klienten gi det som mangler. Merverdiavgift-pakken påvirker ikke Personalportalen.
+
+[![Dialogen Hvorfor kan ikke Elvebakken Kafé AS legges til: klienten har gitt Merverdiavgift, og mangler én av tre kombinasjoner](/images/authorization/systemuser/2026-11-05/hvorfor-elvebakken.png)](/images/authorization/systemuser/2026-11-05/hvorfor-elvebakken.png "Åpne skissen i full størrelse")
+
+*Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
+
+---
+## Scenario: pakke med nesten likt navn
+
+**Situasjon:** Byrået ba Fjordbakeriet AS gi Sykefravær med personopplysninger av særlig kategori, men klienten ga pakken Sykefravær. Dette er to ulike pakker.
+
+**Det byrået gjør:** Åpner **Se hva som mangler**, ser hva klienten ga, og ber klienten gi riktig pakke. Da slipper byrået å gå via support. Når pakken er gitt, kan byrået legge til klienten.
+
+[![Dialogen Hvorfor kan ikke Fjordbakeriet AS legges til: klienten har gitt tre regnskapsførerpakker og Sykefravær, og mangler Sykefravær med personopplysninger av særlig kategori](/images/authorization/systemuser/2026-11-05/hvorfor-fjordbakeriet.png)](/images/authorization/systemuser/2026-11-05/hvorfor-fjordbakeriet.png "Åpne skissen i full størrelse")
+
+*Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
+
+---
+## Scenario: klienten mangler like mye til flere sett
+
+**Situasjon:** Kystlinjen Eiendom AS har bare gitt Sykefravær-pakken med særlig kategori. Hver kombinasjon mangler én tilgang, så Altinn peker ikke på en bestemt av dem.
+
+**Det byrået gjør:** Avklarer kundeforholdet. Er byrået regnskapsfører eller revisor, registrerer klienten det i Enhetsregisteret. Ellers kan klienten gi A-ordningen direkte.
+
+[![Dialogen Hvorfor kan ikke Kystlinjen Eiendom AS legges til: klienten har gitt Sykefravær-pakken, og mangler én av Regnskapsfører lønn, Revisormedarbeider og A-ordningen](/images/authorization/systemuser/2026-11-05/hvorfor-kystlinjen.png)](/images/authorization/systemuser/2026-11-05/hvorfor-kystlinjen.png "Åpne skissen i full størrelse")
+
+*Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
+
+---
+## Scenario: klienten står ikke i listen
+
+**Situasjon:** Byrået finner ikke Granly Hage. Det kan skyldes en skrivefeil, at virksomheten ikke har gitt noe, eller at de har gitt tilgangen til en annen virksomhet. Siden viser ikke noe om virksomheten.
+
+**Det byrået gjør:** Sjekker søket, og ber virksomheten sjekke at tilgangen er gitt til riktig organisasjonsnummer.
+
+[![Siden for Personalportalen etter søk på Granly Hage: ingen treff, med råd om å sjekke søket og be virksomheten sjekke tilgangen](/images/authorization/systemuser/2026-11-05/sok-uten-treff.png)](/images/authorization/systemuser/2026-11-05/sok-uten-treff.png "Åpne skissen i full størrelse")
+
+*Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
+
+---
+## Scenario: klienten er slettet i Enhetsregisteret
+
+**Situasjon:** Slettede klienter er skjult til byrået slår på **Vis slettede klienter**. De kan ikke legges til. Gamle Verksted AS ble slettet mens klienten var knyttet til Personalportalen.
+
+**Det byrået gjør:** Fjerner klienten fra systembrukeren. Vi har ikke avklart om systembrukeren fortsatt har tilgang for en slettet klient.
+
+[![Siden for Personalportalen med Vis slettede klienter slått på: Slettet Bygg AS uten handling, og Gamle Verksted AS med knappen Fjern](/images/authorization/systemuser/2026-11-05/slettede-klienter.png)](/images/authorization/systemuser/2026-11-05/slettede-klienter.png "Åpne skissen i full størrelse")
+
+*Skisse, ikke et designforslag. Klikk på bildet for full størrelse.*
+
+---
 ## Dette er likt som i dag for virksomhetene
 
 - Virksomheten godkjenner forespørselen fra lenken du sender, som nå.
@@ -536,6 +591,8 @@ Elvebakken Kafé AS har bare gitt Merverdiavgift. Pakken finnes ikke i noen av s
 - Hvor mange rettighetssett du kan oppgi.
 - Om Altinn sammenligner tilgangspakkene i settet, eller tjenestene pakkene gir tilgang til. Skissene forutsetter tilgangspakkene.
 - Hva listen skal vise når en klient mangler like mye til flere sett. Skissene viser ingen bestemt pakke.
+- Hvilke virksomheter listen viser. Skissene forutsetter at en virksomhet vises først når den har gitt byrået en tilgang.
+- Om systembrukeren fortsatt har tilgang for en klient som er slettet i Enhetsregisteret.
 - Når funksjonaliteten blir tilgjengelig i testmiljøet og i produksjon.
 
 Vi oppdaterer veiledningene for systemleverandører og virksomheter før funksjonaliteten blir tilgjengelig.
@@ -569,7 +626,7 @@ Vi oppdaterer veiledningene for systemleverandører og virksomheter før funksjo
 | R6 | Den eneste endringen er å slette hele systembrukeren, med alle tilganger og klientdelegeringer. |
 | R7 | Siden forklarer at leverandøren bestemmer tilgangene, og at endringer kommer som en endringsforespørsel. |
 | R8 | Når virksomheten knytter til en klient, gir de det første rettighetssettet klienten oppfyller fullt ut, samlet. Det er hele settet eller ingenting. |
-| R9 | Virksomheten kan ikke knytte til klienter som ikke oppfyller noen av settene. Siden viser dem likevel, med hva som mangler. |
+| R9 | Virksomheten kan ikke knytte til klienter som ikke oppfyller noen av settene. Siden viser dem likevel, med hva som mangler. En dialog per klient viser hva klienten har gitt, og hva som mangler. |
 | R10 | Virksomheten kan fjerne en klient. Da fjerner de hele settet for den klienten. |
 | R11 | Virksomheten kan knytte til mange klienter samtidig. |
 | R12 | Siden skjuler slettede klienter som standard, med et valg for å vise dem. |
