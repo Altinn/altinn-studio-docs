@@ -53,6 +53,46 @@ Vedlegg kan brukes både på forsendelse- og dialognivå.
 
 - {{<link "../../reference/entities/attachment">}}
 
+## Aktør
+
+Aktør angir hvem som utførte en handling i Dialogporten.
+
+| Felt | Type | Beskrivelse |
+|------|------|-------------|
+| actorType | enum, påkrevd | `ServiceOwner` eller `PartyRepresentative` |
+| actorId | string, valgfri | Identifikator for aktøren, oppgitt som URN |
+| actorName | string, valgfri | Visningsnavn for aktøren |
+
+### Velg riktig actorType
+
+Når du som tjenesteeier utfører handlingen, bruker du actorType `ServiceOwner`. Du skal da verken sette actorId eller actorName.
+
+Når du bruker actorType `PartyRepresentative`, må du sette nøyaktig ett av feltene actorId og actorName:
+
+- Setter du actorId, slår Dialogporten opp navnet automatisk.
+- Setter du actorName, lagres navnet som fritekst.
+
+Du kan ikke sette begge feltene, og du kan heller ikke utelate begge.
+
+### Slik valideres actorId
+
+Dialogporten kontrollerer ikke at personen eller organisasjonen du oppgir i actorId, faktisk finnes. Bare syntaksen valideres:
+Verdien må ha gyldig URN-format, og for norske fødselsnumre og organisasjonsnumre kontrolleres i tillegg kontrollsifrene (modulus 11). Du er selv ansvarlig for at identifikatoren du oppgir, er korrekt.
+
+Fordi navneoppslaget kan mislykkes, må klienter som leser actor-data, håndtere at actorName mangler.
+
+### Anbefaling
+
+Bruk actorId når du kjenner identiteten til aktøren. Bruk actorName bare når du ikke har en gyldig identifikator.
+
+### Eksempel actorId
+| Format | Eksempel | Hvordan navnet settes |
+|---|---|---|
+| `urn:altinn:person:identifier-no:{fnr/dnr}` | `urn:altinn:person:identifier-no:12018212345` | Slås opp i party name registeret |
+| `urn:altinn:organization:identifier-no:{orgnr}` | `urn:altinn:organization:identifier-no:991825827` | Slås opp i party name registeret |
+| `urn:altinn:person:legacy-selfidentified:{brukernavn}` | | Brukernavnet brukes som navn |
+| `urn:altinn:person:idporten-email:{e-post}` | | E-postadressen brukes som navn |
+
 ## Handlinger
 
 En _handling_ beskriver en interaksjon som brukere kan utføre med eller relatert til en dialog. Eksempler på handlinger er "Åpne", "Start signering", "Betal", "Bekreft", "Lær mer", "Avbryt" osv. Listen over relevante handlinger er en del av den strukturerte beskrivelsen av en dialog og kan endres når som helst av tjenesteleverandøren gjennom API-et.
