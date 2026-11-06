@@ -45,7 +45,7 @@ Virksomhetsbrukere fra Altinn 2 kan ikke lenger logge inn. De er erstattet av [s
 
 `Altinn.App.Core`-biblioteket har grensesnitt for å hente ut informasjon om innlogget bruker.
 Som standard er det ingen begrensninger på hvilke brukertyper en app tar imot, men du kan begrense dette selv i en mellomvare eller en validator.
-Hent ikke bruker-ID direkte fra `HttpContext`. Det kan gi uventet resultat hvis forespørselen er autentisert med for eksempel systembruker.
+Ikke hent bruker-ID direkte fra `HttpContext`. Det kan gi uventet resultat hvis forespørselen er autentisert med for eksempel systembruker.
 Bruk i stedet `IAuthenticationContext` og `Authenticated`-typene i `Altinn.App.Core`:
 
 ```csharp
