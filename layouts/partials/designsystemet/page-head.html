@@ -1,0 +1,23 @@
+{{- /*
+  Sidehode for oversiktssider i Altinn Studio v9: brødsmulesti, Preview, tittel og ingress.
+  Samme lyse flate som heroen på forsiden. Tar imot siden som kontekst.
+*/ -}}
+{{- $nb := eq .Language.Lang "nb" -}}
+<header class="studio-page-head">
+    <div class="studio-wrap studio-stack">
+        <ds-breadcrumbs class="ds-breadcrumbs" aria-label="{{ if $nb }}Du er her:{{ else }}You are here:{{ end }}">
+            <ol>
+                <li><a class="ds-link" href="{{ partial "studio/v9-url.html" (dict "page" . "path" "") }}">Altinn Studio v9</a></li>
+                <li><a class="ds-link" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>
+            </ol>
+        </ds-breadcrumbs>
+        {{- /* Brødsmulestien sier allerede Altinn Studio v9, så merkelinjen viser bare at versjonen er preview. */}}
+        <p class="ds-paragraph studio-eyebrow" data-size="sm">
+            <span class="ds-tag" data-color="warning">Preview</span>
+        </p>
+        <h1 class="ds-heading" data-size="xl">{{ .Title }}</h1>
+        {{- with .Description }}
+        <p class="ds-paragraph studio-lead" data-size="lg">{{ . }}</p>
+        {{- end }}
+    </div>
+</header>

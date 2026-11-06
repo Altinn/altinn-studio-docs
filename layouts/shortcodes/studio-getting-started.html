@@ -11,22 +11,7 @@
 {{- $p := .Page -}}
 {{- $roles := slice "serviceowner" "vendor" -}}
 <div class="studio-hub">
-    <header class="studio-page-head">
-        <div class="studio-wrap studio-stack">
-            <ds-breadcrumbs class="ds-breadcrumbs" aria-label="{{ if $nb }}Du er her:{{ else }}You are here:{{ end }}">
-                <ol>
-                    <li><a class="ds-link" href="{{ partial "studio/v9-url.html" (dict "page" $p "path" "") }}">Altinn Studio v9</a></li>
-                    <li><a class="ds-link" href="{{ $p.RelPermalink }}">{{ $p.LinkTitle }}</a></li>
-                </ol>
-            </ds-breadcrumbs>
-            {{- /* Brødsmulestien sier allerede Altinn Studio v9, så merkelinjen viser bare at versjonen er preview. */}}
-            <p class="ds-paragraph studio-eyebrow" data-size="sm">
-                <span class="ds-tag" data-color="warning">Preview</span>
-            </p>
-            <h1 class="ds-heading" data-size="xl">{{ $p.Title }}</h1>
-            <p class="ds-paragraph studio-lead" data-size="lg">{{ $p.Description }}</p>
-        </div>
-    </header>
+    {{ partial "designsystemet/page-head.html" $p }}
 
     <section class="studio-section studio-wrap" aria-labelledby="studio-roles-title">
         <div class="studio-section-head">
@@ -49,15 +34,7 @@
             <div class="studio-section-head">
                 <h2 class="ds-heading" data-size="md" id="studio-guides-title">{{ if $nb }}Veiledninger{{ else }}Guides{{ end }}</h2>
             </div>
-            <ul class="studio-grid ds-list--unstyled">
-                {{- range $i, $page := $p.Pages.ByWeight }}
-                {{- /* Rollesidene vises over. Hopp over skjulte sider og sider Hugo lager uten egen fil. */}}
-                {{- $dir := "" }}{{ with .File }}{{ $dir = path.Base .Dir }}{{ end }}
-                {{- if and $dir (not .Params.hidden) (not (in $roles $dir)) }}
-                {{ partial "designsystemet/link-card.html" (dict "id" (printf "studio-guide-%d" $i) "href" .RelPermalink "title" .LinkTitle "text" .Description) }}
-                {{- end }}
-                {{- end }}
-            </ul>
+            {{ partial "designsystemet/child-cards.html" (dict "page" $p "prefix" "studio-guide" "skip" $roles) }}
         </div>
     </section>
 </div>

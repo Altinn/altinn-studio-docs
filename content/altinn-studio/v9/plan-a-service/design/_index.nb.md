@@ -1,5 +1,6 @@
 ---
 title: Utforme en god tjeneste
+description: Slik lager du et skjema som fungerer godt for brukeren, fra inngangen til tjenesten til innsendingen.
 weight: 1
 tags: [Reviewed]
 ---

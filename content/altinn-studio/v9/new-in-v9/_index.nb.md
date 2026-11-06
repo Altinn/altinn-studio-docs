@@ -9,7 +9,7 @@ tags: [Reviewed]
 
 Altinn har bak seg mange år med høyt utviklingstempo og mange leveranser. Nå er plattformen i full drift for alle innbyggere og bedrifter i Norge, og da endrer behovene seg. Vi må stabilisere plattformen og gjøre den klar for mer trafikk og videre utvikling.
 
-V9 gir derfor lite ny funksjonalitet for deg som er tjenesteeier, og lite som sluttbrukeren merker. Til gjengjeld gir versjonen bedre ytelse og stabilitet på områder som betyr mye når du skal forvalte og videreutvikle tjenesten din over tid.
+V9 gir derfor lite ny funksjonalitet for deg som er tjenesteeier. Til gjengjeld gir versjonen bedre ytelse og stabilitet på områder som betyr mye når du skal forvalte og videreutvikle tjenesten din over tid.
 
 {{% notice info %}}
 Skal du oppgradere en app fra v8? Følg [veiledningen for å oppgradere appen fra v8 til v9]({{< relref "/altinn-studio/v9/new-in-v9/upgrade" >}}).
@@ -20,6 +20,7 @@ Skal du oppgradere en app fra v8? Følg [veiledningen for å oppgradere appen fr
 - En ny prosessmotor kjører prosesser med flere steg asynkront, utenfor appen.
 - Appen bygger frontenden selv, i stedet for å bruke filen `Index.cshtml`.
 - Frontenden og backenden har fått samme versjonsnummer.
+- Skjemaene har fått en skrifttype som er lettere å lese, og de viser tydeligere hvilke felt som er påkrevde.
 
 ## En ny prosessmotor tar seg av flyten
 
@@ -60,6 +61,19 @@ For deg betyr det:
 - Du trenger bare å holde styr på ett versjonsnummer.
 - Du slipper å finne ut hvilken backend-versjon som passer med hvilken frontend-versjon.
 
+## Skjemaene er lettere å lese og fylle ut
+
+Skjemaene har fått en ny skrifttype som er lettere å lese.
+
+Alle felt har også fått en etikett etter ledeteksten:
+
+- Påkrevde felt har **Må fylles ut** i stedet for `*`.
+- Andre felt har **Valgfritt**.
+
+Banneret «Påkrevde felter er markert med *» er borte. Du kan [skjule etiketten **Valgfritt** på enkeltfelt]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/felt-innstillinger" >}}).
+
+Både den nye skrifttypen og etikettene kan gjøre at tekst går over flere linjer enn før. Se gjennom skjemaene etter oppgraderingen, og sjekk at du er fornøyd med hvordan de ser ut.
+
 ## studioctl er kommandolinjeverktøyet
 
 Du bruker `studioctl` til å logge inn, klone appen, starte en lokal testplattform og kjøre appen på egen maskin. Det er også `studioctl` som oppgraderer appen din fra v8 til v9.
@@ -68,6 +82,6 @@ Se [veiledningen for å jobbe med tjenesten lokalt på egen maskin]({{< relref "
 
 ## Neste steg
 
-Er appen din på v8, er dette veien videre:
+Er appen din på v8, kan du [oppgradere appen fra v8 til v9 med studioctl]({{< relref "/altinn-studio/v9/new-in-v9/upgrade" >}}).
 
 {{<children />}}
