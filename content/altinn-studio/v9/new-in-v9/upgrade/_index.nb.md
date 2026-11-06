@@ -188,11 +188,29 @@ Oppgraderingen skriver reglene om til dynamiske uttrykk eller C#-kode og sletter
 Gå gjennom uttrykkene oppgraderingen har laget, og test at dynamikken i skjemaet virker som den skal.
 {{% /notice %}}
 
-### Egendefinerte systemoppgaver trenger nye svarverdier
+### Egendefinerte systemoppgaver trenger ny form og nye svarverdier
 
 Har appen din en egen systemoppgave, altså en C#-klasse som implementerer `IServiceTask`, ordner oppgraderingen én del av jobben og lar deg gjøre resten selv.
 
 Oppgraderingen bytter navnerommet for deg, fra `Altinn.App.Core.Internal.Process.ProcessTasks.ServiceTasks` til `Altinn.App.Core.Features.Process`.
+
+Grensesnittet har også fått en ny form, og den må du skrive om selv. I v8 hadde `IServiceTask` metoden `Execute(ServiceTaskContext context)`. I v9 har det `DefineExecute(PipelineBuilder pipeline)`, der du setter sammen arbeidet oppgaven gjør. En oppgave som gjør én ting, beholder `Execute` som en egen metode, bytter typen på parameteren til `StageContext` og svarer `pipeline.Finally(Execute)` fra `DefineExecute`:
+
+```csharp
+// Før (v8)
+public async Task<ServiceTaskResult> Execute(ServiceTaskContext context)
+{
+    // Arbeidet oppgaven gjør
+}
+
+// Etter (v9)
+public ServiceTaskPipeline DefineExecute(PipelineBuilder pipeline) => pipeline.Finally(Execute);
+
+private async Task<ServiceTaskResult> Execute(StageContext context)
+{
+    // Arbeidet oppgaven gjør, som før
+}
+```
 
 Svarverdiene må du skrive om selv. `ServiceTaskErrorHandling` og `ServiceTaskErrorStrategy` forsvinner, sammen med `Failed(...)`, `FailedAbortProcessNext()` og `FailedContinueProcessNext(...)`. Oppgraderingen lister opp stedene i koden den fant, men lar valget stå til deg — hva en feil skal føre til, er et faglig spørsmål og ikke en mekanisk erstatning:
 

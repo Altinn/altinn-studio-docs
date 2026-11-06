@@ -602,7 +602,7 @@ services
 ```csharp
 public class MinMeldingshandterer : IFiksArkivMessageHandler
 {
-    public Task HandleMessage(FiksArkivReceivedMessage message, ServiceTaskContext context)
+    public Task HandleMessage(FiksArkivReceivedMessage message, StageContext context)
     {
         if (message.IsReceipt)
         {
