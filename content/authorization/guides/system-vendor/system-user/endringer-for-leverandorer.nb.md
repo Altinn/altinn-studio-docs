@@ -617,6 +617,19 @@ Elvebakken Kafé AS har bare gitt Merverdiavgift. Pakken finnes ikke i noen av s
 *Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
 
 ---
+## Klienten ser systembrukerne hos byrået
+
+Klienten ser systembrukere hos byrået på samme måte som byråets ansatte, uansett om leverandøren eller virksomheten bestemmer.
+
+- Klienten kan ikke fjerne enkelttilganger fra en ansatt eller en systembruker hos byrået.
+- Klienten kan fjerne en tilgang de har gitt byrået direkte. Da mister både ansatte og systembrukere den.
+- Tilganger fra revisor- eller regnskapsførerrollen forsvinner bare hvis klienten endrer rollen i Enhetsregisteret.
+
+<div style="display:flex;gap:16px;align-items:flex-start"><a href="/images/authorization/systemuser/2026-11-06/klient-byraa.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-06/klient-byraa.png" alt="Havbris Fiskeoppdrett AS ser Nordlys Regnskap AS: tilgangene fra revisorrollen, to tilganger gitt direkte med knappen Fjern, og Ola Nordmann og Personalportalen som har tilgang gjennom byrået" style="width:100%;height:auto"></a><a href="/images/authorization/systemuser/2026-11-06/klient-systembruker.png" title="Åpne skissen i full størrelse" style="flex:1 1 0;min-width:0"><img src="/images/authorization/systemuser/2026-11-06/klient-systembruker.png" alt="Havbris Fiskeoppdrett AS har åpnet Personalportalen: tre tilganger gjennom Nordlys Regnskap AS, uten mulighet til å fjerne dem her" style="width:100%;height:auto"></a></div>
+
+*Skisser, ikke designforslag. Klikk på et bilde for full størrelse.*
+
+---
 ## Dette er likt som i dag for virksomhetene
 
 - Virksomheten godkjenner forespørselen fra lenken du sender, som nå.
@@ -637,6 +650,7 @@ Elvebakken Kafé AS har bare gitt Merverdiavgift. Pakken finnes ikke i noen av s
 - Hva listen skal vise når en klient mangler like mye til flere sett. Skissene viser ingen bestemt pakke.
 - Hvilke virksomheter listen viser. Skissene forutsetter at en virksomhet vises først når den har gitt byrået en tilgang.
 - Om systembrukeren fortsatt har tilgang for en klient som er slettet i Enhetsregisteret.
+- Om klienten kan fjerne én ansatt eller systembruker hos byrået helt, uten å trekke tilgangen fra byrået.
 - Når funksjonaliteten blir tilgjengelig i testmiljøet og i produksjon.
 
 Vi oppdaterer veiledningene for systemleverandører og virksomheter før funksjonaliteten blir tilgjengelig.
