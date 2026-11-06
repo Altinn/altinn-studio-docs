@@ -150,7 +150,7 @@ Brukeren kan ikke redigere alle typer komponenter i tabellen. Disse skjemakompon
 - `ImageUpload`
 - `Custom`
 
-Andre komponenter, for eksempel `Address` og `FileUpload`, viser bare verdien i tabellen. Brukeren må da åpne raden for å endre dem.
+Andre komponenter, for eksempel `Address` og `FileUpload`, viser bare verdien i tabellen. Brukeren må da åpne raden for å endre dem. Hvis `edit.mode` er `"onlyTable"`, kan brukeren ikke åpne raden, og da kan de ikke endre slike komponenter.
 
 ### Redigere alle felter i tabellen
 
@@ -327,6 +327,6 @@ App/ui/{taskId}/layouts/{page}.json
 }
 ```
 
-{{% notice warning %}}
-Unngå å la en sammenslått celle dekke en skjult kolonne. Appen viser fortsatt tabellen, men oppsettet blir kanskje ikke slik du venter. Appen skriver da en advarsel i loggen i utviklerverktøyene (DevTools) som forteller hvilken celle som dekker en skjult kolonne.
+{{% notice info %}}
+Hvis en sammenslått celle dekker en skjult kolonne, blir cellen smalere. Appen trekker fra de skjulte kolonnene, så cellen dekker færre kolonner enn du har satt i `colSpan`.
 {{% /notice %}}

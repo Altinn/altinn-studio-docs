@@ -108,7 +108,7 @@ Dynamiske uttrykk er tilgjengelig for bruk i disse egenskapene:
 | Alle                                                                                                            | `hidden`                      | Boolsk | ✅       | ✅      |
 | Skjemakomponenter                                                                                               | `required`                    | Boolsk | ✅       | ✅      |
 | Skjemakomponenter                                                                                               | `readOnly`                    | Boolsk | ✅       | ❌      |
-| [Repeterende grupper]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating" >}})                                                       | `hiddenRow`                   | Boolsk | ✅       | ❌      |
+| [Repeterende grupper]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating" >}})                                                       | `hiddenRow`                   | Boolsk | ✅       | ✅      |
 | [Repeterende grupper]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating" >}})                                                       | `edit.addButton`              | Boolsk | ✅       | ❌      |
 | [Repeterende grupper]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating" >}})                                                       | `edit.saveButton`             | Boolsk | ✅       | ❌      |
 | [Repeterende grupper]({{< relref "/altinn-studio/v9/develop-a-service/look-and-feel/grouping/repeating" >}})                                                       | `edit.deleteButton`           | Boolsk | ✅       | ❌      |
