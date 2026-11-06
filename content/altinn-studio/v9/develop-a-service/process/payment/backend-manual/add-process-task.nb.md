@@ -24,7 +24,7 @@ App/config/applicationmetadata.json
       "app:owned"
     ],
     "maxCount": 1,
-    "minCount": 0,
+    "minCount": 0
 }
 ```
 
@@ -44,13 +44,13 @@ App/config/applicationmetadata.json
       "app:owned"
     ],
     "maxCount": 1,
-    "minCount": 0,
+    "minCount": 0
 }
 ```
 
-Det er viktig å sette `allowedContributors` til `"app:owned"`. Det gjør at du ikke kan redigere disse dataene via appens API, men bare via appen selv. Før versjon 8.6 var denne konfigurasjonen feilstavet `allowedContributers`.
+Det er viktig å sette `allowedContributors` til `"app:owned"`. Det gjør at du ikke kan redigere disse dataene via API-et til appen, men bare via appen selv.
 
-ID-ene kan settes til noe annet, men de må være de samme som ID-ene du legger inn i `paymentDataType` og `paymentReceiptPdfDataType` i prosessteget, som vist i punktet under.
+Du kan bruke andre ID-er, men de må være de samme som ID-ene du legger inn i `paymentDataType` og `paymentReceiptPdfDataType` i prosessteget, som vist i punktet under.
 
 ### Utvide app-prosessen med payment task
 
@@ -136,7 +136,7 @@ NB: Verdien til noden `<altinn:paymentDataType>paymentInformation</altinn:paymen
 
   ```json
   {
-    "$schema": "https://altinncdn.no/schemas/json/layout/layoutSettings.schema.v1.json",
+    "$schema": "https://altinn.studio/designer/app-dist/9.0.0-preview.9/schemas/json/layout/layoutSettings.schema.v1.json",
     "defaultDataType": "model",
     "pages": {
       "order": ["payment"]
@@ -152,7 +152,7 @@ NB: Verdien til noden `<altinn:paymentDataType>paymentInformation</altinn:paymen
 
   ```json
   {
-    "$schema": "https://altinncdn.no/toolkits/altinn-app-frontend/4/schemas/json/layout/layout.schema.v1.json",
+    "$schema": "https://altinn.studio/designer/app-dist/9.0.0-preview.9/schemas/json/layout/layout.schema.v1.json",
     "data": {
       "layout": [
         {

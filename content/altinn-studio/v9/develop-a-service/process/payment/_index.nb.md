@@ -3,9 +3,6 @@ title: Slik setter du opp betaling i appen
 linktitle: Betaling
 description: Slik setter du opp betaling med Nets Easy i appen din.
 tags: [betaling, needsReview]
-
-aliases:
-- /nb/altinn-studio/v8/guides/payment/
 ---
 
 <!-- Før du starter -->

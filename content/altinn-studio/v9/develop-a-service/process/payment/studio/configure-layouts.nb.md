@@ -7,7 +7,7 @@ tags: [Reviewed]
 
 ### Slik viser du betalingsinformasjon i skjemaet
 
-> Du gjør dette steget i skjemaoppgaven. Layoutfilene til oppgaven ligger i `App/ui/{taskId}/layouts/`. Skjemaoppgaven som følger med appen når du oppretter den, har ID-en `Task_1`. Hvis du har lagt til andre skjemaoppgaver i arbeidsflyten, bruker du mappen med samme ID som oppgaven.
+> Du gjør dette steget i skjemaoppgaven. Layoutfilene til oppgaven ligger i `App/ui/{taskId}/layouts/`. Skjemaoppgaven som følger med appen når du oppretter den, har ID-en `Task_1`. Hvis du har lagt til andre skjemaoppgaver i prosessen, bruker du mappen med samme ID som oppgaven.
 
 - Legg til en komponent av typen `PaymentDetails` i layoutfilen til siden der brukeren skal se betalingen. Komponenten viser en tabell over det brukeren skal betale for. I Altinn Studio heter den **Betalingsdetaljer**, men du finner den ikke i **Velg komponent**, så du legger den til manuelt, som i eksempelet nedenfor.
 
@@ -34,14 +34,14 @@ App/ui/{taskId}/layouts/{page}.json
 ```
 
 ### Slik viser du betalingsinformasjon i betalingsoppgaven
-Altinn Studio setter dette opp automatisk når du legger til betalingsoppgaven i **Arbeidsflyt**.
+Altinn Studio setter dette opp automatisk når du legger til betalingsoppgaven i **Prosess**.
 
 ### Slik lager du en egen kvittering for betalingen (valgfritt)
 Hvis du hopper over dette steget, bruker appen oppsettet fra betalingsoppgaven i kvitteringen.
 
 1. Klikk på **Utforming** i toppmenyen, og klikk på **Utform** på kortet **Oppgave: Betaling**. Hvis du allerede står i en oppgave, klikker du først på **Oversikt** øverst på siden for å komme tilbake til kortene.
 2. Klikk på **Legg til ny side**.
-3. I panelet til høyre åpner du **PDF** og klikker på **Gjør om siden til PDF**.
+3. I panelet til høyre åpner du **PDF** og velger **Siden skal være en PDF**.
 4. Legg til komponenten **Betaling**, og eventuelt andre tekster og komponenter du vil ha på PDF-siden.
 5. Åpne utviklerverktøyet i forhåndsvisningen med knappen nederst til høyre, eller med hurtigtasten **Ctrl+Shift+K** (**⌘+Shift+K** på Mac). Klikk deretter på **Generer PDF** under **Forhåndsvis PDF**.
 
